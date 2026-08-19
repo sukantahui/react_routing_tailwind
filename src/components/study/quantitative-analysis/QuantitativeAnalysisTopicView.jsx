@@ -1,7 +1,4 @@
-// ========================================================================
-// FILE: src/components/study/IscElevenTopicView.jsx
-// DESCRIPTION: Topic view with ultra‑smooth draw‑anywhere and smooth resizing.
-// ========================================================================
+// src/components/study/quantitative-analysis/QuantitativeAnalysisTopicView.jsx
 
 import React, {
   Suspense,
@@ -9,10 +6,13 @@ import React, {
   useState,
   useRef,
   useCallback,
+  useMemo
 } from "react";
 import { useParams, Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   CheckCircle2,
+  Circle,
   ArrowLeft,
   ArrowRight,
   BookOpen,
@@ -30,12 +30,32 @@ import {
   GripVertical,
   Palette,
   Square,
-  Circle,
   Minus,
   Type,
   MousePointer2,
   PenTool,
+  Copy,
+  Check,
+  Bookmark,
+  BookmarkCheck,
+  RotateCcw,
+  Sparkles,
+  Download,
+  FileText,
+  Calculator,
+  HelpCircle,
+  Maximize2,
+  Minimize2,
+  ChevronRight,
+  Search,
+  MessageSquare,
+  ShieldCheck,
+  Clock,
+  Compass,
+  Sigma,
+  Binary
 } from "lucide-react";
+
 import roadmapData from "./quantitative-analysis-roadmap.json";
 
 // Import tldraw
@@ -110,10 +130,10 @@ function TldrawWrapper({ onEditorReady }) {
   return (
     <div className="flex-1 relative bg-white">
       <Tldraw
-        defaultStyles={{ size: 'xs', color: '#38bdf8' }}
+        defaultStyles={{ size: 'xs', color: '#0284c7' }}
         onMount={(e) => setEditor(e)}
         autoFocus
-        persistenceKey="tldraw-storage"
+        persistenceKey="qa-tldraw-storage"
       />
     </div>
   );
@@ -123,51 +143,219 @@ function TldrawWrapper({ onEditorReady }) {
 // MAIN VIEW COMPONENT
 // ========================================================================
 function TopicViewInner({ moduleSlug, topicIndex }) {
-  // ----------------------------------------------------------------
-  // 1. ROUTING & STATE
-  // ----------------------------------------------------------------
   const index = Number.parseInt(topicIndex, 10) || 0;
   const activeTopicRef = useRef(null);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // ----------------------------------------------------------------
+  // 1. MODULE & SEGMENT LOOKUP
+  // ----------------------------------------------------------------
+  const { moduleData, segmentData } = useMemo(() => {
+    let foundModule = null;
+    let foundSegment = null;
+
+    for (const segment of roadmapData.segments) {
+      const found = segment.modules.find((m) => m.slug === moduleSlug);
+      if (found) {
+        foundModule = found;
+        foundSegment = segment;
+        break;
+      }
+    }
+    return { moduleData: foundModule, segmentData: foundSegment };
+  }, [moduleSlug]);
+
+  const topics = useMemo(() => {
+    return Array.isArray(moduleData?.topics) ? moduleData.topics : [];
+  }, [moduleData]);
+  const totalTopics = topics.length;
+  const topicTitle = topics[index];
+
+  // ----------------------------------------------------------------
+  // 2. UI & PANEL STATE
+  // ----------------------------------------------------------------
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarSearch, setSidebarSearch] = useState("");
   const [showSidebar, setShowSidebar] = useState(() => {
-    const stored = localStorage.getItem('topic-sidebar-visible');
-    return stored !== null ? JSON.parse(stored) : true;
+    try {
+      const stored = localStorage.getItem('qa-topic-sidebar-visible');
+      return stored !== null ? JSON.parse(stored) : true;
+    } catch {
+      return true;
+    }
   });
 
   const [showRightSidebar, setShowRightSidebar] = useState(() => {
-    const stored = localStorage.getItem('topic-right-sidebar-visible');
-    return stored !== null ? JSON.parse(stored) : false;
+    try {
+      const stored = localStorage.getItem('qa-topic-right-sidebar-visible');
+      return stored !== null ? JSON.parse(stored) : false;
+    } catch {
+      return false;
+    }
   });
 
-  const [hideMain, setHideMain] = useState(false);
-  const [drawMode, setDrawMode] = useState('canvas');
-  const [selectedShortcut, setSelectedShortcut] = useState(null);
-  const [copyFeedback, setCopyFeedback] = useState('');
-  const tldrawEditorRef = useRef(null);
+  const [activeRightTab, setActiveRightTab] = useState('canvas'); // 'canvas' | 'tldraw' | 'scratchpad' | 'cheatsheet'
+  const [focusMode, setFocusMode] = useState(false); // hides sidebars for reading focus
   const [drawAnywhere, setDrawAnywhere] = useState(false);
+  const [fontSize, setFontSize] = useState('normal'); // 'normal' | 'large'
+  const [copiedLink, setCopiedLink] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [toastMessage, setToastMessage] = useState(null);
 
-  // ---- Right sidebar resizing ----
+  // Notes scratchpad state
+  const [scratchpadText, setScratchpadText] = useState(() => {
+    try {
+      return localStorage.getItem(`qa-scratchpad-${moduleSlug}-${topicIndex}`) || "";
+    } catch (e) {
+      void e;
+      return "";
+    }
+  });
+
+  // Right sidebar resizing
   const [rightSidebarPercent, setRightSidebarPercent] = useState(0.45);
   const [containerWidth, setContainerWidth] = useState(0);
   const rowContainerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const dividerRef = useRef(null);
-  let rafId = null;
+
+  // tldraw editor ref
+  const tldrawEditorRef = useRef(null);
+  const [selectedShortcut, setSelectedShortcut] = useState(null);
+  const [copyFeedback, setCopyFeedback] = useState('');
+
+  // ----------------------------------------------------------------
+  // 3. PERSISTENCE & TOAST HELPERS
+  // ----------------------------------------------------------------
+  const showToast = useCallback((msg) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 2400);
+  }, []);
 
   useEffect(() => {
-    localStorage.setItem('topic-sidebar-visible', JSON.stringify(showSidebar));
+    try {
+      localStorage.setItem('qa-topic-sidebar-visible', JSON.stringify(showSidebar));
+    } catch (e) {
+      void e;
+    }
   }, [showSidebar]);
+
   useEffect(() => {
-    localStorage.setItem('topic-right-sidebar-visible', JSON.stringify(showRightSidebar));
+    try {
+      localStorage.setItem('qa-topic-right-sidebar-visible', JSON.stringify(showRightSidebar));
+    } catch (e) {
+      void e;
+    }
   }, [showRightSidebar]);
 
-  const leftSidebarWidth = showSidebar ? 288 : 0;
+  // Topic Completion Progress
+  const progressKey = `qa_module_progress_${moduleData?.moduleId || moduleSlug}`;
+  const lastTopicKey = `qa_module_lastTopic_${moduleData?.moduleId || moduleSlug}`;
+  const [completedTopics, setCompletedTopics] = useState([]);
+
+  useEffect(() => {
+    if (!moduleData) return;
+    try {
+      const raw = localStorage.getItem(progressKey) || "[]";
+      let parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) parsed = [];
+      if (!parsed.includes(index)) {
+        parsed.push(index);
+        parsed.sort((a, b) => a - b);
+        localStorage.setItem(progressKey, JSON.stringify(parsed));
+      }
+      setCompletedTopics(parsed);
+      localStorage.setItem(lastTopicKey, String(index));
+    } catch (e) {
+      void e;
+    }
+
+    // Check bookmark
+    try {
+      const bm = localStorage.getItem(`qa-topic-bookmark-${moduleSlug}-${index}`) === "true";
+      setIsBookmarked(bm);
+    } catch (e) {
+      void e;
+    }
+  }, [index, moduleSlug, moduleData, progressKey, lastTopicKey]);
+
+  const isCurrentTopicDone = completedTopics.includes(index);
+  const completedCount = completedTopics.length;
+  const progressPercent = totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0;
+  const hasPrev = index > 0;
+  const hasNext = index < totalTopics - 1;
+
+  const toggleTopicCompletion = () => {
+    setCompletedTopics((prev) => {
+      let updated;
+      if (prev.includes(index)) {
+        updated = prev.filter((i) => i !== index);
+        showToast("Marked topic incomplete.");
+      } else {
+        updated = [...prev, index].sort((a, b) => a - b);
+        showToast("✅ Marked topic completed.");
+      }
+      try {
+        localStorage.setItem(progressKey, JSON.stringify(updated));
+      } catch (e) {
+        void e;
+      }
+      return updated;
+    });
+  };
+
+  const toggleBookmark = () => {
+    const nextVal = !isBookmarked;
+    setIsBookmarked(nextVal);
+    try {
+      localStorage.setItem(`qa-topic-bookmark-${moduleSlug}-${index}`, String(nextVal));
+    } catch (e) {
+      void e;
+    }
+    showToast(nextVal ? "Topic bookmarked." : "Bookmark removed.");
+  };
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopiedLink(true);
+    showToast("Topic link copied to clipboard.");
+    setTimeout(() => setCopiedLink(false), 2000);
+  };
+
+  const handleScratchpadChange = (val) => {
+    setScratchpadText(val);
+    try {
+      localStorage.setItem(`qa-scratchpad-${moduleSlug}-${topicIndex}`, val);
+    } catch (e) {
+      void e;
+    }
+  };
+
+  // Keyboard navigation shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Avoid triggering when user is typing in textarea or input
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+      if (e.key === '[' && hasPrev) {
+        window.location.href = `/${roadmapData.folder}/topic/${moduleSlug}/${index - 1}`;
+      } else if (e.key === ']' && hasNext) {
+        window.location.href = `/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`;
+      } else if (e.key.toLowerCase() === 'f') {
+        setFocusMode((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [hasPrev, hasNext, moduleSlug, index]);
+
+  // ----------------------------------------------------------------
+  // 4. RESIZABLE SPLIT PANEL
+  // ----------------------------------------------------------------
+  const leftSidebarWidth = showSidebar && !focusMode ? 280 : 0;
   const getRightSidebarWidth = useCallback(() => {
-    if (!containerWidth) return 600;
+    if (!containerWidth) return 550;
     const available = containerWidth - leftSidebarWidth - 4;
     let width = available * rightSidebarPercent;
-    width = Math.max(300, Math.min(900, width));
+    width = Math.max(280, Math.min(850, width));
     return width;
   }, [containerWidth, leftSidebarWidth, rightSidebarPercent]);
   const rightSidebarWidth = getRightSidebarWidth();
@@ -176,7 +364,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     const container = rowContainerRef.current;
     if (!container) return;
     const observer = new ResizeObserver((entries) => {
-      for (let entry of entries) setContainerWidth(entry.contentRect.width);
+      for (const entry of entries) setContainerWidth(entry.contentRect.width);
     });
     observer.observe(container);
     setContainerWidth(container.getBoundingClientRect().width);
@@ -184,10 +372,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   }, []);
 
   const startDrag = (e) => { e.preventDefault(); setIsDragging(true); };
-  const startDragTouch = (e) => { e.preventDefault(); setIsDragging(true); };
 
-  // ---- Smooth drag with rAF ----
   useEffect(() => {
+    let rafId = null;
     const onMouseMove = (e) => {
       if (!isDragging) return;
       if (rafId) cancelAnimationFrame(rafId);
@@ -199,7 +386,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
         const available = rect.width - leftSidebarWidth - 4;
         if (available <= 0) return;
         let newPercent = newWidth / available;
-        newPercent = Math.max(0.3, Math.min(0.7, newPercent));
+        newPercent = Math.max(0.25, Math.min(0.75, newPercent));
         setRightSidebarPercent(newPercent);
         rafId = null;
       });
@@ -207,7 +394,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     const onMouseUp = () => {
       setIsDragging(false);
       if (rafId) cancelAnimationFrame(rafId);
-      rafId = null;
     };
     if (isDragging) {
       document.addEventListener('mousemove', onMouseMove);
@@ -219,125 +405,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     };
   }, [isDragging, leftSidebarWidth]);
 
-  useEffect(() => {
-    const onTouchMove = (e) => {
-      if (!isDragging) return;
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        const touch = e.touches[0];
-        const container = rowContainerRef.current;
-        if (!container) return;
-        const rect = container.getBoundingClientRect();
-        const newWidth = rect.right - touch.clientX - 4;
-        const available = rect.width - leftSidebarWidth - 4;
-        if (available <= 0) return;
-        let newPercent = newWidth / available;
-        newPercent = Math.max(0.3, Math.min(0.7, newPercent));
-        setRightSidebarPercent(newPercent);
-        rafId = null;
-      });
-    };
-    const onTouchEnd = () => {
-      setIsDragging(false);
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = null;
-    };
-    if (isDragging) {
-      document.addEventListener('touchmove', onTouchMove);
-      document.addEventListener('touchend', onTouchEnd);
-    }
-    return () => {
-      document.removeEventListener('touchmove', onTouchMove);
-      document.removeEventListener('touchend', onTouchEnd);
-    };
-  }, [isDragging, leftSidebarWidth]);
-
   // ----------------------------------------------------------------
-  // 2. MODULE DATA LOOKUP
-  // ----------------------------------------------------------------
-  let moduleData = null;
-  let segmentData = null;
-  for (const segment of roadmapData.segments) {
-    const found = segment.modules.find((m) => m.slug === moduleSlug);
-    if (found) { moduleData = found; segmentData = segment; break; }
-  }
-  if (!moduleData) {
-    return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-10">
-        <h1 className="text-2xl text-red-400 font-bold">Module Not Found</h1>
-        <Link to={`/${roadmapData.folder}/roadmap`} className="text-sky-400 underline mt-4 inline-block">
-          ← Back to Roadmap
-        </Link>
-      </div>
-    );
-  }
-  const topicTitle = moduleData.topics[index];
-  if (!topicTitle) {
-    return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-10">
-        <h1 className="text-2xl text-red-400 font-bold">Topic Not Found</h1>
-        <Link to={`/${roadmapData.folder}/module/${moduleSlug}`} className="text-sky-400 underline mt-4 inline-block">
-          ← Back to Module
-        </Link>
-      </div>
-    );
-  }
-
-  // ----------------------------------------------------------------
-  // 3. PROGRESS TRACKING
-  // ----------------------------------------------------------------
-  const storageKey = `js-progress-${moduleSlug}`;
-  const [completedTopics, setCompletedTopics] = useState([]);
-  useEffect(() => {
-    const raw = localStorage.getItem(storageKey) || "[]";
-    let parsed = [];
-    try { parsed = JSON.parse(raw); } catch { parsed = []; }
-    if (!parsed.includes(index)) parsed.push(index);
-    parsed.sort((a, b) => a - b);
-    localStorage.setItem(storageKey, JSON.stringify(parsed));
-    setCompletedTopics(parsed);
-  }, [index, storageKey]);
-
-  const totalTopics = moduleData.topics.length;
-  const completedCount = completedTopics.length;
-  const progressPercent = Math.round((completedCount / totalTopics) * 100);
-  const hasPrev = index > 0;
-  const hasNext = index < totalTopics - 1;
-  const resetProgress = () => {
-    localStorage.removeItem(storageKey);
-    setCompletedTopics([]);
-  };
-
-  // ----------------------------------------------------------------
-  // 4. DYNAMIC TOPIC IMPORT
-  // ----------------------------------------------------------------
-  const topicKey = `./topics/${moduleSlug}/Topic${topicIndex}.jsx`;
-  const TopicPage = topicModules[topicKey] ? React.lazy(topicModules[topicKey]) : null;
-
-  // ----------------------------------------------------------------
-  // 5. SCROLL & SIDEBAR
-  // ----------------------------------------------------------------
-  useEffect(() => {
-    if (activeTopicRef.current) {
-      activeTopicRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }, [index]);
-  useEffect(() => setSidebarOpen(false), [moduleSlug, topicIndex]);
-
-  // ----------------------------------------------------------------
-  // 6. WHATSAPP SHARING
-  // ----------------------------------------------------------------
-  const [waPhone, setWaPhone] = useState("");
-  const [waStudentName, setWaStudentName] = useState(() => {
-    try { return localStorage.getItem("student_name") || ""; } catch { return ""; }
-  });
-  const [waIncludeLink, setWaIncludeLink] = useState(true);
-  const [waPreviewOpen, setWaPreviewOpen] = useState(false);
-  const [waLastMessage, setWaLastMessage] = useState("");
-  const buildTopicListText = (topics) => topics.map((t, i) => `${i + 1}. ${t}`).join("\n");
-
-  // ----------------------------------------------------------------
-  // 7. CANVAS WHITEBOARD (right panel)
+  // 5. CANVAS WHITEBOARD (RIGHT PANEL)
   // ----------------------------------------------------------------
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
@@ -347,11 +416,11 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   const pendingPoints = useRef([]);
   const drawPendingRef = useRef(false);
   const [drawingColor, setDrawingColor] = useState('#38bdf8');
-  const [drawingSize, setDrawingSize] = useState(4);
+  const [drawingSize, setDrawingSize] = useState(3);
   const [isEraser, setIsEraser] = useState(false);
 
-  const loadDrawing = () => {
-    const key = `whiteboard-${moduleSlug}-${topicIndex}`;
+  const loadDrawing = useCallback(() => {
+    const key = `qa-whiteboard-${moduleSlug}-${topicIndex}`;
     const saved = localStorage.getItem(key);
     if (saved) {
       try {
@@ -361,25 +430,37 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
           if (ctx) ctx.drawImage(image, 0, 0);
         };
         image.src = saved;
-      } catch (e) { console.warn("Failed to load whiteboard", e); }
+      } catch (e) {
+        console.warn("Failed to load whiteboard", e);
+      }
     }
-  };
+  }, [moduleSlug, topicIndex]);
 
-  const saveDrawing = () => {
+  const saveDrawing = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const dataUrl = canvas.toDataURL('image/png');
-    localStorage.setItem(`whiteboard-${moduleSlug}-${topicIndex}`, dataUrl);
+    localStorage.setItem(`qa-whiteboard-${moduleSlug}-${topicIndex}`, dataUrl);
+  }, [moduleSlug, topicIndex]);
+
+  const downloadDrawing = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const link = document.createElement('a');
+    link.download = `whiteboard-${moduleSlug}-topic-${topicIndex}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    showToast("Downloaded whiteboard snapshot.");
   };
 
-  const initCanvas = () => {
+  const initCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const container = canvas.parentElement;
     if (!container) return;
     const rect = container.getBoundingClientRect();
-    const width = rect.width - 4;
-    const height = rect.height - 4;
+    const width = rect.width - 2;
+    const height = rect.height - 2;
     if (width <= 0 || height <= 0) return;
     canvas.width = width * window.devicePixelRatio;
     canvas.height = height * window.devicePixelRatio;
@@ -391,23 +472,17 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     ctx.lineJoin = 'round';
     contextRef.current = ctx;
     loadDrawing();
-  };
+  }, [loadDrawing]);
 
   useEffect(() => {
-    if (showRightSidebar && drawMode === 'canvas') {
-      const timer = setTimeout(initCanvas, 150);
+    if (showRightSidebar && activeRightTab === 'canvas') {
+      const timer = setTimeout(initCanvas, 120);
       return () => clearTimeout(timer);
     }
-  }, [showRightSidebar, moduleSlug, topicIndex, hideMain, rightSidebarWidth, drawMode]);
-
-  useEffect(() => {
-    const handleBeforeUnload = () => { if (drawMode === 'canvas') saveDrawing(); };
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
-  }, [moduleSlug, topicIndex, drawMode]);
+  }, [showRightSidebar, activeRightTab, initCanvas, rightSidebarWidth]);
 
   const startDrawing = (e) => {
-    if (drawMode !== 'canvas') return;
+    if (activeRightTab !== 'canvas') return;
     e.preventDefault();
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
@@ -434,8 +509,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
       ctx.beginPath();
       ctx.moveTo(allPoints[0].x, allPoints[0].y);
       for (let i = 1; i < allPoints.length; i++) ctx.lineTo(allPoints[i].x, allPoints[i].y);
-      ctx.strokeStyle = isEraser ? '#0f172a' : drawingColor;
-      ctx.lineWidth = isEraser ? 20 : drawingSize;
+      ctx.strokeStyle = isEraser ? '#090d16' : drawingColor;
+      ctx.lineWidth = isEraser ? 24 : drawingSize;
       ctx.stroke();
       const lastRaw = allPoints[allPoints.length - 1];
       lastXRef.current = lastRaw.x;
@@ -444,8 +519,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
       ctx.beginPath();
       ctx.moveTo(smoothed[0].x, smoothed[0].y);
       for (let i = 1; i < smoothed.length; i++) ctx.lineTo(smoothed[i].x, smoothed[i].y);
-      ctx.strokeStyle = isEraser ? '#0f172a' : drawingColor;
-      ctx.lineWidth = isEraser ? 20 : drawingSize;
+      ctx.strokeStyle = isEraser ? '#090d16' : drawingColor;
+      ctx.lineWidth = isEraser ? 24 : drawingSize;
       ctx.stroke();
       const lastSmoothed = smoothed[smoothed.length - 1];
       lastXRef.current = lastSmoothed.x;
@@ -453,16 +528,11 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     }
     pendingPoints.current = [];
     drawPendingRef.current = false;
-    if (pendingPoints.current.length > 0) {
-      drawPendingRef.current = true;
-      requestAnimationFrame(processPending);
-    }
   };
 
   const draw = (e) => {
-    if (drawMode !== 'canvas') return;
+    if (activeRightTab !== 'canvas' || !isDrawingRef.current) return;
     e.preventDefault();
-    if (!isDrawingRef.current) return;
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
     const clientX = e.clientX ?? e.touches?.[0]?.clientX;
@@ -477,41 +547,29 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     }
   };
 
-  const endDrawing = (e) => {
-    if (drawMode !== 'canvas') return;
-    e.preventDefault();
-    if (isDrawingRef.current) {
-      if (pendingPoints.current.length > 0) {
-        if (!drawPendingRef.current) {
-          drawPendingRef.current = true;
-          requestAnimationFrame(() => { processPending(); saveDrawing(); });
-        } else {
-          const saveAfter = () => {
-            if (drawPendingRef.current) requestAnimationFrame(saveAfter);
-            else saveDrawing();
-          };
-          requestAnimationFrame(saveAfter);
-        }
-      } else saveDrawing();
-      isDrawingRef.current = false;
+  const endDrawing = () => {
+    if (!isDrawingRef.current) return;
+    if (pendingPoints.current.length > 0) {
+      processPending();
     }
+    saveDrawing();
+    isDrawingRef.current = false;
   };
 
   const clearCanvas = () => {
-    if (drawMode !== 'canvas') return;
     const ctx = contextRef.current;
     const canvas = canvasRef.current;
     if (!ctx || !canvas) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     saveDrawing();
+    showToast("Whiteboard cleared.");
   };
 
-  // ---- tldraw shortcuts ----
+  // TLDraw Shortcuts helper
   const handleShortcutClick = (key, toolName) => {
     setSelectedShortcut(toolName);
-    navigator.clipboard.writeText(key);
-    setCopyFeedback(`'${key}' pressed!`);
-    setTimeout(() => setCopyFeedback(''), 2000);
+    setCopyFeedback(`Tool: ${toolName}`);
+    setTimeout(() => setCopyFeedback(''), 1500);
     if (tldrawEditorRef.current) {
       try {
         const toolMap = {
@@ -520,14 +578,15 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
         };
         const toolId = toolMap[toolName] || 'select';
         tldrawEditorRef.current.setCurrentTool(toolId);
-      } catch (e) { console.warn('Failed to switch tool:', e); }
+      } catch (e) {
+        console.warn('Failed to switch tool:', e);
+      }
     }
   };
-  const handleEditorReady = (editor) => { tldrawEditorRef.current = editor; };
 
-  // ================================================================
-  // DRAW ANYWHERE – scrollable canvas (inside main content)
-  // ================================================================
+  // ----------------------------------------------------------------
+  // 6. DRAW ANYWHERE OVERLAY CANVAS
+  // ----------------------------------------------------------------
   const overlayCanvasRef = useRef(null);
   const overlayCtxRef = useRef(null);
   const overlayIsDrawing = useRef(false);
@@ -537,8 +596,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   const overlayDrawPending = useRef(false);
   const mainContentRef = useRef(null);
 
-  const overlayLoadDrawing = () => {
-    const key = `drawanywhere-${moduleSlug}-${topicIndex}`;
+  const overlayLoadDrawing = useCallback(() => {
+    const key = `qa-drawanywhere-${moduleSlug}-${topicIndex}`;
     const saved = localStorage.getItem(key);
     if (saved) {
       try {
@@ -548,22 +607,23 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
           if (ctx) ctx.drawImage(image, 0, 0);
         };
         image.src = saved;
-      } catch (e) { console.warn("Failed to load overlay drawing", e); }
+      } catch (e) {
+        void e;
+      }
     }
-  };
+  }, [moduleSlug, topicIndex]);
 
-  const overlaySaveDrawing = () => {
+  const overlaySaveDrawing = useCallback(() => {
     const canvas = overlayCanvasRef.current;
     if (!canvas) return;
     const dataUrl = canvas.toDataURL('image/png');
-    localStorage.setItem(`drawanywhere-${moduleSlug}-${topicIndex}`, dataUrl);
-  };
+    localStorage.setItem(`qa-drawanywhere-${moduleSlug}-${topicIndex}`, dataUrl);
+  }, [moduleSlug, topicIndex]);
 
-  const initOverlayCanvas = () => {
+  const initOverlayCanvas = useCallback(() => {
     const canvas = overlayCanvasRef.current;
-    if (!canvas) return;
     const container = mainContentRef.current;
-    if (!container) return;
+    if (!canvas || !container) return;
     const width = container.scrollWidth;
     const height = container.scrollHeight;
     if (width <= 0 || height <= 0) return;
@@ -577,56 +637,18 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     ctx.lineJoin = 'round';
     overlayCtxRef.current = ctx;
     overlayLoadDrawing();
-  };
+  }, [overlayLoadDrawing]);
 
   useEffect(() => {
     if (drawAnywhere && mainContentRef.current) {
       const timer = setTimeout(initOverlayCanvas, 100);
       return () => clearTimeout(timer);
     }
-  }, [drawAnywhere, moduleSlug, topicIndex]);
-
-  useEffect(() => {
-    if (!drawAnywhere) return;
-    const container = mainContentRef.current;
-    if (!container) return;
-    const handleUpdate = () => {
-      const canvas = overlayCanvasRef.current;
-      if (!canvas) return;
-      const imageData = canvas.toDataURL('image/png');
-      initOverlayCanvas();
-      const img = new Image();
-      img.onload = () => {
-        const ctx = overlayCtxRef.current;
-        if (ctx) ctx.drawImage(img, 0, 0);
-      };
-      img.src = imageData;
-    };
-    const resizeObserver = new ResizeObserver(handleUpdate);
-    resizeObserver.observe(container);
-    let scrollTimer;
-    const onScroll = () => {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(handleUpdate, 200);
-    };
-    container.addEventListener('scroll', onScroll);
-    const onResize = () => {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(handleUpdate, 200);
-    };
-    window.addEventListener('resize', onResize);
-    return () => {
-      resizeObserver.disconnect();
-      container.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onResize);
-      clearTimeout(scrollTimer);
-    };
-  }, [drawAnywhere]);
+  }, [drawAnywhere, initOverlayCanvas]);
 
   const overlayStartDrawing = (e) => {
     if (!drawAnywhere) return;
     e.preventDefault();
-    e.stopPropagation();
     const canvas = overlayCanvasRef.current;
     const rect = canvas.getBoundingClientRect();
     const clientX = e.clientX ?? e.touches?.[0]?.clientX;
@@ -656,7 +678,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
       ctx.moveTo(allPoints[0].x, allPoints[0].y);
       for (let i = 1; i < allPoints.length; i++) ctx.lineTo(allPoints[i].x, allPoints[i].y);
       ctx.strokeStyle = isEraser ? '#fff' : drawingColor;
-      ctx.lineWidth = isEraser ? 20 : drawingSize;
+      ctx.lineWidth = isEraser ? 24 : drawingSize;
       ctx.stroke();
       const last = allPoints[allPoints.length - 1];
       overlayLastX.current = last.x;
@@ -666,7 +688,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
       ctx.moveTo(smoothed[0].x, smoothed[0].y);
       for (let i = 1; i < smoothed.length; i++) ctx.lineTo(smoothed[i].x, smoothed[i].y);
       ctx.strokeStyle = isEraser ? '#fff' : drawingColor;
-      ctx.lineWidth = isEraser ? 20 : drawingSize;
+      ctx.lineWidth = isEraser ? 24 : drawingSize;
       ctx.stroke();
       const last = smoothed[smoothed.length - 1];
       overlayLastX.current = last.x;
@@ -675,16 +697,11 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     ctx.globalCompositeOperation = 'source-over';
     overlayPending.current = [];
     overlayDrawPending.current = false;
-    if (overlayPending.current.length > 0) {
-      overlayDrawPending.current = true;
-      requestAnimationFrame(overlayProcessPending);
-    }
   };
 
   const overlayDraw = (e) => {
     if (!drawAnywhere || !overlayIsDrawing.current) return;
     e.preventDefault();
-    e.stopPropagation();
     const canvas = overlayCanvasRef.current;
     const rect = canvas.getBoundingClientRect();
     const clientX = e.clientX ?? e.touches?.[0]?.clientX;
@@ -699,25 +716,13 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     }
   };
 
-  const overlayEndDrawing = (e) => {
-    if (!drawAnywhere) return;
-    e.preventDefault();
-    e.stopPropagation();
-    if (overlayIsDrawing.current) {
-      if (overlayPending.current.length > 0) {
-        if (!overlayDrawPending.current) {
-          overlayDrawPending.current = true;
-          requestAnimationFrame(() => { overlayProcessPending(); overlaySaveDrawing(); });
-        } else {
-          const saveAfter = () => {
-            if (overlayDrawPending.current) requestAnimationFrame(saveAfter);
-            else overlaySaveDrawing();
-          };
-          requestAnimationFrame(saveAfter);
-        }
-      } else overlaySaveDrawing();
-      overlayIsDrawing.current = false;
+  const overlayEndDrawing = () => {
+    if (!overlayIsDrawing.current) return;
+    if (overlayPending.current.length > 0) {
+      overlayProcessPending();
     }
+    overlaySaveDrawing();
+    overlayIsDrawing.current = false;
   };
 
   const overlayClear = () => {
@@ -726,404 +731,855 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     if (!ctx || !canvas) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     overlaySaveDrawing();
+    showToast("Screen annotations cleared.");
   };
 
-  // ========================================================================
-  // RENDER
-  // ========================================================================
-  return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col relative overflow-hidden">
+  // ----------------------------------------------------------------
+  // 7. DYNAMIC TOPIC COMPONENT
+  // ----------------------------------------------------------------
+  const topicKey = `./topics/${moduleSlug}/Topic${topicIndex}.jsx`;
+  const TopicPage = topicModules[topicKey] ? React.lazy(topicModules[topicKey]) : null;
 
-      {/* ---------- BACKGROUND DECORATIONS ---------- */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <svg className="absolute -top-40 -left-40 opacity-40" width="420" height="420">
-          <defs>
-            <radialGradient id="jsTopicBlob1" cx="0" cy="0" r="1"
-              gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(0,0) rotate(45) scale(400)">
-              <stop stopColor="#38bdf8" />
-              <stop offset="1" stopColor="#020617" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          <circle cx="200" cy="200" r="200" fill="url(#jsTopicBlob1)" />
-        </svg>
-        <svg className="absolute bottom-[-160px] right-[-130px] opacity-40" width="420" height="420">
-          <defs>
-            <radialGradient id="jsTopicBlob2" cx="0" cy="0" r="1"
-              gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(400,400) rotate(225) scale(400)">
-              <stop stopColor="#a855f7" />
-              <stop offset="1" stopColor="#020617" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          <circle cx="200" cy="200" r="200" fill="url(#jsTopicBlob2)" />
-        </svg>
-        <svg className="absolute inset-0 w-full h-full opacity-[0.06]">
-          <defs>
-            <pattern id="jsTopicGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M40 0H0V40" fill="none" stroke="#1f2937" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#jsTopicGrid)" />
-        </svg>
-      </div>
-
-      {/* ---------- HEADER (beautified) ---------- */}
-      <header className="relative z-30 border-b border-slate-800/70 bg-slate-950/80 backdrop-blur-xl flex-shrink-0">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3 flex-wrap">
-          <div className="flex items-center gap-3">
-            <Link to={`/${roadmapData.folder}/roadmap`} className="inline-flex items-center gap-1.5 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1.5 text-[11px] text-slate-300 hover:border-sky-500 hover:text-sky-300 hover:shadow-md hover:shadow-sky-500/10 transition-all duration-200">
-              <ArrowLeft size={12} /> Roadmap
-            </Link>
-            <div className="flex flex-col leading-tight">
-              <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-slate-500">
-                <Layers size={12} className="text-sky-400" />
-                <span>{roadmapData.trackTitle}</span>
-              </div>
-              <p className="text-[11px] text-slate-400">{segmentData?.title} • {moduleData.title}</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 flex-wrap">
-            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/60 border border-slate-700/50">
-              <BookOpen size={13} className="text-sky-400" />
-              <span className="text-[11px] text-slate-300">Topic {index + 1}/{totalTopics}</span>
-              <div className="w-16 h-1.5 rounded-full bg-slate-700 overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-sky-400 to-emerald-400" style={{ width: `${progressPercent}%` }} />
-              </div>
-              <span className="text-[11px] text-sky-300 font-semibold">{progressPercent}%</span>
-            </div>
-
-            <button onClick={() => setShowSidebar(!showSidebar)} className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-slate-800 to-slate-700 px-3 py-1.5 text-[11px] font-medium text-slate-200 border border-slate-600 hover:from-sky-600 hover:to-sky-500 hover:border-sky-400 hover:shadow-md hover:shadow-sky-500/20 transition-all duration-200 hover:scale-105 active:scale-95">
-              <List size={14} /> <span className="hidden md:inline">{showSidebar ? 'Hide Topics' : 'Show Topics'}</span>
-            </button>
-
-            <button onClick={() => setShowRightSidebar(!showRightSidebar)} className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-slate-800 to-slate-700 px-3 py-1.5 text-[11px] font-medium text-slate-200 border border-slate-600 hover:from-purple-600 hover:to-purple-500 hover:border-purple-400 hover:shadow-md hover:shadow-purple-500/20 transition-all duration-200 hover:scale-105 active:scale-95">
-              {showRightSidebar ? <PanelRightClose size={14} /> : <PanelRight size={14} />}
-              <span className="hidden md:inline">{showRightSidebar ? 'Hide Panel' : 'Show Panel'}</span>
-            </button>
-
-            <button onClick={() => setHideMain(!hideMain)} className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-slate-800 to-slate-700 px-3 py-1.5 text-[11px] font-medium text-slate-200 border border-slate-600 hover:from-amber-600 hover:to-amber-500 hover:border-amber-400 hover:shadow-md hover:shadow-amber-500/20 transition-all duration-200 hover:scale-105 active:scale-95">
-              {hideMain ? <Eye size={14} /> : <EyeOff size={14} />}
-              <span className="hidden md:inline">{hideMain ? 'Show Topic' : 'Hide Topic'}</span>
-            </button>
-
-            <button onClick={() => setDrawAnywhere(!drawAnywhere)} className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-medium transition-all duration-200 hover:scale-105 active:scale-95 ${drawAnywhere ? 'bg-rose-600/90 hover:bg-rose-500 border border-rose-400 text-white shadow-lg shadow-rose-500/30' : 'bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 border border-emerald-400/50 text-white shadow-md hover:shadow-emerald-500/20'}`}>
-              <PenTool size={14} /> <span>{drawAnywhere ? 'Exit Draw' : 'Draw Anywhere'}</span>
-            </button>
-
-            {showRightSidebar && !hideMain && (
-              <div className="hidden lg:flex items-center gap-2 px-2 py-1 rounded-full bg-slate-800/60 border border-slate-700/50">
-                <span className="text-[10px] text-slate-400 font-medium">Width</span>
-                <input type="range" min="30" max="70" step="0.5" value={Math.round(rightSidebarPercent * 100)} onChange={(e) => setRightSidebarPercent(Number(e.target.value) / 100)} className="w-20 h-1.5 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-400" title="Adjust topic width proportionally" />
-                <span className="text-[10px] text-sky-300 font-mono min-w-[36px] text-center">{Math.round(rightSidebarPercent * 100)}%</span>
-              </div>
-            )}
-
-            <div className="flex items-center gap-1.5">
-              {hasPrev ? (
-                <Link to={`/${roadmapData.folder}/topic/${moduleSlug}/${index - 1}`} className="inline-flex items-center gap-1 rounded-lg bg-slate-900/80 px-2.5 py-1.5 text-[11px] text-slate-200 border border-slate-700/50 hover:bg-slate-800 hover:border-sky-400 hover:shadow-sm transition-all duration-200">
-                  <ArrowLeft size={13} /> <span className="hidden md:inline">Prev</span>
-                </Link>
-              ) : (
-                <button disabled className="inline-flex items-center gap-1 rounded-lg bg-slate-950/50 px-2.5 py-1.5 text-[11px] text-slate-500 border border-slate-800 cursor-not-allowed">
-                  <ArrowLeft size={13} /> <span className="hidden md:inline">Prev</span>
-                </button>
-              )}
-              {hasNext ? (
-                <Link to={`/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`} className="inline-flex items-center gap-1 rounded-lg bg-sky-600/90 hover:bg-sky-500 px-2.5 py-1.5 text-[11px] text-white border border-sky-400/50 shadow-md hover:shadow-sky-500/20 transition-all duration-200 hover:scale-105 active:scale-95">
-                  <span className="hidden md:inline">Next</span> <ArrowRight size={13} />
-                </Link>
-              ) : (
-                <button disabled className="inline-flex items-center gap-1 rounded-lg bg-slate-950/50 px-2.5 py-1.5 text-[11px] text-slate-500 border border-slate-800 cursor-not-allowed">
-                  <span className="hidden md:inline">Next</span> <ArrowRight size={13} />
-                </button>
-              )}
-            </div>
-
-            <button type="button" onClick={() => setSidebarOpen(true)} className="inline-flex items-center gap-1 rounded-lg bg-slate-900/80 px-2.5 py-1.5 text-[11px] text-slate-200 border border-slate-700/50 hover:bg-slate-800 hover:border-sky-400 transition-all duration-200 sm:hidden">
-              <Menu size={14} /> Topics
-            </button>
-          </div>
+  // ----------------------------------------------------------------
+  // MODULE NOT FOUND CHECK
+  // ----------------------------------------------------------------
+  if (!moduleData || !topicTitle) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-6">
+        <div className="max-w-md text-center p-8 rounded-2xl bg-slate-900 border border-slate-800">
+          <HelpCircle size={40} className="text-amber-400 mx-auto mb-3" />
+          <h1 className="text-lg font-bold text-slate-100">Topic Not Found</h1>
+          <p className="text-xs text-slate-400 mt-2 mb-6">
+            The topic index {topicIndex} could not be located in module "{moduleSlug}".
+          </p>
+          <Link
+            to={`/${roadmapData.folder}/module/${moduleSlug}`}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition"
+          >
+            <ArrowLeft size={14} /> Back to Module
+          </Link>
         </div>
-      </header>
+      </div>
+    );
+  }
 
-      {/* ---------- MAIN LAYOUT ---------- */}
-      <div className="relative z-20 flex-1 flex justify-center min-h-0">
-        <div ref={rowContainerRef} className="w-full flex min-h-[calc(100vh-80px)] row-container">
+  // Filtered topics for left sidebar search
+  const filteredSidebarTopics = topics
+    .map((t, i) => ({ title: t, idx: i }))
+    .filter(({ title }) =>
+      sidebarSearch.trim() === "" || title.toLowerCase().includes(sidebarSearch.toLowerCase().trim())
+    );
 
-          {/* ==============================================================
-              LEFT SIDEBAR (Desktop)
-              ============================================================== */}
-          {showSidebar && (
-            <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4 h-full overflow-y-auto">
-              <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-200">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="uppercase tracking-[0.18em] text-[10px] text-slate-500">Progress</span>
-                  <span className="text-[11px] text-sky-300 font-semibold">{completedCount}/{totalTopics}</span>
+  const teacher = roadmapData.teacher || {
+    name: "Sukanta Hui",
+    social: { whatsapp: "+917003756860" }
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col relative overflow-hidden select-text selection:bg-slate-800 selection:text-slate-200">
+      
+      {/* ========================================================== */}
+      {/* Toast Notification */}
+      {/* ========================================================== */}
+      <AnimatePresence>
+        {toastMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 shadow-xl backdrop-blur-md"
+          >
+            <Sparkles className="w-4 h-4 text-sky-400" />
+            <span className="text-xs sm:text-sm font-medium">{toastMessage}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ========================================================== */}
+      {/* TOP HEADER */}
+      {/* ========================================================== */}
+      {!focusMode && (
+        <header className="relative z-30 border-b border-slate-800 bg-slate-950/95 backdrop-blur-md flex-shrink-0">
+          <div className="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between gap-3 flex-wrap">
+            
+            {/* Left: Navigation & Context Breadcrumbs */}
+            <div className="flex items-center gap-2.5">
+              <Link
+                to={`/${roadmapData.folder}/module/${moduleSlug}`}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-slate-300 hover:text-white hover:border-slate-700 transition"
+              >
+                <ArrowLeft size={13} />
+                <span className="hidden sm:inline">Module Overview</span>
+              </Link>
+
+              <div className="h-4 w-px bg-slate-800 hidden sm:block" />
+
+              <div className="flex flex-col leading-tight min-w-0">
+                <div className="flex items-center gap-1.5 text-[10px] uppercase font-semibold tracking-wider text-slate-500">
+                  <Layers size={11} className="text-sky-400" />
+                  <span className="truncate">{segmentData?.title?.split("–")[0]?.trim() || "Segment"}</span>
                 </div>
-                <div className="w-full h-1.5 rounded-full bg-slate-800 border border-slate-700 overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-sky-400 to-emerald-400" style={{ width: `${progressPercent}%` }} />
-                </div>
-                <button type="button" onClick={resetProgress} className="mt-2 text-[11px] text-rose-300 hover:text-rose-400">Reset Progress</button>
+                <span className="text-xs font-semibold text-slate-200 truncate max-w-[200px] sm:max-w-xs md:max-w-md">
+                  {moduleData.title}
+                </span>
               </div>
-              <div className="space-y-2 text-sm">
-                {moduleData.topics.map((title, i) => {
-                  const isActive = i === index;
-                  const isCompleted = completedTopics.includes(i);
+            </div>
+
+            {/* Right: Controls, Tools & Prev/Next */}
+            <div className="flex items-center gap-2 flex-wrap">
+              
+              {/* Progress counter */}
+              <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-400">
+                <BookOpen size={13} className="text-slate-400" />
+                <span>{index + 1} / {totalTopics}</span>
+                <div className="w-12 h-1.5 rounded-full bg-slate-800 overflow-hidden">
+                  <div className="h-full bg-sky-500" style={{ width: `${progressPercent}%` }} />
+                </div>
+                <span className="font-semibold text-slate-300">{progressPercent}%</span>
+              </div>
+
+              {/* Sidebar toggle buttons */}
+              <button
+                onClick={() => setShowSidebar(!showSidebar)}
+                className={`p-1.5 sm:px-2.5 sm:py-1 rounded-lg text-xs font-medium border transition flex items-center gap-1.5 ${
+                  showSidebar
+                    ? "bg-slate-800 border-slate-700 text-slate-100"
+                    : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                }`}
+                title="Toggle topics sidebar"
+              >
+                <List size={14} />
+                <span className="hidden md:inline">{showSidebar ? "Hide Topics" : "Topic Index"}</span>
+              </button>
+
+              <button
+                onClick={() => setShowRightSidebar(!showRightSidebar)}
+                className={`p-1.5 sm:px-2.5 sm:py-1 rounded-lg text-xs font-medium border transition flex items-center gap-1.5 ${
+                  showRightSidebar
+                    ? "bg-slate-800 border-slate-700 text-slate-100"
+                    : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                }`}
+                title="Toggle study workspace & whiteboard"
+              >
+                {showRightSidebar ? <PanelRightClose size={14} /> : <PanelRight size={14} />}
+                <span className="hidden md:inline">{showRightSidebar ? "Close Workspace" : "Workspace"}</span>
+              </button>
+
+              {/* Draw anywhere button */}
+              <button
+                onClick={() => setDrawAnywhere(!drawAnywhere)}
+                className={`p-1.5 sm:px-2.5 sm:py-1 rounded-lg text-xs font-medium border transition flex items-center gap-1.5 ${
+                  drawAnywhere
+                    ? "bg-rose-950/80 border-rose-700 text-rose-300"
+                    : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                }`}
+                title="Annotate directly on screen"
+              >
+                <PenTool size={14} className={drawAnywhere ? "text-rose-400" : "text-slate-400"} />
+                <span className="hidden md:inline">{drawAnywhere ? "Stop Annotating" : "Annotate Screen"}</span>
+              </button>
+
+              {/* Focus mode button */}
+              <button
+                onClick={() => setFocusMode(!focusMode)}
+                className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                title="Focus Mode (Hide sidebars & clutter)"
+              >
+                {focusMode ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
+              </button>
+
+              {/* Font size toggle */}
+              <button
+                onClick={() => setFontSize((f) => (f === 'normal' ? 'large' : 'normal'))}
+                className="p-1.5 px-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 text-xs font-semibold font-mono transition"
+                title={`Font Size: ${fontSize === 'normal' ? 'Normal (Click for Large)' : 'Large (Click for Normal)'}`}
+              >
+                {fontSize === 'normal' ? 'A+' : 'A-'}
+              </button>
+
+              {/* Bookmark & Link */}
+              <button
+                onClick={toggleBookmark}
+                className={`p-1.5 rounded-lg border transition ${
+                  isBookmarked
+                    ? "bg-slate-800 border-slate-700 text-amber-400"
+                    : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                }`}
+                title={isBookmarked ? "Remove bookmark" : "Bookmark topic"}
+              >
+                {isBookmarked ? <BookmarkCheck size={14} /> : <Bookmark size={14} />}
+              </button>
+
+              <button
+                onClick={handleCopyLink}
+                className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                title="Copy topic link"
+              >
+                {copiedLink ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+              </button>
+
+              {/* Prev / Next Topic Buttons */}
+              <div className="flex items-center gap-1 pl-1 border-l border-slate-800">
+                {hasPrev ? (
+                  <Link
+                    to={`/${roadmapData.folder}/topic/${moduleSlug}/${index - 1}`}
+                    className="p-1.5 sm:px-2.5 sm:py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-medium flex items-center gap-1 transition"
+                    title="Previous Topic (Shortcut: [ )"
+                  >
+                    <ArrowLeft size={13} />
+                    <span className="hidden sm:inline">Prev</span>
+                  </Link>
+                ) : (
+                  <button disabled className="p-1.5 sm:px-2.5 sm:py-1 rounded-lg bg-slate-950 text-slate-600 border border-slate-900 text-xs cursor-not-allowed flex items-center gap-1">
+                    <ArrowLeft size={13} />
+                    <span className="hidden sm:inline">Prev</span>
+                  </button>
+                )}
+
+                {hasNext ? (
+                  <Link
+                    to={`/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`}
+                    className="p-1.5 sm:px-2.5 sm:py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 hover:text-white border border-slate-700 text-xs font-semibold flex items-center gap-1 transition"
+                    title="Next Topic (Shortcut: ] )"
+                  >
+                    <span className="hidden sm:inline">Next</span>
+                    <ArrowRight size={13} />
+                  </Link>
+                ) : (
+                  <button disabled className="p-1.5 sm:px-2.5 sm:py-1 rounded-lg bg-slate-950 text-slate-600 border border-slate-900 text-xs cursor-not-allowed flex items-center gap-1">
+                    <span className="hidden sm:inline">Next</span>
+                    <ArrowRight size={13} />
+                  </button>
+                )}
+              </div>
+
+              {/* Mobile menu trigger */}
+              <button
+                type="button"
+                onClick={() => setSidebarOpen(true)}
+                className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 sm:hidden"
+              >
+                <Menu size={14} />
+              </button>
+
+            </div>
+
+          </div>
+        </header>
+      )}
+
+      {/* Floating Exit Focus Mode Button if Focus Mode active */}
+      {focusMode && (
+        <button
+          onClick={() => setFocusMode(false)}
+          className="fixed top-4 right-4 z-50 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300 hover:text-white backdrop-blur shadow-lg flex items-center gap-1.5 transition"
+        >
+          <Minimize2 size={13} /> Exit Focus Mode
+        </button>
+      )}
+
+      {/* ========================================================== */}
+      {/* MAIN LAYOUT (Left Index + Reader + Right Workspace) */}
+      {/* ========================================================== */}
+      <div className="relative z-20 flex-1 flex justify-center min-h-0">
+        <div ref={rowContainerRef} className="w-full flex min-h-[calc(100vh-60px)]">
+
+          {/* ============================================================== */}
+          {/* LEFT TOPIC NAVIGATION SIDEBAR (Desktop) */}
+          {/* ============================================================== */}
+          {showSidebar && !focusMode && (
+            <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/80 backdrop-blur-md pt-4 pb-6 px-3 h-full overflow-hidden">
+              
+              {/* Module Info & Progress Bar */}
+              <div className="mb-3 rounded-xl border border-slate-800 bg-slate-900/80 p-3 text-xs">
+                <div className="flex items-center justify-between mb-1.5 text-[11px] text-slate-400">
+                  <span className="font-semibold uppercase tracking-wider">Module Progress</span>
+                  <span className="font-bold text-slate-200">{completedCount}/{totalTopics} ({progressPercent}%)</span>
+                </div>
+                <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden mb-2">
+                  <div className="h-full bg-sky-500 rounded-full" style={{ width: `${progressPercent}%` }} />
+                </div>
+                <div className="flex items-center justify-between text-[10px] text-slate-500">
+                  <span>{moduleData.estimatedHours} hrs course</span>
+                  <span>{moduleData.difficulty || "Standard"}</span>
+                </div>
+              </div>
+
+              {/* Search topics inside module */}
+              <div className="relative mb-2.5">
+                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500" />
+                <input
+                  type="text"
+                  placeholder="Filter module topics..."
+                  value={sidebarSearch}
+                  onChange={(e) => setSidebarSearch(e.target.value)}
+                  className="w-full pl-8 pr-7 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-xs focus:outline-none focus:border-slate-700"
+                />
+                {sidebarSearch && (
+                  <button
+                    onClick={() => setSidebarSearch("")}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                  >
+                    <X size={12} />
+                  </button>
+                )}
+              </div>
+
+              {/* Topics List Scrollable Area */}
+              <div className="flex-1 overflow-y-auto space-y-1 pr-1 text-xs custom-scrollbar">
+                {filteredSidebarTopics.map(({ title, idx }) => {
+                  const isActive = idx === index;
+                  const isDone = completedTopics.includes(idx);
+
                   return (
-                    <Link key={i} ref={isActive ? activeTopicRef : null} to={`/${roadmapData.folder}/topic/${moduleSlug}/${i}`}
-                      className={`relative flex items-center gap-3 px-3 py-2 rounded-xl border transition ${isActive ? "border-sky-500 bg-sky-600/90 text-white shadow-lg" : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"}`}>
-                      <span className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"}`} />
-                      {isCompleted ? <CheckCircle2 size={16} className="text-emerald-400 shrink-0" /> : <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />}
-                      <span className="truncate"><span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>{title}</span>
+                    <Link
+                      key={idx}
+                      ref={isActive ? activeTopicRef : null}
+                      to={`/${roadmapData.folder}/topic/${moduleSlug}/${idx}`}
+                      className={`relative flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all text-xs ${
+                        isActive
+                          ? "border-slate-700 bg-slate-800/90 text-white font-semibold shadow-sm"
+                          : isDone
+                          ? "border-slate-850 bg-slate-900/40 text-slate-400 hover:bg-slate-900 hover:text-slate-200"
+                          : "border-transparent text-slate-300 hover:bg-slate-900/80 hover:border-slate-800"
+                      }`}
+                    >
+                      {isDone ? (
+                        <CheckCircle2 size={14} className="text-emerald-400 shrink-0" />
+                      ) : (
+                        <span className={`w-3.5 h-3.5 rounded-full border shrink-0 ${isActive ? "border-sky-400" : "border-slate-600"}`} />
+                      )}
+
+                      <span className="truncate">
+                        <span className="text-slate-500 font-mono mr-1 text-[11px]">
+                          {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}.
+                        </span>
+                        {title}
+                      </span>
                     </Link>
                   );
                 })}
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs">
-                <Link to={`/${roadmapData.folder}/module/${moduleSlug}`} className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200">← Back to Module Overview</Link>
-                <Link to={`/${roadmapData.folder}/roadmap`} className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200">📍 {roadmapData.subject} Roadmap</Link>
-                <a href="/play" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200">🧪 CNAT Playground</a>
+
+              {/* Bottom Quick Links */}
+              <div className="mt-3 pt-3 border-t border-slate-800/80 space-y-1 text-xs">
+                <Link
+                  to={`/${roadmapData.folder}/module/${moduleSlug}`}
+                  className="block px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition"
+                >
+                  ← Back to Module Overview
+                </Link>
+                <Link
+                  to={`/${roadmapData.folder}/roadmap`}
+                  className="block px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition"
+                >
+                  📍 Course Roadmap ({roadmapData.subjectCode})
+                </Link>
               </div>
-              {/* WhatsApp sharing block (keep as is – omitted for brevity but can be added) */}
+
             </aside>
           )}
 
-          {/* ==============================================================
-              MOBILE SIDEBAR (Drawer)
-              ============================================================== */}
+          {/* ============================================================== */}
+          {/* MOBILE SIDEBAR DRAWER */}
+          {/* ============================================================== */}
           {sidebarOpen && (
             <>
-              <div className="fixed inset-0 z-40 bg-black/60 lg:hidden" onClick={() => setSidebarOpen(false)} />
-              <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950/95 backdrop-blur-xl border-r border-slate-800 pt-4 pb-6 px-4 flex flex-col lg:hidden">
-                <div className="flex items-center justify-between mb-4">
+              <div className="fixed inset-0 z-40 bg-black/70 lg:hidden" onClick={() => setSidebarOpen(false)} />
+              <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950 border-r border-slate-800 p-4 flex flex-col lg:hidden">
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
                   <div className="flex items-center gap-2">
                     <Layers size={16} className="text-sky-400" />
-                    <span className="text-sm font-semibold text-sky-300">{moduleData.title}</span>
+                    <span className="text-xs font-bold text-slate-200 truncate max-w-[180px]">{moduleData.title}</span>
                   </div>
-                  <button type="button" onClick={() => setSidebarOpen(false)} className="p-1 rounded-full border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-300"><X size={14} /></button>
+                  <button onClick={() => setSidebarOpen(false)} className="p-1 rounded-lg text-slate-400 hover:text-white">
+                    <X size={16} />
+                  </button>
                 </div>
-                <div className="mb-4 rounded-xl border border-slate-800 bg-slate-900/80 p-3 text-[11px] text-slate-200">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="uppercase tracking-[0.18em] text-[10px] text-slate-500">Progress</span>
-                    <span className="text-sky-300 font-semibold">{completedCount}/{totalTopics}</span>
-                  </div>
-                  <div className="w-full h-1.5 bg-slate-800 border border-slate-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-sky-400 to-emerald-400" style={{ width: `${progressPercent}%` }} />
-                  </div>
-                  <button type="button" onClick={resetProgress} className="mt-2 text-[10px] text-rose-300 hover:text-rose-400">Reset Progress</button>
-                </div>
-                <div className="flex-1 overflow-y-auto space-y-2 text-sm">
-                  {moduleData.topics.map((title, i) => {
+
+                <div className="flex-1 overflow-y-auto space-y-1 text-xs">
+                  {topics.map((t, i) => {
                     const isActive = i === index;
-                    const isCompleted = completedTopics.includes(i);
+                    const isDone = completedTopics.includes(i);
                     return (
-                      <Link key={i} to={`/${roadmapData.folder}/topic/${moduleSlug}/${i}`} onClick={() => setSidebarOpen(false)}
-                        className={`relative flex items-center gap-3 px-3 py-2 rounded-xl border transition ${isActive ? "border-sky-500 bg-sky-600/90 text-white shadow-lg" : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"}`}>
-                        <span className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"}`} />
-                        {isCompleted ? <CheckCircle2 size={16} className="text-emerald-400 shrink-0" /> : <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />}
-                        <span className="truncate"><span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>{title}</span>
+                      <Link
+                        key={i}
+                        to={`/${roadmapData.folder}/topic/${moduleSlug}/${i}`}
+                        onClick={() => setSidebarOpen(false)}
+                        className={`flex items-center gap-2 p-2 rounded-lg ${
+                          isActive
+                            ? "bg-slate-800 text-white font-bold"
+                            : isDone
+                            ? "text-slate-400"
+                            : "text-slate-300 hover:bg-slate-900"
+                        }`}
+                      >
+                        {isDone ? <CheckCircle2 size={14} className="text-emerald-400" /> : <Circle size={14} className="text-slate-600" />}
+                        <span className="truncate">{i + 1}. {t}</span>
                       </Link>
                     );
                   })}
-                </div>
-                <div className="mt-4 pt-3 border-t border-slate-800 space-y-2 text-xs">
-                  <Link to={`/${roadmapData.folder}/module/${moduleSlug}`} onClick={() => setSidebarOpen(false)} className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200">← Back to Module Overview</Link>
-                  <Link to={`/${roadmapData.folder}/roadmap`} onClick={() => setSidebarOpen(false)} className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200">📍 {roadmapData.subject} Roadmap</Link>
-                  <a href="/play" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200">🧪 CNAT Playground</a>
                 </div>
               </aside>
             </>
           )}
 
-          {/* ==============================================================
-              MAIN CONTENT (Topic Reader)
-              ============================================================== */}
-          {!hideMain && (
-            <main ref={mainContentRef} className="flex-1 px-4 lg:px-8 py-6 lg:py-10 overflow-y-auto h-full relative">
-              <div className="w-full">
-                {/* Topic Header */}
-                <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl shadow-xl relative overflow-hidden">
-                  <svg className="absolute top-0 left-0 w-full h-1.5">
-                    <defs>
-                      <linearGradient id="jsTopicHeaderLine" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#38bdf8" />
-                        <stop offset="50%" stopColor="#22c55e" />
-                        <stop offset="100%" stopColor="#a855f7" />
-                      </linearGradient>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#jsTopicHeaderLine)" />
-                  </svg>
-                  <div className="p-6 flex flex-col md:flex-row md:justify-between">
-                    <div>
-                      <p className="text-[11px] uppercase tracking-[0.18em] text-slate-500 flex items-center gap-2">
-                        <span className="inline-flex items-center justify-center rounded-full bg-slate-800 border border-slate-700 px-2 py-[2px] text-[9px] text-sky-300">Topic {index + 1} / {totalTopics}</span>
-                        {moduleData.level || "Module"} • {moduleData.difficulty || "Difficulty"}
-                      </p>
-                      <h1 className="text-xl md:text-2xl font-bold text-sky-300">{topicTitle}</h1>
-                      <p className="text-[12px] text-slate-400 mt-1">Module: <span className="text-slate-200">{moduleData.title}</span></p>
-                    </div>
-                    <div className="flex items-center gap-2 mt-4 md:mt-0">
-                      {hasPrev ? (
-                        <Link to={`/${roadmapData.folder}/topic/${moduleSlug}/${index - 1}`} className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-[11px] text-slate-200 hover:bg-slate-800">
-                          <ArrowLeft size={13} /> Prev
-                        </Link>
-                      ) : (
-                        <button disabled className="px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-900 text-[11px] text-slate-600">
-                          <ArrowLeft size={13} /> Prev
-                        </button>
-                      )}
-                      {hasNext ? (
-                        <Link to={`/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`} className="px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 border border-sky-500 text-[11px] text-white">
-                          Next <ArrowRight size={13} />
-                        </Link>
-                      ) : (
-                        <button disabled className="px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-900 text-[11px] text-slate-600">
-                          Next <ArrowRight size={13} />
-                        </button>
-                      )}
-                    </div>
+          {/* ============================================================== */}
+          {/* MAIN TOPIC CONTENT READER */}
+          {/* ============================================================== */}
+          <main ref={mainContentRef} className="flex-1 px-4 sm:px-6 lg:px-8 py-6 lg:py-8 overflow-y-auto h-full relative">
+            <div className="max-w-4xl mx-auto space-y-6">
+              
+              {/* Topic Hero Card */}
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm p-5 sm:p-6 shadow-sm">
+                
+                {/* Meta details line */}
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-slate-950 text-slate-400 border border-slate-800">
+                      Topic {index + 1 < 10 ? `0${index + 1}` : index + 1} / {totalTopics}
+                    </span>
+
+                    <span className="px-2 py-0.5 rounded-md text-[11px] text-slate-400 bg-slate-950 border border-slate-800">
+                      {moduleData.title}
+                    </span>
                   </div>
+
+                  {/* Toggle Completed Pill Button */}
+                  <button
+                    onClick={toggleTopicCompletion}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold border transition ${
+                      isCurrentTopicDone
+                        ? "bg-slate-800 border-slate-700 text-emerald-400 hover:bg-slate-750"
+                        : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+                    }`}
+                  >
+                    {isCurrentTopicDone ? <CheckCircle2 size={14} className="text-emerald-400" /> : <Circle size={14} />}
+                    <span>{isCurrentTopicDone ? "Completed" : "Mark as Completed"}</span>
+                  </button>
                 </div>
 
-                {/* Topic Content */}
-                <section className="relative rounded-3xl border border-slate-800 bg-slate-900/70 backdrop-blur-lg shadow-[0_22px_45px_rgba(15,23,42,0.75)] px-5 md:px-8 py-6 md:py-8">
-                  <Suspense fallback={<p className="text-slate-400 text-sm">Loading topic content…</p>}>
-                    {TopicPage ? <TopicPage key={topicKey} /> : (
-                      <div className="text-slate-300 text-sm">
-                        <p className="mb-1">Topic file missing:</p>
-                        <pre className="text-sky-400 mt-2 text-xs bg-slate-950/60 rounded-lg p-3 border border-slate-800 overflow-x-auto">
-                          {`src/components/study/${roadmapData.folder}/topics/${moduleSlug}/Topic${topicIndex}.jsx`}
-                        </pre>
-                      </div>
-                    )}
-                  </Suspense>
+                {/* Topic Title */}
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight">
+                  {topicTitle}
+                </h1>
 
-                  {/* WhatsApp Query Box */}
-                  <div className="mt-10 p-5 rounded-2xl border border-slate-700 bg-slate-900/60 shadow-lg space-y-3">
-                    <h3 className="text-lg font-semibold text-sky-300">Have a Question About This Topic?</h3>
-                    <p className="text-sm text-slate-400">Send your doubts directly on WhatsApp. I will reply as soon as possible.</p>
-                    <textarea id="waQuery" placeholder="Type your question here..." className="w-full bg-slate-800 text-slate-200 p-3 rounded-xl border border-slate-600 text-sm focus:outline-none focus:border-sky-500" rows={3}></textarea>
-                    <button onClick={() => {
-                      const msg = document.getElementById("waQuery").value.trim();
-                      if (!msg) return alert("Please type your question first.");
-                      const phone = "919432456083";
-                      const text = encodeURIComponent(`Hello Sir,\nI have a query regarding:\n\n• Module: ${moduleData.title}\n• Topic: ${topicTitle}\n\nMy Question:\n${msg}`);
-                      window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
-                    }} className="px-4 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-white text-sm font-semibold transition">
-                      📲 Send WhatsApp Query
-                    </button>
-                  </div>
-                </section>
               </div>
 
-              {/* DRAW ANYWHERE CANVAS */}
-              {drawAnywhere && (
-                <div className="absolute inset-0 pointer-events-none z-10">
-                  <canvas
-                    ref={overlayCanvasRef}
-                    className="w-full h-full pointer-events-auto touch-none"
-                    style={{ touchAction: 'none' }}
-                    onMouseDown={overlayStartDrawing}
-                    onMouseMove={overlayDraw}
-                    onMouseUp={overlayEndDrawing}
-                    onMouseLeave={overlayEndDrawing}
-                    onTouchStart={overlayStartDrawing}
-                    onTouchMove={overlayDraw}
-                    onTouchEnd={overlayEndDrawing}
-                  />
-                </div>
-              )}
-            </main>
-          )}
+              {/* Dynamic Topic Content Page */}
+              <article className={`rounded-2xl border border-slate-800 bg-slate-900/50 p-5 sm:p-7 md:p-8 shadow-sm ${fontSize === 'large' ? 'text-base' : 'text-sm'}`}>
+                <Suspense fallback={
+                  <div className="py-12 text-center text-slate-400 space-y-2">
+                    <div className="w-6 h-6 border-2 border-slate-700 border-t-sky-400 rounded-full animate-spin mx-auto" />
+                    <p className="text-xs">Loading topic formulation & calculations…</p>
+                  </div>
+                }>
+                  {TopicPage ? (
+                    <TopicPage key={topicKey} />
+                  ) : (
+                    <div className="text-slate-300 text-sm py-8 text-center space-y-3">
+                      <FileText size={36} className="text-slate-600 mx-auto" />
+                      <h3 className="text-base font-bold text-slate-200">Topic Component In Development</h3>
+                      <p className="text-xs text-slate-400 max-w-md mx-auto">
+                        The content for "{topicTitle}" is being compiled for the curriculum.
+                      </p>
+                      <pre className="text-slate-400 text-[11px] bg-slate-950 p-3 rounded-xl border border-slate-800 max-w-lg mx-auto overflow-x-auto text-left">
+                        {`src/components/study/${roadmapData.folder}/topics/${moduleSlug}/Topic${topicIndex}.jsx`}
+                      </pre>
+                    </div>
+                  )}
+                </Suspense>
+              </article>
 
-          {/* ==============================================================
-              DIVIDER
-              ============================================================== */}
-          {showRightSidebar && !hideMain && (
-            <div ref={dividerRef} className="flex-shrink-0 w-2 bg-gradient-to-b from-slate-600 via-slate-500 to-slate-600 hover:from-sky-500 hover:via-sky-400 hover:to-sky-500 cursor-col-resize relative group transition-all duration-200 z-10"
-              onMouseDown={startDrag} onTouchStart={startDragTouch}>
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-sky-400/20 blur-sm" />
-              <div className="absolute inset-y-0 -left-3 -right-3 flex items-center justify-center">
-                <div className="bg-slate-800/80 backdrop-blur-sm rounded-md px-1 py-2 border border-slate-700 group-hover:border-sky-400 transition-colors duration-200">
-                  <GripVertical size={20} className="text-slate-400 group-hover:text-sky-300 transition-colors duration-200" />
+              {/* ========================================================== */}
+              {/* WhatsApp Question & Doubt Clearance Widget */}
+              {/* ========================================================== */}
+              <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 space-y-3">
+                <div className="flex items-center gap-2 text-slate-200">
+                  <MessageSquare size={16} className="text-emerald-400" />
+                  <h3 className="text-sm font-bold">Have a Question About This Topic?</h3>
                 </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Ask your calculation, formulation, or theorem doubt directly to instructor {teacher.name}.
+                </p>
+                <textarea
+                  id="qaTopicDoubt"
+                  placeholder="Type your question or problem statement here..."
+                  className="w-full bg-slate-950 text-slate-200 p-3 rounded-xl border border-slate-800 text-xs placeholder:text-slate-600 focus:outline-none focus:border-slate-600"
+                  rows={2}
+                />
+                <button
+                  onClick={() => {
+                    const el = document.getElementById("qaTopicDoubt");
+                    const queryText = el ? el.value.trim() : "";
+                    if (!queryText) {
+                      showToast("Please type your question first.");
+                      return;
+                    }
+                    const cleanPhone = (teacher.social?.whatsapp || "+917003756860").replace(/\D/g, "");
+                    const message = encodeURIComponent(
+                      `Hello Sir,\nI have a question on Quantitative Analysis:\n\n• Module: ${moduleData.title}\n• Topic ${index + 1}: ${topicTitle}\n\nMy Question:\n${queryText}`
+                    );
+                    window.open(`https://wa.me/${cleanPhone}?text=${message}`, "_blank");
+                  }}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-200 hover:text-white border border-slate-700 text-xs font-semibold transition shadow-sm"
+                >
+                  <MessageSquare size={13} className="text-emerald-400" />
+                  <span>Send Query via WhatsApp</span>
+                </button>
+              </section>
+
+              {/* Bottom Topic Navigation */}
+              <nav className="flex items-center justify-between gap-3 pt-2 pb-8">
+                {hasPrev ? (
+                  <Link
+                    to={`/${roadmapData.folder}/topic/${moduleSlug}/${index - 1}`}
+                    className="flex-1 p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-medium text-slate-300 hover:text-white transition flex items-center gap-2"
+                  >
+                    <ArrowLeft size={14} className="text-slate-500" />
+                    <div className="truncate">
+                      <div className="text-[10px] text-slate-500 uppercase font-semibold">Previous Topic</div>
+                      <div className="truncate">{topics[index - 1]}</div>
+                    </div>
+                  </Link>
+                ) : <div className="flex-1" />}
+
+                {hasNext ? (
+                  <Link
+                    to={`/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`}
+                    className="flex-1 p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-semibold text-slate-200 hover:text-white transition flex items-center justify-between text-right gap-2"
+                  >
+                    <div className="truncate flex-1">
+                      <div className="text-[10px] text-slate-500 uppercase font-semibold">Next Topic</div>
+                      <div className="truncate">{topics[index + 1]}</div>
+                    </div>
+                    <ArrowRight size={14} className="text-slate-400 shrink-0" />
+                  </Link>
+                ) : <div className="flex-1" />}
+              </nav>
+
+            </div>
+
+            {/* DRAW ANYWHERE CANVAS OVERLAY */}
+            {drawAnywhere && (
+              <div className="absolute inset-0 pointer-events-none z-20">
+                <canvas
+                  ref={overlayCanvasRef}
+                  className="w-full h-full pointer-events-auto touch-none"
+                  style={{ touchAction: 'none' }}
+                  onMouseDown={overlayStartDrawing}
+                  onMouseMove={overlayDraw}
+                  onMouseUp={overlayEndDrawing}
+                  onMouseLeave={overlayEndDrawing}
+                  onTouchStart={overlayStartDrawing}
+                  onTouchMove={overlayDraw}
+                  onTouchEnd={overlayEndDrawing}
+                />
+              </div>
+            )}
+          </main>
+
+          {/* ============================================================== */}
+          {/* DRAGGABLE SPLIT RESIZE HANDLE */}
+          {/* ============================================================== */}
+          {showRightSidebar && !focusMode && (
+            <div
+              ref={dividerRef}
+              className="flex-shrink-0 w-2 bg-slate-850 hover:bg-slate-700 cursor-col-resize relative group transition-colors z-20 flex items-center justify-center"
+              onMouseDown={startDrag}
+            >
+              <div className="p-0.5 rounded bg-slate-800 border border-slate-700 text-slate-500 group-hover:text-slate-300">
+                <GripVertical size={14} />
               </div>
             </div>
           )}
 
-          {/* ==============================================================
-              RIGHT SIDEBAR – with smooth transition
-              ============================================================== */}
-          {showRightSidebar && (
+          {/* ============================================================== */}
+          {/* RIGHT STUDY WORKSPACE (Whiteboard, TLDraw, Notes, Formulas) */}
+          {/* ============================================================== */}
+          {showRightSidebar && !focusMode && (
             <aside
-              className="hidden lg:flex flex-col border-l border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4 h-full"
+              className="hidden lg:flex flex-col border-l border-slate-800 bg-slate-950/90 backdrop-blur-md pt-3 pb-6 px-3 h-full overflow-hidden"
               style={{
-                width: hideMain ? '100%' : `${rightSidebarWidth}px`,
+                width: `${rightSidebarWidth}px`,
                 flexShrink: 0,
                 transition: isDragging ? 'none' : 'width 0.15s ease',
-                willChange: 'width',
               }}
             >
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-sky-300 font-semibold text-base flex items-center gap-2">
-                    <Pencil size={16} /> {drawMode === 'canvas' ? 'Whiteboard' : 'tldraw'}
-                  </h4>
-                  <button onClick={() => setDrawMode(drawMode === 'canvas' ? 'tldraw' : 'canvas')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-sky-400 text-xs text-slate-300 hover:text-sky-300 transition-all duration-200">
-                    <Palette size={14} /> {drawMode === 'canvas' ? 'Switch to tldraw' : 'Switch to Canvas'}
+                
+                {/* Workspace Header Tabs */}
+                <div className="flex items-center justify-between gap-1 pb-2.5 mb-2.5 border-b border-slate-800">
+                  <div className="flex items-center gap-1 bg-slate-900 p-0.5 rounded-lg border border-slate-800">
+                    <button
+                      onClick={() => setActiveRightTab('canvas')}
+                      className={`px-2 py-1 rounded text-xs font-medium transition ${
+                        activeRightTab === 'canvas'
+                          ? "bg-slate-800 text-slate-100 font-semibold"
+                          : "text-slate-400 hover:text-slate-200"
+                      }`}
+                    >
+                      Whiteboard
+                    </button>
+
+                    <button
+                      onClick={() => setActiveRightTab('tldraw')}
+                      className={`px-2 py-1 rounded text-xs font-medium transition ${
+                        activeRightTab === 'tldraw'
+                          ? "bg-slate-800 text-slate-100 font-semibold"
+                          : "text-slate-400 hover:text-slate-200"
+                      }`}
+                    >
+                      TLDraw
+                    </button>
+
+                    <button
+                      onClick={() => setActiveRightTab('scratchpad')}
+                      className={`px-2 py-1 rounded text-xs font-medium transition ${
+                        activeRightTab === 'scratchpad'
+                          ? "bg-slate-800 text-slate-100 font-semibold"
+                          : "text-slate-400 hover:text-slate-200"
+                      }`}
+                    >
+                      Notes
+                    </button>
+
+                    <button
+                      onClick={() => setActiveRightTab('cheatsheet')}
+                      className={`px-2 py-1 rounded text-xs font-medium transition ${
+                        activeRightTab === 'cheatsheet'
+                          ? "bg-slate-800 text-slate-100 font-semibold"
+                          : "text-slate-400 hover:text-slate-200"
+                      }`}
+                    >
+                      Formulas
+                    </button>
+                  </div>
+
+                  <button
+                    onClick={() => setShowRightSidebar(false)}
+                    className="p-1 rounded-lg text-slate-400 hover:text-white"
+                    title="Close workspace"
+                  >
+                    <X size={14} />
                   </button>
                 </div>
 
-                {drawMode === 'canvas' && (
-                  <>
-                    <div className="flex flex-wrap items-center gap-2 mb-3 bg-slate-900/80 p-2 rounded-lg border border-slate-700">
-                      <input type="color" value={drawingColor} onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }} className="w-7 h-7 p-0 border-0 rounded cursor-pointer bg-transparent" title="Pen color" />
-                      <div className="flex items-center gap-1">
-                        <span className="text-[10px] text-slate-400">Size</span>
-                        <input type="range" min="1" max="20" value={drawingSize} onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }} className="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer" />
-                        <span className="text-[10px] text-slate-300 w-4">{drawingSize}</span>
-                      </div>
-                      <button onClick={() => setIsEraser(!isEraser)} className={`p-1.5 rounded-md transition ${isEraser ? 'bg-sky-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`} title="Eraser"><Eraser size={14} /></button>
-                      <button onClick={clearCanvas} className="p-1.5 rounded-md bg-rose-800/70 hover:bg-rose-700 text-rose-200 transition" title="Clear"><Trash2 size={14} /></button>
-                      <button onClick={saveDrawing} className="p-1.5 rounded-md bg-emerald-800/70 hover:bg-emerald-700 text-emerald-200 transition text-[10px] px-2" title="Save now">💾</button>
-                    </div>
-                    <div className="flex-1 relative border border-slate-700 rounded-xl overflow-hidden bg-slate-900/40">
-                      <canvas ref={canvasRef} onMouseDown={startDrawing} onMouseMove={draw} onMouseUp={endDrawing} onMouseLeave={endDrawing} onTouchStart={startDrawing} onTouchMove={draw} onTouchEnd={endDrawing} className="touch-none w-full h-full" />
-                    </div>
-                  </>
-                )}
-
-                {drawMode === 'tldraw' && (
-                  <div className="flex-1 flex flex-col border border-slate-700 rounded-xl overflow-hidden bg-slate-900">
-                    <div className="flex flex-wrap items-center gap-2 px-3 py-2 bg-slate-800/80 border-b border-slate-700">
-                      <span className="text-[10px] text-slate-400 font-medium mr-1">Shortcuts:</span>
+                {/* TAB 1: CANVAS WHITEBOARD */}
+                {activeRightTab === 'canvas' && (
+                  <div className="flex-1 flex flex-col min-h-0">
+                    <div className="flex items-center justify-between gap-2 mb-2 bg-slate-900 p-1.5 rounded-lg border border-slate-800">
                       <div className="flex items-center gap-1.5">
-                        {['d','draw','e','eraser','r','rectangle','o','circle','l','line','t','text','v','select'].map((key, i, arr) => {
-                          if (i%2===0) {
-                            const toolName = arr[i+1];
-                            return (
-                              <div key={key} onClick={() => handleShortcutClick(key, toolName)} className={`flex items-center gap-0.5 text-[10px] text-slate-300 px-1.5 py-0.5 rounded cursor-pointer transition-all duration-150 ${selectedShortcut === toolName ? 'bg-sky-600/50 border border-sky-400' : 'bg-slate-700/50 hover:bg-slate-600/70'}`}>
-                                {toolName === 'draw' && <Pencil size={12} className="text-sky-400" />}
-                                {toolName === 'eraser' && <Eraser size={12} className="text-rose-400" />}
-                                {toolName === 'rectangle' && <Square size={12} className="text-emerald-400" />}
-                                {toolName === 'circle' && <Circle size={12} className="text-purple-400" />}
-                                {toolName === 'line' && <Minus size={12} className="text-yellow-400" />}
-                                {toolName === 'text' && <Type size={12} className="text-indigo-400" />}
-                                {toolName === 'select' && <MousePointer2 size={12} className="text-sky-300" />}
-                                <kbd className="text-[9px] font-mono text-slate-400">{key.toUpperCase()}</kbd>
-                              </div>
-                            );
-                          }
-                          return null;
-                        })}
+                        <input
+                          type="color"
+                          value={drawingColor}
+                          onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }}
+                          className="w-5 h-5 p-0 border-0 rounded cursor-pointer bg-transparent"
+                          title="Pen color"
+                        />
+                        <div className="flex items-center gap-1">
+                          <input
+                            type="range"
+                            min="1"
+                            max="16"
+                            value={drawingSize}
+                            onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }}
+                            className="w-12 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                          />
+                        </div>
+                        <button
+                          onClick={() => setIsEraser(!isEraser)}
+                          className={`p-1 rounded transition ${isEraser ? "bg-slate-700 text-white" : "text-slate-400 hover:text-slate-200"}`}
+                          title="Eraser"
+                        >
+                          <Eraser size={13} />
+                        </button>
                       </div>
-                      {copyFeedback && <span className="text-[10px] text-green-400 ml-2 animate-pulse">{copyFeedback}</span>}
+
+                      <div className="flex items-center gap-1">
+                        <button
+                          onClick={clearCanvas}
+                          className="p-1 rounded text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition"
+                          title="Clear canvas"
+                        >
+                          <Trash2 size={13} />
+                        </button>
+                        <button
+                          onClick={downloadDrawing}
+                          className="p-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 transition"
+                          title="Download PNG snapshot"
+                        >
+                          <Download size={13} />
+                        </button>
+                      </div>
                     </div>
-                    <TldrawWrapper onEditorReady={handleEditorReady} />
+
+                    <div className="flex-1 relative border border-slate-800 rounded-xl overflow-hidden bg-slate-950">
+                      <canvas
+                        ref={canvasRef}
+                        onMouseDown={startDrawing}
+                        onMouseMove={draw}
+                        onMouseUp={endDrawing}
+                        onMouseLeave={endDrawing}
+                        onTouchStart={startDrawing}
+                        onTouchMove={draw}
+                        onTouchEnd={endDrawing}
+                        className="touch-none w-full h-full"
+                      />
+                    </div>
                   </div>
                 )}
-                <p className="text-[10px] text-slate-500 mt-2 text-center">{drawMode === 'canvas' ? 'Draw freely · Auto‑saved' : 'Powered by tldraw library'}</p>
+
+                {/* TAB 2: TLDRAW CANVAS */}
+                {activeRightTab === 'tldraw' && (
+                  <div className="flex-1 flex flex-col border border-slate-800 rounded-xl overflow-hidden bg-slate-900 min-h-0">
+                    <div className="flex items-center gap-1.5 px-2 py-1.5 bg-slate-850 border-b border-slate-800 text-[10px] text-slate-300">
+                      <span>Tools:</span>
+                      {['d','draw','e','eraser','r','rectangle','o','circle','l','line','t','text','v','select'].map((key, i, arr) => {
+                        if (i % 2 === 0) {
+                          const toolName = arr[i + 1];
+                          return (
+                            <button
+                              key={key}
+                              onClick={() => handleShortcutClick(key, toolName)}
+                              className={`px-1.5 py-0.5 rounded uppercase font-mono ${
+                                selectedShortcut === toolName ? "bg-slate-700 text-white font-bold" : "bg-slate-900 text-slate-400 hover:text-slate-200"
+                              }`}
+                            >
+                              {key}
+                            </button>
+                          );
+                        }
+                        return null;
+                      })}
+                      {copyFeedback && <span className="text-[10px] text-emerald-400 ml-auto">{copyFeedback}</span>}
+                    </div>
+                    <TldrawWrapper onEditorReady={(editor) => { tldrawEditorRef.current = editor; }} />
+                  </div>
+                )}
+
+                {/* TAB 3: NOTES & SCRATCHPAD */}
+                {activeRightTab === 'scratchpad' && (
+                  <div className="flex-1 flex flex-col min-h-0 space-y-2">
+                    <div className="flex items-center justify-between text-xs text-slate-400">
+                      <span>Auto-saved Topic Notes</span>
+                      <button
+                        onClick={() => {
+                          const blob = new Blob([scratchpadText], { type: "text/plain" });
+                          const url = URL.createObjectURL(blob);
+                          const a = document.createElement("a");
+                          a.href = url;
+                          a.download = `notes-${moduleSlug}-topic-${topicIndex}.txt`;
+                          a.click();
+                          showToast("Notes downloaded.");
+                        }}
+                        className="p-1 text-slate-400 hover:text-white"
+                        title="Download notes"
+                      >
+                        <Download size={13} />
+                      </button>
+                    </div>
+                    <textarea
+                      value={scratchpadText}
+                      onChange={(e) => handleScratchpadChange(e.target.value)}
+                      placeholder="Write your calculations, scratch notes, formulas here..."
+                      className="flex-1 w-full bg-slate-950 text-slate-200 p-3 rounded-xl border border-slate-800 text-xs font-mono placeholder:text-slate-600 focus:outline-none focus:border-slate-700 resize-none"
+                    />
+                  </div>
+                )}
+
+                {/* TAB 4: FORMULAS CHEAT SHEET */}
+                {activeRightTab === 'cheatsheet' && (
+                  <div className="flex-1 overflow-y-auto space-y-3 pr-1 text-xs custom-scrollbar">
+                    
+                    {/* Linear Programming Reference */}
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-200">
+                        <Sigma size={14} className="text-sky-400" />
+                        <span>Linear Programming Essentials</span>
+                      </div>
+                      <p className="text-[11px] text-slate-400">
+                        • Standard Form: Max/Min Z = Σ c_j x_j subject to Σ a_ij x_j = b_i, x_j ≥ 0.
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        • Constraints: For ≤ constraints, add slack variable s ≥ 0. For ≥ constraints, subtract surplus s ≥ 0 and add artificial variable A ≥ 0.
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        • Big-M Method: Penalty (+M) in minimization, (-M) in maximization for artificial variables.
+                      </p>
+                    </div>
+
+                    {/* Transportation Reference */}
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-200">
+                        <Calculator size={14} className="text-teal-400" />
+                        <span>Transportation Problems</span>
+                      </div>
+                      <p className="text-[11px] text-slate-400">
+                        • Balanced Condition: Total Supply = Total Demand. If unbalanced, add dummy row or column.
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        • Initial BFS: North-West Corner Rule (NWCR), Matrix Minima (Least Cost), Vogel's Approximation Method (VAM).
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        • MODI Optimality: u_i + v_j = c_ij for allocated cells; Opportunity cost d_ij = c_ij - (u_i + v_j) for unallocated cells.
+                      </p>
+                    </div>
+
+                    {/* Assignment & Hungarian */}
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-200">
+                        <Binary size={14} className="text-amber-400" />
+                        <span>Assignment Problem (Hungarian)</span>
+                      </div>
+                      <p className="text-[11px] text-slate-400">
+                        • Step 1: Row reduction (subtract minimum element of each row).
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        • Step 2: Column reduction (subtract minimum element of each column).
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        • Step 3: Draw minimum lines N to cover all zeros. If N = n, optimal assignment is reached.
+                      </p>
+                    </div>
+
+                    {/* CPM & PERT */}
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-200">
+                        <Compass size={14} className="text-indigo-400" />
+                        <span>CPM & PERT Calculations</span>
+                      </div>
+                      <p className="text-[11px] text-slate-400">
+                        • Forward Pass: ES_j = max(EF_i), EF = ES + t.
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        • Backward Pass: LF_i = min(LS_j), LS = LF - t.
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        • Expected Time (PERT): t_e = (a + 4m + b) / 6, Variance σ² = ((b - a) / 6)².
+                      </p>
+                    </div>
+
+                    {/* Game Theory */}
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-200">
+                        <ShieldCheck size={14} className="text-rose-400" />
+                        <span>Game Theory Principles</span>
+                      </div>
+                      <p className="text-[11px] text-slate-400">
+                        • Saddle Point: Maximin = Minimax.
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        • Dominance: Row A dominates B if every payoff in A ≥ B. Column A dominates B if every payoff in A ≤ B.
+                      </p>
+                      <p className="text-[11px] text-slate-400">
+                        • 2x2 Mixed Strategy: p1 = (a22 - a21) / [(a11 + a22) - (a12 + a21)].
+                      </p>
+                    </div>
+
+                  </div>
+                )}
+
               </div>
             </aside>
           )}
@@ -1131,23 +1587,58 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
         </div>
       </div>
 
-      {/* ==============================================================
-          FLOATING TOOLBAR – Draw Anywhere (fixed)
-          ============================================================== */}
+      {/* ============================================================== */}
+      {/* FLOATING TOOLBAR – DRAW ANYWHERE (BOTTOM DOCK) */}
+      {/* ============================================================== */}
       {drawAnywhere && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[101] pointer-events-auto flex flex-wrap items-center gap-2 bg-slate-900/95 backdrop-blur-xl border border-slate-700 rounded-2xl px-3 py-2 shadow-2xl">
-          <button onClick={() => setDrawAnywhere(false)} className="p-1.5 rounded-md bg-rose-800/70 hover:bg-rose-700 text-rose-200 transition text-xs font-medium px-3">✕ Exit</button>
-          <div className="w-px h-6 bg-slate-700" />
-          <input type="color" value={drawingColor} onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }} className="w-8 h-8 p-0 border-0 rounded cursor-pointer bg-transparent" title="Pen color" />
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex items-center gap-2 bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-2xl px-3.5 py-2 shadow-2xl">
+          <button
+            onClick={() => setDrawAnywhere(false)}
+            className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition"
+          >
+            ✕ Exit
+          </button>
+          
+          <div className="w-px h-5 bg-slate-800" />
+
+          <input
+            type="color"
+            value={drawingColor}
+            onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }}
+            className="w-6 h-6 p-0 border-0 rounded cursor-pointer bg-transparent"
+            title="Pen color"
+          />
+
           <div className="flex items-center gap-1">
             <span className="text-[10px] text-slate-400">Size</span>
-            <input type="range" min="1" max="20" value={drawingSize} onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }} className="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-sky-400" />
-            <span className="text-[10px] text-slate-300 w-4">{drawingSize}</span>
+            <input
+              type="range"
+              min="1"
+              max="16"
+              value={drawingSize}
+              onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }}
+              className="w-14 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+            />
           </div>
-          <button onClick={() => setIsEraser(!isEraser)} className={`p-1.5 rounded-md transition ${isEraser ? 'bg-sky-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`} title="Eraser"><Eraser size={16} /></button>
-          <button onClick={overlayClear} className="p-1.5 rounded-md bg-rose-800/70 hover:bg-rose-700 text-rose-200 transition" title="Clear"><Trash2 size={16} /></button>
+
+          <button
+            onClick={() => setIsEraser(!isEraser)}
+            className={`p-1.5 rounded-lg transition ${isEraser ? "bg-slate-700 text-white" : "text-slate-400 hover:text-slate-200"}`}
+            title="Eraser"
+          >
+            <Eraser size={14} />
+          </button>
+
+          <button
+            onClick={overlayClear}
+            className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 transition"
+            title="Clear all screen markings"
+          >
+            <Trash2 size={14} />
+          </button>
         </div>
       )}
+
     </div>
   );
 }
