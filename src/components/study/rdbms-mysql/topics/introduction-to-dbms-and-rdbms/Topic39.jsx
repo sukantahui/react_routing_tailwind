@@ -1086,7 +1086,7 @@ mysqldump -u root -p'password' db_name > %BACKUP_DIR%\\db_%DATE%.sql`}
                 <span>
                   <strong>Use compression:</strong> Save storage and bandwidth
                   by compressing backup files.
-                </strong>
+                </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-emerald-500 dark:text-emerald-400">✓</span>

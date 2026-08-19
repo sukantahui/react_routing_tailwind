@@ -279,7 +279,7 @@ const Topic39 = () => {
             </p>
             <p>
               🔹 <strong>Keep a backup of your crontab.</strong> The script does this automatically, but you can also
-              version control your cron jobs: <code>crontab -l > my_crontab.bak</code>.
+              version control your cron jobs: <code>crontab -l &gt; my_crontab.bak</code>.
             </p>
             <p>
               🔹 <strong>Use `flock` to prevent overlapping.</strong> Example:

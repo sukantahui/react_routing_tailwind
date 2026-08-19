@@ -783,8 +783,8 @@ rm tmpfile`}
                         </div>
                         <div className="p-4 bg-white/50 dark:bg-gray-700/50 rounded-lg">
                             <p className="text-gray-700 dark:text-gray-300 italic">
-                                <strong>Observe carefully...</strong> The difference between `command | tee file` and 
-                                `command > file`. When would you use each, and how do they affect pipeline flow?
+                                <strong>Observe carefully...</strong> The difference between <code>command | tee file</code> and 
+                                <code>command &gt; file</code>. When would you use each, and how do they affect pipeline flow?
                             </p>
                         </div>
                         <div className="p-4 bg-white/50 dark:bg-gray-700/50 rounded-lg">

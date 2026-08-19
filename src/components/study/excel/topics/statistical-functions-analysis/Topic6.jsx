@@ -169,7 +169,7 @@ export default function Topic6() {
         <section className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5">
           <h3 className="text-xl font-semibold text-yellow-300">💭 Think about...</h3>
           <p className="mt-2 text-gray-200">
-            “If you have a list of exam marks and you want to sum only those that are above the class average, can you use a cell reference in the criteria? Yes: =SUMIF(marks, ">"&amp;AVERAGE(marks)).<br />
+            “If you have a list of exam marks and you want to sum only those that are above the class average, can you use a cell reference in the criteria? Yes: =SUMIF(marks, &quot;&gt;&quot;&amp;AVERAGE(marks)).<br />
             Observe carefully: The criteria is a text string built with &amp; – Excel evaluates the average inside the string.”
           </p>
         </section>

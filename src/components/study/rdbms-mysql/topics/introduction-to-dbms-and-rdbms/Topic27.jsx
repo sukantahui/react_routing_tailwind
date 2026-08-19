@@ -867,7 +867,7 @@ const Topic27 = () => {
                   <strong>Using MyISAM for new projects:</strong> MyISAM lacks
                   transactions and foreign keys. InnoDB is almost always a
                   better choice.
-                </strong>
+                </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-red-500 dark:text-red-400">✗</span>

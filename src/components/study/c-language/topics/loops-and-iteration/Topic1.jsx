@@ -200,7 +200,7 @@ const Topic1 = () => {
 
               {/* Loop back from body to condition */}
               <line x1="500" y1="170" x2="500" y2="220" stroke="#6b7280" strokeWidth="2" strokeDasharray="4 4" />
-              <line x1="500" y2="220" x2="300" y2="220" stroke="#6b7280" strokeWidth="2" strokeDasharray="4 4" />
+              <line x1="500" y1="220" x2="300" y2="220" stroke="#6b7280" strokeWidth="2" strokeDasharray="4 4" />
               <line x1="300" y1="220" x2="300" y2="180" stroke="#6b7280" strokeWidth="2" strokeDasharray="4 4" />
               <polygon points="300,180 295,190 305,190" fill="#6b7280" />
               <text x="400" y="210" fontSize="11" fill="#4b5563" className="dark:fill-gray-400">

@@ -206,7 +206,7 @@ export default function Topic15() {
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Use <strong>INDIRECT</strong> to create dynamic sheet references: =VLOOKUP(A2, INDIRECT("'"&B2&"'!A:B"), 2, FALSE) where B2 contains sheet name.</li>
             <li>For cross‑workbook, use Power Query (Get & Transform) to import data instead of formulas – it's more robust.</li>
-            <li>Use <strong>Data > Edit Links</strong> to manage, update, or break external links.</li>
+            <li>Use <strong>Data &rarr; Edit Links</strong> to manage, update, or break external links.</li>
             <li>Store linked workbooks in the same folder and use relative paths (don't include drive letters).</li>
           </ul>
         </section>

@@ -631,7 +631,7 @@ ls /nonexistent > output.txt
                             <div className="p-4 bg-white/50 dark:bg-gray-700/50 rounded-lg">
                                 <h3 className="font-semibold text-gray-800 dark:text-white mb-2">Readability</h3>
                                 <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-                                    <li>Use `&>` instead of `> file 2>&1` for clarity</li>
+                                    <li>Use <code>&amp;&gt;</code> instead of <code>&gt; file 2&gt;&amp;1</code> for clarity</li>
                                     <li>Comment complex redirection setups</li>
                                     <li>Use here-documents for multi-line input</li>
                                     <li>Break complex pipelines into steps</li>
@@ -701,7 +701,7 @@ ls /nonexistent > output.txt
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
                             <span className="text-gray-700 dark:text-gray-300">
-                                `>` overwrites, `>>` appends
+                                <code>&gt;</code> overwrites, <code>&gt;&gt;</code> appends
                             </span>
                         </div>
                         <div className="flex items-start space-x-3 p-3 bg-white/50 dark:bg-gray-700/50 rounded-lg">
@@ -709,7 +709,7 @@ ls /nonexistent > output.txt
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
                             <span className="text-gray-700 dark:text-gray-300">
-                                `2>` redirects stderr, `&>` redirects both
+                                <code>2&gt;</code> redirects stderr, <code>&amp;&gt;</code> redirects both
                             </span>
                         </div>
                         <div className="flex items-start space-x-3 p-3 bg-white/50 dark:bg-gray-700/50 rounded-lg">
@@ -717,7 +717,7 @@ ls /nonexistent > output.txt
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
                             <span className="text-gray-700 dark:text-gray-300">
-                                Order matters: `command > file 2>&1`
+                                Order matters: <code>command &gt; file 2&gt;&amp;1</code>
                             </span>
                         </div>
                         <div className="flex items-start space-x-3 p-3 bg-white/50 dark:bg-gray-700/50 rounded-lg">
@@ -760,7 +760,7 @@ ls /nonexistent > output.txt
                                 Remember: <strong>Always separate stdout and stderr in production scripts</strong>. 
                                 This simple practice has saved us countless debugging hours. Also, `tee` is your friend - 
                                 it lets you see what's happening while capturing output to files. For complex redirections, 
-                                use file descriptor duplication (`exec 3>&1`) to save and restore streams.
+                                use file descriptor duplication (<code>exec 3&gt;&amp;1</code>) to save and restore streams.
                             </p>
                         </div>
                         
