@@ -25,12 +25,12 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen bg-[#030712] text-slate-100 selection:bg-sky-500/30 selection:text-sky-300 overflow-x-hidden">
       {/* Navbar */}
       <div
         className="fixed top-0 left-0 w-full z-50
-               bg-white/80 backdrop-blur-md
-               border-b shadow-sm"
+               bg-slate-950/80 backdrop-blur-xl
+               border-b border-slate-800/80 shadow-2xl shadow-black/40"
       >
         {isLoggedIn ? (
           <AuthNavBar setIsLoggedIn={setIsLoggedIn} />

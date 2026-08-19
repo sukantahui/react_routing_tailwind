@@ -4,10 +4,13 @@ import './output.css'; // Must import Tailwind CSS
 import './index.css';  // ✅ Global CSS import
 import "katex/dist/katex.min.css";
 import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/">
-    <App />
-  </BrowserRouter>
+  <HelmetProvider>
+    <BrowserRouter basename="/">
+      <App />
+    </BrowserRouter>
+  </HelmetProvider>
 );
