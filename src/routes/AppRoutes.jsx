@@ -381,11 +381,7 @@ export default function AppRoutes() {
 
         <Route
           path={ROUTES.BIJOYA}
-          element={
-            <ProtectedRouteWrapper>
-              <Bijoya />
-            </ProtectedRouteWrapper>
-          }
+          element={<Bijoya />}
         />
 
         <Route
