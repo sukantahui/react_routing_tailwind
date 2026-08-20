@@ -12,7 +12,6 @@ import {
   MessageSquare,
   MessageCircle,
   CheckCircle2,
-  XCircle,
   Sparkles,
   CalendarCheck,
   Utensils,
@@ -23,7 +22,6 @@ import {
   List,
   Download,
   RefreshCw,
-  Share2,
   Copy,
   Check,
   Edit3,
@@ -32,7 +30,7 @@ import {
   Users,
   Award,
   ExternalLink,
-  ChevronRight,
+  Share2,
 } from "lucide-react";
 import { authService } from "../api/auth.service";
 import qr from "../assets/google_review_QR.png";
@@ -40,6 +38,7 @@ import qr from "../assets/google_review_QR.png";
 export default function Bijoya() {
   const [guests, setGuests] = useState([]);
   const [savedGuests, setSavedGuests] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
     guestName: "",
     mobile: "",
@@ -68,6 +67,16 @@ export default function Bijoya() {
   const [copiedToken, setCopiedToken] = useState(false);
 
   const formRef = useRef(null);
+
+  // Check login status on mount & listen to storage
+  useEffect(() => {
+    const checkAuth = () => {
+      setIsLoggedIn(Boolean(localStorage.getItem("token")));
+    };
+    checkAuth();
+    window.addEventListener("storage", checkAuth);
+    return () => window.removeEventListener("storage", checkAuth);
+  }, []);
 
   // Fetch all guests on mount
   useEffect(() => {
@@ -269,23 +278,58 @@ export default function Bijoya() {
     setSameAsMobile(false);
   };
 
-  // WhatsApp Invite / Message Sender
+  // WhatsApp Invite / Message Sender (Protected by Login)
   const sendWhatsApp = (guest) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      Swal.fire({
+        title: "Login Required 🔒",
+        text: "Sending WhatsApp invitations is only available for logged-in organizers.",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonText: "Log In Now",
+        confirmButtonColor: "#8b5cf6",
+        cancelButtonText: "Cancel",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "/login";
+        }
+      });
+      return;
+    }
+
     const phone = (guest.wpNumber || guest.mobile || "").replace(/\D/g, "");
     const formattedPhone = phone.startsWith("91") && phone.length > 10 ? phone : `91${phone}`;
-    const tokenDisplay = guest.token ? `[Token: #${guest.token}]` : "";
+    const tokenDisplay = guest.token ? `#${guest.token}` : `CNAT-${guest.guestId || "VIP"}`;
+
+    const isVeg =
+      guest.foodPreferenceId === "1" ||
+      guest.foodPreferenceId === 1 ||
+      (guest.foodPreferenceName?.toLowerCase().includes("veg") &&
+        !guest.foodPreferenceName?.toLowerCase().includes("non"));
+    const foodText = isVeg ? "🥬 Vegetarian (নিরামিষ)" : "🍗 Non-Vegetarian (আমিষ)";
 
     const message = `🌸 *শুভ বিজয়া সম্মিলনী ও মৈত্রী মহোৎসব* 🌸
-Hello ${guest.guestName} ${tokenDisplay},
+━━━━━━━━━━━━━━━━━━
+নমস্কার *${guest.guestName}*,
 
-We are thrilled to welcome you to our Bijoya gathering! 🎉
-📍 *Venue:* Barrackpore
-🍽️ *Food Preference:* ${guest.foodPreferenceName || (guest.foodPreferenceId === "1" ? "Vegetarian" : "Non-Vegetarian")}
+বিজয়ার প্রীতি, শুভেচ্ছা ও আন্তরিক ভালোবাসা জানাই। Coder & AccoTax পরিবারের পক্ষ থেকে আমাদের বিশেষ বিজয়া প্রীতি সম্মেলন ও আনন্দ সম্মিলনে আপনাকে সপরিবারে আন্তরিক সাদর আমন্ত্রণ! 🎉
 
-⭐ *Leave us a Google Review:*
-https://g.page/r/CTBkwqHJ6mZ2EBM/review
+🎟️ *Entry Token:* \`${tokenDisplay}\`
+📍 *Venue:* Coder & AccoTax, Barrackpore
+🍽️ *Food Preference:* ${foodText}
+✨ *Status:* ${guest.is_present ? "✅ Confirmed (উপস্থিত থাকবেন)" : "Invited"}
 
-— Team Coder & AccoTax`;
+━━━━━━━━━━━━━━━━━━
+⭐ *আপনার মূল্যবান মতামত আমাদের জন্য অত্যন্ত মূল্যবান:*
+অনুগ্রহ করে নিচের লিঙ্কে ক্লিক করে আমাদের একটি গুগল রিভিউ দিয়ে অনুপ্রাণিত করুন:
+👉 https://g.page/r/CTBkwqHJ6mZ2EBM/review
+
+আপনাকে আমাদের মাঝে পেয়ে আমরা আনন্দিত হব।
+
+আন্তরিক শুভেচ্ছাসহ,
+*Team Coder & AccoTax* 💐
+━━━━━━━━━━━━━━━━━━`;
 
     window.open(`https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`, "_blank");
   };
@@ -358,8 +402,8 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
         return (
           guest.foodPreferenceId === "1" ||
           guest.foodPreferenceId === 1 ||
-          guest.foodPreferenceName?.toLowerCase().includes("veg") &&
-          !guest.foodPreferenceName?.toLowerCase().includes("non")
+          (guest.foodPreferenceName?.toLowerCase().includes("veg") &&
+            !guest.foodPreferenceName?.toLowerCase().includes("non"))
         );
       }
       if (activeFilter === "non-veg") {
@@ -519,7 +563,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                     <button
                       type="button"
                       onClick={cancelEdit}
-                      className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 transition"
+                      className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 transition cursor-pointer"
                     >
                       Cancel Edit
                     </button>
@@ -677,7 +721,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                           <button
                             type="button"
                             onClick={() => setShowPin(!showPin)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
                           >
                             {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                           </button>
@@ -708,7 +752,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                           <button
                             type="button"
                             onClick={() => setShowConfirmPin(!showConfirmPin)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
                           >
                             {showConfirmPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                           </button>
@@ -733,7 +777,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                             key={g.id}
                             type="button"
                             onClick={() => setFormData((prev) => ({ ...prev, genderId: g.id }))}
-                            className={`py-2.5 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-center gap-2 ${
+                            className={`py-2.5 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-center gap-2 cursor-pointer ${
                               formData.genderId === g.id
                                 ? "bg-purple-600/20 border-purple-500 text-purple-200 shadow-md shadow-purple-500/10"
                                 : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
@@ -755,7 +799,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                         <button
                           type="button"
                           onClick={() => setFormData((prev) => ({ ...prev, foodPreferenceId: "2" }))}
-                          className={`py-2.5 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-center gap-2 ${
+                          className={`py-2.5 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-center gap-2 cursor-pointer ${
                             formData.foodPreferenceId === "2"
                               ? "bg-rose-500/20 border-rose-500 text-rose-200 shadow-md shadow-rose-500/10"
                               : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
@@ -766,7 +810,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                         <button
                           type="button"
                           onClick={() => setFormData((prev) => ({ ...prev, foodPreferenceId: "1" }))}
-                          className={`py-2.5 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-center gap-2 ${
+                          className={`py-2.5 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-center gap-2 cursor-pointer ${
                             formData.foodPreferenceId === "1"
                               ? "bg-emerald-500/20 border-emerald-500 text-emerald-200 shadow-md shadow-emerald-500/10"
                               : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
@@ -827,7 +871,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                     </div>
                   </label>
 
-                  {/* Live Validation Checklist (Only shown if partially complete) */}
+                  {/* Live Validation Checklist */}
                   {!isValid() && (
                     <div className="p-3.5 rounded-xl bg-slate-950/50 border border-slate-800/80 text-xs text-slate-400 space-y-1">
                       <span className="font-semibold text-slate-300 block mb-1">To proceed, please ensure:</span>
@@ -900,7 +944,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                         <button
                           type="button"
                           onClick={cancelEdit}
-                          className="px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold border border-slate-700 transition"
+                          className="px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold border border-slate-700 transition cursor-pointer"
                         >
                           Cancel
                         </button>
@@ -946,10 +990,10 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                     {savedGuests.token ? `#${savedGuests.token}` : "#MM-BIJOYA"}
                   </div>
 
-                  <div className="flex items-center justify-center gap-2 pt-2">
+                  <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
                     <button
                       onClick={handleCopyToken}
-                      className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition cursor-pointer"
                     >
                       {copiedToken ? (
                         <>
@@ -963,6 +1007,26 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                         </>
                       )}
                     </button>
+
+                    {/* WhatsApp share action on pass (Login-protected) */}
+                    {(savedGuests.wpNumber || savedGuests.mobile) && (
+                      <button
+                        onClick={() => sendWhatsApp(savedGuests)}
+                        title={isLoggedIn ? "Send confirmation via WhatsApp" : "Login required to send WhatsApp"}
+                        className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold border transition cursor-pointer ${
+                          isLoggedIn
+                            ? "bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border-emerald-500/30"
+                            : "bg-slate-800 text-slate-400 hover:text-amber-300 border-slate-700"
+                        }`}
+                      >
+                        {isLoggedIn ? (
+                          <Share2 className="w-3.5 h-3.5 text-emerald-400" />
+                        ) : (
+                          <Lock className="w-3.5 h-3.5 text-amber-400" />
+                        )}
+                        <span>{isLoggedIn ? "Send to WhatsApp" : "WhatsApp (Login Required)"}</span>
+                      </button>
+                    )}
                   </div>
                 </div>
 
@@ -997,7 +1061,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                       setIsSaved(false);
                       resetForm();
                     }}
-                    className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg transition flex items-center justify-center gap-2"
+                    className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <PlusCircle className="w-4 h-4" />
                     <span>Register Another Guest</span>
@@ -1011,7 +1075,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                         directoryElement.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className="py-3 px-5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition"
+                    className="py-3 px-5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition cursor-pointer"
                   >
                     View Guest Directory
                   </button>
@@ -1043,14 +1107,14 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                 onClick={getAllGuest}
                 disabled={isLoading}
                 title="Refresh guest list"
-                className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition"
+                className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition cursor-pointer"
               >
                 <RefreshCw className={`w-4 h-4 ${isLoading ? "animate-spin text-purple-400" : ""}`} />
               </button>
 
               <button
                 onClick={exportToCSV}
-                className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-200 text-xs sm:text-sm font-semibold transition"
+                className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-200 text-xs sm:text-sm font-semibold transition cursor-pointer"
               >
                 <Download className="w-4 h-4 text-emerald-400" />
                 <span>Export CSV</span>
@@ -1060,7 +1124,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
               <div className="p-1 rounded-xl bg-slate-900 border border-slate-800 flex items-center">
                 <button
                   onClick={() => setViewMode("grid")}
-                  className={`p-1.5 rounded-lg transition ${
+                  className={`p-1.5 rounded-lg transition cursor-pointer ${
                     viewMode === "grid" ? "bg-purple-600 text-white" : "text-slate-400 hover:text-slate-200"
                   }`}
                   title="Grid View"
@@ -1069,7 +1133,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                 </button>
                 <button
                   onClick={() => setViewMode("table")}
-                  className={`p-1.5 rounded-lg transition ${
+                  className={`p-1.5 rounded-lg transition cursor-pointer ${
                     viewMode === "table" ? "bg-purple-600 text-white" : "text-slate-400 hover:text-slate-200"
                   }`}
                   title="Table View"
@@ -1095,7 +1159,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white cursor-pointer"
                 >
                   ✕
                 </button>
@@ -1113,7 +1177,7 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                 <button
                   key={tab.id}
                   onClick={() => setActiveFilter(tab.id)}
-                  className={`px-3 py-2 rounded-xl text-xs font-semibold transition ${
+                  className={`px-3 py-2 rounded-xl text-xs font-semibold transition cursor-pointer ${
                     activeFilter === tab.id
                       ? "bg-purple-600 text-white shadow-md shadow-purple-600/20"
                       : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200"
@@ -1216,15 +1280,24 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                     <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
                       <button
                         onClick={() => sendWhatsApp(guest)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 text-xs font-semibold border border-emerald-500/30 transition"
+                        title={isLoggedIn ? "Send WhatsApp invitation" : "Login required to send WhatsApp"}
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition cursor-pointer ${
+                          isLoggedIn
+                            ? "bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border-emerald-500/30"
+                            : "bg-slate-800/80 hover:bg-slate-700/80 text-slate-400 hover:text-amber-300 border-slate-700/60"
+                        }`}
                       >
-                        <MessageCircle className="w-3.5 h-3.5" />
-                        <span>WhatsApp</span>
+                        {isLoggedIn ? (
+                          <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+                        ) : (
+                          <Lock className="w-3.5 h-3.5 text-amber-400" />
+                        )}
+                        <span>{isLoggedIn ? "WhatsApp" : "WhatsApp (Login)"}</span>
                       </button>
 
                       <button
                         onClick={() => handleEdit(guest)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 text-xs font-semibold border border-purple-500/30 transition"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 text-xs font-semibold border border-purple-500/30 transition cursor-pointer"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
                         <span>Edit</span>
@@ -1290,15 +1363,23 @@ https://g.page/r/CTBkwqHJ6mZ2EBM/review
                           <div className="inline-flex items-center gap-2">
                             <button
                               onClick={() => sendWhatsApp(guest)}
-                              title="Send WhatsApp Invite"
-                              className="p-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 transition"
+                              title={isLoggedIn ? "Send WhatsApp Invite" : "Login required to send WhatsApp"}
+                              className={`p-1.5 rounded-lg border transition cursor-pointer ${
+                                isLoggedIn
+                                  ? "bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border-emerald-500/20"
+                                  : "bg-slate-800 text-slate-400 hover:text-amber-300 border-slate-700"
+                              }`}
                             >
-                              <MessageCircle className="w-4 h-4" />
+                              {isLoggedIn ? (
+                                <MessageCircle className="w-4 h-4" />
+                              ) : (
+                                <Lock className="w-4 h-4 text-amber-400/80" />
+                              )}
                             </button>
                             <button
                               onClick={() => handleEdit(guest)}
                               title="Edit Details"
-                              className="p-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/20 transition"
+                              className="p-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/20 transition cursor-pointer"
                             >
                               <Edit3 className="w-4 h-4" />
                             </button>
