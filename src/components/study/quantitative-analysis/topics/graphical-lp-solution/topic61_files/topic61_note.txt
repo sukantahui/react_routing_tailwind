@@ -1,0 +1,87 @@
+===============================================================================
+EFFECT OF REDUNDANT CONSTRAINTS ON THE FEASIBLE REGION
+===============================================================================
+
+TOPIC 61 – UNDERSTANDING THEIR IMPACT
+
+-------------------------------------------------------------------------------
+1. WHAT IS THE EFFECT OF REDUNDANT CONSTRAINTS?
+-------------------------------------------------------------------------------
+Redundant constraints have NO EFFECT on the feasible region.
+
+- The region remains exactly the same
+- Removing them doesn't change anything
+- They are implied by other constraints
+
+Key idea: Redundant = no effect.
+
+-------------------------------------------------------------------------------
+2. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: Upper Bound Redundancy
+  x ≤ 20 is redundant with x ≤ 10
+  → Removing x≤20 doesn't change the region
+
+Example 2: Combined Redundancy
+  x + y ≤ 20 is redundant with x ≤ 10, y ≤ 10
+  → Removing x+y≤20 doesn't change the region
+
+Example 3: No Redundant Constraints
+  All constraints are tight
+  → Removing any constraint would change the region
+
+-------------------------------------------------------------------------------
+3. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Redundant constraints have no effect on the feasible region
+✓ They can be safely removed
+✓ The region looks identical with or without them
+✓ The optimal solution is unchanged
+✓ Remove redundant constraints to simplify the problem
+
+-------------------------------------------------------------------------------
+4. COMPARISON: REDUNDANT vs TIGHT
+-------------------------------------------------------------------------------
+Redundant Constraints:
+  - No effect on the region
+  - Can be safely removed
+  - Lines outside the region
+  - Implied by other constraints
+
+Tight Constraints:
+  - Form the boundary of the region
+  - Cannot be removed
+  - Lines on the edge
+  - Affect the optimal solution
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming a constraint is redundant without verifying
+✗ Removing a constraint that actually affects the region
+✗ Not checking if the region changes after removal
+✗ Missing partially redundant constraints
+✗ Not documenting which constraints were removed
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Verify that removing the constraint doesn't change the region
+✓ Document which constraints were removed and why
+✓ Use graphical methods to identify redundancy
+✓ Test the region with and without the constraint
+✓ Remove redundant constraints to simplify the problem
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I understand that redundant constraints have no effect on the feasible region.
+☐ I can identify when a constraint is redundant.
+☐ I know that redundant constraints can be safely removed.
+☐ I can verify that removing a constraint doesn't change the region.
+☐ I understand the difference between redundant and tight constraints.
+☐ I can simplify LP problems by removing redundant constraints.
+
+===============================================================================
+END OF NOTES
+===============================================================================

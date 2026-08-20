@@ -1,0 +1,173 @@
+TOPIC 82: COMMON MISTAKES IN GRAPHICAL LP
+=========================================
+
+INTRODUCTION
+------------
+Understanding common mistakes in graphical LP helps students avoid 
+these errors and develop better problem-solving habits. This topic 
+identifies the most frequent mistakes and provides strategies to 
+prevent them.
+
+THE 10 MOST COMMON MISTAKES
+---------------------------
+
+1. RUSHING TO GRAPH WITHOUT UNDERSTANDING THE PROBLEM
+-----------------------------------------------------
+Description: Students start graphing immediately without fully 
+understanding what the problem is asking.
+
+Symptoms:
+• Missing the objective function
+• Using wrong variables
+• Forgetting to identify what needs to be optimized
+
+Solution: Read the problem multiple times. Identify:
+• What are we deciding? (variables)
+• What is the goal? (objective)
+• What limits us? (constraints)
+
+2. MISIDENTIFYING THE OBJECTIVE FUNCTION
+----------------------------------------
+Description: Confusing what should be maximized with what should 
+be minimized, or using wrong coefficients.
+
+Symptoms:
+• Maximizing cost instead of profit
+• Minimizing profit instead of cost
+• Using incorrect per-unit values
+
+Solution: Carefully read what the problem asks.
+• "Maximize profit" → profit is the objective
+• "Minimize cost" → cost is the objective
+
+3. FORGETTING NON-NEGATIVITY CONSTRAINTS
+----------------------------------------
+Description: Students often forget to include x ≥ 0 and y ≥ 0.
+
+Symptoms:
+• Feasible region extends into negative quadrants
+• Graph includes negative values
+• Solutions with negative quantities
+
+Solution: Always include x ≥ 0 and y ≥ 0 at the end of your
+constraint list.
+
+4. INCORRECTLY SHADING THE FEASIBLE REGION
+------------------------------------------
+Description: Shading the wrong side of a constraint line.
+
+Symptoms:
+• Feasible region is on the wrong side
+• Optimal solution violates a constraint
+• No feasible region found
+
+Solution: Always test a point (usually the origin) to determine
+which side to shade.
+
+5. MISSING CORNER POINTS
+------------------------
+Description: Failing to identify all corner points, especially
+those on axes.
+
+Symptoms:
+• Optimal solution is at a missed corner point
+• Suboptimal solution chosen
+• Missing intersections with axes
+
+Solution: Systematically check all intersections:
+• Constraint-constraint intersections
+• Constraint-x-axis intersections
+• Constraint-y-axis intersections
+
+6. NOT VERIFYING FEASIBILITY OF CORNER POINTS
+--------------------------------------------
+Description: Evaluating points that are not actually in the
+feasible region.
+
+Symptoms:
+• Optimal solution violates a constraint
+• Corner point from intersection is outside feasible region
+
+Solution: Before evaluating, verify each point satisfies ALL
+constraints.
+
+7. MISINTERPRETING "≥" AND "≤" CONSTRAINTS
+-------------------------------------------
+Description: Confusing which side to shade.
+
+Symptoms:
+• For ≥, shading below instead of above
+• For ≤, shading above instead of below
+
+Solution: Remember:
+• ≤ : shade below/beside the line
+• ≥ : shade above/beyond the line
+• Test a point to confirm
+
+8. IGNORING REDUNDANT CONSTRAINTS
+---------------------------------
+Description: Not recognizing when a constraint doesn't affect the
+feasible region.
+
+Symptoms:
+• Feasible region looks the same without the constraint
+• Constraint line never touches feasible region
+
+Solution: Graph all constraints but recognize when a constraint
+is redundant.
+
+9. MISREADING THE GRAPH SCALE
+-----------------------------
+Description: Using incorrect scale on axes.
+
+Symptoms:
+• Incorrect corner point coordinates
+• Wrong intercept values
+• Inconsistent scaling between axes
+
+Solution: Use consistent scaling on both axes. Mark intercepts
+clearly.
+
+10. NOT CHECKING THE FINAL ANSWER
+---------------------------------
+Description: Failing to verify that the optimal solution satisfies
+all constraints.
+
+Symptoms:
+• Solution violates a constraint
+• Optimal solution is not feasible
+
+Solution: Always substitute the optimal solution back into ALL
+constraints.
+
+PREVENTION STRATEGIES
+---------------------
+1. Follow a systematic step-by-step procedure
+2. Write everything down clearly
+3. Double-check your graph
+4. Systematically find corner points
+5. Always verify your solution
+6. Learn from your mistakes
+
+QUICK CHECKLIST
+---------------
+Before submitting your solution, check:
+□ Did I understand the problem correctly?
+□ Are my variables clearly defined?
+□ Is the objective function correct?
+□ Are all constraints included?
+□ Are non-negativity constraints included?
+□ Is the shading correct?
+□ Did I find ALL corner points?
+□ Did I verify each corner point is feasible?
+□ Did I choose the correct optimal point?
+□ Does my solution satisfy ALL constraints?
+
+TEACHER'S NOTE
+--------------
+Understanding common mistakes is one of the most effective learning 
+strategies. I encourage students to create their own "mistake 
+checklist" based on these common errors. The most successful 
+students are those who learn from mistakes - both their own and 
+others'. Remember: the goal is not to avoid mistakes entirely, 
+but to catch and correct them before they affect the final answer."

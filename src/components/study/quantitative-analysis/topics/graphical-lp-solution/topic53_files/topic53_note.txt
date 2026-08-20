@@ -1,0 +1,99 @@
+===============================================================================
+IDENTIFYING AN EMPTY FEASIBLE REGION
+===============================================================================
+
+TOPIC 53 – RECOGNIZING INFEASIBILITY
+
+-------------------------------------------------------------------------------
+1. WHAT IS AN EMPTY FEASIBLE REGION?
+-------------------------------------------------------------------------------
+An empty feasible region means there is no point that satisfies all
+constraints simultaneously. The feasible region does not exist.
+
+- No solution exists
+- Constraints are contradictory
+- The problem is infeasible
+
+Key idea: Empty = no solution.
+
+-------------------------------------------------------------------------------
+2. HOW TO IDENTIFY AN EMPTY FEASIBLE REGION
+-------------------------------------------------------------------------------
+Graphical Signs:
+  1. No overlap between shaded regions
+  2. Parallel constraints with opposite requirements
+  3. Requirements exceed available resources
+  4. Constraints outside the first quadrant
+
+Types of Empty Regions:
+  - Parallel Contradiction: x≤5 and x≥10
+  - Impossible Requirements: Need more than available
+  - Conflicting Non-Negativity: x+y≤-1 with x≥0, y≥0
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: Parallel Contradiction
+  x + y ≤ 5 and x + y ≥ 10
+  → No point can satisfy both
+
+Example 2: Impossible Requirements
+  x + y ≥ 8 with x ≤ 2, y ≤ 3
+  → Max sum = 5 < 8
+
+Example 3: Resource Over-Requirement
+  2x + 3y ≥ 18 with x + y ≤ 5
+  → Max LHS = 15 < 18
+
+Example 4: Conflicting Non-Negativity
+  x + y ≤ -1 with x ≥ 0, y ≥ 0
+  → x+y≥0 but constraint requires x+y≤-1
+
+-------------------------------------------------------------------------------
+4. WHAT TO DO WHEN THE REGION IS EMPTY
+-------------------------------------------------------------------------------
+1. Identify which constraints are conflicting
+2. Relax or revise the conflicting constraints
+3. Re-solve the problem with the revised constraints
+4. Document the infeasibility and the solution
+
+-------------------------------------------------------------------------------
+5. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Empty = no solution exists
+✓ Graph constraints to check for overlap
+✓ Look for parallel contradictions
+✓ Check if requirements are realistic
+✓ Revise constraints to restore feasibility
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming a feasible region exists without checking
+✗ Not graphing constraints to verify overlap
+✗ Missing contradictory constraints
+✗ Not checking if requirements are realistic
+✗ Continuing optimization despite an empty region
+
+-------------------------------------------------------------------------------
+7. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Always check feasibility before optimizing
+✓ Graph constraints to see if they overlap
+✓ Identify which constraints are contradictory
+✓ If empty, relax constraints or revise the model
+✓ Document the infeasibility for stakeholders
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify an empty feasible region.
+☐ I understand why an empty region occurs (conflicting constraints).
+☐ I can identify contradictory constraints.
+☐ I know that an empty region means no solution exists.
+☐ I can suggest ways to fix an empty region.
+☐ I can distinguish between empty and unbounded regions.
+
+===============================================================================
+END OF NOTES
+===============================================================================

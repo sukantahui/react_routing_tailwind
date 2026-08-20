@@ -1,0 +1,100 @@
+===============================================================================
+WORKED EXAMPLE 13: DIET AND NUTRITION MINIMIZATION
+===============================================================================
+
+TOPIC 40 – MINIMIZING MEAL COST WITH NUTRITION
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A dietitian plans a meal using two foods:
+
+- Food A: 20 protein, 10 carbs, ₹4/serving
+- Food B: 10 protein, 30 carbs, ₹3/serving
+- Minimum protein: 100 units
+- Minimum carbs: 120 units
+
+Question: How many servings of each food to minimize cost?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = servings of Food A
+  y = servings of Food B
+
+Objective Function:
+  Minimize C = 4x + 3y
+
+Constraints:
+  20x + 10y ≥ 100  (protein)
+  10x + 30y ≥ 120  (carbohydrates)
+  x ≥ 0, y ≥ 0     (non-negativity)
+
+Simplified:
+  2x + y ≥ 10  (protein)
+  x + 3y ≥ 12  (carbohydrates)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  A (0,10)    → C = 30
+  B (3,4)     → C = 24  ← OPTIMAL
+  C (5,0)     → C = 20  (infeasible)
+  E (0,12)    → C = 36
+
+Optimal Solution:
+  x = 3, y = 4, C = 24
+
+-------------------------------------------------------------------------------
+4. NUTRITIONAL CHECK
+-------------------------------------------------------------------------------
+At the optimal solution (3, 4):
+  Protein: 20(3) + 10(4) = 60 + 40 = 100 ✓ (exactly met)
+  Carbs:   10(3) + 30(4) = 30 + 120 = 150 ✓ (30 slack)
+
+Binding constraint: Protein
+Non-binding constraint: Carbohydrates (slack = 30)
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ Food A has more protein but is more expensive
+✓ Food B is cheaper but high in carbohydrates
+✓ The optimal solution uses both foods
+✓ Protein constraint is binding
+✓ Carbohydrates have slack (30 units)
+✓ Not all constraints need to bind in minimization
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting to simplify constraints
+✗ Not checking if the solution meets all requirements
+✗ Misreading the nutritional values
+✗ Assuming the cheaper food is always better
+✗ Not identifying which constraint is binding
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a diet/nutrition problem common in:
+
+- Nutrition planning: school meal programs, hospital diets
+- Food manufacturing: product formulation with nutritional requirements
+- Agriculture: animal feed formulation
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can formulate a diet/nutrition problem.
+☐ I can simplify nutritional constraints.
+☐ I can find the optimal meal plan.
+☐ I can verify all nutritional requirements are met.
+☐ I can interpret the solution in nutritional terms.
+☐ I can explain the trade-off between foods.
+
+===============================================================================
+END OF NOTES
+===============================================================================

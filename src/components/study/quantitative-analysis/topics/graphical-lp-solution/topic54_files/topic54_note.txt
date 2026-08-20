@@ -1,0 +1,83 @@
+===============================================================================
+WORKED EXAMPLE 15: INFEASIBLE GRAPHICAL LP PROBLEM
+===============================================================================
+
+TOPIC 54 – RECOGNIZING AND SOLVING INFEASIBILITY
+
+-------------------------------------------------------------------------------
+1. PROBLEM TYPES
+-------------------------------------------------------------------------------
+Example 1: Conflicting Constraints
+  x + y ≤ 5 and x + y ≥ 10
+  → Direct conflict, no solution
+
+Example 2: Resource Over-Requirement
+  3x + 2y ≥ 12 with x + y ≤ 3
+  → Max LHS = 9 < 12, no solution
+
+Example 3: Overly Restrictive Bounds
+  x + y ≥ 8 with x ≤ 2, y ≤ 3
+  → Max sum = 5 < 8, no solution
+
+-------------------------------------------------------------------------------
+2. GRAPHICAL SOLUTION METHOD
+-------------------------------------------------------------------------------
+Step 1: Graph all constraints
+Step 2: Shade the feasible region for each constraint
+Step 3: Look for overlap of all shaded regions
+Step 4: If no overlap → infeasible
+
+-------------------------------------------------------------------------------
+3. IDENTIFICATION METHODS
+-------------------------------------------------------------------------------
+Direct Conflict:
+  - Look for parallel constraints with opposite inequality directions
+  - Example: x≤5 and x≥10
+
+Resource Over-Requirement:
+  - Check if requirements exceed available resources
+  - Calculate max possible value and compare to min requirement
+
+Overly Restrictive Bounds:
+  - Check if upper bounds are too low for minimum requirements
+  - Calculate max possible value and compare to min requirement
+
+-------------------------------------------------------------------------------
+4. WHAT TO DO
+-------------------------------------------------------------------------------
+1. Identify which constraints are conflicting
+2. Relax or revise the conflicting constraints
+3. Re-solve the problem with the revised constraints
+4. Document the infeasibility and the solution
+
+-------------------------------------------------------------------------------
+5. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Infeasible = no solution exists
+✓ Graph constraints to check for overlap
+✓ Look for parallel contradictions
+✓ Check if requirements are realistic
+✓ Revise constraints to restore feasibility
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming feasibility without checking
+✗ Not graphing constraints to verify overlap
+✗ Missing contradictory constraints
+✗ Not checking if requirements are realistic
+✗ Continuing optimization despite infeasibility
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify an infeasible LP problem.
+☐ I understand why infeasibility occurs.
+☐ I can identify conflicting constraints.
+☐ I know that infeasibility means no solution exists.
+☐ I can suggest ways to fix an infeasible problem.
+☐ I can distinguish between infeasible and unbounded problems.
+
+===============================================================================
+END OF NOTES
+===============================================================================

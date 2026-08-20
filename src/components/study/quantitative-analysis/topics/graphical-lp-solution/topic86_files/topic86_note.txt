@@ -1,0 +1,103 @@
+TOPIC 86: NUMERICAL EXERCISES
+=============================
+
+INTRODUCTION
+------------
+Numerical exercises are essential for mastering graphical LP. This 
+topic provides a comprehensive set of exercises with detailed 
+step-by-step solutions to help you practice and learn.
+
+EXERCISE LIST
+-------------
+1. Maximization with Two Constraints (Basic)
+2. Minimization with Two Constraints (Basic)
+3. Maximization with Three Constraints (Intermediate)
+4. Minimization with Three Constraints (Intermediate)
+5. Real-World Production Problem (Intermediate)
+6. Investment Portfolio (Advanced)
+7. Diet Planning (Advanced)
+
+EXERCISE TYPES
+--------------
+1. Maximization Problems:
+   - Find the highest Z value
+   - Usually involves profit or return
+   - Uses ≤ constraints
+
+2. Minimization Problems:
+   - Find the lowest Z value
+   - Usually involves cost or risk
+   - Uses ≥ constraints
+
+3. Production Problems:
+   - Resource allocation
+   - Labor, material constraints
+   - Profit maximization
+
+4. Investment Problems:
+   - Portfolio allocation
+   - Return maximization
+   - Risk constraints
+
+5. Diet Problems:
+   - Nutritional requirements
+   - Cost minimization
+   - Surplus nutrients
+
+SOLUTION STRUCTURE
+------------------
+Each exercise solution includes:
+1. Variables Definition
+2. Objective Function
+3. Constraints
+4. Corner Points
+5. Evaluations
+6. Optimal Solution
+7. Resource Utilization
+8. Interpretation
+
+KEY FORMULAS
+------------
+Objective: Z = c₁x + c₂y
+Constraints: a₁x + a₂y ≤ b (or ≥, =)
+x-intercept: x = b/a₁
+y-intercept: y = b/a₂
+Slack: Slack = b - (a₁x* + a₂y*)
+Shadow Price: SP = ΔZ/Δb
+
+PROBLEM-SOLVING STEPS
+---------------------
+1. Read and understand the problem
+2. Define variables with units
+3. Formulate objective function
+4. Formulate constraints
+5. Graph constraints
+6. Find corner points
+7. Evaluate Z at each corner
+8. Select optimal solution
+9. Verify and interpret
+
+COMMON MISTAKES
+---------------
+1. Forgetting non-negativity constraints
+2. Incorrect shading of feasible region
+3. Missing corner points
+4. Arithmetic errors in calculations
+5. Not verifying the solution
+
+VERIFICATION CHECKLIST
+----------------------
+□ Satisfies all constraints
+□ No better Z at other corners
+□ Resource utilization correct
+□ Slack correctly calculated
+□ Interpretation makes sense
+
+TEACHER'S NOTE
+--------------
+Numerical exercises are the best way to build proficiency in 
+graphical LP. I encourage students to work through each exercise 
+independently before checking the solution. The process of solving, 
+verifying, and learning from mistakes is where true understanding 
+develops. Remember: practice makes perfect, but perfect practice 
+makes perfect."

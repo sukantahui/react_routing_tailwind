@@ -270,7 +270,7 @@ const Topic3 = () => {
                                                 fill={color}
                                                 className={clsx(
                                                     "transition-all duration-300 cursor-pointer",
-                                                    isSelected && "animate-[pulse_1.5s_ease-in-out_infinite]"
+                                                    isSelected && "cursor-pointer"
                                                 )}
                                             />
                                             <text

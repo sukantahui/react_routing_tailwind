@@ -488,7 +488,7 @@ const Topic15 = () => {
                                                     fill="#f59e0b"
                                                     stroke="#fff"
                                                     strokeWidth="2.5"
-                                                    className="animate-[pulse_1.5s_ease-in-out_infinite]"
+                                                    className=""
                                                 />
                                                 <text
                                                     x={px + 14}

@@ -211,19 +211,17 @@ const Topic0 = () => {
                                         </g>
                                     ))}
 
-                                    {/* Animated point */}
-                                    <circle cx="280" cy="120" r="6" fill="#3b82f6" className="animate-[pulse_2s_ease-in-out_infinite]">
-                                        <animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite" />
-                                        <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite" />
-                                    </circle>
-                                    <text x="285" y="115" fontSize="12" fill="#3b82f6" className="font-mono">(2, 2)</text>
+                                    {/* Static point */}
+                                    <circle cx="280" cy="120" r="6" fill="#3b82f6" />
+                                    <text x="285" y="115" fontSize="12" fill="#3b82f6" className="font-mono">
+                                        (2, 2)
+                                    </text>
 
-                                    {/* Animated second point */}
-                                    <circle cx="120" cy="280" r="6" fill="#10b981" className="animate-[pulse_2s_ease-in-out_infinite_0.5s]">
-                                        <animate attributeName="r" values="6;8;6" dur="2s" begin="0.5s" repeatCount="indefinite" />
-                                        <animate attributeName="opacity" values="1;0.7;1" dur="2s" begin="0.5s" repeatCount="indefinite" />
-                                    </circle>
-                                    <text x="100" y="295" fontSize="12" fill="#10b981" className="font-mono">(-2, -2)</text>
+                                    {/* Static second point */}
+                                    <circle cx="120" cy="280" r="6" fill="#10b981" />
+                                    <text x="100" y="295" fontSize="12" fill="#10b981" className="font-mono">
+                                        (-2, -2)
+                                    </text>
                                 </svg>
                             </div>
                         </div>

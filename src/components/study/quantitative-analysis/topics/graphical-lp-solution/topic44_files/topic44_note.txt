@@ -1,0 +1,100 @@
+===============================================================================
+SELECTING THE OPTIMAL CORNER POINT
+===============================================================================
+
+TOPIC 44 – FINDING THE BEST SOLUTION
+
+-------------------------------------------------------------------------------
+1. HOW TO SELECT THE OPTIMAL CORNER
+-------------------------------------------------------------------------------
+After evaluating and comparing all objective function values:
+
+- Maximization: select the corner with the HIGHEST value
+- Minimization: select the corner with the LOWEST value
+- Multiple optima: any optimal corner works
+
+Key idea: Select the corner with the best value!
+
+-------------------------------------------------------------------------------
+2. THE SELECTION PROCESS
+-------------------------------------------------------------------------------
+Step 1: List all corner points with their objective values
+Step 2: Compare the values
+Step 3: For maximization: find the highest value
+Step 4: For minimization: find the lowest value
+Step 5: Select the corresponding corner point
+Step 6: Check for ties (multiple optimal solutions)
+
+-------------------------------------------------------------------------------
+3. EXAMPLE: PROFIT MAXIMIZATION
+-------------------------------------------------------------------------------
+Z = 3x + 4y
+
+Corner Values:
+  O (0,0)    → Z = 0
+  A (5,0)    → Z = 15
+  B (4,3)    → Z = 24  ← OPTIMAL
+  C (2,4)    → Z = 22
+  D (0,5)    → Z = 20
+
+Selected: B (4,3) with Z = 24
+
+-------------------------------------------------------------------------------
+4. EXAMPLE: COST MINIMIZATION
+-------------------------------------------------------------------------------
+C = 6x + 8y
+
+Corner Values:
+  A (20,15)  → C = 240  ← OPTIMAL (feasible)
+  B (20,20)  → C = 280  (infeasible)
+  C (24,18)  → C = 288  (infeasible)
+  D (30,0)   → C = 180  (infeasible)
+  E (0,30)   → C = 240  (infeasible)
+
+Selected: A (20,15) with C = 240
+
+-------------------------------------------------------------------------------
+5. MULTIPLE OPTIMAL SOLUTIONS
+-------------------------------------------------------------------------------
+If two or more corners have the same optimal value:
+
+- Both corners are optimal
+- Any point on the edge between them is also optimal
+- You can select any one
+
+Example: Z = x + y
+  A (10,0) → Z = 10
+  B (0,10) → Z = 10
+  Both are optimal!
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Picking the wrong direction (max vs min)
+✗ Not checking if the point is feasible
+✗ Missing a tie (multiple optima)
+✗ Not verifying the objective value
+✗ Forgetting to document the selection
+
+-------------------------------------------------------------------------------
+7. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Always verify the selected point is feasible
+✓ Check for multiple optimal solutions
+✓ Document the selection process
+✓ Double-check your arithmetic
+✓ Mark the optimal point clearly
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can list all corner points with their objective values.
+☐ I can compare values for maximization (highest).
+☐ I can compare values for minimization (lowest).
+☐ I can select the optimal corner point correctly.
+☐ I can identify multiple optimal solutions.
+☐ I can verify the selected point is feasible.
+
+===============================================================================
+END OF NOTES
+===============================================================================

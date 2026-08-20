@@ -587,7 +587,7 @@ const Topic14 = () => {
                                                 fill="#f59e0b"
                                                 stroke="#fff"
                                                 strokeWidth={isHovered ? 3 : 2}
-                                                className="transition-all duration-300 animate-[pulse_1.5s_ease-in-out_infinite]"
+                                                className="transition-all duration-300"
                                             />
                                             {/* Label */}
                                             <text

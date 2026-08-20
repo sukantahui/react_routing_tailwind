@@ -1,0 +1,100 @@
+===============================================================================
+WORKED EXAMPLE 12: COST MINIMIZATION WITH RESOURCE REQUIREMENTS
+===============================================================================
+
+TOPIC 39 – MINIMIZING COST WITH ORDER REQUIREMENTS
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A company produces two components:
+
+- Component X: 2 machining, 3 assembly, ₹5 cost
+- Component Y: 3 machining, 2 assembly, ₹4 cost
+- Minimum X: 100 units, Minimum Y: 80 units
+- Machining: 600 hours, Assembly: 600 hours
+
+Question: How many units of each component to minimize cost?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = units of Component X
+  y = units of Component Y
+
+Objective Function:
+  Minimize C = 5x + 4y
+
+Constraints:
+  x ≥ 100         (minimum X)
+  y ≥ 80          (minimum Y)
+  2x + 3y ≤ 600   (machining)
+  3x + 2y ≤ 600   (assembly)
+  x ≥ 0, y ≥ 0    (non-negativity)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  A (100,80)     → C = 820  ← OPTIMAL
+  B (100,133.33) → C = 1033.33
+  C (120,120)    → C = 1080
+  D (146.67,100) → C = 1133.33
+  E (200,0)      → C = 1000
+
+Optimal Solution:
+  x = 100, y = 80, C = 820
+
+-------------------------------------------------------------------------------
+4. RESOURCE UTILIZATION
+-------------------------------------------------------------------------------
+At the optimal solution (100, 80):
+  Minimum X: 100 ✓ (exactly met)
+  Minimum Y: 80 ✓ (exactly met)
+  Machining: 2(100)+3(80) = 200+240 = 440 ≤ 600 (160 slack)
+  Assembly: 3(100)+2(80) = 300+160 = 460 ≤ 600 (140 slack)
+
+Binding constraints: x ≥ 100 and y ≥ 80
+Non-binding constraints: machining and assembly
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ Minimum requirements can be the binding constraints
+✓ Resources don't always bind in minimization
+✓ Producing exactly the minimum required quantities minimizes cost
+✓ Slack in resources indicates unused capacity
+✓ Component Y is cheaper but uses more machining
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming resources are always binding
+✗ Not checking if minimum requirements are met
+✗ Forgetting to check all constraints
+✗ Misreading the objective (min vs max)
+✗ Not identifying which constraints are binding
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a cost minimization problem common in:
+
+- Manufacturing: fulfill minimum order quantities
+- Supply chain: meet minimum delivery requirements
+- Service: meet minimum service level agreements
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can formulate a problem with minimum order requirements.
+☐ I can identify binding constraints.
+☐ I can find the optimal production mix.
+☐ I can verify all constraints are satisfied.
+☐ I can interpret the solution in business terms.
+☐ I can explain slack in resource constraints.
+
+===============================================================================
+END OF NOTES
+===============================================================================

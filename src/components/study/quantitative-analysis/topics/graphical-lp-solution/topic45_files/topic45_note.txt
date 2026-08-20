@@ -1,0 +1,90 @@
+===============================================================================
+DETERMINING THE OPTIMAL VALUES OF DECISION VARIABLES
+===============================================================================
+
+TOPIC 45 – THE FINAL ANSWER
+
+-------------------------------------------------------------------------------
+1. WHAT ARE OPTIMAL VARIABLE VALUES?
+-------------------------------------------------------------------------------
+The optimal values of decision variables are the x and y coordinates
+of the optimal corner point.
+
+- They tell you exactly what to do (produce, invest, allocate)
+- They must satisfy all constraints
+- They give the optimal objective value
+
+Key idea: The optimal variables are the answer to the LP problem!
+
+-------------------------------------------------------------------------------
+2. HOW TO FIND OPTIMAL VARIABLE VALUES
+-------------------------------------------------------------------------------
+Step 1: Identify the optimal corner point
+Step 2: Read the x and y coordinates
+Step 3: State the values in context
+
+Example: Optimal corner B (4,3)
+  → x = 4, y = 3
+  → Produce 4 units of X and 3 units of Y
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Profit Maximization:
+  Optimal corner: B (4,3)
+  Optimal variables: x = 4, y = 3
+  Interpretation: Produce 4 units of X and 3 units of Y
+  Optimal value: Z = 24
+
+Cost Minimization:
+  Optimal corner: A (20,15)
+  Optimal variables: x = 20, y = 15
+  Interpretation: Produce 20 units of X and 15 units of Y
+  Optimal value: C = 240
+
+Multiple Optima:
+  Optimal corners: A (10,0) and B (0,10)
+  Optimal variables: (10,0) or (0,10)
+  Interpretation: Either produce 10 X and 0 Y, or 0 X and 10 Y
+  Optimal value: Z = 10
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Always state variables in context
+✓ Include units in your answer
+✓ For multiple optima, state all options
+✓ Verify that the values satisfy all constraints
+✓ Include the optimal objective value
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Stating variables without context
+✗ Missing the optimal objective value
+✗ Not checking if the values satisfy all constraints
+✗ Forgetting to mention multiple optima
+✗ Not including units in the answer
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ State variables with context and units
+✓ Include the optimal objective value
+✓ Verify the solution satisfies all constraints
+✓ For multiple optima, state all alternatives
+✓ Double-check your interpretation
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify the optimal corner point.
+☐ I can read the optimal x and y values.
+☐ I can state the optimal variables in context.
+☐ I can include the optimal objective value.
+☐ I can handle multiple optimal solutions.
+☐ I can verify the solution satisfies all constraints.
+
+===============================================================================
+END OF NOTES
+===============================================================================

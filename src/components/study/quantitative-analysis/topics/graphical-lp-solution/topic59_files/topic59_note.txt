@@ -1,0 +1,85 @@
+===============================================================================
+REDUNDANT CONSTRAINTS
+===============================================================================
+
+TOPIC 59 – SIMPLIFYING LP PROBLEMS
+
+-------------------------------------------------------------------------------
+1. WHAT IS A REDUNDANT CONSTRAINT?
+-------------------------------------------------------------------------------
+A redundant constraint is a constraint that does not affect the feasible
+region when removed.
+
+- The constraint is implied by other constraints
+- It doesn't change the feasible region
+- It can be removed safely
+
+Key idea: Redundant = no effect on the feasible region.
+
+-------------------------------------------------------------------------------
+2. HOW TO IDENTIFY REDUNDANT CONSTRAINTS
+-------------------------------------------------------------------------------
+1. Compare bounds in the same direction
+2. If one constraint is looser, it's redundant
+3. Check if the constraint is implied by others
+
+Types of Redundancy:
+  - Upper bound redundancy: x≤20 is redundant with x≤10
+  - Lower bound redundancy: x≥-5 is redundant with x≥0
+  - Combined redundancy: x+y≤20 is redundant with x≤10, y≤10
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: Upper Bound Redundancy
+  x ≤ 20 is redundant with x ≤ 10
+  → x≤10 is tighter, so x≤20 is implied
+
+Example 2: Combined Redundancy
+  x + y ≤ 20 is redundant with x ≤ 10, y ≤ 10
+  → x≤10 and y≤10 imply x+y≤20
+
+Example 3: Lower Bound Redundancy
+  x ≥ -5 is redundant with x ≥ 0
+  → x≥0 is tighter, so x≥-5 is implied
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Redundant constraints don't affect the feasible region
+✓ They can be removed safely
+✓ Removing them simplifies the problem
+✓ Redundant constraints don't affect the optimal solution
+✓ Check if a constraint is implied by others
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming a constraint is redundant without checking
+✗ Not recognizing that redundant constraints can be lower bounds too
+✗ Forgetting to check if the constraint is implied by others
+✗ Removing constraints that actually affect the feasible region
+✗ Not documenting which constraints are redundant
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Check if the constraint is implied by other constraints
+✓ Compare bounds to identify redundancy
+✓ Remove redundant constraints to simplify the problem
+✓ Document which constraints were removed and why
+✓ Verify the feasible region remains unchanged
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify redundant constraints.
+☐ I understand why a constraint is redundant.
+☐ I can compare bounds to identify redundancy.
+☐ I know that redundant constraints can be removed.
+☐ I can verify that removing a redundant constraint doesn't change the feasible region.
+☐ I can simplify LP problems by removing redundant constraints.
+
+===============================================================================
+END OF NOTES
+===============================================================================

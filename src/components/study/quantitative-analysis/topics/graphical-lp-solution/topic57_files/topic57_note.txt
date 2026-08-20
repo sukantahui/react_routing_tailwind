@@ -1,0 +1,77 @@
+===============================================================================
+WORKED EXAMPLE 16: UNBOUNDED MAXIMIZATION
+===============================================================================
+
+TOPIC 57 – NO FINITE OPTIMAL SOLUTION
+
+-------------------------------------------------------------------------------
+1. PROBLEM TYPES
+-------------------------------------------------------------------------------
+Example 1: Pure Non-Negativity
+  Maximize Z = x + y with x ≥ 0, y ≥ 0
+  → Unbounded (Z → ∞)
+
+Example 2: Lower Bound Only
+  Maximize Z = x + y with x + y ≥ 5, x ≥ 0, y ≥ 0
+  → Unbounded (Z → ∞)
+
+Example 3: One Upper Bound
+  Maximize Z = 2x + y with y ≤ 5, x ≥ 0, y ≥ 0
+  → Unbounded (Z → ∞)
+
+-------------------------------------------------------------------------------
+2. GRAPHICAL SOLUTION METHOD
+-------------------------------------------------------------------------------
+Step 1: Graph all constraints
+Step 2: Identify the feasible region
+Step 3: Draw the objective line for different values
+Step 4: Check if the line moves outward without bound
+Step 5: If it does → unbounded maximization
+
+-------------------------------------------------------------------------------
+3. IDENTIFICATION METHODS
+-------------------------------------------------------------------------------
+Unbounded Maximization Signs:
+  - The feasible region is unbounded in the direction of improvement
+  - The objective line keeps moving outward without leaving the region
+  - There are no upper bounds on the variables
+
+-------------------------------------------------------------------------------
+4. WHAT TO DO
+-------------------------------------------------------------------------------
+1. Identify which variables have no upper bounds
+2. Add upper bound constraints (x≤M, y≤N)
+3. Re-solve the problem with the revised constraints
+4. Document the unboundedness and the solution
+
+-------------------------------------------------------------------------------
+5. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Unbounded maximization = no finite optimum
+✓ The objective can go to infinity
+✓ Missing upper bounds cause unboundedness
+✓ Lower bounds don't prevent unboundedness
+✓ Add upper bounds to make the problem bounded
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming a finite optimum exists in unbounded problems
+✗ Not checking if the objective is bounded
+✗ Confusing unbounded with infeasible
+✗ Not adding upper bounds when needed
+✗ Forgetting that lower bounds don't prevent unboundedness
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify an unbounded maximization problem.
+☐ I understand why unbounded maximization occurs.
+☐ I know that unbounded maximization has no finite optimum.
+☐ I can identify the direction of unboundedness.
+☐ I can suggest ways to make a maximization problem bounded.
+☐ I can distinguish between unbounded maximization and minimization.
+
+===============================================================================
+END OF NOTES
+===============================================================================

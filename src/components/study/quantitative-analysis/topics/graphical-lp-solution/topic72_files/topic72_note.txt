@@ -1,0 +1,165 @@
+TOPIC 72: SENSITIVITY INTERPRETATION FROM GRAPHICAL SOLUTIONS
+=============================================================
+
+INTRODUCTION
+------------
+Sensitivity analysis examines how changes in model parameters affect the 
+optimal solution. Graphical interpretation helps visualize these effects 
+and provides intuitive understanding of the results.
+
+DEFINITION
+----------
+Sensitivity analysis answers questions like:
+1. How much can objective coefficients change before the solution changes?
+2. How much can RHS values change before the basis changes?
+3. What is the value of additional resources (shadow prices)?
+4. How robust is the optimal solution to changes?
+
+KEY CONCEPTS
+------------
+1. Objective Coefficient Sensitivity:
+   - How changes in c₁, c₂ affect optimal solution
+   - Determined by slope of objective function
+   - Allowable range for each coefficient
+
+2. RHS Sensitivity:
+   - How changes in b₁, b₂ affect optimal solution
+   - Allowable range for each RHS value
+   - Determines resource flexibility
+
+3. Shadow Prices:
+   - Marginal value of increasing RHS by one unit
+   - Only for binding constraints
+   - Positive for scarce resources
+
+4. Allowable Ranges:
+   - Range where optimal basis remains unchanged
+   - For both objective coefficients and RHS
+   - Provides measure of robustness
+
+GRAPHICAL INTERPRETATION
+------------------------
+1. Objective Coefficient Changes:
+   - Objective line rotates
+   - Slope changes
+   - Must stay between constraint slopes
+
+2. RHS Changes:
+   - Constraint line shifts
+   - Feasible region changes
+   - Optimal point moves along constraint
+
+3. Shadow Prices:
+   - Rate of Z improvement
+   - Visible as slope of Z vs RHS
+   - Higher slope = more valuable
+
+4. Allowable Ranges:
+   - Where constraints remain binding
+   - Where objective remains optimal
+   - Visualized on graph
+
+SHADOW PRICES
+-------------
+Definition: Marginal value of increasing RHS by one unit
+
+Properties:
+• Only binding constraints have positive shadow prices
+• Non-binding constraints have zero shadow price
+• Shadow price = ΔZ/ΔRHS (within allowable range)
+• Represents value of scarce resources
+
+Interpretation:
+• High shadow price → Valuable resource
+• Zero shadow price → Abundant resource
+• Focus investment on high shadow price resources
+
+ALLOWABLE RANGES
+----------------
+For Objective Coefficients:
+• c₁ ∈ [c₁ - decrease, c₁ + increase]
+• c₂ ∈ [c₂ - decrease, c₂ + increase]
+• Determined by slope constraints
+
+For RHS Values:
+• b₁ ∈ [b₁ - decrease, b₁ + increase]
+• b₂ ∈ [b₂ - decrease, b₂ + increase]
+• Determined by shadow price validity
+
+INTERPRETATION STEPS
+--------------------
+Step 1: Identify Binding Constraints
+- Which constraints limit the optimal solution?
+
+Step 2: Calculate Shadow Prices
+- Find marginal value of each binding constraint
+
+Step 3: Determine Allowable Ranges
+- Calculate parameter ranges for validity
+
+Step 4: Interpret Results
+- Translate mathematical results into business insights
+
+COMMON MISTAKES
+---------------
+1. Misinterpreting Shadow Prices:
+   - Apply only within allowable range
+   - Not equal to market price
+
+2. Ignoring Allowable Ranges:
+   - Sensitivity results only valid within ranges
+
+3. Confusing Shadow Price with Market Price:
+   - Shadow price = value to objective
+   - Market price = cost to acquire
+
+4. Applying to Non-Binding Constraints:
+   - Non-binding constraints have zero shadow price
+
+BEST PRACTICES
+--------------
+1. Always check binding constraints first
+2. Document allowable ranges with shadow prices
+3. Use graphical interpretation for intuition
+4. Focus on resources with high shadow prices
+5. Consider robustness from allowable ranges
+
+PRACTICAL APPLICATIONS
+----------------------
+1. Resource Valuation:
+   - Which resources are most valuable?
+   - Where to invest for maximum return?
+
+2. Risk Assessment:
+   - How robust is the optimal solution?
+   - What changes would break the solution?
+
+3. Strategic Planning:
+   - Long-term resource planning
+   - Capacity expansion decisions
+
+4. Price Sensitivity:
+   - How do price changes affect production?
+   - What are the profit implications?
+
+KEY TAKEAWAYS
+------------
+✓ Shadow prices measure resource value
+✓ Allowable ranges define robustness
+✓ Only binding constraints have positive shadow prices
+✓ Sensitivity results valid within allowable ranges
+✓ High shadow price → Valuable resource
+✓ Wide range → Robust solution
+✓ Graphical interpretation aids understanding
+
+TEACHER'S NOTE
+--------------
+Sensitivity analysis is where LP becomes truly valuable for business 
+decision-making. In my consulting work, I often spend more time 
+interpreting sensitivity results than solving the original problem. 
+Clients want to know: "What if labor costs go up?" "How much can 
+material prices change before we need to change our plan?" "Which 
+resource is most critical?" The graphical interpretation helps 
+explain these concepts to non-technical stakeholders. I encourage 
+students to practice visualizing sensitivity results - it's a skill 
+that will serve them well in any analytical role."

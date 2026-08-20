@@ -1,0 +1,141 @@
+TOPIC 71: REDUNDANT CONSTRAINTS
+===============================
+
+INTRODUCTION
+------------
+Redundant constraints are constraints that do not affect the feasible 
+region or the optimal solution of a linear programming problem. They 
+can be removed without changing the solution.
+
+DEFINITION
+----------
+A constraint is redundant when:
+1. It doesn't affect the feasible region
+2. It's implied by the other constraints
+3. Removing it doesn't change the optimal solution
+4. It never forms part of the feasible region boundary
+
+TYPES OF REDUNDANT CONSTRAINTS
+------------------------------
+1. Completely Redundant:
+   - Always satisfied regardless of other constraints
+   - Example: x + y ≤ 100 when region is x + y ≤ 10
+
+2. Conditionally Redundant:
+   - Redundant under specific conditions
+   - May become binding under different objectives
+
+3. Implicitly Redundant:
+   - Implied by combination of other constraints
+   - Example: x + y ≥ 6 implied by x + 2y ≥ 8 and 2x + y ≥ 10
+
+GRAPHICAL IDENTIFICATION
+------------------------
+On a graph, redundant constraints appear as:
+• Lines outside the feasible region
+• Lines that don't form part of the boundary
+• Constraints that are always satisfied
+• Lines beyond the feasible region
+
+HOW TO IDENTIFY REDUNDANT CONSTRAINTS
+------------------------------------
+Graphical Method:
+1. Plot all constraints
+2. Identify the feasible region
+3. Check which constraints form the boundary
+4. Constraints not touching boundary are redundant
+
+Algebraic Method:
+1. Check if constraint is implied by others
+2. Use linear combinations of constraints
+3. Test if removing constraint changes solution
+4. Check for non-negativity implications
+
+HANDLING REDUNDANT CONSTRAINTS
+-----------------------------
+Step 1: Identify potential redundant constraints
+Step 2: Verify algebraically or graphically
+Step 3: Confirm removal doesn't change solution
+Step 4: Remove to simplify the problem
+Step 5: Document for future reference
+
+COMMON MISTAKES
+---------------
+1. Removing Non-Redundant Constraints:
+   Removing constraints that actually affect the feasible region
+
+2. Not Verifying Algebraically:
+   Visual inspection alone is not enough
+
+3. Confusing Redundant with Non-Binding:
+   Non-binding at optimum ≠ redundant
+
+4. Removing Constraints for Different Objectives:
+   Redundant for one objective may be important for another
+
+BEST PRACTICES
+--------------
+1. Verify algebraically, not just visually
+2. Keep redundant constraints in final model
+3. Document why constraints are redundant
+4. Recheck for different objectives
+5. Consider practical importance
+
+PRACTICAL SIGNIFICANCE
+----------------------
+1. Problem Simplification:
+   - Remove unnecessary constraints
+   - Smaller, cleaner problems
+
+2. Computation Efficiency:
+   - Fewer constraints → Faster solution
+   - Reduced memory requirements
+
+3. Model Understanding:
+   - Focus on active constraints
+   - Understand what really matters
+
+4. Documentation:
+   - Keep for context and safety
+   - Document reasoning
+
+REAL-WORLD EXAMPLES
+-------------------
+1. Safety Margins:
+   - Constraint with large slack
+   - Redundant but important
+
+2. Regulatory Constraints:
+   - Legal requirements
+   - May be redundant but must be included
+
+3. Historical Constraints:
+   - Past limitations no longer relevant
+   - Can be removed after verification
+
+4. Over-Specified Problems:
+   - Too many constraints
+   - Some are redundant
+
+KEY TAKEAWAYS
+------------
+✓ Redundant constraints don't affect the solution
+✓ Can be identified graphically or algebraically
+✓ Implied by other constraints
+✓ Removing them simplifies the problem
+✓ May be kept for practical reasons
+✓ Different from non-binding constraints
+✓ Important for model understanding
+
+TEACHER'S NOTE
+--------------
+Redundant constraints are a great teaching tool for understanding 
+the structure of LP problems. I often use them to show students that 
+not all constraints are created equal - some are more important than 
+others. In real-world consulting, I've found that identifying 
+redundant constraints is often a quick win - it simplifies models 
+without changing results. However, I always caution students to be 
+careful: before removing a constraint, make sure you understand why 
+it exists. Some constraints that seem redundant mathematically might 
+represent important real-world considerations that shouldn't be 
+removed just because they don't affect the mathematical solution."

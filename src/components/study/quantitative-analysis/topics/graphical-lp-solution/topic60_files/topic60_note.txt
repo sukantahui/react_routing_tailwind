@@ -1,0 +1,87 @@
+===============================================================================
+IDENTIFYING REDUNDANT CONSTRAINTS GRAPHICALLY
+===============================================================================
+
+TOPIC 60 – VISUAL SIMPLIFICATION OF LP PROBLEMS
+
+-------------------------------------------------------------------------------
+1. WHY IDENTIFY REDUNDANT CONSTRAINTS GRAPHICALLY?
+-------------------------------------------------------------------------------
+Graphical identification is the most intuitive way to spot redundant
+constraints.
+
+- Quick visual check
+- No complex algebra needed
+- Lines outside the feasible region are redundant
+
+Key idea: If the line doesn't touch the region, it's redundant.
+
+-------------------------------------------------------------------------------
+2. HOW TO IDENTIFY REDUNDANT CONSTRAINTS GRAPHICALLY
+-------------------------------------------------------------------------------
+Step 1: Plot all constraints on the same graph
+Step 2: Shade the feasible region
+Step 3: Trace the boundary of the feasible region
+Step 4: Check each constraint line:
+  - If it forms part of the boundary → tight
+  - If it doesn't touch the region → redundant
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: Upper Bound Redundancy
+  x ≤ 20 is redundant with x ≤ 10
+  → Line x=20 is outside the region
+
+Example 2: Combined Redundancy
+  x + y ≤ 20 is redundant with x ≤ 10, y ≤ 10
+  → Line x+y=20 is outside the region
+
+Example 3: Lower Bound Redundancy
+  x ≥ -5 is redundant with x ≥ 0
+  → Line x=-5 is outside the region
+
+Example 4: Partially Redundant
+  x + y ≤ 15 touches the region only at corners
+  → Partially redundant
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Redundant lines don't touch the feasible region
+✓ Tight lines form the boundary
+✓ Shading helps identify the region clearly
+✓ Trace the boundary to find tight constraints
+✓ Remove redundant constraints to simplify
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming a constraint is redundant without checking the graph
+✗ Not tracing the entire boundary of the feasible region
+✗ Missing partially redundant constraints
+✗ Removing constraints that actually form part of the boundary
+✗ Not verifying with multiple test points
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Plot all constraints clearly
+✓ Trace the boundary to identify tight constraints
+✓ Check if each line forms part of the boundary
+✓ Remove redundant constraints after verification
+✓ Document which constraints were removed and why
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify redundant constraints graphically.
+☐ I understand that redundant lines don't touch the feasible region.
+☐ I can trace the boundary to find tight constraints.
+☐ I can distinguish between redundant and tight constraints.
+☐ I can identify partially redundant constraints.
+☐ I can verify redundancy by checking if the line forms part of the boundary.
+
+===============================================================================
+END OF NOTES
+===============================================================================

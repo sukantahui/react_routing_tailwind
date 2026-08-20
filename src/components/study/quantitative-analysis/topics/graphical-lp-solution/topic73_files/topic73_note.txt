@@ -1,0 +1,150 @@
+TOPIC 73: EFFECT OF CHANGING A RESOURCE CONSTRAINT
+==================================================
+
+INTRODUCTION
+------------
+Understanding how changes in resource availability affect the optimal 
+solution is crucial for managerial decision-making. This topic explores 
+how modifying the right-hand side (RHS) of constraints impacts the 
+optimal solution and objective function value.
+
+DEFINITION
+----------
+Changing a resource constraint means altering the RHS of a constraint:
+• Original: a₁x + a₂y ≤ b
+• New: a₁x + a₂y ≤ b + Δb
+
+Where Δb is the change in resource availability.
+
+EFFECTS OF RESOURCE CHANGES
+---------------------------
+1. Binding Constraints:
+   - Affect the optimal solution
+   - Shadow price determines Z change
+   - Optimal point moves along other binding constraint
+
+2. Non-Binding Constraints:
+   - No effect on optimal solution
+   - Shadow price = 0
+   - Changes absorbed by slack
+
+3. Beyond Allowable Range:
+   - Optimal basis changes
+   - Different constraints become binding
+   - Shadow price no longer valid
+
+KEY FORMULAS
+------------
+Change in Objective Function:
+ΔZ = Shadow Price × Δb
+
+Where:
+• Shadow Price is the marginal value of the resource
+• Δb is the change in RHS (positive for increase, negative for decrease)
+• Valid within the allowable range
+
+New Optimal Point:
+• Moves along the other binding constraint
+• Found by solving the new constraint system
+• Rate determined by constraint coefficients
+
+TYPES OF RESOURCE CHANGES
+-------------------------
+1. Increasing a Binding Constraint:
+   - Constraint moves outward
+   - Z increases (for maximization)
+   - Optimal point moves along other constraint
+
+2. Decreasing a Binding Constraint:
+   - Constraint moves inward
+   - Z decreases (for maximization)
+   - Optimal point moves along other constraint
+
+3. Changing a Non-Binding Constraint:
+   - No effect until constraint becomes binding
+   - Slack absorbs the change
+   - Z remains unchanged
+
+4. Changes Beyond Allowable Range:
+   - Basis changes
+   - New constraints become binding
+   - Shadow price changes
+
+ANALYSIS STEPS
+--------------
+Step 1: Identify Binding Constraints
+- Determine which constraints are binding at optimal
+
+Step 2: Calculate Shadow Prices
+- Find marginal value of each binding constraint
+
+Step 3: Determine Allowable Range
+- Calculate how much RHS can change
+
+Step 4: Analyze the Effect
+- Calculate new optimal solution and Z
+
+Step 5: Interpret Results
+- Translate to business insights
+
+COMMON MISTAKES
+---------------
+1. Ignoring Shadow Price Validity:
+   - Shadow prices only valid within allowable range
+
+2. Applying Changes to Non-Binding Constraints:
+   - No effect until constraint becomes binding
+
+3. Misinterpreting Direction:
+   - Increasing = outward, Decreasing = inward
+
+4. Forgetting Multiple Binding Constraints:
+   - Changes affect optimal point along other constraints
+
+BEST PRACTICES
+--------------
+1. Check binding status first
+2. Calculate shadow prices correctly
+3. Consider the allowable range
+4. Use graphical visualization
+5. Interpret results in business terms
+
+PRACTICAL APPLICATIONS
+----------------------
+1. Resource Investment:
+   - Which resources to expand?
+   - Based on shadow prices
+
+2. Capacity Planning:
+   - How much capacity to add?
+   - Based on allowable range
+
+3. Budget Allocation:
+   - Where to allocate funds?
+   - Based on shadow prices
+
+4. Sensitivity Analysis:
+   - How robust is the solution?
+   - Based on allowable ranges
+
+KEY TAKEAWAYS
+------------
+✓ Binding constraints affect the optimal solution
+✓ Shadow price determines Z change
+✓ ΔZ = Shadow Price × ΔRHS
+✓ Non-binding constraints have zero shadow price
+✓ Changes valid within allowable range
+✓ Beyond range: basis changes
+✓ Use for resource investment decisions
+
+TEACHER'S NOTE
+--------------
+The effect of changing resource constraints is where LP becomes truly 
+valuable for managers. In my consulting work, I've seen companies make 
+multi-million dollar decisions based on shadow prices. I tell my students 
+that shadow prices are the "price" of a resource in the mathematical 
+model - they tell you what you should be willing to pay for more of it. 
+When a manager asks "Should we hire more workers?" or "Should we buy 
+more machines?", the shadow price provides the answer. Understanding 
+this concept transforms LP from a mathematical exercise into a 
+powerful business tool."

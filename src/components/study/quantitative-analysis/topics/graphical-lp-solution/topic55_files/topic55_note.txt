@@ -1,0 +1,89 @@
+===============================================================================
+UNBOUNDED LP PROBLEMS
+===============================================================================
+
+TOPIC 55 – WHEN THE OBJECTIVE HAS NO FINITE LIMIT
+
+-------------------------------------------------------------------------------
+1. WHAT IS AN UNBOUNDED LP PROBLEM?
+-------------------------------------------------------------------------------
+An unbounded LP problem has no finite optimal solution because the objective
+can increase (maximization) or decrease (minimization) without bound.
+
+- The feasible region extends to infinity
+- The objective improves indefinitely in that direction
+- No finite optimum exists (for maximization)
+
+Key idea: Unbounded = no finite optimum (usually for maximization).
+
+-------------------------------------------------------------------------------
+2. HOW TO RECOGNIZE UNBOUNDED PROBLEMS
+-------------------------------------------------------------------------------
+1. The feasible region extends to infinity in some direction
+2. Moving in that direction improves the objective indefinitely
+3. There are no constraints limiting variables in that direction
+
+Types of Unbounded Problems:
+  - Pure Non-Negativity: x≥0, y≥0 → unbounded maximization
+  - Lower Bound Only: x+y≥5 with non-negativity → unbounded maximization
+  - Minimization with Unbounded Region: can still have optimum
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: Pure Non-Negativity
+  Z = x + y with x≥0, y≥0
+  → Unbounded maximization (Z → ∞)
+
+Example 2: Lower Bound Only
+  Z = x + y with x≥0, y≥0, x+y≥5
+  → Unbounded maximization (Z → ∞)
+
+Example 3: Minimization
+  C = x + y with x≥0, y≥0, x+y≥5
+  → Bounded minimization (C = 5 at (5,0) or (0,5))
+
+Example 4: Different Coefficients
+  Z = 2x + y with x≥0, y≥0, x+y≥5
+  → Unbounded maximization (Z → ∞)
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ In maximization: unbounded = no finite optimum
+✓ In minimization: unbounded regions can still have optimal solutions
+✓ Adding upper bounds makes maximization bounded
+✓ The objective coefficients determine the direction of unboundedness
+✓ Unbounded ≠ Infeasible
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming all unbounded regions are problems (minimization works)
+✗ Not checking if the objective is bounded in the unbounded direction
+✗ Confusing unbounded with infeasible
+✗ Not adding upper bounds when needed
+✗ Forgetting that maximization and minimization behave differently
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Check if the feasible region is bounded
+✓ Determine if the objective is bounded in the unbounded direction
+✓ For maximization, ensure there are upper bounds on variables
+✓ For minimization, unbounded regions may still have optimal solutions
+✓ Add constraints to make the problem bounded if needed
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify an unbounded LP problem.
+☐ I understand why unboundedness occurs.
+☐ I can distinguish between unbounded maximization and minimization.
+☐ I know that unbounded regions can still have optimal solutions for minimization.
+☐ I can suggest ways to make an unbounded problem bounded.
+☐ I can distinguish between unbounded and infeasible problems.
+
+===============================================================================
+END OF NOTES
+===============================================================================

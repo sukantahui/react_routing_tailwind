@@ -19,7 +19,9 @@ const MAP_EXTERNAL_LINK =
 
 // Standard, high-compatibility Google Maps embed query
 const MAP_EMBED_SRC =
-  "https://maps.google.com/maps?q=Coder%20%26%20AccoTax,%2025(10/A)%20Shibtala%20Road,%20Nona%20Chandan%20Pukur,%20Barrackpore,%20Kolkata%20700122&t=&z=16&ie=UTF8&iwloc=&output=embed";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.912146578292!2d88.3745876!3d22.7686414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89b8eb3168ac5%3A0x7666eac9a1c26430!2sCoder%20%26%20AccoTax!5e0!3m2!1sen!2sin!4v1787212611660!5m2!1sen!2sin";
+
+
 
 const PHONE_NUMBERS = [
   { number: "9432456083", label: "+91 94324 56083", tag: "Primary / WhatsApp" },
@@ -790,7 +792,7 @@ const Contact = () => {
                 <div className="mt-3 rounded-xl overflow-hidden border border-slate-800/90 bg-slate-950 relative min-h-[190px]">
                   <iframe
                     title="Coder & AccoTax Institute Location on Google Maps"
-                    src={MAP_EMBED_SRC}
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.912146578292!2d88.3745876!3d22.7686414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89b8eb3168ac5%3A0x7666eac9a1c26430!2sCoder%20%26%20AccoTax!5e0!3m2!1sen!2sin!4v1787212611660!5m2!1sen!2sin"
                     width="100%"
                     height="190"
                     style={{ border: 0, display: "block" }}
@@ -798,6 +800,8 @@ const Contact = () => {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
+
+                  
                 </div>
               </div>
             </div>

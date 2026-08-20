@@ -1,0 +1,80 @@
+===============================================================================
+BINDING AND NON-BINDING CONSTRAINTS
+===============================================================================
+
+TOPIC 62 – IDENTIFYING ACTIVE CONSTRAINTS
+
+-------------------------------------------------------------------------------
+1. WHAT ARE BINDING AND NON-BINDING CONSTRAINTS?
+-------------------------------------------------------------------------------
+At the optimal solution, constraints can be:
+- Binding: holds as an equality (slack = 0)
+- Non-binding: has slack or surplus (slack > 0)
+
+Key idea: Binding constraints limit the optimal solution.
+
+-------------------------------------------------------------------------------
+2. HOW TO IDENTIFY
+-------------------------------------------------------------------------------
+Step 1: Find the optimal point
+Step 2: Substitute into each constraint
+Step 3: If LHS = RHS → binding
+Step 4: If LHS < RHS (≤) or LHS > RHS (≥) → non-binding
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Production Problem at (4,3):
+  Binding: x+y≤10 (10=10), 2x+y≤14 (14=14)
+  Non-binding: x≥0 (slack=4), y≥0 (slack=3)
+
+Diet Problem at (3,4):
+  Binding: 20x+10y≥100 (100=100)
+  Non-binding: 10x+30y≥120 (surplus=30), x≥0 (slack=3), y≥0 (slack=4)
+
+Resource Allocation at (5,7.5):
+  Binding: 2x+4y≤40 (40=40), 3x+2y≤30 (30=30)
+  Non-binding: x≥0 (slack=5), y≥0 (slack=7.5)
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Binding constraints have zero slack
+✓ Non-binding constraints have slack or surplus
+✓ Binding constraints limit the optimal solution
+✓ Relaxing a binding constraint may improve the objective
+✓ Relaxing a non-binding constraint has no effect
+✓ Calculate slack = RHS - LHS (for ≤)
+✓ Calculate surplus = LHS - RHS (for ≥)
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming a constraint is binding without checking
+✗ Not calculating slack at the optimal point
+✗ Confusing slack with surplus for ≥ constraints
+✗ Forgetting that non-negativity can be binding
+✗ Not identifying which constraints limit the solution
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Always substitute the optimal point into all constraints
+✓ Calculate slack or surplus for each constraint
+✓ Identify which constraints are binding
+✓ Document the slack values for analysis
+✓ Use binding constraints for sensitivity analysis
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify binding constraints at the optimal point.
+☐ I can identify non-binding constraints at the optimal point.
+☐ I can calculate slack for ≤ constraints.
+☐ I can calculate surplus for ≥ constraints.
+☐ I understand that binding constraints have zero slack.
+☐ I can explain why binding constraints limit the optimal solution.
+
+===============================================================================
+END OF NOTES
+===============================================================================

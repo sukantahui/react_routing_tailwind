@@ -1,0 +1,141 @@
+TOPIC 77: LEGAL-SERVICE RESOURCE ALLOCATION PROBLEM
+====================================================
+
+INTRODUCTION
+------------
+Legal-service resource allocation is a practical application of linear 
+programming in the professional services industry. Law firms must decide 
+how to allocate limited resources (lawyers, paralegals, staff) across 
+different types of cases to maximize revenue.
+
+PROBLEM CONTEXT
+---------------
+A law firm provides multiple types of legal services:
+• Corporate Law (high value, complex)
+• Family Law (moderate value, more cases)
+
+Resources include:
+• Senior Lawyers (experienced, expensive)
+• Junior Lawyers (less experienced, lower cost)
+• Paralegals (support staff)
+• Administrative Staff (scheduling, billing)
+
+PROBLEM FORMULATION
+-------------------
+Objective: Maximize Revenue
+Z = c₁x + c₂y
+
+Where:
+• c₁ = Revenue per Corporate Law case
+• c₂ = Revenue per Family Law case
+• x = Number of Corporate Law cases
+• y = Number of Family Law cases
+
+Constraints:
+• Senior Lawyers: a₁₁x + a₁₂y ≤ b₁
+• Junior Lawyers: a₂₁x + a₂₂y ≤ b₂
+• Paralegals: a₃₁x + a₃₂y ≤ b₃
+• Administrative Staff: a₄₁x + a₄₂y ≤ b₄
+• x, y ≥ 0
+
+EXAMPLE PROBLEM
+---------------
+Justice & Associates Law Firm:
+
+Resources:
+• Senior Lawyers: 24 hours/day available
+• Junior Lawyers: 32 hours/day available
+• Paralegals: 21 hours/day available
+• Administrative Staff: 16 hours/day available
+
+Case Requirements (hours):
+Corporate: 3 senior, 2 junior, 1 paralegal, 2 admin
+Family: 2 senior, 4 junior, 3 paralegal, 1 admin
+
+Revenue:
+Corporate: ₹8 lakhs/case
+Family: ₹6 lakhs/case
+
+LP Formulation:
+Maximize Z = 8x + 6y
+Subject to:
+3x + 2y ≤ 24 (Senior Lawyers)
+2x + 4y ≤ 32 (Junior Lawyers)
+x + 3y ≤ 21 (Paralegals)
+2x + y ≤ 16 (Administrative Staff)
+x, y ≥ 0
+
+SOLUTION
+--------
+Optimal Point: (3, 6)
+Revenue: 8(3) + 6(6) = 24 + 36 = ₹60 lakhs
+
+Resource Utilization:
+• Senior Lawyers: 3(3) + 2(6) = 21/24 (87.5%)
+• Junior Lawyers: 2(3) + 4(6) = 30/32 (93.75%)
+• Paralegals: 3 + 3(6) = 21/21 (100%) - Bottleneck
+• Administrative Staff: 2(3) + 6 = 12/16 (75%)
+
+INTERPRETATION
+--------------
+1. Optimal Case Mix:
+   - 3 Corporate Law cases per day
+   - 6 Family Law cases per day
+
+2. Bottleneck:
+   - Paralegals are fully utilized
+   - Adding paralegals would increase revenue
+
+3. Slack Resources:
+   - Senior Lawyers: 3 hours unused
+   - Junior Lawyers: 2 hours unused
+   - Administrative Staff: 4 hours unused
+
+4. Shadow Prices:
+   - Paralegals: ₹2 lakhs/hour
+   - Other resources: ₹0
+
+KEY INSIGHTS
+------------
+1. Paralegals are the limiting factor
+2. Additional paralegal hours increase revenue
+3. Senior lawyers have excess capacity
+4. Family Law cases dominate the optimal mix
+5. Revenue maximization ≠ case volume maximization
+
+REAL-WORLD CONSIDERATIONS
+-------------------------
+1. Specialization:
+   Some lawyers only handle specific case types
+
+2. Client Priorities:
+   High-priority clients require guaranteed capacity
+
+3. Seasonality:
+   Case demand and resource availability vary
+
+4. Court Schedules:
+   Court availability constrains case handling
+
+5. Staff Qualifications:
+   Not all staff can handle all tasks
+
+BEST PRACTICES
+--------------
+1. Include all relevant resources
+2. Use accurate resource requirement data
+3. Consider specialization constraints
+4. Update models regularly
+5. Validate against actual operations
+6. Plan for growth and seasonality
+
+TEACHER'S NOTE
+--------------
+The legal-service allocation problem demonstrates how LP applies to 
+professional services. It's an excellent teaching example because 
+students can relate to the concept of billable hours and resource 
+utilization. The key insight is often that the most expensive 
+resource (senior lawyers) isn't always the bottleneck - support 
+staff and paralegals can limit capacity. This teaches students to 
+look beyond obvious constraints and consider the entire resource 
+system."

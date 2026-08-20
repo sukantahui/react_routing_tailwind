@@ -1,0 +1,102 @@
+TOPIC 63: IDENTIFYING BINDING CONSTRAINTS AT THE OPTIMAL SOLUTION
+====================================================================
+
+INTRODUCTION
+------------
+In linear programming, a binding constraint (also called an active constraint) 
+is a constraint that is satisfied as an equality at the optimal solution. 
+When the optimal point lies exactly on the constraint line, that constraint 
+is "binding" or "tight."
+
+DEFINITION
+----------
+A constraint is binding if, at the optimal solution (x*, y*), the left-hand 
+side (LHS) equals the right-hand side (RHS).
+
+For ≤ constraints: LHS = RHS → Binding constraint
+For ≥ constraints: LHS = RHS → Binding constraint
+For non-negativity: x* = 0 or y* = 0 → Binding constraint
+
+MATHEMATICAL FRAMEWORK
+----------------------
+Given LP problem:
+Maximize (or Minimize) Z = c₁x + c₂y
+
+Subject to:
+a₁₁x + a₁₂y ≤ b₁
+a₂₁x + a₂₂y ≤ b₂
+...
+x, y ≥ 0
+
+At optimal point (x*, y*):
+- For each constraint i:
+  If aᵢ₁x* + aᵢ₂y* = bᵢ → BINDING
+  If aᵢ₁x* + aᵢ₂y* < bᵢ → NON-BINDING (slack exists)
+  If aᵢ₁x* + aᵢ₂y* > bᵢ → NON-BINDING (surplus exists)
+
+SLACK AND SURPLUS
+-----------------
+For ≤ constraints: Slack = RHS - LHS
+For ≥ constraints: Surplus = LHS - RHS
+
+- Binding constraints: Slack = 0, Surplus = 0
+- Non-binding constraints: Slack > 0, Surplus > 0
+
+IDENTIFICATION PROCESS
+-----------------------
+Step 1: Find the optimal solution (x*, y*)
+Step 2: Evaluate LHS of each constraint at (x*, y*)
+Step 3: Compare LHS with RHS
+Step 4: If LHS = RHS → Binding constraint
+
+SIGNIFICANCE OF BINDING CONSTRAINTS
+-----------------------------------
+1. Resource Utilization: Binding constraints represent fully utilized resources
+2. Economic Value: Binding resources have positive shadow prices
+3. Optimality: Optimal solution is determined by intersection of binding constraints
+4. Sensitivity: Only binding constraints are sensitive to RHS changes
+
+TYPES OF BINDING CONSTRAINTS
+----------------------------
+1. ≤ Constraints: Resource constraints in maximization problems
+2. ≥ Constraints: Requirement constraints in minimization problems
+3. Non-negativity: x ≥ 0 or y ≥ 0 when variable = 0
+
+COMMON MISTAKES
+---------------
+1. Misidentifying binding status (check exact equality)
+2. Confusing binding with feasible
+3. Ignoring slack/surplus variables
+4. Forgetting non-negativity constraints
+
+BEST PRACTICES
+--------------
+1. Always check every constraint at the optimal point
+2. Use exact calculations (avoid rounding)
+3. Document slack/surplus for non-binding constraints
+4. Verify with graphical representation
+
+REAL-WORLD APPLICATIONS
+-----------------------
+1. Production Planning: Binding constraints identify bottlenecks
+2. Resource Allocation: Fully utilized resources have economic value
+3. Investment Portfolio: Binding constraints limit diversification
+4. Supply Chain: Binding capacity constraints indicate expansion needs
+
+KEY TAKEAWAYS
+------------
+✓ Binding constraints: LHS = RHS at optimal point
+✓ Non-binding constraints: LHS ≠ RHS (slack or surplus exists)
+✓ Binding constraints identify limited resources
+✓ Shadow prices positive only for binding constraints
+✓ Optimal solution at intersection of binding constraints
+✓ Understanding binding constraints is crucial for sensitivity analysis
+
+TEACHER'S NOTE
+--------------
+Remember: The concept of binding constraints is the bridge between solving 
+an LP problem and understanding its real-world implications. When a constraint 
+is binding, it tells us where the bottlenecks are—the resources that limit 
+our objective. In practice, managers focus on these constraints to make 
+improvements. Always teach students to identify both binding and non-binding 
+constraints and explain what each means in the context of the problem.

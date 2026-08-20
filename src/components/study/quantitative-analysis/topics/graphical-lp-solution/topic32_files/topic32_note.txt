@@ -1,0 +1,93 @@
+===============================================================================
+WORKED EXAMPLE 5: RESOURCE ALLOCATION PROBLEM
+===============================================================================
+
+TOPIC 32 – ALLOCATING LIMITED RESOURCES
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A factory produces two products:
+
+- Product X: 2 machine hours, 3 raw material, ₹6 profit
+- Product Y: 4 machine hours, 2 raw material, ₹8 profit
+- Available: 40 machine hours, 30 raw material
+
+Question: How many units of each product to maximize profit?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = units of Product X
+  y = units of Product Y
+
+Objective Function:
+  Maximize Z = 6x + 8y
+
+Constraints:
+  2x + 4y ≤ 40  (machine hours)
+  3x + 2y ≤ 30  (raw material)
+  x ≥ 0, y ≥ 0  (non-negativity)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  O (0,0)     → Z = 0
+  A (10,0)    → Z = 60
+  B (5,7.5)   → Z = 90  ← OPTIMAL
+  C (0,10)    → Z = 80
+
+Optimal Solution:
+  x = 5, y = 7.5, Z = 90
+
+-------------------------------------------------------------------------------
+4. RESOURCE UTILIZATION
+-------------------------------------------------------------------------------
+At the optimal solution (5, 7.5):
+  Machine: 2(5) + 4(7.5) = 10 + 30 = 40 ✓ (fully used)
+  Material: 3(5) + 2(7.5) = 15 + 15 = 30 ✓ (fully used)
+
+Both constraints are binding.
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ Product Y is more profitable but uses more machine hours
+✓ The optimal allocation balances machine and material
+✓ Both resources are fully utilized
+✓ The trade-off between products determines the optimal mix
+✓ Higher profit per unit doesn't always mean produce more
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming the more profitable product should be produced more
+✗ Forgetting to check resource constraints
+✗ Not verifying the feasibility of the solution
+✗ Ignoring the trade-off between products
+✗ Misreading the resource requirements
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a resource allocation problem common in:
+
+- Manufacturing: allocate machine time, labor, materials
+- Service: allocate staff time, equipment, budget
+- Logistics: allocate trucks, drivers, fuel
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can formulate a resource allocation problem.
+☐ I can identify the limiting resources.
+☐ I can find the optimal resource allocation.
+☐ I can verify resource utilization at the optimum.
+☐ I can interpret the solution in business terms.
+☐ I can explain the trade-off between products.
+
+===============================================================================
+END OF NOTES
+===============================================================================

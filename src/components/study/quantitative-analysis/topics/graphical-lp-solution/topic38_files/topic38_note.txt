@@ -1,0 +1,97 @@
+===============================================================================
+WORKED EXAMPLE 11: SIMPLE MINIMIZATION PROBLEM
+===============================================================================
+
+TOPIC 38 – COST MINIMIZATION WITH MINIMUM REQUIREMENTS
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A company produces two products:
+
+- Product A: ₹2 cost, 3 raw material
+- Product B: ₹3 cost, 2 raw material
+- Minimum total production: 24 units
+- Minimum Product A: 12 units
+- Raw material available: 60 units
+
+Question: How many units of each product to minimize cost?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = units of Product A
+  y = units of Product B
+
+Objective Function:
+  Minimize C = 2x + 3y
+
+Constraints:
+  x + y ≥ 24     (minimum total)
+  3x + 2y ≤ 60   (raw material)
+  x ≥ 12         (minimum Product A)
+  x ≥ 0, y ≥ 0   (non-negativity)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  A (12,6)    → C = 42  (infeasible)
+  B (12,12)   → C = 60  ← OPTIMAL
+  C (16,6)    → C = 50  (infeasible)
+  D (20,0)    → C = 40  (infeasible)
+
+Optimal Solution:
+  x = 12, y = 12, C = 60
+
+-------------------------------------------------------------------------------
+4. RESOURCE UTILIZATION
+-------------------------------------------------------------------------------
+At the optimal solution (12, 12):
+  Total: 12 + 12 = 24 ✓ (exactly met)
+  Raw Material: 3(12) + 2(12) = 36 + 24 = 60 ✓ (fully used)
+  Product A: x = 12 ✓ (exactly met)
+
+All constraints are binding!
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ All constraints bind at the optimum in minimization
+✓ Product A is cheaper but uses more raw material
+✓ The optimal mix meets all minimum requirements
+✓ Moving the objective line inward finds the minimum
+✓ The feasible region is determined by all constraints
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Moving the objective line outward for minimization
+✗ Not checking if the solution meets all minimum requirements
+✗ Forgetting to check all constraints
+✗ Misreading the objective (min vs max)
+✗ Not identifying binding constraints
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a cost minimization problem common in:
+
+- Manufacturing: minimize production costs with minimum orders
+- Logistics: minimize shipping costs with minimum deliveries
+- Procurement: minimize purchasing costs with minimum quantities
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can formulate a minimization problem.
+☐ I can move the objective line inward for minimization.
+☐ I can identify binding constraints.
+☐ I can verify minimum requirements are met.
+☐ I can interpret the solution in business terms.
+☐ I can explain the trade-off between cost and resources.
+
+===============================================================================
+END OF NOTES
+===============================================================================

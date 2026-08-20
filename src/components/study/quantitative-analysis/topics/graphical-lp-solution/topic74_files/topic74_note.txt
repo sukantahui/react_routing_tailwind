@@ -1,0 +1,145 @@
+TOPIC 74: EFFECT OF CHANGING OBJECTIVE-FUNCTION COEFFICIENTS
+=============================================================
+
+INTRODUCTION
+------------
+Changes in objective function coefficients (c₁ and c₂) affect the optimal 
+solution by rotating the objective function line. Understanding these 
+effects is crucial for pricing decisions and product mix optimization.
+
+DEFINITION
+----------
+The objective function is: Z = c₁x + c₂y
+• c₁: Coefficient of x (profit/unit of x)
+• c₂: Coefficient of y (profit/unit of y)
+• Slope of objective: -c₁/c₂
+
+EFFECTS OF COEFFICIENT CHANGES
+-----------------------------
+1. Changing c₁ (Coefficient of x):
+   - Rotates objective line
+   - Changes slope: -c₁/c₂
+   - Affects value of x relative to y
+
+2. Changing c₂ (Coefficient of y):
+   - Rotates objective line
+   - Changes slope: -c₁/c₂
+   - Affects value of y relative to x
+
+3. Changing Both Coefficients:
+   - Rotation depends on ratio c₁/c₂
+   - Proportionate changes: slope unchanged
+   - Different proportions: slope changes
+
+KEY FORMULAS
+------------
+Objective Function:
+Z = c₁x + c₂y
+
+Objective Slope:
+m = -c₁/c₂
+
+Allowable Range Condition:
+Constraint₁_slope ≤ Objective_slope ≤ Constraint₂_slope
+(For maximization with two binding constraints)
+
+TYPES OF COEFFICIENT CHANGES
+----------------------------
+1. Increasing c₁:
+   - Line becomes steeper (more negative slope)
+   - x becomes more profitable
+   - May shift toward more x production
+
+2. Decreasing c₁:
+   - Line becomes flatter (less negative slope)
+   - x becomes less profitable
+   - May shift toward less x production
+
+3. Increasing c₂:
+   - Line becomes flatter (less negative slope)
+   - y becomes more profitable
+   - May shift toward more y production
+
+4. Decreasing c₂:
+   - Line becomes steeper (more negative slope)
+   - y becomes less profitable
+   - May shift toward less y production
+
+ANALYSIS STEPS
+--------------
+Step 1: Identify Current Slope
+- Calculate current objective slope: -c₁/c₂
+
+Step 2: Find Constraint Slopes
+- Calculate slopes of binding constraints
+
+Step 3: Determine Allowable Range
+- Objective slope must stay between constraint slopes
+
+Step 4: Analyze the Change
+- Check if new slope is within allowable range
+
+Step 5: Interpret Results
+- Translate to business decisions
+
+COMMON MISTAKES
+---------------
+1. Confusing Coefficient with RHS Changes:
+   - Coefficients rotate, RHS shifts lines
+
+2. Ignoring the Slope Range:
+   - Need to check both constraint slopes
+
+3. Misinterpreting Direction:
+   - Increasing c₁ makes line steeper
+
+4. Forgetting the Denominator:
+   - Slope is -c₁/c₂, not -c₁
+
+BEST PRACTICES
+--------------
+1. Calculate the slope range first
+2. Consider both coefficients (ratio matters)
+3. Use graphical visualization
+4. Check for multiple optima
+5. Interpret in business context
+
+PRACTICAL APPLICATIONS
+----------------------
+1. Pricing Decisions:
+   - How price changes affect product mix
+   - Price increase limits before mix changes
+
+2. Product Mix Optimization:
+   - Optimal mix based on profit margins
+   - When to change production
+
+3. Cost Analysis:
+   - How cost changes affect optimal solution
+   - Cost sensitivity
+
+4. Market Conditions:
+   - Adapting to market price changes
+   - Competitive response
+
+KEY TAKEAWAYS
+------------
+✓ Coefficient changes rotate the objective line
+✓ Slope = -c₁/c₂ determines optimal point
+✓ Optimal point changes when slope exits allowable range
+✓ Increasing c₁ = steeper line = more x
+✓ Increasing c₂ = flatter line = more y
+✓ Proportions matter more than absolute values
+✓ Useful for pricing and product mix decisions
+
+TEACHER'S NOTE
+--------------
+Objective coefficient changes are among the most practically useful 
+concepts in LP. When I work with businesses, they're constantly 
+dealing with price changes, cost fluctuations, and margin variations. 
+Understanding how these changes affect the optimal solution helps 
+them make informed decisions without re-solving the entire problem 
+every time. I tell my students that the objective coefficients are 
+the "prices" in their model, and sensitivity analysis tells them 
+how much prices can change before they need to rethink their strategy. 
+This is the difference between reactive and proactive management."

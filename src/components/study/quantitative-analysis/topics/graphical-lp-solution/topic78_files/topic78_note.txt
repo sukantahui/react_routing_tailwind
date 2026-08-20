@@ -1,0 +1,157 @@
+TOPIC 78: PUBLIC RESOURCE ALLOCATION PROBLEM
+============================================
+
+INTRODUCTION
+------------
+Public resource allocation is a critical application of linear programming 
+in government and municipal planning. It helps allocate limited public 
+funds across competing sectors to maximize social welfare and public 
+benefit.
+
+PROBLEM CONTEXT
+---------------
+Governments and municipalities must allocate resources across:
+• Infrastructure Development (roads, buildings, utilities)
+• Social Welfare Programs (healthcare, education, housing)
+• Public Safety (police, fire, emergency services)
+• Environmental Protection
+• Economic Development
+
+Stakeholders include:
+• Citizens (who receive services)
+• Businesses (who pay taxes and create jobs)
+• Government agencies (who implement programs)
+• Political groups (who influence priorities)
+
+PROBLEM FORMULATION
+-------------------
+Objective: Maximize Public Benefit
+Z = b₁x + b₂y
+
+Where:
+• x = Allocation to Sector 1
+• y = Allocation to Sector 2
+• b₁ = Benefit per unit of Sector 1
+• b₂ = Benefit per unit of Sector 2
+
+Constraints:
+• Budget: a₁x + a₂y ≤ B
+• Minimum Requirements: x ≥ m₁, y ≥ m₂
+• Maximum Limits: x ≤ M₁, y ≤ M₂
+• Political Balance: x + y ≥ P
+• x, y ≥ 0
+
+EXAMPLE PROBLEM
+---------------
+Barrackpore Municipal Corporation Budget Allocation:
+
+Resources:
+• Total Budget: ₹100 crores
+• Sectors: Infrastructure (x) and Social Welfare (y)
+
+Benefit per crore:
+• Infrastructure: 12 benefit units
+• Social Welfare: 10 benefit units
+
+Constraints:
+• Budget: 5x + 4y ≤ 100
+• Infrastructure Minimum: x ≥ 6
+• Social Welfare Minimum: y ≥ 4
+• Infrastructure Maximum: x ≤ 14
+• Social Welfare Maximum: y ≤ 16
+• Political Balance: x + y ≥ 12
+• x, y ≥ 0
+
+LP Formulation:
+Maximize Z = 12x + 10y
+Subject to:
+5x + 4y ≤ 100
+x ≥ 6
+y ≥ 4
+x ≤ 14
+y ≤ 16
+x + y ≥ 12
+x, y ≥ 0
+
+SOLUTION
+--------
+Optimal Point: (12, 10)
+Public Benefit: 12(12) + 10(10) = 144 + 100 = 244 benefit units
+
+Constraint Analysis:
+• Budget: 5(12) + 4(10) = 100 (Binding)
+• Infrastructure Min: 12 ≥ 6 (Satisfied)
+• Social Welfare Min: 10 ≥ 4 (Satisfied)
+• Infrastructure Max: 12 ≤ 14 (Satisfied)
+• Social Welfare Max: 10 ≤ 16 (Satisfied)
+• Political Balance: 12 + 10 = 22 ≥ 12 (Satisfied)
+
+INTERPRETATION
+--------------
+1. Optimal Allocation:
+   - Infrastructure: ₹12 crores
+   - Social Welfare: ₹10 crores
+
+2. Binding Constraint:
+   - Budget is fully utilized
+   - Additional budget would increase benefit
+
+3. Slack Resources:
+   - All minimum and maximum constraints have slack
+   - Political balance has significant surplus
+
+4. Shadow Prices:
+   - Budget: 2.4 benefit units/crore
+   - Other constraints: 0
+
+KEY INSIGHTS
+------------
+1. Infrastructure provides higher benefit per crore
+2. Budget is the limiting factor
+3. Minimum requirements are easily met
+4. Political balance is not restrictive
+5. Additional budget should go to infrastructure
+
+REAL-WORLD CONSIDERATIONS
+-------------------------
+1. Equity:
+   - Allocate resources fairly across regions
+   - Consider urban vs. rural needs
+
+2. Capacity:
+   - Sectors may have limited capacity to absorb funds
+   - Consider implementation capacity
+
+3. Political Factors:
+   - Political priorities may override optimal solution
+   - Balance technical and political considerations
+
+4. Uncertainty:
+   - Economic conditions can change
+   - Build flexibility into allocations
+
+5. Stakeholder Needs:
+   - Consider all stakeholders' interests
+   - Engage in participatory planning
+
+BEST PRACTICES
+--------------
+1. Include all relevant constraints
+2. Use accurate benefit data
+3. Consider equity and capacity
+4. Build flexibility into allocations
+5. Engage stakeholders
+6. Monitor and evaluate outcomes
+7. Update models regularly
+
+TEACHER'S NOTE
+--------------
+Public resource allocation is one of the most impactful applications of 
+LP. It shows students how mathematics can help solve real societal 
+challenges. I emphasize that public allocation isn't just about financial 
+efficiency - it's about social welfare, equity, and quality of life. 
+Students should understand that the LP model provides a starting point 
+for discussion, not the final answer. Political, social, and ethical 
+considerations must also be weighed. This application helps students 
+develop critical thinking skills and understand the value of 
+quantitative methods in public administration."

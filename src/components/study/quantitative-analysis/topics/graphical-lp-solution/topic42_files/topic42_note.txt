@@ -1,0 +1,94 @@
+===============================================================================
+EVALUATING THE OBJECTIVE FUNCTION AT CORNER POINTS
+===============================================================================
+
+TOPIC 42 – FINDING THE OPTIMAL SOLUTION
+
+-------------------------------------------------------------------------------
+1. WHY EVALUATE AT CORNER POINTS?
+-------------------------------------------------------------------------------
+By the corner-point principle, the optimal solution of an LP problem occurs
+at a corner point of the feasible region.
+
+Steps:
+1. Identify all corner points
+2. Evaluate the objective function at each corner
+3. Compare values and select the best (max or min)
+
+-------------------------------------------------------------------------------
+2. STEP-BY-STEP EVALUATION
+-------------------------------------------------------------------------------
+Example: Maximize Z = 3x + 4y
+
+Corner Points:
+  O (0,0)    → Z = 3(0) + 4(0) = 0
+  A (5,0)    → Z = 3(5) + 4(0) = 15
+  B (4,3)    → Z = 3(4) + 4(3) = 24  ← MAXIMUM
+  C (2,4)    → Z = 3(2) + 4(4) = 22
+  D (0,5)    → Z = 3(0) + 4(5) = 20
+
+Optimal: Z = 24 at (4,3)
+
+-------------------------------------------------------------------------------
+3. EVALUATION TABLE
+-------------------------------------------------------------------------------
+┌────────────┬──────────┬─────────────┬──────────┐
+│ Corner     │ (x, y)   │ Z = 3x + 4y │ Status   │
+├────────────┼──────────┼─────────────┼──────────┤
+│ O (0,0)    │ (0, 0)   │ 0           │          │
+│ A (5,0)    │ (5, 0)   │ 15          │          │
+│ B (4,3)    │ (4, 3)   │ 24          │ ★ Optimal│
+│ C (2,4)    │ (2, 4)   │ 22          │          │
+│ D (0,5)    │ (0, 5)   │ 20          │          │
+└────────────┴──────────┴─────────────┴──────────┘
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Evaluate ALL corner points
+✓ Use a table to organize calculations
+✓ For maximization: pick the largest value
+✓ For minimization: pick the smallest value
+✓ Check for multiple optimal solutions
+✓ Verify feasibility of the optimal point
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Missing a corner point
+✗ Arithmetic errors in evaluation
+✗ Forgetting to check if the corner is feasible
+✗ Confusing max vs min
+✗ Not checking for multiple optima
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Create a table with all corner points
+✓ Calculate objective values systematically
+✓ Highlight the optimal value
+✓ Check for multiple optimal solutions
+✓ Verify your answer by substituting back
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+Evaluating corner points is the final step in solving LP problems:
+
+- Production: find the most profitable product mix
+- Cost: find the cheapest production plan
+- Resource allocation: find the optimal resource distribution
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify all corner points of the feasible region.
+☐ I can substitute corner points into the objective function.
+☐ I can compare objective values correctly.
+☐ I can identify the optimal solution (max or min).
+☐ I can recognize multiple optimal solutions.
+☐ I can use a table to organize my calculations.
+
+===============================================================================
+END OF NOTES
+===============================================================================

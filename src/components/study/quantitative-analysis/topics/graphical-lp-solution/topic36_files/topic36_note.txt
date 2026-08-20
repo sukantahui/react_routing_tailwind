@@ -1,0 +1,98 @@
+===============================================================================
+WORKED EXAMPLE 9: INVESTMENT ALLOCATION PROBLEM
+===============================================================================
+
+TOPIC 36 – PORTFOLIO OPTIMIZATION
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+An investor has ₹1,00,000 to invest:
+
+- Stocks (x): 12% return, risk 8
+- Bonds (y): 8% return, risk 4
+- Minimum return: ₹10,000
+- Minimum bonds: ₹20,000
+
+Question: How much to invest in each to minimize risk?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = amount in stocks
+  y = amount in bonds
+
+Objective Function:
+  Minimize R = 8x + 4y (risk)
+
+Constraints:
+  x + y ≤ 100000       (total investment)
+  0.12x + 0.08y ≥ 10000 (return)
+  y ≥ 20000            (diversification)
+  x ≥ 0, y ≥ 0         (non-negativity)
+
+Simplified:
+  3x + 2y ≥ 250000 (return constraint)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  A (50,000, 50,000) → R = 600,000  ← OPTIMAL
+  B (16,667, 83,333) → R = 466,667  (infeasible)
+  C (20,000, 80,000) → R = 480,000  (infeasible)
+  D (0, 100,000)     → R = 400,000  (infeasible)
+
+Optimal Solution:
+  x = 50,000, y = 50,000, R = 600,000
+
+-------------------------------------------------------------------------------
+4. SOLUTION VERIFICATION
+-------------------------------------------------------------------------------
+At the optimal solution (50,000, 50,000):
+  Investment: 50,000 + 50,000 = 100,000 ✓
+  Return: 0.12(50000) + 0.08(50000) = 6000 + 4000 = 10000 ✓
+  Diversification: y = 50,000 ≥ 20,000 ✓
+  Risk: 8(50000) + 4(50000) = 400000 + 200000 = 600,000
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ Return constraint is binding at the optimum
+✓ Diversification requirement is satisfied
+✓ The optimal allocation is 50/50
+✓ Risk and return must be balanced
+✓ LP helps find the optimal risk-return trade-off
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting to check if the solution meets return requirements
+✗ Assuming higher return always means more risk
+✗ Not clearing decimals from constraints
+✗ Misreading the objective (min vs max)
+✗ Ignoring diversification requirements
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a portfolio optimization problem common in:
+
+- Personal finance: allocate savings between assets
+- Institutional investing: pension fund allocation
+- Wealth management: client portfolio construction
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can formulate an investment allocation problem.
+☐ I can clear decimals from constraints.
+☐ I can find the optimal investment allocation.
+☐ I can verify the return requirement is met.
+☐ I can interpret the solution in investment terms.
+☐ I can explain the risk-return trade-off.
+
+===============================================================================
+END OF NOTES
+===============================================================================

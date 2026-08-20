@@ -1,0 +1,120 @@
+TOPIC 85: PRACTICE PROBLEMS - GRAPHICAL LP
+==========================================
+
+INTRODUCTION
+------------
+Practice is essential for mastering graphical LP. This topic provides 
+a comprehensive set of practice problems across various industries and 
+difficulty levels to help you build skills and confidence.
+
+PROBLEM LIST
+------------
+1. Furniture Factory (Manufacturing, Basic)
+2. Bakery Production (Food Production, Basic)
+3. Investment Portfolio (Finance, Intermediate)
+4. Hospital Resource Allocation (Healthcare, Intermediate)
+5. Agricultural Planning (Agriculture, Intermediate)
+6. Advertising Budget Allocation (Marketing, Advanced)
+
+PROBLEM CATEGORIES
+------------------
+- Manufacturing: Production planning and resource allocation
+- Food Production: Bakery and food industry problems
+- Finance: Investment and portfolio optimization
+- Healthcare: Hospital and medical resource allocation
+- Agriculture: Farm and crop planning
+- Marketing: Advertising and budget allocation
+
+DIFFICULTY LEVELS
+-----------------
+Basic Problems:
+• 2 variables, 2-3 constraints
+• Simple objective functions
+• Straightforward graphing
+• Clear optimal solutions
+
+Intermediate Problems:
+• 2 variables, 3-4 constraints
+• Multiple binding constraints
+• Shadow price analysis
+• Resource utilization interpretation
+
+Advanced Problems:
+• 2+ variables with complex constraints
+• Multiple objectives considerations
+• Sensitivity analysis
+• Real-world implementation challenges
+
+SOLVING STRATEGIES
+------------------
+1. Read and Understand:
+   - Identify what you're optimizing
+   - List all resources and limitations
+   - Understand the context
+
+2. Formulate:
+   - Define variables with units
+   - Write objective function
+   - List all constraints
+   - Include non-negativity
+
+3. Graph:
+   - Calculate intercepts
+   - Plot accurately
+   - Determine feasible side
+   - Shade feasible region
+
+4. Evaluate:
+   - Find all corner points
+   - Calculate Z at each
+   - Identify optimal point
+   - Verify feasibility
+
+5. Interpret:
+   - State optimal solution
+   - Calculate resource utilization
+   - Identify bottlenecks
+   - Make recommendations
+
+COMMON MISTAKES IN PRACTICE
+---------------------------
+1. Rushing without understanding
+2. Forgetting non-negativity constraints
+3. Incorrect shading
+4. Missing corner points
+5. Not verifying solutions
+
+PROGRESSION TIPS
+----------------
+1. Start with Basic Problems:
+   - Build confidence
+   - Master the procedure
+
+2. Move to Intermediate:
+   - Handle more constraints
+   - Practice interpretation
+
+3. Tackle Advanced:
+   - Complex problems
+   - Real-world scenarios
+
+REVIEW CHECKLIST
+----------------
+For each problem, ask:
+□ Did I understand the problem?
+□ Are my variables clearly defined?
+□ Is my objective function correct?
+□ Are all constraints included?
+□ Is my graph accurate?
+□ Did I find ALL corner points?
+□ Did I verify my solution?
+□ Can I interpret the results?
+
+TEACHER'S NOTE
+--------------
+Practice is the key to mastery. I encourage students to attempt each 
+problem independently before checking the solution. The process of 
+struggling with a problem and then understanding the solution is 
+where real learning happens. Remember: the goal is not just to get 
+the right answer, but to understand the process and be able to apply 
+it to new situations."

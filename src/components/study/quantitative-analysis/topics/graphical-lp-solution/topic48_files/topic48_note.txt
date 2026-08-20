@@ -1,0 +1,94 @@
+===============================================================================
+MULTIPLE OPTIMAL SOLUTIONS
+===============================================================================
+
+TOPIC 48 – FLEXIBILITY IN DECISION-MAKING
+
+-------------------------------------------------------------------------------
+1. WHAT ARE MULTIPLE OPTIMAL SOLUTIONS?
+-------------------------------------------------------------------------------
+Multiple optimal solutions occur when two or more corner points (or an
+entire edge) give the same optimal value of the objective function.
+
+- The objective function is parallel to a constraint edge
+- Multiple points give the same optimal value
+- This provides flexibility to the decision-maker
+
+Key idea: Multiple optima are an opportunity, not a problem!
+
+-------------------------------------------------------------------------------
+2. WHY DO MULTIPLE OPTIMA OCCUR?
+-------------------------------------------------------------------------------
+The objective function has the same slope as a constraint edge.
+
+Example: Z = x + y (slope = -1)
+Constraint: x + y = 10 (slope = -1)
+  → The objective line overlaps the constraint edge
+  → Both endpoints and every point on the edge are optimal
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Maximization Example:
+  Z = x + y
+  Constraint: x + y ≤ 10
+  Optimal points: A(10,0), B(0,10), and all points on x+y=10
+  Optimal value: Z = 10
+
+Minimization Example:
+  C = x + y
+  Constraint: x + y ≥ 5
+  Optimal points: A(0,5), B(5,0), and all points on x+y=5
+  Optimal value: C = 5
+
+-------------------------------------------------------------------------------
+4. HOW TO IDENTIFY MULTIPLE OPTIMA
+-------------------------------------------------------------------------------
+Graphical Method:
+  - Look for the objective line overlapping a constraint edge
+  - If the objective line is parallel to a constraint at the optimum
+
+Algebraic Method:
+  - Check if two or more corner points give the same optimal value
+  - If there's a tie for the best value
+
+-------------------------------------------------------------------------------
+5. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Multiple optima provide flexibility to decision-makers
+✓ The optimal edge contains infinitely many optimal points
+✓ The corner-point principle still holds (endpoints are corners)
+✓ Multiple optima are a feature, not a bug
+✓ You can choose based on other business factors
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Not recognizing multiple optimal solutions
+✗ Assuming multiple optima is a problem
+✗ Forgetting to check if the objective line is parallel
+✗ Not stating all optimal solutions
+✗ Confusing multiple optima with unbounded solutions
+
+-------------------------------------------------------------------------------
+7. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Check for ties in optimal values
+✓ Identify if the objective line is parallel to a constraint
+✓ State all optimal solutions clearly
+✓ Explain the flexibility multiple optima provide
+✓ Use the graph to visualize the optimal edge
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify multiple optimal solutions.
+☐ I understand why multiple optima occur (parallel objective).
+☐ I can identify the optimal edge when multiple optima exist.
+☐ I can state all optimal solutions.
+☐ I understand that multiple optima provide flexibility.
+☐ I can distinguish between multiple optima and unbounded solutions.
+
+===============================================================================
+END OF NOTES
+===============================================================================

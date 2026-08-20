@@ -1,0 +1,101 @@
+===============================================================================
+WORKED EXAMPLE 8: ADVERTISING BUDGET ALLOCATION
+===============================================================================
+
+TOPIC 35 – MEDIA PLANNING WITH MULTIPLE OPTIMA
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A company advertises on TV and Radio:
+
+- TV ad: 10,000 reach, ₹2000 cost
+- Radio ad: 5,000 reach, ₹1000 cost
+- Budget: ₹40,000
+- Minimum reach: 150,000
+- Contract: At least 5 TV ads
+
+Question: How many TV and Radio ads to maximize reach?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = number of TV ads
+  y = number of Radio ads
+
+Objective Function:
+  Maximize Z = 10000x + 5000y
+
+Constraints:
+  2000x + 1000y ≤ 40000  (budget)
+  10000x + 5000y ≥ 150000 (reach)
+  x ≥ 5                   (contract)
+  x ≥ 0, y ≥ 0            (non-negativity)
+
+Simplified:
+  2x + y ≤ 40  (budget)
+  2x + y ≥ 30  (reach)
+  x ≥ 5
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  A (5,20)    → Z = 150,000
+  B (5,30)    → Z = 200,000  ← OPTIMAL
+  C (15,10)   → Z = 200,000  ← OPTIMAL
+  D (20,0)    → Z = 200,000  ← OPTIMAL
+
+Optimal Solution:
+  Multiple optimal solutions with Z = 200,000
+
+-------------------------------------------------------------------------------
+4. KEY INSIGHTS
+-------------------------------------------------------------------------------
+✓ The objective line is parallel to the budget constraint
+✓ Both have slope -2
+✓ Multiple optimal solutions exist along the edge
+✓ Any point on 2x+y=40 between (5,30) and (20,0) is optimal
+✓ TV and Radio have the same reach per rupee (5 people/₹)
+
+-------------------------------------------------------------------------------
+5. WHY MULTIPLE OPTIMA OCCUR
+-------------------------------------------------------------------------------
+- The objective function: Z/5000 = 2x + y
+- The budget constraint: 2x + y = 40
+- Same slope → parallel lines
+- The objective line overlaps the constraint edge
+- Infinitely many optimal solutions
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Not recognizing multiple optimal solutions
+✗ Assuming only one optimal solution exists
+✗ Forgetting to check all corner points
+✗ Misreading the objective function
+✗ Not simplifying constraints
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a media planning problem common in:
+
+- Advertising: allocate budget between channels
+- Marketing: choose between different media
+- PR: decide on communication channels
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can formulate an advertising budget allocation problem.
+☐ I can identify multiple optimal solutions.
+☐ I can simplify constraints before graphing.
+☐ I can recognize when the objective is parallel to a constraint.
+☐ I can interpret multiple optimal solutions in business terms.
+☐ I can explain the flexibility of multiple optima.
+
+===============================================================================
+END OF NOTES
+===============================================================================

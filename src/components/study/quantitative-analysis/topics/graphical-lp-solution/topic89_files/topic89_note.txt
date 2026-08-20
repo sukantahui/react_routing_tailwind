@@ -1,0 +1,86 @@
+TOPIC 89: SHORT QUESTIONS
+=========================
+
+INTRODUCTION
+------------
+Short questions are an effective tool for quick revision and 
+self-assessment. This topic provides 30 short questions covering 
+all key concepts of graphical LP.
+
+QUESTION CATEGORIES
+-------------------
+1. Definitions (6 questions)
+2. Concepts (6 questions)
+3. Graphical Method (5 questions)
+4. Sensitivity Analysis (4 questions)
+5. Special Cases (4 questions)
+6. Practical Applications (5 questions)
+
+DIFFICULTY LEVELS
+-----------------
+• Basic: Foundational concepts
+• Intermediate: Deeper understanding
+• Advanced: Complex applications
+
+KEY DEFINITIONS
+---------------
+LP: Optimization with linear relationships
+Feasible Region: All points satisfying constraints
+Binding Constraint: Slack = 0
+Corner Point: Vertex of feasible region
+Slack: Unused resources (RHS - LHS)
+Shadow Price: Value of additional resources
+
+KEY FORMULAS
+------------
+Objective: Z = c₁x + c₂y
+Constraint: a₁x + a₂y ≤ b
+Slack: Slack = b - (a₁x* + a₂y*)
+Shadow Price: SP = ΔZ/Δb
+Utilization: (Used/Available) × 100%
+Objective Slope: m = -c₁/c₂
+
+KEY CONCEPTS
+------------
+• Optimal Solution: At a corner point
+• Multiple Optima: Objective parallel to constraint
+• Infeasible: No overlapping constraints
+• Unbounded: Region extends to infinity
+• Degenerate: 3+ binding constraints
+• Redundant: Constraint doesn't affect region
+
+PROBLEM-SOLVING STEPS
+---------------------
+1. Define variables
+2. Formulate objective
+3. Formulate constraints
+4. Graph constraints
+5. Find feasible region
+6. Identify corner points
+7. Evaluate objective
+8. Select optimal solution
+9. Interpret results
+
+COMMON MISTAKES
+---------------
+• Forgetting non-negativity constraints
+• Incorrect shading of feasible region
+• Missing corner points
+• Not verifying the solution
+• Confusing maximization with minimization
+• Misinterpreting shadow prices
+
+STUDY TIPS
+----------
+1. Review questions regularly
+2. Test yourself without answers first
+3. Focus on weak areas
+4. Use categories for targeted study
+5. Practice active recall
+
+TEACHER'S NOTE
+--------------
+Short questions are excellent for quick revision. I recommend using 
+them as warm-up exercises or for spaced repetition practice. The act 
+of recalling and articulating answers strengthens memory and reveals 
+areas needing more study."

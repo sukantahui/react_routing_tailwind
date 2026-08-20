@@ -1,0 +1,103 @@
+===============================================================================
+WORKED EXAMPLE 14: MINIMUM-COST PRODUCTION PROBLEM
+===============================================================================
+
+TOPIC 41 – MINIMIZING COST WITH MULTIPLE CONSTRAINTS
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A factory produces two products:
+
+- Product X: 2 labor, 3 material, ₹6 cost
+- Product Y: 4 labor, 2 material, ₹8 cost
+- Labor: 120 hours, Material: 90 units
+- Minimum X: 20 units, Minimum Y: 15 units
+
+Question: How many units of each product to minimize cost?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = units of Product X
+  y = units of Product Y
+
+Objective Function:
+  Minimize C = 6x + 8y
+
+Constraints:
+  2x + 4y ≤ 120  (labor)
+  3x + 2y ≤ 90   (material)
+  x ≥ 20         (minimum X)
+  y ≥ 15         (minimum Y)
+  x ≥ 0, y ≥ 0   (non-negativity)
+
+Simplified:
+  x + 2y ≤ 60  (labor)
+  3x + 2y ≤ 90 (material)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  A (20,15)    → C = 240  ← OPTIMAL (feasible)
+  B (20,20)    → C = 280  (infeasible)
+  C (24,18)    → C = 288  (infeasible)
+  D (30,0)     → C = 180  (infeasible)
+  E (0,30)     → C = 240  (infeasible)
+
+Only one corner point is feasible!
+
+-------------------------------------------------------------------------------
+4. RESOURCE UTILIZATION
+-------------------------------------------------------------------------------
+At the optimal solution (20, 15):
+  Labor: 2(20)+4(15)=40+60=100 ≤ 120 (20 slack)
+  Material: 3(20)+2(15)=60+30=90 = 90 ✓ (binding)
+  Minimum X: 20 = 20 ✓ (binding)
+  Minimum Y: 15 = 15 ✓ (binding)
+
+Binding constraints: Material, x≥20, y≥15
+Non-binding: Labor
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ Only feasible corner points can be optimal
+✓ Material constraint is binding
+✓ Both minimum requirements are binding
+✓ Labor has slack (20 hours)
+✓ Producing minimum quantities is optimal
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming all corner points are feasible
+✗ Not checking minimum requirements
+✗ Forgetting to check all constraints
+✗ Misreading the objective (min vs max)
+✗ Not identifying which constraints are binding
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a production planning problem common in:
+
+- Manufacturing: fulfill minimum orders with resource constraints
+- Supply chain: meet delivery commitments with limited resources
+- Service: meet service level agreements with limited capacity
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can formulate a minimum-cost production problem.
+☐ I can check corner points for feasibility.
+☐ I can find the optimal production plan.
+☐ I can verify all constraints are satisfied.
+☐ I can interpret the solution in business terms.
+☐ I can identify which constraints are binding.
+
+===============================================================================
+END OF NOTES
+===============================================================================

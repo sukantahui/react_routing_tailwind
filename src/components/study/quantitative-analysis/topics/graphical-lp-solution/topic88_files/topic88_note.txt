@@ -1,0 +1,92 @@
+TOPIC 88: EXAM-STYLE PROBLEMS
+=============================
+
+INTRODUCTION
+------------
+Exam-style problems are essential preparation for assessments. This 
+topic provides problems that simulate actual exam conditions with 
+clear marking schemes and time allocations.
+
+PROBLEM STRUCTURE
+-----------------
+Each problem includes:
+1. Title with marks allocation
+2. Time recommendation
+3. Difficulty level
+4. Multi-part question
+5. Complete solution
+6. Detailed marking scheme
+
+TYPES OF QUESTIONS
+------------------
+1. Part (a): Formulation (3-5 marks)
+   - Variables
+   - Objective function
+   - Constraints
+
+2. Part (b): Solution (5-8 marks)
+   - Graphing
+   - Corner points
+   - Optimal solution
+
+3. Part (c): Interpretation (2-4 marks)
+   - Resource utilization
+   - Bottlenecks
+   - Recommendations
+
+MARKING SCHEME GUIDE
+--------------------
+1. 3 marks: Correct formulation
+2. 5 marks: Correct solution process
+3. 2 marks: Correct interpretation
+
+Time Management:
+- 1 mark ≈ 1.5 minutes
+- 10 marks ≈ 15 minutes
+- 20 marks ≈ 30 minutes
+
+EXAM STRATEGIES
+---------------
+Before the Exam:
+- Review key concepts
+- Practice graphing
+- Memorize procedure
+- Prepare materials
+
+During the Exam:
+- Read questions carefully
+- Allocate time by marks
+- Show all working
+- Draw clear graphs
+- Check answers
+
+After the Exam:
+- Review mistakes
+- Identify weak areas
+- Practice more
+
+COMMON EXAM MISTAKES
+--------------------
+1. Misreading the question
+2. Forgetting non-negativity
+3. Poor graphing
+4. Skipping steps
+5. Not verifying
+6. Poor time management
+
+BEST PRACTICES
+--------------
+1. Practice under timed conditions
+2. Show all working
+3. Use marking schemes
+4. Learn from mistakes
+5. Build exam confidence
+
+TEACHER'S NOTE
+--------------
+Exam-style problems are the best preparation for assessments. 
+I encourage students to practice under timed conditions and use 
+marking schemes to self-assess. Understanding how marks are 
+allocated helps students focus on what's important. The key to 
+exam success is not just knowledge, but exam technique - knowing 
+how to show your work effectively and manage your time wisely."

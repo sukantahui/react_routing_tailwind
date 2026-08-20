@@ -1,0 +1,116 @@
+TOPIC 87: UNSOLVED PROBLEMS
+===========================
+
+INTRODUCTION
+------------
+Unsolved problems are the ultimate test of your skills. Working through 
+problems independently develops critical thinking, builds confidence, 
+and reveals areas where you need more practice.
+
+PROBLEM TYPES
+-------------
+1. Manufacturing Problems:
+   - Production planning
+   - Resource allocation
+   - Profit maximization
+
+2. Diet/Nutrition Problems:
+   - Minimum cost diets
+   - Nutrient requirements
+   - Surplus analysis
+
+3. Investment Problems:
+   - Portfolio allocation
+   - Return maximization
+   - Risk constraints
+
+4. Healthcare Problems:
+   - Staff scheduling
+   - Patient allocation
+   - Resource utilization
+
+5. Agricultural Problems:
+   - Crop planning
+   - Land allocation
+   - Labor constraints
+
+6. Logistics Problems:
+   - Transportation
+   - Distribution
+   - Cost minimization
+
+7. Blending Problems:
+   - Material mixing
+   - Quality requirements
+   - Cost optimization
+
+PROBLEM-SOLVING STRATEGY
+------------------------
+1. Read the Problem:
+   - Understand what's being optimized
+   - Identify all constraints
+   - Note special requirements
+
+2. Formulate:
+   - Define variables clearly
+   - Write objective function
+   - List all constraints
+
+3. Solve:
+   - Graph constraints
+   - Find corner points
+   - Evaluate objective
+
+4. Verify:
+   - Check all constraints
+   - Verify optimality
+   - Interpret results
+
+WHEN TO USE HINTS
+-----------------
+1. When stuck after multiple attempts
+2. When unsure how to proceed
+3. When concept is unclear
+4. After trying your best
+
+USING THE ANSWER KEY
+--------------------
+1. Attempt the problem independently
+2. Verify your work
+3. If different, find your error
+4. Learn from the mistake
+
+COMMON CHALLENGES
+-----------------
+1. 3+ Variable Problems:
+   - Requires simplex method
+   - Beyond graphical scope
+
+2. Transportation Problems:
+   - Special structure
+   - Requires specialized methods
+
+3. Staff Scheduling:
+   - Complex constraints
+   - Requires careful formulation
+
+4. Blending Problems:
+   - Quality constraints
+   - Multiple material limits
+
+BEST PRACTICES
+--------------
+1. Work independently first
+2. Use hints sparingly
+3. Verify your solution
+4. Learn from mistakes
+5. Practice regularly
+
+TEACHER'S NOTE
+--------------
+Unsolved problems are where true learning happens. Students who 
+struggle, make mistakes, and then figure out the correct solution 
+develop the deepest understanding. Encourage students to view 
+mistakes as learning opportunities, not failures. The goal is 
+not just to get the right answer, but to understand the process 
+well enough to solve any LP problem."

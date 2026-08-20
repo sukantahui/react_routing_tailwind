@@ -1,0 +1,88 @@
+===============================================================================
+IDENTIFYING AN UNBOUNDED FEASIBLE REGION
+===============================================================================
+
+TOPIC 56 – RECOGNIZING INFINITE REGIONS
+
+-------------------------------------------------------------------------------
+1. WHAT IS AN UNBOUNDED FEASIBLE REGION?
+-------------------------------------------------------------------------------
+An unbounded feasible region extends to infinity in at least one direction.
+
+- No upper bounds on some variables
+- The region goes off the graph
+- Has infinite area
+
+Key idea: Unbounded = goes to infinity.
+
+-------------------------------------------------------------------------------
+2. HOW TO IDENTIFY AN UNBOUNDED REGION
+-------------------------------------------------------------------------------
+1. Look for variables with no upper bound constraints
+2. Check if the region goes off the graph
+3. Identify lower-bound-only constraints
+
+Types of Unbounded Regions:
+  - Pure Non-Negativity: x≥0, y≥0
+  - Lower Bound Only: x+y≥5
+  - One Variable Unbounded: y≤5, x≥0
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: First Quadrant
+  x≥0, y≥0
+  → Unbounded in right, up, and northeast directions
+
+Example 2: Unbounded Above
+  x+y≥5 with x≥0, y≥0
+  → Unbounded above the line x+y=5
+
+Example 3: Unbounded Right
+  y≤5 with x≥0, y≥0
+  → Unbounded to the right
+
+Example 4: Bounded Region
+  x+y≤10 with x≥0, y≥0
+  → Bounded triangle with finite area
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Unbounded regions extend to infinity
+✓ Missing upper bounds causes unboundedness
+✓ Lower bounds alone create unbounded regions
+✓ Unbounded regions can still have optimal solutions (minimization)
+✓ Adding upper bounds makes regions bounded
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming all unbounded regions are problems
+✗ Not checking if the objective is bounded in the unbounded direction
+✗ Confusing unbounded with infeasible
+✗ Missing that a region can be unbounded in one direction but bounded in another
+✗ Forgetting that minimization can work in unbounded regions
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Check if the feasible region is bounded
+✓ Determine the direction(s) of unboundedness
+✓ For maximization, ensure there are upper bounds on variables
+✓ For minimization, unbounded regions may still have optimal solutions
+✓ Add constraints to make the problem bounded if needed
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify an unbounded feasible region.
+☐ I understand why unbounded regions occur.
+☐ I can identify the direction(s) of unboundedness.
+☐ I know that unbounded regions can still have optimal solutions for minimization.
+☐ I can suggest ways to make an unbounded region bounded.
+☐ I can distinguish between unbounded and infeasible regions.
+
+===============================================================================
+END OF NOTES
+===============================================================================

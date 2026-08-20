@@ -636,7 +636,7 @@ const Topic11 = () => {
                                                 fill="#f59e0b"
                                                 stroke="#fff"
                                                 strokeWidth="2"
-                                                className="animate-[pulse_1.5s_ease-in-out_infinite]"
+                                                className=""
                                             />
                                             <text
                                                 x={px + 10}
@@ -664,7 +664,7 @@ const Topic11 = () => {
                                                 fill={color}
                                                 stroke="#fff"
                                                 strokeWidth="2"
-                                                className="animate-[pulse_1.5s_ease-in-out_infinite]"
+                                                className=""
                                             />
                                             <text
                                                 x={px + 12}

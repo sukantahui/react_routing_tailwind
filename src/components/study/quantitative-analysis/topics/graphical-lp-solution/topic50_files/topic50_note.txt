@@ -1,0 +1,86 @@
+===============================================================================
+OBJECTIVE FUNCTION PARALLEL TO A BOUNDARY EDGE
+===============================================================================
+
+TOPIC 50 – UNDERSTANDING MULTIPLE OPTIMA
+
+-------------------------------------------------------------------------------
+1. WHAT DOES "PARALLEL TO A BOUNDARY EDGE" MEAN?
+-------------------------------------------------------------------------------
+The objective function is parallel to a boundary edge when its slope
+equals the slope of that constraint.
+
+For Z = ax + by:
+  Slope = -a/b
+
+When the objective slope equals a constraint slope, they are parallel.
+
+Key idea: Same slope = parallel lines.
+
+-------------------------------------------------------------------------------
+2. WHY PARALLELISM CREATES MULTIPLE OPTIMA
+-------------------------------------------------------------------------------
+When the objective function is parallel to a constraint edge:
+  1. The objective line has the same slope as the constraint
+  2. The objective line overlaps the constraint edge at the optimum
+  3. Every point on the edge gives the same optimal value
+  4. Multiple optimal solutions exist
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: Maximization
+  Z = x + y (slope = -1)
+  Constraint: x + y = 10 (slope = -1)
+  → Parallel → Multiple optima on x+y=10
+
+Example 2: Minimization
+  C = x + y (slope = -1)
+  Constraint: x + y = 5 (slope = -1)
+  → Parallel → Multiple optima on x+y=5
+
+Example 3: Different Coefficients
+  Z = 2x + y (slope = -2)
+  Constraint: 2x + y = 10 (slope = -2)
+  → Parallel → Multiple optima on 2x+y=10
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Slope of Z = ax + by is m = -a/b
+✓ Parallel = same slope
+✓ Parallel objective = multiple optimal solutions
+✓ The optimal edge contains infinitely many optimal points
+✓ Multiple optima provide flexibility to decision-makers
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Not calculating the slope correctly (forgetting the negative sign)
+✗ Assuming parallel always means multiple optima (check overlap)
+✗ Not recognizing that the objective can be parallel to any constraint
+✗ Confusing parallel with coincident lines
+✗ Not stating all optimal solutions
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Always calculate the slope of the objective function
+✓ Compare objective slope to all constraint slopes
+✓ If slopes match, identify if the objective overlaps the constraint
+✓ State all optimal solutions clearly
+✓ Use the graph to visualize parallelism
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can calculate the slope of the objective function.
+☐ I can identify when the objective is parallel to a constraint.
+☐ I understand that parallel objective = multiple optimal solutions.
+☐ I can identify the optimal edge when the objective is parallel.
+☐ I can distinguish between parallel and non-parallel cases.
+☐ I can state all optimal solutions when parallel.
+
+===============================================================================
+END OF NOTES
+===============================================================================

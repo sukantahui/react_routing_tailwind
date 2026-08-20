@@ -1,0 +1,176 @@
+TOPIC 83: CHECKING A GRAPHICAL SOLUTION
+=======================================
+
+INTRODUCTION
+------------
+Checking a graphical LP solution is an essential skill that ensures 
+accuracy, builds confidence, and prevents errors from affecting the 
+final answer. A systematic verification process catches mistakes 
+before they become problems.
+
+WHY CHECK YOUR SOLUTION?
+------------------------
+1. Catches Errors:
+   - Graphing mistakes
+   - Calculation errors
+   - Missed constraints
+   - Incorrect shading
+
+2. Builds Confidence:
+   - Confirms the answer is correct
+   - Provides evidence of accuracy
+   - Reduces uncertainty
+
+3. Improves Learning:
+   - Identifies weaknesses in understanding
+   - Reinforces correct procedures
+   - Builds good habits
+
+THE 8 VERIFICATION CHECKS
+-------------------------
+
+CHECK 1: VERIFY ALL CONSTRAINTS
+-------------------------------
+Substitute the optimal solution into every constraint.
+
+Steps:
+1. Take your optimal solution (x*, y*)
+2. Substitute into each constraint equation
+3. Check that each inequality holds
+4. If any constraint is violated, the solution is infeasible
+
+Example:
+Constraints: 2x + y ≤ 10, x + 2y ≤ 8
+At (4,2): 2(4)+2=10 ≤ 10 ✓, 4+2(2)=8 ≤ 8 ✓
+
+CHECK 2: VERIFY CORNER POINTS
+-----------------------------
+Confirm all corner points of the feasible region were identified.
+
+Steps:
+1. List all corner points you found
+2. Check each is formed by the intersection of two constraints
+3. Verify each corner point is feasible
+4. Check if any corner points were missed
+
+CHECK 3: VERIFY OBJECTIVE FUNCTION EVALUATION
+--------------------------------------------
+Double-check objective function calculations.
+
+Steps:
+1. Re-evaluate Z at each corner point
+2. Check arithmetic calculations
+3. Verify you selected the correct optimal point
+4. Confirm no other corner point gives a better value
+
+CHECK 4: VERIFY THE GRAPH
+-------------------------
+Re-examine your graph for accuracy.
+
+Steps:
+1. Check intercepts are correctly plotted
+2. Verify lines are drawn straight
+3. Confirm shading is on the correct side
+4. Check that the feasible region is correctly identified
+
+CHECK 5: VERIFY SLACK/SURPLUS
+----------------------------
+Calculate slack for each constraint.
+
+Steps:
+1. Calculate LHS for each constraint at optimal point
+2. Compute slack = RHS - LHS (for ≤ constraints)
+3. Verify slack ≥ 0 for all constraints
+4. Check that slack = 0 for binding constraints
+
+CHECK 6: VERIFY REASONABLENESS
+-----------------------------
+Check if the solution makes practical sense.
+
+Steps:
+1. Are the values realistic?
+2. Do they make sense in the context?
+3. Could there be any practical issues?
+4. Does the solution align with intuition?
+
+CHECK 7: VERIFY THE SHADING
+---------------------------
+Confirm the feasible region is shaded correctly.
+
+Steps:
+1. Test a point in the shaded region
+2. Verify it satisfies ALL constraints
+3. Test a point outside the shaded region
+4. Verify it violates at least one constraint
+
+CHECK 8: VERIFY OPTIMALITY
+--------------------------
+Confirm the chosen point is truly optimal.
+
+Steps:
+1. Check all corner points
+2. For maximization: verify no corner point has higher Z
+3. For minimization: verify no corner point has lower Z
+4. Check if objective line slope indicates optimality
+
+COMPLETE EXAMPLE
+----------------
+Problem: Maximize Z = 5x + 3y
+Constraints: 2x + y ≤ 10, x + 2y ≤ 8, x, y ≥ 0
+Solution: (4, 2) with Z = 26
+
+Verification:
+1. Constraints:
+   2(4)+2=10 ≤ 10 ✓, 4+2(2)=8 ≤ 8 ✓, 4≥0 ✓, 2≥0 ✓
+
+2. Corner Points:
+   (0,0), (5,0), (4,2), (0,4) - all found and feasible
+
+3. Objective Evaluation:
+   Z(0,0)=0, Z(5,0)=25, Z(4,2)=26, Z(0,4)=12
+   26 is the maximum ✓
+
+4. Graph:
+   Lines through correct intercepts, shading correct ✓
+
+5. Slack:
+   Constraint 1: 10-10=0 (binding)
+   Constraint 2: 8-8=0 (binding)
+
+6. Reasonableness:
+   Production values are positive and make sense ✓
+
+7. Shading:
+   Feasible region correctly identified ✓
+
+8. Optimality:
+   No other corner point gives Z > 26 ✓
+
+VERIFICATION CHECKLIST
+----------------------
+Before submitting your solution, check:
+□ Constraints: Does (x*, y*) satisfy all constraints?
+□ Corner Points: Were all corner points found?
+□ Objective: Were calculations correct?
+□ Graph: Is the graph accurate?
+□ Slack: Is slack ≥ 0 for all constraints?
+□ Reasonableness: Does the solution make sense?
+□ Shading: Is the feasible region shaded correctly?
+□ Optimality: Is this truly the optimal point?
+
+COMMON VERIFICATION MISTAKES
+----------------------------
+1. Only checking binding constraints
+2. Not verifying all corner points
+3. Assuming calculations are correct
+4. Not checking the graph
+5. Forgetting to check reasonableness
+
+TEACHER'S NOTE
+--------------
+Teaching students to check their work is one of the most important 
+skills I can impart. I require students to show their verification 
+work alongside their solution - this has dramatically improved 
+accuracy in my classes. The best solvers aren't those who never 
+make mistakes - they're those who catch and correct them before 
+submitting."

@@ -1,0 +1,155 @@
+TOPIC 75: EFFECT OF SHIFTING A CONSTRAINT LINE
+==============================================
+
+INTRODUCTION
+------------
+Shifting a constraint line (changing its RHS value) is a fundamental 
+operation in linear programming that represents changes in resource 
+availability or requirements. Understanding these effects is crucial 
+for resource planning and sensitivity analysis.
+
+DEFINITION
+----------
+A constraint shift changes the RHS value:
+• Original: a₁x + a₂y ≤ b
+• Shifted: a₁x + a₂y ≤ b + Δb
+
+Where Δb > 0 for outward shift, Δb < 0 for inward shift.
+
+EFFECTS OF CONSTRAINT SHIFTS
+----------------------------
+1. Outward Shift (Relaxation):
+   - Constraint moves outward
+   - Feasible region expands
+   - Z increases (for maximization)
+   - Shadow price determines rate
+
+2. Inward Shift (Tightening):
+   - Constraint moves inward
+   - Feasible region shrinks
+   - Z decreases (for maximization)
+   - Shadow price determines rate
+
+3. Binding Constraint Shift:
+   - Optimal point moves along other constraints
+   - Z changes at shadow price rate
+   - Constraint remains binding
+
+4. Non-Binding Constraint Shift:
+   - No effect on optimal solution
+   - Shadow price = 0
+   - Slack absorbs the change
+
+KEY FORMULAS
+------------
+Change in Objective Function:
+ΔZ = Shadow Price × Δb
+
+Where:
+• Shadow Price is the marginal value of the resource
+• Δb is the change in RHS
+• Valid within the allowable range
+
+New Optimal Point:
+• Moves along the other binding constraint(s)
+• Found by solving the new system of equations
+
+TYPES OF CONSTRAINT SHIFTS
+--------------------------
+1. Outward Shift (Relax):
+   - Increase RHS
+   - Move line outward
+   - Expand feasible region
+   - Z increases (maximization)
+
+2. Inward Shift (Tighten):
+   - Decrease RHS
+   - Move line inward
+   - Shrink feasible region
+   - Z decreases (maximization)
+
+3. Binding Constraint Shift:
+   - Optimal point moves along other constraints
+   - Shadow price determines effect
+
+4. Non-Binding Constraint Shift:
+   - No effect until constraint becomes binding
+   - Slack absorbs the change
+
+ANALYSIS STEPS
+--------------
+Step 1: Identify Binding Status
+- Determine if constraint is binding or non-binding
+
+Step 2: Determine Shift Direction
+- Outward (relax) or inward (tighten)
+
+Step 3: Calculate Shadow Price
+- Find marginal value of the constraint
+
+Step 4: Find New Optimal Point
+- Solve new system of equations
+
+Step 5: Interpret Results
+- Translate to business insights
+
+COMMON MISTAKES
+---------------
+1. Confusing Outward and Inward Shifts:
+   - Outward = increase RHS, Inward = decrease RHS
+
+2. Applying Shadow Prices to Non-Binding Constraints:
+   - Non-binding constraints have zero shadow price
+
+3. Misidentifying the New Optimal Point:
+   - Point moves along other binding constraints
+
+4. Ignoring the Allowable Range:
+   - Shadow prices valid only within range
+
+BEST PRACTICES
+--------------
+1. Check binding status first
+2. Calculate shadow prices
+3. Consider the allowable range
+4. Use graphical visualization
+5. Interpret in business context
+
+PRACTICAL APPLICATIONS
+----------------------
+1. Resource Planning:
+   - Adding or reducing resources
+   - Capacity expansion decisions
+
+2. Budget Allocation:
+   - Where to invest additional funds
+   - Resource prioritization
+
+3. Capacity Planning:
+   - How much capacity to add
+   - Impact of capacity changes
+
+4. Sensitivity Analysis:
+   - How robust is the solution?
+   - What changes affect it?
+
+KEY TAKEAWAYS
+------------
+✓ Outward shift = expand region = increase Z
+✓ Inward shift = shrink region = decrease Z
+✓ ΔZ = Shadow Price × ΔRHS
+✓ Binding constraints affect the solution
+✓ Non-binding constraints have zero shadow price
+✓ Changes valid within allowable range
+✓ Useful for resource planning decisions
+
+TEACHER'S NOTE
+--------------
+Shifting constraint lines is one of the most intuitive concepts in LP 
+sensitivity analysis. When I teach this, I use the analogy of a room - 
+moving the walls changes the space you have to work with. In business 
+terms, this represents changes in available resources. The shadow price 
+tells you how valuable each additional unit of resource is. I encourage 
+students to practice visualizing constraint shifts on graphs - it helps 
+them understand the relationship between resource changes and optimal 
+solutions, which is essential for real-world decision-making."

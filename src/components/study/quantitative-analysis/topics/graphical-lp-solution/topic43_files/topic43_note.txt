@@ -1,0 +1,90 @@
+===============================================================================
+COMPARING OBJECTIVE-FUNCTION VALUES
+===============================================================================
+
+TOPIC 43 – FINDING THE OPTIMAL SOLUTION
+
+-------------------------------------------------------------------------------
+1. WHY COMPARE VALUES?
+-------------------------------------------------------------------------------
+After evaluating the objective function at each corner point, we compare
+the values to find the optimal solution.
+
+- Maximization: look for the HIGHEST value
+- Minimization: look for the LOWEST value
+
+Key idea: Comparison is the final step — find the best value!
+
+-------------------------------------------------------------------------------
+2. COMPARISON METHODS
+-------------------------------------------------------------------------------
+1. Table Comparison:
+   - List all corners with their values
+   - Sort from best to worst
+   - The top-ranked is optimal
+
+2. Visual Comparison:
+   - Use the graph to see which corner is farthest (max) or closest (min)
+   - The optimal corner is visually obvious
+
+3. Ranking:
+   - Rank corners from best to worst
+   - The #1 rank is optimal
+
+-------------------------------------------------------------------------------
+3. EXAMPLE: PROFIT MAXIMIZATION
+-------------------------------------------------------------------------------
+Z = 3x + 4y
+
+┌────────────┬──────────┬─────────────┬──────────┐
+│ Rank │ Corner │ (x, y)   │ Z         │ Status   │
+├────────────┼──────────┼─────────────┼──────────┤
+│ #1    │ B (4,3)    │ 24          │ ★ Optimal│
+│ #2    │ C (2,4)    │ 22          │          │
+│ #3    │ D (0,5)    │ 20          │          │
+│ #4    │ A (5,0)    │ 15          │          │
+│ #5    │ O (0,0)    │ 0           │          │
+└────────────┴──────────┴─────────────┴──────────┘
+
+Optimal: Z = 24 at (4,3)
+
+-------------------------------------------------------------------------------
+4. MULTIPLE OPTIMAL SOLUTIONS
+-------------------------------------------------------------------------------
+If two or more corners have the same optimal value:
+
+- Both corners are optimal
+- Any point on the edge between them is also optimal
+- Example: Z = x + y with A(10,0) and B(0,10) both giving Z=10
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting which direction to compare (max vs min)
+✗ Missing a corner point in the comparison
+✗ Not checking for ties
+✗ Comparing infeasible points
+✗ Misreading the values
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Use a table to organize values
+✓ Sort values from best to worst
+✓ Check for multiple optimal solutions
+✓ Double-check your arithmetic
+✓ Mark the optimal value clearly
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can list all objective values at corner points.
+☐ I can compare values for maximization (highest).
+☐ I can compare values for minimization (lowest).
+☐ I can identify the optimal solution.
+☐ I can recognize multiple optimal solutions.
+☐ I can rank corner points by objective value.
+
+===============================================================================
+END OF NOTES
+===============================================================================

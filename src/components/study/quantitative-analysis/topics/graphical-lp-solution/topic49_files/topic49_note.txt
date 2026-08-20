@@ -1,0 +1,92 @@
+===============================================================================
+IDENTIFYING ALTERNATE OPTIMAL SOLUTIONS GRAPHICALLY
+===============================================================================
+
+TOPIC 49 – VISUAL RECOGNITION OF MULTIPLE OPTIMA
+
+-------------------------------------------------------------------------------
+1. WHAT ARE ALTERNATE OPTIMAL SOLUTIONS?
+-------------------------------------------------------------------------------
+Alternate optimal solutions (multiple optimal solutions) occur when the
+objective function line is parallel to a constraint edge, resulting in an
+entire edge of optimal solutions.
+
+- The objective line overlaps a constraint edge
+- Two or more corner points have the same optimal value
+- Any point on the edge is equally optimal
+
+Key idea: Look for the overlap!
+
+-------------------------------------------------------------------------------
+2. HOW TO IDENTIFY ALTERNATE OPTIMA
+-------------------------------------------------------------------------------
+Step 1: Check the slope of the objective function
+Step 2: Compare to the slopes of constraints
+Step 3: If they match, look for overlap
+Step 4: If the objective line overlaps a constraint edge → alternate optima
+
+Graphical Sign:
+  - The objective line lies exactly on top of a constraint edge
+  - Multiple points on the edge give the same objective value
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: Maximization
+  Z = x + y (slope = -1)
+  Constraint: x + y = 10 (slope = -1)
+  → Objective line overlaps the constraint edge
+  → A(10,0), B(0,10), and all points on x+y=10 are optimal
+
+Example 2: Maximization with 3 Constraints
+  Z = 2x + y (slope = -2)
+  Constraint: 2x + y = 10 (slope = -2)
+  → Objective line overlaps the constraint edge
+  → A(5,0), B(2,6), and all points on 2x+y=10 are optimal
+
+Example 3: Minimization
+  C = x + y (slope = -1)
+  Constraint: x + y = 5 (slope = -1)
+  → Objective line overlaps the constraint edge
+  → A(0,5), B(5,0), and all points on x+y=5 are optimal
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Alternate optima occur when the objective is parallel to a constraint
+✓ The optimal edge contains infinitely many optimal points
+✓ The corner-point principle still holds (endpoints are corners)
+✓ Alternate optima provide flexibility to decision-makers
+✓ Look for the objective line overlapping a constraint edge
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Not recognizing the overlap of the objective line with a constraint edge
+✗ Assuming multiple optima is a problem
+✗ Forgetting to check if the objective line is parallel
+✗ Not stating all optimal solutions
+✗ Confusing alternate optima with unbounded solutions
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Check for ties in optimal values
+✓ Identify if the objective line is parallel to a constraint
+✓ State all optimal solutions clearly
+✓ Explain the flexibility alternate optima provide
+✓ Use the graph to visualize the optimal edge
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify alternate optimal solutions on a graph.
+☐ I understand why alternate optima occur (parallel objective).
+☐ I can identify the optimal edge when alternate optima exist.
+☐ I can state all alternate optimal solutions.
+☐ I understand that alternate optima provide flexibility.
+☐ I can distinguish between alternate optima and unbounded solutions.
+
+===============================================================================
+END OF NOTES
+===============================================================================

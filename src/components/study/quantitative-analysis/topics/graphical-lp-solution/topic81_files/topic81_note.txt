@@ -1,0 +1,172 @@
+TOPIC 81: STEP-BY-STEP PROCEDURE FOR SOLVING LP GRAPHICALLY
+===========================================================
+
+INTRODUCTION
+------------
+Solving linear programming problems graphically requires a systematic 
+approach. Following a step-by-step procedure ensures accuracy and helps 
+you understand the problem deeply.
+
+THE 9-STEP PROCEDURE
+--------------------
+
+STEP 1: UNDERSTAND THE PROBLEM
+-------------------------------
+- Read the problem carefully
+- Identify what needs to be optimized (maximize or minimize)
+- List all resources and limitations
+- Understand the context and constraints
+
+Key Questions:
+• What are we trying to decide?
+• What are we trying to optimize?
+• What limits our decisions?
+
+STEP 2: DEFINE DECISION VARIABLES
+---------------------------------
+- Choose variables that represent decisions
+- Use clear notation (x, y or x₁, x₂)
+- State the units of measurement
+- Include non-negativity constraints
+
+Example:
+Let x = number of chairs produced
+Let y = number of tables produced
+x ≥ 0, y ≥ 0
+
+STEP 3: FORMULATE THE OBJECTIVE FUNCTION
+----------------------------------------
+- Identify contribution per unit of each variable
+- Write as Z = c₁x + c₂y
+- State whether to maximize or minimize
+
+Example:
+Maximize Z = 500x + 700y (Profit in ₹)
+
+STEP 4: FORMULATE THE CONSTRAINTS
+----------------------------------
+- List all resource constraints
+- Write each as a linear inequality
+- Include all limitations
+
+Example:
+Labor: 3x + 2y ≤ 240
+Machine: 4x + y ≤ 200
+x ≥ 0, y ≥ 0
+
+STEP 5: GRAPH THE CONSTRAINTS
+-----------------------------
+- Convert each inequality to equality
+- Find x and y intercepts
+- Draw each line on the coordinate plane
+- Determine which side is feasible
+- Shade the feasible region
+
+Graphing Tips:
+• Plot intercepts accurately
+• Use graph paper for precision
+• Test a point to determine shading
+
+STEP 6: IDENTIFY CORNER POINTS
+------------------------------
+- Find intersections of constraint lines
+- Include intersections with axes
+- List all corner points
+
+Corner Points:
+(0,0) - Origin
+(50,0) - x-axis intersection
+(40,60) - Intersection of constraints
+(0,120) - y-axis intersection
+
+STEP 7: EVALUATE THE OBJECTIVE FUNCTION
+---------------------------------------
+- Substitute each corner point into Z equation
+- Calculate Z for each point
+- Compare values
+
+Evaluation:
+Z(0,0) = 0
+Z(50,0) = 25,000
+Z(40,60) = 62,000 ← Maximum
+Z(0,120) = 84,000 (infeasible)
+
+STEP 8: SELECT THE OPTIMAL SOLUTION
+-----------------------------------
+- Choose corner point with best Z value
+- State optimal variable values
+- Calculate optimal objective value
+
+Optimal Solution:
+x = 40 chairs
+y = 60 tables
+Z = ₹62,000
+
+STEP 9: INTERPRET AND VALIDATE RESULTS
+--------------------------------------
+- State solution in business terms
+- Check resource utilization
+- Identify slack resources
+- Consider sensitivity
+
+Interpretation:
+• Produce 40 chairs and 60 tables
+• Labor: 3(40)+2(60)=240 hours (fully used)
+• Machine: 4(40)+60=220 hours (exceeds available!)
+• Wait - this solution is infeasible!
+
+Important: Always verify your solution satisfies ALL constraints!
+The correct optimal is (40,40) with Z = 48,000
+
+KEY FORMULAS
+------------
+Objective Function:
+Z = c₁x + c₂y
+
+Constraint Format:
+a₁x + a₂y ≤ b (or ≥, =)
+
+Corner Point Evaluation:
+For each corner point (x, y):
+Z = c₁x + c₂y
+
+COMMON MISTAKES
+---------------
+1. Rushing to graph before understanding the problem
+2. Missing non-negativity constraints
+3. Incorrectly determining feasible side
+4. Missing corner points
+5. Not verifying solution satisfies all constraints
+6. Confusing maximization with minimization
+
+BEST PRACTICES
+--------------
+1. Follow the steps in order
+2. Write everything down clearly
+3. Use graph paper or precise tools
+4. Check your work at each step
+5. Verify the final solution
+6. Interpret results in context
+
+QUICK REFERENCE
+---------------
+Step 1: Understand the Problem
+Step 2: Define Variables
+Step 3: Formulate Objective
+Step 4: Formulate Constraints
+Step 5: Graph Constraints
+Step 6: Find Corner Points
+Step 7: Evaluate Objective
+Step 8: Select Optimal
+Step 9: Interpret Results
+
+TEACHER'S NOTE
+--------------
+The step-by-step procedure is essential for solving LP problems 
+accurately. I emphasize to students that this is like following a 
+recipe - each step builds on the previous one. The most common 
+mistake is skipping Step 1 (understanding the problem). Students 
+who rush to graph often make errors that could have been avoided 
+with careful problem analysis. I encourage students to practice 
+this procedure with different types of problems until it becomes 
+second nature."

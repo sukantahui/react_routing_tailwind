@@ -1,0 +1,160 @@
+TOPIC 67: UNIQUE OPTIMAL SOLUTION
+=================================
+
+INTRODUCTION
+------------
+A unique optimal solution is the most common and desirable case in linear 
+programming. It occurs when there is exactly one point in the feasible 
+region that gives the optimal objective function value.
+
+DEFINITION
+----------
+A unique optimal solution exists when:
+1. There is exactly one feasible point (x*, y*) that optimizes Z
+2. No other point gives the same optimal Z value
+3. The optimal point is at a corner of the feasible region
+
+CHARACTERISTICS
+---------------
+1. Single Optimal Point
+   - Only one corner point gives the best Z
+   - All other points give a worse (or equal) value
+
+2. Unique Slope
+   - Objective function has a unique slope
+   - Not parallel to any constraint line
+
+3. Distinct Corner Point
+   - Optimal at a distinct vertex of the feasible region
+   - Exactly 2 binding constraints in 2D
+
+4. Well-Defined Solution
+   - Clear, unambiguous decision
+   - Easy to implement and justify
+
+GRAPHICAL IDENTIFICATION
+------------------------
+On a graph, a unique optimal solution appears as:
+• The objective function line touching the feasible region at exactly one point
+• A single corner point where Z is maximized (or minimized)
+• No other corner points giving the same Z value
+
+STEPS TO FIND UNIQUE OPTIMAL SOLUTION
+-------------------------------------
+Step 1: Graph all constraints
+Step 2: Identify the feasible region
+Step 3: Find all corner points
+Step 4: Evaluate Z at each corner point
+Step 5: Select the best value
+Step 6: Verify uniqueness (no other point gives same Z)
+
+PROPERTIES
+----------
+1. Single Optimal Point:
+   Exactly one corner point gives the optimal value
+
+2. Unique Slope:
+   Objective function slope ≠ any constraint slope
+
+3. Distinct Corner Point:
+   Optimal point is a vertex of the feasible region
+
+4. Sensitivity:
+   Small changes may change the optimal solution
+
+5. Stability:
+   Well-defined and unambiguous
+
+COMPARISON WITH OTHER CASES
+---------------------------
+Feature          Unique        Multiple      Unbounded
+─────────────────────────────────────────────────────────
+Solutions        Exactly 1     Infinite      None (∞)
+Slope            Unique        Parallel      Not bounded
+Binding Const.   2 (in 2D)     2+ on edge    None
+Decision         Clear         Flexible      No answer
+Stability        Sensitive     Robust        Unstable
+
+COMMON MISTAKES
+---------------
+1. Missing corner points (especially on axes)
+2. Incorrectly evaluating Z at corner points
+3. Assuming uniqueness without checking
+4. Misidentifying the feasible region
+5. Confusing with multiple optimal solutions
+
+BEST PRACTICES
+--------------
+1. Plot constraints accurately
+2. Check all corner points systematically
+3. Verify uniqueness by checking all corners
+4. Document calculations clearly
+5. Use exact values (avoid rounding)
+
+WHEN UNIQUENESS OCCURS
+----------------------
+• Objective function has a unique slope
+• No constraint is parallel to the objective
+• Feasible region is bounded
+• Optimal point is at a corner
+• No degeneracy at the optimal point
+
+PRACTICAL SIGNIFICANCE
+----------------------
+1. Decision-Making:
+   - Clear, unambiguous recommendation
+   - Easy to justify to stakeholders
+
+2. Implementation:
+   - Single plan to execute
+   - No need to choose among alternatives
+
+3. Sensitivity Analysis:
+   - Changes affect the solution
+   - Need to understand stability
+
+4. Communication:
+   - Easy to explain to non-experts
+   - Visual representation is straightforward
+
+REAL-WORLD EXAMPLES
+-------------------
+1. Production Planning:
+   - One optimal production mix
+   - Clear what to produce
+
+2. Resource Allocation:
+   - One optimal way to allocate resources
+   - No ambiguity in decisions
+
+3. Investment Portfolio:
+   - One optimal allocation of funds
+   - Clear investment strategy
+
+4. Logistics:
+   - One optimal routing or scheduling
+   - Straightforward implementation
+
+KEY TAKEAWAYS
+------------
+✓ Unique optimal = exactly one best solution
+✓ Always at a corner point
+✓ Objective function has unique slope
+✓ No other point gives the same Z
+✓ Most common and desirable case
+✓ Provides clear decision guidance
+✓ Requires verification of uniqueness
+
+TEACHER'S NOTE
+--------------
+The unique optimal solution is what most students expect when they first 
+encounter LP problems - one clear, correct answer. In my experience, 
+this is the case that builds confidence and understanding of the 
+fundamental concepts. I emphasize to students that while unique solutions 
+are the most common, they should always verify uniqueness. The habit of 
+checking all corner points and verifying that no other point gives the 
+same Z value is a critical skill that will serve them well when they 
+encounter the special cases. In real-world consulting, the unique solution 
+is the "easy" case - the client gets a clear answer, and you get a 
+satisfied client. But it's the ability to handle the special cases that 
+separates the experts from the novices.

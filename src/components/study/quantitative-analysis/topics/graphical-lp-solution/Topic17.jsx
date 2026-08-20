@@ -647,7 +647,7 @@ const Topic17 = () => {
                                                 r="10"
                                                 fill={color}
                                                 fillOpacity="0.2"
-                                                className="animate-[pulse_2s_ease-in-out_infinite]"
+                                                className=""
                                             />
                                             <circle
                                                 cx={px}
@@ -656,7 +656,7 @@ const Topic17 = () => {
                                                 fill={color}
                                                 stroke="#fff"
                                                 strokeWidth="2.5"
-                                                className="animate-[pulse_1.5s_ease-in-out_infinite]"
+                                                className=""
                                             />
                                             <text
                                                 x={px + 14}

@@ -1,0 +1,93 @@
+===============================================================================
+WORKED EXAMPLE 6: LABOUR AND MACHINE-HOUR CONSTRAINT
+===============================================================================
+
+TOPIC 33 – PRODUCTION PLANNING WITH LABOUR AND MACHINE
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A factory produces two products:
+
+- Product P: 3 labour, 2 machine, ₹12 profit
+- Product Q: 4 labour, 3 machine, ₹15 profit
+- Available: 120 labour, 90 machine
+
+Question: How many units of each product to maximize profit?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = units of Product P
+  y = units of Product Q
+
+Objective Function:
+  Maximize Z = 12x + 15y
+
+Constraints:
+  3x + 4y ≤ 120  (labour)
+  2x + 3y ≤ 90   (machine)
+  x ≥ 0, y ≥ 0   (non-negativity)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  O (0,0)     → Z = 0
+  A (40,0)    → Z = 480
+  B (30,10)   → Z = 510  ← OPTIMAL
+  C (0,30)    → Z = 450
+
+Optimal Solution:
+  x = 30, y = 10, Z = 510
+
+-------------------------------------------------------------------------------
+4. RESOURCE UTILIZATION
+-------------------------------------------------------------------------------
+At the optimal solution (30, 10):
+  Labour: 3(30) + 4(10) = 90 + 40 = 120 ✓ (fully used)
+  Machine: 2(30) + 3(10) = 60 + 30 = 90 ✓ (fully used)
+
+Both constraints are binding.
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ Product Q is more profitable but uses more resources
+✓ The optimal plan balances labour and machine hours
+✓ Both resources are fully utilized
+✓ The trade-off between products determines the optimal mix
+✓ Higher profit per unit doesn't always mean produce more
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming the more profitable product should be produced more
+✗ Forgetting to check resource constraints
+✗ Not verifying the feasibility of the solution
+✗ Ignoring the trade-off between products
+✗ Misreading the resource requirements
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a production planning problem common in:
+
+- Manufacturing: allocate labour and machine time
+- Service: allocate staff and equipment time
+- Construction: allocate workers and machinery
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can formulate a problem with labour and machine constraints.
+☐ I can identify the limiting resources.
+☐ I can find the optimal production plan.
+☐ I can verify resource utilization at the optimum.
+☐ I can interpret the solution in business terms.
+☐ I can explain the trade-off between labour and machine hours.
+
+===============================================================================
+END OF NOTES
+===============================================================================

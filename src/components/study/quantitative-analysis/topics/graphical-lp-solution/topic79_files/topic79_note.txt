@@ -1,0 +1,151 @@
+TOPIC 79: SOCIAL-RESOURCE OPTIMIZATION PROBLEM
+==============================================
+
+INTRODUCTION
+------------
+Social-resource optimization is a powerful application of linear programming 
+that helps allocate limited social resources across programs to maximize 
+social impact and address community needs.
+
+PROBLEM CONTEXT
+---------------
+Social programs typically include:
+• Education (schools, scholarships, teacher training)
+• Healthcare (hospitals, clinics, disease prevention)
+• Housing (affordable housing, slum rehabilitation)
+• Nutrition (food programs, malnutrition prevention)
+• Skill Development (training, employment programs)
+
+Social Impact Measurement:
+Each program has an impact score representing the social value per unit
+of funding. Impact scores are based on evidence of program effectiveness.
+
+PROBLEM FORMULATION
+-------------------
+Objective: Maximize Social Impact
+Z = b₁x + b₂y + b₃z
+
+Where:
+• x, y, z = Allocations to different programs
+• b₁, b₂, b₃ = Impact scores per unit
+
+Constraints:
+• Budget: a₁x + a₂y + a₃z ≤ B
+• Program Minimums: x ≥ m₁, y ≥ m₂, z ≥ m₃
+• Program Maximums: x ≤ M₁, y ≤ M₂, z ≤ M₃
+• Program Balance: x + y + z ≥ P
+• x, y, z ≥ 0
+
+EXAMPLE PROBLEM
+---------------
+Kolkata Social Welfare Department:
+
+Resources:
+• Total Budget: ₹60 crores
+• Programs: Education (x), Healthcare (y), Housing (z)
+
+Impact Scores (per crore):
+• Education: 15 points
+• Healthcare: 12 points
+• Housing: 10 points
+
+Constraints:
+• Budget: 3x + 4y + 2z ≤ 60
+• Education Minimum: x ≥ 4
+• Healthcare Minimum: y ≥ 3
+• Housing Minimum: z ≥ 2
+• Education Maximum: x ≤ 12
+• Healthcare Maximum: y ≤ 15
+• Housing Maximum: z ≤ 10
+• Program Balance: x + y + z ≥ 10
+• Education + Healthcare ≥ 8
+• x, y, z ≥ 0
+
+LP Formulation:
+Maximize Z = 15x + 12y + 10z
+Subject to:
+3x + 4y + 2z ≤ 60
+x ≥ 4, y ≥ 3, z ≥ 2
+x ≤ 12, y ≤ 15, z ≤ 10
+x + y + z ≥ 10
+x + y ≥ 8
+x, y, z ≥ 0
+
+SOLUTION
+--------
+Optimal Point: (8, 6, 4)
+Social Impact: 15(8) + 12(6) + 10(4) = 120 + 72 + 40 = 232 points
+
+Constraint Analysis:
+• Budget: 3(8) + 4(6) + 2(4) = 24 + 24 + 8 = 56 (slack: 4)
+• All minimums and maximums are satisfied
+• Program balance is satisfied
+
+INTERPRETATION
+--------------
+1. Optimal Allocation:
+   - Education: ₹8 crores
+   - Healthcare: ₹6 crores
+   - Housing: ₹4 crores
+
+2. Key Insights:
+   - Budget has slack (not fully utilized)
+   - No constraints are binding
+   - Additional budget would not increase impact
+   - Consider reallocating unused budget
+
+3. Strategic Priorities:
+   - Education provides highest impact
+   - Healthcare is second priority
+   - Housing is third priority
+
+KEY INSIGHTS
+------------
+1. Impact scores determine allocation priorities
+2. Higher impact programs should receive more funding
+3. Program synergies can enhance overall impact
+4. Equity considerations may modify optimal allocation
+5. Capacity constraints limit program funding
+
+REAL-WORLD CONSIDERATIONS
+-------------------------
+1. Community Needs:
+   - Programs should address actual community needs
+   - Involve communities in planning
+
+2. Program Capacity:
+   - Programs have limited absorptive capacity
+   - Consider implementation constraints
+
+3. Program Synergies:
+   - Some programs reinforce each other
+   - Holistic approaches often work better
+
+4. Monitoring and Evaluation:
+   - Track program outcomes
+   - Adjust allocations based on evidence
+
+5. Sustainability:
+   - Programs should be sustainable long-term
+   - Consider capacity building
+
+BEST PRACTICES
+--------------
+1. Use evidence-based impact scores
+2. Involve stakeholders in planning
+3. Consider equity and inclusion
+4. Build flexibility into allocations
+5. Monitor and evaluate outcomes
+6. Update models regularly
+7. Consider program synergies
+
+TEACHER'S NOTE
+--------------
+Social-resource optimization shows students how LP can address real 
+social challenges. I emphasize that this application requires both 
+analytical skills and social awareness. Students should understand 
+that social impact measurement involves difficult value judgments. 
+The LP model provides a framework for decision-making, but it must 
+be informed by community needs, stakeholder input, and ethical 
+considerations. This application helps students develop a more 
+holistic understanding of resource allocation."

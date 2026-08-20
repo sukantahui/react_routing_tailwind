@@ -1,0 +1,87 @@
+===============================================================================
+DETERMINING THE MAXIMUM PROFIT
+===============================================================================
+
+TOPIC 46 – THE BEST FINANCIAL OUTCOME
+
+-------------------------------------------------------------------------------
+1. WHAT IS MAXIMUM PROFIT?
+-------------------------------------------------------------------------------
+The maximum profit is the highest value of the profit function (Z) that can
+be achieved within the feasible region.
+
+- The highest Z value among all corner points
+- Tells you the best possible financial outcome
+- Must be achievable (feasible)
+
+Key idea: The maximum profit is the answer to profit maximization problems!
+
+-------------------------------------------------------------------------------
+2. HOW TO FIND MAXIMUM PROFIT
+-------------------------------------------------------------------------------
+Step 1: Evaluate Z at every corner point
+Step 2: Compare all Z values
+Step 3: Select the highest value
+Step 4: State the maximum profit with context
+
+Example: Z values: 0, 15, 24, 22, 20
+  → Maximum profit = ₹24 at (4,3)
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Profit Maximization:
+  Corner values: 0, 15, 24, 22, 20
+  Maximum profit: ₹24 at (4,3)
+  Context: Produce 4 X and 3 Y for ₹24 profit
+
+Factory Production:
+  Corner values: 0, 20, 16, 12
+  Maximum profit: ₹20 at (4,0)
+  Context: Produce 4 X and 0 Y for ₹20 profit
+
+Multiple Optima:
+  Corner values: 0, 10, 10
+  Maximum profit: ₹10 at (10,0) or (0,10)
+  Context: Either mix gives ₹10 profit
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Include the currency symbol (₹) in your answer
+✓ State the maximum profit in context
+✓ For multiple optima, state all options
+✓ Verify by substitution
+✓ Check that the production mix is feasible
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting the currency symbol (₹)
+✗ Not stating the profit in context
+✗ Missing multiple optimal solutions
+✗ Not verifying feasibility
+✗ Confusing profit with other objectives
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Include ₹ in your answer
+✓ State the maximum profit with context
+✓ For multiple optima, state all options
+✓ Verify by substitution
+✓ Check feasibility of the production mix
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can evaluate Z at all corner points.
+☐ I can compare Z values to find the highest.
+☐ I can identify the maximum profit.
+☐ I can state the maximum profit with context.
+☐ I can handle multiple optimal profit solutions.
+☐ I can verify the profit by substitution.
+
+===============================================================================
+END OF NOTES
+===============================================================================

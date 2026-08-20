@@ -1,0 +1,100 @@
+===============================================================================
+WORKED EXAMPLE 10: AGRICULTURAL PRODUCTION PROBLEM
+===============================================================================
+
+TOPIC 37 – FARM PLANNING WITH MULTIPLE RESOURCES
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A farmer has 100 hectares of land:
+
+- Wheat (x): 2 labor, 3 water, ₹5,000 profit
+- Corn (y): 3 labor, 2 water, ₹6,000 profit
+- Available: 240 labor, 240 water
+- Minimum Corn: 20 hectares
+
+Question: How many hectares of each crop to maximize profit?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = hectares of Wheat
+  y = hectares of Corn
+
+Objective Function:
+  Maximize Z = 5000x + 6000y
+
+Constraints:
+  x + y ≤ 100       (land)
+  2x + 3y ≤ 240     (labor)
+  3x + 2y ≤ 240     (water)
+  y ≥ 20            (corn requirement)
+  x ≥ 0, y ≥ 0      (non-negativity)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  A (40,20)    → Z = 320,000
+  B (60,20)    → Z = 420,000
+  C (48,48)    → Z = 528,000  ← OPTIMAL
+  D (20,60)    → Z = 460,000
+  E (0,80)     → Z = 480,000
+
+Optimal Solution:
+  x = 48, y = 48, Z = 528,000
+
+-------------------------------------------------------------------------------
+4. RESOURCE UTILIZATION
+-------------------------------------------------------------------------------
+At the optimal solution (48, 48):
+  Land: 48 + 48 = 96 ≤ 100 (4 unused)
+  Labor: 2(48) + 3(48) = 96 + 144 = 240 ✓ (fully used)
+  Water: 3(48) + 2(48) = 144 + 96 = 240 ✓ (fully used)
+  Corn: 48 ≥ 20 ✓ (satisfied)
+
+Binding constraints: Labor and Water
+Non-binding constraint: Land
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ Land is not always the limiting factor
+✓ Labor and water can be the real constraints
+✓ Corn is more profitable but uses more labor
+✓ The optimal mix balances all constraints
+✓ Minimum crop requirements may not be binding
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming land is always the limiting constraint
+✗ Not checking if the minimum crop requirement is met
+✗ Forgetting to check all constraints at the optimum
+✗ Misreading the resource requirements
+✗ Not identifying which constraints are binding
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents an agricultural planning problem common in:
+
+- Farming: decide crop mix with limited resources
+- Horticulture: allocate greenhouse space, water, labor
+- Forestry: plan timber harvesting with multiple constraints
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can formulate an agricultural production problem.
+☐ I can identify binding constraints.
+☐ I can find the optimal crop allocation.
+☐ I can verify all constraints are satisfied.
+☐ I can interpret the solution in agricultural terms.
+☐ I can explain the trade-off between crops.
+
+===============================================================================
+END OF NOTES
+===============================================================================

@@ -1,0 +1,82 @@
+===============================================================================
+WORKED EXAMPLE 17: UNBOUNDED MINIMIZATION
+===============================================================================
+
+TOPIC 58 – WHEN THE OBJECTIVE GOES TO NEGATIVE INFINITY
+
+-------------------------------------------------------------------------------
+1. PROBLEM TYPES
+-------------------------------------------------------------------------------
+Example 1: Bounded Minimization
+  Minimize C = x + y with x + y ≥ 5, x ≥ 0, y ≥ 0
+  → Bounded (C = 5 at (5,0) or (0,5))
+
+Example 2: Unbounded Minimization
+  Minimize C = -x - y with x + y ≥ 5, x ≥ 0, y ≥ 0
+  → Unbounded (C → -∞)
+
+Example 3: Bounded with Upper Bounds
+  Minimize C = x + y with x + y ≥ 5, x ≤ 10, y ≤ 10
+  → Bounded (C = 5 at (5,0) or (0,5))
+
+-------------------------------------------------------------------------------
+2. GRAPHICAL SOLUTION METHOD
+-------------------------------------------------------------------------------
+Step 1: Graph all constraints
+Step 2: Identify the feasible region
+Step 3: Draw the objective line for different values
+Step 4: Check if the line moves outward without bound
+Step 5: If it does → unbounded minimization
+
+-------------------------------------------------------------------------------
+3. IDENTIFICATION METHODS
+-------------------------------------------------------------------------------
+Bounded Minimization Signs:
+  - The objective increases in the unbounded direction
+  - The minimum is at the boundary of the region
+  - The objective line stops at the constraint
+
+Unbounded Minimization Signs:
+  - The objective decreases in the unbounded direction
+  - The objective line keeps moving outward
+  - No finite minimum exists
+
+-------------------------------------------------------------------------------
+4. WHAT TO DO
+-------------------------------------------------------------------------------
+1. Check if the objective decreases in the unbounded direction
+2. If yes → unbounded minimization (no finite optimum)
+3. If no → bounded minimization (find at boundary)
+4. Add upper bounds if a finite solution is needed
+
+-------------------------------------------------------------------------------
+5. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Unbounded regions can have optimal solutions for minimization
+✓ The objective direction determines boundedness
+✓ If objective decreases toward the region → bounded
+✓ If objective decreases into infinity → unbounded
+✓ Add upper bounds to make the problem bounded
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming unbounded regions always have no optimal solution
+✗ Not checking the objective direction for minimization
+✗ Confusing unbounded minimization with maximization
+✗ Not adding upper bounds when needed
+✗ Forgetting that negative objective coefficients change the direction
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify bounded minimization in unbounded regions.
+☐ I can identify unbounded minimization problems.
+☐ I understand why boundedness depends on objective direction.
+☐ I know that unbounded regions can have optimal solutions for minimization.
+☐ I can distinguish between unbounded minimization and maximization.
+☐ I can suggest ways to make a minimization problem bounded.
+
+===============================================================================
+END OF NOTES
+===============================================================================

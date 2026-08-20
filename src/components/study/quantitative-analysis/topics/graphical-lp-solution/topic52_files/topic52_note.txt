@@ -1,0 +1,94 @@
+===============================================================================
+INFEASIBLE LP PROBLEMS
+===============================================================================
+
+TOPIC 52 – WHEN CONSTRAINTS CONFLICT
+
+-------------------------------------------------------------------------------
+1. WHAT IS AN INFEASIBLE LP PROBLEM?
+-------------------------------------------------------------------------------
+An infeasible LP problem has no point that satisfies all constraints
+simultaneously. The feasible region is empty.
+
+- No solution exists
+- Constraints are contradictory
+- The problem cannot be solved as stated
+
+Key idea: Infeasible = no solution.
+
+-------------------------------------------------------------------------------
+2. HOW TO RECOGNIZE INFEASIBILITY
+-------------------------------------------------------------------------------
+Graphical Signs:
+  1. No overlap between shaded regions
+  2. Constraints directly contradict each other
+  3. Requirements exceed available resources
+
+Types of Infeasibility:
+  - Direct Conflict: x≤5 and x≥10
+  - Resource Over-Requirement: Need more than available
+  - Overly Restrictive: Upper bounds too low
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: Direct Conflict
+  x + y ≤ 5 and x + y ≥ 10
+  → No point can satisfy both
+
+Example 2: Resource Over-Requirement
+  3x + 2y ≥ 12 with x + y ≤ 3
+  → Max LHS = 9 < 12
+
+Example 3: Overly Restrictive
+  x + y ≥ 10 with x ≤ 3, y ≤ 4
+  → Max sum = 7 < 10
+
+-------------------------------------------------------------------------------
+4. WHAT TO DO WHEN A PROBLEM IS INFEASIBLE
+-------------------------------------------------------------------------------
+1. Identify which constraints are conflicting
+2. Relax or revise the conflicting constraints
+3. Re-solve the problem with the revised constraints
+4. Document the infeasibility and the solution
+
+-------------------------------------------------------------------------------
+5. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Infeasible = no solution exists
+✓ Graph constraints to check for overlap
+✓ Look for direct contradictions
+✓ Check if requirements are realistic
+✓ Revise constraints to restore feasibility
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming a feasible solution exists without checking
+✗ Not graphing constraints to verify overlap
+✗ Missing contradictory constraints
+✗ Not checking if requirements are realistic
+✗ Continuing optimization despite infeasibility
+
+-------------------------------------------------------------------------------
+7. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Always check feasibility before optimizing
+✓ Graph constraints to see if they overlap
+✓ Identify which constraints are contradictory
+✓ If infeasible, relax constraints or revise the model
+✓ Document the infeasibility for stakeholders
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify an infeasible LP problem.
+☐ I understand why infeasibility occurs (conflicting constraints).
+☐ I can identify contradictory constraints.
+☐ I know that infeasibility means no solution exists.
+☐ I can suggest ways to fix an infeasible problem.
+☐ I can distinguish between infeasible and unbounded problems.
+
+===============================================================================
+END OF NOTES
+===============================================================================

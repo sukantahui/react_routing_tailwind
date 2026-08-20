@@ -1,0 +1,87 @@
+===============================================================================
+DETERMINING THE MINIMUM COST
+===============================================================================
+
+TOPIC 47 – THE CHEAPEST POSSIBLE OUTCOME
+
+-------------------------------------------------------------------------------
+1. WHAT IS MINIMUM COST?
+-------------------------------------------------------------------------------
+The minimum cost is the lowest value of the cost function (C) that can be
+achieved within the feasible region.
+
+- The lowest C value among all corner points
+- Tells you the cheapest possible outcome
+- Must be achievable (feasible)
+
+Key idea: The minimum cost is the answer to cost minimization problems!
+
+-------------------------------------------------------------------------------
+2. HOW TO FIND MINIMUM COST
+-------------------------------------------------------------------------------
+Step 1: Evaluate C at every corner point
+Step 2: Compare all C values
+Step 3: Select the lowest value
+Step 4: State the minimum cost with context
+
+Example: C values: 12, 10, 6
+  → Minimum cost = ₹6 at (3,0)
+
+-------------------------------------------------------------------------------
+3. EXAMPLES
+-------------------------------------------------------------------------------
+Diet Cost Minimization:
+  Corner values: 12, 10, 6
+  Minimum cost: ₹6 at (3,0)
+  Context: Use 3 A and 0 B for ₹6 cost
+
+Production Cost Minimization:
+  Corner values: 15, 18, 16
+  Minimum cost: ₹15 at (0,5)
+  Context: Produce 0 X and 5 Y for ₹15 cost
+
+Multiple Optima Cost:
+  Corner values: 4, 4, 3
+  Minimum cost: ₹3 at (3,0)
+  Context: Produce 3 X and 0 Y for ₹3 cost
+
+-------------------------------------------------------------------------------
+4. KEY POINTS
+-------------------------------------------------------------------------------
+✓ Include the currency symbol (₹) in your answer
+✓ State the minimum cost in context
+✓ Verify by substitution
+✓ Check that the production mix is feasible
+✓ Compare all corner values
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting the currency symbol (₹)
+✗ Not stating the cost in context
+✗ Confusing min with max
+✗ Not verifying feasibility
+✗ Forgetting to check all corners
+
+-------------------------------------------------------------------------------
+6. BEST PRACTICES
+-------------------------------------------------------------------------------
+✓ Include ₹ in your answer
+✓ State the minimum cost with context
+✓ Verify by substitution
+✓ Check feasibility of the production mix
+✓ Compare all corner values
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can evaluate C at all corner points.
+☐ I can compare C values to find the lowest.
+☐ I can identify the minimum cost.
+☐ I can state the minimum cost with context.
+☐ I can verify the cost by substitution.
+☐ I can distinguish between max and min.
+
+===============================================================================
+END OF NOTES
+===============================================================================

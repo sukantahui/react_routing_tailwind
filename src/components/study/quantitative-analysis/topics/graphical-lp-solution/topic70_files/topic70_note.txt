@@ -1,0 +1,160 @@
+TOPIC 70: UNBOUNDED SOLUTION
+============================
+
+INTRODUCTION
+------------
+An unbounded solution occurs when the objective function of a linear 
+programming problem can improve indefinitely without bound. No finite 
+optimal solution exists, and the problem needs additional constraints.
+
+DEFINITION
+----------
+An LP problem is unbounded when:
+1. The feasible region is non-empty
+2. The objective function can go to infinity (or -∞)
+3. No finite optimal solution exists
+4. Missing upper bound constraints
+
+TYPES OF UNBOUNDED PROBLEMS
+---------------------------
+1. Unbounded Maximization:
+   - Objective can increase without bound
+   - Example: Max Z = x + y, x, y ≥ 0
+
+2. Unbounded Minimization:
+   - Objective can decrease without bound
+   - Example: Min Z = -x - y, x, y ≥ 0
+
+3. Unbounded Feasible Region:
+   - Region extends to infinity
+   - Objective improves in unbounded direction
+
+CAUSES OF UNBOUNDEDNESS
+-----------------------
+1. Missing Upper Bounds:
+   - Variables can increase indefinitely
+   - No constraints limiting variables
+
+2. Incomplete Problem Formulation:
+   - Real-world constraints omitted
+   - Resources, capacity, demand not included
+
+3. Objective Direction:
+   - Objective improves in unbounded direction
+   - Positive coefficients with unbounded variables
+
+GRAPHICAL IDENTIFICATION
+------------------------
+On a graph, unboundedness appears as:
+• Feasible region extending to infinity
+• Objective function lines improving in unbounded direction
+• No corner point where objective is optimal
+• Region continues indefinitely
+
+HOW TO IDENTIFY UNBOUNDEDNESS
+----------------------------
+Graphical Method:
+1. Plot all constraints
+2. Check if feasible region extends to infinity
+3. Check if objective improves in unbounded direction
+
+Simplex Method:
+1. Identify entering variable
+2. Check ratio test
+3. If no positive ratios → Unbounded
+
+HANDLING UNBOUNDEDNESS
+----------------------
+Step 1: Identify Unboundedness
+- Check if feasible region extends to infinity
+
+Step 2: Add Bounding Constraints
+- Add realistic upper bounds on variables
+
+Step 3: Check for Missing Constraints
+- Review problem formulation for omissions
+
+Step 4: Use the Simplex Method
+- Detect unboundedness and add bounds
+
+COMMON MISTAKES
+---------------
+1. Confusing Unbounded with Infeasible:
+   No finite optimum vs. no solution
+
+2. Missing Unboundedness:
+   Not recognizing when problem is unbounded
+
+3. Not Adding Bounds:
+   Forgetting realistic upper bounds
+
+4. Misidentifying Direction:
+   Not correctly identifying unbounded direction
+
+BEST PRACTICES
+--------------
+1. Check bounds on variables
+2. Use graphical method first
+3. Add realistic constraints
+4. Document unboundedness
+5. Consider real-world limits
+
+REAL-WORLD EXAMPLES
+-------------------
+1. Production Planning:
+   - Unlimited production without demand constraints
+   - Need market demand limits
+
+2. Resource Allocation:
+   - Unlimited resources available
+   - Need capacity constraints
+
+3. Investment Portfolio:
+   - Unlimited investment without budget
+   - Need budget constraints
+
+4. Logistics:
+   - Unlimited shipping without capacity
+   - Need transportation limits
+
+PRACTICAL IMPLICATIONS
+----------------------
+1. Problem Formulation:
+   - Incomplete constraints
+   - Need to identify missing bounds
+
+2. Real-World Limits:
+   - Resources always limited
+   - Market demand, capacity, budget
+
+3. Decision-Making:
+   - No realistic optimal solution
+   - Need to reconsider constraints
+
+4. Sensitivity Analysis:
+   - Unboundedness indicates instability
+   - Need to add constraints
+
+KEY TAKEAWAYS
+------------
+✓ Unbounded = no finite optimum
+✓ Feasible region extends to infinity
+✓ Missing upper bound constraints
+✓ Objective improves indefinitely
+✓ Common in incomplete formulations
+✓ Always add real-world limits
+✓ Distinguish from infeasible
+
+TEACHER'S NOTE
+--------------
+Unboundedness is an important lesson in model formulation. I always tell 
+my students that if a problem is unbounded, it's usually because we 
+forgot to include an important real-world constraint. In the real world, 
+nothing is truly unlimited - there's always market demand, capacity 
+limits, resource constraints, or legal boundaries. The skill is not just 
+solving LP problems, but knowing what constraints to include. I remember 
+a student who modeled a production problem without demand constraints 
+and got an unbounded solution. When we added the actual market demand 
+data, the problem became nicely bounded and gave useful insights. The 
+unbounded case taught them more about model formulation than any 
+textbook explanation could."

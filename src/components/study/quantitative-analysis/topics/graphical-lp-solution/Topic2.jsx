@@ -275,16 +275,16 @@ const Topic2 = () => {
                                 )}
 
                                 {/* Hoverable points */}
-                                <circle cx="280" cy="120" r="6" fill="#0ea5e9" className="animate-[pulse_2s_ease-in-out_infinite]" />
+                                <circle cx="280" cy="120" r="6" fill="#0ea5e9" className="" />
                                 <text x="285" y="115" fontSize="12" fill="#0ea5e9" className="font-mono">(2,2)</text>
 
-                                <circle cx="120" cy="120" r="6" fill="#6366f1" className="animate-[pulse_2s_ease-in-out_infinite_0.5s]" />
+                                <circle cx="120" cy="120" r="6" fill="#6366f1" className="" />
                                 <text x="100" y="115" fontSize="12" fill="#6366f1" className="font-mono">(-2,2)</text>
 
-                                <circle cx="120" cy="280" r="6" fill="#f43f5e" className="animate-[pulse_2s_ease-in-out_infinite_1s]" />
+                                <circle cx="120" cy="280" r="6" fill="#f43f5e" className="" />
                                 <text x="100" y="295" fontSize="12" fill="#f43f5e" className="font-mono">(-2,-2)</text>
 
-                                <circle cx="280" cy="280" r="6" fill="#10b981" className="animate-[pulse_2s_ease-in-out_infinite_1.5s]" />
+                                <circle cx="280" cy="280" r="6" fill="#10b981" className="" />
                                 <text x="285" y="295" fontSize="12" fill="#10b981" className="font-mono">(2,-2)</text>
 
                             </svg>
