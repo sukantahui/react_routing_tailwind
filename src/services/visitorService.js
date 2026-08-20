@@ -8,8 +8,8 @@ export const visitorService = {
       const response = await api.post("/dev/visitors", data);
       return response.data;
     } catch (error) {
-      console.error("Error:", error);
-      throw err.response?.data || err;
+      console.error("Error saving inquiry:", error);
+      throw error.response?.data || error;
     }
   },
   getAll: async () => {
@@ -17,8 +17,9 @@ export const visitorService = {
       const response = await api.get("/visitors");
       return response.data;
     } catch (error) {
-      console.error("Error:", error);
-      throw err.response?.data || err;
+      console.error("Error fetching visitors:", error);
+      throw error.response?.data || error;
     }
   },
 };
+
