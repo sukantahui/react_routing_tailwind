@@ -149,7 +149,7 @@ const Topic7 = () => {
 
                 <div className="my-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                   <p className="font-mono text-sm">
-                    Deficit = ΣDⱼ - ΣSᵢ (when demand > supply)<br/>
+                    {`Deficit = ΣDⱼ - ΣSᵢ (when demand > supply)`}<br/>
                     Dummy Source Supply = Deficit<br/>
                     Costs from Dummy Source = 0
                   </p>
@@ -157,7 +157,7 @@ const Topic7 = () => {
 
                 <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">When to Use a Dummy Source</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Condition:</strong> ΣDⱼ > ΣSᵢ (excess demand)</li>
+                  <li><strong>Condition:</strong> {`ΣDⱼ > ΣSᵢ`} (excess demand)</li>
                   <li><strong>Purpose:</strong> To balance the problem by providing additional supply</li>
                   <li><strong>Interpretation:</strong> Represents demand that can't be fulfilled</li>
                   <li><strong>Economic Meaning:</strong> Lost sales, unmet orders, or backorders</li>
@@ -209,7 +209,7 @@ const Topic7 = () => {
 
                 <div className="my-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
                   <p className="font-mono text-sm">
-                    Surplus = ΣSᵢ - ΣDⱼ (when supply > demand)<br/>
+                    Surplus = ΣSᵢ - ΣDⱼ (when supply {`>`} demand)<br/>
                     Dummy Destination Demand = Surplus<br/>
                     Costs to Dummy Destination = 0
                   </p>
@@ -217,7 +217,7 @@ const Topic7 = () => {
 
                 <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">When to Use a Dummy Destination</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Condition:</strong> ΣSᵢ > ΣDⱼ (surplus supply)</li>
+                  <li><strong>Condition:</strong> ΣSᵢ {`>`} ΣDⱼ (surplus supply)</li>
                   <li><strong>Purpose:</strong> To balance the problem by providing additional demand</li>
                   <li><strong>Interpretation:</strong> Represents supply that doesn't need to be shipped</li>
                   <li><strong>Economic Meaning:</strong> Excess inventory, storage, or waste</li>
@@ -456,7 +456,7 @@ const Topic7 = () => {
                   <text x="470" y="180" textAnchor="middle" className="text-sm font-mono fill-gray-700 dark:fill-gray-300">ΣDⱼ = 500</text>
                   
                   <path d="M 380 165 L 410 165" stroke="#F43F5E" strokeWidth="3" />
-                  <text x="395" y="155" textAnchor="middle" className="text-xs font-bold fill-rose-600 dark:fill-rose-400"><</text>
+                  <text x="395" y="155" textAnchor="middle" className="text-xs font-bold fill-rose-600 dark:fill-rose-400">{`<`}</text>
                   
                   <rect x="660" y="125" width="200" height="80" rx="10" fill="#3B82F6" fillOpacity="0.15" stroke="#3B82F6" strokeWidth="1.5">
                     <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" />
@@ -484,7 +484,7 @@ const Topic7 = () => {
                   <text x="470" y="490" textAnchor="middle" className="text-sm font-mono fill-gray-700 dark:fill-gray-300">ΣDⱼ = 400</text>
                   
                   <path d="M 380 475 L 410 475" stroke="#F43F5E" strokeWidth="3" />
-                  <text x="395" y="465" textAnchor="middle" className="text-xs font-bold fill-rose-600 dark:fill-rose-400">></text>
+                  <text x="395" y="465" textAnchor="middle" className="text-xs font-bold fill-rose-600 dark:fill-rose-400">{`>`}</text>
                   
                   <rect x="660" y="435" width="200" height="80" rx="10" fill="#10B981" fillOpacity="0.15" stroke="#10B981" strokeWidth="1.5">
                     <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" begin="0.5s" />
@@ -529,7 +529,7 @@ const Topic7 = () => {
                 <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30 transition-all duration-300">
                   <h4 className="font-semibold text-amber-700 dark:text-amber-300">🎯 Quick Recall</h4>
                   <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
-                    Remember: Demand > Supply → Dummy Source (adds supply). Supply > Demand → Dummy Destination (adds demand).
+                    Remember: Demand {`>`} Supply → Dummy Source (adds supply). Supply {`>`} Demand → Dummy Destination (adds demand).
                   </p>
                 </div>
                 
@@ -582,7 +582,7 @@ const Topic7 = () => {
                   <div>
                     <h4 className="font-semibold text-red-700 dark:text-red-300">Confusing Dummy Types</h4>
                     <p className="text-sm text-gray-700 dark:text-gray-300">
-                      Adding a dummy source when you need a dummy destination, or vice versa. Remember: Demand > Supply → Dummy Source. Supply > Demand → Dummy Destination.
+                      {`Adding a dummy source when you need a dummy destination, or vice versa. Remember: Demand > Supply → Dummy Source. Supply > Demand → Dummy Destination.`}
                     </p>
                   </div>
                 </div>

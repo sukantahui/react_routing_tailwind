@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import AppRoutes from "./routes/AppRoutes";
+// import AppRoutes from "./routes/AppRoutes";
+import AppRoutes from "./routes/AppRoutes-master-roadmap";
 import NavBar from "./routes/NavBar";
 import AuthNavBar from "./routes/AuthNavBar";
 

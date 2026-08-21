@@ -77,6 +77,7 @@ const NavBar = () => {
     { to: "/c-language/roadmap", icon: "bi-filetype-c", label: "C Programming" },
     { to: "/tally/roadmap", icon: "bi-calculator", label: "Tally Prime & Accounts" },
     { to: "/excel/roadmap", icon: "bi-file-spreadsheet", label: "Advanced Excel" },
+    { to: "/git/roadmap", icon: "bi-file-spreadsheet", label: "Git" },
     { to: "/icse-java-ix/roadmap", icon: "bi-journal-code", label: "ICSE Class 9 Java" },
     { to: "/icse-java-x/roadmap", icon: "bi-journal-code", label: "ICSE Class 10 Java" },
     { to: "/java-core/roadmap", icon: "bi-cpu", label: "Core Java" },

@@ -75,7 +75,7 @@ const questions = [
     question: "How do you verify the solution is reasonable?",
     shortAnswer: "Check if the solution makes practical sense in the context of the problem.",
     explanation: "Consider if the values are realistic, if production quantities make sense, and if the solution aligns with intuition about the problem.",
-    hint: "Does the answer "feel right"?",
+    hint: "Does the answer \"feel right\"?",
     level: "intermediate",
     codeExample: "Are quantities positive? Do they make sense for the business?"
   },

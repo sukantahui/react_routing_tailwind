@@ -36,7 +36,7 @@
       "modules": [
         {
           "moduleId": "lp-model-formulation",
-          "slug": "formulation-of-linear-programming-models",
+          "slug": "001_001_formulation-of-linear-programming-models",
           "title": "Formulation of Linear Programming Models",
           "estimatedHours": 3,
           "topics": [
@@ -90,7 +90,7 @@
         },
         {
           "moduleId": "lp-graphical-solution",
-          "slug": "graphical-lp-solution",
+          "slug": "001_002_graphical-lp-solution",
           "title": "Graphical LP Solution",
           "estimatedHours": 3,
           "topics": [
@@ -199,7 +199,7 @@
         },
         {
           "moduleId": "lp-formulation-exercises",
-          "slug": "formulation-exercises-on-lp-problems",
+          "slug": "001_003_formulation-exercises-on-lp-problems",
           "title": "Formulation Exercises on LP Problems",
           "estimatedHours": 2,
           "topics": [
@@ -221,7 +221,7 @@
         },
         {
           "moduleId": "lp-graphical-method",
-          "slug": "graphical-method-of-solving-lp",
+          "slug": "001_004_graphical-method-of-solving-lp",
           "title": "Graphical Method of Solving LP",
           "estimatedHours": 2,
           "topics": [
@@ -244,7 +244,7 @@
         },
         {
           "moduleId": "simplex-big-m",
-          "slug": "simplex-artificial-variables-big-m-method",
+          "slug": "001_005_simplex-artificial-variables-big-m-method",
           "title": "Simplex Method, Artificial Variables & Big-M Method",
           "estimatedHours": 4,
           "topics": [
@@ -273,7 +273,7 @@
         },
         {
           "moduleId": "duality",
-          "slug": "duality-in-linear-programming",
+          "slug": "001_006_duality-in-linear-programming",
           "title": "Duality",
           "estimatedHours": 1,
           "topics": [
@@ -301,7 +301,7 @@
       "modules": [
         {
           "moduleId": "transportation-formulation",
-          "slug": "formulation-of-transportation-problems",
+          "slug": "002_001_formulation-of-transportation-problems",
           "title": "Formulation of Transportation Problems",
           "estimatedHours": 3,
           "topics": [
