@@ -1,0 +1,87 @@
+TOPIC 9: OPTIMALITY CONDITION
+=============================
+
+INTRODUCTION
+------------
+The optimality condition is the rule that determines when to stop 
+the Simplex Method. It tells us when the current solution is the 
+best possible.
+
+WHAT IS THE OPTIMALITY CONDITION?
+---------------------------------
+The optimality condition checks the Z row coefficients:
+
+Maximization: All Z coefficients ≥ 0 → STOP
+Minimization: All Z coefficients ≤ 0 → STOP
+
+If the condition is not met, continue with another iteration.
+
+WHY IT WORKS
+------------
+- Negative Z coefficient (max) means variable can increase Z
+- Positive Z coefficient (min) means variable can decrease Z
+- No negative/positive coefficients → no improvement possible
+- Mathematical guarantee of optimality
+
+EXAMPLES
+--------
+Maximization Optimal:
+Z row: [0, 2, 3, 0, 25]
+All coefficients ≥ 0 → OPTIMAL ✓
+
+Maximization Not Optimal:
+Z row: [0, -3, 2, -1, 18]
+Negative coefficients exist → CONTINUE
+
+Minimization Optimal:
+Z row: [0, -2, -3, 0, 25]
+All coefficients ≤ 0 → OPTIMAL ✓
+
+Minimization Not Optimal:
+Z row: [0, 3, -2, 1, 18]
+Positive coefficients exist → CONTINUE
+
+WHAT TO CHECK
+-------------
+1. Problem type (max or min)
+2. Z row coefficients
+3. All coefficients satisfy condition
+4. If not, find entering variable
+
+ZERO COEFFICIENTS
+-----------------
+Zero coefficients in the Z row indicate:
+- The variable doesn't affect Z
+- Possible multiple optimal solutions
+- Allowed in both max and min
+
+COMMON MISTAKES
+---------------
+1. Confusing max and min conditions
+2. Missing negative coefficients
+3. Stopping too early
+4. Not checking all coefficients
+
+BEST PRACTICES
+--------------
+1. Check after every iteration
+2. Verify the problem type
+3. Look at all coefficients
+4. If negative remains → continue
+5. If all satisfy → stop
+
+KEY TAKEAWAYS
+------------
+✓ Maximization: all Z ≥ 0
+✓ Minimization: all Z ≤ 0
+✓ Check after each iteration
+✓ Zero coefficients are allowed
+✓ Negative coefficients → continue
+✓ Positive (min) → continue
+✓ Condition proves optimality
+
+TEACHER'S NOTE
+--------------
+The optimality condition is the 'stop sign' of the Simplex Method. 
+Always check carefully - stopping too early or too late can both 
+lead to incorrect results."

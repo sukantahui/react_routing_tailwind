@@ -1,0 +1,85 @@
+TOPIC 10: BIG-M METHOD
+======================
+
+INTRODUCTION
+------------
+The Big-M Method is a variant of the Simplex Method used to solve 
+LP problems with ≥ and = constraints. It uses artificial variables 
+with a large penalty M.
+
+WHAT IS THE BIG-M METHOD?
+-------------------------
+The Big-M Method:
+1. Adds artificial variables to ≥ and = constraints
+2. Penalizes artificial variables with M in objective
+3. M is a very large number
+4. Artificial variables must be driven to zero
+
+RULES FOR BIG-M METHOD
+----------------------
+1. ≥ Constraints:
+   a₁x₁ + a₂x₂ ≥ b
+   → a₁x₁ + a₂x₂ - s + a = b
+   where s ≥ 0 (surplus), a ≥ 0 (artificial)
+
+2. = Constraints:
+   a₁x₁ + a₂x₂ = b
+   → a₁x₁ + a₂x₂ + a = b
+   where a ≥ 0 (artificial)
+
+3. Penalty in Objective:
+   Minimization: add M × a
+   Maximization: subtract M × a
+
+EXAMPLE
+-------
+Minimize Z = 4x + 3y
+Subject to:
+x + y ≥ 6
+2x + y ≥ 8
+x, y ≥ 0
+
+Big-M Formulation:
+Minimize Z = 4x + 3y + M a₁ + M a₂
+Subject to:
+x + y - s₁ + a₁ = 6
+2x + y - s₂ + a₂ = 8
+x, y, s₁, s₂, a₁, a₂ ≥ 0
+
+SOLUTION PROCESS
+----------------
+1. Add artificial variables
+2. Add Big-M penalty
+3. Form initial tableau
+4. Perform Simplex iterations
+5. Drive artificials to zero
+6. If artificial remains → infeasible
+
+KEY CONCEPTS
+------------
+• M must be very large
+• Artificial variables are temporary
+• Must be driven to zero
+• If artificial > 0 → infeasible
+• Handles all constraint types
+
+COMMON MISTAKES
+---------------
+1. Using too small M
+2. Forgetting to penalize artificials
+3. Not checking if artificials remain
+4. Confusing max and min penalties
+
+BEST PRACTICES
+--------------
+1. Choose M much larger than any coefficient
+2. Watch for artificial variables leaving basis
+3. If artificial remains > 0 → infeasible
+4. Consider Two-Phase for numerical stability
+
+TEACHER'S NOTE
+--------------
+The Big-M Method is a powerful tool for handling any LP problem. 
+M is like a 'bouncer' - it keeps artificial variables out of the 
+optimal solution. If an artificial variable remains positive, the 
+problem is infeasible."

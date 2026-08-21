@@ -1,0 +1,95 @@
+TOPIC 0: GRAPHICAL SOLUTION PROCEDURE
+=====================================
+
+INTRODUCTION
+------------
+The graphical solution procedure is a systematic method for solving 
+linear programming problems with two variables. It provides a visual 
+understanding of LP and serves as the foundation for more advanced 
+solution methods.
+
+THE 9-STEP PROCEDURE
+--------------------
+
+STEP 1: UNDERSTAND THE PROBLEM
+-------------------------------
+- Read the problem carefully
+- Identify what needs to be optimized
+- List all resources and limitations
+
+STEP 2: DEFINE DECISION VARIABLES
+---------------------------------
+- Choose variables for decisions
+- Use clear notation (x, y)
+- Include non-negativity constraints
+
+STEP 3: FORMULATE OBJECTIVE FUNCTION
+------------------------------------
+- Identify contribution per unit
+- Write as Z = c₁x + c₂y
+- State maximize or minimize
+
+STEP 4: FORMULATE CONSTRAINTS
+-----------------------------
+- List all resource constraints
+- Write as linear inequalities
+- Include non-negativity
+
+STEP 5: GRAPH THE CONSTRAINTS
+-----------------------------
+- Convert inequalities to equalities
+- Find x and y intercepts
+- Draw lines and shade feasible region
+
+STEP 6: IDENTIFY CORNER POINTS
+------------------------------
+- Find intersections of constraint lines
+- Include intersections with axes
+- List all corner points
+
+STEP 7: EVALUATE OBJECTIVE FUNCTION
+-----------------------------------
+- Substitute each corner point
+- Calculate Z for each point
+- Compare values
+
+STEP 8: SELECT OPTIMAL SOLUTION
+-------------------------------
+- Choose best Z value (max or min)
+- State optimal variable values
+- Calculate optimal Z
+
+STEP 9: INTERPRET RESULTS
+-------------------------
+- State solution in business terms
+- Check resource utilization
+- Identify slack resources
+
+KEY FORMULAS
+------------
+Objective: Z = c₁x + c₂y
+Constraint: a₁x + a₂y ≤ b (or ≥, =)
+x-intercept: x = b/a₁ (when y = 0)
+y-intercept: y = b/a₂ (when x = 0)
+Slack: Slack = b - (a₁x* + a₂y*)
+
+COMMON MISTAKES
+---------------
+1. Forgetting non-negativity constraints
+2. Incorrectly shading feasible region
+3. Missing corner points
+4. Not verifying optimal solution
+
+BEST PRACTICES
+--------------
+1. Follow steps in order
+2. Use graph paper for accuracy
+3. Double-check all calculations
+4. Verify final solution
+5. Interpret results in context
+
+TEACHER'S NOTE
+--------------
+The graphical procedure is the foundation of LP. Mastering this 
+procedure builds intuition for more advanced topics. Practice 
+with different problems to make the procedure second nature."

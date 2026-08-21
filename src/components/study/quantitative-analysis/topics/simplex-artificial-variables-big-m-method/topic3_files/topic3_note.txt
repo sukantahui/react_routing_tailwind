@@ -1,0 +1,97 @@
+TOPIC 3: SURPLUS VARIABLES
+==========================
+
+INTRODUCTION
+------------
+Surplus variables are non-negative variables subtracted from ≥ 
+constraints to convert them into equalities. They represent the 
+excess over minimum requirements.
+
+WHAT ARE SURPLUS VARIABLES?
+---------------------------
+For constraint: a₁x₁ + a₂x₂ ≥ b
+Subtract surplus variable s ≥ 0:
+a₁x₁ + a₂x₂ - s = b
+where s = (a₁x₁ + a₂x₂) - b
+
+KEY PROPERTIES
+--------------
+1. Non-negative: s ≥ 0
+2. One per ≥ constraint
+3. Zero coefficient in objective
+4. Represent excess over requirements
+
+HOW TO ADD SURPLUS VARIABLES
+----------------------------
+Step 1: Identify ≥ constraints
+Step 2: Subtract one surplus variable per constraint
+Step 3: Write as equality with surplus variable
+Step 4: Add to objective with coefficient 0
+
+EXAMPLE
+-------
+Original:
+x + y ≥ 6
+2x + y ≥ 8
+
+With Surplus Variables:
+x + y - s₁ = 6
+2x + y - s₂ = 8
+s₁, s₂ ≥ 0
+
+INTERPRETATION
+--------------
+s₁ = (x + y) - 6 → excess over requirement 1
+s₂ = (2x + y) - 8 → excess over requirement 2
+
+At optimal solution (4, 2):
+s₁ = 6 - 6 = 0 (exactly met)
+s₂ = 10 - 8 = 2 (2 units excess)
+
+SLACK VS SURPLUS
+----------------
+Slack Variables:
+- Used for ≤ constraints
+- Added to convert to equality
+- s = RHS - LHS
+- Represents UNUSED resources
+
+Surplus Variables:
+- Used for ≥ constraints
+- Subtracted to convert to equality
+- s = LHS - RHS
+- Represents EXCESS over requirements
+
+INITIAL FEASIBLE SOLUTION
+-------------------------
+Surplus variables alone cannot form an initial feasible solution.
+Artificial variables are needed to get started.
+Example: x = 0, y = 0 → s₁ = -6 (infeasible)
+
+ROLE IN BIG-M METHOD
+--------------------
+1. ≥ constraints require surplus variables
+2. Surplus variables require artificial variables
+3. Artificial variables penalized with M
+4. Big-M Method handles ≥ and = constraints
+
+COMMON MISTAKES
+---------------
+1. Adding instead of subtracting surplus
+2. Forgetting non-negativity
+3. Confusing slack and surplus
+4. Not converting minimization to maximization
+
+BEST PRACTICES
+--------------
+1. Use different names (s₁, s₂, s₃)
+2. Remember zero objective coefficients
+3. Interpret surplus as excess
+4. Check non-negativity
+
+TEACHER'S NOTE
+--------------
+Surplus variables are the mirror image of slack variables. 
+Surplus measures 'how much extra' while slack measures 
+'how much is left over'. Remember: slack is added (+), 
+surplus is subtracted (-)."

@@ -1,0 +1,194 @@
+================================================================================
+                    DEGENERACY IN TRANSPORTATION PROBLEMS
+                               Detailed Notes
+================================================================================
+
+1. INTRODUCTION
+================================================================================
+
+Definition:
+Degeneracy is a special situation in transportation problems where the number 
+of positive allocations (basic variables) is less than the required number 
+(m + n - 1).
+
+Key Insight:
+Degeneracy is like having fewer puzzle pieces than needed to complete the 
+picture. You have to add a tiny piece (epsilon) to make everything fit and 
+continue the solution process.
+
+2. WHAT CAUSES DEGENERACY?
+================================================================================
+
+Primary Cause:
+---------------------------------------------------------
+- Simultaneous exhaustion of both supply and demand
+- When an allocation exactly equals both remaining supply and demand
+- Sᵢ = 0 and Dⱼ = 0 at the same time
+
+Other Causes:
+---------------------------------------------------------
+1. NW Corner Method: Most likely to cause degeneracy
+2. Equal Costs: When there are ties in the cost matrix
+3. Equal Penalties: In VAM when penalties are equal
+4. Dummy Variables: Adding dummies can create degeneracy
+5. Exact Matches: When supplies and demands match exactly
+
+3. HOW TO IDENTIFY DEGENERACY
+================================================================================
+
+Detection Steps:
+---------------------------------------------------------
+1. Count positive allocations (xᵢⱼ > 0)
+2. Calculate required count: m + n - 1
+3. Compare: If count < required → degeneracy
+4. Verify: Double-check the count
+
+Warning Signs:
+---------------------------------------------------------
+- Simultaneous exhaustion occurs
+- Fewer cells allocated than expected
+- Some rows or columns have no positive cells
+- Unusual allocation patterns
+- Algorithm behaves erratically
+
+4. HANDLING DEGENERACY
+================================================================================
+
+The Epsilon (ε) Method:
+---------------------------------------------------------
+1. Identify the degenerate solution
+2. Choose a zero cell (xᵢⱼ = 0)
+3. Add epsilon (ε) to that cell
+4. The cell becomes a basic variable
+5. Now allocations = m + n - 1
+6. Continue with the solution method
+
+Choosing the Right Zero Cell:
+---------------------------------------------------------
+- Don't create a cycle
+- Prefer cells with low costs
+- Avoid duplicate rows or columns
+- Maintain the basic structure
+- Document your choice
+
+5. DEGENERACY BY METHOD
+================================================================================
+
+Method | Likelihood of Degeneracy | Why?
+---------------------------------------------------------
+NW Corner | Very High | Ignores costs, systematic movement
+Least Cost | Moderate | Considers costs, still possible
+VAM | Low | Uses penalties, minimizes risk
+
+6. IMPACT OF DEGENERACY
+================================================================================
+
+On MODI Method:
+---------------------------------------------------------
+- Requires exactly m+n-1 basic variables
+- Degeneracy means fewer variables
+- System of equations is underdetermined
+- Dual variables can't be calculated
+- Optimality check fails
+
+On Simplex Method:
+---------------------------------------------------------
+- Can cause cycling (infinite loop)
+- May not converge to optimal
+- Requires special handling
+- Slows down convergence
+
+7. COMMON MISTAKES
+================================================================================
+
+❌ Ignoring Degeneracy:
+   Proceeding without handling degeneracy.
+
+❌ Wrong Epsilon Placement:
+   Creating cycles or invalid structure.
+
+❌ Too Many Epsilons:
+   Adding more than needed.
+
+❌ Not Verifying:
+   Not checking count after adding epsilon.
+
+❌ Not Documenting:
+   Not recording epsilon placements.
+
+❌ Confusing with Infeasibility:
+   Degeneracy is feasible, just incomplete.
+
+8. BEST PRACTICES
+================================================================================
+
+1. Early Detection:
+   - Count allocations immediately after IBFS
+   - Compare with m+n-1
+   - Identify if degeneracy exists
+   - Don't wait to handle it
+
+2. Careful Epsilon Placement:
+   - Choose a zero cell carefully
+   - Avoid creating cycles
+   - Prefer cells with low costs
+   - Document your choice
+
+3. Documentation:
+   - Record all epsilon placements
+   - Note the reason for each choice
+   - Keep for future reference
+   - Share with team members
+
+4. Verification:
+   - Verify allocation count after epsilon
+   - Check that it equals m+n-1
+   - Verify the solution is still feasible
+   - Proceed with optimization
+
+9. PROFESSIONAL TIPS
+================================================================================
+
+1. Expect Degeneracy:
+   - Don't be surprised by it
+   - It's common, especially with NW Corner
+   - Be prepared to handle it
+
+2. Systematic Approach:
+   - Use a consistent method for epsilon
+   - Document everything
+   - Verify after each addition
+
+3. Use Software:
+   - Modern solvers handle degeneracy
+   - But understand what they're doing
+   - Review epsilon placements
+
+4. Practice:
+   - Work through degenerate examples
+   - Learn to identify quickly
+   - Build confidence
+
+5. Document Everything:
+   - Record epsilon placements
+   - Note the reasoning
+   - Keep for verification
+
+10. MINI CHECKLIST
+================================================================================
+
+☐ I understand what degeneracy is and why it occurs
+☐ I can identify when a solution is degenerate
+☐ I know how to handle degeneracy with epsilon
+☐ I can verify that degeneracy has been resolved correctly
+☐ I can apply degeneracy handling in real-world problems
+☐ I understand why degeneracy is problematic
+☐ I know how to choose the right zero cell for epsilon
+☐ I can handle multiple degeneracies
+☐ I understand the impact of degeneracy on MODI and simplex
+☐ I can document degeneracy handling properly
+
+11. TEACHER'S NOTE
+================================================================================
+
+Degeneracy is one of those concepts that seems intimidating at first

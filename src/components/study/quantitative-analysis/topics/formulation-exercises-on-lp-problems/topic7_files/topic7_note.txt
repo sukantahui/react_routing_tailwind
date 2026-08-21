@@ -1,0 +1,87 @@
+TOPIC 7: GRAPHICAL REPRESENTATION OF LINEAR INEQUALITIES
+========================================================
+
+INTRODUCTION
+------------
+Graphing linear inequalities is the foundation of graphical LP. 
+Understanding how to graph inequalities and systems of inequalities 
+is essential for visualizing feasible regions and solving LP problems.
+
+WHAT IS A LINEAR INEQUALITY?
+---------------------------
+A linear inequality is a mathematical statement relating two linear 
+expressions using <, >, ≤, or ≥. The solution is a region on a graph.
+
+TYPES OF INEQUALITIES
+--------------------
+1. ≤ (Less than or equal to):
+   - Solid line, shade below
+
+2. ≥ (Greater than or equal to):
+   - Solid line, shade above
+
+3. < (Less than):
+   - Dashed line, shade below
+
+4. > (Greater than):
+   - Dashed line, shade above
+
+STEP-BY-STEP GRAPHING
+---------------------
+Step 1: Convert to equality
+Replace the inequality symbol with =.
+
+Step 2: Find intercepts
+- x-intercept: Set y = 0, solve for x
+- y-intercept: Set x = 0, solve for y
+
+Step 3: Draw the line
+- Solid line for ≤ or ≥
+- Dashed line for < or >
+
+Step 4: Test a point
+- Choose a point not on the line
+- Usually (0,0) if possible
+
+Step 5: Shade the region
+- If test point satisfies, shade that side
+- If not, shade the other side
+
+EXAMPLE
+-------
+Graph: 2x + y ≤ 6
+
+Step 1: 2x + y = 6
+Step 2: x-intercept: (3,0), y-intercept: (0,6)
+Step 3: Solid line through (3,0) and (0,6)
+Step 4: Test (0,0): 0 ≤ 6 ✓
+Step 5: Shade side containing (0,0)
+
+SYSTEMS OF INEQUALITIES
+-----------------------
+To graph a system:
+1. Graph each inequality separately
+2. The feasible region is the overlap
+3. Corner points are where boundaries intersect
+
+COMMON MISTAKES
+---------------
+1. Shading the wrong side
+2. Using solid line for strict inequalities
+3. Forgetting to test a point
+4. Misidentifying intercepts
+
+BEST PRACTICES
+--------------
+1. Always test a point
+2. Use intercepts for accuracy
+3. Draw lines clearly
+4. Label the shaded region
+5. Check your work
+
+TEACHER'S NOTE
+--------------
+Graphing linear inequalities is the gateway to graphical LP. 
+I tell students that mastering this skill is like learning 
+to read a map - once you can read the map, you can navigate 
+anywhere."

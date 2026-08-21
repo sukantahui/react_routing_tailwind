@@ -1,0 +1,81 @@
+TOPIC 12: NUMERICAL PROBLEMS
+============================
+
+INTRODUCTION
+------------
+Numerical problems are essential for mastering the Simplex and 
+Big-M Methods. This topic provides a comprehensive set of problems 
+with detailed step-by-step solutions.
+
+PROBLEM LIST
+------------
+1. Maximization with Simplex (Basic)
+2. Minimization with Big-M (Intermediate)
+3. Maximization with Mixed Constraints (Advanced)
+4. Real-World Production Planning (Intermediate)
+5. Diet Planning with Big-M (Intermediate)
+6. Transportation Problem (Advanced)
+
+PROBLEM TYPES
+-------------
+1. Simplex Method Problems:
+   - All constraints are ≤
+   - Use slack variables
+   - Maximization or minimization
+
+2. Big-M Method Problems:
+   - ≥ or = constraints present
+   - Use surplus and artificial variables
+   - Big-M penalty in objective
+
+3. Mixed Constraint Problems:
+   - Combination of ≤, ≥, and =
+   - Use slack, surplus, and artificial variables
+   - Requires careful formulation
+
+SOLUTION STEPS
+--------------
+1. Read and understand the problem
+2. Identify constraint types
+3. Choose the appropriate method
+4. Add necessary variables
+5. Form the initial tableau
+6. Perform iterations
+7. Check optimality
+8. Interpret results
+
+KEY FORMULAS
+------------
+Simplex:
+- Standard Form: Max Z = c₁x + c₂y + 0s
+- Entering: Most negative Z coefficient
+- Leaving: Min ratio test
+- Optimality: All Z ≥ 0 (max)
+
+Big-M:
+- Surplus: subtract s from ≥
+- Artificial: add a to ≥ and =
+- Penalty: +M (min) or -M (max)
+- Feasibility: artificials must be 0
+
+COMMON MISTAKES
+---------------
+1. Using wrong method for constraint types
+2. Forgetting artificial variables
+3. Incorrect Big-M penalties
+4. Not checking artificials at optimality
+5. Arithmetic errors in row operations
+
+BEST PRACTICES
+--------------
+1. Identify constraint types first
+2. Add variables systematically
+3. Use exact fractions for accuracy
+4. Check optimality after each iteration
+5. Verify artificials are zero
+
+TEACHER'S NOTE
+--------------
+Numerical problems build proficiency in the Simplex and Big-M 
+Methods. Each problem is like a puzzle - follow the steps 
+carefully and check your work at each stage."

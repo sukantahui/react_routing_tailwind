@@ -1,0 +1,101 @@
+TOPIC 5: INITIAL SIMPLEX TABLEAU
+================================
+
+INTRODUCTION
+------------
+The initial simplex tableau is the starting point for the Simplex 
+Method. It organizes the LP problem in standard form into a table 
+that enables row operations.
+
+WHAT IS THE INITIAL TABLEAU?
+---------------------------
+The initial tableau is a matrix representation of the LP problem:
+- Rows: constraints + objective function
+- Columns: variables + RHS
+- Basic variables: identity matrix columns
+
+TABLEAU STRUCTURE
+-----------------
+┌─────┬─────┬─────┬─────┬─────┬─────┐
+│  B  │  x  │  y  │  s₁ │  s₂ │ RHS │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│ s₁  │  a  │  b  │  1  │  0  │  b₁ │
+│ s₂  │  c  │  d  │  0  │  1  │  b₂ │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│  Z  │ -c₁ │ -c₂ │  0  │  0  │  0  │
+└─────┴─────┴─────┴─────┴─────┴─────┘
+
+HOW TO BUILD THE TABLEAU
+------------------------
+Step 1: Convert to Standard Form
+- Maximization objective
+- Equality constraints
+- Non-negative variables
+
+Step 2: Identify Variables
+- Decision variables (x, y)
+- Slack variables (s₁, s₂, ...)
+- Artificial variables (a₁, a₂, ...)
+
+Step 3: Write Constraint Rows
+- One row per constraint
+- Coefficients for each variable
+- RHS value
+
+Step 4: Write Z Row
+- Negative objective coefficients
+- Zero for slack variables
+- M for artificial variables (Big-M)
+
+EXAMPLE
+-------
+Problem: Maximize Z = 3x + 2y
+Constraints: 2x + y ≤ 10, x + 2y ≤ 8
+
+Standard Form:
+Max Z = 3x + 2y + 0s₁ + 0s₂
+2x + y + s₁ = 10
+x + 2y + s₂ = 8
+
+Initial Tableau:
+┌─────┬─────┬─────┬─────┬─────┬─────┐
+│  B  │  x  │  y  │ s₁  │ s₂  │ RHS │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│ s₁  │  2  │  1  │  1  │  0  │ 10  │
+│ s₂  │  1  │  2  │  0  │  1  │  8  │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│  Z  │ -3  │ -2  │  0  │  0  │  0  │
+└─────┴─────┴─────┴─────┴─────┴─────┘
+
+KEY ELEMENTS
+------------
+• B: Basic variables (s₁, s₂)
+• Variable Columns: x, y, s₁, s₂
+• RHS: 10, 8
+• Z Row: [-3, -2, 0, 0, 0]
+
+INITIAL SOLUTION
+----------------
+Basic Variables: s₁ = 10, s₂ = 8
+Non-Basic Variables: x = 0, y = 0
+Z = 0
+
+COMMON MISTAKES
+---------------
+1. Wrong signs in Z row
+2. Forgetting slack variables
+3. Incorrect basic variable identification
+4. Misplacing coefficients
+
+BEST PRACTICES
+--------------
+1. List variables in consistent order
+2. Double-check all coefficients
+3. Verify basic variables form identity matrix
+4. Check RHS values are non-negative
+
+TEACHER'S NOTE
+--------------
+The initial tableau is like setting up a chess board - every piece 
+must be placed correctly. Practice building tableaus until it 
+becomes second nature."

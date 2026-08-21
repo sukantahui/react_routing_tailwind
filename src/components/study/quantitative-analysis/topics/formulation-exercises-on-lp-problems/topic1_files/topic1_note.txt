@@ -1,0 +1,105 @@
+TOPIC 1: RESOURCE ALLOCATION PROBLEMS
+=====================================
+
+INTRODUCTION
+------------
+Resource allocation problems involve distributing limited resources among 
+competing activities to achieve the best overall outcome. This is a 
+fundamental application of linear programming in business and government.
+
+WHAT IS RESOURCE ALLOCATION?
+---------------------------
+Resource allocation is the process of assigning available resources to 
+various activities or departments to maximize benefits or minimize costs.
+
+KEY COMPONENTS
+--------------
+1. Resources to Allocate:
+   - Money (budgets, funds)
+   - Time (staff hours, machine hours)
+   - Personnel (employees, staff)
+   - Materials (supplies, equipment)
+
+2. Activities/Departments:
+   - Competing for resources
+   - Each has different resource needs
+   - Each produces different returns
+
+3. Constraints:
+   - Resource availability
+   - Minimum allocation requirements
+   - Maximum allocation limits
+
+GENERAL FORM
+------------
+Maximize (or Minimize) Z = c₁x₁ + c₂x₂ + ... + cₙxₙ
+
+Subject to:
+a₁₁x₁ + a₁₂x₂ + ... + a₁ₙxₙ ≤ b₁ (Resource 1)
+a₂₁x₁ + a₂₂x₂ + ... + a₂ₙxₙ ≤ b₂ (Resource 2)
+...
+x₁ ≥ min₁, x₂ ≥ min₂, ... (Minimum requirements)
+x₁ ≤ max₁, x₂ ≤ max₂, ... (Maximum limits)
+x₁, x₂, ..., xₙ ≥ 0
+
+EXAMPLE
+-------
+Problem: Allocate ₹500,000 between Production (x) and Marketing (y).
+Production yields 8 units profit per ₹1,000; Marketing yields 6 units.
+Minimum: Production ₹200,000, Marketing ₹100,000.
+
+Solution:
+Let x = Production allocation (₹000), y = Marketing allocation (₹000)
+Maximize Z = 8x + 6y
+Subject to:
+x + y ≤ 500 (Budget)
+x ≥ 200 (Production minimum)
+y ≥ 100 (Marketing minimum)
+x, y ≥ 0
+
+KEY DIFFERENCES FROM PRODUCT-MIX
+--------------------------------
+Product-Mix Problems:
+- Variables = product quantities
+- Goal = max profit
+- Constraints = resources
+
+Resource Allocation Problems:
+- Variables = resource allocations
+- Goal = max value/efficiency
+- Constraints = resource limits + allocation requirements
+
+TYPES OF CONSTRAINTS
+--------------------
+1. Resource Constraints:
+   - Limited availability
+   - Sum of allocations ≤ available
+
+2. Minimum Requirements:
+   - Critical activities need minimum allocation
+   - x ≥ min_x
+
+3. Maximum Limits:
+   - Capacity or policy limits
+   - x ≤ max_x
+
+BEST PRACTICES
+--------------
+1. Identify all resources clearly
+2. Include all relevant requirements
+3. Check for conflicting constraints
+4. Perform sensitivity analysis
+5. Consider qualitative factors
+
+COMMON MISTAKES
+---------------
+1. Forgetting minimum allocation requirements
+2. Ignoring capacity constraints
+3. Overlooking non-negativity
+4. Using inconsistent units
+
+TEACHER'S NOTE
+--------------
+Resource allocation problems help students understand how to make 
+optimal decisions under scarcity. These problems are valuable in 
+developing analytical thinking and decision-making skills."

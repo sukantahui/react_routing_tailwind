@@ -1,0 +1,141 @@
+================================================================================
+                         NUMERICAL EXERCISES
+                               Detailed Notes
+================================================================================
+
+1. INTRODUCTION
+================================================================================
+
+Purpose:
+This topic presents a collection of numerical exercises designed to help you 
+practice finding initial basic feasible solutions using different methods.
+
+Key Insight:
+Practice makes perfect. The more problems you solve, the more comfortable 
+you'll become with the allocation procedures and the easier it will be to 
+handle any transportation problem.
+
+2. PROBLEM 1: SIMPLE 3×3 NW CORNER
+================================================================================
+
+Problem Data:
+---------------------------------------------------------
+Sources: 3 with supplies 50, 40, 30
+Destinations: 3 with demands 40, 50, 30
+Cost Matrix: Given in the table
+
+Solution Steps:
+---------------------------------------------------------
+1. Start at (1,1): allocate min(50,40) = 40
+2. Move to (1,2): allocate min(10,50) = 10
+3. Move to (2,2): allocate min(40,40) = 40
+4. Move to (3,3): allocate min(30,30) = 30
+
+Result:
+---------------------------------------------------------
+Allocations: x₁₁=40, x₁₂=10, x₂₂=40, x₃₃=30
+Total Cost: ₹840
+Degeneracy: Yes (4 allocations < m+n-1=5)
+
+3. PROBLEM 2: 2×3 LEAST COST
+================================================================================
+
+Problem Data:
+---------------------------------------------------------
+Sources: 2 with supplies 60, 50
+Destinations: 3 with demands 40, 30, 40
+Cost Matrix: Given in the table
+
+Solution Steps:
+---------------------------------------------------------
+1. Find cheapest cell: (2,3) with cost 7
+2. Allocate min(50,40) = 40
+3. Next cheapest: (1,2) with cost 8
+4. Allocate min(60,30) = 30
+5. Continue until complete
+
+Result:
+---------------------------------------------------------
+Allocations: x₂₃=40, x₁₂=30, x₂₁=10, x₁₁=30
+Total Cost: ₹970
+Degeneracy: No (4 allocations = m+n-1)
+
+4. PROBLEM 3: 3×4 VAM
+================================================================================
+
+Problem Data:
+---------------------------------------------------------
+Sources: 3 with supplies 60, 50, 40
+Destinations: 4 with demands 40, 50, 30, 30
+Cost Matrix: Given in the table
+
+Solution Steps:
+---------------------------------------------------------
+1. Calculate row and column penalties
+2. Find highest penalty
+3. Allocate to cheapest cell in that row/column
+4. Recalculate penalties
+5. Repeat until complete
+
+Result:
+---------------------------------------------------------
+Allocations: (varies by iteration)
+Total Cost: (calculated from allocations)
+Degeneracy: Usually non-degenerate
+
+5. PROBLEM 4: DEGENERACY EXAMPLE
+================================================================================
+
+Problem Data:
+---------------------------------------------------------
+Sources: 3 with supplies 30, 40, 20
+Destinations: 3 with demands 30, 30, 30
+Cost Matrix: Given in the table
+
+Solution Steps:
+---------------------------------------------------------
+1. Apply NW Corner
+2. Count allocations: 4
+3. Required: m+n-1 = 5
+4. Degeneracy detected!
+5. Add ε to cell (2,1)
+6. Now 5 allocations = m+n-1
+
+Result:
+---------------------------------------------------------
+Allocations: x₁₁=30, x₂₂=30, x₂₃=10, x₃₃=10, x₂₁=ε
+Total Cost: ₹570 (ε cost ≈ 0)
+Degeneracy: Resolved with epsilon
+
+6. KEY TAKEAWAYS
+================================================================================
+
+From These Exercises:
+---------------------------------------------------------
+1. Different methods give different solutions
+2. NW Corner is fastest but poorest quality
+3. Least Cost gives better quality solutions
+4. VAM gives the best initial solutions
+5. Degeneracy is common and must be handled
+6. Always verify your solutions
+
+7. COMMON MISTAKES
+================================================================================
+
+❌ Incorrect min Calculation:
+   Using wrong values for min(Sᵢ, Dⱼ).
+
+❌ Not Updating Values:
+   Forgetting to update supplies and demands.
+
+❌ Not Handling Degeneracy:
+   Ignoring degeneracy in the solution.
+
+❌ Cost Calculation Errors:
+   Arithmetic errors in total cost.
+
+❌ Rushing the Process:
+   Making errors by going too fast.
+
+❌ Not Verifying:
+   Not checking row and column

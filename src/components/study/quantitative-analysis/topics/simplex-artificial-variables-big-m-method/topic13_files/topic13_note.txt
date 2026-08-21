@@ -1,0 +1,91 @@
+TOPIC 13: SHORT QUESTIONS - SIMPLEX & BIG-M METHOD
+===================================================
+
+INTRODUCTION
+------------
+Short questions are an effective tool for quick revision and 
+self-assessment. This topic provides 30 short questions covering 
+all key concepts of the Simplex Method and Big-M Method.
+
+QUESTION CATEGORIES
+-------------------
+1. Simplex Method (5 questions)
+2. Standard Form (4 questions)
+3. Big-M Method (5 questions)
+4. Tableau Operations (5 questions)
+5. Optimality (3 questions)
+6. Special Cases (4 questions)
+7. Practical Applications (4 questions)
+
+DIFFICULTY LEVELS
+-----------------
+• Basic: Foundational concepts
+• Intermediate: Deeper understanding
+• Advanced: Complex applications
+
+KEY CONCEPTS
+------------
+Simplex Method:
+- Basic feasible solution
+- Basic and non-basic variables
+- Entering and leaving variables
+- Pivot operations
+- Optimality conditions
+
+Standard Form:
+- Maximization objective
+- Equality constraints
+- Non-negative variables
+- Slack variables (≤)
+- Surplus variables (≥)
+- Artificial variables (≥ and =)
+
+Big-M Method:
+- Artificial variables
+- Big-M penalty
+- M must be very large
+- Artificials must go to zero
+- Infeasibility detection
+
+Tableau Operations:
+- Entering variable (most negative Z for max)
+- Leaving variable (minimum ratio test)
+- Pivot element
+- Row operations
+- Basic variable update
+
+Optimality:
+- Max: all Z ≥ 0
+- Min: all Z ≤ 0
+- Zero coefficients → multiple optima
+- Negative coefficients → continue
+
+Special Cases:
+- Unbounded solution
+- Infeasible solution
+- Degenerate solution
+- Cycling (and Bland's rule)
+
+COMMON MISTAKES
+---------------
+• Using wrong method for constraint types
+• Forgetting artificial variables
+• Incorrect Big-M penalties
+• Not checking artificials at optimality
+• Arithmetic errors in row operations
+• Confusing max and min optimality
+
+STUDY TIPS
+----------
+1. Review questions regularly
+2. Test yourself without answers first
+3. Focus on weak areas
+4. Use categories for targeted study
+5. Practice active recall
+
+TEACHER'S NOTE
+--------------
+Short questions are excellent for quick revision. I recommend using 
+them as warm-up exercises or for spaced repetition practice. The act 
+of recalling and articulating answers strengthens memory and reveals 
+areas needing more study."

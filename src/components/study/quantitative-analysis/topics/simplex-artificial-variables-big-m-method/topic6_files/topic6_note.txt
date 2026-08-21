@@ -1,0 +1,102 @@
+TOPIC 6: ENTERING AND LEAVING VARIABLES
+=======================================
+
+INTRODUCTION
+------------
+In each iteration of the Simplex Method, one non-basic variable 
+enters the basis and one basic variable leaves. This exchange 
+improves the objective value while maintaining feasibility.
+
+ENTERING VARIABLE
+-----------------
+The entering variable is chosen from the Z row:
+- Maximization: most negative coefficient
+- Minimization: most positive coefficient
+
+Why: It gives the greatest improvement in Z per unit.
+
+LEAVING VARIABLE
+----------------
+The leaving variable is chosen using the ratio test:
+1. For each row with positive coefficient in entering column:
+   Ratio = RHS / coefficient
+2. Choose the row with the smallest positive ratio
+
+Why: It ensures the solution remains feasible.
+
+THE RATIO TEST
+--------------
+Purpose: Determines which constraint limits the entering variable.
+
+Steps:
+1. Identify entering column
+2. For each row with coefficient > 0:
+   Ratio = RHS / coefficient
+3. Select row with minimum ratio
+
+PIVOT ELEMENT
+-------------
+The pivot element is:
+- Located at intersection of entering column and leaving row
+- Must be positive
+- Used in row operations to transform the tableau
+
+EXAMPLE
+-------
+Tableau:
+┌─────┬─────┬─────┬─────┬─────┬─────┐
+│  B  │  x  │  y  │ s₁  │ s₂  │ RHS │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│ s₁  │  2  │  1  │  1  │  0  │ 10  │
+│ s₂  │  1  │  2  │  0  │  1  │  8  │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│  Z  │ -3  │ -2  │  0  │  0  │  0  │
+└─────┴─────┴─────┴─────┴─────┴─────┘
+
+Entering Variable:
+Z row: [-3, -2, 0, 0]
+Most negative: -3 → x enters
+
+Leaving Variable:
+Ratio test:
+s₁: 10/2 = 5
+s₂: 8/1 = 8
+Minimum: 5 → s₁ leaves
+
+Pivot Element: 2 (s₁ row, x column)
+
+SPECIAL CASES
+-------------
+1. Tie in Ratio Test:
+   - Either row can leave
+   - Use tie-breaking rule
+   - May lead to degeneracy
+
+2. All Negative Coefficients:
+   - Problem is unbounded
+   - No finite optimal solution
+
+3. No Negative Coefficients:
+   - Optimal solution reached
+   - Stop the algorithm
+
+COMMON MISTAKES
+---------------
+1. Choosing wrong sign for entering variable
+2. Using negative denominators in ratio test
+3. Ignoring ties in ratio test
+4. Forgetting to check optimality first
+
+BEST PRACTICES
+--------------
+1. Always check Z row first
+2. Use exact fractions for ratios
+3. Handle ties consistently
+4. Verify pivot element is positive
+
+TEACHER'S NOTE
+--------------
+Selecting entering and leaving variables is the heart of each 
+Simplex iteration. The rules are clear: most negative Z coefficient 
+enters, minimum ratio test determines who leaves. Be systematic 
+and careful with the ratio test."

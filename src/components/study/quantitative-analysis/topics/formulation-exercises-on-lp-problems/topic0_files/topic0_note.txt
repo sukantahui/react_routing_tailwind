@@ -1,0 +1,102 @@
+TOPIC 0: PRODUCT-MIX PROBLEMS
+=============================
+
+INTRODUCTION
+------------
+Product-mix problems are the foundation of linear programming. They help 
+businesses decide how much of each product to produce to maximize profit 
+while respecting resource limitations.
+
+WHAT IS A PRODUCT-MIX PROBLEM?
+------------------------------
+A product-mix problem determines the optimal combination of products to 
+manufacture given limited resources like labor, materials, and machine time.
+
+KEY COMPONENTS
+--------------
+1. Decision Variables:
+   - Quantities of each product to produce
+   - Example: x = number of chairs, y = number of tables
+
+2. Objective Function:
+   - Maximize total profit
+   - Z = (profit/unit of product 1) × (units of product 1) + ...
+
+3. Resource Constraints:
+   - Each resource has a constraint
+   - (usage/unit of product 1) × (units of product 1) + ... ≤ available
+
+4. Non-Negativity Constraints:
+   - x ≥ 0, y ≥ 0
+
+GENERAL FORM
+------------
+Maximize Z = c₁x₁ + c₂x₂ + ... + cₙxₙ
+
+Subject to:
+a₁₁x₁ + a₁₂x₂ + ... + a₁ₙxₙ ≤ b₁ (Resource 1)
+a₂₁x₁ + a₂₂x₂ + ... + a₂ₙxₙ ≤ b₂ (Resource 2)
+...
+x₁, x₂, ..., xₙ ≥ 0
+
+STEPS TO FORMULATE
+------------------
+1. Read the problem carefully
+2. Identify decision variables
+3. Identify the objective (what to maximize)
+4. List all resource constraints
+5. Add non-negativity constraints
+6. Write the LP formulation
+
+EXAMPLE
+-------
+Problem: A factory produces chairs and tables. Each chair requires 2 labor 
+hours and 3 units of wood. Each table requires 3 labor hours and 2 units 
+of wood. Available: 120 labor hours and 90 wood units. Profit: Chair ₹40, 
+Table ₹50.
+
+Solution:
+Let x = chairs, y = tables
+Maximize Z = 40x + 50y
+Subject to:
+2x + 3y ≤ 120 (Labor)
+3x + 2y ≤ 90 (Wood)
+x, y ≥ 0
+
+INTERPRETATION
+--------------
+Optimal: x = 24, y = 24, Z = ₹2,160
+- Produce 24 chairs and 24 tables
+- Maximum profit = ₹2,160
+- Both resources are fully utilized
+
+KEY TERMS
+---------
+• Binding Constraint: Resource fully used (slack = 0)
+• Slack: Unused resource capacity
+• Shadow Price: Value of additional resources
+• Feasible Region: All possible production plans
+
+COMMON MISTAKES
+---------------
+1. Forgetting to include all resources
+2. Mixing up coefficients in constraints
+3. Missing non-negativity constraints
+4. Using wrong units
+5. Not verifying the solution
+
+BEST PRACTICES
+--------------
+1. Clearly define variables with units
+2. Check coefficients carefully
+3. Include all relevant constraints
+4. Verify non-negativity
+5. Check consistency of units
+6. Validate the solution
+
+TEACHER'S NOTE
+--------------
+Product-mix problems are the foundation of LP formulation. Once students 
+master these, they can apply the same logic to more complex LP problems. 
+Encourage practice in translating word problems into mathematical 
+formulations."

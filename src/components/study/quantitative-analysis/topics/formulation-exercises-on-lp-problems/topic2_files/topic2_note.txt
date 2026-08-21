@@ -1,0 +1,115 @@
+TOPIC 2: PROFIT MAXIMIZATION PROBLEMS
+=====================================
+
+INTRODUCTION
+------------
+Profit maximization is the most common application of linear programming 
+in business. The goal is to find the optimal product mix that generates 
+maximum profit subject to resource constraints.
+
+WHAT IS PROFIT MAXIMIZATION?
+---------------------------
+Profit maximization determines the quantities of products to produce to 
+achieve the highest possible profit, given limited resources.
+
+KEY FORMULA
+-----------
+Profit = Revenue - Total Costs
+Total Profit = Σ(Price per unit - Variable Cost per unit) × Quantity - Fixed Costs
+
+Since fixed costs are constant, maximizing profit is equivalent to 
+maximizing total contribution margin:
+Maximize Z = Σ(Price - Variable Cost) × Quantity
+
+GENERAL FORM
+------------
+Maximize Z = p₁x₁ + p₂x₂ + ... + pₙxₙ
+
+Subject to:
+a₁₁x₁ + a₁₂x₂ + ... + a₁ₙxₙ ≤ b₁ (Resource 1)
+a₂₁x₁ + a₂₂x₂ + ... + a₂ₙxₙ ≤ b₂ (Resource 2)
+...
+x₁, x₂, ..., xₙ ≥ 0
+
+Where pᵢ = profit per unit of product i
+
+KEY DIFFERENCES FROM COST MINIMIZATION
+--------------------------------------
+Profit Maximization:
+- Objective: Max Z
+- pᵢ = profit per unit
+- Uses ≤ constraints
+- Focus: maximize profit
+
+Cost Minimization:
+- Objective: Min Z
+- cᵢ = cost per unit
+- Uses ≥ constraints
+- Focus: minimize cost
+
+STEPS TO SOLVE
+--------------
+1. Identify products and variables
+2. Calculate profit per unit
+3. Identify resource constraints
+4. Formulate the LP problem
+5. Solve graphically
+6. Interpret results
+
+EXAMPLE
+-------
+Problem: A factory produces chairs (x) and tables (y).
+Chair: ₹40 profit, 2 labor hours, 3 wood units
+Table: ₹50 profit, 3 labor hours, 2 wood units
+Available: 120 labor hours, 90 wood units
+
+Formulation:
+Maximize Z = 40x + 50y
+Subject to:
+2x + 3y ≤ 120 (Labor)
+3x + 2y ≤ 90 (Wood)
+x, y ≥ 0
+
+Solution:
+Corner points: (0,0), (30,0), (18,24), (0,40)
+Optimal: (0,40) with Z = ₹2,000
+Produce 0 chairs and 40 tables.
+
+INTERPRETATION
+--------------
+- Optimal production mix: 0 chairs, 40 tables
+- Maximum profit: ₹2,000
+- Labor: fully utilized
+- Wood: 10 units slack
+
+KEY TERMS
+---------
+• Contribution Margin: Price - Variable Cost
+• Bottleneck: Resource with zero slack
+• Shadow Price: Value of additional resources
+• Fixed Costs: Constant regardless of production
+
+COMMON MISTAKES
+---------------
+1. Confusing revenue with profit
+2. Forgetting variable costs
+3. Ignoring fixed costs in profit calculation
+4. Missing minimum production constraints
+5. Not including all resource constraints
+
+BEST PRACTICES
+--------------
+1. Calculate contribution margin correctly
+2. Include all relevant costs
+3. Consider minimum production requirements
+4. Identify all resource constraints
+5. Verify and interpret the solution
+
+TEACHER'S NOTE
+--------------
+Profit maximization is the most intuitive LP application. Students 
+understand the goal of making more profit. The key is helping them 
+distinguish between revenue and profit, and understand that profit 
+requires considering both income and costs. Encourage students to 
+think about real businesses and how they might use LP to make better 
+decisions."

@@ -1,0 +1,97 @@
+TOPIC 4: ARTIFICIAL VARIABLES
+=============================
+
+INTRODUCTION
+------------
+Artificial variables are temporary variables added to ≥ and = 
+constraints to create an initial basic feasible solution for the 
+Simplex Method. They are not part of the original problem and 
+must be driven to zero.
+
+WHAT ARE ARTIFICIAL VARIABLES?
+-----------------------------
+Artificial variables are used when:
+1. ≥ constraints (subtract surplus, add artificial)
+2. = constraints (add artificial directly)
+
+They provide a feasible starting point for the Simplex Method.
+
+WHEN TO USE ARTIFICIAL VARIABLES
+--------------------------------
+1. ≥ Constraints:
+   a₁x₁ + a₂x₂ ≥ b
+   → a₁x₁ + a₂x₂ - s + a = b
+   where s ≥ 0 (surplus), a ≥ 0 (artificial)
+
+2. = Constraints:
+   a₁x₁ + a₂x₂ = b
+   → a₁x₁ + a₂x₂ + a = b
+   where a ≥ 0 (artificial)
+
+3. ≤ Constraints:
+   a₁x₁ + a₂x₂ ≤ b
+   → a₁x₁ + a₂x₂ + s = b
+   where s ≥ 0 (slack only)
+
+BIG-M METHOD
+------------
+Penalize artificial variables with a large number M:
+
+Minimization: Add M × a
+Maximization: Subtract M × a
+
+M must be larger than any other coefficient.
+
+TWO-PHASE METHOD
+----------------
+Phase 1: Minimize sum of artificial variables
+Min W = a₁ + a₂ + ... + aₙ
+Goal: Drive all artificials to zero
+
+Phase 2: Optimize original objective
+Use feasible solution from Phase 1
+Min Z = c₁x + c₂y
+
+EXAMPLE
+-------
+Minimize Z = 4x + 3y
+Subject to:
+x + y ≥ 6
+2x + y ≥ 8
+x, y ≥ 0
+
+With Artificial Variables:
+Minimize Z = 4x + 3y + M a₁ + M a₂
+Subject to:
+x + y - s₁ + a₁ = 6
+2x + y - s₂ + a₂ = 8
+x, y, s₁, s₂, a₁, a₂ ≥ 0
+
+KEY CONCEPTS
+------------
+• Artificial variables are temporary
+• Must be driven to zero
+• Penalized in objective
+• Indicate feasibility
+• Used in Big-M and Two-Phase
+
+COMMON MISTAKES
+---------------
+1. Forgetting artificial variables
+2. Not penalizing in objective
+3. Using too small M
+4. Not checking if artificials remain
+
+BEST PRACTICES
+--------------
+1. Use M much larger than other coefficients
+2. Check artificial variables at optimal
+3. If artificial > 0 → infeasible
+4. Consider Two-Phase for numerical stability
+
+TEACHER'S NOTE
+--------------
+Artificial variables are like 'training wheels' for the Simplex 
+Method. They're temporary helpers that get us started. Remember: 
+artificial variables are NOT part of the original problem - they 
+must be driven to zero."

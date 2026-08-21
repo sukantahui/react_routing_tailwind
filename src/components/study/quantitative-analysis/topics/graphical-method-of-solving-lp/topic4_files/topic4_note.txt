@@ -1,0 +1,76 @@
+TOPIC 4: EVALUATING THE OBJECTIVE FUNCTION AT CORNER POINTS
+============================================================
+
+INTRODUCTION
+------------
+Evaluating the objective function at corner points is the final step 
+in solving LP problems graphically. The optimal solution will always 
+be at a corner point of the feasible region.
+
+WHY EVALUATE AT CORNER POINTS?
+-----------------------------
+The Fundamental Theorem of LP states: If an optimal solution exists, 
+there is an optimal solution at a corner point of the feasible region. 
+This theorem limits our search to a finite number of points.
+
+STEPS TO EVALUATE
+-----------------
+Step 1: List all corner points
+Step 2: Calculate Z at each point
+Step 3: Compare values
+Step 4: Select optimal solution
+
+OBJECTIVE FUNCTION
+------------------
+General form: Z = c₁x + c₂y
+- For maximization: choose highest Z
+- For minimization: choose lowest Z
+
+EVALUATION PROCESS
+------------------
+For each corner point (x, y):
+Z = c₁x + c₂y
+
+EXAMPLE
+-------
+Problem: Maximize Z = 3x + 2y
+Corner points: (0,0), (5,0), (4,2), (0,4)
+
+Evaluations:
+Z(0,0) = 3(0) + 2(0) = 0
+Z(5,0) = 3(5) + 2(0) = 15
+Z(4,2) = 3(4) + 2(2) = 16
+Z(0,4) = 3(0) + 2(4) = 8
+
+Optimal: (4,2) with Z = 16
+
+SPECIAL CASES
+-------------
+Multiple Optimal Solutions:
+- When two corner points give the same Z
+- Any point on the line between them is also optimal
+
+Infeasible Corners:
+- Some intersection points may violate constraints
+- Only evaluate points in the feasible region
+
+COMMON MISTAKES
+---------------
+1. Missing a corner point
+2. Arithmetic errors in calculations
+3. Not checking if point is feasible
+4. Confusing max with min
+
+BEST PRACTICES
+--------------
+1. List all corner points systematically
+2. Create a table of values
+3. Double-check arithmetic
+4. Verify the optimal point is feasible
+5. Check for multiple optima
+
+TEACHER'S NOTE
+--------------
+Evaluating corner points is where LP becomes decision-making. 
+Create a table showing each corner and its Z value - this visual 
+comparison makes it easy to identify the optimal solution."

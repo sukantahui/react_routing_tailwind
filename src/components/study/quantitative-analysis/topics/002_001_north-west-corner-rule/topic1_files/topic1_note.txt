@@ -1,0 +1,257 @@
+================================================================================
+                         NORTH-WEST CORNER RULE
+                               Detailed Notes
+================================================================================
+
+1. INTRODUCTION
+================================================================================
+
+Definition:
+The North-West Corner Rule is the simplest and most straightforward method 
+for finding an initial basic feasible solution (IBFS) for transportation 
+problems. It systematically allocates shipments starting from the top-left 
+corner of the transportation table.
+
+Key Insight:
+The North-West Corner Rule is like reading a book—you start at the top-left 
+and work your way through systematically. It's simple, fast, and guarantees 
+a feasible solution, though not necessarily a good one.
+
+2. WHY "NORTH-WEST CORNER"?
+================================================================================
+
+The name comes from the navigation pattern:
+- Start at the top-left corner (north-west)
+- Move right (east) when a column's demand is satisfied
+- Move down (south) when a row's supply is exhausted
+- This creates a path from the north-west corner through the table
+
+3. STEP-BY-STEP PROCEDURE
+================================================================================
+
+Step 1: Start at the Top-Left Cell
+---------------------------------------------------------
+- Begin at cell (1,1)
+- Intersection of S₁ and D₁
+- Current cell = (S₁, D₁)
+
+Step 2: Allocate Maximum Possible Amount
+---------------------------------------------------------
+- x₁₁ = min(S₁, D₁)
+- This is the maximum that can be shipped
+- Without exceeding supply or demand
+
+Step 3: Update Supply and Demand
+---------------------------------------------------------
+- S₁ = S₁ - x₁₁
+- D₁ = D₁ - x₁₁
+- Cross out row if S₁ = 0
+- Cross out column if D₁ = 0
+
+Step 4: Move to the Next Cell
+---------------------------------------------------------
+- If row supply exhausted → move down (south)
+- If column demand satisfied → move right (east)
+- If both exhausted → move diagonally (south-east)
+
+Step 5: Repeat Until All Allocations Complete
+---------------------------------------------------------
+- Continue until all supplies are used
+- Continue until all demands are met
+- Result is the IBFS
+
+4. MOVEMENT RULES
+================================================================================
+
+Move Down (South):
+---------------------------------------------------------
+- When current row's supply is exhausted
+- Sᵢ becomes 0
+- Move to row (i+1), same column
+
+Move Right (East):
+---------------------------------------------------------
+- When current column's demand is satisfied
+- Dⱼ becomes 0
+- Move to column (j+1), same row
+
+Move Diagonally (South-East):
+---------------------------------------------------------
+- When both supply and demand are exhausted
+- Sᵢ = 0 and Dⱼ = 0
+- Move to cell (i+1, j+1)
+
+5. CHARACTERISTICS
+================================================================================
+
+Advantages:
+---------------------------------------------------------
+1. Very simple to understand and apply
+2. Fastest method (single pass through table)
+3. Guarantees a feasible solution
+4. Easy to implement by hand or in code
+5. Good for teaching and learning
+6. Provides a baseline for comparison
+
+Disadvantages:
+---------------------------------------------------------
+1. Usually gives poor quality solutions
+2. Ignores all transportation costs
+3. Often requires many iterations to reach optimality
+4. Can cause degeneracy
+5. Not suitable for cost-critical applications
+6. Must be followed by optimization methods
+
+6. ALLOCATION COUNT
+================================================================================
+
+Number of Allocations:
+---------------------------------------------------------
+- Balanced problem: m + n - 1 allocations
+- m = number of sources
+- n = number of destinations
+- This is the number of basic variables
+
+Verification:
+---------------------------------------------------------
+1. Count positive allocations
+2. Should equal m + n - 1
+3. If less, degeneracy exists
+4. If more, error in allocation
+
+7. DEGENERACY
+================================================================================
+
+Definition:
+---------------------------------------------------------
+- Occurs when allocations < m + n - 1
+- Happens when row and column exhausted simultaneously
+- Results in fewer basic variables
+
+Handling:
+---------------------------------------------------------
+1. Identify the degenerate solution
+2. Add epsilon (ε) to a zero cell
+3. This cell becomes a basic variable
+4. Solution now has m+n-1 basic variables
+5. Continue with optimization
+
+8. COMPARISON WITH OTHER METHODS
+================================================================================
+
+Method | Quality | Speed | Iterations Needed
+---------------------------------------------------------
+NW Corner | Poor | Fast | Many (8-12)
+Least Cost | Good | Moderate | Moderate (5-8)
+VAM | Excellent | Slow | Few (2-4)
+
+9. COMMON MISTAKES
+================================================================================
+
+❌ Wrong Movement Direction:
+   Moving up or left when should move right or down.
+
+❌ Incorrect Allocation Amount:
+   Allocating more than min(Sᵢ, Dⱼ).
+
+❌ Not Checking Balance:
+   Applying NW Corner without balancing first.
+
+❌ Ignoring Degeneracy:
+   Not handling when allocations < m+n-1.
+
+❌ Thinking It's Optimal:
+   Assuming NW Corner gives optimal solution.
+
+❌ Not Verifying Solution:
+   Not checking row and column sums.
+
+10. BEST PRACTICES
+================================================================================
+
+1. Preparation:
+   - Check balance condition first
+   - Add dummies if needed
+   - Set up the transportation table clearly
+   - Label rows and columns correctly
+
+2. Execution:
+   - Start at NW corner systematically
+   - Allocate min(Sᵢ, Dⱼ) each time
+   - Track remaining supplies and demands
+   - Cross out completed rows/columns
+
+3. Verification:
+   - Count allocations (should be m+n-1)
+   - Sum row allocations (should equal supplies)
+   - Sum column allocations (should equal demands)
+   - Calculate total cost for baseline
+
+4. Next Steps:
+   - Use MODI method for optimality check
+   - Apply transportation simplex for improvement
+   - Compare with other IBFS methods
+   - Document improvement iterations
+
+11. PROFESSIONAL TIPS
+================================================================================
+
+1. Use for Quick Checks:
+   - Feasibility verification
+   - Rough cost estimates
+   - Preliminary analysis
+
+2. Document Allocations:
+   - Keep clear records
+   - Show all steps
+   - Note degeneracy
+
+3. Always Verify:
+   - Check all constraints
+   - Count allocations
+   - Calculate cost
+
+4. Follow with Optimization:
+   - NW Corner is just the start
+   - Always use MODI method
+   - Find optimal solution
+
+5. Know When to Use:
+   - Small problems
+   - Quick estimates
+   - Teaching examples
+
+12. MINI CHECKLIST
+================================================================================
+
+☐ I understand what the North-West Corner Rule is and how it works
+☐ I know the step-by-step procedure for applying the NW Corner Rule
+☐ I can correctly calculate allocations using min(Sᵢ, Dⱼ)
+☐ I know when to move right, down, or diagonally
+☐ I can verify the solution has m+n-1 allocations
+☐ I understand degeneracy and how to handle it
+☐ I know the advantages and disadvantages of NW Corner
+☐ I can calculate total cost from NW Corner solution
+☐ I know when NW Corner should be used
+☐ I understand that NW Corner must be followed by optimization
+
+13. TEACHER'S NOTE
+================================================================================
+
+The North-West Corner Rule is the gateway method for transportation problems. 
+When I teach this to my students in Kolkata, I emphasize that while it's 
+simple and fast, it's never the final answer.
+
+Abhronila from Jadavpur learned that using NW Corner without optimization 
+led to shipping costs 30% higher than optimal. Susmita from Barrackpore 
+uses it as a quick sanity check before applying more sophisticated methods.
+
+Mahima from Kolkata appreciates NW Corner for its simplicity in teaching, 
+but always makes sure her students understand the need for optimization.
+
+Remember: NW Corner gives you a starting point, not a destination. Always 
+follow it with the MODI method to reach the optimal solution.
+
+================================================================================
+END OF NOTES
+================================================================================

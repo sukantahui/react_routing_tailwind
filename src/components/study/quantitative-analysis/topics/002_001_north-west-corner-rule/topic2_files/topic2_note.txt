@@ -1,0 +1,258 @@
+================================================================================
+                    STEP-BY-STEP ALLOCATION PROCEDURE
+                               Detailed Notes
+================================================================================
+
+1. INTRODUCTION
+================================================================================
+
+Definition:
+The step-by-step allocation procedure is the systematic process of assigning 
+shipments from sources to destinations to create an initial basic feasible 
+solution. This procedure forms the foundation of all transportation problem 
+solution methods.
+
+Key Insight:
+The allocation procedure is like filling a matrix systematically. Each 
+allocation reduces either a supply or a demand (or both) until all are 
+satisfied. The order of allocation depends on which method you're using.
+
+2. THE ALLOCATION CYCLE
+================================================================================
+
+The Core Steps:
+---------------------------------------------------------
+1. Select Cell → Based on method (NW Corner, Least Cost, VAM)
+2. Allocate → xᵢⱼ = min(Sᵢ, Dⱼ)
+3. Update → Sᵢ = Sᵢ - xᵢⱼ, Dⱼ = Dⱼ - xᵢⱼ
+4. Cross Out → If Sᵢ = 0 or Dⱼ = 0
+5. Move → To next cell based on method
+6. Repeat → Until all allocations complete
+
+3. DETAILED PROCEDURE
+================================================================================
+
+Step 1: Setup the Transportation Table
+---------------------------------------------------------
+- Create table with sources as rows
+- Create table with destinations as columns
+- Fill in all costs, supplies, and demands
+- Add dummy rows/columns if unbalanced
+- Ensure all data is correctly entered
+
+Step 2: Select the Next Cell
+---------------------------------------------------------
+- NW Corner: Current position, start at (1,1)
+- Least Cost: The cheapest available cell
+- VAM: The cell with the highest penalty
+- Consider only available rows/columns
+
+Step 3: Allocate Maximum Possible Amount
+---------------------------------------------------------
+- At cell (i,j): xᵢⱼ = min(Sᵢ, Dⱼ)
+- This is the maximum that can be shipped
+- Record the allocation in the cell
+- Never exceed supply or demand
+
+Step 4: Update Supplies and Demands
+---------------------------------------------------------
+- Sᵢ = Sᵢ - xᵢⱼ (remaining supply)
+- Dⱼ = Dⱼ - xᵢⱼ (remaining demand)
+- Track remaining values carefully
+- Use running tallies
+
+Step 5: Cross Out Exhausted Rows/Columns
+---------------------------------------------------------
+- If Sᵢ = 0 → cross out row i
+- If Dⱼ = 0 → cross out column j
+- If both = 0 → cross out both
+- Do not consider crossed out cells
+
+Step 6: Move to the Next Cell
+---------------------------------------------------------
+- NW Corner: Move right (if column exhausted) or down (if row exhausted)
+- Least Cost: Find the next cheapest available cell
+- VAM: Recalculate penalties and choose highest
+- Continue until all allocations complete
+
+Step 7: Repeat Until Complete
+---------------------------------------------------------
+- Continue allocation process
+- All supplies must be exhausted
+- All demands must be satisfied
+- Stop when complete
+
+4. KEY RULES
+================================================================================
+
+Allocation Rules:
+---------------------------------------------------------
+1. Always allocate min(Sᵢ, Dⱼ)
+2. Update supplies and demands after each allocation
+3. Cross out exhausted rows and columns
+4. Don't allocate in crossed out cells
+5. Continue until all allocations complete
+6. Expect m+n-1 allocations
+
+Handling Degeneracy:
+---------------------------------------------------------
+1. Occurs when allocations < m+n-1
+2. Add epsilon (ε) to a zero cell
+3. This cell becomes a basic variable
+4. Continue with the procedure
+5. Treat epsilon as effectively zero
+
+5. METHOD DIFFERENCES
+================================================================================
+
+Method | Cell Selection | Quality | Speed
+---------------------------------------------------------
+NW Corner | Systematic | Poor | Fast
+Least Cost | Cheapest cost | Good | Moderate
+VAM | Highest penalty | Excellent | Slow
+
+All share the same:
+- Allocation mechanics
+- Update procedure
+- Cross-out rules
+- Completion criteria
+
+6. COMPARATIVE ANALYSIS
+================================================================================
+
+NW Corner:
+---------------------------------------------------------
+- Start at (1,1)
+- Move right or down systematically
+- Ignores costs
+- Fastest method
+- Poorest quality
+
+Least Cost:
+---------------------------------------------------------
+- Start with cheapest cost
+- Allocate, then find next cheapest
+- Considers costs
+- Moderate speed
+- Better quality
+
+VAM:
+---------------------------------------------------------
+- Calculate penalties
+- Allocate to highest penalty
+- Recalculate after each allocation
+- Slowest method
+- Best quality
+
+7. COMMON MISTAKES
+================================================================================
+
+❌ Incorrect Allocation Amount:
+   Allocating more than min(Sᵢ, Dⱼ).
+
+❌ Skipping Row/Column Updates:
+   Not updating supplies and demands after allocation.
+
+❌ Not Crossing Out:
+   Not crossing out exhausted rows/columns.
+
+❌ Ignoring Degeneracy:
+   Not handling when allocations < m+n-1.
+
+❌ Moving Wrong Direction:
+   Moving incorrectly after crossing out.
+
+❌ Rushing the Process:
+   Making errors by going too fast.
+
+8. BEST PRACTICES
+================================================================================
+
+1. Preparation:
+   - Set up the transportation table clearly
+   - Label all rows and columns properly
+   - Check balance condition first
+   - Add dummies if needed
+
+2. Execution:
+   - Follow steps in exact order
+   - Allocate min(Sᵢ, Dⱼ) every time
+   - Update immediately after each allocation
+   - Cross out completed rows/columns
+
+3. Verification:
+   - Count allocations (should be m+n-1)
+   - Sum row allocations (should equal supplies)
+   - Sum column allocations (should equal demands)
+   - Calculate total cost
+
+4. Documentation:
+   - Document each allocation step
+   - Record all updates
+   - Note any degeneracy
+   - Keep for future reference
+
+9. PROFESSIONAL TIPS
+================================================================================
+
+1. Use Systematic Tracking:
+   - Keep running tallies
+   - Use color coding
+   - Check after each step
+
+2. Handle Degeneracy Early:
+   - Watch for simultaneous exhaustion
+   - Add epsilon immediately
+   - Document the handling
+
+3. Verify Everything:
+   - Check all calculations
+   - Count allocations
+   - Validate totals
+
+4. Document the Process:
+   - Record every step
+   - Note any issues
+   - Keep for reference
+
+5. Practice Regularly:
+   - Work through examples
+   - Use different methods
+   - Compare results
+
+10. MINI CHECKLIST
+================================================================================
+
+☐ I know how to set up the transportation table for allocation
+☐ I know to allocate min(Sᵢ, Dⱼ) at each step
+☐ I can update supplies and demands correctly
+☐ I know how to handle degeneracy with epsilon
+☐ I can verify the allocation solution is correct
+☐ I understand the difference between methods
+☐ I can calculate total cost from allocations
+☐ I know when to cross out rows and columns
+☐ I can handle unbalanced problems
+☐ I can document the allocation process
+
+11. TEACHER'S NOTE
+================================================================================
+
+The step-by-step allocation procedure is the heart of solving transportation 
+problems. When I teach this to my students in Kolkata, I emphasize that 
+mastering this procedure makes all other methods easy to learn.
+
+Abhronila from Jadavpur spent a week practicing the allocation procedure 
+until it became second nature—now she can solve any transportation problem 
+with confidence. Susmita from Barrackpore uses the same procedure whether 
+she's using NW Corner, Least Cost, or VAM.
+
+Mahima from Kolkata found that understanding the allocation procedure helped 
+her explain transportation problems to her team clearly.
+
+Remember: The allocation mechanics are the same for all methods. Master the 
+procedure, and you've mastered the foundation of transportation problem 
+solving.
+
+================================================================================
+END OF NOTES
+================================================================================

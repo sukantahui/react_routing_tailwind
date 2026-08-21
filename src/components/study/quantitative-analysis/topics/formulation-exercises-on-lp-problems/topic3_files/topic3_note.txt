@@ -1,0 +1,129 @@
+TOPIC 3: COST MINIMIZATION PROBLEMS
+===================================
+
+INTRODUCTION
+------------
+Cost minimization problems are a fundamental application of linear 
+programming where the objective is to meet requirements at the lowest 
+possible cost. These problems are common in diet planning, blending, 
+manufacturing, and logistics.
+
+WHAT IS COST MINIMIZATION?
+-------------------------
+Cost minimization finds the optimal way to meet requirements while 
+minimizing total cost. Unlike profit maximization, which focuses on 
+resource constraints (≤), cost minimization focuses on requirement 
+constraints (≥).
+
+KEY CHARACTERISTICS
+-------------------
+1. Objective: Minimize total cost
+2. Variables: Quantities of options/inputs
+3. Requirements: ≥ constraints (minimum standards)
+4. Availability: ≤ constraints (limits)
+5. Non-negativity: x ≥ 0, y ≥ 0
+
+GENERAL FORM
+------------
+Minimize Z = c₁x₁ + c₂x₂ + ... + cₙxₙ
+
+Subject to (Requirements):
+a₁₁x₁ + a₁₂x₂ + ... + a₁ₙxₙ ≥ b₁ (Requirement 1)
+a₂₁x₁ + a₂₂x₂ + ... + a₂ₙxₙ ≥ b₂ (Requirement 2)
+...
+
+Subject to (Availability):
+x₁ ≤ max₁, x₂ ≤ max₂, ...
+x₁, x₂, ..., xₙ ≥ 0
+
+COMMON APPLICATIONS
+-------------------
+1. Diet Planning:
+   - Meet nutritional requirements
+   - Minimize food cost
+   - Example: Protein and carb requirements
+
+2. Blending Problems:
+   - Mix materials to meet specifications
+   - Minimize material cost
+   - Example: Chemical mixtures
+
+3. Production Planning:
+   - Meet production targets
+   - Minimize production cost
+   - Example: Machine allocation
+
+4. Transportation:
+   - Meet shipping requirements
+   - Minimize shipping cost
+   - Example: Warehouse distribution
+
+KEY DIFFERENCES FROM PROFIT MAXIMIZATION
+----------------------------------------
+Cost Minimization:
+- Min Z = c₁x₁ + c₂x₂
+- Uses ≥ constraints
+- Focus: Meet requirements at min cost
+
+Profit Maximization:
+- Max Z = p₁x₁ + p₂x₂
+- Uses ≤ constraints
+- Focus: Maximize profit with resources
+
+EXAMPLE: DIET PLANNING
+----------------------
+Problem: Meet protein and carbohydrate requirements at minimum cost.
+
+Food A: ₹20/serving, 4 protein, 3 carbs
+Food B: ₹30/serving, 3 protein, 5 carbs
+Requirements: 24 protein, 18 carbs
+
+Formulation:
+Minimize Z = 20x + 30y
+Subject to:
+4x + 3y ≥ 24 (Protein)
+3x + 5y ≥ 18 (Carbs)
+x, y ≥ 0
+
+Solution:
+Corner points: (0,8), (6,2), (6,0)
+Optimal: (6,0) with Z = ₹120
+
+INTERPRETATION
+--------------
+- Use 6 servings of Food A
+- Use 0 servings of Food B
+- Minimum cost: ₹120
+- Protein: exactly met (24 units)
+- Carbs: exactly met (18 units)
+
+KEY TERMS
+---------
+• Surplus: Amount by which requirement is exceeded
+• Binding Constraint: Requirement exactly met (surplus = 0)
+• Shadow Price: Cost increase if requirement increases
+• Feasible Region: All solutions meeting requirements
+
+COMMON MISTAKES
+---------------
+1. Using ≤ instead of ≥ for requirements
+2. Forgetting availability constraints
+3. Ignoring surplus
+4. Misinterpreting the feasible region
+
+BEST PRACTICES
+--------------
+1. Identify all requirements carefully
+2. Check for availability limits
+3. Calculate surplus at optimal
+4. Verify all constraints are satisfied
+5. Interpret results in context
+
+TEACHER'S NOTE
+--------------
+Cost minimization problems help students understand the concept of 
+"meeting requirements at minimum cost." The key insight is that 
+requirements are typically minimums (≥), not maximums (≤). I 
+encourage students to think about their own decisions - buying 
+groceries, planning meals, or choosing transportation - as 
+cost minimization problems."

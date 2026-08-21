@@ -1,0 +1,87 @@
+Topic 3
+TOPIC 3: DETERMINING THE FEASIBLE REGION
+========================================
+
+INTRODUCTION
+------------
+The feasible region is the set of all points that satisfy ALL 
+constraints of a linear programming problem. It represents all 
+possible solutions and is essential for finding the optimal solution.
+
+WHAT IS THE FEASIBLE REGION?
+---------------------------
+The feasible region is the intersection of all constraint half-planes. 
+It is always convex (no indentations) and can be bounded or unbounded.
+
+PROPERTIES
+----------
+1. Convex: Line between any two points in the region stays in the region
+2. Contains all feasible solutions
+3. Optimal solution at a corner point
+4. Can be bounded or unbounded
+
+HOW TO FIND THE FEASIBLE REGION
+-------------------------------
+Step 1: Graph All Constraints
+- Convert each inequality to equality
+- Find intercepts and draw lines
+- Use solid lines for ≤ or ≥
+- Use dashed lines for < or >
+
+Step 2: Shade Half-Planes
+- Test a point (usually origin)
+- Shade the side that satisfies the constraint
+- ≤ → shade below/left
+- ≥ → shade above/right
+
+Step 3: Identify the Overlap
+- Find where all shaded regions overlap
+- This is the feasible region
+- Identify corner points
+- Check if region is bounded
+
+TYPES OF FEASIBLE REGIONS
+-------------------------
+Bounded Region:
+- Enclosed on all sides
+- Has finite area
+- Always has a finite optimal solution
+
+Unbounded Region:
+- Extends to infinity
+- Infinite area
+- May have no finite optimal solution
+
+Empty Region:
+- No overlap of constraints
+- Problem is infeasible
+- No solution exists
+
+CORNER POINTS
+-------------
+Corner points are where constraint lines intersect and form the 
+vertices of the feasible region. The optimal solution will always 
+be at a corner point.
+
+COMMON MISTAKES
+---------------
+1. Shading the wrong side
+2. Missing a constraint
+3. Not including non-negativity
+4. Forgetting to test points
+5. Misidentifying corner points
+
+BEST PRACTICES
+--------------
+1. Test a point to verify shading
+2. Check all constraints
+3. Identify redundant constraints
+4. Find all corner points
+5. Verify the region
+
+TEACHER'S NOTE
+--------------
+The feasible region is the heart of graphical LP. I tell students 
+that finding the feasible region is like finding the 'playground' 
+where all solutions live. Always verify that a point in the feasible 
+region satisfies every single constraint."

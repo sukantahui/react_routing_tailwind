@@ -1,0 +1,89 @@
+TOPIC 6: PRACTICE PROBLEMS ON LP FORMULATION
+============================================
+
+INTRODUCTION
+------------
+This topic provides comprehensive practice problems for LP formulation. 
+Mastering formulation is the most critical skill in applying LP to 
+real-world problems.
+
+PROBLEM CATEGORIES
+------------------
+1. Product Mix:
+   - Choosing quantities of products
+   - Resource constraints (≤)
+   - Profit maximization
+
+2. Resource Allocation:
+   - Distributing limited resources
+   - Budget, time, personnel constraints
+   - Maximizing value
+
+3. Profit Maximization:
+   - Making the most profit
+   - Resource constraints (≤)
+   - Production planning
+
+4. Cost Minimization:
+   - Meeting requirements at lowest cost
+   - Requirement constraints (≥)
+   - Diet, blending problems
+
+5. Mixed Constraints:
+   - Both ≤ and ≥ constraints
+   - Percentage and ratio constraints
+   - Complex real-world problems
+
+KEY FORMULATION STEPS
+---------------------
+Step 1: Read Carefully
+- Identify what you're deciding
+- Identify what you're optimizing
+- Identify all limitations
+
+Step 2: Define Variables
+- Choose clear variable names
+- Include units
+- Example: Let x = number of chairs
+
+Step 3: Identify Objective
+- Look for "maximize" or "minimize"
+- Determine coefficients (profit/cost)
+
+Step 4: Identify Constraints
+- Resource constraints (≤)
+- Requirement constraints (≥)
+- Special constraints (%, ratio)
+
+Step 5: Add Non-Negativity
+- x ≥ 0, y ≥ 0
+
+Step 6: Verify
+- Check each constraint
+- Verify units are consistent
+
+COMMON MISTAKES
+---------------
+1. Forgetting non-negativity constraints
+2. Mixing up ≤ and ≥
+3. Misidentifying the objective
+4. Using wrong units
+5. Missing constraints
+
+FORMULATION CHECKLIST
+---------------------
+□ Variables defined with units
+□ Objective correctly identified (Max/Min)
+□ All constraints listed
+□ Constraint directions correct (≤ or ≥)
+□ Non-negativity included
+□ Units are consistent
+□ Percentage constraints simplified
+□ Problem makes practical sense
+
+TEACHER'S NOTE
+--------------
+Practice is essential for mastering LP formulation. I encourage 
+students to attempt each problem independently before checking 
+the solution. The key is not just getting the right answer, 
+but understanding why each constraint is formulated the way it is."

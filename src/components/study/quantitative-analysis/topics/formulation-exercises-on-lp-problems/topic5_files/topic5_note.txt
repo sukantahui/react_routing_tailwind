@@ -1,0 +1,91 @@
+TOPIC 5: IDENTIFYING REDUNDANT AND ESSENTIAL CONSTRAINTS
+========================================================
+
+INTRODUCTION
+------------
+In LP problems, some constraints may not affect the feasible region 
+or optimal solution. These are called redundant constraints. 
+Identifying them helps simplify problems and focus on what really 
+matters.
+
+DEFINITIONS
+-----------
+Redundant Constraint:
+- Does not affect the feasible region
+- Can be removed without changing the solution
+- Never forms part of the region boundary
+
+Essential Constraint:
+- Forms part of the feasible region boundary
+- Cannot be removed without changing the solution
+- Necessary to define the feasible region
+
+HOW TO IDENTIFY REDUNDANCY
+--------------------------
+Graphical Method:
+1. Plot all constraints
+2. Identify the feasible region
+3. Check which constraints form the boundary
+4. Constraints not touching the region are redundant
+
+Algebraic Method:
+1. Find all corner points
+2. Check if constraint is binding at any corner
+3. If never binding at any corner → redundant
+
+CHARACTERISTICS
+---------------
+Essential Constraints:
+- Form part of feasible region boundary
+- Have zero slack at some corner point
+- Affect the optimal solution
+
+Redundant Constraints:
+- Never form part of feasible region boundary
+- Always have positive slack
+- Don't affect the optimal solution
+
+TYPES OF REDUNDANCY
+-------------------
+1. Completely Redundant:
+   - Always satisfied regardless of other constraints
+   - Example: x ≤ 100 when region is x ≤ 50
+
+2. Implicitly Redundant:
+   - Implied by combination of other constraints
+   - Example: x + y ≤ 10 implied by x ≤ 5 and y ≤ 5
+
+3. Dominated Constraints:
+   - Always looser than another constraint
+   - Example: x ≤ 10 dominated by x ≤ 5
+
+WHY IDENTIFY REDUNDANT CONSTRAINTS?
+-----------------------------------
+1. Simplify the problem
+2. Reduce computational effort
+3. Better understanding
+4. Focus on important constraints
+5. Cleaner formulation
+
+COMMON MISTAKES
+---------------
+1. Removing constraints without verification
+2. Confusing non-binding with redundant
+3. Not checking all corner points
+4. Assuming redundancy without proof
+
+BEST PRACTICES
+--------------
+1. Graph all constraints first
+2. Test corner points systematically
+3. Verify by removing and checking
+4. Document reasoning
+5. Consider practical importance
+
+TEACHER'S NOTE
+--------------
+Identifying redundant constraints is a valuable skill that 
+simplifies LP problems. The graphical method is the most intuitive 
+way, but algebraic verification is important too. Always verify by 
+removing the suspected redundant constraint and checking if the 
+solution changes."

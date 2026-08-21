@@ -1,0 +1,96 @@
+TOPIC 11: MAXIMIZATION AND MINIMIZATION USING SIMPLEX/BIG-M
+============================================================
+
+INTRODUCTION
+------------
+This topic covers how to apply the Simplex Method and Big-M Method 
+to solve both maximization and minimization problems with various 
+constraint types.
+
+CHOOSING THE RIGHT METHOD
+-------------------------
+1. Simplex Method:
+   - All constraints are ≤
+   - Use slack variables only
+   - No artificial variables needed
+   - Simpler and faster
+
+2. Big-M Method:
+   - ≥ or = constraints present
+   - Use slack, surplus, and artificial variables
+   - Penalty M in objective
+   - Detects infeasibility
+
+MAXIMIZATION WITH SIMPLEX
+-------------------------
+Maximize Z = c₁x + c₂y
+Subject to:
+a₁x + a₂y ≤ b₁
+a₃x + a₄y ≤ b₂
+x, y ≥ 0
+
+Steps:
+1. Add slack variables
+2. Form initial tableau
+3. Find entering variable (most negative Z)
+4. Find leaving variable (ratio test)
+5. Pivot and repeat
+6. Stop when all Z ≥ 0
+
+MINIMIZATION WITH BIG-M
+-----------------------
+Minimize Z = c₁x + c₂y
+Subject to:
+a₁x + a₂y ≥ b₁
+a₃x + a₄y ≥ b₂
+x, y ≥ 0
+
+Steps:
+1. Convert to maximization (multiply by -1)
+2. Add surplus and artificial variables
+3. Add Big-M penalty to objective
+4. Form initial tableau
+5. Perform Simplex iterations
+6. Drive artificials to zero
+7. Stop when optimality reached
+
+KEY DIFFERENCES
+---------------
+| Feature | Simplex | Big-M |
+|---------|---------|-------|
+| Constraints | All ≤ | ≥ and = |
+| Variables | Slack only | Slack, surplus, artificial |
+| Initial Basis | Slack variables | Artificial variables |
+| Penalty | None | M |
+| Complexity | Simple | More complex |
+
+SUMMARY TABLE
+-------------
+| Problem Type | Constraint Type | Method |
+|--------------|-----------------|--------|
+| Maximization | All ≤ | Simplex |
+| Maximization | ≥ or = | Big-M |
+| Minimization | All ≤ | Simplex (or convert) |
+| Minimization | ≥ or = | Big-M |
+
+COMMON MISTAKES
+---------------
+1. Using wrong method for constraint type
+2. Forgetting artificial variables in Big-M
+3. Not checking artificials at optimality
+4. Confusing max and min in Big-M
+
+BEST PRACTICES
+--------------
+1. Identify constraint types first
+2. Choose the appropriate method
+3. Add variables correctly
+4. Apply proper penalty
+5. Check optimality
+6. Verify artificials are zero
+
+TEACHER'S NOTE
+--------------
+The key is choosing the right method based on constraint types. 
+Simplex is the 'direct route' for ≤ constraints. Big-M is the 
+'detour' that handles ≥ and = constraints."

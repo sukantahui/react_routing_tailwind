@@ -1,0 +1,265 @@
+================================================================================
+                         SHORT QUESTIONS ON DUALITY
+                               Detailed Notes
+================================================================================
+
+1. INTRODUCTION TO SHORT QUESTIONS
+================================================================================
+
+Purpose:
+These short questions and answers cover all essential aspects of duality in 
+linear programming. They are designed to:
+- Test and reinforce understanding of key concepts
+- Provide quick revision notes
+- Identify areas needing further study
+- Serve as discussion prompts
+- Offer quick reference for important concepts
+
+2. KEY CONCEPTS
+================================================================================
+
+Basic Definitions:
+---------------------------------------------------------
+Primal Problem:
+- The original optimization problem
+- Focuses on decision variables and constraints
+- Answers "what to do"
+
+Dual Problem:
+- The companion problem derived from the primal
+- Focuses on resource valuation (shadow prices)
+- Answers "what resources are worth"
+
+Shadow Price:
+- Marginal value of a resource
+- How much objective improves with one additional unit
+- Economic value of the resource
+
+Duality Gap:
+- Difference between primal and dual values
+- Z - W (for maximization)
+- Zero at optimality
+
+3. DUAL FORMATION RULES
+================================================================================
+
+Optimization Direction:
+---------------------------------------------------------
+- Max Primal → Min Dual
+- Min Primal → Max Dual
+
+Variable-Constraint Swap:
+---------------------------------------------------------
+- Primal constraints → Dual variables
+- Primal variables → Dual constraints
+
+Coefficient Swap:
+---------------------------------------------------------
+- Primal RHS (b) → Dual objective coefficients
+- Primal objective (c) → Dual RHS
+
+Sign Restrictions:
+---------------------------------------------------------
+- ≤ constraints → y ≥ 0
+- ≥ constraints → y ≤ 0  
+- = constraints → y free (unrestricted)
+
+4. FOUR BASIC PROPERTIES
+================================================================================
+
+1. Weak Duality:
+---------------------------------------------------------
+- For any feasible x and y
+- Max: Z(x) ≤ W(y)
+- Min: W(y) ≤ Z(x)
+- Dual provides bounds on primal
+
+2. Strong Duality:
+---------------------------------------------------------
+- At optimality: Z* = W*
+- Requires feasibility and boundedness
+- Zero duality gap
+- Confirms optimality
+
+3. Complementary Slackness:
+---------------------------------------------------------
+- At optimality: yᵢ × slackᵢ = 0
+- Tight constraints have positive shadow prices
+- Loose constraints have zero shadow prices
+- Links primal and dual solutions
+
+4. Symmetry Property:
+---------------------------------------------------------
+- Dual(Dual(Primal)) = Primal
+- Perfect symmetry in standard form
+- Can solve either formulation
+- Consistent economic interpretation
+
+5. ECONOMIC INTERPRETATIONS
+================================================================================
+
+Shadow Prices:
+---------------------------------------------------------
+- Positive: Resource is scarce and valuable
+- Zero: Resource is abundant and surplus
+- Represents marginal value of resources
+- Guides investment decisions
+
+Dual Objective:
+---------------------------------------------------------
+- Total value of all resources
+- Sum of (Resource quantity × Shadow price)
+- Equals primal objective at optimality
+- Shows total resource value
+
+Dual Constraints:
+---------------------------------------------------------
+- Fair pricing conditions
+- Resource cost ≥ Product price
+- Prevents unprofitable production
+- Guides product decisions
+
+6. APPLICATIONS
+================================================================================
+
+Production Planning:
+---------------------------------------------------------
+- What to produce and in what quantities
+- How to value resources
+- Where to invest for maximum return
+- How to price products
+
+Resource Allocation:
+---------------------------------------------------------
+- Allocate scarce resources optimally
+- Identify bottlenecks
+- Make investment decisions
+- Evaluate resource efficiency
+
+Financial Planning:
+---------------------------------------------------------
+- Portfolio optimization
+- Risk management
+- Investment valuation
+- Market analysis
+
+Strategic Planning:
+---------------------------------------------------------
+- Make-or-buy decisions
+- Pricing strategies
+- Capacity planning
+- Supply chain optimization
+
+7. COMMON MISTAKES
+================================================================================
+
+1. Wrong Optimization Direction:
+   - Forgetting that dual takes opposite direction
+   - Max → Min, Min → Max
+
+2. Incorrect Sign Restrictions:
+   - Misplacing y ≥ 0 vs y ≤ 0
+   - ≤ constraints → y ≥ 0, ≥ constraints → y ≤ 0
+
+3. Variable Count Mismatch:
+   - Creating wrong number of variables/constraints
+   - Dual variables = Primal constraints
+   - Dual constraints = Primal variables
+
+4. Confusing Shadow Prices with Market Prices:
+   - Shadow prices are internal values
+   - Market prices are external
+   - Don't mix them up
+
+5. Misapplying Complementary Slackness:
+   - Only applies at optimality
+   - Don't use for non-optimal solutions
+
+8. BEST PRACTICES
+================================================================================
+
+Study Habits:
+---------------------------------------------------------
+- Practice forming duals regularly
+- Review all four properties weekly
+- Solve mixed constraint problems
+- Apply concepts to real-world scenarios
+
+Problem-Solving:
+---------------------------------------------------------
+- Use systematic approach for dual formation
+- Verify with weak and strong duality
+- Check complementary slackness conditions
+- Interpret results economically
+
+Exam Preparation:
+---------------------------------------------------------
+- Create summary sheets of key concepts
+- Practice with sample problems
+- Review common mistakes
+- Time yourself on problems
+
+Application:
+---------------------------------------------------------
+- Connect concepts to real-world scenarios
+- Practice economic interpretation
+- Use duality for sensitivity analysis
+- Apply to different problem types
+
+9. QUICK REFERENCE
+================================================================================
+
+Key Relationships:
+---------------------------------------------------------
+- Weak Duality: Z ≤ W (for max)
+- Strong Duality: Z* = W*
+- Complementary Slackness: yᵢ × slackᵢ = 0
+- Symmetry: Dual(Dual) = Primal
+
+Key Conversions:
+---------------------------------------------------------
+- Max → Min (and vice versa)
+- Constraints → Variables
+- Variables → Constraints
+- RHS → Objective (and vice versa)
+- A → Aᵀ
+
+Key Economic Terms:
+---------------------------------------------------------
+- Shadow Price = Marginal value of resource
+- Duality Gap = Z - W (for max)
+- Opportunity Cost = Shadow price
+- Economic Rent = Shadow price
+
+10. MINI CHECKLIST
+================================================================================
+
+☐ Understand concept of primal and dual problems
+☐ Can form the dual of any given primal problem
+☐ Understand weak duality and its implications
+☐ Understand strong duality and its conditions
+☐ Can apply complementary slackness
+☐ Understand the symmetry property
+☐ Can interpret shadow prices economically
+☐ Can use duality for sensitivity analysis
+☐ Can apply duality to real-world problems
+☐ Know common mistakes to avoid
+
+11. TEACHER'S NOTE
+================================================================================
+
+These short questions represent the most important concepts students need to 
+master in duality. When I teach this, I emphasize that understanding these 
+questions is like having a roadmap of the entire duality topic.
+
+Abhronila from Jadavpur found that reviewing these questions before exams 
+helped her identify weak areas and focus her study efforts. She particularly 
+appreciated how the questions connected concepts from different topics.
+
+Remember: mastery of duality comes from understanding these fundamental 
+concepts and their interconnections. Review these questions regularly to 
+build and maintain your understanding.
+
+================================================================================
+END OF NOTES
+================================================================================

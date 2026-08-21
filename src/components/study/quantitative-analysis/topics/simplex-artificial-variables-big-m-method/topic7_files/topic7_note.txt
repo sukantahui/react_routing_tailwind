@@ -1,0 +1,100 @@
+TOPIC 7: PIVOT ELEMENT
+======================
+
+INTRODUCTION
+------------
+The pivot element is the key number in the simplex tableau that 
+enables the exchange of entering and leaving variables. It is 
+the focus of row operations in each iteration.
+
+WHAT IS A PIVOT ELEMENT?
+------------------------
+The pivot element is:
+- Located at the intersection of the entering column and leaving row
+- Must be positive
+- Used to transform the tableau
+- Enables variable exchange
+
+HOW TO FIND THE PIVOT
+---------------------
+Step 1: Find entering variable
+- Look at Z row
+- Most negative coefficient (maximization)
+
+Step 2: Find leaving variable
+- Use ratio test
+- Smallest positive RHS/coefficient
+
+Step 3: Identify pivot element
+- Coefficient at intersection of entering column and leaving row
+
+PIVOT OPERATION
+---------------
+Step 1: Normalize Pivot Row
+- Divide entire pivot row by pivot element
+- Pivot becomes 1
+
+Step 2: Eliminate Pivot Column
+- Make all other entries in pivot column zero
+- Row = Row - (coefficient) × Pivot Row
+
+Step 3: Update Z Row
+- Apply same operation to Z row
+
+Step 4: Update Basic Variables
+- Replace leaving variable with entering variable in B column
+
+EXAMPLE
+-------
+Tableau:
+┌─────┬─────┬─────┬─────┬─────┬─────┐
+│  B  │  x  │  y  │ s₁  │ s₂  │ RHS │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│ s₁  │  2  │  1  │  1  │  0  │ 10  │
+│ s₂  │  1  │  2  │  0  │  1  │  8  │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│  Z  │ -3  │ -2  │  0  │  0  │  0  │
+└─────┴─────┴─────┴─────┴─────┴─────┘
+
+Pivot Element:
+- Entering: x (-3)
+- Leaving: s₁ (min ratio 5)
+- Pivot: 2 (s₁, x)
+
+After Pivot:
+┌─────┬─────┬─────┬─────┬─────┬─────┐
+│  B  │  x  │  y  │ s₁  │ s₂  │ RHS │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│  x  │  1  │ 0.5 │ 0.5 │  0  │  5  │
+│ s₂  │  0  │ 1.5 │-0.5 │  1  │  3  │
+├─────┼─────┼─────┼─────┼─────┼─────┤
+│  Z  │  0  │-0.5 │ 1.5 │  0  │ 15  │
+└─────┴─────┴─────┴─────┴─────┴─────┘
+
+KEY RULES
+---------
+1. Pivot must be positive
+2. Normalize pivot row first
+3. Eliminate pivot column
+4. Update Z row
+5. Update basic variables
+
+COMMON MISTAKES
+---------------
+1. Using non-positive pivot
+2. Incorrect row operations
+3. Forgetting to update Z row
+4. Not updating basic variables
+
+BEST PRACTICES
+--------------
+1. Check pivot positivity
+2. Use exact fractions
+3. Verify row operations
+4. Confirm pivot column is identity
+
+TEACHER'S NOTE
+--------------
+The pivot element is the engine of the Simplex Method. Finding the 
+pivot correctly and performing row operations carefully is essential 
+for success."

@@ -1,0 +1,95 @@
+================================================================================
+                    FORMATION OF THE DUAL PROBLEM
+                               Detailed Notes
+================================================================================
+
+1. INTRODUCTION TO DUAL FORMATION
+================================================================================
+
+Definition:
+The formation of the dual problem is the systematic process of transforming any 
+linear programming problem (the primal) into its corresponding dual problem. 
+This transformation follows a set of well-defined rules that swap the roles 
+of variables and constraints.
+
+Purpose:
+The dual problem provides:
+1. A different perspective on the same optimization problem
+2. Economic interpretation through shadow prices
+3. Computational advantages in some cases
+4. The theoretical foundation for sensitivity analysis
+
+2. THE DUAL FORMATION PROCESS
+================================================================================
+
+Step 1: Identify Primal Problem Type
+---------------------------------------------------------
+- Determine if the primal is maximizing or minimizing
+- This determines the optimization direction of the dual
+- The dual takes the opposite direction
+
+Rules:
+- Max Primal → Min Dual
+- Min Primal → Max Dual
+
+Step 2: Create Dual Variables
+---------------------------------------------------------
+- Create one dual variable for each constraint in the primal
+- If primal has m constraints, dual has m variables
+- Variables are typically denoted as y₁, y₂, ..., yₘ
+
+Example:
+Primal with 3 constraints → y₁, y₂, y₃
+
+Step 3: Form the Dual Objective Function
+---------------------------------------------------------
+- Take RHS values (bᵢ) from primal constraints
+- Multiply each by corresponding dual variable
+- Sum all terms: W = b₁y₁ + b₂y₂ + ... + bₘyₘ
+
+Note: Direction is opposite to primal objective
+
+Step 4: Create Dual Constraints
+---------------------------------------------------------
+- Create one dual constraint for each primal variable
+- Use coefficients from primal constraints
+- The RHS is the coefficient from primal objective
+
+Process:
+1. For each primal variable xⱼ:
+   - Take its coefficients from all primal constraints
+   - Form a dual constraint using these coefficients
+   - RHS is the objective coefficient cⱼ
+
+Step 5: Determine Variable Signs
+---------------------------------------------------------
+Sign restrictions depend on primal constraint types:
+
+For Maximization Primal:
+- ≤ constraints → y ≥ 0 (non-negative)
+- ≥ constraints → y ≤ 0 (non-positive)
+- = constraints → y free (unrestricted)
+
+For Minimization Primal:
+- ≥ constraints → y ≥ 0 (non-negative)
+- ≤ constraints → y ≤ 0 (non-positive)
+- = constraints → y free (unrestricted)
+
+3. RULES FOR DUAL FORMATION
+================================================================================
+
+Primary Rules:
+---------------------------------------------------------
+1. Objective Direction:
+   Max ↔ Min (always reversed)
+
+2. Variable-Constraint Swap:
+   Primal variables ↔ Dual constraints
+   Primal constraints ↔ Dual variables
+
+3. Sign Rules:
+   Primal ≤ → Dual y ≥ 0
+   Primal ≥ → Dual y ≤ 0
+   Primal = → Dual y free
+
+4. RHS-Objective Swap

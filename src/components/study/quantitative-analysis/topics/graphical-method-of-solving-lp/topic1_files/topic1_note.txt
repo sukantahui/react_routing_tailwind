@@ -1,0 +1,85 @@
+TOPIC 1: FINDING INTERCEPTS
+===========================
+
+INTRODUCTION
+------------
+Intercepts are fundamental points in graphing linear equations. The 
+x-intercept is where a line crosses the x-axis (y=0), and the y-intercept 
+is where a line crosses the y-axis (x=0). Finding intercepts is the 
+quickest way to graph a linear equation.
+
+DEFINITIONS
+-----------
+x-intercept: Point where line crosses x-axis → (x, 0)
+y-intercept: Point where line crosses y-axis → (0, y)
+
+HOW TO FIND INTERCEPTS
+----------------------
+x-intercept (set y = 0):
+1. Substitute y = 0 into the equation
+2. Solve for x
+3. Write as (x, 0)
+
+y-intercept (set x = 0):
+1. Substitute x = 0 into the equation
+2. Solve for y
+3. Write as (0, y)
+
+EXAMPLES
+--------
+Equation: 2x + 3y = 12
+
+x-intercept (y = 0):
+2x + 3(0) = 12
+2x = 12
+x = 6
+x-intercept = (6, 0)
+
+y-intercept (x = 0):
+2(0) + 3y = 12
+3y = 12
+y = 4
+y-intercept = (0, 4)
+
+SPECIAL CASES
+-------------
+Vertical Line (x = k):
+- x-intercept: (k, 0)
+- No y-intercept (unless k = 0)
+
+Horizontal Line (y = k):
+- y-intercept: (0, k)
+- No x-intercept (unless k = 0)
+
+Line Through Origin (ax + by = 0):
+- x-intercept: (0, 0)
+- y-intercept: (0, 0)
+
+WHY INTERCEPTS MATTER
+---------------------
+1. Quickest way to graph linear equations
+2. Foundation for graphing constraints in LP
+3. Helps visualize feasible regions
+4. Essential for finding corner points
+
+COMMON MISTAKES
+---------------
+1. Forgetting to set the other variable to zero
+2. Confusing x and y intercepts
+3. Incorrect signs when solving
+4. Not checking if intercept is valid
+
+BEST PRACTICES
+--------------
+1. Set y = 0 to find x-intercept
+2. Set x = 0 to find y-intercept
+3. Check by substituting back
+4. Label intercepts clearly
+5. Use intercepts to draw lines
+
+TEACHER'S NOTE
+--------------
+Finding intercepts is a fundamental skill for graphical LP. 
+I tell students that intercepts are like 'anchors' that help 
+you draw accurate lines. Practice finding intercepts until 
+it becomes second nature."

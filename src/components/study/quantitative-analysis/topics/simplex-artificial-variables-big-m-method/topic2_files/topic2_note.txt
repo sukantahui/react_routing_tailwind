@@ -1,0 +1,85 @@
+TOPIC 2: SLACK VARIABLES
+========================
+
+INTRODUCTION
+------------
+Slack variables are non-negative variables added to ≤ constraints 
+to convert them into equalities. They represent unused resources 
+and are essential for the Simplex Method.
+
+WHAT ARE SLACK VARIABLES?
+-------------------------
+For constraint: a₁x₁ + a₂x₂ ≤ b
+Add slack variable s ≥ 0:
+a₁x₁ + a₂x₂ + s = b
+where s = b - (a₁x₁ + a₂x₂)
+
+KEY PROPERTIES
+--------------
+1. Non-negative: s ≥ 0
+2. One per ≤ constraint
+3. Zero coefficient in objective
+4. Represent unused resources
+
+HOW TO ADD SLACK VARIABLES
+--------------------------
+Step 1: Identify ≤ constraints
+Step 2: Add one slack variable per constraint
+Step 3: Write as equality with slack variable
+Step 4: Add to objective with coefficient 0
+
+EXAMPLE
+-------
+Original:
+2x + y ≤ 10
+x + 2y ≤ 8
+
+With Slack Variables:
+2x + y + s₁ = 10
+x + 2y + s₂ = 8
+s₁, s₂ ≥ 0
+
+INTERPRETATION
+--------------
+s₁ = 10 - (2x + y) → unused resource 1
+s₂ = 8 - (x + 2y) → unused resource 2
+
+At optimal solution (4, 2):
+s₁ = 10 - (8 + 2) = 0 (fully utilized)
+s₂ = 8 - (4 + 4) = 0 (fully utilized)
+
+INITIAL BASIC SOLUTION
+----------------------
+Set original variables to zero:
+x = 0, y = 0
+s₁ = b₁, s₂ = b₂, ...
+
+This is always a feasible solution.
+
+ROLE IN SIMPLEX METHOD
+----------------------
+1. Convert inequalities to equalities
+2. Form initial basis (identity matrix)
+3. Represent unused resources
+4. Indicate binding constraints
+
+COMMON MISTAKES
+---------------
+1. Forgetting non-negativity
+2. Adding slack to ≥ constraints
+3. Giving slack variables objective coefficients
+4. Confusing slack with surplus
+
+BEST PRACTICES
+--------------
+1. Use different names (s₁, s₂, s₃)
+2. Remember zero objective coefficients
+3. Interpret slack as unused resources
+4. Check non-negativity
+
+TEACHER'S NOTE
+--------------
+Slack variables are the bridge between inequalities and equalities. 
+They represent real unused capacity that managers can use for 
+decision-making. When slack is zero, the resource is fully utilized; 
+when positive, there's room for growth."

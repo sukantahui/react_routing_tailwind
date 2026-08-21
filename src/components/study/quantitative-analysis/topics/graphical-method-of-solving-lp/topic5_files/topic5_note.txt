@@ -1,0 +1,85 @@
+TOPIC 5: OPTIMAL SOLUTION AND ALTERNATE OPTIMAL SOLUTIONS
+==========================================================
+
+INTRODUCTION
+------------
+The optimal solution is the best feasible solution to a linear 
+programming problem. Understanding how to identify optimal solutions 
+and recognize alternate optima is essential for LP problem-solving.
+
+WHAT IS THE OPTIMAL SOLUTION?
+-----------------------------
+The optimal solution is the corner point that gives the best objective 
+value:
+- Maximization: highest Z value
+- Minimization: lowest Z value
+
+TYPES OF OPTIMAL SOLUTIONS
+--------------------------
+1. Unique Optimal:
+   - Only one corner gives the best Z
+   - Objective not parallel to any constraint
+
+2. Alternate Optimal:
+   - Multiple corners give the same best Z
+   - Objective parallel to a binding constraint
+
+3. Unbounded:
+   - No finite optimal solution
+   - Objective can go to infinity
+
+4. Infeasible:
+   - No feasible solution exists
+   - Empty feasible region
+
+HOW TO IDENTIFY ALTERNATE OPTIMA
+-------------------------------
+Step 1: Find all corner points
+Step 2: Evaluate Z at each corner
+Step 3: If multiple corners give the same optimal Z → alternate optima
+
+CAUSE OF ALTERNATE OPTIMA
+-------------------------
+Alternate optimal solutions occur when the objective function is 
+parallel to a binding constraint. This means:
+Slope of objective = Slope of constraint
+
+EXAMPLE
+-------
+Maximize Z = x + y
+Constraint: x + y ≤ 8
+
+Corner points: (0,0), (8,0), (0,8)
+Z(0,0) = 0, Z(8,0) = 8, Z(0,8) = 8
+
+Alternate optima at (8,0) and (0,8)
+Any point on x + y = 8 is optimal
+
+PRACTICAL SIGNIFICANCE
+----------------------
+Alternate optimal solutions provide decision-making flexibility:
+- Choose based on other criteria
+- Consider risk, sustainability, preferences
+- Multiple equally good options
+
+COMMON MISTAKES
+---------------
+1. Missing alternate optimal solutions
+2. Assuming only one optimal solution
+3. Not checking all corner points
+4. Confusing alternate with degenerate
+
+BEST PRACTICES
+--------------
+1. Check all corner points
+2. Look for equal Z values
+3. Verify objective slope vs constraint slopes
+4. State all optimal solutions
+5. Explain flexibility to decision-makers
+
+TEACHER'S NOTE
+--------------
+Alternate optimal solutions are important in practice - they give 
+decision-makers flexibility. When multiple solutions give the same 
+optimal value, managers can choose based on other criteria like 
+sustainability, risk, or employee preferences."

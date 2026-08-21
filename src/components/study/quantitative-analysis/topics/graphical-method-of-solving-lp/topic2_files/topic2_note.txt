@@ -1,0 +1,99 @@
+TOPIC 2: PLOTTING CONSTRAINT LINES
+==================================
+
+INTRODUCTION
+------------
+Plotting constraint lines is a fundamental skill in graphical LP. 
+Each constraint in an LP problem becomes a line on the coordinate 
+plane, and the feasible region is determined by the intersection 
+of all constraint lines.
+
+WHAT IS A CONSTRAINT LINE?
+--------------------------
+A constraint line is the graphical representation of the boundary 
+of a constraint. It divides the plane into feasible and infeasible 
+regions.
+
+METHODS TO PLOT CONSTRAINT LINES
+--------------------------------
+Method 1: Intercepts
+1. Convert inequality to equality
+2. Find x-intercept (set y = 0)
+3. Find y-intercept (set x = 0)
+4. Plot both points
+5. Draw line through them
+
+Method 2: Slope-Intercept
+1. Convert to y = mx + b
+2. Plot y-intercept (0,b)
+3. Use slope to find another point
+4. Draw line through points
+
+Method 3: Special Lines
+1. Vertical: x = k
+2. Horizontal: y = k
+3. Draw line at constant value
+
+EXAMPLE
+-------
+Constraint: 3x + 2y = 120
+
+x-intercept (y = 0):
+3x + 2(0) = 120
+3x = 120
+x = 40
+x-intercept = (40, 0)
+
+y-intercept (x = 0):
+3(0) + 2y = 120
+2y = 120
+y = 60
+y-intercept = (0, 60)
+
+Plot (40,0) and (0,60) and draw line.
+
+SPECIAL CASES
+-------------
+Vertical Line (x = k):
+- Draw vertical line at x = k
+- x-intercept: (k, 0)
+- No y-intercept (unless k = 0)
+
+Horizontal Line (y = k):
+- Draw horizontal line at y = k
+- y-intercept: (0, k)
+- No x-intercept (unless k = 0)
+
+Line Through Origin (ax + by = 0):
+- Both intercepts at (0,0)
+- Use slope to find another point
+
+KEY TERMS
+---------
+• Constraint Line: Boundary of a constraint
+• x-intercept: Point where line crosses x-axis
+• y-intercept: Point where line crosses y-axis
+• Slope: Steepness and direction of line
+• Feasible Region: Overlap of all constraints
+
+COMMON MISTAKES
+---------------
+1. Forgetting to convert inequality to equality
+2. Plotting intercepts incorrectly
+3. Drawing line through wrong points
+4. Not labeling constraint lines
+
+BEST PRACTICES
+--------------
+1. Use intercepts when possible
+2. Check your work with substitution
+3. Use graph paper for accuracy
+4. Label all constraint lines
+5. Plot multiple lines on same graph
+
+TEACHER'S NOTE
+--------------
+Plotting constraint lines accurately is essential for graphical 
+LP. I tell students that each constraint line is like a fence 
+that limits where you can go. Practice plotting lines until 
+it becomes quick and accurate."

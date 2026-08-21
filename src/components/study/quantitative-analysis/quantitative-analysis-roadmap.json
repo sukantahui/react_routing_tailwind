@@ -325,7 +325,7 @@
         },
         {
           "moduleId": "north-west-corner-rule",
-          "slug": "north-west-corner-rule",
+          "slug": "002_001_north-west-corner-rule",
           "title": "North-West Corner Rule",
           "estimatedHours": 3,
           "topics": [

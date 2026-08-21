@@ -1,0 +1,107 @@
+TOPIC 1: STANDARD FORM OF AN LP PROBLEM
+=======================================
+
+INTRODUCTION
+------------
+Standard form is a specific format for LP problems required by the 
+Simplex Method. It converts all constraints to equalities and 
+ensures all variables are non-negative.
+
+WHAT IS STANDARD FORM?
+----------------------
+Requirements:
+1. Maximization objective
+2. All constraints are equalities
+3. All variables ≥ 0
+4. Right-hand side (RHS) ≥ 0
+
+General Form:
+Maximize Z = c₁x₁ + c₂x₂ + ... + cₙxₙ
+Subject to:
+a₁₁x₁ + a₁₂x₂ + ... + a₁ₙxₙ = b₁
+a₂₁x₁ + a₂₂x₂ + ... + a₂ₙxₙ = b₂
+...
+x₁, x₂, ..., xₙ ≥ 0
+
+CONVERSION RULES
+----------------
+1. Minimization → Maximization:
+   Min Z = c₁x₁ + c₂x₂
+   → Max Z' = -c₁x₁ - c₂x₂
+
+2. ≤ Constraints:
+   a₁x₁ + a₂x₂ ≤ b
+   → a₁x₁ + a₂x₂ + s = b, s ≥ 0
+   (s = slack variable)
+
+3. ≥ Constraints:
+   a₁x₁ + a₂x₂ ≥ b
+   → a₁x₁ + a₂x₂ - s = b, s ≥ 0
+   (s = surplus variable)
+
+4. = Constraints:
+   a₁x₁ + a₂x₂ = b
+   → Keep as is
+
+5. Unrestricted Variables:
+   x unrestricted → x = x₁ - x₂
+   where x₁, x₂ ≥ 0
+
+6. Negative RHS:
+   If b < 0, multiply by -1
+   and reverse inequality direction
+
+EXAMPLE
+-------
+Original Problem:
+Maximize Z = 3x + 2y
+Subject to:
+2x + y ≤ 10
+x + 2y ≤ 8
+x ≥ 0, y ≥ 0
+
+Standard Form:
+Maximize Z = 3x + 2y + 0s₁ + 0s₂
+Subject to:
+2x + y + s₁ = 10
+x + 2y + s₂ = 8
+x, y, s₁, s₂ ≥ 0
+
+SLACK AND SURPLUS VARIABLES
+---------------------------
+Slack Variables (s ≥ 0):
+- Added to ≤ constraints
+- Represent unused resources
+- Zero coefficient in objective
+
+Surplus Variables (s ≥ 0):
+- Subtracted from ≥ constraints
+- Represent excess over requirements
+- Zero coefficient in objective
+
+WHY STANDARD FORM MATTERS
+-------------------------
+1. Required for Simplex Method
+2. Creates system of equations
+3. Enables algebraic solution
+4. Foundation for tableaus
+
+COMMON MISTAKES
+---------------
+1. Forgetting to convert minimization
+2. Adding slack instead of surplus
+3. Forgetting non-negativity for slack variables
+4. Not handling unrestricted variables
+
+BEST PRACTICES
+--------------
+1. Check all four requirements
+2. Use different variable names for slack/surplus
+3. Verify RHS is non-negative
+4. Keep track of variable types
+
+TEACHER'S NOTE
+--------------
+Standard form is the language of the Simplex Method. Understanding 
+how to convert problems to standard form is essential for applying 
+the method correctly."
