@@ -1,0 +1,170 @@
+================================================================================
+                         ALLOCATION PROCEDURE
+                  (Capacity Commitment & State Mechanics)
+                            Detailed Study Notes
+================================================================================
+
+1. THE FUNDAMENTAL ALLOCATION RULE
+================================================================================
+
+Definition:
+Once the candidate cell (k, l) with the lowest unit transportation cost c_kl is 
+selected, the allocation procedure commits the maximum permissible shipment 
+quantity x_kl to that route:
+
+   x_kl = min(S_k, D_l)
+
+Where:
+- S_k is the remaining active supply capacity at Origin k.
+- D_l is the remaining unsatisfied demand requirement at Destination l.
+
+Why the "Minimum" Operator is Mandatory:
+1. Upper Bound by Supply (x_kl ≤ S_k):
+   A factory cannot ship more goods than it currently holds in stock.
+2. Upper Bound by Demand (x_kl ≤ D_l):
+   A retail depot cannot receive more inventory than its storage capacity.
+3. Non-Negativity (x_kl ≥ 0):
+   Guarantees all physical flows are strictly non-negative.
+
+
+2. THREE CAPACITY SCENARIOS UPON ALLOCATION
+================================================================================
+
+Scenario 1: S_k < D_l (Supply Exhaustion)
+---------------------------------------------------------
+- Assigned Quantity: x_kl = S_k
+- Updated Origin Balance: S_k(new) = S_k - S_k = 0 (Row k is exhausted & eliminated).
+- Updated Destination Balance: D_l(new) = D_l - S_k > 0 (Column l remains active).
+- Physical Meaning: Factory k has emptied its entire warehouse into Destination l, 
+  but Destination l still requires more goods from other factories in later steps.
+
+Scenario 2: S_k > D_l (Demand Satisfaction)
+---------------------------------------------------------
+- Assigned Quantity: x_kl = D_l
+- Updated Origin Balance: S_k(new) = S_k - D_l > 0 (Row k remains active).
+- Updated Destination Balance: D_l(new) = D_l - D_l = 0 (Column l is satisfied & eliminated).
+- Physical Meaning: Destination l is 100% fulfilled. Factory k retains surplus 
+  stock to supply other destinations in subsequent steps.
+
+Scenario 3: S_k == D_l (Simultaneous Exhaustion / Degeneracy Risk)
+---------------------------------------------------------
+- Assigned Quantity: x_kl = S_k = D_l
+- Both balances reach zero simultaneously.
+- Correction Rule: Cross out ONLY Row k (or Column l). Assign an infinitesimal 
+  zero allocation (ε) to an independent unallocated cell in the remaining line 
+  before crossing it out. This preserves exactly m + n - 1 basic variables.
+
+
+3. FOUR REAL-WORLD ALLOCATION CASE STUDIES (WITH ₹ CURRENCY)
+================================================================================
+
+Case Study 1: Fasteners Plant Logistics (Debangshu)
+--------------------------------------------------------------------------------
+Origins: Barrackpore (S1 = 50 tons), Ichapur (S2 = 70 tons)
+Destinations: Kolkata (D1 = 40), Jadavpur (D2 = 50), Salt Lake (D3 = 30)
+Cost Matrix (₹/ton):
+                 D1 (Kolkata)   D2 (Jadavpur)   D3 (Salt Lake)   Supply
+  S1 (Barrack.)       ₹4             ₹8              ₹6            50
+  S2 (Ichapur)        ₹7             ₹3              ₹5            70
+  Demand              40             50              30           120
+
+Allocation Steps:
+  - Step 1: Cell (S2, D2) selected @ ₹3.
+    Allocation: x_22 = min(70, 50) = 50 tons.
+    Deduction: S2 = 70 - 50 = 20 tons; D2 = 50 - 50 = 0 (D2 Eliminated). Cost = 50 × ₹3 = ₹150.
+  - Step 2: Cell (S1, D1) selected @ ₹4.
+    Allocation: x_11 = min(50, 40) = 40 tons.
+    Deduction: S1 = 50 - 40 = 10 tons; D1 = 40 - 40 = 0 (D1 Eliminated). Cost = 40 × ₹4 = ₹160.
+  - Step 3: Cell (S2, D3) selected @ ₹5.
+    Allocation: x_23 = min(20, 30) = 20 tons.
+    Deduction: S2 = 20 - 20 = 0 (S2 Eliminated); D3 = 30 - 20 = 10 tons. Cost = 20 × ₹5 = ₹100.
+  - Step 4: Final Cell (S1, D3) @ ₹6.
+    Allocation: x_13 = min(10, 10) = 10 tons.
+    Deduction: S1 = 0; D3 = 0 (Both Eliminated). Cost = 10 × ₹6 = ₹60.
+Total Freight Cost Z = ₹150 + ₹160 + ₹100 + ₹60 = ₹470.
+
+
+Case Study 2: Bengal FMCG Delivery (Mamata)
+--------------------------------------------------------------------------------
+Origins: Kolkata (60), Barrackpore (80), Ichapur (60)
+Destinations: Jadavpur (80), Howrah (70), Barasat (50)
+Cost Matrix (₹/crate):
+                 D1 (Jadavpur)   D2 (Howrah)   D3 (Barasat)   Supply
+  S1 (Kolkata)        ₹2             ₹5            ₹7           60
+  S2 (Barrack.)       ₹6             ₹3            ₹4           80
+  S3 (Ichapur)        ₹5             ₹8            ₹1           60
+  Demand              80             70            50          200
+
+Allocation Sequence:
+  1. (S3, D3) @ ₹1: x_33 = min(60, 50) = 50 crates. S3 rem = 10, D3 = 0. Cost = ₹50.
+  2. (S1, D1) @ ₹2: x_11 = min(60, 80) = 60 crates. S1 = 0, D1 rem = 20. Cost = ₹120.
+  3. (S2, D2) @ ₹3: x_22 = min(80, 70) = 70 crates. S2 rem = 10, D2 = 0. Cost = ₹210.
+  4. (S3, D1) @ ₹5: x_31 = min(10, 20) = 10 crates. S3 = 0, D1 rem = 10. Cost = ₹50.
+  5. (S2, D1) @ ₹6: x_21 = min(10, 10) = 10 crates. S2 = 0, D1 = 0. Cost = ₹60.
+Total Initial Cost Z = ₹50 + ₹120 + ₹210 + ₹50 + ₹60 = ₹490.
+
+
+Case Study 3: Cold-Chain Medical Oxygen (Susmita)
+--------------------------------------------------------------------------------
+Origins: Kolkata Central (100 cyl), Barrackpore Station (150 cyl)
+Hospitals: Jadavpur Medical (120), Ichapur General (130)
+Cost Matrix (₹/cylinder):
+                 D1 (Jadavpur)   D2 (Ichapur)   Supply
+  S1 (Kolkata)        ₹6              ₹9          100
+  S2 (Barrack.)      ₹11              ₹5          150
+  Demand             120             130          250
+
+Allocation Sequence:
+  1. (S2, D2) @ ₹5: x_22 = min(150, 130) = 130 cylinders. S2 rem = 20, D2 = 0. Cost = ₹650.
+  2. (S1, D1) @ ₹6: x_11 = min(100, 120) = 100 cylinders. S1 = 0, D1 rem = 20. Cost = ₹600.
+  3. (S2, D1) @ ₹11: x_21 = min(20, 20) = 20 cylinders. S2 = 0, D1 = 0. Cost = ₹220.
+Total Cost Z = ₹650 + ₹600 + ₹220 = ₹1,470.
+
+
+Case Study 4: E-Commerce Parcel Locker Network (Abhronila & Mahima)
+--------------------------------------------------------------------------------
+Origins: Barrackpore Hub (40), Kolkata Mega Center (60)
+Lockers: Ichapur (30), Jadavpur (40), Salt Lake (30)
+Cost Matrix (₹/parcel):
+                 D1 (Ichapur)   D2 (Jadavpur)   D3 (Salt Lake)   Supply
+  S1 (Barrack.)       ₹8             ₹4               ₹9           40
+  S2 (Kolkata)        ₹3             ₹7               ₹5           60
+  Demand              30             40               30          100
+
+Allocation Sequence:
+  1. (S2, D1) @ ₹3: x_21 = min(60, 30) = 30 parcels. S2 rem = 30, D1 = 0. Cost = ₹90.
+  2. (S1, D2) @ ₹4: x_12 = min(40, 40) = 40 parcels. S1 = 0, D2 = 0. Cost = ₹160.
+  3. (S2, D3) @ ₹5: x_23 = min(30, 30) = 30 parcels. S2 = 0, D3 = 0. Cost = ₹150.
+Total Cost Z = ₹90 + ₹160 + ₹150 = ₹400.
+
+
+4. COMMON PITFALLS & BEST PRACTICES
+================================================================================
+
+Common Mistakes:
+1. Over-Allocation: Assigning max(S_k, D_l) instead of min(S_k, D_l). This violates 
+   feasibility and creates negative inventories.
+2. Under-Allocation: Leaving unused slack at both origin and destination in a single 
+   step, preventing line elimination and producing an invalid basis.
+3. Forgetting Balance Deductions: Using original capacity numbers in later steps.
+
+Best Practices:
+1. Visual Circling: Draw a clean circle around x_kl in the center of the cell.
+2. Immediate Balance Scratch-Off: Strike out the previous supply/demand and write the 
+   new balance in bold beside it immediately.
+3. Three-Point Check at Termination:
+   - All row allocations sum to S_i.
+   - All column allocations sum to D_j.
+   - Total basic allocated cells = m + n - 1.
+
+
+5. REVISION CHECKLIST
+================================================================================
+[ ] Identified candidate minimum cost cell (k, l).
+[ ] Computed allocation x_kl = min(S_k, D_l).
+[ ] Deducted x_kl from remaining S_k and D_l immediately.
+[ ] Circled or boxed x_kl inside cell (k, l).
+[ ] Crossed out the line (row or column) that reached 0 balance.
+[ ] Injected ε if both S_k and D_l reached zero simultaneously.
+[ ] Verified total basic variable count = m + n - 1.
+================================================================================

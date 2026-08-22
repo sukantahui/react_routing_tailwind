@@ -1,0 +1,151 @@
+================================================================================
+                    UPDATING SUPPLY AND DEMAND
+             (State Transitions, Invariants & Line Closure)
+                            Detailed Study Notes
+================================================================================
+
+1. THE MATHEMATICAL UPDATE EQUATIONS
+================================================================================
+
+Definition:
+Immediately after committing an allocation quantity x_kl to cell (k, l), the 
+transportation model updates its state vectors:
+
+   S_k(new) = S_k(old) - x_kl   (Origin Supply Deduction)
+   D_l(new) = D_l(old) - x_kl   (Destination Demand Deduction)
+
+Fundamental Flow Conservation Invariant:
+At every single intermediate iteration t of the Matrix Minima Method:
+   ∑_{i ∈ ActiveRows} S_i(t) = ∑_{j ∈ ActiveCols} D_j(t)
+
+Because x_kl is subtracted equally from both total supply and total demand, the 
+residual system remains perfectly balanced at every micro-step.
+
+
+2. LINE ELIMINATION CRITERIA & RULES
+================================================================================
+
+Rule 1: Origin Supply Exhaustion (S_k(new) == 0)
+---------------------------------------------------------
+- Physical Meaning: Origin k has shipped all available warehouse stock.
+- Tableau Action: Cross out Row k with a neat horizontal line.
+- Operational Effect: Origin k is permanently excluded from all future cost searches.
+
+Rule 2: Destination Demand Satisfaction (D_l(new) == 0)
+---------------------------------------------------------
+- Physical Meaning: Destination l has received 100% of its required goods.
+- Tableau Action: Cross out Column l with a neat vertical line.
+- Operational Effect: Destination l is permanently excluded from all future cost searches.
+
+Rule 3: Simultaneous Exhaustion / Degeneracy Protocol (S_k == 0 AND D_l == 0)
+---------------------------------------------------------
+- Physical Meaning: The allocation exactly satisfies both the origin and destination.
+- Strict Rule: Cross out ONLY ONE line (e.g. Row k).
+- Degeneracy Resolution: Mark the remaining demand in Column l as 0. Assign an 
+  infinitesimal basic zero (ε) to an unassigned cell in Column l before crossing 
+  it out. This ensures exactly m + n - 1 basic variables are created.
+
+
+3. FOUR REAL-WORLD CASE STUDIES (WITH ₹ CURRENCY)
+================================================================================
+
+Case Study 1: Fasteners Plant Logistics (Debangshu)
+--------------------------------------------------------------------------------
+Origins: Barrackpore (S1 = 50 tons), Ichapur (S2 = 70 tons)
+Destinations: Kolkata (D1 = 40), Jadavpur (D2 = 50), Salt Lake (D3 = 30)
+Cost Matrix (₹/ton):
+                 D1 (Kolkata)   D2 (Jadavpur)   D3 (Salt Lake)   Supply
+  S1 (Barrack.)       ₹4             ₹8              ₹6            50
+  S2 (Ichapur)        ₹7             ₹3              ₹5            70
+  Demand              40             50              30           120
+
+State Evolution:
+  - Step 1: Allocate x_22 = 50 tons @ ₹3.
+    Updates: S2 = 70 - 50 = 20 tons; D2 = 50 - 50 = 0 (Col D2 Closed). Active Flow = 70.
+  - Step 2: Allocate x_11 = 40 tons @ ₹4.
+    Updates: S1 = 50 - 40 = 10 tons; D1 = 40 - 40 = 0 (Col D1 Closed). Active Flow = 30.
+  - Step 3: Allocate x_23 = 20 tons @ ₹5.
+    Updates: S2 = 20 - 20 = 0 (Row S2 Closed); D3 = 30 - 20 = 10 tons. Active Flow = 10.
+  - Step 4: Allocate x_13 = 10 tons @ ₹6.
+    Updates: S1 = 10 - 10 = 0; D3 = 10 - 10 = 0 (Both Closed). Active Flow = 0.
+Total Freight Cost Z = (50 × ₹3) + (40 × ₹4) + (20 × ₹5) + (10 × ₹6) = ₹470.
+
+
+Case Study 2: Bengal FMCG Delivery (Mamata)
+--------------------------------------------------------------------------------
+Origins: Kolkata (60), Barrackpore (80), Ichapur (60)
+Destinations: Jadavpur (80), Howrah (70), Barasat (50)
+Cost Matrix (₹/crate):
+                 D1 (Jadavpur)   D2 (Howrah)   D3 (Barasat)   Supply
+  S1 (Kolkata)        ₹2             ₹5            ₹7           60
+  S2 (Barrack.)       ₹6             ₹3            ₹4           80
+  S3 (Ichapur)        ₹5             ₹8            ₹1           60
+  Demand              80             70            50          200
+
+State Evolution:
+  1. (S3, D3) @ ₹1: Alloc = 50. S3 = 10, D3 = 0 (Col D3 Closed). Active Total = 150.
+  2. (S1, D1) @ ₹2: Alloc = 60. S1 = 0 (Row S1 Closed), D1 = 20. Active Total = 90.
+  3. (S2, D2) @ ₹3: Alloc = 70. S2 = 10, D2 = 0 (Col D2 Closed). Active Total = 20.
+  4. (S3, D1) @ ₹5: Alloc = 10. S3 = 0 (Row S3 Closed), D1 = 10. Active Total = 10.
+  5. (S2, D1) @ ₹6: Alloc = 10. S2 = 0, D1 = 0 (All Closed). Active Total = 0.
+Total Initial Cost Z = (50 × ₹1) + (60 × ₹2) + (70 × ₹3) + (10 × ₹5) + (10 × ₹6) = ₹490.
+
+
+Case Study 3: Cold-Chain Medical Oxygen (Susmita)
+--------------------------------------------------------------------------------
+Origins: Kolkata Central (100 cyl), Barrackpore Station (150 cyl)
+Hospitals: Jadavpur Medical (120), Ichapur General (130)
+Cost Matrix (₹/cylinder):
+                 D1 (Jadavpur)   D2 (Ichapur)   Supply
+  S1 (Kolkata)        ₹6              ₹9          100
+  S2 (Barrack.)      ₹11              ₹5          150
+  Demand             120             130          250
+
+State Evolution:
+  1. (S2, D2) @ ₹5: Alloc = 130. S2 = 20, D2 = 0 (Col D2 Closed). Active Flow = 120.
+  2. (S1, D1) @ ₹6: Alloc = 100. S1 = 0 (Row S1 Closed), D1 = 20. Active Flow = 20.
+  3. (S2, D1) @ ₹11: Alloc = 20. S2 = 0, D1 = 0 (All Closed). Active Flow = 0.
+Total Cost Z = (130 × ₹5) + (100 × ₹6) + (20 × ₹11) = ₹1,470.
+
+
+Case Study 4: E-Commerce Parcel Locker Network (Abhronila & Mahima)
+--------------------------------------------------------------------------------
+Origins: Barrackpore Hub (40), Kolkata Mega Center (60)
+Lockers: Ichapur (30), Jadavpur (40), Salt Lake (30)
+Cost Matrix (₹/parcel):
+                 D1 (Ichapur)   D2 (Jadavpur)   D3 (Salt Lake)   Supply
+  S1 (Barrack.)       ₹8             ₹4               ₹9           40
+  S2 (Kolkata)        ₹3             ₹7               ₹5           60
+  Demand              30             40               30          100
+
+State Evolution:
+  1. (S2, D1) @ ₹3: Alloc = 30. S2 = 30, D1 = 0 (Col D1 Closed). Active Flow = 70.
+  2. (S1, D2) @ ₹4: Alloc = 40. S1 = 0 (Row S1 Closed), D2 = 0 (Col D2 Closed). Active Flow = 30.
+  3. (S2, D3) @ ₹5: Alloc = 30. S2 = 0, D3 = 0 (All Closed). Active Flow = 0.
+Total Cost Z = (30 × ₹3) + (40 × ₹4) + (30 × ₹5) = ₹400.
+
+
+4. COMMON PITFALLS & BEST PRACTICES
+================================================================================
+
+Common Mistakes:
+1. One-Sided Subtraction: Subtracting from supply but forgetting demand.
+2. Reusing Old Balances: Using initial capacity instead of decremented balance.
+3. Premature Termination: Stopping before all lines reach zero balance.
+
+Best Practices:
+1. Neatly slash old balances and write new figures adjacent.
+2. Maintain active boolean flags (`rowActive`, `colActive`) in code.
+3. Validate marginal sums: ∑_j x_ij = S_i and ∑_i x_ij = D_j.
+
+
+5. REVISION CHECKLIST
+================================================================================
+[ ] Computed S_k(new) = S_k - x_kl.
+[ ] Computed D_l(new) = D_l - x_kl.
+[ ] Verified remaining balances are strictly ≥ 0.
+[ ] Crossed out exhausted row if S_k = 0.
+[ ] Crossed out satisfied column if D_l = 0.
+[ ] Verified total active supply = total active demand at every step.
+[ ] Confirmed exact match S_final == D_final at the final step.
+================================================================================

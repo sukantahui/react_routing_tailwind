@@ -1,0 +1,173 @@
+================================================================================
+                    SELECTING THE MINIMUM COST CELL
+              (Global Inspection, Tie-Breaking & Route Filtering)
+                            Detailed Study Notes
+================================================================================
+
+1. CORE SELECTION PRINCIPLES
+================================================================================
+
+Definition:
+The fundamental building block of the Matrix Minima Method is the selection of
+the cell (k, l) that possesses the absolute lowest unit transportation cost 
+among all currently active (uneliminated) rows and columns:
+
+   (k, l) = argmin_{(i, j) ∈ Active} { c_ij }
+
+Where Active = { (i, j) : RowActive[i] == true AND ColActive[j] == true }.
+
+Operational Meaning:
+Instead of restricting the search to the top-left corner (NWCR) or to individual 
+rows (Row Minima), the algorithm scans the entire 2D matrix globally. It isolates 
+the single most cost-effective freight vector currently open in the supply network.
+
+
+2. COMPREHENSIVE TIE-BREAKING PROTOCOL
+================================================================================
+
+In real-world logistics matrices, duplicate minimum costs frequently occur 
+(e.g., c_12 = c_34 = ₹3/unit). The following standardized 3-tier protocol 
+governs selection:
+
+Tier 1: Maximum Allocation Volume (Volume-Driven Savings)
+---------------------------------------------------------
+- Rule: Select the cell that allows the largest physical shipment volume:
+    argmax { min(S_i, D_j) }
+- Mathematical Rationale:
+    Total Cost Savings = Allocated Volume × Unit Cost Advantage
+    Assigning 80 units at ₹3 saves far more than assigning 10 units at ₹3.
+
+Tier 2: Capacity Dominance (Relieving Bottlenecks)
+---------------------------------------------------------
+- Rule: If allocation volumes are also equal, choose the cell in the row or column 
+  with the larger remaining total capacity (max S_i or max D_j).
+- Rationale: Clearing high-capacity depots early prevents large leftover surpluses 
+  from being stranded in subsequent, expensive iterations.
+
+Tier 3: Arbitrary Selection
+---------------------------------------------------------
+- Rule: If all cost and capacity metrics are identical, select arbitrarily.
+- Rationale: All tied branches preserve feasibility, basic variable counts, and 
+  independent basis structures.
+
+
+3. SPECIAL ROUTE SELECTION PROTOCOLS
+================================================================================
+
+1. Prohibited / Blocked Routes (Big-M Method):
+   - When a transport link is unavailable (road closure, bridge repairs between 
+     Ichapur and Jadavpur), set c_ij = M (where M → ∞, e.g. ₹999,999).
+   - The greedy argmin search will naturally bypass cell (i, j) as long as any 
+     finite-cost alternative exists.
+
+2. Unbalanced Models & Dummy Cells (₹0 Rates):
+   - If Total Supply > Total Demand, introduce a dummy column with demand 
+     (∑ S_i - ∑ D_j) and unit cost c_i,dummy = ₹0.
+   - Since ₹0 is the lowest number in the table, the algorithm will select dummy 
+     cells first, designating which factory holds surplus local inventory.
+
+
+4. FOUR REAL-WORLD CASE STUDIES (WITH ₹ CURRENCY)
+================================================================================
+
+Case Study 1: Industrial Fasteners Distribution (Debangshu)
+--------------------------------------------------------------------------------
+Origins: Barrackpore Plant (S1 = 50 tons), Ichapur Foundry (S2 = 70 tons)
+Destinations: Kolkata Hub (D1 = 40), Jadavpur Depot (D2 = 50), Salt Lake (D3 = 30)
+Cost Matrix (₹/ton):
+                 D1 (Kolkata)   D2 (Jadavpur)   D3 (Salt Lake)   Supply
+  S1 (Barrack.)       ₹4             ₹8              ₹6            50
+  S2 (Ichapur)        ₹7             ₹3              ₹5            70
+  Demand              40             50              30           120
+
+Selection Trajectory:
+  1. Active Grid: 2×3 table. Global minimum is ₹3 at cell (S2, D2) [Ichapur→Jadavpur].
+     Allocate x_22 = min(70, 50) = 50 tons. Column D2 satisfied & eliminated!
+  2. Remaining Grid: Columns D1 and D3. Minimum cost is ₹4 at cell (S1, D1) [Barrackpore→Kolkata].
+     Allocate x_11 = min(50, 40) = 40 tons. Column D1 satisfied & eliminated!
+  3. Remaining Grid: Column D3 only. Minimum cost is ₹5 at cell (S2, D3) [Ichapur→Salt Lake].
+     Allocate x_23 = min(20, 30) = 20 tons. Row S2 exhausted & eliminated!
+  4. Final Cell: (S1, D3) at ₹6. Allocate x_13 = min(10, 10) = 10 tons.
+Total Initial Cost Z = (50 × ₹3) + (40 × ₹4) + (20 × ₹5) + (10 × ₹6) = ₹470.
+
+
+Case Study 2: Bengal FMCG Packaged Goods Delivery (Mamata)
+--------------------------------------------------------------------------------
+Origins: Kolkata Central (S1 = 60), Barrackpore (S2 = 80), Ichapur (S3 = 60)
+Destinations: Jadavpur (D1 = 80), Howrah (D2 = 70), Barasat (D3 = 50)
+Cost Matrix (₹/crate):
+                 D1 (Jadavpur)   D2 (Howrah)   D3 (Barasat)   Supply
+  S1 (Kolkata)        ₹2             ₹5            ₹7           60
+  S2 (Barrack.)       ₹6             ₹3            ₹4           80
+  S3 (Ichapur)        ₹5             ₹8            ₹1           60
+  Demand              80             70            50          200
+
+Selection Trajectory:
+  1. Global minimum is ₹1 at (S3, D3): Allocate x_33 = min(60, 50) = 50. D3 eliminated.
+  2. Next minimum is ₹2 at (S1, D1): Allocate x_11 = min(60, 80) = 60. S1 eliminated.
+  3. Next minimum is ₹3 at (S2, D2): Allocate x_22 = min(80, 70) = 70. D2 eliminated.
+  4. Next minimum in active table is ₹5 at (S3, D1): Allocate x_31 = min(10, 20) = 10. S3 eliminated.
+  5. Final cell is (S2, D1) at ₹6: Allocate x_21 = min(10, 10) = 10. All lines eliminated.
+Total Initial Cost Z = (50 × ₹1) + (60 × ₹2) + (70 × ₹3) + (10 × ₹5) + (10 × ₹6) = ₹490.
+
+
+Case Study 3: Cold-Chain Hospital Oxygen Allocation (Susmita)
+--------------------------------------------------------------------------------
+Origins: Kolkata Central (S1 = 100 cylinders), Barrackpore Station (S2 = 150 cylinders)
+Hospitals: Jadavpur Medical (D1 = 120), Ichapur General (D2 = 130)
+Cost Matrix (₹/cylinder):
+                 D1 (Jadavpur)   D2 (Ichapur)   Supply
+  S1 (Kolkata)        ₹6              ₹9          100
+  S2 (Barrack.)      ₹11              ₹5          150
+  Demand             120             130          250
+
+Selection Trajectory:
+  1. Global minimum is ₹5 at (S2, D2): Allocate x_22 = min(150, 130) = 130. D2 eliminated.
+  2. Next minimum is ₹6 at (S1, D1): Allocate x_11 = min(100, 120) = 100. S1 eliminated.
+  3. Final cell is (S2, D1) at ₹11: Allocate x_21 = min(20, 20) = 20.
+Total Cost Z = (130 × ₹5) + (100 × ₹6) + (20 × ₹11) = ₹1,470.
+
+
+Case Study 4: E-Commerce Regional Parcel Dispatch (Abhronila & Mahima)
+--------------------------------------------------------------------------------
+Origins: Barrackpore Sort Center (S1 = 40), Kolkata Mega Hub (S2 = 60)
+Lockers: Ichapur (D1 = 30), Jadavpur (D2 = 40), Salt Lake (D3 = 30)
+Cost Matrix (₹/parcel):
+                 D1 (Ichapur)   D2 (Jadavpur)   D3 (Salt Lake)   Supply
+  S1 (Barrack.)       ₹8             ₹4               ₹9           40
+  S2 (Kolkata)        ₹3             ₹7               ₹5           60
+  Demand              30             40               30          100
+
+Selection Trajectory:
+  1. Global minimum is ₹3 at (S2, D1): Allocate x_21 = min(60, 30) = 30. D1 eliminated.
+  2. Next minimum is ₹4 at (S1, D2): Allocate x_12 = min(40, 40) = 40. S1 eliminated.
+  3. Final minimum is ₹5 at (S2, D3): Allocate x_23 = min(30, 30) = 30. All satisfied.
+Total Cost Z = (30 × ₹3) + (40 × ₹4) + (30 × ₹5) = ₹400.
+
+
+5. COMMON PITFALLS & BEST PRACTICES
+================================================================================
+
+Common Pitfalls:
+1. Inspecting Cross-Out Lines: Selecting a low cost in a row that was already 
+   exhausted. Always cross out dead rows/columns cleanly.
+2. Inconsistent Tie-Breaking: Arbitrarily picking smaller volume cells during ties, 
+   sacrificing immediate volume savings.
+3. Ignoring Problem Unbalance: Forgetting to add ₹0 dummy lines before scanning.
+
+Best Practices:
+1. Circle allocations and place unit costs in the upper right corner.
+2. Maintain boolean flags for rowActive and colActive in code implementations.
+3. Verify m + n - 1 basic variables before computing total freight cost.
+
+
+6. REVISION CHECKLIST
+================================================================================
+[ ] Verified total supply equals total demand.
+[ ] Scanned only active (uneliminated) cells for minimum cost.
+[ ] Applied Tier 1 Max-Volume rule to resolve any cost ties.
+[ ] Set x_kl = min(S_k, D_l) and subtracted from both balances.
+[ ] Crossed out exhausted row or satisfied column.
+[ ] Verified m + n - 1 basic allocations.
+[ ] Computed total cost Z in ₹ accurately.
+================================================================================

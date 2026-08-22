@@ -1,0 +1,110 @@
+================================================================================
+                         SHORT QUESTIONS & VIVA GUIDE
+              (Rapid-Fire Conceptual Review & Exam Preparation)
+                            Detailed Study Notes
+================================================================================
+
+1. CORE DEFINITIONS & THEORETICAL FOUNDATIONS
+================================================================================
+
+Q1: What is an Initial Basic Feasible Solution (IBFS)?
+A1: An IBFS is a starting shipping schedule that satisfies all supply constraints 
+    (∑_j x_ij = S_i) and demand constraints (∑_i x_ij = D_j) with non-negative 
+    allocations (x_ij ≥ 0) and exactly m + n - 1 basic variables without cycles.
+
+Q2: Why is the Matrix Minima Method called a "Greedy Heuristic"?
+A2: Because it makes the locally optimal choice at each step (cheapest unit rate) 
+    without looking ahead to downstream penalty regret or backtracking.
+
+Q3: What is Degeneracy in transportation modeling?
+A3: Degeneracy occurs when the number of positive allocated cells is strictly less 
+    than m + n - 1. It is resolved by placing an infinitesimal zero (ε) in an 
+    unallocated independent cell.
+
+Q4: What is the Big-M method for prohibited routes?
+A4: Setting the unit freight cost of an impassable link to an arbitrarily large 
+    positive number M (e.g. ₹999,999) so that the greedy argmin operator avoids it.
+
+Q5: Why do dummy cells have a unit rate of ₹0?
+A5: Because dummy cells represent virtual slack (surplus factory inventory or unmet 
+    customer demand) where no physical goods are shipped.
+
+
+2. TOP 10 CLASSIC PROFESSOR VIVA QUESTIONS & MODEL ANSWERS
+================================================================================
+
+Viva Question 1:
+"Why does Matrix Minima require fewer MODI iterations than the North-West Corner Rule?"
+Model Answer:
+"Because Matrix Minima is cost-aware. By capturing the lowest freight rates across 
+the 2D grid early, its starting basis is already near-optimal. As a result, far fewer 
+non-basic cells have negative opportunity evaluations (Δ_ij < 0), reducing the 
+number of required stepping-stone loop pivots from 8 down to 1 or 2."
+
+Viva Question 2:
+"How do you break ties when two cells share the identical lowest unit cost?"
+Model Answer:
+"We apply the Maximum Allocation Volume rule: max { min(S_i, D_j) }. Moving 70 units 
+at ₹3 yields ₹210 in low-cost freight commitments, whereas moving 10 units at ₹3 
+yields only ₹30. If capacities are also equal, we pick the line with greater remaining 
+balance."
+
+Viva Question 3:
+"What happens if S_k == D_l during an allocation step?"
+Model Answer:
+"Simultaneous line exhaustion occurs, which risks degeneracy. To maintain the 
+mandatory m + n - 1 basic variable count, we cross out only one line (e.g. Row k) 
+and allocate an infinitesimal basic zero (ε) to an unassigned cell in Column l 
+before crossing it out."
+
+Viva Question 4:
+"Why is the number of basic variables in an m × n problem m + n - 1 and not m × n?"
+Model Answer:
+"Because of flow conservation (∑ S_i = ∑ D_j), the m supply and n demand linear 
+equations contain one redundant constraint. The rank of the constraint coefficient 
+matrix is therefore exactly m + n - 1."
+
+Viva Question 5:
+"Can Matrix Minima allocations ever be fractional?"
+Model Answer:
+"No. Because the constraint matrix is Totally Unimodular and all supplies and 
+demands are integers, all basic solutions are strictly integer-valued."
+
+
+3. COMPARATIVE BENCHMARK SUMMARY (4 REAL-WORLD CASES IN ₹)
+================================================================================
+
+Case 1: Heavy Fasteners Logistics (Debangshu)
+- Network: Barrackpore & Ichapur &rarr; Kolkata, Jadavpur, Salt Lake (120 tons)
+- NWCR Cost: ₹670 | Matrix Minima Cost: ₹470 | Saved: ₹200 (29.8% Savings)
+
+Case 2: Bengal FMCG Packaged Goods (Mamata)
+- Network: Kolkata, Barrackpore, Ichapur &rarr; Jadavpur, Howrah, Barasat (200 crates)
+- NWCR Cost: ₹840 | Matrix Minima Cost: ₹490 | Saved: ₹350 (41.7% Savings)
+
+Case 3: Hospital Oxygen Cold-Chain (Susmita)
+- Network: Kolkata & Barrackpore &rarr; Jadavpur & Ichapur Hospitals (250 cylinders)
+- NWCR Cost: ₹2,030 | Matrix Minima Cost: ₹1,470 | Saved: ₹560 (27.6% Savings)
+
+Case 4: E-Commerce Regional Parcel Dispatch (Abhronila & Mahima)
+- Network: Barrackpore & Kolkata &rarr; Ichapur, Jadavpur, Salt Lake (100 parcels)
+- NWCR Cost: ₹630 | Matrix Minima Cost: ₹400 | Saved: ₹230 (36.5% Savings)
+
+
+4. THE 4 GOLDEN RULES FOR TRANSPORTATION MASTERY
+================================================================================
+1. Balance the Model: Always verify ∑ S_i = ∑ D_j (add ₹0 dummy if unbalanced).
+2. Greedy Selection with Tie-Break: Select argmin(c_ij) and apply max-volume rule.
+3. Strict Deductions & Line Closure: x_kl = min(S_k, D_l), update both margins, 
+   and strike out zeroed lines (apply ε on simultaneous zeroing).
+4. Verify Basis & Compute Z: Confirm count = m + n - 1, and compute Z = ∑ c_ij x_ij in ₹.
+
+
+5. REVISION CHECKLIST
+================================================================================
+[ ] Mastered definitions of IBFS, BFS, feasibility, basis, and degeneracy.
+[ ] Understood the 3-tier tie-breaking protocol.
+[ ] Memorized the m + n - 1 basic variable count formula.
+[ ] Learned the role of Big-M penalty for prohibited routes.
+[ ] Reviewed all 4 industrial case calculations with ₹ currency.
+================================================================================

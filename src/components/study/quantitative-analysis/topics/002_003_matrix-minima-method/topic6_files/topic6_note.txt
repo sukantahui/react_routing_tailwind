@@ -1,0 +1,126 @@
+================================================================================
+              COMPARISON WITH NORTH-WEST CORNER RULE
+        (Economic Heuristic vs Positional Traversal Analysis)
+                            Detailed Study Notes
+================================================================================
+
+1. COMPREHENSIVE MULTI-DIMENSIONAL COMPARISON
+================================================================================
+
+Parameter               North-West Corner Rule (NWCR)   Matrix Minima Method (Least-Cost)
+--------------------------------------------------------------------------------
+1. Core Philosophy      Positional Traversal (Top-Left) Economic Cost Minimization (argmin)
+2. Cost Matrix View     Completely Cost-Blind           Globally Cost-Aware (2D Scan)
+3. Selection Sequence   Strict (1,1) → (m,n) Diagonal   Dynamic (Lowest ₹/unit first)
+4. Initial Cost (Z)     Very High (Far from Optimal)    Low to Near-Optimal
+5. MODI Iterations      High (6 to 12 pivot loops)      Low (1 to 3 pivot loops)
+6. Computational Time   O(m + n) Linear                 O(mn log(mn)) with Min-Heap
+7. Big-M Routing        Vulnerable to high penalties    Naturally filters Big-M routes
+8. Permutation Impact   Sensitive to row/col ordering   Permutation Invariant
+9. Degeneracy Handling  Same rule (m + n - 1 with ε)    Same rule (m + n - 1 with ε)
+10. Industrial Use      Classroom conceptual baseline   Practical enterprise starting heuristic
+
+
+2. FINANCIAL CASE STUDY BENCHMARKS (WITH ₹ CURRENCY)
+================================================================================
+
+Benchmark 1: Industrial Fasteners Distribution (Debangshu)
+--------------------------------------------------------------------------------
+Origins: Barrackpore (50 tons), Ichapur (70 tons)
+Destinations: Kolkata (40), Jadavpur (50), Salt Lake (30) | Total Flow = 120 tons
+- NWCR Allocations:
+  x_11 = 40 (@ ₹4), x_12 = 10 (@ ₹8), x_22 = 40 (@ ₹3), x_23 = 30 (@ ₹5)
+  Total Cost Z_NWCR = (40×4) + (10×8) + (40×3) + (30×5) = 160 + 80 + 120 + 150 = ₹670.
+- Matrix Minima Allocations:
+  x_22 = 50 (@ ₹3), x_11 = 40 (@ ₹4), x_23 = 20 (@ ₹5), x_13 = 10 (@ ₹6)
+  Total Cost Z_MM = (50×3) + (40×4) + (20×5) + (10×6) = 150 + 160 + 100 + 60 = ₹470.
+- Financial Difference:
+  Immediate Rupee Savings = ₹670 - ₹470 = ₹200 (29.8% Cost Reduction).
+
+
+Benchmark 2: Bengal FMCG Packaged Goods (Mamata)
+--------------------------------------------------------------------------------
+Origins: Kolkata (60), Barrackpore (80), Ichapur (60)
+Destinations: Jadavpur (80), Howrah (70), Barasat (50) | Total Flow = 200 crates
+- NWCR Allocations:
+  x_11 = 60 (@ ₹2), x_21 = 20 (@ ₹6), x_22 = 60 (@ ₹3), x_32 = 10 (@ ₹8), x_33 = 50 (@ ₹1)
+  Total Cost Z_NWCR = 120 + 120 + 180 + 80 + 50 = ₹840.
+- Matrix Minima Allocations:
+  x_33 = 50 (@ ₹1), x_11 = 60 (@ ₹2), x_22 = 70 (@ ₹3), x_31 = 10 (@ ₹5), x_21 = 10 (@ ₹6)
+  Total Cost Z_MM = 50 + 120 + 210 + 50 + 60 = ₹490.
+- Financial Difference:
+  Immediate Rupee Savings = ₹840 - ₹490 = ₹350 (41.7% Cost Reduction).
+
+
+Benchmark 3: Hospital Oxygen Fleet (Susmita)
+--------------------------------------------------------------------------------
+Origins: Kolkata Central (100 cyl), Barrackpore Station (150 cyl)
+Hospitals: Jadavpur Medical (120), Ichapur General (130) | Total Flow = 250 cyl
+- NWCR Allocations:
+  x_11 = 100 (@ ₹6), x_21 = 20 (@ ₹11), x_22 = 130 (@ ₹5)
+  Total Cost Z_NWCR = 600 + 220 + 650 = ₹2,030.
+- Matrix Minima Allocations:
+  x_22 = 130 (@ ₹5), x_11 = 100 (@ ₹6), x_21 = 20 (@ ₹11)
+  Total Cost Z_MM = 650 + 600 + 220 = ₹1,470.
+- Financial Difference:
+  Immediate Rupee Savings = ₹2,030 - ₹1,470 = ₹560 (27.6% Cost Reduction).
+
+
+Benchmark 4: E-Commerce Regional Parcel Dispatch (Abhronila & Mahima)
+--------------------------------------------------------------------------------
+Origins: Barrackpore Hub (40), Kolkata Mega Center (60)
+Lockers: Ichapur (30), Jadavpur (40), Salt Lake (30) | Total Flow = 100 parcels
+- NWCR Allocations:
+  x_11 = 30 (@ ₹8), x_12 = 10 (@ ₹4), x_22 = 30 (@ ₹7), x_23 = 30 (@ ₹5)
+  Total Cost Z_NWCR = 240 + 40 + 210 + 150 = ₹630.
+- Matrix Minima Allocations:
+  x_21 = 30 (@ ₹3), x_12 = 40 (@ ₹4), x_23 = 30 (@ ₹5)
+  Total Cost Z_MM = 90 + 160 + 150 = ₹400.
+- Financial Difference:
+  Immediate Rupee Savings = ₹630 - ₹400 = ₹230 (36.5% Cost Reduction).
+
+
+3. THE PEDAGOGICAL LADDER OF TRANSPORTATION HEURISTICS
+================================================================================
+
+Level 1: North-West Corner Rule (NWCR)
+- Role: Teaches basic table balancing and line elimination mechanics.
+- Limitation: Ignores costs completely; produces expensive shipping schedules.
+
+Level 2: Matrix Minima Method (Least-Cost)
+- Role: Introduces economic greedy optimization; suppresses starting costs by 30-45%.
+- Strength: Simple to compute by hand while delivering near-optimal results.
+
+Level 3: Vogel's Approximation Method (VAM)
+- Role: Advanced penalty/regret heuristic; avoids severe downstream bottlenecks.
+- Strength: Closest to true global optimum at the cost of higher manual math.
+
+Level 4: MODI (Modified Distribution) Method
+- Role: Exact optimization algorithm; guarantees and proves mathematical optimality.
+
+
+4. COMMON PITFALLS & BEST PRACTICES
+================================================================================
+
+Common Mistakes:
+1. Assuming NWCR is faster overall: While NWCR saves 1 minute during the starting 
+   draft, it wastes 15 minutes solving 8 extra MODI stepping-stone loops!
+2. Confusing greedy selection with global optimality: Matrix Minima is an excellent 
+   starting point, but it still requires MODI verification.
+3. Blindly using NWCR in business presentations: Always use Matrix Minima or VAM 
+   when presenting logistics budgets to executive stakeholders.
+
+Best Practices:
+1. Use NWCR only for initial classroom mechanical practice.
+2. Adopt Matrix Minima as your default manual problem-solving method.
+3. Compare starting costs against NWCR to demonstrate financial ROI.
+
+
+5. REVISION CHECKLIST
+================================================================================
+[ ] Understood the difference between positional (NWCR) and economic (Matrix Minima) rules.
+[ ] Computed total costs for both methods on reference problems in ₹.
+[ ] Verified that Matrix Minima reduces starting freight costs by 25-45%.
+[ ] Observed how Matrix Minima reduces subsequent MODI pivot loops.
+[ ] Recognized that both methods produce valid basic feasible solutions (m + n - 1).
+================================================================================

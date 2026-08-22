@@ -1,0 +1,142 @@
+================================================================================
+                         NUMERICAL EXERCISES
+              (Complete Step-by-Step Solved Problem Sets)
+                            Detailed Study Notes
+================================================================================
+
+================================================================================
+EXERCISE 1: STANDARD 3 × 3 BALANCED FMCG NETWORK
+================================================================================
+Context: Mamata (Regional Supply Director) oversees packaged goods distribution:
+Origins: S1 (Kolkata: 60), S2 (Barrackpore: 80), S3 (Ichapur: 60)
+Destinations: D1 (Jadavpur: 80), D2 (Howrah: 70), D3 (Barasat: 50)
+Total Supply = 200 crates | Total Demand = 200 crates (Balanced)
+
+Initial Cost Matrix (₹/crate):
+                 D1 (Jadavpur)   D2 (Howrah)   D3 (Barasat)   Supply
+  S1 (Kolkata)        ₹2             ₹5            ₹7           60
+  S2 (Barrack.)       ₹6             ₹3            ₹4           80
+  S3 (Ichapur)        ₹5             ₹8            ₹1           60
+  Demand              80             70            50          200
+
+Step-by-Step Matrix Minima Execution:
+1. Global Minimum: ₹1 at (S3, D3) [Ichapur → Barasat].
+   - Allocate x_33 = min(60, 50) = 50 crates.
+   - Updates: S3 = 60 - 50 = 10; D3 = 50 - 50 = 0 (Column D3 Closed).
+2. Next Minimum in active table (Cols D1, D2): ₹2 at (S1, D1) [Kolkata → Jadavpur].
+   - Allocate x_11 = min(60, 80) = 60 crates.
+   - Updates: S1 = 60 - 60 = 0 (Row S1 Closed); D1 = 80 - 60 = 20 crates.
+3. Next Minimum in active table (Rows S2, S3; Cols D1, D2): ₹3 at (S2, D2) [Barrackpore → Howrah].
+   - Allocate x_22 = min(80, 70) = 70 crates.
+   - Updates: S2 = 80 - 70 = 10; D2 = 70 - 70 = 0 (Column D2 Closed).
+4. Next Minimum in active table (Row S3, Col D1): ₹5 at (S3, D1) [Ichapur → Jadavpur].
+   - Allocate x_31 = min(10, 20) = 10 crates.
+   - Updates: S3 = 10 - 10 = 0 (Row S3 Closed); D1 = 20 - 10 = 10 crates.
+5. Final Cell (Row S2, Col D1): ₹6 at (S2, D1) [Barrackpore → Jadavpur].
+   - Allocate x_21 = min(10, 10) = 10 crates.
+   - Updates: S2 = 0; D1 = 0 (All lines Closed).
+
+Final Basic Allocations (m + n - 1 = 3 + 3 - 1 = 5):
+  - x_33 = 50 @ ₹1 = ₹50
+  - x_11 = 60 @ ₹2 = ₹120
+  - x_22 = 70 @ ₹3 = ₹210
+  - x_31 = 10 @ ₹5 = ₹50
+  - x_21 = 10 @ ₹6 = ₹60
+Total Initial Cost Z = ₹50 + ₹120 + ₹210 + ₹50 + ₹60 = ₹490.
+(NWCR Cost = ₹840; Savings = ₹350 or 41.7%).
+
+
+================================================================================
+EXERCISE 2: 2 × 3 FASTENERS PRODUCTION MODEL
+================================================================================
+Context: Debangshu manages factory shipments from Barrackpore & Ichapur:
+Origins: S1 (Barrackpore: 50 tons), S2 (Ichapur: 70 tons)
+Destinations: D1 (Kolkata: 40), D2 (Jadavpur: 50), D3 (Salt Lake: 30) | Total = 120 tons
+
+Cost Matrix (₹/ton):
+                 D1 (Kolkata)   D2 (Jadavpur)   D3 (Salt Lake)   Supply
+  S1 (Barrack.)       ₹4             ₹8              ₹6            50
+  S2 (Ichapur)        ₹7             ₹3              ₹5            70
+  Demand              40             50              30           120
+
+Step-by-Step Execution:
+1. Global Minimum: ₹3 at (S2, D2) [Ichapur → Jadavpur].
+   - Allocate x_22 = min(70, 50) = 50 tons.
+   - Updates: S2 = 20; D2 = 0 (Column D2 Closed).
+2. Next Minimum: ₹4 at (S1, D1) [Barrackpore → Kolkata].
+   - Allocate x_11 = min(50, 40) = 40 tons.
+   - Updates: S1 = 10; D1 = 0 (Column D1 Closed).
+3. Next Minimum: ₹5 at (S2, D3) [Ichapur → Salt Lake].
+   - Allocate x_23 = min(20, 30) = 20 tons.
+   - Updates: S2 = 0 (Row S2 Closed); D3 = 10 tons.
+4. Final Cell: ₹6 at (S1, D3) [Barrackpore → Salt Lake].
+   - Allocate x_13 = min(10, 10) = 10 tons.
+   - Updates: S1 = 0; D3 = 0 (All Closed).
+
+Total Initial Cost Z = (50×3) + (40×4) + (20×5) + (10×6) = ₹150 + ₹160 + ₹100 + ₹60 = ₹470.
+(NWCR Cost = ₹670; Savings = ₹200 or 29.8%).
+
+
+================================================================================
+EXERCISE 3: 3 × 4 UNBALANCED REGIONAL LOGISTICS MODEL
+================================================================================
+Context: Total Supply = 150 units, Total Real Demand = 120 units.
+Unbalance: 150 - 120 = 30 units surplus. Add Dummy Column D_dummy (Demand = 30, Cost = ₹0).
+
+Balanced Cost Matrix:
+                 D1 (City A)   D2 (City B)   D3 (City C)   D_dummy   Supply
+  S1 (Plant 1)       ₹6            ₹3            ₹5          ₹0        50
+  S2 (Plant 2)       ₹4            ₹9            ₹2          ₹0        60
+  S3 (Plant 3)       ₹8            ₹7            ₹4          ₹0        40
+  Demand             40            50            30          30       150
+
+Execution:
+1. Dummy Allocation @ ₹0: Min cost ₹0 at (S2, D_dummy).
+   - Allocate x_24 = min(60, 30) = 30 units. S2 = 30, D_dummy = 0 (Dummy Col Closed).
+2. Next Minimum: ₹2 at (S2, D3).
+   - Allocate x_23 = min(30, 30) = 30 units. S2 = 0 (Row S2 Closed), D3 = 0 (Col D3 Closed).
+   - Degeneracy Guard: Add ε to (S3, D3) before closing Col D3.
+3. Next Minimum: ₹3 at (S1, D2).
+   - Allocate x_12 = min(50, 50) = 50 units. S1 = 0 (Row S1 Closed), D2 = 0 (Col D2 Closed).
+4. Final Allocation: ₹8 at (S3, D1).
+   - Allocate x_31 = min(40, 40) = 40 units. All Closed.
+
+Total Cost Z = (30×0) + (30×2) + (50×3) + (40×8) = 0 + 60 + 150 + 320 = ₹530.
+
+
+================================================================================
+EXERCISE 4: PROHIBITED BIG-M HEALTHCARE OXYGEN ROUTE
+================================================================================
+Context: Susmita coordinates medical oxygen. Route (S2, D1) [Barrackpore → Jadavpur] 
+is closed due to broken bridge. Set c_21 = M = ₹999,999.
+Origins: S1 (Kolkata: 100), S2 (Barrackpore: 150)
+Hospitals: D1 (Jadavpur: 120), D2 (Ichapur: 130)
+
+Cost Matrix:
+                 D1 (Jadavpur)   D2 (Ichapur)   Supply
+  S1 (Kolkata)        ₹6              ₹9          100
+  S2 (Barrack.)        M              ₹5          150
+  Demand             120             130          250
+
+Execution:
+1. Global Minimum: ₹5 at (S2, D2).
+   - Allocate x_22 = min(150, 130) = 130 cyl. S2 = 20, D2 = 0 (Col D2 Closed).
+2. Next Minimum: ₹6 at (S1, D1).
+   - Allocate x_11 = min(100, 120) = 100 cyl. S1 = 0 (Row S1 Closed), D1 = 20.
+3. Remaining Link: Even though c_21 = M, it is the only remaining link to fulfill 
+   the final 20 cylinders to Jadavpur if no alternative exists.
+   - If alternative routes are opened (e.g. via transshipment), Big-M is bypassed.
+Total Cost Z = (130 × ₹5) + (100 × ₹6) + (20 × M) [Signals immediate route detour required].
+
+
+================================================================================
+REVISION CHECKLIST FOR NUMERICAL EXERCISES
+================================================================================
+[ ] Verify problem balance (∑ S_i = ∑ D_j); add dummy if unbalanced.
+[ ] Identify lowest unit rate c_ij globally.
+[ ] Apply max-volume tie-breaking rule if multiple minima exist.
+[ ] Allocate x_kl = min(S_k, D_l) and subtract immediately from both balances.
+[ ] Cross out zeroed line and inject ε if degeneracy occurs.
+[ ] Count basic allocations: exactly m + n - 1.
+[ ] Compute total cost Z = ∑ (c_ij × x_ij) in ₹.
+================================================================================
