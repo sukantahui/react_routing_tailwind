@@ -1,108 +1,506 @@
-import React, { useState, useRef, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+// ============================================================================
+// AuthNavBar.jsx - Next-Level Ultra-Modern Authenticated Navigation Bar
+// ============================================================================
+
+import React, { useState, useRef, useEffect, useMemo } from "react";
+import { createPortal } from "react-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import cnat from "../assets/cnat.png";
 
 const AuthNavBar = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const [masterOpen, setMasterOpen] = useState(false);
-  const [toolsOpen, setToolsOpen] = useState(false);
-  const [tutorialsOpen, setTutorialsOpen] = useState(false);
+  // Desktop active dropdown state: null | 'master' | 'tools' | 'tutorials' | 'profile'
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  // Mobile menu states
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileMasterOpen, setMobileMasterOpen] = useState(false);
-  const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
-  const [mobileTutorialsOpen, setMobileTutorialsOpen] = useState(false);
+  const [mobileTab, setMobileTab] = useState("all"); // 'all' | 'master' | 'tools' | 'tutorials'
+  const [mobileActiveAccordion, setMobileActiveAccordion] = useState("master");
+  const [mobileSearchQuery, setMobileSearchQuery] = useState("");
+  const [mobileTutorialCategory, setMobileTutorialCategory] = useState("all");
 
-  // Refs for click outside detection
-  const masterMenuRef = useRef(null);
-  const toolsMenuRef = useRef(null);
-  const tutorialsMenuRef = useRef(null);
+  // Global Command Palette / Search Modal
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedSearchIndex, setSelectedSearchIndex] = useState(0);
+
+  // Tutorials Dropdown in-menu filter (desktop)
+  const [tutorialCategoryFilter, setTutorialCategoryFilter] = useState("all");
+  const [tutorialDropdownSearch, setTutorialDropdownSearch] = useState("");
+
+  // Refs for click outside
+  const navContainerRef = useRef(null);
+  const searchInputRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
-  const toggleMaster = () => {
-    setMasterOpen(!masterOpen);
-    setToolsOpen(false);
-    setTutorialsOpen(false);
+  // Safely parse user from localStorage
+  const user = useMemo(() => {
+    try {
+      const rawUser = localStorage.getItem("user");
+      if (!rawUser) return { name: "Faculty Admin", email: "admin@coderaccotax.in", role: "Administrator" };
+      if (typeof rawUser === "string" && (rawUser.startsWith("{") || rawUser.startsWith("["))) {
+        const parsed = JSON.parse(rawUser);
+        return {
+          name: parsed.name || parsed.username || parsed.fullName || "Faculty Admin",
+          email: parsed.email || "admin@coderaccotax.in",
+          role: parsed.role || "Administrator",
+          ...parsed,
+        };
+      }
+      return { name: rawUser, email: "admin@coderaccotax.in", role: "Administrator" };
+    } catch {
+      return { name: "Faculty Admin", email: "admin@coderaccotax.in", role: "Administrator" };
+    }
+  }, []);
+
+  const isDev = Boolean(import.meta.env?.DEV);
+
+  // Get user initials for avatar
+  const userInitials = useMemo(() => {
+    if (!user?.name) return "AD";
+    const parts = user.name.trim().split(" ");
+    if (parts.length >= 2) {
+      return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+    }
+    return user.name.substring(0, 2).toUpperCase();
+  }, [user]);
+
+  // Master Items Grouped
+  const masterGroups = useMemo(() => [
+    {
+      id: "students",
+      title: "Students & Admissions",
+      icon: "bi-mortarboard-fill",
+      color: "from-sky-500/20 to-blue-500/10 text-sky-400 border-sky-500/30",
+      items: [
+        {
+          to: "/students/add",
+          label: "Students Directory",
+          desc: "Manage enrolled student database",
+          icon: "bi-people-fill",
+          badge: "Core",
+        },
+        {
+          to: "/admission",
+          label: "Student Admission",
+          desc: "New applicant registration form",
+          icon: "bi-person-plus-fill",
+          badge: "Active",
+        },
+        {
+          to: "/students/student-admission",
+          label: "Student with Admission",
+          desc: "Integrated student & admission view",
+          icon: "bi-person-badge-fill",
+        },
+      ],
+    },
+    {
+      id: "academics",
+      title: "Academics & Faculty",
+      icon: "bi-book-half",
+      color: "from-indigo-500/20 to-purple-500/10 text-indigo-400 border-indigo-500/30",
+      items: [
+        {
+          to: "/courses",
+          label: "Courses Master",
+          desc: "Curriculums, duration & pricing",
+          icon: "bi-collection-fill",
+        },
+        {
+          to: "/subjects",
+          label: "Subjects & Modules",
+          desc: "Subject syllabus and topics",
+          icon: "bi-journals",
+        },
+        {
+          to: "/teachers",
+          label: "Faculty & Teachers",
+          desc: "Instructor profiles & allocations",
+          icon: "bi-person-workspace",
+        },
+      ],
+    },
+    {
+      id: "exams",
+      title: "Examinations & Certs",
+      icon: "bi-award-fill",
+      color: "from-amber-500/20 to-orange-500/10 text-amber-400 border-amber-500/30",
+      items: [
+        {
+          to: "/results",
+          label: "Examination Results",
+          desc: "Publish grades & student reports",
+          icon: "bi-bar-chart-steps",
+        },
+        {
+          to: "/certificates",
+          label: "Certificates Record",
+          desc: "Verify issued certificate records",
+          icon: "bi-patch-check-fill",
+        },
+        {
+          to: "/certificate",
+          label: "Generate Certificate",
+          desc: "Create & print verified certificates",
+          icon: "bi-file-earmark-medical-fill",
+          badge: "Gen",
+        },
+        {
+          to: "/admin",
+          label: "Admin Portal",
+          desc: "System configuration & logs",
+          icon: "bi-shield-lock-fill",
+        },
+      ],
+    },
+  ], []);
+
+  // Tools Items Grouped
+  const toolsGroups = useMemo(() => [
+    {
+      id: "compilers",
+      title: "Compilers & Editors",
+      icon: "bi-code-square",
+      color: "from-cyan-500/20 to-blue-500/10 text-cyan-400 border-cyan-500/30",
+      items: [
+        {
+          to: "/python-play",
+          label: "Python Playground",
+          desc: "Interactive in-browser Python 3 execution",
+          icon: "bi-filetype-py",
+          tag: "Pyodide",
+        },
+        {
+          to: "/play",
+          label: "JavaScript Editor",
+          desc: "Live HTML, CSS & JavaScript sandbox",
+          icon: "bi-filetype-js",
+          tag: "Live",
+        },
+        {
+          to: "/vscode",
+          label: "Web VS Code Guide",
+          desc: "Cloud coding environment & cheatsheet",
+          icon: "bi-window-desktop",
+          tag: "IDE",
+        },
+        {
+          to: "/whiteBoard",
+          label: "Smart Whiteboard",
+          desc: "Interactive canvas for diagrams & notes",
+          icon: "bi-easel2-fill",
+          tag: "Canvas",
+        },
+      ],
+    },
+    {
+      id: "visualizers",
+      title: "Data Structure Visualizers",
+      icon: "bi-diagram-3-fill",
+      color: "from-purple-500/20 to-pink-500/10 text-purple-400 border-purple-500/30",
+      items: [
+        {
+          to: "/LinkedListVisualizer",
+          label: "Linked List Visualizer",
+          desc: "Step-by-step singly linked list animation",
+          icon: "bi-diagram-3",
+          tag: "DSA",
+        },
+        {
+          to: "/DoublyLinkedListVisualizer",
+          label: "Doubly Linked List",
+          desc: "Bidirectional pointer operations live",
+          icon: "bi-arrow-left-right",
+          tag: "DSA",
+        },
+        {
+          to: "/BinaryTreeVisualizer",
+          label: "Binary Tree Visualizer",
+          desc: "BST insertions, deletions & traversals",
+          icon: "bi-diagram-2-fill",
+          tag: "DSA",
+        },
+        {
+          to: "/AvlTreeVisualizer",
+          label: "AVL Tree Visualizer",
+          desc: "Self-balancing binary search trees",
+          icon: "bi-share-fill",
+          tag: "DSA",
+        },
+      ],
+    },
+    {
+      id: "skills",
+      title: "Skills & Utilities",
+      icon: "bi-lightning-charge-fill",
+      color: "from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30",
+      items: [
+        {
+          to: "/tools/type-test",
+          label: "Typing Speed Test",
+          desc: "Measure WPM & accuracy in real time",
+          icon: "bi-keyboard-fill",
+          tag: "Speed",
+        },
+        {
+          to: "/tools/typing-learn",
+          label: "Typing Learn Tutor",
+          desc: "Touch typing lessons & muscle memory",
+          icon: "bi-pencil-square",
+          tag: "Practice",
+        },
+        {
+          to: "/tools/audioextract",
+          label: "Audio Extractor",
+          desc: "Extract MP3/WAV tracks from video files",
+          icon: "bi-soundwave",
+          tag: "Utility",
+        },
+        {
+          to: "/qrcode",
+          label: "QR Code Generator",
+          desc: "Instant dynamic QR generator & scanner",
+          icon: "bi-qr-code-scan",
+          tag: "Utility",
+        },
+        {
+          to: "/icons",
+          label: "Developer Icons",
+          desc: "Searchable icon cheatsheet & glyphs",
+          icon: "bi-grid-1x2-fill",
+          tag: "Assets",
+        },
+      ],
+    },
+    {
+      id: "accounts",
+      title: "Student Fees & Accounts",
+      icon: "bi-receipt-cutoff",
+      color: "from-amber-500/20 to-yellow-500/10 text-amber-400 border-amber-500/30",
+      items: [
+        {
+          to: "/studentFeesReceipt",
+          label: "Fee Receipt (Standard)",
+          desc: "Generate printable tuition invoices",
+          icon: "bi-receipt",
+          tag: "Billing",
+        },
+        {
+          to: "/studentFeesReceiptPart2",
+          label: "Fee Receipt Part 2",
+          desc: "Installment tracking & print slips",
+          icon: "bi-file-earmark-spreadsheet",
+          tag: "v2",
+        },
+        {
+          to: "/studentFeesReceiptPart3",
+          label: "Fee Receipt Part 3",
+          desc: "Advanced multi-session batch invoices",
+          icon: "bi-calculator-fill",
+          tag: "v3",
+        },
+        {
+          to: "/studentFeesReceiptPart4",
+          label: "Fee Receipt Part 4 (Test)",
+          desc: "Experimental custom tax receipt engine",
+          icon: "bi-file-earmark-diff",
+          tag: "Beta",
+        },
+      ],
+    },
+  ], []);
+
+  // Tutorials & Roadmaps Items with Categories
+  const tutorialsCategories = [
+    { id: "all", label: "All Roadmaps", icon: "bi-grid-fill" },
+    { id: "programming", label: "Programming", icon: "bi-cpu-fill" },
+    { id: "web", label: "Web & Systems", icon: "bi-globe2" },
+    { id: "school", label: "School Boards", icon: "bi-mortarboard-fill" },
+    { id: "business", label: "Accounts & Data", icon: "bi-briefcase-fill" },
+  ];
+
+  const tutorialsItems = useMemo(() => [
+    // Programming
+    { to: "/javascript/roadmap", label: "JavaScript Roadmap", icon: "bi-filetype-js", category: "programming", color: "text-amber-400 bg-amber-400/10 border-amber-400/20", badge: "Hot", desc: "Core JavaScript, ES6+, Async & DOM" },
+    { to: "/python/roadmap", label: "Python Roadmap", icon: "bi-filetype-py", category: "programming", color: "text-sky-400 bg-sky-400/10 border-sky-400/20", badge: "Popular", desc: "Python 3 basics to advanced algorithms" },
+    { to: "/c-language/roadmap", label: "C Programming", icon: "bi-filetype-c", category: "programming", color: "text-blue-400 bg-blue-400/10 border-blue-400/20", desc: "Foundational procedural programming & memory" },
+    { to: "/java-core/roadmap", label: "Core Java Roadmap", icon: "bi-cpu", category: "programming", color: "text-orange-400 bg-orange-400/10 border-orange-400/20", badge: "Essential", desc: "OOP, Collections, Multithreading & JVM" },
+    { to: "/unix/roadmap", label: "UNIX & Shell", icon: "bi-terminal", category: "programming", color: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20", desc: "Linux commands, pipelines & bash scripting" },
+    { to: "/computer-architecture/roadmap", label: "Computer Architecture", icon: "bi-motherboard", category: "programming", color: "text-indigo-400 bg-indigo-400/10 border-indigo-400/20", desc: "CPU design, logic gates & memory hierarchies" },
+
+    // Web & Systems
+    { to: "/react/roadmap", label: "React Roadmap", icon: "bi-code-slash", category: "web", color: "text-cyan-400 bg-cyan-400/10 border-cyan-400/20", badge: "Frontend", desc: "Hooks, state management & SPAs" },
+    { to: "/css/roadmap", label: "Modern CSS & Tailwind", icon: "bi-filetype-css", category: "web", color: "text-sky-400 bg-sky-400/10 border-sky-400/20", desc: "Flexbox, CSS Grid, Responsive & TailwindCSS" },
+    { to: "/java-web/roadmap", label: "Java Web & Servlets", icon: "bi-globe", category: "web", color: "text-rose-400 bg-rose-400/10 border-rose-400/20", desc: "Servlets, JSP, JDBC & Web APIs" },
+    { to: "/rdbms-mysql/roadmap", label: "RDBMS MySQL", icon: "bi-database", category: "web", color: "text-teal-400 bg-teal-400/10 border-teal-400/20", desc: "Relational database schema, SQL & queries" },
+    { to: "/network/roadmap", label: "Computer Networks", icon: "bi-diagram-3", category: "web", color: "text-violet-400 bg-violet-400/10 border-violet-400/20", desc: "OSI Model, TCP/IP, DNS, HTTP & security" },
+    { to: "/cyber-security/roadmap", label: "Cyber Security", icon: "bi-shield-lock", category: "web", color: "text-red-400 bg-red-400/10 border-red-400/20", desc: "Ethical hacking, encryption & defenses" },
+    { to: "/quantitative-analysis/roadmap", label: "Quantitative Analysis", icon: "bi-graph-up-arrow", category: "web", color: "text-purple-400 bg-purple-400/10 border-purple-400/20", desc: "Math, statistics & aptitude problem solving" },
+    ...(isDev ? [{ to: "/node/roadmap", label: "Node.js Roadmap", icon: "bi-hdd-network", category: "web", color: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20", badge: "Dev", desc: "Backend runtime, Express & REST APIs" }] : []),
+
+    // School Boards
+    { to: "/icse-java-ix/roadmap", label: "ICSE Class 9 Java", icon: "bi-journal-code", category: "school", color: "text-yellow-400 bg-yellow-400/10 border-yellow-400/20", badge: "Class IX", desc: "Complete ICSE 9 syllabus with code samples" },
+    { to: "/icse-java-x/roadmap", label: "ICSE Class 10 Java", icon: "bi-journal-code", category: "school", color: "text-yellow-400 bg-yellow-400/10 border-yellow-400/20", badge: "Class X", desc: "Board exam preparation & Java mastery" },
+    { to: "/isc-11/roadmap", label: "ISC 11 Computer Sc.", icon: "bi-journal-richtext", category: "school", color: "text-pink-400 bg-pink-400/10 border-pink-400/20", badge: "Class 11", desc: "Boolean algebra, arrays & recursion" },
+    { to: "/isc-12/roadmap", label: "ISC 12 Computer Sc.", icon: "bi-journal-richtext", category: "school", color: "text-pink-400 bg-pink-400/10 border-pink-400/20", badge: "Class 12", desc: "Data structures, algorithms & board prep" },
+    { to: "/general/roadmap", label: "General Computing", icon: "bi-files", category: "school", color: "text-slate-400 bg-slate-400/10 border-slate-400/20", desc: "Fundamental digital literacy & theory" },
+
+    // Business & Data
+    { to: "/tally/roadmap", label: "Tally Prime & GST", icon: "bi-calculator", category: "business", color: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20", badge: "Accounting", desc: "GST invoicing, vouchers & balance sheets" },
+    { to: "/excel/roadmap", label: "Advanced Excel", icon: "bi-file-spreadsheet", category: "business", color: "text-green-400 bg-green-400/10 border-green-400/20", badge: "Analytics", desc: "VLOOKUP, Pivot Tables, Formulas & VBA" },
+    { to: "/git/roadmap", label: "Git & Version Control", icon: "bi-git", category: "business", color: "text-orange-400 bg-orange-400/10 border-orange-400/20", desc: "Commits, branches, merging & GitHub" },
+  ], [isDev]);
+
+  // Filtered tutorials for desktop mega menu
+  const filteredTutorials = useMemo(() => {
+    return tutorialsItems.filter((item) => {
+      const matchCat = tutorialCategoryFilter === "all" || item.category === tutorialCategoryFilter;
+      const matchSearch = !tutorialDropdownSearch || item.label.toLowerCase().includes(tutorialDropdownSearch.toLowerCase());
+      return matchCat && matchSearch;
+    });
+  }, [tutorialsItems, tutorialCategoryFilter, tutorialDropdownSearch]);
+
+  // Filtered tutorials for mobile drawer
+  const mobileFilteredTutorials = useMemo(() => {
+    return tutorialsItems.filter((item) => {
+      const matchCat = mobileTutorialCategory === "all" || item.category === mobileTutorialCategory;
+      const matchSearch = !mobileSearchQuery || item.label.toLowerCase().includes(mobileSearchQuery.toLowerCase()) || (item.desc && item.desc.toLowerCase().includes(mobileSearchQuery.toLowerCase()));
+      return matchCat && matchSearch;
+    });
+  }, [tutorialsItems, mobileTutorialCategory, mobileSearchQuery]);
+
+  // Flat Search Index for Command Palette / Quick Search Modal
+  const globalSearchIndex = useMemo(() => {
+    const list = [
+      { to: "/dashboard", label: "Dashboard Overview", group: "GENERAL", desc: "Live metrics, student stats & quick operations", icon: "bi-speedometer2" },
+      { to: "/profile", label: "My Profile & Account", group: "GENERAL", desc: "Manage profile, credentials and authentication", icon: "bi-person-circle" },
+      { to: "/settings", label: "System & Theme Settings", group: "GENERAL", desc: "Configure application preferences & dark mode", icon: "bi-gear-fill" },
+    ];
+
+    // Add all master items
+    masterGroups.forEach((g) => {
+      g.items.forEach((item) => {
+        list.push({
+          to: item.to,
+          label: item.label,
+          group: "MASTER",
+          desc: item.desc,
+          icon: item.icon,
+        });
+      });
+    });
+
+    // Add all tool items
+    toolsGroups.forEach((g) => {
+      g.items.forEach((item) => {
+        list.push({
+          to: item.to,
+          label: item.label,
+          group: "TOOLS",
+          desc: item.desc,
+          icon: item.icon,
+        });
+      });
+    });
+
+    // Add all tutorial items
+    tutorialsItems.forEach((item) => {
+      list.push({
+        to: item.to,
+        label: item.label,
+        group: "ROADMAP",
+        desc: item.desc || `Interactive roadmap for ${item.label}`,
+        icon: item.icon,
+      });
+    });
+
+    return list;
+  }, [masterGroups, toolsGroups, tutorialsItems]);
+
+  // Results of Command Palette
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return globalSearchIndex.slice(0, 8);
+    const q = searchQuery.toLowerCase();
+    return globalSearchIndex.filter(
+      (item) =>
+        item.label.toLowerCase().includes(q) ||
+        item.group.toLowerCase().includes(q) ||
+        (item.desc && item.desc.toLowerCase().includes(q))
+    ).slice(0, 10);
+  }, [globalSearchIndex, searchQuery]);
+
+  // Mobile filtered instant search
+  const mobileFilteredSearchResults = useMemo(() => {
+    if (!mobileSearchQuery.trim()) return [];
+    const q = mobileSearchQuery.toLowerCase();
+    return globalSearchIndex.filter((item) =>
+      item.label.toLowerCase().includes(q) ||
+      item.group.toLowerCase().includes(q) ||
+      (item.desc && item.desc.toLowerCase().includes(q))
+    ).slice(0, 12);
+  }, [globalSearchIndex, mobileSearchQuery]);
+
+  // Close menus
+  const closeAllDropdowns = () => {
+    setActiveDropdown(null);
   };
 
-  const toggleTools = () => {
-    setToolsOpen(!toolsOpen);
-    setMasterOpen(false);
-    setTutorialsOpen(false);
-  };
-
-  const toggleTutorials = () => {
-    setTutorialsOpen(!tutorialsOpen);
-    setMasterOpen(false);
-    setToolsOpen(false);
-  };
-
-  const closeMenus = () => {
-    setMasterOpen(false);
-    setToolsOpen(false);
-    setTutorialsOpen(false);
+  const closeEverything = () => {
+    setActiveDropdown(null);
     setMobileMenuOpen(false);
-    setMobileMasterOpen(false);
-    setMobileToolsOpen(false);
-    setMobileTutorialsOpen(false);
+    setSearchModalOpen(false);
+    setSearchQuery("");
+    setMobileSearchQuery("");
+    setTutorialDropdownSearch("");
   };
 
-  // Handle click outside for desktop menus
+  // Toggle Dropdown helper
+  const toggleDropdown = (name) => {
+    setActiveDropdown((prev) => (prev === name ? null : name));
+  };
+
+  // Click outside listener
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Close master menu if clicked outside
-      if (masterMenuRef.current && !masterMenuRef.current.contains(event.target)) {
-        setMasterOpen(false);
-      }
-      // Close tools menu if clicked outside
-      if (toolsMenuRef.current && !toolsMenuRef.current.contains(event.target)) {
-        setToolsOpen(false);
-      }
-      // Close tutorials menu if clicked outside
-      if (tutorialsMenuRef.current && !tutorialsMenuRef.current.contains(event.target)) {
-        setTutorialsOpen(false);
-      }
-      // Close mobile menu if clicked outside
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target) && mobileMenuOpen) {
-        setMobileMenuOpen(false);
+      if (navContainerRef.current && !navContainerRef.current.contains(event.target)) {
+        setActiveDropdown(null);
       }
     };
+    document.addEventListener("pointerdown", handleClickOutside);
+    return () => document.removeEventListener("pointerdown", handleClickOutside);
+  }, []);
 
-    // Add event listener
-    document.addEventListener("mousedown", handleClickOutside);
-    
-    // Cleanup
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [mobileMenuOpen]); // Re-run when mobile menu state changes
-
-  // Close mobile menu when escape key is pressed
+  // Keyboard shortcut listener (Escape to close, Ctrl+K / Cmd+K to open search)
   useEffect(() => {
-    const handleEscKey = (event) => {
-      if (event.key === "Escape" && mobileMenuOpen) {
-        setMobileMenuOpen(false);
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+        e.preventDefault();
+        setSearchModalOpen((prev) => !prev);
+        closeAllDropdowns();
       }
-      if (event.key === "Escape" && masterOpen) {
-        setMasterOpen(false);
-      }
-      if (event.key === "Escape" && toolsOpen) {
-        setToolsOpen(false);
-      }
-      if (event.key === "Escape" && tutorialsOpen) {
-        setTutorialsOpen(false);
+      if (e.key === "Escape") {
+        closeEverything();
       }
     };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
-    document.addEventListener("keydown", handleEscKey);
-    return () => {
-      document.removeEventListener("keydown", handleEscKey);
-    };
-  }, [mobileMenuOpen, masterOpen, toolsOpen, tutorialsOpen]);
-
-  // Prevent body scroll when mobile menu is open
+  // Autofocus search input when modal opens
   useEffect(() => {
-    if (mobileMenuOpen) {
+    if (searchModalOpen) {
+      setTimeout(() => searchInputRef.current?.focus(), 50);
+      setSelectedSearchIndex(0);
+    }
+  }, [searchModalOpen]);
+
+  // Lock body scroll on mobile menu or search modal open
+  useEffect(() => {
+    if (mobileMenuOpen || searchModalOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -110,465 +508,1263 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, searchModalOpen]);
 
+  // Handle Logout
   const handleLogout = () => {
+    closeEverything();
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    console.log("After logout - token:", localStorage.getItem("token"));
-    console.log("After logout - user:", localStorage.getItem("user"));
-    setIsLoggedIn(false);
+    if (setIsLoggedIn) setIsLoggedIn(false);
     window.dispatchEvent(new Event("storage"));
+    window.dispatchEvent(new Event("authChanged"));
     navigate("/login");
   };
 
-  const isDev = import.meta.env.DEV;
+  // Helper to check if current route starts with or matches group paths
+  const isMasterActive = useMemo(() => {
+    const paths = ["/students", "/admission", "/courses", "/subjects", "/teachers", "/results", "/certificates", "/certificate", "/admin"];
+    return paths.some((p) => location.pathname.startsWith(p));
+  }, [location.pathname]);
 
-  // Helper to get icon class – fallback to "bi-folder" if not found
-  const getIconClass = (iconName) => {
-    const validIcons = {
-      "bi-filetype-js": true,
-      "bi-filetype-py": true,
-      "bi-filetype-c": true,
-      "bi-calculator": true,
-      "bi-file-spreadsheet": true,
-      "bi-journal-code": true,
-      "bi-cpu": true,
-      "bi-files": true,
-      "bi-filetype-css": true,
-      "bi-journal-richtext": true,
-      "bi-motherboard": true,
-      "bi-terminal": true,
-      "bi-diagram-3": true,
-      "bi-node": true,
-      "bi-globe": true,
-    };
-    return validIcons[iconName] ? iconName : "bi-folder";
-  };
+  const isToolsActive = useMemo(() => {
+    const paths = ["/tools", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer", "/studentFeesReceipt"];
+    return paths.some((p) => location.pathname.startsWith(p));
+  }, [location.pathname]);
 
-  const tutorialsItems = [
-    { to: "/javascript/roadmap", key: "javascript", label: "JavaScript", icon: "bi-filetype-js" },
-    { to: "/python/roadmap", key: "python", label: "Python", icon: "bi-filetype-py" },
-    { to: "/c-language/roadmap", key: "c-language", label: "C Programming", icon: "bi-filetype-c" },
-    { to: "/tally/roadmap", key: "tally", label: "Tally", icon: "bi-calculator" },
-    { to: "/excel/roadmap", key: "excel", label: "Excel", icon: "bi-file-spreadsheet" },
-    { to: "/icse-java-ix/roadmap", key: "icse-java-ix", label: "ICSE Class 9", icon: "bi-journal-code" },
-    { to: "/icse-java-x/roadmap", key: "icse-java-x", label: "ICSE Class X", icon: "bi-journal-code" },
-    { to: "/java-core/roadmap", key: "java-core", label: "Core Java", icon: "bi-cpu" },
-    { to: "/general/roadmap", key: "general", label: "General", icon: "bi-files" },
-    { to: "/css/roadmap", key: "css", label: "CSS", icon: "bi-filetype-css" },
-    { to: "/isc-11/roadmap", key: "isc-11", label: "ISC 11 Com. Sc.", icon: "bi-journal-richtext" },
-    { to: "/isc-12/roadmap", key: "isc-12", label: "ISC 12 Com. Sc.", icon: "bi-journal-richtext" },
-    { to: "/computer-architecture/roadmap", key: "computer-architecture", label: "Computer Architecture", icon: "bi-motherboard" },
-    { to: "/unix/roadmap", key: "unix", label: "UNIX", icon: "bi-terminal" },
-    { to: "/react/roadmap", key: "react", label: "React", icon: "bi-filetype-js" },
-    { to: "/network/roadmap", key: "network", label: "Network", icon: "bi-diagram-3" },
-    { to: "/rdbms-mysql/roadmap", key: "rdbms", label: "Rdbms", icon: "bi-diagram-3" },
-    ...(isDev ? [{ to: "/node/roadmap", key: "node", label: "Node.js", icon: "bi-node" }] : []),
-    { to: "/java-web/roadmap", key: "java-web", label: "Java Web", icon: "bi-globe" },
-  ];
-
-  const masterItems = [
-    { to: "/students/add", label: "Students" },
-    { to: "/subjects", label: "Add Subject" },
-    { to: "/courses", label: "Courses" },
-    { to: "/admission", label: "Admission" },
-    { to: "students/student-admission", label: "Student With Admission" },
-    { to: "/results", label: "Result" },
-    { to: "/teachers", label: "Teachers" },
-    { to: "/certificates", label: "Certificates" },
-    { to: "/certificate", label: "Gen. Certificate" }
-  ];
-
-  const toolsItems = [
-    { to: "/tools/type-test", label: "Typing Test" },
-    { to: "/tools/typing-learn", label: "Typing Learn" },
-    { to: "/python-play", label: "Python Editor" },
-    { to: "/play", label: "JavaScript Editor" },
-    { to: "/icons", label: "Icons" },
-    { to: "/whiteBoard", label: "Whiteboard" },
-    { to: "/tools/audioextract", key: "audioextractor", label: "Audioextractor" },
-    { to: "/studentFeesReceipt", label: "Student Fees Receipt" },
-    { to: "/studentFeesReceiptPart2", label: "Student Fees Part 2" },
-    { to: "/studentFeesReceiptPart3", label: "Student Fees Part 3" },
-    { to: "/studentFeesReceiptPart4", label: "Student Fees Part 4 test" },
-  ];
+  const isTutorialsActive = useMemo(() => {
+    return location.pathname.includes("/roadmap") || location.pathname.includes("/module/") || location.pathname.includes("/topic/");
+  }, [location.pathname]);
 
   return (
     <>
-      <motion.nav
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-lg border-gray-800 text-gray-100 px-4 sm:px-6 py-2 flex justify-between items-center shadow-lg"
+      <header
+        ref={navContainerRef}
+        className="w-full bg-slate-950/90 backdrop-blur-2xl border-b border-slate-800/80 shadow-2xl shadow-black/50 transition-all duration-300 relative select-none"
       >
-        {/* Brand */}
-        <div
-          onClick={() => navigate("/dashboard")}
-          className="text-xl font-bold text-sky-400 tracking-wide cursor-pointer hover:text-sky-300 transition"
-        >
-          Coder<span className="text-purple-400">&</span>AccoTax
+        {/* Top glowing ambient accent line */}
+        <div className="h-[2px] w-full bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500 opacity-90" />
+
+        <div className="max-w-7xl mx-auto px-3 sm:px-6">
+          <div className="w-full flex items-center justify-between h-14">
+            
+            {/* 1. BRAND & LOGO */}
+            <div className="flex items-center gap-2 sm:gap-6">
+              <NavLink
+                to="/dashboard"
+                onClick={closeEverything}
+                className="flex items-center gap-2 sm:gap-3 group focus:outline-none"
+              >
+                <div className="relative flex items-center justify-center">
+                  <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-sky-500 to-indigo-500 opacity-30 group-hover:opacity-75 blur transition duration-300" />
+                  <img
+                    src={cnat}
+                    alt="Coder & AccoTax"
+                    className="relative w-8 h-8 sm:w-9 sm:h-9 object-contain transform group-hover:scale-105 transition duration-200"
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-sm sm:text-base font-extrabold tracking-tight text-white group-hover:text-sky-300 transition-colors">
+                      Coder<span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-300 to-purple-400">&</span>AccoTax
+                    </span>
+                    <span className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.2 rounded-full text-[9px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 tracking-wider uppercase">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Portal
+                    </span>
+                  </div>
+                  <span className="text-[9px] text-slate-400 font-medium uppercase tracking-wider hidden md:block -mt-0.5">
+                    Management & Learning Suite
+                  </span>
+                </div>
+              </NavLink>
+            </div>
+
+            {/* 2. DESKTOP NAVIGATION TABS */}
+            <nav className="hidden lg:flex items-center gap-1 text-xs sm:text-sm font-medium">
+              
+              {/* DASHBOARD LINK */}
+              <NavLink
+                to="/dashboard"
+                onClick={closeAllDropdowns}
+                className={({ isActive }) =>
+                  `inline-flex items-center gap-2 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                    isActive
+                      ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+                  }`
+                }
+              >
+                <i className="bi bi-speedometer2 text-sky-400 text-sm"></i>
+                <span>Dashboard</span>
+              </NavLink>
+
+              {/* MASTER MEGA MENU */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => toggleDropdown("master")}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
+                    activeDropdown === "master" || isMasterActive
+                      ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+                  }`}
+                  aria-expanded={activeDropdown === "master"}
+                >
+                  <i className="bi bi-layers-half text-sky-400 text-sm"></i>
+                  <span>Master</span>
+                  <i
+                    className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
+                      activeDropdown === "master" ? "rotate-180 text-sky-400" : ""
+                    }`}
+                  ></i>
+                </button>
+
+                {/* Master Mega Dropdown Panel */}
+                <AnimatePresence>
+                  {activeDropdown === "master" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                      transition={{ duration: 0.18, ease: "easeOut" }}
+                      className="absolute left-1/2 -translate-x-1/3 top-full mt-2 w-[720px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800/90 rounded-2xl shadow-2xl shadow-black/80 p-4 z-50 ring-1 ring-white/10"
+                    >
+                      {/* Top Header */}
+                      <div className="flex items-center justify-between pb-3 border-b border-slate-800/80 mb-3 px-1">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-sky-400 shadow-sm shadow-sky-400/50"></span>
+                          <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
+                            Academic & Administrative Master
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700/60">
+                          Instant Access
+                        </span>
+                      </div>
+
+                      {/* Columns Grid */}
+                      <div className="grid grid-cols-3 gap-3">
+                        {masterGroups.map((group) => (
+                          <div key={group.id} className="space-y-1.5">
+                            <div className="flex items-center gap-2 px-2 py-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                              <i className={`bi ${group.icon} text-sky-400`}></i>
+                              <span>{group.title}</span>
+                            </div>
+
+                            <div className="space-y-1">
+                              {group.items.map((item) => (
+                                <NavLink
+                                  key={item.to}
+                                  to={item.to}
+                                  onClick={closeAllDropdowns}
+                                  className={({ isActive }) =>
+                                    `group/item flex items-start gap-2.5 p-2 rounded-xl transition-all duration-150 ${
+                                      isActive
+                                        ? "bg-sky-500/20 text-sky-200 border border-sky-500/30"
+                                        : "hover:bg-slate-800/80 text-slate-300 hover:text-white border border-transparent"
+                                    }`
+                                  }
+                                >
+                                  <div className="mt-0.5 flex-shrink-0 w-7 h-7 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-sky-400 group-hover/item:border-sky-500/40 group-hover/item:text-sky-300 group-hover/item:scale-105 transition">
+                                    <i className={`bi ${item.icon} text-xs`}></i>
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="flex items-center justify-between">
+                                      <span className="text-xs font-semibold truncate group-hover/item:text-sky-300 transition">
+                                        {item.label}
+                                      </span>
+                                      {item.badge && (
+                                        <span className="text-[9px] px-1.5 py-0.2 rounded-full font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30">
+                                          {item.badge}
+                                        </span>
+                                      )}
+                                    </div>
+                                    <p className="text-[10px] text-slate-400 line-clamp-1 group-hover/item:text-slate-300 transition">
+                                      {item.desc}
+                                    </p>
+                                  </div>
+                                </NavLink>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Bottom Banner */}
+                      <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 px-2">
+                        <span className="flex items-center gap-1.5">
+                          <i className="bi bi-shield-check text-emerald-400"></i>
+                          Authorized Faculty & Administrative Operations
+                        </span>
+                        <NavLink
+                          to="/admin"
+                          onClick={closeAllDropdowns}
+                          className="text-sky-400 hover:text-sky-300 font-medium flex items-center gap-1 hover:underline"
+                        >
+                          <span>Full Admin View</span>
+                          <i className="bi bi-arrow-right text-[10px]"></i>
+                        </NavLink>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* TOOLS MEGA MENU */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => toggleDropdown("tools")}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
+                    activeDropdown === "tools" || isToolsActive
+                      ? "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30 shadow-sm shadow-cyan-500/10 font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+                  }`}
+                  aria-expanded={activeDropdown === "tools"}
+                >
+                  <i className="bi bi-tools text-cyan-400 text-sm"></i>
+                  <span>Tools</span>
+                  <i
+                    className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
+                      activeDropdown === "tools" ? "rotate-180 text-cyan-400" : ""
+                    }`}
+                  ></i>
+                </button>
+
+                {/* Tools Mega Dropdown Panel */}
+                <AnimatePresence>
+                  {activeDropdown === "tools" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                      transition={{ duration: 0.18, ease: "easeOut" }}
+                      className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[820px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800/90 rounded-2xl shadow-2xl shadow-black/80 p-4 z-50 ring-1 ring-white/10"
+                    >
+                      {/* Header */}
+                      <div className="flex items-center justify-between pb-3 border-b border-slate-800/80 mb-3 px-1">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-sm shadow-cyan-400/50"></span>
+                          <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
+                            Interactive Compilers, Visualizers & Academic Tools
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700/60">
+                          {toolsGroups.reduce((acc, g) => acc + g.items.length, 0)} Utilities Ready
+                        </span>
+                      </div>
+
+                      {/* 4-Column Grid */}
+                      <div className="grid grid-cols-4 gap-3">
+                        {toolsGroups.map((group) => (
+                          <div key={group.id} className="space-y-1.5">
+                            <div className="flex items-center gap-1.5 px-1 py-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                              <i className={`bi ${group.icon} text-cyan-400`}></i>
+                              <span className="truncate">{group.title}</span>
+                            </div>
+
+                            <div className="space-y-1">
+                              {group.items.map((item) => (
+                                <NavLink
+                                  key={item.to}
+                                  to={item.to}
+                                  onClick={closeAllDropdowns}
+                                  className={({ isActive }) =>
+                                    `group/tool flex items-start gap-2 p-2 rounded-xl transition-all duration-150 ${
+                                      isActive
+                                        ? "bg-cyan-500/20 text-cyan-200 border border-cyan-500/30"
+                                        : "hover:bg-slate-800/80 text-slate-300 hover:text-white border border-transparent"
+                                    }`
+                                  }
+                                >
+                                  <div className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-cyan-400 group-hover/tool:border-cyan-500/40 group-hover/tool:text-cyan-300 group-hover/tool:scale-105 transition">
+                                    <i className={`bi ${item.icon} text-xs`}></i>
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="flex items-center justify-between">
+                                      <span className="text-[11px] font-semibold truncate group-hover/tool:text-cyan-300 transition">
+                                        {item.label}
+                                      </span>
+                                    </div>
+                                    <p className="text-[9px] text-slate-400 line-clamp-1 group-hover/tool:text-slate-300 transition">
+                                      {item.desc}
+                                    </p>
+                                  </div>
+                                </NavLink>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Bottom Footer */}
+                      <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 px-2">
+                        <span className="flex items-center gap-1.5">
+                          <i className="bi bi-cpu text-cyan-400"></i>
+                          Live client-side interpreters & data structures
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <NavLink
+                            to="/whiteBoard"
+                            onClick={closeAllDropdowns}
+                            className="text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-1 hover:underline text-xs"
+                          >
+                            <i className="bi bi-easel2"></i>
+                            <span>Open Whiteboard</span>
+                          </NavLink>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* TUTORIALS MEGA MENU */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => toggleDropdown("tutorials")}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
+                    activeDropdown === "tutorials" || isTutorialsActive
+                      ? "text-purple-300 bg-purple-500/15 border border-purple-500/30 shadow-sm shadow-purple-500/10 font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+                  }`}
+                  aria-expanded={activeDropdown === "tutorials"}
+                >
+                  <i className="bi bi-journal-bookmark-fill text-purple-400 text-sm"></i>
+                  <span>Tutorials</span>
+                  <i
+                    className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
+                      activeDropdown === "tutorials" ? "rotate-180 text-purple-400" : ""
+                    }`}
+                  ></i>
+                </button>
+
+                {/* Tutorials Mega Dropdown Panel */}
+                <AnimatePresence>
+                  {activeDropdown === "tutorials" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                      transition={{ duration: 0.18, ease: "easeOut" }}
+                      className="absolute left-1/2 -translate-x-2/3 top-full mt-2 w-[760px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800/90 rounded-2xl shadow-2xl shadow-black/80 p-4 z-50 ring-1 ring-white/10"
+                    >
+                      {/* Top Search & Filter Bar */}
+                      <div className="flex items-center justify-between gap-3 pb-3 border-b border-slate-800/80 mb-3">
+                        {/* Category filter pills */}
+                        <div className="flex items-center gap-1 overflow-x-auto py-0.5">
+                          {tutorialsCategories.map((cat) => (
+                            <button
+                              key={cat.id}
+                              type="button"
+                              onClick={() => setTutorialCategoryFilter(cat.id)}
+                              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium transition cursor-pointer ${
+                                tutorialCategoryFilter === cat.id
+                                  ? "bg-purple-600 text-white shadow-sm shadow-purple-500/20"
+                                  : "text-slate-400 hover:text-white hover:bg-slate-800"
+                              }`}
+                            >
+                              <i className={`bi ${cat.icon} text-[10px]`}></i>
+                              <span>{cat.label}</span>
+                            </button>
+                          ))}
+                        </div>
+
+                        {/* Dropdown in-line Search */}
+                        <div className="relative w-44 flex-shrink-0">
+                          <i className="bi bi-search absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                          <input
+                            type="text"
+                            value={tutorialDropdownSearch}
+                            onChange={(e) => setTutorialDropdownSearch(e.target.value)}
+                            placeholder="Filter roadmaps..."
+                            className="w-full bg-slate-950/80 border border-slate-800 rounded-lg pl-7 pr-2.5 py-1 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/60"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Tutorials Grid */}
+                      <div className="max-h-[360px] overflow-y-auto pr-1 grid grid-cols-3 gap-2">
+                        {filteredTutorials.length === 0 ? (
+                          <div className="col-span-3 py-8 text-center text-slate-500 text-xs">
+                            <i className="bi bi-search text-lg block mb-1"></i>
+                            No roadmaps matching "{tutorialDropdownSearch}"
+                          </div>
+                        ) : (
+                          filteredTutorials.map((item) => (
+                            <NavLink
+                              key={item.to}
+                              to={item.to}
+                              onClick={closeAllDropdowns}
+                              className={({ isActive }) =>
+                                `group/tut flex items-center justify-between p-2.5 rounded-xl border transition-all duration-150 ${
+                                  isActive
+                                    ? "bg-purple-500/20 text-purple-200 border-purple-500/30"
+                                    : "bg-slate-950/40 hover:bg-slate-800/80 text-slate-300 hover:text-white border-slate-800/60 hover:border-purple-500/30"
+                                }`
+                              }
+                            >
+                              <div className="flex items-center gap-2.5 min-w-0">
+                                <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-sm border ${item.color} group-hover/tut:scale-105 transition`}>
+                                  <i className={`bi ${item.icon}`}></i>
+                                </div>
+                                <span className="text-xs font-semibold truncate group-hover/tut:text-purple-300 transition">
+                                  {item.label}
+                                </span>
+                              </div>
+                              {item.badge && (
+                                <span className="text-[9px] px-1.5 py-0.2 rounded-md font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30 flex-shrink-0">
+                                  {item.badge}
+                                </span>
+                              )}
+                            </NavLink>
+                          ))
+                        )}
+                      </div>
+
+                      {/* Bottom Info */}
+                      <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 px-2">
+                        <span className="flex items-center gap-1.5">
+                          <i className="bi bi-patch-check-fill text-purple-400"></i>
+                          Complete Step-by-Step Curriculum & Interactive Sandboxes
+                        </span>
+                        <span className="text-slate-400">
+                          Showing {filteredTutorials.length} Roadmaps
+                        </span>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+            </nav>
+
+            {/* 3. RIGHT CONTROLS: SEARCH SPOTLIGHT, USER PROFILE & LOGOUT */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              
+              {/* SPOTLIGHT / COMMAND SEARCH BUTTON */}
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchModalOpen(true);
+                  closeAllDropdowns();
+                }}
+                className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-800/80 hover:border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-medium transition shadow-sm hover:shadow group cursor-pointer"
+                title="Search anything (Ctrl+K)"
+              >
+                <i className="bi bi-search text-slate-400 group-hover:text-sky-400 transition-colors"></i>
+                <span className="text-slate-400 group-hover:text-slate-300">Quick Jump...</span>
+                <kbd className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-semibold text-slate-400 bg-slate-800 rounded border border-slate-700/60 shadow-xs">
+                  ⌘K
+                </kbd>
+              </button>
+
+              {/* USER PROFILE DROPDOWN */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => toggleDropdown("profile")}
+                  className={`flex items-center gap-2 p-1 sm:px-2.5 sm:py-1 rounded-xl transition cursor-pointer border ${
+                    activeDropdown === "profile"
+                      ? "bg-slate-800 border-slate-700 text-white"
+                      : "bg-slate-900/80 hover:bg-slate-800/80 border-slate-800/80 text-slate-300"
+                  }`}
+                  aria-label="User Account Menu"
+                >
+                  {/* Avatar with gradient & online dot */}
+                  <div className="relative flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-tr from-sky-600 via-indigo-600 to-purple-600 text-white font-bold text-xs shadow-md shadow-sky-500/20">
+                    {userInitials}
+                    <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-slate-950"></span>
+                  </div>
+
+                  <div className="hidden sm:flex flex-col text-left leading-tight">
+                    <span className="text-xs font-bold text-white max-w-[100px] truncate">
+                      {user?.name || "Admin"}
+                    </span>
+                    <span className="text-[10px] text-sky-400 font-medium capitalize">
+                      {user?.role || "Faculty"}
+                    </span>
+                  </div>
+
+                  <i
+                    className={`bi bi-chevron-down text-[10px] text-slate-400 hidden sm:block transition-transform duration-200 ${
+                      activeDropdown === "profile" ? "rotate-180" : ""
+                    }`}
+                  ></i>
+                </button>
+
+                {/* User Dropdown Menu */}
+                <AnimatePresence>
+                  {activeDropdown === "profile" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 top-full mt-2 w-64 bg-slate-900/98 backdrop-blur-2xl border border-slate-800 rounded-2xl shadow-2xl p-2 z-50 ring-1 ring-white/10"
+                    >
+                      {/* User Header Summary */}
+                      <div className="p-3 bg-slate-950/80 rounded-xl border border-slate-800/80 mb-2">
+                        <div className="flex items-center gap-2.5 mb-1.5">
+                          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-md">
+                            {userInitials}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-xs font-bold text-white truncate">
+                              {user?.name || "Administrator"}
+                            </p>
+                            <p className="text-[10px] text-slate-400 truncate">
+                              {user?.email || "admin@coderaccotax.in"}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between pt-1.5 border-t border-slate-800/60 text-[10px]">
+                          <span className="text-slate-400">Status:</span>
+                          <span className="inline-flex items-center gap-1 font-semibold text-emerald-400">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Active Session
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Links */}
+                      <div className="space-y-0.5">
+                        <NavLink
+                          to="/dashboard"
+                          onClick={closeAllDropdowns}
+                          className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition"
+                        >
+                          <i className="bi bi-speedometer2 text-sky-400 text-sm"></i>
+                          <span>Dashboard Overview</span>
+                        </NavLink>
+                        <NavLink
+                          to="/profile"
+                          onClick={closeAllDropdowns}
+                          className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition"
+                        >
+                          <i className="bi bi-person text-indigo-400 text-sm"></i>
+                          <span>My Profile</span>
+                        </NavLink>
+                        <NavLink
+                          to="/settings"
+                          onClick={closeAllDropdowns}
+                          className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition"
+                        >
+                          <i className="bi bi-gear text-purple-400 text-sm"></i>
+                          <span>Settings & Preferences</span>
+                        </NavLink>
+                        <NavLink
+                          to="/admin"
+                          onClick={closeAllDropdowns}
+                          className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition"
+                        >
+                          <i className="bi bi-shield-lock text-amber-400 text-sm"></i>
+                          <span>Admin Control Panel</span>
+                        </NavLink>
+                      </div>
+
+                      {/* Divider */}
+                      <div className="my-1.5 border-t border-slate-800/80"></div>
+
+                      {/* Logout Option */}
+                      <button
+                        type="button"
+                        onClick={handleLogout}
+                        className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold text-rose-400 hover:text-white hover:bg-rose-600/90 transition cursor-pointer group"
+                      >
+                        <span className="flex items-center gap-2.5">
+                          <i className="bi bi-box-arrow-right text-sm group-hover:translate-x-0.5 transition-transform"></i>
+                          <span>Sign Out</span>
+                        </span>
+                        <i className="bi bi-power text-[11px] opacity-70"></i>
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* DIRECT LOGOUT BUTTON (DESKTOP) */}
+              <motion.button
+                type="button"
+                onClick={handleLogout}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-xl font-semibold bg-rose-500/15 hover:bg-rose-600 text-rose-400 hover:text-white border border-rose-500/30 hover:border-transparent transition-all shadow-sm cursor-pointer"
+                title="Log out of session"
+              >
+                <i className="bi bi-box-arrow-right"></i>
+                <span>Logout</span>
+              </motion.button>
+
+              {/* MOBILE ACTION BUTTONS & HAMBURGER TOGGLE */}
+              <div className="flex items-center gap-1 lg:hidden">
+                <button
+                  type="button"
+                  onClick={() => setSearchModalOpen(true)}
+                  className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white focus:outline-none cursor-pointer"
+                  aria-label="Search"
+                >
+                  <i className="bi bi-search text-sm"></i>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(true)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 text-white font-semibold text-xs border border-sky-400/30 shadow-md shadow-sky-500/20 active:scale-95 transition cursor-pointer"
+                  aria-label="Open Navigation Menu"
+                >
+                  <i className="bi bi-grid-fill text-xs"></i>
+                  <span>Menu</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
         </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+        {/* Mobile Horizontal Quick Section Strip (Visible on mobile screens) */}
+        <div className="lg:hidden flex items-center gap-1 px-3 py-1.5 bg-slate-950 border-t border-slate-800/80 overflow-x-auto text-[11px] font-medium text-slate-400">
           <NavLink
             to="/dashboard"
-            onClick={closeMenus}
             className={({ isActive }) =>
-              isActive
-                ? "text-sky-400 border-b-2 border-sky-500 pb-1"
-                : "text-gray-300 hover:text-sky-400"
+              `flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition ${
+                isActive ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30" : "hover:text-white hover:bg-slate-900"
+              }`
             }
           >
-            Dashboard
+            <i className="bi bi-speedometer2 text-sky-400"></i>
+            <span>Dashboard</span>
           </NavLink>
 
-          {/* MASTER MENU */}
-          <div className="relative" ref={masterMenuRef}>
-            <button
-              onClick={toggleMaster}
-              className="text-gray-300 hover:text-white flex items-center gap-1"
-            >
-              Master ▾
-            </button>
+          <button
+            type="button"
+            onClick={() => {
+              setMobileTab("master");
+              setMobileMenuOpen(true);
+            }}
+            className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
+          >
+            <i className="bi bi-layers-half text-sky-400"></i>
+            <span>Master</span>
+          </button>
 
-            <AnimatePresence>
-              {masterOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 mt-2 w-52 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2"
-                >
-                  {masterItems.map((item) => (
-                    <NavLink
-                      key={item.to}
-                      to={item.to}
-                      onClick={closeMenus}
-                      className="block px-3 py-2 hover:bg-gray-800 rounded"
+          <button
+            type="button"
+            onClick={() => {
+              setMobileTab("tools");
+              setMobileMenuOpen(true);
+            }}
+            className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
+          >
+            <i className="bi bi-tools text-cyan-400"></i>
+            <span>Tools</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              setMobileTab("tutorials");
+              setMobileMenuOpen(true);
+            }}
+            className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
+          >
+            <i className="bi bi-journal-bookmark-fill text-purple-400"></i>
+            <span>Roadmaps</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setSearchModalOpen(true)}
+            className="flex items-center gap-1 px-2 py-1 rounded-lg whitespace-nowrap text-slate-400 hover:text-white ml-auto"
+          >
+            <i className="bi bi-search text-xs"></i>
+          </button>
+        </div>
+      </header>
+
+      {/* ========================================================================= */}
+      {/* 4. COMMAND PALETTE / GLOBAL SEARCH SPOTLIGHT MODAL (Ctrl+K) */}
+      {/* Portaled directly to body so it never gets clipped or contained */}
+      {/* ========================================================================= */}
+      {typeof document !== "undefined" && createPortal(
+        <AnimatePresence>
+          {searchModalOpen && (
+            <div className="fixed inset-0 z-[99999] flex items-start justify-center pt-16 px-4">
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                className="fixed inset-0 bg-slate-950/80 backdrop-blur-md"
+                onClick={() => setSearchModalOpen(false)}
+              />
+
+              {/* Spotlight Modal Box */}
+              <motion.div
+                initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -15, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                className="relative w-full max-w-xl bg-slate-900/98 backdrop-blur-2xl border border-slate-700/80 rounded-2xl shadow-2xl shadow-black p-4 z-10 ring-1 ring-sky-500/30"
+              >
+                {/* Search Bar Input */}
+                <div className="relative flex items-center mb-3">
+                  <i className="bi bi-search absolute left-3 text-sky-400 text-base"></i>
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      setSelectedSearchIndex(0);
+                    }}
+                    placeholder="Search master pages, tools, roadmaps, tutorials..."
+                    className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-10 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500/70 shadow-inner"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery("")}
+                      className="absolute right-3 text-slate-400 hover:text-white"
                     >
-                      {item.label}
-                    </NavLink>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                      <i className="bi bi-x-circle-fill"></i>
+                    </button>
+                  )}
+                </div>
 
-          {/* TOOLS MENU */}
-          <div className="relative" ref={toolsMenuRef}>
-            <button
-              onClick={toggleTools}
-              className="text-gray-300 hover:text-white flex items-center gap-1"
-            >
-              Tools ▾
-            </button>
+                {/* Quick Results List */}
+                <div className="max-h-80 overflow-y-auto space-y-1 pr-1">
+                  {searchResults.length === 0 ? (
+                    <div className="py-10 text-center text-slate-500 text-sm">
+                      <i className="bi bi-search text-2xl block mb-2 opacity-50"></i>
+                      No navigation links found matching "{searchQuery}"
+                    </div>
+                  ) : (
+                    searchResults.map((item, idx) => (
+                      <NavLink
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => {
+                          setSearchModalOpen(false);
+                          setSearchQuery("");
+                        }}
+                        className={`flex items-center justify-between p-2.5 rounded-xl border transition-all duration-150 ${
+                          idx === selectedSearchIndex
+                            ? "bg-sky-500/20 text-white border-sky-500/40 shadow-sm"
+                            : "bg-slate-950/40 text-slate-300 hover:bg-slate-800/80 hover:text-white border-slate-800/60"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="w-8 h-8 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-sky-400 text-sm flex-shrink-0">
+                            <i className={`bi ${item.icon}`}></i>
+                          </div>
+                          <div className="min-w-0">
+                            <p className="text-xs font-semibold truncate text-white">{item.label}</p>
+                            {item.desc && (
+                              <p className="text-[10px] text-slate-400 line-clamp-1">{item.desc}</p>
+                            )}
+                          </div>
+                        </div>
 
-            <AnimatePresence>
-              {toolsOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 mt-2 w-52 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2"
-                >
-                  {toolsItems.map((item) => (
-                    <NavLink
-                      key={item.to}
-                      to={item.to}
-                      onClick={closeMenus}
-                      className="block px-3 py-2 hover:bg-gray-800 rounded"
+                        <span className="text-[9px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider bg-slate-800 text-slate-400 border border-slate-700/60 flex-shrink-0 ml-2">
+                          {item.group}
+                        </span>
+                      </NavLink>
+                    ))
+                  )}
+                </div>
+
+                {/* Footer instructions */}
+                <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
+                  <span className="flex items-center gap-2">
+                    <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-[10px]">ESC</kbd> to close
+                  </span>
+                  <span>Press item to navigate immediately</span>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
+
+      {/* ========================================================================= */}
+      {/* 5. NEXT-LEVEL RICH MOBILE DRAWER NAVIGATION (SLIDE OVER FROM RIGHT) */}
+      {/* Portaled directly to document.body so it is 100% visible on any mobile device */}
+      {/* ========================================================================= */}
+      {typeof document !== "undefined" && createPortal(
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <div className="fixed inset-0 z-[99999] lg:hidden flex justify-end">
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 bg-slate-950/85 backdrop-blur-md"
+                onClick={() => setMobileMenuOpen(false)}
+              />
+
+              {/* Slide-out Menu Panel */}
+              <motion.div
+                ref={mobileMenuRef}
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 220 }}
+                className="relative h-dvh w-full max-w-md bg-slate-900 border-l border-slate-800 shadow-2xl flex flex-col overflow-hidden z-10"
+              >
+                {/* Drawer Top Header: User Profile Card */}
+                <div className="p-4 border-b border-slate-800/80 bg-slate-950/90">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-sky-500/20">
+                        {userInitials}
+                        <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-slate-950"></span>
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-bold text-white truncate">{user?.name || "Admin"}</p>
+                        <div className="flex items-center gap-1.5 text-[10px]">
+                          <span className="text-sky-400 font-semibold uppercase tracking-wider">{user?.role || "Faculty"}</span>
+                          <span className="text-slate-600">•</span>
+                          <span className="text-emerald-400 font-medium flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Online
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer"
+                      aria-label="Close navigation"
                     >
-                      {item.label}
-                    </NavLink>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                      <i className="bi bi-x-lg text-lg"></i>
+                    </button>
+                  </div>
 
-          {/* Tutorials dropdown */}
-          <div className="relative" ref={tutorialsMenuRef}>
-            <button
-              onClick={toggleTutorials}
-              className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 text-sm sm:text-base font-medium rounded-full transition"
-            >
-              <i className={`bi ${getIconClass("bi-folder")}`}></i>
-              <span>Tutorials</span>
-              <i className={`bi bi-chevron-down text-xs transition-transform ${tutorialsOpen ? "rotate-180" : ""}`}></i>
-            </button>
+                  {/* Mobile Tab Switcher for Quick Filtering */}
+                  <div className="flex items-center gap-1 mt-3 p-1 bg-slate-900 rounded-xl border border-slate-800/80 overflow-x-auto">
+                    <button
+                      type="button"
+                      onClick={() => setMobileTab("all")}
+                      className={`flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                        mobileTab === "all"
+                          ? "bg-sky-500 text-white shadow-sm"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      All Sections
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setMobileTab("master")}
+                      className={`flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                        mobileTab === "master"
+                          ? "bg-sky-500 text-white shadow-sm"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      Master
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setMobileTab("tools")}
+                      className={`flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                        mobileTab === "tools"
+                          ? "bg-cyan-500 text-white shadow-sm"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      Tools
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setMobileTab("tutorials")}
+                      className={`flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                        mobileTab === "tutorials"
+                          ? "bg-purple-600 text-white shadow-sm"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      Roadmaps
+                    </button>
+                  </div>
+                </div>
 
-            <AnimatePresence>
-              {tutorialsOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 mt-2 w-64 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50 max-h-96 overflow-y-auto"
-                >
-                  {tutorialsItems.map((item) => (
+                {/* Mobile Search input */}
+                <div className="p-3 border-b border-slate-800/80 bg-slate-950/60">
+                  <div className="relative">
+                    <i className="bi bi-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input
+                      type="text"
+                      value={mobileSearchQuery}
+                      onChange={(e) => setMobileSearchQuery(e.target.value)}
+                      placeholder="Search any page, tool, roadmap..."
+                      className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500/60"
+                    />
+                    {mobileSearchQuery && (
+                      <button
+                        type="button"
+                        onClick={() => setMobileSearchQuery("")}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs"
+                      >
+                        <i className="bi bi-x-circle-fill"></i>
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Instant Search Results Box on Mobile */}
+                  {mobileFilteredSearchResults.length > 0 && (
+                    <div className="mt-2 p-1.5 bg-slate-950 rounded-xl border border-slate-800 max-h-56 overflow-y-auto space-y-1">
+                      <div className="px-2 py-1 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                        Matching Results ({mobileFilteredSearchResults.length})
+                      </div>
+                      {mobileFilteredSearchResults.map((item) => (
+                        <NavLink
+                          key={item.to}
+                          to={item.to}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center justify-between p-2 rounded-lg text-xs text-slate-300 hover:bg-slate-800 hover:text-white border border-transparent hover:border-slate-700"
+                        >
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            <i className={`bi ${item.icon} text-sky-400 text-sm`}></i>
+                            <div className="min-w-0">
+                              <p className="font-semibold truncate text-white">{item.label}</p>
+                              {item.desc && <p className="text-[10px] text-slate-400 truncate">{item.desc}</p>}
+                            </div>
+                          </div>
+                          <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 border border-slate-700">
+                            {item.group}
+                          </span>
+                        </NavLink>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Scrollable Navigation Body */}
+                <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3">
+                  
+                  {/* 1. DASHBOARD TILE */}
+                  {(mobileTab === "all") && (
                     <NavLink
-                      key={item.to}
-                      to={item.to}
-                      onClick={closeMenus}
+                      to="/dashboard"
+                      onClick={() => setMobileMenuOpen(false)}
                       className={({ isActive }) =>
-                        `flex items-center gap-3 px-3 py-2 rounded-lg transition ${
-                          isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"
+                        `flex items-center justify-between p-3 rounded-2xl border transition-all duration-150 ${
+                          isActive
+                            ? "bg-sky-500/20 text-white border-sky-500/40 shadow-sm"
+                            : "bg-slate-950/60 text-slate-300 hover:bg-slate-800 hover:text-white border-slate-800/80"
                         }`
                       }
                     >
-                      <i className={`bi ${getIconClass(item.icon)} text-lg`}></i>
-                      <span>{item.label}</span>
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-xl bg-sky-500/20 text-sky-400 border border-sky-500/30 flex items-center justify-center text-base">
+                          <i className="bi bi-speedometer2"></i>
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold text-white">Dashboard Overview</p>
+                          <p className="text-[10px] text-slate-400">Live stats, student batches & insights</p>
+                        </div>
+                      </div>
+                      <i className="bi bi-chevron-right text-slate-500 text-xs"></i>
                     </NavLink>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                  )}
 
-          <NavLink
-            to="/profile"
-            onClick={closeMenus}
-            className={({ isActive }) =>
-              isActive
-                ? "text-sky-400 border-b-2 border-sky-500 pb-1"
-                : "text-gray-300 hover:text-sky-400"
-            }
-          >
-            Profile
-          </NavLink>
-
-          <NavLink
-            to="/settings"
-            onClick={closeMenus}
-            className={({ isActive }) =>
-              isActive
-                ? "text-sky-400 border-b-2 border-sky-500 pb-1"
-                : "text-gray-300 hover:text-sky-400"
-            }
-          >
-            Settings
-          </NavLink>
-        </div>
-
-        {/* Logout Button - Always Visible */}
-        <div className="flex items-center gap-3">
-          <motion.button
-            onClick={handleLogout}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-red-600 hover:bg-red-700 px-3 sm:px-4 py-1.5 text-sm rounded-md font-semibold shadow-md transition-all duration-300"
-          >
-            Logout
-          </motion.button>
-
-          {/* Mobile Menu Toggle Button */}
-          <button
-            className="md:hidden text-sky-400 text-2xl cursor-pointer p-2 hover:bg-gray-800 rounded-lg transition"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <i className={`bi ${mobileMenuOpen ? "bi-x-lg" : "bi-list"}`}></i>
-          </button>
-        </div>
-      </motion.nav>
-
-      {/* Mobile Menu Overlay - Moved outside the nav to avoid z-index issues */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 md:hidden"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            
-            {/* Mobile Menu Panel */}
-            <motion.div
-              ref={mobileMenuRef}
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.3 }}
-              className="fixed top-0 right-0 h-full w-80 bg-gray-900 shadow-2xl z-50 md:hidden overflow-y-auto"
-            >
-              <div className="p-4 pt-20 space-y-2">
-                {/* Close button inside menu */}
-                <button
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl p-2 hover:bg-gray-800 rounded-lg transition"
-                  aria-label="Close menu"
-                >
-                  <i className="bi bi-x-lg"></i>
-                </button>
-
-                {/* Mobile Dashboard Link */}
-                <NavLink
-                  to="/dashboard"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `block px-4 py-3 rounded-lg transition ${
-                      isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"
-                    }`
-                  }
-                >
-                  <i className="bi bi-speedometer2 mr-3"></i>
-                  Dashboard
-                </NavLink>
-
-                {/* Mobile Master Menu */}
-                <div className="border-t border-gray-700 pt-2">
-                  <button
-                    onClick={() => setMobileMasterOpen(!mobileMasterOpen)}
-                    className="w-full flex justify-between items-center px-4 py-3 text-gray-300 hover:bg-gray-800 rounded-lg transition"
-                  >
-                    <span><i className="bi bi-database mr-3"></i>Master</span>
-                    <i className={`bi bi-chevron-down transition-transform ${mobileMasterOpen ? "rotate-180" : ""}`}></i>
-                  </button>
-                  
-                  <AnimatePresence>
-                    {mobileMasterOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="overflow-hidden"
+                  {/* 2. MASTER SECTION (CARDS & GROUPS) */}
+                  {(mobileTab === "all" || mobileTab === "master") && (
+                    <div className="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-950/40">
+                      <button
+                        type="button"
+                        onClick={() => setMobileActiveAccordion(mobileActiveAccordion === "master" ? null : "master")}
+                        className="w-full flex items-center justify-between p-3 text-xs font-bold text-slate-200 hover:bg-slate-800/60 transition cursor-pointer"
                       >
-                        <div className="ml-6 mt-1 space-y-1">
-                          {masterItems.map((item) => (
-                            <NavLink
-                              key={item.to}
-                              to={item.to}
-                              onClick={() => setMobileMenuOpen(false)}
-                              className="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition"
-                            >
-                              {item.label}
-                            </NavLink>
+                        <span className="flex items-center gap-2.5">
+                          <span className="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-400 border border-sky-500/30 flex items-center justify-center">
+                            <i className="bi bi-layers-half text-xs"></i>
+                          </span>
+                          <span>Master Management Portal</span>
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] font-semibold text-sky-400 bg-sky-500/15 px-2 py-0.5 rounded-full border border-sky-500/20">
+                            {masterGroups.reduce((acc, g) => acc + g.items.length, 0)} Items
+                          </span>
+                          <i
+                            className={`bi bi-chevron-down text-slate-400 transition-transform ${
+                              mobileActiveAccordion === "master" || mobileTab === "master" ? "rotate-180 text-sky-400" : ""
+                            }`}
+                          ></i>
+                        </div>
+                      </button>
+
+                      {(mobileActiveAccordion === "master" || mobileTab === "master") && (
+                        <div className="border-t border-slate-800/80 bg-slate-950/90 p-2.5 space-y-3">
+                          {masterGroups.map((group) => (
+                            <div key={group.id} className="space-y-1.5">
+                              <div className="flex items-center gap-1.5 px-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                <i className={`bi ${group.icon} text-sky-400`}></i>
+                                <span>{group.title}</span>
+                              </div>
+
+                              <div className="space-y-1">
+                                {group.items.map((item) => (
+                                  <NavLink
+                                    key={item.to}
+                                    to={item.to}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className={({ isActive }) =>
+                                      `group flex items-start gap-2.5 p-2.5 rounded-xl transition border ${
+                                        isActive
+                                          ? "bg-sky-500/20 text-sky-200 border-sky-500/30"
+                                          : "bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white border-slate-800/60"
+                                      }`
+                                    }
+                                  >
+                                    <div className="w-8 h-8 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-sky-400 flex-shrink-0 mt-0.5">
+                                      <i className={`bi ${item.icon} text-sm`}></i>
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <div className="flex items-center justify-between">
+                                        <p className="text-xs font-semibold truncate text-white">{item.label}</p>
+                                        {item.badge && (
+                                          <span className="text-[9px] px-1.5 py-0.2 rounded-full font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30">
+                                            {item.badge}
+                                          </span>
+                                        )}
+                                      </div>
+                                      <p className="text-[10px] text-slate-400 line-clamp-1">{item.desc}</p>
+                                    </div>
+                                  </NavLink>
+                                ))}
+                              </div>
+                            </div>
                           ))}
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                      )}
+                    </div>
+                  )}
 
-                {/* Mobile Tools Menu */}
-                <div className="border-t border-gray-700 pt-2">
-                  <button
-                    onClick={() => setMobileToolsOpen(!mobileToolsOpen)}
-                    className="w-full flex justify-between items-center px-4 py-3 text-gray-300 hover:bg-gray-800 rounded-lg transition"
-                  >
-                    <span><i className="bi bi-tools mr-3"></i>Tools</span>
-                    <i className={`bi bi-chevron-down transition-transform ${mobileToolsOpen ? "rotate-180" : ""}`}></i>
-                  </button>
-                  
-                  <AnimatePresence>
-                    {mobileToolsOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="overflow-hidden"
+                  {/* 3. TOOLS SECTION (CARDS & GROUPS) */}
+                  {(mobileTab === "all" || mobileTab === "tools") && (
+                    <div className="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-950/40">
+                      <button
+                        type="button"
+                        onClick={() => setMobileActiveAccordion(mobileActiveAccordion === "tools" ? null : "tools")}
+                        className="w-full flex items-center justify-between p-3 text-xs font-bold text-slate-200 hover:bg-slate-800/60 transition cursor-pointer"
                       >
-                        <div className="ml-6 mt-1 space-y-1">
-                          {toolsItems.map((item) => (
-                            <NavLink
-                              key={item.to}
-                              to={item.to}
-                              onClick={() => setMobileMenuOpen(false)}
-                              className="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition"
-                            >
-                              {item.label}
-                            </NavLink>
+                        <span className="flex items-center gap-2.5">
+                          <span className="w-6 h-6 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center">
+                            <i className="bi bi-tools text-xs"></i>
+                          </span>
+                          <span>Tools, Visualizers & Fees</span>
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] font-semibold text-cyan-400 bg-cyan-500/15 px-2 py-0.5 rounded-full border border-cyan-500/20">
+                            {toolsGroups.reduce((acc, g) => acc + g.items.length, 0)} Items
+                          </span>
+                          <i
+                            className={`bi bi-chevron-down text-slate-400 transition-transform ${
+                              mobileActiveAccordion === "tools" || mobileTab === "tools" ? "rotate-180 text-cyan-400" : ""
+                            }`}
+                          ></i>
+                        </div>
+                      </button>
+
+                      {(mobileActiveAccordion === "tools" || mobileTab === "tools") && (
+                        <div className="border-t border-slate-800/80 bg-slate-950/90 p-2.5 space-y-3">
+                          {toolsGroups.map((group) => (
+                            <div key={group.id} className="space-y-1.5">
+                              <div className="flex items-center gap-1.5 px-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                <i className={`bi ${group.icon} text-cyan-400`}></i>
+                                <span>{group.title}</span>
+                              </div>
+
+                              <div className="space-y-1">
+                                {group.items.map((item) => (
+                                  <NavLink
+                                    key={item.to}
+                                    to={item.to}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className={({ isActive }) =>
+                                      `group flex items-start gap-2.5 p-2.5 rounded-xl transition border ${
+                                        isActive
+                                          ? "bg-cyan-500/20 text-cyan-200 border-cyan-500/30"
+                                          : "bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white border-slate-800/60"
+                                      }`
+                                    }
+                                  >
+                                    <div className="w-8 h-8 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-cyan-400 flex-shrink-0 mt-0.5">
+                                      <i className={`bi ${item.icon} text-sm`}></i>
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <div className="flex items-center justify-between">
+                                        <p className="text-xs font-semibold truncate text-white">{item.label}</p>
+                                        {item.tag && (
+                                          <span className="text-[9px] px-1.5 py-0.2 rounded font-medium bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                                            {item.tag}
+                                          </span>
+                                        )}
+                                      </div>
+                                      <p className="text-[10px] text-slate-400 line-clamp-1">{item.desc}</p>
+                                    </div>
+                                  </NavLink>
+                                ))}
+                              </div>
+                            </div>
                           ))}
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                      )}
+                    </div>
+                  )}
 
-                {/* Mobile Tutorials Menu */}
-                <div className="border-t border-gray-700 pt-2">
-                  <button
-                    onClick={() => setMobileTutorialsOpen(!mobileTutorialsOpen)}
-                    className="w-full flex justify-between items-center px-4 py-3 text-gray-300 hover:bg-gray-800 rounded-lg transition"
-                  >
-                    <span><i className="bi bi-journal-bookmark-fill mr-3"></i>Tutorials</span>
-                    <i className={`bi bi-chevron-down transition-transform ${mobileTutorialsOpen ? "rotate-180" : ""}`}></i>
-                  </button>
-                  
-                  <AnimatePresence>
-                    {mobileTutorialsOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="overflow-hidden"
+                  {/* 4. TUTORIALS SECTION (CATEGORIZED WITH FILTER TABS) */}
+                  {(mobileTab === "all" || mobileTab === "tutorials") && (
+                    <div className="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-950/40">
+                      <button
+                        type="button"
+                        onClick={() => setMobileActiveAccordion(mobileActiveAccordion === "tutorials" ? null : "tutorials")}
+                        className="w-full flex items-center justify-between p-3 text-xs font-bold text-slate-200 hover:bg-slate-800/60 transition cursor-pointer"
                       >
-                        <div className="ml-6 mt-1 space-y-1 max-h-80 overflow-y-auto">
-                          {tutorialsItems.map((item) => (
-                            <NavLink
-                              key={item.to}
-                              to={item.to}
-                              onClick={() => setMobileMenuOpen(false)}
-                              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-800 rounded-lg transition"
-                            >
-                              <i className={`bi ${getIconClass(item.icon)}`}></i>
-                              <span>{item.label}</span>
-                            </NavLink>
-                          ))}
+                        <span className="flex items-center gap-2.5">
+                          <span className="w-6 h-6 rounded-lg bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center">
+                            <i className="bi bi-journal-bookmark-fill text-xs"></i>
+                          </span>
+                          <span>Tutorials & Step-by-Step Roadmaps</span>
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] font-semibold text-purple-400 bg-purple-500/15 px-2 py-0.5 rounded-full border border-purple-500/20">
+                            {tutorialsItems.length} Tracks
+                          </span>
+                          <i
+                            className={`bi bi-chevron-down text-slate-400 transition-transform ${
+                              mobileActiveAccordion === "tutorials" || mobileTab === "tutorials" ? "rotate-180 text-purple-400" : ""
+                            }`}
+                          ></i>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                      </button>
+
+                      {(mobileActiveAccordion === "tutorials" || mobileTab === "tutorials") && (
+                        <div className="border-t border-slate-800/80 bg-slate-950/90 p-2.5 space-y-2.5">
+                          {/* Mobile category pills */}
+                          <div className="flex items-center gap-1 overflow-x-auto pb-1">
+                            {tutorialsCategories.map((cat) => (
+                              <button
+                                key={cat.id}
+                                type="button"
+                                onClick={() => setMobileTutorialCategory(cat.id)}
+                                className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium whitespace-nowrap transition cursor-pointer ${
+                                  mobileTutorialCategory === cat.id
+                                    ? "bg-purple-600 text-white shadow-sm"
+                                    : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
+                                }`}
+                              >
+                                <i className={`bi ${cat.icon} text-[10px]`}></i>
+                                <span>{cat.label}</span>
+                              </button>
+                            ))}
+                          </div>
+
+                          {/* Mobile Roadmap Cards List */}
+                          <div className="space-y-1.5 max-h-96 overflow-y-auto pr-0.5">
+                            {mobileFilteredTutorials.map((item) => (
+                              <NavLink
+                                key={item.to}
+                                to={item.to}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className={({ isActive }) =>
+                                  `flex items-center justify-between p-2.5 rounded-xl border transition ${
+                                    isActive
+                                      ? "bg-purple-500/20 text-purple-200 border-purple-500/30"
+                                      : "bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white border-slate-800/60"
+                                  }`
+                                }
+                              >
+                                <div className="flex items-center gap-2.5 min-w-0">
+                                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm border ${item.color} flex-shrink-0`}>
+                                    <i className={`bi ${item.icon}`}></i>
+                                  </div>
+                                  <div className="min-w-0">
+                                    <p className="text-xs font-semibold truncate text-white">{item.label}</p>
+                                    {item.desc && <p className="text-[10px] text-slate-400 line-clamp-1">{item.desc}</p>}
+                                  </div>
+                                </div>
+                                {item.badge && (
+                                  <span className="text-[9px] px-1.5 py-0.2 rounded font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30 flex-shrink-0 ml-1">
+                                    {item.badge}
+                                  </span>
+                                )}
+                              </NavLink>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* 5. USER SETTINGS & ACCOUNT SHORTCUTS */}
+                  <div className="pt-2 border-t border-slate-800/80 space-y-1.5">
+                    <p className="px-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider">Account & System</p>
+                    
+                    <div className="grid grid-cols-2 gap-1.5">
+                      <NavLink
+                        to="/profile"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={({ isActive }) =>
+                          `flex items-center gap-2 p-2.5 rounded-xl border transition text-xs font-medium ${
+                            isActive
+                              ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/30 font-semibold"
+                              : "bg-slate-950/60 text-slate-300 hover:bg-slate-800 hover:text-white border-slate-800/80"
+                          }`
+                        }
+                      >
+                        <i className="bi bi-person text-indigo-400 text-sm"></i>
+                        <span>My Profile</span>
+                      </NavLink>
+
+                      <NavLink
+                        to="/settings"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={({ isActive }) =>
+                          `flex items-center gap-2 p-2.5 rounded-xl border transition text-xs font-medium ${
+                            isActive
+                              ? "bg-purple-500/20 text-purple-300 border-purple-500/30 font-semibold"
+                              : "bg-slate-950/60 text-slate-300 hover:bg-slate-800 hover:text-white border-slate-800/80"
+                          }`
+                        }
+                      >
+                        <i className="bi bi-gear text-purple-400 text-sm"></i>
+                        <span>Settings</span>
+                      </NavLink>
+                    </div>
+                  </div>
+
                 </div>
 
-                {/* Mobile Profile Link */}
-                <div className="border-t border-gray-700 pt-2">
-                  <NavLink
-                    to="/profile"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={({ isActive }) =>
-                      `block px-4 py-3 rounded-lg transition ${
-                        isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"
-                      }`
-                    }
+                {/* Drawer Bottom Actions: Sign Out */}
+                <div className="p-4 border-t border-slate-800/80 bg-slate-950/90">
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-semibold bg-rose-600 hover:bg-rose-700 text-white shadow-lg shadow-rose-600/30 transition cursor-pointer"
                   >
-                    <i className="bi bi-person mr-3"></i>
-                    Profile
-                  </NavLink>
+                    <i className="bi bi-box-arrow-right text-sm"></i>
+                    <span>Sign Out of Account</span>
+                  </button>
                 </div>
-
-                {/* Mobile Settings Link */}
-                <div>
-                  <NavLink
-                    to="/settings"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={({ isActive }) =>
-                      `block px-4 py-3 rounded-lg transition ${
-                        isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"
-                      }`
-                    }
-                  >
-                    <i className="bi bi-gear mr-3"></i>
-                    Settings
-                  </NavLink>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </>
   );
 };
