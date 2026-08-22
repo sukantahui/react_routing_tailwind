@@ -1,0 +1,120 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_002_pure-strategy-and-saddle-point
+TOPIC 6: NUMERICAL EXAMPLES (WORKED 2x2, 3x3, RECTANGULAR & MULTI-SADDLE MATRICES)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. MASTER 4-STEP NUMERICAL SOLUTION METHODOLOGY
+--------------------------------------------------------------------------------
+For any m x n matrix game:
+
+1. STEP 1 (ROW MINIMA): Compute Row Min_i = min_{j=1}^n a_ij for each row.
+2. STEP 2 (COLUMN MAXIMA): Compute Col Max_j = max_{i=1}^m a_ij for each column.
+3. STEP 3 (MAXIMIN & MINIMAX):
+   - Maximin (alpha) = max_{i=1}^m [ Row Min_i ]
+   - Minimax (beta)  = min_{j=1}^n [ Col Max_j ]
+4. STEP 4 (EQUILIBRIUM VERDICT):
+   - If alpha == beta == v*: Saddle Point at (A_i*, B_j*) with Game Value v* in ₹.
+   - If alpha < beta: Non-Strictly Determined Game (No Pure Saddle Point; Mixed Strategies Required).
+
+--------------------------------------------------------------------------------
+2. FOUR COMPREHENSIVE WORKED NUMERICAL EXAMPLES
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+EXAMPLE 1: Standard 2x2 Matrix Game with Unique Saddle Point
+--------------------------------------------------------------------------------
+Problem: Solve the 2x2 game (in ₹ Thousands):
+         A = [ [20, 10],
+               [40, 30] ]
+
+Step-by-Step Solution:
+• Row Minima:
+  - Row 1: min(20, 10) = 10
+  - Row 2: min(40, 30) = 30
+  ==> Maximin (alpha) = max(10, 30) = 30 (Row 2, i* = 2)
+
+• Column Maxima:
+  - Col 1: max(20, 40) = 40
+  - Col 2: max(10, 30) = 30
+  ==> Minimax (beta) = min(40, 30) = 30 (Col 2, j* = 2)
+
+• Equilibrium Verdict:
+  - Since Maximin (30) == Minimax (30) == 30:
+  - SADDLE POINT: At cell (A2, B2)
+  - OPTIMAL STRATEGIES: Player A chooses A2, Player B chooses B2
+  - VALUE OF THE GAME: v* = +₹30,000
+
+--------------------------------------------------------------------------------
+EXAMPLE 2: 3x3 Matrix Game with Positive and Negative Payoffs
+--------------------------------------------------------------------------------
+Problem: Solve the 3x3 game (in ₹ Thousands):
+         A = [ [-10, 15, -20],
+               [  5, 25,  10],
+               [ -5,  0, -15] ]
+
+Step-by-Step Solution:
+• Row Minima:
+  - Row 1: min(-10, 15, -20) = -20
+  - Row 2: min(5, 25, 10)    = +5
+  - Row 3: min(-5, 0, -15)   = -15
+  ==> Maximin (alpha) = max(-20, 5, -15) = +5 (Row 2, i* = 2)
+
+• Column Maxima:
+  - Col 1: max(-10, 5, -5) = +5
+  - Col 2: max(15, 25, 0)  = +25
+  - Col 3: max(-20, 10, -15) = +10
+  ==> Minimax (beta) = min(5, 25, 10) = +5 (Col 1, j* = 1)
+
+• Equilibrium Verdict:
+  - Since Maximin (+5) == Minimax (+5) == +5:
+  - SADDLE POINT: At cell (A2, B1)
+  - OPTIMAL STRATEGIES: Player A chooses A2, Player B chooses B1
+  - VALUE OF THE GAME: v* = +₹5,000
+
+--------------------------------------------------------------------------------
+EXAMPLE 3: 2x2 Matrix Game with Multiple (Alternate) Saddle Points
+--------------------------------------------------------------------------------
+Problem: Solve the 2x2 game (in ₹ Thousands):
+         A = [ [40, 40],
+               [20, 40] ]
+
+Step-by-Step Solution:
+• Row Minima: [40, 20] ==> Maximin = 40 (Row 1)
+• Column Maxima: [40, 40] ==> Minimax = 40 (Cols 1 & 2)
+• Equilibrium Verdict:
+  - TWO SADDLE POINTS exist: (A1, B1) and (A1, B2)
+  - Both saddle points yield IDENTICAL Value of the Game: v* = +₹40,000
+  - Player A chooses A1; Player B is indifferent between B1 and B2!
+
+--------------------------------------------------------------------------------
+EXAMPLE 4: 2x2 Non-Strictly Determined Matrix Game (No Pure Saddle Point)
+--------------------------------------------------------------------------------
+Problem: Evaluate the game:
+         A = [ [ 10, -10],
+               [-10,  10] ]
+
+Step-by-Step Solution:
+• Row Minima: [-10, -10] ==> Maximin = -10
+• Column Maxima: [ 10,  10] ==> Minimax = +10
+• Equilibrium Verdict:
+  - Since Maximin (-10) != Minimax (+10):
+  - NO PURE SADDLE POINT EXISTS.
+  - Game must be solved using Mixed Strategies (p = [0.5, 0.5], q = [0.5, 0.5])!
+
+--------------------------------------------------------------------------------
+3. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Solved 2x2, 3x3, and rectangular matrix games systematically.
+[ ] Computed Row Minima and Column Maxima with 100% precision.
+[ ] Verified whether Maximin == Minimax for pure saddle point existence.
+[ ] Handled negative matrix entries without algebraic sign errors.
+[ ] Handled multiple alternate saddle points and confirmed identical game values.
+[ ] Expressed all final payoffs and game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_002 • TOPIC 6: NUMERICAL EXAMPLES
+================================================================================

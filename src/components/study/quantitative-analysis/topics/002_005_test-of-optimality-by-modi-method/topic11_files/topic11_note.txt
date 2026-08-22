@@ -1,0 +1,123 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 11: NUMERICAL EXERCISES (STEP-BY-STEP WORKED SOLUTIONS & PROBLEM BENCHMARKS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. EXERCISE 1: THE STANDARD 3x3 FOUNDRY DISTRIBUTION PROBLEM
+--------------------------------------------------------------------------------
+PROBLEM STATEMENT:
+Solve the transportation problem using NWCR and optimize using the MODI method:
+       D1    D2    D3    Supply
+  S1   ₹8   ₹14   ₹12     70
+  S2   ₹5   ₹19   ₹10     90
+  S3  ₹11   ₹13    ₹7     60
+Demand 60    80    80    ∑ 220
+
+STEP 1: INITIAL BASIC FEASIBLE SOLUTION (NWCR)
+  • (1,1) = 60, (1,2) = 10, (2,2) = 70, (2,3) = 20, (3,3) = 60.
+  • Initial Cost: Z_0 = (60×8)+(10×14)+(70×19)+(20×10)+(60×7) = ₹2,740.
+
+STEP 2: ITERATION 1 AUDIT
+  • Set u_1 = 0 ➔ v_1 = 8, v_2 = 14; u_2 = 5, v_3 = 5; u_3 = 2.
+  • Opportunity Costs: d_13 = +7, d_21 = -8 (⭐ Enter), d_31 = +1, d_32 = -3.
+  • Loop for (2,1): (2,1)[+] ➔ (1,1)[-] ➔ (1,2)[+] ➔ (2,2)[-].
+  • θ_1 = min(60, 70) = 60 tons.
+  • Improved Cost: Z_1 = ₹2,740 - (60 × 8) = ₹2,260.
+
+STEP 3: ITERATION 2 AUDIT & OPTIMALITY
+  • New Basis: (1,2)=70, (2,1)=60, (2,2)=10, (2,3)=20, (3,3)=60.
+  • Potentials: u = [0, 5, 2], v = [0, 14, 5].
+  • Opportunity Costs: d_11 = +8, d_13 = +7, d_31 = +9, d_32 = -3 (⭐ Enter).
+  • Loop for (3,2): (3,2)[+] ➔ (2,2)[-] ➔ (2,3)[+] ➔ (3,3)[-].
+  • θ_2 = min(10, 60) = 10 tons.
+  • Final Optimal Allocations: (1,2)=70, (2,1)=60, (2,3)=30, (3,2)=10, (3,3)=50.
+  • Certified Minimum Cost Z* = ₹2,060 (All d_ij >= 0).
+
+--------------------------------------------------------------------------------
+2. EXERCISE 2: 3x4 MULTI-DESTINATION COLD-CHAIN PROBLEM
+--------------------------------------------------------------------------------
+PROBLEM STATEMENT:
+Origins (3 Clinics): S1=50, S2=70, S3=60. Destinations (4 Depots): D1=30, D2=40, D3=55, D4=55.
+Total Units = 180 boxes.
+Cost Matrix:
+       D1   D2   D3   D4   Supply
+  S1   ₹4   ₹6   ₹8   ₹8     50
+  S2   ₹6   ₹8   ₹6   ₹7     70
+  S3   ₹5   ₹7   ₹7   ₹5     60
+Demand 30   40   55   55    ∑ 180
+
+STEP 1: LEAST COST METHOD (LCM) IBFS
+  • Allocations: (1,1)=30, (1,2)=20, (2,2)=20, (2,3)=50, (3,3)=5, (3,4)=55.
+  • Total Basic Cells = 6 == 3 + 4 - 1 = 6 (Non-degenerate).
+  • Initial Cost: Z_0 = (30×4)+(20×6)+(20×8)+(50×6)+(5×7)+(55×5) = ₹3,120.
+
+STEP 2: MODI AUDIT & ITERATION 1 PIVOT
+  • Set u_1 = 0 ➔ v_1 = 4, v_2 = 6; u_2 = 2, v_3 = 4; u_3 = 3, v_4 = 2.
+  • Empty cell evaluations find entering cell (1, 3) with d_13 = -₹4.
+  • Closed Loop: (1,3)[+] ➔ (1,2)[-] ➔ (2,2)[+] ➔ (2,3)[-].
+  • θ = min(20, 50) = 20 boxes.
+  • Updated Cost: Z* = ₹3,120 - (20 × 4) = ₹3,020.
+  • All subsequent evaluations satisfy d_ij >= 0.
+  • Certified Minimum Cost: Z* = ₹3,020.
+
+--------------------------------------------------------------------------------
+3. EXERCISE 3: UNBALANCED PROBLEM WITH ₹0 DUMMY DESTINATION
+--------------------------------------------------------------------------------
+PROBLEM STATEMENT:
+Origins: S1=100, S2=80, S3=60. (Total Supply = 240).
+Destinations: D1=70, D2=80, D3=50. (Total Demand = 200).
+Surplus Supply = 240 - 200 = 40.
+Augmented Matrix with Dummy Column D_Dummy (Demand = 40, Costs = ₹0):
+
+       D1    D2    D3   D_Dummy   Supply
+  S1   ₹4    ₹3    ₹2     ₹0       100
+  S2   ₹5    ₹6    ₹1     ₹0        80
+  S3   ₹6    ₹4    ₹3     ₹0        60
+Demand 70    80    50     40       ∑ 240
+
+OPTIMAL MODI SOLUTION:
+  • Allocations: (1,2)=80, (1,Dummy)=20, (2,3)=50, (2,Dummy)=20, (3,1)=60, (1,1)=10.
+  • Total Monetary Cost (Real Routes Only):
+    Z* = (80×3) + (10×4) + (50×1) + (60×6) + (20×0) + (20×0)
+       = 240 + 40 + 50 + 360 + 0 = ₹1,780.
+  • All opportunity costs (including dummy cells) satisfy d_ij >= 0.
+
+--------------------------------------------------------------------------------
+4. EXERCISE 4: DEGENERACY RESOLUTION VIA EPSILON (ε)
+--------------------------------------------------------------------------------
+PROBLEM STATEMENT:
+A 3x3 distribution matrix has only 4 basic cells after NWCR allocation:
+  (1,1)=50, (1,2)=20, (2,2)=40, (3,3)=30. (Count = 4 < m+n-1 = 5).
+
+DEGENERACY RESOLUTION STEPS:
+1. Place infinitesimal quantity epsilon (ε) in independent, loop-free cell (1, 3).
+2. Count of basic cells is restored to m + n - 1 = 5.
+3. Solve u_i and v_j potentials using the ε basic equation: u_1 + v_3 = c_13.
+4. Evaluate opportunity costs normally.
+5. Pivot closed loop through ε vertex; ε leaves the basis cleanly, leaving a
+   positive non-degenerate optimal solution.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- In unbalanced problems, never assign non-zero costs to dummy cells.
+- In degenerate problems, always verify that the ε position cannot form a loop with basic cells.
+- Always check that your final cost is reported with Indian Rupees (₹).
+- Explicitly write the formal conclusion statement for maximum marks on exams.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Solved standard 3x3 problem through complete 2-iteration MODI pipeline.
+[ ] Solved 3x4 multi-destination problem from LCM to optimality.
+[ ] Handled unbalanced problem by augmenting with ₹0 dummy destination.
+[ ] Resolved degeneracy by placing epsilon (ε) in an independent cell.
+[ ] Checked primal feasibility (row sums == S_i and col sums == D_j).
+[ ] Certified final minimum costs in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 11: NUMERICAL EXERCISES
+================================================================================

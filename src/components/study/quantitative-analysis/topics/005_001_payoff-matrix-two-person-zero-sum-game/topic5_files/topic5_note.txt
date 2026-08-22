@@ -1,0 +1,105 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_001_payoff-matrix-two-person-zero-sum-game
+TOPIC 5: INTERPRETATION OF PAYOFF ENTRIES (SIGN CONVENTIONS & LINEAR TRANSFORMATIONS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE UNIVERSAL SIGN CONVENTION
+--------------------------------------------------------------------------------
+In standard Game Theory, every payoff matrix A = [a_ij]_{m x n} is constructed
+strictly from the perspective of PLAYER A (Row Player):
+
+• POSITIVE ENTRY (+a_ij):
+  - Represents a net GAIN of ₹a_ij to Player A.
+  - Represents an identical net LOSS / PAYOUT of ₹a_ij from Player B.
+  - Net flow: Column Player (B) ➔ Row Player (A).
+
+• NEGATIVE ENTRY (-a_ij):
+  - Represents a net LOSS of ₹|a_ij| to Player A.
+  - Represents an identical net GAIN of ₹|a_ij| to Player B.
+  - Net flow: Row Player (A) ➔ Column Player (B).
+
+• ZERO ENTRY (a_ij = 0):
+  - Represents a BREAKEVEN / DRAW outcome.
+  - Zero net transfer of wealth between players.
+
+--------------------------------------------------------------------------------
+2. TRANSLATING VERBAL REAL-WORLD STATEMENTS INTO MATRIX CELLS
+--------------------------------------------------------------------------------
+1. "Player A wins ₹50,000 from Player B":
+   ==> Cell value: +₹50,000
+
+2. "Player A incurs a penalty fine of ₹20,000 payable to Player B":
+   ==> Cell value: -₹20,000
+
+3. "Both players maintain their existing market shares (no change)":
+   ==> Cell value: ₹0
+
+4. "Player A captures 15% market share from Player B":
+   ==> Cell value: +15% (or equivalent profit in ₹)
+
+--------------------------------------------------------------------------------
+3. INVARIANCE UNDER POSITIVE LINEAR TRANSFORMATIONS
+--------------------------------------------------------------------------------
+If every entry a_ij in a payoff matrix is transformed using:
+        a'_ij = k * a_ij + c       (where k > 0 and c is any real constant)
+
+THE THREE INVARIANCE THEOREMS:
+1. OPTIMAL STRATEGIES REMAIN UNCHANGED:
+   - The optimal strategy vectors p* and q* remain 100% identical!
+2. SADDLE POINT POSITION IS PRESERVED:
+   - If (i*, j*) was a saddle point in A, it remains a saddle point in A'.
+3. VALUE OF THE GAME SCALES LINEARLY:
+   - The new game value becomes:  v'* = k * v* + c
+
+PRACTICAL APPLICATIONS:
+• Shift by +c: Used to eliminate all negative numbers (crucial for Simplex Method solving).
+• Scale by k: Used to convert ₹ to ₹ Thousands or Lakhs to prevent numerical overflow.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Warranty Claim Matrix Parsing (Debangshu)
+Debangshu in Barrackpore translated metallurgical defect claims into payoff cells:
+a_11 = +₹40k (flawless casting, bonus awarded), a_12 = -₹15k (minor surface inclusion, warranty paid).
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Dispute Transformation (Mamata & Mahima)
+Mamata and Mahima in Kolkata added a constant c = ₹25,000 to eliminate negative cells,
+enabling clean algebraic simplex solving while preserving exact negotiation strategies.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Price Match Guarantee (Susmita)
+Susmita in Ichapur converted retail price-matching verbal rules into signed matrix cells,
+identifying the exact cost of aggressive price undercut promotions.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Scale Invariance (Abhronila)
+Abhronila scaled a ₹55 Lakh university patent licensing matrix by dividing all values
+by 1,00,000 (k = 0.00001), simplifying board presentations while maintaining strategy integrity.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always remember that the sign of a cell reflects the ROW player's financial outcome.
+- Never use a negative multiplier (k < 0) in linear transformations; reversing signs flips player roles!
+- Adding a constant c shifts the game value by c; do not forget to subtract c at the end to get the original game value!
+- State all monetary values with the Indian Rupee (₹) symbol.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the universal sign convention (+ = gain to A, - = loss to A).
+[ ] Translated verbal business statements into exact signed matrix entries.
+[ ] Applied positive linear transformations: a' = k*a + c (k > 0).
+[ ] Verified that linear transformations preserve optimal strategies and saddle points.
+[ ] Computed the new game value: v' = k*v* + c.
+[ ] Expressed all matrix payoffs and values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_001 • TOPIC 5: INTERPRETATION OF PAYOFF ENTRIES
+================================================================================

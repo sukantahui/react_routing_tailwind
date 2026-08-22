@@ -1,0 +1,202 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_004_vogel-approximation-method
+TOPIC 1: ROW AND COLUMN PENALTIES (DIRECTIONAL REGRET DYNAMICS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. CONCEPTUAL ARCHITECTURE OF ROW VS. COLUMN PENALTIES
+--------------------------------------------------------------------------------
+In Vogel's Approximation Method (VAM), the transportation matrix is analyzed
+symmetrically along two distinct operational dimensions:
+1. Horizontal (Supply Dimension) -> ROW PENALTIES (P_i)
+2. Vertical (Demand Dimension)   -> COLUMN PENALTIES (P_j)
+
+DEFINITION OF ROW PENALTY (P_i):
+For an active supply row i, the row penalty represents the supplier's regret.
+It is the difference between the lowest unit transportation cost in that row and
+the second-lowest unit transportation cost among all currently active destinations.
+    P_i = c_(i, 2nd lowest) - c_(i, 1st lowest) = c_(i, (2)) - c_(i, (1))
+
+DEFINITION OF COLUMN PENALTY (P_j):
+For an active demand column j, the column penalty represents the buyer's regret.
+It is the difference between the lowest unit transportation cost in that column and
+the second-lowest unit transportation cost among all currently active supply factories.
+    P_j = c_(2nd lowest, j) - c_(1st lowest, j) = c_((2), j) - c_((1), j)
+
+--------------------------------------------------------------------------------
+2. TABULAR CONVENTIONS AND MARGINAL NOTATION
+--------------------------------------------------------------------------------
+In standard operations research practice:
+- Row Penalties (P_i) are recorded in vertical margin columns to the RIGHT of
+  the Supply column.
+- Column Penalties (P_j) are recorded in horizontal margin rows BENEATH the
+  Demand row.
+- In multi-iteration manual solutions, successive iterations are recorded in
+  adjacent sub-columns (P_R1, P_R2, P_R3...) and sub-rows (P_C1, P_C2, P_C3...).
+
+TABLEAU LAYOUT SCHEMATIC:
++--------------+-----------+-----------+-----------+--------+--------+--------+
+| Origin\Dest  | Dest D1   | Dest D2   | Dest D3   | Supply | P_R(1) | P_R(2) |
++--------------+-----------+-----------+-----------+--------+--------+--------+
+| Origin S1    | c_11      | c_12      | c_13      | S_1    | P_1(1) | P_1(2) |
+| Origin S2    | c_21      | c_22      | c_23      | S_2    | P_2(1) | P_2(2) |
+| Origin S3    | c_31      | c_32      | c_33      | S_3    | P_3(1) | P_3(2) |
++--------------+-----------+-----------+-----------+--------+--------+--------+
+| Demand       | D_1       | D_2       | D_3       | Total  |        |        |
++--------------+-----------+-----------+-----------+--------+--------+--------+
+| P_C(1)       | P_1(1)    | P_2(1)    | P_3(1)    |        | Max(1) |        |
+| P_C(2)       | P_1(2)    | P_2(2)    | P_3(2)    |        |        | Max(2) |
++--------------+-----------+-----------+-----------+--------+--------+--------+
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP CALCULATION PROTOCOL
+--------------------------------------------------------------------------------
+Step 1: Verify Matrix Balance
+        Confirm that Sum(S_i) == Sum(D_j). If unbalanced, add a ₹0 dummy row or column.
+Step 2: Calculate Row Penalties (Horizontal Scan)
+        For each active row i:
+        a. Extract active costs: {c_i1, c_i2, ..., c_in}
+        b. Sort ascending: c_(i,1) <= c_(i,2) <= ... <= c_(i,k)
+        c. Compute: P_i = c_(i,2) - c_(i,1)
+Step 3: Calculate Column Penalties (Vertical Scan)
+        For each active column j:
+        a. Extract active costs: {c_1j, c_2j, ..., c_mj}
+        b. Sort ascending: c_(1,j) <= c_(2,j) <= ... <= c_(k,j)
+        c. Compute: P_j = c_(2,j) - c_(1,j)
+Step 4: Global Maximum Penalty Identification
+        Compare all m row penalties and all n column penalties:
+        Max_Penalty = max { P_1, P_2, ..., P_m, P_1, P_2, ..., P_n }
+Step 5: Identify Target Cell and Allocate
+        In the line with Max_Penalty, find the cell with minimum cost c_min.
+        Allocate x_kl = min(S_k, D_l).
+Step 6: Update Balances & Strike Out Line
+        S_k = S_k - x_kl
+        D_l = D_l - x_kl
+        Cross out the fully satisfied row or column.
+Step 7: Recalculate Active Penalties
+        For the remaining uncrossed sub-tableau, recompute P_i and P_j.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL LOGISTICS CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supply to Kolkata Engineering Hubs
+Lead Logistics Engineer: Debangshu
+Origins:
+  S1 (Barrackpore Heavy Foundry): Supply = 70 tons
+  S2 (Ichapur Casting Plant):     Supply = 90 tons
+  S3 (Kolkata Engineering Yard):  Supply = 60 tons
+Destinations:
+  D1 (Jadavpur Machinery Works): Demand = 60 tons
+  D2 (Salt Lake Tech Hub):       Demand = 80 tons
+  D3 (Howrah Rail Depot):        Demand = 80 tons
+Cost Matrix (₹/ton):
+       D1    D2    D3   Supply
+  S1  ₹8    ₹14   ₹12     70
+  S2  ₹5    ₹19   ₹10     90
+  S3  ₹11   ₹13   ₹7      60
+Demand 60   80    80     220
+
+Row Penalties:
+  Row 1 (S1): [8, 12, 14] -> P_1 = 12 - 8 = ₹4
+  Row 2 (S2): [5, 10, 19] -> P_2 = 10 - 5 = ₹5
+  Row 3 (S3): [7, 11, 13] -> P_3 = 11 - 7 = ₹4
+Column Penalties:
+  Col 1 (D1): [5, 8, 11]  -> P_1 = 8 - 5 = ₹3
+  Col 2 (D2): [13, 14, 19]-> P_2 = 14 - 13 = ₹1
+  Col 3 (D3): [7, 10, 12] -> P_3 = 10 - 7 = ₹3
+
+Analysis:
+Max Penalty is P_2 (Row 2, Ichapur) = ₹5.
+Inside Row 2, the lowest cost cell is (S2, D1) at ₹5/ton.
+Allocate x_21 = min(90, 60) = 60 tons.
+Destination D1 is fully satisfied and crossed out!
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Pharmaceuticals (Mamata & Mahima)
+Lead Directors: Mamata & Mahima
+Origins:
+  S1 (Kolkata Central Bio-Storage): Supply = 80 boxes
+  S2 (Barrackpore Depot):           Supply = 100 boxes
+Destinations:
+  D1 (Howrah General Hospital):    Demand = 60 boxes
+  D2 (Barasat Medical Center):     Demand = 70 boxes
+  D3 (Jadavpur Health Hub):        Demand = 50 boxes
+Cost Matrix (₹/box):
+       D1    D2    D3   Supply
+  S1  ₹6    ₹18   ₹9     80
+  S2  ₹4    ₹25   ₹15   100
+Demand 60   70    50    180
+
+Penalties:
+  Row 1 (S1): [6, 9, 18]  -> P_1 = 9 - 6 = ₹3
+  Row 2 (S2): [4, 15, 25] -> P_2 = 15 - 4 = ₹11 (MAX ROW)
+  Col 1 (D1): [4, 6]      -> P_1 = 6 - 4 = ₹2
+  Col 2 (D2): [18, 25]    -> P_2 = 25 - 18 = ₹7
+  Col 3 (D3): [9, 15]     -> P_3 = 15 - 9 = ₹6
+
+Analysis:
+Max Penalty is P_2 = ₹11 at Row 2 (Barrackpore).
+Lowest cell in Row 2 is (S2, D1) at ₹4/box.
+Allocate x_21 = min(100, 60) = 60 boxes.
+Column 1 is exhausted and crossed out!
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Logistics (Susmita)
+Lead Coordinator: Susmita
+Origins: S1 (Barrackpore, 50), S2 (Ichapur, 60), S3 (Kolkata, 40)
+Destinations: D1 (Shyambazar, 40), D2 (Salt Lake, 60), D3 (Gariahat, 50)
+Cost Matrix:
+       D1    D2    D3   Supply
+  S1  ₹4    ₹9    ₹11    50
+  S2  ₹7    ₹5    ₹8     60
+  S3  ₹6    ₹7    ₹3     40
+Penalties:
+  Row 1: [4, 9, 11] -> P_1 = 9 - 4 = ₹5
+  Row 2: [5, 7, 8]  -> P_2 = 7 - 5 = ₹2
+  Row 3: [3, 6, 7]  -> P_3 = 6 - 3 = ₹3
+  Col 1: [4, 6, 7]  -> P_1 = 6 - 4 = ₹2
+  Col 2: [5, 7, 9]  -> P_2 = 7 - 5 = ₹2
+  Col 3: [3, 8, 11] -> P_3 = 8 - 3 = ₹5 (TIE WITH ROW 1!)
+
+Tie-Breaking Analysis:
+Row 1 has P_1 = ₹5 (min cost = ₹4 in cell S1, D1).
+Col 3 has P_3 = ₹5 (min cost = ₹3 in cell S3, D3).
+Comparing minimum unit costs: ₹3 (Col 3) < ₹4 (Row 1).
+Decision: Select Column 3! Allocate min(40, 50) = 40 pallets to (S3, D3) @ ₹3.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: University Book Distribution (Abhronila)
+Lead Analyst: Abhronila
+Demonstrates how cross-out updates alter column penalties dynamically across
+iterations 1, 2, and 3 until all 6 basic assignments are reached.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never subtract across diagonal cells; always maintain strict horizontal row
+  or vertical column alignment.
+- When crossing out Row k, do NOT forget to remove all entries of Row k before
+  finding the new 1st and 2nd minimums for all columns.
+- If a row or column has duplicate minimum values (e.g. [5, 5, 9]), the penalty
+  is 5 - 5 = 0, NOT 9 - 5 = 4.
+- In manual problem solving, use neat columns P_1, P_2, P_3 to preserve the
+  iteration history clearly.
+
+--------------------------------------------------------------------------------
+6. MINI CHECKLIST FOR STUDENTS
+--------------------------------------------------------------------------------
+[ ] All row penalties calculated horizontally: P_i = 2nd min - 1st min.
+[ ] All column penalties calculated vertically: P_j = 2nd min - 1st min.
+[ ] Identified global maximum penalty across both row and column lists.
+[ ] In tied penalties, checked smallest individual unit cost as first tie-breaker.
+[ ] Target cell chosen as minimum cost cell in the winning line.
+[ ] Allocated x_kl = min(Supply_k, Demand_l).
+[ ] Deducted capacity from both row supply and column demand.
+[ ] Crossed out the exhausted line and updated penalties for active sub-matrix.
+
+================================================================================
+END OF STUDY NOTE • TOPIC 1: ROW AND COLUMN PENALTIES
+================================================================================

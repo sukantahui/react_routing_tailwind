@@ -1,0 +1,111 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 0: MEANING OF PROJECT NETWORK ANALYSIS (CPM VS PERT, TOPOLOGY & LIFECYCLE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION OF PROJECT NETWORK ANALYSIS (PNA)
+--------------------------------------------------------------------------------
+Project Network Analysis (PNA) is a collection of graph-theoretic quantitative
+techniques designed to plan, schedule, coordinate, and control large-scale,
+complex, non-routine projects.
+
+WHAT CONSTITUTES A PROJECT?
+1. Unique Endeavor: Distinct from repetitive manufacturing; temporary lifecycle.
+2. Definite Start & Finish Dates: Clear milestones and target delivery horizons.
+3. Precedence Dependencies: Specific tasks cannot start until prior tasks finish.
+4. Resource & Financial Budget: Strict constraints on labor, machinery, and ₹ capital.
+
+--------------------------------------------------------------------------------
+2. HISTORICAL GENESIS: CPM VS PERT
+--------------------------------------------------------------------------------
+DIMENSION                CRITICAL PATH METHOD (CPM)       PERT (PROJECT EVALUATION & REVIEW)
+--------------------------------------------------------------------------------
+Origin Year              1957                             1958
+Developers               DuPont & Remington Rand Corp     US Navy, Booz Allen Hamilton & Lockheed
+Genesis Problem          Chemical Plant Overhauls         Polaris Fleet Ballistic Missile R&D
+Nature of Time           DETERMINISTIC (Single known time)PROBABILISTIC (3 Uncertain Estimates)
+Key Focus                Time-Cost Trade-Offs & Crashing  Probability of Meeting Target Deadlines
+Network Orientation      Activity-Oriented (AOA / AON)    Event-Oriented (Milestones / Node States)
+Statistical Model        Fixed Scalar Durations           Beta Distribution: t_e = (a + 4m + b) / 6
+
+--------------------------------------------------------------------------------
+3. THE FOUR PILLARS OF PROJECT NETWORK ANALYSIS
+--------------------------------------------------------------------------------
+PILLAR 1: TIME OPTIMIZATION & CRITICAL PATH
+• Identifying the longest continuous path of dependent activities from Start to Finish.
+• Determines the absolute MINIMUM duration required to complete the overall project.
+• Critical activities have ZERO SLACK (Float = 0); any delay directly delays the project.
+
+PILLAR 2: COST MANAGEMENT & CRASHING
+• Analyzing Direct Costs (labor, machinery overtime) vs Indirect Costs (overhead, penalties).
+• Finding the optimal project duration that minimizes total project expenditure in ₹.
+
+PILLAR 3: RESOURCE LEVELING & SMOOTHING
+• Reallocating non-critical activities within their allowable slack periods to flatten
+  peak labor and equipment demands without pushing back the project deadline.
+
+PILLAR 4: RISK & UNCERTAINTY QUANTIFICATION
+• Modeling variance sigma^2 = ((b - a) / 6)^2 across critical path tasks.
+• Calculating Z-score probabilities P(T <= D) of meeting government contractual delivery dates.
+
+--------------------------------------------------------------------------------
+4. NETWORK CONVENTIONS: AOA VS AON
+--------------------------------------------------------------------------------
+1. ACTIVITY-ON-ARROW (AOA) / ARROW DIAGRAMS:
+   • Arrows represent distinct activities; circles (nodes) represent milestone events.
+   • Requires DUMMY ACTIVITIES (zero-time dashed arrows) to maintain logical dependencies
+     and prevent duplicate parallel arcs between the same two events.
+
+2. ACTIVITY-ON-NODE (AON) / PRECEDENCE DIAGRAMS:
+   • Boxes (nodes) represent activities; arrows represent precedence dependencies.
+   • Eliminates the need for dummy activities completely.
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Barrackpore Foundry Modernization Project (Debangshu)
+Debangshu decomposed a 14-activity blast furnace overhaul in Barrackpore, identifying
+a 28-day critical path that saved ₹18.5 Lakhs in plant downtime penalties.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Kolkata Metro Extension & Emergency Ward Logistics (Mamata & Mahima)
+Mamata and Mahima modeled hospital ward construction across Kolkata, managing floats
+to ensure zero construction interference with emergency ambulance bays.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Ichapur Automated FMCG Warehouse Dispatch Center (Susmita)
+Susmita scheduled a 10-week automated conveyor belt installation in Ichapur, using
+PERT 3-time estimates to achieve a 96.4% probability of on-time launch before festive rush.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Jadavpur High-Tech Robotics Lab Commissioning (Abhronila)
+Abhronila used resource leveling on a ₹55 Lakh university research grant in Jadavpur,
+smoothing electrical contractor shifts to avoid ₹1.2 Lakhs in weekend overtime fees.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never confuse CPM (deterministic) with PERT (probabilistic 3-time estimates).
+- In AOA diagrams, remember that Dummy activities consume 0 time and 0 cost.
+- Activities with positive float can be delayed within their float without delaying the project.
+- Always report budgets, crashing costs, and financial penalties in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined Project Network Analysis and its 4 core pillars.
+[ ] Differentiated CPM (Deterministic, DuPont 1957) vs PERT (Probabilistic, US Navy 1958).
+[ ] Computed PERT Expected Duration: t_e = (a + 4m + b) / 6.
+[ ] Computed PERT Variance: sigma^2 = ((b - a) / 6)^2.
+[ ] Differentiated AOA (Arrow diagrams) vs AON (Precedence diagrams).
+[ ] Understood the role and definition of Dummy Activities.
+[ ] Stated project financial figures in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 0: MEANING OF PROJECT NETWORK ANALYSIS
+================================================================================

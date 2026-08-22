@@ -1,0 +1,145 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_003 : PHASES OF HACKING METHODOLOGY
+TOPIC 02       : OSINT (OPEN-SOURCE INTELLIGENCE) TOOLS & TECHNIQUES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE OSINT FRAMEWORK
+--------------------------------------------------------------------------------
+Open-Source Intelligence (OSINT) is the disciplined process of collecting, processing, 
+and analyzing publicly available information to produce actionable threat intelligence.
+
+Unlike illegal hacking operations, OSINT operates 100% within the public domain—querying 
+search engines, social media platforms, public Git repositories, Certificate Transparency 
+ledgers, and domain registries without bypassing technical authentication barriers.
+
+--------------------------------------------------------------------------------
+2. COMPREHENSIVE OSINT TOOL MATRIX ACROSS 5 CORE DOMAINS
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| OSINT DOMAIN       | PRIMARY TARGET DATA     | ICONIC TOOLSETS    | CORE METHODOLOGY & EXECUTION                   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. People & Social | Social profiles, email  | - Maltego (Graph)  | - Sherlock probes 300+ platforms by username   |
+|    Media OSINT     | aliases, phone numbers  | - Sherlock (CLI)   | - Maltego maps visual node relationship graphs |
+|                    | & employee rosters      | - theHarvester     | - theHarvester scrapes search engines for PII  |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Corporate &     | Subdomains, DNS records,| - OWASP Amass      | - Amass aggregates 55+ APIs for ASN mapping    |
+|    Attack Surface  | IP CIDRs, & cloud VMs   | - Shodan / Censys  | - SecurityTrails uncovers historical origin IPs|
+|                    |                         | - SecurityTrails   | - Shodan indexes listening hardware banners    |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. Code & Cloud    | Leaked API tokens, AWS  | - Trufflehog       | - Trufflehog audits git commit histories (RAM) |
+|    Leak OSINT      | keys, & open S3 buckets | - Gitleaks         | - S3Scanner brute-forces cloud bucket URLs     |
+|                    |                         | - S3Scanner        | - Gitleaks uses regex to find hardcoded tokens |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. Document EXIF & | Embedded usernames, GPS | - ExifTool         | - ExifTool extracts GPS tags from photos       |
+|    GEOINT OSINT    | coordinates & PDF paths | - FOCA             | - GHunt extracts Google Maps review history    |
+|                    |                         | - GHunt (Google)   | - Yandex / Google Lens visual landmark match   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 5. Dark Web &      | Breached passwords,     | - HaveIBeenPwned   | - HIBP / DeHashed checks corporate credential  |
+|    Threat Intel    | credential dumps & leaks| - DeHashed         |   reuse from historical breaches               |
+|                    |                         | - AlienVault OTX   | - Pastebin scrapers flag leaked private keys   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. THE 5-STAGE OSINT INTELLIGENCE CYCLE
+--------------------------------------------------------------------------------
+
+  [ STAGE 1: PLANNING & DIRECTION ]
+    * Define intelligence requirements, legal authorization, and assessment scope.
+
+  [ STAGE 2: COLLECTION ]
+    * Gather raw public data via automated scrapers, APIs, crt.sh, Shodan, and search engines.
+
+  [ STAGE 3: PROCESSING & COLLATION ]
+    * Filter out noise, normalize JSON/CSV structures, and de-duplicate entity records.
+
+  [ STAGE 4: ANALYSIS & PRODUCTION ]
+    * Correlate disparate data points using visual link analysis (Maltego) to identify vulnerabilities.
+
+  [ STAGE 5: DISSEMINATION & REPORTING ]
+    * Deliver actionable, executive threat intelligence reports with concrete remediation steps.
+
+--------------------------------------------------------------------------------
+4. OPERATIONAL SECURITY (OPSEC) FOR INVESTIGATORS
+--------------------------------------------------------------------------------
+
+1. Dedicated Research Environments:
+   - Conduct OSINT inside disposable virtual machines (Tails / Whonix) to isolate local filesystems.
+
+2. Anonymous Routing:
+   - Use multi-hop VPNs or Tor circuits to avoid leaking personal ISP IP addresses to target web servers.
+
+3. Sanitized Sock Puppet Personas:
+   - Never use personal social media or Google accounts; personal tracking cookies compromise anonymity.
+
+--------------------------------------------------------------------------------
+5. INDIAN CYBER LAW & PRIVACY BOUNDARIES (DPDP ACT 2023)
+--------------------------------------------------------------------------------
+
+1. Digital Personal Data Protection (DPDP) Act, 2023:
+   - Section 6 & 33: Gathering public data for legitimate defensive threat modeling is lawful.
+   - Forbids compiling non-consensual personal profiling dossiers (penalties up to ₹250 Crores).
+
+2. IT Act 2000 Section 43 & Section 66:
+   - OSINT must remain strictly passive; actively probing target networks crosses into unauthorized access.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : GITHUB AWS ROOT KEY LEAK REMEDIATION (KOLKATA FINTECH)
+  * Lead Security Auditor : Mamata | Budget : ₹8,50,000 | Location : Kolkata
+  * Dilemma : A junior developer accidentally pushed an AWS root API key to a public GitHub repo.
+  * Action : Mamata used Trufflehog to detect the commit within 4 minutes, immediately revoked 
+    the IAM credential in the AWS console, and deployed pre-commit Git hooks to prevent future leaks.
+
+SCENARIO 2 : CREDENTIAL STUFFING OSINT INVESTIGATION (ICHAPUR HOSPITAL)
+  * Chief Security Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Hospital staff accounts were being targeted by automated credential stuffing bots.
+  * Action : Queried HaveIBeenPwned and DeHashed APIs across `@ichapurhealth.in`, identifying 24 doctor 
+    emails exposed in historical third-party leaks and enforcing mandatory password resets + FIDO2 MFA.
+
+SCENARIO 3 : SUPPLY CHAIN ATTACK SURFACE MAPPING (BARRACKPORE GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹7,80,000 | Location : Barrackpore
+  * Dilemma : Auditing the external attack surface of third-party vendors supplying 220kV substation RTUs.
+  * Action : Ran OWASP Amass and Spiderfoot to map vendor cloud infrastructure, uncovering an exposed 
+    testing portal that leaked firmware documentation, and demanding contractual vendor remediation.
+
+SCENARIO 4 : AUTOMATED PYTHON OSINT AGGREGATOR (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹3,50,000 | Location : Jadavpur
+  * Dilemma : Building an educational Python tool to aggregate subdomain and leak data for students.
+  * Action : Authored an open-source tool integrating crt.sh, Shodan, and HIBP APIs into an automated 
+    HTML report generator, publishing the tool on GitHub and training 140+ university students.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL OSINT HABITS:
+  1. Audit GitHub Commit Logs: Use Trufflehog to find secrets buried 50 commits in the past.
+  2. Check Historical DNS: SecurityTrails reveals true origin server IPs hidden behind Cloudflare.
+  3. Verify Geolocation with Google Lens: Reverse image search landmarks to pin exact GPS locations.
+
+* COMMON BEGINNER OSINT MISTAKES:
+  - Conducting OSINT while logged into personal social media accounts (Target receives notification).
+  - Believing that deleting a public GitHub commit removes the secret (It persists in commit history).
+  - Relying on a single search engine rather than aggregating Amass, Shodan, and crt.sh.
+  - Compiling intrusive personal dossiers on individuals without legitimate cybersecurity justification.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] OSINT collects and analyzes publicly available data legally and ethically.
+[ ] Maltego maps visual entity relationship graphs using external API Transforms.
+[ ] Trufflehog & Gitleaks search Git commit histories for hardcoded API keys and secrets.
+[ ] OWASP Amass aggregates 55+ public data sources for comprehensive attack surface mapping.
+[ ] Sherlock hunts a single username across 300+ social media platforms concurrently.
+[ ] HaveIBeenPwned & DeHashed index historical data breach credential dumps.
+[ ] ExifTool extracts hidden GPS coordinates and author metadata from photo files.
+[ ] DPDP Act 2023 enforces citizen privacy protections with penalty caps up to ₹250 Crores.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 02 (CYBER SECURITY BCAC703)
+================================================================================

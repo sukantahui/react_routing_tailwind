@@ -1,0 +1,126 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 16: NUMERICAL EXERCISES (COMPREHENSIVE MULTI-TIERED WORKED EXERCISES)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+EXERCISE 1: BALANCED 4x4 FOUNDRY CASTING MINIMIZATION (DEBANGSHU)
+--------------------------------------------------------------------------------
+PROBLEM STATEMENT:
+4 Metallurgical Engineers (W1..W4) available for 4 Foundry Jobs (J1..J4) in Barrackpore:
+       J1    J2    J3    J4
+  W1  ₹10   ₹15   ₹12   ₹18
+  W2  ₹13   ₹12   ₹14   ₹16
+  W3  ₹15   ₹14   ₹17   ₹12
+  W4  ₹11   ₹13   ₹15   ₹14
+
+STEP 1: ROW REDUCTION (Row mins: [10, 12, 12, 11])
+  [[ 0, 5, 2, 8],
+   [ 1, 0, 2, 4],
+   [ 3, 2, 5, 0],
+   [ 0, 2, 4, 3]]
+
+STEP 2: COLUMN REDUCTION (Col mins: [0, 0, 2, 0])
+  [[ 0, 5, 0, 8],
+   [ 1, 0, 0, 4],
+   [ 3, 2, 3, 0],
+   [ 0, 2, 2, 3]]
+
+STEP 3: LINE COVERING (L = 3 < 4) & ADDITIONAL REDUCTION (e = 1)
+Lines: Row 1, Row 2, Col 4. Uncovered min e = 1.
+Uncovered -1, Intersections +1:
+  [[ 0, 5, 0, 9],
+   [ 1, 0, 0, 5],
+   [ 2, 1, 2, 0],
+   [ 0, 1, 1, 2]]
+New Line Cover: L = 4 = n (OPTIMAL! ⭐).
+
+STEP 4: INDEPENDENT ZERO ASSIGNMENT & ORIGINAL RATE LOOKUP
+• W1 ➔ J3: c_13 = ₹12
+• W2 ➔ J2: c_22 = ₹12
+• W3 ➔ J4: c_34 = ₹12
+• W4 ➔ J1: c_41 = ₹11
+Certified Minimum Total Cost:
+    Z* = 12 + 12 + 12 + 11 = ₹46.
+
+--------------------------------------------------------------------------------
+EXERCISE 2: UNBALANCED 3x4 WITH BIG-M PROHIBITED ROUTE (SUSMITA)
+--------------------------------------------------------------------------------
+PROBLEM STATEMENT:
+3 Clinic Vans (W1..W3) available for 4 Hospital Depots (J1..J4) in Ichapur:
+W1 cannot serve Depot 3 (c_13 = M).
+       J1    J2    J3    J4
+  W1  ₹12   ₹10     M   ₹22
+  W2  ₹14   ₹20   ₹18   ₹12
+  W3  ₹16   ₹11   ₹13   ₹14
+
+STEP 1: AUGMENT DUMMY ROW W4 (₹0 RATES)
+       J1    J2    J3    J4
+  W1  ₹12   ₹10     M   ₹22
+  W2  ₹14   ₹20   ₹18   ₹12
+  W3  ₹16   ₹11   ₹13   ₹14
+  W4   ₹0    ₹0    ₹0    ₹0   (Dummy Row)
+
+STEP 2: 5-STEP HUNGARIAN EXECUTION
+• W1 ➔ J2: c_12 = ₹10
+• W2 ➔ J4: c_24 = ₹12
+• W3 ➔ J3: c_33 = ₹13
+• W4 (Dummy) ➔ J1: c_41 = ₹0 (Depot 1 is outsourced to ambulance service).
+Certified Minimum Total Spend:
+    Z* = 10 + 12 + 13 + 0 = ₹35.
+
+--------------------------------------------------------------------------------
+EXERCISE 3: MAXIMIZATION 4x4 SALES REVENUE PROBLEM (MAMATA & MAHIMA)
+--------------------------------------------------------------------------------
+RAW PROFIT MATRIX P (₹ in Lakhs):
+       T1    T2    T3    T4
+  S1  ₹32   ₹38   ₹40   ₹28
+  S2  ₹40   ₹24   ₹28   ₹21
+  S3  ₹41   ₹27   ₹33   ₹30
+  S4  ₹22   ₹38   ₹41   ₹36
+
+STEP 1: IDENTIFY M_max = ₹41 & CREATE REGRET MATRIX C = 41 - P
+       T1    T2    T3    T4
+  S1    9     3     1    13
+  S2    1    17    13    20
+  S3    0    14     8    11
+  S4   19     3     0     5
+
+STEP 2: 5-STEP HUNGARIAN EXECUTION & ORIGINAL PROFIT LOOKUP
+• S1 ➔ T3: p_13 = ₹40 Lakhs
+• S2 ➔ T1: p_21 = ₹40 Lakhs
+• S3 ➔ T4: p_34 = ₹30 Lakhs
+• S4 ➔ T2: p_42 = ₹38 Lakhs
+Certified Maximum Total Sales Turnover:
+    Z* = 40 + 40 + 30 + 38 = ₹148 Lakhs.
+
+--------------------------------------------------------------------------------
+EXERCISE 4: COMPLEX 5x5 PRINTING PRESS LINE RUN (ABHRONILA)
+--------------------------------------------------------------------------------
+Abhronila in Jadavpur audited a 5x5 textbook binding run, resolving 2 additional
+reduction passes (e_1 = ₹1, e_2 = ₹2) to establish certified minimum spend of ₹68.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- In unbalanced models, always augment dummy lines with ₹0 costs.
+- In maximization models, convert to regret matrix FIRST before adding dummy lines.
+- Always pull unit rates from the ORIGINAL matrix in Indian Rupees (₹).
+- Explicitly state which jobs are outsourced or which personnel are idle.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered Exercise 1: Standard 4x4 Balanced Minimization (Z* = ₹46).
+[ ] Mastered Exercise 2: Unbalanced 3x4 with Big-M Prohibited Cell (Z* = ₹35).
+[ ] Mastered Exercise 3: Maximization 4x4 Sales Revenue (Z* = ₹148 Lakhs).
+[ ] Mastered Exercise 4: Complex 5x5 Multi-Pass Hungarian Solver (Z* = ₹68).
+[ ] Verified all solutions via Strong Duality (Z* == W*).
+[ ] Reported all final figures in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 16: NUMERICAL EXERCISES
+================================================================================

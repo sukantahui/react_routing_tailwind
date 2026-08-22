@@ -1,0 +1,93 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_004_mixed-strategy
+TOPIC 6: NUMERICAL EXERCISES (WORKED 2x2 MIXED GAMES, SYMMETRIC, ZERO-DIAGONAL & FAIR GAMES)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. MASTER 6-STEP NUMERICAL SOLUTION TEMPLATE
+--------------------------------------------------------------------------------
+For any numerical 2x2 game problem:
+
+1. STEP 1 (SADDLE POINT CHECK):
+   - Find row minima and column maxima.
+   - Confirm Maximin (alpha) < Minimax (beta) ==> Pure saddle does not exist.
+
+2. STEP 2 (CALCULATE DELTA):
+   - Delta = (a_11 + a_22) - (a_12 + a_21)
+
+3. STEP 3 (OPTIMAL MIXED STRATEGY FOR PLAYER A):
+   - p_1* = (a_22 - a_21) / Delta,  p_2* = (a_11 - a_12) / Delta
+
+4. STEP 4 (OPTIMAL MIXED STRATEGY FOR PLAYER B):
+   - q_1* = (a_22 - a_12) / Delta,  q_2* = (a_11 - a_21) / Delta
+
+5. STEP 5 (OPTIMAL VALUE OF THE GAME):
+   - v* = det(A) / Delta = (a_11 * a_22 - a_12 * a_21) / Delta  (in ₹)
+
+6. STEP 6 (INDIFFERENCE & BOUNDS VERIFICATION):
+   - Verify: E(p*, B_1) == E(p*, B_2) == v*
+   - Verify: Maximin (alpha) <= v* <= Minimax (beta).
+
+--------------------------------------------------------------------------------
+2. FOUR COMPREHENSIVE WORKED NUMERICAL EXERCISES
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+EXERCISE 1: Symmetric Game with Negative Off-Diagonals
+--------------------------------------------------------------------------------
+Problem: Solve A = [[₹20k, -₹10k], [-₹10k, ₹20k]]
+• Step 1: Maximin = -10, Minimax = +20 ==> No pure saddle point.
+• Step 2: Delta = (20 + 20) - (-10 + -10) = 40 - (-20) = 60.
+• Step 3: p_1* = (20 - -10)/60 = 30/60 = 0.50,  p_2* = 0.50.
+• Step 4: q_1* = (20 - -10)/60 = 30/60 = 0.50,  q_2* = 0.50.
+• Step 5: det(A) = 400 - 100 = 300 ==> v* = 300/60 = +₹5,000.
+• Step 6: vs B1: 0.5(20) + 0.5(-10) = ₹5k; vs B2: 0.5(-10) + 0.5(20) = ₹5k. Verified!
+
+--------------------------------------------------------------------------------
+EXERCISE 2: Highly Asymmetric Manufacturing Matrix
+--------------------------------------------------------------------------------
+Problem: Solve A = [[₹40k, ₹10k], [₹10k, ₹50k]]
+• Step 1: Maximin = 10, Minimax = 40 ==> No saddle point.
+• Step 2: Delta = (40 + 50) - (10 + 10) = 70.
+• Step 3: p_1* = (50 - 10)/70 = 4/7 (57.1%),  p_2* = 3/7 (42.9%).
+• Step 4: q_1* = (50 - 10)/70 = 4/7 (57.1%),  q_2* = 3/7 (42.9%).
+• Step 5: det(A) = 2000 - 100 = 1900 ==> v* = 1900/70 = ₹27,142.86.
+• Step 6: vs B1: (4/7)(40) + (3/7)(10) = 190/7 = ₹27.14k. Verified!
+
+--------------------------------------------------------------------------------
+EXERCISE 3: Zero-Diagonal Constant-Sum Game
+--------------------------------------------------------------------------------
+Problem: Solve A = [[₹0, ₹60k], [₹40k, ₹0]]
+• Step 1: Maximin = 0, Minimax = 40 ==> No saddle point.
+• Step 2: Delta = (0 + 0) - (60 + 40) = -100.
+• Step 3: p_1* = (0 - 40)/-100 = 0.40,  p_2* = 0.60.
+• Step 4: q_1* = (0 - 60)/-100 = 0.60,  q_2* = 0.40.
+• Step 5: det(A) = 0 - 2400 = -2400 ==> v* = -2400/-100 = +₹24,000.
+• Step 6: vs B1: 0.4(0) + 0.6(40) = ₹24k; vs B2: 0.4(60) + 0.6(0) = ₹24k. Verified!
+
+--------------------------------------------------------------------------------
+EXERCISE 4: Strictly Fair Game with Negative Entries
+--------------------------------------------------------------------------------
+Problem: Solve A = [[₹15k, -₹30k], [-₹15k, ₹30k]]
+• Step 1: Maximin = -15, Minimax = +15 ==> No saddle point.
+• Step 2: Delta = (15 + 30) - (-30 + -15) = 45 - (-45) = 90.
+• Step 3: p_1* = (30 - -15)/90 = 45/90 = 0.50,  p_2* = 0.50.
+• Step 4: q_1* = (30 - -30)/90 = 60/90 = 2/3,  q_2* = 1/3.
+• Step 5: det(A) = 450 - 450 = 0 ==> v* = 0/90 = ₹0 (Strictly Fair Game!).
+• Step 6: vs B1: 0.5(15) + 0.5(-15) = ₹0; vs B2: 0.5(-30) + 0.5(30) = ₹0. Verified!
+
+--------------------------------------------------------------------------------
+3. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 6-step numerical solution template.
+[ ] Computed Delta, p*, q*, and v* for matrices with negative and positive entries.
+[ ] Handled cases with negative Delta (confirming sign cancellation).
+[ ] Verified indifference: E(p*, B1) == E(p*, B2) == v*.
+[ ] Stated all numerical results in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_004 • TOPIC 6: NUMERICAL EXERCISES
+================================================================================

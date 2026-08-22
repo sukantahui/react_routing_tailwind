@@ -1,0 +1,150 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_005 : RSA ALGORITHM & PUBLIC KEY INFRASTRUCTURE
+TOPIC 04       : RSA ENCRYPTION AND DECRYPTION MATHEMATICAL OPERATIONS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & MATHEMATICAL OPERATIONS
+--------------------------------------------------------------------------------
+RSA encryption and decryption transform integers across finite modular fields through 
+asymmetric modular exponentiation:
+
+  * ENCRYPTION : Ciphertext C ≡ M^e (mod N)   [Uses Public Key (e, N)]
+  * DECRYPTION : Plaintext  M ≡ C^d (mod N)   [Uses Private Key (d, N)]
+  * CORRECTNESS: (M^e)^d ≡ M^(e*d) ≡ M^(1 + k*phi(N)) ≡ M (mod N) for ALL integers M < N.
+
+--------------------------------------------------------------------------------
+2. UNIVERSAL PROOF OF RSA DECRYPTION (HANDLING gcd(M, N) > 1)
+--------------------------------------------------------------------------------
+
+While Euler's theorem strictly requires gcd(M, N) = 1, RSA decryption holds for ALL plaintexts M < N:
+
+  1. MODULO PRIME p:
+     - If p divides M:       M^(e*d) ≡ 0 ≡ M (mod p).
+     - If p does not divide: By Fermat's Little Theorem: M^(p-1) ≡ 1 (mod p).
+                             M^(e*d) = M^(1 + k(p-1)(q-1)) = M * (M^(p-1))^(k(q-1)) ≡ M * (1) ≡ M (mod p).
+
+  2. MODULO PRIME q:
+     - By identical logic:   M^(e*d) ≡ M (mod q).
+
+  3. CHINESE REMAINDER THEOREM SYNTHESIS:
+     - Since gcd(p, q) = 1:  M^(e*d) ≡ M (mod p * q) = M (mod N) unconditionally!
+
+--------------------------------------------------------------------------------
+3. VULNERABILITIES OF UNPADDED "TEXTBOOK RSA"
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| TEXTBOOK RSA FLAW  | MATHEMATICAL MECHANISM  | ATTACK IMPACT      | MANDATORY REMEDIATION                          |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Determinism     | Same M always yields C  | Codebook / Pattern | - Randomized Padding (RSA-OAEP)                |
+|                    | (Zero semantic entropy) | Traffic Analysis   | - Every encryption uses fresh 256-bit seed     |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Multiplicative  | E(M1) * E(M2) =         | Forges modified    | - RSA-OAEP (PKCS#1 v2.2 / RFC 8017)            |
+|    Homomorphism    | E(M1 * M2) mod N        | financial payments | - Destroys algebraic malleability              |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. Short Message   | If e=3 and M < N^(1/3): | Recovers plaintext | - Standardize on e = 65537                     |
+|    Cube Root       | C = M^3 (No modular wrap| via integer cuberoot| - Enforce full-width OAEP padding              |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. Hastad Broadcast| e=3 across 3 recipients | CRT recovers M^3   | - RSA-OAEP randomized per-recipient encryption |
+|                    | (C1, C2, C3 mod N1,N2,N3| across network     |                                                |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 5. Bleichenbacher  | Chosen-ciphertext oracle| Decrypts pre-master| - Standardize on RSA-OAEP with SHA-256         |
+|    Padding Oracle  | on PKCS#1 v1.5 errors   | secret in 1M queries| - Returns uniform constant-time error responses|
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+4. RSA-OAEP (OPTIMAL ASYMMETRIC ENCRYPTION PADDING)
+--------------------------------------------------------------------------------
+
+Under PKCS#1 v2.2 (RFC 8017), plaintext M is padded via a 2-round Feistel network:
+  - Step 1: Form Data Block: DB = Hash(Label) || 0x00...01 || M
+  - Step 2: Generate random 256-bit seed r via CSPRNG.
+  - Step 3: MaskedDB = DB ⊕ MGF1( r, DB_Len )
+  - Step 4: MaskedSeed = r ⊕ MGF1( MaskedDB, Seed_Len )
+  - Step 5: EncodedMsg = 0x00 || MaskedSeed || MaskedDB
+  - Step 6: Ciphertext C = (EncodedMsg)^e mod N (IND-CCA2 Provably Secure!)
+
+--------------------------------------------------------------------------------
+5. HIGH-SPEED DECRYPTION VIA RSA-CRT & GARNER'S FORMULA
+--------------------------------------------------------------------------------
+
+The private key computes RSA-CRT in 1/4th the CPU time:
+  1. Compute: m1 = C^(d_p) mod p   (1024-bit exponentiation)
+  2. Compute: m2 = C^(d_q) mod q   (1024-bit exponentiation)
+  3. Garner Recombination:
+         h = ( q_inv * (m1 - m2) ) mod p
+         M = m2 + h * q
+  4. Cryptographic Blinding: Multiply C by r^e mod N to defeat timing side channels!
+
+--------------------------------------------------------------------------------
+6. INDIAN STATUTORY COMPLIANCE & LEGAL ADMISSIBILITY
+--------------------------------------------------------------------------------
+
+* IT ACT 2000 SECTION 43A (Reasonable Security Practices):
+  - Using vulnerable Textbook RSA or deprecated PKCS#1 v1.5 violates Section 43A. Organizations must 
+    deploy RSA-OAEP for encryption and RSA-PSS for digital signatures.
+
+* DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023:
+  - Envelope Encryption (AES-256 DEK wrapped by RSA-OAEP HSM keys) fulfills Section 33 statutory safeguards.
+
+--------------------------------------------------------------------------------
+7. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : BANKING PAYMENT SWITCH RSA-OAEP MIGRATION (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Payment APIs were using unpadded RSA, exposing encrypted UPI wire transfers to multiplicative malleability fraud.
+  * Action : Mamata deployed RSA-OAEP with SHA-256 across all transaction switching nodes, eliminating 100% of 
+    malleability vulnerabilities and meeting RBI compliance.
+
+SCENARIO 2 : ONCOLOGY PACS CLOUD RSA-CRT HARDWARE ACCELERATION (ICHAPUR HOSPITAL)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Decrypting 100,000+ patient MRI DICOM records was causing massive server CPU throttling and clinical delays.
+  * Action : Deployed RSA-CRT hardware acceleration with Garner recombination, achieving a 4x throughput boost 
+    and 100% compliance with ABDM and the DPDP Act 2023.
+
+SCENARIO 3 : 220KV CIRCUIT BREAKER RSA-PSS DIGITAL SIGNATURES (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Protecting mission-critical circuit breaker trip commands against replay and malleability attacks.
+  * Action : Enforced RSA-PSS digital signatures with probabilistic salt in RTU firmware, ensuring 100.00% 
+    command authentication and zero unauthorized grid tripping.
+
+SCENARIO 4 : TEXTBOOK RSA VS RSA-OAEP LABORATORY TESTBED (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students why multiplying Textbook RSA ciphertexts doubles payment values.
+  * Action : Built an interactive Python testbed comparing Textbook RSA against RSA-OAEP and RSA-CRT, 
+    training 140+ students on chosen-ciphertext attacks and Feistel padding networks.
+
+--------------------------------------------------------------------------------
+8. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL RSA OPERATION HABITS:
+  1. Never Use Textbook RSA: Always enforce RSA-OAEP (RFC 8017) for encryption.
+  2. Standardize on e = 65537: Provides ultra-fast encryption with 17 operations and immunity to cube root attacks.
+  3. Deploy RSA-CRT with Blinding: Delivers a 4x decryption speedup with total side-channel immunity.
+  4. Use Hybrid Cryptography: Encrypt symmetric AES-256 session keys with RSA rather than raw large files.
+
+* COMMON BEGINNER OPERATIONAL MISTAKES:
+  - Encrypting raw data directly with RSA without symmetric AES envelope encryption.
+  - Using e = 3 with small unpadded messages (Vulnerable to standard cube root attacks).
+  - Failing to randomize padding (Vulnerable to codebook dictionary search attacks).
+  - Using unblinded RSA-CRT (Vulnerable to Bellcore fault injection and timing attacks).
+
+--------------------------------------------------------------------------------
+9. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] RSA Encryption: C ≡ M^e (mod N); RSA Decryption: M ≡ C^d (mod N).
+[ ] Proof of correctness holds for ALL M < N via CRT modulo p and modulo q.
+[ ] Textbook RSA is homomorphic: E(M1) * E(M2) = E(M1 * M2) mod N (Malleable!).
+[ ] RSA-OAEP uses a 2-round Feistel network with SHA-256 to deliver IND-CCA2 security.
+[ ] e = 3 with small M < N^(1/3) is broken by taking standard integer cube root M = C^(1/3).
+[ ] RSA-CRT computes m1 mod p and m2 mod q for a 4x decryption speedup via Garner's formula.
+[ ] Cryptographic Blinding (C' = C * r^e mod N) eliminates timing and power side channels.
+[ ] IT Act Section 43A mandates RSA-OAEP & RSA-PSS as statutory 'reasonable security practices'.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 04 (CYBER SECURITY BCAC703 - MODULE 002_005)
+================================================================================

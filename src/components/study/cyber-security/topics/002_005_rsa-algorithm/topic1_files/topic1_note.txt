@@ -1,0 +1,153 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_005 : RSA ALGORITHM & PUBLIC KEY INFRASTRUCTURE
+TOPIC 01       : MATHEMATICAL FOUNDATIONS OF RSA: PRIME FACTORIZATION & EULER'S TOTIENT
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & NUMBER-THEORETIC FOUNDATIONS
+--------------------------------------------------------------------------------
+The RSA algorithm transforms abstract concepts of number theory into an impenetrable 
+cryptographic vault. Its security is grounded in the Fundamental Theorem of Arithmetic 
+and the algebraic properties of Euler's Totient function:
+
+  * PRIME NUMBERS (p, q) : Random, massive 1024-bit integers with no divisors other than 1 and itself.
+  * COMPOSITE MODULUS (N): Product of two primes: N = p * q (2048 bits / 617 decimal digits).
+  * TRAPDOOR PROPERTY    : Forward multiplication takes microseconds; factoring N without p, q 
+                           takes billions of classical CPU years using the General Number Field Sieve (GNFS).
+
+--------------------------------------------------------------------------------
+2. EULER'S TOTIENT FUNCTION & CARMICHAEL'S TOTIENT
+--------------------------------------------------------------------------------
+
+  1. EULER'S TOTIENT FUNCTION phi(N):
+     - Definition: Counts the number of positive integers in [1, N-1] coprime to N (gcd(a, N) = 1).
+     - For a Prime p: phi(p) = p - 1.
+     - Multiplicative Property: For coprimes p and q:
+             phi(N) = phi(p * q) = phi(p) * phi(q) = (p - 1) * (q - 1)
+
+  2. CARMICHAEL'S TOTIENT lambda(N) [PKCS#1 v2.2 STANDARD]:
+     - Definition: The smallest positive integer such that a^lambda(N) ≡ 1 (mod N).
+     - Formula: lambda(N) = lcm(p - 1, q - 1) = [ (p - 1)(q - 1) ] / gcd(p - 1, q - 1).
+     - Advantage: Produces a smaller valid private exponent d, speeding up RSA computations.
+
+--------------------------------------------------------------------------------
+3. EULER'S THEOREM & PROOF OF RSA DECRYPTION
+--------------------------------------------------------------------------------
+
+* EULER'S THEOREM:
+  - If gcd(a, N) = 1, then:
+                      a^phi(N) ≡ 1 (mod N)
+
+* MATHEMATICAL PROOF OF RSA DECRYPTION:
+  - By construction: e * d ≡ 1 (mod phi(N))  ==>  e * d = 1 + k * phi(N).
+  - Encrypt: C ≡ M^e (mod N)
+  - Decrypt: C^d ≡ (M^e)^d ≡ M^(e*d) ≡ M^(1 + k*phi(N)) ≡ M * (M^phi(N))^k ≡ M * (1)^k ≡ M (mod N).
+
+--------------------------------------------------------------------------------
+4. PRIMALITY TESTING ALGORITHMS IN KEY GENERATION
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| PRIMALITY TEST     | COMPLEXITY / TIME       | ERROR PROBABILITY  | CRYPTOGRAPHIC EVALUATION & VULNERABILITY       |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Trial Division  | O( sqrt(N) ) - Infeasible| 0% (Deterministic) | - Impractical for 1024-bit numbers (2^512 ops) |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Fermat Test     | O( k * log^3(N) ) - Fast| High False Positives| - BROKEN by Carmichael Numbers (e.g. 561)      |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. Miller-Rabin    | O( k * log^3(N) ) - Fast| <= 4^(-k) (Tiny!)  | - GLOBAL CRYPTOGRAPHIC STANDARD (FIPS 186-5)   |
+|    (Probabilistic) | (Milliseconds)          | k=64 => < 2^(-128) | - Impossible for composite imposter to pass!   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. AKS Test        | O( log^6(N) )           | 0% (Deterministic) | - HISTORIC BREAKTHROUGH (IIT Kanpur, 2002)     |
+|    (Agrawal-Kayal) | (Slower in practice)    | (Unconditional)    | - Proved PRIMES is in computational class P!   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+5. INTEGER FACTORIZATION ATTACKS & HARDENING
+--------------------------------------------------------------------------------
+
+  * FERMAT'S FACTORIZATION (Close Primes):
+    - If |p - q| is small, N = x^2 - y^2 factors N in seconds.
+    - Rule: Enforce |p - q| > 2^(1024 - 100) bits during prime generation.
+
+  * POLLARD'S p - 1 ATTACK (Smooth Primes):
+    - If p - 1 has only small prime factors, gcd(2^M - 1, N) factors N in milliseconds.
+    - Rule: Select "Strong Primes" where p - 1 = 2 * p' + 1 and p' is a huge prime.
+
+  * GENERAL NUMBER FIELD SIEVE (GNFS):
+    - Sub-exponential complexity L_N[1/3, c]. 2048-bit RSA requires 2^112 operations, 
+      guaranteeing computational security against all classical supercomputers.
+
+--------------------------------------------------------------------------------
+6. INDIAN STATUTORY COMPLIANCE & LEGAL ADMISSIBILITY
+--------------------------------------------------------------------------------
+
+* IT ACT 2000 SECTION 35 (FIPS 140-2 Primality Mandates):
+  - Hardware USB tokens must use FIPS 140-2 Level 2 validated true random number generators 
+    and 64-round Miller-Rabin tests to prevent ROCA-style factorization vulnerabilities.
+
+* IT ACT 2000 SECTION 5:
+  - Digital Signature Certificates (DSCs) mathematically anchored on strong prime numbers have 
+    unconditional legal admissibility and non-repudiation in all Indian courts of law.
+
+--------------------------------------------------------------------------------
+7. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : MILLER-RABIN 64-ROUND HSM KEYGEN UPGRADE (KOLKATA FINTECH)
+  * Lead Cryptographic Auditor : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Internal banking HSM key generation algorithms were running only 10 primality rounds, 
+    risking composite key generation and RBI audit failure.
+  * Action : Mamata upgraded the HSM firmware to enforce 64-round Miller-Rabin primality testing, 
+    reducing composite error probability to < 2^(-128) and meeting 100% RBI compliance.
+
+SCENARIO 2 : 2048-BIT HOSPITAL CERTIFICATE EULER TOTIENT PIPELINE (ICHAPUR HOSPITAL)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Hospital EHR servers required automated key generation pipelines that calculate 
+    phi(N) and Carmichael's lambda(N) without memory leakage.
+  * Action : Deployed automated key generation microservices with secure RAM zeroization, issuing 
+    50,000+ Class-3 DSCs under Section 5 of the IT Act 2000 and DPDP Act 2023.
+
+SCENARIO 3 : SCADA RTU GNFS FACTORING THRESHOLD BENCHMARK (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Auditing 220kV power substation RTU cryptographic modules against Pollard's Rho and Fermat attacks.
+  * Action : Enforced strong prime generation (|p - q| > 2^900) across all industrial gateways, ensuring 
+    100.00% resilience against algebraic factorization attacks and zero power grid downtime.
+
+SCENARIO 4 : EULER TOTIENT & AKS PRIMALITY LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students how Euler's Totient phi(N) and Carmichael's lambda(N) work in Python.
+  * Action : Built an interactive number-theoretic sandbox computing gcd(e, phi(N)) and demonstrating 
+    Euler's theorem invariance (a^phi(N) ≡ 1 mod N), training 140+ students on the AKS and Miller-Rabin tests.
+
+--------------------------------------------------------------------------------
+8. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL RSA MATHEMATICAL HABITS:
+  1. Enforce 64-Round Miller-Rabin Testing: Guarantees error probability < 2^(-128).
+  2. Use Carmichael's Totient lambda(N): Yields smaller private exponents d for faster operations.
+  3. Ensure Large Prime Separation: Never generate primes where |p - q| is small (Defeats Fermat factoring).
+  4. Securely Wipe p, q, and phi(N): Once key generation is complete, erase p, q, and phi(N) from RAM.
+
+* COMMON BEGINNER NUMBER-THEORY MISTAKES:
+  - Relying on Fermat's primality test (Fooled by Carmichael numbers like 561).
+  - Choosing primes too close together (Trivially factored by Fermat's difference of squares).
+  - Generating weak primes with smooth (p - 1) factors (Vulnerable to Pollard's p - 1 attack).
+  - Storing Euler's totient phi(N) alongside the public key (Allows anyone to compute private key d).
+
+--------------------------------------------------------------------------------
+9. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Prime Factorization is the one-way trapdoor of RSA: N = p * q.
+[ ] Euler's Totient Function: phi(N) = (p - 1) * (q - 1).
+[ ] Carmichael's Totient: lambda(N) = lcm(p - 1, q - 1) produces smaller private key d.
+[ ] Euler's Theorem: a^phi(N) ≡ 1 (mod N) enables RSA decryption invariance.
+[ ] Miller-Rabin test with k=64 rounds reduces error to < 2^(-128) (FIPS 186-5 standard).
+[ ] AKS algorithm (IIT Kanpur, 2002) proved that PRIMES is in deterministic class P.
+[ ] Fermat's method factors close primes; Pollard's p - 1 factors smooth primes.
+[ ] IT Act 2000 Section 35 requires FIPS 140-2 validated primality testing in crypto-tokens.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 01 (CYBER SECURITY BCAC703 - MODULE 002_005)
+================================================================================

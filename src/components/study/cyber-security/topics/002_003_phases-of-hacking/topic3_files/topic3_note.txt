@@ -1,0 +1,138 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_003 : PHASES OF HACKING METHODOLOGY
+TOPIC 03       : PHASE 2: SCANNING AND NETWORK ENUMERATION
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & PHASE 2 OBJECTIVES
+--------------------------------------------------------------------------------
+Phase 2 (Scanning and Network Enumeration) represents the transition from passive reconnaissance 
+to active, direct interaction with target infrastructure.
+
+While Phase 1 uncovers IP blocks and domain names, Phase 2 actively probes those assets to:
+  1. Discover live hosts on the network (Host Discovery / Ping Sweeps).
+  2. Identify open TCP/UDP transport ports and listening network daemons (Port Scanning).
+  3. Query active services to extract exact usernames, network shares, and configurations (Enumeration).
+
+--------------------------------------------------------------------------------
+2. TRANSPORT LAYER PORT SCANNING MECHANICS & TCP FLAGS
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| SCAN TYPE          | TCP FLAGS SENT          | RESPONSE IF OPEN   | LOGGING & DEFENSIVE CHARACTERISTIC             |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. SYN Stealth     | [ SYN ]                 | [ SYN-ACK ]        | - Client sends instant RST; Handshake never    |
+|    Scan (-sS)      | (Half-Open Probe)       | (Closed: RST-ACK)  |   completes, avoiding application socket logs  |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Full Connect    | [ SYN ]                 | [ SYN-ACK ]        | - OS completes full 3-way handshake (SYN-ACK-  |
+|    Scan (-sT)      | (Full 3-Way Handshake)  | (Closed: RST-ACK)  |   ACK); Triggers application-level access logs |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. UDP Port        | [ UDP Probe Packet ]    | [ UDP Data / None ]| - Closed ports return ICMP Port Unreachable;   |
+|    Scan (-sU)      | (Connectionless)        | (Closed: ICMP T3C3)|   Slow due to OS ICMP rate-limiting            |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. TCP ACK Scan    | [ ACK ]                 | [ RST-ACK ]        | - Used to map firewall rulesets:               |
+|    Scan (-sA)      | (State Check)           | (Filtered: Dropped)|   Stateless FW = Unfiltered; Stateful FW = Drop|
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 5. TCP Xmas Scan   | [ FIN + PSH + URG ]     | [ No Response ]    | - RFC 793 loophole: Closed ports return RST;   |
+|    Scan (-sX)      | (Inverted Flags)        | (Closed: RST)      |   Open ports drop packet silently              |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. PROTOCOL ENUMERATION ARSENAL
+--------------------------------------------------------------------------------
+
+[1. SMB / RPC ENUMERATION (TCP PORT 445 / 139)]
+  * Tools: `enum4linux -U 192.168.1.50` or `rpcclient -U "" -N 192.168.1.50`
+  * Intelligence Gained: Active Directory domain usernames, RID cycling, shared folders, password policies.
+
+[2. SNMP ENUMERATION (UDP PORT 161)]
+  * Tools: `snmpwalk -v2c -c public 203.0.113.1`
+  * Intelligence Gained: Management Information Base (MIB) trees, network interface IPs, running processes.
+
+[3. ACTIVE DIRECTORY LDAP ENUMERATION (TCP PORT 389 / 636)]
+  * Tools: `ldapsearch -x -H ldap://192.168.1.50 -b "dc=target,dc=com"`
+  * Intelligence Gained: Complete corporate employee hierarchy, email addresses, security groups.
+
+[4. SMTP USER ENUMERATION (TCP PORT 25)]
+  * Commands: `VRFY username` or `EXPN mailinglist`
+  * Intelligence Gained: Validates employee email accounts for targeted password attacks.
+
+[5. NFS SHARE ENUMERATION (TCP PORT 2049)]
+  * Tools: `showmount -e 203.0.113.50`
+  * Intelligence Gained: Discovers exported server directories with unrestricted (`*`) mount permissions.
+
+--------------------------------------------------------------------------------
+4. FIREWALL & IDS EVASION TECHNIQUES
+--------------------------------------------------------------------------------
+
+1. Decoy Scanning (`nmap -D RND:10,ME target.com`):
+   - Spoofs probe packets from 10 fake IP addresses alongside the real IP to blind SIEM analysts.
+
+2. Packet Fragmentation (`nmap -f --mtu 16 target.com`):
+   - Splits 20-byte TCP headers across multiple IP fragments to bypass older signature-based IDS.
+
+3. Source Port Manipulation (`nmap --source-port 53 target.com`):
+   - Mimics DNS response traffic to bypass legacy firewall rules that trust source port 53.
+
+4. Timing Template Selection (`-T0` to `-T5`):
+   - Use `-T2` (Polite) in delicate clinical hospital (IoMT) or SCADA environments to avoid device crashes.
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : SMB ACTIVE DIRECTORY ENUMERATION AUDIT (KOLKATA FINTECH)
+  * Lead Security Auditor : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Auditing internal banking VLANs to verify whether unauthenticated SMB null sessions were allowed.
+  * Action : Ran `enum4linux` and `rpcclient`, uncovering an unrestricted SMB share leaking internal batch scripts, 
+    and hardened Windows Group Policy by enforcing SMB Signing and disabling Guest Null sessions.
+
+SCENARIO 2 : GENTLE IOMT PORT SCANNING DEFENSE (ICHAPUR HOSPITAL)
+  * Chief Healthcare Security Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Scanning 45 networked ICU patient monitors without triggering buffer overruns or device reboots.
+  * Action : Enforced `-T2` polite scanning with single-port verification (`nmap -sS -T2 -p 80,443,8080`), 
+    safely identifying unencrypted web interfaces and segmenting the clinical VLAN.
+
+SCENARIO 3 : SNMP SCADA RTU ENUMERATION DEFENSE (BARRACKPORE GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Verifying whether substation network switches leaked hardware MIB tables via default SNMP strings.
+  * Action : Executed `snmpwalk -v2c -c public`, discovering 3 switches with default community strings, 
+    upgrading all devices to SNMPv3 with SHA authentication and AES encryption.
+
+SCENARIO 4 : TCP 3-WAY HANDSHAKE PACKET LAB (JADAVPUR UNIVERSITY)
+  * Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Visualizing low-level TCP packet exchanges for university cybersecurity students.
+  * Action : Built a Wireshark + Nmap lab comparing full-connect vs SYN stealth scan packet captures, 
+    training 140+ students on TCP flags (SYN, ACK, RST, FIN, PSH, URG).
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL SCANNING HABITS:
+  1. Never Use `-T4` or `-T5` on OT/IoMT Networks: Rapid scans crash legacy microcontrollers.
+  2. Perform Targeted UDP Scans: Scan only top UDP ports (`-p 53,67,123,161`) to avoid ICMP timeouts.
+  3. Combine Nmap with Nbtscan and Enum4linux: Complete enumeration reveals the full attack surface.
+
+* COMMON BEGINNER SCANNING MISTAKES:
+  - Scanning public IP ranges without written authorization (Violates IT Act 2000 Section 66).
+  - Failing to check all 65,535 TCP ports during internal penetration tests (`-p-`).
+  - Misinterpreting 'Filtered' ports as 'Closed' (Filtered means a firewall is dropping packets).
+  - Leaving default SNMP community strings (`public`/`private`) enabled on production routers.
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Scanning discovers live hosts and open ports; Enumeration extracts usernames and shares.
+[ ] TCP SYN Stealth scan (`-sS`) tears down the connection with RST before completion.
+[ ] TCP Connect scan (`-sT`) completes the full 3-way handshake (logged in application logs).
+[ ] Filtered ports drop packets silently; Closed ports return a TCP RST packet.
+[ ] SNMP enumeration queries MIB trees over UDP port 161.
+[ ] SMB enumeration extracts Active Directory user lists over TCP port 445.
+[ ] Decoy scanning (`-D`) spoofs fake IP addresses to obscure the scanner's real identity.
+[ ] IT Act 2000 Section 66 criminalizes unauthorized network scanning and probing.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 03 (CYBER SECURITY BCAC703)
+================================================================================

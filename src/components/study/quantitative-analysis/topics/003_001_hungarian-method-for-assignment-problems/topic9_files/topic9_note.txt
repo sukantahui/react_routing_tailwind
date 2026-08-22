@@ -1,0 +1,104 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 9: COLUMN REDUCTION (STEP 3 OF THE HUNGARIAN METHOD & DUAL POTENTIAL v_j)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE COLUMN REDUCTION ALGORITHM & MATHEMATICAL DEFINITION
+--------------------------------------------------------------------------------
+Column Reduction is the THIRD STEP of the Hungarian Method. It operates on the
+ROW-REDUCED matrix C' = [c_ij']:
+
+ALGORITHM:
+1. For every column j (from j = 1 to n):
+   • Find the minimum entry in column j:
+         v_j = min_{1 <= i <= n} (c_ij')
+   • If v_j > 0:
+         Subtract v_j from every entry in column j:
+         c_ij'' = c_ij' - v_j     (for all i = 1, 2, ..., n)
+   • If v_j == 0 (Column j already has a zero):
+         Leave Column j completely unchanged!
+
+MATHEMATICAL GUARANTEE:
+After Column Reduction:
+1. Every single row contains at least one zero (min_{j} c_ij'' = 0).
+2. Every single column contains at least one zero (min_{i} c_ij'' = 0).
+3. All matrix elements remain strictly non-negative (c_ij'' >= 0).
+
+--------------------------------------------------------------------------------
+2. DUAL LP SIGNIFICANCE OF COLUMN REDUCTION
+--------------------------------------------------------------------------------
+In the Dual LP:
+    Maximize   W = Sum_{i=1}^n u_i + Sum_{j=1}^n v_j
+    Subject to: u_i + v_j <= c_ij
+
+• The subtracted column minimums v_j represent the column dual potential variables.
+• Subtracting v_j updates the total dual objective value:
+      W = Sum u_i + Sum v_j
+• Duality Gap at this stage:
+      Gap = (Current Primal Cost Estimate) - W >= 0
+
+--------------------------------------------------------------------------------
+3. SPECIAL COLUMN REDUCTION CONDITIONS
+--------------------------------------------------------------------------------
+1. COLUMN ALREADY HAS A ZERO (v_j = 0):
+   If Column j contains a zero produced during Row Reduction, min_{i}(c_ij') = 0.
+   Subtracting 0 is a NO-OP, leaving all entries in that column untouched.
+
+2. DUMMY ROW PRESENT (ALL 0s):
+   If a dummy row was added during balance pre-processing, every column has a ₹0
+   in the dummy row, making ALL column minimums v_j = 0.
+   Column reduction is completely bypassed!
+
+3. PROHIBITED CELLS (Big-M Technique):
+   If cell c_ik' = M, ignore M when finding the column minimum:
+       v_j = min_{i != k} (c_ij')
+   Upon subtraction: M - v_j = M (Infinity barrier preserved).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Repair Column Reduction (Debangshu)
+Debangshu in Barrackpore observed that Column 3 of the row-reduced matrix had entries
+[2, 2, 5, 4] with min v_3 = ₹2. Subtracted ₹2 down Column 3, creating 2 new zero candidates.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Multi-Corridor Transit Optimization (Mamata & Mahima)
+Mamata and Mahima in Kolkata reduced Column 2 of their clinic matrix by 5 minutes,
+establishing zero-cost options for emergency hospital dispatchers.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Scheduling (Susmita)
+Susmita in Ichapur reduced an asymmetric branch matrix, verifying that Column 4
+was untouched (v_4 = 0) while Column 1 gained 2 new manager candidate pairings.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Contract Verification (Abhronila)
+Abhronila in Jadavpur audited a 4x4 matrix where all column minimums were v = [0, 0, 0, 0],
+proving to university regulators that Column Reduction skipped directly to Step 4.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always perform Column Reduction on the ROW-REDUCED matrix, never on the raw matrix!
+- If a column already has a zero, its column minimum is 0; do not alter that column.
+- Always check that every row AND every column has at least one zero before moving to Step 4.
+- Track all column shifts v_j for your duality audit in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Found column minimum v_j = min(Col j) on the row-reduced matrix C'.
+[ ] Subtracted v_j from every entry down column j (if v_j > 0).
+[ ] Verified that columns with existing zeros have v_j = 0 and remain unchanged.
+[ ] Verified that every row AND every column now contains at least one zero.
+[ ] Ensured all reduced entries are non-negative (c_ij'' >= 0).
+[ ] Calculated total column shift Sum v_j in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 9: COLUMN REDUCTION
+================================================================================

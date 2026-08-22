@@ -1,0 +1,94 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 35: PROTOCOL (SYNTAX, SEMANTICS, TIMING, TCP STATE MACHINES & TLS 1.3)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & THE THREE PILLARS OF ANY PROTOCOL
+--------------------------------------------------------------------------------
+A Protocol is a formal set of standardized rules, syntax, semantics, and synchronization
+procedures that govern how network nodes format, exchange, transmit, and verify data
+across digital communication channels.
+
+The 3 Key Pillars of Every Protocol:
+1. Syntax: Data structure, bit layout, header fields, offsets, and delimiters.
+2. Semantics: Meaning and control actions assigned to each section of bits (opcodes,
+   error flags, addresses, response status codes).
+3. Timing / Synchronization: Sequencing, speed matching, state transitions, flow control,
+   and timeout retransmission timers.
+
+--------------------------------------------------------------------------------
+2. PROTOCOL STACK TAXONOMY & THE STANDARD SUITE
+--------------------------------------------------------------------------------
+Layer             | Key Protocols                      | Purpose & Standard Ports
+--------------------------------------------------------------------------------
+Layer 7 (App)     | HTTP, HTTPS, DNS, SSH, SNMP, SMTP  | Web, Names, Shell (80, 443, 53, 22, 161)
+Layer 4 (Trans)   | TCP (Reliable), UDP (Fast), QUIC   | Transport, Handshakes, Sequencing
+Layer 3 (Network) | IP (v4/v6), ICMP, IPsec, BGP, OSPF | Logical Routing & Control Messaging
+Layer 2 (DataLink)| Ethernet (802.3), Wi-Fi (802.11), ARP| Hardware MAC Frame Delivery
+Layer 1 (Physical)| 1000BASE-T, 10G-LR, NRZ, QAM-1024 | Electrical Voltage / Optical Light
+
+--------------------------------------------------------------------------------
+3. TCP CONNECTION STATE MACHINE & HANDSHAKE FLOW
+--------------------------------------------------------------------------------
+The TCP 3-Way Handshake:
+1. Client -> Server: `SYN (seq=x)` [State: SYN_SENT]
+2. Server -> Client: `SYN-ACK (seq=y, ack=x+1)` [State: SYN_RCVD]
+3. Client -> Server: `ACK (ack=y+1)` [State: ESTABLISHED]
+
+The TCP 4-Way Teardown:
+1. Host A -> Host B: `FIN (seq=u)` [State: FIN_WAIT_1]
+2. Host B -> Host A: `ACK (ack=u+1)` [State: CLOSE_WAIT]
+3. Host B -> Host A: `FIN (seq=v)` [State: LAST_ACK]
+4. Host A -> Host B: `ACK (ack=v+1)` [State: TIME_WAIT -> CLOSED after 2MSL]
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry TCP SYN Cookie Hardening (Debangshu - Barrackpore)
+Debangshu defended edge telemetry gateways in Barrackpore against an 800,000 SYN/sec
+botnet attack by enabling SYN Cookies (`net.ipv4.tcp_syncookies = 1`) on Linux firewalls
+for ₹35,000 in security audits. Memory backlog exhaustion dropped to 0%, keeping operations live.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic TLS 1.3 & HSTS Enforcement (Mahima - Ichapur)
+Mahima enforced TLS 1.3 with Perfect Forward Secrecy (PFS) and HSTS preloading on hospital
+patient servers in Ichapur for ₹45,000. Protocol downgrade attempts (SSL stripping) were
+blocked at the browser edge, protecting sensitive healthcare records.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Campus DNSSEC & RPKI Deployment (Mamata - Kolkata)
+Mamata deployed DNSSEC cryptographic record signing and RPKI BGP validation across the
+university network in Kolkata for ₹95,000. This neutralized DNS cache poisoning and
+prevented unauthorized ISP BGP prefix hijacking of the campus website.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Protocol Fuzzing & IDS Auditing (Abhronila - Jadavpur)
+Abhronila deployed Suricata IDS and protocol fuzzers (Boofuzz) in Jadavpur for ₹1,20,000.
+Fuzzing discovered a malformed SNMP buffer overflow vulnerability in legacy lab hardware,
+patching the flaw before unauthorized lateral access could occur.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never deploy outdated protocols with cleartext credentials (e.g. Telnet, SNMPv1, HTTP).
+- Always enable TCP SYN Cookies on public-facing servers to survive connection exhaustion floods.
+- Mandate TLS 1.3 with Perfect Forward Secrecy (PFS) and HSTS headers.
+- Formulate all enterprise IDS/IPS sensors and threat intelligence budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 3 core pillars of any protocol: Syntax, Semantics, and Timing.
+[ ] Traced the TCP 3-Way Handshake (SYN, SYN-ACK, ACK) and 4-Way Teardown (FIN/ACK).
+[ ] Compared connection-oriented TCP vs connectionless UDP vs next-gen QUIC (HTTP/3).
+[ ] Evaluated TCP SYN Floods, Protocol Downgrades, and DNS Cache Poisoning attacks.
+[ ] Understood DNSSEC cryptographic validation and RPKI BGP origin authorization.
+[ ] Formulated realistic enterprise IDS/IPS sensor budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 35: PROTOCOL
+================================================================================

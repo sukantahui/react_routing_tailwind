@@ -1,0 +1,103 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 2: ONE-TO-ONE ALLOCATION (BIJECTION MECHANICS, PERMUTATION MATRICES & CONFLICTS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE ONE-TO-ONE BIJECTION PRINCIPLE
+--------------------------------------------------------------------------------
+The hallmark of the Assignment Problem is the ONE-TO-ONE ALLOCATION RULE:
+• Each resource i (Worker/Machine) must be assigned to EXACTLY ONE task j.
+• Each task j (Job/Case) must be performed by EXACTLY ONE resource i.
+
+MATHEMATICAL EQUATIONS:
+1. Row Constraints (No idle workers, no double-booking):
+       Sum_{j=1}^n x_ij = 1     (for all i = 1, 2, ..., n)
+
+2. Column Constraints (No neglected tasks, no multi-worker clashes):
+       Sum_{i=1}^n x_ij = 1     (for all j = 1, 2, ..., n)
+
+3. Binary Decision Flags:
+       x_ij in {0, 1}           (for all i, j)
+
+--------------------------------------------------------------------------------
+2. PERMUTATION MATRICES & FACTORIAL COMBINATORIAL SPACE
+--------------------------------------------------------------------------------
+A valid 1-to-1 allocation schedule corresponds to an n x n PERMUTATION MATRIX:
+• Total Non-Zero Entries: Exactly n ones (all x_ij = 1).
+• Total Inactive Cells:   Exactly n^2 - n zeros (all x_ij = 0).
+• Matrix Sparsity:        ((n - 1) / n) * 100% of the matrix consists of zeros!
+
+FACTORIAL GROWTH:
+For an n x n problem, there are n! distinct valid permutation matrices:
+• 3 x 3 ➔ 3! = 6 permutations
+• 4 x 4 ➔ 4! = 24 permutations
+• 5 x 5 ➔ 5! = 120 permutations
+• 10 x 10 ➔ 10! = 3,628,800 permutations
+
+--------------------------------------------------------------------------------
+3. ALLOCATION CONFLICT TAXONOMY
+--------------------------------------------------------------------------------
+1. ROW CONFLICT (Double-Booking / Over-Allocation):
+   Occurs when Sum_{j=1}^n x_ij > 1.
+   Example: Worker 1 assigned to Task 1 AND Task 2.
+   Consequence: Human worker physically cannot execute two tasks simultaneously!
+
+2. COLUMN CONFLICT (Task Contestation / Multi-Assignment):
+   Occurs when Sum_{i=1}^n x_ij > 1.
+   Example: Worker 1 and Worker 2 both assigned to Task 3.
+   Consequence: Two people fighting over one machine, causing labor waste!
+
+3. ROW DEFICIT (Idle Resource):
+   Occurs when Sum_{j=1}^n x_ij = 0. Worker sits idle on payroll.
+
+4. COLUMN DEFICIT (Unassigned Task):
+   Occurs when Sum_{i=1}^n x_ij = 0. Customer order or surgery neglected.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supervisor Allocation (Debangshu)
+Debangshu in Barrackpore verified that 4 casting supervisors were matched 1-to-1
+with 4 melting furnaces, preventing dangerous unsupervised furnace operations.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Clinic Dispatch (Mamata & Mahima)
+Mamata and Mahima in Kolkata enforced 1-to-1 matching for 4 refrigerated vaccine
+vans across 4 hospital clinics, eliminating routing overlaps and stockout risks.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Matching (Susmita)
+Susmita in Ichapur validated retail store manager rosters, ensuring 4 hypermarket
+branches received exactly one dedicated store manager with zero branch conflicts.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Legal Case Distribution (Abhronila)
+Abhronila in Jadavpur structured Calcutta High Court legal brief distribution,
+guaranteeing each public defender received exactly one case per trial session.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always verify both row sums == 1 AND column sums == 1.
+- Total number of allocated cells (ones) MUST equal n.
+- Never allow fractional splits (x_ij = 0.5) in standard 1-to-1 models.
+- Always report total cost Z in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Understood the 1-to-1 bijection principle: 1 worker ➔ 1 job.
+[ ] Formulated row constraints (Sum_j x_ij = 1) and col constraints (Sum_i x_ij = 1).
+[ ] Defined permutation matrix structure (n ones and n^2 - n zeros).
+[ ] Identified row conflicts (double-booking) and column conflicts (contestation).
+[ ] Verified total number of combinations is n! (factorial).
+[ ] Audited allocation schedules for complete 1-to-1 feasibility.
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 2: ONE-TO-ONE ALLOCATION
+================================================================================

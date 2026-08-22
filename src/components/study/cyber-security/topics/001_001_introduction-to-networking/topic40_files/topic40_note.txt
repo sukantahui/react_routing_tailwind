@@ -1,0 +1,89 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 40: NETWORKING IN EDUCATION (CAMPUS LANS, NKN, EDUROAM, CBT EXAMS & LMS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. NATIONAL KNOWLEDGE NETWORK (NKN) & CAMPUS HIERARCHY
+--------------------------------------------------------------------------------
+• National Knowledge Network (NKN): A multi-gigabit (1G to 10G) low-latency optical
+  backbone established by the Government of India connecting universities, IITs, NITs,
+  and research institutes nationwide for collaborative supercomputing and research.
+• Campus 3-Tier Hierarchy:
+  - Access Layer: 24/48-Port PoE+ switches connecting classrooms, labs, and Wi-Fi APs.
+  - Distribution Layer: Building-level Layer 3 switches handling inter-VLAN routing.
+  - Core Layer: Redundant 40G/100G fiber switches in the Central Computer Center.
+
+--------------------------------------------------------------------------------
+2. CAMPUS WIRELESS & GLOBAL EDUROAM FEDERATION
+--------------------------------------------------------------------------------
+• Eduroam (Educational Roaming): Global Wi-Fi roaming using 802.1X RADIUS federation.
+  Visiting professors/students authenticate using their home institution credentials
+  via EAP-TTLS / PEAP with WPA3 Enterprise encryption.
+• Multi-SSID Architecture:
+  - Faculty/Staff SSID (VLAN 10): 802.1X WPA3, direct intranet and gradebook access.
+  - Student SSID (VLAN 20): Captive portal / 802.1X, daily quota management (5GB/day).
+  - Eduroam SSID (VLAN 30): Global research federation roaming.
+  - Guest SSID (VLAN 90): OTP mobile verification, internet-only isolated access.
+
+--------------------------------------------------------------------------------
+3. SECURE ONLINE COMPUTER-BASED TESTING (CBT) & LMS
+--------------------------------------------------------------------------------
+• CBT Examination Security:
+  - Air-gapped or firewall-locked Examination VLAN (VLAN 40).
+  - Safe Exam Browser (SEB) client locking out local desktop, USBs, and third-party apps.
+  - IP whitelisting restricting testing terminals strictly to the local exam server.
+• High-Concurrency LMS (Moodle/Canvas):
+  - Kubernetes container auto-scaling with Redis session caching and MySQL read-replicas.
+  - Cloud CDN edge caching and virtual waiting rooms during board result publishing.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Engineering College Wi-Fi 6 & Eduroam Deployment (Debangshu - Barrackpore)
+Debangshu deployed 45 enterprise Wi-Fi 6 Access Points and an Eduroam RADIUS gateway across an
+engineering campus in Barrackpore for ₹3,80,000. Over 2,400 students and visiting IIT faculty
+experience seamless high-speed roaming across academic blocks and research laboratories.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Medical College Online CBT Examination Center (Mahima - Ichapur)
+Mahima configured a locked 120-seat Computer-Based Testing (CBT) examination center in Ichapur
+for ₹1,45,000. Firewall rules restrict examination terminals strictly to the local assessment
+server, while Safe Exam Browser blocks unauthorized internet searches during university medical exams.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Result Publishing Cloud CDN Architecture (Mamata - Kolkata)
+Mamata architected a Cloudflare CDN edge caching and virtual waiting room solution in Kolkata
+for ₹85,000. When 450,000 students accessed semester results simultaneously, 99.1% of traffic
+was served from regional edge caches, keeping origin database CPU utilization under 15%.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab HPC Research Cluster Isolation (Abhronila - Jadavpur)
+Abhronila engineered an isolated 100G RoCE supercomputing research cluster in Jadavpur for ₹4,20,000.
+The network provides sub-microsecond latency for AI training and molecular simulation, while
+strict boundary firewalls block unauthorized external access from public campus Wi-Fi networks.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never deploy single unmanaged Wi-Fi access points in high-density lecture auditoriums.
+- Isolate online examination terminals into locked VLANs with strict outbound egress filtering.
+- Implement Layer-7 content filtering to block bandwidth-heavy torrents and crypto miners.
+- Budget campus Wi-Fi 6 controllers, CBT exam switches, and NKN hardware in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped National Knowledge Network (NKN) architecture and campus fiber backbones.
+[ ] Evaluated Eduroam global 802.1X RADIUS federation and WPA3 Enterprise encryption.
+[ ] Configured secure Computer-Based Testing (CBT) examination networks with Safe Exam Browser.
+[ ] Scaled Learning Management Systems (LMS) with Kubernetes, Redis, and Cloud CDNs.
+[ ] Mitigated rogue DHCP servers, Wi-Fi tethers, and result publishing traffic surges.
+[ ] Formulated realistic campus Wi-Fi 6 and CBT examination budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 40: NETWORKING IN EDUCATION
+================================================================================

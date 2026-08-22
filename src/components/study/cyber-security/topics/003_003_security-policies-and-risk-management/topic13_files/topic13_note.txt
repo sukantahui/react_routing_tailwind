@@ -1,0 +1,113 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_003 : SECURITY POLICIES, RISK ASSESSMENT & MITIGATION
+TOPIC 13       : ENTERPRISE RISK MANAGEMENT CASE STUDY (CAPSTONE)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE CAPSTONE ENTERPRISE ARCHITECTURE
+--------------------------------------------------------------------------------
+This Capstone Case Study synthesizes all 13 prior topics of Information Security Management into an 
+end-to-end operational blueprint. We analyze "PayShield India", a Tier-1 FinTech and core banking payment 
+switch based in Kolkata, processing ₹120 Crores daily in UPI transactions across 500 cloud microservices:
+
+  * THE ASSET ECOSYSTEM  : 500 Payment Microservices, 800,000 Customer Records, ₹15 Crore Core Switch Value.
+  * THE INHERENT THREATS : Ransomware (LockBit), API Parameter Tampering, Transitive Log4j Supply Chain Flaws.
+  * THE ERM BLUEPRINT    : Quantitative FAIR Loss Modeling + 4-Pillar RTP + Automated GRC Risk Register.
+  * THE GOVERNANCE GOAL  : Drive Residual Risk below Board Appetite (<= 3.0) and secure ₹250 Cr DPDP Safe Harbor!
+
+--------------------------------------------------------------------------------
+2. THE 6-STAGE ENTERPRISE RISK MANAGEMENT LIFECYCLE
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| ERM STAGE          | OPERATIONAL FOCUS       | REAL-WORLD IMPLEMENTATION ARTIFACT             |
++--------------------+-------------------------+------------------------------------------------+
+| 1. SCOPE & ASSET   | Catalog hardware, data, | 500 Kubernetes microservices + 800k citizen PII|
+|    VALUATION       | and revenue dependency. | records valued at ₹15 Crores ($AV$).           |
+|                    |                         |                                                |
+| 2. THREAT & VULN   | Ingest CVSS & MITRE     | SCA/DAST scanning identifies CVE-2026-8812 and |
+|    SCANNING        | adversary TTPs.         | un-audited direct SQL queries (Inherent: 20/25)|
+|                    |                         |                                                |
+| 3. QUANTITATIVE    | Calculate financial loss| SLE = ₹6.00 Crores; ALE Before = ₹3.00 Cr/yr;  |
+|    LOSS FORECAST   | expectancies & ROSI.    | Proposed Control Cost = ₹18.5 Lakhs/year.      |
+|                    |                         |                                                |
+| 4. RISK TREATMENT  | Author Risk Treatment   | Deploys AWS WAF + CrowdStrike EDR + FIDO2 MFA  |
+|    PLAN (RTP)      | Plan (Clause 6.1.3).    | + ₹50 Crore Cyber Insurance policy transfer.   |
+|                    |                         |                                                |
+| 5. GRC REGISTER &  | Log in GRC platform &   | Mitigated ALE drops to ₹15 Lakhs/yr; Residual  |
+|    RESIDUAL AUDIT  | verify residual score.  | Risk Score drops to 1.4 (Within Appetite <= 3).|
+|                    |                         |                                                |
+| 6. BOARD APPROVAL  | Present to BRMC & verify| Unanimous CFO approval (1,440% ROSI); Total    |
+|    & SAFE HARBOR   | statutory safe harbor.  | Safe Harbor under DPDP Act 2023 & RBI Rules.   |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. MULTI-SECTOR CROSS-DOMAIN CASE STUDIES (WEST BENGAL)
+--------------------------------------------------------------------------------
+
+CASE 1 : TIER-1 FINTECH & UPI PAYMENT SWITCH (PAYSHIELD INDIA - KOLKATA)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Execution : Automated CycloneDX SBOM ingestion, deployed AWS WAF, and proved 1,440% ROSI to the CFO, 
+    shielding ₹120 Crores/day UPI transactions from supply-chain and parameter tampering exploits.
+
+CASE 2 : HEALTHCARE CLINICAL ONCOLOGY PACS NETWORK (ICHAPUR CLINICAL CARE)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Execution : Executed Risk Avoidance via patient ID tokenization, deployed S3 Object Lock crypto-shredding, 
+    and established complete statutory Safe Harbor against ₹250 Crore DPDP Act fines for 80,000 cancer scans.
+
+CASE 3 : CRITICAL INFRASTRUCTURE 220KV SUBSTATIONS (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Execution : Mapped SCADA Modbus threats against MITRE ATT&CK for ICS, deployed unidirectional hardware 
+    data diodes, and satisfied 100% of NCIIPC Section 70 Protected System rules under the Indian IT Act.
+
+CASE 4 : HIGHER EDUCATION & DUAL-MODE SIMULATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Execution : Developed an interactive Enterprise Risk Management Capstone Studio in React, training 
+    215+ BCA cyber security students across all 14 topics of Information Security Governance and Risk Analysis.
+
+--------------------------------------------------------------------------------
+4. STATUTORY SAFE HARBOR UNDER INDIAN CYBER LAW
+--------------------------------------------------------------------------------
+
+  * DPDP ACT 2023 SECTION 8 & SECTION 33 :
+    - Maintaining an actively managed Risk Register, Privacy-by-Design threat models, and 
+      rigorous vendor DPAs establishes statutory Safe Harbor, immunizing against ₹250 Cr fines!
+  * RESERVE BANK OF INDIA (RBI) MASTER DIRECTIONS :
+    - Commercial banks must present an automated, quantified Risk Register directly to the 
+      Board Risk Management Committee (BRMC) on a quarterly basis.
+  * CERT-In DIRECTIONS 2022 (IT ACT SEC 70B) :
+    - Mandatory 6-hour incident reporting and strict 48-hour Critical CVE remediation SLAs.
+
+--------------------------------------------------------------------------------
+5. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL ERM HABITS:
+  1. Speak the Language of Finance: Always present Rupee ALE and ROSI percentages when pitching to CFOs.
+  2. Maintain Continuous GRC Sync: Connect vulnerability scanners directly to the enterprise risk register.
+  3. Enforce 100% SBOM Coverage: Eliminate unmonitored transitive dependencies across software supply chains.
+  4. Benchmark Against Appetite: Never deploy a software release if residual risk exceeds board appetite.
+
+* COMMON BEGINNER ERM PITFALLS:
+  - The "Paper Compliance" Myth (Assuming having a PDF security policy equals real-world cyber resilience).
+  - The "Spreadsheet Trap" (Tracking enterprise risks in static Excel files without audit trails).
+  - Ignoring Legal Penalties in Asset Value (Failing to include ₹250 Cr DPDP fines in SLE equations).
+  - Unowned Risk Registers (Logging risks without assigning a named engineer and calendar SLA).
+
+--------------------------------------------------------------------------------
+6. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] ERM synthesizes Asset Valuation, Threat Modeling, Quantitative Loss, and RTP into one framework.
+[ ] Single Loss Expectancy: SLE = Asset Value (AV) x Exposure Factor (EF).
+[ ] Annual Loss Expectancy: ALE = SLE x Annual Rate of Occurrence (ARO).
+[ ] Return on Security Investment: ROSI = [(ALE Reduction - Control Cost) / Control Cost] x 100.
+[ ] 4 Treatment Options: Mitigate (Reduce), Transfer (Share), Avoid (Stop), Accept (Retain).
+[ ] Risk Appetite is the board's non-negotiable maximum residual risk threshold (e.g. <= 3.0).
+[ ] STRIDE maps threats to Authenticity, Integrity, Non-Repudiation, Confidentiality, Availability, Authorization.
+[ ] DPDP Act Section 8 and Section 33 govern data breach liability and ₹250 Crore statutory fine safe harbor.
+[ ] RBI Master Directions mandate quarterly Risk Register presentation to the Board Committee (BRMC).
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 13 & MODULE 003_003 COMPLETE!
+================================================================================

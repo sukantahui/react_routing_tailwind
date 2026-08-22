@@ -1,0 +1,115 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_004_vogel-approximation-method
+TOPIC 4: UPDATING PENALTIES AFTER ALLOCATION (DYNAMIC SUB-MATRIX DYNAMICS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE PRINCIPLE OF DYNAMIC PENALTY RECALCULATION
+--------------------------------------------------------------------------------
+Vogel's Approximation Method (VAM) is an ADAPTIVE iterative heuristic.
+After each allocation step, an exhausted row or column is struck out.
+This line elimination permanently removes a set of candidate shipping routes
+from all intersecting rows and columns.
+
+WHY PENALTIES MUST BE RECOMPUTED:
+1. Candidate Pool Shift: An intersecting line may lose its cheapest route c_(1)
+   or its second-cheapest route c_(2).
+2. Risk Escalation: If a line loses its second-cheapest backup route, its penalty
+   can jump dramatically (e.g. from ₹2 to ₹18), signaling an urgent new risk.
+3. Sub-matrix Contraction: The problem dimensions reduce from m x n to
+   (m-1) x n or m x (n-1), requiring fresh opportunity cost evaluation.
+
+--------------------------------------------------------------------------------
+2. MATHEMATICAL EFFECT ON REMAINING LINES
+--------------------------------------------------------------------------------
+Case A: Crossed-out cell was the LOWEST cost c_(1)
+  - Old c_(2) becomes the NEW lowest cost c_(1)'.
+  - Old c_(3) becomes the NEW second-lowest cost c_(2)'.
+  - New penalty: P' = c_(3) - c_(2).
+
+Case B: Crossed-out cell was the SECOND-LOWEST cost c_(2)
+  - Lowest cost c_(1) remains unchanged.
+  - Old c_(3) becomes the NEW second-lowest cost c_(2)'.
+  - New penalty: P' = c_(3) - c_(1) (PENALTY WIDENS!).
+
+Case C: Crossed-out cell was HIGHER than second-lowest (c >= c_(3))
+  - Top two lowest costs are undisturbed.
+  - New penalty remains identical: P' = P.
+
+Case D: Only ONE cell remains in the line
+  - No second choice exists; mark penalty as '—'.
+  - Mandatory direct allocation is performed in the final pass.
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP RECALCULATION WORKFLOW
+--------------------------------------------------------------------------------
+Step 1: Execute allocation x_kl = min(S_k, D_l) in Pass p.
+Step 2: Strike out the satisfied line (Row k or Column l).
+Step 3: In the margin, label the next iteration column P_R(p+1) on the right
+        and the next iteration row P_C(p+1) at the bottom.
+Step 4: For all crossed-out lines, write '—' in the new margin.
+Step 5: For all surviving rows i, identify the two lowest active cells and write
+        P_i(p+1) = c_(i,2)' - c_(i,1)'.
+Step 6: For all surviving columns j, identify the two lowest active cells and write
+        P_j(p+1) = c_(2,j)' - c_(1,j)'.
+Step 7: Locate the new maximum penalty Max_P(p+1) and repeat until the tableau
+        is completely solved.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supply to Kolkata (Debangshu)
+Pass 1: Allocate 60 tons to (S2, D1) @ ₹5 -> Column 1 (Jadavpur) is crossed out!
+Pass 2 Recalculation:
+  - Row 1 (Barrackpore): Remaining costs [14, 12] -> P_R1(2) = 14 - 12 = ₹2
+  - Row 2 (Ichapur):     Remaining costs [19, 10] -> P_R2(2) = 19 - 10 = ₹9 (JUMP!)
+  - Row 3 (Kolkata):     Remaining costs [13, 7]  -> P_R3(2) = 13 - 7 = ₹6
+  - Col 2 (Salt Lake):   Remaining costs [14, 19, 13] -> P_C2(2) = 14 - 13 = ₹1
+  - Col 3 (Howrah):      Remaining costs [12, 10, 7]  -> P_C3(2) = 10 - 7 = ₹3
+Max Penalty in Pass 2: Row 2 with P = ₹9 (Ichapur).
+Action: Allocate min(30, 80) = 30 tons to (S2, D3) @ ₹10/ton!
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Distribution (Mamata & Mahima)
+Pass 1: Allocate 60 boxes to (S2, D1) @ ₹4 -> Column 1 (Howrah) is eliminated.
+Pass 2:
+  - Row 1 (Kolkata): Remaining [18, 9] -> P_R1(2) = 18 - 9 = ₹9
+  - Row 2 (Barrackpore): Remaining [25, 15] -> P_R2(2) = 25 - 15 = ₹10 (MAX)
+  - Col 2 (Barasat): Remaining [18, 25] -> P_C2(2) = 25 - 18 = ₹7
+  - Col 3 (Jadavpur): Remaining [9, 15] -> P_C3(2) = 15 - 9 = ₹6
+Max Penalty: Row 2 (P = ₹10). Target: (S2, D3) @ ₹15/box.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Distribution (Susmita)
+Shows penalty shift after Row 3 (Kolkata) is crossed out:
+Column 3 remaining costs shrink to [₹9, ₹8], causing column penalty to drop
+from ₹6 to ₹1 (₹9 - ₹8).
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Higher Education Educational Logistics (Abhronila)
+Complete 4-pass penalty margin tracking table showing clear progression from
+initial tableau to final zero-balance optimality.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never reuse old penalties; crossed-out lines make old differences invalid.
+- Always write '—' for eliminated lines to prevent accidental inclusion.
+- Maintain multi-column margin headers P_1, P_2, P_3 for clean documentation.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Updated margin headers created: P_R(p+1) on right, P_C(p+1) at bottom.
+[ ] Wrote '—' in all exhausted row and column slots.
+[ ] Recomputed P_i for all active rows using only uncrossed cells.
+[ ] Recomputed P_j for all active columns using only uncrossed cells.
+[ ] Selected new global maximum penalty Max_P for Pass p+1.
+[ ] Targeted lowest cost cell in new winning line.
+
+================================================================================
+END OF STUDY NOTE • TOPIC 4: UPDATING PENALTIES AFTER ALLOCATION
+================================================================================

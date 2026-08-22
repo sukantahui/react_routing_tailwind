@@ -1,0 +1,102 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_002_cyber-security-definition
+TOPIC 0: INTRODUCTION TO CYBER SECURITY (CIA TRIAD, DEFENSE-IN-DEPTH & SECURITY FOUNDATIONS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & CORE GOALS OF CYBER SECURITY
+--------------------------------------------------------------------------------
+Cyber Security is the comprehensive practice of defending computers, servers, mobile devices,
+electronic systems, networks, applications, and digital data from malicious digital attacks,
+unauthorized access, espionage, disruption, or destruction.
+
+The Foundational CIA Triad:
+1. Confidentiality:
+   Ensuring that sensitive information is accessible only to authorized individuals.
+   Enforced via AES-256 encryption, access control lists (ACLs), and data classification.
+2. Integrity:
+   Maintaining the accuracy, completeness, and trustworthiness of data over its entire lifecycle.
+   Enforced via cryptographic hashing (SHA-256), HMACs, and digital signatures.
+3. Availability:
+   Ensuring authorized users have timely, reliable, and uninterrupted access to information assets.
+   Enforced via redundant hardware, load balancers, UPS battery backups, and anti-DDoS scrubbing.
+
+Additional Core Tenets:
+• Non-Repudiation: Proof of origin and delivery via public-key digital signatures.
+• Authenticity: Validating genuine identity via Multi-Factor Authentication (MFA).
+• Accountability: Auditing actions with immutable SIEM log timestamps.
+
+--------------------------------------------------------------------------------
+2. DEFENSE-IN-DEPTH & ZERO TRUST ARCHITECTURE
+--------------------------------------------------------------------------------
+Defense-in-Depth (Layered Security):
+• Perimeter Layer: Next-Gen Firewalls, Cloud WAFs, and Anti-DDoS Scrubbing.
+• Network Layer: 802.1Q VLAN Microsegmentation and Zero-Trust SD-WAN.
+• Endpoint Layer: Endpoint Detection and Response (EDR) and Antivirus Agents.
+• Application Layer: Input validation, WAF inspection, and parameterized SQL queries.
+• Data Layer: AES-256 encryption at rest and in transit with Hardware Security Modules (HSMs).
+• Human Layer: Continuous phishing simulation and cybersecurity hygiene training.
+
+Zero Trust Architecture (ZTA - NIST SP 800-207):
+"Never Trust, Always Verify." Every request is continuously authenticated, authorized,
+and encrypted based on user identity, device security posture, and real-time contextual risk.
+
+--------------------------------------------------------------------------------
+3. THREATS, VULNERABILITIES & ATTACK SURFACES
+--------------------------------------------------------------------------------
+• Vulnerability: A flaw in code, design, or configuration (e.g. unpatched SMB port).
+• Threat: Any circumstance or actor with the potential to cause harm (e.g. ransomware gang).
+• Exploit: The malicious code or method taking advantage of a vulnerability.
+• Risk Equation: Risk = Threat × Vulnerability × Impact.
+• Attack Surface Reduction (ASR): Closing unused ports and decommissioning legacy services.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Defense-in-Depth Architecture (Debangshu - Barrackpore)
+Debangshu implemented a 5-layer Defense-in-Depth architecture for a manufacturing plant in Barrackpore
+for ₹3,50,000. When an employee workstation was infected by phishing malware, endpoint EDR and internal
+VLAN microsegmentation contained the threat within 12 seconds, saving industrial CNC controllers.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic CIA Triad Implementation (Mahima - Ichapur)
+Mahima designed an end-to-end CIA Triad security framework for an Ichapur diagnostic clinic for ₹2,10,000.
+Patient records are encrypted with AES-256 (Confidentiality), verified with SHA-256 hashes (Integrity),
+and mirrored across dual redundant cloud servers with 99.99% uptime (Availability).
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: E-Commerce Zero Trust & Multi-Factor Security (Mamata - Kolkata)
+Mamata deployed a Zero Trust Architecture (ZTA) and FIDO2 hardware MFA tokens for a retail firm
+in Kolkata for ₹4,20,000. Enforcing continuous device health verification eliminated credential
+stuffing and session hijacking attacks across 350 remote employee laptops.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Threat Hunting & Kill Chain Analysis (Abhronila - Jadavpur)
+Abhronila established a threat hunting laboratory in Jadavpur for ₹1,80,000. Using the MITRE ATT&CK
+framework, students simulate Lockheed Martin Cyber Kill Chain phases, mapping real-time EDR
+telemetry to detect advanced persistent threats (APTs) before data exfiltration occurs.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never rely on a single firewall as the sole security boundary (avoid the "crunchy shell, soft center").
+- Enforce Multi-Factor Authentication (MFA) across all administrative and remote user logins.
+- Treat internal network traffic with the same zero-trust scrutiny as public Internet traffic.
+- Formulate all enterprise EDR, firewall, and SIEM security budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the CIA Triad (Confidentiality, Integrity, Availability) and non-repudiation.
+[ ] Differentiated between Vulnerabilities, Threats, Exploits, and Risk calculation.
+[ ] Evaluated Layered Defense-in-Depth and Zero Trust Architecture (NIST SP 800-207).
+[ ] Understood the AAA Model (Authentication, Authorization, Accounting) and RBAC/ABAC.
+[ ] Analyzed the Lockheed Martin Cyber Kill Chain and MITRE ATT&CK TTP mapping.
+[ ] Formulated realistic enterprise cybersecurity and EDR budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_002 • TOPIC 0: INTRODUCTION TO CYBER SECURITY
+================================================================================

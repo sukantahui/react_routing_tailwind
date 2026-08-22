@@ -697,10 +697,10 @@ export default class Topic10 extends React.Component {
                                             </p>
                                             <div className="bg-gray-800 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm">
                                                 # See system calls made by ls:<br/>
-                                                $ strace ls -l 2>&1 | grep -c stat<br/>
+                                                $ strace ls -l {"2>&1"} | grep -c stat<br/>
                                                 10023  # That's 10,023 stat() calls!<br/><br/>
                                                 # Now try ls -f:<br/>
-                                                $ strace ls -f 2>&1 | grep -c stat<br/>
+                                                $ strace ls -f {"2>&1"} | grep -c stat<br/>
                                                 3  # Only 3 stat() calls
                                             </div>
                                             <p className="text-gray-600 dark:text-gray-400 text-sm mt-3">

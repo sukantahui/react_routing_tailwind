@@ -1,0 +1,119 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 5: IDENTIFYING ENTERING CELLS (DANTZIG'S MOST NEGATIVE SIMPLEX RULE & TIE PROTOCOLS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE ENTERING CELL SELECTION PRINCIPLE
+--------------------------------------------------------------------------------
+In Step 4 of the Modified Distribution (MODI / u-v) Method, once all opportunity
+costs d_ij = c_ij - (u_i + v_j) have been calculated for all non-basic cells:
+
+THE DANTZIG MOST NEGATIVE OPPORTUNITY COST RULE:
+If at least one d_ij < 0, the cell that ENTERS the basis (becomes the Entering Variable)
+is chosen as the non-basic cell with the MOST NEGATIVE opportunity cost:
+
+    Entering Cell (k, l) = argmin { d_ij | d_ij < 0 }
+
+ECONOMIC RATIONALE:
+• Opportunity cost d_ij represents the rate of cost change dZ/dx_ij.
+• The most negative d_ij provides the STEEPEST DESCENT gradient per unit of cargo
+  shifted into that route.
+• Selecting the steepest descent direction minimizes the total number of subsequent
+  MODI iterations required to achieve global optimality.
+
+--------------------------------------------------------------------------------
+2. MULTI-CANDIDATE TIE-BREAKING PROTOCOLS
+--------------------------------------------------------------------------------
+When two or more non-basic cells share the EXACT SAME most negative evaluation
+(e.g., d_12 = -₹6 and d_31 = -₹6):
+
+TIER 1: MAXIMUM TOTAL COST REDUCTION CRITERION (θ * |d_ij|)
+- Trace the candidate closed loop for each tied cell.
+- Determine the maximum allowable flow transfer θ = min(minus corners) for each candidate.
+- Calculate the total one-step financial savings:
+    Delta Z = θ * |d_ij|
+- Select the candidate cell that achieves the LARGER total cost reduction.
+
+TIER 2: LOWEST DIRECT UNIT COST (min c_ij)
+- If total cost reduction is also identical, select the candidate cell with the
+  smaller direct unit freight rate c_ij.
+
+TIER 3: ARBITRARY / BLAND'S INDEX RULE
+- Select the candidate with the smallest row index i (and then smallest col index j)
+  to guarantee finite termination and eliminate theoretical cycling.
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP NUMERICAL WORKED EXAMPLE
+--------------------------------------------------------------------------------
+Consider the 3x3 Foundry Problem with Opportunity Cost Matrix:
+       D1       D2       D3
+  S1  Basic    Basic    +₹7
+  S2  -₹8(★)   Basic    Basic
+  S3  +₹1      -₹3      Basic
+
+CANDIDATE SCANNING:
+1. Cell (1, 3): d_13 = +₹7 (Positive -> Not a candidate).
+2. Cell (2, 1): d_21 = -₹8 (Negative -> Candidate A).
+3. Cell (3, 1): d_31 = +₹1 (Positive -> Not a candidate).
+4. Cell (3, 2): d_32 = -₹3 (Negative -> Candidate B).
+
+COMPARISON:
+Candidate A: Cell (2, 1) has d_21 = -₹8  (Saves ₹8 per ton).
+Candidate B: Cell (3, 2) has d_32 = -₹3  (Saves ₹3 per ton).
+
+SELECTION:
+    min { -8, -3 } = -8 at Cell (2, 1).
+    --> Cell (S2, D1) is CERTIFIED as the Entering Variable!
+    --> Mark Cell (2, 1) with a star (★) and (+θ) to initiate loop construction.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Entering Cell Identification (Debangshu)
+Debangshu in Barrackpore evaluated casting dispatch candidates. Identified cell (2, 1)
+with d_21 = -₹8 over cell (3, 2) with d_32 = -₹3.
+Loop transfer of θ = 60 tons produced an immediate ₹480 cost reduction.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Tie-Breaker Resolution (Mamata & Mahima)
+Mamata and Mahima in Kolkata found tied evaluations: d_13 = -₹4 and d_21 = -₹4.
+Testing both loops revealed:
+• Loop (1, 3) allowed θ = 30 boxes (Savings = 30 × ₹4 = ₹120).
+• Loop (2, 1) allowed θ = 10 boxes (Savings = 10 × ₹4 = ₹40).
+Selected cell (1, 3) under Tier 1, tripling their single-step cost savings!
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Immediate Optimality Detection (Susmita)
+Susmita in Ichapur scanned all opportunity costs: d = [+2, +1, +4, +3].
+Since no negative evaluations existed (Candidate Set = empty), declared the solution
+optimal on Step 1 with zero pivots.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Contract Audit (Abhronila)
+Abhronila in Jadavpur audited candidate routes. Selected entering cell (1, 2) with
+d_12 = -₹5, systematically eliminating an inefficient logistics lane.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never confuse -3 as "smaller in magnitude" than -8; on the real number line, -8 < -3.
+- Always scan ALL (m-1)(n-1) empty cells before making your final entering choice.
+- Write (+θ) distinctly in the entering cell to initiate stepping-stone loop tracing.
+- If all d_ij >= 0, do not attempt to force an entering variable; the solution is optimal!
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Stated the Entering Cell rule: argmin { d_ij | d_ij < 0 }.
+[ ] Understood the steepest descent economic rationale of the most negative d_ij.
+[ ] Applied Tier 1 tie-breaker (maximize θ * |d_ij|) on equal evaluations.
+[ ] Applied Tier 2 (lowest c_ij) and Tier 3 (smallest index) when needed.
+[ ] Marked entering cell with (+θ) and prepared to construct stepping-stone loop.
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 5: IDENTIFYING ENTERING CELLS
+================================================================================

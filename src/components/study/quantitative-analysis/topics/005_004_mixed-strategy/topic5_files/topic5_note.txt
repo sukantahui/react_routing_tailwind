@@ -1,0 +1,85 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_004_mixed-strategy
+TOPIC 5: FINDING THE VALUE OF THE GAME (DETERMINANT, ODDMENTS & EXPECTED VALUE METHODS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE 3 EQUIVALENT METHODS FOR COMPUTING THE VALUE OF THE GAME (v*)
+--------------------------------------------------------------------------------
+For any 2x2 Two-Person Zero-Sum Game A = [[a_11, a_12], [a_21, a_22]] without a saddle point:
+
+METHOD 1: DETERMINANT OVER DELTA FORMULA
+      v* = det(A) / Delta = (a_11 * a_22 - a_12 * a_21) / [ (a_11 + a_22) - (a_12 + a_21) ]
+
+METHOD 2: EXPECTED PAYOFF SUBSTITUTION
+      v* = E(p*, B_1) = p_1* * a_11 + p_2* * a_21
+      v* = E(p*, B_2) = p_1* * a_12 + p_2* * a_22
+
+METHOD 3: ODDMENTS INNER PRODUCT
+      v* = (a_11 * O_A1 + a_21 * O_A2) / O_A
+      v* = (a_12 * O_A1 + a_22 * O_A2) / O_A
+
+All 3 methods yield 100% IDENTICAL numerical results in Indian Rupees (₹)!
+
+--------------------------------------------------------------------------------
+2. INTERPRETATION & ECONOMIC MEANING OF v*
+--------------------------------------------------------------------------------
+• IF v* > 0: Game is favorable to Player A (Row Maximizer secures positive expected profit in ₹).
+• IF v* < 0: Game is favorable to Player B (Column Minimizer inflicts net expected loss on Player A in ₹).
+• IF v* == 0: STRICTLY FAIR GAME (Neither player has an inherent advantage).
+
+--------------------------------------------------------------------------------
+3. FUNDAMENTAL BOUNDS ON THE VALUE OF THE GAME
+--------------------------------------------------------------------------------
+For any zero-sum matrix game:
+      Maximin (alpha) <= v* <= Minimax (beta)
+      min(a_ij) <= v* <= max(a_ij)
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Bidding Expected Margin Valuation (Debangshu)
+Debangshu in Barrackpore solved A = [[₹40k, ₹10k], [₹10k, ₹50k]].
+det(A) = 2000 - 100 = 1900. Delta = 70.
+Value of Game v* = 1900/70 = ₹27,142.86 (positive expected profit per shift).
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Hospital Logistics Fair Contract Design (Mamata & Mahima)
+Mamata and Mahima in Kolkata adjusted courier penalties to create a strictly Fair Game (v* = ₹0),
+ensuring equitable risk sharing between health clinics and transport providers.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Expected Value (Susmita)
+Susmita in Ichapur analyzed A = [[₹50k, ₹20k], [₹10k, ₹60k]].
+det(A) = 3000 - 200 = 2800. Delta = 80.
+Value of Game v* = 2800/80 = ₹35,000 (securing ₹35,000 expected weekend revenue).
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Valuation (Abhronila)
+Abhronila used the expected payoff substitution method in Jadavpur on A = [[₹25L, ₹5L], [₹10L, ₹30L]],
+proving to university trustees that the optimal license value was ₹17.5 Lakh.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never forget to subtract the off-diagonal product (a12 * a21) in det(A).
+- Check bounds: v* must always satisfy Maximin <= v* <= Minimax.
+- In symmetric zero-sum games where A = -A^T, the game value v* is ALWAYS 0 (Fair Game).
+- State all game values in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 3 methods: det(A)/Delta, expected payoff substitution, and oddments product.
+[ ] Interpreted the sign of v*: positive (A wins), negative (B wins), zero (Fair Game).
+[ ] Verified bounds: Maximin <= v* <= Minimax.
+[ ] Verified shift and scale properties of game values.
+[ ] Expressed all final game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_004 • TOPIC 5: FINDING THE VALUE OF THE GAME
+================================================================================

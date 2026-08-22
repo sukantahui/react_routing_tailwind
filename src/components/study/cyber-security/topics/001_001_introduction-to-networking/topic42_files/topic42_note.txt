@@ -1,0 +1,92 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 42: NETWORKING IN GOVERNMENT (NICNET, SWAN, BHARATNET, NCIIPC & E-GOVERNANCE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. NATIONAL E-GOVERNANCE NETWORKING INFRASTRUCTURE IN INDIA
+--------------------------------------------------------------------------------
+• NICNET (National Informatics Centre Network):
+  Nationwide satellite and optical fiber network connecting central government ministries,
+  state secretariats, and 700+ district collectorates across India.
+• State Wide Area Network (SWAN - e.g. WBSWAN):
+  Dedicated Closed User Group (CUG) vertical hierarchy linking State Headquarters (SHQ) ->
+  District Headquarters (DHQ) -> Block Headquarters (BHQ) -> Gram Panchayats.
+• BharatNet Rural Optical Broadband:
+  Connecting over 250,000 rural Gram Panchayats with GPON optical splitters to deliver
+  digital land records, birth certificates, and social welfare pensions locally.
+• State Data Centers (SDC) & MeghRaj GI Cloud:
+  Tier-III sovereign data facilities hosting citizen portals, e-Office, and tax databases.
+
+--------------------------------------------------------------------------------
+2. CRITICAL CITIZEN SERVICES & IDENTITY VERIFICATION GATEWAYS
+--------------------------------------------------------------------------------
+• UIDAI Aadhaar Authentication Gateway:
+  Biometrics encrypted directly inside STQC-certified physical sensors using UIDAI's 2048-bit
+  public key (PKCS#7 / XML-Enc) and transmitted over Mutual TLS (mTLS) to the national CIDR.
+• DigiLocker & e-District Portals:
+  RESTful OAuth 2.0 and SAML 2.0 integration issuing and verifying digitally signed certificates.
+• e-Procurement (GeM) & e-Office:
+  Mandatory Class-3 Digital Signature Certificates (DSC) creating immutable legal audit trails.
+
+--------------------------------------------------------------------------------
+3. DEFENSE & CRITICAL INFORMATION INFRASTRUCTURE (CII)
+--------------------------------------------------------------------------------
+• Air-Gapped Defense Networks (Army ASCON, AFNET, Navy NFS):
+  Physically isolated optical fiber backbones with zero connectivity to the public Internet.
+• NCIIPC & SCADA Power Grid Isolation:
+  Protecting national Critical Information Infrastructure using unidirectional physical data diodes
+  that prevent any inbound cyber commands into power transmission plants.
+• CERT-In Compliance:
+  Mandatory 6-hour cybersecurity incident reporting rule and Cyber Swachhta Kendra botnet defense.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: District Collectorate SWAN & E-Office Router Upgrade (Debangshu - Barrackpore)
+Debangshu upgraded district collectorate network infrastructure in Barrackpore with dual-homed
+SWAN routers and 4G failover for ₹2,75,000. 120 administrative officers process digitally signed
+e-Office files and citizen land mutation records with zero network downtime.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Gram Panchayat BharatNet Access Node Deployment (Mahima - Ichapur)
+Mahima installed GPON optical network terminals and Wi-Fi access nodes across 12 Gram Panchayats
+in Ichapur for ₹3,20,000 under BharatNet. Rural villagers now access online pension applications
+and digital ration card services without travelling to district headquarters.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: State Data Center Perimeter DDoS & Geo-Fencing (Mamata - Kolkata)
+Mamata deployed a Next-Gen Firewall perimeter with Geo-IP whitelisting and DDoS scrubbing for
+the Kolkata State Data Center for ₹18,50,000. The architecture blocked 450 million malicious
+foreign botnet hits during state board examination result and municipal tax filing weeks.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Critical SCADA Data Diode Audit (Abhronila - Jadavpur)
+Abhronila audited industrial power grid telemetry in Jadavpur for ₹1,35,000, deploying physical
+optical data diodes on the SCADA substation network. Telemetry exports safely to government
+monitors while physically guaranteeing zero inbound cyber attack paths.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never connect internal government secretariats or SCADA power grids to the open Internet.
+- Always mandate Class-3 Digital Signature Certificates (DSC) for government e-Office approvals.
+- Enforce strict USB mass storage blocking on civil administrative workstations via GPO.
+- Budget all SWAN routers, State Data Center firewalls, and BharatNet nodes in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped NICNET, SWAN (SHQ-DHQ-BHQ), and BharatNet rural optical fiber hierarchy.
+[ ] Evaluated UIDAI Aadhaar biometric mTLS authentication and PKCS#7 encryption envelopes.
+[ ] Understood DigiLocker OAuth 2.0 integration and Class-3 DSC digital signatures.
+[ ] Analyzed NCIIPC Critical Information Infrastructure protection and SCADA data diodes.
+[ ] Investigated CERT-In 6-hour reporting compliance and Cyber Swachhta Kendra botnet defense.
+[ ] Formulated realistic District SWAN and State Data Center budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 42: NETWORKING IN GOVERNMENT
+================================================================================

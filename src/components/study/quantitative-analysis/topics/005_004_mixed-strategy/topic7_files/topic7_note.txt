@@ -1,0 +1,106 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_004_mixed-strategy
+TOPIC 7: SHORT QUESTIONS (MASTER MODULE REVIEW, VIVA VOCE & MIXED STRATEGY BLUEPRINT)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. COMPLETE 8-TOPIC MODULE ARCHITECTURE RECAPITULATION
+--------------------------------------------------------------------------------
+This module has formulated the complete mathematical, algorithmic, and financial
+foundations of Mixed Strategies for 2x2 Games Without a Saddle Point:
+
+• TOPIC 0: NEED FOR MIXED STRATEGIES
+  - Failure of pure strategies when Maximin (alpha) < Minimax (beta).
+  - Information leakage and predictability vulnerability.
+  - John von Neumann Minimax Theorem (1928): Randomization provides strategic immunity.
+
+• TOPIC 1: PROBABILITY DISTRIBUTION OVER STRATEGIES
+  - Probability axioms: sum p_i = 1.0 and p_i >= 0.
+  - Simplex geometry: 1D line segment (Delta_1) and 2D triangle (Delta_2).
+  - Vector normalization from raw weights.
+
+• TOPIC 2: EXPECTED PAYOFF
+  - Bilinear form: E(p, q) = p^T A q = sum_i sum_j p_i a_ij q_j.
+  - Expected payoff against pure moves: E(p, B_1) and E(p, B_2).
+  - Indifference Principle: E(p*, B_1) == E(p*, B_2) == v* at equilibrium.
+
+• TOPIC 3: MIXED STRATEGY SOLUTION FOR 2x2 GAMES
+  - Universal denominator: Delta = (a_11 + a_22) - (a_12 + a_21).
+  - Player A optimal probabilities: p_1* = (a_22 - a_21)/Delta, p_2* = (a_11 - a_12)/Delta.
+  - Player B optimal probabilities: q_1* = (a_22 - a_12)/Delta, q_2* = (a_11 - a_21)/Delta.
+  - Game Value: v* = det(A) / Delta.
+
+• TOPIC 4: DETERMINING OPTIMAL PROBABILITIES
+  - Oddments Method (Rule of Differences): Cross-assigning row and column differences.
+  - Verification: Total row oddments O_A == Total column oddments O_B == |Delta|.
+  - Shift and scale invariance theorems.
+
+• TOPIC 5: FINDING THE VALUE OF THE GAME
+  - 3 equivalent methods: det(A)/Delta, expected payoff substitution, and oddments product.
+  - Interpretation: v* > 0 (A wins), v* < 0 (B wins), v* = 0 (Strictly Fair Game).
+  - Security bounds: Maximin (alpha) <= v* <= Minimax (beta).
+
+• TOPIC 6: NUMERICAL EXERCISES
+  - Worked solutions for symmetric, asymmetric, zero-diagonal, and fair games.
+  - Handling negative Delta via sign cancellation.
+
+• TOPIC 7: SHORT QUESTIONS & VIVA VOCE SYNTHESIS
+  - Comprehensive flashcards, master formulas reference table, and theoretical mastery.
+
+--------------------------------------------------------------------------------
+2. MASTER FORMULA QUICK REFERENCE TABLE
+--------------------------------------------------------------------------------
+Concept / Quantity           | Mathematical Closed-Form Formula
+--------------------------------------------------------------------------------
+Universal Denominator (Delta)| Delta = (a_11 + a_22) - (a_12 + a_21)
+Player A Probability p_1*    | p_1* = (a_22 - a_21) / Delta
+Player A Probability p_2*    | p_2* = (a_11 - a_12) / Delta = 1 - p_1*
+Player B Probability q_1*    | q_1* = (a_22 - a_12) / Delta
+Player B Probability q_2*    | q_2* = (a_11 - a_21) / Delta = 1 - q_1*
+Value of the Game (v*)       | v* = (a_11*a_22 - a_12*a_21) / Delta = det(A) / Delta
+Row Oddments (Player A)      | O_A1 = |a_21 - a_22|,  O_A2 = |a_11 - a_12|
+Column Oddments (Player B)   | O_B1 = |a_12 - a_22|,  O_B2 = |a_11 - a_21|
+Expected Payoff E(p, q)      | E(p, q) = p_1 q_1 a_11 + p_1 q_2 a_12 + p_2 q_1 a_21 + p_2 q_2 a_22
+Indifference Condition       | E(p*, B_1) = E(p*, B_2) = v* (in ₹)
+Security Bounds              | Maximin (alpha) <= v* <= Minimax (beta)
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES (MASTER SYNTHESIS)
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Master Tender Mixed Strategy Optimization (Debangshu)
+Debangshu in Barrackpore solved A = [[₹40k, ₹10k], [₹10k, ₹50k]]. Delta = 70.
+Optimal mix p* = [4/7, 3/7], securing an exact game value of ₹27,142.86.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Multi-Modal Routing Optimization (Mamata & Mahima)
+Mamata and Mahima in Kolkata solved A = [[₹30k, ₹15k], [₹10k, ₹40k]]. Delta = 45.
+Optimal fleet mix q* = [5/9, 4/9] stabilized expected transportation expenditure at ₹23,333.33.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Pricing War Optimization (Susmita)
+Susmita in Ichapur solved A = [[₹50k, ₹20k], [₹10k, ₹60k]]. Delta = 80.
+Optimal mix p* = [5/8, 3/8], locking in an equilibrium campaign value of ₹35,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Arbitration Optimization (Abhronila)
+Abhronila solved a 2x2 arbitration game in Jadavpur with A = [[₹25L, ₹5L], [₹10L, ₹30L]].
+Delta = 40. p* = [0.50, 0.50], yielding a fair value v* = ₹17.5 Lakh.
+
+--------------------------------------------------------------------------------
+4. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Understood why mixed strategies are mandatory when Maximin < Minimax.
+[ ] Applied probability axioms: sum p_i = 1.0 and p_i >= 0.
+[ ] Computed bilinear expected payoffs E(p, q) = p^T A q.
+[ ] Computed Delta, p*, q*, and v* using closed-form 2x2 formulas.
+[ ] Applied the Oddments Method for rapid arithmetic solutions.
+[ ] Cross-verified solutions using the Indifference Principle.
+[ ] Stated all game values and payoffs in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_004 • TOPIC 7: SHORT QUESTIONS
+================================================================================

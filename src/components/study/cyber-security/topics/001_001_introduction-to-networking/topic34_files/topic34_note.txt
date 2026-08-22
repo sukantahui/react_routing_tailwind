@@ -1,0 +1,90 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 34: FRAME (IEEE 802.3 ANATOMY, 802.1Q VLANS, CRC-32 FCS & MACSEC)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & LAYER 2 DATA LINK FRAMING
+--------------------------------------------------------------------------------
+A Frame is the Protocol Data Unit (PDU) operating at OSI Layer 2 (Data Link Layer).
+It encapsulates Layer 3 IP packets with physical hardware addressing (Source and
+Destination MAC addresses), protocol identification (EtherType), and an error-detecting
+Frame Check Sequence (FCS) trailer.
+
+Core Framing Mechanisms:
+• Clock Synchronization: Preamble (7 bytes alternating `10101010`) + SFD (1 byte `10101011`).
+• Frame Boundaries: Minimum 64 bytes (runt threshold) to Maximum 1518 bytes (1522 with VLAN).
+• Error Detection: 4-Byte 32-bit Cyclic Redundancy Check (CRC-32) trailer.
+
+--------------------------------------------------------------------------------
+2. IEEE 802.3 ETHERNET FRAME STRUCTURE
+--------------------------------------------------------------------------------
+Field                | Size (Bytes) | Description & Function
+--------------------------------------------------------------------------------
+Preamble & SFD       | 8 Bytes      | Receiver clock bit synchronization (`10101010`x7 + `10101011`)
+Destination MAC      | 6 Bytes      | 48-bit physical target interface address (Unicast/Multicast)
+Source MAC           | 6 Bytes      | 48-bit physical origin interface address
+802.1Q Tag (Opt)     | 4 Bytes      | TPID `0x8100` + Priority (3b) + DEI (1b) + VLAN ID (12b: 1-4094)
+EtherType / Length   | 2 Bytes      | 0x0800 (IPv4), 0x86DD (IPv6), 0x0806 (ARP)
+Payload / Data       | 46–1500 B    | Layer 3 IP Packet (Padded with zeros if under 46 Bytes)
+Frame Check Seq (FCS)| 4 Bytes      | 32-bit CRC (CRC-32) over Destination MAC through Payload
+
+--------------------------------------------------------------------------------
+3. SPECIAL FRAME CATEGORIES & FLOW CONTROL
+--------------------------------------------------------------------------------
+• Runt Frames: Corrupted fragments under 64 bytes caused by collisions or duplex mismatches.
+• Giant Frames: Unauthorized frames exceeding 1518 bytes on standard non-jumbo links.
+• Jumbo Frames: Engineered frames up to 9000 bytes enabled on enterprise storage networks.
+• Pause Frames (802.3x): Halts transmission temporarily during switch buffer congestion.
+• Priority Flow Control (PFC - 802.1Qbb): Applies pause control strictly to storage VLANs.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry VLAN Hopping Mitigation (Debangshu - Barrackpore)
+Debangshu discovered double-tagging vulnerability risks in Barrackpore. Changed default
+native VLAN 1 to an isolated unused VLAN 999 and enabled `switchport nonegotiate` across
+48 managed switch ports for ₹38,000, neutralizing VLAN hopping penetration attempts.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic 802.1Q Medical Cart VLAN Trunking (Mahima - Ichapur)
+Mahima configured 802.1Q tagged VLAN trunks across hospital access switches in Ichapur
+for ₹52,000. X-ray telemetry frames are tagged with VLAN 20 and QoS Priority 5 (PCP),
+guaranteeing zero packet drop during simultaneous staff file downloads.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Financial Brokerage MACsec Layer-2 Frame Encryption (Mamata - Kolkata)
+Mamata enabled IEEE 802.1AE MACsec hardware encryption on inter-building dark fiber
+switches in Kolkata for ₹85,000 in switch licenses. All Ethernet frames traversing
+underground campus conduits are encrypted with AES-256 GCM in hardware silicon.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Wireshark CRC Error Auditing (Abhronila - Jadavpur)
+Abhronila investigated random packet drops on research switches in Jadavpur for ₹15,000
+in fiber testing tools. Wireshark frame analysis revealed 12% FCS CRC errors caused by
+a bent patch cable; replacing the optical lead restored full 1 Gbps frame throughput.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never leave the default Native VLAN 1 enabled on user-facing switch trunk ports.
+- Always verify CRC-32 FCS error counters when troubleshooting intermittent network drops.
+- Enable Priority-Based Flow Control (PFC) rather than global Pause frames on SAN storage links.
+- Budget enterprise managed switches, VLAN licenses, and MACsec in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped standard IEEE 802.3 Ethernet frame fields (Preamble, MACs, EtherType, FCS).
+[ ] Understood why frames require padding to meet the 64-byte minimum size threshold.
+[ ] Deconstructed the 4-byte 802.1Q VLAN tag (TPID 0x8100, Priority, DEI, 12-bit VLAN ID).
+[ ] Differentiated between Runt frames, Giant frames, and configured Jumbo frames.
+[ ] Mastered VLAN Hopping double-tagging attacks and native VLAN mitigation.
+[ ] Formulated realistic managed switch and MACsec security budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 34: FRAME
+================================================================================

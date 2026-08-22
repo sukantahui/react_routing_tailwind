@@ -1,0 +1,94 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_001_payoff-matrix-two-person-zero-sum-game
+TOPIC 2: PAYOFF CONCEPT (UTILITY THEORY, PAYOFF FUNCTIONS & EXPECTED PAYOFF p^T A q)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & ESSENCE OF THE PAYOFF CONCEPT
+--------------------------------------------------------------------------------
+A PAYOFF is the numerical value, utility, or monetary gain/loss in Indian Rupees (₹)
+that a player receives at the conclusion of a game as a direct consequence of the
+joint strategy profile selected by all participants.
+
+MATHEMATICAL FORMULATION:
+• For joint strategy choice (A_i, B_j):
+  - Payoff to Player A: u_A(A_i, B_j) = a_ij
+  - Payoff to Player B: u_B(A_i, B_j) = b_ij = -a_ij (in Zero-Sum Games)
+
+--------------------------------------------------------------------------------
+2. VON NEUMANN-MORGENSTERN (VNM) UTILITY THEORY
+--------------------------------------------------------------------------------
+Under the axioms of rational choice (Completeness, Transitivity, Continuity, Independence):
+• Rational players maximize their EXPECTED UTILITY under uncertainty.
+• Payoff entries represent cardinal utilities that can be averaged using probability weights.
+
+--------------------------------------------------------------------------------
+3. EXPECTED PAYOFF EQUATION FOR MIXED STRATEGIES
+--------------------------------------------------------------------------------
+When Player A plays probability vector p = (p_1, p_2, ..., p_m) and Player B plays
+probability vector q = (q_1, q_2, ..., q_n):
+
+EXPECTED PAYOFF TO PLAYER A:
+    E(p, q) = sum_{i=1}^m sum_{j=1}^n p_i * q_j * a_ij
+            = p^T * A * q
+
+EXPECTED PAYOFF TO PLAYER B:
+    E_B(p, q) = -E(p, q) = -p^T * A * q
+
+ZERO-SUM CONSERVATION PROPERTY:
+    E_A(p, q) + E_B(p, q) = 0   (strictly holds for all probability vectors p and q!)
+
+--------------------------------------------------------------------------------
+4. INTERPRETATION OF MATRIX ENTRIES
+--------------------------------------------------------------------------------
+• a_ij > 0 (Positive Payoff): Player A GAINS ₹a_ij; Player B PAYS / LOSES ₹a_ij.
+• a_ij < 0 (Negative Payoff): Player A LOSES ₹|a_ij|; Player B GAINS ₹|a_ij|.
+• a_ij = 0 (Zero Payoff): Breakeven draw; no net transfer of capital.
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supply Contract Payoff Mapping (Debangshu)
+Debangshu in Barrackpore mapped the net profit payoffs in ₹ for heavy casting supply
+agreements, establishing a 2x2 matrix with payoffs ranging from -₹20,000 to +₹50,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Dispute Resolution Payoffs (Mamata & Mahima)
+Mamata and Mahima in Kolkata modeled liquidated delay damages as payoff matrix values,
+calculating expected settlement payouts of ₹35,000 under mixed negotiation strategies.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Margin Payoff Analysis (Susmita)
+Susmita in Ichapur converted retail market share capture percentages into net operating
+profit payoffs in ₹ Lakhs, evaluating customer acquisition campaigns.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Grant Royalty Sharing (Abhronila)
+Abhronila analyzed a ₹55 Lakh university research patent licensing dispute in Jadavpur,
+using expected payoff formulas (p^T A q) to negotiate an optimal cross-licensing royalty.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Matrix entries a_ij are ALWAYS from the perspective of Player A (Row Player).
+- In zero-sum games, never define a separate matrix for Player B; Player B's payoff is simply -a_ij.
+- Linear scaling u' = a*u + b (where a > 0) preserves optimal strategy rankings.
+- Always state monetary payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined Payoff as numerical utility or monetary return in Indian Rupees (₹).
+[ ] Understood VNM Expected Utility Theory and rational maximization.
+[ ] Computed Expected Payoff for mixed strategies: E(p, q) = p^T A q.
+[ ] Verified Zero-Sum Conservation: u_A + u_B = 0 and E_A + E_B = 0.
+[ ] Interpreted positive, negative, and zero matrix payoff entries.
+[ ] Expressed all strategic payoffs with Indian Rupee (₹) currency symbols.
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_001 • TOPIC 2: PAYOFF CONCEPT
+================================================================================

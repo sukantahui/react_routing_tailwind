@@ -1,0 +1,128 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_002 : ISMS FRAMEWORK & WORKING PROCEDURES
+TOPIC 07       : BUSINESS CONTINUITY PLANNING (BCP) AND DISASTER RECOVERY (DR)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE CONTINUITY STRATEGY
+--------------------------------------------------------------------------------
+Disruptive events—ransomware outbreaks, cloud outages, severe weather, and power grid failures—
+are inevitable. An Information Security Management System (ISMS) must maintain unbroken business 
+and technical resilience under ISO/IEC 27001 (Controls A.5.29, A.5.30, A.8.14) and ISO 22301:
+
+  * BUSINESS CONTINUITY PLANNING (BCP) : The strategic, organization-wide framework ensuring 
+                                         people, facilities, and core operations survive a crisis.
+  * DISASTER RECOVERY (DR)             : The technical, IT-focused subset responsible for restoring 
+                                         servers, databases, networks, and applications.
+
+--------------------------------------------------------------------------------
+2. CORE RESILIENCE METRICS & THE CONTINUITY EQUATION
+--------------------------------------------------------------------------------
+
+  * RECOVERY TIME OBJECTIVE (RTO)  : Maximum acceptable duration of system downtime after a disaster.
+  * RECOVERY POINT OBJECTIVE (RPO) : Maximum acceptable volume of data loss (measured back in time).
+  * MAXIMUM TOLERABLE DOWNTIME (MTD/MAO) : Absolute maximum time the business can survive without 
+                                           the process before fatal bankruptcy or license loss.
+  * WORK RECOVERY TIME (WRT)       : Time needed after IT recovery for data verification and catchup.
+
+  * THE CONTINUITY MASTER EQUATION :
+    [ MTD >= RTO + WRT ]  ➔ Total recovery time must NEVER exceed Maximum Tolerable Downtime!
+
+--------------------------------------------------------------------------------
+3. BUSINESS IMPACT ANALYSIS (BIA) & CRITICALITY TIERS
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| CRITICALITY TIER   | BUSINESS PROCESS / ASSET| TARGET RTO & RPO METRICS                       |
++--------------------+-------------------------+------------------------------------------------+
+| Tier 1 (Mission)   | UPI Payment Switch      | RTO < 15 Seconds  | RPO = 0s (Synchronous Sync)|
+| Tier 2 (Critical)  | Oncology PACS Radiology | RTO < 2 Hours     | RPO < 15 Minutes           |
+| Tier 3 (Important) | Customer Billing ERP    | RTO < 24 Hours    | RPO < 4 Hours              |
+| Tier 4 (Non-Essen) | Internal Training CMS   | RTO < 72 Hours    | RPO < 24 Hours             |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+4. DISASTER RECOVERY SITE ARCHITECTURES
+--------------------------------------------------------------------------------
+
+  * HOT SITE  : Fully operational duplicate data center with real-time synchronous data replication. 
+                RTO = Seconds, RPO = 0. Highest cost.
+  * WARM SITE : Pre-racked hardware with OS installed and periodic asynchronous backups. 
+                RTO = 1 to 4 Hours, RPO = Minutes. Moderate cost.
+  * COLD SITE : Empty physical facility with power, HVAC, and network cables; no pre-installed hardware. 
+                RTO = Days/Weeks, RPO = Days. Lowest cost.
+  * MULTI-REGION ACTIVE-ACTIVE CLOUD : Multi-AZ Kubernetes clusters with AWS Aurora Global Databases.
+
+--------------------------------------------------------------------------------
+5. STATUTORY REGULATIONS UNDER INDIAN LAW
+--------------------------------------------------------------------------------
+
+  * RESERVE BANK OF INDIA (RBI) MASTER DIRECTIONS:
+    - Mandates RTO <= 4 hours, RPO near zero, and semi-annual unannounced live DR cutover drills 
+      for all core payment and banking switches.
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023:
+    - Section 8(5) mandates technical availability safeguards; catastrophic unrecoverable loss of 
+      personal data triggers ₹250 CRORE statutory penalties under Section 33!
+  * CENTRAL ELECTRICITY AUTHORITY (CEA) REGULATIONS:
+    - Mandates redundant SCADA telemetry and instantaneous RTO for power grid continuity.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : MULTI-REGION ACTIVE-ACTIVE CLOUD FAILOVER (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : Kolkata primary data center suffered a power fiber severance during peak UPI shopping.
+  * Action : Automated Route 53 DNS failover switched 100% traffic to secondary Mumbai cluster with 
+    RTO = 12 seconds and RPO = 0, processing ₹120 Crores with zero transaction loss under RBI rules.
+
+SCENARIO 2 : WARM SITE HEALTHCARE PACS DISASTER RECOVERY (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : Ransomware strain attempted to encrypt primary PACS storage for 80,000 oncology scans.
+  * Action : Failed over to an immutable Warm Site backup vault on AWS S3 Object Lock, restoring all 
+    diagnostic imaging within 1 hour 45 minutes (well within 4-hour RTO), averting clinical downtime.
+
+SCENARIO 3 : 220KV SUBSTATION SCADA LIVE FAILOVER DRILL (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : Validating emergency backup control room readiness across 18 high-voltage substations.
+  * Action : Executed an unannounced full interruption drill, transferring SCADA switching to the 
+    Barrackpore secondary control center with zero grid disruption under CEA regulations.
+
+SCENARIO 4 : BIA CALCULATOR & DR SIMULATOR LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to understand how WRT impacts MTD and why Hot Sites prevent split-brain.
+  * Action : Developed an interactive BIA Calculator, RTO/RPO Simulator, and DR Site Comparison Engine 
+    in React, training 215+ BCA cyber security students on designing disaster recovery architectures.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL BCP/DR HABITS:
+  1. Validate MTD Equation: Ensure RTO + WRT is strictly less than Maximum Tolerable Downtime.
+  2. Deploy Immutable WORM Storage: Use S3 Object Lock in Compliance Mode to defeat ransomware.
+  3. Conduct Semi-Annual Live Cutover Drills: Run 100% production traffic on DR sites twice a year (RBI).
+  4. Implement Quorum Fencing: Use 3-node consensus (Raft/Paxos) to prevent split-brain database corruption.
+
+* COMMON BEGINNER BCP/DR PITFALLS:
+  - "Un-Tested Plan" Fallacy (Writing a 200-page BCP binder but never conducting live failover drills).
+  - Ignoring Work Recovery Time (Assuming technical server spin-up means business is instantly operational).
+  - Storing Backups on the Same Network (Allowing ransomware to encrypt both production and backups).
+  - Failing to update DR runbooks when software architecture changes.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] BCP covers holistic business operations; DR covers technical IT workloads.
+[ ] RTO = Maximum tolerable downtime; RPO = Maximum tolerable data loss.
+[ ] Continuity Equation: MTD >= RTO + WRT (Work Recovery Time).
+[ ] Hot Site (Real-time sync, RTO seconds); Warm Site (RTO 1-4h); Cold Site (RTO days).
+[ ] Control A.5.30 in ISO 27001:2022 mandates ICT readiness for business continuity.
+[ ] Immutable WORM storage (S3 Object Lock) protects backups from ransomware deletion.
+[ ] RBI mandates RTO <= 4h, RPO ~ 0, and semi-annual unannounced live DR switchovers.
+[ ] Quorum consensus prevents Split-Brain syndrome in multi-region active-active clusters.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 07 (CYBER SECURITY BCAC703 - MODULE 003_002)
+================================================================================

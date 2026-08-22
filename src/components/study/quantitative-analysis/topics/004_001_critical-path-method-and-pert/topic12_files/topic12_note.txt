@@ -1,0 +1,122 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 12: SHORT QUESTIONS (MASTER MODULE REVIEW, VIVA VOCE & THEORETICAL BLUEPRINT)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. COMPLETE 13-TOPIC MODULE ARCHITECTURE RECAPITULATION
+--------------------------------------------------------------------------------
+This module has synthesized the complete mathematical and operational spectrum
+of Project Network Analysis:
+
+• TOPIC 0: MEANING OF PROJECT NETWORK ANALYSIS
+  - Projects as unique, non-repetitive systems with defined start and end dates.
+  - CPM (DuPont 1957, deterministic) vs PERT (US Navy 1958, probabilistic).
+
+• TOPIC 1: ASSUMPTIONS OF CPM/PERT
+  - 7 mathematical axioms: DAG topology, activity independence, linear crashing,
+    Beta distribution, Central Limit Theorem, unconstrained resources, single path dominance.
+
+• TOPIC 2: ACTIVITY, TASK OR JOB
+  - Predecessor, successor, concurrent, critical, non-critical, and dummy activities.
+  - Float hierarchy: Total Float >= Free Float >= Independent Float >= 0.
+
+• TOPIC 3: EVENT, NODE OR CONNECTOR
+  - Instantaneous milestones (d = 0, cost = ₹0).
+  - Tail, Head, Dual-Role, Burst, Merge, and Fulkerson's rule (i < j).
+
+• TOPIC 4: NETWORK OR ARROW DIAGRAM
+  - The 6 Golden Drawing Rules; diagnosing Dangling, Looping, and Duplicate Node Pairs.
+
+• TOPIC 5: WORKING METHODOLOGY OF CRITICAL PATH ANALYSIS
+  - 5-phase engine: Planning -> Two-Pass Sched -> Floats -> Critical Path -> Crashing in ₹.
+
+• TOPIC 6: EARLIEST EVENT TIMES (FORWARD PASS)
+  - E_1 = 0; E_j = max(E_i + d_ij); ES = E_i; EF = E_i + d_ij.
+
+• TOPIC 7: LATEST EVENT TIMES (BACKWARD PASS)
+  - L_n = E_n; L_i = min(L_j - d_ij); LF = L_j; LS = L_j - d_ij; L_1 = 0.
+
+• TOPIC 8: CRITICAL ACTIVITIES
+  - Zero total float (TF = 0). The 3 Invariant Conditions and False-Criticality Trap.
+
+• TOPIC 9: CRITICAL PATH
+  - Longest continuous path dictating minimum project duration; co-critical paths.
+
+• TOPIC 10: PROJECT DURATION & TIME-COST OPTIMIZATION
+  - Direct costs (rise) vs Indirect overhead (falls); U-shaped cost curve; Optimal T*.
+  - Cost Slope = (C_c - C_n) / (T_n - T_c) in Indian Rupees (₹) per Day.
+
+• TOPIC 11: BASIC PERT CONCEPT
+  - 3 time estimates: t_o, t_m, t_p.
+  - t_e = (t_o + 4t_m + t_p)/6; variance = ((t_p - t_o)/6)^2.
+  - Central Limit Theorem and Standard Normal Z-Score: Z = (T_S - mu) / sigma_proj.
+
+• TOPIC 12: SHORT QUESTIONS & VIVA VOCE SYNTHESIS
+  - Comprehensive flashcards, high-yield examination review, and theoretical mastery.
+
+--------------------------------------------------------------------------------
+2. MASTER FORMULA & THEOREM QUICK REFERENCE TABLE
+--------------------------------------------------------------------------------
+Concept / Parameter          | Mathematical Formula / Governing Rule
+--------------------------------------------------------------------------------
+Expected Duration (PERT)     | t_e = (t_o + 4*t_m + t_p) / 6
+Activity Std Dev (PERT)      | sigma = (t_p - t_o) / 6
+Activity Variance (PERT)     | sigma^2 = [ (t_p - t_o) / 6 ]^2
+Forward Pass (Earliest Time) | E_j = max_{(i,j)} [ E_i + d_ij ],   E_1 = 0
+Backward Pass (Latest Time)  | L_i = min_{(i,j)} [ L_j - d_ij ],   L_n = E_n
+Earliest Activity Times      | ES = E_i,   EF = E_i + d_ij
+Latest Activity Times        | LF = L_j,   LS = L_j - d_ij
+Total Float (TF)             | TF = LS - ES = LF - EF = L_j - E_i - d_ij
+Free Float (FF)              | FF = E_j - E_i - d_ij
+Independent Float (IF)       | IF = max(0, E_j - L_i - d_ij)
+Float Inequality             | Total Float >= Free Float >= Independent Float >= 0
+Event Slack (S_i)            | S_i = L_i - E_i  (Critical if S_i = 0)
+Critical Activity Conditions | 1. E_i=L_i,  2. E_j=L_j,  3. E_j - E_i = d_ij (TF=0)
+Project Crashing Cost Slope  | Cost Slope = (C_crash - C_normal) / (T_normal - T_crash) (₹/d)
+Optimal Project Duration     | Stop crashing when min(Cost Slope) > Daily Overhead Rate
+Standard Normal Z-Score      | Z = (T_S - mu_project) / sqrt( sum_{CP} sigma^2 )
+Fulkerson's Node Numbering   | For all directed arcs (i, j), i < j strictly holds!
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES (MASTER SYNTHESIS)
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Overhaul Master Audit (Debangshu)
+Debangshu in Barrackpore presented a full 13-topic audit trail for a ₹2.4 Lakh blast
+furnace rebuild, verifying two co-critical paths, zero dangling errors, and optimal crashing to T* = 19 days.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Dispatch Emergency Validation (Mamata & Mahima)
+Mamata and Mahima in Kolkata combined Forward/Backward passes and PERT Z-scores
+(Z = +1.00, 84.13% deliverability) to safely disburse ₹35 Lakhs in emergency vaccines.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Automated Logistics Hub Review (Susmita)
+Susmita in Ichapur governed a 12-node conveyor network, maintaining unique node pairs
+via dummies, preventing false criticality, and saving ₹60,000 in unneeded overtime.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Grant Master Certification (Abhronila)
+Abhronila presented a certified CPM/PERT blueprint to state university auditors in
+Jadavpur, validating that a ₹55 Lakh nanotechnology cleanroom met all audit standards.
+
+--------------------------------------------------------------------------------
+4. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered all definitions across Topics 0 to 11.
+[ ] Memorized the Forward Pass (max) and Backward Pass (min) recursive equations.
+[ ] Computed Total, Free, and Independent Floats and verified TF >= FF >= IF >= 0.
+[ ] Validated the 3 Invariant Conditions for Activity Criticality.
+[ ] Avoided the False-Criticality Trap.
+[ ] Calculated Cost Slope and identified Optimal Project Duration T*.
+[ ] Applied PERT 3-time Beta distribution equations (t_e, sigma^2).
+[ ] Computed Z-score and normal deliverability probabilities.
+[ ] Stated all project financial metrics in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 12: SHORT QUESTIONS
+================================================================================

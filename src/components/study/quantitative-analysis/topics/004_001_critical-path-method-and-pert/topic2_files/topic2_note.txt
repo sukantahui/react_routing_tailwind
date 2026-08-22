@@ -1,0 +1,122 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 2: ACTIVITY, TASK OR JOB (CLASSIFICATION, FLOATS & REPRESENTATION CONVENTIONS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION OF AN ACTIVITY
+--------------------------------------------------------------------------------
+An ACTIVITY (also referred to as a Task or Job) is an identifiable, discrete chunk
+of work within a project that consumes both:
+1. TIME (Duration d measured in hours, days, or weeks)
+2. RESOURCES (Labor, specialized machinery, raw materials, and financial capital in ₹).
+
+Every activity has a distinct, observable starting milestone and ending milestone.
+
+--------------------------------------------------------------------------------
+2. THE 6 MAJOR ACTIVITY CLASSIFICATIONS
+--------------------------------------------------------------------------------
+
+1. PREDECESSOR ACTIVITY:
+   • An activity that must be completed BEFORE a subsequent activity can begin.
+   • Immediate Predecessors directly control the start of successor tasks.
+
+2. SUCCESSOR ACTIVITY:
+   • An activity that cannot start until one or more predecessor activities finish.
+
+3. CONCURRENT / PARALLEL ACTIVITIES:
+   • Activities that can be executed simultaneously during the same time window
+     because neither has a direct precedence dependency on the other.
+
+4. CRITICAL ACTIVITY:
+   • An activity situated on the critical path with ZERO Total Float (TF = 0).
+   • Any delay in a critical activity delays the overall project by the exact same amount.
+
+5. NON-CRITICAL ACTIVITY:
+   • An activity with positive Total Float (TF > 0).
+   • Can absorb delays up to its float value without delaying the project finish date.
+
+6. DUMMY ACTIVITY:
+   • A fictitious activity that consumes ZERO time (d = 0) and ZERO cost (₹0).
+   • Represented by a DASHED ARROW in Activity-on-Arrow (AOA) networks.
+   • PURPOSES:
+     a. Enforces logical precedence (e.g. Task C depends on A & B, but D depends only on B).
+     b. Prevents two parallel activities from sharing the same start and end nodes.
+   • Note: AON (Activity-on-Node) networks NEVER require dummy activities.
+
+--------------------------------------------------------------------------------
+3. THE FOUR CORE TIME PARAMETERS & FLOAT EQUATIONS
+--------------------------------------------------------------------------------
+For an activity with duration d:
+• Earliest Start (ES):   Earliest possible time the activity can begin.
+• Earliest Finish (EF):  EF = ES + d
+• Latest Finish (LF):    Latest possible time the activity can finish without project delay.
+• Latest Start (LS):     LS = LF - d
+
+FLOAT / SLACK HIERARCHY:
+1. TOTAL FLOAT (TF):
+   Maximum allowable delay that will not affect the final project completion date.
+       TF = LS - ES = LF - EF = LF - ES - d
+
+2. FREE FLOAT (FF):
+   Allowable delay that will not affect the Earliest Start of any immediate successor.
+       FF = E_j - E_i - d_ij   (where E_j is head event time, E_i is tail event time)
+
+3. INDEPENDENT FLOAT (IF):
+   Delay available without affecting successors even if predecessors finish as late as possible.
+       IF = max(0, E_j - L_i - d_ij)
+
+MATHEMATICAL RELATIONSHIP:
+       Total Float >= Free Float >= Independent Float >= 0
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Blast Furnace Lining (Debangshu)
+Debangshu in Barrackpore decomposed furnace maintenance into 14 activities, classifying
+refractory bricklaying as a critical activity (TF = 0, cost ₹1.8 Lakhs) and cooling fan
+inspection as non-critical (TF = 5 days).
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Concurrent Installation (Mamata & Mahima)
+Mamata and Mahima in Kolkata scheduled deep-freeze compressor installation and backup
+solar generator cabling concurrently, reducing hospital project duration from 45 to 30 days.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Automated Conveyor Dummy Disambiguation (Susmita)
+Susmita in Ichapur used a zero-cost dummy activity in an AOA diagram to ensure conveyor
+motor calibration depended on electrical wiring, while parcel sorting software depended
+only on server hardware readiness.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Precedence Matrix (Abhronila)
+Abhronila in Jadavpur built an activity precedence table for a ₹55 Lakh university
+robotics grant, calculating free floats for laboratory workbench fabrication (FF = 3 days).
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never assign non-zero duration or non-zero cost to a dummy activity (d = 0, ₹0).
+- Remember: Total Float >= Free Float >= Independent Float.
+- In AOA diagrams, never allow two distinct activities to connect between the exact same pair of nodes (insert a dummy node and arrow!).
+- Always state budgets, labor expenses, and crashing costs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined Activity and its 6 major classifications.
+[ ] Understood Dummy activities in AOA diagrams (d = 0, cost = ₹0, dashed arrow).
+[ ] Computed Earliest Times: ES and EF = ES + d.
+[ ] Computed Latest Times: LF and LS = LF - d.
+[ ] Computed Total Float: TF = LS - ES = LF - EF.
+[ ] Computed Free Float: FF = E_j - E_i - d_ij.
+[ ] Computed Independent Float: IF = max(0, E_j - L_i - d_ij).
+[ ] Stated project financial metrics in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 2: ACTIVITY, TASK OR JOB
+================================================================================

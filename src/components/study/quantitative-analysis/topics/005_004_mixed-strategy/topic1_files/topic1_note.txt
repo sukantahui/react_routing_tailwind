@@ -1,0 +1,89 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_004_mixed-strategy
+TOPIC 1: PROBABILITY DISTRIBUTION OVER STRATEGIES (SIMPLEX GEOMETRY & NORMALIZATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. MATHEMATICAL FORMULATION OF PROBABILITY VECTORS
+--------------------------------------------------------------------------------
+In an m x n Two-Person Zero-Sum Game:
+
+• PLAYER A PROBABILITY VECTOR (m Strategies):
+      p = (p_1, p_2, ..., p_m)^T
+  Subject to the 2 Fundamental Probability Axioms:
+      1. Normalization:    sum_{i=1}^m p_i = p_1 + p_2 + ... + p_m = 1.0
+      2. Non-Negativity:   p_i >= 0    for all i = 1, 2, ..., m
+
+• PLAYER B PROBABILITY VECTOR (n Strategies):
+      q = (q_1, q_2, ..., q_n)^T
+  Subject to:
+      1. Normalization:    sum_{j=1}^n q_j = q_1 + q_2 + ... + q_n = 1.0
+      2. Non-Negativity:   q_j >= 0    for all j = 1, 2, ..., n
+
+--------------------------------------------------------------------------------
+2. GEOMETRY OF THE PROBABILITY SIMPLEX
+--------------------------------------------------------------------------------
+
+1. THE 2-STRATEGY SIMPLEX (Delta_1):
+   • A 1-dimensional line segment joining corner vertex (1, 0) to vertex (0, 1).
+   • Fully parameterized by a single variable p_1 in [0, 1], where p_2 = 1 - p_1.
+
+2. THE 3-STRATEGY SIMPLEX (Delta_2):
+   • A 2-dimensional equilateral triangle in 3D Euclidean space.
+   • Vertices represent pure strategies: e_1 = (1,0,0), e_2 = (0,1,0), e_3 = (0,0,1).
+   • Interior points represent completely mixed strategies (p_i > 0 for all i).
+
+--------------------------------------------------------------------------------
+3. VECTOR NORMALIZATION ALGORITHM
+--------------------------------------------------------------------------------
+If an analyst provides arbitrary non-negative relative weights w = (w_1, w_2, ..., w_m):
+1. Compute the total weight sum:  W = sum_{i=1}^m w_i
+2. Compute each probability:      p_i = w_i / W
+3. Verify: sum p_i = 1.0 and p_i >= 0.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Production Schedule Normalization (Debangshu)
+Debangshu in Barrackpore evaluated 3 furnace shifts with relative weightings [4, 3, 3].
+Normalized probability vector p = [0.40, 0.30, 0.30] ensured optimal resource loading.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Hospital Logistics Probability Distribution (Mamata & Mahima)
+Mamata and Mahima in Kolkata assigned delivery probabilities [0.60, 0.40] across 2 refrigerated
+routes, keeping inventory damage below ₹5,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Mix (Susmita)
+Susmita in Ichapur normalized relative promotional spend [₹50k, ₹30k, ₹20k] into probability
+vector p = [0.50, 0.30, 0.20], optimizing customer reach.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Research Allocation Mix (Abhronila)
+Abhronila converted university lab grant proposals [2, 5, 3] in Jadavpur into an equitable
+probability distribution p = [0.20, 0.50, 0.30], securing ₹10 Lakh in institutional funding.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never use negative probabilities; all p_i must be >= 0.
+- Ensure the sum of probabilities equals exactly 1.0 (watch for floating point rounding!).
+- Pure strategies are simply basis vectors (e.g. p = (1, 0) or (0, 1)).
+- State all payoffs and values associated with strategy mixes in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 2 probability axioms: sum p_i = 1.0 and p_i >= 0.
+[ ] Visualized the 1D line segment simplex (Delta_1) and 2D triangular simplex (Delta_2).
+[ ] Differentiated pure corner strategies from interior mixed strategies.
+[ ] Normalized raw weight vectors into valid probability vectors.
+[ ] Expressed expected values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_004 • TOPIC 1: PROBABILITY DISTRIBUTION
+================================================================================

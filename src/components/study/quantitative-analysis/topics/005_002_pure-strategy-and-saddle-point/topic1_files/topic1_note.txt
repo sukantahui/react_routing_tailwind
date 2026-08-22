@@ -1,0 +1,91 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_002_pure-strategy-and-saddle-point
+TOPIC 1: MAXIMIN PRINCIPLE (ROW SECURITY FLOORS, v_lower & MAX-OF-MINS ALGORITHM)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & PHILOSOPHY OF THE MAXIMIN PRINCIPLE
+--------------------------------------------------------------------------------
+The MAXIMIN PRINCIPLE is a conservative, security-first decision criterion adopted
+by PLAYER A (Row Player / Maximizer).
+
+PHILOSOPHICAL PREMISE:
+• Player A assumes that for whichever row strategy A_i they choose, the intelligent,
+  rational opponent (Player B) will select the column that minimizes Player A's payoff.
+• Therefore, Player A seeks to MAXIMIZE their MINIMUM guaranteed payoff (Max-Min).
+
+--------------------------------------------------------------------------------
+2. THE 2-STAGE COMPUTATIONAL ALGORITHM
+--------------------------------------------------------------------------------
+Given an m x n Payoff Matrix A = [a_ij]:
+
+• STAGE 1: COMPUTE ROW MINIMA (HORIZONTAL MINIMIZATION):
+  - For each row i = 1, 2, ..., m, determine:
+        Row Min_i = min_{j=1}^n a_ij
+  - Represents Player A's guaranteed security floor for strategy A_i.
+
+• STAGE 2: COMPUTE MAXIMIN VALUE (VERTICAL MAXIMIZATION):
+  - Identify the maximum among all row minima:
+        Maximin (alpha) = max_{i=1}^m [ Row Min_i ]
+                        = max_{i=1}^m [ min_{j=1}^n a_ij ]
+                        = v_lower (Lower Value of the Game in ₹)
+
+• STAGE 3: SELECT MAXIMIN STRATEGY:
+  - The row i* corresponding to alpha is Player A's optimal Maximin Strategy.
+
+--------------------------------------------------------------------------------
+3. THE LOWER VALUE OF THE GAME (v_lower) GUARANTEE
+--------------------------------------------------------------------------------
+By selecting the Maximin row i*:
+• Player A is MATHEMATICALLY GUARANTEED to receive AT LEAST v_lower in Indian Rupees (₹),
+  regardless of what Player B chooses:
+        Actual Payoff u_A(A_i*, B_j) >= v_lower    for all j = 1, ..., n
+• If Player B plays sub-optimally, Player A's actual payoff will be strictly GREATER than v_lower.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Scrap Purchase Maximin Rule (Debangshu)
+Debangshu in Barrackpore evaluated 3 scrap metal suppliers against fluctuating market prices.
+Row Minima = [₹15k, ₹40k, ₹25k]. Maximin = ₹40,000, securing a guaranteed profit floor of ₹40k.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Hospital Vaccine Contract Security Floor (Mamata & Mahima)
+Mamata and Mahima in Kolkata computed Row Minima for 2 transport vendors (R1 = ₹20k, R2 = ₹35k).
+Maximin = ₹35,000, establishing a minimum guaranteed service delivery level.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Discount Floor Optimization (Susmita)
+Susmita in Ichapur analyzed 3 discount campaigns (R1 = ₹10k, R2 = ₹18k, R3 = ₹12k).
+Maximin = ₹18,000, ensuring store profit never dipped below ₹18k even under heavy rival advertising.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Research Grant Protection (Abhronila)
+Abhronila evaluated university patent licensing terms in Jadavpur, using the Maximin
+criterion to guarantee that research royalties would never fall below ₹55 Lakh.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always find the MINIMUM across rows first, then find the MAXIMUM of those minima.
+- Do not confuse Maximin (Player A) with Minimax (Player B).
+- The Maximin value v_lower can be positive, negative, or zero.
+- State all security levels and payoffs with the Indian Rupee (₹) symbol.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Understood the pessimistic security-first premise of the Maximin Principle.
+[ ] Computed Row Minima (min_j a_ij) horizontally for every row.
+[ ] Computed the Maximin Value: alpha = max_i (Row Min_i) = v_lower.
+[ ] Identified Player A's optimal Maximin pure strategy row i*.
+[ ] Verified the mathematical guarantee: u_A(A_i*, B_j) >= v_lower.
+[ ] Stated game security floors in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_002 • TOPIC 1: MAXIMIN PRINCIPLE
+================================================================================

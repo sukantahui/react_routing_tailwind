@@ -1,0 +1,108 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_004_vogel-approximation-method
+TOPIC 3: ALLOCATION USING THE LEAST-COST CELL (CAPACITY DISPATCH & STRIKE-OUT)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE LEAST-COST ALLOCATION RULE INSIDE THE WINNING LINE
+--------------------------------------------------------------------------------
+Once the maximum penalty line L* is identified (whether a supply row or a demand
+column), Vogel's Approximation Method executes its fundamental allocation step:
+
+TARGET CELL IDENTIFICATION:
+- In the chosen line L*, locate the cell with the ABSOLUTE LOWEST unit cost:
+    Target Cell (k, l) = argmin { c_ij | (i,j) is active in Line L* }
+
+CAPACITY ALLOCATION EQUATION:
+- Allocate the maximum allowable quantity without violating feasibility:
+    x_kl = min( S_k, D_l )
+  where S_k is the remaining supply of origin k, and D_l is the remaining demand
+  of destination l.
+
+CAPACITY DECREMENT EQUATIONS:
+- Update origin balance:     S_k  <--  S_k - x_kl
+- Update destination balance: D_l  <--  D_l - x_kl
+
+LINE ELIMINATION (STRIKE-OUT RULE):
+- If S_k becomes 0: Row k is fully satisfied; cross out Row k.
+- If D_l becomes 0: Column l is fully satisfied; cross out Column l.
+- If S_k and D_l become 0 simultaneously: Cross out ONLY ONE line, leaving the
+  other active with remaining capacity 0 (to avoid degeneracy).
+
+--------------------------------------------------------------------------------
+2. STEP-BY-STEP ALLOCATION PROTOCOL
+--------------------------------------------------------------------------------
+Step 1: Identify Line L* with Maximum Penalty (Max_P).
+Step 2: Scan Line L* to find minimum active cell cost c_kl.
+Step 3: Check remaining capacities: Supply S_k and Demand D_l.
+Step 4: Compute allocation amount x_kl = min(S_k, D_l).
+Step 5: Write the allocated quantity x_kl clearly inside the cell (e.g. inside a box).
+Step 6: Deduct x_kl from S_k and D_l in the margin balances.
+Step 7: Draw a line through the exhausted row or column to remove it from active set.
+Step 8: Recompute penalties for the reduced sub-matrix until all S_i = 0 and D_j = 0.
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Casting Logistics (Debangshu)
+Winning Line: Row 2 (Ichapur Casting, Supply = 90 tons).
+Active Costs in Row 2: Jadavpur (₹5), Howrah (₹10), Salt Lake (₹19).
+Target Cell: (S2, D1) Jadavpur @ ₹5/ton (Lowest in Row 2).
+Capacities: Supply S2 = 90 tons; Demand D1 = 60 tons.
+Allocation: x_21 = min(90, 60) = 60 tons.
+Updates: S2 = 90 - 60 = 30 tons; D1 = 60 - 60 = 0 tons.
+Action: Destination D1 (Jadavpur) is completely satisfied and crossed out!
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Logistics (Mamata & Mahima)
+Winning Line: Row 2 (Barrackpore Bio-Depot, Supply = 100 boxes).
+Active Costs: Howrah (₹4), Jadavpur (₹15), Barasat (₹25).
+Target Cell: (S2, D1) Howrah @ ₹4/box.
+Capacities: S2 = 100 boxes; D1 = 60 boxes.
+Allocation: x_21 = min(100, 60) = 60 boxes.
+Updates: S2 = 100 - 60 = 40 boxes; D1 = 60 - 60 = 0 boxes.
+Action: Column 1 (Howrah) is crossed out. Barrackpore retains 40 boxes for next pass.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: FMCG Supercenter Distribution (Susmita)
+Winning Line: Column 3 (Gariahat Supercenter, Demand = 50 pallets).
+Active Suppliers: Barrackpore (₹11), Ichapur (₹8), Kolkata (₹3).
+Target Cell: (S3, D3) Kolkata Depot @ ₹3/pallet (Lowest in Col 3).
+Capacities: S3 = 40 pallets; D3 = 50 pallets.
+Allocation: x_33 = min(40, 50) = 40 pallets.
+Updates: S3 = 40 - 40 = 0 pallets; D3 = 50 - 40 = 10 pallets.
+Action: Row 3 (Kolkata) is exhausted and crossed out. Gariahat still needs 10 pallets.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Higher Education Publishing Fleet (Abhronila)
+Demonstrates multi-stage allocations:
+  Pass 1: Allocate 75 bundles to (S1, D2) @ ₹2 -> Cross Row 1.
+  Pass 2: Allocate 60 bundles to (S3, D1) @ ₹8 -> Cross Row 3.
+  Pass 3: Allocate 60 bundles to (S2, D3) @ ₹4 -> Cross Row 2.
+Total Initial Cost: Z = (75*2) + (60*8) + (60*4) + ... computed in ₹ Rupees.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never pick the cell with highest cost inside the winning line!
+- Always subtract allocated units from BOTH supply and demand immediately.
+- Never cross out both row and column simultaneously if S_k == D_l.
+- Ensure the final basis contains exactly m + n - 1 non-zero (or explicit zero) cells.
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Target cell identified as min(c_ij) inside the winning line L*.
+[ ] Allocated x_kl = min(Supply_k, Demand_l).
+[ ] Recorded allocation volume clearly inside the cell box.
+[ ] Subtracted x_kl from origin supply S_k.
+[ ] Subtracted x_kl from destination demand D_l.
+[ ] Struck out the exhausted row or column.
+[ ] Verified that at least one line remains active for next pass.
+
+================================================================================
+END OF STUDY NOTE • TOPIC 3: ALLOCATION USING THE LEAST-COST CELL
+================================================================================

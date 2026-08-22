@@ -1,0 +1,109 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 10: FINAL MINIMUM TRANSPORTATION COST (REPORTING, DUAL AUDITS & DISPATCH MANIFESTS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE FORMAL OPTIMALITY CERTIFICATE & COST FORMULA
+--------------------------------------------------------------------------------
+Once the Modified Distribution (MODI) algorithm reaches an iteration where ALL
+opportunity costs satisfy:
+    d_ij = c_ij - (u_i + v_j) >= 0   (for all non-basic cells (i, j))
+
+The current basic feasible solution is mathematically certified to be GLOBALLY OPTIMAL.
+The FINAL MINIMUM TRANSPORTATION COST Z* is calculated as:
+
+    Z* = Sum_{i=1}^m Sum_{j=1}^n (c_ij * x_ij*)
+
+Where:
+• c_ij = Unit transportation cost along route (i, j) in Indian Rupees (₹).
+• x_ij* = Optimal physical tonnage allocated to route (i, j).
+
+STRONG DUALITY VERIFICATION (INDEPENDENT CHECK):
+By the Strong Duality Theorem of Linear Programming, the optimal primal cost
+must exactly equal the optimal dual objective value:
+    Z* = W* = Sum_{i=1}^m (S_i * u_i*) + Sum_{j=1}^n (D_j * v_j*)
+If Z* == W*, the arithmetic and basis structure are 100% verified!
+
+--------------------------------------------------------------------------------
+2. COMPREHENSIVE DISPATCH MANIFEST (FOUNDRY CASE STUDY)
+--------------------------------------------------------------------------------
+Matrix Parameters:
+  Origins: S1 (Barrackpore = 70), S2 (Ichapur = 90), S3 (Kolkata = 60). Total = 220 tons.
+  Destinations: D1 (Jadavpur = 60), D2 (Salt Lake = 80), D3 (Howrah = 80). Total = 220 tons.
+
+OPTIMAL DISPATCH SCHEDULE:
+--------------------------------------------------------------------------------
+Route Origin            Destination       Quantity (Tons)   Rate (₹/Ton)   Subtotal (₹)
+--------------------------------------------------------------------------------
+S1 (Barrackpore)   ➔   D2 (Salt Lake)    70 tons           ₹14/ton        ₹980
+S2 (Ichapur)       ➔   D1 (Jadavpur)     60 tons           ₹5/ton         ₹300
+S2 (Ichapur)       ➔   D3 (Howrah)       30 tons           ₹10/ton        ₹300
+S3 (Kolkata)       ➔   D2 (Salt Lake)    10 tons           ₹13/ton        ₹130
+S3 (Kolkata)       ➔   D3 (Howrah)       50 tons           ₹7/ton         ₹350
+--------------------------------------------------------------------------------
+TOTAL TRANSPORTATION EXPENDITURE (Z*):                             ₹2,060
+--------------------------------------------------------------------------------
+
+ORIGIN FREIGHT BREAKDOWN:
+• Barrackpore (S1): 70 tons dispatched ➔ Spend = ₹980
+• Ichapur (S2):     90 tons dispatched ➔ Spend = ₹600 (₹300 to D1 + ₹300 to D3)
+• Kolkata (S3):     60 tons dispatched ➔ Spend = ₹480 (₹130 to D2 + ₹350 to D3)
+Total Spend = 980 + 600 + 480 = ₹2,060 ✅
+
+--------------------------------------------------------------------------------
+3. EXECUTIVE SAVINGS & PERFORMANCE METRICS
+--------------------------------------------------------------------------------
+1. Initial Baseline Cost (NWCR):         Z_0 = ₹2,740
+2. Certified Minimum Cost (MODI Optimal): Z*  = ₹2,060
+3. Absolute Enterprise Savings:          Delta Z = ₹2,740 - ₹2,060 = ₹680 per batch
+4. Percentage Efficiency Gain:           (680 / 2740) * 100% = 24.82% cost reduction!
+5. Annual Projected Savings (100 batches): ₹68,000 / year.
+6. Order Fulfillment & Service Level:    100.00% (Zero stockouts across all 3 cities).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Certified Minimum (Debangshu)
+Debangshu in Barrackpore delivered the final dispatch manifest locking in ₹2,060
+freight spend per batch, saving ₹68,000 annually for the foundry board.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Minimum Logistics Spend (Mamata & Mahima)
+Mamata and Mahima in Kolkata certified the optimal vaccine schedule at ₹2,190,
+achieving 100% emergency clinic fulfillment under strict health budget ceilings.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Dispatch Schedule (Susmita)
+Susmita in Ichapur converted the optimal MODI tableau into daily truck manifests,
+ensuring grocery deliveries across Kolkata arrived with zero freight waste.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Contract Audit (Abhronila)
+Abhronila in Jadavpur presented the formal certificate of optimality (Z* = ₹9,400)
+to university procurement auditors, securing full audit compliance.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always state the final cost in Indian Rupees (₹).
+- Double check that sum of origin subtotals matches sum of destination subtotals.
+- Always include the formal conclusion: "Since all d_ij >= 0, the optimality condition is satisfied."
+- Provide the complete itemized dispatch manifest, not just the single number Z*.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Certified global optimality by confirming all d_ij >= 0.
+[ ] Computed final minimum cost Z* = Sum(c_ij * x_ij) in Indian Rupees (₹).
+[ ] Verified zero duality gap using Strong Duality: Z* == W*.
+[ ] Calculated absolute savings Delta Z and percentage gain (24.82%).
+[ ] Formatted the final dispatch schedule manifest (Origin, Dest, Tonnage, Rate, Subtotal).
+[ ] Checked 100% supply and demand conservation across all origins and destinations.
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 10: FINAL MINIMUM TRANSPORTATION COST
+================================================================================

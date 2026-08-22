@@ -1,0 +1,92 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_002_cyber-security-definition
+TOPIC 1: NEED OF CYBER SECURITY (BUSINESS CONTINUITY, DPDPA COMPLIANCE & HUMAN SAFETY)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. PRIMARY DRIVERS REQUIRING CYBER SECURITY
+--------------------------------------------------------------------------------
+Cyber Security is no longer optional—it is a non-negotiable operational prerequisite:
+1. Pervasive Digitization & Attack Surface Expansion:
+   Every business, hospital, bank, and government department operates over cloud networks,
+   processing billions of digital transactions daily across distributed remote endpoints.
+2. Catastrophic Financial & Operational Impact:
+   Ransomware extortion, Business Email Compromise (BEC), and data exfiltration cost global
+   organizations over $8 trillion annually, bankrupting unshielded businesses within months.
+3. Critical National Infrastructure (CNI) Vulnerabilities:
+   Electrical power grids, water treatment facilities, nuclear plants, and air traffic control
+   rely on SCADA/ICS networks where cyber disruption directly endangers human life.
+4. Statutory Legal Mandates & Financial Penalties:
+   The Digital Personal Data Protection Act (DPDPA 2023) in India imposes penalties of up to
+   ₹250 crore per breach for failing to implement reasonable cybersecurity safeguards.
+
+--------------------------------------------------------------------------------
+2. BUSINESS CONTINUITY & CYBER RESILIENCE
+--------------------------------------------------------------------------------
+• Cyber Security vs Cyber Resilience:
+  - Cyber Security: Focuses on prevention and boundary defenses (keeping adversaries out).
+  - Cyber Resilience: Focuses on the ability to anticipate, withstand, operate through,
+    and rapidly recover from an inevitable cyber breach without catastrophic downtime.
+• Business Email Compromise (BEC) & Deepfake Defense:
+  Adversaries manipulate human trust via AI voice clones and domain spoofing to execute fraudulent
+  wire transfers; defended by multi-person verification and out-of-band challenge protocols.
+
+--------------------------------------------------------------------------------
+3. HUMAN LIFE SAFETY & SUPPLY CHAIN RISK
+--------------------------------------------------------------------------------
+• Medical IoT (IoMT) Safety:
+  Vulnerabilities in connected ventilators and infusion pumps can alter medication dosages.
+• Third-Party Supply Chain Risk (SolarWinds lessons):
+  Adversaries target software build pipelines and external vendors to compromise thousands
+  of downstream corporate customer networks simultaneously.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supply Chain & BEC Wire Fraud Interception (Debangshu - Barrackpore)
+Debangshu implemented strict dual-authorization wire transfer protocols and domain DMARC authentication
+in Barrackpore for ₹1,80,000. The system intercepted a spoofed ₹35,00,000 fraudulent supplier invoice,
+saving the foundry from catastrophic cash flow loss.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic DPDPA Compliance & Encryption Rollout (Mahima - Ichapur)
+Mahima led a comprehensive DPDPA 2023 data compliance overhaul for an Ichapur healthcare clinic for
+₹2,40,000. Encrypting 85,000 patient diagnostic files with AES-256 and enforcing role-based access
+eliminated regulatory non-compliance exposure and protected patient privacy.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Smart Power Grid SCADA Cyber Resilience Architecture (Mamata - Kolkata)
+Mamata deployed a 24/7 Managed Detection and Response (MDR) and SCADA data diode solution for a
+Kolkata electric utility for ₹12,50,000. When a foreign botnet launched targeted credential stuffing
+against grid VPNs, automated AI defenses neutralized the attack in 8 seconds with zero power outages.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Ransomware & Cyber Insurance Audit (Abhronila - Jadavpur)
+Abhronila audited corporate cyber insurance prerequisites in Jadavpur for ₹95,000. Enforcing 100%
+FIDO2 hardware MFA, immutable air-gapped backups, and EDR enabled a regional software firm to secure
+a ₹10,00,00,000 cyber insurance policy at a 40% reduced annual premium.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never view cyber security as a technical cost center; treat it as an essential business enabler.
+- Implement strict out-of-band verification for all high-value corporate financial wire requests.
+- Audit all third-party software suppliers and external vendors for baseline security compliance.
+- Formulate all enterprise SIEM, MDR, and cyber insurance budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped the core drivers necessitating cybersecurity across modern digital ecosystems.
+[ ] Evaluated financial risk, business interruption costs, and ransomware double extortion.
+[ ] Analyzed the Digital Personal Data Protection Act (DPDPA 2023) and ₹250 crore penalty framework.
+[ ] Understood Critical National Infrastructure (CNI) protection and human life safety.
+[ ] Differentiated between traditional Cyber Security and Cyber Resilience.
+[ ] Formulated realistic enterprise cybersecurity and SIEM budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_002 • TOPIC 1: NEED OF CYBER SECURITY
+================================================================================

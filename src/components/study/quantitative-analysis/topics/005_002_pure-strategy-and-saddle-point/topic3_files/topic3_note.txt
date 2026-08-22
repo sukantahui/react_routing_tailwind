@@ -1,0 +1,91 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_002_pure-strategy-and-saddle-point
+TOPIC 3: SADDLE POINT (EQUILIBRIUM MECHANICS, SADDLE THEOREM & NASH STABILITY)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & MATHEMATICAL CRITERIA OF A SADDLE POINT
+--------------------------------------------------------------------------------
+A SADDLE POINT (or Equilibrium Point) is a position (i*, j*) in a Payoff Matrix
+A = [a_ij]_{m x n} where the entry a_i*j* satisfies TWO SIMULTANEOUS CONDITIONS:
+
+1. MINIMUM IN ITS ROW:
+       a_i*j* = min_{j=1}^n a_i*j      (Row Minimum for strategy A_i*)
+
+2. MAXIMUM IN ITS COLUMN:
+       a_i*j* = max_{i=1}^m a_ij*      (Column Maximum for strategy B_j*)
+
+FUNDAMENTAL EQUILIBRIUM EQUATION:
+       Maximin (alpha) == Minimax (beta) == a_i*j* == v*
+
+• The common value v* is the exact VALUE OF THE GAME (in Indian Rupees ₹).
+• The strategy pair (A_i*, B_j*) is the OPTIMAL PURE STRATEGY PROFILE.
+
+--------------------------------------------------------------------------------
+2. NASH EQUILIBRIUM UNILATERAL STABILITY
+--------------------------------------------------------------------------------
+At a Saddle Point (i*, j*), neither player has any incentive to deviate unilaterally:
+
+• FOR PLAYER A (ROW PLAYER):
+       a_i,j* <= a_i*,j*    for all rows i = 1, ..., m
+  (If Player A switches to any other row i while Player B plays j*, Player A's payoff decreases or stays the same).
+
+• FOR PLAYER B (COLUMN PLAYER):
+       a_i*,j >= a_i*,j*    for all columns j = 1, ..., n
+  (If Player B switches to any other column j while Player A plays i*, Player B's payout increases or stays the same).
+
+--------------------------------------------------------------------------------
+3. MULTIPLE SADDLE POINTS & INTERCHANGEABILITY
+--------------------------------------------------------------------------------
+An m x n matrix can contain multiple saddle points. When this occurs:
+1. IDENTICAL GAME VALUE: All saddle points MUST have the exact same payoff value v*.
+2. INTERCHANGEABLE STRATEGIES: If (i_1, j_1) and (i_2, j_2) are saddle points, then
+   (i_1, j_2) and (i_2, j_1) are ALSO valid saddle points with the same value v*.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Induction Furnace Saddle Point (Debangshu)
+Debangshu in Barrackpore analyzed a 3x3 casting tender matrix in ₹ Thousands:
+Row Mins = [10, 30, 20]; Col Maxs = [30, 40, 35]. Maximin = Minimax = ₹30,000 at cell (A2, B1),
+locking in an unshakeable ₹30,000 pure profit.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Dispute Resolution Saddle Point (Mamata & Mahima)
+Mamata and Mahima in Kolkata proved that a pure saddle point of ₹25,000 at (A2, B2)
+established a stable out-of-court settlement, saving ₹50,000 in litigation legal fees.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Weekend Loyalty Promotion Saddle Point (Susmita)
+Susmita in Ichapur structured a 3x2 marketing competition matrix, discovering a pure
+saddle point at (A1, B2) = ₹18,000, eliminating promotional advertising guesswork.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Royalties Saddle Point (Abhronila)
+Abhronila evaluated university patent licensing terms in Jadavpur, identifying a pure
+saddle point of ₹55 Lakh in mutual research value between university and industry partners.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- A cell is ONLY a saddle point if it is simultaneously the SMALLEST in its row and LARGEST in its column.
+- If Maximin != Minimax, NO pure saddle point exists; do not force a saddle point.
+- When multiple saddle points exist, their payoff values are ALWAYS identical.
+- Express all saddle point payoffs and game values in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined Saddle Point as cell where entry is simultaneously Row Min and Col Max.
+[ ] Verified the Saddle Point condition: Maximin (alpha) == Minimax (beta) == v*.
+[ ] Proved Nash Equilibrium stability: a_i,j* <= a_i*,j* <= a_i*,j.
+[ ] Understood multiple saddle point interchangeability and value invariance.
+[ ] Stated saddle point game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_002 • TOPIC 3: SADDLE POINT
+================================================================================

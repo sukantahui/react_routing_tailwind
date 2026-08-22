@@ -1,0 +1,92 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 41: NETWORKING IN HEALTHCARE (DICOM/PACS, IOMT, FHIR, TELEMEDICINE & RANSOMWARE DEFENSE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. HOSPITAL INFORMATION SYSTEMS & CLINICAL DATA PROTOCOLS
+--------------------------------------------------------------------------------
+• DICOM (Digital Imaging and Communications in Medicine):
+  Standard radiological imaging protocol (MRI, X-ray, 3D CT scans) operating over TCP Port 104.
+• PACS (Picture Archiving and Communication System):
+  Centralized medical imaging archive communicating over 10G/40G SAN networks using
+  lossless Jumbo Frames (MTU 9000) to deliver 2GB image series in under 4 seconds.
+• HL7 & FHIR (Fast Healthcare Interoperability Resources):
+  Modern RESTful JSON/XML APIs operating over HTTPS (Port 443) with Mutual TLS (mTLS),
+  exchanging electronic health records (EHR), lab orders, and patient vital telemetry.
+
+--------------------------------------------------------------------------------
+2. INTERNET OF MEDICAL THINGS (IOMT) & BIOMEDICAL ISOLATION
+--------------------------------------------------------------------------------
+• Biomedical Network Segmentation:
+  Life-support hardware (infusion pumps, ICU ventilators, dialysis units, anesthesia consoles)
+  must be isolated into dedicated, firewall-restricted VLANs (e.g. VLAN 50) with strict
+  access control lists (ACLs) to prevent lateral malware propagation from office PCs.
+• Mobile Medical Cart Fast-Roaming (802.11r / 802.11k):
+  Enables mobile nursing workstations to roam across hospital corridor Wi-Fi APs in < 50ms
+  without dropping active patient electronic charting sessions.
+• 5G Smart Ambulance Telemetry:
+  Streams 12-lead ECG, ultrasound video, and patient vital signs directly to the hospital
+  Emergency Room trauma team over encrypted IPsec tunnels before arrival.
+
+--------------------------------------------------------------------------------
+3. HEALTHCARE CYBER SECURITY THREATS & COMPLIANCE
+--------------------------------------------------------------------------------
+• Hospital Ransomware Defense (AIIMS Delhi & WannaCry lessons):
+  Requires strict network microsegmentation, immutable air-gapped WORM offline backups,
+  and Endpoint Detection and Response (EDR) agents on all clinical terminals.
+• Medjack (Medical Device Hijacking):
+  Mitigated by Deep Packet Inspection (DPI) and virtual firewall patching on medical subnets.
+• HIPAA & DISHA Compliance:
+  Mandates AES-256 GCM encryption at rest and in transit for all Protected Health Information (PHI).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Multi-Speciality Hospital 10G PACS & Jumbo Frame Rollout (Debangshu - Barrackpore)
+Debangshu upgraded hospital radiology networks in Barrackpore with dual 10G optical switches and
+9000-byte Jumbo Frames for ₹6,50,000. 1.8GB MRI multi-slice image series load on doctor diagnostic
+workstations in 3.6 seconds, accelerating critical stroke triage decisions.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic IoMT Infusion Pump Microsegmentation (Mahima - Ichapur)
+Mahima implemented strict VLAN microsegmentation and Next-Gen Firewall policies for 80 smart
+infusion pumps and patient monitors in Ichapur for ₹2,10,000. Isolating medical devices from the
+general hospital office subnet blocked lateral scanning and unauthorized firmware tampering.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: State Health Tele-ICU & 5G Ambulance Telemetry (Mamata - Kolkata)
+Mamata engineered a dedicated 5G cellular IPsec and WebRTC tele-ICU network in Kolkata for ₹4,80,000.
+Senior intensivist doctors in Kolkata monitor rural district ICU ventilators and review live ECG
+waveforms from transit ambulances in real time with sub-15ms latency.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Medical Device DPI & Ransomware Audit (Abhronila - Jadavpur)
+Abhronila audited medical IoT security in Jadavpur for ₹1,15,000 using Deep Packet Inspection (DPI).
+DPI detected and neutralized an unpatched buffer overflow vulnerability in legacy blood analyzer
+firmware, establishing an air-gapped immutable backup vault for patient records.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never place unpatchable medical devices (ventilators, infusion pumps) on open office subnets.
+- Always configure 9000-byte Jumbo Frames on dedicated PACS imaging storage switch ports.
+- Maintain immutable air-gapped offline backups to guarantee rapid recovery from ransomware.
+- Formulate all hospital PACS, IoMT firewalls, and medical Wi-Fi budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped DICOM imaging protocols (TCP Port 104) and 10G PACS storage architectures.
+[ ] Evaluated HL7 and FHIR RESTful JSON APIs with Mutual TLS (mTLS) security.
+[ ] Configured Medical IoT (IoMT) VLAN microsegmentation for life-support devices.
+[ ] Analyzed 5G smart ambulance telemetry and sub-50ms 802.11r Wi-Fi fast roaming.
+[ ] Defended against Medjack and hospital ransomware with air-gapped immutable backups.
+[ ] Formulated realistic hospital PACS and medical network budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 41: NETWORKING IN HEALTHCARE
+================================================================================

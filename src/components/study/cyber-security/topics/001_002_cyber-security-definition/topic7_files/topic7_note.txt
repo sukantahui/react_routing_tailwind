@@ -1,0 +1,90 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_002_cyber-security-definition
+TOPIC 7: CYBER CRIME (CLASSIFICATION, LEGAL PENALTIES, DIGITAL FORENSICS & 1930 HELPLINE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & CLASSIFICATION OF CYBER CRIME
+--------------------------------------------------------------------------------
+Cyber Crime refers to any unlawful activity wherein a computer, digital device, or network
+is either the target of the crime, the instrument/tool used, or the digital scene of evidence.
+
+Primary Classifications:
+1. Computer as a Target:
+   Ransomware, trojans, DDoS attacks, zero-day exploitation, website defacements, buffer overflows.
+2. Computer as a Tool:
+   Financial wire fraud, UPI scams, Business Email Compromise (BEC), SIM swapping, identity theft,
+   cyberstalking, predatory loan app extortion, child sexual abuse material (CSAM).
+
+--------------------------------------------------------------------------------
+2. INDIAN LEGAL FRAMEWORK (IT ACT 2000 & PENALTIES)
+--------------------------------------------------------------------------------
+• Section 65: Tampering with computer source documents (Up to 3 years imprisonment + ₹2 Lakh fine).
+• Section 66: Computer hacking and system damage (Up to 3 years imprisonment + ₹5 Lakh fine).
+• Section 66C: Identity theft / stolen passwords (Up to 3 years imprisonment + ₹1 Lakh fine).
+• Section 66D: Cheating by personation using computer resources (Up to 3 years imprisonment + ₹1 Lakh fine).
+• Section 66E: Privacy violation / non-consensual image capture (Up to 3 years imprisonment + ₹2 Lakh fine).
+• Section 66F: Cyber Terrorism against national security/infrastructure (Punishable with Life Imprisonment).
+• Section 67/67A: Transmitting obscene or sexually explicit content (Up to 5 years imprisonment + ₹10 Lakh fine).
+
+--------------------------------------------------------------------------------
+3. CITIZEN REPORTING & DIGITAL FORENSICS PIPELINE
+--------------------------------------------------------------------------------
+• National Cyber Crime Helpline '1930' & CFCFRMS:
+  Immediate reporting within the 'Golden Hour' (1-2 hours) allows automated freezing of stolen
+  funds across multi-layer banking mule networks via the Indian Cyber Crime Coordination Centre (I4C).
+• Digital Forensics & Chain of Custody:
+  - Cryptographic Hashing (SHA-256): Proves evidence integrity from crime scene to courtroom.
+  - Hardware Write-Blockers: Permits read-only disk imaging without modifying timestamps.
+  - Volatile Memory Forensics: Extracts live in-memory encryption keys and malware payloads before reboot.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry BEC Invoice Fraud Interception & FIR Filing (Debangshu - Barrackpore)
+Debangshu discovered a spoofed vendor email attempting to divert a ₹28,00,000 casting supplier payment
+in Barrackpore. Dialing 1930 and providing email header metadata enabled cyber police to freeze the
+fraudulent mule account within 45 minutes, prosecuting the criminal under IT Act Section 66D.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic SIM-Swap & OTP Bypass Investigation (Mahima - Ichapur)
+Mahima investigated a SIM-swap credential theft targeting an Ichapur clinic's corporate account for ₹1,80,000.
+Forensic logs proved telecom store negligence, enabling the clinic to recover ₹4,50,000 in diverted funds
+and mandate FIDO2 hardware tokens, eliminating SMS OTP dependencies.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: State Research University Web Magecart Skimmer Removal (Mamata - Kolkata)
+Mamata led the digital forensic investigation of a malicious Magecart payment skimmer in Kolkata for
+₹3,20,000. Identifying injected JavaScript on the university merchandise portal, the forensic team purged
+the backdoor, rotated payment API keys, and filed an evidentiary cybercrime report with Kolkata Cyber Police.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Digital Evidence Chain-of-Custody Testbed (Abhronila - Jadavpur)
+Abhronila established a court-admissible digital forensics laboratory in Jadavpur for ₹2,10,000.
+Students perform dead-box hardware write-blocker imaging and Volatility RAM analysis, generating
+cryptographically verified SHA-256 forensic reports compliant with Section 65B of the Indian Evidence Act.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never enter your UPI PIN to "receive" money; entering a PIN always deducts funds from your account.
+- In financial fraud emergencies, immediately dial National Helpline '1930' within the Golden Hour.
+- Never power down a compromised system before forensic RAM triage, as in-memory evidence will be lost.
+- Formulate all enterprise anti-fraud, brand protection, and DFIR retainers in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped the fundamental classification of Cyber Crime (computer as target vs computer as tool).
+[ ] Evaluated key penal provisions of the Indian IT Act 2000 (Sections 66, 66C, 66D, 66E, 66F).
+[ ] Understood National Cyber Crime Helpline '1930' and the CFCFRMS real-time fund freeze pipeline.
+[ ] Analyzed SIM swapping, predatory loan apps, UPI QR code fraud, and digital arrest scams.
+[ ] Mastered Digital Chain of Custody, SHA-256 hash verification, and hardware write-blockers.
+[ ] Formulated realistic enterprise anti-fraud and DFIR budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_002 • TOPIC 7: CYBER CRIME
+================================================================================

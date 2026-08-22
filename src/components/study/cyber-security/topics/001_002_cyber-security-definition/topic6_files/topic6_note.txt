@@ -1,0 +1,97 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_002_cyber-security-definition
+TOPIC 6: CYBER THREAT LANDSCAPE (THREAT ACTORS, MITRE ATT&CK, CTI & PYRAMID OF PAIN)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE CYBER THREAT LANDSCAPE & ACTOR TAXONOMY
+--------------------------------------------------------------------------------
+The Cyber Threat Landscape represents the dynamic, global ecosystem of all active threats,
+threat actors, attack vectors, vulnerabilities, and exploitation methodologies.
+
+The 5 Major Threat Actor Categories:
+1. Script Kiddies:
+   Unskilled amateurs utilizing automated, pre-compiled tools without understanding root mechanics.
+2. Hacktivists:
+   Ideologically, politically, or socially motivated groups launching DDoS and website defacements (e.g. Anonymous).
+3. Cyber Criminal Syndicates (e-Crime):
+   Financially motivated organized cartels running Ransomware-as-a-Service (RaaS) and banking fraud.
+4. Insider Threats:
+   Malicious, negligent, or compromised employees with valid credentials and internal access.
+5. Advanced Persistent Threats (APTs) / Nation-States:
+   Military-grade, state-sponsored intelligence units conducting multi-year espionage and sabotage.
+
+--------------------------------------------------------------------------------
+2. CYBER THREAT INTELLIGENCE (CTI) & THE PYRAMID OF PAIN
+--------------------------------------------------------------------------------
+The Pyramid of Pain (David Bianco) measures the defensive impact of blocking adversary indicators:
+• Level 1 - Hash Values (Trivial to change - MD5/SHA256).
+• Level 2 - IP Addresses (Easy to change - proxy VPNs/Tor).
+• Level 3 - Domain Names (Simple to change - fast-flux/DGA).
+• Level 4 - Network/Host Artifacts (Annoying to change - URI patterns/C2 protocols).
+• Level 5 - Tools (Challenging to change - rebuilding custom trojans/compilers).
+• Level 6 - TTPs (Tactics, Techniques & Procedures - TOUGH! Forces adversary to reinvent tradecraft).
+
+The MITRE ATT&CK Matrix:
+Structures 14 tactical adversary objectives from Initial Access and Execution to Exfiltration and Impact.
+
+--------------------------------------------------------------------------------
+3. STEALTH TACTICS: LIVING-OFF-THE-LAND (LotL) & DWELL TIME
+--------------------------------------------------------------------------------
+• Living-off-the-Land Binaries (LOLBins):
+  Adversaries utilize legitimate built-in operating system tools (PowerShell, WMI, certutil)
+  to evade traditional signature-based antivirus detection.
+• Dwell Time:
+  The duration an attacker remains undetected inside a network (global average: 10-16 days).
+  Defended using proactive threat hunting and behavioral Indicators of Attack (IoAs).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry MITRE ATT&CK TTP Behavioral Mapping (Debangshu - Barrackpore)
+Debangshu mapped foundry network telemetry to the MITRE ATT&CK matrix in Barrackpore for ₹3,80,000.
+When an adversary attempted LOLBin execution via `certutil.exe`, automated EDR behavioral rules
+intercepted the technique (T1105 Ingress Tool Transfer) in 8 seconds.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Ransomware RaaS Behavioral Defense (Mahima - Ichapur)
+Mahima deployed an advanced EDR and behavioral sandbox solution in Ichapur for ₹4,20,000.
+When an employee opened a weaponized invoice, the system detected Volume Shadow Copy deletion
+commands (`vssadmin delete shadows`), terminating the ransomware process before encryption began.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: State Research University STIX/TAXII Threat Feed Ingestion (Mamata - Kolkata)
+Mamata integrated automated STIX/TAXII threat intelligence feeds into university firewalls in Kolkata
+for ₹5,20,000. The firewall autonomously blocked 14,000 newly active botnet command-and-control IPs
+streamed in real time from international CERT advisories.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab APT Attribution & Reverse Engineering Sandbox (Abhronila - Jadavpur)
+Abhronila established a malware reverse engineering laboratory in Jadavpur for ₹2,40,000.
+Students dissect live nation-state APT samples in isolated Ghidra sandboxes, extracting custom C2
+signatures and authoring YARA rules for national threat intelligence repositories.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never rely exclusively on static hash blocklists (Level 1); focus on detecting adversary TTPs (Level 6).
+- Monitor built-in administrative tools (PowerShell, WMI) for anomalous Living-off-the-Land activity.
+- Proactively hunt for stealth adversaries to reduce dwell time from weeks down to under 24 hours.
+- Formulate all enterprise CTI feeds, EDR sandboxes, and hunting platform budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped the five major threat actor categories across the Cyber Threat Landscape.
+[ ] Evaluated David Bianco's Pyramid of Pain and understood why TTP detection is paramount.
+[ ] Mastered the MITRE ATT&CK matrix structure and mapped enterprise defensive coverage.
+[ ] Differentiated between Indicators of Compromise (IoCs) and Indicators of Attack (IoAs).
+[ ] Analyzed Living-off-the-Land (LOLBins), Ransomware-as-a-Service (RaaS), and Dwell Time.
+[ ] Formulated realistic enterprise threat intelligence budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_002 • TOPIC 6: CYBER THREAT LANDSCAPE
+================================================================================

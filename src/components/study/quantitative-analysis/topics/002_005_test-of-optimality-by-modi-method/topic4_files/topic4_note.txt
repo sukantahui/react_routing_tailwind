@@ -1,0 +1,111 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 4: OPTIMALITY CONDITION (GLOBAL MINIMUM THEOREM & ALTERNATIVE OPTIMA)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE GLOBAL OPTIMALITY THEOREM
+--------------------------------------------------------------------------------
+In the Modified Distribution (MODI / u-v) Method, an Initial Basic Feasible
+Solution (IBFS) is mathematically certified to be GLOBALLY OPTIMAL if and only if:
+
+    d_ij = c_ij - (u_i + v_j) >= 0   (for ALL non-basic cells (i, j))
+
+EQUIVALENCE TO DUAL LINEAR PROGRAMMING FEASIBILITY:
+Because basic cells satisfy:
+    u_i + v_j = c_ij
+The condition d_ij >= 0 is mathematically identical to:
+    u_i + v_j <= c_ij   (for all i = 1..m, j = 1..n)
+
+By the Fundamental Duality Theorem & Complementary Slackness:
+1. Primal Feasibility: Sum_j x_ij = S_i, Sum_i x_ij = D_j, x_ij >= 0 (Satisfied by IBFS).
+2. Dual Feasibility: u_i + v_j <= c_ij (Satisfied when all d_ij >= 0).
+3. Complementary Slackness: x_ij * [c_ij - (u_i + v_j)] = 0 (Satisfied because basic
+   cells have c_ij - u_i - v_j = 0, and non-basic cells have x_ij = 0).
+
+CONCLUSION:
+When all d_ij >= 0, the primal-dual pair achieves ZERO DUALITY GAP:
+    Minimum Total Cost Z = Maximum Dual Objective W
+The solution is unconditionally certified as the absolute Global Minimum!
+
+--------------------------------------------------------------------------------
+2. STRICT OPTIMALITY VS. ALTERNATIVE (MULTIPLE) OPTIMA
+--------------------------------------------------------------------------------
+CASE 1: STRICT OPTIMALITY (UNIQUE GLOBAL MINIMUM)
+- Condition: ALL d_ij > 0 (strictly positive for every non-basic cell).
+- Property: Every unoccupied route is strictly more expensive than the current
+  basic path.
+- Result: The optimal basic solution is UNIQUE. No other allocation matrix can
+  match this minimal total cost Z.
+
+CASE 2: ALTERNATIVE (MULTIPLE) OPTIMAL SOLUTIONS
+- Condition: ALL d_ij >= 0, AND at least ONE non-basic cell has d_kl = 0.
+- Property: Route (k, l) has direct cost that exactly equals the network shadow cost.
+- Result: Shifting flow into cell (k, l) around a closed loop creates an
+  ALTERNATIVE optimal allocation matrix with the EXACT SAME minimal total cost Z.
+- Managerial Advantage: Gives operations managers flexibility to choose routes
+  based on road quality, tolls, or weather without spending a single extra rupee!
+
+--------------------------------------------------------------------------------
+3. THE BINARY DECISION RULE IN MODI
+--------------------------------------------------------------------------------
+At the conclusion of Step 4 in every MODI iteration:
+• IF all d_ij >= 0:
+    --> STOP ALGORITHM IMMEDIATELY!
+    --> Certify the solution as Globally Optimal.
+    --> Report final minimum cost: Z = Sum (c_ij * x_ij) in Indian Rupees (₹).
+• IF at least one d_ij < 0:
+    --> The solution is SUB-OPTIMAL.
+    --> Select the entering variable: Entering Cell = argmin { d_ij | d_ij < 0 }.
+    --> Proceed to Step 5 (Stepping-Stone Closed Loop Flow Pivot).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Certified Minimum (Debangshu)
+Barrackpore heavy foundry reached final iteration:
+Evaluations: d_11=0 (basic), d_12=0 (basic), d_13=+7, d_21=+4, d_22=+9, d_23=0 (basic),
+d_31=+4, d_32=0 (basic), d_33=0 (basic).
+Since all empty cells have d_ij > 0, Debangshu certified the plan as strictly optimal
+with verified minimum cost Z = ₹2,060.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Multi-Route Alternative Optima (Mamata & Mahima)
+Kolkata health logistics reached optimality at Z = ₹2,190 with d_22 = 0 on an empty cell.
+Demonstrated that an alternate distribution routing plan existed with identical cost,
+allowing vaccines to be routed via NH12 instead of congested urban roads.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Iteration 1 Direct Certification (Susmita)
+Susmita solved a retail grocery matrix with VAM:
+MODI evaluation on Iteration 1 gave d = [+2, +1, +4, +3] (all > 0).
+Proven optimal on Step 1 with 0 subsequent pivots!
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Contract Audit (Abhronila)
+Abhronila provided formal mathematical proof (all d_ij >= 0) to state university
+auditors, proving that the ₹9,400 textbook freight contract was 100% minimal.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Do not stop optimizing if even a single d_ij is negative (even -₹0.5 creates large losses on high tonnage).
+- If d_ij = 0, do not mistake it for a sub-optimal plan; d_ij = 0 satisfies optimality!
+- Always clearly state the formal conclusion: "Since all d_ij >= 0, the optimality condition is satisfied."
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Stated the Global Optimality Criterion: d_ij = c_ij - (u_i + v_j) >= 0.
+[ ] Connected d_ij >= 0 to Dual Linear Programming Feasibility (u_i + v_j <= c_ij).
+[ ] Distinguished between Strict Optimality (all d > 0) and Alternative Optima (d = 0).
+[ ] Recognized that Strong Duality (Primal Z == Dual W) proves global minimality.
+[ ] Handled dummy row/column optimality conditions uniformly with real lines.
+[ ] Formatted the final academic conclusion statement with total cost Z in ₹.
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 4: OPTIMALITY CONDITION
+================================================================================

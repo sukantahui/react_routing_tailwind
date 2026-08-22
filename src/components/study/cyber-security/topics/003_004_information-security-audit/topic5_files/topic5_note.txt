@@ -1,0 +1,121 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_004 : INFORMATION SECURITY AUDITING & COMPLIANCE
+TOPIC 05       : LOG REVIEW, SYSTEM CONFIGURATION AUDITS, AND ACCESS REVIEW
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE 3 PILLARS OF TECHNICAL AUDITING
+--------------------------------------------------------------------------------
+Under ISO/IEC 27001:2022 and international compliance standards, technical security auditing 
+validates the operational reality of enterprise defenses across three critical pillars:
+
+  * PILLAR 1 : AUDIT LOG REVIEW & SIEM TELEMETRY (Control A.8.15 & A.8.16) ➔ What occurred & who did it.
+  * PILLAR 2 : SYSTEM CONFIGURATION & HARDENING   (Control A.8.9)          ➔ How systems are built & secured.
+  * PILLAR 3 : USER ACCESS REVIEWS & PRIVILEGE    (Control A.5.15 & A.5.18)➔ Who holds access & permissions.
+
+--------------------------------------------------------------------------------
+2. TECHNICAL AUDITING COMPARATIVE MATRIX
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| AUDIT PILLAR       | CORE TECHNICAL FOCUS    | PRIMARY TOOLS & AUDIT STANDARDS                |
++--------------------+-------------------------+------------------------------------------------+
+| 1. LOG REVIEW      | Authentications, admin  | SIEM (Splunk, Elastic, Wazuh), AWS CloudWatch, |
+|                    | privilege escalations,  | ISO 27001 A.8.15, CERT-In 180-Day Log Mandate. |
+|                    | and security alerts.    |                                                |
+|                    |                         |                                                |
+| 2. CONFIG AUDITING | Hardening baselines,    | CIS Benchmarks, DISA STIGs, Terraform tfsec,   |
+|                    | disabling insecure ports| Checkov, AWS Config, ISO 27001 Control A.8.9.  |
+|                    | & stopping root SSH.    |                                                |
+|                    |                         |                                                |
+| 3. ACCESS REVIEW   | Least Privilege (PoLP), | Active Directory, AWS IAM, SailPoint, CyberArk|
+|                    | Separation of Duties,   | PAM, Quarterly Access Dockets (Control A.5.15).|
+|                    | dormant account removal.|                                                |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. USER ACCESS REVIEWS (UAR) & CIS HARDENING BASELINES
+--------------------------------------------------------------------------------
+
+  * QUARTERLY USER ACCESS REVIEWS (UAR) :
+    - Every 90 days, department heads must formally reconcile and re-certify user permissions.
+    - Identify and immediately revoke dormant accounts (> 90 days inactive) and offboarded staff.
+  * PRINCIPLE OF LEAST PRIVILEGE (PoLP) & SOD :
+    - Users receive only the minimum permissions required for their specific role.
+    - Separation of Duties ensures developers cannot deploy code to production without peer approval.
+  * PRIVILEGED ACCESS MANAGEMENT (PAM) & JIT :
+    - Eliminate permanent root/admin access; grant Just-In-Time (JIT) 2-hour elevation with session recording.
+  * CIS BENCHMARK CONFIGURATION AUDITS :
+    - Evaluate Linux, Windows, Kubernetes, and AWS against Center for Internet Security (CIS) Level 1 rules.
+
+--------------------------------------------------------------------------------
+4. STATUTORY SAFE HARBOR UNDER INDIAN CYBER LAW
+--------------------------------------------------------------------------------
+
+  * DPDP ACT 2023 SECTION 8 & SECTION 10 :
+    - Enforcing strict access reviews and logging all queries to personal citizen data provides 
+      verifiable proof of "Reasonable Safeguards," shielding companies from ₹250 CRORE fines!
+  * RESERVE BANK OF INDIA (RBI) MASTER DIRECTIONS :
+    - Mandates quarterly User Access Reviews + daily SOC review of privileged admin actions + maker-checker.
+  * CERT-In DIRECTIONS 2022 :
+    - Mandatory 180-day ICT system log retention in India + mandatory 6-HOUR incident notification.
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : 500 KUBERNETES PODS CIS HARDENING & IAM AUDIT (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : UPI payment switch faced RBI inspection requiring CIS Level 1 hardening and zero dormant accounts.
+  * Action : Automated quarterly IAM reconciliation, deployed tfsec IaC linters in CI/CD, eliminated 14 dormant 
+    accounts, and hardened 500 pods against CIS benchmarks, achieving 100% clean audit certification.
+
+SCENARIO 2 : ONCOLOGY PACS ACCESS AUDIT & DORMANT INTERN REMOVAL (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : 80,000 biopsy records required strict access auditing under DPDP Act Section 8 rules.
+  * Action : Audited Active Directory accounts, revoked access for 3 resigned interns, and configured Wazuh 
+    File Integrity Monitoring (FIM) on DICOM image repositories, ensuring full statutory Safe Harbor.
+
+SCENARIO 3 : 220KV SCADA RTU CONFIGURATION AUDIT (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : 18 substations faced NCIIPC inspection requiring hardened RTU configs and Modbus access logs.
+  * Action : Audited firmware configurations against industrial OT baselines, disabled insecure Telnet ports, 
+    and centralized RTU syslog telemetry, maintaining 100% Section 70 Protected System certification.
+
+SCENARIO 4 : TECHNICAL AUDIT & UAR SIMULATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to detect SSH root configuration drift and execute quarterly access reviews.
+  * Action : Developed an interactive Technical Security Audit Engine in React, training 215+ BCA cyber security 
+    students on CIS benchmark validation, PAM workflows, and SIEM log analysis.
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL TECHNICAL AUDITING HABITS:
+  1. Automate Quarterly UARs: Never rely on manual spreadsheets to track employee permissions.
+  2. Embed IaC Linters in CI/CD: Use tfsec and Checkov to catch configuration drift before deployment.
+  3. Deploy File Integrity Monitoring (FIM): Alert immediately on changes to `/etc/passwd` or system files.
+  4. Enforce Just-In-Time (JIT) PAM: Never give permanent root or admin credentials to human engineers.
+
+* COMMON BEGINNER TECHNICAL AUDIT PITFALLS:
+  - The "Dormant Account" Trap (Leaving contractor accounts active months after contract expiration).
+  - Unaudited Root SSH Access (Permitting `PermitRootLogin yes` in production server configs).
+  - Mutable Log Storage (Allowing admins to modify or delete historical SIEM logs).
+  - Single-Admin Privilege Abuse (Operating without Separation of Duties or maker-checker controls).
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] 3 Pillars: Log Review (A.8.15), System Configuration (A.8.9), User Access Review (A.5.15).
+[ ] CIS Benchmarks provide standardized technical hardening baselines for OS and cloud assets.
+[ ] User Access Reviews (UAR) must be conducted at least Quarterly (every 90 days).
+[ ] Principle of Least Privilege (PoLP) grants only minimum necessary access.
+[ ] Separation of Duties (SoD) prevents a single user from controlling entire critical workflows.
+[ ] CERT-In Directions 2022 require 180-day log retention in India and 6-hour incident reporting.
+[ ] RBI Master Directions mandate maker-checker dual controls on all privileged banking admin tasks.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 05 (CYBER SECURITY BCAC703 - MODULE 003_004)
+================================================================================

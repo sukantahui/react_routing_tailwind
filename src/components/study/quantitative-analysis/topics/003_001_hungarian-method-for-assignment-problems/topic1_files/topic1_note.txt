@@ -1,0 +1,119 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 1: THE ASSIGNMENT MODEL (MATHEMATICAL FORMULATION, LP DUALITY & TUM)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. FORMAL MATHEMATICAL PRIMAL FORMULATION
+--------------------------------------------------------------------------------
+Given:
+• n Resources (Workers/Machines/Origins): i = 1, 2, ..., n
+• n Tasks (Jobs/Locations/Destinations):  j = 1, 2, ..., n
+• Cost Matrix C = [c_ij] where c_ij is the cost of assigning Resource i to Task j in ₹.
+
+THE PRIMAL LINEAR INTEGER PROGRAM:
+    Minimize   Z = Sum_{i=1}^n Sum_{j=1}^n (c_ij * x_ij)
+
+    Subject to:
+    1. Resource Availability (Row Constraints):
+       Sum_{j=1}^n x_ij = 1     (for all i = 1, 2, ..., n)
+       [Every resource is assigned to exactly one task]
+
+    2. Task Requirement (Column Constraints):
+       Sum_{i=1}^n x_ij = 1     (for all j = 1, 2, ..., n)
+       [Every task is executed by exactly one resource]
+
+    3. Integrality Restriction:
+       x_ij in {0, 1}           (for all i = 1..n, j = 1..n)
+
+MODEL DIMENSIONS:
+• Number of Decision Variables: n^2
+• Number of Functional Constraints: 2n (n row constraints + n column constraints)
+• Constraint Matrix Rank: 2n - 1 (due to 1 redundant constraint: Sum S_i == Sum D_j == n)
+
+--------------------------------------------------------------------------------
+2. TOTAL UNIMODULARITY (TUM) & CONTINUOUS LP RELAXATION
+--------------------------------------------------------------------------------
+THE TOTAL UNIMODULARITY THEOREM:
+The (2n x n^2) node-arc incidence constraint matrix A of the Assignment Problem
+is TOTALLY UNIMODULAR (every square submatrix has determinant 0, +1, or -1).
+
+COROLLARY (BIRKHOFF-VON NEUMANN THEOREM):
+Because matrix A is TUM and the right-hand side vector b = [1, 1, ..., 1]^T is
+strictly integer, EVERY extreme point vertex of the continuous LP relaxation
+    { x | Ax = 1, 0 <= x_ij <= 1 }
+is automatically a PURE BINARY INTEGER PERMUTATION MATRIX (x_ij in {0, 1})!
+
+This mathematical miracle means we can solve the assignment problem using
+continuous linear programming duality without branch-and-bound integer search!
+
+--------------------------------------------------------------------------------
+3. THE DUAL LP MODEL OF THE ASSIGNMENT PROBLEM
+--------------------------------------------------------------------------------
+THE DUAL LINEAR PROGRAM:
+    Maximize   W = Sum_{i=1}^n u_i + Sum_{j=1}^n v_j
+
+    Subject to:
+        u_i + v_j <= c_ij       (for all i = 1..n, j = 1..n)
+        u_i, v_j unrestricted in sign
+
+ECONOMIC DUAL INTERPRETATION:
+• u_i = Shadow value / reservation price of Resource (Worker) i in ₹.
+• v_j = Shadow value / market rate of Task (Job) j in ₹.
+• u_i + v_j <= c_ij ensures no worker-task pairing charges more than direct cost.
+
+COMPLEMENTARY SLACKNESS:
+At optimality:
+    x_ij * (c_ij - u_i - v_j) = 0   (for all i, j)
+If Worker i is assigned to Task j (x_ij = 1), then c_ij - u_i - v_j MUST BE 0!
+This is why the Hungarian Method seeks independent zeros in the reduced matrix!
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry LP Model Formulation (Debangshu)
+Debangshu in Barrackpore formulated a 4x4 LP model with 16 binary variables and
+8 constraints to assign foundry supervisors to melting furnaces, proving that the
+continuous LP solution was 100% binary integer.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Dual Price Audit (Mamata & Mahima)
+Mamata and Mahima in Kolkata computed dual potentials u* = [8, 5, 10, 4] and
+v* = [2, 6, 3, 7] for a 4x4 healthcare dispatch model. Confirmed zero duality gap:
+Primal Min Z* = Dual Max W* = ₹45.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Permutation Matrix (Susmita)
+Susmita in Ichapur structured a 4x4 retail management matrix, verifying that the
+solution formed a valid permutation matrix with exactly four 1s and twelve 0s.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Legal Tender Compliance (Abhronila)
+Abhronila in Jadavpur audited public defender case allocations in the Calcutta High
+Court, ensuring mathematical 1-to-1 constraint enforcement (Sum rows = 1, Sum cols = 1).
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never confuse the number of variables (n^2) with the number of constraints (2n).
+- Dual variables u_i and v_j are unrestricted in sign and can be negative.
+- Always verify that each assigned variable satisfies x_ij = 1 and c_ij = u_i + v_j.
+- State all financial objectives in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Formulated primal LP: Min Z = Sum c_ij x_ij s.t. Sum_j x_ij = 1, Sum_i x_ij = 1, x_ij in {0, 1}.
+[ ] Formulated dual LP: Max W = Sum u_i + Sum v_j s.t. u_i + v_j <= c_ij.
+[ ] Understood Total Unimodularity (TUM) and Birkhoff-von Neumann theorem.
+[ ] Proved why continuous LP relaxation vertices are pure integer permutation matrices.
+[ ] Verified Complementary Slackness: x_ij = 1 => c_ij - u_i - v_j = 0.
+[ ] Verified Strong Duality: Min Z* == Max W*.
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 1: THE ASSIGNMENT MODEL
+================================================================================

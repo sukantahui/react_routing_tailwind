@@ -1,0 +1,89 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_003_principle-of-dominance
+TOPIC 4: REDUCING MATRIX SIZE USING DOMINANCE (MULTI-PASS PIPELINE & VECTOR MAPPING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE COMPLETE MULTI-PASS REDUCTION METHODOLOGY
+--------------------------------------------------------------------------------
+Large m x n payoff matrices can be systematically shrunk to compact 2x2 games
+using the 4-Pass Iterative Elimination Pipeline:
+
+• PASS 1 (INITIAL ROW SCAN):
+  - Compare all row pairs. Delete any row j dominated by row i (a_ik >= a_jk for all k).
+
+• PASS 2 (SUB-MATRIX COLUMN SCAN):
+  - In the surviving trimmed matrix, compare all column pairs.
+  - Delete any column s dominated by column r (a_kr <= a_ks for all k).
+
+• PASS 3 (RE-EVALUATION CASCADES):
+  - Deleting columns removes opponent moves, often creating BRAND NEW row dominances!
+  - Re-compare remaining rows and delete newly dominated rows.
+
+• PASS 4 (MODIFIED DOMINANCE & TERMINATION):
+  - If pure dominance stalls, test convex combinations (50-50 averages).
+  - Terminate when an irreducible 2x2 matrix, a 2xn / mx2 matrix (for Graphical Method),
+    or a 1x1 saddle point is reached!
+
+--------------------------------------------------------------------------------
+2. FULL-SIZED STRATEGY VECTOR RECONSTRUCTION
+--------------------------------------------------------------------------------
+When the reduced 2x2 matrix is solved:
+• Let (p_1*, p_2*) and (q_1*, q_2*) be the optimal probabilities for surviving rows and cols.
+• Map them back to the original full m-dimensional and n-dimensional vectors:
+  - Assign p_i* to surviving row i.
+  - Assign 0.0 to all previously eliminated rows.
+  - Example: If rows A2 and A4 survive in a 4-row game, p* = (0, p_1*, 0, p_2*)^T.
+
+--------------------------------------------------------------------------------
+3. VALUE INVARIANCE THEOREM
+--------------------------------------------------------------------------------
+The Value of the Game v* remains STRICTLY CONSTANT throughout every reduction step:
+      v*(Original m x n) == v*(Intermediate Sub-matrix) == v*(Final 2 x 2)
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Multi-Pass Bidding Reduction (Debangshu)
+Debangshu in Barrackpore reduced a 4x4 metal casting bidding matrix to a 2x2 game
+in 3 iterative passes, solving it in 2 minutes to lock in a ₹35,000 game value.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Multi-Modal Route Reduction (Mamata & Mahima)
+Mamata and Mahima in Kolkata pruned a 4x3 transport grid down to a 2x2 game,
+identifying the optimal mixed freight ratio without using complex linear programming tableaus.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Matrix Shrinking (Susmita)
+Susmita in Ichapur reduced a 3x3 weekend marketing competition to a 2x2 matrix,
+calculating the exact mixed discount probabilities to protect retail footfall.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Institutional Negotiation Shrinking (Abhronila)
+Abhronila reduced a 5x4 university cross-licensing game down to a 2x2 matrix in Jadavpur,
+providing legal auditors with a transparent 2-page mathematical settlement.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always re-evaluate rows after deleting columns; never stop after just one pass!
+- Map surviving probabilities back to the correct original indices in vector p* and q*.
+- Assign 0.0 to all eliminated strategies; verify that sum of probabilities equals 1.0.
+- State all game values and payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 4-pass iterative matrix reduction pipeline.
+[ ] Cascaded reductions by re-inspecting rows after column deletions.
+[ ] Reconstructed full-dimensional probability vectors p* and q*.
+[ ] Verified that Value of the Game v* is invariant under all reduction passes.
+[ ] Stated reduced matrix values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_003 • TOPIC 4: REDUCING MATRIX SIZE
+================================================================================

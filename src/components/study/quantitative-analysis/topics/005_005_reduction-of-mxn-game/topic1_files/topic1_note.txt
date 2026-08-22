@@ -1,0 +1,97 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_005_reduction-of-mxn-game
+TOPIC 1: REDUCTION OF m x n GAMES (ITERATIVE SWEEPS, CASCADING LOOPS & VECTOR RECONSTRUCTION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE 5-PHASE ITERATIVE REDUCTION ALGORITHM
+--------------------------------------------------------------------------------
+For any general m x n Payoff Matrix A:
+
+PHASE 1: SADDLE POINT CHECK
+- Compute row minima (alpha_i) and column maxima (beta_j).
+- If Maximin (alpha) == Minimax (beta), stop: pure saddle point exists.
+- If Maximin < Minimax, proceed to reduction.
+
+PHASE 2: ROW DOMINANCE SWEEPS (PLAYER A MAXIMIZATION)
+- For every pair of rows (R_i, R_j):
+  If a_ik >= a_jk for ALL columns k, then Row R_i dominates Row R_j.
+  Action: Delete Row R_j (assign p_j* = 0.0). Matrix size becomes (m - 1) x n.
+
+PHASE 3: COLUMN DOMINANCE SWEEPS (PLAYER B MINIMIZATION)
+- For every pair of columns (C_r, C_s):
+  If a_kr <= a_ks for ALL rows k, then Column C_r dominates Column C_s.
+  Action: Delete Column C_s (assign q_s* = 0.0). Matrix size becomes (m - 1) x (n - 1).
+
+PHASE 4: CASCADING FEEDBACK LOOP
+- Repeat Phases 2 and 3 on the newly reduced submatrix!
+- Column deletions often reveal newly dominant rows.
+- Stop when a full pass produces zero further deletions.
+
+PHASE 5: CONVEX COMBINATION SWEEP (IF DEADLOCKED)
+- If pure dominance fails and matrix size >= 3x3, test if a convex combination of two
+  rows/columns dominates a third: lambda * R_a + (1 - lambda) * R_b >= R_c.
+
+--------------------------------------------------------------------------------
+2. FULL-VECTOR PROBABILITY RECONSTRUCTION
+--------------------------------------------------------------------------------
+Once the matrix is reduced to a 2x2 submatrix involving active indices I = {r_1, r_2}
+and J = {c_1, c_2}:
+1. Solve 2x2 sub-game to find sub-probabilities [p_1_sub, p_2_sub] and [q_1_sub, q_2_sub].
+2. Construct full m-dimensional vector p*:
+      p_i* = p_1_sub if i == r_1
+      p_i* = p_2_sub if i == r_2
+      p_i* = 0.0 otherwise
+3. Construct full n-dimensional vector q*:
+      q_j* = q_1_sub if j == c_1
+      q_j* = q_2_sub if j == c_2
+      q_j* = 0.0 otherwise
+4. The Game Value v* in Indian Rupees (₹) is identical to the 2x2 submatrix value!
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 4x4 Grid Multi-Pass Reduction (Debangshu)
+Debangshu in Barrackpore reduced a 4x4 bidding grid across 3 cascading passes:
+Pass 1 (Row 4 deleted) -> Pass 2 (Col 2 and Col 4 deleted) -> Pass 3 (Row 3 deleted).
+Final 2x2 submatrix solved to p* = [0.6, 0.4, 0, 0] and locked in ₹28,000 profit.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Transport 3x4 Route Optimization (Mamata & Mahima)
+Mamata and Mahima in Kolkata reduced a 3x4 cold-chain logistics matrix down to a 2x2
+fleet allocation, finding optimal mixed routes and stabilizing budget at ₹22,500.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail 4x3 Multi-Tier Campaign (Susmita)
+Susmita in Ichapur reduced a 4x3 retail pricing matrix down to 2 active weekend strategies,
+eliminating 2 unprofitable flyer promotions and securing ₹32,000 in revenue.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab 4x4 Patent Arbitration (Abhronila)
+Abhronila reduced a 4x4 arbitration matrix down to a 2x2 legal posture game in Jadavpur,
+determining exact 50-50 strategy weights and securing ₹18 Lakh for university research.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never stop after only 1 pass! Always loop until a full sweep yields ZERO deletions.
+- Remember: Player A deletes SMALLER rows; Player B deletes LARGER columns.
+- Ensure the full reconstructed vectors sum to exactly 1.0 (100%).
+- State all game values and payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 5-phase reduction algorithm.
+[ ] Understood the cascading feedback loop mechanism.
+[ ] Reconstructed full m-dimensional and n-dimensional strategy vectors (p*, q*).
+[ ] Verified that eliminated actions receive probability 0.0.
+[ ] Expressed all game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_005 • TOPIC 1: REDUCTION OF m x n GAMES
+================================================================================

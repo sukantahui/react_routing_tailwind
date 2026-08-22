@@ -1,0 +1,87 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_003_principle-of-dominance
+TOPIC 2: COLUMN DOMINANCE RULES (PLAYER B MINIMIZATION, PAIRWISE TESTS & COL DELETION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. MATHEMATICAL FORMULATION OF COLUMN DOMINANCE
+--------------------------------------------------------------------------------
+In a Two-Person Zero-Sum Game, PLAYER B is the COLUMN MINIMIZER.
+
+FORMAL DEFINITION:
+• Column r DOMINATES Column s if:
+      a_kr <= a_ks    for ALL rows k = 1, 2, ..., m
+  with at least one strict inequality (a_kr < a_ks for some row k).
+
+ELIMINATION DIRECTIVE:
+• Delete COLUMN s (the Dominated / LARGER Column).
+• Retain COLUMN r (the Dominating / SMALLER Column).
+
+--------------------------------------------------------------------------------
+2. WHY COLUMN DELETION IS STRATEGICALLY SOUND
+--------------------------------------------------------------------------------
+• For every possible move by Player A (Row k):
+      Payout in Column r <= Payout in Column s
+• Therefore, Player B has NO economic or strategic incentive to ever select Column s.
+• In the optimal mixed strategy probability vector q*:
+      q_s* = 0.0 (Probability of eliminated column is strictly zero).
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP PAIRWISE COLUMN COMPARISON ALGORITHM
+--------------------------------------------------------------------------------
+Given an m x n Payoff Matrix:
+1. For every pair of columns (r, s) where r != s:
+2. Compare each element down all m rows:
+   - Check if a_1r <= a_1s, a_2r <= a_2s, ..., a_mr <= a_ms.
+3. If all inequalities hold (with at least one strict <):
+   - Strike out Column s (the larger column).
+   - Reduce column dimension from n to n - 1.
+4. Repeat for all remaining columns.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supply Route Column Dominance (Debangshu)
+Debangshu in Barrackpore evaluated 2 raw material delivery options for Player B:
+Col 1 = [₹20k, ₹30k] vs Col 2 = [₹40k, ₹50k]. Since Col 1 yielded strictly lower liabilities,
+Col 2 was eliminated immediately.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Warehousing Column Dominance (Mamata & Mahima)
+Mamata and Mahima in Kolkata compared Dedicated Cold Hub (Col 1 = [₹25k, ₹35k])
+against Emergency Backup Hub (Col 2 = [₹50k, ₹60k]), deleting the expensive Col 2.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Advertising Column Dominance (Susmita)
+Susmita in Ichapur analyzed competitor advertising reactions: Column B1 (Local Print)
+strictly dominated Column B3 (Mass TV blitz) in cost-efficiency, pruning Column B3.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Column Dominance (Abhronila)
+Abhronila compared Institutional Settlement (Col 1) against Expensive Arbitration (Col 2)
+in Jadavpur, proving that Col 1 capped payout liabilities by ₹25 Lakh across all scenarios.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never eliminate the smaller column! Player B wants lower liabilities, so eliminate the LARGER column.
+- Check ALL rows without exception; if even one row has a_kr > a_ks, dominance FAILS!
+- If two columns are identical, eliminate either one (redundant strategy).
+- State all column liability ceilings in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the mathematical condition: a_kr <= a_ks for all k.
+[ ] Applied the elimination directive: Delete larger Column s.
+[ ] Performed pairwise column comparisons across all n columns.
+[ ] Set optimal probability q_s* = 0 for eliminated columns.
+[ ] Preserved the exact Value of the Game in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_003 • TOPIC 2: COLUMN DOMINANCE RULES
+================================================================================

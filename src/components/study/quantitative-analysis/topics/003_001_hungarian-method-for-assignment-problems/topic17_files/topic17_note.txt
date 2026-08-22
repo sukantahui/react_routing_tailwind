@@ -1,0 +1,81 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 17: SHORT QUESTIONS & VIVA-VOCE RAPID REVIEW (MODULE 003_001 MASTER REVISION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. CORE CONCEPTUAL VIVA-VOCE CHEAT SHEET
+--------------------------------------------------------------------------------
+
+Q1: What is an Assignment Problem?
+A1: A specialized 1-to-1 linear programming problem allocating n resources to n
+tasks at minimum total cost (or maximum profit), ensuring no double-booking.
+
+Q2: Why is it a degenerate transportation problem?
+A2: Requires m + n - 1 = 2n - 1 basic variables, but has only n positive allocations
+of x_ij = 1, leaving n - 1 basic cells at value zero.
+
+Q3: Complexity comparison?
+A3: Hungarian Method runs in O(n^3) polynomial time vs Brute Force O(n!) factorial.
+
+Q4: What is Kőnig's Theorem (1931)?
+A4: Min lines (L) to cover all zeros EQUALS Max independent zeros (M).
+
+Q5: When is the matrix optimal?
+A5: When minimum covering lines L equals matrix order n (L == n).
+
+Q6: What is the 3-part Step 4b rule (Additional Reductions)?
+A6: 1. Uncovered subtract e; 2. Intersections add e; 3. Single-covered unchanged.
+
+Q7: How to convert Maximization to Minimization?
+A7: Identify M_max = max(P); Relative Regret Matrix c_ij = M_max - p_ij.
+
+Q8: How to balance an unbalanced problem (m != n)?
+A8: Add |m - n| dummy rows (if m < n) or dummy columns (if m > n) with ₹0 unit costs.
+
+Q9: What does a dummy allocation mean?
+A9: Worker paired with Dummy Col = Worker is IDLE; Dummy Row paired with Task = Task is OUTSOURCED.
+
+Q10: What is the Box [0] and Cross-Out (X) rule?
+A10: Scan rows/cols with 1 zero ➔ Box [0] ➔ Cross out (X) conflicting zeros in same col/row.
+
+--------------------------------------------------------------------------------
+2. FOUR REAL-WORLD BENGAL CASE STUDIES SUMMARY
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Assignment Engineering (Debangshu)
+Debangshu in Barrackpore solved balanced, unbalanced, and restricted foundry problems,
+certifying minimal operational spend of ₹46 using Strong Duality.
+
+CASE STUDY 2: Cold-Chain Vaccine Emergency Logistics (Mamata & Mahima)
+Mamata and Mahima in Kolkata optimized pediatric immunization dispatches across
+congested city corridors, ensuring 100% clinic coverage with zero duplicate ambulance runs.
+
+CASE STUDY 3: Supermarket FMCG Retail Operations Directorate (Susmita)
+Susmita in Ichapur managed store manager rosters and maximized gross sales turnover
+to ₹148 Lakhs using the regret matrix transformation.
+
+CASE STUDY 4: Educational Printing Press Publishing Audit (Abhronila)
+Abhronila in Jadavpur audited textbook production lines, proving zero duality gap
+and 100% fiduciary tender compliance for West Bengal school textbook printing.
+
+--------------------------------------------------------------------------------
+3. MASTER REVISION CHECKLIST (MODULE 003_001 COMPLETE!)
+--------------------------------------------------------------------------------
+[ ] Mastered 1-to-1 bijection constraints and permutation matrices (n!).
+[ ] Formulated Primal and Dual Linear Programs for Assignment Models.
+[ ] Understood Total Unimodularity (TUM) and Birkhoff-von Neumann Theorem.
+[ ] Balanced non-square matrices using ₹0 dummy rows or dummy columns.
+[ ] Enforced Big-M barriers on restricted workforce cells (c_ij = M).
+[ ] Executed Row Reductions (c_ij' = c_ij - u_i) and Column Reductions (c_ij'' = c_ij' - v_j).
+[ ] Applied Kőnig's Line Covering Test (L == n) and Step 4b Additional Reductions (e).
+[ ] Executed Box [0] and Cross-Out (X) Independent Zero Allocation Protocol.
+[ ] Converted Maximization problems via Relative Regret Transformation (M_max - P).
+[ ] Verified all solutions via Strong Duality (Z* == W*) in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 COMPLETE! • TOPIC 17: SHORT QUESTIONS
+================================================================================

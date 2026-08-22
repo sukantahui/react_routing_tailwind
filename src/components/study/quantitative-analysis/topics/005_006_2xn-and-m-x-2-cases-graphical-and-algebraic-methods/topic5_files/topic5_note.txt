@@ -1,0 +1,85 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_006_2xn-and-m-x-2-cases-graphical-and-algebraic-methods
+TOPIC 5: ALGEBRAIC METHOD (SUBMATRIX ENUMERATION, ADMISSIBILITY & GLOBAL FILTRATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. METHOD OF 2x2 SUBMATRICES (COMBINATORIAL ENUMERATION)
+--------------------------------------------------------------------------------
+When graphical plotting is not preferred, we solve 2xn and mx2 games via the
+EXHAUSTIVE SUBMATRIX ALGEBRAIC METHOD:
+
+1. COMBINATORIAL PAIR SELECTION:
+   • For 2xn Games: Select all C(n, 2) = n(n-1)/2 pairs of columns {B_j, B_k}.
+   • For mx2 Games: Select all C(m, 2) = m(m-1)/2 pairs of rows {A_i, A_r}.
+
+2. SOLVE EACH CANDIDATE 2x2 SUBMATRIX:
+   • For each submatrix A_sub = [ [a_11, a_12], [a_21, a_22] ]:
+         Δ = (a_11 + a_22) - (a_12 + a_21)
+         p_1* = (a_22 - a_21) / Δ,   p_2* = 1 - p_1*
+         q_1* = (a_22 - a_12) / Δ,   q_2* = 1 - q_1*
+         v* = (a_11 * a_22 - a_12 * a_21) / Δ  (in ₹)
+
+--------------------------------------------------------------------------------
+2. THE TWO MANDATORY VALIDATION CRITERIA
+--------------------------------------------------------------------------------
+
+CRITERION 1: PROBABILITY ADMISSIBILITY
+• Check: 0 <= p_1* <= 1  AND  0 <= q_1* <= 1.
+• If any probability is negative (< 0) or exceeds 1 (> 1), DISCARD the submatrix!
+
+CRITERION 2: GLOBAL MINIMAX / MAXIMIN OPTIMALITY
+• For 2xn Games:
+      Check: E(p*, B_c) >= v* for ALL columns c in {1, ..., n}.
+• For mx2 Games:
+      Check: E(A_r, q*) <= v* for ALL rows r in {1, ..., m}.
+• If the condition fails for even one original strategy, DISCARD the candidate!
+
+• The unique submatrix passing BOTH criteria is the true Nash Equilibrium solution!
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 2x4 Submatrix Combinatorial Audit (Debangshu)
+Debangshu in Barrackpore evaluated all C(4, 2) = 6 column pairs. Only pair {B1, B2}
+passed both probability admissibility and global optimality, locking in ₹30,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Logistics 3x2 Transport Line Enumeration (Mamata & Mahima)
+Mamata and Mahima in Kolkata evaluated all C(3, 2) = 3 row pairs. Pair {A1, A2} was the
+sole candidate meeting global minimax bounds, securing ₹24,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail 2x4 Campaign Filter (Susmita)
+Susmita in Ichapur algorithmically filtered 6 candidate 2x2 promo mixes, rejecting
+4 due to probability violations and 1 due to global suboptimality, leaving the true ₹32,000 optimum.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab 4x2 Patent Dispute Filter (Abhronila)
+Abhronila filtered all 6 candidate claim pairs in Jadavpur, proving mathematically
+to the legal council that pair {A1, A3} yielded the unique stable ₹20 Lakh settlement.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never accept a submatrix solution without testing all unselected rows/columns.
+- Discard candidate pairs where determinant denominator Δ = 0 (parallel lines).
+- Automated algebraic scripts should implement the 2 criteria sequentially to maximize speed.
+- State all game values and payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Enumerated all C(n, 2) or C(m, 2) candidate 2x2 submatrices.
+[ ] Computed Δ, p*, q*, and v* for each submatrix.
+[ ] Filtered out inadmissible probabilities outside [0, 1].
+[ ] Verified global minimax/maximin optimality against all original strategies.
+[ ] Expressed all game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_006 • TOPIC 5: ALGEBRAIC METHOD
+================================================================================

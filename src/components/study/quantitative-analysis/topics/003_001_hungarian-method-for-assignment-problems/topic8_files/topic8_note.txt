@@ -1,0 +1,102 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 8: ROW REDUCTION (STEP 2 OF THE HUNGARIAN METHOD & DUAL POTENTIAL u_i)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE ROW REDUCTION ALGORITHM & MATHEMATICAL DEFINITION
+--------------------------------------------------------------------------------
+Row Reduction is the SECOND STEP of the Hungarian Method. It operates on an
+n x n square cost matrix C = [c_ij]:
+
+ALGORITHM:
+1. For every row i (from i = 1 to n):
+   • Find the minimum entry in row i:
+         u_i = min_{1 <= j <= n} (c_ij)
+   • Subtract u_i from every entry in row i:
+         c_ij' = c_ij - u_i     (for all j = 1, 2, ..., n)
+
+MATHEMATICAL PROPERTIES:
+• Non-Negativity: Since c_ij >= u_i for all j, c_ij' >= 0 (no negative numbers).
+• Guaranteed Zero: The cell that held the minimum value (c_ik = u_i) becomes:
+      c_ik' = u_i - u_i = 0
+  Therefore, EVERY single row is guaranteed to contain at least one zero!
+
+--------------------------------------------------------------------------------
+2. DUAL LP SIGNIFICANCE OF ROW REDUCTION
+--------------------------------------------------------------------------------
+In the Dual LP of the Assignment Problem:
+    Maximize   W = Sum_{i=1}^n u_i + Sum_{j=1}^n v_j
+    Subject to: u_i + v_j <= c_ij
+
+• The subtracted row minimums u_i represent the initial values of the dual row
+  potential variables u_i (with v_j = 0 initially).
+• Because u_i = min_j(c_ij) <= c_ij, the dual feasibility condition:
+      u_i + 0 <= c_ij   ➔   u_i <= c_ij
+  is SATISFIED for all matrix cells!
+• Total dual objective lower bound established by Row Reduction:
+      W_{row} = Sum_{i=1}^n u_i
+
+--------------------------------------------------------------------------------
+3. SPECIAL ROW REDUCTION CONDITIONS
+--------------------------------------------------------------------------------
+1. TIED ROW MINIMUMS:
+   If a row contains multiple identical minimum values (e.g. [14, 10, 18, 10]),
+   subtracting 10 produces multiple zeros in that row: [4, 0, 8, 0].
+
+2. PROHIBITED CELLS (Big-M Technique):
+   If cell c_ik = M, ignore M when finding the row minimum:
+       u_i = min_{j != k} (c_ij)
+   Upon subtraction: M - u_i = M (Infinity barrier remains intact).
+
+3. DUMMY COLUMN (ALL 0s):
+   If a dummy column exists with ₹0 rates, every row minimum is u_i = 0.
+   Row reduction is automatically a NO-OP (matrix remains unchanged).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supervisor Row Reduction (Debangshu)
+Debangshu in Barrackpore subtracted row minimums [10, 12, 12, 11] from a 4x4 casting
+matrix, establishing ₹45 of baseline dual potential shift.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Transit Hours Row Shift (Mamata & Mahima)
+Mamata and Mahima in Kolkata subtracted minimum travel times [15 min, 20 min, 12 min]
+across 3 vaccine routes, creating 3 initial zero transit candidate paths.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Salary Matrix (Susmita)
+Susmita in Ichapur reduced a 4x4 manager compensation matrix, establishing baseline
+equal opportunity costs across 4 retail branches in North 24 Parganas.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Binding Run Audit (Abhronila)
+Abhronila in Jadavpur audited row reduction on 3 printing presses, proving that
+subtracting row minimums [₹10, ₹10, ₹11] created zeros in every column directly!
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never subtract a number larger than the row minimum; all reduced entries must be >= 0.
+- When Big-M is present, never select M as the row minimum!
+- Always record your row minimums u_i clearly on exam margins for partial credit.
+- Remember: Row reduction is applied across ROWS (horizontally), not columns!
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Found row minimum u_i = min(Row i) for each row i = 1..n.
+[ ] Subtracted u_i from every entry in row i.
+[ ] Verified that all reduced entries are non-negative (c_ij' >= 0).
+[ ] Verified that every row contains at least one zero candidate.
+[ ] Handled Big-M cells properly (M - u_i = M).
+[ ] Calculated total row reduction shift Sum u_i in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 8: ROW REDUCTION
+================================================================================

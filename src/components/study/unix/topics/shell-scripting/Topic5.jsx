@@ -266,7 +266,7 @@ const Topic5 = () => {
                                                     </div>
                                                     <div className="flex items-center gap-2">
                                                         <span className="text-amber-500">•</span>
-                                                        <span>Can be used in conditionals: <code>if (( a > b ))</code></span>
+                                                        <span>Can be used in conditionals: <code>if (( a &gt; b ))</code></span>
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,0 +1,98 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 33: PACKET (IPV4 & IPV6 HEADERS, FRAGMENTATION, DPI & HARDWARE TAPS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & LAYER 3 ENCAPSULATION HIERARCHY
+--------------------------------------------------------------------------------
+A Packet is the fundamental Protocol Data Unit (PDU) at OSI Layer 3 (Network Layer)
+and the TCP/IP Internet Layer. It encapsulates Layer 4 transport segments (TCP/UDP)
+and is encapsulated inside Layer 2 data link frames (Ethernet) for physical transmission.
+
+The 5-Layer Encapsulation Stack:
+1. Layer 7 (Application): Raw User Data / HTTP Request Payload
+2. Layer 4 (Transport): Segment (TCP/UDP Header + Data)
+3. Layer 3 (Network): Packet (IP Header + Segment)
+4. Layer 2 (Data Link): Frame (Ethernet Header + Packet + 4-Byte FCS Trailer)
+5. Layer 1 (Physical): Bitstream on Copper Cable / Optical Fiber Light Pulses
+
+--------------------------------------------------------------------------------
+2. IPV4 PACKET HEADER ANATOMY (20 TO 60 BYTES)
+--------------------------------------------------------------------------------
+Field                | Bits | Description & Function
+--------------------------------------------------------------------------------
+Version              | 4    | IP version (`0100` for IPv4)
+IHL (Header Length)  | 4    | Length in 32-bit words (default 5 = 20 Bytes)
+DSCP / ToS & ECN     | 8    | Quality of Service (QoS) & Congestion Notification
+Total Length         | 16   | Entire packet length in bytes (max 65,535 Bytes)
+Identification       | 16   | Unique sequence identifier for fragment reassembly
+Flags (DF / MF)      | 3    | Bit 1: Don't Fragment (DF), Bit 2: More Fragments (MF)
+Fragment Offset      | 13   | Byte position in 8-byte units (Offset = BytePos / 8)
+Time to Live (TTL)   | 8    | Hop counter decremented at each router (loop prevention)
+Protocol             | 8    | 1 = ICMP, 6 = TCP, 17 = UDP, 47 = GRE, 50 = ESP
+Header Checksum      | 16   | 1's complement error verification across header fields
+Source IP Address    | 32   | 4-byte sender IP (e.g. 192.168.1.50)
+Destination IP Addr  | 32   | 4-byte receiver IP (e.g. 103.25.10.4)
+Options & Padding    | 0-40 | Optional security, timestamp, or routing parameters
+
+--------------------------------------------------------------------------------
+3. IPV6 FIXED HEADER (40 BYTES) & EXTENSION HEADERS
+--------------------------------------------------------------------------------
+IPv6 streamlines routing by utilizing a fixed 40-byte base header:
+• Version (4 bits) • Traffic Class (8 bits) • Flow Label (20 bits)
+• Payload Length (16 bits) • Next Header (8 bits) • Hop Limit (8 bits)
+• Source IPv6 (128 bits / 16 bytes) • Destination IPv6 (128 bits / 16 bytes)
+Note: IPv6 eliminates the Header Checksum (handled by Layer 2 and Layer 4) to accelerate
+router ASIC processing. Optional features (fragmentation, ESP) use Next Header chaining.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry IPsec VPN MSS Clamping (Debangshu - Barrackpore)
+Debangshu resolved a database connection freeze between Barrackpore and Kolkata by
+enabling TCP MSS Clamping (`iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1400`)
+on enterprise edge routers for ₹32,000. Clamping stopped VPN tunnel MTU fragmentation drops.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Deep Packet Inspection (DPI) (Mahima - Ichapur)
+Mahima configured Deep Packet Inspection (DPI) on clinical perimeter firewalls in Ichapur
+for ₹1,45,000. DPI inspects Layer 7 DICOM medical image packet payloads in real-time,
+blocking malicious executable payloads disguised inside patient ultrasound files.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Campus 10G Hardware Network TAP (Mamata - Kolkata)
+Mamata installed dual-port 10G optical hardware Network TAPs in Kolkata for ₹1,15,000.
+The TAPs feed full-rate packet mirrors directly to the campus Intrusion Detection System (IDS)
+with zero packet drops and zero CPU load on core distribution switches.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Fragmentation Exploit Defense (Abhronila - Jadavpur)
+Abhronila tested stateful inspection firewalls in Jadavpur against Teardrop and Tiny Fragment
+attacks using Scapy for ₹45,000 in testing tools. The firewall enforced minimum 120-byte initial
+fragment thresholds, dropping malformed overlapping offsets before kernel reassembly.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never block ICMP Type 3 Code 4 (Fragmentation Needed); doing so causes PMTUD Black Holes.
+- Enforce TCP MSS Clamping on all IPsec, WireGuard, and PPPoE VPN tunnel interfaces.
+- Deploy physical Network TAPs instead of relying solely on switch SPAN ports during high load.
+- Budget hardware Network TAPs, Packet Brokers, and DPI firewalls in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped the 20-byte IPv4 packet header structure and explained all 12 fields.
+[ ] Differentiated between the DF (Don't Fragment) and MF (More Fragments) bit flags.
+[ ] Calculated Fragment Offset (BytePosition / 8) during packet fragmentation.
+[ ] Compared IPv4 20-byte variable headers with IPv6 40-byte fixed headers.
+[ ] Analyzed Teardrop, Tiny Fragment, and MTU Black Hole cyber threats.
+[ ] Formulated realistic hardware Network TAP and Packet Broker budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 33: PACKET
+================================================================================

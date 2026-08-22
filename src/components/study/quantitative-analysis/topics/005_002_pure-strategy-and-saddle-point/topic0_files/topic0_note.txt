@@ -1,0 +1,88 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_002_pure-strategy-and-saddle-point
+TOPIC 0: PURE STRATEGY (DETERMINISTIC CHOICE, PROBABILITY SIMPLEX VERTICES & STABILITY)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & MATHEMATICAL NATURE OF A PURE STRATEGY
+--------------------------------------------------------------------------------
+A PURE STRATEGY is a deterministic decision rule in which a player selects ONE
+specific course of action with 100% certainty (Probability p = 1.0) and zero randomization.
+
+MATHEMATICAL REPRESENTATION:
+• For an m-strategy Player A, choosing pure strategy A_k is represented by the
+  unit standard basis vector:
+        p = (0, 0, ..., 1, ..., 0)^T     (where p_k = 1.0 and p_i = 0 for all i != k)
+
+GEOMETRIC INTERPRETATION:
+• In the mixed strategy probability simplex, Pure Strategies are the extreme
+  VERTICES (corner points) of the simplex.
+
+--------------------------------------------------------------------------------
+2. WHEN IS A PURE STRATEGY OPTIMAL?
+--------------------------------------------------------------------------------
+A Pure Strategy is optimal and strategically unexploitable IF AND ONLY IF the game
+possesses a SADDLE POINT in pure strategies:
+
+        Maximin == Minimax == v*   (at cell (i*, j*))
+
+THE STABILITY PRINCIPLE:
+• When a saddle point exists, neither Player A nor Player B can improve their payoff
+  by unilaterally deviating from their optimal pure strategy (A_i*, B_j*).
+• If NO saddle point exists (Maximin < Minimax), playing a pure strategy leaves a player
+  predictable and vulnerable to exploitation by an intelligent rival.
+
+--------------------------------------------------------------------------------
+3. PURE STRATEGY PROFILE & DIRECT PAYOFF
+--------------------------------------------------------------------------------
+When Player A chooses pure strategy A_i and Player B chooses pure strategy B_j:
+• Joint Action Profile: (A_i, B_j)
+• Direct Payoff to Player A: u_A(A_i, B_j) = a_ij  (in Indian Rupees ₹)
+• Direct Payoff to Player B: u_B(A_i, B_j) = -a_ij (in Zero-Sum Games)
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Fixed Furnace Schedule Pure Strategy (Debangshu)
+Debangshu in Barrackpore evaluated a pure strategy of continuous induction melting (Strategy A1),
+guaranteeing a ₹40,000 net profit because a pure saddle point existed against competitor shift patterns.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Dedicated Solar Backup Pure Strategy (Mamata & Mahima)
+Mamata and Mahima in Kolkata adopted a pure strategy of deploying dedicated solar refrigeration
+units (Strategy A2), which strictly dominated diesel generators by ₹25,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Weekend Discount Pure Strategy (Susmita)
+Susmita in Ichapur analyzed a 3x3 promotional game, identifying that a pure weekend loyalty
+campaign (Strategy A1) locked in ₹18,000 profit at a pure saddle point.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Research Cleanroom Access Pure Strategy (Abhronila)
+Abhronila evaluated patent licensing agreements in Jadavpur, proving that a pure cross-licensing
+strategy (Strategy A1) provided an unexploitable equilibrium of ₹55 Lakh in research value.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never play a deterministic pure strategy if Maximin < Minimax; you will be exploited!
+- Pure strategies correspond to the standard basis vectors e_k in linear algebra.
+- Direct lookup in the payoff matrix gives the exact outcome of any pure strategy pair (A_i, B_j).
+- Always state financial returns and security levels in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined Pure Strategy as a deterministic decision with probability p = 1.0.
+[ ] Understood pure strategies as vertices of the mixed strategy probability simplex.
+[ ] Identified the conditions under which pure strategies are stable (Saddle Point existence).
+[ ] Mapped pure strategy pairs (A_i, B_j) directly to matrix cells a_ij.
+[ ] Stated all pure strategy returns and values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_002 • TOPIC 0: PURE STRATEGY
+================================================================================

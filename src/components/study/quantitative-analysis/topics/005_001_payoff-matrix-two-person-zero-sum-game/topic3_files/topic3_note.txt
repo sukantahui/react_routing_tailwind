@@ -1,0 +1,112 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_001_payoff-matrix-two-person-zero-sum-game
+TOPIC 3: PAYOFF MATRIX (ANATOMY, ROW MINIMA, COLUMN MAXIMA & MAXIMIN-MINIMAX)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & ANATOMY OF A PAYOFF MATRIX
+--------------------------------------------------------------------------------
+A PAYOFF MATRIX is a rectangular array A = [a_ij]_{m x n} representing a two-person
+game in strategic normal form:
+
+• ROWS (i = 1, 2, ..., m):
+  - Pure strategies of PLAYER A (Row Player / Maximizer).
+• COLUMNS (j = 1, 2, ..., n):
+  - Pure strategies of PLAYER B (Column Player / Minimizer).
+• MATRIX CELLS (a_ij):
+  - The payoff received by Player A (in Indian Rupees ₹) when Player A chooses
+    strategy A_i and Player B chooses strategy B_j.
+  - In a Zero-Sum Game, the payout from Player B to Player A is exactly a_ij
+    (Player B receives -a_ij).
+
+--------------------------------------------------------------------------------
+2. ROW MINIMA, COLUMN MAXIMA & SECURITY LEVELS
+--------------------------------------------------------------------------------
+
+1. ROW MINIMUM (min_j a_ij):
+   • The worst-case payoff Player A can receive if they select strategy A_i.
+   • Represents Player A's security level for row i.
+
+2. COLUMN MAXIMUM (max_i a_ij):
+   • The worst-case payout Player B might be forced to concede if they select strategy B_j.
+   • Represents Player B's maximum liability for column j.
+
+3. MAXIMIN VALUE (v_lower):
+   • The maximum among all row minima:
+         Maximin (alpha) = max_{i} [ min_{j} a_ij ]
+   • The guaranteed minimum payoff Player A can secure regardless of Player B's move.
+
+4. MINIMAX VALUE (v_upper):
+   • The minimum among all column maxima:
+         Minimax (beta) = min_{j} [ max_{i} a_ij ]
+   • The guaranteed ceiling on the payout Player B will concede regardless of Player A's move.
+
+--------------------------------------------------------------------------------
+3. THE UNIVERSAL INVARIANT INEQUALITY
+--------------------------------------------------------------------------------
+For every real-valued payoff matrix, the following fundamental theorem holds:
+
+         Maximin <= Minimax
+    i.e.,  max_{i} min_{j} a_ij <= min_{j} max_{i} a_ij
+           v_lower <= v_upper
+
+SADDLE POINT THEOREM:
+• If Maximin == Minimax (v_lower == v_upper == v):
+  - A SADDLE POINT exists in pure strategies!
+  - The common value v is the exact VALUE OF THE GAME (in ₹).
+  - The strategy pair (A_i*, B_j*) is the stable pure Nash equilibrium.
+
+• If Maximin < Minimax (v_lower < v_upper):
+  - No pure strategy saddle point exists.
+  - Players must adopt MIXED STRATEGIES (randomization).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Tender Matrix Analysis (Debangshu)
+Debangshu in Barrackpore evaluated a 3x3 casting tender payoff matrix in ₹ Thousands:
+Row Minima = [10, 30, 20]; Column Maxima = [30, 40, 35].
+Maximin = ₹30k and Minimax = ₹30k, discovering a stable pure saddle point at (A2, B1).
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Dispute Payoff Matrix (Mamata & Mahima)
+Mamata and Mahima in Kolkata structured a 2x3 commercial dispute matrix, computing
+Maximin = ₹20,000 and Minimax = ₹25,000; since Maximin < Minimax, they identified the
+necessity of a mixed-strategy negotiation buffer.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Advertising Matrix (Susmita)
+Susmita in Ichapur analyzed a 3x2 promotional campaign matrix, computing Maximin = ₹15,000
+and Minimax = ₹15,000, locking in a pure strategy weekend discount.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Research Patent Matrix (Abhronila)
+Abhronila analyzed a ₹55 Lakh university patent licensing matrix in Jadavpur, verifying
+v_lower <= v_upper and negotiating an optimal royalty schedule.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always compute Row Minima across rows (horizontal) and Column Maxima across columns (vertical).
+- Maximin takes the MAX of row mins; Minimax takes the MIN of col maxes.
+- Maximin can NEVER exceed Minimax; if your calculation gives Maximin > Minimax, re-check your math!
+- Always express game values in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Structured an m x n Payoff Matrix with row and column strategies.
+[ ] Computed Row Minima (min_j a_ij) for every row.
+[ ] Computed Column Maxima (max_i a_ij) for every column.
+[ ] Calculated Maximin = max(Row Minima) and Minimax = min(Column Maxima).
+[ ] Verified the invariant inequality: Maximin <= Minimax.
+[ ] Identified saddle points when Maximin == Minimax.
+[ ] Stated game payoffs and values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_001 • TOPIC 3: PAYOFF MATRIX
+================================================================================

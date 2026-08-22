@@ -1,0 +1,134 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_002 : ISMS FRAMEWORK & WORKING PROCEDURES
+TOPIC 02       : THE PLAN-DO-CHECK-ACT (PDCA) DEMING CYCLE IN ISMS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE CONTINUOUS IMPROVEMENT PARADIGM
+--------------------------------------------------------------------------------
+Cybersecurity is not a static one-time project—it is a living, continuous management discipline. 
+The Plan-Do-Check-Act (PDCA) Deming cycle provides the iterative working procedure that drives 
+ISO/IEC 27001 Information Security Management Systems:
+
+  * THE REALITY   : A static security system rapidly decays due to emerging cyber exploits, 
+                    architectural drift, shadow IT, and personnel turnover.
+  * THE PARADIGM  : Continuous iteration through Plan ➔ Do ➔ Check ➔ Act ensures defenses 
+                    adapt proactively to new threats, business changes, and legal regulations.
+
+--------------------------------------------------------------------------------
+2. MAPPING THE 4 PDCA PHASES TO ISO/IEC 27001
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| PDCA PHASE         | ISO 27001 CLAUSES       | CORE OPERATIONAL TASKS & DELIVERABLES          |
++--------------------+-------------------------+------------------------------------------------+
+| 1. PLAN            | Clauses 4, 5, 6, 7      | Define Context & Scope (4.3), Board Policy (5),|
+| (Establish ISMS)   | Management Requirements | Risk Assessment (6.1.2), Statement of App (SoA)|
+|                    |                         |                                                |
+| 2. DO              | Clause 8 & Annex A      | Deploy AES-256 encryption, MFA, 24/7 SOC,      |
+| (Implement/Operate)| 93 Security Controls    | SETA awareness training, Change Management     |
+|                    |                         |                                                |
+| 3. CHECK           | Clause 9                | Track Security KPIs (MTTR/MTTD), First-Party   |
+| (Monitor/Review)   | Performance Evaluation  | Internal Audits (9.2), Management Review (9.3) |
+|                    |                         |                                                |
+| 4. ACT             | Clause 10               | Nonconformity triage, 5-Whys Root Cause (RCA), |
+| (Maintain/Improve) | Improvement & CAPA      | Corrective & Preventive Actions (CAPA / 10.1)  |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. THE 5-WHYS ROOT CAUSE ANALYSIS (RCA) METHODOLOGY
+--------------------------------------------------------------------------------
+
+In the ACT phase, an organization must uncover the systemic root cause behind audit findings:
+  * Finding : Production customer database snapshot was found publicly accessible on AWS S3.
+  * Why 1?  : Bucket permissions were set to 'Public'.
+  * Why 2?  : DevOps engineer shared data with offshore testing contractor.
+  * Why 3?  : Enterprise lacked a secure B2B API gateway for third-party testing.
+  * Why 4?  : Third-party data access policy was not defined in the ISMS.
+  * Why 5?  : (ROOT CAUSE) Vendor Risk Management procedure (A.5.19) was missing operational rules!
+
+  * CAPA RESOLUTION :
+    - Corrective Action : Immediately set S3 bucket to private and enabled KMS encryption.
+    - Preventive Action : Deployed AWS SCP policy blocking public buckets + updated Vendor Policy!
+
+--------------------------------------------------------------------------------
+4. AUDIT FINDINGS CLASSIFICATION (STAGE 2 AUDITS)
+--------------------------------------------------------------------------------
+
+  * MAJOR NON-CONFORMITY (Major NC) : Total absence or breakdown of a mandatory ISO 27001 clause 
+    (e.g. no risk assessment conducted, no internal audits performed). BLOCKS CERTIFICATION!
+  * MINOR NON-CONFORMITY (Minor NC) : Isolated, non-systemic lapse (e.g. 1 server had clock drift, 
+    1 training record missing). CERTIFICATION GRANTED subject to an approved 90-day CAPA plan.
+
+--------------------------------------------------------------------------------
+5. STATUTORY INTEGRATION UNDER INDIAN LAW
+--------------------------------------------------------------------------------
+
+  * IT ACT 2000 SECTION 43A & SECTION 85 :
+    - Operating a verified continuous PDCA cycle provides proof of executive DUE DILIGENCE, 
+      protecting corporate Directors from personal criminal liability.
+  * DPDP ACT 2023 SECTION 8 & SECTION 33 :
+    - Continuous PDCA demonstrates reasonable organizational safeguards, preventing ₹250 Cr fines!
+  * CERT-In DIRECTIONS 2022 (IT ACT SEC 70B) :
+    - Embeds mandatory 6-hour incident escalation and 180-day log retention into daily DO workflows.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : ANNUAL PDCA ITERATION FOR 500 PAYMENT MICROSERVICES (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : High-velocity FinTech switch experienced 28 minor audit non-conformities during growth.
+  * Action : Drove an annual PDCA cycle: updated the Risk Register in Plan, automated Terraform linters in Do, 
+    conducted comprehensive internal audits in Check, and closed all 28 CAPAs in Act, achieving 0 NCs.
+
+SCENARIO 2 : HEALTHCARE PACS PRIVACY CAPA REMEDIATION (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : Internal audit discovered 12 unconsented oncology radiology scans during Check phase.
+  * Action : Executed a 5-Whys RCA, discovering that registration desk staff were skipping consent forms 
+    during emergency admissions; automated electronic consent popups in the hospital HIS (Act phase).
+
+SCENARIO 3 : 220KV SUBSTATION SCADA INCIDENT DRILL LOOP (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : Testing incident escalation response times across 18 high-voltage 220kV transmission substations.
+  * Action : Ran unannounced Check phase simulated cyber attack drills, measuring incident response 
+    velocity, and updated SOAR automated playbooks in Act to guarantee sub-6-hour CERT-In reporting.
+
+SCENARIO 4 : PDCA SIMULATOR & CAPA ROOT CAUSE LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to understand how the 5-Whys methodology prevents symptom-only fixes.
+  * Action : Developed an interactive 4-Phase PDCA Simulator and CAPA Root Cause Analysis Engine in React, 
+    training 210+ BCA cyber security students on conducting ISO 27001 internal audits.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL PDCA HABITS:
+  1. Complete the Full Loop: Never stop after Plan and Do; Check and Act are where resilience is forged.
+  2. Apply the 5-Whys for Every Finding: Identify systemic architectural causes rather than blaming users.
+  3. Convene Annual Management Reviews: Present objective audit KPIs to the Board of Directors (Cl 9.3).
+  4. Mitigate Architectural Drift: Use automated Infrastructure as Code (IaC) drift detection tools.
+
+* COMMON BEGINNER PDCA PITFALLS:
+  - "Plan-Do-Stop" Syndrome (Planning and deploying tools, but never conducting internal audits).
+  - Fixing only the immediate symptom (Closing audit findings without implementing preventive controls).
+  - Auditing your own code (Violating internal auditor independence under Clause 9.2).
+  - Neglecting to update the Risk Register when external laws or technologies change.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] PDCA Cycle: Plan (Establish) ➔ Do (Operate) ➔ Check (Audit) ➔ Act (Improve).
+[ ] PLAN maps to ISO 27001 Clauses 4, 5, 6, and 7 (Context, Leadership, Risk, Support).
+[ ] DO maps to Clause 8 and the 93 Annex A reference security controls.
+[ ] CHECK maps to Clause 9 (KPIs, First-Party Internal Audits 9.2, Management Review 9.3).
+[ ] ACT maps to Clause 10 (Nonconformity, 5-Whys Root Cause Analysis, CAPA Plans).
+[ ] Major NC blocks ISO 27001 certification; Minor NC requires an approved 90-day CAPA plan.
+[ ] Section 65B certificates preserve audit trail integrity for court admissibility.
+[ ] Continuous PDCA proves executive due diligence under IT Act Section 85.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 02 (CYBER SECURITY BCAC703 - MODULE 003_002)
+================================================================================

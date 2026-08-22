@@ -1,0 +1,142 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_002 : HACKING, ETHICAL HACKING & HACKER TYPES
+TOPIC 06       : SPECIALIZED HACKERS: RED, BLUE, AND PURPLE TEAMS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE SPECIALIZED CYBER TRIAD
+--------------------------------------------------------------------------------
+Enterprise cybersecurity defense is not a static wall, but an active, dynamic conflict. 
+Modern organizations structure their security operations into three collaborative teams:
+
+  1. RED TEAM   : Offensive Adversary Emulation (Attacking to test defenses).
+  2. BLUE TEAM  : Defensive SOC & Incident Response (Detecting, containing, and defending).
+  3. PURPLE TEAM: Collaborative Closed-Loop Integration (Testing atomic attacks and tuning 
+                  detection engineering rules in real-time).
+
+--------------------------------------------------------------------------------
+2. COMPARATIVE TEAM DYNAMICS MATRIX
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| ATTRIBUTE          | RED TEAM (OFFENSIVE)    | BLUE TEAM (DEFENSIVE)| PURPLE TEAM (COLLABORATIVE)                  |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Primary Mission    | Emulate real-world APTs | Defend infrastructure, continuous atomic testing to rapidly|
+|                    | to test human response. | detect, & isolate. | optimize SIEM / EDR detection engineering rules|
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Primary Arsenal    | - Cobalt Strike / Sliver| - Splunk / Sentinel| - Atomic Red Team / MITRE Caldera              |
+|                    | - BloodHound / Mimikatz | - CrowdStrike EDR  | - Sigma Rules / Python Sigmac                  |
+|                    | - Direct Syscalls (ASM) | - Cortex SOAR      | - Detection-as-Code CI/CD pipelines            |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Key Metrics        | - Objective Success Rate| - MTTD (< 1 min)   | - Detection Coverage (% MITRE Matrix)          |
+|                    | - Dwell Time Evasion    | - MTTR (< 60 mins) | - False Positive Reduction Rate                |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Key Deliverable    | Adversary Emulation     | Incident Triage Log| Optimized Sigma / Yara Detection Rule Registry |
+|                    | Narrative & Attack Path | & Containment SOW  | and MITRE Heatmap Gap Analysis                 |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. BLUE TEAM INCIDENT RESPONSE & SOC ARCHITECTURE
+--------------------------------------------------------------------------------
+
+[1. SANS / NIST 6-STAGE INCIDENT RESPONSE LIFECYCLE]
+  * Stage 1: Preparation (Playbooks, EDR agents, immutable backups, communication trees).
+  * Stage 2: Identification (Correlating SIEM telemetry, verifying true-positive breach).
+  * Stage 3: Containment (Isolating infected host VLANs, revoking active session tokens).
+  * Stage 4: Eradication (Terminating C2 processes, removing persistence, resetting passwords).
+  * Stage 5: Recovery (Restoring systems from verified clean backups, validating monitoring).
+  * Stage 6: Lessons Learned (Post-mortem root cause analysis, tuning detection rules).
+
+[2. THE 1-10-60 SOC OPERATIONAL BENCHMARK (CrowdStrike)]
+  * 01 MINUTE  : Automated EDR / SIEM detection of adversarial activity.
+  * 10 MINUTES : Human SOC Tier 2 analyst threat triage and verification.
+  * 60 MINUTES : Complete host isolation, credential revocation, and remediation.
+
+[3. DAVID BIANCO'S PYRAMID OF PAIN]
+  * Hash Values (Trivial) -> IP Addresses (Easy) -> Domain Names (Simple) -> 
+    Network Artifacts (Annoying) -> Tools (Challenging) -> TTPs (PAINFUL FOR ADVERSARY).
+
+--------------------------------------------------------------------------------
+4. PURPLE TEAMING & DETECTION ENGINEERING
+--------------------------------------------------------------------------------
+
+1. Atomic Red Team Testing:
+   - Scriptable, modular tests mapped to specific MITRE ATT&CK techniques.
+   - Example: Running `Invoke-AtomicTest T1003.001` (LSASS Dump) to verify if Sysmon Event ID 10 alerts.
+
+2. Sigma Rules (Universal Detection Standard):
+   - Open-source YAML format for writing SIEM-agnostic log detection rules.
+   - Automatically compiled via `pySigma` into Splunk SPL, Elastic KQL, or Azure Sentinel queries.
+
+--------------------------------------------------------------------------------
+5. INDIAN REGULATORY & OPERATIONAL COMPLIANCE
+--------------------------------------------------------------------------------
+
+1. CERT-In Mandatory 6-Hour Incident Notification:
+   - Blue Teams must report ransomware, data leaks, or unauthorized system access within 6 hours.
+
+2. 180-Day Centralized Log Retention:
+   - SIEM servers must securely archive all audit and authentication logs for 180 days within India.
+
+3. India DPDP Act 2023 Enforcement:
+   - Data Protection Board of India (DPBI) levies penalties up to ₹250 Crores for negligent breaches.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : ACTIVE DIRECTORY KERBEROASTING DETECTION (KOLKATA FINTECH SOC)
+  * Lead Blue Team Analyst : Mamata | Budget : ₹8,50,000 | Location : Kolkata
+  * Dilemma : Detecting stealthy Kerberoasting ticket extraction against core banking service accounts.
+  * Operational Action : Deployed honeytoken SPNs in Active Directory; the moment an attacker queried 
+    the decoy SPN, Mamata's SIEM triggered an instant alert, isolating the compromised workstation in 4 mins.
+
+SCENARIO 2 : PURPLE TEAM ATOMIC TESTING DRILL (ICHAPUR HOSPITAL)
+  * Lead Purple Team Engineer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Validating whether hospital EDR agents would block LockBit ransomware execution techniques.
+  * Operational Action : Executed atomic tests for Shadow Copy deletion (`T1490`) and LSASS dumping (`T1003`), 
+    tuning Sigma detection rules in real-time to achieve 100% telemetry coverage across 40 ICU servers.
+
+SCENARIO 3 : 220KV SUBSTATION RED TEAM ADVERSARY EMULATION (BARRACKPORE GRID)
+  * Lead Red Team Operator : Debangshu | Budget : ₹6,80,000 | Location : Barrackpore
+  * Dilemma : Emulating a state-sponsored threat actor (APT) targeting industrial SCADA RTUs without downtime.
+  * Operational Action : Used custom malleable C2 beacons and physical badge bypasses to reach the engineering 
+    workstation, proving that unsegmented OT subnets were vulnerable to lateral movement.
+
+SCENARIO 4 : NOVEL SYSCALL DETECTION ENGINEERING (JADAVPUR UNIVERSITY)
+  * Research Leads : Abhronila & Susmita | Budget : ₹4,20,000 | Location : Jadavpur
+  * Dilemma : Authoring open-source detection rules for Red Team EDR evasions using Direct System Calls (SysWhispers).
+  * Operational Action : Hooked kernel-mode ETW-Ti (Event Tracing for Windows - Threat Intelligence), creating 
+    high-fidelity Sigma rules that detect direct syscall memory execution without relying on ntdll.dll user hooks.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL COLLABORATIVE HABITS:
+  1. Foster Mutual Respect: Red and Blue must remember they are on the same side defending the enterprise.
+  2. Implement Canary Honeytokens: Place fake admin accounts in AD for 100% true-positive breach alarms.
+  3. Automate with SOAR Playbooks: Use automated orchestration to isolate compromised endpoints in seconds.
+
+* COMMON BEGINNER MISTAKES:
+  - Treating Red Team exercises as an ego battle to humiliate the internal SOC.
+  - Relying exclusively on static hash IOCs, which adversaries change in seconds.
+  - Failing to test backup restoration before an actual ransomware crisis occurs.
+  - Alert fatigue: Ignoring thousands of un-tuned SIEM alarms until a real breach is missed.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Red Team emulates offensive adversaries; Blue Team defends and monitors.
+[ ] Purple Team is the collaborative bridge tuning detection rules via atomic tests.
+[ ] SANS/NIST IR: Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned.
+[ ] CrowdStrike 1-10-60 Rule: 1 min detect, 10 min investigate, 60 min remediate.
+[ ] Pyramid of Pain: TTPs at the top are most painful for adversaries to change.
+[ ] Sigma rules provide open-source, vendor-agnostic YAML detection signatures.
+[ ] CERT-In mandates incident reporting within 6 hours and 180-day log archival.
+[ ] Direct Syscalls bypass user-mode EDR hooks by communicating directly with the kernel.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 06 (CYBER SECURITY BCAC703)
+================================================================================

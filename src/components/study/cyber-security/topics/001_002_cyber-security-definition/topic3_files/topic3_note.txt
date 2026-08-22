@@ -1,0 +1,97 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_002_cyber-security-definition
+TOPIC 3: GOALS OF CYBER SECURITY (CIA TRIAD, PARKERIAN HEXAD & OPERATIONAL GOALS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE FOUNDATIONAL GOALS: THE CIA TRIAD
+--------------------------------------------------------------------------------
+Cyber Security is guided by three primary foundational goals:
+1. Confidentiality:
+   Preventing unauthorized disclosure of sensitive information.
+   Enforced through AES-256 encryption, access control lists (ACLs), and data classification.
+2. Integrity:
+   Maintaining the accuracy, consistency, and trustworthiness of data across its lifecycle.
+   Enforced through cryptographic hashing (SHA-256), HMACs, and digital signatures.
+3. Availability:
+   Ensuring authorized users have timely, reliable, and uninterrupted access to systems.
+   Enforced through multi-AZ redundant clustering, anti-DDoS scrubbing, and automated failover.
+
+--------------------------------------------------------------------------------
+2. THE EXPANDED PARKERIAN HEXAD (DONN B. PARKER'S 6 GOALS)
+--------------------------------------------------------------------------------
+The Parkerian Hexad expands upon the CIA Triad with three additional vital attributes:
+1. Confidentiality: Data privacy and restricted access.
+2. Integrity: Data completeness and freedom from unauthorized alteration.
+3. Availability: System responsiveness and uptime.
+4. Authenticity:
+   Validating the genuine origin of data, messages, or identities (X.509 PKI, FIDO2 MFA).
+5. Possession / Control:
+   Maintaining physical and logical custody over data storage media and encryption keys.
+   (e.g., An encrypted backup drive stolen from a server room loses possession, even if encrypted).
+6. Utility:
+   Ensuring information remains in a usable, decodable, and functional format.
+   (e.g., Data encrypted with a lost key or corrupted format loses 100% of its utility).
+
+--------------------------------------------------------------------------------
+3. OPERATIONAL & GOVERNANCE SECURITY GOALS
+--------------------------------------------------------------------------------
+• Non-Repudiation:
+  Undeniable legal and mathematical proof of transaction origination using digital signatures.
+• Accountability & Auditing:
+  Tracing every system change back to an authenticated human identity via immutable SIEM logs.
+• Resilience & Blast Radius Reduction:
+  Containing intrusions within isolated VLAN microsegments to prevent lateral network spread.
+• Recovery Objectives:
+  Recovery Point Objective (RPO = 0) and Recovery Time Objective (RTO < 15 minutes).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Parkerian Utility & Disaster Recovery Vault (Debangshu - Barrackpore)
+Debangshu implemented an immutable WORM backup vault and automated daily disaster recovery testing
+in Barrackpore for ₹3,50,000. When a faulty software update corrupted file systems, automated snapshots
+restored all industrial CNC machine programs in 11 minutes (RTO = 11 min, RPO = 0).
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Parkerian Authenticity & PKI Digital Signatures (Mahima - Ichapur)
+Mahima deployed an X.509 PKI digital certificate infrastructure in Ichapur for ₹1,80,000. Every laboratory
+diagnostic report is cryptographically signed by the consulting pathologist, guaranteeing authenticity,
+integrity, and non-repudiation across state medical registries.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: FinTech Gateway Hardware HSM & Possession Key Governance (Mamata - Kolkata)
+Mamata deployed a FIPS 140-2 Level 3 Hardware Security Module (HSM) in Kolkata for ₹6,50,000.
+Master payment keys are securely generated, stored, and executed inside physical tamper-proof hardware,
+ensuring strict cryptographic possession and zero plaintext key leakage.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab SOAR Automated Playbook Incident Response (Abhronila - Jadavpur)
+Abhronila engineered automated SOAR incident response playbooks in Jadavpur for ₹2,10,000.
+When an endpoint was infected with simulated ransomware, automated SOAR scripts isolated the workstation
+and blocked malicious command-and-control IPs on perimeter firewalls within 4.2 seconds (MTTR < 5s).
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never evaluate security using only the CIA Triad; incorporate the Parkerian Hexad (Utility & Possession).
+- Always verify data utility by regularly executing full disaster recovery restore drills from backups.
+- Mandate unique individual user credentials to ensure non-repudiation and strict accountability.
+- Formulate all enterprise HSMs, backup vaults, and SOAR automation budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the primary CIA Triad (Confidentiality, Integrity, Availability) goals.
+[ ] Evaluated the expanded Parkerian Hexad (Authenticity, Possession/Control, Utility).
+[ ] Understood Non-Repudiation, Accountability, and the AAA Identity Model.
+[ ] Analyzed High Availability (Five Nines 99.999%), Fault Tolerance, RPO, and RTO.
+[ ] Investigated SOAR automated incident playbooks and MTTD/MTTR reduction.
+[ ] Formulated realistic enterprise HSM and disaster recovery budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_002 • TOPIC 3: GOALS OF CYBER SECURITY
+================================================================================

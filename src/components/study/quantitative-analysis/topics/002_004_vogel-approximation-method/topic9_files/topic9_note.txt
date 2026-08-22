@@ -1,0 +1,81 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_004_vogel-approximation-method
+TOPIC 9: SHORT QUESTIONS & RAPID REVISION MASTER NOTE
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE 10 COMMANDMENTS OF VOGEL'S APPROXIMATION METHOD (VAM)
+--------------------------------------------------------------------------------
+1. BALANCE CHECK: Always confirm Sum(Supply) == Sum(Demand) before starting.
+2. DUMMY LINE INSERTION:
+   - Excess Supply (Sum S > Sum D): Add Dummy Column with rate ₹0.
+   - Excess Demand (Sum D > Sum S): Add Dummy Row with rate ₹0.
+3. DUAL PENALTY FORMULA:
+   - Row Penalty P_i = c_(i,2) - c_(i,1) (Second Lowest - Lowest).
+   - Col Penalty P_j = c_(2,j) - c_(1,j) (Second Lowest - Lowest).
+4. MAX PENALTY SELECTION: Always select the line with global max penalty:
+   L* = argmax { P_rows, P_cols }.
+5. MIN COST ALLOCATION: Inside line L*, allocate to the cell with lowest rate:
+   x_kl = min(S_k, D_l).
+6. TIE-BREAKING PROTOCOL:
+   - Tier 1: Smallest minimum unit cost min(c_ij).
+   - Tier 2: Largest allocation volume min(S_i, D_j).
+   - Tier 3: Arbitrary selection.
+7. SINGLE LINE CROSS-OUT: Deduct allocated units; cross out the satisfied line.
+   If S_k == D_l simultaneously, cross out ONLY ONE line to avoid degeneracy!
+8. DYNAMIC RECALCULATION: Recompute penalties for active sub-matrix after every pass.
+9. BASIS VERIFICATION: Confirm exactly m + n - 1 basic cells exist.
+   If count < m + n - 1, place epsilon (ε > 0) in an independent loop-free cell.
+10. TOTAL COST OBJECTIVE: Calculate Z = Sum (c_ij * x_ij) in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+2. KEY CONCEPT QUICK DEFINITIONS
+--------------------------------------------------------------------------------
+• Opportunity Cost (Regret): The financial penalty suffered if the cheapest
+  available shipping route is missed.
+• Non-Degenerate IBFS: A starting solution with exactly m + n - 1 basic variables
+  forming an acyclic spanning tree.
+• Epsilon (ε): An infinitesimally small quantity placed in a cell to maintain basis
+  rank without changing capacity balances or total cost.
+• Closed Loop: A rectangular cycle through basic cells that destroys linear
+  independence. Epsilon cells must never close a loop!
+• Dummy Column Allocation: Unsold surplus inventory stored in factory warehouses.
+• Dummy Row Allocation: Unmet customer shortages / backordered deliveries.
+
+--------------------------------------------------------------------------------
+3. RAPID REVISION COMPARISON MATRIX
+--------------------------------------------------------------------------------
++--------------------+------------------+------------------+------------------+
+| Feature            | NWCR             | Matrix Minima    | VAM              |
++--------------------+------------------+------------------+------------------+
+| Cost Awareness     | Zero (Blind)     | Greedy (1-cell)  | Strategic Dual   |
+| Opportunity Cost   | Ignored          | Ignored          | Evaluated (2-min)|
+| Solution Quality   | Poor (Baseline)  | Moderate         | Near-Optimal     |
+| Average Savings    | Baseline         | 10-15% over NWCR | 25-40% over NWCR |
+| Degeneracy Risk    | Standard         | High             | Managed          |
++--------------------+------------------+------------------+------------------+
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL LOGISTICS CASE EXAMPLES
+--------------------------------------------------------------------------------
+• Debangshu (Foundry Logistics): 3x3 execution saved ₹680 (24.8%) over NWCR.
+• Mamata & Mahima (Vaccine Supply): Handled 20-box deficit via ₹0 dummy row.
+• Susmita (Supermarket Fleet): Executed 5-pass VAM with multi-tier tie-breakers.
+• Abhronila (Educational Press): Verified m+n-1 basis rank and loop independence.
+
+--------------------------------------------------------------------------------
+5. FINAL EXAM REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered penalty subtraction: P = 2nd min - 1st min.
+[ ] Memorized tie-breaking hierarchy: Tier 1 (min cost) -> Tier 2 (max volume).
+[ ] Understood dummy line rules: excess supply -> col, excess demand -> row.
+[ ] Applied single-line cross-out to prevent degeneracy.
+[ ] Placed epsilon (ε) in cheapest loop-free cell when needed.
+[ ] Verified basis count m + n - 1 before concluding.
+[ ] Formatted total transportation cost Z in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • TOPIC 9: SHORT QUESTIONS & REVISION MASTER NOTE
+================================================================================

@@ -1,0 +1,99 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 14: MINIMIZATION PROBLEMS (COST, TIME, DISTANCE & MULTI-CRITERIA MATRICES)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE MINIMIZATION OBJECTIVE FORMULATION
+--------------------------------------------------------------------------------
+The canonical Assignment Problem is structured as a pure MINIMIZATION MODEL:
+
+    Minimize   Z = Sum_{i=1}^n Sum_{j=1}^n c_ij * x_ij
+    Subject to:
+               Sum_{j=1}^n x_ij = 1    (for all i = 1, 2, ..., n)
+               Sum_{i=1}^n x_ij = 1    (for all j = 1, 2, ..., n)
+               x_ij in {0, 1}          (for all i, j)
+
+WHY IT IS THE NATIVE HUNGARIAN FORM:
+The Hungarian Method operates natively on minimization problems because subtracting
+row minimums u_i and column minimums v_j creates non-negative opportunity costs:
+    c_ij' = c_ij - u_i - v_j >= 0
+where a zero (c_ij' = 0) represents maximum relative economic efficiency!
+
+--------------------------------------------------------------------------------
+2. THE 5 INDUSTRIAL OPERATIONAL METRICS
+--------------------------------------------------------------------------------
+1. FINANCIAL EXPENDITURE (₹):
+   • Wages, subcontracting rates, tooling wear, fuel surcharge.
+   • Objective: Minimize total budget expenditure in Indian Rupees (₹).
+
+2. PROCESS & CYCLE TIME (Hours / Minutes):
+   • Assembly line durations, furnace heating schedules, lab testing.
+   • Objective: Minimize total labor hours or critical-path throughput time.
+
+3. TRANSIT & LOGISTICS DISTANCE (Kilometers):
+   • Fleet courier routing, municipal garbage collection, vaccine dispatch.
+   • Objective: Minimize total vehicle kilometers to reduce fuel and carbon emissions.
+
+4. DEFECT COUNTS & QUALITY PENALTIES:
+   • Machine error rates, surgical complication indices, misprint counts.
+   • Objective: Maximize final product quality by minimizing expected defect occurrences.
+
+5. ENERGY & CARBON FOOTPRINT (kWh / kg CO2):
+   • High-voltage furnace power allocation, data center cooling server load.
+   • Objective: Minimize environmental carbon impact.
+
+--------------------------------------------------------------------------------
+3. MULTI-CRITERIA WEIGHTED MINIMIZATION
+--------------------------------------------------------------------------------
+When combining disparate metrics (e.g. monetary cost in ₹ and delay in hours):
+    c_ij = w_1 * Cost_{ij} + w_2 * (HourlyWage * Time_{ij})
+where w_1 and w_2 are managerial priority weights (w_1 + w_2 = 1.0).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Machining Time Minimization (Debangshu)
+Debangshu in Barrackpore minimized total casting induction time across 4 alloy
+supervisors, cutting total foundry processing duration from 72 minutes to 46 minutes.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Transit Time Minimization (Mamata & Mahima)
+Mamata and Mahima in Kolkata minimized total vaccine exposure time across 4 hospital
+clinics, ensuring zero spoilage of sensitive immunoglobulin vials (Z* = 46 minutes).
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Wage Minimization (Susmita)
+Susmita in Ichapur minimized total monthly managerial overhead across 4 hypermarkets,
+locking in a certified minimal labor spend of ₹35,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Defect Rate Minimization (Abhronila)
+Abhronila in Jadavpur minimized misprint defect rates across 3 printing presses,
+reducing scrap paper waste by 64% across textbook production runs.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always verify the unit of measurement before reporting Z* (₹, minutes, km, defects).
+- Never run Hungarian reductions on a profit matrix without converting to regret first!
+- Verify that every cost entry c_ij represents a true performance penalty.
+- Report all monetary figures in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Formulated canonical minimization objective: Min Z = Sum c_ij x_ij.
+[ ] Identified operational metric (Rupees ₹, minutes, kilometers, defects).
+[ ] Executed 5-step Hungarian Method directly without transformation.
+[ ] Computed certified minimum total cost Z* from original matrix rates.
+[ ] Verified Strong Duality (Z* == W*).
+[ ] Stated operational conclusions with appropriate engineering/currency units.
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 14: MINIMIZATION PROBLEMS
+================================================================================

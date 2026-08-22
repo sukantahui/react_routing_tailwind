@@ -1,0 +1,126 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 6: ADDING DUMMY ROWS OR COLUMNS (AUGMENTATION RULES, BIG-M & WORKED EXAMPLES)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE PRECISE DUMMY AUGMENTATION ALGORITHM
+--------------------------------------------------------------------------------
+Given an asymmetric cost matrix C of size m x n:
+
+CONDITION 1: TASK DEFICIT (m < n)
+• Number of Workers (m) is less than Number of Tasks (n).
+• Action: Augment k = n - m DUMMY ROWS.
+• Cost Assignment: c_{dummy_r, j} = ₹0   (for all j = 1, 2, ..., n).
+• Resulting Matrix Shape: n x n.
+
+CONDITION 2: LABOR SURPLUS (m > n)
+• Number of Workers (m) is greater than Number of Tasks (n).
+• Action: Augment k = m - n DUMMY COLUMNS.
+• Cost Assignment: c_{i, dummy_c} = ₹0   (for all i = 1, 2, ..., m).
+• Resulting Matrix Shape: m x m.
+
+--------------------------------------------------------------------------------
+2. EFFECT OF DUMMY LINES ON HUNGARIAN REDUCTION STEPS
+--------------------------------------------------------------------------------
+1. EFFECT OF A DUMMY ROW (ALL 0s):
+   • Row reduction on real rows proceeds normally.
+   • Column reduction is a NO-OP (bypassed) because every column contains a ₹0 in
+     the dummy row (Col Min = 0).
+
+2. EFFECT OF A DUMMY COLUMN (ALL 0s):
+   • Row reduction is a NO-OP (bypassed) because every row contains a ₹0 in the
+     dummy column (Row Min = 0).
+   • Column reduction on real columns proceeds normally.
+
+3. PROHIBITING DUMMY OUTSOURCING (Big-M Technique):
+   • If Task j is critical and CANNOT be outsourced, set c_{dummy, j} = M (₹99,999).
+   • This forces the algorithm to pair an internal worker with Task j.
+
+--------------------------------------------------------------------------------
+3. FULL WORKED EXAMPLE (4x5 PROBLEM WITH 1 DUMMY ROW)
+--------------------------------------------------------------------------------
+PROBLEM STATEMENT:
+4 Technicians (W1..W4) available for 5 Foundry Repair Jobs (J1..J5):
+       J1    J2    J3    J4    J5
+  W1  ₹10   ₹15   ₹12   ₹18   ₹14
+  W2  ₹13   ₹12   ₹14   ₹16   ₹11
+  W3  ₹15   ₹14   ₹17   ₹12   ₹16
+  W4  ₹11   ₹13   ₹15   ₹14   ₹12
+
+STEP 1: AUGMENT DUMMY ROW W5 (₹0 RATES)
+Matrix becomes 5x5:
+       J1    J2    J3    J4    J5
+  W1  ₹10   ₹15   ₹12   ₹18   ₹14
+  W2  ₹13   ₹12   ₹14   ₹16   ₹11
+  W3  ₹15   ₹14   ₹17   ₹12   ₹16
+  W4  ₹11   ₹13   ₹15   ₹14   ₹12
+  W5   ₹0    ₹0    ₹0    ₹0    ₹0   (Dummy Row)
+
+STEP 2: ROW REDUCTION
+• Row 1 min = 10 ➔ [0, 5, 2, 8, 4]
+• Row 2 min = 11 ➔ [2, 1, 3, 5, 0]
+• Row 3 min = 12 ➔ [3, 2, 5, 0, 4]
+• Row 4 min = 11 ➔ [0, 2, 4, 3, 1]
+• Row 5 min = 0  ➔ [0, 0, 0, 0, 0]
+
+STEP 3: COLUMN REDUCTION
+Since Row 5 contains 0s in all columns, all column minimums are 0!
+
+STEP 4: ZERO ASSIGNMENT (L = 5 lines)
+• W1 ➔ J3: c_13 = ₹12
+• W2 ➔ J5: c_25 = ₹11
+• W3 ➔ J4: c_34 = ₹12
+• W4 ➔ J1: c_41 = ₹11
+• W5 (Dummy) ➔ J2: c_52 = ₹0  (Job 2 is outsourced to vendor!)
+
+STEP 5: CERTIFIED MINIMUM COST
+    Z* = 12 + 11 + 12 + 11 + 0 = ₹46.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Repair Scheduling (Debangshu)
+Debangshu in Barrackpore augmented 1 dummy row to solve a 4x5 maintenance problem,
+identifying the optimal furnace repair job (J2) to outsource while locking in ₹46 spend.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Sensitive Ward Allocation (Mamata & Mahima)
+Mamata and Mahima in Kolkata assigned c_{Dummy, 4} = M because Hospital Ward 4 held
+critical ICU patients, ensuring an internal team was assigned to Ward 4 without exception.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Surplus (Susmita)
+Susmita in Ichapur augmented 2 dummy columns to match 5 managers to 3 hypermarkets,
+identifying 2 managers for regional expansion research at zero additional wage penalty.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Binding Machine Shortage (Abhronila)
+Abhronila in Jadavpur augmented 2 dummy rows to schedule 3 binding lines for 5 textbook
+orders, ensuring high-priority school textbooks remained in-house while bulk work was outsourced.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never assign non-zero costs to standard dummy cells.
+- If a specific job cannot be outsourced, use Big-M (c_{dummy, j} = M).
+- Pull all final monetary rates from the ORIGINAL cost matrix in Indian Rupees (₹).
+- Explicitly state which job is outsourced or which worker is idle in your conclusion.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered Condition 1 (m < n ➔ add n - m dummy rows with ₹0 rates).
+[ ] Mastered Condition 2 (m > n ➔ add m - n dummy columns with ₹0 rates).
+[ ] Understood why column reduction is a no-op when dummy rows are present.
+[ ] Handled prohibited dummy outsourcing using Big-M (c_{dummy, j} = M).
+[ ] Executed complete 5-step Hungarian solver on augmented square matrices.
+[ ] Reported final certified minimum cost Z* in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 6: ADDING DUMMY ROWS OR COLUMNS
+================================================================================

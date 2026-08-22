@@ -1,0 +1,86 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_003_principle-of-dominance
+TOPIC 1: ROW DOMINANCE RULES (PLAYER A MAXIMIZATION, PAIRWISE TESTS & ROW DELETION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. MATHEMATICAL FORMULATION OF ROW DOMINANCE
+--------------------------------------------------------------------------------
+In a Two-Person Zero-Sum Game, PLAYER A is the ROW MAXIMIZER.
+
+FORMAL DEFINITION:
+• Row i DOMINATES Row j if:
+      a_ik >= a_jk    for ALL columns k = 1, 2, ..., n
+  with at least one strict inequality (a_ik > a_jk for some column k).
+
+ELIMINATION DIRECTIVE:
+• Delete ROW j (the Dominated / Smaller Row).
+• Retain ROW i (the Dominating / Larger Row).
+
+--------------------------------------------------------------------------------
+2. WHY ROW DELETION IS STRATEGICALLY SOUND
+--------------------------------------------------------------------------------
+• For every possible move by Player B (Column k):
+      Payoff in Row i >= Payoff in Row j
+• Therefore, Player A has NO economic or strategic incentive to ever select Row j.
+• In the optimal mixed strategy probability vector p*:
+      p_j* = 0.0 (Probability of eliminated row is strictly zero).
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP PAIRWISE ROW COMPARISON ALGORITHM
+--------------------------------------------------------------------------------
+Given an m x n Payoff Matrix:
+1. For every pair of rows (i, j) where i != j:
+2. Compare each element across all n columns:
+   - Check if a_i1 >= a_j1, a_i2 >= a_j2, ..., a_in >= a_jn.
+3. If all inequalities hold (with at least one strict >):
+   - Strike out Row j.
+   - Reduce row dimension from m to m - 1.
+4. Repeat for all remaining rows.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Furnace Shift Row Dominance (Debangshu)
+Debangshu in Barrackpore compared Row 1 [₹40k, ₹50k] against Row 2 [₹20k, ₹30k].
+Since 40 > 20 and 50 > 30, Row 1 strictly dominated Row 2, eliminating Row 2 from tender consideration.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Transport Shift Row Dominance (Mamata & Mahima)
+Mamata and Mahima in Kolkata compared Dedicated Reefer Transport (Row 1 = [₹35k, ₹45k])
+against Uninsulated Van Transport (Row 2 = [₹10k, ₹20k]), eliminating Row 2 completely.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotion Row Dominance (Susmita)
+Susmita in Ichapur analyzed 3 promotional strategies: Strategy A1 (Bundle Loyalty)
+dominated Strategy A3 (Discount Coupon) across all 3 rival pricing states, pruning Row A3.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Negotiation Row Dominance (Abhronila)
+Abhronila compared Joint Development (Row 1) against Outright Litigation (Row 2) in Jadavpur,
+proving that Row 1 dominated Row 2 by ₹25 Lakh across all legal scenarios.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never eliminate the larger row! Player A wants higher numbers, so eliminate the SMALLER row.
+- Check ALL columns without exception; if even one column has a_ik < a_jk, dominance FAILS!
+- If two rows are identical, eliminate either one (redundant strategy).
+- State all row payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the mathematical condition: a_ik >= a_jk for all k.
+[ ] Applied the elimination directive: Delete smaller Row j.
+[ ] Performed pairwise row comparisons across all m rows.
+[ ] Set optimal probability p_j* = 0 for eliminated rows.
+[ ] Preserved the exact Value of the Game in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_003 • TOPIC 1: ROW DOMINANCE RULES
+================================================================================

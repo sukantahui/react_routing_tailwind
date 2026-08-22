@@ -1,18 +1,18 @@
 {
-  "trackId": "isc-class12-computer-science-969",
+  "trackId": "bca-cyber-security-bcac703",
   "trackTitle": "Cyber Security",
-  "description": "Cyber Security for BCA",
+  "description": "Cyber Security for BCA (Subject Code: BCAC703)",
   "institute": {
     "name": "Coder & AccoTax",
     "website": "https://www.codernaccotax.co.in",
     "author": "Sukanta Hui",
     "location": "Barrackpore, West Bengal, India",
-    "trackType": "ISC Class 12 Computer Science Tutorial Roadmap",
+    "trackType": "BCA Semester Cyber Security Tutorial Roadmap",
     "version": "1.0.0",
-    "lastUpdated": "2026-03-28"
+    "lastUpdated": "2026-08-22"
   },
   "folder": "cyber-security",
-  "subject": "Computer Science",
+  "subject": "Cyber Security",
   "segments": [
     {
       "segmentId": "course-module-1",
@@ -22,7 +22,7 @@
       "modules": [
         {
           "moduleId": "introduction-to-networking",
-          "slug": "introduction-to-networking",
+          "slug": "001_001_introduction-to-networking",
           "title": "Introduction to Networking",
           "level": "Beginner",
           "estimatedHours": 2,
@@ -157,7 +157,7 @@
         },
         {
           "moduleId": "cyber-security-definition",
-          "slug": "cyber-security-definition",
+          "slug": "001_002_cyber-security-definition",
           "title": "Cyber Security Definition",
           "estimatedHours": 1,
           "topics": [
@@ -177,505 +177,651 @@
       ]
     },
     {
-      "segmentId": "section-b",
-      "title": "Section B – Java Programming Core",
+      "segmentId": "course-module-2",
+      "title": "Cyber Security Foundations & Cryptography",
       "level": "Intermediate",
-      "summary": "Develop strong programming concepts using Java.",
+      "summary": "Master core cyber security principles, the CIA triad, ethical hacking methodologies, and cryptographic algorithms including RSA.",
       "modules": [
         {
-          "moduleId": "arrays",
-          "slug": "arrays-and-operations",
-          "title": "Arrays (1D & 2D)",
+          "moduleId": "security-triad-cia",
+          "slug": "002_001_security-triad-cia",
+          "title": "Security Triad (CIA) & Case Studies",
           "level": "Intermediate",
-          "estimatedHours": 15,
+          "estimatedHours": 3,
+          "tags": ["cia-triad", "confidentiality", "integrity", "availability", "non-repudiation", "cyber-security"],
           "topics": [
-            "1D and 2D arrays",
-            "Traversing arrays",
-            "Sorting: Bubble, Selection",
-            "Searching: Linear, Binary",
-            "Introduction to 2D arrays (matrix representation)",
-            "Declaration and initialization of 2D arrays",
-            "Input and output of matrix elements",
-            "Traversing a matrix (row-wise and column-wise)",
-            "Row major & column major address calculation",
-            "Formula for row-major order address calculation",
-            "Formula for column-major order address calculation",
-            "Address calculation with base address and element size",
-            "Finding address of A[i][j] in 2D array",
-            "Comparison between row-major and column-major storage",
-            "Matrix addition",
-            "Matrix subtraction",
-            "Matrix multiplication",
-            "Transpose of a matrix",
-            "Diagonal elements of a matrix (primary & secondary)",
-            "Upper and lower triangular matrices",
-            "Symmetric matrix check",
-            "Identity matrix",
-            "Sparse matrix basics"
+            "Introduction to the CIA Triad",
+            "Confidentiality: Concepts and Controls",
+            "Threats to Confidentiality and Data Breaches",
+            "Integrity: Data Accuracy and Trust",
+            "Threats to Integrity and Hash Verification",
+            "Availability: Uptime and Fault Tolerance",
+            "Threats to Availability and Outages",
+            "Extended Security Models: Parkerian Hexad and Non-Repudiation",
+            "Balancing Security Controls with Usability",
+            "CIA Triad Implementation Case Studies",
+            "Evaluating CIA Trade-offs in Real-World Systems"
           ],
           "learningOutcomes": [
-            "Implement sorting algorithms",
-            "Perform searching efficiently",
-            "Understand memory representation"
+            "Understand the core pillars of the CIA Triad.",
+            "Analyze threats affecting Confidentiality, Integrity, and Availability.",
+            "Apply the CIA triad to real-world healthcare and financial systems.",
+            "Evaluate security trade-offs between protection and accessibility."
           ],
-          "miniProjects": [
-            "Student Marks Analyzer"
-          ],
-          "difficulty": "Medium"
+          "difficulty": "Intermediate"
         },
         {
-          "moduleId": "strings",
-          "slug": "strings-and-stringbuffer",
-          "title": "Strings & StringBuffer",
-          "topics": [
-            "Introduction to Strings in Java",
-            "String creation (literals vs new keyword)",
-            "Immutability of String objects",
-            "String class methods (length, charAt, substring, equals, compareTo, toUpperCase, toLowerCase, trim, replace, etc.)",
-            "String comparison (== vs equals())",
-            "String concatenation techniques",
-            "String manipulation programs (reverse string, palindrome, word count, frequency of characters)",
-            "StringBuffer class and its features",
-            "Mutable vs Immutable strings",
-            "Key methods of StringBuffer (append, insert, delete, reverse, capacity)",
-            "String vs StringBuffer vs StringBuilder (comparison & use cases)",
-            "Performance considerations in string handling",
-            "Short Questions"
-          ],
-          "difficulty": "Easy-Medium"
-        },
-        {
-          "moduleId": "functions",
-          "slug": "functions-and-parameters",
-          "title": "Functions",
-          "topics": [
-            "Function definition",
-            "Call by value",
-            "Call by reference",
-            "Programs using functions"
-          ],
-          "difficulty": "Medium"
-        },
-        {
-          "moduleId": "oop-inheritance",
-          "slug": "inheritance",
-          "title": "Inheritance",
-          "topics": [
-            "Concept of inheritance",
-            "Types of inheritance (Single, Multilevel, Hierarchical)",
-            "Method overriding",
-            "Use of super keyword",
-            "Constructor in inheritance",
-            "Dynamic method dispatch",
-            "Practical programs on inheritance"
-          ],
-          "difficulty": "Medium"
-        },
-        {
-          "moduleId": "oop-abstract",
-          "slug": "abstract",
-          "title": "Abstract Class",
-          "topics": [
-            "Concept of abstraction",
-            "Abstract class and abstract methods",
-            "Rules for abstract classes",
-            "Use of abstract class in inheritance",
-            "Difference between abstract class and concrete class",
-            "Practical programs using abstract classes"
-          ],
-          "difficulty": "Medium"
-        },
-        {
-          "moduleId": "test-and-project-inheritence-abstract",
-          "slug": "test-and-project-inheritence-abstract",
-          "title": "Test & Projects of Inheritencd & Abstract",
+          "moduleId": "hacking-and-ethical-hacking",
+          "slug": "002_002_hacking-and-ethical-hacking",
+          "title": "Hacking, Ethical Hacking & Hacker Types",
           "level": "Intermediate",
-          "estimatedHours": 6,
-          "tags": [
-            "test",
-            "memory",
-            "address"
-          ],
+          "estimatedHours": 3,
+          "tags": ["ethical-hacking", "hacker-types", "white-hat", "black-hat", "penetration-testing"],
           "topics": [
-            "MCQ Test1"
+            "Introduction to Hacking Concepts",
+            "Evolution of Hacking: From Curiosity to Cyber Threats",
+            "Ethical Hacking: Principles and Legal Frameworks",
+            "Hacker Taxonomy: White Hat Hackers",
+            "Hacker Taxonomy: Black Hat Hackers",
+            "Hacker Taxonomy: Grey Hat Hackers",
+            "Specialized Hackers: Red, Blue, and Purple Teams",
+            "Threat Actors: Nation-State, Hacktivists, and Script Kiddies",
+            "Legal vs Illegal Hacking: Cyber Law and Authorization",
+            "Role of Ethical Hackers in Enterprise Defense",
+            "Vulnerability Disclosure Programs and Bug Bounties",
+            "Ethical Hacking Case Studies and Industry Applications"
           ],
           "learningOutcomes": [
-            "Use pointers to work with memory addresses",
-            "Apply pointer arithmetic to traverse arrays",
-            "Understand the connection between arrays and pointers in C"
+            "Distinguish between malicious hacking and authorized ethical hacking.",
+            "Classify hacker categories and threat actor motivations.",
+            "Understand legal boundaries and compliance under cyber law.",
+            "Appreciate the defensive role of white-hat penetration testing."
           ],
-          "prerequisites": [
-            "strings-core"
-          ],
-          "difficulty": "Medium-Advanced",
-          "difficultyIndex": 7,
-          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
-          "miniProjects": [
-            "Practice: Pointers and Memory Addressing - Mini Project 1"
-          ],
-          "exercises": {
-            "mcq": 20,
-            "coding": 12,
-            "projects": 1
-          },
-          "assessment": {
-            "type": "Quiz + Mini Project",
-            "passScore": 75
-          },
-          "useCases": [
-            "Passing large arrays efficiently to functions",
-            "Working with low level memory operations"
-          ],
-          "careerSkills": [
-            "Thinking in terms of addresses and references",
-            "Understanding how higher level languages implement references"
-          ],
-          "commonMistakes": [
-            "Dereferencing NULL or uninitialized pointers",
-            "Incorrect pointer arithmetic that steps outside valid memory"
-          ],
-          "references": [
-            "Pointers in C tutorials and articles",
-            "The C Programming Language - pointers chapter"
-          ],
-          "teachingTips": [
-            "Use step by step diagrams showing addresses and contents.",
-            "Give small pointer puzzles to build intuition."
-          ],
-          "preReading": [
-            "Strings and Character Arrays module"
-          ],
-          "previousModule": "strings-core",
-          "nextModule": "memory-dynamic",
-          "badge": "Pointer Pro Badge"
+          "difficulty": "Intermediate"
         },
         {
-          "moduleId": "test-inheritence-abstract",
-          "slug": "test-inheritence-abstract",
-          "title": "Test Inheritencd & Abstract",
+          "moduleId": "phases-of-hacking",
+          "slug": "002_003_phases-of-hacking",
+          "title": "Phases of Hacking Methodology",
           "level": "Intermediate",
-          "estimatedHours": 6,
-          "visibility": "loggedIn",
-          "tags": [
-            "test",
-            "memory",
-            "address"
-          ],
+          "estimatedHours": 3,
+          "tags": ["reconnaissance", "scanning", "gaining-access", "maintaining-access", "covering-tracks"],
           "topics": [
-            "Test 1",
-            "Test 2 Moderate",
-            "Test3 Expert"
+            "Overview of the 5 Phases of Hacking",
+            "Phase 1: Reconnaissance (Passive vs Active Footprinting)",
+            "OSINT (Open-Source Intelligence) Tools and Techniques",
+            "Phase 2: Scanning and Network Enumeration",
+            "Port Scanning, Banner Grabbing, and Vulnerability Scanning",
+            "Phase 3: Gaining Access (Exploitation Techniques)",
+            "System Exploitation, Buffer Overflows, and Credential Attacks",
+            "Phase 4: Maintaining Access (Backdoors, Rootkits, and Persistence)",
+            "Privilege Escalation and Lateral Movement",
+            "Phase 5: Covering Tracks (Log Tampering and Anti-Forensics)",
+            "Cyber Kill Chain vs MITRE ATT&CK Framework",
+            "Defensive Countermeasures across the 5 Hacking Phases"
           ],
           "learningOutcomes": [
-            "Use pointers to work with memory addresses",
-            "Apply pointer arithmetic to traverse arrays",
-            "Understand the connection between arrays and pointers in C"
+            "Demonstrate understanding of the 5 standard phases of ethical hacking.",
+            "Analyze reconnaissance, enumeration, and exploitation techniques.",
+            "Identify persistence mechanisms, rootkits, and log cleaning methods.",
+            "Map hacking phases to modern defense frameworks (Cyber Kill Chain, MITRE ATT&CK)."
           ],
-          "prerequisites": [
-            "strings-core"
-          ],
-          "difficulty": "Medium-Advanced",
-          "difficultyIndex": 7,
-          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
-          "miniProjects": [
-            "Practice: Pointers and Memory Addressing - Mini Project 1"
-          ],
-          "exercises": {
-            "mcq": 20,
-            "coding": 12,
-            "projects": 1
-          },
-          "assessment": {
-            "type": "Quiz + Mini Project",
-            "passScore": 75
-          },
-          "useCases": [
-            "Passing large arrays efficiently to functions",
-            "Working with low level memory operations"
-          ],
-          "careerSkills": [
-            "Thinking in terms of addresses and references",
-            "Understanding how higher level languages implement references"
-          ],
-          "commonMistakes": [
-            "Dereferencing NULL or uninitialized pointers",
-            "Incorrect pointer arithmetic that steps outside valid memory"
-          ],
-          "references": [
-            "Pointers in C tutorials and articles",
-            "The C Programming Language - pointers chapter"
-          ],
-          "teachingTips": [
-            "Use step by step diagrams showing addresses and contents.",
-            "Give small pointer puzzles to build intuition."
-          ],
-          "preReading": [
-            "Strings and Character Arrays module"
-          ],
-          "previousModule": "strings-core",
-          "nextModule": "memory-dynamic",
-          "badge": "Pointer Pro Badge"
+          "difficulty": "Intermediate"
         },
         {
-          "moduleId": "oop-interface",
-          "slug": "interface",
-          "title": "Interface",
+          "moduleId": "cryptography-and-watermarking",
+          "slug": "002_004_cryptography-and-watermarking",
+          "title": "Cryptography, Watermarking & Cipher Types",
+          "level": "Intermediate",
+          "estimatedHours": 3,
+          "tags": ["cryptography", "ciphers", "symmetric-encryption", "asymmetric-encryption", "watermarking", "steganography"],
           "topics": [
-            "Concept of interface",
-            "Defining and implementing interfaces",
-            "Multiple inheritance using interface",
-            "Default and static methods in interface",
-            "Difference between interface and abstract class",
-            "Practical programs using interfaces"
+            "Introduction to Cryptography and Cryptanalysis",
+            "Core Cryptographic Terminology: Plaintext, Ciphertext, and Keys",
+            "Classical Ciphers: Substitution and Transposition",
+            "Symmetric Key Cryptography (Secret Key Encryption)",
+            "Popular Symmetric Ciphers: DES, 3DES, and AES",
+            "Asymmetric Key Cryptography (Public Key Cryptography)",
+            "Symmetric vs Asymmetric Encryption Comparison",
+            "Cryptographic Hash Functions: MD5, SHA-1, SHA-256",
+            "Message Integrity and Digital Signatures",
+            "Digital Watermarking: Spatial and Frequency Domain Techniques",
+            "Steganography vs Digital Watermarking vs Cryptography",
+            "Real-World Applications of Cryptography and Watermarking"
           ],
-          "difficulty": "Medium"
+          "learningOutcomes": [
+            "Explain cryptographic terminology and historical ciphers.",
+            "Differentiate between Symmetric and Asymmetric cryptographic algorithms.",
+            "Understand digital signatures and cryptographic hash functions.",
+            "Analyze digital watermarking techniques for copyright and asset protection."
+          ],
+          "difficulty": "Intermediate"
+        },
+        {
+          "moduleId": "rsa-algorithm",
+          "slug": "002_005_rsa-algorithm",
+          "title": "RSA Algorithm & Public Key Infrastructure",
+          "level": "Intermediate",
+          "estimatedHours": 2,
+          "tags": ["rsa-algorithm", "public-key-cryptography", "modular-arithmetic", "pki", "digital-certificates"],
+          "topics": [
+            "Introduction to the RSA Algorithm and Asymmetric Security",
+            "Mathematical Foundations of RSA: Prime Factorization and Euler's Totient",
+            "Modular Arithmetic and Multiplicative Inverse in RSA",
+            "RSA Key Generation Step-by-Step",
+            "RSA Encryption and Decryption Mathematical Operations",
+            "Hands-on RSA Calculation Example with Small Primes",
+            "Security Strengths and Factorization Vulnerabilities of RSA",
+            "RSA Key Lengths: 1024-bit, 2048-bit, and 4096-bit Security",
+            "Hybrid Cryptosystems: Combining RSA and AES",
+            "Public Key Infrastructure (PKI) and Certificate Authorities (CAs)",
+            "Digital Certificates (X.509) and Trust Chains",
+            "Practical Implementations of RSA in SSL/TLS and SSH"
+          ],
+          "learningOutcomes": [
+            "Master the mathematical theory behind the RSA public-key cryptosystem.",
+            "Calculate RSA public and private keys using prime numbers and modular arithmetic.",
+            "Understand how PKI and digital certificates establish internet trust.",
+            "Evaluate RSA key length requirements against modern computing power."
+          ],
+          "difficulty": "Intermediate"
         }
       ]
     },
     {
-      "segmentId": "section-c",
-      "title": "Section C – Advanced Programming",
-      "level": "Advanced",
-      "summary": "Learn recursion and advanced data handling.",
+      "segmentId": "course-module-3",
+      "title": "Information Security Management",
+      "level": "Intermediate",
+      "summary": "Explore governance, risk management, ISO/IEC 27001 ISMS frameworks, security policies, and information security audit procedures.",
       "modules": [
         {
-          "moduleId": "recursion",
-          "slug": "recursion-concepts",
-          "title": "Recursion",
+          "moduleId": "introduction-to-ism",
+          "slug": "003_001_introduction-to-ism",
+          "title": "Introduction to ISM & Security Goals",
+          "level": "Intermediate",
+          "estimatedHours": 2,
+          "tags": ["ism", "information-security-management", "security-governance", "cia-goals"],
           "topics": [
-            "Recursive functions",
-            "Base condition",
-            "Tracing recursion",
-            "Classic problems (factorial, Fibonacci)"
+            "Introduction to Information Security Management (ISM)",
+            "Need and Importance of ISM in Modern Enterprises",
+            "Strategic Goals of Information Security",
+            "Information as an Organizational Asset",
+            "Roles and Responsibilities: CISO, Security Officers, and Custodians",
+            "The Three Dimensions of ISM: People, Process, and Technology",
+            "Legal, Regulatory, and Compliance Drivers in ISM",
+            "Information Classification Schemes (Public, Confidential, Secret)",
+            "Data Lifecycle Security Management",
+            "Enterprise Security Culture and Awareness Programs"
           ],
-          "difficulty": "Medium-High"
+          "learningOutcomes": [
+            "Understand the strategic purpose and scope of Information Security Management.",
+            "Identify key governance roles and organizational security responsibilities.",
+            "Apply data classification standards to protect critical enterprise assets.",
+            "Foster proactive security awareness and organizational resilience."
+          ],
+          "difficulty": "Intermediate"
         },
         {
-          "moduleId": "data-structures",
-          "slug": "stack-queue",
-          "title": "Stack & Queue (Array Implementation)",
+          "moduleId": "isms-working-procedure",
+          "slug": "003_002_isms-working-procedure",
+          "title": "ISMS Framework & Working Procedures",
+          "level": "Intermediate",
+          "estimatedHours": 3,
+          "tags": ["isms", "iso-27001", "pdca-cycle", "security-controls", "compliance"],
           "topics": [
-            "Stack operations",
-            "Queue operations",
-            "Circular Queue",
-            "Deque"
+            "What is an Information Security Management System (ISMS)?",
+            "ISO/IEC 27001 Standard Overview and Structure",
+            "The Plan-Do-Check-Act (PDCA) Deming Cycle in ISMS",
+            "ISMS Scope Definition and Statement of Applicability (SoA)",
+            "Annex A Security Controls in ISO 27001",
+            "Implementing Technical, Administrative, and Physical Controls",
+            "Incident Management Procedures and Escalation Paths",
+            "Business Continuity Planning (BCP) and Disaster Recovery (DR)",
+            "Continuous Improvement and ISMS Maintenance",
+            "Integration with Other Frameworks (NIST CSF, COBIT)",
+            "ISMS Documentation: Policies, Standards, Guidelines, and Procedures",
+            "Real-World ISMS Implementation Case Study"
           ],
-          "difficulty": "Medium"
+          "learningOutcomes": [
+            "Explain the architecture and working procedure of ISO/IEC 27001 ISMS.",
+            "Apply the Plan-Do-Check-Act (PDCA) cycle to maintain enterprise security.",
+            "Map ISO 27001 Annex A controls to technical and operational requirements.",
+            "Formulate Incident Response and Business Continuity strategies."
+          ],
+          "difficulty": "Intermediate"
         },
         {
-          "moduleId": "sorting-expression",
-          "slug": "sorting-and-expression",
-          "title": "Insertion Sort & Expression Conversion",
+          "moduleId": "security-policies-and-risk-management",
+          "slug": "003_003_security-policies-and-risk-management",
+          "title": "Security Policies, Risk Assessment & Mitigation",
+          "level": "Intermediate",
+          "estimatedHours": 3,
+          "tags": ["security-policies", "risk-management", "risk-assessment", "acceptable-use-policy", "threat-modeling"],
           "topics": [
-            "Insertion sort (numeric & string)",
-            "Infix to postfix",
-            "Infix to prefix"
+            "Hierarchy of Security Governance: Policies, Standards, Guidelines, Procedures",
+            "Core Security Policies: Acceptable Use Policy (AUP)",
+            "Password, Access Control, and Data Retention Policies",
+            "BYOD (Bring Your Own Device) and Remote Work Policies",
+            "Fundamentals of Information Security Risk Management",
+            "Asset Identification and Asset Valuation",
+            "Threat Identification and Vulnerability Assessment",
+            "Qualitative vs Quantitative Risk Analysis",
+            "Calculating Single Loss Expectancy (SLE) and Annual Loss Expectancy (ALE)",
+            "Risk Treatment Strategies: Mitigate, Transfer, Accept, Avoid",
+            "Risk Registers and Residual Risk Management",
+            "Third-Party and Supply Chain Risk Management",
+            "Threat Modeling Methodologies (STRIDE, DREAD)",
+            "Enterprise Risk Management Case Study"
           ],
-          "difficulty": "Medium"
+          "learningOutcomes": [
+            "Draft and evaluate essential enterprise information security policies.",
+            "Conduct structured asset, threat, and vulnerability risk assessments.",
+            "Calculate quantitative risk metrics (SLE, ARO, ALE) and qualitative risk matrices.",
+            "Select appropriate risk treatment strategies for identified vulnerabilities."
+          ],
+          "difficulty": "Intermediate"
+        },
+        {
+          "moduleId": "information-security-audit",
+          "slug": "003_004_information-security-audit",
+          "title": "Information Security Auditing & Compliance",
+          "level": "Intermediate",
+          "estimatedHours": 2,
+          "tags": ["security-audit", "compliance", "gap-analysis", "audit-logs", "iso-audit"],
+          "topics": [
+            "Introduction to Information Security Audits",
+            "Differences between Audit, Assessment, and Vulnerability Assessment",
+            "Types of Audits: First-Party (Internal), Second-Party, and Third-Party (Certification)",
+            "The Security Audit Lifecycle: Planning, Fieldwork, Reporting, Follow-up",
+            "Audit Evidence Collection and Chain of Custody",
+            "Log Review, System Configuration Audits, and Access Review",
+            "Compliance Frameworks: GDPR, HIPAA, PCI-DSS, SOC 2, and India DPDP Act",
+            "Gap Analysis and Non-Conformity Reporting",
+            "Audit Trail Analysis and Forensic Readiness",
+            "Corrective and Preventive Actions (CAPA)",
+            "Auditor Ethics and Professional Independence",
+            "Information Security Audit Case Study in Banking and FinTech"
+          ],
+          "learningOutcomes": [
+            "Explain the purpose, phases, and methodology of security audits.",
+            "Evaluate organizational compliance against industry standards (PCI-DSS, ISO 27001, DPDP).",
+            "Analyze audit logs and evidence to identify non-conformities.",
+            "Prepare comprehensive audit findings and corrective action reports."
+          ],
+          "difficulty": "Intermediate"
         }
       ]
     },
     {
-      "segmentId": "section-d",
-      "title": "Section D – Data Structures & Hardware",
+      "segmentId": "course-module-4",
+      "title": "Cyber Attacks & Threat Analysis",
       "level": "Advanced",
-      "summary": "Final advanced topics for ISC board exams.",
+      "summary": "Examine the technical mechanisms of active and passive cyber attacks, malware taxonomy, phishing, DoS/DDoS, SQL injection, social engineering, and landmark attack case studies.",
       "modules": [
         {
-          "moduleId": "linked-list",
-          "slug": "single-linked-list",
-          "title": "Single Linked List",
+          "moduleId": "passive-and-active-attacks",
+          "slug": "004_001_passive-and-active-attacks",
+          "title": "Passive vs Active Cyber Attacks",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["passive-attacks", "active-attacks", "eavesdropping", "mitm", "spoofing", "replay-attacks"],
           "topics": [
-            "Node structure",
-            "Insertion and deletion",
-            "Traversal",
-            "Programs on linked list"
-          ],
-          "difficulty": "High"
-        },
-        {
-          "moduleId": "binary-tree",
-          "slug": "binary-tree",
-          "title": "Binary Tree",
-          "topics": [
-            "Tree terminology",
-            "Binary tree structure",
-            "Traversal (inorder, preorder, postorder)"
-          ],
-          "difficulty": "High"
-        },
-        {
-          "moduleId": "hardware",
-          "slug": "computer-hardware",
-          "title": "Computer Hardware",
-          "topics": [
-            "Basic hardware components",
-            "CPU, Memory, I/O devices",
-            "Secondary storage"
-          ],
-          "difficulty": "Easy"
-        },
-        {
-          "moduleId": "expression-conversion",
-          "slug": "expression-conversion-using-stack",
-          "title": "Expression Conversion (Infix, Prefix & Postfix)",
-          "level": "Intermediate",
-          "estimatedHours": 12,
-          "tags": [
-            "stack",
-            "expression",
-            "infix",
-            "postfix",
-            "prefix",
-            "compiler",
-            "data-structure"
-          ],
-          "topics": [
-            "Introduction to Expressions",
-            "What is an Operand?",
-            "What is an Operator?",
-            "Unary and Binary Operators",
-            "Operator Precedence",
-            "Operator Associativity",
-            "Need for Expression Conversion",
-            "Types of Expressions",
-            "Infix Expression",
-            "Prefix Expression",
-            "Postfix Expression",
-            "Rules for Infix to Postfix Conversion",
-            "Algorithm for Infix to Postfix",
-            "Step-by-Step Examples",
-            "Practice Problems",
-            "Rules for Infix to Prefix Conversion with Swapping Postfix",
-            "Algorithm for Infix to Prefix",
-            "Example of Infix to Prefix",
-            "Example of Infix to Prefix using stack",
-            "Infix to Prefix Testing tool,",
-            "Reverse and Parentheses Swapping Technique",
-            "Step-by-Step Examples",
-            "Practice Problems Infix to Postfix",
-            "Rules for Postfix to Infix Conversion",
-            "Algorithm for Postfix to Infix",
-            "Step-by-Step Examples",
-            "Practice Problems",
-            "Rules for Prefix to Infix Conversion",
-            "Algorithm for Prefix to Infix",
-            "Step-by-Step Examples",
-            "Practice Problems",
-            "Rules for Prefix to Postfix Conversion",
-            "Algorithm for Prefix to Postfix",
-            "Step-by-Step Examples",
-            "Practice Problems",
-            "Rules for Postfix to Prefix Conversion",
-            "Algorithm for Postfix to Prefix",
-            "Step-by-Step Examples",
-            "Practice Problems",
-            "Expression Evaluation using Stack",
-            "Evaluation of Postfix Expressions",
-            "Evaluation of Prefix Expressions",
-            "Common Errors in Expression Conversion",
-            "Compiler Applications",
-            "Practice Questions",
-            "ISC Board Previous Year Questions",
-            "MCQ Practice",
-            "Short Questions",
-            "Long Questions",
-            "Programming using Stack",
-            "Java Programs",
-            "Complexity Analysis"
+            "Classification of Cyber Attacks: Active vs Passive",
+            "Passive Attacks: Eavesdropping and Wiretapping",
+            "Passive Attacks: Traffic Analysis and Packet Sniffing",
+            "Characteristics and Challenges in Detecting Passive Attacks",
+            "Active Attacks: Modification of Messages and Data Tampering",
+            "Active Attacks: Masquerade and Identity Spoofing",
+            "Active Attacks: Replay Attacks and Timestamp Protection",
+            "Active Attacks: Man-in-the-Middle (MitM) Attacks",
+            "Active Attacks: Denial of Service Fundamentals",
+            "Detection and Prevention Techniques for Passive Attacks",
+            "Defensive Architectures for Active Attack Mitigation",
+            "Active vs Passive Attack Scenario Analysis"
           ],
           "learningOutcomes": [
-            "Understand different expression notations.",
-            "Identify operands and operators correctly.",
-            "Apply operator precedence and associativity.",
-            "Convert Infix to Postfix.",
-            "Convert Infix to Prefix.",
-            "Convert Postfix to Infix.",
-            "Convert Prefix to Infix.",
-            "Convert Prefix to Postfix.",
-            "Convert Postfix to Prefix.",
-            "Evaluate Prefix and Postfix expressions using Stack.",
-            "Implement expression conversion algorithms in Java.",
-            "Solve ISC board examination problems confidently."
+            "Classify attacks into Active and Passive categories based on impact.",
+            "Understand technical mechanisms of sniffing, traffic analysis, and MitM.",
+            "Identify countermeasures including encryption, hashing, and mutual authentication.",
+            "Analyze attack vectors in enterprise network communications."
           ],
-          "prerequisites": [
-            "Basic Stack Operations",
-            "Operator Precedence",
-            "Arrays"
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "malware-threats",
+          "slug": "004_002_malware-threats",
+          "title": "Malware Taxonomy & Analysis",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["malware", "virus", "worm", "trojan", "ransomware", "spyware", "rootkit", "botnet"],
+          "topics": [
+            "Introduction to Malicious Software (Malware)",
+            "Computer Viruses: Boot Sector, File Infector, and Macro Viruses",
+            "Computer Worms: Self-Replication and Network Propagation",
+            "Trojan Horses: Remote Access Trojans (RATs) and Delivery Vectors",
+            "Ransomware: Crypto-Ransomware, Locker-Ransomware, and Double Extortion",
+            "Spyware, Adware, and Keyloggers",
+            "Rootkits: User-Mode vs Kernel-Mode Rootkits",
+            "Botnets and Command & Control (C2) Infrastructure",
+            "Fileless Malware and Living-off-the-Land (LotL) Techniques",
+            "Malware Infection Vectors: Drive-by Downloads, Malvertising, Attachments",
+            "Malware Analysis Fundamentals: Static Analysis vs Dynamic Analysis",
+            "Antivirus Technologies: Signature-based, Heuristic, and Behavioral EDR",
+            "Sandboxing and Automated Malware Detonation",
+            "Malware Incident Response and Clean-up Case Study"
           ],
-          "difficulty": "Medium",
-          "difficultyIndex": 5,
-          "summary": "This module introduces all three expression notations—Infix, Prefix, and Postfix—and teaches complete expression conversion using stack data structures. Students will learn conversion algorithms, expression evaluation, programming implementations, and compiler applications with numerous board-level examples.",
-          "miniProjects": [
-            "Expression Converter",
-            "Postfix Calculator",
-            "Prefix Calculator",
-            "Expression Validator"
+          "learningOutcomes": [
+            "Categorize malware types according to infection, replication, and payload delivery.",
+            "Analyze the mechanics of Ransomware, Rootkits, and Botnet C2 servers.",
+            "Explain static and dynamic malware analysis methodologies.",
+            "Design layered malware defense using modern EDR and sandboxing technologies."
           ],
-          "exercises": {
-            "mcq": 40,
-            "shortAnswer": 20,
-            "longAnswer": 10,
-            "numerical": 35,
-            "coding": 8
-          },
-          "assessment": {
-            "type": "Worksheet + Programming Assignment + Viva",
-            "passScore": 70
-          },
-          "teachingFlow": [
-            "Introduction to Expressions",
-            "Operands and Operators",
-            "Operator Precedence",
-            "Associativity",
-            "Infix Expression",
-            "Prefix Expression",
-            "Postfix Expression",
-            "Infix to Postfix",
-            "Infix to Prefix",
-            "Postfix to Infix",
-            "Prefix to Infix",
-            "Postfix to Prefix",
-            "Prefix to Postfix",
-            "Expression Evaluation",
-            "Programming using Stack",
-            "Previous Year Questions",
-            "Mock Test"
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "phishing-and-social-engineering",
+          "slug": "004_003_phishing-and-social-engineering",
+          "title": "Phishing, Social Engineering & Insider Threats",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["phishing", "spear-phishing", "social-engineering", "insider-threats", "vishing", "smishing"],
+          "topics": [
+            "Human Vulnerability: The Weakest Link in Cyber Security",
+            "Social Engineering Principles: Authority, Urgency, Scarcity, Trust",
+            "Phishing Fundamentals: Anatomy of a Phishing Email",
+            "Targeted Phishing: Spear Phishing, Whaling, and Clone Phishing",
+            "Voice and SMS Phishing: Vishing and Smishing Attacks",
+            "Watering Hole Attacks and Business Email Compromise (BEC)",
+            "Physical Social Engineering: Tailgating, Shoulder Surfing, Dumpster Diving",
+            "Baiting and Pretexting Tactics",
+            "Insider Threats: Malicious Insiders vs Negligent Employees",
+            "Privilege Abuse, Data Exfiltration, and Sabotage",
+            "Technical Countermeasures: Email Authentication (SPF, DKIM, DMARC)",
+            "User Behavior Analytics (UBA / UEBA) for Insider Threat Detection",
+            "Security Awareness Training and Simulated Phishing Campaigns",
+            "Social Engineering Defense and Corporate Case Studies"
           ],
-          "commonMistakes": [
-            "Ignoring operator precedence.",
-            "Ignoring associativity of operators.",
-            "Incorrect handling of parentheses.",
-            "Using wrong stack operations.",
-            "Reversing expressions incorrectly while converting to Prefix.",
-            "Popping operands in the wrong order.",
-            "Forgetting to empty the stack at the end."
+          "learningOutcomes": [
+            "Understand psychological principles exploited in social engineering attacks.",
+            "Recognize various forms of phishing, vishing, smishing, and BEC attacks.",
+            "Identify insider threat indicators and technical exfiltration behaviors.",
+            "Implement technical protections (SPF, DKIM, DMARC) and user training frameworks."
           ],
-          "examTips": [
-            "Remember precedence before starting conversion.",
-            "Draw the stack after every scanned symbol.",
-            "Write postfix output after every step.",
-            "Always pop remaining operators after scanning ends.",
-            "For Prefix conversion, reverse the expression and swap parentheses first.",
-            "Practice at least 20 conversion problems before the exam."
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "dos-and-ddos-attacks",
+          "slug": "004_004_dos-and-ddos-attacks",
+          "title": "Denial of Service (DoS) & DDoS Attacks",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["dos", "ddos", "syn-flood", "amplification", "botnet", "cloud-scrubbing"],
+          "topics": [
+            "Introduction to Denial of Service (DoS) Attacks",
+            "From DoS to Distributed Denial of Service (DDoS)",
+            "Volumetric DDoS Attacks: UDP Flood, ICMP Ping Flood",
+            "Network Protocol DDoS Attacks: SYN Flood and Smurf Attack",
+            "TCP Three-Way Handshake Exploitation and SYN Cookies",
+            "Application Layer DDoS Attacks: HTTP Flood and Slowloris",
+            "DDoS Amplification Attacks: DNS Amplification and NTP Amplification",
+            "Botnet Economics: DDoS-for-Hire Services and Stressers",
+            "Impact of DDoS Attacks on Critical Infrastructure and Cloud Services",
+            "DDoS Mitigation Strategies: Rate Limiting, Geo-blocking, and Anycast Routing",
+            "Cloud-based DDoS Scrubbing Centers and Web Application Firewalls (WAF)",
+            "DDoS Attack Case Studies (Dyn DNS, GitHub DDoS Mitigation)"
           ],
-          "realLifeApplications": [
-            "Compiler Design",
-            "Expression Parsing",
-            "Programming Language Interpreters",
-            "Scientific Calculators",
-            "Database Query Processing",
-            "Virtual Machines"
+          "learningOutcomes": [
+            "Differentiate between Volumetric, Protocol, and Application-layer DDoS attacks.",
+            "Explain the technical mechanisms of SYN flooding, Slowloris, and DNS amplification.",
+            "Evaluate defensive architectures including SYN cookies, CDN Anycast, and cloud scrubbing.",
+            "Analyze high-profile DDoS incidents and emergency mitigation procedures."
           ],
-          "timeComplexity": {
-            "conversion": "O(n)",
-            "evaluation": "O(n)"
-          },
-          "spaceComplexity": {
-            "conversion": "O(n)",
-            "evaluation": "O(n)"
-          },
-          "badge": "Expression Conversion Master"
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "sql-injection-and-web-attacks",
+          "slug": "004_005_sql-injection-and-web-attacks",
+          "title": "Web Attacks, SQL Injection & Injection Defense",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["sql-injection", "sqli", "xss", "csrf", "owasp-top-10", "prepared-statements"],
+          "topics": [
+            "Web Application Security Overview & OWASP Top 10",
+            "Anatomy of Injection Vulnerabilities",
+            "SQL Injection (SQLi) Fundamentals and Working Principles",
+            "In-Band SQLi: Error-Based and UNION-Based SQL Injection",
+            "Inferential (Blind) SQLi: Boolean-based and Time-based SQL Injection",
+            "Out-of-Band SQL Injection (OOB)",
+            "Impact of SQLi: Data Theft, Authentication Bypass, and Database Takeover",
+            "Cross-Site Scripting (XSS): Stored, Reflected, and DOM-based XSS",
+            "Cross-Site Request Forgery (CSRF) and Broken Access Control",
+            "Defensive Coding: Parameterized Queries and Prepared Statements",
+            "Input Validation, Sanitization, and Output Encoding",
+            "Using ORMs and Stored Procedures Securely",
+            "Web Application Firewalls (WAF) and Content Security Policy (CSP)",
+            "Interactive SQL Injection Vulnerability Analysis and Remediation"
+          ],
+          "learningOutcomes": [
+            "Understand the mechanics of SQL Injection and OWASP Top 10 vulnerabilities.",
+            "Distinguish between Error-based, UNION-based, Blind, and Time-based SQLi.",
+            "Implement secure coding standards using Prepared Statements and Parameterized Queries.",
+            "Deploy defensive controls including WAF, CSP, and input sanitization."
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "case-studies-of-major-cyber-attacks",
+          "slug": "004_006_case-studies-of-major-cyber-attacks",
+          "title": "Landmark Cyber Attack Case Studies",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["case-studies", "stuxnet", "wannacry", "target-breach", "solarwinds", "equifax"],
+          "topics": [
+            "The Value of Case Study Analysis in Cyber Security",
+            "Case Study 1: Stuxnet (2010) - The First Cyber Weapon and SCADA Sabotage",
+            "Case Study 2: Target Corporation Data Breach (2013) - HVAC Supply Chain Vector",
+            "Case Study 3: Sony Pictures Hack (2014) - Nation-State Cyber Warfare & Extortion",
+            "Case Study 4: Ukraine Power Grid Attack (2015) - BlackEnergy and SCADA Disruption",
+            "Case Study 5: WannaCry & NotPetya Ransomware Outbreaks (2017) - EternalBlue Exploit",
+            "Case Study 6: Equifax Data Breach (2017) - Unpatched Apache Struts Vulnerability",
+            "Case Study 7: SolarWinds Supply Chain Attack (2020) - SUNBURST Backdoor",
+            "Case Study 8: Colonial Pipeline Ransomware Incident (2021) - Critical Infrastructure Shutdown",
+            "Lessons Learned: Patch Management, Zero Trust, and Segmented Networks",
+            "Incident Response Timeline and Post-Mortem Analysis",
+            "Synthesizing Strategic Defensive Takeaways for Modern Enterprises"
+          ],
+          "learningOutcomes": [
+            "Analyze the root causes, attack paths, and repercussions of landmark global cyber attacks.",
+            "Evaluate supply chain vulnerabilities, zero-day exploits, and lateral movement tactics.",
+            "Formulate strategic incident response and disaster recovery takeaways.",
+            "Design defense-in-depth architectures resistant to modern Advanced Persistent Threats (APTs)."
+          ],
+          "difficulty": "Advanced"
+        }
+      ]
+    },
+    {
+      "segmentId": "course-module-5",
+      "title": "Technological Aspects of Cyber Security",
+      "level": "Advanced",
+      "summary": "Implement and configure perimeter defenses, Firewalls, IDS/IPS, VPNs, SSL/TLS, IPsec, MFA, and explore AI, Blockchain, and Quantum Cryptography in cyber defense.",
+      "modules": [
+        {
+          "moduleId": "firewalls-and-perimeter-defense",
+          "slug": "005_001_firewalls-and-perimeter-defense",
+          "title": "Firewalls & Perimeter Defense Architectures",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["firewall", "packet-filtering", "stateful-inspection", "ngfw", "dmz", "perimeter-security"],
+          "topics": [
+            "Introduction to Network Perimeter Defense and Defense-in-Depth",
+            "What is a Firewall? Core Functions and Placement in Networks",
+            "Packet Filtering Firewalls (Stateless Inspection)",
+            "Circuit-Level Gateways and Handshake Monitoring",
+            "Stateful Inspection Firewalls (Stateful Packet Inspection - SPI)",
+            "Application-Level Gateways (Proxy Firewalls)",
+            "Next-Generation Firewalls (NGFW): Deep Packet Inspection (DPI) and App-ID",
+            "Firewall Architectures: Dual-Homed Host, Screened Host, Screened Subnet (DMZ)",
+            "Demilitarized Zone (DMZ) Design and Bastion Hosts",
+            "Firewall Rule-Base Design: Default-Deny vs Default-Allow Policies",
+            "Web Application Firewalls (WAF) vs Network Firewalls",
+            "Firewall Configuration, Testing, and Logging Best Practices"
+          ],
+          "learningOutcomes": [
+            "Explain the architecture and operational mechanisms of different firewall generations.",
+            "Design secure network topologies utilizing DMZs and Bastion Hosts.",
+            "Construct robust default-deny firewall access control rule bases.",
+            "Evaluate Next-Generation Firewalls and Deep Packet Inspection features."
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "ids-ips-and-honeypots",
+          "slug": "005_002_ids-ips-and-honeypots",
+          "title": "Intrusion Detection (IDS), IPS & Honeypots",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["ids", "ips", "snort", "honeypot", "anomaly-detection", "signature-detection"],
+          "topics": [
+            "Introduction to Intrusion Detection Systems (IDS)",
+            "Differences between IDS (Passive Detection) and IPS (Active Prevention)",
+            "Network-based IDS (NIDS) vs Host-based IDS (HIDS)",
+            "Signature-based Detection vs Anomaly-based / Heuristic Detection",
+            "Statistical Anomaly Detection and Machine Learning in IDS",
+            "Inline vs Tap/Span Port Deployment Modes",
+            "Handling False Positives and False Negatives in Security Monitoring",
+            "Popular IDS/IPS Tools: Snort Rule Syntax and Suricata Overview",
+            "Honeypots: Purpose, Value, and Deception Technology",
+            "Types of Honeypots: Low-Interaction vs High-Interaction Honeypots",
+            "Honeynets and Production vs Research Honeypots",
+            "Integrating IDS/IPS and Honeypots with SIEM and SOC Operations"
+          ],
+          "learningOutcomes": [
+            "Differentiate between Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS).",
+            "Compare Signature-based vs Anomaly-based intrusion detection methodologies.",
+            "Understand deployment models (SPAN ports vs Inline appliances).",
+            "Deploy Honeypots as active deception mechanisms to gather threat intelligence."
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "vpns-and-tunneling",
+          "slug": "005_003_vpns-and-tunneling",
+          "title": "Virtual Private Networks (VPNs) & Tunneling",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["vpn", "tunneling", "ipsec-vpn", "ssl-vpn", "wireguard", "remote-access"],
+          "topics": [
+            "Introduction to Virtual Private Networks (VPNs)",
+            "The Need for Secure Remote Access and Site-to-Site Connectivity",
+            "VPN Architecture: Remote Access VPN vs Site-to-Site (Router-to-Router) VPN",
+            "Core Security Services in VPNs: Confidentiality, Integrity, Authentication",
+            "Tunneling Concepts: Encapsulation and Carrier Protocols",
+            "IPsec VPNs: Tunnel Mode vs Transport Mode",
+            "SSL/TLS-based VPNs (OpenVPN, WireGuard, Browser-based SSL VPN)",
+            "PPTP and L2TP: Legacy Protocols and Security Limitations",
+            "Split Tunneling vs Full Tunneling Security Trade-offs",
+            "Zero Trust Network Access (ZTNA) vs Traditional VPNs",
+            "VPN Implementation Challenges: Latency, Overhead, and Key Management",
+            "Enterprise VPN Deployment and Secure Remote Worker Case Study"
+          ],
+          "learningOutcomes": [
+            "Explain the technical mechanisms of VPN tunneling, encapsulation, and encryption.",
+            "Compare Remote Access VPNs with Site-to-Site VPN configurations.",
+            "Evaluate IPsec, SSL/TLS, and modern WireGuard protocols for enterprise deployment.",
+            "Analyze the transition from perimeter VPNs to Zero Trust Network Access (ZTNA)."
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "security-protocols-ssl-tls-ipsec",
+          "slug": "005_004_security-protocols-ssl-tls-ipsec",
+          "title": "Network Security Protocols: SSL, TLS & IPsec",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["ssl", "tls", "ipsec", "https", "ssh", "handshake-protocol", "ah-esp"],
+          "topics": [
+            "Overview of Network Security Protocols across the OSI Stack",
+            "Evolution from SSL 2.0/3.0 to TLS 1.2 and TLS 1.3",
+            "TLS Handshake Protocol: Key Exchange, Authentication, and Cipher Suites",
+            "TLS Record Protocol and Symmetric Data Encryption",
+            "HTTPS (HTTP over TLS): Port 443 and Web Encryption",
+            "IPsec Architecture: Network Layer Security Framework",
+            "IPsec Protocols: Authentication Header (AH) vs Encapsulating Security Payload (ESP)",
+            "Internet Key Exchange (IKEv1 and IKEv2) and Security Associations (SA)",
+            "Secure Shell (SSH): Secure Remote Administration and Port Forwarding",
+            "Secure Email Protocols: S/MIME and PGP/GPG",
+            "DNSSEC (Domain Name System Security Extensions)",
+            "Protocol Downgrade Attacks and Modern Hardening Standards (HSTS)",
+            "End-to-End Cryptographic Protocol Verification Case Study"
+          ],
+          "learningOutcomes": [
+            "Master the step-by-step handshake procedures of TLS 1.2 and TLS 1.3.",
+            "Differentiate between IPsec AH (Integrity only) and ESP (Integrity + Encryption).",
+            "Understand how HTTPS, SSH, and DNSSEC protect application and transport layers.",
+            "Implement security hardening techniques to prevent protocol downgrade and MitM attacks."
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "authentication-and-mfa",
+          "slug": "005_005_authentication-and-mfa",
+          "title": "Authentication Frameworks & Multi-Factor Authentication",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["authentication", "mfa", "2fa", "biometrics", "totp", "fido2", "passkeys"],
+          "topics": [
+            "Authentication, Authorization, and Accounting (AAA Framework)",
+            "The Three Factors of Authentication: Knowledge, Possession, Inherence",
+            "Single-Factor Authentication (Passwords) and Vulnerabilities",
+            "Multi-Factor Authentication (MFA / 2FA) Fundamentals",
+            "Time-based One-Time Passwords (TOTP) and HMAC-based OTP (HOTP)",
+            "SMS/Email OTPs and Vulnerabilities (SIM Swapping, SS7 Interception)",
+            "Biometric Authentication: Fingerprint, Facial Recognition, Iris Scanning",
+            "Biometric Accuracy Metrics: False Acceptance Rate (FAR) and False Rejection Rate (FRR)",
+            "Hardware Security Keys: FIDO2, WebAuthn, and U2F Standards",
+            "Passwordless Authentication and Passkeys",
+            "Single Sign-On (SSO) and Identity Protocols: SAML, OAuth 2.0, OpenID Connect",
+            "Enterprise Identity and Access Management (IAM) Case Study"
+          ],
+          "learningOutcomes": [
+            "Analyze the three fundamental authentication factors and their strengths.",
+            "Explain TOTP, HOTP, and mathematical time-step token generation.",
+            "Evaluate biometrics, FAR/FRR metrics, and spoofing countermeasures.",
+            "Implement modern FIDO2/WebAuthn hardware security key standards and SSO."
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "emerging-technologies-in-cyber-security",
+          "slug": "005_006_emerging-technologies-in-cyber-security",
+          "title": "Emerging Technologies in Cyber Security",
+          "level": "Advanced",
+          "estimatedHours": 2,
+          "tags": ["ai-security", "blockchain-security", "quantum-cryptography", "qkd", "post-quantum-cryptography", "zero-trust"],
+          "topics": [
+            "The Evolving Cyber Threat Horizon and Next-Generation Defenses",
+            "Artificial Intelligence and Machine Learning in Cyber Defense",
+            "AI-powered Anomaly Detection, Predictive Threat Intelligence, and SOAR",
+            "Adversarial AI: Deepfakes, AI-crafted Phishing, and Model Poisoning",
+            "Blockchain Technology in Cyber Security: Decentralization and Immutability",
+            "Blockchain for Decentralized Identity (DID) and Tamper-Proof Audit Logging",
+            "Smart Contract Vulnerabilities and Security Best Practices",
+            "Quantum Computing Threat to Modern Cryptography (Shor's Algorithm)",
+            "Quantum Key Distribution (QKD) and BB84 Protocol",
+            "Post-Quantum Cryptography (PQC): Lattice-based and Hash-based Cryptography",
+            "NIST Post-Quantum Standards: CRYSTALS-Kyber and Dilithium",
+            "Zero Trust Architecture (NIST SP 800-207): Never Trust, Always Verify",
+            "Future Outlook: Autonomous Cyber Defense and Quantum Resilience",
+            "Synthesizing Next-Gen Security Architectures for the Modern Era"
+          ],
+          "learningOutcomes": [
+            "Evaluate how AI and Machine Learning empower both cyber defense and adversarial attacks.",
+            "Analyze blockchain applications for tamper-proof logging and decentralized identity.",
+            "Understand the quantum computing threat to RSA/ECC and the role of QKD.",
+            "Explain Post-Quantum Cryptography (PQC) standards and Zero Trust Architecture."
+          ],
+          "difficulty": "Advanced"
         }
       ]
     }

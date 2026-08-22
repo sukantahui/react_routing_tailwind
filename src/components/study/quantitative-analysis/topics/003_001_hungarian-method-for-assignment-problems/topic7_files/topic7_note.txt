@@ -1,0 +1,116 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 7: THE HUNGARIAN METHOD (KUHN-MUNKRES POLYNOMIAL ALGORITHM & 5-STEP ENGINE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. HISTORICAL GENESIS & POLYNOMIAL COMPLEXITY
+--------------------------------------------------------------------------------
+The HUNGARIAN METHOD (Kuhn-Munkres Algorithm) was developed by American mathematician
+Harold Kuhn in 1955 and named in honor of Hungarian mathematicians:
+• Dénes Kőnig (1931): Proved the Bipartite Graph Line Covering Theorem.
+• Jenő Egerváry (1931): Developed the matrix potential duality theorem.
+• James Munkres (1957): Reviewed and formalized the algorithm into O(n^3) time.
+
+COMPLEXITY COMPARISON:
+• Brute-Force Factorial Search: O(n!) ➔ 10! = 3,628,800 operations.
+• Hungarian Method:            O(n^3) ➔ 10^3 = 1,000 operations (1 millisecond!).
+
+--------------------------------------------------------------------------------
+2. THE FULL 5-STEP HUNGARIAN EXECUTION ENGINE
+--------------------------------------------------------------------------------
+
+STEP 1: BALANCE & TYPE PRE-PROCESSING
+• Verify if the matrix is square (m == n).
+• If m < n, add (n - m) Dummy Rows with ₹0 unit costs.
+• If m > n, add (m - n) Dummy Columns with ₹0 unit costs.
+• If Maximization: Convert to minimization via c_ij' = max(C) - c_ij.
+
+STEP 2: ROW REDUCTION
+• Identify the smallest element in each row: u_i = min_{j} (c_ij).
+• Subtract u_i from every element in Row i: c_ij' = c_ij - u_i.
+• Result: Every row now contains at least one zero.
+
+STEP 3: COLUMN REDUCTION
+• Identify the smallest element in each column: v_j = min_{i} (c_ij').
+• Subtract v_j from every element in Column j: c_ij'' = c_ij' - v_j.
+• Result: Every row AND every column now contains at least one zero.
+• (Note: If dummy rows/columns with ₹0 exist, col/row reduction is a no-op).
+
+STEP 4: KÖNIG'S LINE COVERING TEST & ADDITIONAL REDUCTION
+• Draw the MINIMUM number of horizontal and vertical lines (L) to cover all zeros.
+• CASE A: If L == n (Number of lines equals matrix order):
+  ➔ The matrix is GLOBALLY OPTIMAL! Proceed directly to Step 5.
+• CASE B: If L < n (Fewer lines than matrix order):
+  ➔ Execute ADDITIONAL REDUCTION:
+     1. Find the smallest uncovered element: e = min(uncovered cells).
+     2. Subtract e from ALL UNCOVERED cells: c_ij''' = c_ij'' - e.
+     3. Add e to cells at LINE INTERSECTIONS: c_ij''' = c_ij'' + e.
+     4. Leave single-covered cells completely UNCHANGED.
+     5. Re-test line covering with the new matrix.
+
+STEP 5: INDEPENDENT ZERO ASSIGNMENT PROTOCOL
+1. Scan rows starting with the row having EXACTLY ONE zero.
+   • Enclose that zero in a square [0] (make assignment x_ij = 1).
+   • Cross out (X) all other zeros in the SAME COLUMN.
+2. Scan columns starting with the column having EXACTLY ONE zero.
+   • Enclose that zero in a square [0].
+   • Cross out (X) all other zeros in the SAME ROW.
+3. Repeat until exactly n independent zeros [0] are assigned.
+4. Calculate Certified Minimum Total Cost Z* using the ORIGINAL cost matrix in ₹:
+       Z* = Sum_{i=1}^n c_{i, \pi(i)}
+
+--------------------------------------------------------------------------------
+3. STRONG DUALITY ARITHMETIC AUDIT
+--------------------------------------------------------------------------------
+By the Strong Duality Theorem:
+    Z* = Sum (Row Minimums) + Sum (Col Minimums) + Sum (e * (n - L)) === W*
+If Primal Min Cost Z* exactly equals Dual Objective W*, the solution is 100% verified!
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Complete 5-Step Execution (Debangshu)
+Debangshu in Barrackpore executed the full 5-step Hungarian pipeline on a 4x4 casting
+roster, finding the global minimum of ₹120 in 4 algebraic steps.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Multi-Pass Optimization (Mamata & Mahima)
+Mamata and Mahima in Kolkata ran the Hungarian method on 4 hospital clinics,
+executing 1 additional reduction step (e = ₹2) to reach certified minimal freight of ₹46.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Scheduling (Susmita)
+Susmita in Ichapur structured a balanced 4x4 retail roster, applying König's line
+test (L = 4) to assign 4 store directors with zero double-booking.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Contract Audit (Abhronila)
+Abhronila in Jadavpur presented a complete 5-step Hungarian audit trail to state
+university procurement auditors, proving 100% mathematical cost minimality (Z* = ₹35).
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never calculate final cost from the reduced matrix; always pull from the ORIGINAL matrix!
+- When doing additional reduction: subtract e from uncovered, ADD e to intersections.
+- Always report final answers in Indian Rupees (₹).
+- Explicitly state which jobs are outsourced if dummy lines were used.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Memorized the 5 sequential steps of the Hungarian Method.
+[ ] Executed row reduction: c_ij' = c_ij - min(Row i).
+[ ] Executed column reduction: c_ij'' = c_ij' - min(Col j).
+[ ] Tested König line covering condition L == n.
+[ ] Executed additional reduction: uncovered - e, intersections + e.
+[ ] Assigned independent zeros and computed final cost Z* in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 7: THE HUNGARIAN METHOD
+================================================================================

@@ -1,0 +1,135 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 11: BASIC PERT CONCEPT (3-TIME ESTIMATES, BETA DISTRIBUTION & Z-SCORE PROBABILITY)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION & PHILOSOPHY OF PERT
+--------------------------------------------------------------------------------
+PROGRAM EVALUATION AND REVIEW TECHNIQUE (PERT) was developed in 1958 by the US Navy
+Special Projects Office for the Polaris Missile submarine program.
+
+CORE PHILOSOPHICAL PURPOSE:
+• Unlike CPM (which assumes known deterministic durations for repetitive construction),
+  PERT is designed specifically for NON-REPETITIVE, RESEARCH & DEVELOPMENT (R&D),
+  and highly uncertain engineering projects where task durations cannot be predicted exactly.
+
+--------------------------------------------------------------------------------
+2. THE THREE TIME ESTIMATE MODEL
+--------------------------------------------------------------------------------
+To capture uncertainty, every activity is assigned THREE time estimates:
+
+1. OPTIMISTIC TIME (t_o or a):
+   • The minimum possible duration under ideal, flawless operating conditions
+     (probability of occurrence p <= 1%).
+
+2. MOST LIKELY TIME (t_m or m):
+   • The modal, most probable duration under normal conditions.
+
+3. PESSIMISTIC TIME (t_p or b):
+   • The maximum possible duration under adverse, worst-case disruptions, excluding
+     catastrophes like wars or earthquakes (probability of occurrence p <= 1%).
+
+--------------------------------------------------------------------------------
+3. BETA DISTRIBUTION & STATISTICAL EQUATIONS
+--------------------------------------------------------------------------------
+Activity durations follow a unimodal BETA DISTRIBUTION:
+
+1. EXPECTED ACTIVITY DURATION (t_e / mu):
+       t_e = (t_o + 4*t_m + t_p) / 6
+
+2. ACTIVITY STANDARD DEVIATION (sigma):
+       sigma = (t_p - t_o) / 6
+
+3. ACTIVITY VARIANCE (sigma^2):
+       sigma^2 = [ (t_p - t_o) / 6 ]^2
+
+--------------------------------------------------------------------------------
+4. CENTRAL LIMIT THEOREM (CLT) & PROJECT DELIVERABILITY
+--------------------------------------------------------------------------------
+By the Central Limit Theorem, the sum of multiple independent random activity
+durations along the Critical Path approaches a GAUSSIAN NORMAL DISTRIBUTION:
+
+1. EXPECTED PROJECT DURATION (mu_project):
+       mu_project = sum_{i in Critical Path} t_e(i)
+
+2. PROJECT VARIANCE (sigma^2_project):
+       sigma^2_project = sum_{i in Critical Path} sigma^2(i)
+   (CRITICAL RULE: Variances add linearly; standard deviations DO NOT add!)
+
+3. PROJECT STANDARD DEVIATION (sigma_project):
+       sigma_project = sqrt( sigma^2_project )
+
+4. STANDARD NORMAL Z-SCORE:
+       Z = (T_S - mu_project) / sigma_project
+   where T_S is the Target Scheduled Completion Date.
+
+5. PROBABILITY OF COMPLETING ON OR BEFORE T_S:
+       P(T <= T_S) = Phi(Z)
+   • If T_S = mu_project ➔ Z = 0 ➔ P = 50% (Standard 50-50 odds)
+   • If Z = +1.00 ➔ P = 84.13%
+   • If Z = +2.00 ➔ P = 97.72%
+   • If Z = +3.00 ➔ P = 99.87%
+
+--------------------------------------------------------------------------------
+5. CPM VS. PERT COMPARISON MATRIX
+--------------------------------------------------------------------------------
+Feature               | CPM (Deterministic)           | PERT (Probabilistic)
+--------------------------------------------------------------------------------
+Origin                | DuPont & Univac (1957)        | US Navy Polaris (1958)
+Orientation           | Activity-oriented             | Event-oriented
+Time Estimates        | Single Deterministic Time (d) | Three Time Estimates (t_o, t_m, t_p)
+Underlying Curve      | Fixed Point                   | Beta Distribution (CLT -> Normal)
+Cost Optimization     | Direct Crashing (Cost Slope)  | Risk & Probability Buffers
+Primary Application   | Construction, Plant Shutdowns | R&D, Aerospace, New Tech Launches
+Financial Units       | Indian Rupees (₹)             | Indian Rupees (₹)
+
+--------------------------------------------------------------------------------
+6. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry R&D Alloy Melting Furnace PERT (Debangshu)
+Debangshu in Barrackpore used 3-time estimates to model refractory sintering (a=4, m=7, b=16),
+calculating t_e = 8 days and variance = 4 days^2 across a ₹1.8 Lakh R&D trial.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Emergency Dispatch Probability (Mamata & Mahima)
+Mamata and Mahima calculated mu_proj = 30 days and sigma_proj = 4 days in Kolkata,
+proving a 84.13% probability of completing emergency cold storage before target day T_S = 34.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Automated Sorting Robot PERT Risk (Susmita)
+Susmita computed Z = +1.50 (93.3% probability) for automated robotic conveyor calibration
+in Ichapur, securing a ₹45 Lakh retail grant with zero delivery risk.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Research Grant Delivery Confidence (Abhronila)
+Abhronila presented a certified PERT Z-score report (Z = +2.15, 98.4% confidence) to
+university finance auditors in Jadavpur for a ₹55 Lakh nanotechnology cleanroom.
+
+--------------------------------------------------------------------------------
+7. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never sum standard deviations directly; ALWAYS sum variances along the Critical Path!
+- Remember: at T_S = mu_project, the deliverability probability is exactly 50% (never 100%).
+- Non-critical activities do NOT contribute to project mean duration or variance.
+- State all contingency reserves, R&D budgets, and risk funds in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+8. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Estimated Optimistic (a), Most Likely (m), and Pessimistic (b) times.
+[ ] Computed Expected Activity Duration: t_e = (a + 4m + b) / 6.
+[ ] Computed Activity Standard Deviation: sigma = (b - a) / 6.
+[ ] Computed Activity Variance: sigma^2 = [ (b - a) / 6 ]^2.
+[ ] Summed t_e and variances strictly along the Critical Path.
+[ ] Computed Standard Normal Z-Score: Z = (T_S - mu) / sigma_proj.
+[ ] Determined deliverability probability P(T <= T_S) using normal distribution.
+[ ] Stated project risk reserves and R&D budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 11: BASIC PERT CONCEPT
+================================================================================

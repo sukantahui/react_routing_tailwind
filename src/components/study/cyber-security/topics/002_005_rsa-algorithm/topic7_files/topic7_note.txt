@@ -1,0 +1,144 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_005 : RSA ALGORITHM & PUBLIC KEY INFRASTRUCTURE
+TOPIC 07       : RSA KEY LENGTHS: 1024-BIT, 2048-BIT, AND 4096-BIT SECURITY
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & SECURITY VS PERFORMANCE TRADE-OFF
+--------------------------------------------------------------------------------
+Selecting the appropriate RSA key length requires balancing cryptographic security margins 
+against computational throughput, latency, and energy consumption. As modulus bit length b 
+increases, modular exponentiation complexity scales cubically O(b^3):
+
+  * SECURITY BOUNDARY     : General Number Field Sieve (GNFS) sub-exponential scaling L_N[1/3, c].
+  * PERFORMANCE BOTTLENECK: Doubling key size (2048 -> 4096) slows private signing by ~7.7x.
+
+--------------------------------------------------------------------------------
+2. COMPREHENSIVE RSA KEY LENGTH COMPARISON MATRIX
+--------------------------------------------------------------------------------
+
++-----------+-----------+------------+------------+----------------+----------------+--------------------+
+| KEY SIZE  | MODULUS   | DECIMAL    | EQUIVALENT | GNFS FACTORING | DECRYPT SPEED  | REGULATORY STATUS  |
+| (BITS)    | (BYTES)   | DIGITS     | SYMMETRIC  | COMPLEXITY     | (OPS / SEC)    | (NIST / CCA INDIA) |
++-----------+-----------+------------+------------+----------------+----------------+--------------------+
+| RSA-512   | 64 Bytes  | 155 Digits | ~56 bits   | Factored 1999  | >8,000 ops/sec | BROKEN / OBSOLETE  |
+|           |           |            | (Insecure) | (Hours on AWS) | (0.12 ms)      | (Illegal to use)   |
++-----------+-----------+------------+------------+----------------+----------------+--------------------+
+| RSA-1024  | 128 Bytes | 309 Digits | ~80 bits   | Vulnerable to  | ~3,500 ops/sec | DEPRECATED (2011)  |
+|           |           |            | (Insecure) | ASICs ($1M-$5M)| (0.28 ms)      | (Banned in India)  |
++-----------+-----------+------------+------------+----------------+----------------+--------------------+
+| RSA-2048  | 256 Bytes | 617 Digits | 112 bits   | ~2^112 ops     | ~1,000 ops/sec | CURRENT STANDARD   |
+|           |           |            | (Standard) | (Secure >2030) | (1.10 ms)      | (CCA India Min DSC)|
++-----------+-----------+------------+------------+----------------+----------------+--------------------+
+| RSA-3072  | 384 Bytes | 925 Digits | 128 bits   | ~2^128 ops     | ~350 ops/sec   | HIGH-SECURITY      |
+|           |           |            | (=AES-128) | (Secure >2040) | (2.85 ms)      | (Banking / Gov)    |
++-----------+-----------+------------+------------+----------------+----------------+--------------------+
+| RSA-4096  | 512 Bytes | 1234 Digits| ~140 bits  | ~2^140 ops     | ~130 ops/sec   | ROOT CA / VAULTS   |
+|           |           |            | (Military) | (Military Max) | (8.50 ms)      | (30-Year Lifespan) |
++-----------+-----------+------------+------------+----------------+----------------+--------------------+
+| RSA-8192  | 1024 Bytes| 2466 Digits| ~160 bits  | Infeasible     | ~15 ops/sec    | IMPRACTICAL        |
+|           |           |            | (Archive)  | (Classical)    | (65.4 ms)      | (Use PQC Instead)  |
++-----------+-----------+------------+------------+----------------+----------------+--------------------+
+
+--------------------------------------------------------------------------------
+3. ASYMMETRIC VS SYMMETRIC VS ECC SECURITY EQUIVALENCE
+--------------------------------------------------------------------------------
+
+Under NIST SP 800-57 Part 1 Rev 5:
+  * 80-bit Security  : RSA-1024  ==  ECC-160   ==  2-Key Triple DES (DEPRECATED)
+  * 112-bit Security : RSA-2048  ==  ECC-224   ==  3-Key Triple DES (Standard)
+  * 128-bit Security : RSA-3072  ==  ECC-256   ==  AES-128 (High Security)
+  * 192-bit Security : RSA-7680  ==  ECC-384   ==  AES-192 (Top Secret)
+  * 256-bit Security : RSA-15360 ==  ECC-521   ==  AES-256 (Quantum Era Goal)
+
+* WHY RSA KEYS GROW EXPONENTIALLY FASTER THAN ECC:
+  - RSA factoring (GNFS) has sub-exponential complexity L_N[1/3, c].
+  - ECC discrete log attacks (Pollard's Rho) are fully exponential O(sqrt(p)).
+  - Therefore, a tiny 256-bit ECC key matches a massive 3072-bit RSA key!
+
+--------------------------------------------------------------------------------
+4. NETWORK & HARDWARE CONSTRAINTS
+--------------------------------------------------------------------------------
+
+  * TLS CERTIFICATE CHAIN FRAGMENTATION:
+    - Standard Ethernet TCP Maximum Segment Size (MSS) is 1460 bytes.
+    - RSA-2048 Certificate Chain: ~1.8 KB (Requires 2 TCP packets).
+    - RSA-4096 Certificate Chain: ~3.6 KB (Requires 3-4 TCP packets, causing packet-loss latency).
+    - Ed25519 Certificate Chain:  ~0.6 KB (Fits in a single sub-millisecond IP packet!).
+
+  * IOT BATTERY CONSUMPTION:
+    - On an ARM Cortex-M4 @ 80 MHz, RSA-4096 takes 1.25 seconds and consumes 165 mJ per signature, 
+      reducing battery lifespan from 5 years to 6 months.
+
+--------------------------------------------------------------------------------
+5. INDIAN STATUTORY COMPLIANCE & CCA GUIDELINES
+--------------------------------------------------------------------------------
+
+* CCA INDIA CLASS 3 DSC GUIDELINES (IT ACT 2000 SECTION 35):
+  - All Digital Signature Certificates used in Indian e-tendering, MCA21 corporate filings, and 
+    tax portals must use at least RSA-2048 with SHA-256. RSA-1024 is strictly illegal.
+
+* DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023:
+  - Fiduciaries must decommission deprecated key lengths; retaining RSA-1024 exposes organizations 
+    to statutory penalties up to ₹250 Crores under Section 33.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : PAYMENT SWITCH RSA-1024 DECOMMISSIONING (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Legacy payment nodes were running deprecated RSA-1024 keys, risking regulatory shutdown by RBI.
+  * Action : Orchestrated an automated zero-downtime migration of 1,200 payment switch endpoints to RSA-2048 
+    with hardware crypto acceleration, maintaining sub-millisecond latency and 100% RBI compliance.
+
+SCENARIO 2 : 25-YEAR GENOMIC ARCHIVE KEY SELECTION (ICHAPUR HOSPITAL)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Choosing key lengths for long-term 25-year archiving of 100,000+ patient DNA sequences under ABDM.
+  * Action : Implemented RSA-4096 master encryption for long-term cold vaults and ECC P-256 for real-time 
+    PACS image viewing, securing ₹250 Crores in statutory compliance margins under the DPDP Act 2023.
+
+SCENARIO 3 : SUBSTATION RTU MICROCONTROLLER KEY OPTIMIZATION (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : 80MHz RTU microcontrollers were choking on RSA-4096 keys during high-voltage breaker tripping.
+  * Action : Optimized RTU firmware to use RSA-2048 with hardware CRT acceleration, cutting verification latency 
+    to 0.8ms and ensuring 100.00% grid stability across 18 substations.
+
+SCENARIO 4 : OPENSSL MULTI-KEY BENCHMARKING LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Students needed empirical performance benchmarks comparing 1024, 2048, 3072, and 4096-bit RSA keys.
+  * Action : Authored automated OpenSSL 3.0 benchmarking scripts across x86 and ARM64 servers, training 140+ 
+    students on big-number arithmetic scaling and post-quantum hybrid migrations.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL KEY MANAGEMENT HABITS:
+  1. Enforce RSA-2048 as Universal Minimum: Strictly reject any client or certificate using RSA-1024.
+  2. Reserve RSA-4096 for Root CAs: Use 4096-bit keys for offline root vaults with 20-30 year lifespans.
+  3. Pre-Calculate TLS Handshake Budgets: Factor in TCP MSS packet fragmentation for high-traffic servers.
+  4. Prepare for Post-Quantum Migration: Do not inflate RSA to 8192 bits; deploy FIPS 203 ML-KEM instead.
+
+* COMMON BEGINNER KEY MANAGEMENT PITFALLS:
+  - Assuming RSA-2048 provides 2048 bits of security (It provides only 112 bits of symmetric security!).
+  - Using RSA-4096 on battery-powered IoT microcontrollers (Drains battery in months).
+  - Deploying RSA-1024 in production (Vulnerable to $1M ASIC factoring clusters).
+  - Believing RSA-8192 provides quantum resistance (Broken by Shor's algorithm in polynomial time).
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] RSA-1024 provides 80-bit security (Deprecated by NIST and illegal in India).
+[ ] RSA-2048 provides 112-bit security (Universal standard through 2030).
+[ ] RSA-3072 provides 128-bit security (Equivalent to AES-128).
+[ ] RSA-4096 provides 140-bit security (Reserved for Root CAs and 30-year archives).
+[ ] Private key signing scales cubically O(b^3); RSA-4096 is ~7.7x slower than RSA-2048.
+[ ] Public key verification (e = 65537) takes only 17 operations across all key sizes.
+[ ] CCA India mandates RSA-2048 minimum for all Class 3 DSCs under IT Act Section 35.
+[ ] DPDP Act Section 33 penalizes failure to maintain technical security with fines up to ₹250 Crores.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 07 (CYBER SECURITY BCAC703 - MODULE 002_005)
+================================================================================

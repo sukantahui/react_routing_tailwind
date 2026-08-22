@@ -1,0 +1,87 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 37: EXTRANET (B2B INTEGRATION, IPSEC TUNNELS, MTLS, SAML & ZTNA)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & THE 3-TIER NETWORK SPECTRUM
+--------------------------------------------------------------------------------
+An Extranet is a controlled, private extension of an enterprise Intranet that securely
+connects authorized external entities (business partners, suppliers, vendors, distributors,
+and institutional customers) over the public Internet or dedicated carrier leased lines.
+
+The 3-Tier Network Hierarchy:
+1. Public Internet: Open, globally accessible, untrusted security zone.
+2. Extranet: Semi-private, role-based access control (RBAC), multi-tenant B2B collaborations.
+3. Private Intranet: Closed, confidential, accessible strictly to internal company staff.
+
+--------------------------------------------------------------------------------
+2. B2B EXTRANET INTERCONNECTION TECHNOLOGIES
+--------------------------------------------------------------------------------
+• Site-to-Site IPsec VPN: Encrypted Layer-3 tunnels (IKEv2 / AES-256 GCM) connecting partner
+  data center firewalls directly for automated ERP database synchronization.
+• B2B Web Portals: Authenticated HTTPS portals with SAML 2.0 / OIDC federated Single Sign-On (SSO).
+• Mutual TLS (mTLS) API Gateways: High-security B2B API integrations requiring bidirectional
+  X.509 client and server digital certificate verification.
+• Dedicated Cloud Interconnects: Direct physical optical links (AWS Direct Connect / ExpressRoute)
+  bypassing public Internet congestion for ultra-low latency and predictable SLAs.
+
+--------------------------------------------------------------------------------
+3. EXTENDED SUPPLY CHAIN CYBER THREATS & ZTNA DEFENSE
+--------------------------------------------------------------------------------
+• Supply Chain Breaches: Attackers compromise third-party vendors to pivot into corporate intranets.
+• Legacy VPN Risk: Traditional Layer-3 VPNs grant vendors broad access to internal subnets.
+• Zero Trust Network Access (ZTNA) Solution: Grants vendors micro-scoped access ONLY to specific
+  authorized applications with continuous identity and endpoint posture verification.
+• Overlapping IP Conflicts: Solved using Twice NAT (1-to-1 Bidirectional NAT) on gateway firewalls.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supplier IPsec VPN & Twice NAT (Debangshu - Barrackpore)
+Debangshu established an IKEv2 IPsec site-to-site VPN for auto-replenishment with a major raw
+pig-iron supplier for ₹48,000. Resolving overlapping 192.168.1.0/24 IP subnets using Twice NAT
+enabled automated nightly ERP inventory synchronization between Barrackpore and Durgapur.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic B2B Diagnostic Portal with mTLS (Mahima - Ichapur)
+Mahima implemented Mutual TLS (mTLS) and SAML federated login on diagnostic extranet portals
+in Ichapur for ₹85,000. Contracted pathology labs securely transmit blood analysis JSON records
+with client certificate verification, preventing medical record tampering.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Research Consortium ZTNA Extranet (Mamata - Kolkata)
+Mamata deployed Zero Trust Network Access (ZTNA) for external visiting researchers in Kolkata
+for ₹1,15,000. Visiting professors access specific supercomputer simulation clusters without
+gaining visibility or access to the internal campus administrative and payroll subnets.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Supply-Chain Penetration Audit (Abhronila - Jadavpur)
+Abhronila conducted penetration testing on third-party vendor extranet portals in Jadavpur
+for ₹65,000. Discovering an unsegmented contractor portal, she enforced strict Extranet DMZ
+isolation and API rate limiting, blocking potential lateral movement into core laboratory databases.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never grant third-party vendors full Layer-3 subnet access over legacy VPNs; use ZTNA.
+- Mandate Mutual TLS (mTLS) for all mission-critical B2B automated API integrations.
+- Enforce automated offboarding workflows to revoke vendor certificates immediately upon contract end.
+- Budget enterprise B2B Extranet Gateways and SSL VPN appliances in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped the 3-tier network spectrum: Internet vs Extranet vs Intranet.
+[ ] Analyzed Site-to-Site IPsec VPN tunnels (IKEv2 / AES-256 GCM) and Twice NAT.
+[ ] Evaluated Mutual TLS (mTLS) client certificate verification for B2B APIs.
+[ ] Implemented SAML 2.0 and OIDC federated Single Sign-On (SSO) for partner portals.
+[ ] Defended against Supply Chain pivot attacks using Zero Trust Network Access (ZTNA).
+[ ] Formulated realistic enterprise Extranet Gateway budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 37: EXTRANET
+================================================================================

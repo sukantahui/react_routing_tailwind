@@ -1,0 +1,107 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 4: NETWORK OR ARROW DIAGRAM (CONSTRUCTION RULES, TOPOLOGY & ERROR DIAGNOSIS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION OF A NETWORK (ARROW) DIAGRAM
+--------------------------------------------------------------------------------
+A NETWORK DIAGRAM (or Arrow Diagram) is a directed topological graph G = (V, E)
+consisting of:
+1. NODES (Vertices V): Representing milestone events.
+2. ARROWS (Directed Edges E): Representing activities with specific durations d_ij.
+
+It serves as the master visual and mathematical blueprint for scheduling, tracking,
+and optimizing project duration and financial expenditure in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+2. THE 6 GOLDEN RULES OF NETWORK DIAGRAM CONSTRUCTION
+--------------------------------------------------------------------------------
+
+RULE 1: SINGLE INITIAL AND TERMINAL SINK EVENT
+• A network must have EXACTLY ONE start event (Indegree = 0) and EXACTLY ONE
+  terminal completion event (Outdegree = 0).
+• Multiple disconnected start or finish nodes are strictly prohibited.
+
+RULE 2: STRICT TIME PROGRESSION (LEFT-TO-RIGHT FLOW)
+• Arrow flow must progress from left to right representing chronological time.
+• Backward-pointing arrows are prohibited.
+
+RULE 3: NO DANGLING (NO DEAD-END NODES)
+• No activity can end in an isolated or disconnected node that fails to lead to the
+  terminal sink event.
+
+RULE 4: NO LOOPING / CYCLING
+• No closed circular path can loop back to a previously visited ancestor node
+  (e.g., Node 2 ➔ Node 3 ➔ Node 4 ➔ Node 2 is a fatal error!).
+• The graph must be strictly a Directed Acyclic Graph (DAG).
+
+RULE 5: UNIQUE NODE-PAIR IDENTIFICATION (AOA NETWORKS)
+• No two activities can share the exact same starting tail node and ending head node.
+• If two activities A and B are concurrent between events 1 and 2, insert a dummy
+  node and dashed dummy arrow (d = 0, ₹0) to preserve unique (i, j) notation.
+
+RULE 6: CROSSING MINIMIZATION & CLEAN TOPOLOGY
+• Arrange nodes to minimize intersecting arrows; where crossovers are unavoidable,
+  use a clear bridge arc.
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP NETWORK CONSTRUCTION PROCEDURE
+--------------------------------------------------------------------------------
+Given a Precedence Table of Activities:
+1. Step 1: Identify all activities with NO predecessors (these originate from Node 1).
+2. Step 2: Draw arrows for immediate successors, introducing nodes as milestones.
+3. Step 3: Check for parallel tasks and insert dummy activities to maintain unique node pairs.
+4. Step 4: Check for complex dependency grammars (e.g. C depends on A & B, D depends on B only)
+   and insert directional dummy arrows accordingly.
+5. Step 5: Merge all dangling terminal paths into a SINGLE final sink event Node n.
+6. Step 6: Apply Fulkerson's rule to number all nodes such that i < j strictly holds for all arcs.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Furnace Rebuild Network (Debangshu)
+Debangshu mapped 14 activities in Barrackpore, resolving a parallel cooling fan task
+via a zero-cost dummy arrow and eliminating a dangling test node to lock in a 28-day schedule.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Dispatch Network Construction (Mamata & Mahima)
+Mamata and Mahima synthesized a 9-node network in Kolkata for deep-freeze storage
+units, ensuring civil, electrical, and generator lines converged into a single terminal sink.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Conveyor Precedence Disambiguation (Susmita)
+Susmita resolved a complex precedence dependency in Ichapur: task C depended on A and B,
+while task D depended only on B, correctly placing a dummy arrow from B's end node to C's start node.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Grant Network Audit (Abhronila)
+Abhronila audited an 8-activity robotics lab installation in Jadavpur, verifying that
+all nodes satisfied Fulkerson's i < j numbering rule across a ₹55 Lakh project budget.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never create multiple start nodes or multiple terminal sink nodes.
+- Beware of dangling activities: connect all completed branches to the final sink node.
+- Check for redundant dummy activities and remove them to keep the diagram clean.
+- State all project budgets, direct costs, and crash rates in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 6 golden rules of network construction.
+[ ] Diagnosed and corrected Dangling errors (isolated nodes).
+[ ] Diagnosed and corrected Looping/Cycling errors (closed circular loops).
+[ ] Handled parallel concurrent tasks using dummy activities in AOA diagrams.
+[ ] Enforced Fulkerson's node numbering algorithm (i < j).
+[ ] Verified single start event (Indegree = 0) and single sink event (Outdegree = 0).
+[ ] Stated project financial metrics in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 4: NETWORK OR ARROW DIAGRAM
+================================================================================

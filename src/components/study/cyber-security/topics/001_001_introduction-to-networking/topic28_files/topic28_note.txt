@@ -1,0 +1,99 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 28: MAC ADDRESS (ANATOMY, OUI, CAM TABLES, SECURITY & SPOOFING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & LAYER 2 HARDWARE IDENTIFICATION
+--------------------------------------------------------------------------------
+A Media Access Control (MAC) Address—also known as a Physical Address, Hardware
+Address, or Burned-In Address (BIA)—is a globally unique 48-bit (6-byte) permanent
+identifier etched into the non-volatile EEPROM/ROM of every Network Interface Card
+(NIC) by the hardware manufacturer.
+
+Key Operational Principles:
+• Layer 2 Flat Addressing: Operates strictly at OSI Layer 2 (Data Link Layer),
+  delivering Ethernet frames locally within the same broadcast domain/VLAN.
+• Non-Hierarchical: Unlike IP addresses, MAC addresses do not specify network locations;
+  they identify physical hardware endpoints.
+• Hop-by-Hop Rewriting: While source/destination IP addresses remain constant end-to-end,
+  MAC addresses are stripped and rewritten at every intermediate router hop.
+
+--------------------------------------------------------------------------------
+2. ANATOMY & 48-BIT STRUCTURE OF A MAC ADDRESS
+--------------------------------------------------------------------------------
+A 48-bit MAC address consists of 12 hexadecimal characters (e.g., 00:1A:2B:3C:4D:5E).
+
+1. First 24 Bits (3 Octets) - Organizationally Unique Identifier (OUI):
+   - Assigned by the IEEE Registration Authority to hardware vendors.
+   - Examples: Cisco (00:00:0C), Intel (00:1A:2B), Apple (00:03:93), VMware (00:50:56).
+
+2. Last 24 Bits (3 Octets) - Vendor-Assigned Device Serial:
+   - Unique device serial number assigned by the manufacturer to that specific NIC.
+
+3. First Octet Bit Flags:
+   - Bit 0 (I/G Bit): 0 = Unicast (Individual Node), 1 = Multicast / Broadcast (Group).
+   - Bit 1 (U/L Bit): 0 = Globally Unique (IEEE OUI), 1 = Locally Administered (LAA/Randomized).
+
+--------------------------------------------------------------------------------
+3. SWITCH CAM TABLE & FRAME FORWARDING LOGIC
+--------------------------------------------------------------------------------
+Switches maintain a Content Addressable Memory (CAM) table mapping MAC addresses to
+physical switch ports:
+1. Learning: Switch inspects the Source MAC of incoming frames and records [MAC -> Ingress Port].
+2. Forwarding: If the Destination MAC exists in the CAM table, the frame is forwarded
+   directly to the learned port.
+3. Unknown Unicast Flooding: If the Destination MAC is unlearned, the frame is flooded
+   to all active ports on the VLAN (except the ingress port) until a reply is received.
+4. Aging Timer: Inactive entries are purged after 300 seconds (5 minutes).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Switch Port Security Lockdown (Debangshu - Barrackpore)
+Debangshu configured `switchport port-security maximum 1` and `mac-address sticky` across
+48 managed switch ports in Barrackpore for ₹42,000. When an unauthorized laptop was attached,
+the port immediately shut down, preventing rogue device access to factory telemetry.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Medical Cart Dynamic MAC VLANs (Mahima - Ichapur)
+Mahima configured 802.1X MAC Authentication Bypass (MAB) on diagnostic carts in Ichapur.
+The RADIUS server identifies medical device MAC OUIs, automatically assigning them to an
+isolated HIPAA-compliant VLAN without manual configuration.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Campus Public Wi-Fi MAC Randomization (Mamata - Kolkata)
+Mamata configured the campus captive portal in Kolkata to support iOS/Android private
+MAC randomization. The system authenticates students via 802.1X user credentials rather
+than hardware MACs, protecting student privacy across university grounds.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: High-Tech Cyber Lab MAC Flooding & DAI Defense (Abhronila - Jadavpur)
+Abhronila simulated a MAC flooding attack (100,000 fake MACs) in Jadavpur using `macof`.
+Managed core switches equipped with Dynamic ARP Inspection (DAI) and Port Security
+blocked the overflow in 12ms, preventing CAM exhaustion and packet sniffing.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never rely on Wi-Fi MAC filtering alone for security; wireless MACs are easily sniffed and spoofed.
+- Enable Switch Port Security (`maximum 1` / `violation shutdown`) to stop MAC flooding attacks.
+- Recognize that MAC addresses change at every router hop; only IP addresses remain constant end-to-end.
+- State all managed switch hardware and 802.1X licensing budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Decomposed a 48-bit MAC address into 24-bit OUI and 24-bit Device Serial.
+[ ] Explained the I/G (Unicast/Multicast) and U/L (Global/Local) bit flags in Octet 1.
+[ ] Mastered switch CAM table learning, forwarding, and unknown unicast flooding.
+[ ] Differentiated between Physical BIA in ROM and Spoofed/Randomized MAC in RAM.
+[ ] Understood MAC Flooding attacks, Switch Port Security, and Dynamic ARP Inspection.
+[ ] Formulated managed switch and enterprise security budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 28: MAC ADDRESS
+================================================================================

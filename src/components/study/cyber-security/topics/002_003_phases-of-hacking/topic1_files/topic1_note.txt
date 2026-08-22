@@ -1,0 +1,138 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_003 : PHASES OF HACKING METHODOLOGY
+TOPIC 01       : PHASE 1: RECONNAISSANCE (PASSIVE VS ACTIVE FOOTPRINTING)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & PHASE 1 OBJECTIVES
+--------------------------------------------------------------------------------
+Reconnaissance (Footprinting) is the initial, foundational phase of any cyber intrusion 
+or penetration test. Its primary objective is to systematically map the target's attack 
+surface—cataloging IP blocks, domain hierarchies, employees, technological software stacks, 
+and cloud assets—before sending a single intrusive exploit packet.
+
+In ethical methodology, 70% to 80% of total assessment time is dedicated to Reconnaissance. 
+Thorough footprinting eliminates guesswork and reveals surgical attack vectors.
+
+--------------------------------------------------------------------------------
+2. PASSIVE VS ACTIVE FOOTPRINTING MATRIX
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| ATTRIBUTE          | PASSIVE FOOTPRINTING    | ACTIVE FOOTPRINTING| DEFENSIVE COUNTERMEASURE                       |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Network Traffic    | ZERO packets sent to    | Direct probe       | - Deploy Web Application Firewall (WAF)        |
+|                    | target infrastructure   | packets to target  | - Next-Gen Firewall port scan drop rules       |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Detection Risk     | 0% (Undetectable by SOC)| HIGH (Logged by    | - Intrusion Detection Systems (IDS/IPS)        |
+|                    |                         | firewalls and SIEM)| - Automated IP reputation ban (fail2ban)       |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Primary Toolset    | - crt.sh (Cert Logs)    | - dig AXFR (DNS)   | - Restrict DNS zone transfers to trusted IPs   |
+|                    | - Shodan / Censys       | - tcptraceroute    | - Suppress server header banners               |
+|                    | - Google Dorks          | - nc / curl -I     | - Remove verbose error messages                |
+|                    | - theHarvester / WHOIS  | - gobuster dns     | - Enforce strict domain WHOIS privacy          |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Indian Legal Status| LAWFUL Public Research  | UNAUTHORIZED       | IT Act 2000 Section 43/66 enforces criminal    |
+| (IT Act 2000)      |                         | without signed RoE | liability for active unauthorized probing      |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. PASSIVE RECONNAISSANCE TECHNIQUES & GOOGLE DORKS
+--------------------------------------------------------------------------------
+
+[1. CERTIFICATE TRANSPARENCY LOGS (crt.sh)]
+  * Public, append-only cryptographic ledgers of all SSL/TLS certificates issued.
+  * Query: `https://crt.sh/?q=%.kolkata-fintech.co.in&output=json`
+  * Value: Uncovers hidden staging subdomains (e.g., `dev-payment.kolkata-fintech.co.in`).
+
+[2. ICONIC GOOGLE DORK OPERATORS]
+  * `site:target.com filetype:env`                   --> Discovers exposed API secrets & DB passwords.
+  * `site:target.com inurl:wp-config.php.bak`        --> Discovers database configuration backups.
+  * `site:target.com intitle:"Index of" ".git"`      --> Discovers exposed Git source code repositories.
+  * `site:target.com inurl:admin login`              --> Locates administrative management panels.
+
+[3. METADATA & DOCUMENT HARVESTING (ExifTool / FOCA)]
+  * Inspects public PDFs, DOCX, and images published on the company website.
+  * Extracts: Internal Windows usernames, software versions, file paths, and GPS coordinates.
+
+[4. SHODAN & CENSYS DEVICE SEARCH]
+  * Continuous IPv4 port scanner recording service banners.
+  * Query: `net:203.0.113.0/24 "Apache/2.4.49"` or `port:502 "Schneider Electric"` (SCADA).
+
+--------------------------------------------------------------------------------
+4. ACTIVE RECONNAISSANCE TECHNIQUES
+--------------------------------------------------------------------------------
+
+[1. DNS ZONE TRANSFER (AXFR)]
+  * Designed to synchronize master and slave DNS nameservers over TCP port 53.
+  * Command: `dig @ns1.target.com target.com AXFR`
+  * Impact: If misconfigured, dumps the entire internal and external DNS database instantly.
+
+[2. SERVICE BANNER GRABBING]
+  * Connecting to open ports to read software version identification strings.
+  * Command: `curl -I https://target.com` or `nc -nv 203.0.113.50 21`
+  * Impact: Returns `Server: Apache/2.4.49`, allowing testers to match CVE zero-day exploits.
+
+[3. TCP TRACEROUTE (FIREWALL BOUNDARY MAPPING)]
+  * Command: `tcptraceroute -n target.com 443`
+  * Impact: Bypasses ICMP blocking to map intermediate router hops and perimeter firewalls.
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : CERTIFICATE TRANSPARENCY SUBDOMAIN DISCOVERY (KOLKATA FINTECH)
+  * Lead Security Auditor : Mamata | Budget : ₹8,50,000 | Location : Kolkata
+  * Dilemma : Identifying unmonitored shadow IT subdomains across a regional core banking infrastructure.
+  * Action : Queried `crt.sh` certificate logs passively, discovering an unpatched test portal 
+    (`dev-staging-payment.kolkata-fintech.co.in`) with an outdated PHP 7.4 runtime, enabling remediation.
+
+SCENARIO 2 : SPEAR-PHISHING EMAIL HARVESTING AUDIT (ICHAPUR HOSPITAL)
+  * Chief Healthcare Information Officer : Mahima | Budget : ₹4,50,000 | Location : Ichapur
+  * Dilemma : Evaluating hospital staff exposure to targeted spear-phishing and credential harvesting.
+  * Action : Ran `theHarvester` and `Hunter.io` to harvest 45 doctor and nurse email addresses, 
+    conducting an authorized security awareness drill and enforcing FIDO2 hardware passkeys.
+
+SCENARIO 3 : SHODAN SCADA RECONNAISSANCE DEFENSE (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹7,80,000 | Location : Barrackpore
+  * Dilemma : Verifying whether any 220kV substation SCADA RTUs or Modbus ports were exposed to the internet.
+  * Action : Executed passive Shodan and Censys queries for grid netblocks, finding an exposed contractor 
+    diagnostic router and immediately isolating it behind an air-gapped optical data diode.
+
+SCENARIO 4 : ACTIVE DNS ZONE TRANSFER SIMULATION LAB (JADAVPUR UNIVERSITY)
+  * Research Leads : Abhronila & Susmita | Budget : ₹3,50,000 | Location : Jadavpur
+  * Dilemma : Demonstrating DNS zone transfer information leakage and hardening BIND nameservers.
+  * Action : Built a student lab demonstrating `dig AXFR` exploitation on misconfigured nameservers 
+    and authored `named.conf` configuration rules to enforce strict `allow-transfer` access controls.
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL RECONNAISSANCE HABITS:
+  1. Never Touch Target Servers Without a Signed RoE: Use passive OSINT first.
+  2. Query Public Certificate Logs: `crt.sh` finds 90%+ of forgotten staging subdomains.
+  3. Strip Document Metadata: Run ExifTool on public PDFs before publishing them to the web.
+
+* COMMON BEGINNER RECON MISTAKES:
+  - Launching aggressive Nmap port scans against targets before signing an RoE contract.
+  - Forgetting to check historical web caches (Wayback Machine) for deprecated API keys.
+  - Relying on a single DNS query rather than brute-forcing subdomains with wordlists.
+  - Ignoring job postings on LinkedIn (which often reveal exact internal database versions).
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Passive Recon sends 0 packets to target; Active Recon directly probes target systems.
+[ ] Certificate Transparency logs (crt.sh) passively reveal all historical subdomains.
+[ ] Google Dorks use operators (`site:`, `inurl:`, `filetype:`, `intitle:`) to find leaks.
+[ ] DNS Zone Transfer (AXFR) copies the entire DNS database if misconfigured.
+[ ] Shodan indexes internet-connected hardware devices and raw service banners.
+[ ] theHarvester automates email and employee harvesting across search engines.
+[ ] IT Act 2000 Section 66 criminalizes active probing without explicit written authorization.
+[ ] The final output of Phase 1 is a validated Target Attack Surface Profile.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 01 (CYBER SECURITY BCAC703)
+================================================================================

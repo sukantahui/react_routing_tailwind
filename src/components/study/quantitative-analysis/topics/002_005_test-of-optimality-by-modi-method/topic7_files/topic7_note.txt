@@ -1,0 +1,134 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 7: PLUS-MINUS ALLOCATION PATTERN (SIGN ALTERNATION & THETA-PIVOTING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE RIGOROUS SIGN ASSIGNMENT PROTOCOL
+--------------------------------------------------------------------------------
+Once the entering cell has been identified and its unique closed stepping-stone loop
+has been traced, flow redistribution is executed via the PLUS-MINUS ALLOCATION PATTERN:
+
+RULE 1: ENTERING CELL GETS PLUS (+θ)
+The entering non-basic cell is currently empty (x_enter = 0). To bring this route
+into the basis with positive cargo volume, it is ALWAYS assigned the (+θ) sign:
+    x_enter_new = 0 + θ = +θ
+
+RULE 2: STRICT ALTERNATING PERIMETER SIGNS
+Moving consecutively around the vertices (corners) of the closed loop:
+    Sequence: [ (+θ), (-θ), (+θ), (-θ), (+θ), (-θ)... ]
+Consecutive corners MUST alternate signs. Having two adjacent pluses or minuses is
+strictly prohibited.
+
+RULE 3: CONSERVATION OF FLOW (+θ - θ = 0)
+Because every row and column involved in the loop contains exactly one (+θ) vertex
+and exactly one (-θ) vertex:
+    Net Change in Row Supply:     +θ - θ = 0  --> Supply S_i perfectly conserved!
+    Net Change in Column Demand:  +θ - θ = 0  --> Demand D_j perfectly conserved!
+
+--------------------------------------------------------------------------------
+2. DETERMINING THE MAXIMUM TRANSFER QUANTITY THETA (θ)
+--------------------------------------------------------------------------------
+To prevent any cell allocation from becoming negative (violating physical non-negativity
+x_ij >= 0), the maximum allowable transfer volume θ is strictly bounded by:
+
+    θ = min { x_ij | (i, j) is a MINUS (-) corner vertex of the loop }
+
+WHY θ CANNOT BE CHOSEN FROM PLUS (+) CORNERS:
+Plus corners increase their tonnage (x_plus + θ). Adding a positive number to an
+already non-negative quantity always remains non-negative and never risks infeasibility.
+Only minus corners decrease (x_minus - θ) and must be protected from dropping below zero.
+
+THE LEAVING VARIABLE (DROPPING CELL):
+The minus corner cell that achieves x_ij - θ = 0 drops to an allocation of zero and
+LEAVES the basis (becomes an empty non-basic cell).
+
+TIE-BREAKING WHEN MULTIPLE MINUS CORNERS REACH ZERO:
+If two or more minus corners share the same minimum value (e.g. both have x = 40):
+• BOTH cells will have their allocations reduced to 0.
+• BUT EXACTLY ONE cell is dropped from the basis.
+• The other tied cell(s) REMAINS in the basis with an allocation of 0 (degenerate basic cell).
+• This preserves the essential basis invariant: Exactly m + n - 1 basic variables!
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP NUMERICAL WORKED EXAMPLE
+--------------------------------------------------------------------------------
+Consider the 3x3 Foundry Problem with Entering Cell (2, 1) [d_21 = -₹8]:
+Loop Corners and Initial Allocations:
+  • Corner 1: Cell (2, 1) [Enter]  --> Sign: (+θ), Initial alloc = 0
+  • Corner 2: Cell (1, 1) [Basic]  --> Sign: (-θ), Initial alloc = 60
+  • Corner 3: Cell (1, 2) [Basic]  --> Sign: (+θ), Initial alloc = 10
+  • Corner 4: Cell (2, 2) [Basic]  --> Sign: (-θ), Initial alloc = 70
+
+CALCULATING THETA (θ):
+Minus corners are at Cell (1, 1) [alloc = 60] and Cell (2, 2) [alloc = 70].
+    θ = min(60, 70) = 60 tons.
+
+EXECUTING FLOW UPDATES:
+1. Cell (2, 1) [Enter]:  0 + 60 = 60 tons  (Enters Basis ⭐)
+2. Cell (1, 1) [Minus]: 60 - 60 = 0 tons   (Leaves Basis; becomes Non-Basic)
+3. Cell (1, 2) [Plus]:  10 + 60 = 70 tons  (Remains Basic)
+4. Cell (2, 2) [Minus]: 70 - 60 = 10 tons  (Remains Basic)
+
+Non-Loop Basic Cells:
+• Cell (2, 3) = 20 tons (Unchanged)
+• Cell (3, 3) = 60 tons (Unchanged)
+
+NEW TOTAL TRANSPORTATION COST AUDIT:
+Z_new = (60 × 8) + (70 × 14) + (60 × 5) + (10 × 19) + (20 × 10) + (60 × 7)
+      = 480 + 980 + 300 + 190 + 200 + 420
+      = ₹2,260.
+
+THEORETICAL SAVINGS FORMULA CHECK:
+    Z_new = Z_old - (θ × |d_enter|)
+          = 2,740 - (60 × 8) = 2,740 - 480 = ₹2,260  (Exact Match!).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Plus-Minus Pivot (Debangshu)
+Debangshu in Barrackpore executed θ = 60 flow shift.
+Transferred 60 tons from expensive route (1, 1) [@ ₹8] into route (2, 1) [@ ₹5],
+dropping the factory freight bill by ₹480 in a single step.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Multi-Corner Theta Shift (Mamata & Mahima)
+Mamata and Mahima in Kolkata pivoted θ = 20 vaccine cartons across a 6-corner loop.
+All hospital receipts remained 100% satisfied while emergency logistics spend dropped by ₹60.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Degeneracy Tie-Break (Susmita)
+Susmita in Ichapur had two minus corners tied at 30 tons. Dropped Cell (1, 2) to empty,
+and retained Cell (2, 3) as a basic variable with allocation 0, preserving m+n-1=5 basic cells.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Contract Verification (Abhronila)
+Abhronila in Jadavpur audited row and column sums after plus-minus reallocation.
+Confirmed 100% supply and demand conservation across all Kolkata schools.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never pick θ from plus corners; θ is strictly the minimum among MINUS corners!
+- The entering cell ALWAYS gets (+θ); never start with (-θ).
+- If two minus corners tie at zero, drop only ONE cell from the basis.
+- Always audit row sums, column sums, and total cost Z after the pivot.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Assigned (+θ) to the entering cell.
+[ ] Alternated (+, -, +, -) around the closed loop perimeter.
+[ ] Calculated θ = min(allocations at minus corners).
+[ ] Added θ to plus corners and subtracted θ from minus corners.
+[ ] Left non-loop basic cells completely unchanged.
+[ ] Verified that exactly one cell leaves the basis (maintaining m + n - 1 count).
+[ ] Verified row sums == S_i and column sums == D_j.
+[ ] Verified cost reduction: Delta Z = θ × d_enter.
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 7: PLUS-MINUS ALLOCATION PATTERN
+================================================================================

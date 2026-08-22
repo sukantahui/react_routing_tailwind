@@ -1,0 +1,96 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 25: NETWORK INTERFACE CARD - NIC (ARCHITECTURE, MAC, MODES & HARDWARE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & CORE ROLE OF A NIC
+--------------------------------------------------------------------------------
+A Network Interface Card (NIC)—also known as a Network Adapter, LAN Card, or
+Physical Interface—is a critical hardware component (expansion PCIe card, onboard chip,
+or USB dongle) that connects a computing device to network transmission media.
+
+Dual-Layer Operation:
+• OSI Layer 1 (Physical Layer): Transceives physical signals (electrical voltages,
+  optical laser pulses, or radio waves) via PHY transceiver chips.
+• OSI Layer 2 (Data Link Layer): Formats parallel computer data into Ethernet frames,
+  attaches 48-bit MAC addresses, calculates CRC32 error checksums, and manages media access.
+
+--------------------------------------------------------------------------------
+2. ANATOMY OF A MODERN NETWORK INTERFACE CARD
+--------------------------------------------------------------------------------
+1. MAC Address EEPROM: Non-volatile memory storing the 48-bit burned-in MAC address:
+   - First 24 bits: Organizationally Unique Identifier (OUI - Manufacturer ID).
+   - Last 24 bits: Vendor-assigned unique device serial identifier.
+2. MAC Controller ASIC: Directs frame construction, DMA transfers, and queue buffering.
+3. PHY Transceiver Chip: Translates digital bit streams into physical medium waveforms.
+4. Direct Memory Access (DMA) Engine: Transfers packets directly to host RAM.
+5. Bus Interface: Connects to PCIe slots (x1, x4, x8) or motherboard bus.
+6. Connector Port: RJ-45 copper jack, SFP/SFP+ optical fiber cages, or Wi-Fi antennas.
+7. Status LEDs: Solid green/amber indicates physical link; flashing indicates activity.
+8. Boot ROM (PXE): Enables network booting without local hard drive storage.
+
+--------------------------------------------------------------------------------
+3. PRIMARY TYPES OF NETWORK INTERFACE CARDS
+--------------------------------------------------------------------------------
+• WIRED ETHERNET PCIe NICs (1Gbps, 10Gbps, 25Gbps):
+  Server-grade Intel/Broadcom cards with hardware checksum offloading (TSO/LRO).
+• WIRELESS NICs (WNIC - Wi-Fi 6/6E/7):
+  Radio transceivers with MIMO antenna arrays for 802.11 wireless communications.
+• OPTICAL FIBER SFP+ NICs:
+  Direct optical connections eliminating electromagnetic interference in data centers.
+• VIRTUAL NICs (vNIC):
+  Software-emulated adapters inside Hypervisors (ESXi, KVM, Docker) with virtual MACs.
+• SMARTNICs & DPUs:
+  Onboard ARM/FPGA processing cards offloading encryption and firewall inspection.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Server 10G NIC Upgrade (Debangshu - Barrackpore)
+Debangshu upgraded an ERP database server in Barrackpore with an Intel Dual-Port 10G SFP+
+PCIe NIC (₹21,000 including transceivers). Configured with 802.3ad LACP bonding, it doubled
+throughput to 20Gbps and eliminated factory telemetry bottlenecks.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Wi-Fi 6E Wireless NIC Rollout (Mahima - Ichapur)
+Mahima equipped mobile ultrasound diagnostic carts in Ichapur with Intel Wi-Fi 6E PCIe
+cards (₹3,200/cart), enabling uninterrupted 2.4Gbps video streaming to doctor consoles
+without trailing physical cables across patient beds.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Computer Lab PXE Network Booting (Mamata - Kolkata)
+Mamata enabled PXE Boot ROM on 80 client desktop NICs in Kolkata. Students boot into
+standardized Linux lab environments over 1Gbps copper LANs without local hard drives,
+saving ₹3,20,000 in storage hardware costs.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: High-Tech Cyber Lab Promiscuous Sniffing Array (Abhronila - Jadavpur)
+Abhronila configured a dedicated 4-port Gigabit NIC in Promiscuous Mode in Jadavpur for
+₹12,500, feeding full-duplex traffic to Wireshark and Zeek IDS to detect lateral malware
+spread across research subnets in real time.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never use cheap consumer Realtek NICs for high-throughput production servers.
+- Always verify that Jumbo Frames (MTU 9000) are configured end-to-end (NIC, switch, storage).
+- Enforce switch port security to block unauthorized MAC address spoofing on the LAN.
+- Budget all NIC cards, optical transceivers, and patch cords in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined the role and dual-layer operation (Layer 1 PHY / Layer 2 MAC) of a NIC.
+[ ] Broken down the 48-bit MAC address into 24-bit OUI and 24-bit Device Serial.
+[ ] Explained Promiscuous Mode and its role in Wireshark packet capture.
+[ ] Differentiated between Wired Copper, Optical SFP+, Wireless, and Virtual vNICs.
+[ ] Understood advanced features: Checksum Offload, DMA, PXE Boot, and LACP Teaming.
+[ ] Formulated realistic NIC hardware and fiber transceiver budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 25: NIC
+================================================================================

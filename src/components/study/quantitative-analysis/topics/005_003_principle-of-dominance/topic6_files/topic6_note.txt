@@ -1,0 +1,101 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_003_principle-of-dominance
+TOPIC 6: SHORT QUESTIONS (MASTER MODULE REVIEW, VIVA VOCE & DOMINANCE BLUEPRINT)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. COMPLETE 7-TOPIC MODULE ARCHITECTURE RECAPITULATION
+--------------------------------------------------------------------------------
+This module has formulated the complete theoretical, algorithmic, and numerical
+foundations of the Principle of Dominance in Game Theory:
+
+• TOPIC 0: PRINCIPLE OF DOMINANCE
+  - Rational elimination axiom: Rational players never play inferior strategies.
+  - Asymmetric rules: Row Maximizer deletes smaller rows; Col Minimizer deletes larger cols.
+  - Game value invariance: v* is 100% preserved in Indian Rupees (₹).
+
+• TOPIC 1: ROW DOMINANCE RULES
+  - Mathematical condition: a_ik >= a_jk for ALL columns k = 1, ..., n.
+  - Action: Delete smaller Row j.
+  - Probability assignment: p_j* = 0.0 in full strategy vector.
+
+• TOPIC 2: COLUMN DOMINANCE RULES
+  - Mathematical condition: a_kr <= a_ks for ALL rows k = 1, ..., m.
+  - Action: Delete larger Column s.
+  - Probability assignment: q_s* = 0.0 in full strategy vector.
+
+• TOPIC 3: MODIFIED DOMINANCE RULE (CONVEX COMBINATION)
+  - Resolves reduction deadlocks when pure dominance fails.
+  - Synthetic strategy: lambda * R1 + (1 - lambda) * R2 >= R_target (Row)
+                        mu * C1 + (1 - mu) * C2 <= C_target (Col)
+  - 50-50 simple average test is the primary practical diagnostic.
+
+• TOPIC 4: REDUCING MATRIX SIZE USING DOMINANCE
+  - Multi-pass pipeline: 4x4 ➔ 3x4 ➔ 3x3 ➔ 2x3 ➔ 2x2.
+  - Cascading effects: Column deletions unmask new row dominances.
+  - Full-dimensional strategy vector reconstruction (p*, q*).
+
+• TOPIC 5: STEP-BY-STEP DOMINANCE REDUCTION EXAMPLES
+  - Comprehensive worked examples for 3x3, 4x4, rectangular, and negative payoff matrices.
+  - Reduction to 1x1 saddle points and 2x2 mixed sub-games.
+
+• TOPIC 6: SHORT QUESTIONS & VIVA VOCE SYNTHESIS
+  - Comprehensive flashcards, high-yield examination review, and theoretical mastery.
+
+--------------------------------------------------------------------------------
+2. MASTER FORMULA & DOMINANCE RULES QUICK REFERENCE TABLE
+--------------------------------------------------------------------------------
+Rule / Concept               | Mathematical Formulation / Elimination Action
+--------------------------------------------------------------------------------
+Row Dominance (Player A)     | a_ik >= a_jk  ∀ k  ==>  DELETE SMALLER ROW j
+Column Dominance (Player B)  | a_kr <= a_ks  ∀ k  ==>  DELETE LARGER COLUMN s
+Strict Dominance             | a_ik > a_jk   ∀ k  (Strict inequality everywhere)
+Weak Dominance               | a_ik >= a_jk  ∀ k  (With at least one strict >)
+Modified Row Dominance       | lambda * R_i1 + (1 - lambda) * R_i2 >= R_j  ==>  DELETE ROW j
+Modified Column Dominance    | mu * C_j1 + (1 - mu) * C_j2 <= C_s  ==>  DELETE COLUMN s
+Standard Test Weight         | lambda = 0.5,  mu = 0.5 (Simple arithmetic average)
+Eliminated Strategy Weight   | p_eliminated* = 0.0,  q_eliminated* = 0.0
+Game Value Invariance        | v*(Original m x n) == v*(Reduced 2 x 2) in ₹
+Pairwise Comparisons (Rows)  | m * (m - 1) / 2
+Pairwise Comparisons (Cols)  | n * (n - 1) / 2
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES (MASTER SYNTHESIS)
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Master Tender Dominance Reduction (Debangshu)
+Debangshu in Barrackpore reduced a 4x4 metal casting bidding matrix to a 2x2 game
+in 3 iterative passes, solving it in 2 minutes to lock in a ₹35,000 game value.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Multi-Modal Route Reduction (Mamata & Mahima)
+Mamata and Mahima in Kolkata pruned a 4x3 transport grid down to a 2x2 game,
+identifying the optimal mixed freight ratio without using complex linear programming tableaus.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Matrix Shrinking (Susmita)
+Susmita in Ichapur reduced a 3x3 weekend marketing competition to a 2x2 matrix,
+calculating the exact mixed discount probabilities to protect retail footfall.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Institutional Negotiation Shrinking (Abhronila)
+Abhronila reduced a 5x4 university cross-licensing game down to a 2x2 matrix in Jadavpur,
+providing legal auditors with a transparent 2-page mathematical settlement.
+
+--------------------------------------------------------------------------------
+4. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered all foundational Principle of Dominance rules across Topics 0 to 5.
+[ ] Applied Row Dominance: Delete smaller rows for Player A.
+[ ] Applied Column Dominance: Delete larger columns for Player B.
+[ ] Applied Modified Dominance (50-50 convex combinations) to break deadlocks.
+[ ] Executed multi-pass reductions (4x4 to 2x2) with cascading re-evaluations.
+[ ] Reconstructed full-dimensional probability vectors p* and q*.
+[ ] Verified that Value of the Game v* is 100% preserved in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_003 • TOPIC 6: SHORT QUESTIONS
+================================================================================

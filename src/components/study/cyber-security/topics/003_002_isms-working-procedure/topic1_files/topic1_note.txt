@@ -1,0 +1,141 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_002 : ISMS FRAMEWORK & WORKING PROCEDURES
+TOPIC 01       : ISO/IEC 27001 STANDARD OVERVIEW AND STRUCTURE
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & EVOLUTION OF ISO/IEC 27001
+--------------------------------------------------------------------------------
+ISO/IEC 27001 is the world's most widely recognized international standard specifying requirements 
+for establishing, implementing, maintaining, and continually improving an ISMS:
+
+  * THE EVOLUTION : BS 7799 (1995) ➔ ISO/IEC 17799 ➔ ISO 27001:2005 (133 controls) 
+                    ➔ ISO 27001:2013 (114 controls in 14 domains) 
+                    ➔ ISO 27001:2022 (93 controls in 4 themes + 11 NEW controls).
+  * THE PARADIGM  : A unified two-part standard: Mandatory Management Clauses (4-10) and the 
+                    Reference Control Catalog (Annex A).
+
+--------------------------------------------------------------------------------
+2. MANDATORY MANAGEMENT SYSTEM CLAUSES (CLAUSES 4 TO 10)
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| STANDARD CLAUSE    | REQUIREMENT TITLE       | MANDATORY OPERATIONAL DELIVERABLES             |
++--------------------+-------------------------+------------------------------------------------+
+| Clause 4           | Context of Organization | Internal/External Issues, Stakeholders, Scope  |
+| Clause 5           | Leadership              | Board Policy, Budget, CISO Appointment (5.3)   |
+| Clause 6           | Planning (Risk Engine)  | Risk Assessment (6.1.2), Treatment & SoA (6.1.3|
+| Clause 7           | Support                 | Resources, Competence, Awareness, Documentation|
+| Clause 8           | Operation               | Operational Controls & Risk Treatment Execution|
+| Clause 9           | Performance Evaluation  | Security KPIs, Internal Audit (9.2), Mgt Review|
+| Clause 10          | Improvement             | Nonconformity, Root Cause (5-Whys), CAPA (10.1)|
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. THE 4 ANNEX A CONTROL THEMES (93 CONTROLS TOTAL)
+--------------------------------------------------------------------------------
+
+  * 1. ORGANIZATIONAL (Clause A.5 - 37 Controls) : Policies, asset management, vendor risk, 
+                                                  incident response, privacy governance.
+  * 2. PEOPLE         (Clause A.6 - 8 Controls)  : Background screening, JML lifecycle, awareness.
+  * 3. PHYSICAL       (Clause A.7 - 14 Controls) : Physical perimeters, clear desk, monitoring.
+  * 4. TECHNOLOGICAL  (Clause A.8 - 34 Controls) : Cryptography, IAM, network security, DLP, 
+                                                  secure coding, configuration management.
+
+--------------------------------------------------------------------------------
+4. THE 11 BRAND-NEW CONTROLS INTRODUCED IN ISO 27001:2022
+--------------------------------------------------------------------------------
+
+  * A.5.7  Threat Intelligence        : Actionable analysis of external threat actor TTPs.
+  * A.5.23 Cloud Services Security    : Security requirements for AWS/Azure/GCP workloads.
+  * A.5.30 ICT Readiness for BCP      : Redundant architectures for business continuity.
+  * A.7.4  Physical Security Monitor  : CCTV, perimeter alarms, and intruder detection.
+  * A.8.9  Configuration Management   : Hardening baselines and preventing configuration drift.
+  * A.8.10 Information Deletion       : Automated data purging (DPDP Storage Limitation).
+  * A.8.11 Data Masking               : Dynamic masking of sensitive PAN/Aadhaar fields.
+  * A.8.12 Data Leakage Prevention    : Endpoint, network, and cloud DLP filtering.
+  * A.8.16 Monitoring Activities      : User behavior analytics (UBA) and SIEM correlation.
+  * A.8.23 Web Filtering              : Blocking malicious domains and phishing websites.
+  * A.8.28 Secure Coding              : DevSecOps secure development lifecycle (OWASP Top 10).
+
+--------------------------------------------------------------------------------
+5. THE 5 CONTROL ATTRIBUTES TAXONOMY (ISO/IEC 27002:2022)
+--------------------------------------------------------------------------------
+
+Every Annex A control is classified across 5 multidimensional attributes:
+  1. Control Type              : #Preventive, #Detective, #Corrective
+  2. InfoSec Properties        : #Confidentiality, #Integrity, #Availability
+  3. Cybersecurity Concepts    : #Identify, #Protect, #Detect, #Respond, #Recover (NIST CSF)
+  4. Operational Capabilities  : #Governance, #Asset_management, #IAM, #Cryptography, #Physical
+  5. Security Domains          : #Governance_and_Ecosystem, #Protection, #Defense, #Resilience
+
+--------------------------------------------------------------------------------
+6. STATUTORY & REGULATORY SAFE HARBOR UNDER INDIAN LAW
+--------------------------------------------------------------------------------
+
+  * IT ACT 2000 SECTION 43A (SPDI RULES 2011):
+    - ISO/IEC 27001 certification constitutes conclusive proof of "Reasonable Security Practices".
+  * DPDP ACT 2023 SECTION 8(5) & SECTION 33:
+    - Annex A controls (A.8.10, A.8.11, A.8.12, A.8.24) fulfill statutory technical safeguards, 
+      immunizing the enterprise from ₹250 Crore fines!
+
+--------------------------------------------------------------------------------
+7. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : ISO 27001:2013 TO 2022 TRANSITION & 11 NEW CONTROLS (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹16,50,000 | Location : Kolkata
+  * Dilemma : Payment switch needed recertification from 2013 to 2022 standard across 500 nodes.
+  * Action : Mapped all 11 new controls, deploying automated DLP (A.8.12), Data Masking (A.8.11), 
+    and Threat Intel (A.5.7), securing 100% ISO 27001:2022 recertification without non-conformities.
+
+SCENARIO 2 : INTEGRATED ISO 27001 + ISO 27701 HEALTHCARE SUITE (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : Hospital needed simultaneous certification for information security and privacy.
+  * Action : Leveraged the Harmonized Structure to build an integrated ISMS + PIMS architecture, 
+    mapping patient oncology scans to ISO 27001 Annex A and ISO 27701 privacy controls.
+
+SCENARIO 3 : 220KV SUBSTATION SCADA ISO 27001 GOVERNANCE (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹12,80,000 | Location : Barrackpore
+  * Dilemma : 18 transmission substations required formal governance under CEA cyber directives.
+  * Action : Structured an ISO 27001 ISMS for SCADA networks, enforcing configuration management (A.8.9) 
+    and physical monitoring (A.7.4) across all high-voltage sites under IT Act Section 70.
+
+SCENARIO 4 : ISO 27001 CLAUSES & ANNEX A LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to understand how management clauses govern Annex A technical controls.
+  * Action : Developed an interactive ISO 27001 Clauses 4-10 and 93 Annex A Control Navigator in React, 
+    training 215+ BCA cyber security students on preparing Statements of Applicability (SoA).
+
+--------------------------------------------------------------------------------
+8. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL ISO 27001 HABITS:
+  1. Leverage the 5 Attributes Taxonomy: Filter controls by NIST concepts and CIA properties.
+  2. Implement All 11 New 2022 Controls: Prioritize Cloud Security (A.5.23) and Data Masking (A.8.11).
+  3. Keep the SoA Updated: Review the Statement of Applicability before every change management cycle.
+  4. Integrate Multi-Standards via Harmonized Structure: Combine ISO 27001 with ISO 22301 and ISO 27701.
+
+* COMMON BEGINNER ISO 27001 PITFALLS:
+  - Confusing Clauses 4-10 (Mandatory) with Annex A (Selective based on Risk Assessment).
+  - Failing to justify excluded controls in the Statement of Applicability.
+  - Ignoring the 11 new 2022 controls during recertification audits.
+  - Treating ISO 27001 as a purely technical checklist without executive governance.
+
+--------------------------------------------------------------------------------
+9. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] ISO 27001:2022 has 7 Mandatory Clauses (4-10) and 93 Annex A Controls in 4 Themes.
+[ ] 4 Themes: Organizational (37), People (8), Physical (14), Technological (34).
+[ ] 11 New Controls introduced in 2022 (Threat Intel, Cloud, DLP, Masking, Secure Coding).
+[ ] Harmonized Structure (Annex SL) enables unified multi-standard management systems.
+[ ] Statement of Applicability (SoA) is the mandatory master artifact of an ISO 27001 audit.
+[ ] Clause 5 mandates top management commitment and independent CISO appointment.
+[ ] Clause 6 mandates formal risk assessment and risk treatment methodologies.
+[ ] ISO 27001 certification provides statutory Safe Harbor under IT Act Section 43A.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 01 (CYBER SECURITY BCAC703 - MODULE 003_002)
+================================================================================

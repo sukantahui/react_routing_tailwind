@@ -1,0 +1,85 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_003_principle-of-dominance
+TOPIC 3: MODIFIED DOMINANCE RULE (CONVEX COMBINATION, WEIGHTED AVERAGES & DEADLOCK BREAKING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE NEED FOR MODIFIED DOMINANCE
+--------------------------------------------------------------------------------
+In many game matrices, NO single pure row dominates another pure row, and NO single
+pure column dominates another pure column. The standard dominance check stalls (Deadlock).
+
+THE SOLUTION: MODIFIED DOMINANCE (CONVEX COMBINATION)
+• A pure strategy may be dominated by a WEIGHTED AVERAGE (Convex Combination)
+  of two or more other strategies!
+
+--------------------------------------------------------------------------------
+2. MATHEMATICAL FORMULATION
+--------------------------------------------------------------------------------
+
+• MODIFIED ROW DOMINANCE (PLAYER A):
+  - Row j is dominated if there exist weights lambda_1, lambda_2 >= 0 (lambda_1 + lambda_2 = 1) such that:
+        lambda_1 * a_{i_1, k} + lambda_2 * a_{i_2, k} >= a_{j, k}    for all columns k = 1, ..., n
+  - ELIMINATE ROW j.
+
+• MODIFIED COLUMN DOMINANCE (PLAYER B):
+  - Column s is dominated if there exist weights mu_1, mu_2 >= 0 (mu_1 + mu_2 = 1) such that:
+        mu_1 * a_{k, j_1} + mu_2 * a_{k, j_2} <= a_{k, s}          for all rows k = 1, ..., m
+  - ELIMINATE COLUMN s.
+
+--------------------------------------------------------------------------------
+3. THE STANDARD 50-50 SIMPLE ARITHMETIC MEAN TEST
+--------------------------------------------------------------------------------
+In practical examination problems, test lambda = 0.5 first:
+• Average Row = (Row_1 + Row_2) / 2
+  - If Average Row >= Row_3 across ALL columns, eliminate Row 3!
+• Average Col = (Col_1 + Col_2) / 2
+  - If Average Col <= Col_3 across ALL rows, eliminate Col 3!
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Alloy Blending Modified Dominance (Debangshu)
+Debangshu in Barrackpore had 3 casting schedules. Pure dominance failed. A 50-50 average
+of Schedule 1 [₹40k, ₹20k] and Schedule 2 [₹20k, ₹40k] yielded [₹30k, ₹30k], strictly
+dominating Schedule 3 [₹25k, ₹25k] and breaking the operational deadlock.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Logistics Hybrid Transport Dominance (Mamata & Mahima)
+Mamata and Mahima in Kolkata averaged Reefer Truck (Col 1) and Air Courier (Col 2) to
+synthesize a hybrid route [₹30k, ₹30k] that dominated Expensive Multi-Modal Transport (Col 3 = [₹35k, ₹35k]).
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Modified Dominance (Susmita)
+Susmita in Ichapur eliminated a stagnant loyalty scheme (Strategy A3) by proving that
+an equal blend of Strategy A1 (Bundle Discount) and Strategy A2 (Weekend Flash) dominated A3 by ₹5,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Modified Dominance (Abhronila)
+Abhronila used convex combination dominance in Jadavpur to prove that a 60-40 blend
+of two standard licensing terms strictly dominated an aggressive arbitration clause.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Test simple 50-50 averages first before trying arbitrary weights lambda.
+- The average row must be GREATER than or equal to the target row across ALL columns.
+- The average column must be LESS than or equal to the target column across ALL rows.
+- State all convex averages and payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Understood why modified dominance is needed when pure dominance stalls.
+[ ] Computed the convex combination of two rows: lambda * R1 + (1 - lambda) * R2.
+[ ] Computed the convex combination of two columns: mu * C1 + (1 - mu) * C2.
+[ ] Applied the 50-50 arithmetic mean test to break matrix reduction deadlocks.
+[ ] Preserved the invariant Value of the Game in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_003 • TOPIC 3: MODIFIED DOMINANCE RULE
+================================================================================

@@ -1,0 +1,98 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 5: WORKING METHODOLOGY OF CRITICAL PATH ANALYSIS (5-PHASE ENGINE & TWO-PASS SCHEDULING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE 5-PHASE WORKING METHODOLOGY OF CRITICAL PATH ANALYSIS (CPA)
+--------------------------------------------------------------------------------
+
+PHASE 1: PROJECT PLANNING & WORK BREAKDOWN STRUCTURE (WBS)
+• Decompose project into discrete, identifiable activities.
+• Establish strict immediate predecessor and successor relationships.
+• Estimate deterministic duration d_ij and normal direct cost in Indian Rupees (₹).
+
+PHASE 2: TWO-PASS NETWORK COMPUTATION
+1. FORWARD PASS (EARLIEST TIMES):
+   • Set initial event earliest time: E_1 = 0
+   • For each node j: E_j = max_{(i, j) in Incoming} [ E_i + d_ij ]
+   • Activity Earliest Times: ES = E_i,   EF = ES + d_ij = E_i + d_ij
+
+2. BACKWARD PASS (LATEST TIMES):
+   • Set terminal sink event latest time: L_n = E_n
+   • For each node i: L_i = min_{(i, j) in Outgoing} [ L_j - d_ij ]
+   • Activity Latest Times: LF = L_j,   LS = LF - d_ij = L_j - d_ij
+
+PHASE 3: FLOAT & SLACK QUANTIFICATION
+1. TOTAL FLOAT (TF):
+       TF = LS - ES = LF - EF = LF - ES - d_ij
+2. FREE FLOAT (FF):
+       FF = E_j - E_i - d_ij
+3. INDEPENDENT FLOAT (IF):
+       IF = max(0, E_j - L_i - d_ij)
+Universal Rule: Total Float >= Free Float >= Independent Float >= 0.
+
+PHASE 4: CRITICAL PATH IDENTIFICATION
+An activity (i, j) is CRITICAL if and only if ALL THREE conditions are satisfied:
+1. E_i = L_i   (Tail event has zero slack, S_i = 0)
+2. E_j = L_j   (Head event has zero slack, S_j = 0)
+3. E_j - E_i = L_j - L_i = d_ij   (Activity Total Float TF = 0)
+
+Connecting these critical activities from Node 1 to Node n forms the CRITICAL PATH,
+which determines the absolute minimum total project duration.
+
+PHASE 5: PROJECT CONTROLLING, CRASHING & RESOURCE LEVELING
+• CRASHING: Shortening critical activities at the lowest marginal Cost Slope:
+      Cost Slope = (Crash Cost - Normal Cost) / (Normal Time - Crash Time) = Delta C / Delta T (₹/Day)
+• RESOURCE LEVELING: Shifting non-critical activities within float windows to smooth labor demand.
+
+--------------------------------------------------------------------------------
+2. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 5-Phase Blast Furnace Overhaul (Debangshu)
+Debangshu in Barrackpore executed the complete 5-phase CPA framework on a 14-activity
+furnace rebuild: Forward Pass (E_10 = 28 days), Backward Pass (L_10 = 28 days),
+isolating the 28-day critical path and crashing refractory curing to 24 days at ₹12,000/day.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Two-Pass Execution (Mamata & Mahima)
+Mamata and Mahima executed Forward and Backward passes across 9 hospital clinics in
+Kolkata, isolating Critical Events 1, 2, 4, 7, 9 to ensure 100% emergency medical readiness.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Automated Conveyor Float Matrix (Susmita)
+Susmita computed Total Float (TF), Free Float (FF), and Independent Float (IF) across
+12 conveyor installation tasks in Ichapur, leveling electrician shifts without project delay.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Research Tender Governance (Abhronila)
+Abhronila presented a certified 5-phase CPA audit trail to university finance auditors
+in Jadavpur, proving zero float on cleanroom HVAC fabrication to release a ₹55 Lakh grant.
+
+--------------------------------------------------------------------------------
+3. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never assume an activity is critical just because its tail and head events have zero slack (check condition 3: E_j - E_i == d_ij!).
+- In Forward Pass, always take the MAXIMUM at merge nodes; in Backward Pass, always take the MINIMUM at burst nodes.
+- Never crash a non-critical activity (it wastes budget without reducing project completion date!).
+- Always state budgets, direct costs, and crash slopes in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+4. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 5 structured phases of Critical Path Analysis.
+[ ] Computed Forward Pass Earliest Times: E_j = max(E_i + d_ij).
+[ ] Computed Backward Pass Latest Times: L_i = min(L_j - d_ij).
+[ ] Computed Total Float: TF = LS - ES = LF - EF.
+[ ] Computed Free Float: FF = E_j - E_i - d_ij.
+[ ] Computed Independent Float: IF = max(0, E_j - L_i - d_ij).
+[ ] Verified all 3 conditions for Critical Activities: E_i=L_i, E_j=L_j, E_j-E_i=d_ij.
+[ ] Computed Crashing Cost Slope: (C_c - C_n) / (T_n - T_c) in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 5: WORKING METHODOLOGY OF CRITICAL PATH ANALYSIS
+================================================================================

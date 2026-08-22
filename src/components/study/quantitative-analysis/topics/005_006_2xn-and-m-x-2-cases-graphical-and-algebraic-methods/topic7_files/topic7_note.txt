@@ -1,0 +1,82 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_006_2xn-and-m-x-2-cases-graphical-and-algebraic-methods
+TOPIC 7: DETERMINING THE VALUE OF THE GAME (DETERMINANTS, INNER PRODUCTS & SHIFT INVARIANCE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THREE EQUIVALENT MATHEMATICAL FORMULATIONS OF GAME VALUE v*
+--------------------------------------------------------------------------------
+In any active 2x2 sub-game A_sub = [ [a_11, a_12], [a_21, a_22] ]:
+
+1. CLOSED-FORM DETERMINANT FORMULA:
+         v* = (a_11 * a_22 - a_12 * a_21) / Δ  (in ₹)
+     where Δ = (a_11 + a_22) - (a_12 + a_21).
+
+2. EXPECTED PAYOFF ON ACTIVE SUPPORT (EQUAL PAYOFF PRINCIPLE):
+         v* = E(p*, B_1) = p_1* * a_11 + (1 - p_1*) * a_21
+         v* = E(p*, B_2) = p_1* * a_12 + (1 - p_1*) * a_22
+         v* = E(A_1, q*) = q_1* * a_11 + (1 - q_1*) * a_12
+         v* = E(A_2, q*) = q_1* * a_21 + (1 - q_1*) * a_22
+
+3. BILINEAR MATRIX INNER PRODUCT:
+         v* = p*^T * A * q* = sum_{i} sum_{j} [ p_i* * a_ij * q_j* ]
+
+--------------------------------------------------------------------------------
+2. SHIFT & SCALE INVARIANCE THEOREMS
+--------------------------------------------------------------------------------
+• CONSTANT ADDITION (+C):
+  If every cell a_ij is replaced by a_ij + C:
+      v_new* = v_old* + C  (in ₹)
+      Optimal strategy vectors p* and q* remain 100% UNCHANGED!
+
+• POSITIVE SCALAR MULTIPLICATION (*k with k > 0):
+  If every cell a_ij is replaced by k * a_ij:
+      v_new* = k * v_old*  (in ₹)
+      Optimal strategy vectors p* and q* remain 100% UNCHANGED!
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Shift Valuation Governance (Debangshu)
+Debangshu in Barrackpore evaluated A_sub = [[20, 50], [40, 10]]. Determinant formula gave
+v* = (200 - 2000)/-60 = +₹30,000. Verified via inner product p^T A q = ₹30,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Transport Shift-Invariance Audit (Mamata & Mahima)
+Mamata and Mahima in Kolkata evaluated a fuel surcharge of +₹5,000 across all routes.
+The baseline game value shifted from ₹24,000 to ₹29,000 with zero change in fleet dispatch ratios.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Revenue Valuation (Susmita)
+Susmita in Ichapur determined v* = ₹32,000 across a 2x4 promotional grid, using the
+value to establish the department's monthly revenue benchmark of ₹9.6 Lakh.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Royalties Settlement (Abhronila)
+Abhronila used the exact game value of ₹20 Lakh in Jadavpur to convince university
+executives that accepting the settlement eliminated variance risk with zero loss in expectation.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never forget the minus sign in the numerator: a11*a22 - a12*a21 (determinant).
+- When Δ is negative, the numerator is usually also negative, yielding a positive v*.
+- Verify v* by checking both row and column expected payoffs.
+- State all game values and financial balances in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Computed v* via closed-form determinant formula.
+[ ] Verified v* via inner product p^T A q and expected payoff lines.
+[ ] Applied shift-invariance (v_new* = v_old* + C) and scale-invariance.
+[ ] Interpreted v* as long-run guaranteed cycle return.
+[ ] Expressed all financial calculations in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_006 • TOPIC 7: DETERMINING THE VALUE OF THE GAME
+================================================================================

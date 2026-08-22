@@ -1,0 +1,104 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 13: DETERMINING THE OPTIMAL ASSIGNMENT (POLICY SYNTHESIS, DUALITY AUDIT & SENSITIVITY)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE OPTIMAL POLICY SYNTHESIS PROTOCOL
+--------------------------------------------------------------------------------
+After extracting n independent boxed zeros [0] at coordinates (i, \pi(i)):
+
+1. CONSTRUCT THE ASSIGNMENT SCHEDULE:
+   Pair each Assignee i with Task \pi(i):
+       Assignee 1 ➔ Task \pi(1)
+       Assignee 2 ➔ Task \pi(2)
+       ...
+       Assignee n ➔ Task \pi(n)
+
+2. ORIGINAL COST LOOKUP:
+   Retrieve the true operational cost or wage c_{i, \pi(i)} from the INITIAL
+   cost matrix (expressed in Indian Rupees ₹):
+       c_{1, \pi(1)}, c_{2, \pi(2)}, ..., c_{n, \pi(n)}
+
+3. COMPUTE CERTIFIED MINIMUM TOTAL COST (Z*):
+       Z* = Sum_{i=1}^n c_{i, \pi(i)}
+
+--------------------------------------------------------------------------------
+2. THREE-STAGE MATHEMATICAL AUDIT SUITE
+--------------------------------------------------------------------------------
+STAGE 1: TOTAL UNIMODULARITY & BIJECTION INTEGRITY AUDIT
+• Verify that every worker appears EXACTLY ONCE in the assignment schedule.
+• Verify that every task appears EXACTLY ONCE in the assignment schedule.
+• Matrix X* is a valid permutation matrix of size n x n (det(X*) = +/- 1).
+
+STAGE 2: STRONG DUALITY AUDIT (ZERO DUALITY GAP)
+• Sum of all Row Reductions:                  Sum u_i
+• Sum of all Column Reductions:               Sum v_j
+• Sum of all Additional Reduction Shifts:     Sum Delta W
+• Total Dual Objective W*:
+      W* = Sum u_i + Sum v_j + Sum Delta W
+• If Z* == W*, the solution is MATHEMATICALLY CERTIFIED as globally optimal!
+
+STAGE 3: DUMMY ENTITY INTERPRETATION AUDIT
+• Worker i paired with Dummy Column ➔ Worker i is on STANDBY / IDLE (₹0 spend).
+• Task j paired with Dummy Row ➔ Task j is OUTSOURCED to vendor (₹0 internal spend).
+
+--------------------------------------------------------------------------------
+3. SENSITIVITY ANALYSIS FUNDAMENTALS
+--------------------------------------------------------------------------------
+• For an ASSIGNED Cell (i, \pi(i)):
+  How much can its cost c_{i, \pi(i)} increase before another pairing becomes optimal?
+  Allowed Increase = min { c_{reduced}[i, k] | k != \pi(i) }.
+
+• For an UNASSIGNED Cell (i, j):
+  How much must its cost c_{ij} decrease before it enters the optimal solution?
+  Required Decrease = c_{reduced}[i, j] (its current reduced opportunity cost).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Management Policy Audit (Debangshu)
+Debangshu in Barrackpore delivered an audited 4x4 casting schedule:
+W1➔J3 (₹12), W2➔J2 (₹12), W3➔J4 (₹12), W4➔J1 (₹11).
+Certified Minimum Total Spend = ₹46 (Strong Duality Verified).
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Fleet Dispatch Policy (Mamata & Mahima)
+Mamata and Mahima in Kolkata published the cold-chain vaccine delivery schedule,
+confirming 100% clinic coverage with zero duplicate hospital runs at ₹46 total freight.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Branch Manager Roster (Susmita)
+Susmita in Ichapur resolved alternative optimal ties by choosing the schedule that
+minimized total employee commuting distance, keeping monthly wage costs locked at ₹35.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Procurement Audit (Abhronila)
+Abhronila in Jadavpur presented a complete 3-stage mathematical audit report to state
+education auditors, verifying zero duality gap (Z* = W* = ₹46).
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never report Z* by summing the 0s from the reduced matrix; always pull original ₹ rates!
+- Ensure all dummy assignments are explicitly labeled as "Idle" or "Outsourced".
+- Always verify Strong Duality: Sum(u) + Sum(v) + Sum(Delta W) == Z*.
+- Report all monetary figures in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped boxed zero coordinates (i, \pi(i)) to worker-task pairings.
+[ ] Retrieved unit rates from the ORIGINAL cost matrix in Indian Rupees (₹).
+[ ] Computed certified minimum total cost Z*.
+[ ] Performed 1-to-1 bijection verification (no double-booking).
+[ ] Conducted Strong Duality audit (Z* == W*).
+[ ] Conducted Sensitivity Analysis on assigned and unassigned cells.
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 13: DETERMINING THE OPTIMAL ASSIGNMENT
+================================================================================

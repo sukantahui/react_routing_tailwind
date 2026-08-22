@@ -1,0 +1,161 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_002 : HACKING, ETHICAL HACKING & HACKER TYPES
+TOPIC 05       : HACKER TAXONOMY: GREY HAT HACKERS & DISCLOSURE DILEMMAS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & DEFINITION OF GREY HAT HACKERS
+--------------------------------------------------------------------------------
+Grey Hat Hackers occupy the complex, legally precarious middle ground of the cybersecurity 
+spectrum. 
+
+They probe, scan, and penetrate computer systems WITHOUT PRIOR WRITTEN AUTHORIZATION 
+(violating the law like Black Hats), but WITHOUT MALICIOUS INTENT to steal money or destroy 
+data (aiming to disclose flaws, earn bug bounties, or help vendors patch like White Hats).
+
+KEY LEGAL REALITY:
+  Under Indian cyber jurisprudence (Section 43 & Section 66 of IT Act 2000) and international 
+  law (US CFAA), unauthorized access is a strict liability offense. Subjective "good intent" 
+  offers ZERO legal immunity against criminal prosecution.
+
+--------------------------------------------------------------------------------
+2. COMPARATIVE TAXONOMY MATRIX (WHITE VS GREY VS BLACK HAT)
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| ATTRIBUTE          | WHITE HAT HACKER        | GREY HAT HACKER    | BLACK HAT HACKER                               |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Authorization      | 100% Prior Written RoE  | ZERO Prior Auth    | ZERO Prior Auth                                |
+| Malicious Intent   | None (Purely Defensive) | None (Curiosity)   | YES (Theft, Extortion, Sabotage, Destruction)  |
+| Legality           | 100% Fully Lawful       | ILLEGAL (Trespass) | SEVERELY ILLEGAL (Heavy Criminal Jail & Fines) |
+| Disclosure Method  | Confidential to Client  | CVD or Public Drop | Dark Web Auction or Ransom Extortion           |
+| Primary Motivation | Professional Career / ₹ | Recognition / Peer | Direct Financial Theft / Botnet Monetization   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. ICONIC HISTORICAL GREY HAT CASE STUDIES
+--------------------------------------------------------------------------------
+
+[CASE 1] KHALIL SHREATEH & MARK ZUCKERBERG'S FACEBOOK WALL (2013)
+  * Action: Discovered a bug allowing anyone to post links onto any user's private wall.
+  * Escalation: After Facebook triage engineers repeatedly dismissed his bug bounty report, 
+    he demonstrated the exploit by posting directly onto Mark Zuckerberg's personal wall.
+  * Outcome: Facebook patched the flaw in 2 hours, but withheld the bounty payout because 
+    his demonstration violated policy by attacking an unauthorized live user account.
+
+[CASE 2] LINUX.WIFATCH (2014 - 2015)
+  * Action: A peer-to-peer worm that infected vulnerable IoT routers via default Telnet passwords.
+  * Altruistic Behavior: Rather than installing botnets or cryptominers, Wifatch terminated 
+    malicious malware processes, closed dangerous Telnet ports, and displayed a warning urging 
+    owners to change their passwords.
+  * Legal Status: Spreading an unauthorized self-propagating worm remains illegal worldwide.
+
+[CASE 3] BRICKERBOT (2017 - "Janit0r")
+  * Action: Scanned for default-credential IoT devices and executed Permanent Denial of 
+    Service (PDoS) by overwriting flash memory (`/dev/mtd`) with zeros, bricking the hardware.
+  * Rationale: The author claimed destroying insecure cameras prevented them from joining 
+    Mirai DDoS botnets, forcing manufacturers to build better security.
+
+[CASE 4] ADRIAN LAMO ("The Homeless Hacker" - Early 2000s)
+  * Action: Compromised The New York Times, Microsoft, and LexisNexis from public cybercafes, 
+    added his name to confidential expert directories, and then called CISOs to help them patch.
+  * Outcome: Convicted under the US CFAA and sentenced to probation and restitution.
+
+--------------------------------------------------------------------------------
+4. VULNERABILITY DISCLOSURE PARADIGMS
+--------------------------------------------------------------------------------
+
+1. Coordinated Vulnerability Disclosure (CVD - Industry Standard):
+   - Practiced by Google Project Zero, CERT-In, and ISO/IEC 29147.
+   - Researcher discovers a bug -> Privately informs vendor security team.
+   - Standard 90-Day Grace Period: Vendor is granted 90 days to develop and release a patch.
+   - Day 90: Coordinated joint release of the vulnerability advisory to the public.
+
+2. Full Disclosure (Immediate Public 0-Day Drop):
+   - Publishing exploit code directly onto GitHub or social media with zero vendor notice.
+   - Pro: Forces vendor to act immediately without downplaying severity.
+   - Con: Leaves millions of innocent end users vulnerable before a security patch exists.
+
+3. Vulnerability Extortion (Criminal Boundary):
+   - Demanding financial payment under threats of selling the flaw or leaking data publicly.
+   - Punishable under Indian Penal Code (IPC 384 Extortion) and IT Act Section 66.
+
+--------------------------------------------------------------------------------
+5. RFC 9116 AND MODERN SAFE HARBOR PROTOCOLS
+--------------------------------------------------------------------------------
+
+1. `security.txt` Standard (RFC 9116):
+   - A standardized machine-readable file hosted at `https://example.com/.well-known/security.txt`.
+   - Contains:
+     * `Contact: mailto:security@example.com`
+     * `Encryption: https://example.com/pgp-key.asc`
+     * `Policy: https://example.com/responsible-disclosure`
+
+2. Bug Bounty Safe Harbor Commitments:
+   - Legally binding pledges by organizations (e.g., HackerOne Gold Standard Safe Harbor) 
+     promising not to initiate civil or criminal legal action against ethical researchers 
+     who comply with disclosure policy rules.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : UNSOLICITED STAGING API REPORT (KOLKATA FINTECH STARTUP)
+  * Lead Security Manager : Mamata | Budget : ₹5,50,000 | Location : Kolkata
+  * Dilemma : An independent researcher discovered and reported an unauthenticated IDOR bug 
+    on the company's staging server without holding a prior testing contract.
+  * Resolution : Because the researcher followed CVD guidelines and did not exfiltrate customer data, 
+    Mamata rewarded the researcher with a ₹50,000 discretionary bug bounty and drafted a formal VDP.
+
+SCENARIO 2 : PREMATURE ZERO-DAY BLOG DROP (ICHAPUR HOSPITAL)
+  * Chief Information Officer : Mahima | Budget : ₹4,20,000 | Location : Ichapur
+  * Dilemma : A security blogger posted an unpatched hospital IoT infusion pump flaw on Reddit 
+    after waiting only 24 hours instead of the standard 90-day CVD window.
+  * Resolution : Mahima deployed emergency firewall micro-segmentation, notified CERT-In within 
+    6 hours, and released a vendor firmware update before black-hat cartels could weaponize it.
+
+SCENARIO 3 : BENIGN MODBUS PORT SCANNING SURVEY (BARRACKPORE GRID)
+  * Lead OT Security Engineer : Debangshu | Budget : ₹6,00,000 | Location : Barrackpore
+  * Dilemma : A grey-hat academic researcher scanned industrial Modbus TCP port 502 across 
+    West Bengal, emailing operators that their SCADA interfaces were exposed to the internet.
+  * Resolution : Debangshu verified the alert, isolated the exposed substation IP addresses 
+    behind hardware VPNs, and advised the researcher on legal NCIIPC reporting channels.
+
+SCENARIO 4 : UNIVERSITY CVD POLICY FRAMEWORK (JADAVPUR UNIVERSITY)
+  * Research Leads : Abhronila & Susmita | Budget : ₹3,80,000 | Location : Jadavpur
+  * Dilemma : Creating an institutional framework to guide passionate university students on 
+    how to report security vulnerabilities ethically without risking criminal prosecution.
+  * Resolution : Established the Jadavpur Responsible Vulnerability Disclosure Program, teaching 
+    students how to utilize `security.txt` and submit through NCIIPC RVDP safe-harbor channels.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL DEFENSIVE HABITS:
+  1. Publish RFC 9116 `security.txt`: Make it easy for ethical researchers to contact you.
+  2. Implement Legal Safe Harbor: Protect good-faith researchers from aggressive lawsuits.
+  3. Adhere to 90-Day CVD Timelines: Give developers reasonable time to test complex patches.
+
+* COMMON BEGINNER MISTAKES:
+  - Scanning live websites without checking for a formal Vulnerability Disclosure Policy.
+  - Dumping live database records to 'prove' an SQL injection vulnerability exists.
+  - Demanding money or bounties before providing vulnerability details (Extortion).
+  - Publicly leaking exploits on social media when triage responses take longer than expected.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Grey Hats probe systems without authorization but without malicious intent.
+[ ] Good intentions do NOT grant legal immunity under IT Act 2000 Section 66.
+[ ] Coordinated Vulnerability Disclosure (CVD) grants a standard 90-day patch window.
+[ ] Full Disclosure drops exploits immediately, leaving end-users vulnerable.
+[ ] RFC 9116 defines `/.well-known/security.txt` for standardized security contacts.
+[ ] Khalil Shreateh proved a Facebook flaw by posting on Mark Zuckerberg's wall.
+[ ] Linux.Wifatch was a grey-hat worm that secured routers and killed malware.
+[ ] Safe Harbor policies legally channel grey-hat talent into white-hat defense.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 05 (CYBER SECURITY BCAC703)
+================================================================================

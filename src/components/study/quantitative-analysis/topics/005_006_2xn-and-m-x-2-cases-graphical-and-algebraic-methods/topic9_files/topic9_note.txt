@@ -1,0 +1,104 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_006_2xn-and-m-x-2-cases-graphical-and-algebraic-methods
+TOPIC 9: SHORT QUESTIONS (MASTER MODULE REVIEW, VIVA VOCE & SEGMENT 5 GRAND SYNTHESIS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. COMPLETE 10-TOPIC MODULE ARCHITECTURE RECAPITULATION
+--------------------------------------------------------------------------------
+This master capstone synthesizes all 10 topics of Module 005_006:
+
+• TOPIC 0: 2xn GAMES
+  - Parameterization p = (p1, 1-p1)^T on 1D simplex.
+  - Strategy lines E(p, Bj) = (a1j - a2j)*p1 + a2j.
+  - Lower envelope floor and Maximin peak.
+
+• TOPIC 1: mx2 GAMES
+  - Parameterization q = (q1, 1-q1)^T on 1D simplex.
+  - Strategy lines E(Ai, q) = (ai1 - ai2)*q1 + ai2.
+  - Upper envelope ceiling and Minimax trough.
+
+• TOPIC 2: GRAPHICAL METHOD
+  - 1D simplex geometry enabling 2D straight-line plotting.
+  - Dual perspectives: 2xn Lower Envelope Maximin vs mx2 Upper Envelope Minimax.
+  - Submatrix extraction from vertices with opposite slopes.
+
+• TOPIC 3: PLOTTING STRATEGY LINES
+  - Calibrating dual vertical axes (p1=0 / p1=1).
+  - Marking endpoints: (0, a2j) on left and (1, a1j) on right.
+  - Slope calculation m = a1j - a2j and intersection formula p1 = (a2k - a2j)/(m_j - m_k).
+
+• TOPIC 4: FINDING OPTIMAL STRATEGIES GRAPHICALLY
+  - 5-step graphical optimization pipeline.
+  - Submatrix extraction, closed-form solving, full vector reconstruction.
+  - Global Optimality Audit: E(p*, Bj) >= v* for all columns.
+
+• TOPIC 5: ALGEBRAIC METHOD
+  - Combinatorial enumeration of C(n, 2) or C(m, 2) candidate 2x2 submatrices.
+  - Two-stage filtration: Probability Admissibility in [0, 1] + Global Minimax Bounds.
+
+• TOPIC 6: SOLVING EQUATIONS FOR OPTIMAL PROBABILITIES
+  - Expected Payoff Indifference Principle.
+  - Game determinant Δ = (a11 + a22) - (a12 + a21).
+  - Cramer's Rule formulations: p1* = (a22 - a21)/Δ and q1* = (a22 - a12)/Δ.
+
+• TOPIC 7: DETERMINING THE VALUE OF THE GAME
+  - Determinant formula: v* = (a11*a22 - a12*a21)/Δ (in ₹).
+  - Inner product v* = p*^T A q* and active expected payoffs.
+  - Shift-invariance theorem: v_new* = v_old* + C.
+
+• TOPIC 8: NUMERICAL EXERCISES
+  - Worked solutions for 2x4 graphical, 4x2 graphical, 2x3 algebraic, and 5x2 filtering.
+
+• TOPIC 9: SHORT QUESTIONS & GRAND SYNTHESIS
+  - Comprehensive viva voce flashcards and complete Segment 5 Game Theory mastery.
+
+--------------------------------------------------------------------------------
+2. MASTER 2xn & mx2 DECISION MATRIX
+--------------------------------------------------------------------------------
+Dimension | Parameter | Envelope Type  | Optimization Goal | Intersection Sign | Solution Output
+--------------------------------------------------------------------------------
+2 × n     | p1 ∈ [0, 1]| Lower Envelope | Maximin Peak      | Opposite Slopes   | p* (2D), q* (nD), v* in ₹
+m × 2     | q1 ∈ [0, 1]| Upper Envelope | Minimax Trough    | Opposite Slopes   | p* (mD), q* (2D), v* in ₹
+Algebraic | Pairs      | Determinant Δ  | Both in [0, 1]    | Non-zero Δ        | Programmatic exact in ₹
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES (MASTER SYNTHESIS)
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Master Schedule Governance (Debangshu)
+Debangshu in Barrackpore evaluated 2 casting processes against 4 tender bids, locking in
+₹30,000 daily margin (₹9.0 Lakh monthly return) with zero LP Simplex overhead.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Transport Optimization (Mamata & Mahima)
+Mamata and Mahima in Kolkata modeled 4 emergency corridors against 2 fuel tiers,
+capping transport expenditure at ₹30,000 per transit cycle.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional War Streamlining (Susmita)
+Susmita in Ichapur reduced a 2x4 retail promotion grid down to active columns {1, 2},
+securing an equilibrium revenue of ₹32,000 per campaign and eliminating marketing bleed.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Royalties Settlement (Abhronila)
+Abhronila solved a 5x2 arbitration matrix in Jadavpur, securing an unambiguous
+₹26.67 Lakh royalty settlement for university research labs.
+
+--------------------------------------------------------------------------------
+4. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered 1D probability simplex parameterization (p1, 1-p1) and (q1, 1-q1).
+[ ] Traced 2xn lower envelopes (Maximin) and mx2 upper envelopes (Minimax).
+[ ] Plotted line endpoints accurately on dual vertical axes.
+[ ] Extracted active 2x2 submatrices and solved exact indifference equations.
+[ ] Enumerated and filtered candidate submatrices algebraically.
+[ ] Reconstructed full-dimensional probability vectors.
+[ ] Verified global optimality and shift-invariance in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_006 • TOPIC 9: SHORT QUESTIONS
+================================================================================

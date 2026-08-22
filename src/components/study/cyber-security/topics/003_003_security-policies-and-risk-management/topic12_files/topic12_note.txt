@@ -1,0 +1,127 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_003 : SECURITY POLICIES, RISK ASSESSMENT & MITIGATION
+TOPIC 12       : THREAT MODELING METHODOLOGIES (STRIDE, DREAD)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE SHIFT-LEFT PHILOSOPHY
+--------------------------------------------------------------------------------
+Threat Modeling is the proactive engineering discipline of analyzing software architecture and data flows 
+to identify and neutralize security vulnerabilities BEFORE writing code. Under ISO/IEC 27001:2022 Control 
+A.8.25 (Secure Development Lifecycle), threat modeling answers four fundamental architectural questions:
+
+  * QUESTION 1 : What are we building?      ➔ Data Flow Diagrams (DFDs) & Trust Boundaries.
+  * QUESTION 2 : What can go wrong?         ➔ STRIDE Threat Categorization.
+  * QUESTION 3 : What are we going to do?   ➔ Engineering Countermeasures & Cryptographic Controls.
+  * QUESTION 4 : Did we do a good job?      ➔ Automated Unit Verification & Penetration Testing.
+
+--------------------------------------------------------------------------------
+2. THE STRIDE THREAT CLASSIFICATION MATRIX
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| STRIDE THREAT      | VIOLATED PROPERTY       | CONCRETE BLUE TEAM COUNTERMEASURE              |
++--------------------+-------------------------+------------------------------------------------+
+| 1. SPOOFING        | Authenticity            | Mutual TLS (mTLS) + FIDO2 Hardware MFA + JWT   |
+|                    | (Faking Identity)       | RS256 Cryptographic Signature Verification.    |
+|                    |                         |                                                |
+| 2. TAMPERING       | Integrity               | SHA-256 HMAC Payload Signing + Database Row-   |
+|                    | (Unauthorized Changes)  | Level Encryption + TLS 1.3 in Transit.         |
+|                    |                         |                                                |
+| 3. REPUDIATION     | Non-Repudiation         | Tamper-proof WORM Audit Logs (S3 Object Lock)  |
+|                    | (Denying an Action)     | + PKI Digital Signatures with Time-Stamping.   |
+|                    |                         |                                                |
+| 4. INFORMATION     | Confidentiality         | AES-256-GCM Encryption at Rest + Data Leakage  |
+|    DISCLOSURE      | (Data Exfiltration)     | Prevention (DLP) + Strict Secret Scanning.     |
+|                    |                         |                                                |
+| 5. DENIAL OF       | Availability            | Token-Bucket Rate Limiting + Cloudflare Anti-  |
+|    SERVICE (DoS)   | (Resource Exhaustion)   | DDoS + Circuit Breakers on API Endpoints.      |
+|                    |                         |                                                |
+| 6. ELEVATION OF    | Authorization           | Server-side Role-Based Access Control (RBAC)   |
+|    PRIVILEGE       | (Admin Privilege Abuse) | + Least Privilege + Parameterized SQL Queries. |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. THE DREAD QUANTITATIVE THREAT RATING MODEL
+--------------------------------------------------------------------------------
+
+  * MATHEMATICAL FORMULA :
+    $$DREAD Score = \frac{Damage + Reproducibility + Exploitability + Affected Users + Discoverability}{5}$$
+  * SEVERITY BANDS (Scores 1.0 to 10.0) :
+    - 8.0 - 10.0 : CRITICAL RISK ➔ Emergency architectural fix; blocks production build.
+    - 6.0 - 7.9  : HIGH RISK     ➔ Priority sprint remediation ticket (< 14 days).
+    - 4.0 - 5.9  : MEDIUM RISK   ➔ Standard backlog remediation item (< 30 days).
+    - 1.0 - 3.9  : LOW RISK      ➔ Monitored during routine maintenance cycles.
+
+--------------------------------------------------------------------------------
+4. STATUTORY SAFE HARBOR UNDER INDIAN CYBER LAW
+--------------------------------------------------------------------------------
+
+  * DPDP ACT 2023 SECTION 8 :
+    - Mandates Privacy-by-Design; conducting STRIDE threat modeling on citizen data workflows 
+      proves proactive due diligence, establishing statutory safe harbor against ₹250 Cr fines!
+  * RESERVE BANK OF INDIA (RBI) MASTER DIRECTIONS :
+    - Mandates architectural threat modeling for all banking APIs, mobile apps, and payment switches.
+  * IT ACT 2000 SECTION 43A :
+    - Documented threat models demonstrate "Reasonable Security Practices" in civil litigation.
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : STRIDE THREAT MODELING ON 500 PAYMENT SERVICES (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : 500 payment microservices processing ₹120 Cr/day faced transaction tampering and API spoofing.
+  * Action : Built a complete STRIDE threat model, deploying Mutual TLS (mTLS) between all pods and SHA-256 
+    HMAC payload validation, eliminating payment manipulation risks and satisfying RBI banking rules.
+
+SCENARIO 2 : HEALTHCARE PATIENT DATA STRIDE & DREAD ANALYSIS (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : PACS imaging server faced Information Disclosure and Elevation of Privilege risks on 80,000 biopsy scans.
+  * Action : Threat modeled DICOM workflows, calculated a DREAD score of 8.8 (Critical), and deployed SQLCipher 
+    encryption and server-side RBAC, fully immunizing the hospital from ₹250 Cr DPDP statutory fines.
+
+SCENARIO 3 : 220KV SCADA OT PROTOCOL THREAT MODELING (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : 18 substations ran legacy Modbus protocols vulnerable to Tampering and Denial of Service.
+  * Action : Modeled OT trust boundaries, designed unidirectional physical data diode isolations, and achieved 
+    100% compliance with NCIIPC Protected System mandates under Section 70 of the Indian IT Act.
+
+SCENARIO 4 : THREAT MODELING SIMULATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to calculate DREAD averages and map STRIDE threats to security properties.
+  * Action : Developed an interactive STRIDE Threat Matrix & DREAD Quantitative Risk Calculator in React, 
+    training 215+ BCA cyber security students on software architecture security and DevSecOps.
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL THREAT MODELING HABITS:
+  1. Model Trust Boundaries: Focus STRIDE analysis on perimeters where untrusted data enters trusted zones.
+  2. Never Trust Client Roles: Always verify RBAC and authorization parameters on the server side.
+  3. Assume Discoverability is 10: In the modern era of automated mass scanners, every vulnerability is findable.
+  4. Integrate Threat Models in CI/CD: Re-evaluate threat models whenever architectural DFDs change.
+
+* COMMON BEGINNER THREAT MODELING PITFALLS:
+  - "Security by Obscurity" (Assuming hackers won't find an unauthenticated internal endpoint).
+  - Post-Production Modeling (Threat modeling after the software is already coded and deployed).
+  - Focusing Only on Software (Ignoring network trust boundaries and cloud infrastructure flows).
+  - Unprioritized STRIDE Lists (Creating a list of 500 threats without using DREAD to prioritize fixes).
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Threat Modeling asks: What are we building? What can go wrong? What do we do? Did we succeed?
+[ ] STRIDE: Spoofing, Tampering, Repudiation, Info Disclosure, Denial of Service, Elevation of Privilege.
+[ ] Spoofing violates Authenticity; Tampering violates Integrity; Repudiation violates Non-Repudiation.
+[ ] Info Disclosure violates Confidentiality; DoS violates Availability; Elevation violates Authorization.
+[ ] DREAD Formula: (Damage + Reproducibility + Exploitability + Affected Users + Discoverability) / 5.
+[ ] DREAD Critical severity band: 8.0 to 10.0.
+[ ] Trust boundaries mark transitions between different privilege or network zones.
+[ ] DPDP Act Section 8 mandates Privacy-by-Design and threat modeling to prevent ₹250 Cr fines.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 12 (CYBER SECURITY BCAC703 - MODULE 003_003)
+================================================================================

@@ -1,0 +1,129 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 9: REPEATED MODI ITERATIONS (CONVERGENCE DYNAMICS & MULTI-PASS SOLVING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE MULTI-PASS CONVERGENCE PIPELINE
+--------------------------------------------------------------------------------
+When solving real-world industrial transportation problems, an Initial Basic Feasible
+Solution (especially from NWCR or Least Cost) rarely hits the optimal vertex on
+step 1. It requires REPEATED MODI ITERATIONS to traverse adjacent vertices along the
+transportation polytope:
+
+THE ITERATIVE PIPELINE:
+  Tableau 0 (IBFS)
+      │  Evaluate d^(0): Found d_21 = -₹8 < 0 (Sub-Optimal)
+      ▼  Pivot Loop 1: θ = 60 tons ➔ Saves ₹480
+  Tableau 1 (Iteration 1)
+      │  Evaluate d^(1): Found d_32 = -₹3 < 0 (Sub-Optimal)
+      ▼  Pivot Loop 2: θ = 10 tons ➔ Saves ₹200 (Total ₹680 saved)
+  Tableau 2 (Iteration 2)
+      │  Evaluate d^(2): ALL d_ij >= 0 (Optimality Certified! ⭐)
+      ▼
+  TERMINATION: Certified Global Minimum Cost Z = ₹2,060.
+
+MONOTONIC CONVERGENCE THEOREM:
+• At every non-degenerate iteration: Z_{k+1} < Z_k.
+• The finite number of basic feasible solutions guarantees termination in a finite
+  number of steps with ZERO risk of infinite cycling.
+
+--------------------------------------------------------------------------------
+2. DETAILED STEP-BY-STEP WALKTHROUGH OF ITERATION 2
+--------------------------------------------------------------------------------
+Consider Tableau 1 from the Foundry Problem:
+Allocations: (1,2)=70 @ ₹14, (2,1)=60 @ ₹5, (2,2)=10 @ ₹19, (2,3)=20 @ ₹10, (3,3)=60 @ ₹7.
+Total Cost: Z_1 = ₹2,260.
+
+STEP 1: COMPUTE NEW DUAL POTENTIALS (u^(1), v^(1))
+• Set u_1 = 0.
+• Basic cell (1,2): u_1 + v_2 = 14 => 0 + v_2 = 14 => v_2 = 14.
+• Basic cell (2,2): u_2 + v_2 = 19 => u_2 + 14 = 19 => u_2 = 5.
+• Basic cell (2,1): u_2 + v_1 = 5  => 5 + v_1 = 5  => v_1 = 0.
+• Basic cell (2,3): u_2 + v_3 = 10 => 5 + v_3 = 10 => v_3 = 5.
+• Basic cell (3,3): u_3 + v_3 = 7  => u_3 + 5 = 7  => u_3 = 2.
+Potentials: u^(1) = [0, 5, 2], v^(1) = [0, 14, 5].
+
+STEP 2: EVALUATE NEW OPPORTUNITY COSTS d^(1)
+• (1,1): d_11 = 8 - (0 + 0) = +₹8    --> Positive
+• (1,3): d_13 = 12 - (0 + 5) = +₹7   --> Positive
+• (3,1): d_31 = 11 - (2 + 0) = +₹9   --> Positive
+• (3,2): d_32 = 13 - (2 + 14) = -₹3  --> NEGATIVE! (Entering Cell for Iteration 2 ⭐)
+
+STEP 3: TRACE CLOSED LOOP FOR CELL (3, 2)
+• Loop: (3,2)[+] ➔ (2,2)[-] ➔ (2,3)[+] ➔ (3,3)[-].
+• Minus corners: Cell (2,2) [alloc = 10] and Cell (3,3) [alloc = 60].
+• θ_2 = min(10, 60) = 10 tons.
+
+STEP 4: UPDATE ALLOCATIONS TO GET TABLEAU 2
+• Cell (3,2) [Enter]:  0 + 10 = 10 tons  (Enters Basis)
+• Cell (2,2) [Minus]: 10 - 10 = 0 tons   (Leaves Basis)
+• Cell (2,3) [Plus]:  20 + 10 = 30 tons  (Remains Basic)
+• Cell (3,3) [Minus]: 60 - 10 = 50 tons  (Remains Basic)
+• Cell (1,2) = 70 tons (Unchanged)
+• Cell (2,1) = 60 tons (Unchanged)
+
+STEP 5: COMPUTE FINAL COST ON TABLEAU 2
+Z_2 = (70 × 14) + (60 × 5) + (30 × 10) + (10 × 13) + (50 × 7)
+    = 980 + 300 + 300 + 130 + 350
+    = ₹2,060.
+
+STEP 6: FINAL AUDIT ON TABLEAU 2
+Computing potentials u^(2) = [0, 5, 2], v^(2) = [0, 14, 5] (adjusted for new basis):
+All empty cell opportunity costs evaluate to d^(2) >= 0!
+TERMINATE: GLOBAL OPTIMUM REACHED (Total savings = ₹680, 24.82%).
+
+--------------------------------------------------------------------------------
+3. INITIAL METHOD CONVERGENCE COMPARISON
+--------------------------------------------------------------------------------
+Initial Heuristic       Initial Cost Z_0   Iterations to Optimal   Total Extra Steps
+North-West Corner       ₹2,740             2 Iterations            Heavy (2 pivots)
+Least Cost Method       ₹2,480             1 Iteration             Moderate (1 pivot)
+Vogel's Approximation   ₹2,060             0 Iterations            Zero (Instant Optima!)
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 2-Iteration Global Minimum (Debangshu)
+Debangshu in Barrackpore iterated through NWCR (₹2,740) ➔ Iteration 1 (₹2,260) ➔
+Iteration 2 (₹2,060). Achieved certified minimal freight with ₹680 cumulative savings.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Multi-Pass Optimization (Mamata & Mahima)
+Mamata and Mahima in Kolkata ran 2 iterations on a regional health network:
+Saved ₹120 on Iteration 1 and ₹60 on Iteration 2, securing emergency vaccine delivery.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Iteration Speed Comparison (Susmita)
+Susmita in Ichapur compared NWCR (2 iterations) vs VAM (0 iterations), proving that
+VAM eliminates 100% of iteration overhead for fast retail operations.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Contract Audit (Abhronila)
+Abhronila in Jadavpur presented a complete 2-iteration audit trail to university auditors,
+proving that the ₹9,400 contract had reached the true global minimum.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never stop after Iteration 1 just because the cost improved; continue until ALL d >= 0!
+- Always solve a completely fresh set of u-v potentials for every new iteration tableau.
+- Clearly label intermediate tableaus as Tableau I, Tableau II, Tableau III.
+- Verify row sums and column sums after EVERY single pivot.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Understood the multi-pass convergence pipeline (T_0 ➔ T_1 ➔ T_2 ➔ T_opt).
+[ ] Computed fresh u-v potentials on each new iteration tableau.
+[ ] Evaluated opportunity costs and selected entering cell at each pass.
+[ ] Traced closed loops and executed θ-pivoting for each iteration.
+[ ] Verified monotonic cost decrease: Z_0 > Z_1 > Z_2 ...
+[ ] Terminated when all d_ij >= 0 and reported final minimum cost Z in ₹.
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 9: REPEATED MODI ITERATIONS
+================================================================================

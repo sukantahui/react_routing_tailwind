@@ -1,0 +1,121 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_003 : SECURITY POLICIES, RISK ASSESSMENT & MITIGATION
+TOPIC 11       : THIRD-PARTY AND SUPPLY CHAIN RISK MANAGEMENT
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE SUPPLY CHAIN THREAT VECTOR
+--------------------------------------------------------------------------------
+No modern enterprise is an isolated island. Organizations connect to hundreds of external cloud vendors, 
+APIs, contractors, and thousands of open-source software dependencies. Under ISO/IEC 27001:2022 
+Controls A.5.19–A.5.22 and ISO 27036, Third-Party and Supply Chain Risk Management (TPRM) establishes 
+the defensive perimeter around the external ecosystem:
+
+  * THE VULNERABILITY  : Hackers bypass fortified perimeters by compromising trusted third-party suppliers.
+  * THE METHODOLOGY    : 3-Tier Vendor Risk Classification + Automated Software Bill of Materials (SBOM).
+  * THE STATUTORY RULE : DPDP Act Sec 8(2) holds the Data Fiduciary 100% liable for vendor breaches (₹250 Cr)!
+
+--------------------------------------------------------------------------------
+2. THE 3-TIER VENDOR RISK CLASSIFICATION MATRIX
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| VENDOR TIER        | ACCESS LEVEL & CRITICALITY| MANDATORY DUE DILIGENCE & CONTRACTUAL SLAS   |
++--------------------+-------------------------+------------------------------------------------+
+| 1. TIER 1          | Direct access to PII,   | Annual SOC 2 Type II + ISO 27001 Certificate + |
+| (Critical)         | payment APIs, core cloud| Right-to-Audit + 24-Hour Breach SLA + CycloneDX|
+|                    | infrastructure or VPN.  | SBOM + ₹50 Crore Legal Indemnity Clause.       |
+|                    |                         |                                                |
+| 2. TIER 2          | Access to confidential  | Annual SIG Security Questionnaire + Third-Party|
+| (High)             | business data, staging  | Penetration Test Executive Summary + DPA.      |
+|                    | environments, or ERP.   |                                                |
+|                    |                         |                                                |
+| 3. TIER 3          | Commodity SaaS tools, no| Standard CAIQ-Lite Questionnaire + Standard    |
+| (Medium / Low)     | sensitive PII or network| Terms of Service Review + Non-Disclosure Agmt. |
+|                    | access (e.g. Marketing).|                                                |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. SOFTWARE SUPPLY CHAIN SECURITY & SBOM STANDARDS
+--------------------------------------------------------------------------------
+
+  * SOFTWARE BILL OF MATERIALS (SBOM) :
+    - Standardized, machine-readable inventory of all direct and transitive dependencies 
+      formatted in CycloneDX (OWASP) or SPDX (Linux Foundation).
+  * SOFTWARE COMPOSITION ANALYSIS (SCA) :
+    - Automated CI/CD tools (Snyk, Dependency-Check) that block builds containing Critical CVEs.
+  * CRYPTOGRAPHIC PROVENANCE :
+    - Code signing of container images and binaries using Cosign / Sigstore to prevent build tampering.
+
+--------------------------------------------------------------------------------
+4. STATUTORY SAFE HARBOR UNDER INDIAN CYBER LAW
+--------------------------------------------------------------------------------
+
+  * DPDP ACT 2023 SECTION 8(2) & SECTION 33 :
+    - Data Fiduciaries remain strictly vicariously liable for personal data breaches caused by 
+      third-party Data Processors; vendor negligence triggers ₹250 CRORE fines on the Fiduciary!
+  * RESERVE BANK OF INDIA (RBI) MASTER DIRECTIONS ON OUTSOURCING :
+    - 100% Indian Data Residency for payment data; RBI inspectors maintain direct audit rights over vendors.
+  * CERT-In DIRECTIONS 2022 (IT ACT SEC 70B) :
+    - Mandatory statutory reporting of third-party supply chain compromises within 6 HOURS.
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : AUDITING 45 PAYMENT VENDORS & CYCLONEDX SBOMS (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : 500 payment microservices integrated 45 third-party fintech SDKs with hidden Log4j transitive flaws.
+  * Action : Enforced mandatory CycloneDX SBOM ingestion and automated Snyk CI/CD gates, blocking 14 vulnerable 
+    packages and achieving 100% compliance with RBI and PCI-DSS v4.0 supply chain mandates.
+
+SCENARIO 2 : HEALTHCARE CLOUD PACS VENDOR DPA & AUDIT (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : Third-party cloud PACS vendor stored 80,000 oncology patient scans on un-audited cloud infrastructure.
+  * Action : Executed a formal Data Processing Agreement (DPA) with a 24-hour breach SLA, verified SOC 2 Type II 
+    reports, and deployed automated S3 client-side encryption, shielding the hospital from ₹250 Cr DPDP fines.
+
+SCENARIO 3 : 220KV SCADA OT HARDWARE SUPPLY CHAIN PROVENANCE (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : 18 substations faced hardware trojan and untrusted firmware risks from foreign RTU suppliers.
+  * Action : Enforced trusted hardware provenance certification, cryptographically verified firmware signatures via 
+    Cosign, and isolated all RTUs behind hardware data diodes under IT Act Section 70 rules.
+
+SCENARIO 4 : TPRM & SBOM SIMULATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to understand transitive dependency risks and how to tier vendor security.
+  * Action : Developed an interactive Third-Party Vendor Risk Tiering & SBOM Inspector Studio in React, 
+    training 215+ BCA cyber security students on software supply chain security and vendor audits.
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL TPRM HABITS:
+  1. Enforce 24-Hour Breach Notification: Require third-party vendors to notify you in < 24 hours.
+  2. Mandate Machine-Readable SBOMs: Require CycloneDX or SPDX SBOMs for all third-party software.
+  3. Automate Vendor Offboarding: Revoke OAuth tokens, API keys, and VPN logins within 1 hour of contract end.
+  4. Block Vulnerable Pull Requests: Integrate SCA into CI/CD to prevent Log4j-style library merges.
+
+* COMMON BEGINNER TPRM PITFALLS:
+  - The "Trusted Vendor" Assumption (Assuming big-name vendors are automatically immune to cyber attacks).
+  - Ignoring Transitive Dependencies (Focusing on direct libraries while ignoring 400 nested packages).
+  - Spreadsheet Vendor Surveys (Relying on self-attested Word docs without verified SOC 2 Type II audits).
+  - Orphaned Vendor Logins (Leaving third-party contractor accounts active months after contract expiry).
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] TPRM is governed by ISO/IEC 27001 Controls A.5.19, A.5.20, A.5.21, A.5.22 & ISO 27036.
+[ ] Tier 1 Critical vendors have direct access to PII, banking APIs, or network infrastructure.
+[ ] Software Bill of Materials (SBOM) formats: CycloneDX (OWASP) and SPDX (Linux Foundation).
+[ ] Direct dependencies are explicitly imported; Transitive dependencies are nested sub-libraries.
+[ ] DPDP Act Section 8(2) holds the Data Fiduciary vicariously liable for Data Processor breaches (₹250 Cr).
+[ ] Mandatory DPA clauses: Right-to-Audit, 24h Breach SLA, Sub-processor limits, NIST 800-88 Destruction.
+[ ] Software Composition Analysis (SCA) automatically detects vulnerable open-source packages in CI/CD.
+[ ] RBI Master Directions mandate 100% Indian Data Residency for payment transaction data.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 11 (CYBER SECURITY BCAC703 - MODULE 003_003)
+================================================================================

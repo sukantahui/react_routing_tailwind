@@ -1,0 +1,146 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_001 : INTRODUCTION TO INFORMATION SECURITY MANAGEMENT & GOALS
+TOPIC 07       : INFORMATION CLASSIFICATION SCHEMES (PUBLIC, CONFIDENTIAL, SECRET)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & PURPOSE OF CLASSIFICATION
+--------------------------------------------------------------------------------
+Information Classification is the foundational process of categorizing enterprise data into defined 
+sensitivity tiers based on the business, financial, and legal impact of unauthorized disclosure or loss:
+
+  * THE REALITY   : Treating all data identically is financially and operationally impossible. 
+                    Applying FIPS HSM encryption to public marketing brochures wastes budget; 
+                    leaving customer Aadhaar/PAN records unencrypted causes ₹250 Crore DPDP penalties.
+  * THE PARADIGM  : Establishing clear handling, encryption, access, and disposal baselines for each tier.
+
+--------------------------------------------------------------------------------
+2. THE 4-TIER COMMERCIAL CLASSIFICATION SCHEME
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| CLASSIFICATION TIER| SENSITIVITY & EXAMPLES  | MANDATORY SECURITY BASELINE & ENCRYPTION       |
++--------------------+-------------------------+------------------------------------------------+
+| 1. PUBLIC          | Press releases, flyers, | Standard HTTP/HTTPS | No encryption at rest    |
+|                    | published pricing guides| Standard file deletion | Open sharing allowed  |
+|                    |                         |                                                |
+| 2. INTERNAL USE    | Staff phonebook, holiday| User authentication required | TLS in transit  |
+|                    | calendars, internal SOPs| Standard access logging | Internal staff only  |
+|                    |                         |                                                |
+| 3. CONFIDENTIAL    | Source code, M&A models,| AES-256-GCM at rest | TLS 1.3 | Strict RBAC    |
+|                    | pricing logic, contracts| DLP monitoring | Clear/Purge sanitization      |
+|                    |                         |                                                |
+| 4. RESTRICTED      | Customer PII, Aadhaar,  | FIPS 140-3 HSM Keys | mTLS | FIDO2 Hardware MFA|
+| (HIGHLY CONFIDENTIAL)PAN, Medical PACS, Keys | Immutable WORM Logs | NIST SP 800-88 Shredding |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. GOVERNMENT & MILITARY CLASSIFICATION (OFFICIAL SECRETS ACT 1923)
+--------------------------------------------------------------------------------
+
+  * TOP SECRET   : Unauthorized disclosure causes EXCEPTIONALLY GRAVE DAMAGE to national defense.
+  * SECRET       : Causes SERIOUS DAMAGE to national security and critical infrastructure.
+  * CONFIDENTIAL : Causes PREJUDICE to state interests, diplomatic cables, or law enforcement.
+  * UNCLASSIFIED : Standard public governmental gazettes and administrative records.
+
+--------------------------------------------------------------------------------
+4. MULTI-LEVEL SECURITY: THE BELL-LAPADULA (BLP) MODEL
+--------------------------------------------------------------------------------
+
+  * SIMPLE SECURITY PROPERTY ("NO READ UP"):
+    A user with 'Confidential' clearance can read 'Public' and 'Confidential' data, but is 
+    strictly blocked from reading 'Restricted' data.
+
+  * * (STAR) PROPERTY ("NO WRITE DOWN"):
+    A user with 'Restricted' clearance cannot write or copy data into a 'Public' or 'Internal' 
+    document, mathematically preventing unauthorized data leakage or accidental de-classification.
+
+--------------------------------------------------------------------------------
+5. DATA LOSS PREVENTION (DLP) ENFORCEMENT
+--------------------------------------------------------------------------------
+
+  * ENDPOINT DLP : Blocks copying 'RESTRICTED' files to USB drives, clipboard, or local printers.
+  * NETWORK DLP  : Inspects outbound SMTP emails and web traffic; blocks unencrypted Aadhaar/PAN regex.
+  * CLOUD DLP    : Scans AWS S3 buckets and databases; alerts on unclassified data containing PII.
+
+--------------------------------------------------------------------------------
+6. DATA SANITIZATION STANDARDS PER TIER (NIST SP 800-88)
+--------------------------------------------------------------------------------
+
+  * CLEAR   : Logical overwrite of storage sectors (Used for Internal / Confidential tiers).
+  * PURGE   : Low-level ATA Secure Erase or Crypto-Erase (Used for Confidential / Restricted tiers).
+  * DESTROY : Physical shredding to particles < 2mm or incineration (Mandatory for Restricted drives).
+  * CRYPTO-SHREDDING : Destroying KMS Data Encryption Keys (DEKs) to sanitize cloud storage instantly.
+
+--------------------------------------------------------------------------------
+7. INDIAN STATUTORY & REGULATORY LANDSCAPE
+--------------------------------------------------------------------------------
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023:
+    - All customer personal data must be classified as RESTRICTED.
+    - Section 33 imposes fines up to ₹250 CRORES for failure to protect personal data assets.
+
+  * INFORMATION TECHNOLOGY ACT 2000 (SPDI RULES 2011):
+    - Rule 3 defines 6 categories of Sensitive Personal Data (Passwords, Financial, Medical, Biometric).
+    - Section 43A makes organizations liable for damages if SPDI is not protected with ISO 27001 controls.
+
+--------------------------------------------------------------------------------
+8. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : 500-NODE PAYMENT DATABASE COLUMN-LEVEL CLASSIFICATION (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹14,50,000 | Location : Kolkata
+  * Dilemma : Support staff were viewing plaintext customer PAN and Aadhaar numbers during billing triage.
+  * Action : Implemented PostgreSQL Column-Level Dynamic Data Masking and automated DLP tagging, 
+    ensuring only compliance officers can view Restricted customer PII under DPDP Section 8.
+
+SCENARIO 2 : 4-TIER HEALTHCARE DATA CLASSIFICATION POLICY (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : Hospital staff were treating patient oncology DICOM scans with the same lax controls as public rosters.
+  * Action : Authored a 4-tier healthcare data classification standard, enforcing AES-256 encryption and 
+    FIDO2 MFA for all Restricted oncology records under NABH and DPDP guidelines.
+
+SCENARIO 3 : 220KV SUBSTATION SCADA SECRET CLASSIFICATION (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹12,80,000 | Location : Barrackpore
+  * Dilemma : Substation single-line diagrams (SLDs) and RTU cryptographic keys were stored on unencrypted laptops.
+  * Action : Classified all substation SCADA telemetry and cryptographic keys as SECRET / PROTECTED SYSTEM 
+    under IT Act Section 70, mandating air-gapped jump hosts and dual-custody hardware key storage.
+
+SCENARIO 4 : ENTERPRISE DLP & BELL-LAPADULA SIMULATOR LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to understand how DLP software enforces "No Write Down" mathematical rules.
+  * Action : Built an interactive Bell-LaPadula DLP policy engine in React/Python, training 185+ BCA 
+    cyber security students on configuring automated endpoint and cloud DLP rules.
+
+--------------------------------------------------------------------------------
+9. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL CLASSIFICATION HABITS:
+  1. Automate DLP Metadata Tagging: Never rely solely on manual human classification marking.
+  2. Implement Column-Level Data Masking: Mask sensitive PAN/Aadhaar numbers in database queries.
+  3. Enforce Bell-LaPadula * Property: Block users from copying Restricted data into Public documents.
+  4. Schedule Periodic Re-Classification: De-classify embargoed financial reports post-SEBI filing.
+
+* COMMON BEGINNER CLASSIFICATION PITFALLS:
+  - Over-Classification (Marking public flyers as Restricted, wasting budget and causing friction).
+  - Under-Classification (Leaving customer PII as Internal, risking ₹250 Cr DPDP fines).
+  - Failing to update metadata tags when documents are modified or combined.
+  - Deleting cloud storage files without destroying encryption keys (Leaves data recoverable).
+
+--------------------------------------------------------------------------------
+10. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] 4 Commercial Tiers: Public, Internal Use, Confidential, Restricted (Highly Confidential).
+[ ] Military Tiers (Official Secrets Act): Top Secret, Secret, Confidential, Unclassified.
+[ ] Bell-LaPadula: Simple Security (No Read Up) & * Property (No Write Down).
+[ ] DLP inspects Data in Use (Endpoints), Data in Motion (Network), and Data at Rest (Storage).
+[ ] DPDP Act Section 33 imposes fines up to ₹250 Crores for breaching Restricted personal data.
+[ ] SPDI Rules 2011 define 6 categories of sensitive personal data under IT Act Section 43A.
+[ ] Restricted data requires AES-256-GCM, FIPS 140-3 HSMs, mTLS, and NIST SP 800-88 sanitization.
+[ ] Re-classification adjusts sensitivity as assets age (e.g. pre-launch earnings vs post-filing).
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 07 (CYBER SECURITY BCAC703 - MODULE 003_001)
+================================================================================

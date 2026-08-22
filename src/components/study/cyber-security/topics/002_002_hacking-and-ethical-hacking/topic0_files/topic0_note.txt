@@ -1,0 +1,203 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_002 : HACKING, ETHICAL HACKING & HACKER TYPES
+TOPIC 00       : INTRODUCTION TO HACKING CONCEPTS & TERMINOLOGY
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & HISTORICAL ROOTS OF HACKING
+--------------------------------------------------------------------------------
+The word 'Hacking' originally emerged in the late 1950s and 1960s at the Massachusetts 
+Institute of Technology (MIT) Tech Model Railroad Club (TMRC). Early computing 
+pioneers used the term 'hack' to describe an elegant, ingenious, and unconventional 
+solution to a complex engineering challenge.
+
+Over the decades, hacking evolved through distinct historical eras:
+  * 1970s (Phone Phreaking Era): John Draper ('Captain Crunch') and early telephone 
+    explorers discovered that a 2600 Hz audio tone whistled into a telephone receiver 
+    tricked AT&T trunk switches into resetting routing, enabling free calls.
+  * 1980s-1990s (The Personal Computer & BBS Era): As dial-up modems spread, hacking 
+    expanded into exploration of corporate mainframes, Bulletin Board Systems (BBS), 
+    and software protection cracking.
+  * 2000s-Present (Cyber Warfare & Enterprise Defense): The commercialization of the 
+    internet transformed hacking into a multi-billion-rupee industry spanning state-sponsored 
+    espionage, cybercrime syndicates, and professional enterprise ethical hacking.
+
+--------------------------------------------------------------------------------
+2. CORE CYBERSECURITY TERMINOLOGY & DEFINITIONS
+--------------------------------------------------------------------------------
+
++----------------------+-------------------------------------------------------------------------+
+| TERM                 | TECHNICAL DEFINITION & PRACTICAL CONTEXT                                |
++----------------------+-------------------------------------------------------------------------+
+| 1. Vulnerability     | A flaw, bug, or design weakness in software/hardware/process that can   |
+|                      | be leveraged to violate security policies (e.g., unescaped SQL query).   |
++----------------------+-------------------------------------------------------------------------+
+| 2. Threat            | Any circumstance, actor, or event with the potential to adversely      |
+|                      | impact an asset through unauthorized access, destruction, or denial.    |
++----------------------+-------------------------------------------------------------------------+
+| 3. Exploit           | A crafted sequence of commands, script, or binary engineered to trigger |
+|                      | a specific vulnerability and gain unauthorized system behavior.         |
++----------------------+-------------------------------------------------------------------------+
+| 4. Payload           | The actual action or code executed on the target machine upon successful|
+|                      | exploitation (e.g., spawning a reverse shell `/bin/sh` or encrypter).   |
++----------------------+-------------------------------------------------------------------------+
+| 5. Zero-Day (0-Day)  | A vulnerability unknown to the software vendor with 0 days of official  |
+|                      | patches available, leaving systems exposed to active exploitation.      |
++----------------------+-------------------------------------------------------------------------+
+| 6. Attack Surface    | The total sum of all exposed network ports, APIs, web apps, and human   |
+|                      | touchpoints accessible by an unauthorized adversary.                    |
++----------------------+-------------------------------------------------------------------------+
+| 7. Risk              | The likelihood of a threat exploiting a vulnerability multiplied by the |
+|                      | resulting financial, operational, and legal impact: Risk = T x V x I.   |
++----------------------+-------------------------------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. THE EXPLOITATION PIPELINE : HOW AN ATTACK OCCURS
+--------------------------------------------------------------------------------
+
+   [ PHASE 1: RECONNAISSANCE ]
+        |  --> Passive OSINT, DNS records, Subdomain discovery (crt.sh)
+        v
+   [ PHASE 2: SCANNING & ENUMERATION ]
+        |  --> Port scanning (Nmap), Service version probing, Banner grabbing
+        v
+   [ PHASE 3: VULNERABILITY IDENTIFICATION ]
+        |  --> Matching service versions against CVE databases (e.g., CVE-2021-44228)
+        v
+   [ PHASE 4: WEAPONIZATION & EXPLOIT EXECUTION ]
+        |  --> Crafting the exploit string / buffer overflow to hijack control flow
+        v
+   [ PHASE 5: PAYLOAD DELIVERY & POST-EXPLOITATION ]
+        |  --> Spawning Reverse Shell, Establishing Persistence, Lateral Movement
+
+--------------------------------------------------------------------------------
+4. THREAT ACTOR SPECTRUM & MOTIVATIONAL TAXONOMY
+--------------------------------------------------------------------------------
+
+1. Script Kiddies (Amateurs):
+   - Motivation: Personal ego, vandalism, trolling, social media bragging.
+   - Skill: Low. Reliant entirely on pre-built GUI tools (LOIC, Metasploit, SQLmap).
+   - Stealth: Zero. Easily detected by standard firewall signatures.
+
+2. Hacktivists (Politically Motivated):
+   - Motivation: Ideological, political, or social causes (e.g., Anonymous).
+   - Tactics: Website defacements, DDoS takedowns, leaking embarrassing emails.
+
+3. Cyber Criminal Syndicates (Financial Motive):
+   - Motivation: Direct monetary extortion, ransomware, stolen credit cards.
+   - Tactics: Double-extortion ransomware (DarkSide, LockBit), banking trojans.
+
+4. Advanced Persistent Threats (APTs - Nation-State):
+   - Motivation: Geopolitical espionage, intellectual property theft, military sabotage.
+   - Resources: Multi-million-rupee state budgets, custom zero-day exploits, elite kernel rootkits.
+   - Stealth: Extreme. Dwell time often spans 6 to 18 months undetected.
+
+--------------------------------------------------------------------------------
+5. THREAT MODELING & SCORING FRAMEWORKS
+--------------------------------------------------------------------------------
+
+1. STRIDE THREAT MODELING (Microsoft):
+   - S : Spoofing Identity        --> Defense: Strong Authentication (FIDO2, TLS)
+   - T : Tampering with Data      --> Defense: Cryptographic HMACs & Hashes
+   - R : Repudiation              --> Defense: Immutable WORM Audit Logs
+   - I : Information Disclosure   --> Defense: AES-256 Encryption & Egress Lockdown
+   - D : Denial of Service        --> Defense: Anycast DDoS Scrubbing & Rate Limiting
+   - E : Elevation of Privilege   --> Defense: Principle of Least Privilege (RBAC)
+
+2. COMMON VULNERABILITY SCORING SYSTEM (CVSS v3.1):
+   - Numerical score ranging from 0.0 to 10.0 based on Base Metrics:
+     * Attack Vector (Network, Adjacent, Local, Physical)
+     * Attack Complexity (Low, High)
+     * Privileges Required (None, Low, High)
+     * User Interaction (None, Required)
+     * Scope (Unchanged, Changed)
+     * C-I-A Impact (None, Low, High)
+   - Severity Bands:
+     * Low: 0.1 - 3.9  |  Medium: 4.0 - 6.9  |  High: 7.0 - 8.9  |  Critical: 9.0 - 10.0
+
+--------------------------------------------------------------------------------
+6. LEGAL FRAMEWORKS & INDIAN CYBER LAW
+--------------------------------------------------------------------------------
+
+1. Information Technology (IT) Act, 2000:
+   - Section 43: Civil liability for unauthorized computer access, data downloading, 
+     or introducing viruses without owner consent (Compensation to victims).
+   - Section 66: Criminal penalty for hacking with fraudulent or dishonest intent 
+     (Imprisonment up to 3 years, fine up to ₹5,00,000, or both).
+   - Section 70B: Establishes CERT-In as the national nodal agency for incident handling.
+
+2. CERT-In Mandatory Cybersecurity Directives:
+   - All corporate and government organizations in India must report specified 
+     cybersecurity incidents to CERT-In within 6 hours of discovery.
+
+3. Digital Personal Data Protection (DPDP) Act, 2023:
+   - Penalties up to ₹250 Crores for entities failing to implement reasonable security 
+     safeguards resulting in personal data breaches.
+
+--------------------------------------------------------------------------------
+7. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : E-COMMERCE DISCOUNT LOGIC FLAW (KOLKATA FINTECH HUB)
+  * Lead Auditor : Mamata | Budget : ₹5,50,000 | Location : Kolkata
+  * Dilemma : While testing a coupon checkout API, Mamata discovered modifying the 
+    request parameter `discount=500` on a ₹300 cart produced a negative total `-₹200`, 
+    triggering an automated ₹200 refund to the user's digital wallet.
+  * Professional Action : Responsible disclosure to the engineering team with a 
+    proof-of-concept demonstration, preventing multi-lakh inventory loss.
+
+SCENARIO 2 : UNPROTECTED PATIENT QUEUE API (ICHAPUR GENERAL HOSPITAL)
+  * Lead Security Officer : Mahima | Budget : ₹4,20,000 | Location : Ichapur
+  * Dilemma : Internal network scan discovered an open REST endpoint `GET /api/queue/live` 
+    transmitting unencrypted patient names, diagnostic codes, and blood pressure telemetry.
+  * Professional Action : Enforced JWT token authorization and field-level encryption, 
+    eliminating unauthorized internal access under NABH compliance.
+
+SCENARIO 3 : TESTBED SCADA MODBUS EMULATION (BARRACKPORE GRID)
+  * Lead SCADA Engineer : Debangshu | Budget : ₹6,00,000 | Location : Barrackpore
+  * Dilemma : Needed to test whether unauthenticated Modbus TCP coil commands could 
+    trip blast furnace valves without endangering live factory workers.
+  * Professional Action : Built an isolated hardware-in-the-loop (HIL) lab replica 
+    with digital twin sensors, demonstrating exploit mechanics safely.
+
+SCENARIO 4 : ISOLATED ETHICAL HACKING LAB (JADAVPUR UNIVERSITY)
+  * Research Leads : Abhronila & Susmita | Budget : ₹3,80,000 | Location : Jadavpur
+  * Dilemma : Student members wanted to practice buffer overflows and web exploits 
+    without triggering University firewall alarms or breaking Indian cyber law.
+  * Professional Action : Built an isolated host-only virtualization subnet running 
+    Kali Linux, Metasploitable3, and Damn Vulnerable Web Application (DVWA).
+
+--------------------------------------------------------------------------------
+8. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL HABITS:
+  1. Always Secure Written Authorization: Never run active scans against an IP or 
+     domain without signed Rules of Engagement (RoE) from the legal owner.
+  2. Master Fundamentals Over Tools: Understand TCP/IP handshakes, assembly, and HTTP 
+     protocols before running automated exploitation scripts.
+  3. Practice Responsible Disclosure: Give software vendors 90 days to release 
+     patches before publishing technical vulnerability analyses.
+
+* COMMON BEGINNER MISTAKES:
+  - Scanning public IP addresses from home broadband without legal permission (Section 66 violation).
+  - Confusing a Vulnerability (the flaw) with an Exploit (the trigger) or Payload (the action).
+  - Blindly executing downloaded GitHub exploit scripts that contain hidden backdoors.
+  - Relying exclusively on automated scanners while missing deep business logic flaws.
+
+--------------------------------------------------------------------------------
+9. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Hacking originated at MIT in the 1960s as creative engineering problem-solving.
+[ ] Phone Phreaking utilized the 2600 Hz tone discovered by Captain Crunch.
+[ ] Vulnerability = Flaw; Exploit = Trigger Code; Payload = Executed Package.
+[ ] Zero-Day means the software vendor has had 0 days of knowledge/patch time.
+[ ] IT Act 2000 Section 66 prescribes up to 3 years imprisonment for illegal hacking.
+[ ] CERT-In requires mandatory incident reporting within 6 hours.
+[ ] STRIDE categorizes threats into 6 dimensions: S, T, R, I, D, E.
+[ ] CVSS v3.1 scores range from 0.0 to 10.0 (9.0+ is Critical).
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 00 (CYBER SECURITY BCAC703)
+================================================================================

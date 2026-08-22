@@ -1,0 +1,150 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_003 : PHASES OF HACKING METHODOLOGY
+TOPIC 08       : PRIVILEGE ESCALATION AND LATERAL MOVEMENT
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & POST-EXPLOITATION GOALS
+--------------------------------------------------------------------------------
+Initial access (Phase 3) almost always lands in a constrained, low-privilege security context 
+(such as `www-data` on a web server or a standard employee account on a workstation).
+
+In Phase 4 of ethical hacking, technical operators execute two essential disciplines:
+  1. PRIVILEGE ESCALATION : Elevating local access to full Administrator / Root (`SYSTEM` / `UID 0`).
+  2. LATERAL MOVEMENT     : Pivoting across internal network subnets to reach crown-jewel assets.
+
+--------------------------------------------------------------------------------
+2. VERTICAL VS HORIZONTAL PRIVILEGE ESCALATION
+--------------------------------------------------------------------------------
+
+  * VERTICAL ESCALATION   : Moving UPWARD in privilege hierarchy (e.g. `www-data` -> `root`).
+  * HORIZONTAL ESCALATION : Moving SIDEWAYS to access data of another peer user at the same level.
+
+--------------------------------------------------------------------------------
+3. WINDOWS PRIVILEGE ESCALATION VECTORS
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| ESCALATION VECTOR  | ROOT CAUSE FLAW         | SAMPLE EXPLOIT TOOL| DEFENSIVE REMEDIATION                          |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Token           | Service account holds   | - PrintSpoofer.exe | Remove SeImpersonatePrivilege from service     |
+|    Impersonation   | `SeImpersonatePrivilege`| - GodPotato.exe    | accounts; migrate services to Virtual Accounts |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Unquoted Service| Service ImagePath has   | - Drop Program.exe | Add quotation marks around executable paths    |
+|    Paths           | spaces without quotes   |   in `C:\`         | in Registry ImagePath strings                  |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. AlwaysInstall   | Registry policy forces  | - msfvenom .msi    | Set AlwaysInstallElevated to 0 in both         |
+|    Elevated        | elevated MSI installs   |   `msiexec /q shell| HKLM and HKCU registry policies                |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. Insecure Service| Standard users have     | - `accesschk.exe`  | Restrict service configuration permissions     |
+|    Permissions     | SERVICE_ALL_ACCESS      | - `sc.exe config`  | using `sc.exe sdset`                           |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+4. LINUX PRIVILEGE ESCALATION VECTORS (GTFOBINS)
+--------------------------------------------------------------------------------
+
+[1. SUID / SGID BINARIES]
+  * Flaw: Binary runs with file owner (root) privileges (`chmod u+s`).
+  * Discovery: `find / -perm -4000 2>/dev/null`
+  * Exploit (GTFOBins): `/usr/bin/find . -exec /bin/sh -p \; -quit` -> Instant Root Shell!
+
+[2. SUDO MISCONFIGURATIONS (NOPASSWD)]
+  * Flaw: `/etc/sudoers` permits running commands as root without a password.
+  * Discovery: `sudo -l`
+  * Exploit (Vim): `sudo vim -c ':!/bin/bash'` -> Escapes into root shell.
+
+[3. KERNEL EXPLOITS (LAST RESORT)]
+  * Dirty Pipe (CVE-2022-0847): Overwrites read-only `/etc/passwd` page cache in memory.
+  * Baron Samedit (CVE-2021-3156): Heap overflow in sudo command-line unescaping.
+
+--------------------------------------------------------------------------------
+5. LATERAL MOVEMENT & NETWORK PIVOTING TRADECRAFT
+--------------------------------------------------------------------------------
+
+1. Pass-the-Hash (PtH):
+   - Authenticates over SMB (Port 445) using extracted NTLM hashes directly via `wmiexec.py` or `psexec.py`.
+
+2. Overpass-the-Hash (Pass-the-Key):
+   - Converts an NTLM hash into a valid Kerberos Ticket-Granting Ticket (TGT) using Rubeus to bypass NTLM blocks.
+
+3. SOCKS5 Proxy Pivoting (Chisel / SSH Dynamic Tunneling):
+   - Establishes an encrypted proxy (`ssh -D 1080 user@dmz_host`) to route scanner traffic into private subnets.
+
+4. BloodHound Active Directory Graph Analysis:
+   - Uses graph database queries (Neo4j) to uncover multi-hop shortest paths to Domain Admin.
+
+--------------------------------------------------------------------------------
+6. ENTERPRISE CONTAINMENT ARCHITECTURES
+--------------------------------------------------------------------------------
+
+1. Microsoft LAPS (Local Administrator Password Solution):
+   - Automatically randomizes the local Administrator password on every endpoint, stopping Pass-the-Hash dead.
+
+2. Tiered Administration Model:
+   - Strict credential isolation: Tier 0 (Domain Controllers), Tier 1 (Servers), Tier 2 (Endpoints).
+   - Tier 0 Domain Admins are strictly forbidden from logging into Tier 2 workstations.
+
+3. Micro-segmentation & Host Firewalls:
+   - Blocks workstation-to-workstation lateral SMB/WinRM traffic across local VLAN subnets.
+
+--------------------------------------------------------------------------------
+7. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : ACTIVE DIRECTORY BLOODHOUND PATH AUDIT (KOLKATA FINTECH)
+  * Lead Threat Hunter : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Identifying hidden, multi-hop delegation attack paths leading from branch laptops to Domain Admins.
+  * Action : Mamata ran SharpHound, mapped a 3-hop attack path in BloodHound where a helpdesk user had GenericAll 
+    rights over a database server, and revoked the excessive Active Directory ACLs.
+
+SCENARIO 2 : LINUX SUID BINARY HARDENING AUDIT (ICHAPUR HOSPITAL)
+  * Chief Healthcare Security Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : A clinical telemetry Linux server had an accidental SUID bit set on `/usr/bin/find`.
+  * Action : Ran LinPEAS, identified the GTFOBins vulnerability, removed the SUID bit (`chmod u-s /usr/bin/find`), 
+    and authored automated Ansible compliance playbooks to audit permissions continuously.
+
+SCENARIO 3 : SCADA LATERAL PIVOT BLOCKING WITH LAPS (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Preventing threat actors who compromise a substation engineering laptop from Pass-the-Hash pivoting to RTUs.
+  * Action : Deployed Microsoft LAPS across all substation machines, randomizing local admin passwords, 
+    and configured host firewall rules blocking peer-to-peer SMB (port 445) traffic.
+
+SCENARIO 4 : PRINTSPOOFER TOKEN IMPERSONATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students how Windows named pipe impersonation works under low-privilege service accounts.
+  * Action : Built a Windows Server lab demonstrating `PrintSpoofer.exe` exploiting `SeImpersonatePrivilege`, 
+    guiding 140+ students through token duplication mechanics and Windows service hardening.
+
+--------------------------------------------------------------------------------
+8. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL PRIVILEGE ESCALATION HABITS:
+  1. Check Misconfigurations First: Always run LinPEAS / WinPEAS before attempting risky kernel exploits.
+  2. Deploy LAPS Everywhere: Randomizing local admin passwords eliminates 90%+ of lateral movement.
+  3. Restrict Service Account Privileges: Strip `SeImpersonatePrivilege` from non-system daemons.
+
+* COMMON BEGINNER PRIVILEGE ESCALATION MISTAKES:
+  - Firing kernel exploits on production servers (Causes instant Blue Screens of Death / Kernel Panics).
+  - Logging in with Domain Admin accounts on standard user workstations (Leaves hashes in LSASS RAM).
+  - Forgetting to check `sudo -l` on Linux systems (Misses simple NOPASSWD shell escapes).
+  - Violating IT Act 2000 Section 70 by laterally pivoting into designated Protected Systems (10 Years Prison).
+
+--------------------------------------------------------------------------------
+9. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Vertical escalation elevates privilege to Root/SYSTEM; Horizontal accesses peer data.
+[ ] SeImpersonatePrivilege allows Potato exploits (PrintSpoofer) to capture SYSTEM tokens.
+[ ] Unquoted Service Paths allow code execution due to Windows space-splitting behavior.
+[ ] Linux SUID binaries (`find`, `vim`) allow root shell escapes via GTFOBins techniques.
+[ ] Sudo `-l` displays permitted root commands (exploitable with NOPASSWD escapes).
+[ ] BloodHound maps Active Directory attack paths to Domain Admins using Graph Theory.
+[ ] Pass-the-Hash moves laterally over SMB using extracted NTLM hashes directly.
+[ ] Microsoft LAPS randomizes local admin passwords to stop lateral Pass-the-Hash.
+[ ] IT Act 2000 Section 70 punishes accessing protected systems with up to 10 years prison.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 08 (CYBER SECURITY BCAC703)
+================================================================================

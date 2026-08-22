@@ -1,0 +1,132 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_003 : SECURITY POLICIES, RISK ASSESSMENT & MITIGATION
+TOPIC 05       : ASSET IDENTIFICATION AND ASSET VALUATION
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE ESSENCE OF ASSET GOVERNANCE
+--------------------------------------------------------------------------------
+You cannot protect what you do not know you own. Under ISO/IEC 27001:2022 Controls A.5.9 (Inventory of 
+Information Assets), A.5.12 (Classification of Information), and A.5.13 (Labeling of Information), 
+asset identification and valuation form the indispensable prerequisite for all risk assessments:
+
+  * PRIMARY ASSETS    : Core business processes and information (Customer PII, Financial Ledgers).
+  * SUPPORTING ASSETS : Tangible IT infrastructure hosting primary assets (Servers, Cloud VPCs, Staff).
+  * THE OUTCOME       : Prioritized security budgets, eliminated orphan assets, and statutory defensibility!
+
+--------------------------------------------------------------------------------
+2. 4-TIER INFORMATION ASSET CLASSIFICATION SCHEME
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| CLASSIFICATION TIER| IMPACT OF COMPROMISE    | REAL-WORLD EXAMPLES & PROTECTION BASELINE      |
++--------------------+-------------------------+------------------------------------------------+
+| 1. RESTRICTED      | Catastrophic financial, | Master KMS root keys, customer Aadhaar/KYC DBs.|
+| (Tier 1 - Apex)    | legal & survival damage.| Protection: FIPS 140-3 HSM + Zero Trust ZTNA.  |
+|                    |                         |                                                |
+| 2. CONFIDENTIAL    | Severe financial and    | Proprietary Python microservice source code,   |
+| (Tier 2)           | reputational harm.      | internal audit reports, employee salary sheets.|
+|                    |                         |                                                |
+| 3. INTERNAL USE    | Minor operational       | Engineering onboarding runbooks, Jira backlogs,|
+| (Tier 3)           | disruption / friction.  | internal company newsletters and policies.     |
+|                    |                         |                                                |
+| 4. PUBLIC          | Zero harm / Approved    | Published annual financial statements,         |
+| (Tier 4 - Base)    | for public release.     | marketing brochures, public REST documentation.|
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. ASSET VALUATION METHODOLOGIES (QUANTITATIVE VS QUALITATIVE)
+--------------------------------------------------------------------------------
+
+  * QUANTITATIVE VALUATION EQUATION :
+    $$Total Asset Value = C_{hardware} + C_{rebuild} + V_{revenue\_daily} + L_{regulatory\_fines} + V_{brand}$$
+    - Example : A ₹5 Lakh database server hosting ₹30 Cr/day UPI flows with ₹250 Cr DPDP statutory 
+      liability has a true quantitative asset value exceeding ₹280 CRORES!
+
+  * QUALITATIVE CIA TRIAD IMPACT SCORING (1 TO 5 SCALE) :
+    - Confidentiality Impact : Damage if leaked publicly.
+    - Integrity Impact       : Damage if data is tampered with / corrupted.
+    - Availability Impact    : Damage if service suffers downtime.
+
+--------------------------------------------------------------------------------
+4. ASSET OWNERSHIP VS CUSTODIANSHIP (CONTROL A.5.9)
+--------------------------------------------------------------------------------
+
+  * ASSET OWNER (Business Executive) :
+    - Senior department head (e.g. CFO / Head of Compliance) who owns the business data, 
+      determines classification, and approves access permissions.
+  * ASSET CUSTODIAN (Technical Administrator) :
+    - Technical engineer / sysadmin (e.g. Lead DBA Mamata) who implements technical safeguards, 
+      configures AES-256 encryption, and manages automated backups.
+
+--------------------------------------------------------------------------------
+5. STATUTORY SAFE HARBOR UNDER INDIAN CYBER LAW
+--------------------------------------------------------------------------------
+
+  * IT ACT 2000 SECTION 70 (PROTECTED SYSTEMS) :
+    - Critical Information Infrastructure (CII) declared Protected Systems by NCIIPC; 
+      unauthorized access is punishable with up to 10 YEARS RIGOROUS IMPRISONMENT!
+  * DPDP ACT 2023 SECTION 8 & SECTION 33 :
+    - Comprehensive asset registers proving identification of personal data repositories 
+      protect corporations against ₹250 CRORE statutory fines!
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : QUANTIFYING 500 PAYMENT MICROSERVICES (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : Fast-scaling payment switch lacked an inventory of 500 microservices processing ₹120 Cr/day.
+  * Action : Automated AWS Config CMDB asset discovery, cataloging 500 nodes and valuing the payment ledger 
+    at ₹180 Crores (incorporating DPDP liabilities), securing Tier 1 FIPS 140-3 HSM protection.
+
+SCENARIO 2 : INFORMATION ASSET REGISTER FOR 80,000 SCANS (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : Hospital lacked formal asset ownership for 80,000 oncology patient diagnostic scans.
+  * Action : Created formal IAR assigning Chief Medical Officer as Asset Owner and Lead DBA as Custodian, 
+    applying Restricted classification tags and automated S3 Object Lock encryption under DPDP Act Sec 8.
+
+SCENARIO 3 : 220KV SCADA SUBSTATION PROTECTED SYSTEMS (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : 18 transmission substations required official valuation and declaration as Protected Systems.
+  * Action : Valued SCADA RTUs at ₹450 Crores based on regional power outage economic impact, obtaining 
+    formal NCIIPC Protected System certification under Section 70 of the Indian Information Technology Act.
+
+SCENARIO 4 : MULTI-DIMENSIONAL ASSET VALUATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to calculate total asset valuation incorporating statutory DPDP liabilities.
+  * Action : Developed an interactive Multi-Dimensional Asset Valuation Calculator and Information Asset 
+    Register in React, training 215+ BCA cyber security students on enterprise asset governance.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL ASSET MANAGEMENT HABITS:
+  1. Automate Cloud Discovery: Ingest dynamic cloud API telemetry into central CMDBs continuously.
+  2. Include Legal Liabilities in Valuation: Factor in DPDP Act ₹250 Cr penalty exposure.
+  3. Enforce Strict Classification Banners: Label all documents and S3 buckets under Control A.5.13.
+  4. Separate Owner from Custodian: Ensure business owners define access while custodians manage technical locks.
+
+* COMMON BEGINNER ASSET PITFALLS:
+  - Orphan Assets (Leaving abandoned test servers running without an assigned asset owner).
+  - Hardware-Only Valuation (Valuing a server at its ₹2 Lakh purchase price rather than its ₹50 Cr data value).
+  - Manual Excel Registers (Using static spreadsheets that become obsolete within days in dynamic cloud setups).
+  - Over-Classification (Classifying 100% of documents as 'Restricted', creating massive operational friction).
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] ISO 27001 Control A.5.9 governs Inventory of Information Assets (IAR).
+[ ] Control A.5.12 governs Classification; Control A.5.13 governs Asset Labeling.
+[ ] Primary Assets are data/processes; Supporting Assets are the hardware/networks hosting them.
+[ ] 4 Tiers: Restricted (Tier 1), Confidential (2), Internal Use (3), Public (4).
+[ ] Total Asset Value = Hardware + Rebuild + Daily Revenue + Regulatory Fines + Brand Damage.
+[ ] Asset Owner (Business Executive) decides access; Asset Custodian (Sysadmin) implements controls.
+[ ] IT Act Section 70 penalizes unauthorized access to Protected Systems with 10 Years Imprisonment.
+[ ] DPDP Act Section 8 requires accurate asset inventories for citizen personal data repositories.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 05 (CYBER SECURITY BCAC703 - MODULE 003_003)
+================================================================================

@@ -1,0 +1,100 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 36: INTERNET VS INTRANET (DMZ ARCHITECTURES, RFC 1918 NAT, ZTNA & DUAL FIREWALLS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITIONS & ARCHITECTURAL COMPARISON
+--------------------------------------------------------------------------------
+• The Internet: A global, public, decentralized collection of interconnected networks
+  and Autonomous Systems (ASNs) operating over public BGP, public DNS, and public IPv4/IPv6
+  addressing. Untrusted security zone with open accessibility.
+• The Intranet: A private, restricted, organizational network reserved exclusively for
+  authenticated internal employees. Utilizes RFC 1918 private addressing, internal DNS,
+  and perimeter firewalls. Trusted security zone.
+
+Detailed Architectural Matrix:
+Dimension            | Public Internet                  | Private Intranet
+--------------------------------------------------------------------------------
+Accessibility        | Public (Anyone worldwide)        | Private (Authorized Staff Only)
+Addressing           | Public Routable IPv4 / IPv6      | RFC 1918 Private (10.0, 172.16, 192.168)
+Routing Protocols    | BGP (Border Gateway Protocol)    | OSPF, EIGRP, Static Routing (IGP)
+Trust Level          | Untrusted (Zero-Trust Required)  | Controlled / Microsegmented Trust
+Typical Speed        | 10 Mbps – 1 Gbps (Variable)      | 1 Gbps – 100 Gbps (Local LAN Fabric)
+Latency & Jitter     | 15 ms – 300 ms (Multi-hop WAN)   | < 1 ms (Deterministic Switch Fabric)
+Ownership & Cost     | Distributed / ISP Transit Fees   | Direct Organizational Asset Ownership
+
+--------------------------------------------------------------------------------
+2. 3-TIER PERIMETER DEMARCATION & DMZ ARCHITECTURE
+--------------------------------------------------------------------------------
+Security Zones:
+1. Untrusted Zone: The Public Internet.
+2. Semi-Trusted Zone (DMZ / Screened Subnet): Hosts Internet-facing services
+   (Web Servers, Reverse Proxies, Mail Relays, Public DNS, Bastion Hosts).
+3. Trusted Zone: The Internal Intranet (Core Databases, ERP, HR Payroll, File Shares).
+
+Perimeter Defense Mechanisms:
+• Dual-Firewall Setup: External Firewall screens Internet traffic into the DMZ; Internal
+  Firewall screens DMZ traffic into the trusted Intranet.
+• Network Address Translation (NAT/PAT): Translates internal RFC 1918 IPs into public IPs.
+• Split-Horizon DNS: Returns public IPs to Internet clients and private IPs to internal staff.
+
+--------------------------------------------------------------------------------
+3. MODERN INTRANET SECURITY: FROM CASTLE-AND-MOAT TO ZERO TRUST (ZTNA)
+--------------------------------------------------------------------------------
+Legacy "Castle-and-Moat" models trusted everything inside the internal network once authenticated.
+Modern Intranets enforce Zero Trust Network Access (ZTNA):
+• Least-Privilege Access: Users are granted access only to specific applications, not the full network.
+• Microsegmentation: Internal firewalls and VLANs block unauthorized East-West lateral movement.
+• 802.1X Port Security: Physical switch wall ports require RADIUS authentication.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry DMZ Reverse Proxy Deployment (Debangshu - Barrackpore)
+Debangshu isolated ERP database clusters from the Internet in Barrackpore by deploying an NGINX
+Reverse Proxy in the DMZ with dual FortiGate firewalls for ₹1,85,000. Customer portal requests
+are terminated in the DMZ, completely blocking direct external access to internal database ports.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Healthcare Intranet Microsegmentation (Mahima - Ichapur)
+Mahima implemented VLAN microsegmentation on hospital intranet switches in Ichapur for ₹65,000.
+Radiology MRI machines, patient billing workstations, and doctor consultation tablets are isolated
+into dedicated VLANs with strict firewall rules, stopping malware propagation across departments.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Campus Split-Horizon DNS & ZTNA Rollout (Mamata - Kolkata)
+Mamata configured BIND Split-Horizon DNS and Zero Trust application access in Kolkata for ₹85,000.
+Faculty accessing `payroll.univ.edu` receive internal private IPs on campus and must pass MFA
+device compliance checks when connecting remotely, eliminating vulnerable legacy VPN gateways.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Air-Gap USB Defense & Honeypots (Abhronila - Jadavpur)
+Abhronila deployed internal honeypot sensors and automated USB isolation kiosks in Jadavpur
+for ₹45,000. When a student plugged in an infected USB drive, the honeypot detected port scan
+activity within 80 milliseconds, triggering an immediate switch port shutdown before lateral spread.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never place internal database or active directory servers directly in the DMZ.
+- Do not rely on flat, unsegmented internal networks; enforce microsegmentation and ZTNA.
+- Configure Split-Horizon DNS to prevent leaking internal server hostnames to the public.
+- Budget perimeter Next-Gen Firewalls and UTM licenses in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped the differences between the public Internet and private Intranets.
+[ ] Listed RFC 1918 private address ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
+[ ] Designed a 3-tier DMZ perimeter architecture (Untrusted -> DMZ -> Trusted Intranet).
+[ ] Analyzed Split-Horizon DNS and Network Address Translation (NAT/PAT).
+[ ] Evaluated Lateral Movement, Air-Gap breaches, and Zero Trust Network Access (ZTNA).
+[ ] Formulated realistic perimeter firewall and DMZ hardware budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 36: INTERNET VS INTRANET
+================================================================================

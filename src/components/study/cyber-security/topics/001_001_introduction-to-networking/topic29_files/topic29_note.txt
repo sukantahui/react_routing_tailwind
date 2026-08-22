@@ -1,0 +1,96 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 29: IP ADDRESS (IPV4, IPV6, SUBNETTING, CIDR, PAT & CYBER SECURITY)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & LAYER 3 ROUTING ARCHITECTURE
+--------------------------------------------------------------------------------
+An Internet Protocol (IP) Address is a unique 32-bit (IPv4) or 128-bit (IPv6) logical
+numerical identifier assigned to every network interface operating at OSI Layer 3
+(Network Layer). It enables hierarchical routing, host identification, and global
+end-to-end packet delivery across independent autonomous systems and intermediate routers.
+
+Core Architectural Properties:
+• Hierarchical Structure: Divided into a Network ID portion (for routing between subnets)
+  and a Host ID portion (for identifying device interfaces).
+• Global vs Local Scope: Public IPs are globally routable on the Internet; Private IPs
+  (RFC 1918) are used inside local enterprise LANs behind NAT gateways.
+• End-to-End Persistence: Unlike MAC addresses (rewritten at every router hop), source
+  and destination IP addresses remain constant throughout the packet journey.
+
+--------------------------------------------------------------------------------
+2. IPV4 STRUCTURE & LEGACY CLASSFUL TAXONOMY
+--------------------------------------------------------------------------------
+IPv4 consists of 32 bits arranged in 4 octets (e.g., 172.16.254.1):
+• Class A (1.0.0.0 – 126.255.255.255): Default /8 (255.0.0.0) -> 16,777,214 Hosts/Net
+• Class B (128.0.0.0 – 191.255.255.255): Default /16 (255.255.0.0) -> 65,534 Hosts/Net
+• Class C (192.0.0.0 – 223.255.255.255): Default /24 (255.255.255.0) -> 254 Hosts/Net
+• Class D (224.0.0.0 – 239.255.255.255): Multicast (No host subnets)
+• Class E (240.0.0.0 – 255.255.255.255): Experimental & Research
+
+RFC 1918 Private IP Blocks:
+- 10.0.0.0/8 (10.0.0.0 – 10.255.255.255)
+- 172.16.0.0/12 (172.16.0.0 – 172.31.255.255)
+- 192.168.0.0/16 (192.168.0.0 – 192.168.255.255)
+
+--------------------------------------------------------------------------------
+3. IPV6 ARCHITECTURE & COMPARISON
+--------------------------------------------------------------------------------
+IPv6 expands address space to 128 bits (~3.4 x 10^38 addresses) in 8 hex groups:
+• Global Unicast Address (2000::/3): Globally unique routable Internet addresses.
+• Link-Local Address (fe80::/10): Mandatory link-scoped autoconfigured addresses.
+• Unique Local Address (fc00::/7): Enterprise private IPv6 equivalent of RFC 1918.
+• Multicast (ff00::/8): Replaces legacy broadcast entirely.
+• Loopback (::1): Equivalent to IPv4 127.0.0.1.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Dual-Stack IPv4/IPv6 Rollout (Debangshu - Barrackpore)
+Debangshu configured dual-stack routing on an industrial plant in Barrackpore for ₹55,000.
+Legacy CNC machines communicate over private IPv4 (10.20.0.0/24), while modern cloud
+telemetry servers utilize global IPv6 (2001:db8:acad::/64) with zero NAT overhead.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Static Public IP & VPN Setup (Mahima - Ichapur)
+Mahima leased a static public /29 IPv4 block in Ichapur for ₹2,200/month (₹26,400/year).
+Configured with Port Address Translation (PAT) and an IPsec VPN tunnel, remote doctors
+securely access patient MRI scans with encrypted Layer 3 transport.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Campus BGP IP Multihoming (Mamata - Kolkata)
+Mamata implemented BGP multihoming with two independent telecom ISPs in Kolkata for
+₹1,80,000 annually. The campus ASN announces its public /24 IP block (103.25.10.0/24),
+providing automatic failover if one fiber provider suffers a link cut.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: High-Tech Cyber Lab Anti-Spoofing & Geo-IP Defense (Abhronila - Jadavpur)
+Abhronila implemented Unicast Reverse Path Forwarding (uRPF) and Geo-IP blocking on
+perimeter firewalls in Jadavpur for ₹85,000. The system drops incoming spoofed packets
+whose source IP does not match authentic routing paths, neutralizing DDoS reflection.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never assign private RFC 1918 IPs directly to public-facing DNS records.
+- Always configure uRPF and anti-spoofing egress/ingress filtering on border routers.
+- Implement IPv6 with Stateless Address Autoconfiguration (SLAAC) to reduce DHCP load.
+- Budget static public IP blocks and ISP multi-homing leases in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped 32-bit IPv4 octets and converted dotted-decimal to binary.
+[ ] Differentiated between legacy Classful classes (A, B, C, D, E) and modern CIDR.
+[ ] Memorized the RFC 1918 Private IP ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
+[ ] Mastered 128-bit IPv6 structure, zero-compression rules, and SLAAC autoconfiguration.
+[ ] Understood NAT/PAT (Port Address Translation) and IPsec Layer-3 encryption.
+[ ] Formulated realistic ISP static public IP and BGP multihoming budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 29: IP ADDRESS
+================================================================================

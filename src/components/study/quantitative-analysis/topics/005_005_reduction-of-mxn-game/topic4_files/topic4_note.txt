@@ -1,0 +1,97 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_005_reduction-of-mxn-game
+TOPIC 4: REDUCTION TO 2xn AND mx2 CASES (GRAPHICAL ENVELOPES & ACTIVE PAIR EXTRACTION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. SOLVING 2xn GAMES (PLAYER A HAS 2 MOVES, PLAYER B HAS n >= 3 MOVES)
+--------------------------------------------------------------------------------
+When an m x n matrix reduces to a 2xn matrix A = [[a_11, a_12, ..., a_1n],
+                                                  [a_21, a_22, ..., a_2n]]:
+
+1. PARAMETERIZATION:
+   • Player A plays mixed strategy p = (p_1, 1 - p_1)^T where 0 <= p_1 <= 1.
+
+2. EXPECTED PAYOFF LINES:
+   • For each Column j in {1, ..., n}:
+         E(p, B_j) = p_1 * a_1j + (1 - p_1) * a_2j = (a_1j - a_2j) * p_1 + a_2j
+
+3. THE LOWER ENVELOPE:
+   • Since Player B minimizes Player A's payoff, Player A's worst-case return for any p_1 is:
+         Lower_Envelope(p_1) = min_{j} [ E(p, B_j) ]
+
+4. THE MAXIMIN PEAK:
+   • Player A chooses p_1* to maximize this lower boundary:
+         v* = max_{p_1} [ Lower_Envelope(p_1) ]  (in ₹)
+   • The peak occurs at the intersection of two lines with opposite slopes.
+   • Those two intersecting columns define the active 2x2 submatrix!
+
+--------------------------------------------------------------------------------
+2. SOLVING mx2 GAMES (PLAYER A HAS m >= 3 MOVES, PLAYER B HAS 2 MOVES)
+--------------------------------------------------------------------------------
+When an m x n matrix reduces to an mx2 matrix:
+
+1. PARAMETERIZATION:
+   • Player B plays mixed strategy q = (q_1, 1 - q_1)^T where 0 <= q_1 <= 1.
+
+2. EXPECTED PAYOUT LINES:
+   • For each Row i in {1, ..., m}:
+         E(A_i, q) = q_1 * a_i1 + (1 - q_1) * a_i2 = (a_i1 - a_i2) * q_1 + a_i2
+
+3. THE UPPER ENVELOPE:
+   • Since Player A maximizes payoff, Player B's worst-case payout for any q_1 is:
+         Upper_Envelope(q_1) = max_{i} [ E(A_i, q) ]
+
+4. THE MINIMAX TROUGH:
+   • Player B chooses q_1* to minimize this upper boundary:
+         v* = min_{q_1} [ Upper_Envelope(q_1) ]  (in ₹)
+   • The trough occurs at the intersection of two lines with opposite slopes.
+   • Those two intersecting rows define the active 2x2 submatrix!
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 2x4 Alloy Tender Line Analysis (Debangshu)
+Debangshu in Barrackpore reduced a 4x4 matrix to a 2x4 game with columns [₹40k, ₹10k],
+[₹20k, ₹50k], [₹50k, ₹30k], and [₹60k, ₹20k]. Finding the Maximin peak of the lower envelope
+identified active Columns {1, 2}, yielding p* = [0.67, 0.33] and v* = ₹30,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Logistics 3x2 Transport Line Analysis (Mamata & Mahima)
+Mamata and Mahima in Kolkata reduced an emergency dispatch matrix to a 3x2 game.
+Constructing the upper envelope identified the Minimax trough at Rows {1, 3}, locking in ₹24,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail 2x3 Weekend Discount Wars (Susmita)
+Susmita in Ichapur reduced a 6x3 retail game to a 2x3 matrix, using the lower envelope peak
+to determine optimal Friday vs Sunday advertising mix and securing ₹32,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab 4x2 Patent Dispute (Abhronila)
+Abhronila used the mx2 graphical upper envelope method in Jadavpur on a 4x2 arbitration grid,
+finding the exact minimax compromise point of ₹20 Lakh between research departments.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never take the upper envelope for 2xn games! (2xn requires LOWER envelope / Maximin).
+- Never take the lower envelope for mx2 games! (mx2 requires UPPER envelope / Minimax).
+- The optimal intersection must be formed by lines with OPPOSITE signs of slope (one positive, one negative).
+- State all game values and payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered 2xn graphical solution: Lower Envelope & Maximin Peak.
+[ ] Mastered mx2 graphical solution: Upper Envelope & Minimax Trough.
+[ ] Identified active intersecting lines to extract the solvable 2x2 submatrix.
+[ ] Verified opposite slopes for intersecting boundary lines.
+[ ] Expressed all game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_005 • TOPIC 4: REDUCTION TO 2xn AND mx2 CASES
+================================================================================

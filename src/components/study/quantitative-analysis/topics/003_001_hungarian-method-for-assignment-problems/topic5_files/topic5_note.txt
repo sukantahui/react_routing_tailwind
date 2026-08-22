@@ -1,0 +1,126 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 5: UNBALANCED ASSIGNMENT PROBLEMS (NON-SQUARE MATRICES & DUMMY BALANCING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE UNBALANCED ASSIGNMENT PROBLEM DEFINITION
+--------------------------------------------------------------------------------
+An Assignment Problem is UNBALANCED when:
+• Number of Resources (m) DOES NOT EQUAL Number of Tasks (n): m != n.
+• The Cost Matrix C is NON-SQUARE of dimension m x n.
+
+THE TWO OPERATIONAL ASYMMETRIES:
+1. SCENARIO A: m > n (Labor / Capacity Surplus)
+   • More workers/machines than available tasks.
+   • Exactly m - n workers MUST remain IDLE on standby.
+   • Mathematical Fix: Add (m - n) DUMMY COLUMNS with ₹0 unit costs.
+
+2. SCENARIO B: m < n (Task Deficit / Resource Shortage)
+   • More tasks than available workers/machines.
+   • Exactly n - m tasks MUST remain UNPERFORMED / OUTSOURCED.
+   • Mathematical Fix: Add (n - m) DUMMY ROWS with ₹0 unit costs.
+
+--------------------------------------------------------------------------------
+2. THE DUMMY AUGMENTATION THEOREM
+--------------------------------------------------------------------------------
+THEOREM:
+Adding dummy rows or dummy columns with unit costs of EXACTLY ₹0 transforms an
+unbalanced (m x n) problem into a balanced (k x k) problem (where k = max(m, n))
+without distorting the physical monetary expenditure:
+
+    Z* = Sum (c_ij * x_ij)   [for real routes] + Sum (0 * x_dummy)
+       = Sum (c_ij * x_ij)   [Exact Physical Spend in ₹]
+
+OPERATIONAL INTERPRETATION OF DUMMY ALLOCATIONS:
+• Real Worker i matched with Dummy Column ➔ Worker i is benched/idle (₹0 spend).
+• Dummy Row matched with Real Task j ➔ Task j is outsourced/deferred (₹0 spend).
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP WORKED EXAMPLE (3 x 4 ASYMMETRIC MATRIX)
+--------------------------------------------------------------------------------
+PROBLEM STATEMENT:
+3 Nurses (W1, W2, W3) available for 4 Hospital Clinics (J1, J2, J3, J4):
+       J1    J2    J3    J4
+  W1  ₹12   ₹10   ₹15   ₹22
+  W2  ₹14   ₹20   ₹18   ₹12
+  W3  ₹16   ₹11   ₹13   ₹14
+
+STEP 1: AUGMENT DUMMY ROW (Make Matrix 4x4)
+Add Dummy Nurse W_Dummy with ₹0 costs across all 4 clinics:
+       J1    J2    J3    J4
+  W1  ₹12   ₹10   ₹15   ₹22
+  W2  ₹14   ₹20   ₹18   ₹12
+  W3  ₹16   ₹11   ₹13   ₹14
+  W4   ₹0    ₹0    ₹0    ₹0   (Dummy Row)
+
+STEP 2: ROW REDUCTION
+• Row 1 min = 10 ➔ [2, 0, 5, 12]
+• Row 2 min = 12 ➔ [2, 8, 6, 0]
+• Row 3 min = 11 ➔ [5, 0, 2, 3]
+• Row 4 min = 0  ➔ [0, 0, 0, 0]
+
+STEP 3: COLUMN REDUCTION
+Since Row 4 contains 0s in all columns, all column minimums are ALREADY 0!
+Matrix remains identical to Row-Reduced matrix.
+
+STEP 4: ZERO ASSIGNMENT & KÖNIG LINE TEST (L = 4)
+• W1 ➔ J2: Cost = ₹10
+• W2 ➔ J4: Cost = ₹12
+• W3 ➔ J3: Cost = ₹13
+• W4 (Dummy) ➔ J1: Cost = ₹0  (Clinic 1 is outsourced to municipal team!)
+
+STEP 5: REPORT CERTIFIED MINIMUM COST
+    Z* = 10 + 12 + 13 + 0 = ₹35.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supervisor Surplus (Debangshu)
+Debangshu in Barrackpore had 5 supervisors and 3 furnaces (5x3). Added 2 dummy
+columns with ₹0 costs; the Hungarian solver optimally assigned 3 supervisors to
+furnaces and benched 2 supervisors with lowest marginal utility.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Vehicle Shortage (Mamata & Mahima)
+Mamata and Mahima in Kolkata had 3 refrigerated vans and 4 clinics (3x4). Added 1
+dummy row; the solver assigned the 3 internal vans to the highest-cost routes and
+identified the optimal single clinic (J1) to outsource to an external ambulance service.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Branch Expansion (Susmita)
+Susmita in Ichapur had 6 store managers and 4 hypermarket branches (6x4). Balanced
+with 2 dummy columns; optimized management assignments while identifying 2 managers
+for training rotations.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Binding Machine Shortage (Abhronila)
+Abhronila in Jadavpur had 3 binding machines and 5 textbook production orders (3x5).
+Balanced with 2 dummy rows; scheduled 3 internal book runs and outsourced 2 orders
+at minimum combined cost.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never assign positive costs to dummy rows or columns; dummy rates are strictly ₹0.
+- Never attempt Hungarian reductions on a non-square matrix without balancing first.
+- Always report which real entities are idle or outsourced in your executive summary.
+- State all monetary totals in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Identified unbalanced condition: m != n (non-square matrix).
+[ ] Added |m - n| dummy rows (if m < n) or dummy columns (if m > n) with ₹0 rates.
+[ ] Understood operational meaning: Dummy Col = Idle Worker; Dummy Row = Outsourced Task.
+[ ] Executed row and column reductions on the augmented square matrix.
+[ ] Extracted 1-to-1 matching and identified real vs dummy assignments.
+[ ] Calculated certified minimum cost Z* in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 5: UNBALANCED ASSIGNMENT PROBLEMS
+================================================================================

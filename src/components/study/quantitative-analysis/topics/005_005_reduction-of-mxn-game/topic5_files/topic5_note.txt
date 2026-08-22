@@ -1,0 +1,75 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_005_reduction-of-mxn-game
+TOPIC 5: INTERPRETING THE REDUCED GAME (MANAGERIAL IMPLICATIONS, RESOURCE ALLOCATION & BUDGETING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE 4 DIMENSIONS OF MANAGERIAL INTERPRETATION
+--------------------------------------------------------------------------------
+
+1. STRATEGY SUPPORT & RESOURCE ALLOCATION:
+   • The surviving rows form the ACTIVE STRATEGY SUPPORT supp(p*).
+   • Probabilities p* translate directly into proportional enterprise allocations:
+     e.g., p* = [0.60, 0.00, 0.40, 0.00] means allocate 60% of shift hours to Strategy 1,
+     40% to Strategy 3, and completely defund Strategies 2 and 4!
+
+2. DEFUNDING OPERATIONAL DEAD-WEIGHT:
+   • Pruned rows/columns are structurally dominated. In a corporate setting, continuing
+     to invest in dominated options causes guaranteed margin bleed.
+
+3. FINANCIAL VALUATION (v* in ₹):
+   • Game Value v* is the long-run guaranteed expected profit per operational cycle.
+   • A risk-neutral firm should accept any settlement or contractual buyout >= v*.
+
+4. POST-OPTIMALITY & SENSITIVITY THRESHOLDS:
+   • Evaluates how much a matrix cell payoff must change before a pruned strategy
+     becomes non-dominated and enters the active support.
+
+--------------------------------------------------------------------------------
+2. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Shift Allocation Governance (Debangshu)
+Debangshu in Barrackpore translated p* = [0.60, 0, 0.40, 0] across a 30-day production month:
+Scheduled 18 days for Furnace Shift 1 and 12 days for Shift 3, completely closing down
+unprofitable Shifts 2 and 4, locking in ₹22,000 daily margin (₹6.6 Lakh monthly profit).
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Transport Fleet Risk Budgeting (Mamata & Mahima)
+Mamata and Mahima in Kolkata interpreted q* = [0.55, 0, 0.45, 0] as fleet dispatch ratios,
+budgeting ₹24,000 per transit cycle to maintain a 100% reliable vaccine cold chain.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Resource Budgeting (Susmita)
+Susmita in Ichapur converted p* = [0.625, 0.375] into weekend marketing expenditure:
+62.5% budget allocated to digital social promos and 37.5% to in-store weekend flyers,
+achieving an equilibrium revenue of ₹35,000 per campaign.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Royalties Settlement (Abhronila)
+Abhronila interpreted the reduced 2x2 game value in Jadavpur to convince university
+syndicate members that settling the licensing dispute at ₹25 Lakh was mathematically optimal.
+
+--------------------------------------------------------------------------------
+3. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never deploy a single pure strategy when the equilibrium prescribes a mixed support!
+- Do not allocate capital or marketing budget to pruned strategies.
+- Use v* to set baseline cash reserve thresholds in corporate treasuries.
+- State all enterprise valuations in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+4. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Translated mathematical probability vectors into enterprise resource allocations.
+[ ] Defunded structurally dominated operational dead-weight.
+[ ] Interpreted Game Value v* as guaranteed long-run cycle profit.
+[ ] Conducted post-optimality sensitivity assessments.
+[ ] Expressed all corporate budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_005 • TOPIC 5: INTERPRETING THE REDUCED GAME
+================================================================================

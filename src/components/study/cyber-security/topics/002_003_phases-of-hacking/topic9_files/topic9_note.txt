@@ -1,0 +1,133 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_003 : PHASES OF HACKING METHODOLOGY
+TOPIC 09       : PHASE 5: COVERING TRACKS (LOG TAMPERING & ANTI-FORENSICS)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE CARDINAL ETHICAL DIVIDE
+--------------------------------------------------------------------------------
+Phase 5 (Covering Tracks) represents the fundamental dividing line between malicious cybercrime 
+and professional ethical security auditing:
+
+  * BLACK HAT ATTACKERS : Maliciously wipe event logs, timestomp file metadata, and shred binaries 
+    to destroy forensic evidence and evade criminal prosecution.
+  * WHITE HAT AUDITORS  : NEVER tamper with, modify, or delete client audit logs (doing so violates 
+    compliance and destroys legal integrity). Instead, ethical testers systematically remove dropped 
+    testing tools, terminate C2 sessions, and document all cleanup actions in the final debrief report.
+
+--------------------------------------------------------------------------------
+2. ADVERSARIAL ANTI-FORENSICS TECHNIQUES
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| ANTI-FORENSIC VECTOR| MALICIOUS MECHANISM     | ATTACKER COMMAND   | FORENSIC RESIDUAL ARTIFACT                     |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Log Wiping      | Erases Windows/Linux    | `wevtutil cl       | - Windows Event ID 1102 ("Audit Log Cleared")  |
+|                    | security audit logs     |  Security`         | - Streamed SIEM logs preserved on central WORM |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. File Timestomp  | Forges MACE timestamps  | Meterpreter        | - NTFS `$FILE_NAME` retains true kernel date   |
+|                    | in $STANDARD_INFORMATION|  `timestomp -m ...`| - NTFS USN Change Journal records file actions |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. File Shredding  | Overwrites disk sectors | `sdelete -p 3 -z`  | - Windows Prefetch (`.pf`) records tool exec   |
+|                    | with zeroes/random bytes| `shred -u -z -n 10`| - Shimcache & Amcache.hve preserve SHA-1 hash  |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. Memory Hiding   | Unlinks DLLs from PEB;  | Process Hollowing; | - Volatility `malfind` detects unbacked RWX    |
+|                    | Process Injection       | PEB Module Unlink  |   executable memory pages in RAM dumps         |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. FORENSIC ARTIFACT ANALYSIS & ANTI-FORENSICS DEFEAT
+--------------------------------------------------------------------------------
+
+[1. NTFS MASTER FILE TABLE ($MFT) TIMESTOMP DETECTION]
+  * `$STANDARD_INFORMATION` : Modifiable by user-mode APIs (Forged by timestomp to show 2018).
+  * `$FILE_NAME`            : Updated exclusively by the NTFS kernel driver (Shows true 2026 date!).
+  * Result: Discrepancy between the two attributes proves intentional timestamp forgery.
+
+[2. WINDOWS PREFETCH & SHIMCACHE ARTIFACTS]
+  * Prefetch (`C:\Windows\Prefetch\*.pf`): Records executable name, run count, and last execution time.
+  * Shimcache (`AppCompatCache`) & Amcache: Records file path, size, and SHA-1 hash even after deletion.
+
+[3. NTFS USN CHANGE JOURNAL (`$UsnJrnl`)]
+  * Append-only journal recording every file creation, rename, and deletion event on the filesystem.
+
+--------------------------------------------------------------------------------
+4. ENTERPRISE IMMUTABLE LOGGING ARCHITECTURE
+--------------------------------------------------------------------------------
+
+1. Centralized Immutable WORM Logging:
+   - System logs stream in real time over encrypted TLS to an off-site Write-Once Read-Many (WORM) SIEM.
+   - Even if an attacker executes `rm -rf /var/log/*` locally, 100% of event records are preserved centrally.
+
+2. CERT-In 180-Day Domestic Log Retention Mandate (Directions 2022):
+   - Mandates that all ICT systems in India must retain secure, synchronized logs for at least 180 days.
+
+3. Atomic NTP Clock Synchronization:
+   - Synchronizes all server clocks to National Physical Laboratory (NPL) Stratum-1 atomic clocks.
+
+--------------------------------------------------------------------------------
+5. INDIAN CYBER LAW & DIGITAL EVIDENCE ADMISSIBILITY
+--------------------------------------------------------------------------------
+
+* IT ACT 2000 SECTION 65 (Tampering with Computer Source Documents):
+  - Punishes intentionally destroying, altering, or concealing server audit logs with up to 3 years 
+    imprisonment and ₹2,00,000 fine.
+
+* INDIAN EVIDENCE ACT SECTION 65B (Electronic Evidence Admissibility):
+  - Requires a signed Section 65B Certificate verifying that server logs were captured without 
+    tampering, accompanied by an unbroken Chain of Custody and cryptographic SHA-256 hashes.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : IMMUTABLE WORM SIEM LOGGING DEPLOYMENT (KOLKATA FINTECH)
+  * Lead Security Architect : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Ensuring that insider threat actors or ransomware cannot wipe local transaction audit trails.
+  * Action : Mamata deployed real-time TLS Syslog streaming to an immutable WORM Splunk cluster and configured 
+    instant SOC alerts on Windows Event ID 1102 ("Audit Log Cleared").
+
+SCENARIO 2 : NTFS MFT TIMESTOMP FORENSIC TRIAGE (ICHAPUR HOSPITAL)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : An intruder timestomped a dropped medical database scraping script to blend with legitimate Windows DLLs.
+  * Action : Analyzed the hospital PACS server `$MFT` using MFTECmd, uncovered the discrepancy between 
+    `$STANDARD_INFORMATION` and `$FILE_NAME`, and reconstructed the exact intrusion timeline.
+
+SCENARIO 3 : SCADA WORM OPTICAL ARCHIVAL COMPLIANCE (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Ensuring 220kV substation protective relay event logs comply with CEA and CERT-In 180-day retention rules.
+  * Action : Deployed write-once optical archival systems synchronized with NPL India atomic NTP clocks, 
+    guaranteeing immutable legal evidentiary records for all grid operations.
+
+SCENARIO 4 : DIGITAL FORENSICS USN JOURNAL LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students how to recover evidence of deleted malware using Prefetch and USN Journal analysis.
+  * Action : Built a hands-on digital forensics lab with Autopsy and Volatility, guiding 140+ students through 
+    recovering shredded exploit binaries and issuing Section 65B compliant evidence certificates.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL ETHICAL CLEANUP PROTOCOL
+--------------------------------------------------------------------------------
+
+* THE 4-STEP ETHICAL ARTIFACT CLEANUP CHECKLIST:
+  1. Terminate all active C2 sessions, listeners, and background beacon processes.
+  2. Delete all dropped test files, webshells, and scripts across all assessed servers.
+  3. Revert modified system configurations, firewall rules, and created test user accounts.
+  4. Document all cleanup actions in the final penetration testing deliverable report.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Black Hats delete logs to hide; Ethical Hackers NEVER delete client audit logs.
+[ ] Timestomping forges $STANDARD_INFORMATION; $FILE_NAME retains true kernel date.
+[ ] Windows Event ID 1102 records "The audit log was cleared" (Critical SOC Alert).
+[ ] Centralized WORM logging streams logs off-site so local log deletion fails.
+[ ] Windows Prefetch (.pf) records application execution even after binary deletion.
+[ ] CERT-In Directions 2022 mandate rolling 180-day secure log retention in India.
+[ ] IT Act 2000 Section 65 punishes log tampering with up to 3 years imprisonment.
+[ ] Section 65B certificate is legally required for electronic evidence in Indian courts.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 09 (CYBER SECURITY BCAC703)
+================================================================================

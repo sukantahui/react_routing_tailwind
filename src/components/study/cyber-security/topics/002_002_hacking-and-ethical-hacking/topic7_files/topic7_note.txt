@@ -1,0 +1,163 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_002 : HACKING, ETHICAL HACKING & HACKER TYPES
+TOPIC 07       : THREAT ACTORS: NATION-STATE, HACKTIVISTS & SCRIPT KIDDIES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THREAT ACTOR SPECTRUM
+--------------------------------------------------------------------------------
+Not all cyber adversaries are created equal. In modern cybersecurity intelligence, 
+threat actors are categorized by their sophistication, funding, motivation, attack 
+surface, and persistence (dwell time).
+
+Understanding the specific archetype of an adversary allows defensive security architects 
+to build realistic threat models, deploy proportional defenses, and align with the 
+MITRE ATT&CK framework.
+
+--------------------------------------------------------------------------------
+2. THE 5 PRIMARY THREAT ACTOR ARCHETYPES
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| ARCHETYPE          | PRIMARY MOTIVATION      | SOPHISTICATION / ₹ | ICONIC ATTACK VECTORS & TTPs                   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Advanced        | Geopolitical espionage, | EXTREME            | - Custom 0-day exploit chains (iOS/Windows)    |
+|    Persistent      | military advantage, &   | State-Backed       | - Kernel rootkits, Living-off-the-Land (LotL)  |
+|    Threats (APTs)  | critical grid sabotage  | (₹100Cr+ Budgets)  | - Multi-year dwell time (Lazarus, Volt Typhoon)|
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Organized       | Direct financial theft, | HIGH               | - Ransomware-as-a-Service (RaaS LockBit)       |
+|    Cybercrime      | ransomware extortion,   | Multi-Million ₹    | - Double Extortion & data exfiltration         |
+|    Syndicates      | & carding trafficking   | Extortion Cartels  | - Initial Access Brokerages (Exploit.in)       |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. Hacktivists &   | Ideological protest,    | LOW to MODERATE    | - Volumetric DDoS floods (LOIC, Slowloris)     |
+|    Collectives     | anti-corruption, &      | Crowdsourced       | - Website defacements & Pastebin data dumps    |
+|                    | political exposure      | Volunteer Groups   | - High public visibility (Anonymous, LulzSec)  |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. Insider Threats | Malicious: Bribery /    | VARIABLE           | - Abusing legitimate credentials & access      |
+|    (Internal)      |   corporate espionage;  | Internal Employees | - Exfiltrating customer databases to USB / Git |
+|                    | Negligent: Carelessness | / Contractors      | - S3 public bucket misconfigurations           |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 5. Script Kiddies  | Boredom, ego, peer      | VERY LOW           | - Pre-compiled automated exploit scripts       |
+|    & Opportunists  | bragging, & vandalism   | Pocket Money /     | - DDoS Booters / Stressers (₹800/month)        |
+|                    |                         | Cracked Tools      | - Unauthenticated default port scanning        |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. THE DIAMOND MODEL OF INTRUSION ANALYSIS
+--------------------------------------------------------------------------------
+
+The Diamond Model links every cyber intrusion event across 4 fundamental vertices:
+
+              [ ADVERSARY ] (Who is attacking? e.g., Lazarus Group)
+                  /     \
+                 /       \
+   [ CAPABILITY ] ------- [ INFRASTRUCTURE ]
+   (What tools/malware?)  (What C2 servers / proxy IPs?)
+                 \       /
+                  \     /
+               [ VICTIM ] (Who is targeted? e.g., Power Grid in Barrackpore)
+
+  * Core Analytic Value: Threat intelligence analysts pivot across vertices.
+    (e.g., If the Capability matches known malware, find new Infrastructure; 
+     if Infrastructure is seized, identify other targeted Victims).
+
+--------------------------------------------------------------------------------
+4. ICONIC NATION-STATE ADVANCED PERSISTENT THREATS (APTs)
+--------------------------------------------------------------------------------
+
+[1. LAZARUS GROUP (North Korea / APT38)]
+  * State-sanctioned financial heists to bypass international sanctions:
+      - 2016: Bangladesh Bank SWIFT Heist (₹650 Crores stolen via fraudulent wire transfers).
+      - 2017: WannaCry Global Ransomware outbreak.
+      - 2022: Ronin Network / Axie Infinity Crypto Theft (₹5,000 Crores stolen).
+
+[2. VOLT TYPHOON (China - Critical Infrastructure Pre-Positioning)]
+  * Operates with 100% Living-off-the-Land (LotL) techniques on SOHO routers.
+  * Objective: Pre-positioning within power grids, water utilities, and transport 
+    networks for future physical cyber-kinetic disruption during geopolitical conflict.
+
+[3. STUXNET (2010 - Kinetic SCADA Sabotage)]
+  * US-Israeli cyber weapon that physically destroyed 1,000+ Iranian uranium centrifuges.
+  * Crossed air-gaps via USB, utilized 4 zero-days, and manipulated Siemens PLCs.
+
+--------------------------------------------------------------------------------
+5. INDIAN CYBERCRIME LAWS FOR THREAT ACTORS
+--------------------------------------------------------------------------------
+
+1. IT Act Section 66F (Cyber Terrorism):
+   - Targets state-sponsored APTs and cyber terrorists threatening national sovereignty.
+   - Statutory Penalty: LIFE IMPRISONMENT (Non-Bailable Offense).
+
+2. IT Act Section 66E (Privacy Violation & Doxxing):
+   - Penalizes hacktivists leaking private personal records (Up to 3 years imprisonment).
+
+3. Digital Personal Data Protection (DPDP) Act, 2023:
+   - Penalties up to ₹250 Crores for organizations failing to safeguard personal data.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : LAZARUS FASTCASH ATM HEIST DEFENSE (KOLKATA FINTECH)
+  * Lead Threat Intel Analyst : Mamata | Budget : ₹8,50,000 | Location : Kolkata
+  * Threat Actor : State-Sponsored APT (Lazarus Group)
+  * Dilemma : Lazarus deployed FASTCash malware on retail payment switches, injecting 
+    fraudulent ISO 8583 ATM approval response messages to drain regional ATMs.
+  * Defensive Action : Mamata implemented cryptographic MAC signatures on inter-bank 
+    payment queues and isolated core banking switches behind hardware HSM modules.
+
+SCENARIO 2 : SCRIPT-KIDDIE SHODAN BOTNET SCAN (ICHAPUR HOSPITAL)
+  * Lead Security Officer : Mahima | Budget : ₹4,20,000 | Location : Ichapur
+  * Threat Actor : Low-Skill Script Kiddie (Automated Botnet)
+  * Dilemma : An automated script-kiddie scanner probed exposed VNC remote desktop ports on 
+    clinic computers using default passwords (`123456`).
+  * Defensive Action : Mahima deployed fail2ban rate-limiting, placed all clinic workstations 
+    behind an authenticated WireGuard VPN, and enforced FIDO2 MFA across the hospital.
+
+SCENARIO 3 : VOLT TYPHOON PRE-POSITIONING THREAT (BARRACKPORE GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹6,80,000 | Location : Barrackpore
+  * Threat Actor : Nation-State APT (Critical Infrastructure Sabotage)
+  * Dilemma : Detecting stealthy Living-off-the-Land (LotL) pre-positioning activity on 
+    substation edge routers before active switchgear sabotage could occur.
+  * Defensive Action : Enforced unidirectional optical data diodes and hardware-enforced 
+    IEC 62351 cryptographic nonces, completely severing external inbound router tunnels.
+
+SCENARIO 4 : HACKTIVIST DEFACEMENT & CREDENTIAL DUMP (JADAVPUR UNIVERSITY)
+  * Research Leads : Abhronila & Susmita | Budget : ₹3,80,000 | Location : Jadavpur
+  * Threat Actor : Ideological Hacktivist Collective
+  * Dilemma : A hacktivist group launched a 40 Gbps DDoS flood and attempted to deface the 
+    university student admission portal to protest examination policy changes.
+  * Defensive Action : Routed traffic through Cloudflare DDoS shielding, patched a legacy 
+    WordPress plugin vulnerability, and prevented the exfiltration of student records.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL THREAT INTEL HABITS:
+  1. Ingest STIX/TAXII Feeds: Automate the real-time blocklisting of active APT indicators.
+  2. Implement Principle of Least Privilege: Neutralize insider threats and LotL abuse.
+  3. Assume Breach (Zero Trust): Build systems assuming adversaries are already inside.
+
+* COMMON BEGINNER MISTAKES:
+  - Assuming small organizations will never be targeted by nation-state APTs.
+  - Ignoring script kiddies (their automated scanners find open databases within hours).
+  - Overlooking Insider Threats (authorized employees bypass all perimeter firewalls).
+  - Relying on single-factor passwords on internet-facing administrative portals.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] APTs are well-funded nation-state groups conducting long-term stealthy campaigns.
+[ ] Hacktivists hack for ideological/political causes using DDoS and public leaks.
+[ ] Script kiddies use pre-written tools without deep technical understanding.
+[ ] Lazarus Group is famous for Bangladesh Bank ($81M) and Axie Infinity heists.
+[ ] Diamond Model links Adversary, Capability, Infrastructure, and Victim.
+[ ] Volt Typhoon pre-positions inside critical infrastructure using Living-off-the-Land.
+[ ] IT Act Section 66F imposes LIFE IMPRISONMENT for state-sponsored cyber terrorism.
+[ ] STIX/TAXII provides standardized transport for threat intelligence feeds.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 07 (CYBER SECURITY BCAC703)
+================================================================================

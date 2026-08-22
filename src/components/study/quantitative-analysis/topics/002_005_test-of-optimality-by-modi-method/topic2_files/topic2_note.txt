@@ -1,0 +1,133 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 2: u-v VARIABLES (DUAL MULTIPLIERS, SHADOW PRICES & POTENTIAL PROPAGATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE MATHEMATICAL & ECONOMIC NATURE OF u_i AND v_j VARIABLES
+--------------------------------------------------------------------------------
+In the linear programming formulation of an m Origins × n Destinations
+transportation problem:
+
+PRIMAL PROBLEM (MINIMIZATION):
+    Minimize   Z = Sum_{i=1}^m Sum_{j=1}^n (c_ij * x_ij)
+    Subject to:
+        Sum_{j=1}^n x_ij = S_i   (for i = 1, ..., m)  [Origin Supply Constraints]
+        Sum_{i=1}^m x_ij = D_j   (for j = 1, ..., n)  [Destination Demand Constraints]
+        x_ij >= 0               (for all i, j)
+
+DUAL PROBLEM (MAXIMIZATION):
+    Maximize   W = Sum_{i=1}^m (S_i * u_i) + Sum_{j=1}^n (D_j * v_j)
+    Subject to:
+        u_i + v_j <= c_ij       (for all i, j)
+        u_i, v_j unrestricted in sign
+
+ECONOMIC INTERPRETATION OF DUAL POTENTIALS:
+• u_i (Row Potential): The shadow price / marginal valuation of origin supply.
+  It represents the economic worth of having one additional unit of inventory at origin i.
+• v_j (Column Potential): The shadow price / marginal valuation of destination demand.
+  It represents the economic value of delivering one additional unit to destination j.
+• (u_i + v_j): The implied network shadow cost of transporting goods from i to j
+  via the active basic routing network.
+
+--------------------------------------------------------------------------------
+2. THE BASIC CELL GOVERNING EQUATION & DEGREE OF FREEDOM
+--------------------------------------------------------------------------------
+By the Complementary Slackness Theorem of Linear Programming:
+Whenever a shipping route is actively occupied (basic variable x_ij > 0):
+    u_i + v_j = c_ij
+
+THE SYSTEM OF EQUATIONS:
+- Unknowns: m row potentials (u_1, ..., u_m) + n column potentials (v_1, ..., v_n) = m + n unknowns.
+- Equations: Exactly m + n - 1 equations (one from each non-degenerate basic cell).
+- Degrees of Freedom = (m + n) - (m + n - 1) = 1 degree of freedom.
+
+THE ANCHORING DATUM RULE:
+To uniquely solve the system, we assign an arbitrary reference value to ONE potential:
+    Standard Convention: Set u_1 = 0.
+    Best Practice Heuristic: Set u_k = 0 (or v_l = 0) for the row/column containing
+    the MAXIMUM number of basic allocations.
+
+THE INVARIANCE THEOREM:
+The choice of which variable is set to zero has ZERO impact on opportunity costs.
+If all u_i are shifted by +k, all v_j are shifted by -k:
+    (u_i + k) + (v_j - k) = u_i + v_j
+Therefore, every non-basic evaluation d_ij = c_ij - (u_i + v_j) remains 100% identical!
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP POTENTIAL PROPAGATION WALKTHROUGH
+--------------------------------------------------------------------------------
+Consider a 3 Origins × 3 Destinations Bengal Distribution Tableau:
+Basic Cells: (1,1)=60 @ ₹8, (1,2)=10 @ ₹14, (2,2)=70 @ ₹19, (2,3)=20 @ ₹10, (3,3)=60 @ ₹7.
+
+Step 1: Anchor the system by setting u_1 = 0.
+Step 2: Solve column potentials connected to Row 1:
+        • Basic cell (1,1): u_1 + v_1 = c_11 => 0 + v_1 = 8  => v_1 = 8
+        • Basic cell (1,2): u_1 + v_2 = c_12 => 0 + v_2 = 14 => v_2 = 14
+Step 3: Solve row potentials connected to known column potentials:
+        • Basic cell (2,2): u_2 + v_2 = c_22 => u_2 + 14 = 19 => u_2 = 19 - 14 = 5
+Step 4: Solve remaining column potentials connected to Row 2:
+        • Basic cell (2,3): u_2 + v_3 = c_23 => 5 + v_3 = 10  => v_3 = 10 - 5 = 5
+Step 5: Solve remaining row potentials connected to Column 3:
+        • Basic cell (3,3): u_3 + v_3 = c_33 => u_3 + 5 = 7   => u_3 = 7 - 5 = 2
+
+FINAL POTENTIAL VECTORS:
+    Row Potentials:    u = [ u_1 = 0, u_2 = 5, u_3 = 2 ]
+    Column Potentials: v = [ v_1 = 8, v_2 = 14, v_3 = 5 ]
+
+VERIFICATION AUDIT:
+- (1,1): 0 + 8 = 8  == c_11 (Valid!)
+- (1,2): 0 + 14 = 14 == c_12 (Valid!)
+- (2,2): 5 + 14 = 19 == c_22 (Valid!)
+- (2,3): 5 + 5 = 10  == c_23 (Valid!)
+- (3,3): 2 + 5 = 7   == c_33 (Valid!)
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Shadow Pricing (Debangshu)
+Barrackpore heavy foundry computed u = [0, 5, 2] and v = [8, 14, 5].
+Economic insight: Origin S2 has u_2 = 5, indicating that expanding capacity at
+Ichapur delivers ₹5 higher shadow utility per ton compared to Barrackpore.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Dual Potentials (Mamata & Mahima)
+Kolkata healthcare network computed potentials including a negative column potential
+(v_3 = -₹2), demonstrating that dual multipliers are fully unrestricted in sign.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Anchor Choice Comparison (Susmita)
+Susmita solved the same tableau twice: first with u_1 = 0, then with v_2 = 0.
+Confirmed that both choices produced the exact same opportunity costs d_ij.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Degeneracy Resolution (Abhronila)
+When a 3x3 matrix was degenerate (4 basic cells), u-v propagation stalled at Step 3.
+Placing ε in loop-free cell (1, 3) completed the spanning tree and allowed all
+potentials to be solved instantly.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always verify non-degeneracy (Count = m + n - 1) before calculating potentials.
+- Never write potentials inside matrix cells; keep u_i in left/right margins and
+  v_j in top/bottom margins.
+- Do not panic when encountering negative potentials; u and v are unrestricted in sign.
+- Audit all basic sums (u_i + v_j == c_ij) before proceeding to evaluate empty cells.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Recognized u_i and v_j as LP dual shadow price multipliers.
+[ ] Memorized the governing basic equation: u_i + v_j = c_ij.
+[ ] Set u_1 = 0 (or line with max allocations) to anchor the system.
+[ ] Propagated potentials sequentially across all rows and columns.
+[ ] Audited u_i + v_j == c_ij for every basic cell.
+[ ] Understood the invariance property: scalar shifts do not alter d_ij.
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 2: u-v VARIABLES
+================================================================================

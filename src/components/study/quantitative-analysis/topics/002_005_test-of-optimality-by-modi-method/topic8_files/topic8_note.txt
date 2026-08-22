@@ -1,0 +1,136 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 8: IMPROVING THE TRANSPORTATION SOLUTION (BASIS TRANSITION & ITERATION UPDATES)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE SOLUTION IMPROVEMENT LIFECYCLE
+--------------------------------------------------------------------------------
+In the Modified Distribution (MODI) algorithm, whenever the optimality test
+identifies one or more negative opportunity costs (d_ij < 0), the solution enters
+the SOLUTION IMPROVEMENT PHASE:
+
+THE BASIS TRANSITION STEP:
+1. Entering Variable: Activated with +θ units at the cell with min(d_ij < 0).
+2. Leaving Variable: Deactivated to 0 units at the minus corner that achieves min(x_minus).
+3. Basis Evolution:
+       Basis_{k+1} = ( Basis_k \cup {Entering Cell} ) \setminus {Leaving Cell}
+4. Total Cost Improvement Equation:
+       Z_{k+1} = Z_k - (θ \times |d_{enter}|)
+
+MONOTONIC CONVERGENCE:
+Because θ >= 0 and |d_{enter}| > 0, the objective function strictly decreases:
+    Z_0 > Z_1 > Z_2 > ... > Z_{optimal}
+Since the number of basic feasible solutions (vertices) on the transportation
+polytope is finite, the algorithm is guaranteed to converge to the global minimum
+in a finite number of iterations with zero risk of cycling!
+
+--------------------------------------------------------------------------------
+2. THE THREE POST-PIVOT INVARIANTS
+--------------------------------------------------------------------------------
+Before proceeding to evaluate the new tableau, three invariants must be audited:
+
+INVARIANT 1: PRIMAL FEASIBILITY (ROW & COLUMN CONSERVATION)
+- Sum of allocations across every row i must exactly equal origin supply S_i:
+      \sum_{j=1}^n x_{ij} = S_i
+- Sum of allocations down every column j must exactly equal destination demand D_j:
+      \sum_{i=1}^m x_{ij} = D_j
+- All cell allocations must be non-negative: x_{ij} >= 0.
+
+INVARIANT 2: NON-DEGENERATE BASIS DIMENSION
+- The number of occupied basic cells in the new tableau must equal exactly:
+      Count(Basic Cells) = m + n - 1
+- If two minus corners hit zero simultaneously, drop only ONE to empty; keep the
+  other as a basic cell with allocation x = 0.
+
+INVARIANT 3: ACYCLICITY (SPANNING TREE CONNECTIVITY)
+- The m + n - 1 basic cells must remain connected and acyclic (zero closed loops).
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP WORKED EXAMPLE: ITERATION 0 TO ITERATION 1
+--------------------------------------------------------------------------------
+Consider the 3x3 Foundry Problem:
+
+TABLEAU 0 (INITIAL NWCR SOLUTION):
+  Allocations: (1,1)=60, (1,2)=10, (2,2)=70, (2,3)=20, (3,3)=60.
+  Total Freight Cost: Z_0 = ₹2,740.
+  MODI Audit: u = [0, 5, 2], v = [8, 14, 5].
+  Opportunity Costs: d_13 = +7, d_21 = -8 (⭐ Entering Cell), d_31 = +1, d_32 = -3.
+
+PIVOTING EXECUTION:
+  Entering Cell: (2, 1) with d_21 = -₹8.
+  Loop: (2,1)[+] ➔ (1,1)[-] ➔ (1,2)[+] ➔ (2,2)[-].
+  θ = min(60, 70) = 60 tons.
+  Leaving Cell: (1, 1) drops to 0 and exits the basis.
+
+TABLEAU 1 (IMPROVED SOLUTION AFTER ITERATION 1):
+  Allocations:
+  • S1 (Barrackpore): Cell (1,2) = 70 tons @ ₹14              [Row Sum = 70 == S1 ✅]
+  • S2 (Ichapur):     Cell (2,1) = 60 tons @ ₹5,
+                      Cell (2,2) = 10 tons @ ₹19,
+                      Cell (2,3) = 20 tons @ ₹10              [Row Sum = 90 == S2 ✅]
+  • S3 (Kolkata):     Cell (3,3) = 60 tons @ ₹7               [Row Sum = 60 == S3 ✅]
+
+  Demand Checks:
+  • D1 (Jadavpur):  x_21 = 60                                 [Col Sum = 60 == D1 ✅]
+  • D2 (Salt Lake): x_12 + x_22 = 70 + 10 = 80                [Col Sum = 80 == D2 ✅]
+  • D3 (Howrah):    x_23 + x_33 = 20 + 60 = 80                [Col Sum = 80 == D3 ✅]
+
+NEW TOTAL TRANSPORTATION COST:
+  Z_1 = (70 × 14) + (60 × 5) + (10 × 19) + (20 × 10) + (60 × 7)
+      = 980 + 300 + 190 + 200 + 420
+      = ₹2,260.
+
+SAVINGS AUDIT:
+  Delta Z = Z_0 - Z_1 = ₹2,740 - ₹2,260 = ₹480 (17.52% cost reduction in 1 step!).
+  Theoretical Check: θ × |d_21| = 60 × ₹8 = ₹480 (Exact Match!).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Step 1 Freight Reduction (Debangshu)
+Debangshu in Barrackpore transitioned from Tableau 0 (₹2,740) to Tableau 1 (₹2,260).
+Eliminated 60 tons of high-cost shipping from Barrackpore to Jadavpur by activating
+the cheaper Ichapur-to-Jadavpur lane.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Multi-Iteration Transition (Mamata & Mahima)
+Mamata and Mahima in Kolkata executed Iteration 1 (saving ₹120) and Iteration 2 (saving ₹60),
+reducing emergency logistics expenditure from ₹2,370 to the verified minimum of ₹2,190.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Non-Degenerate Pivot Verification (Susmita)
+Susmita in Ichapur verified that after pivoting, the improved tableau had exactly
+m+n-1 = 5 basic cells and 100% row/column conservation.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Contract Audit (Abhronila)
+Abhronila in Jadavpur audited textbook distribution improvements. Documented a total
+saving of ₹1,200 across 2 iterations for university administration.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never reuse old u and v potentials on the new tableau; always solve fresh potentials.
+- Always perform the 3-point audit: row sums, column sums, and basic cell count (m+n-1).
+- Compute total cost Z directly using Sum(c_ij * x_ij) as an independent arithmetic check.
+- Draw a clean, separate tableau for each iteration on university exam papers.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Updated cell allocations according to the plus-minus pattern.
+[ ] Dropped the leaving variable from the basis.
+[ ] Verified row supply sums: Sum x_ij == S_i.
+[ ] Verified column demand sums: Sum x_ij == D_j.
+[ ] Verified basic cell count: Count == m + n - 1.
+[ ] Verified total cost reduction: Z_{k+1} = Z_k - (θ × |d_{enter}|).
+[ ] Computed fresh u' and v' potentials on the new basic cells.
+[ ] Re-evaluated new opportunity costs d'_{ij} for the next MODI audit.
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 8: IMPROVING THE TRANSPORTATION SOLUTION
+================================================================================

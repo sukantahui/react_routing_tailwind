@@ -1,0 +1,90 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 39: NETWORKING IN BANKING (CBS, NPCI/UPI, PAYMENT HSMS, PCI-DSS & SWIFT)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. CORE BANKING SOLUTION (CBS) & FINANCIAL INTERCONNECT NETWORKS
+--------------------------------------------------------------------------------
+Core Banking Solutions (CBS - e.g. Finacle, BaNCS) centralize financial ledgers in real time:
+• Primary Data Center (DC) & Disaster Recovery (DR) Site: Connected via high-speed
+  Dense Wavelength Division Multiplexing (DWDM) dark fiber for sub-2ms synchronous database writes.
+• Branch WAN: Dual-homed MPLS circuits with automated encrypted 4G/5G IPsec failover.
+• ATM & Micro-ATM Networks: Cellular IoT / VSAT encrypted IPsec tunnels with ISO 8583 messaging.
+
+Global & National Financial Interconnects:
+• SWIFTNet: Dedicated SWIFT Alliance Gateways (SAG) handling ISO 20022 / MT103 wire transfers.
+• NPCI (National Payments Corporation of India): Operates high-speed financial switches for
+  UPI (Unified Payments Interface), IMPS, RuPay, NACH, and National Financial Switch (NFS).
+• RBI INFINET: Indian Financial Network closed user group (CUG) for high-value RTGS and NEFT.
+
+--------------------------------------------------------------------------------
+2. BANKING CYBER SECURITY & HARDWARE CRYPTOGRAPHY
+--------------------------------------------------------------------------------
+• Payment Hardware Security Modules (HSMs - Thales payShield / Entrust nShield):
+  Tamper-proof hardware appliances generating and storing Master Keys (ZMK, ZPK, TPK),
+  encrypting ISO 9564 PIN blocks, and validating CVV/CVC codes with zero memory exposure.
+• PCI-DSS Cardholder Data Environment (CDE) Segmentation:
+  Strict firewall isolation ensuring non-cardholder subnets cannot access payment data.
+• DUKPT (Derived Unique Key Per Transaction):
+  POS terminals derive a brand-new cryptographic key for every single payment swipe.
+• Tokenization: Replaces real 16-digit card numbers with surrogate tokens for online shopping.
+
+--------------------------------------------------------------------------------
+3. BANKING CYBER THREATS & OPERATIONAL DEFENSE
+--------------------------------------------------------------------------------
+• ATM Jackpotting / Black-Box Attacks: Defended by cryptographic cash dispenser bus encryption.
+• SWIFT Fraud & Credential Theft: Mitigated by SWIFT Customer Security Programme (CSP) controls.
+• Man-in-the-Middle (MitM) Transaction Tampering: Defended by Mutual TLS (mTLS) and digital HMACs.
+• DDoS Attacks on NetBanking: Defended by Cloud DDoS Scrubbing Centers and BGP Anycast.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Regional Bank CBS Branch WAN & 4G Failover (Debangshu - Barrackpore)
+Debangshu upgraded 18 bank branch WAN routers in Barrackpore with Cisco SD-WAN and encrypted
+4G cellular failover for ₹1,85,000. When primary fiber lines were severed during road construction,
+branch teller Finacle sessions failed over to cellular in 1.2 seconds with zero ledger corruption.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cooperative Credit Society Payment HSM Deployment (Mahima - Ichapur)
+Mahima installed a redundant Thales payShield Payment HSM pair for an Ichapur cooperative bank
+for ₹16,50,000. The HSM processes 1,200 ATM and Micro-ATM PIN verifications per second under FIPS
+140-2 Level 3 tamper-zeroization compliance, enabling full RuPay and AePS card integration.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Commercial Bank NPCI UPI Switch & mTLS Gateway (Mamata - Kolkata)
+Mamata deployed a high-capacity NPCI UPI payment switch gateway in Kolkata for ₹22,00,000.
+Handling 8,500 transactions per second (TPS) over dedicated mTLS MPLS links, the gateway
+settles instant mobile remittances between Kolkata retail merchants and national banks.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab SWIFT CSP & ATM Dispenser Audit (Abhronila - Jadavpur)
+Abhronila conducted security auditing on SWIFT Alliance terminals and ATM cash dispensers in
+Jadavpur for ₹95,000. Enforcing isolated management VLANs and dispenser bus encryption neutralized
+potential black-box hardware attacks and unauthorized cross-border wire injections.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never store cleartext PINs or CVVs in application server memory; always process inside HSMs.
+- Enforce strict PCI-DSS network segmentation around the Cardholder Data Environment (CDE).
+- Implement out-of-band mobile OTP verification for all high-value online transactions.
+- Budget enterprise Payment HSMs, SD-WAN routers, and UPI switches in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped Core Banking Solution (CBS) network topology connecting branches and data centers.
+[ ] Evaluated Payment Hardware Security Modules (HSMs) and ISO 9564 PIN translation.
+[ ] Analyzed NPCI/UPI instant payment architectures and ISO 8583 / ISO 20022 messaging.
+[ ] Understood PCI-DSS Cardholder Data Environment (CDE) firewall microsegmentation.
+[ ] Investigated ATM Jackpotting defense, DUKPT key management, and tokenization.
+[ ] Formulated realistic Payment HSM and UPI payment switch budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 39: NETWORKING IN BANKING
+================================================================================

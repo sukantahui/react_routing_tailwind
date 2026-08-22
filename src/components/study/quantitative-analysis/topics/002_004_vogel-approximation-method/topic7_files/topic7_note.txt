@@ -1,0 +1,110 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_004_vogel-approximation-method
+TOPIC 7: DEGENERACY CONSIDERATIONS (EPSILON PERTURBATION & LOOP INDEPENDENCE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE MATHEMATICAL NATURE OF DEGENERACY
+--------------------------------------------------------------------------------
+In an m x n transportation problem, an Initial Basic Feasible Solution (IBFS)
+is defined as non-degenerate if and only if it satisfies TWO criteria:
+1. Exact Basis Count: Exactly m + n - 1 cells are populated with basic variables.
+2. Linear Independence: The basic cells form an open spanning tree on the
+   bipartite graph (i.e. contain NO closed rectangular loops).
+
+DEFINITION OF DEGENERACY:
+A solution is DEGENERATE if:
+- Total number of basic allocations is strictly LESS than m + n - 1, OR
+- One or more basic variables assume a numerical value of ZERO (x_ij = 0).
+
+WHY DEGENERACY MATTERS:
+- In the MODI (Modified Distribution) optimality test, we solve m + n - 1 equations:
+    u_i + v_j = c_ij  (for all basic cells)
+- If the basic cell count is less than m + n - 1, there are more unknowns (m + n)
+  than equations, making it mathematically impossible to determine all u_i and v_j.
+
+--------------------------------------------------------------------------------
+2. ROOT CAUSES & THE SUBSET RIM CONDITION
+--------------------------------------------------------------------------------
+ROOT CAUSE:
+Degeneracy is triggered when the remaining supply of an origin S_k exactly equals
+the remaining demand of a destination D_l (S_k == D_l) during an allocation step.
+If the allocator crosses out both row k and column l at once, two constraints
+are eliminated with only one allocation, creating a deficit of one basic variable.
+
+THE SUBSET RIM THEOREM:
+Degeneracy occurs if and only if there exists a proper subset of origins I and
+a proper subset of destinations J such that:
+    Sum_{i in I} S_i == Sum_{j in J} D_j
+
+--------------------------------------------------------------------------------
+3. THE EPSILON (ε) RESOLUTION TECHNIQUE
+--------------------------------------------------------------------------------
+To restore non-degeneracy:
+- Introduce an infinitesimally small positive quantity EPSILON (ε > 0).
+- Assign x_ij = ε to an unallocated cell.
+
+EPSILON PLACEMENT RULES:
+1. Loop-Free Requirement: The chosen cell MUST NOT form a closed loop with
+   existing basic cells (guarantees linear independence).
+2. Economic Efficiency: Among all loop-free candidate cells, choose the cell
+   with the LOWEST unit transportation cost min(c_ij).
+3. Cost Invariance: In objective calculations, c_ij * ε is treated as ₹0,
+   leaving total transportation cost Z completely unchanged.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Foundry Rim Subset Balance (Debangshu)
+Network: 2 Factories (Barrackpore, 30 tons; Ichapur, 70 tons)
+Destinations: Jadavpur (30 tons), Salt Lake (40 tons), Howrah (30 tons).
+Notice: S1 (30 tons) == D1 (30 tons) -> Subset Rim Condition met!
+Allocation 1: Allocate x_11 = 30 tons. S1 = 0 and D1 = 0 simultaneously!
+Resolution: Cross out Row 1; leave Column 1 active with D1 = 0.
+Allocation 2: In Pass 2, allocate x_21 = 0 to cell (S2, D1) @ rate c_21.
+Allocations 3 & 4: x_22 = 40, x_23 = 30.
+Result: 4 basic cells generated (matches 2 + 3 - 1 = 4). Zero degeneracy!
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Healthcare Vaccine Deficit Epsilon Placement (Mamata & Mahima)
+3x3 healthcare matrix with 4 allocations (needs 3 + 3 - 1 = 5 basic cells).
+Deficit = 1 basic variable.
+Resolution: Epsilon (ε) placed in loop-free cell (S1, D3) @ ₹9/box.
+Result: Enables complete solution of dual equations u_i + v_j = c_ij for MODI test.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Degeneracy Prevention (Susmita)
+Demonstrates step-by-step avoidance of double cross-out during simultaneous
+supply-demand exhaustion.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Loop Verification (Abhronila)
+Demonstrates stepping-stone loop testing on paper tableaus to confirm that
+candidate ε placement cells are 100% acyclic.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never cross out both row and column simultaneously when S_k = D_l.
+- Always check that your placed ε does not form a closed 4-corner rectangle with
+  existing allocations.
+- Count basic cells immediately upon completing VAM (Count == m + n - 1).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Checked for subset rim equality: Sum(S_sub) == Sum(D_sub).
+[ ] Avoided double line cross-out on simultaneous zero balances.
+[ ] Counted total allocated basic cells (target: m + n - 1).
+[ ] If count < m + n - 1, identified deficit count (Deficit = m + n - 1 - Count).
+[ ] Selected candidate cell with lowest unit cost min(c_ij).
+[ ] Tested candidate cell to confirm NO closed loop is formed.
+[ ] Placed epsilon (ε) in independent cell.
+[ ] Verified readiness for MODI dual multiplier calculation.
+
+================================================================================
+END OF STUDY NOTE • TOPIC 7: DEGENERACY CONSIDERATIONS
+================================================================================

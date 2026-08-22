@@ -1,0 +1,89 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 43: NETWORKING IN CLOUD COMPUTING (VPC, OVERLAYS, DIRECT CONNECT, TRANSIT GATEWAY & EBPF)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. VIRTUAL PRIVATE CLOUD (VPC) & HYPERSCALER NETWORK ARCHITECTURE
+--------------------------------------------------------------------------------
+• Virtual Private Cloud (VPC):
+  A logically isolated Software-Defined Network (SDN) dedicated to a tenant account.
+  - Public Subnet: Attached to an Internet Gateway (IGW) for public web/ALB ingress.
+  - Private Subnet: Routes outbound traffic through a managed NAT Gateway; zero direct public ingress.
+• Security Groups vs Network ACLs (NACLs):
+  - Security Groups: Stateful firewalls applied at the virtual NIC (instance) level (allow rules only).
+  - Network ACLs: Stateless packet filters applied at the subnet boundary (numbered allow/deny rules).
+
+--------------------------------------------------------------------------------
+2. CLOUD OVERLAY NETWORKS & HYBRID CONNECTIVITY
+--------------------------------------------------------------------------------
+• VXLAN (Virtual Extensible LAN - RFC 7348) & GENEVE (RFC 8926):
+  Encapsulates Layer 2 Ethernet frames inside Layer 4 UDP packets (UDP Port 4789 / 6081)
+  using 24-bit VNIs to support 16 million isolated virtual tenant networks across Layer 3 underlays.
+• Dedicated Cloud Interconnect (AWS Direct Connect / Azure ExpressRoute):
+  Private, dedicated 1G/10G/100G optical fiber circuits connecting on-premises data centers
+  directly to cloud regions with deterministic sub-4ms latency (bypassing the public Internet).
+• Cloud Transit Gateway (TGW):
+  Centralized hub-and-spoke routing fabric connecting hundreds of VPCs, VPNs, and on-premises links.
+• PrivateLink & VPC Endpoints:
+  Private Elastic Network Interfaces (ENIs) connecting internal VMs to cloud PaaS/SaaS services.
+
+--------------------------------------------------------------------------------
+3. CONTAINER NETWORKING & KUBERNETES EBPF INGRESS
+--------------------------------------------------------------------------------
+• eBPF & Cilium CNI:
+  Executes high-performance sandboxed bytecode inside the Linux kernel networking layer,
+  replacing slow iptables rules with identity-aware Layer-3/4/7 routing, encryption, and telemetry.
+• Service Mesh (Istio / Linkerd):
+  Sidecar Envoy proxies enforcing automatic Mutual TLS (mTLS) between all microservice containers.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Hybrid Cloud 10G Direct Connect (Debangshu - Barrackpore)
+Debangshu established a dedicated 10G AWS Direct Connect cross-connect between an on-premises
+factory data center in Barrackpore and the AWS Mumbai cloud region for ₹1,85,000 / month.
+Shop-floor robotic telemetry syncs with cloud AI analytics with 3.2 ms latency and zero packet loss.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: HealthTech Diagnostic Microservices Cilium eBPF Cluster (Mahima - Ichapur)
+Mahima deployed an enterprise Kubernetes cluster with Cilium eBPF CNI in Ichapur for ₹65,000 / month.
+eBPF-based kernel routing and WireGuard encryption accelerated patient microservice API calls
+by 42% while enforcing strict pod-to-pod identity network policies.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: E-Commerce Cloud Transit Gateway & Multi-VPC Hub (Mamata - Kolkata)
+Mamata architected a centralized AWS Transit Gateway hub connecting 14 production and analytics
+VPCs in Kolkata for ₹1,10,000 / month. Integrating an inspection VPC with Palo Alto VM-Series
+firewalls provided centralized SSL decryption and egress threat filtering during festive flash sales.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Cloud Security Group CSPM Audit (Abhronila - Jadavpur)
+Abhronila deployed an automated Cloud Security Posture Management (CSPM) engine in Jadavpur
+for ₹45,000 / month. The scanner automatically detected and closed three over-permissioned
+`0.0.0.0/0` security group rules on MySQL database ports, eliminating external exposure.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never configure `0.0.0.0/0` inbound access on administrative SSH, RDP, or database ports.
+- Avoid complex N*(N-1)/2 VPC peering meshes; deploy centralized Cloud Transit Gateways.
+- Utilize VPC Gateway Endpoints for S3/DynamoDB to eliminate unnecessary NAT data egress costs.
+- Formulate all hybrid cloud Direct Connect, Transit Gateway, and NAT budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped Virtual Private Cloud (VPC) public/private subnet architectures and NAT gateways.
+[ ] Differentiated between stateful Security Groups and stateless Network ACLs (NACLs).
+[ ] Evaluated VXLAN (UDP 4789) and GENEVE overlay encapsulation with 24-bit VNIs.
+[ ] Configured Hybrid Cloud Direct Connect / ExpressRoute with BGP dynamic routing.
+[ ] Analyzed Kubernetes Container Network Interface (CNI) and eBPF/Cilium kernel networking.
+[ ] Formulated realistic monthly cloud network and Transit Gateway budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 43: NETWORKING IN CLOUD COMPUTING
+================================================================================

@@ -1,0 +1,86 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_004_mixed-strategy
+TOPIC 0: NEED FOR MIXED STRATEGIES (NON-SADDLE GAMES, PREDICTABILITY & RANDOMIZATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE BREAKDOWN OF PURE STRATEGIES (NON-SADDLE GAMES)
+--------------------------------------------------------------------------------
+In a Two-Person Zero-Sum Game:
+• If Maximin (alpha) == Minimax (beta), a pure saddle point exists. Both players play pure strategies.
+• If Maximin (alpha) < Minimax (beta), NO SADDLE POINT EXISTS.
+
+WHAT HAPPENS IF PLAYERS USE PURE STRATEGIES WHEN ALPHA < BETA?
+• Predictability Traps: If Player A plays a deterministic pure strategy, Player B can anticipate it
+  and pick the column that minimizes Player A's payoff.
+• Instability Cycles: If Player B counters Player A, Player A will switch rows; Player B will
+  then switch columns. This creates an endless cycle of regret and unilateral deviations!
+
+--------------------------------------------------------------------------------
+2. THE PHILOSOPHY OF RANDOMIZED PLAY (VON NEUMANN & MORGENSTERN)
+--------------------------------------------------------------------------------
+• John von Neumann proved the Minimax Theorem in 1928:
+  "Every finite two-person zero-sum game has at least one equilibrium when players are allowed
+   to randomize their strategy choices."
+
+DEFINITION OF MIXED STRATEGY:
+• Player A assigns a probability vector p = (p_1, p_2, ..., p_m) over m pure rows, where:
+      sum_{i=1}^m p_i = 1.0    and    p_i >= 0  for all i
+• Player B assigns a probability vector q = (q_1, q_2, ..., q_n) over n pure columns, where:
+      sum_{j=1}^n q_j = 1.0    and    q_j >= 0  for all j
+
+--------------------------------------------------------------------------------
+3. INFORMATIONAL IMMUNITY & EXPECTED PAYOFF
+--------------------------------------------------------------------------------
+• By using a randomizing device (e.g. coin flip, dice, computer RNG) to select their move
+  before each round, neither player can be predicted by the opponent.
+• Even if the opponent knows the player's PROBABILITY DISTRIBUTION p*, the opponent CANNOT
+  exploit it because the expected payoff is mathematically invariant across all opponent moves!
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Metal Foundry Night Patrol & Security Scheduling (Debangshu)
+Debangshu in Barrackpore had 2 security patrol routes. Deterministic patrols allowed metal thieves
+to steal alloy scrap. Randomizing patrols (50% Route 1, 50% Route 2) eliminated scrap theft completely,
+saving ₹40,000 monthly.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Temperature Auditing (Mamata & Mahima)
+Mamata and Mahima in Kolkata randomized hospital refrigerator audits (60% Morning, 40% Evening).
+Hospital staff could no longer anticipate inspection hours, keeping compliance at 100% and preserving ₹2 Lakh vaccines.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Surprise Weekend Discounts (Susmita)
+Susmita in Ichapur faced a rival retail chain. Deterministic weekend sales were matched and undercut.
+Randomizing surprise flash discounts (40% Friday, 60% Sunday) kept the competitor off-balance and boosted revenue by ₹25,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Cross-Examination Bidding (Abhronila)
+Abhronila randomized patent claim defense postures (70% Technical, 30% Commercial) in Jadavpur,
+preventing the opposing legal team from anticipating litigation tactics and settling at ₹15 Lakh.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never use pure strategies when Maximin < Minimax; you will get trapped by a smart opponent.
+- A mixed strategy is NOT erratic guessing; it is playing precisely computed mathematical probabilities!
+- The probabilities in p and q must strictly sum to 1.0 and be non-negative.
+- Express all expected payoffs and game values in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Recognized the failure of pure strategies when Maximin < Minimax.
+[ ] Understood information leakage and predictability vulnerability.
+[ ] Defined the probability mixture vectors p and q on the unit simplex.
+[ ] Understood how randomization provides informational immunity.
+[ ] Expressed expected game payoffs in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_004 • TOPIC 0: NEED FOR MIXED STRATEGIES
+================================================================================

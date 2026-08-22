@@ -1,0 +1,96 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 27: NETWORK ADDRESS (IPV4, IPV6, SUBNETTING, CIDR, ARP & ARCHITECTURE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & MULTI-LAYER ADDRESSING HIERARCHY
+--------------------------------------------------------------------------------
+A Network Address is a unique numerical or logical identifier assigned to a network
+node or interface that enables routing, locating, and delivering data packets
+hierarchically across local area networks (LANs) and global wide area networks (WANs).
+
+The 4-Layer Addressing Stack:
+1. Physical / Hardware Address (Layer 2): MAC Address (48-bit hex burned-in identifier).
+2. Logical Network Address (Layer 3): IPv4 (32-bit dotted-decimal) & IPv6 (128-bit hex).
+3. Transport / Port Address (Layer 4): Port Numbers (16-bit: 0 to 65535, e.g., 80, 443, 22).
+4. Application Address (Layer 7): Domain Names & URLs (e.g., https://www.college.edu).
+
+--------------------------------------------------------------------------------
+2. IPV4 STRUCTURE, SUBNET MASKS & CIDR NOTATION
+--------------------------------------------------------------------------------
+An IPv4 address consists of 32 bits arranged in 4 octets (e.g., 192.168.10.45).
+• Network Portion (Identified by binary 1s in Subnet Mask): Identifies the subnet.
+• Host Portion (Identified by binary 0s in Subnet Mask): Identifies the device interface.
+
+Key Subnetting Formulas:
+• Total IP Addresses in Subnet = 2^H (where H = Host bits = 32 - PrefixLength).
+• Total Usable Host IP Addresses = 2^H - 2 (subtracting Network ID and Broadcast IP).
+• Network Address: Host bits all 0s (e.g., 192.168.10.0/24).
+• Broadcast Address: Host bits all 1s (e.g., 192.168.10.255/24).
+
+Common Subnet Masks:
+- /24 -> 255.255.255.0   -> 8 Host bits  -> 254 Usable Hosts
+- /28 -> 255.255.255.240 -> 4 Host bits  -> 14 Usable Hosts
+- /16 -> 255.255.0.0     -> 16 Host bits -> 65,534 Usable Hosts
+- /30 -> 255.255.255.252 -> 2 Host bits  -> 2 Usable Hosts (Point-to-Point WAN links)
+
+--------------------------------------------------------------------------------
+3. RFC 1918 PRIVATE IP ADDRESS RANGES
+--------------------------------------------------------------------------------
+• Class A Private Range: 10.0.0.0 to 10.255.255.255 (10.0.0.0/8) -> 16,777,214 Hosts
+• Class B Private Range: 172.16.0.0 to 172.31.255.255 (172.16.0.0/12) -> 1,048,574 Hosts
+• Class C Private Range: 192.168.0.0 to 192.168.255.255 (192.168.0.0/16) -> 65,534 Hosts
+• Special Loopback: 127.0.0.1 (Localhost inter-process communication)
+• Special APIPA / Link-Local: 169.254.0.0/16 (DHCP failure fallback)
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry VLSM Subnet Segmentation (Debangshu - Barrackpore)
+Debangshu partitioned the 10.10.0.0/16 private network in Barrackpore into dedicated
+departmental subnets using VLSM: CNC Shop (10.10.1.0/24), Accounts (10.10.2.0/28), and
+Robotics (10.10.3.0/26), keeping broadcast domains isolated and secure.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Private DMZ & Bastion Isolation (Mahima - Ichapur)
+Mahima placed healthcare database servers on an isolated private subnet (172.20.5.0/24) in
+Ichapur. Doctor workstations access patient files strictly through a Bastion Jump Host
+over SSH/TLS, blocking unauthorized lateral subnet access.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Campus Static Public IP Block Leasing (Mamata - Kolkata)
+Mamata procured a static public /29 IP block (5 usable public IPs) from an enterprise ISP in
+Kolkata for ₹2,500/month (₹30,000/year). Configured with PAT (NAT Overload), 4,000 campus
+students browse the Internet seamlessly through one shared public gateway IP.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab ARP Poisoning Defense (Abhronila - Jadavpur)
+Abhronila enabled Dynamic ARP Inspection (DAI) and DHCP Snooping on managed core switches
+in Jadavpur for ₹65,000 in switch licensing. DAI validates every ARP reply against the
+DHCP binding database, neutralizing Man-in-the-Middle credential interception attempts.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never assign the Network ID (all 0s) or Broadcast Address (all 1s) to a host device.
+- Never deploy overlapping private IP subnets across site-to-site IPSec VPN tunnels.
+- Configure Dynamic ARP Inspection (DAI) on managed switches to stop ARP spoofing.
+- State all public IP block rentals and telecom ISP fiber routing in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped the 4-layer addressing stack (MAC, IP, Port, Domain Name).
+[ ] Mastered the IPv4 Subnet Mask and the 2^H - 2 usable host formula.
+[ ] Memorized the RFC 1918 Private IP ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
+[ ] Traced the Address Resolution Protocol (ARP) and DHCP DORA 4-step lifecycle.
+[ ] Understood CIDR prefix notation (/24, /28, /30, /16) and VLSM design.
+[ ] Formulated realistic ISP public IP block and subnet leasing budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 27: NETWORK ADDRESS
+================================================================================

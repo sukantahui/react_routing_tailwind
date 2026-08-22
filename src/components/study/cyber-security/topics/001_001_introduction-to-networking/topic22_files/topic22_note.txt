@@ -1,0 +1,97 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 22: BASIC NETWORKING COMPONENTS (HARDWARE, CONNECTIVITY & INFRASTRUCTURE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. TAXONOMY OF NETWORKING HARDWARE COMPONENTS
+--------------------------------------------------------------------------------
+A computer network is constructed from four fundamental categories of hardware:
+
+1. END DEVICES (HOSTS / ENDPOINTS):
+   • Devices that originate or consume data packets across the network.
+   • Includes: Desktop PCs, Laptops, Servers, Network Printers, VoIP Phones,
+     IP Surveillance Cameras, and Smart IoT Sensors.
+
+2. INTERMEDIARY / CONNECTING DEVICES:
+   • HUBS (Layer 1): Multi-port physical repeaters that broadcast data to all ports;
+     creates a single shared collision domain (legacy, obsolete).
+   • SWITCHES (Layer 2 & 3): Intelligent multiport bridges that forward frames based
+     on MAC addresses (CAM table); isolates collision domains to each port.
+   • ROUTERS (Layer 3): Network-layer devices that route packets across subnets and
+     WANs using IP routing tables, NAT, and security ACLs.
+   • WIRELESS ACCESS POINTS (WAPs): Transceivers bridging 802.11 Wi-Fi with 802.3 Ethernet.
+   • MODEMS / ONTs: Converts analog/optical signals from ISPs into digital Ethernet.
+   • FIREWALLS: Hardware security appliances performing stateful packet filtering.
+
+3. NETWORK INTERFACES & TRANSCEIVERS:
+   • Network Interface Card (NIC): Hardware chip providing unique 48-bit MAC address.
+   • SFP / SFP+ Transceivers: Modular optical transceivers for fiber-optic switch ports.
+
+4. TRANSMISSION MEDIA & CONNECTORS:
+   • Twisted-Pair Copper: Unshielded (UTP) Cat5e, Cat6, Cat6a terminated with RJ-45.
+   • Optical Fiber: Single-mode (laser, long distance) & Multi-mode (LED, campus runs)
+     terminated with LC/SC connectors.
+   • Patch Panels: Rack-mounted assemblies organizing in-wall structured cabling.
+
+--------------------------------------------------------------------------------
+2. OSI LAYER MAPPING & COLLISION / BROADCAST DOMAINS
+--------------------------------------------------------------------------------
+Component         | OSI Layer | Data Unit | Collision Domain | Broadcast Domain
+--------------------------------------------------------------------------------
+Hub / Repeater    | Layer 1   | Bits      | 1 Shared         | 1 Shared
+Switch (Layer 2)  | Layer 2   | Frames    | 1 Per Port       | 1 Shared (per VLAN)
+Layer 3 Switch    | Layer 2/3 | Packets   | 1 Per Port       | Isolated per VLAN
+Router            | Layer 3   | Packets   | 1 Per Interface  | Isolated per Subnet
+Gateway / Firewall| Layer 3-7 | Packets   | 1 Per Interface  | Isolated per Subnet
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Network Overhaul (Debangshu - Barrackpore)
+Debangshu upgraded an industrial plant in Barrackpore from legacy unmanaged hubs to
+two 24-port Gigabit Managed Layer-2 Switches (₹70,000 total). This eliminated packet
+collisions, boosted production ERP throughput by 400%, and enabled port-level security.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Diagnostic Clinic Hardware Setup (Mahima - Ichapur)
+Mahima installed a high-speed networking rack with an enterprise router (₹25,000),
+a 16-port PoE+ Switch (₹32,000), and three ceiling-mounted Wi-Fi 6 APs (₹45,000) in Ichapur,
+powering diagnostic lab monitors without separate electrical conduits.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Multi-Department College Computer Lab Grid (Mamata - Kolkata)
+Mamata configured a 48-port Layer-3 Multilayer Switch (₹85,000) with Cat6 structured
+cabling and patch panels in Kolkata, isolating Accounts, Exam Cell, and Student Labs
+into distinct VLANs with line-rate inter-VLAN routing.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Optical Fiber Backbone (Abhronila - Jadavpur)
+Abhronila deployed 10G SFP+ optical fiber transceivers (₹18,000/pair) with OM4 multi-mode
+fiber cabling in Jadavpur, connecting high-performance computing clusters to central
+storage SANs with sub-millisecond data transfer speeds.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never use unmanaged hubs in modern networks; hubs broadcast all traffic, leaking data.
+- Always observe the 100-meter length limit for Category 6 copper twisted-pair cables.
+- Install patch panels and structured cabling to prevent stress damage on switch ports.
+- Formulate all equipment procurement and maintenance budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Differentiated between End Devices and Intermediary Connecting Hardware.
+[ ] Explained the operational contrast between Hubs, Switches, and Routers.
+[ ] Mapped each component to its corresponding OSI Layer and PDU (Bits/Frames/Packets).
+[ ] Understood Collision Domain vs Broadcast Domain isolation boundaries.
+[ ] Mastered copper Cat6 (RJ-45) and fiber optic (SFP/LC) cable and connector standards.
+[ ] Formulated realistic hardware procurement budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 22: BASIC NETWORKING COMPONENTS
+================================================================================

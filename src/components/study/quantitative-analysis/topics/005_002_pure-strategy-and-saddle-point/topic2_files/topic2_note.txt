@@ -1,0 +1,91 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_002_pure-strategy-and-saddle-point
+TOPIC 2: MINIMAX PRINCIPLE (COLUMN LIABILITY CEILINGS, v_upper & MIN-OF-MAXS ALGORITHM)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & PHILOSOPHY OF THE MINIMAX PRINCIPLE
+--------------------------------------------------------------------------------
+The MINIMAX PRINCIPLE is a loss-capping, liability-minimizing decision criterion
+adopted by PLAYER B (Column Player / Minimizer).
+
+PHILOSOPHICAL PREMISE:
+• Player B assumes that for whichever column strategy B_j they choose, the intelligent,
+  rational opponent (Player A) will select the row that maximizes Player A's payoff.
+• Therefore, Player B seeks to MINIMIZE their MAXIMUM payout liability (Mini-Max).
+
+--------------------------------------------------------------------------------
+2. THE 2-STAGE COMPUTATIONAL ALGORITHM
+--------------------------------------------------------------------------------
+Given an m x n Payoff Matrix A = [a_ij]:
+
+• STAGE 1: COMPUTE COLUMN MAXIMA (VERTICAL MAXIMIZATION):
+  - For each column j = 1, 2, ..., n, determine:
+        Col Max_j = max_{i=1}^m a_ij
+  - Represents Player B's worst-case payout liability if strategy B_j is chosen.
+
+• STAGE 2: COMPUTE MINIMAX VALUE (HORIZONTAL MINIMIZATION):
+  - Identify the minimum among all column maxima:
+        Minimax (beta) = min_{j=1}^n [ Col Max_j ]
+                       = min_{j=1}^n [ max_{i=1}^m a_ij ]
+                       = v_upper (Upper Value of the Game in ₹)
+
+• STAGE 3: SELECT MINIMAX STRATEGY:
+  - The column j* corresponding to beta is Player B's optimal Minimax Strategy.
+
+--------------------------------------------------------------------------------
+3. THE UPPER VALUE OF THE GAME (v_upper) GUARANTEE
+--------------------------------------------------------------------------------
+By selecting the Minimax column j*:
+• Player B is MATHEMATICALLY GUARANTEED to concede AT MOST v_upper in Indian Rupees (₹),
+  regardless of what Player A chooses:
+        Actual Payout u_A(A_i, B_j*) <= v_upper    for all i = 1, ..., m
+• If Player A plays sub-optimally, Player B's actual payout will be strictly LESS than v_upper.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Competitor Bidding Minimax Rule (Debangshu)
+Debangshu in Barrackpore evaluated 3 rival bidding strategies to cap procurement expenses.
+Col Maxima = [₹50k, ₹30k, ₹45k]. Minimax = ₹30,000, capping maximum payout at ₹30k.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Hospital Vaccine Contract Liability Ceiling (Mamata & Mahima)
+Mamata and Mahima in Kolkata computed Column Maxima for 3 refrigeration vendor bids
+(C1 = ₹40k, C2 = ₹25k, C3 = ₹35k). Minimax = ₹25,000, capping emergency delay liabilities.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Discount Liability Optimization (Susmita)
+Susmita in Ichapur analyzed rival supermarket promotional pricing, identifying that
+Column B2 capped store margin loss at ₹18,000 even during aggressive festival sales.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Research Patent Royalty Ceiling (Abhronila)
+Abhronila evaluated university patent licensing terms in Jadavpur, using the Minimax
+criterion to guarantee that licensee royalty payouts would never exceed ₹55 Lakh.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always find the MAXIMUM down columns first, then find the MINIMUM of those maxima.
+- Do not confuse Minimax (Player B) with Maximin (Player A).
+- The Minimax value v_upper can be positive, negative, or zero.
+- State all liability ceilings and payouts with the Indian Rupee (₹) symbol.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Understood the loss-capping premise of the Minimax Principle.
+[ ] Computed Column Maxima (max_i a_ij) vertically for every column.
+[ ] Computed the Minimax Value: beta = min_j (Col Max_j) = v_upper.
+[ ] Identified Player B's optimal Minimax pure strategy column j*.
+[ ] Verified the mathematical guarantee: u_A(A_i, B_j*) <= v_upper.
+[ ] Stated game liability ceilings in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_002 • TOPIC 2: MINIMAX PRINCIPLE
+================================================================================

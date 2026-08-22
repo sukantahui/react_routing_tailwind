@@ -1,0 +1,103 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_005_reduction-of-mxn-game
+TOPIC 7: SHORT QUESTIONS (MASTER MODULE REVIEW, VIVA VOCE & m x n REDUCTION BLUEPRINT)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. COMPLETE 8-TOPIC MODULE ARCHITECTURE RECAPITULATION
+--------------------------------------------------------------------------------
+This module has formulated the complete mathematical, algorithmic, graphical, and
+managerial foundations of Reducing Large m x n Payoff Matrices in Operations Research:
+
+• TOPIC 0: NEED FOR REDUCING LARGER PAYOFF MATRICES
+  - Overcoming the computational bottleneck of m x n Simplex LP with m+n variables.
+  - 3 Reduction Targets: 1x1 (Saddle Point), 2x2 (Closed-Form), and 2xn/mx2 (Graphical).
+  - Isolating the active strategy support supp(p*) and supp(q*).
+  - Invariance of Game Value v* in Indian Rupees (₹).
+
+• TOPIC 1: REDUCTION OF m x n GAMES
+  - Systematic 5-phase reduction algorithm.
+  - The Cascading Feedback Loop: column deletions exposing newly dominant rows.
+  - Reconstructing full m-dimensional and n-dimensional strategy vectors.
+
+• TOPIC 2: USE OF DOMINANCE FOR REDUCTION
+  - Strict vs Weak Dominance.
+  - Convex Combination Dominance (Modified Dominance): lambda * R1 + (1 - lambda) * R2 >= R3.
+  - Breaking deadlocks using the 50-50 row/column average test.
+
+• TOPIC 3: REDUCTION TO 2x2 GAMES
+  - 5-step end-to-end reduction pipeline: m x n ➔ 2x2.
+  - Submatrix extraction and closed-form solving (Delta, p_sub*, q_sub*, v*).
+  - Global Optimality Audit: E(p*, B_j) >= v* for all original columns.
+
+• TOPIC 4: REDUCTION TO 2xn AND mx2 CASES
+  - 2xn Games: Parameterize p1, construct Lower Envelope, find Maximin Peak.
+  - mx2 Games: Parameterize q1, construct Upper Envelope, find Minimax Trough.
+  - Sub-game extraction from envelope vertex intersections with opposite slopes.
+
+• TOPIC 5: INTERPRETING THE REDUCED GAME
+  - Translating mathematical vectors into enterprise shift hours and capital budgets.
+  - Defunding operational dead-weight (pruned strategies receive ₹0).
+  - Financial valuation (v*) as long-run guaranteed cycle return.
+  - Post-optimality sensitivity thresholds for dominance breakdown.
+
+• TOPIC 6: NUMERICAL EXERCISES
+  - Worked solutions for 4x4 pure cascading, 3x3 convex blend, 4x3 to 2x2, and 5x4 direct saddle.
+
+• TOPIC 7: SHORT QUESTIONS & VIVA VOCE SYNTHESIS
+  - Comprehensive flashcards, master reduction reference table, and theoretical mastery.
+
+--------------------------------------------------------------------------------
+2. MASTER REDUCTION QUICK REFERENCE TABLE
+--------------------------------------------------------------------------------
+Matrix Scenario               | Reduction Method & Target       | Solution Technique
+--------------------------------------------------------------------------------
+Pure Saddle Exists (alpha=beta)| Reduce to 1x1 Saddle Cell       | Direct pure strategy choice v*
+m x n with Dominated Rows/Cols| Iterative Sweeps to 2x2 Submatrix| Closed-form: Delta, p*, q*, v*
+3x3 with No Pure Dominance    | 50-50 Convex Average Blend      | Prunes 1 row/col ➔ reduces to 2x2
+Asymmetric 2xn (n >= 3 cols)  | 2xn Graphical Lower Envelope    | Maximin Peak at line intersection
+Asymmetric mx2 (m >= 3 rows)  | mx2 Graphical Upper Envelope    | Minimax Trough at line intersection
+General Unreducible m x n     | Linear Programming Simplex      | Dual Simplex with m+n variables
+Full-Vector Reconstruction    | p_i* = p_sub* (active), 0.0 else| Full mD vector sum = 1.0
+Global Optimality Audit       | E(p*, B_j) >= v* for all cols j | Verified in Indian Rupees (₹)
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES (MASTER SYNTHESIS)
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Master Bidding Reduction (Debangshu)
+Debangshu in Barrackpore reduced a 4x4 alloy bidding matrix to a 2x2 submatrix,
+locking in ₹25,000 daily margin (₹7.5 Lakh monthly return) without Simplex LP tableaus.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Multi-Modal Transport Optimization (Mamata & Mahima)
+Mamata and Mahima in Kolkata resolved a 3x3 route deadlock via a 50-50 convex blend,
+stabilizing hospital vaccine transport costs at ₹27,142.86 per cycle.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional War Streamlining (Susmita)
+Susmita in Ichapur reduced a 4x3 retail matrix down to 2 active promotions,
+securing an equilibrium revenue of ₹22,000 per campaign and eliminating marketing bleed.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Arbitration (Abhronila)
+Abhronila reduced a 5x4 institutional grid directly to a pure saddle point in Jadavpur,
+securing an unambiguous ₹40 Lakh licensing settlement for university research labs.
+
+--------------------------------------------------------------------------------
+4. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Recognized the computational bottlenecks of unreduced m x n matrices.
+[ ] Mastered the 5-phase iterative reduction algorithm with cascading feedback loops.
+[ ] Applied strict, weak, and convex combination dominance.
+[ ] Solved 2xn and mx2 games via graphical lower and upper envelopes.
+[ ] Reconstructed full m-dimensional and n-dimensional strategy vectors.
+[ ] Executed global optimality audits against all original matrix cells.
+[ ] Stated all corporate valuations and budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_005 • TOPIC 7: SHORT QUESTIONS
+================================================================================

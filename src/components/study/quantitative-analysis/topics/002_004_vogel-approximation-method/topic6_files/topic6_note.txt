@@ -1,0 +1,143 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_004_vogel-approximation-method
+TOPIC 6: BALANCED AND UNBALANCED EXAMPLES (DUMMY LINE MECHANICS & COST EVALUATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. BALANCED VS. UNBALANCED TRANSPORTATION MODELS
+--------------------------------------------------------------------------------
+A standard transportation linear programming problem requires total supply
+to equal total demand (Conservation of Flow).
+
+CASE 1: BALANCED TRANSPORTATION PROBLEM
+- Condition: Sum_{i=1}^m S_i == Sum_{j=1}^n D_j
+- No artificial dummy lines are needed. VAM begins directly on the original tableau.
+
+CASE 2: UNBALANCED PROBLEM WITH SURPLUS SUPPLY (Sum S_i > Sum D_j)
+- Total production exceeds market requirements.
+- Solution: Add a fictitious DUMMY DESTINATION (Column D_{n+1}).
+- Demand requirement: D_{dummy} = Sum S_i - Sum D_j.
+- Unit transportation costs: c_{i, dummy} = ₹0 for all rows i.
+- Managerial meaning: Allocations to D_{dummy} represent unsold surplus inventory
+  retained in origin warehouses.
+
+CASE 3: UNBALANCED PROBLEM WITH SURPLUS DEMAND (Sum D_j > Sum S_i)
+- Total customer demand exceeds factory production.
+- Solution: Add a fictitious DUMMY ORIGIN (Row S_{m+1}).
+- Supply capacity: S_{dummy} = Sum D_j - Sum S_i.
+- Unit transportation costs: c_{dummy, j} = ₹0 for all columns j.
+- Managerial meaning: Allocations from S_{dummy} represent unmet market shortages
+  (delayed orders / lost sales).
+
+--------------------------------------------------------------------------------
+2. IMPACT OF ₹0 DUMMY CELLS ON PENALTY CALCULATIONS
+--------------------------------------------------------------------------------
+When a ₹0 dummy column is added:
+- In every row i, ₹0 becomes the smallest unit cost c_(i,1) = ₹0.
+- The previous lowest cost c_(old min) becomes the second-lowest cost c_(i,2).
+- The updated row penalty becomes:
+    P_i = c_(old min) - ₹0 = c_(old min)
+- The dummy column's own penalty is P_{dummy} = ₹0 - ₹0 = ₹0.
+
+When a ₹0 dummy row is added:
+- In every column j, ₹0 becomes the smallest unit cost c_(1,j) = ₹0.
+- The updated column penalty becomes:
+    P_j = c_(old min) - ₹0 = c_(old min)
+- The dummy row's own penalty is P_{dummy} = ₹0 - ₹0 = ₹0.
+
+--------------------------------------------------------------------------------
+3. FULL WORKED NUMERICAL EXAMPLES
+--------------------------------------------------------------------------------
+
+EXAMPLE A: Excess Supply (Debangshu's Barrackpore Foundry)
+Origins: S1 (Barrackpore, 50 tons), S2 (Ichapur, 70 tons), S3 (Kolkata, 80 tons).
+Total Supply = 200 tons.
+Destinations: D1 (Jadavpur, 60 tons), D2 (Salt Lake, 50 tons), D3 (Howrah, 60 tons).
+Total Demand = 170 tons.
+Difference = 200 - 170 = 30 tons Excess Supply -> Add Dummy Column D4 (Demand = 30 tons, rate = ₹0).
+
+Cost Matrix with Dummy Column (₹/ton):
+       D1    D2    D3    D_Dummy  Supply  P_R(1)
+  S1  ₹8    ₹14   ₹12     ₹0       50      ₹8 - ₹0 = ₹8
+  S2  ₹5    ₹19   ₹10     ₹0       70      ₹5 - ₹0 = ₹5
+  S3  ₹11   ₹13   ₹7      ₹0       80      ₹7 - ₹0 = ₹7
+Demand 60    50    60      30      200
+P_C(1) ₹3    ₹1    ₹3      ₹0
+
+VAM Execution:
+- Pass 1: Max Penalty = ₹8 at Row 1. Lowest cost in Row 1 is cell (S1, D_Dummy) @ ₹0!
+  Allocate x_14 = min(50, 30) = 30 tons to (S1, D_Dummy).
+  Dummy Column D4 is satisfied and crossed out!
+- Remaining 3x3 matrix is now balanced with 170 tons.
+- Final allocations: x_14 = 30 @ ₹0, x_11 = 20 @ ₹8, x_21 = 40 @ ₹5, x_22 = 30 @ ₹19...
+- Total Cost Z excludes the dummy shipment (30 × ₹0 = ₹0).
+
+--------------------------------------------------------------------------------
+EXAMPLE B: Excess Demand (Mamata & Mahima's Healthcare Network)
+Origins: S1 (Kolkata Central, 60 boxes), S2 (Barrackpore Depot, 40 boxes).
+Total Supply = 100 boxes.
+Destinations: D1 (Howrah, 50 boxes), D2 (Barasat, 40 boxes), D3 (Jadavpur, 30 boxes).
+Total Demand = 120 boxes.
+Difference = 120 - 100 = 20 boxes Shortage -> Add Dummy Row S3 (Supply = 20 boxes, rate = ₹0).
+
+Cost Matrix with Dummy Row (₹/box):
+       D1    D2    D3   Supply  P_R(1)
+  S1  ₹6    ₹18   ₹9     60      ₹9 - ₹6 = ₹3
+  S2  ₹4    ₹25   ₹15    40      ₹15 - ₹4 = ₹11 (MAX!)
+  S_D ₹0    ₹0    ₹0     20      ₹0 - ₹0 = ₹0
+Demand 50   40    30    120
+P_C(1) ₹4   ₹18   ₹9
+
+VAM Execution:
+- Pass 1: Max Penalty is Row 2 (Barrackpore) with P = ₹11. Lowest cell is (S2, D1) @ ₹4.
+  Allocate x_21 = min(40, 50) = 40 boxes. Row 2 is crossed out!
+- Terminal Pass: 20 boxes shortage assigned to cell (S_Dummy, D2) @ ₹0, meaning Barasat
+  absorbs the 20-box shortage.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supply (Debangshu)
+Excess Supply = 30 tons. Solved with Dummy Column D4.
+Final Cost Z = ₹1,780. Basis count: 3 + 4 - 1 = 6 basic cells.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Logistics (Mamata & Mahima)
+Excess Demand = 20 boxes. Solved with Dummy Row S3.
+Final Cost Z = ₹1,410. Basis count: 3 + 3 - 1 = 5 basic cells.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Fleet (Susmita)
+Balanced 3x3 scenario (Total Supply = 150 pallets == Total Demand = 150 pallets).
+Final Cost Z = ₹570. Basis count: 3 + 3 - 1 = 5 basic cells.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Network (Abhronila)
+Unbalanced printing problem with 40 bundles excess demand.
+Demonstrates how VAM isolates the optimal deficit distribution.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never omit the balance check; executing VAM without balancing invalidates the solution.
+- In dummy lines, always assign unit cost ₹0 (unless specific holding/penalty costs are given).
+- Remember that dummy allocations contribute ₹0 to total cost Z = Sum (c_ij * x_ij).
+- Basis count must include the dummy dimension: (m + n + 1) - 1 = m + n basic cells.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Calculated Sum(Supply) and Sum(Demand).
+[ ] If Supply > Demand: Added Dummy Column with rate ₹0 and Demand = Supply - Demand.
+[ ] If Demand > Supply: Added Dummy Row with rate ₹0 and Supply = Demand - Supply.
+[ ] Included ₹0 cells in row/column penalty calculations.
+[ ] Allocated using standard VAM rules.
+[ ] Computed total cost Z in Indian Rupees (₹) (dummy contribution = ₹0).
+[ ] Confirmed basis count matches (m + n_augmented - 1).
+
+================================================================================
+END OF STUDY NOTE • TOPIC 6: BALANCED AND UNBALANCED EXAMPLES
+================================================================================

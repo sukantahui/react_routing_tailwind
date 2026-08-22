@@ -1,0 +1,131 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 6: CLOSED LOOPS (GEOMETRIC TRACING, SPANNING TREE CYCLES & FLOW CONSERVATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. MATHEMATICAL DEFINITION & EXISTENCE THEOREM OF CLOSED LOOPS
+--------------------------------------------------------------------------------
+In the transportation simplex method, a STEPPING-STONE CLOSED LOOP is defined as:
+An ordered, closed rectangular polygon consisting of alternating horizontal and
+vertical line segments in the transportation grid such that:
+1. The loop starts and terminates at the chosen ENTERING NON-BASIC CELL.
+2. Every turning corner (vertex) lies exclusively on an OCCUPIED BASIC CELL.
+3. Every line segment is strictly horizontal (within the same row) or strictly
+   vertical (within the same column).
+
+THE FUNDAMENTAL CYCLE THEOREM:
+• In an m × n transportation tableau, a non-degenerate basic feasible solution
+  contains exactly m + n - 1 basic cells that form an ACYCLIC SPANNING TREE on
+  the bipartite graph.
+• By fundamental graph theory, introducing exactly ONE non-basic edge to an
+  acyclic spanning tree creates EXACTLY ONE UNIQUE fundamental closed cycle.
+• Therefore, for any valid entering cell, exactly one unique closed loop exists!
+
+--------------------------------------------------------------------------------
+2. GEOMETRIC RULES & CONSTRAINTS FOR LOOP CONSTRUCTION
+--------------------------------------------------------------------------------
+RULE 1: STRICT 90-DEGREE ALTERNATING TURNS
+Every segment must be purely horizontal or vertical. Diagonal lines are strictly
+prohibited because transportation supply and demand constraints operate along
+isolated rows and columns.
+
+RULE 2: TURNING EXCLUSIVELY ON BASIC CELLS
+Turning corners (vertices) can only occur on occupied basic cells (or the entering cell).
+You CANNOT turn at an empty cell.
+
+RULE 3: SKIPPING (JUMPING OVER) CELLS
+The loop can jump over any number of intervening empty or basic cells in a row or
+column without turning on them. An intervening cell is NOT a vertex unless a
+90-degree turn is made there.
+
+RULE 4: EVEN NUMBER OF VERTICES
+Every closed loop must have an EVEN number of turning corners (4, 6, 8, etc.).
+A closed rectangular path in a 2D grid cannot close with an odd number of corners.
+
+RULE 5: CONSERVATION OF FLOW (TWO VERTICES PER LINE)
+Every row and column involved in the loop contains EXACTLY TWO corner vertices of
+the loop: one receives +θ, and one receives -θ.
+Net change in row supply:   +θ - θ = 0  (Supply S_i preserved!)
+Net change in column demand: +θ - θ = 0  (Demand D_j preserved!)
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP WORKED LOOP TRACING EXAMPLE
+--------------------------------------------------------------------------------
+Consider the 3x3 Foundry Problem with Entering Cell (2, 1) [Ichapur ➔ Jadavpur]:
+Current Allocations:
+  (1,1)=60, (1,2)=10, (2,2)=70, (2,3)=20, (3,3)=60.
+
+TRACING THE 4-CORNER LOOP:
+Step 1: Start at Entering Cell (2, 1) --> Mark (+θ).
+Step 2: Move vertically up Column 1 to Basic Cell (1, 1) [alloc=60] --> Mark (-θ).
+Step 3: Move horizontally across Row 1 to Basic Cell (1, 2) [alloc=10] --> Mark (+θ).
+Step 4: Move vertically down Column 2 to Basic Cell (2, 2) [alloc=70] --> Mark (-θ).
+Step 5: Move horizontally across Row 2 back to Entering Cell (2, 1) --> Loop Closed!
+
+DETERMINING TRANSFER FLOW THETA (θ):
+Minus (-) corners are located at:
+• Cell (1, 1) with current allocation x_11 = 60 tons.
+• Cell (2, 2) with current allocation x_22 = 70 tons.
+
+Maximum allowable non-negative transfer quantity:
+    θ = min { x_ij | (-) corners } = min(60, 70) = 60 tons.
+
+EXECUTING FLOW REALLOCATION:
+• Cell (2, 1) [Enter]: 0 + 60 = 60 tons  (Enters basis ⭐).
+• Cell (1, 1) [Minus]: 60 - 60 = 0 tons  (Leaves basis; becomes empty).
+• Cell (1, 2) [Plus]:  10 + 60 = 70 tons  (Remains basic).
+• Cell (2, 2) [Minus]: 70 - 60 = 10 tons  (Remains basic).
+
+FINANCIAL IMPACT:
+Previous Cost Z_old = ₹2,740.
+New Cost Z_new = ₹2,740 - (60 × ₹8) = ₹2,260. (Total savings = ₹480!).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 4-Corner Loop Pivot (Debangshu)
+Debangshu in Barrackpore traced loop (2,1) ➔ (1,1) ➔ (1,2) ➔ (2,2) ➔ (2,1).
+Pivoting θ = 60 tons dropped total casting freight from ₹2,740 to ₹2,260 in Iteration 1.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine 6-Corner Complex Loop (Mamata & Mahima)
+Mamata and Mahima traced a 6-corner loop across Kolkata hospitals:
+(3,1) ➔ (1,1) ➔ (1,3) ➔ (2,3) ➔ (2,2) ➔ (3,2) ➔ (3,1).
+Pivoting θ = 15 boxes rebalanced vaccine supply with ₹90 cost reduction.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Degeneracy Bridge Loop (Susmita)
+When an initial allocation had only 4 basic cells, Susmita placed ε in cell (1, 3).
+The closed loop utilized ε as a turning corner, allowing θ = 20 tons to transfer cleanly.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Acyclic Verification (Abhronila)
+Abhronila verified that the final basic routing network contained zero closed loops,
+proving that all basic variables were linearly independent and non-degenerate.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never make a 90-degree turn at an empty cell; turns are restricted to basic cells.
+- Never cut across the grid diagonally; all segments must be strictly horizontal or vertical.
+- The entering cell ALWAYS receives the PLUS (+θ) sign.
+- θ is strictly the MINIMUM of allocations at the MINUS (-) corners, never the plus corners!
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Recognized that introducing one entering edge to a spanning tree creates 1 unique loop.
+[ ] Traced loop using strictly 90-degree horizontal and vertical line segments.
+[ ] Turned exclusively on occupied basic cells.
+[ ] Assigned (+θ) to entering cell and alternated (+, -, +, -) around vertices.
+[ ] Calculated θ = min(allocations at minus corners).
+[ ] Updated allocations (+θ to plus corners, -θ to minus corners).
+[ ] Verified that exactly one cell leaves the basis (maintaining m + n - 1 basic cells).
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 6: CLOSED LOOPS
+================================================================================

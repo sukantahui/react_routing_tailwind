@@ -1,0 +1,106 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 10: COVERING ZEROS (KÖNIG'S THEOREM, MINIMUM LINE TESTS & DUAL COVERS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE LINE COVERING TEST & KÖNIG'S THEOREM (1931)
+--------------------------------------------------------------------------------
+In Step 4 of the Hungarian Method, we determine the MINIMUM number of horizontal
+and vertical lines (L) required to cover all zero entries in the reduced matrix.
+
+DÉNES KÖNIG'S THEOREM (1931):
+In any bipartite graph (or binary zero-one matrix), the MINIMUM number of lines (L)
+required to cover all zeros EQUALS the MAXIMUM number of independent zeros (M):
+    L = M
+
+OPTIMALITY CRITERION:
+• Case A: If L == n (Minimum lines equals matrix order n):
+  ➔ The matrix is GLOBALLY OPTIMAL! Proceed directly to Step 5 (Assign Independent Zeros).
+• Case B: If L < n (Minimum lines is strictly less than matrix order n):
+  ➔ A complete 1-to-1 matching is not yet possible. Proceed to Step 4b (Additional Reduction).
+
+--------------------------------------------------------------------------------
+2. SYSTEMATIC PROTOCOL FOR DRAWING MINIMUM LINES
+--------------------------------------------------------------------------------
+To ensure mathematical minimality (and avoid drawing too many lines):
+
+TICK-MARKING PROTOCOL:
+1. Make an initial tentative assignment of independent zeros [0].
+2. Mark (✓) all rows that have NO assigned zero [0].
+3. For each newly marked row, mark (✓) all columns that have a zero in that row.
+4. For each newly marked column, mark (✓) all rows that have an assigned zero in that column.
+5. Repeat steps 3 and 4 until no more rows or columns can be marked.
+6. Draw straight lines through:
+   • ALL UNMARKED ROWS (Horizontal Lines)
+   • ALL MARKED COLUMNS (Vertical Lines)
+
+Total Minimum Lines:
+    L = (Count of Unmarked Rows) + (Count of Marked Columns)
+
+--------------------------------------------------------------------------------
+3. THE THREE CELL CATEGORIES CREATED BY LINE COVERING
+--------------------------------------------------------------------------------
+When L lines are drawn across an n x n matrix:
+
+1. UNCOVERED CELLS (Covered by 0 Lines):
+   • Cells that lie on neither a row line nor a column line.
+   • Total = (n - row_lines) * (n - col_lines).
+   • Action in Step 4b: Find smallest element e = min(uncovered); subtract e.
+
+2. SINGLE-COVERED CELLS (Covered by 1 Line):
+   • Cells that lie on a row line OR a column line, but not both.
+   • Action in Step 4b: Remain completely UNCHANGED.
+
+3. INTERSECTION CELLS (Covered by 2 Lines):
+   • Cells that lie simultaneously on a row line AND a column line.
+   • Total = row_lines * col_lines.
+   • Action in Step 4b: Add e to these cells (c_ij + e).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Line Test Inspection (Debangshu)
+Debangshu in Barrackpore covered a 4x4 matrix with 3 lines (Row 1, Row 2, Col 4).
+Because L = 3 < n = 4, he correctly identified that the matrix required 1 additional reduction.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Instant Optimality (Mamata & Mahima)
+Mamata and Mahima in Kolkata covered a 4x4 matrix with 4 lines (L = 4 = n), proving
+instant optimality and eliminating redundant computational iterations.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Tick-Mark Audit (Susmita)
+Susmita in Ichapur applied the formal tick-marking algorithm on a complex 5x5 matrix,
+avoiding the common mistake of drawing 5 lines when 4 lines were sufficient.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Line Verification (Abhronila)
+Abhronila in Jadavpur verified that 3 horizontal lines covered 3 print press rows,
+guaranteeing that 3 independent zeros existed for immediate textbook binding allocation.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never draw diagonal lines; lines must be strictly horizontal or vertical!
+- Always find the MINIMUM number of lines L; drawing n lines is always possible but invalidates the test.
+- Double-check intersection cells: they are covered by 2 lines and will receive +e.
+- If L = n, stop drawing lines and proceed immediately to independent zero assignment!
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered König's Theorem: Min Lines (L) == Max Independent Zeros (M).
+[ ] Understood Optimality Criterion: L == n ➔ Optimal; L < n ➔ Additional Reduction.
+[ ] Followed systematic tick-marking protocol (Unmarked Rows + Marked Cols).
+[ ] Classified all matrix cells into Uncovered (0 lines), Single-Covered (1 line), and Intersections (2 lines).
+[ ] Confirmed that diagonal lines are strictly forbidden.
+[ ] Prepared for Step 4b (Additional Reduction) if L < n.
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 10: COVERING ZEROS
+================================================================================

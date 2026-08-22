@@ -1,0 +1,100 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_002_pure-strategy-and-saddle-point
+TOPIC 4: VALUE OF THE GAME (v*, BOUNDS v_lower <= v* <= v_upper & FAIRNESS CRITERIA)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & SIGNIFICANCE OF THE VALUE OF THE GAME (v*)
+--------------------------------------------------------------------------------
+The VALUE OF THE GAME (denoted by v*) is the mathematical expected monetary return
+received by PLAYER A (and conceded by PLAYER B) when BOTH players execute their
+respective optimal strategies in Indian Rupees (₹).
+
+IN STRICTLY DETERMINED GAMES:
+• When a Saddle Point (i*, j*) exists:
+      v* = a_i*j* = Maximin (alpha) = Minimax (beta)
+
+IN NON-STRICTLY DETERMINED GAMES:
+• Determined via mixed strategy equilibrium:
+      v* = p*^T * A * q*
+
+--------------------------------------------------------------------------------
+2. THE FUNDAMENTAL BOUNDING THEOREM
+--------------------------------------------------------------------------------
+For every two-person zero-sum game, the true Value of the Game is strictly bounded:
+
+      v_lower <= v* <= v_upper
+  i.e.,  max_{i} min_{j} a_ij <= v* <= min_{j} max_{i} a_ij
+
+SIGNIFICANCE:
+• Player A can never be held below v_lower.
+• Player B can never be forced above v_upper.
+• If v_lower == v_upper, then v* = v_lower = v_upper (Saddle Point!).
+
+--------------------------------------------------------------------------------
+3. CLASSIFICATION BY GAME VALUE (FAIRNESS SPECTRUM)
+--------------------------------------------------------------------------------
+
+1. FAIR GAME (v* == ₹0):
+   • Neither player holds an inherent mathematical advantage.
+   • Under optimal play, expected net wealth transfer is zero.
+
+2. BIASED IN FAVOR OF PLAYER A (v* > ₹0):
+   • Player A expects to win ₹v* per round under optimal play.
+   • Player B must concede ₹v* per round.
+
+3. BIASED IN FAVOR OF PLAYER B (v* < ₹0):
+   • Player B expects to win ₹|v*| per round (Player A loses ₹|v*|).
+
+--------------------------------------------------------------------------------
+4. LINEAR TRANSFORMATION OF GAME VALUE
+--------------------------------------------------------------------------------
+If matrix A is transformed by a'_ij = k * a_ij + c (where k > 0):
+      v'* = k * v* + c
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Tender Value Valuation (Debangshu)
+Debangshu in Barrackpore calculated v* = +₹30,000 for an Indian Railways casting tender,
+proving that his foundry held a structural ₹30,000 competitive edge under optimal bidding.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Hospital Vaccine Fair Contract Formulation (Mamata & Mahima)
+Mamata and Mahima in Kolkata adjusted liquidated delay penalties to achieve a Fair Game (v* = ₹0),
+ensuring that neither the hospital nor the transport vendor suffered structural bias.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Advantage Valuation (Susmita)
+Susmita in Ichapur analyzed promotional competition, determining v* = +₹18,000 in favor
+of Supermarket A due to superior prime retail real estate.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Royalties Valuation (Abhronila)
+Abhronila calculated v* = ₹55 Lakh for a university nanotechnology patent licensing
+agreement in Jadavpur, securing a fair royalty distribution.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never confuse the Value of the Game with individual cell payoffs; v* is the EQUILIBRIUM outcome.
+- A game with negative payoffs can still be positive in value (v* > 0).
+- When a constant c is added during calculation, subtract c to get the true economic game value!
+- State all game values and fairness metrics with the Indian Rupee (₹) symbol.
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined Value of the Game v* as expected payoff under mutual optimal play.
+[ ] Verified the fundamental bounds: v_lower <= v* <= v_upper.
+[ ] Evaluated game fairness (Fair if v* = 0, biased toward A if v* > 0, toward B if v* < 0).
+[ ] Calculated the effect of linear transformations on game value: v' = k*v* + c.
+[ ] Stated game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_002 • TOPIC 4: VALUE OF THE GAME
+================================================================================

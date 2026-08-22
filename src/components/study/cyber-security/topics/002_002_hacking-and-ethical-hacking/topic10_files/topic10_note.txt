@@ -1,0 +1,148 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_002 : HACKING, ETHICAL HACKING & HACKER TYPES
+TOPIC 10       : VULNERABILITY DISCLOSURE PROGRAMS & BUG BOUNTIES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & CROWDSOURCED SECURITY
+--------------------------------------------------------------------------------
+No internal security engineering team can anticipate every novel offensive exploit technique. 
+Crowdsourced cybersecurity aligns thousands of independent global ethical hackers to discover 
+and remediate vulnerabilities before criminal syndicates or hostile nation-states can exploit them.
+
+Modern organizations implement two complementary crowdsourced models:
+  1. VULNERABILITY DISCLOSURE PROGRAM (VDP): A public, legally protected channel for 
+     reporting flaws in exchange for recognition (Hall of Fame) without monetary reward.
+  2. PAID BUG BOUNTY PROGRAMS: Private or public programs offering cash bounties in 
+     Indian Rupees (₹) based on standardized severity ratings.
+
+--------------------------------------------------------------------------------
+2. VULNERABILITY RATING TAXONOMY (VRT) & PAYOUT MATRIX
+--------------------------------------------------------------------------------
+
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| SEVERITY     | ICONIC VULNERABILITY EXAMPLES | CVSS v3.1 SCORE RANGE | STANDARD BOUNTY PAYOUT RANGE (₹ INR)  |
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| P1: CRITICAL | - Remote Code Execution (RCE) | 9.0 - 10.0            | ₹2,50,000 - ₹10,00,000+               |
+|              | - SQL Injection (Auth bypass) | (Maximum Severity)    | (Immediate emergency developer triage)|
+|              | - AWS Metadata SSRF (IAM Keys)|                       |                                       |
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| P2: HIGH     | - Broken Object Auth (IDOR)   | 7.0 - 8.9             | ₹75,000 - ₹2,00,000                   |
+|              | - Stored XSS on Admin Panel   | (High Impact)         | (Direct data leakage / privilege jump)|
+|              | - Subdomain Takeover          |                       |                                       |
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| P3: MEDIUM   | - CSRF on sensitive actions   | 4.0 - 6.9             | ₹20,000 - ₹60,000                     |
+|              | - Reflected XSS               | (Moderate Impact)     | (Requires active user interaction)    |
+|              | - CORS Misconfiguration       |                       |                                       |
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| P4: LOW      | - Open URL Redirection        | 0.1 - 3.9             | ₹5,000 - ₹15,000                      |
+|              | - Clickjacking (no sensitive) | (Low Impact)          | (Minor informational defect)          |
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| P5: INFO     | - Missing HTTP headers        | 0.0                   | ₹0 (Informational / Hall of Fame)     |
+|              | - Software banner disclosure  | (Zero direct risk)    |                                       |
++--------------+-------------------------------+-----------------------+---------------------------------------+
+
+--------------------------------------------------------------------------------
+3. RFC 9116 SECURITY.TXT SPECIFICATION
+--------------------------------------------------------------------------------
+
+RFC 9116 standardizes a plaintext configuration file deployed under `/.well-known/security.txt`.
+
+MANDATORY DIRECTIVES:
+  * Contact: Official email URI (mailto:security@domain.co.in).
+  * Expires: ISO-8601 expiration timestamp (must not exceed 1 year).
+
+RECOMMENDED DIRECTIVES:
+  * Encryption: URL to PGP public key for encrypting sensitive bug reports.
+  * Policy: URL to the organization's Vulnerability Disclosure Policy & Safe Harbor.
+  * Preferred-Languages: Comma-separated list (e.g., en, bn, hi).
+  * Canonical: The authoritative URL where the security.txt file is hosted.
+
+--------------------------------------------------------------------------------
+4. COORDINATED VULNERABILITY DISCLOSURE (CVD) & 90-DAY TIMELINE
+--------------------------------------------------------------------------------
+
+Coordinated Vulnerability Disclosure balances public security with engineering reality:
+  * Day 00: Researcher discovers zero-day -> Submits private report with non-destructive PoC.
+  * Day 01-07: Enterprise triage team validates report and calculates CVSS score.
+  * Day 08-60: Engineering squad develops, tests, and deploys patch to production clusters.
+  * Day 61-90: Bounty awarded in ₹ INR; coordinated public disclosure blog released.
+  * 90-Day Expiry: If vendor fails to respond or patch after 90 days, researcher may disclose publicly.
+
+--------------------------------------------------------------------------------
+5. INDIAN BUG BOUNTY ECOSYSTEM & GOVERNMENT RVDP
+--------------------------------------------------------------------------------
+
+1. NCIIPC Responsible Vulnerability Disclosure Program (RVDP):
+   - Administered under Section 70A of the IT Act 2000.
+   - Allows researchers to report flaws in national critical infrastructure (Power, Defense, Banking).
+   - Validated researchers receive official Government of India Certificates of Appreciation.
+
+2. CERT-In Vulnerability Disclosure Portal:
+   - Central national clearinghouse for zero-day disclosures across Indian cyberspace.
+
+3. Indian Commercial Leaders:
+   - Swiggy, Zomato, Razorpay, CRED, and Paytm operate leading bug bounty programs.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : CLOUD METADATA SSRF TRIAGE (KOLKATA FINTECH)
+  * Lead Bug Bounty Program Manager : Mamata | Budget : ₹12,50,000 | Location : Kolkata
+  * Vulnerability Reported : P1 Critical Server-Side Request Forgery (SSRF) on PDF Invoice Generator 
+    allowing extraction of AWS IAM root tokens from `http://169.254.169.254/`.
+  * Operational Action : Mamata triaged the report in 45 minutes, deployed an immediate WAF link-local 
+    blocking rule, rolled AWS credentials, and awarded the researcher a top ₹3,50,000 bounty.
+
+SCENARIO 2 : RFC 9116 SECURITY.TXT IMPLEMENTATION (ICHAPUR HOSPITAL)
+  * Chief Healthcare Security Officer : Mahima | Budget : ₹4,20,000 | Location : Ichapur
+  * Vulnerability Reported : Need for a legally protected VDP channel to receive coordinated medical 
+    device telemetry vulnerability reports.
+  * Operational Action : Deployed `/.well-known/security.txt` with PGP public keys and a Gold Standard 
+    Safe Harbor clause, creating an open reporting channel for medical device ethical researchers.
+
+SCENARIO 3 : SMART METER SCADA BUG BOUNTY SCOPE (BARRACKPORE GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,50,000 | Location : Barrackpore
+  * Vulnerability Reported : Designing a private bug bounty program for 220kV substation IoT smart meters.
+  * Operational Action : Created strict Rules of Engagement (RoE) restricting testing exclusively to 
+    isolated cloud API staging endpoints, forbidding physical testing on live grid relays.
+
+SCENARIO 4 : NCIIPC NATIONAL HALL OF FAME RESEARCH (JADAVPUR UNIVERSITY)
+  * Student Security Leads : Abhronila & Susmita | Budget : ₹3,50,000 | Location : Jadavpur
+  * Vulnerability Reported : Discovered a high-impact Broken Object-Level Authorization (IDOR) flaw in 
+    a state utility billing portal affecting 45,000 citizen records.
+  * Operational Action : Submitted a non-destructive PGP-encrypted report to NCIIPC RVDP, helping the state 
+    patch the flaw and earning official Government of India National Hall of Fame honors.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL BUG HUNTER HABITS:
+  1. Check the Scope First: Never test a domain not explicitly listed in the In-Scope section.
+  2. Provide Clear Reproduction Steps: Include cURL commands, video PoC, and remediation code.
+  3. Stop at Minimal PoC: Proving a bug requires reading 1 record; dumping the database is a crime.
+
+* COMMON BEGINNER MISTAKES:
+  - Firing noisy automated scanners (Masscan/Acunetix) that flood triage queues with false positives.
+  - Submitting missing HTTP security headers as P1 critical bugs (Closed as Informative).
+  - Threatening public disclosure if bounties are not paid (Criminal Extortion under IPC 384).
+  - Testing out-of-scope third-party payment gateways (Invalidates Legal Safe Harbor).
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] VDPs provide recognition (Hall of Fame); Bug Bounties provide monetary cash payouts in ₹ INR.
+[ ] RFC 9116 standardizes `/.well-known/security.txt` for machine-readable disclosure contacts.
+[ ] VRT classifies severity from P1 (Critical RCE/SSRF) down to P5 (Informational).
+[ ] Coordinated Vulnerability Disclosure (CVD) enforces a 90-day vendor patch window.
+[ ] Legal Safe Harbor protects good-faith researchers from CFAA and IT Act Section 66.
+[ ] NCIIPC operates the Government of India Responsible Vulnerability Disclosure Program (RVDP).
+[ ] The 'First-to-Report' rule awards 100% of the bounty to the earliest timestamped report.
+[ ] Proving a bug requires minimal non-destructive PoC; excessive data dumping is illegal.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 10 (CYBER SECURITY BCAC703)
+================================================================================

@@ -1,0 +1,153 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_004 : CRYPTOGRAPHY, WATERMARKING & CIPHER TYPES
+TOPIC 04       : POPULAR SYMMETRIC CIPHERS: DES, 3DES, AND AES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & CIPHER EVOLUTION MATRIX
+--------------------------------------------------------------------------------
+The evolutionary trajectory of symmetric block ciphers spans four decades of 
+cryptographic competition between cryptanalysts and computing power:
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| CIPHER             | BLOCK / KEY SIZE        | ARCHITECTURE       | CRYPTANALYTIC & REGULATORY STATUS              |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. DES (1977)      | 64-bit Block /          | 16-Round Feistel   | - COMPLETELY BROKEN (56-bit key search space   |
+|    FIPS 46-3       | 56-bit Effective Key    | Network            |   brute-forced in hours via modern GPUs)       |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. 3DES (1998)     | 64-bit Block /          | 48-Round Feistel   | - RETIRED & OFFICIALLY BANNED (Dec 2023)       |
+|    TDEA            | 112 / 168-bit Key       | (EDE: Enc-Dec-Enc) | - Sweet32 collision attack after 32 GB data    |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. AES (2001)      | 128-bit Block /         | 10-14 Round SPN    | - GLOBAL GOLD STANDARD (UNBREAKABLE)           |
+|    FIPS 197        | 128 / 192 / 256-bit Key | (Sub-Perm Network) | - AES-256-GCM enforced worldwide & RBI banks   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+2. DATA ENCRYPTION STANDARD (DES) DEEP-DIVE
+--------------------------------------------------------------------------------
+
+* SPECIFICATIONS:
+  - Block Size: 64 bits (8 bytes).
+  - Key Size: 64 bits nominal (8 parity bits discarded -> 56 bits effective entropy = 2^56 keys).
+  - Rounds: 16 Feistel rounds.
+  - Round Function F:
+    1. Expansion Permutation (E-Box): Expands 32-bit Right half to 48 bits.
+    2. XOR with 48-bit Round SubKey.
+    3. Eight S-Boxes (6 bits in -> 4 bits out): Provides non-linear Confusion.
+    4. P-Box (32-bit Permutation): Provides Diffusion.
+
+* WHY DES DIED:
+  - 1999: EFF "Deep Crack" brute-forced a DES key in 22 hours.
+  - Today: Modern GPU clusters recover 56-bit DES keys in under 1 hour.
+
+--------------------------------------------------------------------------------
+3. TRIPLE-DES (3DES) & THE SWEET32 ATTACK
+--------------------------------------------------------------------------------
+
+* ENCRYPT-DECRYPT-ENCRYPT (EDE) SEQUENCE:
+  - Encryption: C = E_K3( D_K2( E_K1( P ) ) )
+  - Decryption: P = D_K1( E_K2( D_K3( C ) ) )
+  - Backward Compatibility: If K1 == K2 == K3, then E_K(D_K(E_K(P))) = E_K(P) (Single DES).
+
+* THE SWEET32 ATTACK (CVE-2016-2183):
+  - Root Cause: 64-bit block size.
+  - Birthday Paradox: After encrypting sqrt(2^64) = 2^32 blocks (~32 GB of data), there is a 50% 
+    chance of a block collision (C_i == C_j).
+  - Leakage: In CBC mode, colliding blocks leak plaintext XOR: P_i ^ P_j = C_{i-1} ^ C_{j-1}.
+  - Regulatory Impact: NIST and the Reserve Bank of India (RBI) banned 3DES in December 2023.
+
+--------------------------------------------------------------------------------
+4. ADVANCED ENCRYPTION STANDARD (AES / RIJNDAEL)
+--------------------------------------------------------------------------------
+
+* SPECIFICATIONS:
+  - Standardized as FIPS 197 in 2001 (Designed by Vincent Rijmen & Joan Daemen).
+  - Block Size: 128 bits (16 bytes arranged in a 4x4 State matrix).
+  - Key Variants:
+    - AES-128 : 10 Rounds (128-bit key)
+    - AES-192 : 12 Rounds (192-bit key)
+    - AES-256 : 14 Rounds (256-bit key)
+
+* 4 INTERNAL ROUND OPERATIONS:
+  1. `SubBytes`   : Replaces each byte with its multiplicative inverse in Galois Field GF(2^8) 
+                    modulo (x^8 + x^4 + x^3 + x + 1), followed by an affine transformation.
+  2. `ShiftRows`  : Cyclically rotates rows to the left: Row 0 by 0, Row 1 by 1, Row 2 by 2, Row 3 by 3 bytes.
+  3. `MixColumns` : Multiplies each column by a fixed MDS matrix over GF(2^8) (Omitted in final round).
+  4. `AddRoundKey`: Bitwise XORs the 128-bit State matrix with the round subkey from Key Schedule.
+
+* HARDWARE AES-NI INSTRUCTIONS:
+  - Dedicated CPU silicon instructions (`_mm_aesenc_si128`) execute AES rounds in constant clock cycles, 
+    achieving 5-10 GB/s throughput and eliminating software S-box cache-timing side-channel attacks.
+
+--------------------------------------------------------------------------------
+5. INDIAN STATUTORY COMPLIANCE & BANKING DIRECTIVES
+--------------------------------------------------------------------------------
+
+* RBI CYBER SECURITY DIRECTIVES FOR BANKS:
+  - All Indian Scheduled Commercial Banks, ATM networks (NFS), and POS payment gateways must 
+    completely retire 3DES and migrate to AES-256-GCM backed by FIPS 140-3 Hardware Security Modules.
+
+* DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023:
+  - Section 33: Failure to deploy modern authenticated encryption (AES-GCM) leading to personal data 
+    breaches incurs administrative penalties up to ₹250 Crores.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : ATM SWITCH 3DES-TO-AES MIGRATION (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : 1,200 ATM payment transaction switches across West Bengal were running legacy 3DES, 
+    facing immediate RBI regulatory non-compliance penalties.
+  * Action : Mamata led the fleet-wide firmware upgrade to AES-256-GCM with hardware HSM PIN blocks, 
+    eliminating Sweet32 collision risks and achieving 100% RBI compliance.
+
+SCENARIO 2 : HOSPITAL PACS ARCHIVE CIPHER MODERNIZATION (ICHAPUR HOSPITAL)
+  * Chief Healthcare Information Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Radiologists storing patient MRI scans were using legacy single-DES encryption modules from 2005.
+  * Action : Mahima refactored the DICOM storage cluster to AES-256-GCM with automated envelope encryption, 
+    securing 50,000+ patient records and meeting DPDP Act 2023 statutory standards.
+
+SCENARIO 3 : SUBSTATION RTU AES-NI HARDWARE ACCELERATION (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Upgrading 220kV substation RTUs from 3DES to AES without causing telemetry packet latency.
+  * Action : Deployed AES-NI accelerated industrial gateways, reducing cryptographic latency from 45ms to 0.4ms 
+    and ensuring 100% real-time grid protection telemetry.
+
+SCENARIO 4 : AES 4-STEP INTERNAL STATE LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students how Galois Field GF(2^8) multiplication works inside the AES `MixColumns` step.
+  * Action : Authored a Python visualizer stepping through `SubBytes`, `ShiftRows`, `MixColumns`, and `AddRoundKey`, 
+    guiding 140+ students through encrypting custom 128-bit state matrices.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL SYMMETRIC CIPHER HABITS:
+  1. Default Exclusively to AES-256-GCM: Provides confidentiality and integrity in a single parallel pass.
+  2. Retire 3DES and 64-bit Ciphers: Avoid Sweet32 collision risks on high-bandwidth connections.
+  3. Leverage Hardware AES-NI: Ensures constant-time execution with zero cache-timing vulnerability.
+
+* COMMON BEGINNER CIPHER PITFALLS:
+  - Assuming 3DES is secure because it has "168-bit key" (Effective security is only 112 bits).
+  - Confusing DES parity bits with key bits (DES key is 56 bits, not 64 bits).
+  - Using software S-Box lookup tables in C without constant-time masking (Leaks cache timing).
+  - Failing to recognize that 3DES is legally prohibited for Indian banking under RBI directives.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] DES has 64-bit block size, 56-bit effective key, and 16 Feistel rounds (Broken).
+[ ] 3DES uses Encrypt-Decrypt-Encrypt (EDE); deprecated due to Sweet32 collision attack.
+[ ] Sweet32 attack exploits 64-bit block collisions after 2^32 blocks (~32 GB).
+[ ] AES has 128-bit block size and 3 key sizes: 128-bit (10r), 192-bit (12r), 256-bit (14r).
+[ ] 4 AES round steps: SubBytes (S-Box), ShiftRows (Shift), MixColumns (Galois MDS), AddRoundKey (XOR).
+[ ] AES-NI hardware CPU instructions execute in constant time, eliminating cache-timing attacks.
+[ ] RBI directives mandate complete phaseout of 3DES and migration to AES-256 in banking.
+[ ] DPDP Act 2023 enforces up to ₹250 Crores penalty for unencrypted personal data leaks.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 04 (CYBER SECURITY BCAC703)
+================================================================================

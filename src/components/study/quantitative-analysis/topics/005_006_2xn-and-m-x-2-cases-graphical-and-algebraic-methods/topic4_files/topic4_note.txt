@@ -1,0 +1,92 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_006_2xn-and-m-x-2-cases-graphical-and-algebraic-methods
+TOPIC 4: FINDING THE OPTIMAL MIXED STRATEGY GRAPHICALLY (APEX IDENTIFICATION & FULL VECTOR RECONSTRUCTION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE COMPLETE GRAPHICAL OPTIMIZATION PIPELINE
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+A. FOR 2xn GAMES (PLAYER A MAXIMIZES ON LOWER ENVELOPE):
+--------------------------------------------------------------------------------
+1. Parameterize Player A's strategy: p = (p_1, 1 - p_1)^T.
+2. Plot all n expected payoff lines: E_j(p_1) = (a_1j - a_2j) * p_1 + a_2j.
+3. Trace the LOWER ENVELOPE: f_lower(p_1) = min_{j} [ E_j(p_1) ].
+4. Locate the MAXIMIN PEAK (p_1*, v*) at the highest point of the lower envelope.
+5. Identify the two intersecting columns B_j and B_k forming this apex.
+6. Extract the active 2x2 submatrix:
+         A_sub = [ [a_1j, a_1k],
+                   [a_2j, a_2k] ]
+7. Solve A_sub for exact closed-form probabilities q_j*, q_k* and Game Value v* (in ₹).
+8. Reconstruct the full n-dimensional vector q* by assigning 0.0 to all inactive columns.
+
+--------------------------------------------------------------------------------
+B. FOR mx2 GAMES (PLAYER B MINIMIZES ON UPPER ENVELOPE):
+--------------------------------------------------------------------------------
+1. Parameterize Player B's strategy: q = (q_1, 1 - q_1)^T.
+2. Plot all m expected payout lines: E_i(q_1) = (a_i1 - a_i2) * q_1 + a_i2.
+3. Trace the UPPER ENVELOPE: f_upper(q_1) = max_{i} [ E_i(q_1) ].
+4. Locate the MINIMAX TROUGH (q_1*, v*) at the lowest point of the upper envelope.
+5. Identify the two intersecting rows A_i and A_r forming this apex.
+6. Extract the active 2x2 submatrix:
+         A_sub = [ [a_i1, a_i2],
+                   [a_r1, a_r2] ]
+7. Solve A_sub for exact closed-form probabilities p_i*, p_r* and Game Value v* (in ₹).
+8. Reconstruct the full m-dimensional vector p* by assigning 0.0 to all inactive rows.
+
+--------------------------------------------------------------------------------
+2. GLOBAL OPTIMALITY AUDIT
+--------------------------------------------------------------------------------
+• For 2xn Games: Verify E(p*, B_c) >= v* for all columns c in {1, ..., n}.
+• For mx2 Games: Verify E(A_r, q*) <= v* for all rows r in {1, ..., m}.
+• Expected payoff equals v* on all active support strategies.
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 2x4 Alloy Procurement Mix (Debangshu)
+Debangshu in Barrackpore traced the lower envelope of a 2x4 procurement grid.
+The Maximin peak pinpointed Columns {1, 2}, yielding p* = [0.50, 0.50] and
+q* = [0.67, 0.33, 0.00, 0.00]^T, locking in ₹30,000 shift margin.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Logistics 3x2 Transport Line Optimization (Mamata & Mahima)
+Mamata and Mahima in Kolkata located the upper envelope trough at Rows {1, 2},
+deriving p* = [0.60, 0.40, 0.00]^T and q* = [0.67, 0.33]^T, capping transport costs at ₹24,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail 2x4 Promotional Optimization (Susmita)
+Susmita in Ichapur pinpointed the Maximin peak of a 2x4 retail game, extracting
+active Columns {1, 2} to establish q* = [0.50, 0.50, 0, 0] and securing ₹32,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab 4x2 Patent Dispute Settlement (Abhronila)
+Abhronila identified the Minimax trough of a 4x2 arbitration grid in Jadavpur,
+extracting Rows {1, 3} to reconstruct p* = [0.70, 0, 0.30, 0] and settling at ₹20 Lakh.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never assign non-zero probability to inactive strategies outside the envelope apex.
+- Always check that the two intersecting lines have opposite slope signs.
+- Complete the full vector reconstruction (do not stop at 2D sub-game probabilities).
+- State all game values and payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Traced active lower/upper boundary envelopes.
+[ ] Located Maximin peak (2xn) or Minimax trough (mx2).
+[ ] Extracted the 2 active lines forming the optimal apex.
+[ ] Solved the 2x2 submatrix using exact closed-form formulas.
+[ ] Reconstructed full probability vectors (p*, q*) with 0.0 for inactive options.
+[ ] Conducted global optimality audits in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_006 • TOPIC 4: FINDING THE OPTIMAL MIXED STRATEGY GRAPHICALLY
+================================================================================

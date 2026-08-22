@@ -1,0 +1,95 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_006_2xn-and-m-x-2-cases-graphical-and-algebraic-methods
+TOPIC 1: mx2 GAMES (THEORETICAL FOUNDATIONS, PARAMETERIZATION & UPPER ENVELOPE BOUNDARIES)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE STRUCTURE & FORMULATION OF mx2 GAMES
+--------------------------------------------------------------------------------
+An mx2 Two-Person Zero-Sum Game occurs when:
+• Player A (Row Maximizer) has m strategies: {A_1, A_2, ..., A_m} where m >= 3.
+• Player B (Column Minimizer) has exactly 2 strategies: {B_1, B_2}.
+
+Payoff Matrix:
+      A = [ [a_11, a_12],
+            [a_21, a_22],
+            ...,
+            [a_m1, a_m2] ]
+
+--------------------------------------------------------------------------------
+2. PARAMETERIZATION & EXPECTED PAYOUT LINES
+--------------------------------------------------------------------------------
+1. PLAYER B's STRATEGY PARAMETERIZATION:
+   • Let q_1 = Probability of playing Column B_1 (0 <= q_1 <= 1).
+   • Then q_2 = 1 - q_1 = Probability of playing Column B_2.
+   • Vector: q = (q_1, 1 - q_1)^T.
+
+2. EXPECTED PAYOUT LINE EQUATIONS:
+   • If Player A plays pure Row A_i (i in {1, ..., m}):
+         E(A_i, q) = q_1 * a_i1 + (1 - q_1) * a_i2
+         E(A_i, q) = (a_i1 - a_i2) * q_1 + a_i2
+   • Endpoints of Line i:
+         At q_1 = 0 (Pure B_2):  E(A_i, 0) = a_i2  (Left Vertical Axis)
+         At q_1 = 1 (Pure B_1):  E(A_i, 1) = a_i1  (Right Vertical Axis)
+   • Slope of Line i:  m_i = a_i1 - a_i2.
+
+--------------------------------------------------------------------------------
+3. THE UPPER ENVELOPE & MINIMAX PRINCIPLE
+--------------------------------------------------------------------------------
+• For any choice of q_1 by Player B, rational Player A chooses the row that MAXIMIZES
+  Player A's return (maximizing Player B's loss):
+      f_upper(q_1) = max_{i in {1, ..., m}} [ E(A_i, q) ]
+
+• Player B anticipates this maximizing behavior and selects q_1* to MINIMIZE this upper boundary:
+      v* = min_{q_1 in [0, 1]} [ f_upper(q_1) ]  (in ₹)
+
+• The lowest trough on the upper envelope occurs at the intersection of two lines with
+  opposite slope signs (one rising, one falling).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 4x2 Furnace Schedule Analysis (Debangshu)
+Debangshu in Barrackpore evaluated 4 alloy batch mixes against 2 power tariff tiers.
+Constructing the upper envelope identified the Minimax trough at Rows {1, 2},
+yielding q* = [2/3, 1/3] and capping power costs at ₹30,000 per production shift.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Logistics 3x2 Transport Route Budgeting (Mamata & Mahima)
+Mamata and Mahima in Kolkata modeled 3 regional transport corridors against 2 fuel price bands.
+The upper envelope trough identified the 2 active corridors, securing a guaranteed budget of ₹24,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail 4x2 Promotional Defense (Susmita)
+Susmita in Ichapur analyzed 4 discount packages against 2 supplier co-op funding models.
+The Minimax upper envelope trough determined the optimal 60-40 funding split to lock in ₹35,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab 5x2 Patent Dispute Settlement (Abhronila)
+Abhronila analyzed 5 research claim terms against 2 licensing frameworks in Jadavpur,
+determining the exact 2x2 active compromise to guarantee a ₹22 Lakh institutional payout.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never plot the lower envelope for mx2 games! (Player B requires the UPPER envelope / Minimax).
+- Remember: at q1 = 0, the payout is ai2 (Column 2), NOT ai1.
+- Ensure the two intersecting lines forming the trough have opposite slopes.
+- State all game values in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Understood mx2 matrix structure and parameterization (q1, 1-q1).
+[ ] Computed linear expected payout equations E(Ai, q) = (ai1 - ai2)*q1 + ai2.
+[ ] Plotted line endpoints on left (q1=0) and right (q1=1) vertical axes.
+[ ] Constructed the Upper Envelope representing Player B's worst-case liability.
+[ ] Expressed all payouts and game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_006 • TOPIC 1: mx2 GAMES
+================================================================================

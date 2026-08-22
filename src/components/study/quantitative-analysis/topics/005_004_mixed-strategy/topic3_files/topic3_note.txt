@@ -1,0 +1,93 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_004_mixed-strategy
+TOPIC 3: MIXED STRATEGY SOLUTION FOR 2x2 GAMES (CLOSED-FORM FORMULAS & DERIVATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE MASTER 2x2 CLOSED-FORM SOLUTION SYSTEM
+--------------------------------------------------------------------------------
+For any 2x2 Two-Person Zero-Sum Game without a saddle point:
+      A = [ [a_11, a_12],
+            [a_21, a_22] ]
+
+1. THE COMMON DENOMINATOR (DELTA):
+      Delta = (a_11 + a_22) - (a_12 + a_21)
+      Delta = (Sum of Main Diagonal Elements) - (Sum of Off-Diagonal Elements)
+
+2. OPTIMAL PROBABILITIES FOR PLAYER A (ROW MAXIMIZER):
+      p_1* = (a_22 - a_21) / Delta
+      p_2* = 1 - p_1* = (a_11 - a_12) / Delta
+
+3. OPTIMAL PROBABILITIES FOR PLAYER B (COLUMN MINIMIZER):
+      q_1* = (a_22 - a_12) / Delta
+      q_2* = 1 - q_1* = (a_11 - a_21) / Delta
+
+4. OPTIMAL VALUE OF THE GAME (v* in ₹):
+      v* = (a_11 * a_22 - a_12 * a_21) / Delta = det(A) / Delta
+
+--------------------------------------------------------------------------------
+2. STEP-BY-STEP FIRST-PRINCIPLES DERIVATION
+--------------------------------------------------------------------------------
+
+DERIVING PLAYER A'S FORMULA (p_1*):
+• Player A plays p = (p_1, 1 - p_1)^T.
+• Expected Payoff vs Column B_1:  E(p, B_1) = p_1 * a_11 + (1 - p_1) * a_21
+• Expected Payoff vs Column B_2:  E(p, B_2) = p_1 * a_12 + (1 - p_1) * a_22
+• Equating expected payoffs (Indifference Principle):
+      p_1 * a_11 + a_21 - p_1 * a_21 = p_1 * a_12 + a_22 - p_1 * a_22
+      p_1 * (a_11 - a_21 - a_12 + a_22) = a_22 - a_21
+      p_1 * [ (a_11 + a_22) - (a_12 + a_21) ] = a_22 - a_21
+      p_1* = (a_22 - a_21) / Delta.  (Q.E.D.)
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 2x2 Tender Solution (Debangshu)
+Debangshu in Barrackpore solved A = [[₹40k, ₹10k], [₹10k, ₹50k]].
+Delta = (40 + 50) - (10 + 10) = 70.
+p_1* = (50 - 10)/70 = 4/7, p_2* = 3/7.
+v* = (40*50 - 10*10)/70 = 1900/70 = ₹27,142.86.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility 2x2 Routing (Mamata & Mahima)
+Mamata and Mahima in Kolkata solved A = [[₹30k, ₹15k], [₹10k, ₹40k]].
+Delta = (30 + 40) - (15 + 10) = 45.
+q_1* = (40 - 15)/45 = 25/45 = 5/9, q_2* = 4/9.
+v* = (30*40 - 15*10)/45 = 1050/45 = ₹23,333.33.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Pricing (Susmita)
+Susmita in Ichapur solved A = [[₹50k, ₹20k], [₹10k, ₹60k]].
+Delta = (50 + 60) - (20 + 10) = 80.
+p_1* = (60 - 10)/80 = 5/8, p_2* = 3/8.
+v* = (50*60 - 20*10)/80 = 2800/80 = ₹35,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Terms (Abhronila)
+Abhronila solved a 2x2 arbitration game in Jadavpur with A = [[₹25L, ₹5L], [₹10L, ₹30L]].
+Delta = 40. p_1* = 0.50, p_2* = 0.50. Value of Game v* = ₹17.5 Lakh.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never use these mixed strategy formulas if the game HAS a saddle point! (Always check Maximin == Minimax first!).
+- Remember Delta = (Main Diag Sum) MINUS (Off Diag Sum); do not swap signs!
+- Check that p_1 + p_2 = 1.0 and q_1 + q_2 = 1.0.
+- State all game values and payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the formula for Delta = (a11 + a22) - (a12 + a21).
+[ ] Mastered Player A's formulas: p1* = (a22 - a21)/Delta and p2* = (a11 - a12)/Delta.
+[ ] Mastered Player B's formulas: q1* = (a22 - a12)/Delta and q2* = (a11 - a21)/Delta.
+[ ] Mastered Game Value formula: v* = (a11*a22 - a12*a21)/Delta.
+[ ] Expressed all game solutions in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_004 • TOPIC 3: 2x2 MIXED STRATEGY SOLUTION
+================================================================================

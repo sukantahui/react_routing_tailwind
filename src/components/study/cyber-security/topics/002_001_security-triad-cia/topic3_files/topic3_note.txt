@@ -1,0 +1,128 @@
+================================================================================
+CYBER SECURITY & INFORMATION ASSURANCE STUDY NOTE
+MODULE: 002_001_security-triad-cia
+TOPIC 3: INTEGRITY: DATA ACCURACY AND TRUST
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. CONCEPTUAL FOUNDATIONS OF DATA & SYSTEM INTEGRITY
+--------------------------------------------------------------------------------
+Integrity is the cybersecurity assurance that information, software code, configuration
+parameters, and hardware execution states remain complete, authentic, accurate, and protected
+from unauthorized modification, malicious tampering, or accidental corruption throughout
+their operational lifecycle.
+
+KEY TAXONOMY:
+• Data Integrity: Accuracy and consistency of stored files, database records, and packets.
+• System Integrity: Uncorrupted execution of operating system kernels, firmware, and services.
+• Accidental Corruption: Transmission noise, electromagnetic bit-rot, cosmic ray bit flips.
+• Malicious Tampering: Man-in-the-Middle payload alterations, unauthorized database updates,
+  binary patching, and software supply-chain backdoors.
+
+--------------------------------------------------------------------------------
+2. CRYPTOGRAPHIC INTEGRITY MECHANISMS & HASH FUNCTIONS
+--------------------------------------------------------------------------------
+A Cryptographic Hash Function H(M) maps arbitrary-length inputs to fixed-size bitstrings:
+
+1. CORE MATHEMATICAL PROPERTIES:
+   • Deterministic: The exact same input always produces the identical digest.
+   • Preimage Resistance (One-Way): Given hash H, it is computationally infeasible to find M.
+   • Second Preimage Resistance: Given M1, infeasible to find M2 such that H(M1) = H(M2).
+   • Collision Resistance: Computationally infeasible to find ANY pair (M1, M2) where H(M1) = H(M2).
+   • Avalanche Effect: Flipping a single bit in the input flips >50% of the output bits.
+
+2. HASH ALGORITHM LANDSCAPE:
+   • Deprecated/Broken: MD5 (128-bit), SHA-1 (160-bit) — vulnerable to practical collision attacks.
+   • Industry Standards: SHA-256 (256-bit), SHA-512 (512-bit), SHA-3 (Keccak), BLAKE3 (Ultra-fast).
+
+3. AUTHENTICITY & INTEGRITY ENHANCEMENTS:
+   • HMAC (Hash-based Message Authentication Code): HMAC(K, M) = H((K ^ opad) || H((K ^ ipad) || M)).
+     Proves data integrity AND authenticates that the sender holds the pre-shared secret key K.
+   • Digital Signatures: Encrypting the SHA-256 hash with a private key (RSA/ECDSA/Ed25519) provides
+     tamper detection AND Non-Repudiation (legal proof of authorship).
+
+--------------------------------------------------------------------------------
+3. FORMAL INTEGRITY ACCESS CONTROL MODELS
+--------------------------------------------------------------------------------
+1. THE BIBA INTEGRITY MODEL:
+   Designed to prevent untrusted/dirty data from corrupting high-integrity systems.
+   • Simple Integrity Axiom ("No Read Down"): A subject at integrity level S cannot read an
+     object at lower integrity level O (S <= O to Read). Prevents ingesting contaminated data.
+   • *-Integrity Property ("No Write Up"): A subject at integrity level S cannot write or modify
+     an object at a higher integrity level O (S >= O to Write). Prevents low-integrity subjects
+     from overwriting trusted master files.
+
+2. THE CLARK-WILSON INTEGRITY MODEL:
+   Focuses on commercial integrity and financial transaction validity:
+   • Constrained Data Items (CDIs): High-value assets whose integrity must be preserved.
+   • Transformation Procedures (TPs): Certified, well-formed transactions permitted to modify CDIs.
+   • Integrity Verification Procedures (IVPs): Audit procedures verifying that CDIs are valid.
+   • Separation of Duties: Enforces dual-authorization (e.g., creator != approver).
+
+--------------------------------------------------------------------------------
+4. HARDWARE ROOTS OF TRUST & FILE INTEGRITY MONITORING (FIM)
+--------------------------------------------------------------------------------
+• UEFI Secure Boot: Cryptographically validates digital signatures of bootloaders and kernels.
+• TPM 2.0 & PCR Registers: Platform Configuration Registers store SHA-256 measurements of boot
+  stages. If system files are modified, BitLocker master keys remain locked in hardware.
+• File Integrity Monitoring (FIM): Tools like Wazuh, OSSEC, and Tripwire continuously compare
+  critical OS binaries (/bin/bash, /etc/passwd) against cryptographic hash baselines.
+• Merkle Trees (Hash Trees): Used in Git and Blockchains for efficient O(log N) verification
+  of massive transaction ledgers.
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: SCADA PLC Firmware Tamper Prevention (Debangshu - Barrackpore)
+Debangshu implemented cryptographic firmware signing using Ed25519 and TPM 2.0 PCR measurements
+across 40 metallurgical PLCs in Barrackpore. When an adversary attempted to upload unauthorized
+safety bypass code, the PLC bootloader detected a signature mismatch and rejected execution,
+safeguarding plant operations with an implementation budget of ₹3,40,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Telemedicine Prescription Non-Repudiation & HMAC (Mahima - Ichapur)
+Mahima engineered a digital prescription signing pipeline in Ichapur. Every doctor's electronic
+prescription is hashed with SHA-256 and signed with the physician's cryptographic token, while
+patient vitals are validated with HMAC-SHA256. This eliminated unauthorized pharmacy dosage
+alterations, backed by a ₹2,10,000 security and PKI infrastructure budget.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: FinTech High-Frequency Ledger Merkle Tree Integrity (Mamata - Kolkata)
+Mamata deployed an append-only distributed Merkle Tree audit ledger for a Kolkata financial
+exchange processing 50,000 transactions/sec. Any attempt to alter past balance transfers breaks
+the Merkle Root hash instantly. The system incorporates Clark-Wilson dual-authorization rules,
+engineered with an enterprise investment of ₹7,80,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Academic Threat Repository FIM & Blockchain Notary (Abhronila - Jadavpur)
+Abhronila established a File Integrity Monitoring (FIM) grid across university research servers
+in Jadavpur. Using automated Wazuh agents and daily public blockchain hash notarization, the lab
+proves that vulnerability research benchmarks and dataset samples remain untampered, supported
+by a ₹4,20,000 research grant.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Using Plain Hashes without Secret Keys over Public Networks: Sending a file with a plain SHA-256
+  hash over an unauthenticated channel allows a MitM attacker to modify BOTH the file and the hash.
+  Always use HMAC or Digital Signatures.
+- Relying on CRC32 for Security: CRC32 is only for accidental bit error detection, not adversary defense.
+- Budget all enterprise FIM licenses, HSM signing tokens, and PKI appliances in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Differentiate Data Integrity from System Integrity.
+[ ] Explain Preimage, Second Preimage, and Collision Resistance.
+[ ] Contrast MD5/SHA-1 vulnerabilities with SHA-256/BLAKE3.
+[ ] Explain why HMAC requires a pre-shared secret key.
+[ ] State the Biba model rules: "No Read Down, No Write Up".
+[ ] Understand the Clark-Wilson model: CDIs, TPs, and Separation of Duties.
+[ ] Explain TPM 2.0 PCR measurements and Secure Boot.
+[ ] Formulate enterprise FIM and PKI budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_001 • TOPIC 3: INTEGRITY: DATA ACCURACY AND TRUST
+================================================================================

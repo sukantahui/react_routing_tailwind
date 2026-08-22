@@ -1,0 +1,136 @@
+================================================================================
+CYBER SECURITY & INFORMATION ASSURANCE STUDY NOTE
+MODULE: 002_001_security-triad-cia
+TOPIC 1: CONFIDENTIALITY - CONCEPTS AND CONTROLS
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE CORE CONCEPTS OF CONFIDENTIALITY
+--------------------------------------------------------------------------------
+Confidentiality is the cybersecurity property ensuring that sensitive information is
+never disclosed, read, inspected, or intercepted by unauthorized individuals, entities,
+or software processes.
+
+Confidentiality encompasses the entire information lifecycle across three distinct states:
+
+1. DATA-AT-REST (Storage):
+   • Data resident on persistent storage devices (NVMe drives, SAN/NAS, database tables,
+     backup tapes, cloud S3 buckets).
+   • Core Technical Controls:
+     - Full Disk Encryption (FDE): AES-XTS-512 via BitLocker or Linux LUKS.
+     - Transparent Database Encryption (TDE): Column-level and tablespace-level AES-256.
+     - Hardware Security Modules (HSMs): FIPS 140-3 certified master key storage.
+     - Crypto-Shredding: Irrevocable key destruction to sanitize data under privacy laws.
+
+2. DATA-IN-TRANSIT (Network):
+   • Data moving across internal Ethernet/Wi-Fi backbones, public internet, or inter-service APIs.
+   • Core Technical Controls:
+     - Transport Layer Security (TLS 1.3): Perfect Forward Secrecy (ECDHE) with AES-GCM.
+     - Virtual Private Networks (VPNs): IPsec (ESP tunnel mode) and WireGuard.
+     - Mutual TLS (mTLS): Dual-ended X.509 certificate authentication for microservices.
+     - Secure Shell (SSH): Key-based cryptographic remote management.
+
+3. DATA-IN-USE (Computation / Memory):
+   • Data loaded into active CPU registers, L1/L2/L3 caches, and volatile RAM.
+   • Core Technical Controls:
+     - Confidential Computing: Hardware-enforced Trusted Execution Environments (TEEs)
+       such as Intel SGX or AMD SEV.
+     - Memory Encryption: Hardware memory controller encrypts RAM bus in real-time.
+     - Dynamic Data Masking (DDM): Real-time redaction of PAN/Aadhaar on-the-fly.
+     - Tokenization: Replacement of sensitive data with random non-sensitive surrogate tokens.
+
+--------------------------------------------------------------------------------
+2. ACCESS CONTROL MODELS & THE BELL-LAPADULA MODEL
+--------------------------------------------------------------------------------
+Access Control determines who can view specific datasets under what circumstances:
+
+• DISCRETIONARY ACCESS CONTROL (DAC):
+  Resource owners explicitly decide permissions (e.g. Unix chmod 755). Flexible but vulnerable
+  to accidental over-sharing.
+
+• MANDATORY ACCESS CONTROL (MAC):
+  Centralized system rules enforce rigid sensitivity labels (e.g. Top Secret, Secret, Confidential).
+  Users cannot alter labels or share files without explicit clearance (e.g. SELinux, Military).
+
+• ROLE-BASED ACCESS CONTROL (RBAC):
+  Permissions are bound to administrative roles (e.g. Doctor, Auditor, Cashier). Users inherit
+  least-privilege permissions assigned to their role.
+
+• ATTRIBUTE-BASED ACCESS CONTROL (ABAC):
+  Dynamic boolean policy evaluating Subject attributes, Resource attributes, Action attributes,
+  and Environmental context (IP location, time of day, device compliance).
+
+• THE BELL-LAPADULA SECURITY MODEL:
+  Formal mathematical confidentiality model enforcing two cardinal rules:
+  1. Simple Security Property ("No Read Up"): A subject at clearance level K cannot read an
+     object at clearance level > K.
+  2. *-Property / Star Property ("No Write Down"): A subject at clearance level K cannot write
+     data into an object at clearance level < K (prevents classified leaks).
+
+--------------------------------------------------------------------------------
+3. DATA LOSS PREVENTION (DLP) & DATA CLASSIFICATION
+--------------------------------------------------------------------------------
+Data Classification categorizes organizational data into structured tiers:
+• Tier 1: Public (Marketing brochures, public job posts).
+• Tier 2: Internal Use (Corporate memos, intranet policies).
+• Tier 3: Confidential (Financial reports, employee payroll ledgers).
+• Tier 4: Restricted / Secret (Cryptographic master keys, core source code, patient EHR).
+
+DLP engines monitor egress channels (Email, USB ports, Cloud uploads, Print spoolers):
+- Regular Expression (Regex) matching for 12-digit Aadhaar and 16-digit credit cards.
+- Optical Character Recognition (OCR) to detect sensitive text in image screenshots.
+- Document Fingerprinting (Exact Data Match - EDM) to detect database record exports.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Industrial Defense Sensor Encryption Grid (Debangshu - Barrackpore)
+Debangshu implemented an air-gapped sensor telemetry encryption enclave in Barrackpore for
+₹3,10,000. All metallurgical telemetry is encrypted using AES-256-GCM at rest, transmitted over
+unidirectional optical data diodes, ensuring sensitive alloy formulas remain confidential against
+industrial espionage.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Telemedicine Patient EHR Privacy & ABAC Enclave (Mahima - Ichapur)
+Mahima engineered a HIPAA/DPDP-compliant patient health records portal in Ichapur for ₹2,20,000.
+Patient medical histories are encrypted with AES-256 at rest, masked dynamically for nurses, and
+governed by ABAC rules requiring GPS verification and biometric smartcard authentication before
+displaying full psychiatric or oncology charts.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Core Banking Tokenization & Vault Infrastructure (Mamata - Kolkata)
+Mamata deployed a high-security PCI-DSS Tokenization Vault in Kolkata for ₹6,50,000. Real customer
+cardholder PANs never enter merchant databases; random 64-bit surrogate tokens are used for all
+settlement transactions, with root encryption keys protected in a FIPS 140-3 Level 3 HSM.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Academic Threat Intelligence Sandbox DLP Grid (Abhronila - Jadavpur)
+Abhronila deployed an endpoint and network DLP infrastructure across research labs in Jadavpur for
+₹4,40,000. The DLP engine uses deep packet inspection and OCR scanning to prevent unauthorized
+exfiltration of zero-day vulnerability exploit source code and research datasets.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Confusing Confidentiality with Integrity: Encrypted data is confidential, but unless verified
+  with HMAC or AES-GCM tags, an attacker can tamper with the ciphertext in transit.
+- Storing Private Encryption Keys in Application Config Files: Always use hardware-isolated
+  HSMs, TPM chips, or cloud KMS with role-separated IAM policies.
+- Budget all enterprise DLP appliances, HSM crypto-processors, and TLS certificates in Indian
+  Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Define Confidentiality across Data-at-Rest, Data-in-Transit, and Data-in-Use.
+[ ] Explain how AES-256-GCM and TLS 1.3 enforce confidentiality.
+[ ] Contrast DAC, MAC, RBAC, and ABAC access control models.
+[ ] State the two core rules of the Bell-LaPadula model ("No Read Up, No Write Down").
+[ ] Explain the working principles of Tokenization, Dynamic Data Masking, and DLP.
+[ ] Formulate enterprise confidentiality procurement budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_001 • TOPIC 1: CONFIDENTIALITY: CONCEPTS AND CONTROLS
+================================================================================

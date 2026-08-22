@@ -1,0 +1,128 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 11: MAKING ADDITIONAL REDUCTIONS WHEN NECESSARY (STEP 4b OF THE HUNGARIAN METHOD)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. WHEN IS AN ADDITIONAL REDUCTION REQUIRED?
+--------------------------------------------------------------------------------
+In Step 4 of the Hungarian Method, if the minimum number of lines (L) required
+to cover all zeros is strictly LESS than the matrix order (L < n):
+• An optimal 1-to-1 matching cannot yet be extracted.
+• The current zero landscape is mathematically deficient.
+• We MUST execute Step 4b: ADDITIONAL REDUCTION (Matrix Modification).
+
+--------------------------------------------------------------------------------
+2. THE 3-PART MATRIX TRANSFORMATION PROTOCOL
+--------------------------------------------------------------------------------
+1. FIND SMALLEST UNCOVERED ELEMENT (e):
+   Scan all cells that are NOT covered by any line (0 lines):
+       e = min { c_ij | cell (i, j) is uncovered }
+
+2. SUBTRACT 'e' FROM ALL UNCOVERED CELLS:
+   For every uncovered cell (i, j):
+       c_ij' = c_ij - e
+   (Result: Creates at least one brand new zero candidate!)
+
+3. ADD 'e' TO ALL INTERSECTION CELLS:
+   For every cell (i, j) covered by BOTH a row line and a column line (2 lines):
+       c_ij' = c_ij + e
+   (Result: Compensates for dual potential shift and maintains non-negativity!)
+
+4. LEAVE SINGLE-COVERED CELLS UNCHANGED:
+   For every cell (i, j) covered by EXACTLY ONE line (1 line):
+       c_ij' = c_ij
+   (Result: Net dual shift on single-covered cells is +e - e = 0).
+
+--------------------------------------------------------------------------------
+3. DUAL LP SIGNIFICANCE & CONVERGENCE PROOF
+--------------------------------------------------------------------------------
+In the Dual LP:
+    Maximize   W = Sum u_i + Sum v_j
+    Subject to: u_i + v_j <= c_ij
+
+During Step 4b:
+• Row potentials u_i for UNCOVERED rows are INCREASED by e: u_i ➔ u_i + e.
+• Column potentials v_j for COVERED columns are DECREASED by e: v_j ➔ v_j - e.
+• Overall Dual Objective Function strictly increases by:
+      Delta W = e * (n - L) > 0
+
+Because Delta W > 0 at every iteration on a discrete finite grid, the Hungarian Method
+is GUARANTEED to terminate at the global optimum in a finite number of iterations!
+
+--------------------------------------------------------------------------------
+4. STEP-BY-STEP WORKED EXAMPLE (4x4 MATRIX, e = 1)
+--------------------------------------------------------------------------------
+MATRIX BEFORE STEP 4b (Covered with 3 lines: Row 1, Row 2, Col 4):
+       J1    J2    J3    J4 (Col Line)
+  W1   [0]    5    [0]    8   (Row Line 1)
+  W2    1    [0]   [0]    4   (Row Line 2)
+  W3    3     2     3    [0]
+  W4   [0]    2     2     3
+
+CELL CLASSIFICATION:
+• Uncovered Cells (6 cells): (3,1)=3, (3,2)=2, (3,3)=3, (4,2)=2, (4,3)=2, (4,4)=3.
+• Smallest Uncovered Element: e = min(3, 2, 3, 2, 2, 3) = 1.
+• Intersections (2 cells): Cell (1,4) = 8, Cell (2,4) = 4.
+
+APPLYING STEP 4b:
+1. Uncovered subtract 1: (3,1)➔2, (3,2)➔1, (3,3)➔2, (4,2)➔1, (4,3)➔1, (4,4)➔2.
+2. Intersections add 1:  (1,4)➔8+1=9, (2,4)➔4+1=5.
+3. Single-covered unchanged: (1,1)=0, (1,2)=5, (1,3)=0, (2,1)=1, (2,2)=0, (2,3)=0, (3,4)=0, (4,1)=0.
+
+NEW MATRIX AFTER STEP 4b:
+       J1    J2    J3    J4
+  W1    0     5     0     9
+  W2    1     0     0     5
+  W3    2     1     2     0
+  W4    0     1     1     2
+
+RE-TEST LINES: Minimum lines to cover all zeros is now L = 4 = n (OPTIMAL! ⭐).
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Multi-Pass Reduction (Debangshu)
+Debangshu in Barrackpore executed Step 4b with e = ₹1 on a 4x4 matrix, transforming
+an initial L = 3 impasse into a certified optimal L = 4 solution at ₹46 total spend.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Route Adjustment (Mamata & Mahima)
+Mamata and Mahima in Kolkata adjusted uncovered clinic transit times by e = 2 minutes,
+creating 2 new zero routes for rapid vaccine delivery.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Allocation (Susmita)
+Susmita in Ichapur applied Step 4b with e = ₹10 to resolve a 3-line covering deadlock,
+unlocking an optimal assignment that saved ₹1,200 in manager relocation allowances.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Contract Audit (Abhronila)
+Abhronila in Jadavpur proved to university auditors that adding e = ₹1 to intersections
+and subtracting e from uncovered cells strictly satisfied strong duality (Delta W = ₹1).
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never subtract e from single-covered cells; single-covered cells MUST remain unchanged!
+- Always ADD e to cells covered by two lines (intersections).
+- Immediately re-draw lines and re-count L after applying Step 4b.
+- If L is still < n, repeat Step 4b with the new smallest uncovered element.
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Recognized trigger condition: L < n (sub-optimal line covering).
+[ ] Identified smallest uncovered element e = min(uncovered).
+[ ] Subtracted e from all uncovered cells.
+[ ] Added e to all intersection cells (covered by 2 lines).
+[ ] Left single-covered cells completely unchanged.
+[ ] Re-tested line covering condition until L == n.
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 11: MAKING ADDITIONAL REDUCTIONS
+================================================================================

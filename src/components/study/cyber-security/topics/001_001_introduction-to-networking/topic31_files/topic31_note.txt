@@ -1,0 +1,101 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 31: LATENCY (DELAY PHYSICS, 4-COMPONENT BREAKDOWN, BUFFERBLOAT & HFT)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & THE 4-COMPONENT LATENCY FORMULA
+--------------------------------------------------------------------------------
+Latency is the total elapsed time delay taken for a data packet to travel from its
+source node to its destination node across a communication channel (measured in
+milliseconds: ms, or microseconds: μs).
+
+The Total End-to-End Latency Formula:
+$$D_{\text{total}} = D_{\text{proc}} + D_{\text{queue}} + D_{\text{trans}} + D_{\text{prop}}$$
+
+1. Processing Delay ($D_{\text{proc}}$): Time taken by router/switch ASICs to examine
+   packet headers, verify checksums, look up routing tables, and apply ACL rules (<10 μs).
+2. Queuing Delay ($D_{\text{queue}}$): Time the packet spends waiting in buffer queues
+   before being transmitted on the output link (varies with traffic intensity $I = \frac{La}{R}$).
+3. Transmission Delay ($D_{\text{trans}}$): Time required to serialize all packet bits
+   onto the physical transmission medium:
+   $$D_{\text{trans}} = \frac{L}{R} = \frac{\text{Packet Size (bits)}}{\text{Link Transmission Rate (bps)}}$$
+4. Propagation Delay ($D_{\text{prop}}$): Time required for a bit to physically travel
+   across the cable medium at the speed of light ($v \approx 200,000\ \text{km/s}$ in glass fiber):
+   $$D_{\text{prop}} = \frac{d}{s} = \frac{\text{Physical Distance (meters)}}{\text{Speed of Light in Medium (m/s)}}$$
+
+--------------------------------------------------------------------------------
+2. ROUND-TRIP TIME (RTT), JITTER & BUFFERBLOAT
+--------------------------------------------------------------------------------
+• Round-Trip Time (RTT): Total time taken for a packet to travel to the destination
+  and for the ACK response to return back to the sender.
+• Jitter: The statistical variation in packet latency over time; critical for VoIP audio.
+• Bufferbloat: Huge latency spikes (hundreds of ms) caused by oversized, unmanaged
+  buffers inside routers during file uploads. Mitigated by FQ-CoDel and CAKE AQM algorithms.
+• TCP BBR (Bottleneck Bandwidth and RTT): Google's modern congestion control algorithm
+  that maximizes throughput while keeping buffer queues completely empty.
+
+--------------------------------------------------------------------------------
+3. GLOBAL & REGIONAL LATENCY BENCHMARKS (FROM WEST BENGAL)
+--------------------------------------------------------------------------------
+Destination                      | Medium / Distance          | Typical RTT (ms)
+--------------------------------------------------------------------------------
+Intra-Campus LAN (Barrackpore)   | Cat6 Copper (<100m)        | < 0.5 ms
+Kolkata Metro ISP Peering        | Terrestrial Metro Fiber    | 2 – 5 ms
+Kolkata to Mumbai Cloud Region   | Pan-India Fiber (~2,000km) | 28 – 35 ms
+Kolkata to Singapore Data Hub    | Subsea Optical Fiber       | 45 – 55 ms
+Kolkata to Frankfurt / London    | Subsea Cable (~8,000km)    | 125 – 140 ms
+Kolkata to US East (Virginia)    | Transatlantic Subsea Fiber | 180 – 210 ms
+GEO Satellite Internet           | Geostationary (35,786 km)  | 550 – 650 ms
+LEO Satellite (Starlink)         | Low Earth Orbit (550 km)   | 25 – 40 ms
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Edge IoT Latency Optimization (Debangshu - Barrackpore)
+Debangshu deployed on-premise edge computing controllers in Barrackpore for ₹85,000.
+Robotic arm telemetry processing latency dropped from 65ms (cloud round-trip) to 1.8ms
+(local edge), preventing industrial safety trip collisions.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Multi-Speciality Clinic VoIP Bufferbloat Elimination (Mahima - Ichapur)
+Mahima enabled FQ-CoDel Active Queue Management on enterprise routers in Ichapur for ₹28,000.
+VoIP jitter dropped from 85ms to 2.1ms during heavy 500MB MRI image uploads, eliminating
+choppy audio on telemedicine calls.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Financial Brokerage Dark Fiber Cross-Connect (Mamata - Kolkata)
+Mamata provisioned a dedicated carrier-neutral dark fiber cross-connect in Kolkata for
+₹12,000/month. Inter-rack latency between market data feed servers dropped to 0.12ms
+(120 microseconds), unlocking automated algorithmic trade executions.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Timing Attack Defense (Abhronila - Jadavpur)
+Abhronila audited authentication microservices in Jadavpur for ₹45,000 in testing tools.
+Replaced standard string comparisons with constant-time cryptographic functions
+(`crypto.timingSafeEqual`), eliminating microsecond timing side-channel leaks.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never confuse Transmission Delay ($L/R$) with Propagation Delay ($d/s$).
+- Enable Active Queue Management (FQ-CoDel / CAKE) on edge routers to eliminate bufferbloat.
+- Use constant-time comparison algorithms in security code to prevent timing attacks.
+- Budget data center dark fiber cross-connects and edge CDN deployments in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Decomposed total latency into $D_{\text{proc}}$, $D_{\text{queue}}$, $D_{\text{trans}}$, and $D_{\text{prop}}$.
+[ ] Calculated Transmission Delay ($L/R$) and Propagation Delay ($d/s$) using light speed in fiber.
+[ ] Understood Bufferbloat and the role of FQ-CoDel Active Queue Management.
+[ ] Analyzed Mathis' Formula showing why high RTT cuts single-stream TCP throughput.
+[ ] Examined Latency Side-Channel Timing Attacks and constant-time algorithmic defenses.
+[ ] Formulated realistic low-latency fiber cross-connect and edge CDN budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 31: LATENCY
+================================================================================

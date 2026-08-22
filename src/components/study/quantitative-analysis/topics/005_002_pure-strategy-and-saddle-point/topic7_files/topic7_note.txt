@@ -1,0 +1,107 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_002_pure-strategy-and-saddle-point
+TOPIC 7: SHORT QUESTIONS (MASTER MODULE REVIEW, VIVA VOCE & EQUILIBRIUM BLUEPRINT)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. COMPLETE 8-TOPIC MODULE ARCHITECTURE RECAPITULATION
+--------------------------------------------------------------------------------
+This module has formulated the complete theoretical, algorithmic, and numerical
+foundations of Pure Strategy and Saddle Point solutions:
+
+• TOPIC 0: PURE STRATEGY
+  - Deterministic decision rule with probability p = 1.0 (Unit basis vector e_k).
+  - Geometrically represents extreme vertices of the strategy simplex.
+  - Stability condition: Unexploitable if and only if a pure saddle point exists.
+
+• TOPIC 1: MAXIMIN PRINCIPLE
+  - Player A's security-first criterion: Row Minima (min_j a_ij) horizontally.
+  - Maximin value: alpha = max_i [ min_j a_ij ] = v_lower (Lower Value of Game in ₹).
+  - Guaranteed floor: Actual payoff u_A(A_i*, B_j) >= v_lower.
+
+• TOPIC 2: MINIMAX PRINCIPLE
+  - Player B's loss-capping criterion: Column Maxima (max_i a_ij) vertically.
+  - Minimax value: beta = min_j [ max_i a_ij ] = v_upper (Upper Value of Game in ₹).
+  - Guaranteed ceiling: Actual payout u_A(A_i, B_j*) <= v_upper.
+
+• TOPIC 3: SADDLE POINT
+  - Position (i*, j*) where entry is simultaneously Row Min and Col Max.
+  - Fundamental Equation: Maximin (alpha) == Minimax (beta) == v*.
+  - Nash Equilibrium stability: a_i,j* <= a_i*,j* <= a_i*,j.
+
+• TOPIC 4: VALUE OF THE GAME (v*)
+  - Expected payoff under mutual optimal play in Indian Rupees (₹).
+  - Fundamental Bounds: v_lower <= v* <= v_upper.
+  - Classification: Fair Game (v* = ₹0), Biased to A (v* > 0), Biased to B (v* < 0).
+
+• TOPIC 5: OPTIMAL PURE STRATEGIES
+  - 5-step extraction algorithm: i* = argmax(Row Mins), j* = argmin(Col Maxs).
+  - Optimal profile: (A_i*, B_j*) with vectors p* = e_i* and q* = e_j*.
+  - Unilateral deviation penalties and immunity to industrial espionage.
+
+• TOPIC 6: NUMERICAL EXAMPLES
+  - Step-by-step worked solutions for 2x2, 3x3, rectangular, and negative payoff matrices.
+  - Multi-saddle points and non-strictly determined games.
+
+• TOPIC 7: SHORT QUESTIONS & VIVA VOCE SYNTHESIS
+  - Comprehensive flashcards, high-yield examination review, and theoretical mastery.
+
+--------------------------------------------------------------------------------
+2. MASTER FORMULA & THEOREM QUICK REFERENCE TABLE
+--------------------------------------------------------------------------------
+Concept / Parameter          | Mathematical Formula / Governing Rule
+--------------------------------------------------------------------------------
+Pure Strategy Vector (Row)   | p = (0, ..., 1, ..., 0)^T  (p_i* = 1.0, p_k = 0 for k != i*)
+Pure Strategy Vector (Col)   | q = (0, ..., 1, ..., 0)^T  (q_j* = 1.0, q_k = 0 for k != j*)
+Row Minimum (Security Floor) | Row Min_i = min_{j=1}^n a_ij
+Column Maximum (Liability)   | Col Max_j = max_{i=1}^m a_ij
+Maximin Value (v_lower)      | alpha = max_{i=1}^m [ min_{j=1}^n a_ij ]
+Minimax Value (v_upper)      | beta = min_{j=1}^n [ max_{i=1}^m a_ij ]
+Universal Inequality        | Maximin <= Minimax   <==>   v_lower <= v_upper
+Saddle Point Condition       | Maximin == Minimax == v*   (at cell (i*, j*))
+Nash Stability Condition     | a_i,j* <= a_i*,j* <= a_i*,j   for all i, j
+Value of the Game (v*)       | v* = a_i*j* (Strictly Determined) in Indian Rupees (₹)
+Fair Game Condition          | Value of the Game v* = ₹0
+Linear Transformation        | a'_ij = k * a_ij + c (k > 0)  ==>  v'* = k * v* + c
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES (MASTER SYNTHESIS)
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Master Casting Tender (Debangshu)
+Debangshu in Barrackpore evaluated a ₹5 Lakh casting tender, using the 5-step algorithm
+to identify optimal strategy A2 (Medium Overtime), locking in ₹30,000 pure profit.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Damage Settlement (Mamata & Mahima)
+Mamata and Mahima in Kolkata proved that a pure saddle point of ₹25,000 at (A2, B2)
+established an equitable out-of-court settlement, saving ₹50,000 in litigation fees.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Multi-Saddle Campaign (Susmita)
+Susmita in Ichapur analyzed twin saddle points yielding identical ₹40,000 returns,
+giving store management operational flexibility during weekend promotions.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Royalties (Abhronila)
+Abhronila calculated a pure saddle point of ₹55 Lakh in mutual research value in
+Jadavpur, providing university auditors with a certified mathematical settlement.
+
+--------------------------------------------------------------------------------
+4. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered all foundational Pure Strategy & Saddle Point definitions across Topics 0 to 6.
+[ ] Computed Row Minima, Column Maxima, Maximin, and Minimax for any m x n matrix.
+[ ] Verified the universal invariant inequality: Maximin <= Minimax.
+[ ] Identified pure strategy saddle points and calculated game value v*.
+[ ] Proved Nash Equilibrium stability: a_i,j* <= a_i*,j* <= a_i*,j.
+[ ] Handled negative matrix entries and multiple alternate saddle points.
+[ ] Executed the 5-step optimal pure strategy extraction algorithm.
+[ ] Stated all strategy payoffs, security floors, and values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_002 • TOPIC 7: SHORT QUESTIONS
+================================================================================

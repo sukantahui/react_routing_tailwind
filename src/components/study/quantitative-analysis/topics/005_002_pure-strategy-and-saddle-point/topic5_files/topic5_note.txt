@@ -1,0 +1,104 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_002_pure-strategy-and-saddle-point
+TOPIC 5: OPTIMAL PURE STRATEGIES (5-STEP ALGORITHM, DEVIATION PENALTIES & STABILITY)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & SIGNIFICANCE OF OPTIMAL PURE STRATEGIES
+--------------------------------------------------------------------------------
+An OPTIMAL PURE STRATEGY is a deterministic strategy choice (Probability p = 1.0)
+that guarantees the best possible outcome for a player against a rational competitor.
+
+• FOR PLAYER A (ROW MAXIMIZER):
+  - Strategy A_i* maximizes the security floor:
+        i* = argmax_{i=1}^m [ min_{j=1}^n a_ij ]
+
+• FOR PLAYER B (COLUMN MINIMIZER):
+  - Strategy B_j* minimizes the liability ceiling:
+        j* = argmin_{j=1}^n [ max_{i=1}^m a_ij ]
+
+• JOINT OPTIMAL STRATEGY PROFILE: (A_i*, B_j*)
+• RESULTING GAME VALUE: v* = a_i*j* (in Indian Rupees ₹)
+
+--------------------------------------------------------------------------------
+2. THE 5-STEP OPTIMAL PURE STRATEGY EXTRACTION ALGORITHM
+--------------------------------------------------------------------------------
+Given an m x n Payoff Matrix A = [a_ij]:
+
+• STEP 1: Compute Row Minima (min_j a_ij) for all rows i = 1, ..., m.
+• STEP 2: Identify the Maximin row index i* that maximizes row minima.
+• STEP 3: Compute Column Maxima (max_i a_ij) for all columns j = 1, ..., n.
+• STEP 4: Identify the Minimax column index j* that minimizes column maxima.
+• STEP 5: Check if a_i*j* == Maximin == Minimax == v*.
+  - If YES: Declare A_i* as Player A's Optimal Pure Strategy, and B_j* as Player B's Optimal Pure Strategy.
+  - If NO: The game has NO optimal pure strategies (must use mixed strategies).
+
+--------------------------------------------------------------------------------
+3. MATHEMATICAL PROOF OF DEVIATION PENALTIES
+--------------------------------------------------------------------------------
+Suppose (A_i*, B_j*) is the optimal pure strategy profile with game value v*:
+
+• PENALTY TO PLAYER A FOR DEVIATING:
+  - If Player A switches to another row A_k (k != i*) while Player B plays B_j*:
+        u_A(A_k, B_j*) = a_k,j* <= a_i*,j* = v*
+  - Player A receives LESS THAN OR EQUAL TO v*. Deviation is penalized!
+
+• PENALTY TO PLAYER B FOR DEVIATING:
+  - If Player B switches to another column B_k (k != j*) while Player A plays A_i*:
+        u_A(A_i*, B_k) = a_i*,k >= a_i*,j* = v*
+  - Player B concedes MORE THAN OR EQUAL TO v*. Deviation is penalized!
+
+--------------------------------------------------------------------------------
+4. IMMUNITY TO INDUSTRIAL ESPIONAGE / INFORMATION LEAKAGE
+--------------------------------------------------------------------------------
+At a pure saddle point equilibrium:
+• Even if Player B knows beforehand that Player A will play A_i*, Player B's best
+  response is STILL B_j*, resulting in the exact same game value v*.
+• Knowledge of opponent moves provides ZERO exploitative leverage!
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Shift Strategy Optimization (Debangshu)
+Debangshu in Barrackpore executed the 5-step algorithm for a 3x3 casting tender,
+identifying A2 (Medium Overtime) as his optimal pure strategy, locking in ₹40,000 profit.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Vendor Strategy Optimization (Mamata & Mahima)
+Mamata and Mahima in Kolkata identified B2 (Direct Highway Courier) as the vendor's
+optimal pure strategy, capping hospital delivery liabilities at ₹25,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Strategy Optimization (Susmita)
+Susmita in Ichapur analyzed promotional competition, determining that Strategy A1
+(Bundle Discounts) was strictly optimal, securing ₹18,000 weekend profit.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Licensing Strategy Optimization (Abhronila)
+Abhronila executed the 5-step algorithm in Jadavpur, proving that Strategy A1
+(Standard Research Cross-Licensing) yielded a stable ₹55 Lakh institutional equilibrium.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never pick a row simply because it contains the highest single cell number; check its security floor!
+- Both players must choose their respective optimal strategies for the saddle point to be realized.
+- Always represent optimal pure strategies as unit basis vectors p* = e_i* and q* = e_j*.
+- State all optimal financial returns and penalties in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 5-step optimal pure strategy extraction algorithm.
+[ ] Extracted optimal indices i* (Row Maximizer) and j* (Column Minimizer).
+[ ] Verified that a_i*j* == Maximin == Minimax == v*.
+[ ] Proved unilateral deviation penalties for both players.
+[ ] Stated optimal strategy returns and game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_002 • TOPIC 5: OPTIMAL PURE STRATEGIES
+================================================================================

@@ -1,0 +1,83 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_006_2xn-and-m-x-2-cases-graphical-and-algebraic-methods
+TOPIC 3: PLOTTING STRATEGY LINES (AXIS CALIBRATION, ENDPOINTS, SLOPES & INTERSECTIONS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE 4-STEP STRATEGY LINE PLOTTING PROTOCOL
+--------------------------------------------------------------------------------
+
+STEP 1: DUAL VERTICAL AXIS SETUP:
+• Draw two vertical parallel axes separated by a horizontal distance representing [0, 1].
+• Left Axis:  p_1 = 0 (or q_1 = 0) ➔ Represents Pure Strategy A_2 (or Pure Strategy B_2).
+• Right Axis: p_1 = 1 (or q_1 = 1) ➔ Represents Pure Strategy A_1 (or Pure Strategy B_1).
+• Calibrate both vertical axes with uniform increments in Indian Rupees (₹).
+
+STEP 2: MARKING ENDPOINTS:
+• For 2xn Game (Column B_j):
+      Left Point (p_1 = 0):  (0, a_2j)
+      Right Point (p_1 = 1): (1, a_1j)
+• For mx2 Game (Row A_i):
+      Left Point (q_1 = 0):  (0, a_i2)
+      Right Point (q_1 = 1): (1, a_i1)
+
+STEP 3: DRAWING & LABELING LINES:
+• Connect the left and right points with a straight line.
+• Line Equation: E_j(p_1) = (a_1j - a_2j) * p_1 + a_2j.
+• Slope Classification:
+      m_j > 0: Ascending Line  (a_1j > a_2j)
+      m_j < 0: Descending Line (a_1j < a_2j)
+      m_j = 0: Horizontal Line (a_1j = a_2j)
+
+STEP 4: COMPUTING INTERSECTION COORDINATES:
+• Equate E_j(p_1) = E_k(p_1):
+      p_1 = (a_2k - a_2j) / ((a_1j - a_2j) - (a_1k - a_2k))
+• Substitute p_1 back into E_j(p_1) to obtain the intersection payoff in ₹.
+
+--------------------------------------------------------------------------------
+2. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 2x4 Furnace Tender Plotting (Debangshu)
+Debangshu in Barrackpore plotted 4 alloy bidding lines: Line 1 (0, 40) to (1, 20),
+Line 2 (0, 10) to (1, 50), Line 3 (0, 30) to (1, 60), and Line 4 (0, 50) to (1, 30).
+Finding the intersection of Lines 1 and 2 at p1 = 0.50 locked in ₹30,000 per shift.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Logistics 3x2 Fleet Route Plotting (Mamata & Mahima)
+Mamata and Mahima in Kolkata plotted 3 delivery lines over q1 in [0, 1].
+Lines 1 and 2 intersected at q1 = 2/3 with a payout of ₹24,000, establishing the minimax trough.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail 2x3 Promotion Line Plotting (Susmita)
+Susmita in Ichapur plotted 3 weekend promotion retaliation lines.
+The intersection of Lines 1 and 2 at p1 = 0.625 secured ₹32,000 in promotional margin.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab 4x2 Patent Dispute Plotting (Abhronila)
+Abhronila plotted 4 licensing claim lines in Jadavpur, identifying the exact
+minimax intersection point of ₹20 Lakh between research institutions.
+
+--------------------------------------------------------------------------------
+3. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never reverse the left and right endpoints! (Left is Row 2 / Col 2; Right is Row 1 / Col 1).
+- Parallel lines never intersect; the lower/higher line dominates completely.
+- Use uniform scale intervals on both vertical axes to avoid distorted intersection angles.
+- State all game values and intersection payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+4. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Calibrated dual vertical axes (p1=0 and p1=1).
+[ ] Plotted correct endpoints: (0, a2j) and (1, a1j).
+[ ] Calculated slopes m_j = a1j - a2j and classified ascending/descending.
+[ ] Solved exact intersection coordinates algebraically.
+[ ] Expressed all coordinates and payoffs in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_006 • TOPIC 3: PLOTTING STRATEGY LINES
+================================================================================

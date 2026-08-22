@@ -1,0 +1,119 @@
+================================================================================
+CYBER SECURITY & INFORMATION ASSURANCE STUDY NOTE
+MODULE: 002_001_security-triad-cia
+TOPIC 2: THREATS TO CONFIDENTIALITY AND DATA BREACHES
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. TAXONOMY OF CONFIDENTIALITY THREATS & DATA BREACHES
+--------------------------------------------------------------------------------
+A Data Breach is a confirmed security failure where sensitive, protected, or confidential
+information is copied, transmitted, viewed, stolen, or exfiltrated by unauthorized third parties.
+
+Major confidentiality threat vectors operate across network, host, and cloud environments:
+
+1. NETWORK INTERCEPTION & EAVESDROPPING:
+   • Packet Sniffing: Capturing unencrypted cleartext packets on shared LAN/Wi-Fi via promiscuous mode.
+   • ARP Cache Poisoning: Forging ARP responses to redirect local traffic through an attacker-controlled host.
+   • SSL/TLS Stripping: Intercepting HTTP redirects to force clients to communicate over unencrypted HTTP.
+   • Evil Twin APs: Deploying rogue Wi-Fi access points mimicking legitimate corporate SSIDs.
+   • Optical Tapping: Inducing macro-bending on fiber-optic cables to capture leaking photon pulses.
+
+2. INSIDER THREATS & ACCIDENTAL EXPOSURE:
+   • Malicious Insiders: Disgruntled or bribed employees stealing intellectual property for financial gain.
+   • Negligent Insiders: Staff accidentally emailing confidential payroll sheets or falling for spear phishing.
+   • Misconfigured Cloud Buckets: Leaving AWS S3 buckets or Azure storage containers open to public anonymous read.
+   • Unattended Hardcopies: Printing sensitive customer records and leaving them in physical office printer trays.
+
+3. COVERT EXFILTRATION CHANNELS:
+   • DNS Tunneling: Encoding base64 data inside recursive DNS queries (port 53) to bypass boundary firewalls.
+   • ICMP Tunneling: Embedding binary files into the payload data field of standard ping echo packets.
+   • Steganography: Hiding encrypted data inside least significant bits (LSB) of JPEG/PNG image files.
+   • Clipboard & Screen Scraping: Malware silently logging clipboard copies and taking background screenshots.
+
+4. ADVANCED HOST & MEMORY ATTACKS:
+   • Memory Dumping (Mimikatz): Extracting plaintext credentials and Kerberos hashes from LSASS.exe RAM.
+   • Cold Boot Attacks: Freezing RAM chips to preserve charge and read residual encryption keys post-reboot.
+   • CPU Side-Channel Probing (Spectre/Meltdown): Exploiting speculative execution to read kernel memory.
+
+--------------------------------------------------------------------------------
+2. STATUTORY COMPLIANCE & LEGAL FRAMEWORKS IN INDIA
+--------------------------------------------------------------------------------
+In India, data breaches carry severe regulatory penalties and statutory responsibilities:
+
+• CERT-In MANDATORY 6-HOUR REPORTING TIMELINE:
+  Under Section 70B of the Indian Information Technology Act 2000 and CERT-In directions, all
+  service providers, intermediaries, data centers, and corporate entities MUST formally report
+  cyber incidents and data breaches within 6 hours of detection.
+
+• DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023:
+  Mandates that Data Fiduciaries implement reasonable security safeguards. Penalties for failing
+  to prevent significant personal data breaches can reach up to ₹250 Crore (₹2,50,00,00,000)
+  per violation.
+
+--------------------------------------------------------------------------------
+3. DIGITAL FORENSICS & INCIDENT RESPONSE (DFIR) LIFECYCLE
+--------------------------------------------------------------------------------
+When a confidentiality breach is suspected, DFIR follows a strict 6-stage lifecycle:
+1. Preparation: Deploying SIEM, EDR agents, and establishing emergency response retainers.
+2. Identification: Detecting unauthorized data exfiltration alerts or dark web leaks.
+3. Containment: Isolating compromised hosts from the network, revoking breached credentials.
+4. Eradication: Removing rootkits, backdoors, and closing misconfigured cloud permissions.
+5. Recovery: Restoring systems from verified clean backups and rotating all master keys.
+6. Lessons Learned: Documenting attack root cause, timeline, and submitting CERT-In reports.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Defense Sensor Telemetry Wi-Fi Sniffing Interception (Debangshu - Barrackpore)
+Debangshu detected an unauthorized packet sniffer operating in promiscuous mode near a Barrackpore
+metallurgical testing facility. A rogue laptop was intercepting unencrypted thermal sensor feeds.
+Debangshu upgraded the industrial network to WPA3-Enterprise with mandatory IPsec tunnel
+encryption, deploying an RF spectrum analyzer for ₹2,80,000 to eliminate wireless eavesdropping.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Hospital ICU Patient Record S3 Bucket Misconfiguration (Mahima - Ichapur)
+Mahima investigated a security audit finding in an Ichapur telemedicine cloud environment where
+a backup storage bucket containing 12,000 patient vitals was inadvertently marked public-read.
+Mahima remediated the misconfiguration within 45 minutes, implemented automated AWS GuardDuty/
+S3 Block Public Access policies, and conducted a ₹1,90,000 forensic audit verifying zero downloads.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: FinTech UPI Session Hijacking & Token Theft Attack (Mamata - Kolkata)
+Mamata thwarted an advanced session hijacking campaign targeting a Kolkata online payment engine.
+Adversaries deployed info-stealing malware to extract session cookies. Mamata implemented client-bound
+mTLS certificates, reduced token validity to 5 minutes, and invested ₹5,20,000 in an enterprise
+threat intelligence dark-web monitoring service to track compromised credentials in real time.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Research Laboratory DNS Tunneling Exfiltration Defense (Abhronila - Jadavpur)
+Abhronila uncovered an insider attempt to exfiltrate proprietary machine learning models in Jadavpur
+via DNS tunneling. The insider encoded model weights into base64 subdomains. Abhronila deployed
+an AI-driven DNS firewall that inspects domain entropy and query volumetric rates for ₹3,60,000,
+instantly neutralizing the exfiltration channel.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Assuming Firewalls Block All Outbound Leaks: Traditional firewalls often allow DNS (port 53)
+  and HTTPS (port 443) unchecked; always inspect outbound traffic with Deep Packet Inspection (DPI).
+- Delaying CERT-In Incident Reporting: Missing the strict 6-hour reporting window leads to heavy
+  legal sanctions under the Indian IT Act 2000.
+- Budget all enterprise forensic DFIR retainers and dark web monitoring services in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Define a Data Breach and differentiate it from unauthorized access attempts.
+[ ] Explain how ARP spoofing and SSL stripping facilitate MitM eavesdropping.
+[ ] Understand the mechanics of DNS and ICMP tunneling for covert exfiltration.
+[ ] Identify risks of misconfigured public S3/Blob storage buckets.
+[ ] Memorize the CERT-In mandatory 6-hour breach reporting timeline in India.
+[ ] Understand DPDP Act 2023 financial penalties (up to ₹250 Crore).
+[ ] Formulate enterprise DFIR retainers and threat intelligence budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_001 • TOPIC 2: THREATS TO CONFIDENTIALITY & DATA BREACHES
+================================================================================

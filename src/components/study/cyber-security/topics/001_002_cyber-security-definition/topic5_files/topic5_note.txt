@@ -1,0 +1,90 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_002_cyber-security-definition
+TOPIC 5: DIGITAL ASSETS (CLASSIFICATION, CROWN JEWELS, TOKENIZATION & SANITIZATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & CATEGORIES OF DIGITAL ASSETS
+--------------------------------------------------------------------------------
+A Digital Asset is any hardware, software, information, credential, or digital property owned
+by an organization that holds operational, strategic, financial, or legal value.
+
+The Four Primary Digital Asset Categories:
+1. Hardware Assets:
+   Physical servers, SAN storage arrays, core routers, switches, edge IoT nodes, Hardware Security Modules (HSMs).
+2. Software & Code Assets:
+   Proprietary source code repositories, ERP systems, CI/CD pipelines, AI machine learning weights, APIs.
+3. Information & Data Assets ("Crown Jewels"):
+   Customer PII, electronic medical records (EHR), Aadhaar/PAN databases, financial ledgers, CAD blueprints.
+4. Identity & Cryptographic Assets:
+   Master HSM encryption keys, X.509 private keys, Kerberos ticket-granting tokens, API secret tokens.
+
+--------------------------------------------------------------------------------
+2. DATA CLASSIFICATION TIERS & CROWN JEWELS
+--------------------------------------------------------------------------------
+• Tier 1 - Public: Freely shareable without harm (marketing brochures, public press releases).
+• Tier 2 - Internal: For employee use only; moderate operational impact if leaked (office floor plans).
+• Tier 3 - Confidential: Sensitive commercial data; severe financial/legal impact (vendor contracts, pricing).
+• Tier 4 - Restricted / Secret ("Crown Jewels"): Mission-critical assets; catastrophic impact if breached
+  (master encryption keys, R&D patent algorithms, patient medical histories, core banking ledgers).
+
+--------------------------------------------------------------------------------
+3. THE DIGITAL ASSET LIFECYCLE
+--------------------------------------------------------------------------------
+1. Creation / Acquisition: Generating new data or provisioning hardware/software assets.
+2. Classification & Tagging: Assigning sensitivity labels and metadata tags.
+3. Storage & Encryption: Securing data at rest using AES-256-GCM and full-disk BitLocker.
+4. Usage & Access Governance: Enforcing Least Privilege access via RBAC/ABAC policies.
+5. Archiving & Backup: Preserving data in immutable Write-Once-Read-Many (WORM) vaults.
+6. Secure Destruction / Sanitization: Executing NIST SP 800-88 crypto-shredding or physical degaussing.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Intellectual Property & Source Code DLP Vault (Debangshu - Barrackpore)
+Debangshu implemented an enterprise Data Loss Prevention (DLP) and code watermarking platform in
+Barrackpore for ₹4,50,000. When an engineer attempted to copy proprietary casting algorithms to an
+unauthorized USB drive, the endpoint DLP agent blocked the transfer and alerted the security team in 1.4s.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Patient Database Tokenization (Mahima - Ichapur)
+Mahima deployed database tokenization and dynamic data masking in Ichapur for ₹3,80,000. Patient Aadhaar
+numbers and credit cards are replaced with surrogate tokens in production databases, ensuring that even
+if the web database is breached, zero usable patient credentials can be harvested.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: FinTech Gateway Hardware HSM & Master Key Governance (Mamata - Kolkata)
+Mamata deployed a FIPS 140-2 Level 3 Hardware Security Module (HSM) cluster in Kolkata for ₹8,20,000.
+Master payment encryption keys are generated and executed strictly inside physical tamper-proof silicon,
+preventing root administrators from exporting cleartext keys.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab NIST SP 800-88 Crypto-Shredding Testbed (Abhronila - Jadavpur)
+Abhronila established a storage sanitization and crypto-shredding testbed in Jadavpur for ₹1,60,000.
+Students test instant crypto-shredding workflows, deleting master KMS keys to permanently render 50 TB
+of simulated sensitive financial records unrecoverable across multi-cloud storage instances.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never store plaintext API keys, passwords, or encryption secrets in source code repositories.
+- Tokenize high-value customer credit cards and Aadhaar numbers to minimize breach blast radius.
+- Always execute verifiable media sanitization and crypto-shredding before decommissioning storage drives.
+- Formulate all enterprise ITAM, DLP, and tokenization budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped the four core categories of digital assets (Hardware, Software, Data, Secrets).
+[ ] Evaluated the four-tier Data Classification model and identified organizational Crown Jewels.
+[ ] Analyzed the 6 stages of the Digital Asset Lifecycle from creation to crypto-shredding.
+[ ] Understood Data Tokenization vs Dynamic Data Masking and RBI compliance mandates.
+[ ] Investigated IT Asset Management (ITAM), CMDB discovery, and Software Bill of Materials (SBOM).
+[ ] Formulated realistic enterprise DLP and asset protection budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_002 • TOPIC 5: DIGITAL ASSETS
+================================================================================

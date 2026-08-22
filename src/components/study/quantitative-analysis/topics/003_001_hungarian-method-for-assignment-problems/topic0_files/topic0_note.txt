@@ -1,0 +1,120 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 0: INTRODUCTION TO ASSIGNMENT PROBLEMS (1-TO-1 MATCHING & THE HUNGARIAN FOUNDATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. WHAT IS AN ASSIGNMENT PROBLEM?
+--------------------------------------------------------------------------------
+The ASSIGNMENT PROBLEM is a fundamental, specialized class of Linear Programming
+and Transportation Problems where:
+• There are n distinct RESOURCES (assignees: workers, machines, lawyers, vehicles).
+• There are n distinct TASKS (jobs, cases, delivery routes, surgical rooms).
+• Every resource has a capacity/supply of EXACTLY 1 UNIT: S_i = 1 (for all i = 1..n).
+• Every task has a requirement/demand of EXACTLY 1 UNIT: D_j = 1 (for all j = 1..n).
+• The allocation decision variables are strictly BINARY:
+      x_ij = 1   if Resource i is assigned to Task j
+      x_ij = 0   otherwise
+
+MATHEMATICAL FORMULATION (MINIMIZATION):
+    Minimize   Z = Sum_{i=1}^n Sum_{j=1}^n (c_ij * x_ij)
+    Subject to:
+        Sum_{j=1}^n x_ij = 1   (for i = 1, ..., n)  [Each resource gets exactly 1 task]
+        Sum_{i=1}^n x_ij = 1   (for j = 1, ..., n)  [Each task executed by exactly 1 resource]
+        x_ij in {0, 1}         (for all i, j)       [Binary integer restriction]
+
+Where:
+• c_ij = Cost, time, distance, or negative profit of assigning Resource i to Task j in ₹.
+
+--------------------------------------------------------------------------------
+2. WHY STANDARD TRANSPORTATION & SIMPLEX METHODS FAIL
+--------------------------------------------------------------------------------
+1. COMBINATORIAL FACTORIAL EXPLOSION (n!):
+   An n x n assignment problem has n! (n factorial) possible one-to-one pairings.
+   • n = 4  --> 4! = 24 combinations
+   • n = 5  --> 5! = 120 combinations
+   • n = 10 --> 10! = 3,628,800 combinations
+   • n = 20 --> 20! ≈ 2.43 x 10^18 combinations (impossible to brute-force!).
+
+2. SEVERE BASIS DEGENERACY IN SIMPLEX:
+   A standard transportation basic feasible solution requires m + n - 1 = 2n - 1
+   basic cells. However, in an assignment problem, only n cells carry positive flow
+   (x_ij = 1).
+   This means (2n - 1) - n = n - 1 basic variables MUST have an allocation of 0!
+   In standard simplex, this causes endless degenerate pivots (θ = 0), basis stalling,
+   and computational collapse.
+
+3. THE HUNGARIAN METHOD BREAKTHROUGH:
+   Developed by Harold Kuhn (1955) based on Hungarian mathematicians Dénes Kőnig
+   and Jenő Egerváry, the HUNGARIAN METHOD bypasses simplex pivoting entirely.
+   It solves the problem in O(n^3) polynomial time via matrix reduction operations!
+
+--------------------------------------------------------------------------------
+3. THE MATRIX REDUCTION THEOREM
+--------------------------------------------------------------------------------
+THEOREM:
+If a constant is added or subtracted from every element of any row or column of a
+cost matrix, the OPTIMAL ASSIGNMENT COMBINATION remains 100% IDENTICAL.
+
+MATHEMATICAL PROOF:
+Let c_ij' = c_ij - u_i - v_j (where u_i is subtracted from row i and v_j from col j).
+New Objective Function:
+    Z' = Sum Sum (c_ij' * x_ij)
+       = Sum Sum ((c_ij - u_i - v_j) * x_ij)
+       = Sum Sum (c_ij * x_ij) - Sum u_i (Sum_j x_ij) - Sum v_j (Sum_i x_ij)
+       = Z - Sum_{i=1}^n u_i (1) - Sum_{j=1}^n v_j (1)
+       = Z - (Constant)
+
+Since the difference between Z' and Z is a fixed constant, minimizing Z' minimizes Z!
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Furnace Scheduling (Debangshu)
+Debangshu in Barrackpore assigned 4 casting supervisors to 4 specialized melting
+furnaces. Brute force would require testing 4! = 24 permutations. The Hungarian
+model identified the optimal 1-to-1 matching in 3 reduction steps, minimizing labor
+overtime by ₹1,450 per week.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Clinic Dispatch (Mamata & Mahima)
+Mamata and Mahima in Kolkata assigned 4 refrigerated vaccine vans to 4 emergency
+health wards. Solved the cost matrix to minimize total transit hours, ensuring
+vaccines arrived at optimal temperatures with zero dispatch delays.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Allocation (Susmita)
+Susmita in Ichapur matched 4 regional supermarket managers to 4 new branch locations
+across West Bengal, maximizing operational efficiency while minimizing relocation costs.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Legal Case Assignment (Abhronila)
+Abhronila in Jadavpur modeled public defender assignments for the Calcutta High Court.
+Ensured all legal briefs were distributed with zero attorney double-booking and
+complete cost transparency.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never attempt brute-force factorial enumeration for matrices larger than 3x3.
+- Verify that the matrix is square (n x n) before starting Hungarian reduction steps.
+- Every row and every column must contain exactly one assigned cell (x_ij = 1).
+- Always report the final minimized cost in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined the Assignment Problem as an n x n binary matching problem.
+[ ] Stated constraints: Sum_j x_ij = 1, Sum_i x_ij = 1, x_ij in {0, 1}.
+[ ] Recognized n! factorial combinatorial complexity.
+[ ] Understood why severe degeneracy (n-1 zero basic cells) causes simplex failure.
+[ ] Understood the Matrix Reduction Theorem: row/col shifts preserve optimal matching.
+[ ] Recognized Harold Kuhn, Dénes Kőnig, and Jenő Egerváry as founders of the method.
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 0: INTRODUCTION TO ASSIGNMENT PROBLEMS
+================================================================================

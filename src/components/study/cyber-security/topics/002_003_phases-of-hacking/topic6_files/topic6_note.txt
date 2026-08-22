@@ -1,0 +1,158 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_003 : PHASES OF HACKING METHODOLOGY
+TOPIC 06       : SYSTEM EXPLOITATION, BUFFER OVERFLOWS & CREDENTIAL ATTACKS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & SYSTEM EXPLOITATION MECHANICS
+--------------------------------------------------------------------------------
+System exploitation operates at the intersection of low-level CPU memory architecture 
+and cryptographic authentication.
+
+In Phase 3 of ethical hacking, technical adversaries exploit memory safety vulnerabilities 
+(such as stack buffer overflows) to hijack the CPU Instruction Pointer (EIP/RIP) and execute 
+arbitrary shellcode, or launch credential attacks (password spraying, GPU hash cracking) 
+to gain authorized administrative sessions.
+
+--------------------------------------------------------------------------------
+2. CPU REGISTERS & STACK FRAME ARCHITECTURE (x86)
+--------------------------------------------------------------------------------
+
++--------------+-------------------------------+------------------------------------------------+
+| REGISTER     | FULL NAME                     | LOW-LEVEL ARCHITECTURAL PURPOSE                |
++--------------+-------------------------------+------------------------------------------------+
+| ESP          | Extended Stack Pointer        | Points to the current top of the stack in RAM. |
++--------------+-------------------------------+------------------------------------------------+
+| EBP          | Extended Base Pointer         | Serves as the base anchor for local variables. |
++--------------+-------------------------------+------------------------------------------------+
+| EIP / RIP    | Extended Instruction Pointer  | HOLDS ADDRESS OF NEXT INSTRUCTION TO EXECUTE!  |
++--------------+-------------------------------+------------------------------------------------+
+| EAX / RAX    | Accumulator Register          | Used for arithmetic operations & return values.|
++--------------+-------------------------------+------------------------------------------------+
+
+[STACK MEMORY FRAME LAYOUT (Grows Downward from High to Low Memory)]
+  [ High Memory ]  --> [ Return Address (Saved EIP) ]   <-- EXPLOIT TARGET TO OVERWRITE!
+                       [ Saved Base Pointer (EBP)   ]
+                       [ Stack Canary (fs:0x28)     ]   <-- Compiler defense
+  [ Low Memory  ]  --> [ Local Variables Buffer     ]   <-- Input overflows upwards into EIP
+
+--------------------------------------------------------------------------------
+3. THE 6-STAGE STACK BUFFER OVERFLOW EXPLOITATION LIFECYCLE
+--------------------------------------------------------------------------------
+
+  [ STAGE 1: SPIKING & FUZZING ]
+    * Send increasing strings of 'A' bytes (e.g. 500, 1000, 2000) to find the crash threshold.
+
+  [ STAGE 2: FINDING THE EXACT OFFSET ]
+    * Generate unique cyclical pattern via Metasploit `pattern_create.rb -l 3000`.
+    * Send pattern, read crash address, and calculate offset via `pattern_offset.rb -q 386F4337`.
+
+  [ STAGE 3: OVERWRITING EIP ]
+    * Send `[ 'A' * offset ] + [ 'B' * 4 ]` (`\x42\x42\x42\x42`); verify EIP in debugger shows `42424242`.
+
+  [ STAGE 4: IDENTIFYING BAD CHARACTERS ]
+    * Send array `\x01` through `\xff`; compare memory in debugger to strip control bytes (`\x00`, `\x0a`).
+
+  [ STAGE 5: FINDING A JMP ESP INSTRUCTION ]
+    * Search loaded non-ASLR DLLs for `JMP ESP` (`\xff\xe4`) using `mona.py find -s "\xff\xe4"`.
+    * Overwrite EIP with the Little-Endian memory address of the `JMP ESP` trampoline instruction.
+
+  [ STAGE 6: INJECTING NOP SLED & SHELLCODE ]
+    * Generate reverse shell: `msfvenom -p windows/shell_reverse_tcp LHOST=... -b "\x00" -f c`.
+    * Deliver payload: `[ 'A' * offset ] + [ JMP_ESP_Address ] + [ '\x90' * 32 ] + [ Shellcode ]`.
+
+--------------------------------------------------------------------------------
+4. CREDENTIAL ATTACK TAXONOMY: ONLINE VS OFFLINE
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| ATTACK TYPE        | TARGET / PROTOCOL       | ICONIC TOOLSET     | DEFENSIVE COUNTERMEASURE                       |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Password        | OWA, Active Directory,  | - Hydra            | - Enforce Account Lockout Thresholds           |
+|    Spraying        | SSH, VPN (Port 443/22)  | - SprayingToolkit  | - Mandatory FIDO2 Hardware MFA Passkeys        |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. GPU Hash        | NTLM, MD5, SHA-256,     | - Hashcat (CUDA)   | - Migrate to slow, memory-hard hashing         |
+|    Cracking        | Kerberos TGS Tickets    | - John the Ripper  |   algorithms (Argon2id, Bcrypt with Salt)      |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. Pass-the-Hash   | Windows SMB / RPC       | - Impacket psexec  | - Disable NTLM; Enforce Kerberos only;         |
+|    (PtH)           | (TCP Port 445)          | - CrackMapExec     |   Restrict Local Administrator Account Reuse   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. Kerberoasting   | Active Directory SPNs   | - GetUserSPNs.py   | - Enforce 25+ Character Service Passwords;     |
+|                    | (Kerberos TGS Tickets)  | - Rubeus           |   Deploy Group Managed Service Accounts (gMSA) |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+5. OPERATING SYSTEM & COMPILER DEFENSES
+--------------------------------------------------------------------------------
+
+1. Stack Canaries (GCC `-fstack-protector-all`):
+   - Places a secret random integer on the stack before EIP; halts process if canary is modified.
+
+2. Address Space Layout Randomization (ASLR):
+   - Randomizes base addresses of stack, heap, and DLLs on boot, breaking hardcoded memory jumps.
+
+3. Data Execution Prevention (DEP / NX / W^X):
+   - Marks stack memory pages as non-executable; prevents direct CPU execution of injected shellcode.
+
+4. Modern Password Storage with Argon2id:
+   - Memory-hard key derivation function that neutralizes parallel GPU cracking arrays.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : BANKING C++ SETTLEMENT DAEMON HARDENING (KOLKATA FINTECH)
+  * Lead Security Auditor : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : A legacy C++ financial transaction daemon contained unsafe `strcpy()` calls prone to buffer overflows.
+  * Action : Mamata identified the vulnerable stack frame in GDB, replaced unsafe functions with `strncpy()`, 
+    and recompiled the codebase with `-fstack-protector-all -Wl,-z,relro,-z,now` compiler flags.
+
+SCENARIO 2 : ENTERPRISE PASSWORD SPRAYING SIMULATION (ICHAPUR HOSPITAL)
+  * Chief Healthcare Security Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Hospital staff accounts were susceptible to simple seasonal password guessing on the OWA webmail portal.
+  * Action : Conducted an authorized password spray testing `Spring2026!` across 500 usernames, discovering 
+    14 compromised accounts, enforcing 16-character passphrases, and deploying FIDO2 hardware passkeys.
+
+SCENARIO 3 : SCADA RTU FIRMWARE MEMORY DEFENSE (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Embedded 220kV substation RTU Modbus parsers lacked ASLR and DEP memory protections.
+  * Action : Audited firmware binaries using Ghidra, patched an integer overflow in the packet length calculation, 
+    and deployed hardware memory protection units (MPUs) across all substation controllers.
+
+SCENARIO 4 : IMMUNITY DEBUGGER EXPLOITATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students how to step through x86 assembly and calculate EIP overwrite offsets.
+  * Action : Built a hands-on laboratory with Immunity Debugger and Mona.py, guiding 140+ students through 
+    finding `JMP ESP` instructions, stripping bad characters, and generating msfvenom reverse shells.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL SYSTEM EXPLOITATION HABITS:
+  1. Compile with Full Hardening Flags: Always enable `-fstack-protector-all` and `-D_FORTIFY_SOURCE=2`.
+  2. Hash Passwords with Argon2id: Memory-hard hashing renders GPU Hashcat arrays ineffective.
+  3. Enforce 25+ Character Passwords on Service Accounts: Defeats offline Kerberoasting attacks.
+
+* COMMON BEGINNER BUFFER OVERFLOW MISTAKES:
+  - Forgetting to account for bad characters (leaving `\x00` in shellcode breaks string copying).
+  - Hardcoding JMP ESP memory addresses from ASLR-enabled DLLs (breaks on system reboot).
+  - Forgetting the NOP sled (causes payload crash if stack memory addresses shift by 4 bytes).
+  - Launching noisy brute-force attacks that trigger account lockouts rather than password spraying.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] EIP holds the memory address of the next CPU instruction to execute.
+[ ] Stack buffer overflows overwrite the Saved EIP to redirect execution to shellcode.
+[ ] NOP Sled (`\x90`) provides a landing runway for shellcode in memory.
+[ ] Bad characters (like `\x00` null byte) truncate exploit strings in C functions.
+[ ] Stack Canaries detect stack corruption before the function return instruction.
+[ ] ASLR randomizes memory addresses; DEP/NX marks stack memory as non-executable.
+[ ] Password spraying tests 1 password across many users to evade account lockout thresholds.
+[ ] IT Act 2000 Section 66 and 66C penalize system hacking and credential theft.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 06 (CYBER SECURITY BCAC703)
+================================================================================

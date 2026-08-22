@@ -1,0 +1,151 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_005 : RSA ALGORITHM & PUBLIC KEY INFRASTRUCTURE
+TOPIC 00       : INTRODUCTION TO THE RSA ALGORITHM AND ASYMMETRIC SECURITY
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE ASYMMETRIC PARADIGM SHIFT
+--------------------------------------------------------------------------------
+The RSA Cryptosystem (invented in 1977 at MIT by Ron Rivest, Adi Shamir, and Leonard Adleman; 
+independently discovered in 1973 by Clifford Cocks at GCHQ) is the foundational public-key 
+algorithm that enabled trust between strangers on the global internet.
+
+* THE CORE ASYMMETRIC DUALITY:
+  - PUBLIC KEY  (e, N) : Published openly; used by anyone to ENCRYPT messages or VERIFY signatures.
+  - PRIVATE KEY (d, N) : Kept strictly secret; used by owner to DECRYPT messages or SIGN documents.
+
+--------------------------------------------------------------------------------
+2. THE ONE-WAY TRAPDOOR MATHEMATICS OF RSA
+--------------------------------------------------------------------------------
+
+The security of RSA rests upon the integer prime factorization problem:
+
+  1. FORWARD COMPUTATION (Trivial):
+     - Multiplying two large prime numbers: N = p * q (Takes <0.001 ms).
+
+  2. INVERSE COMPUTATION (Computationally Infeasible):
+     - Given only modulus N, finding p and q requires exponential time using the 
+       General Number Field Sieve (GNFS) on classical computers.
+
+  3. THE MATHEMATICAL TRAPDOOR (Private Key d):
+     - Compute Euler's Totient: phi(N) = (p - 1) * (q - 1).
+     - Select public exponent e coprime to phi(N) (Standard: e = 65537 = 2^16 + 1).
+     - Compute private exponent d: e * d ≡ 1 (mod phi(N)).
+
+* ENCRYPTION & DECRYPTION FORMULAS:
+  - Encryption : Ciphertext C ≡ M^e (mod N)  (where Plaintext M < N)
+  - Decryption : Plaintext  M ≡ C^d (mod N)
+  - Proof of Correctness : (M^e)^d ≡ M^(e*d) ≡ M^(1 + k*phi(N)) ≡ M * (M^phi(N))^k ≡ M (mod N).
+
+--------------------------------------------------------------------------------
+3. RSA KEY LENGTHS & SECURITY EVOLUTION
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| RSA KEY LENGTH     | SYMMETRIC EQUIVALENCE   | FACTORING TIME     | STATUTORY & INDUSTRY STATUS                    |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. RSA-512 bits    | ~56 bits (DES strength) | Factored in 1999   | - COMPLETELY BROKEN & OBSOLETE                 |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. RSA-768 bits    | ~68 bits                | Factored in 2009   | - COMPLETELY BROKEN & RETIRED                  |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. RSA-1024 bits   | 80 bits of security     | Broken ~2014       | - BANNED & DEPRECATED GLOBALLY BY NIST & RBI   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. RSA-2048 bits   | 112 bits of security    | Secure (>2030)     | - CURRENT GLOBAL STANDARD (Mandatory in India) |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 5. RSA-4096 bits   | 128 bits of security    | Ultra-Secure       | - MANDATORY FOR ROOT CERTIFICATE AUTHORITIES   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+4. CRITICAL VULNERABILITIES & HARDENING
+--------------------------------------------------------------------------------
+
+  * TEXTBOOK RSA MALLEABILITY & RSA-OAEP:
+    - Unpadded Textbook RSA (C = M^e mod N) is homomorphic: C1 * C2 = (M1 * M2)^e mod N.
+    - Attackers can double wire transfers without knowing the private key!
+    - Mandatory Remedy: RSA-OAEP (Optimal Asymmetric Encryption Padding / PKCS#1 v2.2).
+
+  * WIENER'S LOW PRIVATE EXPONENT ATTACK:
+    - If d < (1/3) * N^(1/4), continued fraction expansion of (e / N) yields private key d in seconds.
+    - Rule: Always generate private key d with full 2048-bit entropy.
+
+  * BLEICHENBACHER'S PADDING ORACLE ATTACK:
+    - Adaptive chosen-ciphertext attack exploiting PKCS#1 v1.5 error responses to decrypt data.
+    - Remedy: Standardize on RSA-OAEP (PKCS#1 v2.2) and RSA-PSS for digital signatures.
+
+  * SHOR'S QUANTUM THREAT:
+    - Quantum computers running Shor's algorithm factor 2048-bit and 4096-bit N in polynomial time 
+      O((log N)^3). Organizations must plan migration to NIST FIPS 203 (ML-KEM / Kyber).
+
+--------------------------------------------------------------------------------
+5. INDIAN STATUTORY COMPLIANCE & LEGAL ADMISSIBILITY
+--------------------------------------------------------------------------------
+
+* IT ACT 2000 SECTION 35 (Certifying Authorities & DSCs):
+  - The Controller of Certifying Authorities (CCA India) mandates at least 2048-bit RSA keys with 
+    SHA-256 for all Class-3 Digital Signature Certificates (DSCs) stored on FIPS 140-2 crypto-tokens.
+
+* IT ACT 2000 SECTION 5:
+  - RSA-based electronic digital signatures have full evidentiary admissibility and non-repudiation 
+    in Indian courts, equal to physical ink signatures.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : BANKING CERTIFICATE RSA-2048 FLEET UPGRADE (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Legacy banking payment switch APIs were using deprecated 1024-bit RSA certificates, facing 
+    immediate RBI audit sanctions and factorization exposure.
+  * Action : Mamata led the fleet-wide upgrade to RSA-2048 and RSA-4096 with SHA-256, achieving 100% 
+    RBI compliance and zero factorization risk.
+
+SCENARIO 2 : HOSPITAL CLINICAL EHR CLASS-3 DSC INTEGRATION (ICHAPUR HOSPITAL)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Hospital discharge summaries and e-prescriptions lacked tamper-evident non-repudiation in malpractice disputes.
+  * Action : Equipped 180+ doctors with 2048-bit RSA Class-3 DSC cryptographic USB tokens, securing 50,000+ patient 
+    records under Section 5 of the IT Act 2000 and DPDP Act 2023.
+
+SCENARIO 3 : SCADA RTU FIRMWARE RSA-PSS AUTHENTICATION (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Securing mission-critical 220kV power substation RTUs against unauthorized firmware tampering.
+  * Action : Enforced RSA-PSS digital signature verification in RTU bootloader ROMs, blocking unsigned 
+    firmware binaries and ensuring 100.00% grid stability.
+
+SCENARIO 4 : PRIMALITY TESTING & RSA KEYGEN LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students how Miller-Rabin primality testing and Euler's Totient generate RSA keys in Python.
+  * Action : Authored an interactive educational toolkit stepping through prime generation (p, q), calculating phi(N), 
+    and inverting e * d ≡ 1 mod phi(N), training 140+ students on RSA and Post-Quantum Kyber.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL RSA HABITS:
+  1. Always Use e = 65537: Provides blazingly fast encryption with 17 operations and immunity to low-exponent attacks.
+  2. Mandate RSA-OAEP for Encryption & RSA-PSS for Signatures: Eliminates padding oracle and malleability vulnerabilities.
+  3. Deploy Chinese Remainder Theorem (RSA-CRT): Delivers a 4x speedup for private key decryption operations.
+  4. Enforce 2048-bit Minimum: Strictly ban 1024-bit RSA in all production environments.
+
+* COMMON BEGINNER RSA PITFALLS:
+  - Using unpadded Textbook RSA (Vulnerable to multiplicative malleability).
+  - Choosing a small private exponent d to speed up decryption (Vulnerable to Wiener's continued fraction attack).
+  - Sharing modulus N between multiple users with different exponents (Vulnerable to common modulus attacks).
+  - Storing RSA private keys in plain text files without hardware HSM or token protection.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] RSA is based on the Prime Factorization Problem: N = p * q.
+[ ] Euler's Totient Function: phi(N) = (p - 1) * (q - 1).
+[ ] Public Key is (e, N) where e is typically 65537; Private Key is (d, N) where e * d ≡ 1 mod phi(N).
+[ ] Encryption: C ≡ M^e mod N; Decryption: M ≡ C^d mod N.
+[ ] Chinese Remainder Theorem (CRT) speeds up RSA decryption by 4x.
+[ ] Textbook RSA is malleable; modern standards mandate RSA-OAEP and RSA-PSS.
+[ ] Minimum key length in India (CCA / RBI): 2048 bits; 1024-bit is permanently banned.
+[ ] Shor's algorithm breaks RSA on quantum computers; NIST standardized FIPS 203 (ML-KEM).
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 00 (CYBER SECURITY BCAC703 - MODULE 002_005)
+================================================================================

@@ -1,0 +1,106 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 3: THE COST MATRIX (EFFECTIVENESS MATRIX, PROHIBITIONS & REDUCTIONS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE EFFECTIVENESS / COST MATRIX DEFINITION
+--------------------------------------------------------------------------------
+The COST MATRIX C = [c_ij]_{n x n} is an n x n square grid where entry c_ij
+quantifies the performance penalty or expense of pairing Resource i with Task j:
+
+        Task 1     Task 2    ...    Task n
+Res 1    c_11       c_12     ...     c_1n
+Res 2    c_21       c_22     ...     c_2n
+...      ...        ...      ...     ...
+Res n    c_n1       c_n2     ...     c_nn
+
+OPERATIONAL UNITS:
+• Monetary Freight / Wage Expenditure (₹ / unit)
+• Processing / Labor Time (Hours, Minutes)
+• Route Distance (Kilometers)
+• Defect / Rejection Counts (Quality Control)
+
+--------------------------------------------------------------------------------
+2. MATRIX INVARIANCE THEOREM UNDER LINEAR REDUCTION
+--------------------------------------------------------------------------------
+THEOREM:
+If a constant u_i is subtracted from row i, and a constant v_j is subtracted from
+column j, the optimal assignment permutation matrix X* remains 100% UNCHANGED.
+
+MATHEMATICAL PROOF:
+Let c_ij' = c_ij - u_i - v_j.
+The transformed total cost is:
+    Z' = Sum_{i=1}^n Sum_{j=1}^n (c_ij - u_i - v_j) * x_ij
+       = Sum Sum c_ij x_ij - Sum u_i (Sum_j x_ij) - Sum v_j (Sum_i x_ij)
+       = Z - Sum_{i=1}^n u_i (1) - Sum_{j=1}^n v_j (1)
+       = Z - (Total Constant Shift)
+
+Because the shift is identical for ALL valid permutation matrices, any permutation
+that minimizes Z' also strictly minimizes Z!
+
+--------------------------------------------------------------------------------
+3. SPECIAL COST MATRIX CONDITIONS
+--------------------------------------------------------------------------------
+1. PROHIBITED / RESTRICTED CELLS (Big-M Method):
+   If Worker i is physically or legally barred from performing Task j, set:
+       c_ij = M   (where M is a very large number, e.g. ₹99,999)
+   The minimization objective will never choose this cell.
+
+2. NEGATIVE COST ENTRIES:
+   If subsidies or negative costs exist (c_ij < 0), add a large positive constant
+   K = |min(c_ij)| to all matrix cells to make all entries non-negative before
+   applying Hungarian reductions.
+
+3. SYMMETRIC vs ASYMMETRIC MATRICES:
+   • Symmetric: c_ij = c_ji (e.g. mutual travel distances).
+   • Asymmetric: c_ij != c_ji (standard labor & skill specialization).
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Prohibited Furnace Routing (Debangshu)
+Debangshu in Barrackpore assigned c_13 = M (₹99,999) because Supervisor 1 lacked
+high-temperature induction furnace certification, forcing the Hungarian solver
+to assign alternative qualified engineers.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Transit Time Matrix (Mamata & Mahima)
+Mamata and Mahima in Kolkata modeled an asymmetric 4x4 matrix representing transit
+hours across congested city corridors, minimizing total exposure time for sensitive vaccines.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Store Manager Wage Matrix (Susmita)
+Susmita in Ichapur structured a 4x4 salary and relocation cost matrix in Indian Rupees (₹),
+optimizing manager-to-store assignments to save ₹18,500 in monthly administrative overhead.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Defect Matrix (Abhronila)
+Abhronila in Jadavpur used historical defect rates per printing machine as cost entries c_ij,
+minimizing textbook misprints across the university printing facility.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never divide or multiply rows/columns by constants; scalar multiplication destroys cost trade-offs!
+- Ensure matrix is square (n x n) before beginning row and column reductions.
+- When Big-M is used, do not subtract M from entire rows; leave M as a fixed barrier.
+- Always report final cost Z* using the ORIGINAL matrix rates in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined the Cost / Effectiveness Matrix C = [c_ij].
+[ ] Identified operational units (Rupees ₹, hours, km, defects).
+[ ] Mastered the Matrix Invariance Theorem: row/col scalar shifts preserve optimal pairings.
+[ ] Handled prohibited assignments by assigning Big-M (c_ij = M).
+[ ] Converted negative entries to non-negative form via global constant addition.
+[ ] Computed total cost Z* by summing original cost entries for optimal assigned cells.
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 3: THE COST MATRIX
+================================================================================

@@ -1,0 +1,83 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_005_reduction-of-mxn-game
+TOPIC 2: USE OF DOMINANCE FOR REDUCTION (STRICT, WEAK & CONVEX COMBINATION DOMINANCE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE DOMINANCE TAXONOMY IN MATRIX REDUCTION
+--------------------------------------------------------------------------------
+
+1. STRICT DOMINANCE:
+   • Row Dominance: If a_ik > a_jk for ALL columns k, Row i strictly dominates Row j.
+     Action: Row j is deleted. Assign p_j* = 0.0.
+   • Column Dominance: If a_kr < a_ks for ALL rows k, Column r strictly dominates Column s.
+     Action: Column s is deleted. Assign q_s* = 0.0.
+
+2. WEAK DOMINANCE:
+   • Row Dominance: If a_ik >= a_jk for ALL columns k (with at least one strict inequality),
+     Row i weakly dominates Row j. Row j may be safely deleted without changing v*.
+   • Column Dominance: If a_kr <= a_ks for ALL rows k (with at least one strict inequality),
+     Column r weakly dominates Column s. Column s may be safely deleted.
+
+3. CONVEX COMBINATION DOMINANCE (MODIFIED DOMINANCE):
+   • Row Convex Blend: If lambda * R_a + (1 - lambda) * R_b >= R_c for all columns,
+     Row R_c is dominated by the synthetic strategy and deleted!
+   • Column Convex Blend: If mu * C_r + (1 - mu) * C_s <= C_t for all rows,
+     Column C_t is dominated and deleted!
+
+--------------------------------------------------------------------------------
+2. SOLVING PURE DOMINANCE DEADLOCKS VIA CONVEX BLENDS
+--------------------------------------------------------------------------------
+When pairwise pure dominance fails on a 3x3 or larger matrix:
+• Step 1: Calculate the simple 50-50 average of each pair of rows: (R_i + R_j) / 2.
+• Step 2: Compare the average row vector against the remaining rows.
+• Step 3: If average vector >= Row k, eliminate Row k!
+• Step 4: Repeat for columns: if (C_i + C_j) / 2 <= Column k, eliminate Column k!
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Convex Shift Reduction (Debangshu)
+Debangshu in Barrackpore evaluated a deadlocked 3x3 casting matrix.
+Taking the 50-50 average of Row 1 [₹40k, ₹10k, ₹30k] and Row 2 [₹10k, ₹50k, ₹30k]
+yielded [₹25k, ₹30k, ₹30k], dominating Row 3 [₹20k, ₹25k, ₹25k] and unlocking the 2x2 solution.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Logistics Weak Dominance Pruning (Mamata & Mahima)
+Mamata and Mahima in Kolkata pruned weakly dominated transport options in a 4x3 matrix,
+reducing operational complexity without altering the guaranteed ₹24,000 transport baseline.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Convex Pruning (Susmita)
+Susmita in Ichapur used a 60-40 convex blend of weekend promotions to eliminate a mediocre
+mid-week discount flyer, concentrating marketing spend on the highest ROI campaigns.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Arbitration (Abhronila)
+Abhronila used strict dominance in Jadavpur to immediately eliminate 2 unviable legal claims,
+focusing arbitration talks on the 2 core patent categories to secure ₹22 Lakh.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never delete the larger row or the smaller column!
+- In convex blends, ensure lambda is strictly between 0 and 1 (0 < lambda < 1).
+- Always check the simple 50-50 average first before testing general lambda values.
+- State all payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Distinguished between strict, weak, and convex combination dominance.
+[ ] Applied the 50-50 average test to resolve pure dominance deadlocks.
+[ ] Verified row maximization (delete smaller) vs column minimization (delete larger).
+[ ] Verified that Game Value v* is invariant under all dominance reductions.
+[ ] Expressed all matrix payoffs in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_005 • TOPIC 2: USE OF DOMINANCE FOR REDUCTION
+================================================================================

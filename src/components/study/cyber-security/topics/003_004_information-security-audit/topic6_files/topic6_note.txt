@@ -1,0 +1,126 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_004 : INFORMATION SECURITY AUDITING & COMPLIANCE
+TOPIC 06       : COMPLIANCE FRAMEWORKS: GDPR, HIPAA, PCI-DSS, SOC 2, AND INDIA DPDP ACT
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE 5 MAJOR COMPLIANCE FRAMEWORKS
+--------------------------------------------------------------------------------
+Modern enterprise security auditing requires managing overlapping regulatory and contractual frameworks:
+
+  * 1. INDIA DPDP ACT 2023 ➔ Governs personal data in India; up to ₹250 CRORE fine for security failures.
+  * 2. EU GDPR             ➔ Governs EU citizen data; up to €20M or 4% global turnover for privacy lapses.
+  * 3. US HIPAA            ➔ Governs Protected Health Information (ePHI); Administrative/Physical/Technical rules.
+  * 4. PCI-DSS v4.0        ➔ 12 requirements securing Cardholder Data Environment (CDE) and payment tokens.
+  * 5. AICPA SOC 2 TYPE 2  ➔ Independent CPA audit testing 5 Trust Services Criteria over 6-12 month windows.
+
+--------------------------------------------------------------------------------
+2. MULTI-FRAMEWORK COMPARATIVE AUDIT MATRIX
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| FRAMEWORK          | PRIMARY GOVERNANCE SCOPE| KEY AUDIT OBLIGATIONS & PENALTIES              |
++--------------------+-------------------------+------------------------------------------------+
+| 1. DPDP ACT 2023   | Indian Citizen Personal | Section 8 Safeguards, Section 10 Data Audits,  |
+|                    | Data (Data Principals)  | DPO appointment, Max ₹250 CRORE Fine (Sec 33). |
+|                    |                         |                                                |
+| 2. EU GDPR         | European Union Citizen  | Privacy by Design, 72-Hour Breach Reporting,   |
+|                    | Personal Data & Privacy | Data Portability, Max €20M or 4% Global Revenue|
+|                    |                         |                                                |
+| 3. US HIPAA        | Protected Health Info   | Security Rule (§164.308/310/312), BAAs,        |
+|                    | (ePHI) in Healthcare    | AES-256 Encryption, Mandatory OCR Audits.      |
+|                    |                         |                                                |
+| 4. PCI-DSS v4.0    | Payment Cardholder Data | 12 Principal Requirements, CDE Segmentation,   |
+|                    | (PAN, CVV, Card Track)  | Annual QSA Audit, Point-to-Point Encryption.   |
+|                    |                         |                                                |
+| 5. SOC 2 TYPE 2    | SaaS & Cloud Service    | 5 Trust Services Criteria (Security mandatory),|
+|                    | Provider Trust Assure   | 6-12 Month Continuous Operational Evidence.    |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. UNIFIED COMPLIANCE FRAMEWORK (UCF): "MAP ONCE, COMPLY MANY"
+--------------------------------------------------------------------------------
+
+  * UNIFIED CONTROL PHILOSOPHY :
+    - Instead of building 5 separate silos, implement a single master technical control baseline 
+      (e.g., ISO/IEC 27001:2022) and map it across all relevant standards.
+  * CROSS-WALK MAPPING EXAMPLE (AES-256 ENCRYPTION AT REST) :
+    - ISO 27001:2022   ➔ Control A.8.24 (Cryptography)
+    - DPDP Act 2023    ➔ Section 8(5) (Reasonable Security Safeguards)
+    - EU GDPR          ➔ Article 32(1)(a) (Pseudonymisation and Encryption)
+    - US HIPAA         ➔ 45 CFR §164.312(a)(2)(iv) (Encryption and Decryption)
+    - PCI-DSS v4.0     ➔ Requirement 3.4 (Protect Cardholder Data)
+    - AICPA SOC 2      ➔ Trust Services Criteria CC6.6 (Encryption Controls)
+
+--------------------------------------------------------------------------------
+4. STATUTORY SAFE HARBOR UNDER INDIAN CYBER LAW
+--------------------------------------------------------------------------------
+
+  * DPDP ACT 2023 SECTION 8 & SECTION 33 :
+    - Implementing reasonable technical safeguards (AES-256, WORM logs, RBAC) establishes verified 
+      due diligence, shielding Data Fiduciaries from ₹250 CRORE statutory fines.
+  * CERT-In DIRECTIONS 2022 VS GDPR :
+    - India mandates reporting cyber security incidents within 6 HOURS of noticing (vs GDPR 72 hours).
+  * RBI MASTER DIRECTIONS & PCI-DSS :
+    - Scheduled commercial banks must comply with both RBI Cyber Security Directives and PCI-DSS v4.0.
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : MULTI-FRAMEWORK HARMONIZATION ACROSS 500 MICROSERVICES (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : PayShield India needed to achieve simultaneous PCI-DSS v4.0, SOC 2 Type 2, and DPDP compliance.
+  * Action : Built a Unified Compliance Framework mapping 500 payment microservices, enforcing AWS KMS 
+    encryption and quarterly access reviews, passing all 3 certification audits in a single 90-day cycle.
+
+SCENARIO 2 : DUAL HIPAA SECURITY RULE & DPDP DATA AUDIT (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : 80,000 biopsy records processed for US clinical trials required HIPAA BAA and DPDP Section 10 audits.
+  * Action : Implemented AES-256 encrypted DICOM storage, automated WORM audit trails, and appointed an India DPO, 
+    shielding the clinical network from statutory ₹250 Cr fines and passing US HIPAA auditor inspections.
+
+SCENARIO 3 : 220KV SCADA OT SOC 2 AVAILABILITY & NCIIPC AUDIT (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : 18 substations faced NCIIPC audit while seeking SOC 2 Type 2 Availability Trust Criteria certification.
+  * Action : Hardened SCADA networks with hardware data diodes, documented 99.999% grid uptime telemetry, 
+    and achieved zero non-conformities across both national critical infrastructure and SOC 2 audits.
+
+SCENARIO 4 : MULTI-FRAMEWORK COMPLIANCE MAPPING LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to compare GDPR vs DPDP Act penalties and map PCI-DSS controls to SOC 2.
+  * Action : Developed an interactive Multi-Framework Compliance Harmonizer & Cross-Walk Studio in React, 
+    training 215+ BCA cyber security students on cross-framework compliance mapping and audit preparation.
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL MULTI-FRAMEWORK HABITS:
+  1. Map Once, Comply Many: Harmonize controls to ISO 27001 to satisfy DPDP, GDPR, HIPAA, and SOC 2.
+  2. Reduce PCI Scope: Use network segmentation and tokenization to shrink the Cardholder Data Environment.
+  3. Prepare for SOC 2 Type 2: Collect continuous operational evidence across a 6 to 12 month testing window.
+  4. Appoint Resident DPO: Enforce India-based Data Protection Officer appointment under DPDP Section 10.
+
+* COMMON BEGINNER COMPLIANCE PITFALLS:
+  - The "Siloed Audit" Trap (Conducting 5 separate expensive audits with duplicate testing).
+  - Scope Sprawl (Failing to segment payment networks, putting all corporate laptops in PCI scope).
+  - Confusing SOC 2 Type 1 with Type 2 (Assuming a point-in-time snapshot proves continuous security).
+  - Missing the 6-Hour SLA (Failing to report critical security incidents to CERT-In within 6 hours).
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] 5 Frameworks: DPDP (India), GDPR (EU), HIPAA (Health), PCI-DSS (Payments), SOC 2 (Cloud SaaS).
+[ ] DPDP Act 2023 Section 33 enforces maximum penalty of ₹250 CRORE for reasonable safeguard failures.
+[ ] SOC 2 Type 1 is a point-in-time snapshot; SOC 2 Type 2 tests 6-12 months of continuous evidence.
+[ ] SOC 2 Security (Common Criteria) is the only mandatory Trust Services Criteria.
+[ ] PCI-DSS v4.0 protects the Cardholder Data Environment (CDE) across 12 principal requirements.
+[ ] HIPAA Security Rule mandates Administrative, Physical, and Technical safeguards for ePHI.
+[ ] CERT-In Directions 2022 require 6-HOUR incident notification (vs GDPR 72 hours).
+[ ] Unified Compliance Framework (UCF) enables "Map Once, Comply Many" efficiency.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 06 (CYBER SECURITY BCAC703 - MODULE 003_004)
+================================================================================

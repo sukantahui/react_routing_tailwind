@@ -1,0 +1,119 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_003 : SECURITY POLICIES, RISK ASSESSMENT & MITIGATION
+TOPIC 10       : RISK REGISTERS AND RESIDUAL RISK MANAGEMENT
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE CENTRAL RISK LEDGER
+--------------------------------------------------------------------------------
+An Information Security Risk Register is the living, centralized ledger that catalogs every identified 
+cyber threat, vulnerability, and asset exposure across an enterprise. Under ISO/IEC 27001:2022 Clause 6.1.2 
+and 6.1.3, the Risk Register transforms abstract risk policies into auditable engineering action plans:
+
+  * INHERENT RISK (Gross)  ➔ Risk magnitude before security controls are deployed.
+  * CONTROL EFFECTIVENESS  ➔ Percentage risk reduction achieved by technical/operational safeguards.
+  * RESIDUAL RISK (Net)    ➔ Remaining risk level after controls ($$Residual = Inherent - Controls$$).
+  * RISK APPETITE          ➔ Maximum residual risk the Board of Directors is willing to tolerate!
+
+--------------------------------------------------------------------------------
+2. THE 10 MANDATORY ATTRIBUTES OF AN ISO 27001 RISK REGISTER
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| FIELD ATTRIBUTE    | FIELD DESCRIPTION       | ENTERPRISE EXAMPLE VALUE                       |
++--------------------+-------------------------+------------------------------------------------+
+| 1. Risk ID         | Unique identifier       | RSK-PAY-01 (Category: Cloud Payment Switch)    |
+| 2. Asset & Category| Affected asset name     | UPI Core Payment Switch (Tier 1 Critical)      |
+| 3. Asset Owner     | Business accountability | VP of Digital Banking (Executive Leader)       |
+| 4. Threat & Vuln   | Threat vector & flaw    | LockBit Ransomware exploiting CVE-2026-8812    |
+| 5. Inherent Score  | Likelihood x Impact     | 20 / 25 (CRITICAL GROSS RISK)                  |
+| 6. Existing Control| Active baseline controls| Perimeter IP Firewall + Basic Password Auth    |
+| 7. Treatment Choice| Chosen strategy pillar  | MITIGATE (Risk Reduction)                      |
+| 8. Annex A Control | ISO 27001 Control Map   | A.8.20 (Network Security) & A.8.5 (Auth)       |
+| 9. Remediation SLA | Owner & Target Date     | Lead Architect Mamata | Deadline: 2026-09-30   |
+| 10. Residual Score | Verified net risk score | 2.5 / 25 (LOW RESIDUAL - WITHIN APPETITE <= 4) |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. INHERENT VS RESIDUAL RISK & APPETITE BENCHMARK
+--------------------------------------------------------------------------------
+
+  * CORE MATHEMATICAL MODEL :
+    $$Residual Risk Score = Inherent Risk Score \times (1 - Control Effectiveness)$$
+  * GOVERNANCE DECISION RULE :
+    - If Residual Risk <= Board Appetite (e.g. <= 4.0) ➔ COMPLIANT (Approved for production).
+    - If Residual Risk > Board Appetite (e.g. > 4.0)   ➔ VIOLATION (Secondary treatment required!).
+
+--------------------------------------------------------------------------------
+4. STATUTORY SAFE HARBOR UNDER INDIAN CYBER LAW
+--------------------------------------------------------------------------------
+
+  * DPDP ACT 2023 SECTION 8 & SECTION 33 :
+    - Maintaining a documented, actively updated Risk Register provides legal proof of 
+      "Reasonable Security Safeguards," establishing statutory Safe Harbor against ₹250 Cr fines.
+  * RESERVE BANK OF INDIA (RBI) MASTER DIRECTIONS :
+    - Scheduled commercial banks must present an automated, quantified Risk Register directly 
+      to the Board Risk Management Committee (BRMC) on a quarterly basis.
+  * CERT-In DIRECTIONS 2022 (IT ACT SEC 70B) :
+    - Mandatory tracking of vulnerability remediation SLAs (< 48h for Critical CVEs).
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : DYNAMIC GRC RISK REGISTER AUTOMATION (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : 500 payment microservices processing ₹120 Cr/day had 45 unmanaged spreadsheet risk entries.
+  * Action : Deployed ServiceNow GRC connected to AWS Inspector, automatically ingesting CVEs, tracking 
+    patch SLAs, driving all 45 inherent critical risks below the 3.0 appetite threshold, and satisfying RBI audits.
+
+SCENARIO 2 : HEALTHCARE PATIENT DATA RISK REGISTER (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : 80,000 oncology patient biopsy scans lacked auditable risk tracking under DPDP Act rules.
+  * Action : Built an ISO 27001-compliant Information Asset Risk Register, logging S3 encryption controls, 
+    verifying a residual score of 1.5, and completely immunizing the hospital from ₹250 Crore statutory fines.
+
+SCENARIO 3 : 220KV SUBSTATION SCADA OT RISK REGISTER (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : 18 substations faced nation-state OT threat vectors requiring formal NCIIPC audit tracking.
+  * Action : Formulated the OT SCADA Risk Register across 18 substations, tracking unidirectional data diode 
+    controls, achieving 100% compliance with Section 70 Protected System rules under the Indian IT Act.
+
+SCENARIO 4 : ENTERPRISE RISK REGISTER SIMULATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to understand how control effectiveness reduces inherent risk to residual levels.
+  * Action : Developed an interactive Enterprise Risk Register & Residual Risk Tracker in React, 
+    training 215+ BCA cyber security students on managing corporate risk registers and GRC workflows.
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL RISK REGISTER HABITS:
+  1. Assign Named Owners: Always specify a named engineer and calendar deadline for every risk.
+  2. Audit Control Decay: Continuously re-test controls to ensure they maintain expected mitigation strength.
+  3. Automate GRC Sync: Ingest vulnerability scanner feeds directly into the risk register.
+  4. Track Accepted Expirations: Enforce an automated 12-month review timer on all accepted risks.
+
+* COMMON BEGINNER REGISTER PITFALLS:
+  - The "Static Spreadsheet" Trap (Creating an Excel file for an audit and never updating it).
+  - Unowned Orphan Risks (Logging risks without an assigned business owner or remediation engineer).
+  - Subjective Score Inflation (Artificially lowering residual risk without verified technical controls).
+  - Ignoring Appetite Thresholds (Allowing High residual risks to linger in production for months).
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Risk Register is the centralized ISMS database mandated by ISO 27001 Clause 6.1.2/6.1.3.
+[ ] Inherent Risk is gross risk before controls; Residual Risk is net risk after controls.
+[ ] Formula: Residual Risk = Inherent Risk x (1 - Control Effectiveness).
+[ ] Risk Appetite is the board's maximum acceptable residual risk threshold (e.g. <= 4.0).
+[ ] Mandatory fields: ID, Asset, Owner, Threat, Inherent Score, Treatment, Control, SLA, Residual Score.
+[ ] 3 Review Triggers: Scheduled (quarterly/annually), Security Breaches, Major IT Architecture Changes.
+[ ] DPDP Act Section 8 uses the Risk Register as proof of due diligence against ₹250 Cr penalties.
+[ ] RBI Master Directions mandate quarterly Risk Register presentation to the Board Committee (BRMC).
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 10 (CYBER SECURITY BCAC703 - MODULE 003_003)
+================================================================================

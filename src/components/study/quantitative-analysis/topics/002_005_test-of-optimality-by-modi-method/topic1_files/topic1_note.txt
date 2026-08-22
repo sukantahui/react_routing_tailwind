@@ -1,0 +1,139 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 1: MODI METHOD OVERVIEW (THE u-v METHOD & TRANSPORTATION SIMPLEX)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION TO THE MODIFIED DISTRIBUTION (MODI) METHOD
+--------------------------------------------------------------------------------
+The Modified Distribution Method (frequently termed the MODI Method or the
+u-v Method) is an exact mathematical algorithm that adapts George Dantzig's
+Linear Programming Simplex Method for transportation matrices.
+
+PRIMARY OBJECTIVES:
+1. Optimality Testing: Evaluates all unoccupied (non-basic) shipping routes
+   simultaneously using dual potential multipliers (u_i, v_j).
+2. Systematic Cost Improvement: Identifies the most lucrative entering route
+   (most negative opportunity cost d_ij < 0) and pivots flow around a closed
+   stepping-stone loop to reduce the total transportation cost Z.
+3. Optimality Certification: Mathematically certifies when global cost
+   minimization is achieved (when all d_ij >= 0).
+
+--------------------------------------------------------------------------------
+2. THE 5-STEP MODI EXECUTION ENGINE
+--------------------------------------------------------------------------------
+
+STEP 1: NON-DEGENERACY & BASIS RANK VERIFICATION
+- Confirm that the current tableau contains exactly m + n - 1 occupied basic cells.
+- Verify that the basic cells form an open (loop-free) spanning tree.
+- If degenerate (count < m + n - 1), allocate an infinitesimally small quantity
+  epsilon (ε > 0) to an independent, least-cost empty cell before proceeding.
+
+STEP 2: COMPUTE ROW POTENTIALS (u_i) AND COLUMN POTENTIALS (v_j)
+- For every occupied basic cell (i, j), establish the linear equality:
+    u_i + v_j = c_ij
+- Because there are m + n potentials and m + n - 1 equations, anchor the system
+  by setting ONE variable arbitrarily to 0:
+    Set u_1 = 0  (or set u_k = 0 for the row with the most basic cells).
+- Sequentially solve for all remaining m - 1 row potentials and n column potentials.
+
+STEP 3: COMPUTE OPPORTUNITY COSTS (d_ij) FOR ALL NON-BASIC CELLS
+- For every unoccupied (empty) cell (i, j), compute the Net Evaluation Index:
+    d_ij = c_ij - (u_i + v_j)
+- Record d_ij in the bottom-right sub-box of each empty cell.
+
+STEP 4: EVALUATE THE GLOBAL OPTIMALITY CONDITION
+- Check all d_ij values:
+    • Case A: If ALL d_ij >= 0 (strictly positive or zero):
+      --> STOP! The current solution is CERTIFIED GLOBALLY OPTIMAL.
+      --> Total minimum cost Z = Sum (c_ij * x_ij) in Indian Rupees (₹).
+    • Case B: If at least one d_ij < 0 (negative):
+      --> The current solution is SUB-OPTIMAL and can be improved.
+      --> Proceed immediately to Step 5.
+
+STEP 5: CLOSED LOOP PIVOTING & TABLEAU UPDATE
+- Select the Entering Cell: The empty cell with the MOST NEGATIVE opportunity cost:
+    Entering Cell = argmin { d_ij | d_ij < 0 }
+- Construct the Stepping-Stone Closed Loop: Trace a rectangular path of alternating
+  horizontal and vertical segments starting at the entering cell, turning ONLY
+  at occupied basic cells, and returning to the entering cell.
+- Assign Alternating Signs: Label loop vertices with alternating signs:
+    Entering Cell (+θ) --> Next Corner (-θ) --> Next (+θ) --> Next (-θ)...
+- Determine Maximum Flow Transfer (θ):
+    θ = min { x_ij | cell (i, j) has a (-) sign }
+- Pivot Flow: Add θ to all (+) corners; subtract θ from all (-) corners.
+- Update Basis: The entering cell becomes basic with allocation θ; the donor cell
+  whose allocation drops to 0 leaves the basis (becomes non-basic).
+- Return to Step 2 and re-evaluate potentials on the updated tableau!
+
+--------------------------------------------------------------------------------
+3. MODI VS. STEPPING-STONE: ARCHITECTURAL COMPARISON
+--------------------------------------------------------------------------------
++--------------------------+-------------------------+-------------------------+
+| Feature                  | Stepping-Stone Method   | MODI (u-v) Method       |
++--------------------------+-------------------------+-------------------------+
+| Evaluation Mechanism     | Geometric loop for      | Algebraic scalar sums   |
+|                          | EVERY non-basic cell    | (u_i + v_j) for all     |
++--------------------------+-------------------------+-------------------------+
+| Loops Drawn per Pass     | (m - 1)(n - 1) loops    | Exactly 1 loop          |
+|                          | (e.g. 12 loops in 4x5)  | (for entering cell only)|
++--------------------------+-------------------------+-------------------------+
+| Time Complexity          | O((m*n)^2) per pass     | O(m*n) per pass         |
++--------------------------+-------------------------+-------------------------+
+| Human Error Likelihood   | High (complex loops)    | Low (simple arithmetic) |
++--------------------------+-------------------------+-------------------------+
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supply Audit (Debangshu)
+Debangshu in Barrackpore evaluated a 3x3 casting network with an initial NWCR
+cost of Z = ₹2,740.
+Potentials: u = [0, -3, 2], v = [8, 14, 5].
+Evaluations revealed d_33 = -₹6 (most negative). Traced loop: (3,3) -> (3,2) -> (1,2) -> (1,3).
+Pivoting θ = 50 tons dropped total cost from ₹2,740 to ₹2,060 (₹680 savings).
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Distribution (Mamata & Mahima)
+Mamata and Mahima in Kolkata applied MODI on an initial Least-Cost tableau (Z = ₹2,450).
+Calculated u-v potentials: identified entering cell (1, 3) with d_13 = -₹3.
+Pivoted θ = 20 boxes around a 4-corner loop, achieving certified optimality at Z = ₹2,190.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Fleet (Susmita)
+Susmita in Ichapur ran MODI on a 3x3 VAM solution (Z = ₹570).
+All opportunity costs satisfied d_ij >= +₹1 on Iteration 1.
+Solution was certified globally optimal with 0 subsequent pivots!
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Alternative Optima (Abhronila)
+Abhronila in Jadavpur audited a university press network.
+MODI evaluation produced all d_ij >= 0 with d_22 = 0.
+Identified multiple optimal dispatch solutions at identical minimal cost of ₹9,400.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never attempt to compute u_i and v_j on a degenerate matrix; always check m + n - 1 first.
+- Remember that u_i and v_j can be negative numbers; perform signed arithmetic carefully.
+- The formula is d_ij = c_ij - (u_i + v_j). Do not accidentally reverse the subtraction!
+- The maximum transfer quantity θ is strictly the minimum among the MINUS (-) corners.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Understood the 5-step MODI algorithm cycle.
+[ ] Verified non-degeneracy condition (Count = m + n - 1).
+[ ] Set u_1 = 0 (or row with most basic cells) to anchor dual potentials.
+[ ] Solved u_i + v_j = c_ij for all basic cells.
+[ ] Computed d_ij = c_ij - (u_i + v_j) for all non-basic cells.
+[ ] Checked optimality: all d_ij >= 0 (Optimal) vs min(d_ij) < 0 (Pivot).
+[ ] Traced closed loop with alternating (+θ, -θ) signs for entering cell.
+[ ] Pivoted with θ = min(x_minus) and updated total transportation cost Z.
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 1: MODI METHOD OVERVIEW
+================================================================================

@@ -1,0 +1,86 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_006_2xn-and-m-x-2-cases-graphical-and-algebraic-methods
+TOPIC 8: NUMERICAL EXERCISES (WORKED 2xn & mx2 GRAPHICAL AND ALGEBRAIC EXERCISES)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. FOUR COMPREHENSIVE WORKED NUMERICAL EXERCISES
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+EXERCISE 1: 2x4 Game Solved via Graphical Lower Envelope Method
+--------------------------------------------------------------------------------
+Problem: Solve A = [ [20, 50, 60, 30],
+                     [40, 10, 30, 50] ] (in ₹ Thousands)
+• Plot Lines: B1 (-20p1+40), B2 (+40p1+10), B3 (+30p1+30), B4 (-20p1+50).
+• Maximin Peak: Intersection of Line B1 and Line B2 at p1* = 0.50, v* = +₹30,000.
+• Active Submatrix: [[20, 50], [40, 10]].
+• Closed-form 2x2 solve: Δ = -60. q_sub* = [2/3, 1/3].
+• Reconstructed Vectors:
+      p* = [0.50, 0.50]^T
+      q* = [2/3, 1/3, 0.00, 0.00]^T  (66.7%, 33.3%, 0%, 0%)
+• Game Value: v* = +₹30,000. Verified vs B3 (₹45k) and B4 (₹40k).
+
+--------------------------------------------------------------------------------
+EXERCISE 2: 4x2 Game Solved via Graphical Upper Envelope Method
+--------------------------------------------------------------------------------
+Problem: Solve A = [ [20, 50],
+                     [40, 10],
+                     [30, 60],
+                     [50, 20] ] (in ₹ Thousands)
+• Plot Lines: A1 (-30q1+50), A2 (+30q1+10), A3 (-30q1+60), A4 (+30q1+20).
+• Minimax Trough: Intersection of Line A1 and Line A2 at q1* = 2/3, v* = +₹30,000.
+• Active Submatrix: [[20, 50], [40, 10]].
+• Closed-form 2x2 solve: Δ = -60. p_sub* = [0.50, 0.50].
+• Reconstructed Vectors:
+      p* = [0.50, 0.50, 0.00, 0.00]^T
+      q* = [2/3, 1/3]^T
+• Game Value: v* = +₹30,000. Verified vs A3 and A4.
+
+--------------------------------------------------------------------------------
+EXERCISE 3: 2x3 Game Solved via Algebraic Submatrix Enumeration
+--------------------------------------------------------------------------------
+Problem: Solve A = [ [30, 10, 40],
+                     [10, 40, 50] ] (in ₹ Thousands)
+• Enumerate C(3, 2) = 3 Pairs:
+      Pair {B1, B2}: [[30, 10], [10, 40]] ➔ Δ = 50, p1* = 0.60, q* = [0.60, 0.40], v* = ₹22,000.
+      Global Audit: vs B3 = 0.6(40) + 0.4(50) = ₹44k >= ₹22k. Optimal!
+• Reconstructed Vectors:
+      p* = [0.60, 0.40]^T
+      q* = [0.60, 0.40, 0.00]^T
+• Game Value: v* = +₹22,000.
+
+--------------------------------------------------------------------------------
+EXERCISE 4: 5x2 Game Solved via Algebraic Submatrix Filtering
+--------------------------------------------------------------------------------
+Problem: Solve A = [ [10, 50],
+                     [40, 20],
+                     [30, 30],
+                     [50, 10],
+                     [20, 40] ] (in ₹ Thousands)
+• Candidate Pair {A1, A2}: [[10, 50], [40, 20]] ➔ Δ = -60.
+      p_sub* = [1/3, 2/3], q* = [0.50, 0.50], v* = ₹26,666.67.
+• Global Audit:
+      vs A3: 0.5(30) + 0.5(30) = ₹30k <= ₹26.67k (Inactive bound satisfied).
+      vs A4: 0.5(50) + 0.5(10) = ₹30k.
+      vs A5: 0.5(20) + 0.5(40) = ₹30k.
+• Reconstructed Vectors:
+      p* = [1/3, 2/3, 0, 0, 0]^T
+      q* = [0.50, 0.50]^T
+• Game Value: v* = +₹26,666.67.
+
+--------------------------------------------------------------------------------
+2. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered 2xn lower envelope peak identification and active column extraction.
+[ ] Mastered mx2 upper envelope trough identification and active row extraction.
+[ ] Applied algebraic submatrix combinatorial enumeration and global audits.
+[ ] Reconstructed full-dimensional strategy vectors for both players.
+[ ] Expressed all game values and payoffs in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_006 • TOPIC 8: NUMERICAL EXERCISES
+================================================================================

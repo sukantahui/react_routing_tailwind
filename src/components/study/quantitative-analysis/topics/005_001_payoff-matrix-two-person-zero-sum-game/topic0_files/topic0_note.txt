@@ -1,0 +1,127 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_001_payoff-matrix-two-person-zero-sum-game
+TOPIC 0: INTRODUCTION TO GAME THEORY (STRATEGIC INTERACTION, TAXONOMY & NORMAL FORM)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & PURPOSE OF GAME THEORY
+--------------------------------------------------------------------------------
+GAME THEORY is the formal mathematical study of STRATEGIC INTERACTION among rational,
+self-interested decision-makers (called PLAYERS).
+
+KEY CHARACTERISTIC:
+• In standard optimization (like Linear Programming), a single decision-maker controls
+  their outcome against a passive environment.
+• In GAME THEORY, the payoff (utility or profit in ₹) of each player depends NOT ONLY
+  on their own chosen strategy, but also on the STRATEGIC CHOICES OF RIVAL PLAYERS!
+
+HISTORICAL FOUNDATIONS:
+• 1944: John von Neumann and Oskar Morgenstern published "Theory of Games and Economic Behavior".
+• 1950: John Nash introduced the concept of Nash Equilibrium for non-cooperative games.
+
+--------------------------------------------------------------------------------
+2. THE 5 STRUCTURAL ELEMENTS OF A GAME
+--------------------------------------------------------------------------------
+A strategic game is formally defined as G = (N, {S_i}, {u_i}):
+
+1. PLAYERS (N = {1, 2, ..., n}):
+   • The rational, decision-making entities (firms, litigants, bidding contractors).
+
+2. STRATEGY SETS (S_i for each player i):
+   • The complete set of executable actions or contingency plans available to player i.
+
+3. INFORMATION STRUCTURE:
+   • The degree of knowledge players have regarding opponents' strategies, past moves,
+     and payoff functions (Complete vs Incomplete, Perfect vs Imperfect).
+
+4. PAYOFF FUNCTIONS (u_i(s_1, s_2, ..., s_n)):
+   • Numerical utility, monetary profit, or loss measured in Indian Rupees (₹) resulting
+     from a specific combination of chosen strategies.
+
+5. RATIONALITY AXIOM:
+   • Every player aims to maximize their own expected payoff and understands that all
+     opponents are simultaneously doing the exact same thing.
+
+--------------------------------------------------------------------------------
+3. THE 5 MAJOR GAME CLASSIFICATIONS
+--------------------------------------------------------------------------------
+
+1. ZERO-SUM VS. NON-ZERO-SUM GAMES:
+   • ZERO-SUM: Total sum of payoffs across all players equals ZERO for every outcome.
+     One player's gain is strictly another player's loss (Pure Conflict).
+   • NON-ZERO-SUM: Total payoff can expand (Win-Win / Cooperation) or contract (Lose-Lose / Price War).
+
+2. COOPERATIVE VS. NON-COOPERATIVE GAMES:
+   • COOPERATIVE: Players can form binding coalitions, sign legal contracts, and share payoffs.
+   • NON-COOPERATIVE: Players make independent choices without binding enforcement mechanisms.
+
+3. SIMULTANEOUS VS. SEQUENTIAL (DYNAMIC) GAMES:
+   • SIMULTANEOUS: Players select strategies concurrently without knowing rivals' choices (Matrix Form).
+   • SEQUENTIAL: Players move in turns, observing preceding actions (Game Tree / Extensive Form).
+
+4. SYMMETRIC VS. ASYMMETRIC GAMES:
+   • SYMMETRIC: Players have identical strategy sets and identical payoff structures.
+   • ASYMMETRIC: Strategy options and payoff rewards differ across players.
+
+5. FINITE VS. INFINITE GAMES:
+   • FINITE: Finite number of players and finite number of available strategies.
+
+--------------------------------------------------------------------------------
+4. NORMAL FORM (PAYOFF MATRIX) REPRESENTATION
+--------------------------------------------------------------------------------
+For a Two-Person Zero-Sum Game between Player A (Row Player) and Player B (Column Player):
+• Player A chooses Row i (from m strategies: A_1, A_2, ..., A_m).
+• Player B chooses Column j (from n strategies: B_1, B_2, ..., B_n).
+• Matrix entry a_ij represents the PAYOFF TO PLAYER A (in ₹).
+• Since the game is zero-sum, the PAYOFF TO PLAYER B is strictly -a_ij.
+
+PAYOFF CONVENTION:
+• Positive Entry (+a_ij): Payment FROM Player B TO Player A (Player A gains ₹a_ij).
+• Negative Entry (-a_ij): Payment FROM Player A TO Player B (Player A loses ₹a_ij).
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Tender Bidding War (Debangshu)
+Debangshu in Barrackpore modeled a two-firm competitive bidding tender for an Indian
+Railways casting contract as a 2x2 zero-sum game, identifying optimal pricing in ₹ Lakhs.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Hospital Vaccine Supply Contract Negotiation (Mamata & Mahima)
+Mamata and Mahima in Kolkata structured a commercial dispute over vaccine temperature
+breaches as a strategic game, analyzing settlement vs litigation outcomes in ₹.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Price Competition (Susmita)
+Susmita in Ichapur analyzed competitive promotional discounts between two retail chains,
+proving that an uncoordinated price war caused non-zero-sum mutual margin erosion.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Research Patent Licensing (Abhronila)
+Abhronila analyzed a university patent licensing dispute in Jadavpur, constructing a
+payoff matrix to negotiate a ₹55 Lakh cross-licensing royalty agreement.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never assume rivals will make irrational or foolish moves; always assume opponents are rational.
+- In zero-sum games, matrix entries a_ij ALWAYS represent payoffs to the Row Player (Player A).
+- Do not confuse Zero-Sum games (pure conflict) with Non-Zero-Sum games (potential cooperation).
+- Always state financial payoffs and game values in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined Game Theory and distinguished strategic interaction from single-agent optimization.
+[ ] Identified the 5 core elements of a game: Players, Strategies, Information, Payoffs, Rationality.
+[ ] Classified Zero-Sum vs Non-Zero-Sum, Cooperative vs Non-Cooperative, and Simultaneous vs Sequential games.
+[ ] Understood the Normal Form Payoff Matrix convention for two-person zero-sum games.
+[ ] Expressed all game payoffs and values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_001 • TOPIC 0: INTRODUCTION TO GAME THEORY
+================================================================================

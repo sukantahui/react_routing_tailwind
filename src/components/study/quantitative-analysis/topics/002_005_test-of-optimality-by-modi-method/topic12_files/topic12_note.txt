@@ -1,0 +1,118 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 12: SHORT QUESTIONS & CONCEPTUAL EXAM REVIEW (VIVA-VOCE & FORMULA CHEATSHEET)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. RAPID-FIRE FORMULA & CORE THEOREM CHEATSHEET
+--------------------------------------------------------------------------------
+1. BASIC CELL GOVERNING EQUATION:
+       u_i + v_j = c_ij   (for all occupied basic cells where x_ij > 0)
+
+2. OPPORTUNITY COST / NET EVALUATION FORMULA:
+       d_ij = c_ij - (u_i + v_j)   (for all unoccupied non-basic cells)
+
+3. GLOBAL OPTIMALITY CRITERION:
+       d_ij >= 0   (for ALL non-basic cells (i, j))
+       Equivalent to Dual Feasibility: u_i + v_j <= c_ij
+
+4. ENTERING VARIABLE SELECTION (DANTZIG'S SIMPLEX RULE):
+       Entering Cell = argmin { d_ij | d_ij < 0 }   (Most Negative Opportunity Cost)
+
+5. MAXIMUM TRANSFER QUANTITY (THETA):
+       θ = min { x_ij | (i, j) is a MINUS (-) corner of the closed loop }
+
+6. TOTAL COST IMPROVEMENT EQUATION:
+       Z_{new} = Z_{old} - (θ * |d_{enter}|)
+
+7. STRONG DUALITY CHECK:
+       Z* = Sum (c_ij * x_ij*) === W* = Sum (S_i * u_i*) + Sum (D_j * v_j*)
+
+8. NON-DEGENERACY BASIS CONDITION:
+       Count(Basic Cells) = m + n - 1
+
+--------------------------------------------------------------------------------
+2. KEY CONCEPTUAL VIVA-VOCE QUESTIONS & ANSWERS
+--------------------------------------------------------------------------------
+
+Q1: Why is u_1 set to 0 before solving for potentials?
+A1: Because the system has m + n unknowns and only m + n - 1 equations (1 degree
+    of freedom). Setting u_1 = 0 anchors the relative potential datum without
+    altering any opportunity costs (Invariance Theorem).
+
+Q2: What is the difference between Strict Optimality and Alternative Optima?
+A2: Strict Optimality: ALL d_ij > 0 (Unique minimal solution).
+    Alternative Optima: ALL d_ij >= 0 and at least one d_ij = 0 (Multiple basic
+    solutions with identical minimal cost Z*).
+
+Q3: Can a closed loop turn at an empty cell?
+A3: No! Every turning corner (vertex) in the loop MUST be an occupied basic cell,
+    except for the single starting entering cell.
+
+Q4: Why does the entering cell always get (+θ)?
+A4: Because it starts at x_enter = 0 and needs +θ to become a positive basic variable.
+
+Q5: How is a tie broken when two minus corners reach 0 simultaneously?
+A5: Drop only ONE cell from the basis; retain the other in the basis with allocation
+    0 (degenerate basic cell) to preserve the m + n - 1 basic variable count.
+
+Q6: How does MODI outperform the Stepping-Stone method?
+A6: MODI evaluates all empty cells in O(mn) time using simple scalar addition
+    (u_i + v_j), tracing a loop ONLY ONCE per iteration for the winning entering
+    cell, whereas Stepping-Stone traces separate loops for every empty cell.
+
+--------------------------------------------------------------------------------
+3. COMPARATIVE HEURISTICS EFFICIENCY BENCHMARK
+--------------------------------------------------------------------------------
+Initial Heuristic       Baseline Cost (3x3)   MODI Iterations Needed   Efficiency
+North-West Corner       ₹2,740                2 Iterations             Standard Baseline
+Least Cost Method       ₹2,480                1 Iteration              Moderate
+Vogel's Approximation   ₹2,060                0 Iterations             Instant Optimal! ⭐
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Exam Review (Debangshu)
+Debangshu in Barrackpore summarized the 3x3 foundry optimization:
+NWCR (₹2,740) ➔ Iteration 1 (₹2,260) ➔ Iteration 2 (₹2,060).
+Achieved ₹680 (24.82%) total savings with 100% verified non-negativity.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Viva Preparation (Mamata & Mahima)
+Mamata and Mahima in Kolkata prepared healthcare trainees for viva questions on
+unrestricted signs of dual potentials (u and v can be negative numbers).
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Rapid-Fire Quiz (Susmita)
+Susmita in Ichapur trained junior store managers to immediately recognize optimal
+tableaus (all d_ij >= 0) and alternative optima (d_ij = 0).
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Formal Reporting (Abhronila)
+Abhronila in Jadavpur mastered the formal concluding statement required for state
+tenders: "Since all d_ij >= 0, Minimum Total Cost Z* = ₹9,400."
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never forget the currency symbol (₹) when stating final answers.
+- Never pick θ from plus corners; θ is strictly min(x_minus).
+- Always verify row sums == S_i and col sums == D_j before computing potentials.
+- Master the 5-step MODI engine for 100% exam success!
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Memorized the 8 core formulas and equations.
+[ ] Answered all 30 viva-voce conceptual short questions.
+[ ] Understood the Invariance Theorem of dual potentials.
+[ ] Differentiated between Strict Optimality and Alternative Optima.
+[ ] Reviewed the 4-step loop construction and θ-pivot rules.
+[ ] Prepared to write the formal conclusion statement on university examinations.
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 12: SHORT QUESTIONS
+================================================================================

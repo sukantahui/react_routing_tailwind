@@ -1,0 +1,151 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_004 : CRYPTOGRAPHY, WATERMARKING & CIPHER TYPES
+TOPIC 00       : INTRODUCTION TO CRYPTOGRAPHY AND CRYPTANALYSIS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE SCIENCE OF CRYPTOLOGY
+--------------------------------------------------------------------------------
+Cryptology (from Greek 'kryptos' hidden + 'logos' word/study) is the overarching mathematical 
+and scientific discipline governing secure communications.
+
+Cryptology is bifurcated into two mutually dependent branches:
+  1. CRYPTOGRAPHY : The science and art of designing mathematical algorithms (ciphers) to secure 
+     information, ensuring confidentiality, data integrity, authentication, and non-repudiation.
+  2. CRYPTANALYSIS : The science and art of analyzing, breaking, and defeating cryptographic 
+     algorithms, protocols, and implementations without possessing the legitimate key.
+
+--------------------------------------------------------------------------------
+2. KERCKHOFFS'S PRINCIPLE & SHANNON'S INFORMATION THEORY
+--------------------------------------------------------------------------------
+
+* KERCKHOFFS'S PRINCIPLE (1883):
+  - "The security of a cryptosystem must depend solely on the secrecy of the cryptographic key, 
+    NOT on the secrecy of the algorithm itself."
+  - Rejection of "Security through Obscurity": Modern standards (AES, RSA, ECC) publish all 
+    mathematical equations openly. True security relies 100% on key entropy and secrecy.
+
+* CLAUDE SHANNON'S PROPERTIES OF SECURE CIPHERS (1949):
+  1. CONFUSION : Obscures the mathematical relationship between the Key and the Ciphertext 
+     (achieved via non-linear Substitution Boxes / S-Boxes).
+  2. DIFFUSION : Spreads the statistical influence of each individual Plaintext bit across 
+     the entire Ciphertext (achieved via Permutation / P-Boxes and bit shifting).
+  3. AVALANCHE EFFECT : Flipping a single bit in the plaintext or key causes ~50% of the 
+     output ciphertext bits to change pseudo-randomly.
+
+--------------------------------------------------------------------------------
+3. THE 4 PILLARS OF MODERN CRYPTOGRAPHY
+--------------------------------------------------------------------------------
+
+  1. CONFIDENTIALITY : Ensures only authorized recipients can read plaintext (AES-GCM, RSA, ECC).
+  2. DATA INTEGRITY  : Guarantees data was not altered or corrupted in transit (SHA-256, HMAC).
+  3. AUTHENTICATION  : Verifies the authentic identity of communicating entities (Digital Certificates / PKI).
+  4. NON-REPUDIATION : Proves undeniably that a specific sender authored a transaction (Digital Signatures).
+
+--------------------------------------------------------------------------------
+4. CRYPTANALYSIS ATTACK MODELS TAXONOMY
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| ATTACK MODEL       | ATTACKER CAPABILITY     | HISTORIC / REAL EX.| PRIMARY DEFENSE                                |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Ciphertext-Only | Attacker possesses only | Frequency analysis | - Modern block ciphers (AES-256) with strong   |
+|    Attack (COA)    | intercepted ciphertexts | of Caesar cipher   |   diffusion & non-linear substitution          |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Known-Plaintext | Attacker has matching   | Alan Turing Enigma | - Key generation with high entropy; avoiding   |
+|    Attack (KPA)    | pairs of (P, C)         | Cribbing at Bletch.|   predictable header repetition                |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. Chosen-Plaintext| Attacker chooses P and  | Differential Crypto| - High cipher round count (14 rounds in AES)   |
+|    Attack (CPA)    | obtains C = Enc(P)      | on DES S-Boxes     |   to dissipate differential input propagation  |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. Chosen-Cipher-  | Attacker chooses C and  | Bleichenbacher SSL | - Authenticated Encryption with Associated     |
+|    text (CCA/CCA2) | obtains P = Dec(C)      | Padding Oracle     |   Data (AEAD: AES-GCM, ChaCha20-Poly1305)      |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 5. Side-Channel    | Measures power, timing, | Differential Power | - Constant-Time code implementations;          |
+|    Analysis (SCA)  | or acoustic emissions   | Analysis on ASIC   |   hardware electromagnetic shielding           |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+5. THE ONE-TIME PAD (OTP) & PERFECT SECRECY
+--------------------------------------------------------------------------------
+
+* THE ONE-TIME PAD ($C = P \oplus K$):
+  - Proved by Claude Shannon to be mathematically UNBREAKABLE (Information-Theoretically Secure).
+  - Conditions: Key must be truly random, as long as the message, used ONLY ONCE, and kept secret.
+
+* THE TWO-TIME PAD CATASTROPHE (Crib Dragging):
+  - If Key $K$ is reused on two messages: $C_1 \oplus C_2 = (P_1 \oplus K) \oplus (P_2 \oplus K) = P_1 \oplus P_2$.
+  - The secret key cancels out completely, allowing cryptanalysts to recover plaintexts via crib dragging.
+
+--------------------------------------------------------------------------------
+6. QUANTUM COMPUTING THREAT TO CRYPTOGRAPHY
+--------------------------------------------------------------------------------
+
+1. Shor's Algorithm:
+   - Solves prime factorization in polynomial time, completely destroying RSA, Diffie-Hellman, and ECC.
+   - Defense: Migration to Post-Quantum Cryptography (PQC - NIST ML-KEM / FIPS 203).
+
+2. Grover's Algorithm:
+   - Provides quadratic speedup on brute force ($\sqrt{2^n}$), halving symmetric key strength.
+   - Defense: Upgrade from AES-128 to AES-256 (which provides 128-bit quantum security).
+
+--------------------------------------------------------------------------------
+7. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : BANKING CIPHER SUITE UPGRADE TO AES-GCM (KOLKATA FINTECH)
+  * Lead Cryptographic Engineer : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Modernizing legacy 3DES payment transaction switches vulnerable to Sweet32 collision attacks.
+  * Action : Mamata migrated core switches to AES-GCM-256 (AEAD), eliminating Chosen-Ciphertext padding oracles 
+    and enforcing Kerckhoffs's Principle across all merchant gateway clusters.
+
+SCENARIO 2 : PATIENT EHR CONSTANT-TIME DECRYPTION (ICHAPUR HOSPITAL)
+  * Chief Healthcare Information Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Vulnerable early-exit string comparisons in the PACS archive allowed side-channel timing attacks.
+  * Action : Refactored cryptographic libraries to use constant-time bitwise comparisons, eliminating 
+    microsecond timing variations and protecting 50,000+ patient records under DPDP Act 2023.
+
+SCENARIO 3 : SCADA RTU CRYPTO ACCELERATOR HARDENING (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Analyzing whether power draw fluctuations in 220kV substation RTUs leaked cryptographic keys.
+  * Action : Deployed Differential Power Analysis (DPA) countermeasures and noise-generating power regulators 
+    on hardware cryptographic coprocessors, neutralizing side-channel physical attacks.
+
+SCENARIO 4 : VIGENÈRE KASISKI CRYPTANALYSIS LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students how to apply statistical frequency analysis and Kasiski tests to break polyalphabetic ciphers.
+  * Action : Built an interactive Python cryptanalysis laboratory analyzing English letter distributions (ETAOIN SHRDLU), 
+    guiding 140+ students through breaking historic ciphers and understanding modern Shannon diffusion.
+
+--------------------------------------------------------------------------------
+8. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL CRYPTOGRAPHIC HABITS:
+  1. Never Implement Custom Crypto: Always use established, audited libraries (OpenSSL, Libsodium).
+  2. Enforce Authenticated Encryption: Use AEAD modes (AES-GCM, ChaCha20-Poly1305) to prevent CCA attacks.
+  3. Write Constant-Time Comparisons: Use `CRYPTO_memcmp()` to defeat side-channel timing leaks.
+
+* COMMON BEGINNER CRYPTOGRAPHY MISTAKES:
+  - Reusing nonces or keys in stream ciphers (enables catastrophic Two-Time Pad crib dragging).
+  - Relying on "Security through Obscurity" by keeping proprietary algorithms secret.
+  - Using unauthenticated encryption modes (AES-CBC without HMAC is vulnerable to padding oracles).
+  - Failing to recognize that unauthorized decryption violates Section 66 of the IT Act 2000.
+
+--------------------------------------------------------------------------------
+9. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Cryptology = Cryptography (Cipher Design) + Cryptanalysis (Codebreaking).
+[ ] Kerckhoffs's Principle: System security must depend solely on the secrecy of the key.
+[ ] Confusion obscures the key (S-Boxes); Diffusion spreads plaintext statistics (P-Boxes).
+[ ] 4 Cryptographic Goals: Confidentiality, Integrity, Authentication, Non-Repudiation.
+[ ] One-Time Pad is mathematically unbreakable if the key is random and never reused.
+[ ] Frequency analysis breaks monoalphabetic substitution by matching ETAOIN SHRDLU.
+[ ] Side-channel attacks exploit physical emissions (timing, power DPA, acoustics).
+[ ] Shor's algorithm breaks RSA/ECC; Grover's algorithm halves symmetric key strength.
+[ ] IT Act 2000 Section 66 and 69 penalize unauthorized interception and decryption.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 00 (CYBER SECURITY BCAC703)
+================================================================================

@@ -1,0 +1,91 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 23: SERVER (ARCHITECTURE, TYPES, VIRTUALIZATION & HARDENING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & ROLE OF A SERVER
+--------------------------------------------------------------------------------
+A Server is a high-performance computer hardware system or software program
+designed to listen for, process, and serve resources, data, and services to
+multiple client devices (desktops, laptops, smartphones) across a network.
+
+Core Philosophical Distinctions from Consumer PCs:
+1. Continuous 24/7/365 Availability: Engineered for zero planned downtime.
+2. Concurrent Multi-User I/O: High multi-threaded performance handling thousands
+   of simultaneous TCP/UDP socket connections.
+3. Hardware Redundancy: Dual hot-swap power supplies (1+1 RPS), ECC memory, and
+   hardware RAID disk arrays (RAID 1, 5, 10).
+4. Headless Out-of-Band Management: Remote control via iDRAC/iLO without attached
+   monitors or keyboards.
+
+--------------------------------------------------------------------------------
+2. TAXONOMY OF ENTERPRISE SERVERS
+--------------------------------------------------------------------------------
+• WEB SERVERS (Nginx, Apache, IIS):
+  Serves web applications and static assets over HTTP (Port 80) and HTTPS (Port 443).
+• DATABASE SERVERS (MySQL, PostgreSQL, Oracle, MongoDB):
+  Stores structured data; isolated in private subnets (Ports 3306, 5432).
+• FILE & STORAGE SERVERS (NAS / SAN, SMB, NFS):
+  Centralizes corporate file sharing with access control lists and automated snapshots.
+• REVERSE PROXY & LOAD BALANCING SERVERS (HAProxy, Nginx):
+  Distributes incoming traffic, terminates SSL/TLS, and defends against DDoS.
+• DIRECTORY & AUTHENTICATION SERVERS (Active Directory, LDAP, Kerberos):
+  Centrally manages domain users, single sign-on (SSO), and group security policies.
+• DNS & DHCP SERVERS:
+  Translates domain names (Port 53) and automatically leases IP addresses (Ports 67/68).
+• MAIL SERVERS (Postfix, Exchange):
+  Transfers messages via SMTP (587) and synchronizes mailboxes via IMAP (993).
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Engineering ERP Server Deployment (Debangshu - Barrackpore)
+Debangshu commissioned a 2U rack server with dual Intel Xeon CPUs, 128GB ECC RAM, and
+a 4x2TB NVMe RAID-10 array in Barrackpore for ₹3,80,000. It processes real-time inventory
+and machine telemetry for 200 factory workstations with 99.99% uptime.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Multi-Speciality Clinic Patient Records Server (Mahima - Ichapur)
+Mahima deployed an on-premise Electronic Health Records (EHR) database server in Ichapur.
+Configured with daily encrypted backups, PostgreSQL on isolated private VLANs, and dual
+power supplies for ₹2,90,000, ensuring patient history is protected against data loss.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Examination Portal Load-Balanced Cluster (Mamata - Kolkata)
+Mamata deployed a high-availability server cluster in Kolkata featuring two Nginx reverse
+proxies and three application nodes (₹6,50,000 total). It handled 45,000 simultaneous student
+result downloads on exam release day with zero latency degradation.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech AI Model Training Server (Abhronila - Jadavpur)
+Abhronila configured a GPU-accelerated compute server with dual AMD EPYC processors and
+four enterprise GPUs in Jadavpur for ₹12,00,000. Researchers execute machine learning
+simulations continuously with remote out-of-band management.
+
+--------------------------------------------------------------------------------
+4. CYBER SECURITY & SERVER HARDENING CHECKLIST
+--------------------------------------------------------------------------------
+- Disable direct root login over SSH (`PermitRootLogin no`); enforce public-key authentication.
+- Close all unused ports using host firewalls (`ufw` / `iptables`).
+- Deploy Fail2ban to automatically block brute-force password guessing IP addresses.
+- Isolate database and internal application tiers inside private subnets behind reverse proxies.
+- Configure automated unattended security updates and SSL/TLS certificate rotation.
+- State all hardware acquisition, cloud hosting, and licensing budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined client-server architecture and the request-response lifecycle.
+[ ] Differentiated server types (Web, Database, File, DNS, DHCP, Reverse Proxy).
+[ ] Understood server hardware redundancy (ECC RAM, RAID-10, Dual Hot-Plug Power).
+[ ] Compared Type-1 bare-metal hypervisors (ESXi/KVM) with Containers (Docker).
+[ ] Applied server hardening techniques (SSH keys, UFW firewall, Fail2ban).
+[ ] Expressed all enterprise server budgets and hosting costs in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 23: SERVER
+================================================================================

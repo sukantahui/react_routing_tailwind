@@ -1,0 +1,131 @@
+================================================================================
+CYBER SECURITY & INFORMATION ASSURANCE STUDY NOTE
+MODULE: 002_001_security-triad-cia
+TOPIC 0: INTRODUCTION TO THE CIA TRIAD (CONFIDENTIALITY, INTEGRITY, AVAILABILITY)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE FOUNDATIONAL SECURITY TRIAD (CIA)
+--------------------------------------------------------------------------------
+The CIA Triad is the universally accepted reference model for designing, implementing,
+and evaluating information security programs. Every security policy, control mechanism,
+and architectural decision is engineered to protect one or more of these three core pillars:
+
+1. CONFIDENTIALITY:
+   • Definition: Ensuring that sensitive information is accessible only to authorized
+     individuals, entities, or processes.
+   • Primary Objective: Preventing unauthorized reading, disclosure, snooping, or exfiltration.
+   • Core Technical Controls:
+     - Symmetric Encryption (AES-256-GCM) for bulk data storage and network payloads.
+     - Asymmetric Encryption (RSA-4096, ECC) for key exchange and identity authentication.
+     - Access Control Lists (ACLs) and Role-Based Access Control (RBAC).
+     - Data Loss Prevention (DLP) engines and dynamic data masking.
+     - Multi-Factor Authentication (MFA) and granular session tokens.
+
+2. INTEGRITY:
+   • Definition: Safeguarding the accuracy, completeness, authenticity, and consistency
+     of data throughout its entire lifecycle.
+   • Primary Objective: Preventing unauthorized creation, modification, deletion, injection,
+     or tampering with information.
+   • Core Technical Controls:
+     - Cryptographic Hash Functions (SHA-256, SHA-3-512) and checksums.
+     - Hash-based Message Authentication Codes (HMAC) for tamper-proof API transmission.
+     - Asymmetric Digital Signatures (ECDSA, RSA-PSS) with Non-Repudiation.
+     - Database transaction ACID controls and write-ahead transaction logs.
+     - Immutable Merkle-tree structures and cryptographic version control.
+
+3. AVAILABILITY:
+   • Definition: Ensuring that authorized users have prompt, uninterrupted, and reliable
+     access to information assets, network resources, and critical computational services.
+   • Primary Objective: Preventing unauthorized withholding, service disruptions, hardware
+     crashes, or denial-of-service conditions.
+   • Core Technical Controls:
+     - Redundant Hardware (dual power supplies, hot-swappable drives, RAID-10 storage).
+     - High Availability (HA) active-passive and active-active clustering.
+     - Distributed Denial of Service (DDoS) scrubbing centers and Web Application Firewalls (WAF).
+     - Automated offsite backups, cloud disaster recovery (DR) sites, and BCP protocols.
+     - Uninterruptible Power Supply (UPS) systems and diesel backup generator plants.
+
+--------------------------------------------------------------------------------
+2. EXTENDED SECURITY MODELS
+--------------------------------------------------------------------------------
+While the CIA Triad forms the bedrock of cybersecurity, modern distributed computing
+requires extended models to address complex threat landscapes:
+
+• NON-REPUDIATION:
+  - Asserts that a sender cannot deny having sent a message and a recipient cannot deny
+    having received it.
+  - Enforced legally under the Indian IT Act 2000 through asymmetric digital signatures
+    and cryptographically certified timestamps.
+
+• THE PARKERIAN HEXAD (Donn B. Parker):
+  Expands the 3 CIA pillars into 6 distinct attributes:
+  1. Confidentiality (restricting visibility to authorized viewers).
+  2. Integrity (ensuring data has not been corrupted or altered).
+  3. Availability (ensuring systems are accessible when needed).
+  4. Authenticity (verifying the genuine authorship and origin of data).
+  5. Possession / Control (maintaining physical or logical custody of assets).
+  6. Utility (preserving the practical usefulness and decryptability of data).
+
+--------------------------------------------------------------------------------
+3. COMPARATIVE ARCHITECTURAL MATRIX
+--------------------------------------------------------------------------------
+Pillar           Primary Threat               Defense Mechanism           Key Metric
+--------------------------------------------------------------------------------
+Confidentiality  Eavesdropping / Data Breach  AES-256 / RBAC / DLP        Zero Unauthorized Leaks
+Integrity        Tampering / MITM Injection   SHA-256 / Digital Signature Bit-level Hash Match
+Availability     DoS / Ransomware / Outage    HA Clusters / RAID / DR     Uptime (99.999% "Five 9s")
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Steel Plant Industrial Blast Furnace SCADA Safety Grid (Debangshu - Barrackpore)
+Debangshu engineered a SCADA sensor telemetry monitoring pipeline in Barrackpore for ₹2,40,000.
+Thermal telemetry must guarantee strict Integrity (SHA-256 checksums to prevent false sensor
+injections) and Availability (dual-redundant PLC controllers with 99.999% uptime), ensuring blast
+furnace safety relays fire without delay.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Emergency Hospital ICU Patient Triage & Vitals Records (Mahima - Ichapur)
+Mahima deployed an electronic health records (EHR) network for an Ichapur critical care hospital
+for ₹1,90,000. Medical histories enforce strict Confidentiality (AES-256 encryption under patient
+privacy mandates), Integrity (tamper-proof blood group ledgers), and Availability (instant bed-side
+retrieval during golden-hour emergencies).
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: FinTech High-Volume UPI Payment Gateway Core (Mamata - Kolkata)
+Mamata deployed a high-throughput payment settlement engine in Kolkata for ₹4,80,000. Every payment
+instruction satisfies Confidentiality (tokenized card credentials), Integrity & Non-Repudiation
+(HSM-signed transaction hashes), and Availability (sub-millisecond active-active server clusters
+processing 75,000 TPS).
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Incident Response Lab & Threat Sandbox (Abhronila - Jadavpur)
+Abhronila created an interactive security laboratory in Jadavpur for ₹3,20,000. Students simulate
+attacks against the CIA triad, analyzing how ransomware breaches Availability, how SQL injection
+compromises Integrity, and how packet sniffing shatters Confidentiality.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Over-focusing on Confidentiality while neglecting Availability: Heavy encryption without key
+  backup can permanently destroy data accessibility if keys are corrupted.
+- Assuming Integrity is guaranteed by Confidentiality: Encrypted data can still be deleted or
+  corrupted in transit; always use authenticated encryption (AEAD like AES-GCM).
+- Budget all enterprise security hardware, HSM modules, and HA clusters in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Define the 3 pillars of the CIA Triad with technical enforcement mechanisms.
+[ ] Explain how AES-256 protects Confidentiality and SHA-256 protects Integrity.
+[ ] Distinguish between RTO (Recovery Time Objective) and RPO (Recovery Point Objective).
+[ ] Understand the Parkerian Hexad (Authenticity, Possession, Utility).
+[ ] Analyze how Non-Repudiation is enforced using asymmetric digital signatures.
+[ ] Formulate enterprise security procurement budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_001 • TOPIC 0: INTRODUCTION TO THE CIA TRIAD
+================================================================================

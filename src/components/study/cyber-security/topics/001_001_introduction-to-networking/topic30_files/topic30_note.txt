@@ -1,0 +1,99 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 30: BANDWIDTH (CAPACITY, SHANNON THEOREM, BDP, QOS & DDOS MITIGATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & PHYSICAL LAYER CAPACITY THEORY
+--------------------------------------------------------------------------------
+In digital computer networking, Bandwidth refers to the maximum theoretical data
+transfer capacity of a communication channel, representing the maximum volume of bits
+that can travel through the network per second (measured in bps, Mbps, Gbps, or Tbps).
+
+In analog signal processing, Bandwidth ($B$) is the width of the frequency range
+($B = f_{max} - f_{min}$) measured in Hertz (Hz).
+
+Fundamental Capacity Theorems:
+1. Nyquist Bit Rate Theorem (Noiseless Channels):
+   $$C = 2B \log_2(M)$$
+   where $M$ is the number of discrete signal voltage levels.
+2. Shannon Channel Capacity Theorem (Noisy Real-World Channels):
+   $$C = B \log_2(1 + \text{SNR})$$
+   where $\text{SNR} = \frac{S}{N}$ (Signal-to-Noise Ratio).
+
+--------------------------------------------------------------------------------
+2. BANDWIDTH VS THROUGHPUT VS GOODPUT VS LATENCY
+--------------------------------------------------------------------------------
+• Bandwidth: Theoretical maximum capacity of the pipeline (e.g., 1000 Mbps port).
+• Throughput: Actual measured data rate successfully transmitted across the wire
+  taking into account collisions, congestion, and TCP window scaling (e.g., 850 Mbps).
+• Goodput: Useful application payload data received excluding all protocol headers
+  (Ethernet, IP, TCP) and retransmissions (e.g., 780 Mbps).
+• Latency: Round-trip time (RTT) delay taken for a bit to travel from sender to receiver (ms).
+
+Bandwidth-Delay Product (BDP):
+$$\text{BDP (Bits)} = \text{Bandwidth (bps)} \times \text{RTT (seconds)}$$
+$$\text{Optimal TCP Receive Window (Bytes)} = \frac{\text{BDP}}{8}$$
+If TCP buffers are smaller than BDP, high-speed fiber links stall and underutilize bandwidth.
+
+--------------------------------------------------------------------------------
+3. INTERNET LEASED LINE (ILL) VS SHARED BROADBAND
+--------------------------------------------------------------------------------
+Parameter         | Dedicated Leased Line (ILL)   | Shared FTTH Broadband
+--------------------------------------------------------------------------------
+Bandwidth Ratio   | 1:1 Symmetric (Up = Down)     | Asymmetric (Fast Down, Slow Up)
+Contention Ratio  | 1:1 (100% Dedicated Unshared) | 1:8 or 1:10 (Shared with Neighbors)
+SLA Guarantee     | 99.9% Uptime with 4-hr MTTR   | Best-Effort (No Financial SLA)
+Static Public IPs | Subnet Block (/29 or /28)     | Single Dynamic / CGNAT IP
+Est. Cost (₹)     | ₹15,000 – ₹25,000 / mo (100M) | ₹800 – ₹1,500 / mo (300M)
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry ILL Leased Line Deployment (Debangshu - Barrackpore)
+Debangshu commissioned a 100 Mbps 1:1 symmetric Internet Leased Line in Barrackpore for
+₹18,500/month. The dedicated unshared pipe eliminated evening ERP lag, supporting 200
+telemetry streams and dual site-to-site IPsec VPN tunnels with 99.95% measured uptime.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Multi-Speciality Clinic QoS Video Telemedicine (Mahima - Ichapur)
+Mahima implemented Quality of Service (QoS) bandwidth reservation on a 200 Mbps link in
+Ichapur. Reserving 40 Mbps guaranteed bandwidth for doctor HD video consultations (DSCP EF)
+ensured zero video stuttering even during heavy staff file backups.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Examination Result CDN Edge Absorption (Mamata - Kolkata)
+Mamata deployed a Cloudflare Enterprise CDN in Kolkata for ₹60,000 during semester result
+announcements. The CDN edge absorbed 94% of the 450 Mbps traffic spike, preventing the
+university's central 100 Mbps leased line from saturating and crashing.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: High-Tech Cyber Lab BDP Window Tuning & iPerf Benchmarking (Abhronila - Jadavpur)
+Abhronila tuned Linux kernel TCP socket buffers (`sysctl net.ipv4.tcp_rmem = 4096 87380 16777216`)
+across 10G optical fiber links in Jadavpur for ₹35,000 in testing equipment. Benchmarked via
+`iperf3`, single-stream file transfer throughput jumped from 420 Mbps to 9.4 Gbps.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never confuse bits per second (Mbps) with bytes per second (MB/s); divide Mbps by 8.
+- Tune TCP socket receive windows (RWIN) to match the Bandwidth-Delay Product (BDP).
+- Enforce QoS bandwidth prioritization (DSCP) to protect VoIP and video during congestion.
+- Formulate all telecom ILL procurement, CDN, and DDoS mitigation budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Differentiated between Bandwidth, Throughput, Goodput, and Latency.
+[ ] Applied Shannon's Channel Capacity formula and Nyquist Bit Rate formula.
+[ ] Calculated the Bandwidth-Delay Product (BDP) to size TCP receive window buffers.
+[ ] Compared 1:1 Symmetric Leased Lines with Asymmetric Shared Broadband.
+[ ] Understood Volumetric DDoS bandwidth saturation and BGP Blackholing.
+[ ] Formulated realistic enterprise Internet Leased Line (ILL) budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 30: BANDWIDTH
+================================================================================

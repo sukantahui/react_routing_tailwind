@@ -1,0 +1,87 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_006_2xn-and-m-x-2-cases-graphical-and-algebraic-methods
+TOPIC 2: GRAPHICAL METHOD (1D PROBABILITY SIMPLEX, DUAL ENVELOPES & SUBMATRIX EXTRACTION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. GEOMETRIC FOUNDATION OF THE GRAPHICAL METHOD
+--------------------------------------------------------------------------------
+Why does the Graphical Method work for 2xn and mx2 games?
+• For any player with 2 strategies: p_1 + p_2 = 1 ➔ p_2 = 1 - p_1.
+• The probability space is a ONE-DIMENSIONAL SIMPLEX (a line segment p_1 in [0, 1]).
+• All expected payoff functions are linear straight lines:
+      E(p, B_j) = (a_1j - a_2j) * p_1 + a_2j  (for 2xn games)
+      E(A_i, q) = (a_i1 - a_i2) * q_1 + a_i2  (for mx2 games)
+
+--------------------------------------------------------------------------------
+2. THE DUAL PERSPECTIVES: 2xn vs mx2
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+A. 2xn GRAPHICAL METHOD (ROW PLAYER A PERSPECTIVE):
+--------------------------------------------------------------------------------
+• Horizontal Axis: p_1 in [0, 1] (Probability of playing A_1).
+• Left Axis (p_1 = 0): Payoffs a_2j (Pure A_2).
+• Right Axis (p_1 = 1): Payoffs a_1j (Pure A_1).
+• Lower Envelope: f_lower(p_1) = min_{j} [ E(p, B_j) ].
+• Optimization Goal: MAXIMIN PEAK ➔ v* = max_{p_1} f_lower(p_1) (in ₹).
+• Active Submatrix: Formed by the 2 columns intersecting at the peak.
+
+--------------------------------------------------------------------------------
+B. mx2 GRAPHICAL METHOD (COLUMN PLAYER B PERSPECTIVE):
+--------------------------------------------------------------------------------
+• Horizontal Axis: q_1 in [0, 1] (Probability of playing B_1).
+• Left Axis (q_1 = 0): Payouts a_i2 (Pure B_2).
+• Right Axis (q_1 = 1): Payouts a_i1 (Pure B_1).
+• Upper Envelope: f_upper(q_1) = max_{i} [ E(A_i, q) ].
+• Optimization Goal: MINIMAX TROUGH ➔ v* = min_{q_1} f_upper(q_1) (in ₹).
+• Active Submatrix: Formed by the 2 rows intersecting at the trough.
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 2x4 Alloy Tender Selection (Debangshu)
+Debangshu in Barrackpore plotted 4 tender options over p1 in [0, 1].
+The lower envelope peak occurred at the intersection of Columns {1, 2},
+instantly identifying the 2x2 core game and securing v* = ₹30,000 without Simplex LP.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Logistics 3x2 Transport Line Analysis (Mamata & Mahima)
+Mamata and Mahima in Kolkata plotted 3 transport lines over q1 in [0, 1].
+Constructing the upper envelope identified the Minimax trough at Rows {1, 2},
+capping emergency transport expenditure at ₹24,000 per transit cycle.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail 2x4 Promotional Campaign (Susmita)
+Susmita in Ichapur analyzed 4 competitor retaliation lines across p1 in [0, 1].
+The Maximin peak pinpointed the exact 50-50 marketing allocation to guarantee ₹32,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab 4x2 Patent Dispute (Abhronila)
+Abhronila used the mx2 graphical upper envelope method in Jadavpur on a 4x2 arbitration grid,
+finding the exact minimax compromise point of ₹20 Lakh between research departments.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never confuse the axes: left axis is p1=0 (Row 2 / Col 2), right axis is p1=1 (Row 1 / Col 1).
+- 2xn requires the LOWER envelope; mx2 requires the UPPER envelope.
+- The optimal intersection must be formed by lines with opposite slopes.
+- State all game values in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered 1D simplex geometric rationale for 2-action games.
+[ ] Plotted 2xn lines and constructed the Lower Envelope (Maximin Peak).
+[ ] Plotted mx2 lines and constructed the Upper Envelope (Minimax Trough).
+[ ] Extracted active 2x2 submatrices from apex intersections.
+[ ] Expressed all game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_006 • TOPIC 2: GRAPHICAL METHOD
+================================================================================

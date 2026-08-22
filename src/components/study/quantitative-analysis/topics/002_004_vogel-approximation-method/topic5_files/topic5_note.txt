@@ -1,0 +1,161 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_004_vogel-approximation-method
+TOPIC 5: COMPLETE VAM PROCEDURE (END-TO-END METHODOLOGY & BASIS VERIFICATION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE COMPLETE 6-PHASE VAM EXECUTION PIPELINE
+--------------------------------------------------------------------------------
+Vogel's Approximation Method (VAM) is an integrated, systematic algorithm for
+constructing an Initial Basic Feasible Solution (IBFS) to transportation problems.
+
+PHASE 1: BALANCE VERIFICATION & MATRIX SETUP
+- Check if Sum(Supply S_i) == Sum(Demand D_j).
+- If Total Supply > Total Demand: Add a Dummy Column with unit costs c_ij = ₹0
+  and Demand = (Sum S_i - Sum D_j).
+- If Total Demand > Total Supply: Add a Dummy Row with unit costs c_ij = ₹0
+  and Supply = (Sum D_j - Sum S_i).
+
+PHASE 2: DUAL PENALTY COMPUTATION
+- For every active supply row i: P_i = c_(i,2) - c_(i,1).
+- For every active demand column j: P_j = c_(2,j) - c_(1,j).
+- Record P_i in margin columns P_R(p) on the right.
+- Record P_j in margin rows P_C(p) at the bottom.
+
+PHASE 3: REGRET MAXIMIZATION & WINNING LINE SELECTION
+- Identify the global maximum penalty: Max_P = max { P_i, P_j }.
+- If a tie occurs:
+    Tier 1: Select the line with the lowest unit cost min(c_ij).
+    Tier 2: Select the cell allowing the largest allocation min(S_i, D_j).
+    Tier 3: Select arbitrarily.
+- Circle Max_P on your working tableau.
+
+PHASE 4: LEAST-COST ALLOCATION & CAPACITY UPDATE
+- In the winning line L*, find the minimum cost cell (k, l).
+- Allocate x_kl = min(S_k, D_l).
+- Update balances: S_k <-- S_k - x_kl and D_l <-- D_l - x_kl.
+
+PHASE 5: LINE ELIMINATION & DYNAMIC RECALCULATION
+- Cross out the fully satisfied row or column.
+- If S_k == D_l simultaneously, cross out ONLY ONE line (to prevent degeneracy).
+- Repeat Phases 2 through 5 for the reduced active sub-matrix until all
+  supplies and demands reach zero.
+
+PHASE 6: BASIS VERIFICATION & TOTAL COST COMPUTATION
+- Verify that exactly m + n - 1 basic cells have been populated.
+- Confirm that the allocations contain no closed loops.
+- Compute initial transportation cost:
+    Z = Sum_{all basic cells} (c_ij * x_ij) in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+2. FULL STEP-BY-STEP WORKED NUMERICAL EXAMPLE
+--------------------------------------------------------------------------------
+Consider the 3 Origins × 3 Destinations Bengal Foundry Distribution Problem:
+
+Origins:
+  S1 (Barrackpore Heavy): Supply = 70 tons
+  S2 (Ichapur Casting):   Supply = 90 tons
+  S3 (Kolkata Yard):      Supply = 60 tons  (Total Supply = 220 tons)
+Destinations:
+  D1 (Jadavpur Works):    Demand = 60 tons
+  D2 (Salt Lake Hub):     Demand = 80 tons
+  D3 (Howrah Rail):       Demand = 80 tons  (Total Demand = 220 tons -> BALANCED!)
+
+Cost Matrix (₹/ton):
+       D1    D2    D3    Supply  P_R(1)  P_R(2)  P_R(3)
+  S1  ₹8    ₹14   ₹12     70      ₹4      ₹2      —
+  S2  ₹5    ₹19   ₹10     90      ₹5(★)   ₹9(★)   —
+  S3  ₹11   ₹13   ₹7      60      ₹4      ₹6      —
+Demand 60    80    80     220
+P_C(1) ₹3    ₹1    ₹3
+P_C(2) —     ₹1    ₹3
+P_C(3) —    Direct —
+
+PASS 1 EXECUTION:
+- Max Penalty = ₹5 at Row 2 (Ichapur).
+- Lowest cost in Row 2 = ₹5 at cell (S2, D1).
+- Allocate: x_21 = min(90, 60) = 60 tons.
+- S2 becomes 30 tons; D1 becomes 0 tons (Column 1 is struck out!).
+
+PASS 2 EXECUTION:
+- Recalculate penalties for active cols {D2, D3}:
+  P_R1(2) = 14 - 12 = ₹2; P_R2(2) = 19 - 10 = ₹9; P_R3(2) = 13 - 7 = ₹6.
+  P_C2(2) = 14 - 13 = ₹1; P_C3(2) = 10 - 7 = ₹3.
+- Max Penalty = ₹9 at Row 2 (Ichapur).
+- Lowest cost in Row 2 is cell (S2, D3) @ ₹10/ton.
+- Allocate: x_23 = min(30, 80) = 30 tons.
+- S2 becomes 0 tons (Row 2 is struck out!); D3 becomes 50 tons.
+
+PASS 3 EXECUTION:
+- Active rows {S1, S3}; Active cols {D2, D3}.
+  P_R1(3) = 14 - 12 = ₹2; P_R3(3) = 13 - 7 = ₹6.
+  P_C2(3) = 14 - 13 = ₹1; P_C3(3) = 12 - 7 = ₹5.
+- Max Penalty = ₹6 at Row 3 (Kolkata).
+- Lowest cost in Row 3 is cell (S3, D3) @ ₹7/ton.
+- Allocate: x_33 = min(60, 50) = 50 tons.
+- D3 becomes 0 tons (Column 3 is struck out!); S3 becomes 10 tons.
+
+PASS 4 (FINAL FULFILLMENT):
+- Only Column 2 (Salt Lake, Demand = 80) remains active!
+- Allocate remaining 10 tons of S3 to cell (S3, D2) @ ₹13/ton.
+- Allocate remaining 70 tons of S1 to cell (S1, D2) @ ₹14/ton.
+- All supplies and demands are fully satisfied!
+
+FINAL ALLOCATION SUMMARY:
+1. x_21 = 60 tons @ ₹5/ton  = ₹300
+2. x_23 = 30 tons @ ₹10/ton = ₹300
+3. x_33 = 50 tons @ ₹7/ton  = ₹350
+4. x_32 = 10 tons @ ₹13/ton = ₹130
+5. x_12 = 70 tons @ ₹14/ton = ₹980
+
+TOTAL TRANSPORTATION COST:
+    Z = ₹300 + ₹300 + ₹350 + ₹130 + ₹980 = ₹2,060
+
+BASIS COUNT VERIFICATION:
+- Number of basic cells = 5.
+- Formula check: m + n - 1 = 3 + 3 - 1 = 5.
+- Result: Perfectly non-degenerate basic feasible solution!
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supply (Debangshu)
+Full execution on the 3x3 heavy engineering network yields Z = ₹2,060.
+Compared to NWCR cost of ₹2,740, VAM achieved an immediate saving of ₹680 (24.8%).
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Distribution (Mamata & Mahima)
+Full execution on the 2x3 Greater Kolkata healthcare network:
+Final allocations: x_21 = 60 @ ₹4, x_23 = 40 @ ₹15, x_13 = 10 @ ₹9, x_12 = 70 @ ₹18.
+Total Cost Z = (60*4) + (40*15) + (10*9) + (70*18) = 240 + 600 + 90 + 1260 = ₹2,190.
+Basis count: 2 + 3 - 1 = 4 cells.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Supply Network (Susmita)
+Full execution on the 3x3 retail warehouse problem yields Z = ₹570.
+Demonstrates tie-breaking, margin column updating, and basis verification.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Network (Abhronila)
+Demonstrates complete end-to-end verification, showing how the VAM solution
+satisfies all MODI optimality conditions with 0 subsequent pivots.
+
+--------------------------------------------------------------------------------
+4. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Total Supply confirmed equal to Total Demand (or ₹0 dummy added).
+[ ] Multi-pass penalty margins labeled clearly (P_R1, P_R2... / P_C1, P_C2...).
+[ ] Winning maximum penalty circled in each pass.
+[ ] Allocated x = min(Supply, Demand) to least-cost cell inside winning line.
+[ ] Subtracted allocated volume from both supply and demand immediately.
+[ ] Crossed out exhausted line in each pass.
+[ ] Populated exactly m + n - 1 basic cells.
+[ ] Verified that allocations contain no closed loops.
+[ ] Computed total initial transportation cost Z in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • TOPIC 5: COMPLETE VAM PROCEDURE
+================================================================================

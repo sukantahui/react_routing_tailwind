@@ -1,0 +1,99 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 32: THROUGHPUT (BOTTLENECK DYNAMICS, MATHIS FORMULA, GOODPUT & NGFW SIZING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & BOTTLENECK LINK PRINCIPLE
+--------------------------------------------------------------------------------
+Throughput is the actual, measured rate of successful data delivery over a communication
+channel per unit of time (measured in bps, Mbps, Gbps, or MB/s).
+
+Key Fundamental Throughput Principles:
+1. The Bottleneck Link Rule:
+   In a multi-hop path traversing links with capacities $R_1, R_2, \dots, R_N$:
+   $$\text{Throughput} \le \min(R_1, R_2, \dots, R_N)$$
+   End-to-end throughput is strictly constrained by the slowest link in the entire path.
+
+2. Mathis' Formula for Single-Stream TCP Throughput:
+   $$\text{Throughput}_{\text{TCP}} \le \frac{\text{MSS}}{\text{RTT} \cdot \sqrt{p}}$$
+   where $\text{MSS}$ is the Maximum Segment Size, $\text{RTT}$ is Round-Trip Time,
+   and $p$ is the packet loss probability. Even 1% packet loss causes dramatic speed drops.
+
+--------------------------------------------------------------------------------
+2. GOODPUT VS THROUGHPUT VS BANDWIDTH
+--------------------------------------------------------------------------------
+• Bandwidth: Theoretical maximum pipeline capacity (e.g. 1000 Mbps port).
+• Throughput: Measured wire speed including protocol headers and retries (e.g. 850 Mbps).
+• Goodput: Useful application-layer payload delivered excluding Ethernet, IP, TCP,
+  and TLS encryption headers (e.g. 780 Mbps).
+
+Protocol Stack Overhead Decomposition (per 1500-Byte Frame):
+- Ethernet Header & FCS: 18 Bytes
+- IPv4 Header: 20 Bytes
+- TCP Header & Options: 20–32 Bytes
+- TLS 1.3 Encryption Overhead: ~29 Bytes
+- Useful Payload (Goodput): ~1401 Bytes (93.4% Protocol Efficiency)
+
+--------------------------------------------------------------------------------
+3. THROUGHPUT ACCELERATION TECHNOLOGIES
+--------------------------------------------------------------------------------
+• Jumbo Frames (MTU 9000): Expands payload from 1500 to 9000 bytes, reducing CPU
+  interrupt handling overhead by over 80% on 10G/40G storage networks.
+• NIC Hardware Offloading: TSO (TCP Segmentation Offload), LRO (Large Receive Offload),
+  and RSS (Receive Side Scaling) offload packet processing from CPU to NIC ASICs.
+• TCP BBR (Bottleneck Bandwidth and RTT): Congestion control algorithm that maintains
+  high throughput without collapsing during wireless RF packet loss.
+• Link Aggregation (LACP - 802.3ad): Bundles multiple physical cables into a single
+  high-throughput logical trunk with automatic failover.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 10G SAN Jumbo Frame Rollout (Debangshu - Barrackpore)
+Debangshu enabled 9000-byte Jumbo Frames on a 10G iSCSI storage network in Barrackpore for
+₹45,000 in switch transceivers. Backup replication throughput jumped from 4.2 Gbps to
+9.6 Gbps, reducing 2TB database backup time from 65 minutes to 28 minutes.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic NGFW Threat Inspection Sizing (Mahima - Ichapur)
+Mahima deployed a Next-Gen Firewall (FortiGate 100F) in Ichapur for ₹1,85,000. Sizing the
+firewall for 1 Gbps Threat Protection Throughput ensured real-time SSL/TLS malware scanning
+without slowing down doctor MRI image transfers across 50 clinical workstations.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Examination Portal TCP BBR Acceleration (Mamata - Kolkata)
+Mamata enabled the TCP BBR congestion algorithm on Linux web servers in Kolkata for
+₹25,000 in system upgrades. Result publication throughput increased by 240% across
+mobile 4G/5G student clients experiencing 2–4% wireless packet loss.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Multi-Stream iPerf3 Benchmarking (Abhronila - Jadavpur)
+Abhronila benchmarked enterprise core switches in Jadavpur for ₹55,000 in test appliances.
+Single-stream TCP throughput achieved 1.4 Gbps due to window limits; running 8 parallel
+iPerf3 streams (`iperf3 -P 8`) saturated the full 10 Gbps optical line rate.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never confuse raw Bandwidth with actual Application Goodput.
+- Always check intermediate link bottlenecks when troubleshooting slow network transfers.
+- Size Enterprise Firewalls based on 'Threat Inspection Throughput' rather than raw L4 speed.
+- Budget Next-Gen Firewalls and 10G SAN transceivers in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the Bottleneck Link Rule: Throughput <= min(R1, R2, ..., RN).
+[ ] Calculated TCP throughput limits using Mathis' Formula: (MSS / RTT) * (1 / sqrt(p)).
+[ ] Decomposed protocol stack overheads and calculated Goodput efficiency percentage.
+[ ] Evaluated Jumbo Frames (MTU 9000) and NIC Hardware Offloading (TSO/RSS).
+[ ] Compared TCP BBR vs TCP Cubic behavior in lossy wireless environments.
+[ ] Formulated realistic Next-Generation Firewall and 10G SAN budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 32: THROUGHPUT
+================================================================================

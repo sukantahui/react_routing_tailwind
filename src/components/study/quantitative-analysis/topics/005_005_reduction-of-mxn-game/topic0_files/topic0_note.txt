@@ -1,0 +1,85 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_005_reduction-of-mxn-game
+TOPIC 0: NEED FOR REDUCING LARGER PAYOFF MATRICES (DIMENSIONALITY BOTTLENECK & STREAMLINING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE COMPUTATIONAL BOTTLENECK OF LARGE m x n MATRICES
+--------------------------------------------------------------------------------
+In real-world competitive scenarios, organizations frequently identify large sets
+of tactical options, generating 3x3, 4x4, 5x5, or even 10x10 payoff matrices.
+
+THE PROBLEM WITH UNREDUCED m x n MATRICES:
+• High Computational Complexity: Direct solution requires setting up Dual Linear
+  Programming models with m constraints and n variables, requiring lengthy Simplex tableaus.
+• Strategic Redundancy: Most large matrix entries represent inferior, dominated, or
+  duplicative actions that will receive exactly 0.0 probability in equilibrium.
+
+--------------------------------------------------------------------------------
+2. THE PHILOSOPHY OF MATRIX DIMENSIONALITY REDUCTION
+--------------------------------------------------------------------------------
+Dimensionality Reduction systematically prunes redundant decision branches:
+1. Target 1x1: Reduces directly to a pure Saddle Point (if dominance-solvable).
+2. Target 2x2: Reduces to a 2-strategy game solvable via closed-form algebraic formulas (Delta, p*, q*, v*).
+3. Target 2xn or mx2: Reduces to 2-dimensional games solvable via the Graphical Method (lower/upper envelopes).
+
+THE VALUE INVARIANCE THEOREM:
+• The optimal Value of the Game v* in Indian Rupees (₹) remains 100% UNCHANGED throughout
+  all reduction passes!
+
+--------------------------------------------------------------------------------
+3. ISOLATING THE EQUILIBRIUM STRATEGY SUPPORT
+--------------------------------------------------------------------------------
+• By eliminating dominated rows and columns, analysts immediately identify the SUPPORT
+  of the mixed strategy:
+      supp(p*) = { Surviving Rows }
+      supp(q*) = { Surviving Columns }
+• All eliminated strategies receive probability 0.0 in the full strategy vector.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry 5x4 Alloy Bidding Grid Streamlining (Debangshu)
+Debangshu in Barrackpore evaluated 5 production schedules against 4 rival bids.
+Dimensionality reduction eliminated 3 dominated rows and 2 dominated columns, shrinking
+the grid to a 2x2 matrix and locking in ₹35,000 profit in 2 minutes without Simplex LP.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Logistics Multi-City Route Pruning (Mamata & Mahima)
+Mamata and Mahima in Kolkata pruned a 4x4 regional vaccine distribution matrix down to a
+solvable 2x2 fleet game, saving ₹1.2 Lakh in software consulting and modeling fees.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Multi-Tier Promotion Trimming (Susmita)
+Susmita in Ichapur reduced an unmanageable 6x4 retail discount matrix down to 2 core
+promotional moves, eliminating self-defeating margin bleed and securing ₹28,000 in weekly revenue.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Cross-Licensing Agreement Streamlining (Abhronila)
+Abhronila reduced a 5x5 institutional negotiation matrix down to a 2x2 arbitration
+game in Jadavpur, creating an equitable ₹20 Lakh university licensing settlement.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never set up a large Linear Programming tableau before attempting dominance reduction!
+- Pruning rows/columns does NOT change the true optimal Game Value v*.
+- Verify that eliminated strategies are given probability 0.0 in the full-sized vectors.
+- State all payoffs and valuations in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Recognized the computational bottlenecks of large unreduced m x n matrices.
+[ ] Understood the 3 reduction targets: 1x1 (Saddle), 2x2 (Algebraic), and 2xn/mx2 (Graphical).
+[ ] Understood how reduction isolates the strategy support supp(p*) and supp(q*).
+[ ] Verified that the Value of the Game v* is invariant under all valid reductions.
+[ ] Stated all matrix payoffs in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_005 • TOPIC 0: NEED FOR MATRIX REDUCTION
+================================================================================

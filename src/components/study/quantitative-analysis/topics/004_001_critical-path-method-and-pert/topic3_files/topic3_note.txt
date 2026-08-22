@@ -1,0 +1,132 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 3: EVENT, NODE OR CONNECTOR (CLASSIFICATION, FULKERSON'S RULE & EVENT SLACK)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION OF AN EVENT (NODE / CONNECTOR / MILESTONE)
+--------------------------------------------------------------------------------
+An EVENT (or Node) represents an INSTANTANEOUS point in time marking the beginning
+or completion of one or more activities.
+
+CORE PROPERTIES OF AN EVENT:
+1. Zero Time Consumption:  Duration d = 0 (an instant in time, not a process).
+2. Zero Resource Consumption: Cost = ₹0 (no labor or machine consumption).
+3. State Transition Milestone: Signifies that preceding work is 100% complete and
+   succeeding work is mathematically eligible to commence.
+
+--------------------------------------------------------------------------------
+2. THE 6 MAJOR EVENT CLASSIFICATIONS
+--------------------------------------------------------------------------------
+
+1. TAIL EVENT (INITIAL / START EVENT):
+   • The starting milestone of the entire project or a subnetwork.
+   • Has NO incoming activities (Indegree = 0).
+   • By convention, project earliest start begins at E_1 = 0.
+
+2. HEAD EVENT (TERMINAL / SINK EVENT):
+   • The final completion milestone of the entire project.
+   • Has NO outgoing activities (Outdegree = 0).
+   • Marks total project handover.
+
+3. DUAL-ROLE EVENT (INTERMEDIATE EVENT):
+   • Simultaneously serves as the completion (head) milestone for incoming activities
+     and the start (tail) milestone for outgoing activities (Indegree > 0 and Outdegree > 0).
+
+4. BURST EVENT (DIVERGENCE):
+   • An event from which MULTIPLE outgoing activities originate (Outdegree > 1).
+   • Triggers concurrent downstream work streams.
+
+5. MERGE EVENT (CONVERGENCE):
+   • An event into which MULTIPLE incoming activities terminate (Indegree > 1).
+   • Cannot occur until ALL incoming activities have fully finished.
+
+6. BURST-AND-MERGE EVENT:
+   • An event where multiple activities enter and multiple activities leave simultaneously
+     (Indegree > 1 and Outdegree > 1).
+
+--------------------------------------------------------------------------------
+3. FULKERSON'S RULE FOR NODE NUMBERING
+--------------------------------------------------------------------------------
+To ensure logical consistency and prevent backward loops, nodes are numbered
+using D.R. Fulkerson's (1962) topological ordering algorithm:
+
+ALGORITHM:
+1. Identify the initial event with NO incoming arrows (Indegree = 0). Number it '1'.
+2. Delete all outgoing arrows originating from node 1.
+3. Identify all newly formed nodes that now have NO incoming arrows (Indegree = 0).
+   Number them consecutively ('2', '3', etc.).
+4. Delete all outgoing arrows from these newly numbered nodes.
+5. Repeat steps 3 and 4 until the final terminal sink event is numbered 'n'.
+
+GOLDEN PROPERTY:
+For every directed activity (i, j) in the network:
+    Tail Node Number i < Head Node Number j   (i < j strictly holds!)
+
+--------------------------------------------------------------------------------
+4. EVENT TIMING CALCULATIONS & EVENT SLACK
+--------------------------------------------------------------------------------
+
+FORWARD PASS (EARLIEST EVENT TIME E_j):
+    E_1 = 0
+    E_j = max_{(i, j) in Incoming} [ E_i + d_ij ]
+(Takes the MAXIMUM because event j cannot occur until all incoming paths finish!)
+
+BACKWARD PASS (LATEST EVENT TIME L_i):
+    L_n = E_n
+    L_i = min_{(i, j) in Outgoing} [ L_j - d_ij ]
+(Takes the MINIMUM to ensure no downstream deadlines are violated!)
+
+EVENT SLACK (S_i):
+    S_i = L_i - E_i
+• CRITICAL EVENT: Any event with ZERO slack (S_i = 0 ➔ E_i = L_i).
+• Critical path passes strictly through a sequence of Critical Events!
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Milestone Numbering (Debangshu)
+Debangshu applied Fulkerson's rule to number 10 nodes across a Barrackpore furnace overhaul,
+guaranteeing i < j for all casting activities and isolating Critical Events 1, 3, 5, 8, 10.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Dispatch Merge Event Governance (Mamata & Mahima)
+Mamata and Mahima managed Merge Event 6 (Hospital Certification) in Kolkata, ensuring
+civil, electrical, and cold-room checks converged (E_6 = max(24, 30, 28) = 30 days).
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Warehouse Burst Event Synchronization (Susmita)
+Susmita coordinated Burst Event 4 (Conveyor Arrival) in Ichapur, simultaneously triggering
+mechanical mounting, optical sensor calibration, and technician training.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Terminal Sink Certification (Abhronila)
+Abhronila tracked Terminal Sink Event 9 in Jadavpur, verifying that E_9 = L_9 = 45 days
+to trigger a ₹55 Lakh research grant completion certificate.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never assign non-zero duration or cost to an event (d = 0, cost = ₹0).
+- Remember: Forward Pass takes MAXIMUM (E_j = max), Backward Pass takes MINIMUM (L_i = min).
+- Ensure Fulkerson's rule i < j is satisfied for every arrow before calculating times.
+- State all project milestone budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined Event / Node / Milestone (d = 0, cost = ₹0).
+[ ] Classified Tail, Head, Dual-Role, Burst, Merge, and Burst-and-Merge events.
+[ ] Applied Fulkerson's node numbering algorithm to enforce i < j.
+[ ] Computed Earliest Event Time via Forward Pass: E_j = max(E_i + d_ij).
+[ ] Computed Latest Event Time via Backward Pass: L_i = min(L_j - d_ij).
+[ ] Computed Event Slack: S_i = L_i - E_i and identified Critical Events (S_i = 0).
+[ ] Stated milestone financial figures in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 3: EVENT, NODE OR CONNECTOR
+================================================================================

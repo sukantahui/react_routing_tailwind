@@ -1,0 +1,90 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_004_mixed-strategy
+TOPIC 4: DETERMINING OPTIMAL PROBABILITIES (ODDMENTS METHOD, DIFFERENCE RULES & RATIOS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE ODDMENTS METHOD (RULE OF DIFFERENCES)
+--------------------------------------------------------------------------------
+The ODDMENTS METHOD is a classical arithmetic short-cut for calculating the optimal
+mixed strategies p* and q* for 2x2 games without writing simultaneous equations.
+
+STEP-BY-STEP ODDMENTS PROCEDURE:
+
+1. FOR PLAYER A (ROW ODDMENTS):
+   - Subtract the elements of Row 2: |a_21 - a_22|. Place this value opposite Row 1.
+   - Subtract the elements of Row 1: |a_11 - a_12|. Place this value opposite Row 2.
+   - Sum of Row Oddments: O_A = |a_21 - a_22| + |a_11 - a_12|
+   - Optimal Probabilities:
+         p_1* = |a_21 - a_22| / O_A
+         p_2* = |a_11 - a_12| / O_A
+
+2. FOR PLAYER B (COLUMN ODDMENTS):
+   - Subtract the elements of Column 2: |a_12 - a_22|. Place this value opposite Column 1.
+   - Subtract the elements of Column 1: |a_11 - a_21|. Place this value opposite Column 2.
+   - Sum of Column Oddments: O_B = |a_12 - a_22| + |a_11 - a_21|
+   - Optimal Probabilities:
+         q_1* = |a_12 - a_22| / O_B
+         q_2* = |a_11 - a_21| / O_B
+
+NOTE: The sum of row oddments O_A ALWAYS equals the sum of column oddments O_B = |Delta|!
+
+--------------------------------------------------------------------------------
+2. INVARIANCE PROPERTIES OF OPTIMAL PROBABILITIES
+--------------------------------------------------------------------------------
+1. SCALE INVARIANCE:
+   • Multiplying all entries by k > 0 scales both oddments and denominator by k,
+     leaving p* and q* 100% UNCHANGED.
+2. SHIFT INVARIANCE:
+   • Adding a constant c to all entries does not change the differences |a_ij - a_kl|,
+     leaving p* and q* 100% UNCHANGED.
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Shift Ratio via Oddments (Debangshu)
+Debangshu in Barrackpore evaluated matrix [[₹30k, ₹0], [₹0, ₹60k]].
+Row oddments: Row 1 = 60, Row 2 = 30. Total = 90.
+Optimal ratio p* = [60/90, 30/90] = [2/3, 1/3], optimizing furnace allocation.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Logistics Oddments Verification (Mamata & Mahima)
+Mamata and Mahima in Kolkata used column oddments on [[₹20k, ₹10k], [₹5k, ₹30k]].
+Col oddments: Col 1 = |10-30| = 20, Col 2 = |20-5| = 15. Total = 35.
+Optimal fleet split q* = [20/35, 15/35] = [4/7, 3/7], minimizing breakdown variance.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Oddments (Susmita)
+Susmita in Ichapur calculated oddments on [[₹50k, ₹20k], [₹10k, ₹60k]].
+Row 1 = 50, Row 2 = 30. Total = 80. p* = [5/8, 3/8] (62.5% Friday, 37.5% Sunday),
+securing stable retail revenues.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Research Allocation Ratios (Abhronila)
+Abhronila converted patent licensing dispute matrices into oddments ratios in Jadavpur,
+determining exact 50-50 mixed legal positions to secure ₹15 Lakh in university royalties.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never place Row 1's difference opposite Row 1! Remember to SWAP (cross-assign) differences!
+- Never place Col 1's difference opposite Col 1! Cross-assign to Col 2!
+- Always take ABSOLUTE differences (magnitudes must be positive).
+- Verify that O_A == O_B == |Delta|.
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the Oddments Method for Player A: cross-assign row differences.
+[ ] Mastered the Oddments Method for Player B: cross-assign column differences.
+[ ] Verified that total row oddments O_A equals total column oddments O_B.
+[ ] Verified scale and shift invariance of optimal probabilities.
+[ ] Expressed strategy ratios and expected values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_004 • TOPIC 4: DETERMINING OPTIMAL PROBABILITIES
+================================================================================

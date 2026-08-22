@@ -1,0 +1,145 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_002 : HACKING, ETHICAL HACKING & HACKER TYPES
+TOPIC 11       : ETHICAL HACKING CASE STUDIES & INDUSTRY APPLICATIONS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & INDUSTRY APPLICATIONS
+--------------------------------------------------------------------------------
+Cybersecurity is not an academic theory; it is the frontline defense of modern society. 
+From core banking switches in Kolkata and hospital infusion pumps in Ichapur, to 220kV 
+substation electrical grids in Barrackpore, ethical hackers design, test, and defend 
+mission-critical national infrastructure.
+
+--------------------------------------------------------------------------------
+2. MULTI-SECTOR DEFENSE ARCHITECTURE MATRIX
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| INDUSTRY SECTOR    | CRITICAL ASSET AT RISK  | PRIMARY ATTACK TTP | ETHICAL HACKER ARCHITECTURAL REMEDY            |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Banking &       | Core UPI 2.0 switches & | - SWIFT DLL hooks  | - Hardware Security Modules (FIPS 140-2 L3)    |
+|    FinTech         | inter-bank wire queues  | - FASTCash trojans | - Cryptographic MAC signatures on ISO 8583     |
+|                    |                         | - POS RAM scrapers | - PCI-DSS 4.0 tokenization & Anti-Magecart     |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Healthcare &    | IoMT infusion pumps,    | - Cleartext DICOM  | - Clinical VLAN Micro-segmentation             |
+|    Hospitals       | MRI scanners & EHR data | - Unpatched legacy | - Immutable AWS S3 WORM backups                |
+|                    |                         | - Medical ransom   | - FIDO2 MFA on all clinical terminals          |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. Critical Grid   | 220kV Substation PLCs,  | - Industroyer IEC  | - Unidirectional Optical Data Diodes           |
+|    & SCADA         | RTUs, & switchgears     | - HMI hijackings   | - Purdue Model Level 3.5 Industrial DMZ (IDMZ) |
+|                    |                         | - BlackEnergy LotL | - IEC 62443 Zones & Conduits segmentation      |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. Cloud &         | Multi-tenant K8s nodes, | - IAM PassRole priv| - Kubernetes NetworkPolicy Layer 7 egress locks|
+|    E-Commerce      | AWS cloud root accounts | - SSRF metadata    | - Snyk SCA + SBOM automated CI/CD quality gates|
+|                    |                         | - Magecart scripts | - CSP headers + Subresource Integrity (SRI)   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 5. Aerospace &     | 5G Core Network Slices, | - BGP Hijacking    | - RPKI Route Origin Authorization (ROA)        |
+|    Telecom         | ADS-B aircraft radar    | - SDR ADS-B spoof  | - Cryptographically authenticated ADS-B avionics|
+|                    |                         | - Inter-slice pivot| - Software-Defined Network (SDN) slice boundary|
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. LANDMARK HISTORICAL CASE STUDIES ANALYZED
+--------------------------------------------------------------------------------
+
+[1. 2016 BANGLADESH BANK SWIFT HEIST (₹650 CRORES / $81M)]
+  * Root Cause: Unsegmented $10 office switches connected to SWIFT gateway.
+  * Malware Tradecraft: Lazarus Group injected `evtdt.exe`, hooking a PDF printer DLL (`fxservice.dll`) 
+    to prevent paper receipts of fraudulent MT103 wire transfers from printing.
+  * Ethical Remediation: Mandatory Hardware Security Modules (HSMs) & dedicated air-gapped SWIFT VLANs.
+
+[2. 2021 COLONIAL PIPELINE RANSOMWARE CRISIS ($4.4M / ₹35 CRORES)]
+  * Root Cause: Single-factor legacy VPN account with no Multi-Factor Authentication (MFA).
+  * Impact: Paralyzed 5,500 miles of fuel pipelines across US East Coast for 6 days.
+  * Ethical Remediation: Universal FIDO2 MFA enforcement & automated dark-web password audit.
+
+[3. 2022 AIIMS NEW DELHI RANSOMWARE OUTAGE]
+  * Root Cause: Ransomware compromised core EHR database and laboratory billing servers.
+  * Impact: Paralyzed online services for 14 days; doctors reverted to manual paper registers.
+  * Ethical Remediation: Immutable AWS S3 WORM storage & strict hospital clinical micro-segmentation.
+
+[4. 2015 UKRAINE POWER GRID BLACKOUT (BLACKENERGY 3 / INDUSTROYER)]
+  * Root Cause: Spear-phishing macro gave remote HMI mouse control to Russian Sandworm APT.
+  * Attack Sequence: Opened 220kV circuit breakers across 30 substations and wiped bridge firmware (KillDisk).
+  * Ethical Remediation: Hardware optical data diodes & cryptographically signed IEC 61850 commands.
+
+[5. 2020 SOLARWINDS ORION SUPPLY CHAIN ATTACK (SUNBURST / UNC2452)]
+  * Root Cause: Build environment injected backdoor code during official DLL compilation.
+  * Impact: 18,000 global enterprise and government clients installed trojanized updates.
+  * Ethical Remediation: Multi-party build verification & Software Bill of Materials (CycloneDX SBOM).
+
+--------------------------------------------------------------------------------
+4. INDIAN REGULATORY & OPERATIONAL STANDARDS
+--------------------------------------------------------------------------------
+
+1. Reserve Bank of India (RBI) Cyber Security Framework:
+   - Mandatory annual comprehensive VAPT by CERT-In empanelled auditors.
+   - Mandatory field-level encryption for core UPI and payment settlement queues.
+
+2. Digital Personal Data Protection (DPDP) Act, 2023:
+   - Statutory civil penalty cap up to ₹250 Crores for corporate data fiduciary negligence.
+
+3. CERT-In Directives (2022):
+   - Mandatory incident reporting within 6 hours of confirmation.
+   - 180-day centralized log archival retained within India.
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : SWIFT GATEWAY HARDWARE VAULT (KOLKATA FINTECH)
+  * Lead Forensic Auditor : Mamata | Budget : ₹14,50,000 | Location : Kolkata
+  * Dilemma : Hardening inter-bank wire settlement switches against FASTCash memory-hooking trojans.
+  * Action : Deployed FIPS 140-2 Level 3 Hardware Security Modules (HSMs) and enforced mutual TLS (mTLS) 
+    with hardware PKI smartcards, completely eliminating software memory scraping vulnerabilities.
+
+SCENARIO 2 : IOMT INFUSION PUMP CLINICAL MICRO-SEGMENTATION (ICHAPUR HOSPITAL)
+  * Chief Healthcare Security Officer : Mahima | Budget : ₹6,20,000 | Location : Ichapur
+  * Dilemma : Hospital IoMT smart infusion pumps ran unpatched embedded Linux vulnerable to remote telemetry spoofing.
+  * Action : Created an isolated clinical VLAN with Layer 7 stateful firewall policies and deployed immutable 
+    AWS S3 WORM storage for 50,000 oncology patient records, achieving full DPDP Act compliance.
+
+SCENARIO 3 : 220KV SUPERGRID OPTICAL DATA DIODE (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹9,80,000 | Location : Barrackpore
+  * Dilemma : Protecting high-voltage switchgear RTU controllers against BlackEnergy/Industroyer cyber-kinetic sabotage.
+  * Action : Installed unidirectional optical data diodes separating corporate billing from SCADA controllers, 
+    physically guaranteeing zero inbound command injection into substation breakers.
+
+SCENARIO 4 : CI/CD SUPPLY CHAIN BUILD TAMPERING LAB (JADAVPUR UNIVERSITY)
+  * Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Authoring open-source detection algorithms to catch SolarWinds-style background build-pipeline injections.
+  * Action : Built an automated hermetic build verification engine comparing reproducible binary hashes against 
+    Git source trees, publishing the framework to the global cybersecurity community.
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL ARCHITECTURAL HABITS:
+  1. Enforce Optical Air-Gaps on SCADA: Never trust software firewalls alone for power grids.
+  2. Implement Immutable WORM Backups: Ensure ransomware cannot delete backups even with admin keys.
+  3. Deploy Hardware Security Modules: Never store master cryptographic keys in plaintext server RAM.
+
+* COMMON BEGINNER INDUSTRY MISTAKES:
+  - Assuming internal networks are safe once past the perimeter firewall (Castle-and-Moat fallacy).
+  - Mixing hospital patient Wi-Fi on the same subnet as smart infusion pumps and MRI machines.
+  - Storing credit card CVVs or cleartext passwords in database tables (Violates PCI-DSS & DPDP Act).
+  - Forgetting to conduct live tabletop disaster drills with executive leadership.
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Bangladesh Bank Heist (2016): Printer DLL hooked to hide $81M fraudulent wire transfers.
+[ ] Colonial Pipeline (2021): Single-factor legacy VPN caused nationwide fuel shutdown.
+[ ] AIIMS Delhi (2022): Ransomware encrypted hospital EHRs, forcing 14 days of manual pen/paper.
+[ ] Ukraine Power Grid (2015): First cyber attack to open circuit breakers and black out power.
+[ ] SolarWinds (2020): Build pipeline compromised to distribute trojanized signed DLL updates.
+[ ] Optical Data Diodes use physical light beams to guarantee 100% one-way SCADA data flow.
+[ ] Purdue Model Level 3.5 IDMZ strictly isolates corporate IT from industrial SCADA OT.
+[ ] DPDP Act 2023 caps corporate penalties at ₹250 Crores for personal data breaches.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 11 (CYBER SECURITY BCAC703)
+================================================================================

@@ -1,0 +1,83 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 26: TRANSMISSION MEDIA OVERVIEW (GUIDED, UNGUIDED, FIBER & COPPER PHYSICS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & PHYSICAL LAYER TAXONOMY
+--------------------------------------------------------------------------------
+Transmission Media is the physical conduit (guided / bounded) or free-space
+electromagnetic channel (unguided / unbounded) that transports data bits as physical
+signals (electrical voltages, optical laser pulses, or radio waves) between network
+devices across OSI Layer 1.
+
+Primary Classifications:
+1. GUIDED (WIRED / BOUNDED) MEDIA:
+   - Signals are physically contained and guided within solid conductors or glass.
+   - Includes: Twisted-Pair Copper (UTP/STP), Coaxial Cables, Optical Fiber (SMF/MMF).
+2. UNGUIDED (WIRELESS / UNBOUNDED) MEDIA:
+   - Electromagnetic waveforms propagate freely through the atmosphere or space.
+   - Includes: Radio Frequency (RF - Wi-Fi/Cellular), Microwaves (LOS dishes), Infrared.
+
+--------------------------------------------------------------------------------
+2. GUIDED TRANSMISSION MEDIA COMPARISON
+--------------------------------------------------------------------------------
+Medium Type       | Max Bandwidth | Max Segment Dist | EMI Immunity | Est. Cost (₹)
+--------------------------------------------------------------------------------
+Cat5e UTP Copper  | 1 Gbps        | 100 meters       | Low          | ₹25 – ₹35 / meter
+Cat6 UTP Copper   | 10 Gbps (55m) | 100 meters       | Medium       | ₹35 – ₹55 / meter
+Cat6a STP Copper  | 10 Gbps       | 100 meters       | High (Shield)| ₹60 – ₹95 / meter
+Multi-Mode Fiber  | 10G/40G/100G  | 300 – 550 meters | Total (100%) | ₹120 – ₹220 / meter
+Single-Mode Fiber | 100G – 800G+  | 40 – 80+ km      | Total (100%) | ₹150 – ₹350 / meter
+Coaxial (RG-6)    | 1 Gbps (DOCSIS| 500 meters       | High         | ₹30 – ₹50 / meter
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Inter-Building Fiber Run (Debangshu - Barrackpore)
+Debangshu installed a 6-core Single-Mode OS2 armored optical fiber link (650m) between two
+manufacturing buildings in Barrackpore for ₹85,000. It provides 10Gbps line rate, complete
+immunity to industrial arc-furnace EMI, and zero lightning surge risks.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Cat6a Shielded Cabling (Mahima - Ichapur)
+Mahima installed certified Cat6a S/FTP pure copper cabling in an MRI diagnostic wing in
+Ichapur for ₹1,40,000. The metallic shielding prevents high-magnetic-field interference
+from corrupting patient monitoring data packets.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: University Multi-Department Backbone Modernization (Mamata - Kolkata)
+Mamata deployed OM4 multi-mode fiber backbones across 8 academic departments in Kolkata for
+₹4,50,000, connecting departmental distribution switches to the central server farm with
+40Gbps link aggregation and sub-millisecond latency.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: High-Tech Cyber Lab Optical Intrusion Monitoring (Abhronila - Jadavpur)
+Abhronila implemented an Optical Fiber Intrusion Detection System (OFIDS) in Jadavpur for
+₹75,000, detecting micro-bending light leakage and physical cable tampering to protect
+classified research networks from physical wiretapping.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never exceed the 100-meter total channel limit for Category 6 copper twisted-pair cables.
+- Beware of cheap Copper-Clad Aluminum (CCA) cables; always demand 100% solid bare copper (23AWG).
+- Enforce Plenum-rated (CMP) jackets in ceiling air return plenums for fire code compliance.
+- Formulate all structured cabling, fiber splicing, and testing budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Differentiated between Guided (wired) and Unguided (wireless) transmission media.
+[ ] Explained the physics of differential signaling and pair twisting in UTP cables.
+[ ] Mastered Total Internal Reflection (TIR) and Single-Mode vs Multi-Mode fiber differences.
+[ ] Memorized the TIA/EIA-568B pinout color codes for RJ-45 termination.
+[ ] Understood signal attenuation (dB), dispersion, Near-End Crosstalk (NEXT), and Shannon capacity.
+[ ] Formulated realistic structured cabling and fiber optic budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 26: TRANSMISSION MEDIA OVERVIEW
+================================================================================

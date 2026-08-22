@@ -1,0 +1,93 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_002_cyber-security-definition
+TOPIC 4: CYBER SPACE (THE THREE STRUCTURAL LAYERS, ASYMMETRY & CYBER GOVERNANCE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & NATURE OF CYBERSPACE
+--------------------------------------------------------------------------------
+Cyberspace is a global, human-created domain within the information environment consisting of the
+interdependent network of information technology infrastructures, including the Internet,
+telecommunications networks, computer systems, and embedded processors and controllers.
+
+Distinct Characteristics:
+• Artificial & Malleable: Purely man-made and constantly reshaped by software code and protocols.
+• Borderless & Transnational: Digital packet flows ignore physical geography and sovereign boundaries.
+• Speed-of-Light Propagation: Cyber weapons and data streams traverse global fiber optic links in milliseconds.
+• Asymmetry of Warfare: A small, low-cost hacking team can threaten massive corporations or nation-states.
+• Attribution Problem: Obfuscation techniques (Tor, VPN proxies, false flags) make proving guilt difficult.
+
+--------------------------------------------------------------------------------
+2. THE THREE STRUCTURAL LAYERS OF CYBERSPACE
+--------------------------------------------------------------------------------
+1. Physical Layer:
+   • Hardware components: Submarine undersea fiber optic cables (99% of global traffic), satellite links,
+     terrestrial microwave towers, server data centers, core routers, and physical switch silicon.
+2. Logical Layer:
+   • Software & protocols: TCP/IP packet structures, BGP routing tables, DNS resolution, operating systems,
+     web services, APIs, and cryptographic communication protocols (TLS 1.3, IPsec).
+3. Cyber-Persona & Cognitive Layer:
+   • Digital identities and human minds: User accounts, email addresses, biometric profiles, social personas,
+     and the human cognitive decision-making processes targeted by phishing and disinformation.
+
+--------------------------------------------------------------------------------
+3. CYBERSPACE GOVERNANCE & INDIAN LEGAL FRAMEWORK
+--------------------------------------------------------------------------------
+• Information Technology Act 2000:
+  - Section 43/66: Unauthorized access, hacking, and computer system damage penalties.
+  - Section 66C: Identity theft and fraudulent impersonation.
+  - Section 69A: Sovereign authority to issue website and domain takedowns for national security.
+• National Regulatory Bodies:
+  - CERT-In: National nodal agency mandating 6-hour cybersecurity incident reporting.
+  - NCIIPC: Designated agency protecting Critical Information Infrastructure (CII) under Section 70A.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry External Attack Surface Management (Debangshu - Barrackpore)
+Debangshu deployed an External Attack Surface Management (EASM) platform in Barrackpore for ₹3,80,000.
+The system discovered an unpatched legacy VPN gateway exposed to public cyberspace, closing the vector
+before automated foreign ransomware scanners could exploit it.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic DNSSEC Cryptographic Zone Protection (Mahima - Ichapur)
+Mahima implemented DNSSEC across hospital domain registrars in Ichapur for ₹1,20,000. Cryptographically
+signing all DNS resource records eliminated DNS cache poisoning risks, ensuring 85,000 patients are never
+diverted to rogue phishing portals.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: State Research University BGP RPKI Route Hijack Defense (Mamata - Kolkata)
+Mamata deployed Resource Public Key Infrastructure (RPKI) and Route Origin Authorizations (ROAs)
+for university BGP routers in Kolkata for ₹4,50,000. When a rogue foreign autonomous system attempted
+to hijack the university's IP prefix, invalid BGP routes were autonomously dropped.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab LEO Satellite & Cyber Range Sandbox (Abhronila - Jadavpur)
+Abhronila established a simulated cyberspace warfare cyber range in Jadavpur for ₹2,80,000.
+Students simulate multi-layer cyberspace attacks, defending simulated physical satellite downlinks,
+logical BGP routers, and cognitive social engineering vectors against live red-team adversaries.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never view cyberspace as purely abstract software; protect its physical cables and data centers.
+- Deploy DNSSEC and BGP RPKI to defend against logical layer cyberspace redirection and hijacking.
+- Remember that human cognitive biases are an integral layer of cyberspace attack surfaces.
+- Formulate all enterprise EASM, DNSSEC, and cyber range budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped the fundamental definition and characteristics of Cyberspace vs physical domains.
+[ ] Evaluated the Three Structural Layers: Physical, Logical, and Cyber-Persona/Cognitive.
+[ ] Analyzed Asymmetric Warfare, Attribution Challenges, and False Flag operations.
+[ ] Investigated BGP Route Hijacking, RPKI, and DNSSEC Cache Poisoning defenses.
+[ ] Understood the Indian IT Act 2000 (Section 43, 66, 69A), CERT-In, and NCIIPC governance.
+[ ] Formulated realistic enterprise attack surface management budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_002 • TOPIC 4: CYBER SPACE
+================================================================================

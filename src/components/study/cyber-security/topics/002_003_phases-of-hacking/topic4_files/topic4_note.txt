@@ -1,0 +1,139 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_003 : PHASES OF HACKING METHODOLOGY
+TOPIC 04       : PORT SCANNING, BANNER GRABBING & VULNERABILITY SCANNING
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE SCANNING TRIAD
+--------------------------------------------------------------------------------
+In Phase 2 of ethical hacking, security auditors execute an integrated 3-stage scanning pipeline:
+
+  STAGE 1 : PORT SCANNING        --> Discovers active IP addresses and listening TCP/UDP transport ports.
+  STAGE 2 : BANNER GRABBING      --> Connects to open ports to extract exact software daemon versions.
+  STAGE 3 : VULNERABILITY SCAN   --> Correlates version banners against CVE databases to identify exploitable bugs.
+
+Together, this triad provides the technical blueprint required for surgical Phase 3 exploitation.
+
+--------------------------------------------------------------------------------
+2. BANNER GRABBING TECHNIQUES & HARDENING
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| SERVICE / DAEMON   | RAW RESPONSE BANNER     | ASSOCIATED CVEs    | BANNER SUPPRESSION DIRECTIVE                   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Apache HTTP     | "Server: Apache/2.4.49  | - CVE-2021-41773   | Set `ServerTokens Prod` & `ServerSignature Off`|
+|    (Port 80/443)   |  (Unix) OpenSSL/1.1.1"  |   (Path Traversal) | in `/etc/apache2/conf-enabled/security.conf`   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Nginx Web       | "Server: nginx/1.18.0   | - CVE-2021-23017   | Set `server_tokens off;` inside http {} block  |
+|    (Port 80/443)   |  (Ubuntu Linux)"        |   (DNS Resolver RCE| in `/etc/nginx/nginx.conf`                    |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. ProFTPD Server  | "220 ProFTPD 1.3.5      | - CVE-2015-3306    | Set `ServerIdent off` or upgrade to patched    |
+|    (Port 21 FTP)   |  Server Ready"          |   (mod_copy RCE)   | release in `/etc/proftpd/proftpd.conf`         |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. OpenSSH Server  | "SSH-2.0-OpenSSH_8.2p1  | - CVE-2023-38408   | Set `DebianBanner no` in `/etc/ssh/sshd_config`|
+|    (Port 22 SSH)   |  Ubuntu-4ubuntu0.5"     |   (Agent PKCS11)   | and restrict SSH access to internal VPN IPs    |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. AUTOMATED VULNERABILITY SCANNER TAXONOMY
+--------------------------------------------------------------------------------
+
+[1. TENABLE NESSUS PROFESSIONAL]
+  * Category: Enterprise Network Vulnerability Scanner.
+  * Engine: 180,000+ plugins written in NASL (Nessus Attack Scripting Language).
+  * Method: Runs host discovery, port scans, and automated CVE correlation with CVSS v3.1 scores.
+
+[2. OPENVAS / GREENBONE VULNERABILITY MANAGEMENT (GVM)]
+  * Category: Open-Source Network Vulnerability Scanner.
+  * Engine: Network Vulnerability Tests (NVTs) updated daily by the community.
+  * Advantage: Zero licensing fees; full authenticated and unauthenticated scanning.
+
+[3. NIKTO WEB SCANNER]
+  * Category: Command-Line Web Server Misconfiguration Scanner.
+  * Engine: Checks for 6,700+ dangerous files, default CGIs, outdated server software, and missing headers.
+  * Command: `nikto -h https://target.com -ssl`
+
+[4. OWASP ZAP (ZED ATTACK PROXY)]
+  * Category: Dynamic Application Security Testing (DAST) Web Proxy.
+  * Engine: Passive traffic inspection + Active injection fuzzing (SQLi, XSS, Command Injection).
+  * Command: `zap-cli quick-scan https://target.com`
+
+--------------------------------------------------------------------------------
+4. CVSS v3.1 SEVERITY SCORING SYSTEM
+--------------------------------------------------------------------------------
+
+  * 0.0          --> NONE
+  * 0.1 - 3.9    --> LOW
+  * 4.0 - 6.9    --> MEDIUM
+  * 7.0 - 8.9    --> HIGH
+  * 9.0 - 10.0   --> CRITICAL (Unauthenticated Remote Code Execution without user interaction)
+
+--------------------------------------------------------------------------------
+5. THE 5-STAGE VULNERABILITY MANAGEMENT LIFECYCLE
+--------------------------------------------------------------------------------
+
+  [ STAGE 1: DISCOVER ]   --> Continuously scan network, cloud, and container assets across IP ranges.
+  [ STAGE 2: PRIORITIZE ] --> Score findings based on CVSS severity and business asset criticality.
+  [ STAGE 3: ASSESS ]     --> Triage results to eliminate false positives via authenticated re-checks.
+  [ STAGE 4: REMEDIATE ]  --> Apply vendor patches, configuration changes, or WAF virtual patching rules.
+  [ STAGE 5: VERIFY ]     --> Rescan endpoints to confirm 100% vulnerability resolution.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : PAYMENT GATEWAY CVE TRIAGE AUDIT (KOLKATA FINTECH)
+  * Lead Security Auditor : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Identifying unpatched OpenSSL and Apache vulnerabilities across core banking payment gateways.
+  * Action : Ran Nessus and Nmap NSE (`--script vuln`), uncovering an unpatched Apache 2.4.49 server 
+    vulnerable to Path Traversal (CVE-2021-41773), and deploying immediate Docker container patch upgrades.
+
+SCENARIO 2 : PATIENT PORTAL DAST VULNERABILITY SCAN (ICHAPUR HOSPITAL)
+  * Chief Healthcare Security Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Scanning hospital public patient appointment portals for SQL injection and missing security headers.
+  * Action : Executed Nikto and OWASP ZAP DAST scans, identifying missing HSTS and X-Frame-Options headers, 
+    and configuring Nginx security headers to prevent clinical patient portal Clickjacking.
+
+SCENARIO 3 : SCADA RTU BANNER HARDENING (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Substation Ethernet switches and Modbus RTUs returned verbose hardware banners to internal probes.
+  * Action : Hardened OT gateway configs, suppressing all service banners, and enforcing IP whitelisting 
+    to prevent automated Nessus scanners from discovering underlying firmware versions.
+
+SCENARIO 4 : CUSTOM NMAP NSE LUA VULNERABILITY LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching university students how automated scanners match service banners with CVE databases.
+  * Action : Developed a custom Nmap NSE Lua script that extracts service banners, queries the NVD API 
+    in real time, and outputs an automated Markdown vulnerability report, training 140+ students.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL VULNERABILITY SCANNING HABITS:
+  1. Use Authenticated Scans for Internal Audits: Inspecting local packages eliminates false positives.
+  2. Enforce Rate Limiting (`--max-rate 50`): Prevent scanner traffic from overwhelming production servers.
+  3. Deploy Security Headers: Enforce CSP, HSTS, and X-Frame-Options on all web servers.
+
+* COMMON BEGINNER SCANNING MISTAKES:
+  - Relying exclusively on unauthenticated network scans (leads to high false positive rates).
+  - Scanning live production databases without rate limiting (causes connection pool exhaustion).
+  - Leaving server banners set to default (leaks exact minor version strings to attackers).
+  - Ignoring CERT-In 6-hour incident reporting rules during active critical vulnerability discovery.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Banner grabbing extracts software version strings from open network ports.
+[ ] Nmap `-sV` queries `nmap-service-probes` to identify silent or non-standard services.
+[ ] Nmap NSE `--script vuln` automates detection of major CVEs (EternalBlue, Log4j).
+[ ] Nessus uses 180,000+ NASL plugins for enterprise vulnerability assessments.
+[ ] Authenticated scans log into the host OS to inspect installed packages with high accuracy.
+[ ] CVSS v3.1 scores range from 0.0 to 10.0 (Critical is 9.0 to 10.0).
+[ ] Apache `ServerTokens Prod` and Nginx `server_tokens off;` suppress version banners.
+[ ] CERT-In directions mandate reporting critical cyber incidents within 6 hours.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 04 (CYBER SECURITY BCAC703)
+================================================================================

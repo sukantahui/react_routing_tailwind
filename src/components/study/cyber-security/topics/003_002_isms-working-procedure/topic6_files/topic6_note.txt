@@ -1,0 +1,134 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_002 : ISMS FRAMEWORK & WORKING PROCEDURES
+TOPIC 06       : INCIDENT MANAGEMENT PROCEDURES AND ESCALATION PATHS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE INCIDENT RESPONSE LIFECYCLE
+--------------------------------------------------------------------------------
+Security incidents are an inevitable reality of modern computing. An Information Security 
+Management System (ISMS) must maintain rapid, repeatable, and legally compliant incident response 
+capabilities under ISO/IEC 27001 (Controls A.5.24 to A.5.28) and NIST SP 800-61:
+
+  * EVENT vs INCIDENT : An 'Event' is any observable occurrence (e.g. firewall ping); an 'Incident' 
+                        is an unwanted event that threatens the Confidentiality, Integrity, or Availability.
+  * THE LIFECYCLE     : Preparation ➔ Detection & Analysis ➔ Containment, Eradication & Recovery 
+                        ➔ Post-Incident Activity & Lessons Learned.
+
+--------------------------------------------------------------------------------
+2. THE 4 PHASES OF INCIDENT RESPONSE (NIST SP 800-61 / ISO 27035)
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| IR LIFECYCLE PHASE | OPERATIONAL FOCUS       | MANDATORY TECHNICAL & GOVERNANCE TASKS         |
++--------------------+-------------------------+------------------------------------------------+
+| 1. PREPARATION     | Readiness & Tooling     | Author playbooks, establish out-of-band Signal |
+|                    |                         | war rooms, configure SIEM/SOAR rules.          |
+|                    |                         |                                                |
+| 2. DETECTION       | Triage & Severity       | Match Indicators of Compromise (IOCs), assign  |
+|                    |                         | severity (P1-P4), achieve MTTD < 15 seconds.   |
+|                    |                         |                                                |
+| 3. CONTAINMENT     | Isolation & Recovery    | Network isolation, live RAM dump, revoke tokens|
+|                    |                         | wipe backdoors, restore clean immutable backups|
+|                    |                         |                                                |
+| 4. POST-INCIDENT   | RCA & Legal Evidence    | Blameless post-mortem, 5-Whys RCA, CAPA plans, |
+|                    |                         | sign Section 65B Digital Evidence Certificate. |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. INCIDENT SEVERITY MATRIX & ESCALATION SLA
+--------------------------------------------------------------------------------
+
+  * P1 CRITICAL (Enterprise Outage / Data Breach) :
+    - Escalation: War room in 15m ➔ CISO & CEO alerted ➔ CERT-In reported in < 6 hours.
+  * P2 HIGH (Single Server / Database Compromised) :
+    - Escalation: Tier 3 Forensic Lead assigned ➔ Containment within 1 hour.
+  * P3 MEDIUM (Isolated Phishing / Malware Blocked) :
+    - Escalation: Tier 2 SOC Analyst assigned ➔ Triage within 4 hours.
+  * P4 LOW (Minor Policy Violation / Port Scan) :
+    - Escalation: Automated SOAR playbook closes ticket within 24 hours.
+
+--------------------------------------------------------------------------------
+4. STATUTORY MANDATES UNDER INDIAN LAW
+--------------------------------------------------------------------------------
+
+  * IT ACT 2000 SECTION 70B (CERT-In DIRECTIONS 2022):
+    - Mandatory duty to report 20 specified categories of cyber incidents (ransomware, leaks, 
+      unauthorized access) to 'incident@cert-in.org.in' WITHIN 6 HOURS of noticing!
+  * DPDP ACT 2023 SECTION 8(6) & SECTION 33:
+    - Mandatory duty to notify the Data Protection Board of India (DPBI) and affected citizens 
+      in the event of a personal data breach, shielding the firm from ₹250 Crore fines!
+  * SECTION 65B OF INDIAN EVIDENCE ACT / BSA 2023:
+    - Meticulous Chain of Custody + SHA-256 hashes + signed Section 65B Certificate ensures 
+      all digital logs and memory dumps are 100% legally admissible in court.
+
+--------------------------------------------------------------------------------
+5. FORENSIC EVIDENCE PRESERVATION PROTOCOL
+--------------------------------------------------------------------------------
+
+  CRITICAL RULE: NEVER POWER DOWN OR REBOOT AN INFECTED SERVER IMMEDIATELY!
+  1. Capture Volatile Memory (RAM) using LiME / DumpIt before rebooting.
+  2. Disconnect Network Cable (Soft Isolation) to halt lateral spread.
+  3. Capture Bit-by-Bit Disk Image (dd / FTK Imager) and record SHA-256 hash.
+  4. Fill Chain of Custody Manifest and store image in encrypted offline vault.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : 6-HOUR CERT-In RANSOMWARE CONTAINMENT (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : Ransomware strain infected 2 payment worker nodes during peak Diwali UPI traffic.
+  * Action : Executed automated SOAR quarantine (MTTR = 42s), notified CISO via out-of-band Signal, 
+    and submitted official incident report to CERT-In within 2 hours 15 minutes (under 6h SLA).
+
+SCENARIO 2 : PACS HEALTHCARE DATA BREACH CONTAINMENT (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : Unauthorized external IP attempted database exfiltration of 80,000 oncology scans.
+  * Action : Isolated DICOM PACS servers, captured volatile memory, notified DPBI and affected 
+    cancer patients under DPDP Act Section 8(6), preventing ₹250 Crore statutory penalty exposure.
+
+SCENARIO 3 : 220KV SUBSTATION SCADA INTRUSION TRIAGE (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : Rogue IP detected probing RTU firmware keys across 18 high-voltage 220kV substations.
+  * Action : Activated OT emergency isolation playbook, preserved SCADA network packet captures under 
+    Section 65B, and escalated to NCIIPC within 45 minutes under IT Act Section 70 directives.
+
+SCENARIO 4 : INCIDENT PLAYBOOK & CERT-In ESCALATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled with live RAM capture and CERT-In 6-hour statutory reporting timelines.
+  * Action : Developed an interactive Incident Response Playbook and CERT-In 6-Hour SLA Escalation 
+    Simulator in React, training 215+ BCA cyber security students on live forensic incident handling.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL INCIDENT RESPONSE HABITS:
+  1. Use Out-of-Band Communications: Coordinate P1 war rooms on Signal, never corporate email.
+  2. Dump Live RAM Before Shutdown: Preserve encryption keys and active malware sockets.
+  3. Comply with the 6-Hour CERT-In SLA: Submit reports to incident@cert-in.org.in on time.
+  4. Conduct Blameless Post-Mortems: Focus on architectural 5-Whys root causes rather than blaming staff.
+
+* COMMON BEGINNER IR PITFALLS:
+  - Rebooting infected machines immediately (Destroys all volatile forensic RAM evidence).
+  - Discussing active breaches on corporate email (Allows the attacker to read your containment plans).
+  - Concealing data breaches (Violates DPDP Act Section 8(6) -> triggers ₹250 Cr statutory fines).
+  - Failing to maintain Chain of Custody (Renders digital evidence inadmissible in court).
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] 4 IR Phases: Preparation ➔ Detection ➔ Containment/Recovery ➔ Post-Incident.
+[ ] Controls A.5.24 to A.5.28 govern Information Security Incident Management.
+[ ] CERT-In Directions 2022 mandate reporting cyber incidents within 6 HOURS.
+[ ] DPDP Act 2023 Section 8(6) mandates notifying DPBI and affected citizens of data breaches.
+[ ] Live volatile RAM must be captured before disconnecting power or rebooting.
+[ ] Out-of-band communication (Signal) prevents attackers from monitoring IR teams.
+[ ] Section 65B Certificates prove digital evidence integrity for court admissibility.
+[ ] Automated SOAR reduces MTTD to seconds and MTTR to minutes.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 06 (CYBER SECURITY BCAC703 - MODULE 003_002)
+================================================================================

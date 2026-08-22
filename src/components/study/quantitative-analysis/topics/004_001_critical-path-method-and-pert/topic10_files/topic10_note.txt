@@ -1,0 +1,116 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 10: PROJECT DURATION (TIME-COST OPTIMIZATION, U-SHAPED TOTAL COST & CRASHING)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION OF PROJECT DURATION
+--------------------------------------------------------------------------------
+The PROJECT DURATION (T) is the total elapsed calendar time from project commencement
+(Node 1 at time t = 0) to final project handover (Node n).
+
+MATHEMATICAL RELATIONSHIP:
+    Project Duration T = Earliest Finish of Terminal Node E_n = Length of Critical Path
+
+--------------------------------------------------------------------------------
+2. NORMAL DURATION VS. CRASH DURATION
+--------------------------------------------------------------------------------
+
+1. NORMAL PROJECT DURATION (T_normal):
+   • Standard project duration executed with normal crew sizes, regular shift hours,
+     and standard supply deliveries at minimum direct expenditure (Normal Direct Cost C_n).
+
+2. CRASH PROJECT DURATION (T_crash):
+   • The absolute theoretical minimum time required to complete the project by
+     deploying maximum overtime, multi-shift labor, expedited air freight, and premium
+     equipment rentals regardless of direct expense (Crash Direct Cost C_c).
+
+--------------------------------------------------------------------------------
+3. THE TIME-COST TRADE-OFF & THE U-SHAPED TOTAL COST CURVE
+--------------------------------------------------------------------------------
+Every project is governed by two opposing financial cost drivers:
+
+1. DIRECT COSTS (C_direct):
+   • Costs directly tied to activity execution (labor wages, equipment fuel, raw materials).
+   • As project duration T is compressed, Direct Costs INCREASE due to overtime premiums
+     and expedited logistics.
+
+2. INDIRECT OVERHEAD COSTS (C_indirect):
+   • Ongoing daily expenses incurred per unit time (site security, scaffolding rental,
+     field office administration, project manager salaries, utilities).
+   • As project duration T is compressed, Indirect Costs DECREASE linearly:
+         C_indirect(T) = T * Daily Indirect Overhead Rate
+
+3. TOTAL PROJECT COST FUNCTION:
+       Total Cost(T) = Direct Cost(T) + Indirect Cost(T)
+
+4. OPTIMAL PROJECT DURATION (T*):
+   • The specific duration where the combined Total Cost is MINIMIZED (the bottom
+     of the U-shaped Total Cost curve).
+   • Economic Crashing Rule: Continue crashing critical activities as long as:
+         Marginal Cost Slope (Delta C / Delta T) < Daily Indirect Overhead Rate
+
+--------------------------------------------------------------------------------
+4. COST SLOPE EQUATION & CRASHING PROTOCOL
+--------------------------------------------------------------------------------
+For any activity (i, j):
+    Cost Slope = (Crash Cost C_c - Normal Cost C_n) / (Normal Time T_n - Crash Time T_c)
+               = Delta C / Delta T   in Indian Rupees (₹) per Day
+
+STEP-BY-STEP CRASHING ALGORITHM:
+1. Determine Critical Path(s) and current project duration T = E_n.
+2. Compute Cost Slope for all critical activities.
+3. Identify the critical activity with the LOWEST Cost Slope.
+4. Crash that activity by 1 day (or up to its crash limit / until a subcritical path becomes critical).
+5. If Cost Slope < Daily Overhead Rate, the crash is profitable ➔ update total cost.
+6. Re-evaluate network, update all path durations, and repeat until no further profitable crashes exist.
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Furnace Crashing Optimization (Debangshu)
+Debangshu in Barrackpore evaluated a ₹2.4 Lakh furnace overhaul, compressing duration
+from 24 days to optimal T* = 21 days (saving ₹18,000 in indirect site overhead while
+spending ₹8,000 on mason overtime, yielding net savings of ₹10,000).
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Emergency Compression (Mamata & Mahima)
+Mamata and Mahima crashed cleanroom compressor wiring in Kolkata at a Cost Slope of
+₹4,500/day to beat an incoming monsoon flood, saving ₹35,000 in daily generator rentals.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Warehouse Optimal Opening Duration (Susmita)
+Susmita modeled the U-shaped cost curve for an automated parcel hub in Ichapur,
+identifying T* = 19 days as the exact minimum total cost point of ₹1,84,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Grant Deadline Compression (Abhronila)
+Abhronila managed the time-cost curve for a ₹55 Lakh university robotics laboratory in
+Jadavpur, ensuring equipment delivery crashed just enough to avoid a ₹25,000/day audit penalty.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never crash an activity beyond its Crash Limit (T_crash).
+- Never crash a non-critical activity (it increases direct cost without shortening project duration).
+- If multiple critical paths exist, crash an activity on EACH critical path simultaneously.
+- Always state budgets, overhead rates, and cost slopes in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined Project Duration (T = E_n).
+[ ] Distinguished Normal Project Duration vs Crash Project Duration.
+[ ] Computed Direct Costs, Indirect Costs, and Total Project Cost.
+[ ] Analyzed the U-shaped Total Cost Curve to identify Optimal Duration (T*).
+[ ] Computed Activity Cost Slope: Delta C / Delta T in Indian Rupees (₹) per Day.
+[ ] Executed multi-pass project crashing on critical activities with lowest cost slope.
+[ ] Stated project financial metrics with Indian Rupee (₹) currency symbols.
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 10: PROJECT DURATION
+================================================================================

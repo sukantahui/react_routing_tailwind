@@ -1,0 +1,107 @@
+================================================================================
+CYBER SECURITY & INFORMATION ASSURANCE STUDY NOTE
+MODULE: 002_001_security-triad-cia
+TOPIC 4: THREATS TO INTEGRITY AND DATA TAMPERING
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. TAXONOMY OF INTEGRITY THREATS & DATA TAMPERING
+--------------------------------------------------------------------------------
+An integrity threat encompasses any malicious exploit or environmental fault that modifies,
+replaces, forges, or deletes data, software binaries, database records, or hardware states
+without legitimate authorization.
+
+PRIMARY ATTACK VECTORS ACROSS THE DATA LIFECYCLE:
+1. Data in Transit (Network Layer):
+   • Active Man-in-the-Middle (MitM): Altering packets (e.g. changing payee IFSC codes).
+   • Replay Attacks: Re-transmitting authenticated packets to duplicate fund transfers.
+   • DNS Cache Poisoning & BGP Hijacking: Spoofing routing paths to adversary gateways.
+
+2. Data in Storage (Database & File Systems):
+   • SQL Injection (SQLi): Executing unauthorized UPDATE / DROP queries via unvalidated inputs.
+   • Ransomware Tampering: Overwriting master files with AES-256 ciphertext and deleting Volume
+     Shadow Copies (`vssadmin delete shadows /all /quiet`).
+   • Audit Log Tampering: Modifying or deleting security log files to hide intruder activity.
+
+3. Data in Execution (Application & Supply Chain Layer):
+   • Subresource Integrity (SRI) Compromise: Altering external JavaScript hosted on CDNs.
+   • Software Supply Chain Backdoors: Injecting covert code into upstream libraries (SolarWinds, xz-utils).
+   • UEFI / Firmware Rootkits: Overwriting motherboard SPI flash memory to compromise OS startup.
+
+--------------------------------------------------------------------------------
+2. DEFENSIVE PATTERNS & INTEGRITY CONTROLS
+--------------------------------------------------------------------------------
+1. NETWORK INTEGRITY:
+   • TLS 1.3 with AEAD: Authenticated Encryption with Associated Data (AES-GCM / ChaCha20-Poly1305)
+     attaches an authentication tag to every packet, aborting sessions if single bits change.
+   • Cryptographic Nonces & Timestamps: Prevents replay attacks by invalidating repeated nonces.
+
+2. WEB & SUPPLY CHAIN DEFENSE:
+   • Subresource Integrity (SRI): Browsers verify `<script integrity="sha384-...">` hashes.
+   • Content Security Policy (CSP): Prevents unauthorized script execution and DOM manipulation.
+   • Software Bill of Materials (SBOM): CycloneDX/SPDX machine-readable dependency inventories.
+
+3. STORAGE & AUDIT DEFENSE:
+   • Parameterized Queries: Strict separation of SQL commands from untrusted user parameters.
+   • WORM Immutable Storage: Write Once Read Many storage enforcing compliance retention policies.
+
+4. LEGAL & REGULATORY FRAMEWORK:
+   • Indian IT Act 2000 Section 66 (read with Sec 43): Imprisonment up to 3 years and fines up
+     to ₹5,00,000 for computer tampering, data destruction, or unauthorized system alterations.
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: SCADA Sensor Signal Replay Defense (Debangshu - Barrackpore)
+Debangshu defended a steel manufacturing telemetry network in Barrackpore against adversary replay
+attacks. Attackers attempted to capture and replay normal temperature packets while manipulating furnace
+heaters. Debangshu deployed HMAC-SHA256 authenticated packets with millisecond timestamps and nonces,
+rejecting all replayed signals with a ₹3,80,000 security hardening budget.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: E-Commerce CDN Magecart & SRI Hardening (Mahima - Ichapur)
+Mahima discovered that a third-party analytics CDN script had been tampered with to skim credit card
+inputs in Ichapur. She immediately enforced Subresource Integrity (SRI) sha384 hashes across all web
+assets and implemented strict Content Security Policies (CSP), neutralizing client-side data tampering
+backed by a ₹2,90,000 web architecture budget.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: FinTech Payment Webhook HMAC Verification (Mamata - Kolkata)
+Mamata engineered a secure payment gateway integration for a Kolkata retail exchange processing ₹50,00,000
+daily. Malicious actors attempted to send forged 'PAYMENT_SUCCESS' webhooks. Mamata enforced strict HMAC-SHA256
+signature verification with shared secrets and replay nonce caches, blocking all fraudulent orders with a
+₹5,50,000 enterprise gateway budget.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: University Research WORM Immutable Audit Grid (Abhronila - Jadavpur)
+Abhronila deployed an immutable AWS S3 Object Lock (Compliance Mode) WORM logging repository for a cyber
+forensics laboratory in Jadavpur. When an insider attempted to purge audit logs to cover an unauthorized data
+access, the immutable storage policy blocked deletion, preserving digital evidence for court proceedings
+under a ₹4,10,000 research infrastructure grant.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Trusting Client-Side Validation: Never rely solely on frontend JavaScript checks; validate and sanitize
+  all inputs on the backend server.
+- Neglecting Webhook Signatures: Always verify the HMAC signature of incoming payment gateway webhooks.
+- Omitting Nonces in API Calls: Always pair sensitive state-changing API endpoints with cryptographic nonces.
+- Budget all enterprise SIEM, WORM storage, and supply chain vulnerability scanners in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Define the key categories of Integrity Threats (Transit, Storage, Application, Supply Chain).
+[ ] Explain how TLS 1.3 AEAD prevents packet tampering on the wire.
+[ ] Describe how Nonces and Timestamps prevent Replay Attacks.
+[ ] Explain how Subresource Integrity (SRI) stops CDN script poisoning.
+[ ] Understand the SolarWinds and xz-utils software supply chain attack patterns.
+[ ] Detail how WORM immutable storage protects audit logs from malicious deletion.
+[ ] State the penalties under Section 66 of the Indian IT Act 2000 (3 years jail, ₹5,00,000 fine).
+[ ] Formulate enterprise integrity defense budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_001 • TOPIC 4: THREATS TO INTEGRITY AND DATA TAMPERING
+================================================================================

@@ -1,0 +1,142 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_003 : PHASES OF HACKING METHODOLOGY
+TOPIC 07       : PHASE 4: MAINTAINING ACCESS (BACKDOORS, ROOTKITS & PERSISTENCE)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & PHASE 4 OBJECTIVES
+--------------------------------------------------------------------------------
+Initial system exploits (Phase 3) are temporary: if the victim workstation reboots, the user 
+logs off, or the vulnerable service restarts, the attacker's interactive shell session dies.
+
+Phase 4 (Maintaining Access) is the discipline of establishing durable, long-term persistence 
+and stealthy Command and Control (C2) communication channels that survive system restarts, 
+firewall changes, and defensive investigations.
+
+--------------------------------------------------------------------------------
+2. MULTI-PLATFORM PERSISTENCE MATRIX (WINDOWS VS LINUX)
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| PERSISTENCE VECTOR | TARGET OPERATING SYSTEM | SAMPLE COMMAND / PATH| SYSMON / EDR DETECTION                        |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Registry Run    | Windows (Per-User or    | `reg add HKCU\...  | Sysmon Event ID 13 (RegistryValueSet)         |
+|    Keys            | System-Wide Startup)    |  \Run /v Update...`| - Flags writes to CurrentVersion\Run keys      |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Scheduled Tasks | Windows (schtasks.exe)  | `schtasks /create  | Sysmon Event ID 1 (Process Creation)          |
+|    / Cron Jobs     | Linux (/etc/crontab)    |  /tn Sync /sc boot`| - Audits recurring schtasks execution & crontab|
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. WMI Event       | Windows (Fileless WMI   | `Set-WmiInstance   | Sysmon Event ID 19, 20, 21 (WmiEvent)         |
+|    Subscription    | Repository Database)    |  __EventFilter...` | - Tracks FilterToConsumerBinding in OBJECTS.DAT|
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. Systemd Service | Linux (Background       | `/etc/systemd/     | Auditd / EDR Process Monitoring                |
+|    Daemons         | Service with auto-boot) |  system/telemetry.s| - Flags unauthorized .service file creation    |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 5. SSH Key Ingress | Linux (Passwordless     | `echo "ssh-ed25519 | File Integrity Monitoring (FIM / auditd)       |
+|                    | Root Ingress Key)       |  ..." >> auth_keys`| - Flags modifications to ~/.ssh/authorized_keys|
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. ROOTKIT CLASSIFICATION & EXECUTION RINGS
+--------------------------------------------------------------------------------
+
+[1. USER-MODE ROOTKITS (RING 3)]
+  * Operates in user space; hooks Win32 APIs (e.g., `EnumProcesses`, `FindFirstFile`).
+  * Function: Hides malware files and processes from Task Manager and Windows Explorer.
+
+[2. KERNEL-MODE ROOTKITS (RING 0)]
+  * Operates in kernel space as a signed/vulnerable device driver (`.sys` / `.ko`).
+  * Direct Kernel Object Manipulation (DKOM): Unlinks malware processes from the kernel 
+    `ActiveProcessLinks` list, making the process 100% invisible to the OS kernel itself.
+
+[3. UEFI / FIRMWARE BOOTKITS]
+  * Resides in the motherboard's SPI Flash ROM (e.g., BlackLotus, CosmicStrand).
+  * Executes before the OS kernel loads, surviving full hard drive wipes and OS reinstalls.
+
+--------------------------------------------------------------------------------
+4. COMMAND & CONTROL (C2) BEACONING & JITTER MECHANICS
+--------------------------------------------------------------------------------
+
+* Traditional Beacon: Heartbeats sent at exact 60-second intervals (60s, 60s, 60s) -> Flagged by SIEM.
+* Jittered Beacon: Adds randomized percentage variation to sleep time (e.g. 60s sleep with 30% jitter):
+  - Beacon 1 : 48.2s
+  - Beacon 2 : 71.5s
+  - Beacon 3 : 54.1s
+  - Beacon 4 : 63.8s
+  * Impact: Randomizes network timing, blending with authentic human web browsing traffic.
+
+* DNS Tunneling (`dnscat2` / `iodine`):
+  - Encodes C2 commands inside recursive DNS query subdomains (Port 53), bypassing egress web proxies.
+
+--------------------------------------------------------------------------------
+5. BLUE TEAM DETECTION & EDR MEMORY SCANNERS
+--------------------------------------------------------------------------------
+
+1. Unbacked Executable Memory Scanners:
+   - Flags memory regions allocated with `PAGE_EXECUTE_READWRITE` (RWX) that lack disk backing.
+
+2. Process Injection Monitoring:
+   - Sysmon Event ID 8 (`CreateRemoteThread`) flags when a process injects shellcode into `explorer.exe`.
+
+3. UEFI Secure Boot & Driver Signature Enforcement (DSE):
+   - Cryptographically verifies bootloaders and kernel drivers, blocking Ring 0 rootkits from loading.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : WMI EVENT SUBSCRIPTION PERSISTENCE TRIAGE (KOLKATA FINTECH)
+  * Lead Threat Hunter : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Identifying stealthy, fileless persistence planted on core banking Windows terminal servers.
+  * Action : Mamata queried Sysmon Event IDs 19/20/21 and ran PowerShell `Get-CimInstance __EventFilter`, 
+    uncovering a malicious WMI persistence trigger, removing the consumer binding, and deploying Sigma alert rules.
+
+SCENARIO 2 : SSH AUTHORIZED KEYS PERSISTENCE AUDIT (ICHAPUR HOSPITAL)
+  * Chief Healthcare Security Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : A compromised contractor laptop planted a backdoor SSH key on the hospital PACS medical imaging archive.
+  * Action : Deployed File Integrity Monitoring (FIM) via auditd to monitor `/root/.ssh/authorized_keys`, 
+    revoked the unauthorized public key, and enforced certificate-based SSH access with Duo MFA.
+
+SCENARIO 3 : SCADA UEFI SECURE BOOT HARDENING (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Protecting 220kV substation protective relay servers against kernel-mode rootkits and bootkits.
+  * Action : Enforced hardware UEFI Secure Boot, enabled Microsoft HVCI (Hypervisor-Protected Code Integrity), 
+    and locked driver signature enforcement, blocking Ring 0 kernel module loading permanently.
+
+SCENARIO 4 : C2 BEACONING & JITTER TELEMETRY LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students how to analyze C2 network jitter and distinguish malicious heartbeats from web traffic.
+  * Action : Built a network telemetry lab simulating Cobalt Strike HTTPS beacons with 40% jitter, 
+    guiding 140+ students through statistical variance analysis in Wireshark and Zeek IDS.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL PERSISTENCE HABITS:
+  1. Set Auto-Kill Deadman Switches: Ensure test C2 beacons self-destruct after assessment completion.
+  2. Maintain a Dropped Artifact Log: Record every registry key, scheduled task, and account created.
+  3. Use Jittered Outbound HTTPS: Randomize heartbeat intervals to test EDR behavioral heuristics.
+
+* COMMON BEGINNER PERSISTENCE MISTAKES:
+  - Leaving active backdoor shells on client servers after the penetration test concludes.
+  - Creating noisy scheduled tasks with obvious names (e.g. `hack.exe` in `C:\`) that trigger alerts.
+  - Forgetting that Section 43(c) and 66 of the IT Act 2000 punish introducing computer contaminants.
+  - Hardcoding static 10-second beacon sleeps that immediately trigger SIEM periodicity alarms.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Phase 4 establishes persistent access that survives system reboots and logoffs.
+[ ] Windows Registry Run keys execute payloads whenever users log in.
+[ ] WMI Event Subscriptions provide fileless persistence inside the WMI repository.
+[ ] Jitter adds randomized sleep variation to C2 beacons to evade firewall timing detection.
+[ ] Kernel rootkits operate in Ring 0 and modify kernel data structures (DKOM).
+[ ] UEFI Bootkits infect motherboard flash ROM and execute before the OS kernel boots.
+[ ] Sysmon Event ID 13 detects Registry persistence; Event ID 8 detects Process Injection.
+[ ] IT Act 2000 Section 43(c) and 66 penalize unauthorized backdoors and contaminants.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 07 (CYBER SECURITY BCAC703)
+================================================================================

@@ -1,0 +1,123 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 6: EARLIEST EVENT TIMES (FORWARD PASS RECURSION, MERGE MAXIMA & ES/EF EQUATIONS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION OF EARLIEST EVENT TIME (E_j / T_E)
+--------------------------------------------------------------------------------
+The EARLIEST EVENT TIME E_j (also denoted T_E(j)) is the earliest possible instant
+in chronological time at which event j can occur, assuming all preceding activities
+commence at their earliest possible times and consume their estimated durations
+without interruption.
+
+PHYSICAL MEANING:
+• Event j represents the completion of all incoming activities.
+• The milestone cannot be achieved until the SLOWEST (longest duration) incoming path finishes.
+
+--------------------------------------------------------------------------------
+2. THE FORWARD PASS RECURSIVE ALGORITHM
+--------------------------------------------------------------------------------
+
+STEP 1: BASE INITIALIZATION
+Set the earliest time of the project starting event to zero:
+    E_1 = 0
+
+STEP 2: SEQUENTIAL PROPAGATION (ASCENDING NODE ORDER)
+For each subsequent node j = 2, 3, ..., n (in Fulkerson topological order):
+    E_j = max_{(i, j) in Incoming(j)} [ E_i + d_ij ]
+where:
+• i is the tail node of incoming activity (i, j)
+• d_ij is the duration of activity (i, j)
+• Incoming(j) is the set of all direct activity arcs entering node j.
+
+STEP 3: TERMINAL SINK EVENT (PROJECT DURATION)
+The earliest time of the final terminal sink event E_n defines the certified
+MINIMUM TOTAL PROJECT DURATION:
+    Total Project Duration = E_n
+
+--------------------------------------------------------------------------------
+3. DERIVING EARLIEST ACTIVITY TIMES (ES & EF)
+--------------------------------------------------------------------------------
+For any activity (i, j) with duration d_ij:
+
+1. EARLIEST START TIME (ES_ij):
+   The earliest time the activity can physically begin.
+       ES_ij = E_i
+
+2. EARLIEST FINISH TIME (EF_ij):
+   The earliest time the activity can physically be completed.
+       EF_ij = ES_ij + d_ij = E_i + d_ij
+
+--------------------------------------------------------------------------------
+4. STEP-BY-STEP WORKED EXAMPLE (7-NODE NETWORK)
+--------------------------------------------------------------------------------
+ACTIVITIES:
+• (1, 2): d = 5
+• (1, 3): d = 4
+• (2, 4): d = 6
+• (3, 4): d = 7
+• (2, 5): d = 3 (Dummy (3, 2) d = 0)
+• (4, 6): d = 8
+• (5, 6): d = 4
+• (6, 7): d = 5
+
+FORWARD PASS CALCULATIONS:
+• Node 1 (Initial): E_1 = 0
+• Node 2:           E_2 = E_1 + d_12 = 0 + 5 = 5
+• Node 3:           E_3 = E_1 + d_13 = 0 + 4 = 4
+• Node 4 (Merge):   E_4 = max(E_2 + d_24, E_3 + d_34) = max(5 + 6, 4 + 7) = max(11, 11) = 11
+• Node 5:           E_5 = E_2 + d_25 = 5 + 3 = 8
+• Node 6 (Merge):   E_6 = max(E_4 + d_46, E_5 + d_56) = max(11 + 8, 8 + 4) = max(19, 12) = 19
+• Node 7 (Sink):    E_7 = E_6 + d_67 = 19 + 5 = 24 Days.
+
+CERTIFIED MINIMUM PROJECT COMPLETION TIME:
+    Project Duration = E_7 = 24 Days.
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Furnace Rebuild Forward Pass (Debangshu)
+Debangshu in Barrackpore evaluated 10 milestone events sequentially, computing
+E_1 = 0 to E_10 = 28 days to establish the earliest blast furnace relighting date.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Merge Node Forward Pass (Mamata & Mahima)
+Mamata and Mahima calculated E_6 = max(16, 19, 17) = 19 days in Kolkata, ensuring
+refrigeration, backup power, and safety all converged before vaccine vial loading.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Automated Conveyor Earliest Start Matrix (Susmita)
+Susmita computed ES and EF values across 12 conveyor assembly tasks in Ichapur,
+anchoring optical scanner calibration to E_4 = 14 days.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Robotics Lab Milestone Grant Disbursement (Abhronila)
+Abhronila mapped earliest event times E_1 through E_9 in Jadavpur, linking each E_j
+to specific capital tranche disbursements under a ₹55 Lakh university research grant.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always take the MAXIMUM (not the minimum or sum) at merge nodes during Forward Pass.
+- Remember: Dummy activities have d = 0, but pass their tail event time forward (E_i + 0).
+- Forward pass moves strictly from LEFT TO RIGHT in ascending node order (1 to n).
+- Always report project milestones and funding disbursements in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Initialized Forward Pass base condition: E_1 = 0.
+[ ] Computed Earliest Event Times: E_j = max(E_i + d_ij) across all incoming arcs.
+[ ] Derived Earliest Start: ES_ij = E_i.
+[ ] Derived Earliest Finish: EF_ij = E_i + d_ij.
+[ ] Verified that E_n equals total minimum project duration.
+[ ] Stated milestone financial schedules in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 6: EARLIEST EVENT TIMES
+================================================================================

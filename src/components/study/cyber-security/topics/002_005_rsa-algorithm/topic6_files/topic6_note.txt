@@ -1,0 +1,138 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_005 : RSA ALGORITHM & PUBLIC KEY INFRASTRUCTURE
+TOPIC 06       : SECURITY STRENGTHS & FACTORIZATION VULNERABILITIES OF RSA
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE RSA ATTACK SURFACE TAXONOMY
+--------------------------------------------------------------------------------
+The security of the RSA cryptosystem rests upon the computational difficulty of integer 
+prime factorization and modular algebra. However, flawed implementations, low exponents, 
+and physical side-channel leaks can compromise RSA keys without breaking the underlying math:
+
+  * MATHEMATICAL HARDNESS  : General Number Field Sieve (GNFS) requires 2^112 operations for RSA-2048.
+  * STRUCTURAL ATTACK VECTORS: Low exponents (Wiener/Boneh-Durfee), algebraic flaws (Fermat/Pollard), 
+                             side channels (SPA/Cache), and quantum computing (Shor's algorithm).
+
+--------------------------------------------------------------------------------
+2. 4-TIER COMPREHENSIVE RSA ATTACK MATRIX
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| ATTACK TYPE        | MATHEMATICAL PRINCIPLE  | VULNERABILITY BOUND| MANDATORY DEFENSIVE REMEDY                     |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Wiener's Attack | Continued Fractions of  | d < (1/3) * N^(1/4)| - Always generate private key d with full      |
+|    (1990)          | (e / N) yields d        | (Polynomial time!) |   2048-bit entropy (Never choose small d!)     |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Boneh-Durfee    | Coppersmith Bivariate   | d < N^(0.292)      | - Avoid low-exponent optimization tricks       |
+|    Attack (1999)   | LLL Lattice Reduction   | (Cracks 2048-bit d)| - Standardize on e = 65537                     |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. Fermat's Method | Difference of Squares:  | |p - q| < 2^(n/4)  | - Enforce prime separation |p - q| > 2^900     |
+|    (Close Primes)  | N = x^2 - y^2           | (Factors in secs!) |   during random key generation                 |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. Pollard's p - 1 | Smooth prime subgroups: | p - 1 has only     | - Select "Strong Primes" where p = 2*p' + 1    |
+|    (Smooth Primes) | gcd(2^M - 1, N) = p     | small prime factors|   and p' is a huge 1023-bit prime              |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 5. Hastad Broadcast| CRT across e recipients | e = 3 to 3 users   | - Enforce RSA-OAEP randomized padding          |
+|    Attack (1988)   | recovers exact M^e      | (Cube root attack) | - Standardize on e = 65537                     |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 6. Bleichenbacher  | Chosen-ciphertext oracle| PKCS#1 v1.5 padding| - Standardize on RSA-OAEP with SHA-256         |
+|    Padding Oracle  | on error responses      | (1M queries decrypt| - Return uniform constant-time error codes     |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 7. Bellcore Fault  | Hardware laser glitch on| Unverified RSA-CRT | - ALWAYS verify signature: ((S')^e mod N == M) |
+|    Injection (1997)| m1 mod p leaks prime q  | signature (1 glitch|   BEFORE transmitting to client                |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 8. Shor's Quantum  | Quantum Fourier Period  | ALL Classical RSA  | - Transition to NIST Post-Quantum Standards    |
+|    Algorithm (1994)| Finding O((log N)^3)    | (Breaks in minutes)|   (FIPS 203 ML-KEM / Kyber-768)                |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. PHYSICAL & SIDE-CHANNEL VULNERABILITIES
+--------------------------------------------------------------------------------
+
+  * SIMPLE POWER ANALYSIS (SPA) & TIMING ATTACKS:
+    - Variable-time Square-and-Multiply leaks private key bits through power oscilloscope traces.
+    - Defense: Constant-time Montgomery Ladder + Cryptographic Blinding (C' = C * r^e mod N).
+
+  * CPU CACHE-TIMING ATTACKS (Flush+Reload):
+    - Memory table indexing in windowed exponentiation leaks table access patterns.
+    - Defense: Constant-time branchless table lookups (load every element into registers).
+
+  * HARVEST NOW, DECRYPT LATER (HNDL):
+    - Adversaries record encrypted RSA traffic today to decrypt with quantum computers in the 2030s.
+    - Defense: Pilot Hybrid Post-Quantum Key Encapsulation (X25519Kyber768Draft00) today.
+
+--------------------------------------------------------------------------------
+4. INDIAN STATUTORY COMPLIANCE & LEGAL MANDATES
+--------------------------------------------------------------------------------
+
+* IT ACT 2000 SECTION 66 (Criminal Penalties for Cryptographic Hacking):
+  - Exploiting RSA vulnerabilities for unauthorized data decryption carries up to 3 years imprisonment.
+
+* CERT-IN 6-HOUR MANDATORY INCIDENT REPORTING (IT ACT SECTION 70B):
+  - Any compromise of private signing keys or SSL certificates must be reported to CERT-In within 6 hours.
+
+* DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023:
+  - Inadequate cryptographic protection of sensitive personal data risks statutory fines up to ₹250 Crores.
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : BANKING HSM WIENER & BONEH-DURFEE SECURITY AUDIT (KOLKATA FINTECH)
+  * Lead Cryptographic Auditor : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Auditing 24 core payment switch HSMs against low private exponent attacks and lattice reduction.
+  * Action : Enforced full-entropy 2048-bit private key generation and e=65537 across all banking HSM clusters, 
+    achieving 100% mathematical immunity to Wiener/Boneh-Durfee attacks and meeting RBI compliance.
+
+SCENARIO 2 : HOSPITAL EHR FLUSH+RELOAD SIDE-CHANNEL HARDENING (ICHAPUR HOSPITAL)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Multi-tenant cloud servers hosting 100,000+ patient MRI records were vulnerable to CPU cache-timing leaks.
+  * Action : Deployed constant-time branchless table lookups and cryptographic blinding in the hospital cryptographic engine, 
+    neutralizing 100% of Flush+Reload side-channel threats under the DPDP Act 2023.
+
+SCENARIO 3 : SCADA RTU BELLCORE FAULT DEFENSE & GRID HARDENING (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : High-voltage electromagnetic interference causing occasional single-bit faults during RTU CRT signing, 
+    exposing prime factors to eavesdroppers.
+  * Action : Enforced pre-transmission signature verification in RTU firmware, discarding faulty signatures and 
+    maintaining 100.00% grid stability and zero unauthorized control tripping.
+
+SCENARIO 4 : ASYMMETRIC VULNERABILITY & EXPLOIT LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching computer science students how to exploit Fermat factorization and Wiener continued fractions in Python.
+  * Action : Authored an interactive vulnerability playground demonstrating algebraic cracking of weak RSA keys, 
+    training 140+ students on defense-in-depth and Post-Quantum Kyber.
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL RSA HARDENING HABITS:
+  1. Always Enforce Full-Entropy Private Exponent d: Never truncate d to speed up decryption (Defeats Wiener/Boneh-Durfee).
+  2. Implement Cryptographic Blinding: Decouples physical execution time from secret message bits.
+  3. Pre-Verify CRT Signatures: Prevent Bellcore single-glitch hardware factorization attacks.
+  4. Prepare for Post-Quantum Migration: Track NIST FIPS 203 ML-KEM hybrid key exchanges.
+
+* COMMON BEGINNER HARDENING PITFALLS:
+  - Choosing a small private exponent d to optimize decryption speed (Cracked in seconds by Wiener's attack).
+  - Choosing primes too close together (Trivially factored by Fermat's difference of squares).
+  - Generating smooth primes with small (p - 1) factors (Vulnerable to Pollard's p - 1 attack).
+  - Transmitting unverified CRT signatures (Vulnerable to Bellcore laser fault injection).
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Wiener's Attack cracks d < (1/3) * N^(1/4) via Continued Fractions in polynomial time.
+[ ] Boneh-Durfee expands Wiener's bound to d < N^(0.292) using LLL lattice reduction.
+[ ] Fermat's method factors close primes (|p - q| < 2^(n/4)) via N = x^2 - y^2 in seconds.
+[ ] Pollard's p - 1 factors smooth primes via gcd(2^M - 1, N) in milliseconds.
+[ ] Hastad's Broadcast attack recovers unpadded M when sent to 3 users with e = 3.
+[ ] Bleichenbacher padding oracle decrypts PKCS#1 v1.5 ciphertexts in ~1M queries.
+[ ] Bellcore fault injection on unverified CRT signatures factors N via gcd(S'^e - M, N) = q.
+[ ] Shor's quantum algorithm factors RSA in polynomial time O((log N)^3); migrate to FIPS 203.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 06 (CYBER SECURITY BCAC703 - MODULE 002_005)
+================================================================================

@@ -1,0 +1,137 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+MODULE: 002_005_test-of-optimality-by-modi-method
+TOPIC 3: CALCULATING OPPORTUNITY COSTS (NET EVALUATION INDICES d_ij)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE OPPORTUNITY COST / NET EVALUATION FORMULA
+--------------------------------------------------------------------------------
+For every unoccupied (non-basic) shipping route (i, j) in an m × n transportation
+tableau, the OPPORTUNITY COST (Net Evaluation Index) d_ij is defined as:
+
+    d_ij = c_ij - (u_i + v_j)
+
+Where:
+• c_ij = Direct unit transportation cost from Origin i to Destination j in ₹.
+• u_i = Dual potential (shadow price) of Origin i.
+• v_j = Dual potential (shadow price) of Destination j.
+• (u_i + v_j) = Implied network shadow cost of shipping from i to j through
+  the current basic solution.
+
+NUMBER OF EVALUATIONS REQUIRED:
+In an m × n matrix with m + n - 1 basic cells, there are exactly:
+    Number of Non-Basic Cells = (m * n) - (m + n - 1) = (m - 1)(n - 1)
+For a 3x3 tableau: (3-1)(3-1) = 4 opportunity cost calculations.
+For a 3x4 tableau: (3-1)(4-1) = 6 opportunity cost calculations.
+
+--------------------------------------------------------------------------------
+2. ECONOMIC & MANAGERIAL INTERPRETATION OF d_ij
+--------------------------------------------------------------------------------
+Case 1: d_ij > 0 (Positive Evaluation / Economically Unattractive)
+- Meaning: The direct shipping cost c_ij is HIGHER than the implied network
+  shadow cost (c_ij > u_i + v_j).
+- Consequence: Shipping along this route would INCREASE the total cost by
+  d_ij Rupees per unit.
+- Action: Keep this route EMPTY (non-basic).
+
+Case 2: d_ij = 0 (Zero Evaluation / Alternative Optima Indicator)
+- Meaning: Direct shipping cost EXACTLY EQUALS the implied network shadow cost
+  (c_ij == u_i + v_j).
+- Consequence: Shifting flow into this route leaves total cost Z COMPLETELY UNCHANGED.
+- Action: Indicates the presence of Alternative (Multiple) Optimal Solutions.
+
+Case 3: d_ij < 0 (Negative Evaluation / Cost-Reducing Candidate)
+- Meaning: Direct shipping cost is CHEAPER than the implied network shadow cost
+  (c_ij < u_i + v_j).
+- Consequence: Activating this route will DECREASE the total transportation cost
+  by |d_ij| Rupees for every unit of cargo shifted into it.
+- Action: This cell is an ENTERING CANDIDATE. The cell with the MOST NEGATIVE
+  evaluation is chosen as the Entering Variable (Dantzig's Simplex Rule).
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP CALCULATION AUDIT EXAMPLE
+--------------------------------------------------------------------------------
+Consider the 3x3 Foundry Problem with:
+Row Potentials:    u = [ u_1 = 0, u_2 = 5, u_3 = 2 ]
+Column Potentials: v = [ v_1 = 8, v_2 = 14, v_3 = 5 ]
+Unit Cost Matrix:
+       D1    D2    D3
+  S1  ₹8    ₹14   ₹12
+  S2  ₹5    ₹19   ₹10
+  S3  ₹11   ₹13   ₹7
+
+Non-Basic (Empty) Cells to Evaluate:
+1. Cell (1, 3):
+   • c_13 = ₹12
+   • u_1 + v_3 = 0 + 5 = ₹5
+   • d_13 = 12 - 5 = +₹7  --> Positive (Route is ₹7/ton too expensive; keep empty).
+
+2. Cell (2, 1):
+   • c_21 = ₹5
+   • u_2 + v_1 = 5 + 8 = ₹13
+   • d_21 = 5 - 13 = -₹8  --> NEGATIVE (Saves ₹8/ton! Most negative candidate ⭐).
+
+3. Cell (3, 1):
+   • c_31 = ₹11
+   • u_3 + v_1 = 2 + 8 = ₹10
+   • d_31 = 11 - 10 = +₹1 --> Positive (Route is ₹1/ton too expensive; keep empty).
+
+4. Cell (3, 2):
+   • c_32 = ₹13
+   • u_3 + v_2 = 2 + 14 = ₹16
+   • d_32 = 13 - 16 = -₹3 --> NEGATIVE (Saves ₹3/ton).
+
+ENTERING CELL SELECTION:
+Comparing negative evaluations: min( -8, -3 ) = -8 at Cell (2, 1).
+Cell (S2, D1) enters the basis!
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supply Audit (Debangshu)
+Debangshu identified d_21 = -₹8 as the most negative opportunity cost.
+Pivoting θ = 60 tons into cell (2, 1) delivered an immediate cost reduction
+of 60 × ₹8 = ₹480 in a single iteration!
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Distribution (Mamata & Mahima)
+Mamata and Mahima evaluated empty vaccine routes:
+Found d_13 = -₹3. Shifting 20 boxes into route (1, 3) reduced freight by ₹60,
+ensuring budget optimization for emergency hospital supplies.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Network (Susmita)
+Susmita computed all opportunity costs for a 3x3 warehouse problem:
+d = [+2, +1, +4, +3].
+Since all d_ij >= 0, she immediately certified the plan as globally optimal.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Alternative Optima (Abhronila)
+Abhronila found d_22 = 0 on an empty cell in a university distribution plan.
+Demonstrated to stakeholders that an alternate optimal route existed with
+identical minimal cost of ₹9,400, allowing selection of a safer highway route.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never reverse the subtraction: formula is d_ij = c_ij - (u_i + v_j), NOT (u_i + v_j) - c_ij!
+- Always evaluate the sum (u_i + v_j) inside parentheses first to avoid sign errors.
+- Evaluate ALL empty cells before picking the entering variable (pick min d_ij).
+- Basic cells have d_ij = 0 by definition; evaluate non-basic cells only.
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Memorized the Opportunity Cost formula: d_ij = c_ij - (u_i + v_j).
+[ ] Evaluated exactly (m - 1)(n - 1) non-basic cells.
+[ ] Interpreted d_ij > 0 (keep empty), d_ij = 0 (alt optima), d_ij < 0 (pivot candidate).
+[ ] Identified entering variable as argmin { d_ij | d_ij < 0 }.
+[ ] Verified that for basic cells, c_ij - (u_i + v_j) = 0.
+[ ] Calculated potential financial savings: Delta Z = theta * |d_ij|.
+
+================================================================================
+END OF STUDY NOTE • MODULE 002_005 • TOPIC 3: CALCULATING OPPORTUNITY COSTS
+================================================================================

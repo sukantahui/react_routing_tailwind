@@ -1,0 +1,98 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_001_payoff-matrix-two-person-zero-sum-game
+TOPIC 6: FORMULATING SIMPLE GAME MATRICES (4-STEP METHODOLOGY & REAL-WORLD PARADIGMS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE 4-STEP GAME MATRIX FORMULATION METHODOLOGY
+--------------------------------------------------------------------------------
+Translating an ambiguous, real-world verbal business conflict into a rigorous
+Game Theory Payoff Matrix requires following 4 systematic steps:
+
+• STEP 1: IDENTIFY THE PLAYERS:
+  - Designate Player A (Row Player / Maximizer) and Player B (Column Player / Minimizer).
+  - Verify that the game is a Two-Person Zero-Sum interaction.
+
+• STEP 2: DEFINE THE STRATEGY SETS:
+  - Formulate exhaustive, mutually exclusive action sets:
+        S_A = {A_1, A_2, ..., A_m}  and  S_B = {B_1, B_2, ..., B_n}
+
+• STEP 3: QUANTIFY NET PAYOFFS (IN INDIAN RUPEES ₹):
+  - For every strategy combination (A_i, B_j), compute:
+        a_ij = Net Revenue / Gain to Player A - Net Costs incurred by Player A
+  - Apply the standard sign convention (+ for gain to A, - for payout from A).
+
+• STEP 4: ASSEMBLE & VALIDATE THE NORMAL FORM MATRIX:
+  - Construct the m x n rectangular table.
+  - Compute Row Minima and Column Maxima.
+  - Validate Maximin <= Minimax and check for Saddle Points.
+
+--------------------------------------------------------------------------------
+2. FOUR MAJOR FORMULATION PARADIGMS
+--------------------------------------------------------------------------------
+
+1. ADVERTISING & MARKETING COMPETITION MODEL:
+   • Strategies: Digital Ads (A1), TV Broadcast (A2), Newspaper/Print (A3).
+   • Payoffs: Net market share revenue gained or lost in ₹ Thousands.
+
+2. SEALED-BID PROCUREMENT TENDER MODEL:
+   • Strategies: High Bid Price (A1), Medium Bid Price (A2), Low Bid Price (A3).
+   • Payoffs: Winning contract profit in ₹ Lakhs if bid < rival's bid; ₹0 otherwise.
+
+3. RETAIL PRICING & PROMOTIONAL DISCOUNT MODEL:
+   • Strategies: Regular Pricing (A1), 10% Discount (A2), 20% Clearance (A3).
+   • Payoffs: Footfall conversion profit in ₹.
+
+4. LEGAL SETTLEMENT VS LITIGATION MODEL:
+   • Strategies: Accept Settlement (A1), Proceed to Trial (A2).
+   • Payoffs: Net damages awarded minus legal fees in ₹.
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Sealed-Bid Tender Formulation (Debangshu)
+Debangshu in Barrackpore formulated a 3x3 bidding game for a ₹5 Lakh casting tender:
+Strategies: High (₹4.8L), Med (₹4.2L), Low (₹3.8L). Matrix analysis isolated the optimal
+medium-bid pure saddle point.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Hospital Supply Tender Formulation (Mamata & Mahima)
+Mamata and Mahima in Kolkata formulated a 2x2 delivery warranty matrix (Reliable vs Economy transport),
+verifying that reliable transport strictly dominated economy transport by ₹40,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Discount Matrix (Susmita)
+Susmita in Ichapur formulated a 2x2 weekend promotional matrix, converting store footfall
+capture rates into signed net margin cells in ₹.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Negotiation Matrix (Abhronila)
+Abhronila formulated a ₹55 Lakh university patent licensing game in Jadavpur, translating
+royalty proposals into a 3x3 normal form matrix and identifying an equitable settlement.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never omit potential strategies; strategy sets MUST be collectively exhaustive.
+- Always deduct operational costs from gross revenues before populating matrix cells.
+- State all payoffs in uniform units (e.g. ₹ Thousands) to prevent mathematical errors.
+- Always include the Indian Rupee (₹) currency symbol.
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Followed the 4-step formulation methodology (Players, Strategies, Payoffs, Matrix).
+[ ] Ensured strategy sets are mutually exclusive and collectively exhaustive.
+[ ] Computed net financial payoffs in Indian Rupees (₹) from Player A's viewpoint.
+[ ] Assembled the m x n rectangular table.
+[ ] Extracted Row Minima and Column Maxima.
+[ ] Verified the invariant inequality: Maximin <= Minimax.
+[ ] Stated all payoffs and values with the Indian Rupee (₹) symbol.
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_001 • TOPIC 6: FORMULATING SIMPLE GAME MATRICES
+================================================================================

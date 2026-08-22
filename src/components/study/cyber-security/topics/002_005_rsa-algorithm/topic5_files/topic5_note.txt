@@ -1,0 +1,146 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_005 : RSA ALGORITHM & PUBLIC KEY INFRASTRUCTURE
+TOPIC 05       : HANDS-ON RSA CALCULATION EXAMPLE WITH SMALL PRIMES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & PEDAGOGICAL SIGNIFICANCE
+--------------------------------------------------------------------------------
+Working through manual RSA calculations using small primes is the gold standard method for 
+mastering asymmetric cryptography. It allows computer science students and engineers to 
+verify every algebraic theorem—from Euler's Totient to Chinese Remainder Theorem—step-by-step 
+using standard scientific calculators:
+
+  * TEACHING SCALE : Small primes (p=61, q=53) illustrate exact algebraic mechanisms.
+  * PRODUCTION SCALE: 1024-bit primes (N = 2048 bits / 617 digits) provide military security.
+
+--------------------------------------------------------------------------------
+2. CANONICAL WORKED EXAMPLE 1 (p = 61, q = 53)
+--------------------------------------------------------------------------------
+
+  STEP 1 : COMPUTE PUBLIC MODULUS (N)
+    - Primes: p = 61, q = 53
+    - N = p * q = 61 * 53 = 3,233
+
+  STEP 2 : COMPUTE GROUP ORDERS (phi(N) & lambda(N))
+    - Euler's Totient:      phi(N) = (61 - 1) * (53 - 1) = 60 * 52 = 3,120
+    - Carmichael's Totient: lambda(N) = lcm(60, 52) = (60 * 52) / gcd(60, 52) = 3120 / 4 = 780
+
+  STEP 3 : SELECT PUBLIC ENCRYPTION EXPONENT (e)
+    - Choose e = 17.
+    - Verification: gcd(17, 3120) = 1 (Coprime, valid!).
+
+  STEP 4 : DERIVE PRIVATE DECRYPTION EXPONENT (d)
+    - Extended Euclidean Equation: (17 * d) ≡ 1 (mod 3120)
+    - Bezout Solution: (17 * 2753) + (3120 * -15) = 1
+    - Private Key: d = 2753  (Or via lambda(N): d = 413)
+
+  STEP 5 : ENCRYPT PLAINTEXT MESSAGE (M = 65)
+    - Plaintext: M = 65 (ASCII character 'A')
+    - Ciphertext: C ≡ M^e (mod N) = 65^17 mod 3233 = 2,790
+
+  STEP 6 : DECRYPT CIPHERTEXT (C = 2790)
+    - Plaintext: M ≡ C^d (mod N) = 2790^2753 mod 3233 = 65 (ASCII 'A' RESTORED!)
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP RSA-CRT GARNER RECOMBINATION TRACE
+--------------------------------------------------------------------------------
+
+  * PRE-COMPUTED CRT CONSTANTS:
+    - d_p = 2753 mod (61 - 1) = 2753 mod 60 = 17
+    - d_q = 2753 mod (53 - 1) = 2753 mod 52 = 25
+    - q_inv = 53^(-1) mod 61 = 38  (Check: 53 * 38 = 2014 = 33 * 61 + 1 ≡ 1 mod 61)
+
+  * GARNER DECRYPTION EXECUTION (C = 2790):
+    1. m1 = (2790 % 61)^17 mod 61 = 45^17 mod 61 = 4
+    2. m2 = (2790 % 53)^25 mod 53 = 34^25 mod 53 = 12
+    3. h  = (q_inv * (m1 - m2)) mod p = (38 * (4 - 12)) mod 61 = -304 mod 61 = 1
+    4. M  = m2 + h * q = 12 + 1 * 53 = 65 (EXACT MATCH!)
+
+--------------------------------------------------------------------------------
+4. ADDITIONAL SMALL PRIME WORKED EXAMPLES
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| EXAMPLE PARAMETERS | KEY TUPLES (Pub / Priv) | ENCRYPTION TRACE   | DECRYPTION TRACE                               |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Example 2:         | Pub:  (e = 7, N = 143)  | Plaintext: M = 9   | Ciphertext: C = 48                             |
+| p = 11, q = 13     | Priv: (d = 103, N = 143)| C = 9^7 mod 143    | M = 48^103 mod 143                             |
+| phi(N) = 120       |                         | C = 48             | M = 9 (Restored!)                              |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| Example 3:         | Pub:  (e = 5, N = 133)  | Plaintext: M = 6   | Ciphertext: C = 62                             |
+| p = 7, q = 19      | Priv: (d = 65, N = 133) | C = 6^5 mod 133    | M = 62^65 mod 133                              |
+| phi(N) = 108       |                         | C = 62             | M = 6 (Restored!)                              |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+5. UNIVERSITY EXAMINATION STRATEGY (BCAC703 / MAKAUT)
+--------------------------------------------------------------------------------
+
+When solving RSA numerical questions in university exams:
+  1. Always state the formula: N = p * q and phi(N) = (p - 1)(q - 1).
+  2. Clearly show gcd(e, phi(N)) = 1 before computing the inverse.
+  3. Draw the Extended Euclidean division tableau to derive d.
+  4. Write out binary square-and-multiply powers rather than typing huge exponents.
+  5. Conclude with both the ciphertext integer C and the decrypted verification M.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : JUNIOR CRYPTOGRAPHER ONBOARDING WORKSHOP (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : New engineering hires were writing code with modular division errors in payment switches.
+  * Action : Mamata instituted mandatory small-prime calculation workshops ($p=61, q=53$), training 45+ 
+    developers on Bezout tableaus and achieving zero payment gateway deployment defects.
+
+SCENARIO 2 : CLINICAL DICOM SECURITY SEMINAR (ICHAPUR HOSPITAL)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Hospital IT technicians struggled to understand why public certificates cannot decrypt patient scans.
+  * Action : Created hands-on small-prime visual models demonstrating $(e, N)$ public encryption vs $(d, N)$ 
+    private decryption, training 60+ healthcare administrators under the DPDP Act 2023.
+
+SCENARIO 3 : 220KV SUBSTATION TECHNICIAN CERTIFICATE AUDIT (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Substation technicians needed quick mathematical sanity checks to verify RTU cryptographic certificates.
+  * Action : Authored quick-reference small-prime validation cards and automated Python verification tools, 
+    empowering 30+ field engineers across 18 substations.
+
+SCENARIO 4 : INTERACTIVE SMALL-PRIME RSA EXAM SOLVER (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Students preparing for MAKAUT semester exams needed interactive step-by-step verification of RSA questions.
+  * Action : Built a web-based educational solver breaking down $N, \phi(N), d$, and Garner CRT steps for 
+    any pair of prime inputs, boosting class exam scores by 34%.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL CALCULATION HABITS:
+  1. Double Check gcd(e, phi(N)) == 1: If not coprime, no unique inverse d exists.
+  2. Handle Negative Remainders in EEA: Always add phi(N) to get the canonical positive key d.
+  3. Use Square-and-Multiply for Exponentiation: Avoid computing massive unreduced powers.
+  4. Remember Pedagogical Limitations: Small primes are for learning; never use them in production!
+
+* COMMON BEGINNER CALCULATION MISTAKES:
+  - Computing phi(N) as p * q instead of (p - 1) * (q - 1).
+  - Forgetting to take the modulo operation after each squaring step.
+  - Mistaking public exponent e for private key d.
+  - Confusing Euler's totient phi(N) with Carmichael's totient lambda(N).
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Modulus: N = p * q = 61 * 53 = 3233.
+[ ] Euler Totient: phi(N) = (p - 1)(q - 1) = 60 * 52 = 3120.
+[ ] Carmichael Totient: lambda(N) = lcm(60, 52) = 780.
+[ ] Public Key: (e = 17, N = 3233); Private Key: (d = 2753, N = 3233).
+[ ] Encryption: C = 65^17 mod 3233 = 2790.
+[ ] Decryption: M = 2790^2753 mod 3233 = 65.
+[ ] RSA-CRT uses d_p = 17, d_q = 25, q_inv = 38 for 4x faster Garner decryption.
+[ ] Exam Strategy: State formulas, show EEA tableau, and write square-and-multiply traces.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 05 (CYBER SECURITY BCAC703 - MODULE 002_005)
+================================================================================

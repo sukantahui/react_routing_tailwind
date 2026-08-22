@@ -1,0 +1,122 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_003 : SECURITY POLICIES, RISK ASSESSMENT & MITIGATION
+TOPIC 01       : CORE SECURITY POLICIES: ACCEPTABLE USE POLICY (AUP)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE STRATEGIC ROLE OF THE AUP
+--------------------------------------------------------------------------------
+The Acceptable Use Policy (AUP) under ISO/IEC 27001:2022 Control A.5.10 is the fundamental 
+behavioral contract governing employee interactions with enterprise hardware, networks, cloud SaaS, 
+and confidential information assets:
+
+  * THE GOAL      : Prevent malicious, reckless, or negligent insider behaviors on enterprise IT.
+  * DAY-1 MANDATE : Every employee must sign the AUP as a binding condition of employment.
+  * ENFORCEABILITY: Enables progressive disciplinary action, termination, and criminal prosecution 
+                    under ISO 27001 Control A.6.4 and Indian Cyber Law!
+
+--------------------------------------------------------------------------------
+2. ESSENTIAL AUP CLAUSES & BEHAVIORAL BOUNDARIES
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| AUP CLAUSE DOMAIN  | MANDATORY BEHAVIOR RULE | STRICTLY PROHIBITED ACTIVITIES                 |
++--------------------+-------------------------+------------------------------------------------+
+| 1. Workstation &   | Screen lock within 3m;  | Connecting unauthorized personal USB drives;   |
+|    Physical Sec    | Clean Desk (A.7.7).     | leaving passwords on post-it notes.            |
+|                    |                         |                                                |
+| 2. Generative AI   | Approved enterprise LLMs| Pasting proprietary source code, customer PII, |
+|    & Shadow IT     | with zero data retention| or credentials into public ChatGPT / Claude.   |
+|                    |                         |                                                |
+| 3. Network &       | Incidental personal use | Torrenting, crypto-mining, online gambling,    |
+|    Internet Access | on non-working breaks.  | connecting unapproved personal VPNs.           |
+|                    |                         |                                                |
+| 4. Software &      | Vetted software catalog | Installing pirated software or browser plugins;|
+|    Privileges      | deployment only.        | attempting to bypass local EDR agents.         |
+|                    |                         |                                                |
+| 5. Privacy &       | Continuous logging and  | Expecting personal privacy on corporate        |
+|    Monitoring      | SOC telemetry active.   | devices, company emails, or enterprise networks|
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. DISCIPLINARY ESCALATION LIFECYCLE (CONTROL A.6.4)
+--------------------------------------------------------------------------------
+
+  * Level 1 (Minor / First-Time) : Mandatory security retraining + Written HR warning letter.
+  * Level 2 (Negligent / Repeat) : Revocation of remote work privileges + Suspension of credentials.
+  * Level 3 (Willful / Severe)   : Immediate employment termination + Police report filed under 
+                                   Sections 43 and 66 of the Indian Information Technology Act 2000!
+
+--------------------------------------------------------------------------------
+4. STATUTORY PENALTIES UNDER INDIAN CYBER LAW
+--------------------------------------------------------------------------------
+
+  * IT ACT 2000 SECTION 43 :
+    - Imposes civil damages up to ₹1 CRORE for unauthorized downloading, copying, or extracting 
+      corporate data without permission.
+  * IT ACT 2000 SECTION 66 :
+    - Imposes up to 3 YEARS IMPRISONMENT and ₹5 Lakh fines for fraudulent computer-related crimes.
+  * DPDP ACT 2023 SECTION 8 & SECTION 33 :
+    - Documented AUP proves organizational reasonable safeguards, shielding the firm from 
+      ₹250 CRORE penalties when rogue employees attempt unauthorized personal data theft.
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : GENERATIVE AI SOURCE CODE LEAKAGE PREVENTION (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : Junior developer attempted to paste core UPI payment cryptographic routines into public ChatGPT.
+  * Action : Automated endpoint DLP blocked the clipboard transfer; Mamata enforced strict AUP generative AI 
+    clauses and deployed an internal enterprise AWS Bedrock endpoint with zero data retention.
+
+SCENARIO 2 : USB PORT BLOCKING & CLINICAL DATA INTEGRITY (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : Visiting doctor attempted to copy 80,000 oncology patient scans onto a personal USB stick.
+  * Action : Automated GPO blocked USB mass storage execution; doctor completed mandatory AUP clinical 
+    privacy retraining, preventing personal data exfiltration under Section 8 of the DPDP Act 2023.
+
+SCENARIO 3 : SCADA OPERATIONAL RUNBOOKS & PRIVILEGED AUP (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : 18 transmission substations required strict OT AUP forbidding personal mobile phone connections.
+  * Action : Enforced zero personal device connectivity to SCADA consoles, deployed physical Faraday pouches, 
+    and conducted monthly unannounced inspections under NCIIPC Protected Systems guidelines (IT Act Sec 70).
+
+SCENARIO 4 : AUP CLAUSE ANALYZER & COMPLIANCE LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to understand why 'No Expectation of Privacy' clauses are legally mandatory.
+  * Action : Developed an interactive AUP Clause Analyzer and Policy Violation Enforcement Simulator in React, 
+    training 215+ BCA cyber security students on drafting and enforcing enterprise AUP frameworks.
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL AUP GOVERNANCE HABITS:
+  1. Enforce Day-1 Signature: Require digital AUP acknowledgment before issuing laptop credentials.
+  2. Implement Automated Guardrails: Back up policies with technical controls (GPO USB blocks, DLP filters).
+  3. Include AI Governance Clauses: Specify rules for public vs enterprise generative AI tools.
+  4. Practice Just Culture Reporting: Encourage rapid 60-minute incident reporting without punitive retaliation.
+
+* COMMON BEGINNER AUP PITFALLS:
+  - "Un-enforceable AUP" (Writing rules that IT never monitors or technically enforces).
+  - Omitting the Privacy Disclaimer (Failing to state that corporate systems are monitored by the SOC).
+  - Banning All Personal Use (Driving employees to seek risky shadow IT bypasses).
+  - Forgetting Annual Re-certification (Failing to refresh employee signatures every 12 months).
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] ISO 27001 Control A.5.10 mandates documented rules for acceptable use of IT assets.
+[ ] AUP requires Day-1 employee signature as a binding condition of employment.
+[ ] 'No Expectation of Privacy' clause legally authorizes continuous SOC monitoring.
+[ ] Generative AI clause prohibits pasting proprietary code or customer PII into public LLMs.
+[ ] Control A.7.7 mandates Clean Desk and Clean Screen (lock timeout < 3 minutes).
+[ ] Control A.6.4 governs progressive disciplinary processes for policy violations.
+[ ] IT Act Section 43 (Civil damages) and Section 66 (3 Years Imprisonment) penalize violations.
+[ ] DPDP Act Section 8 requires AUPs to prevent employee personal data leaks.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 01 (CYBER SECURITY BCAC703 - MODULE 003_003)
+================================================================================

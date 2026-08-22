@@ -1,0 +1,136 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 7: LATEST EVENT TIMES (BACKWARD PASS RECURSION, BURST MINIMA & EVENT SLACK)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION OF LATEST EVENT TIME (L_i / T_L)
+--------------------------------------------------------------------------------
+The LATEST EVENT TIME L_i (also denoted T_L(i)) is the latest allowable instant
+in chronological time at which event i can occur without postponing the final
+project completion deadline (L_n = E_n).
+
+PHYSICAL MEANING:
+• Event i initiates one or more outgoing activities.
+• If event i occurs after L_i, at least one downstream path will fail to complete
+  by the target completion date, resulting in contractual delivery penalties.
+
+--------------------------------------------------------------------------------
+2. THE BACKWARD PASS RECURSIVE ALGORITHM
+--------------------------------------------------------------------------------
+
+STEP 1: BASE INITIALIZATION
+Anchor the latest allowable time of the terminal sink event to its earliest finish time:
+    L_n = E_n
+
+STEP 2: SEQUENTIAL BACKWARD PROPAGATION (DESCENDING NODE ORDER)
+For each preceding node i = n-1, n-2, ..., 1 (moving right-to-left):
+    L_i = min_{(i, j) in Outgoing(i)} [ L_j - d_ij ]
+where:
+• j is the head node of outgoing activity (i, j)
+• d_ij is the duration of activity (i, j)
+• Outgoing(i) is the set of all direct activity arcs leaving node i.
+
+WHY MINIMUM?
+An event triggering multiple downstream branches must occur early enough to satisfy
+the TIGHTEST (most demanding) downstream deadline!
+
+STEP 3: SANITY VERIFICATION
+At the initial project start event:
+    L_1 MUST EQUAL 0   (E_1 = L_1 = 0)
+If L_1 != 0, an arithmetic error was made in either the forward or backward pass.
+
+--------------------------------------------------------------------------------
+3. DERIVING LATEST ACTIVITY TIMES & EVENT SLACK
+--------------------------------------------------------------------------------
+For any activity (i, j) with duration d_ij:
+
+1. LATEST FINISH TIME (LF_ij):
+   The latest time the activity must finish to avoid delaying the project.
+       LF_ij = L_j
+
+2. LATEST START TIME (LS_ij):
+   The latest time the activity can begin.
+       LS_ij = LF_ij - d_ij = L_j - d_ij
+
+3. EVENT SLACK (S_i):
+   The buffer time available at milestone event i:
+       S_i = L_i - E_i
+   • CRITICAL EVENT: S_i = 0  (E_i = L_i)
+   • NON-CRITICAL EVENT: S_i > 0
+
+--------------------------------------------------------------------------------
+4. STEP-BY-STEP WORKED EXAMPLE (7-NODE NETWORK)
+--------------------------------------------------------------------------------
+ACTIVITIES & DURATIONS:
+• (1, 2): d = 5 | (1, 3): d = 4 | (2, 4): d = 6 | (3, 4): d = 7
+• (2, 5): d = 3 | (4, 6): d = 8 | (5, 6): d = 4 | (6, 7): d = 5
+Forward Pass Results: E = [0, 5, 4, 11, 8, 19, 24].
+
+BACKWARD PASS CALCULATIONS:
+• Node 7 (Sink):    L_7 = E_7 = 24
+• Node 6:           L_6 = L_7 - d_67 = 24 - 5 = 19
+• Node 5:           L_5 = L_6 - d_56 = 19 - 4 = 15
+• Node 4:           L_4 = L_6 - d_46 = 19 - 8 = 11
+• Node 3:           L_3 = L_4 - d_34 = 11 - 7 = 4
+• Node 2 (Burst):   L_2 = min(L_4 - d_24, L_5 - d_25) = min(11 - 6, 15 - 3) = min(5, 12) = 5
+• Node 1 (Burst):   L_1 = min(L_2 - d_12, L_3 - d_13) = min(5 - 5, 4 - 4) = min(0, 0) = 0 ✅.
+
+EVENT SLACK TABLE:
+Node 1: S_1 = 0 - 0 = 0   (Critical ⭐)
+Node 2: S_2 = 5 - 5 = 0   (Critical ⭐)
+Node 3: S_3 = 4 - 4 = 0   (Critical ⭐)
+Node 4: S_4 = 11 - 11 = 0 (Critical ⭐)
+Node 5: S_5 = 15 - 8 = 7  (Non-Critical, Buffer = 7 days)
+Node 6: S_6 = 19 - 19 = 0 (Critical ⭐)
+Node 7: S_7 = 24 - 24 = 0 (Critical ⭐)
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Furnace Rebuild Backward Pass (Debangshu)
+Debangshu in Barrackpore evaluated 10 milestone events in reverse order, verifying
+L_10 = 28 down to L_1 = 0 to establish latest allowable firing milestones.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Burst Node Backward Pass (Mamata & Mahima)
+Mamata and Mahima calculated L_2 = min(11 - 6, 15 - 3) = 5 days in Kolkata, ensuring
+civil foundation work concluded early enough to satisfy tight electrical schedules.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Conveyor Slack Buffer Governance (Susmita)
+Susmita computed event slacks across 12 conveyor nodes in Ichapur, identifying that
+Node 5 had S_5 = 7 days of slack, allowing electrician shift rescheduling without overtime.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Terminal Grant Compliance (Abhronila)
+Abhronila confirmed that L_1 = 0 and L_9 = 45 days in Jadavpur, verifying that
+the ₹55 Lakh university research grant project was completely reconciled.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always take the MINIMUM (not the maximum) at burst nodes during Backward Pass.
+- Check that L_1 = 0 at the end of the backward pass; if not, re-check calculations!
+- Do not confuse Event Slack (L_i - E_i) with Activity Total Float (LF - EF).
+- Always state late penalty rates and project milestone reserves in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Initialized Backward Pass base condition: L_n = E_n.
+[ ] Computed Latest Event Times: L_i = min(L_j - d_ij) across all outgoing arcs.
+[ ] Verified that L_1 = 0.
+[ ] Derived Latest Finish: LF_ij = L_j.
+[ ] Derived Latest Start: LS_ij = L_j - d_ij.
+[ ] Computed Event Slack: S_i = L_i - E_i.
+[ ] Identified Critical Events where S_i = 0.
+[ ] Stated milestone financial reserves in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 7: LATEST EVENT TIMES
+================================================================================

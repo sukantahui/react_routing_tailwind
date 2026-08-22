@@ -1,0 +1,126 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 15: CONVERSION OF MAXIMIZATION PROBLEMS (RELATIVE REGRET & OPPORTUNITY LOSS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE MAXIMIZATION ASSIGNMENT PROBLEM
+--------------------------------------------------------------------------------
+In many managerial scenarios, the objective is to MAXIMIZE total payoff:
+    Maximize   Z = Sum_{i=1}^n Sum_{j=1}^n p_ij * x_ij
+    Subject to: 1-to-1 matching constraints
+
+PAYOFF DIMENSIONS:
+• Sales Revenue & Gross Turnover in Indian Rupees (₹).
+• Production Yield & Output Capacity (Units produced / hour).
+• Customer Satisfaction & NPS Quality Ratings.
+• Student Academic Tournament Scores.
+
+WHY DIRECT HUNGARIAN APPLICATION FAILS:
+The Hungarian Method is a native MINIMIZATION engine. Running it directly on a
+profit matrix P finds the worst possible assignment that MINIMIZES profit!
+
+--------------------------------------------------------------------------------
+2. THE RELATIVE REGRET (OPPORTUNITY LOSS) TRANSFORMATION
+--------------------------------------------------------------------------------
+ALGORITHM:
+1. Identify the LARGEST element in the entire profit matrix:
+       M_max = max_{1 <= i, j <= n} (p_ij)
+
+2. Subtract every entry p_ij from M_max to create the REGRET MATRIX C:
+       c_ij = M_max - p_ij     (for all i, j)
+
+MATHEMATICAL INVARIANCE PROOF:
+Let X be any valid permutation matrix (Sum x_ij = 1). The total regret is:
+    Z_regret = Sum_{i,j} (M_max - p_ij) * x_ij
+             = M_max * (Sum x_ij) - Sum p_ij * x_ij
+             = n * M_max - Z_profit
+
+Rearranging:
+    Z_profit = n * M_max - Z_regret
+
+Because (n * M_max) is a fixed constant, any permutation X* that MINIMIZES Z_regret
+STRICTLY AND MATHEMATICALLY MAXIMIZES Z_profit!
+
+--------------------------------------------------------------------------------
+3. STEP-BY-STEP WORKED EXAMPLE (4x4 PROFIT MATRIX)
+--------------------------------------------------------------------------------
+RAW PROFIT MATRIX P (₹ in thousands):
+       T1    T2    T3    T4
+  S1  ₹32   ₹38   ₹40   ₹28
+  S2  ₹40   ₹24   ₹28   ₹21
+  S3  ₹41   ₹27   ₹33   ₹30
+  S4  ₹22   ₹38   ₹41   ₹36
+
+STEP 1: IDENTIFY M_max
+Largest element in P is M_max = ₹41.
+
+STEP 2: CREATE REGRET MATRIX C = 41 - P
+       T1    T2    T3    T4
+  S1    9     3     1    13
+  S2    1    17    13    20
+  S3    0    14     8    11
+  S4   19     3     0     5
+
+STEP 3: EXECUTE STANDARD 5-STEP HUNGARIAN SOLVER
+• Row Reduction
+• Column Reduction
+• Line Covering & Additional Reductions
+• Optimal Zero Extraction: (S1➔T3), (S2➔T1), (S3➔T4), (S4➔T2).
+
+STEP 4: COMPUTE MAXIMUM TOTAL PROFIT (Z*)
+Using ORIGINAL profit rates from P:
+• S1 ➔ T3: p_13 = ₹40
+• S2 ➔ T1: p_21 = ₹40
+• S3 ➔ T4: p_34 = ₹30
+• S4 ➔ T2: p_42 = ₹38
+Certified Maximum Total Profit:
+    Z* = 40 + 40 + 30 + 38 = ₹148.
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Sales Territory Maximization (Debangshu)
+Debangshu in Barrackpore assigned 4 technical sales managers across 4 casting export
+territories, maximizing quarterly revenue at ₹148 Lakhs.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Preventive Health Clinic Turnout (Mamata & Mahima)
+Mamata and Mahima in Kolkata assigned immunization teams across 4 high-density municipal
+wards, maximizing total pediatric immunizations at 14,800 doses.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Sales Turnover Maximization (Susmita)
+Susmita in Ichapur converted a 4x4 FMCG branch turnover matrix into a regret matrix,
+maximizing monthly gross retail sales to ₹148 Lakhs.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Publishing Yield Maximization (Abhronila)
+Abhronila in Jadavpur scheduled 4 textbook printing presses, maximizing daily binding
+output to 14,800 finished textbooks for West Bengal schools.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always identify M_max across the ENTIRE matrix, not row-by-row!
+- If the problem is also unbalanced, convert to regret FIRST, then add ₹0 dummy lines.
+- Always calculate final maximum profit using original entries from the PROFIT matrix.
+- Report all monetary figures in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Recognized maximization objective: Max Z = Sum p_ij x_ij.
+[ ] Found largest matrix element M_max = max(P).
+[ ] Created Relative Regret Matrix: c_ij = M_max - p_ij.
+[ ] Executed 5-step Hungarian algorithm on the regret matrix.
+[ ] Boxed n independent zeros [0].
+[ ] Summed original rates from the PROFIT matrix in Indian Rupees (₹) to get Z_max*.
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 15: CONVERSION OF MAXIMIZATION PROBLEMS
+================================================================================

@@ -1,0 +1,101 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_003_principle-of-dominance
+TOPIC 0: PRINCIPLE OF DOMINANCE (RATIONAL ELIMINATION, IEDS & MATRIX REDUCTION)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & PHILOSOPHY OF THE PRINCIPLE OF DOMINANCE
+--------------------------------------------------------------------------------
+The PRINCIPLE OF DOMINANCE is a mathematical rule of game theory used to simplify
+large m x n payoff matrices by eliminating INFERIOR (DOMINATED) strategies.
+
+RATIONALITY AXIOM:
+• A rational player will NEVER play a strategy that yields a worse or equal payoff
+  in all possible opponent states compared to an available alternative strategy.
+• Deleting dominated strategies leaves the optimal Value of the Game (v* in ₹)
+  and the equilibrium probabilities of the remaining strategies 100% UNCHANGED.
+
+--------------------------------------------------------------------------------
+2. ASYMMETRIC DOMINANCE CRITERIA
+--------------------------------------------------------------------------------
+
+• FOR PLAYER A (ROW MAXIMIZER):
+  - Row i dominates Row j if:
+        a_ik >= a_jk    for all columns k = 1, ..., n
+  - ACTION: ELIMINATE THE SMALLER ROW (Row j).
+
+• FOR PLAYER B (COLUMN MINIMIZER):
+  - Column r dominates Column s if:
+        a_kr <= a_ks    for all rows k = 1, ..., m
+  - ACTION: ELIMINATE THE LARGER COLUMN (Column s).
+
+--------------------------------------------------------------------------------
+3. STRICT VS WEAK DOMINANCE
+--------------------------------------------------------------------------------
+1. STRICT DOMINANCE:
+   • Every element in the dominant strategy is STRICTLY superior (a_ik > a_jk for all k).
+   • Deleting strictly dominated strategies preserves ALL Nash equilibria.
+
+2. WEAK DOMINANCE:
+   • Elements are superior or equal (a_ik >= a_jk for all k, with at least one strict >).
+   • Deleting weakly dominated strategies preserves AT LEAST ONE Nash equilibrium.
+
+--------------------------------------------------------------------------------
+4. ITERATED ELIMINATION OF DOMINATED STRATEGIES (IEDS)
+--------------------------------------------------------------------------------
+• Elimination proceeds sequentially in rounds:
+  1. Delete dominated rows.
+  2. Inspect the newly reduced matrix; deleting rows may cause previously non-dominated
+     columns to become dominated!
+  3. Delete newly dominated columns.
+  4. Repeat until no further rows or columns can be eliminated.
+• Target: Reduce large m x n matrices down to a 2x2 matrix (solvable via algebraic formulas)
+  or a 1x1 cell (pure saddle point equilibrium!).
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Supplier Reduction via Dominance (Debangshu)
+Debangshu in Barrackpore evaluated a 4x4 metal alloy bidding game. Iterative dominance
+eliminated 3 inferior shifts, reducing the matrix to a single 1x1 saddle point of ₹40,000 profit.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Hospital Logistics Route Pruning (Mamata & Mahima)
+Mamata and Mahima in Kolkata pruned 2 expensive delivery routes that were strictly dominated
+by express highway couriers, reducing a 3x3 logistics game to a solvable 2x2 matrix.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Pruning (Susmita)
+Susmita in Ichapur eliminated a loss-making weekend coupon scheme that was weakly dominated
+by bundle discounts, protecting retail margins by ₹18,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Strategy Pruning (Abhronila)
+Abhronila used dominance reduction in Jadavpur to eliminate 2 high-risk litigation rows,
+streamlining a 4x3 university royalty negotiation down to an equitable 2x2 matrix.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never eliminate the larger row; Player A wants to MAXIMIZE, so eliminate the SMALLER row!
+- Never eliminate the smaller column; Player B wants to MINIMIZE, so eliminate the LARGER column!
+- Check EVERY element across all cells; partial dominance across only some cells is NOT valid!
+- State all reduced matrix payoffs and game values in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Understood the rationality premise of the Principle of Dominance.
+[ ] Applied the Row Dominance rule (delete smaller row for Player A).
+[ ] Applied the Column Dominance rule (delete larger column for Player B).
+[ ] Differentiated strict dominance from weak dominance.
+[ ] Executed Iterated Elimination of Dominated Strategies (IEDS).
+[ ] Stated reduced matrix values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_003 • TOPIC 0: PRINCIPLE OF DOMINANCE
+================================================================================

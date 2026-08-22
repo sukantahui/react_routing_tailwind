@@ -1,0 +1,96 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_003_principle-of-dominance
+TOPIC 5: STEP-BY-STEP DOMINANCE REDUCTION EXAMPLES (WORKED 3x3, 4x4, RECTANGULAR & SADDLE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. MASTER 5-STEP REDUCTION & RESOLUTION PROTOCOL
+--------------------------------------------------------------------------------
+For any m x n matrix game:
+
+1. STEP 1 (ROW SCAN): Compare row pairs. If Row i >= Row j for all cols, delete Row j.
+2. STEP 2 (COLUMN SCAN): In the reduced sub-matrix, compare col pairs. If Col r <= Col s for all rows, delete Col s.
+3. STEP 3 (ITERATED CASCADES): Repeat row and col scans until matrix is irreducible.
+4. STEP 4 (SUB-MATRIX RESOLUTION): Solve the surviving 2x2 or 1x1 game for (p*, q*) and v*.
+5. STEP 5 (FULL VECTOR RECONSTRUCTION): Assign calculated probabilities to surviving strategies; assign 0.0 to deleted ones.
+
+--------------------------------------------------------------------------------
+2. FOUR COMPREHENSIVE WORKED REDUCTION EXAMPLES
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+EXAMPLE 1: 3x3 Matrix Game Reduced to 2x2 via Pure Dominance
+--------------------------------------------------------------------------------
+Problem: Solve the 3x3 game (in ₹ Thousands):
+         A = [ [20, 30, 40],
+               [35, 45, 50],
+               [15, 25, 30] ]
+
+Pass 1 (Row Dominance):
+• Compare Row A₂ and Row A₃:
+  - 35 > 15, 45 > 25, 50 > 30 ==> Row A₂ strictly dominates Row A₃.
+  - Delete Row A₃. Matrix is now 2x3: A₁ = [20, 30, 40], A₂ = [35, 45, 50].
+
+Pass 2 (Column Dominance):
+• In the 2x3 matrix, compare Column B₁ [20, 35] and Column B₃ [40, 50]:
+  - 20 < 40 and 35 < 50 ==> Column B₁ strictly dominates Column B₃ for Player B.
+  - Delete Column B₃ (Larger Column).
+
+Pass 3 (Final 2x2 Matrix):
+• Surviving 2x2 Matrix:
+         A_reduced = [ [20, 30],
+                       [35, 45] ]
+• In this 2x2, Row A₂ [35, 45] strictly dominates Row A₁ [20, 30] ==> Delete Row A₁.
+• Surviving Row A₂: Col B₁ (35) dominates Col B₂ (45) ==> Delete Col B₂.
+• SADDLE POINT: At (A₂, B₁) with Value of the Game v* = +₹35,000!
+• Full Strategy Vectors: p* = (0, 1, 0)^T, q* = (1, 0, 0)^T.
+
+--------------------------------------------------------------------------------
+EXAMPLE 2: 4x4 Matrix Game Reduced to a 1x1 Saddle Point
+--------------------------------------------------------------------------------
+Problem: Solve the 4x4 game (in ₹ Thousands):
+         A = [ [30, 20, 40, 50],
+               [40, 30, 50, 60],
+               [20, 15, 30, 40],
+               [25, 20, 35, 45] ]
+
+Solution Steps:
+• Pass 1: Row A₁ dominates Row A₃ (30>20, 20>15, 40>30, 50>40) ==> Delete Row A₃.
+• Pass 2: In the 3x4 matrix, Col B₂ [20, 30, 20] dominates Col B₄ [50, 60, 45] ==> Delete Col B₄.
+• Pass 3: In the 3x3 matrix, Row A₂ [40, 30, 50] dominates Row A₄ [25, 20, 35] ==> Delete Row A₄.
+• Pass 4: In the 2x3 matrix, Col B₁ [30, 40] dominates Col B₃ [40, 50] ==> Delete Col B₃.
+• Pass 5: In the 2x2 matrix [[30, 20], [40, 30]], Row A₂ dominates Row A₁; then Col B₂ (30) dominates Col B₁ (40).
+• SADDLE POINT: At (A₂, B₂) with Value of the Game v* = +₹30,000!
+• Full Strategy Vectors: p* = (0, 1, 0, 0)^T, q* = (0, 1, 0, 0)^T.
+
+--------------------------------------------------------------------------------
+EXAMPLE 3: 3x3 Matrix Solved via Modified Dominance (Convex Deadlock Breaker)
+--------------------------------------------------------------------------------
+Problem: Solve the 3x2 sub-game:
+         A = [ [40, 20],
+               [20, 40],
+               [25, 25] ]
+
+Solution Steps:
+• Pure dominance check fails between all rows.
+• Apply Modified Dominance: 50-50 average of Row A₁ and Row A₂:
+      Synthetic Row = 0.5 * [40, 20] + 0.5 * [20, 40] = [30, 30]
+• Since [30, 30] > [25, 25] across both columns, Row A₃ is eliminated!
+• Surviving 2x2 Matrix: [[40, 20], [20, 40]] (Symmetric game, v* = ₹30,000 with p* = [0.5, 0.5, 0]).
+
+--------------------------------------------------------------------------------
+3. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 5-step reduction and resolution protocol.
+[ ] Successfully reduced 3x3, 4x4, and rectangular matrices.
+[ ] Handled cascading dominance re-scans after column deletions.
+[ ] Applied modified dominance to break reduction deadlocks.
+[ ] Reconstructed full original probability vectors p* and q*.
+[ ] Expressed all game values in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_003 • TOPIC 5: STEP-BY-STEP DOMINANCE EXAMPLES
+================================================================================

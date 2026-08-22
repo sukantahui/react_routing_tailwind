@@ -1,0 +1,108 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 4: CRITICAL PATH METHOD (CPM) & PERT
+MODULE: 004_001_critical-path-method-and-pert
+TOPIC 1: ASSUMPTIONS OF CPM/PERT (MATHEMATICAL FOUNDATIONS & PROBABILITY MODELS)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE 7 FOUNDATIONAL ASSUMPTIONS OF CPM & PERT
+--------------------------------------------------------------------------------
+
+ASSUMPTION 1: DIRECTED ACYCLIC GRAPH (DAG) TOPOLOGY
+• A project is partitioned into distinct, non-overlapping activities.
+• The network is strictly acyclic: NO loops, NO cycles, NO backward branches.
+• The project has exactly ONE starting node and ONE terminal sink node.
+
+ASSUMPTION 2: ACTIVITY INDEPENDENCE
+• Individual activity durations are statistically independent of all other tasks:
+      Cov(T_i, T_j) = 0   (for all i != j)
+• Allows direct summation of means and variances along the critical path.
+
+ASSUMPTION 3: DETERMINISTIC TIME & LINEAR CRASHING (CPM)
+• Task durations in CPM are known with deterministic certainty.
+• Crashing an activity from Normal Time (T_n) to Crash Time (T_c) causes a
+  strictly linear increase in direct expense at constant marginal Cost Slope:
+      Cost Slope = (Crash Cost - Normal Cost) / (Normal Time - Crash Time)
+
+ASSUMPTION 4: BETA DISTRIBUTION FOR TASK DURATIONS (PERT)
+• Individual task durations in PERT follow a continuous, unimodal Beta distribution
+  parameterized by Optimistic (a), Most Likely (m), and Pessimistic (b) estimates:
+      Expected Duration:   t_e = (a + 4m + b) / 6
+      Duration Variance:   sigma^2 = ((b - a) / 6)^2
+
+ASSUMPTION 5: CENTRAL LIMIT THEOREM (CLT) & NORMAL PATH CONVERGENCE
+• By the Central Limit Theorem, the sum of independent random activity durations
+  along the critical path converges to a Normal Distribution N(mu_cp, sigma_cp^2):
+      mu_cp = Sum_{i in CP} t_e(i)
+      sigma_cp^2 = Sum_{i in CP} sigma^2(i)
+• Enables Z-score calculation: Z = (T_s - mu_cp) / sigma_cp.
+
+ASSUMPTION 6: UNCONSTRAINED INITIAL RESOURCE CAPACITY
+• Baseline forward and backward passes assume all necessary resources (labor, machines)
+  are available on demand; resource limits are resolved in secondary leveling passes.
+
+ASSUMPTION 7: SINGLE CRITICAL PATH DOMINANCE (NO MERGE BIAS)
+• Classical PERT assumes project variance is determined solely by the single critical path,
+  assuming non-critical paths have sufficient slack to absorb local delays.
+
+--------------------------------------------------------------------------------
+2. Z-SCORE PROBABILITY FORMULATION IN PERT
+--------------------------------------------------------------------------------
+To compute the probability P(T <= T_s) of completing a project within target date T_s:
+
+    Z = (Target Date T_s - Expected Duration mu_cp) / sigma_cp
+
+STANDARD NORMAL PROBABILITIES:
+• Z = 0.00 ➔ P = 50.00% (Finishing on the expected mean date)
+• Z = +1.00 ➔ P = 84.13%
+• Z = +1.64 ➔ P = 95.00%
+• Z = +2.00 ➔ P = 97.72%
+• Z = +3.00 ➔ P = 99.87%
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Foundry Overhaul DAG Verification (Debangshu)
+Debangshu in Barrackpore verified the Directed Acyclic Graph topology of a 14-task
+foundry furnace rebuild, eliminating a recursive inspection loop and confirming a 28-day schedule.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility CLT Modeling (Mamata & Mahima)
+Mamata and Mahima in Kolkata modeled 8 critical-path installation tasks (mu = 45 days,
+sigma = 3 days), calculating a 95% probability of hospital commissioning within 50 days.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Automated Conveyor Beta Modeling (Susmita)
+Susmita in Ichapur applied the Beta distribution formula t_e = (6 + 4(9) + 18)/6 = 10 days
+to conveyor motor wiring, isolating a variance of 4 days^2 for regional warehouse launch.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Precedence Audit (Abhronila)
+Abhronila in Jadavpur audited a ₹55 Lakh university research grant project network,
+verifying that activity independence held across electrical and civil contractor teams.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never sum standard deviations directly (sigma_total != sigma_1 + sigma_2); ALWAYS sum variances (sigma^2) and take the square root!
+- Remember that an expected completion date in PERT only has a 50% probability of on-time finish.
+- Monitor Near-Critical Paths: if a near-critical path has high variance, it can easily become the true bottleneck during execution!
+- Report all budgets, crashing costs, and investment figures in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the 7 foundational assumptions of CPM and PERT.
+[ ] Computed PERT Expected Duration: t_e = (a + 4m + b) / 6.
+[ ] Computed PERT Task Variance: sigma^2 = ((b - a) / 6)^2.
+[ ] Summed variances along the critical path: sigma_cp = sqrt(Sum sigma_i^2).
+[ ] Computed standard normal Z-scores: Z = (T_s - mu_cp) / sigma_cp.
+[ ] Understood Linear Cost Slopes in CPM Crashing: (C_c - C_n) / (T_n - T_c).
+[ ] Stated project financial metrics in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 004_001 • TOPIC 1: ASSUMPTIONS OF CPM/PERT
+================================================================================

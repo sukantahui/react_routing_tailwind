@@ -1,0 +1,120 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 003_003 : SECURITY POLICIES, RISK ASSESSMENT & MITIGATION
+TOPIC 06       : THREAT IDENTIFICATION AND VULNERABILITY ASSESSMENT
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE THREAT-VULNERABILITY SYMBIOSIS
+--------------------------------------------------------------------------------
+A threat cannot materialize without an exploitable vulnerability, and a vulnerability poses zero risk 
+without a corresponding threat actor or exploit vector. Under ISO/IEC 27001:2022 Control A.8.8 
+(Management of Technical Vulnerabilities), threat identification and vulnerability assessment provide 
+the operational foundation for proactive defense:
+
+  * THE RELATIONSHIP : Threat (Danger outside) exploits Vulnerability (Flaw inside) on an Asset.
+  * THE METHODOLOGY  : CVSS v3.1 quantitative severity scoring + MITRE ATT&CK adversary behavior mapping.
+  * THE SLA GOAL     : Remediation of Critical CVEs in < 48 hours; complete elimination of exploit chains!
+
+--------------------------------------------------------------------------------
+2. CVSS V3.1 SCORING SYSTEM & QUALITATIVE SEVERITY TIERS
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| SEVERITY TIER      | CVSS BASE SCORE RANGE   | MANDATORY REMEDIATION SLA & ACTION REQUIRED    |
++--------------------+-------------------------+------------------------------------------------+
+| 1. CRITICAL        | 9.0 - 10.0              | < 48 HOURS (Emergency Patch / WAF Virtual Patch)|
+| (Tier 1 - Apex)    | Network / Zero-Priv RCE | Mandatory executive escalation to CISO.        |
+|                    |                         |                                                |
+| 2. HIGH            | 7.0 - 8.9               | < 14 CALENDAR DAYS (Sprint Hotfix / Config Fix)|
+| (Tier 2)           | Network auth / LFI/SQLi | Scheduled remediation in current dev sprint.   |
+|                    |                         |                                                |
+| 3. MEDIUM          | 4.0 - 6.9               | < 30 CALENDAR DAYS (Standard Release Cycle)    |
+| (Tier 3)           | High complexity / DoS   | Remediation during regular patch windows.      |
+|                    |                         |                                                |
+| 4. LOW             | 0.1 - 3.9               | < 90 CALENDAR DAYS (Routine Maintenance)       |
+| (Tier 4 - Base)    | Local / Low impact      | Addressed during quarterly maintenance cycles. |
++--------------------+-------------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. MULTI-LAYERED SCANNER TAXONOMY (DEVSECOPS INTEGRATION)
+--------------------------------------------------------------------------------
+
+  * SAST (Static Application Security Testing)  ➔ Scans raw source code before build (SonarQube).
+  * DAST (Dynamic Application Security Testing) ➔ Attacks live running URLs from outside (OWASP ZAP).
+  * SCA  (Software Composition Analysis)        ➔ Detects vulnerable 3rd-party libraries (Snyk).
+  * IAST (Interactive Application Testing)      ➔ Analyzes runtime memory behavior during testing.
+  * NETWORK VA (Vulnerability Assessment)       ➔ Scans open ports, OS, and services (Nessus).
+
+--------------------------------------------------------------------------------
+4. STATUTORY SAFE HARBOR UNDER INDIAN CYBER LAW
+--------------------------------------------------------------------------------
+
+  * CERT-In DIRECTIONS 2022 (SECTION 70B OF IT ACT) :
+    - Mandatory statutory reporting of critical zero-days and active cyber intrusions to CERT-In 
+      (incident@cert-in.org.in) within 6 HOURS of discovery.
+  * DPDP ACT 2023 SECTION 8 & SECTION 33 :
+    - Failing to patch known, publicly documented CVEs resulting in a data breach constitutes statutory 
+      negligence, exposing the firm to ₹250 CRORE statutory penalties!
+  * RBI CYBER SECURITY MASTER DIRECTIONS :
+    - Enforces mandatory quarterly VA/PT audits and annual third-party red team exercises for banks.
+
+--------------------------------------------------------------------------------
+5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : CONTINUOUS DEVSECOPS SCA & DAST SCANNING (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹18,50,000 | Location : Kolkata
+  * Dilemma : 500 payment microservices faced automated zero-day attacks and Log4j-style library flaws.
+  * Action : Deployed automated Snyk SCA and OWASP ZAP DAST scanners in CI/CD pipelines, enforcing a 48-hour 
+    Critical CVE patch SLA and shielding ₹120 Crores/day UPI transactions from supply-chain exploits.
+
+SCENARIO 2 : DICOM VULNERABILITY REMEDIATION (ICHAPUR CLINICAL NETWORK)
+  * Chief Healthcare Forensic Officer : Mahima | Budget : ₹8,20,000 | Location : Ichapur
+  * Dilemma : Legacy oncology PACS imaging servers ran unpatched DICOM software with a CVSS 9.8 RCE flaw.
+  * Action : Executed emergency WAF virtual patching within 12 hours and patched the underlying OS, 
+    safeguarding 80,000 oncology patient biopsy scans from ransomware encryption under the DPDP Act 2023.
+
+SCENARIO 3 : SCADA MITRE ATT&CK FOR ICS THREAT MAPPING (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹14,80,000 | Location : Barrackpore
+  * Dilemma : 18 transmission substations faced targeted nation-state threat vectors against legacy RTU firmware.
+  * Action : Mapped SCADA vulnerabilities against MITRE ATT&CK for ICS (T0885 / T0800), deploying unidirectional 
+    data diodes and achieving 100% compliance with NCIIPC Protected System rules under IT Act Sec 70.
+
+SCENARIO 4 : CVSS V3.1 & VA/PT SIMULATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,50,000 | Location : Jadavpur
+  * Dilemma : Students struggled to calculate CVSS vector strings and understand vulnerability exploit chaining.
+  * Action : Developed an interactive CVSS v3.1 Calculator and Threat-Vulnerability Matrix in React, 
+    training 215+ BCA cyber security students on professional vulnerability assessment and red teaming.
+
+--------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL VULNERABILITY MANAGEMENT HABITS:
+  1. Enforce Strict Patch SLAs: Remediate Critical CVEs in < 48 hours and High CVEs in < 14 days.
+  2. Use Virtual Patching for Zero-Days: Deploy WAF regex rules when no official patch is yet released.
+  3. Combine SAST, DAST & SCA: Use multi-layer scanners to catch code, runtime, and dependency flaws.
+  4. Test for Exploit Chains: Remember that 3 chained Medium flaws can equal a Critical Remote Code Execution.
+
+* COMMON BEGINNER VULNERABILITY PITFALLS:
+  - The "Annual Scan" Myth (Scanning once a year while 70 new vulnerabilities appear every single day).
+  - Ignoring SCA Dependencies (Focusing only on internal code while ignoring 5,000 vulnerable npm packages).
+  - Delaying CERT-In Reporting (Failing to notify CERT-In within 6 hours of a critical zero-day breach).
+  - Relying Solely on CVSS Base Score (Ignoring whether an exploit is actively circulating in the wild).
+
+--------------------------------------------------------------------------------
+7. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Threat is the external danger; Vulnerability is the internal security flaw or weakness.
+[ ] CVSS v3.1 Base Scores: Critical (9.0-10.0), High (7.0-8.9), Medium (4.0-6.9), Low (0.1-3.9).
+[ ] Vulnerability Assessment (VA) is automated scanning; Penetration Testing (PT) is active exploitation.
+[ ] SAST scans source code; DAST tests running apps; SCA checks open-source libraries.
+[ ] MITRE ATT&CK categorizes adversary Tactics, Techniques, and Procedures (TTPs).
+[ ] Critical CVEs must be patched within 48 hours; High CVEs within 14 days.
+[ ] CERT-In Directions 2022 mandate reporting critical incidents within 6 hours.
+[ ] DPDP Act Section 8 holds firms liable for ₹250 Crore fines for unpatched data breach flaws.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 06 (CYBER SECURITY BCAC703 - MODULE 003_003)
+================================================================================

@@ -1,0 +1,138 @@
+================================================================================
+CYBER SECURITY FOUNDATIONS: MODULE 3 (CIA TRIAD)
+TOPIC 6: THREATS TO AVAILABILITY AND OUTAGES
+================================================================================
+Author: Prof. Sukanta Hui
+Curriculum: West Bengal University BCA / B.Tech / MCA Cyber Security Syllabus
+Target Audience: Information Security Engineers, Network Engineers, SOC Analysts
+Regional Context: Kolkata, Barrackpore, Ichapur, Jadavpur (West Bengal, India)
+Currency Standard: Indian Rupee (INR - ₹)
+================================================================================
+
+1. INTRODUCTION TO AVAILABILITY THREATS
+--------------------------------------------------------------------------------
+In the CIA Triad (Confidentiality, Integrity, Availability), Availability ensures 
+that authorized users have timely, dependable, and uninterrupted access to 
+information assets, computing systems, and network communication channels.
+
+A Threat to Availability is any event, malicious exploit, human error, software 
+defect, or environmental catastrophe that degrades performance, causes service 
+disruption, or leads to catastrophic, prolonged system outages.
+
+Unlike threats to Confidentiality (which steal data in silence) or threats to 
+Integrity (which modify records covertly), Availability threats are immediately 
+apparent, highly disruptive, economically devastating, and capable of crippling 
+societal infrastructure, financial payment rails, and healthcare lifelines.
+
+2. TAXONOMY OF AVAILABILITY ATTACK VECTORS
+--------------------------------------------------------------------------------
+Cyberattacks on availability generally span across multiple layers of the OSI model:
+
+A. VOLUMETRIC ATTACKS (OSI LAYER 3 & 4)
+   - Goal: Saturate the network bandwidth pipes of the victim or transit ISP.
+   - Attack Metrics: Measured in Gigabits per second (Gbps) or Terabits per second (Tbps).
+   - Core Mechanisms:
+     * UDP Flood: Bombarding target ports with random UDP packets, forcing the host to check for listening applications and return ICMP Destination Unreachable packets.
+     * ICMP Ping Flood: Saturating upstream links with massive ICMP Echo Requests.
+     * DNS Amplification: Sending spoofed DNS queries (e.g. 'ANY' or 'TXT') with the victim's source IP to open recursive resolvers. The resolver returns 50x-70x amplified responses to the victim.
+     * NTP Amplification: Abusing the legacy 'monlist' command on NTP servers to achieve amplification factors up to 206x.
+     * Memcached Reflection (UDP port 11211): Exploiting exposed caching servers to generate unprecedented 51,200x amplification floods.
+
+B. PROTOCOL & STATE EXHAUSTION ATTACKS (OSI LAYER 4)
+   - Goal: Exhaust internal state tables, memory pools, and connection limits in intermediate stateful devices (firewalls, load balancers, TCP stacks).
+   - Attack Metrics: Measured in Packets per second (Pps).
+   - Core Mechanisms:
+     * TCP SYN Flood: Flooding the target with TCP SYN packets using spoofed source IPs. The server responds with SYN-ACK and allocates memory in its SYN Backlog Queue waiting for the concluding ACK. The handshake never completes, exhausting connection slots.
+     * Ping of Death: Sending oversized fragmented IP packets (> 65,535 bytes) that crash OS network stacks upon reassembly.
+     * Smurf Attack: Broadcasting ICMP echo requests to amplifier subnets with the victim's spoofed IP, triggering massive broadcast echo replies.
+
+C. APPLICATION LAYER (LAYER 7) ATTACKS
+   - Goal: Exhaust CPU, memory, and database connections on origin servers with low-bandwidth, legitimate-looking HTTP transactions.
+   - Attack Metrics: Measured in Requests per second (Rps).
+   - Core Mechanisms:
+     * HTTP GET/POST Flood: Simulating thousands of concurrent users requesting heavy compute-intensive endpoints (e.g. database-heavy search, report generation, complex PDF exports).
+     * Slowloris Attack: Opening thousands of HTTP connections to a web server (e.g. Apache) and transmitting incomplete HTTP headers byte-by-byte at periodic intervals (e.g., every 10 seconds). Keeps connection threads hostage indefinitely.
+     * R-U-Dead-Yet (RUDY / Slow POST): Submitting HTTP POST requests declaring large Content-Length headers and transmitting payload data at extremely slow rates (1 byte per 10s), exhausting web server thread pools.
+
+3. RANSOMWARE AND WIPER THREATS TO AVAILABILITY
+--------------------------------------------------------------------------------
+Malicious software has evolved from opportunistic nuisance to industrial-grade 
+weapons capable of eradicating system availability.
+
+A. RANSOMWARE (DOUBLE & TRIPLE EXTORTION)
+   - Attack Method: Encrypts files, virtual disks (.vmdk, .vhd), and databases (SQL, Oracle) using hybrid encryption (AES-256 for symmetric payload encryption + RSA-4096 / ECC for key protection).
+   - Availability Impact: Halts manufacturing lines, hospital emergency rooms, and corporate ERP systems.
+   - Extortion Tactics:
+     * Stage 1 (Availability Denial): System lock-out demanding crypto-ransom.
+     * Stage 2 (Confidentiality Breach): Threatening to leak exfiltrated data.
+     * Stage 3 (Availability Squeeze): Launching DDoS attacks on victim portals during ransom negotiations to enforce compliance.
+
+B. WIPER MALWARE (DESTRUCTIVE CYBER WARFARE)
+   - Attack Method: Overwrites the Master Boot Record (MBR), Master File Table (MFT), and partition tables with pseudo-random bytes or null characters.
+   - Distinctive Trait: No decryption key exists. The primary objective is irreversible destruction of availability (e.g., NotPetya, HermeticWiper, CaddyWiper).
+
+4. INFRASTRUCTURE & PHYSICAL AVAILABILITY THREATS
+--------------------------------------------------------------------------------
+Availability is governed not only by software code, but also by physical hardware, 
+telecommunications routes, and environmental conditions:
+
+A. SINGLE POINT OF FAILURE (SPOF)
+   - Any component whose sole failure triggers an entire system outage (e.g., single power supply, lone upstream ISP router, un-replicated database instance).
+
+B. BGP ROUTE HIJACKING & ROUTE LEAKS
+   - Border Gateway Protocol (BGP) governs internet path selection.
+   - When an Autonomous System (AS) advertises illegitimate or accidental IP prefixes, global traffic is blackholed into invalid transit routes, causing widespread regional or worldwide service blackouts.
+   - Remedy: Resource Public Key Infrastructure (RPKI) and Route Origin Authorizations (ROAs).
+
+C. PHYSICAL DISASTERS & "BACKHOE FADE"
+   - Telecommunications Fiber Cuts: Road construction, municipal digging, or train track repairs physically severing underground fiber lines.
+   - Environmental Failures: Server room HVAC compressor failure (causing thermal shutdowns within minutes), flooding, lightning surges, and power grid failures.
+   - Remedy: Dual-homed ISP connections across geographically diverse routes, N+1 HVAC redundancy, UPS battery banks, and Automatic Transfer Switches (ATS) connected to on-premise diesel generators.
+
+D. CASCADING FAILURES & THREAD STARVATION
+   - In microservices, when a downstream database slows down, upstream services keep connection pools open waiting for timeouts. This exhausts thread pools and collapses the entire application fleet like dominoes.
+   - Remedy: Circuit Breakers, Bulkheading, and aggressive timeout policies.
+
+5. DEFENSIVE STRATEGIES AND RESILIENCE ARCHITECTURES
+--------------------------------------------------------------------------------
+Organizations implement multi-layered defense-in-depth controls to protect availability:
+
++-----------------------------+--------------------------------------------------------+
+| Threat Category             | Proven Defensive Mitigation Control                    |
++-----------------------------+--------------------------------------------------------+
+| Volumetric DDoS (UDP/ICMP)  | Anycast Cloud Scrubbing Centers (AWS Shield, Cloudflare)|
+| TCP SYN Floods (Layer 4)    | SYN Cookies, TCP State Table Hardening, Connection Throttling |
+| Slowloris / Slow POST (L7)  | Reverse Proxies (Nginx, Envoy), aggressive header timeouts|
+| Layer 7 HTTP Floods         | WAF Rate Limiting, Managed JavaScript/CAPTCHA Challenges|
+| Ransomware Disruption       | 3-2-1-1-0 Backup Rule (Immutable WORM & Air-Gapped media)|
+| BGP Route Leaks             | RPKI Route Origin Validation, ROA Signing              |
+| Fiber Optic Severance       | BGP Dual-Homing across physically independent conduits |
+| Power Blackouts             | N+1 UPS Battery Banks + Automatic Diesel Generators    |
+| Cascading Microservice Crash| Circuit Breakers (Resilience4j), Bulkheads, Fallbacks  |
++-----------------------------+--------------------------------------------------------+
+
+6. THE 3-2-1-1-0 BACKUP RULE FOR AVAILABILITY
+--------------------------------------------------------------------------------
+To guarantee that data availability cannot be destroyed by ransomware or disaster:
+  - 3: Maintain at least THREE copies of critical data.
+  - 2: Store copies on TWO different storage media types (e.g. SSD SAN + LTO Tape).
+  - 1: Keep at least ONE copy at an OFFSITE geographic location.
+  - 1: Keep at least ONE copy IMMUTABLE or AIR-GAPPED (Write-Once-Read-Many / S3 Object Lock).
+  - 0: Verify ZERO errors through automated periodic restoration test drills.
+
+7. REGULATORY & STATUTORY COMPLIANCE (INDIA)
+--------------------------------------------------------------------------------
+- CERT-In Directions (April 2022):
+  Mandates that all organizations in India must report critical cybersecurity 
+  incidents and major outages to the Indian Computer Emergency Response Team 
+  (CERT-In) within 6 HOURS of detection.
+- Information Technology Act (2000) Section 66F:
+  Classifies intentional attacks that deny access to or disrupt critical national 
+  information infrastructure as Cyber Terrorism, punishable by LIFE IMPRISONMENT.
+- RBI Master Directions on IT Governance & Cyber Security:
+  Mandates Scheduled Commercial Banks in India to maintain a Recovery Time 
+  Objective (RTO) <= 2 hours for mission-critical core banking payment systems.
+
+================================================================================
+END OF NOTE - PROF. SUKANTA HUI
+================================================================================

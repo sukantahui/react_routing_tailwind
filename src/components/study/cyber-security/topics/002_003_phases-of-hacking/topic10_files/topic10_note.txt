@@ -1,0 +1,148 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_003 : PHASES OF HACKING METHODOLOGY
+TOPIC 10       : CYBER KILL CHAIN VS MITRE ATT&CK FRAMEWORK
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & ADVERSARY MODELING PARADIGMS
+--------------------------------------------------------------------------------
+Adversary modeling frameworks provide standardized languages for understanding, analyzing, 
+and neutralizing cyber attacks.
+
+Two dominant frameworks govern modern enterprise defense:
+  1. LOCKHEED MARTIN CYBER KILL CHAIN : A 7-stage linear sequential model focused on perimeter 
+     prevention and early-stage disruption.
+  2. MITRE ATT&CK FRAMEWORK            : A 14-tactic non-linear matrix of real-world adversary 
+     behaviors, techniques, and procedures focused on post-compromise detection and threat hunting.
+
+--------------------------------------------------------------------------------
+2. THE 7 STAGES OF THE CYBER KILL CHAIN (LOCKHEED MARTIN)
+--------------------------------------------------------------------------------
+
+[1. RECONNAISSANCE]   --> Researching target infrastructure, employee OSINT, and exposed ports.
+[2. WEAPONIZATION]    --> Pairing an exploit with a malicious payload (e.g. MS Office macro + C2 beacon).
+[3. DELIVERY]         --> Transmitting weaponized payload to victim (Spear-phishing email, USB drive).
+[4. EXPLOITATION]     --> Triggering the vulnerability (buffer overflow, macro execution) on endpoint.
+[5. INSTALLATION]     --> Installing backdoor, registry run key, or service for persistent access.
+[6. COMMAND & CONTROL]--> Establishing encrypted two-way C2 communication channel over HTTPS/DNS.
+[7. ACTIONS ON OBJ.]  --> Achieving final goal: data exfiltration, ransomware encryption, disruption.
+
+* BREAKING THE KILL CHAIN:
+  - Because the chain is strictly sequential, stopping the attacker at ANY single phase (e.g. blocking 
+    email delivery at Stage 3) permanently thwarts the entire cyber attack!
+
+--------------------------------------------------------------------------------
+3. MITRE ATT&CK FRAMEWORK ARCHITECTURE
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| ATT&CK LEVEL       | DEFINITION              | CORE QUESTION      | CONCRETE EXAMPLE                               |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. TACTIC          | The Adversary's Goal    | "WHY?"             | TA0006: Credential Access                      |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. TECHNIQUE       | The Technical Mechanism | "HOW?"             | T1003: OS Credential Dumping                   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. SUB-TECHNIQUE   | Specific OS Method      | "WHICH METHOD?"    | T1003.001: LSASS Memory Dumping                |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 4. PROCEDURE       | Tool Implementation     | "WHAT TOOL?"       | Mimikatz `sekurlsa::logonpasswords` by APT29   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+[THE 14 MITRE ATT&CK ENTERPRISE TACTICS]
+1. Reconnaissance (TA0043)       6. Privilege Escalation (TA0004)   11. Collection (TA0009)
+2. Resource Development (TA0042) 7. Defense Evasion (TA0005)        12. Command & Control (TA0011)
+3. Initial Access (TA0001)       8. Credential Access (TA0006)      13. Exfiltration (TA0010)
+4. Execution (TA0002)            9. Discovery (TA0007)              14. Impact (TA0040)
+5. Persistence (TA0003)         10. Lateral Movement (TA0008)
+
+--------------------------------------------------------------------------------
+4. COMPARATIVE FRAMEWORK ANALYSIS & PYRAMID OF PAIN
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------+------------------------------------------------+
+| ATTRIBUTE          | CYBER KILL CHAIN        | MITRE ATT&CK MATRIX                            |
++--------------------+-------------------------+------------------------------------------------+
+| Model Structure    | Linear Sequential (1-7) | Non-Linear Matrix Grid (14 Tactics x 196+ Tech)|
++--------------------+-------------------------+------------------------------------------------+
+| Primary Focus      | Perimeter Prevention    | Post-Compromise Behavior & Threat Hunting      |
++--------------------+-------------------------+------------------------------------------------+
+| Audience           | Executives, CISOs, Board| SOC Analysts, Threat Hunters, Red/Blue Teams   |
++--------------------+-------------------------+------------------------------------------------+
+| Cloud & Identity   | Limited applicability   | Comprehensive Cloud, Identity, & ICS Matrices  |
++--------------------+-------------------------+------------------------------------------------+
+
+* THE PYRAMID OF PAIN (David Bianco):
+  - Hash Values (Trivial) -> IP Addresses (Easy) -> Domain Names (Simple) ->
+    Network/Host Artifacts (Annoying) -> Tools (Challenging) -> TTPs (TOUGH! - Apex of the Pyramid)
+
+--------------------------------------------------------------------------------
+5. THREAT VALIDATION & DETECTION ENGINEERING TOOLS
+--------------------------------------------------------------------------------
+
+1. Atomic Red Team (Red Canary):
+   - Modular scripted tests mapped directly to ATT&CK technique IDs (e.g. `Invoke-AtomicTest T1003.001`).
+
+2. Sigma Generic Detection Rules:
+   - Open YAML signature format mapped to ATT&CK IDs, converting to Splunk SPL, Elastic KQL, and Sentinel.
+
+3. MITRE ATT&CK Navigator:
+   - Interactive matrix visualizer for defensive coverage heatmapping and threat actor TTP profiling.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : PHISHING RANSOMWARE KILL CHAIN BREAK (KOLKATA FINTECH)
+  * Lead Security Architect : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : A targeted financial phishing campaign attempted to deliver weaponized Excel macros.
+  * Action : Mamata configured email sandboxing to break the Kill Chain at Stage 3 (Delivery), mapped 12 
+    MITRE ATT&CK technique IDs in Splunk, and eliminated all endpoint execution risk.
+
+SCENARIO 2 : HOSPITAL EHR MITRE NAVIGATOR GAP ANALYSIS (ICHAPUR HOSPITAL)
+  * Chief Healthcare Information Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Evaluating whether the hospital PACS and patient EHR network could detect APT credential attacks.
+  * Action : Built a MITRE ATT&CK Navigator heatmap, identified unmonitored blind spots in WMI persistence (T1546.003), 
+    and authored Sigma detection rules to achieve 92% defensive technique coverage.
+
+SCENARIO 3 : SCADA ATT&CK FOR ICS PROTOCOL DEFENSE (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Threat actors probing 220kV substation protective relays using unauthorized Modbus function codes.
+  * Action : Mapped industrial telemetry to MITRE ATT&CK for ICS (T0836 Modify Parameter & T0855 Unauthorized Command Message), 
+    deploying deep packet inspection to block non-conforming industrial commands at the substation firewall.
+
+SCENARIO 4 : ATOMIC RED TEAM & SIGMA DETECTION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students how to validate SIEM detection rules against real-world MITRE ATT&CK techniques.
+  * Action : Built a virtualized cyber range using Atomic Red Team and Sigma, guiding 140+ students through 
+    testing LSASS dumping (T1003) and authoring vendor-neutral detection rules for enterprise SOCs.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL THREAT MODELING HABITS:
+  1. Map Every Alert to MITRE ATT&CK IDs: Enables automated metric tracking and threat correlation.
+  2. Use Atomic Red Team to Validate Rules: Never assume a detection rule works without testing it.
+  3. Combine High-Level and Granular Models: Use Kill Chain for executives and ATT&CK for SOC engineers.
+
+* COMMON THREAT MODELING MISTAKES:
+  - Relying exclusively on file hashes (Attackers change hashes in 1 second; focus on TTPs).
+  - Assuming the Cyber Kill Chain models modern cloud/API breaches (Cloud attacks bypass delivery/installation).
+  - Collecting threat intelligence without mapping it to defensive Sigma detection rules.
+  - Failing to recognize that NCIIPC and CERT-In standardize national alerts using MITRE ATT&CK IDs.
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Cyber Kill Chain has 7 sequential stages; breaking any 1 stage stops the attack.
+[ ] MITRE ATT&CK has 14 Enterprise Tactics (The "Why") and hundreds of Techniques (The "How").
+[ ] Procedures represent the exact tool or script implementation used by specific APTs.
+[ ] Pyramid of Pain: Hashes are trivial; TTPs inflict maximum pain on attackers.
+[ ] Atomic Red Team provides scripted tests mapped to ATT&CK technique IDs.
+[ ] Sigma is an open YAML format for writing vendor-neutral SIEM detection rules.
+[ ] MITRE ATT&CK for ICS models operational technology (SCADA/PLC) cyber threats.
+[ ] NCIIPC and CERT-In map national threat advisories to MITRE ATT&CK Technique IDs.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 10 (CYBER SECURITY BCAC703)
+================================================================================

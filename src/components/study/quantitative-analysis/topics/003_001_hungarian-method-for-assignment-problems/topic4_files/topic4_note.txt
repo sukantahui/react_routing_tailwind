@@ -1,0 +1,114 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 3: ASSIGNMENT PROBLEMS
+MODULE: 003_001_hungarian-method-for-assignment-problems
+TOPIC 4: BALANCED ASSIGNMENT PROBLEMS (SQUARE MATRICES & COMPLETE 5-STEP WALKTHROUGH)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE BALANCED ASSIGNMENT DEFINITION
+--------------------------------------------------------------------------------
+An Assignment Problem is BALANCED when:
+• Number of Resources (m) EQUALS Number of Tasks (n): m = n.
+• The Cost Matrix C is a SQUARE MATRIX of order n x n.
+• Total Available Capacity = Total Required Demand = n units (since S_i = 1 and D_j = 1).
+
+OPERATIONAL SIGNIFICANCE:
+Balanced problems do NOT require adding dummy rows or dummy columns.
+They are immediately eligible for direct 5-step Hungarian Method execution!
+
+--------------------------------------------------------------------------------
+2. COMPLETE 5-STEP BALANCED SOLVER WALKTHROUGH
+--------------------------------------------------------------------------------
+Consider the 3x3 Industrial Problem:
+       J1    J2    J3
+  W1   ₹9   ₹26   ₹15
+  W2  ₹13   ₹27    ₹6
+  W3  ₹35   ₹20   ₹15
+
+STEP 1: ROW REDUCTION (Subtract Row Minimums)
+• Row 1 min = 9  ➔ [9-9, 26-9, 15-9] = [0, 17, 6]
+• Row 2 min = 6  ➔ [13-6, 27-6, 6-6] = [7, 21, 0]
+• Row 3 min = 15 ➔ [35-15, 20-15, 15-15] = [20, 5, 0]
+Matrix after Step 1:
+  [[ 0, 17, 6],
+   [ 7, 21, 0],
+   [20,  5, 0]]
+
+STEP 2: COLUMN REDUCTION (Subtract Column Minimums)
+• Col 1 min = 0 ➔ [0, 7, 20]
+• Col 2 min = 5 ➔ [17-5, 21-5, 5-5] = [12, 16, 0]
+• Col 3 min = 0 ➔ [6, 0, 0]
+Fully Reduced Matrix:
+  [[ 0, 12, 6],
+   [ 7, 16, 0],
+   [20,  0, 0]]
+
+STEP 3: LINE COVERING TEST (KÖNIG'S THEOREM)
+• Row 1 covered by Line 1 (Horizontal)
+• Row 2 covered by Line 2 (Horizontal)
+• Row 3 covered by Line 3 (Horizontal)
+Minimum Lines to cover all zeros: L = 3.
+Since L = n = 3, the matrix is GLOBALLY OPTIMAL! ⭐
+
+STEP 4: INDEPENDENT ZERO ASSIGNMENT PROTOCOL
+• Row 1 has 1 zero at (1, 1) ➔ Assign (1, 1). Cross out other zeros in Col 1 (None).
+• Row 2 has 1 zero at (2, 3) ➔ Assign (2, 3). Cross out other zeros in Col 3 (Cell 3,3).
+• Row 3 remaining zero is (3, 2) ➔ Assign (3, 2).
+
+STEP 5: COMPUTE FINAL MINIMUM COST IN RUPEES (₹)
+Using ORIGINAL matrix rates:
+• W1 ➔ J1: c_11 = ₹9
+• W2 ➔ J3: c_23 = ₹6
+• W3 ➔ J2: c_32 = ₹20
+Total Certified Minimum Cost:
+    Z* = 9 + 6 + 20 = ₹35.
+
+STRONG DUALITY AUDIT:
+Sum of Row Mins (9 + 6 + 15 = 30) + Sum of Col Mins (0 + 5 + 0 = 5) = ₹35 = Z* ✅!
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Balanced Roster (Debangshu)
+Debangshu in Barrackpore solved a balanced 4x4 foundry roster, assigning 4 senior
+metallurgists to 4 casting jobs with total minimal expenditure of ₹120.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Balanced Clinic Match (Mamata & Mahima)
+Mamata and Mahima in Kolkata matched 4 refrigerated vans to 4 emergency hospital
+depots, achieving optimal dispatching at ₹85 total transit cost.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Balanced Roster (Susmita)
+Susmita in Ichapur structured a balanced 4x4 retail roster for store supervisors,
+minimizing weekly labor expenditure by ₹2,400.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational Printing Press Balanced Binding Run (Abhronila)
+Abhronila in Jadavpur scheduled 3 industrial book-binding lines for 3 high-volume
+textbook orders, locking in the certified minimal processing cost of ₹35.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Always verify m = n before starting row reductions.
+- When assigning zeros, scan rows with only ONE zero first.
+- Always calculate final cost from the ORIGINAL matrix, never the reduced matrix.
+- Report all final costs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Verified balanced condition: m = n (square matrix).
+[ ] Executed row reduction: c_ij' = c_ij - min(Row i).
+[ ] Executed column reduction: c_ij'' = c_ij' - min(Col j).
+[ ] Tested minimum line covering L == n.
+[ ] Assigned independent zeros and crossed out conflicting zeros.
+[ ] Calculated final minimum cost Z* in Indian Rupees (₹) and verified via Strong Duality.
+
+================================================================================
+END OF STUDY NOTE • MODULE 003_001 • TOPIC 4: BALANCED ASSIGNMENT PROBLEMS
+================================================================================

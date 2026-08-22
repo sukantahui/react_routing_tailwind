@@ -1,0 +1,93 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_002_cyber-security-definition
+TOPIC 10: APPLICATIONS OF CYBER SECURITY (FINTECH, HEALTHCARE, E-COMMERCE, SMART CITIES & DEFENSE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. CROSS-INDUSTRY CYBER SECURITY ARCHITECTURES
+--------------------------------------------------------------------------------
+Cyber Security is not a generic, one-size-fits-all discipline; it must be tailored specifically
+to the operational, regulatory, and technical requirements of each industry sector:
+
+1. Banking, FinTech & Digital Payments (UPI):
+   • Hardware Security Modules (HSMs) for PIN and master key encryption.
+   • Sub-35ms AI transaction fraud velocity scoring.
+   • PCI-DSS v4.0 compliance, tokenization, and dynamic OTPs.
+2. Healthcare & Telemedicine:
+   • Column-level AES-256 encryption on Electronic Health Records (EHR/EMR).
+   • Internet of Medical Things (IoMT) biomedical microsegmentation.
+   • X.509 PKI digital signatures on diagnostic laboratory reports.
+3. E-Commerce & Retail:
+   • Web Application Firewalls (WAF) blocking OWASP Top 10 exploits.
+   • Content Security Policy (CSP) & Subresource Integrity (SRI) stopping Magecart skimmers.
+   • Anti-bot mitigation stopping high-speed inventory scalping.
+4. Smart Cities, Energy & Autonomous Transport:
+   • Smart Grid Advanced Metering Infrastructure (AMI) with mutual TLS (mTLS).
+   • SCADA electrical substation protection via optical data diodes.
+   • Automotive Controller Area Network (CAN) SecOC message authentication.
+5. National Defense & Military Command:
+   • Air-gapped command enclaves, red-black hardware separation, and post-quantum crypto.
+   • Jam-resistant tactical frequency-hopping software-defined radio datalinks.
+6. Cloud Computing & DevSecOps:
+   • Cloud Security Posture Management (CSPM) & Cloud Access Security Brokers (CASB).
+   • Automated CI/CD security testing: SAST, DAST, SCA, and secrets vaulting.
+
+--------------------------------------------------------------------------------
+2. MODERN SECURITY PARADIGMS: ZERO TRUST (NIST SP 800-207)
+--------------------------------------------------------------------------------
+• Core Axiom: "Never Trust, Always Verify."
+• Key Pillars:
+  - Verify Explicitly: Always authenticate and authorize based on all available data points (identity, device, location).
+  - Enforce Least Privilege: Limit user access with Just-In-Time (JIT) and Just-Enough-Access (JEA) policies.
+  - Assume Breach: Segment access by network, user, devices, and application awareness; encrypt all traffic end-to-end.
+
+--------------------------------------------------------------------------------
+3. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Industrial DevSecOps & Cloud CSPM Deployment (Debangshu - Barrackpore)
+Debangshu integrated automated SAST scanning and cloud CSPM monitoring in Barrackpore for ₹4,80,000.
+The system automatically detected an unencrypted cloud storage backup containing proprietary casting
+blueprints, applying automated AES-256 encryption within 4 seconds of creation.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Diagnostic Clinic Microsegmented Biomedical IoMT Network (Mahima - Ichapur)
+Mahima architected an isolated biomedical VLAN and cryptographic EHR access portal in Ichapur for
+₹5,50,000. When a workstation in the billing department was infected with ransomware, the strict
+microsegmentation prevented malware from traversing to life-critical hospital infusion pumps.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: FinTech Payment Gateway Real-Time AI Fraud Scoring (Mamata - Kolkata)
+Mamata deployed a high-throughput AI fraud detection engine and PCI-DSS HSM cluster in Kolkata for
+₹14,50,000. Analyzing transaction velocity in 28 milliseconds, the system intercepted ₹18,00,000 in
+fraudulent credential-stuffing payments during festive midnight flash sales.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab SASE & Smart City SCADA Testbed (Abhronila - Jadavpur)
+Abhronila established a Smart City SASE and SCADA testing laboratory in Jadavpur for ₹6,20,000.
+Students test Zero Trust SASE policies, configuring mTLS authentication between 5,000 simulated smart
+electricity meters and central utility head-end servers.
+
+--------------------------------------------------------------------------------
+4. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never apply generic IT security controls to industrial SCADA or biomedical healthcare networks.
+- Embed automated DevSecOps scanners directly into developer CI/CD pipelines to catch bugs before launch.
+- Enforce Zero Trust principles universally: verify explicitly, enforce least privilege, assume breach.
+- Formulate all enterprise WAF, EHR encryption, and smart city SOC budgets in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+5. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped cross-industry cybersecurity applications (FinTech, Healthcare, E-Commerce, Smart Cities, Defense).
+[ ] Evaluated Banking UPI security (HSMs, sub-35ms AI fraud scoring, PCI-DSS compliance).
+[ ] Analyzed Healthcare EHR protection, IoMT microsegmentation, and diagnostic report non-repudiation.
+[ ] Investigated E-Commerce WAFs, Content Security Policy (CSP), and anti-Magecart protections.
+[ ] Mastered Zero Trust Architecture (NIST SP 800-207), SASE, and CI/CD DevSecOps pipelines.
+[ ] Formulated realistic multi-industry enterprise security budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_002 • TOPIC 10: APPLICATIONS OF CYBER SECURITY
+================================================================================

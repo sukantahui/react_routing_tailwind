@@ -501,7 +501,7 @@ for (int i = 1; i < arr.length; i++) {
                     <span className="text-red-600 text-xl">❌</span>
                     <div>
                       <p className="font-semibold">Using &gt; instead of &lt;</p>
-                      <p className="text-sm">Using <code className="bg-gray-200 px-1 rounded">if (arr[i] > min)</code> finds maximum instead of minimum!</p>
+                      <p className="text-sm">Using <code className="bg-gray-200 px-1 rounded">if (arr[i] &gt; min)</code> finds maximum instead of minimum!</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">

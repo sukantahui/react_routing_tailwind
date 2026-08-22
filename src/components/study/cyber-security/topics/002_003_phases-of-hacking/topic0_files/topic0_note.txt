@@ -1,0 +1,146 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_003 : PHASES OF HACKING METHODOLOGY
+TOPIC 00       : OVERVIEW OF THE 5 PHASES OF HACKING
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE 5 PHASES METHODOLOGY
+--------------------------------------------------------------------------------
+Hacking is not an act of random chaos; it is a systematic, structured engineering discipline. 
+In ethical cybersecurity (CEH / EC-Council standards), an intrusion lifecycle is structured 
+into five sequential phases:
+
+  PHASE 1 : RECONNAISSANCE (Information Gathering & Footprinting - Passive vs Active)
+  PHASE 2 : SCANNING & ENUMERATION (Discovering live hosts, open ports, and service banners)
+  PHASE 3 : GAINING ACCESS (Exploiting vulnerabilities to achieve initial compromise)
+  PHASE 4 : MAINTAINING ACCESS (Establishing backdoors, persistence, and C2 beacons)
+  PHASE 5 : CLEARING TRACKS (Anti-forensics by adversaries vs artifact cleanup by ethical testers)
+
+--------------------------------------------------------------------------------
+2. COMPARATIVE 5-PHASE OPERATIONAL MATRIX
+--------------------------------------------------------------------------------
+
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| PHASE        | PRIMARY OPERATIONAL OBJECTIVE | PRIMARY TOOL ARSENAL  | DEFENSIVE COUNTERMEASURES             |
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| 1. Recon     | Gather public and technical   | WHOIS, crt.sh, Shodan,| - Minimize public footprint           |
+|              | data on the target network    | Google Dorks, theHarv | - Enforce domain privacy registration |
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| 2. Scanning  | Identify active IP addresses, | Nmap, Masscan, Nessus,| - Next-Gen Firewall port drop rules   |
+|              | open ports, and OS versions   | Nikto, enum4linux     | - Disable unneeded services & banners |
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| 3. Gaining   | Exploit software logic flaws  | Metasploit, Burp Suite| - Web Application Firewall (WAF)      |
+|    Access    | to achieve remote shell access| SQLmap, Hydra, Ghidra | - ASLR / DEP buffer overflow defenses |
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| 4. Maintain  | Establish long-term persistent| Cobalt Strike, Sliver,| - CrowdStrike EDR behavioral alerts   |
+|    Access    | C2 channels & escalate privs  | Mimikatz, LinPEAS     | - Least Privilege & Micro-segmentation|
++--------------+-------------------------------+-----------------------+---------------------------------------+
+| 5. Clearing  | Adversary: Erase audit logs;  | wevtutil, timestomp,  | - Centralized Immutable WORM Logging  |
+|    Tracks    | Ethical: Remove test tools    | sdelete, rm -rf       | - 180-Day domestic CERT-In log archive|
++--------------+-------------------------------+-----------------------+---------------------------------------+
+
+--------------------------------------------------------------------------------
+3. CROSS-FRAMEWORK ALIGNMENT
+--------------------------------------------------------------------------------
+
+[1. THE 5 CLASSICAL PHASES vs LOCKHEED MARTIN CYBER KILL CHAIN]
+  * Phase 1 (Recon)            <--> 1. Reconnaissance
+  * Phase 3 (Gaining Access)   <--> 2. Weaponization + 3. Delivery + 4. Exploitation
+  * Phase 4 (Maintaining)      <--> 5. Installation + 6. Command & Control (C2)
+  * Phase 5 (Actions)          <--> 7. Actions on Objectives (Exfiltration / Ransomware)
+
+[2. THE 5 CLASSICAL PHASES vs MITRE ATT&CK ENTERPRISE]
+  * Phase 1 <--> Reconnaissance (TA0043), Resource Development (TA0042)
+  * Phase 2 <--> Discovery (TA0007)
+  * Phase 3 <--> Initial Access (TA0001), Execution (TA0002)
+  * Phase 4 <--> Persistence (TA0003), Privilege Escalation (TA0004), C2 (TA0011)
+  * Phase 5 <--> Defense Evasion (TA0005)
+
+--------------------------------------------------------------------------------
+4. THE CARDINAL ETHICAL CLEANUP MANDATE (PHASE 5)
+--------------------------------------------------------------------------------
+
+* BLACK HAT ADVERSARY:
+  - Wipes Windows Event Logs (`wevtutil cl Security`).
+  - Deletes Linux audit trails (`/var/log/auth.log`).
+  - Timestomps malware binaries to blend with authentic Windows DLLs.
+
+* ETHICAL PENETRATION TESTER:
+  - NEVER deletes or tampers with client audit logs (Preserves compliance evidence).
+  - Systematically removes all dropped webshells, test accounts, and C2 beacons.
+  - Restores all modified configuration files to their original baseline.
+  - Documents all cleanup actions in the final executive penetration testing deliverable.
+
+--------------------------------------------------------------------------------
+5. INDIAN CYBER LAW (IT ACT 2000) ENFORCEMENT
+--------------------------------------------------------------------------------
+
+1. Section 43 & Section 66 (Unauthorized Probing & Hacking):
+   - Probing open ports without authorization (Phase 2) or gaining access (Phase 3) 
+     carries up to 3 years imprisonment and ₹5,00,000 fine.
+
+2. Section 65 (Tampering with Source & Log Documents):
+   - Wiping or manipulating computer logs (Phase 5) carries up to 3 years imprisonment.
+
+3. Section 66F (Cyber Terrorism):
+   - Unauthorized access targeting critical power grids or defense carries LIFE IMPRISONMENT.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : UPI PAYMENT SWITCH PENETRATION TEST (KOLKATA FINTECH)
+  * Lead Penetration Tester : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : Executing an authorized 5-phase penetration test on core banking UPI microservices.
+  * Operational Action : Discovered an unauthenticated IDOR during Phase 3, escalated privileges 
+    in Phase 4, and cleanly removed test accounts in Phase 5 without touching live production audit logs.
+
+SCENARIO 2 : HOSPITAL IOMT 5-PHASE ASSESSMENT (ICHAPUR HOSPITAL)
+  * Chief Security Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Auditing 40 clinical infusion pumps without causing patient care downtime.
+  * Operational Action : Conducted passive recon and gentle scanning in Phases 1 and 2, identifying 
+    unencrypted cleartext DICOM ports and deploying clinical VLAN micro-segmentation.
+
+SCENARIO 3 : 220KV SUBSTATION SCADA PHASE MODELING (BARRACKPORE GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Modeling how an advanced threat actor (APT) would progress through the 5 phases against power grid RTUs.
+  * Operational Action : Mapped defensive countermeasures across all 5 phases, deploying unidirectional 
+    optical data diodes to permanently block Phase 3 exploitation and Phase 4 lateral movement.
+
+SCENARIO 4 : ATOMIC KILL CHAIN SIMULATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Building an educational lab demonstrating how MITRE ATT&CK techniques map to the 5 phases.
+  * Operational Action : Developed an automated purple team script demonstrating Phase 1 OSINT, Phase 2 Nmap scanning, 
+    Phase 3 buffer overflow injection, and Phase 4 registry persistence in a safe virtualized sandbox.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL METHODOLOGICAL HABITS:
+  1. Spend 70% of Time on Recon & Scanning: Thorough enumeration makes exploitation effortless.
+  2. Maintain a Detailed Handoff Log: Record every payload dropped for complete Phase 5 cleanup.
+  3. Stream Logs to Immutable WORM SIEM: Defeat adversary anti-forensics by archiving logs off-site.
+
+* COMMON BEGINNER MISTAKES:
+  - Rushing into Phase 3 (Exploitation) without adequate Phase 2 enumeration (leads to missed bugs).
+  - Deleting server logs during an ethical audit (Destroys client legal compliance).
+  - Leaving persistent webshells or admin accounts on client servers after the test concludes.
+  - Firing noisy automated scanners against live production SCADA devices (Causes system crashes).
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] 5 Phases: Reconnaissance, Scanning, Gaining Access, Maintaining Access, Clearing Tracks.
+[ ] Passive Recon gathers public data without packets; Active Recon sends direct network probes.
+[ ] Scanning discovers live hosts & ports; Enumeration extracts usernames & service details.
+[ ] Cyber Kill Chain has 7 stages: Recon, Weaponize, Deliver, Exploit, Install, C2, Actions.
+[ ] MITRE ATT&CK organizes real-world adversarial tradecraft into 14 granular tactics.
+[ ] Ethical hackers NEVER delete client audit logs; they remove test artifacts only.
+[ ] IT Act 2000 Section 66 punishes unauthorized hacking with up to 3 years in prison.
+[ ] Centralized immutable WORM logging defeats adversary Phase 5 anti-forensics attempts.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 00 (CYBER SECURITY BCAC703)
+================================================================================

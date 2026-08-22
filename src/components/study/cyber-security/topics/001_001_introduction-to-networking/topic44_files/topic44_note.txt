@@ -1,0 +1,99 @@
+================================================================================
+CYBER SECURITY & COMPUTER NETWORKING STUDY NOTE
+MODULE: 001_001_introduction-to-networking
+TOPIC 44: FUTURE OF COMPUTER NETWORKING (QKD, POST-QUANTUM CRYPTO, 6G, LEO SATELLITES & AI INTENT)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. QUANTUM NETWORKING & QUANTUM KEY DISTRIBUTION (QKD)
+--------------------------------------------------------------------------------
+• Quantum Key Distribution (BB84 / E91):
+  Transmits cryptographic keys using single photon polarization states. By Heisenberg's
+  Uncertainty Principle and the No-Cloning Theorem, any eavesdropping attempt disturbs
+  the quantum states, creating a measurable Quantum Bit Error Rate (QBER > 11%) that
+  alerts legitimate parties to discard compromised keys.
+• Quantum Repeaters & Entanglement Swapping:
+  Teleports quantum states across dark fiber spans, establishing multi-thousand-kilometer
+  entangled quantum internet connections without measuring or destroying qubits.
+
+--------------------------------------------------------------------------------
+2. POST-QUANTUM CRYPTOGRAPHY (PQC - NIST STANDARDS)
+--------------------------------------------------------------------------------
+• 'Q-Day' Preparation:
+  Shor's algorithm running on future quantum computers will break RSA and ECC cryptography.
+• NIST Standardized Post-Quantum Algorithms:
+  - ML-KEM (Kyber): Lattice-based Key Encapsulation Mechanism.
+  - ML-DSA (Dilithium) & SLH-DSA (SPHINCS+): Quantum-resistant digital signatures.
+• Hybrid TLS 1.3:
+  Combines classical ECDH (X25519) + ML-KEM (Kyber768) to protect current encrypted
+  traffic from 'Harvest Now, Decrypt Later' (HNDL) nation-state adversaries.
+
+--------------------------------------------------------------------------------
+3. 6G WIRELESS, TERAHERTZ & LEO SATELLITE SPACE MESHES
+--------------------------------------------------------------------------------
+• 6G Terahertz Wireless (100 GHz – 3 THz):
+  Delivers 1 Terabit per second (Tbps) peak throughput and sub-100 microsecond latency.
+  Integrates Sensing and Communication (ISAC) and Reconfigurable Intelligent Surfaces (RIS).
+• LEO Satellite Mega-Constellations (Optical Laser ISLs):
+  Satellites communicate via 100G free-space optical lasers in space vacuum, routing packets
+  faster than transoceanic undersea fiber cables with direct-to-cell smartphone connectivity.
+
+--------------------------------------------------------------------------------
+4. AI-NATIVE INTENT NETWORKING & PROGRAMMABLE SILICON (P4)
+--------------------------------------------------------------------------------
+• AI-Native Intent-Based Networking (IBN):
+  Declarative high-level business goals translated by AI into self-healing routing rules.
+• Digital Network Twins:
+  Mathematical software clones simulating routing changes before hardware deployment.
+• P4 Programmable Data Planes (Intel Tofino):
+  Custom packet processing and In-Band Network Telemetry (INT) at 25.6 Tbps wire speed.
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry AI-Native Intent Network Controller (Debangshu - Barrackpore)
+Debangshu deployed an AI Intent-Based Network Controller with real-time digital twin verification
+in Barrackpore for ₹8,50,000. When an optical fiber link experienced high jitter, the AI agent
+autonomously rerouted CNC robotic telemetry across a secondary path in 14 milliseconds.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: HealthTech Diagnostic Post-Quantum Hybrid TLS 1.3 Mesh (Mahima - Ichapur)
+Mahima implemented NIST ML-KEM (Kyber768) hybrid TLS 1.3 across hospital EHR microservices in
+Ichapur for ₹3,80,000. All electronic health records and genetic sequencing data are mathematically
+immune to future quantum decryption attacks.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Smart City 6G Terahertz & LEO Laser Satellite Gateway (Mamata - Kolkata)
+Mamata engineered a prototype 6G sub-terahertz (300 GHz) wireless link and LEO laser satellite
+gateway in Kolkata for ₹14,50,000. The system achieved 120 Gbps wireless throughput, streaming
+real-time 3D volumetric point clouds for remote telemedicine consultations.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Cyber Security Lab Dark Fiber Quantum QKD Testbed (Abhronila - Jadavpur)
+Abhronila deployed an operational BB84 Quantum Key Distribution (QKD) single-photon optical link
+over 25 km of dedicated dark fiber in Jadavpur for ₹48,000,000 (research grant). The system generates
+unconditionally secure symmetric encryption keys with real-time QBER eavesdropping detection.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never delay Post-Quantum Cryptography migration; adversaries harvest encrypted data today.
+- Avoid manual CLI network management for massive networks; adopt AI intent and digital twins.
+- Recognize that 6G terahertz signals suffer high path loss; deploy Reconfigurable Intelligent Surfaces.
+- Budget all QKD optics, P4 programmable switches, and AI controllers in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mapped Quantum Key Distribution (BB84 QKD) and No-Cloning Theorem physics.
+[ ] Evaluated NIST Post-Quantum Cryptography (ML-KEM/Kyber & ML-DSA/Dilithium).
+[ ] Analyzed 6G Terahertz wireless, RIS smart metamaterials, and ISAC sensing.
+[ ] Investigated LEO satellite constellations with optical laser inter-satellite links (ISLs).
+[ ] Configured AI-Native Intent-Based Networking (IBN) and P4 programmable data planes.
+[ ] Formulated realistic next-generation network research budgets in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 001_001 • TOPIC 44: FUTURE OF COMPUTER NETWORKING
+================================================================================

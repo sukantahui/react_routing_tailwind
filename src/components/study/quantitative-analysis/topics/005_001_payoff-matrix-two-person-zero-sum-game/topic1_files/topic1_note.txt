@@ -1,0 +1,113 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_001_payoff-matrix-two-person-zero-sum-game
+TOPIC 1: PLAYERS AND STRATEGIES (ROLES, PURE VS MIXED STRATEGIES & DOMINANCE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION OF A PLAYER IN GAME THEORY
+--------------------------------------------------------------------------------
+A PLAYER is an autonomous, rational entity capable of making decisions among a set
+of alternatives to maximize their expected monetary return or utility in Indian Rupees (₹).
+
+ROLES IN A TWO-PERSON ZERO-SUM GAME:
+1. PLAYER A (ROW PLAYER):
+   • The MAXIMIZER.
+   • Aims to maximize the minimum gain (Maximin Criterion).
+   • Chooses from rows A_1, A_2, ..., A_m.
+
+2. PLAYER B (COLUMN PLAYER):
+   • The MINIMIZER.
+   • Aims to minimize the maximum loss / payout to Player A (Minimax Criterion).
+   • Chooses from columns B_1, B_2, ..., B_n.
+
+--------------------------------------------------------------------------------
+2. DEFINITION & ANATOMY OF A STRATEGY
+--------------------------------------------------------------------------------
+A STRATEGY is a complete, pre-formulated contingency plan specifying the exact
+action a player will take in every conceivable situation throughout the game.
+
+TYPES OF STRATEGIES:
+
+1. PURE STRATEGY:
+   • A deterministic decision rule where a player chooses ONE specific course of
+     action with 100% certainty (Probability p = 1.0).
+   • Example: Player A always chooses Strategy A_1.
+
+2. MIXED STRATEGY:
+   • A decision rule where a player randomizes over two or more pure strategies
+     according to a fixed probability distribution:
+         p = (p_1, p_2, ..., p_m)
+     subject to:
+         p_i >= 0  for all i,   and   sum_{i=1}^m p_i = 1.0
+   • Purpose: Eliminates predictability, preventing an intelligent rival from
+     anticipating and countering deterministic play.
+
+--------------------------------------------------------------------------------
+3. DOMINANT AND DOMINATED STRATEGIES
+--------------------------------------------------------------------------------
+
+1. STRICTLY DOMINANT STRATEGY:
+   • A strategy that yields a strictly higher payoff than all alternative strategies,
+     regardless of what action the opponent chooses.
+
+2. DOMINATED STRATEGY:
+   • A strategy that yields an equal or worse payoff than another strategy for every
+     possible opponent action.
+   • Rational players NEVER play dominated strategies (they can be eliminated from the matrix).
+
+--------------------------------------------------------------------------------
+4. STRATEGY SPACES & NOTATION
+--------------------------------------------------------------------------------
+For an m x n Game:
+• Strategy Space of Player A: S_A = {A_1, A_2, ..., A_m} with probability vector p = (p_1, ..., p_m).
+• Strategy Space of Player B: S_B = {B_1, B_2, ..., B_n} with probability vector q = (q_1, ..., q_n).
+• Total Strategic Combinations: m * n outcomes in the payoff matrix.
+
+--------------------------------------------------------------------------------
+5. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Tender Bidding Strategy (Debangshu)
+Debangshu in Barrackpore evaluated a pure strategy (fixed discount bidding) vs a mixed
+strategy (randomizing discounts between ₹20,000 and ₹50,000), preventing competitors from guessing bids.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Vaccine Facility Supplier Strategy (Mamata & Mahima)
+Mamata and Mahima in Kolkata modeled backup refrigeration vendor options as a 2x2
+strategic game, identifying a dominant strategy in backup solar generators over diesel engines.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Marketing Mix Strategy (Susmita)
+Susmita in Ichapur analyzed promotional discount schedules between two competing
+supermarkets, proving that adopting a mixed advertising strategy (60% weekend vs 40% weekday)
+stabilized footfall revenue.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Research Grant Consortium (Abhronila)
+Abhronila analyzed strategy sets for university patent licensing in Jadavpur, identifying
+that cross-licensing strictly dominated litigation in a ₹55 Lakh nanotechnology dispute.
+
+--------------------------------------------------------------------------------
+6. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never assume an opponent will repeat a predictable pure strategy if no saddle point exists.
+- In mixed strategies, ensure probabilities sum to EXACTLY 1.0 (sum p_i = 1.0).
+- Row players seek to MAXIMIZE payoffs; Column players seek to MINIMIZE payouts.
+- Always state strategic payoffs in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+7. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Defined Player and distinguished Row Maximizer (Player A) vs Column Minimizer (Player B).
+[ ] Defined Strategy as a complete pre-formulated contingency plan.
+[ ] Distinguished Pure Strategy (p = 1.0) vs Mixed Strategy (sum p_i = 1.0).
+[ ] Identified Dominant and Dominated strategies.
+[ ] Verified non-negativity (p_i >= 0) and normalization (sum p_i = 1.0) of probability vectors.
+[ ] Stated player utilities and financial payoffs in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_001 • TOPIC 1: PLAYERS AND STRATEGIES
+================================================================================

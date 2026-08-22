@@ -370,7 +370,7 @@
         },
         {
           "moduleId": "vogel-approximation-method",
-          "slug": "vogel-approximation-method",
+          "slug": "002_004_vogel-approximation-method",
           "title": "Vogel Approximation Method",
           "estimatedHours": 5,
           "topics": [
@@ -394,7 +394,7 @@
         },
         {
           "moduleId": "modi-optimality",
-          "slug": "test-of-optimality-by-modi-method",
+          "slug": "002_005_test-of-optimality-by-modi-method",
           "title": "Test of Optimality by the MODI Method",
           "estimatedHours": 6,
           "topics": [
@@ -430,7 +430,7 @@
       "modules": [
         {
           "moduleId": "hungarian-method",
-          "slug": "hungarian-method-for-assignment-problems",
+          "slug": "003_001_hungarian-method-for-assignment-problems",
           "title": "Hungarian Method for Solving Assignment Problems",
           "estimatedHours": 5,
           "topics": [
@@ -471,7 +471,7 @@
       "modules": [
         {
           "moduleId": "cpm-pert",
-          "slug": "critical-path-method-and-pert",
+          "slug": "004_001_critical-path-method-and-pert",
           "title": "Critical Path Method (CPM) & PERT",
           "estimatedHours": 5,
           "topics": [
@@ -508,7 +508,7 @@
       "modules": [
         {
           "moduleId": "game-theory-basics",
-          "slug": "payoff-matrix-two-person-zero-sum-game",
+          "slug": "005_001_payoff-matrix-two-person-zero-sum-game",
           "title": "Payoff Matrix & Two-Person Zero-Sum Game",
           "estimatedHours": 2,
           "topics": [
@@ -530,7 +530,7 @@
         },
         {
           "moduleId": "pure-strategy-saddle-point",
-          "slug": "pure-strategy-and-saddle-point",
+          "slug": "005_002_pure-strategy-and-saddle-point",
           "title": "Pure Strategy & Saddle Point",
           "estimatedHours": 2,
           "topics": [
@@ -553,7 +553,7 @@
         },
         {
           "moduleId": "dominance-rule",
-          "slug": "dominance-rule-in-game-theory",
+          "slug": "005_003_dominance-rule-in-game-theory",
           "title": "Dominance Rule",
           "estimatedHours": 2,
           "topics": [
@@ -575,7 +575,7 @@
         },
         {
           "moduleId": "mixed-strategy",
-          "slug": "mixed-strategy",
+          "slug": "005_004_mixed-strategy",
           "title": "Mixed Strategy",
           "estimatedHours": 3,
           "topics": [
@@ -597,7 +597,7 @@
         },
         {
           "moduleId": "game-reduction",
-          "slug": "reduction-of-mxn-game",
+          "slug": "005_005_reduction-of-mxn-game",
           "title": "Reduction of m×n Games",
           "estimatedHours": 3,
           "topics": [
@@ -619,7 +619,7 @@
         },
         {
           "moduleId": "game-graphical-algebraic",
-          "slug": "rx2-cases-graphical-and-algebraic-methods",
+          "slug": "005_006_2xn-and-m-x-2-cases-graphical-and-algebraic-methods",
           "title": "2×n and m×2 Cases: Graphical & Algebraic Methods",
           "estimatedHours": 3,
           "topics": [

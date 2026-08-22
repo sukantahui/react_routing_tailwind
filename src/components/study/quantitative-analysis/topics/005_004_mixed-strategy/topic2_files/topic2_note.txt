@@ -1,0 +1,91 @@
+================================================================================
+QUANTITATIVE ANALYSIS & OPERATIONS RESEARCH STUDY NOTE
+SEGMENT 5: INTRODUCTION TO GAME THEORY
+MODULE: 005_004_mixed-strategy
+TOPIC 2: EXPECTED PAYOFF (BILINEAR FORMULATION, JOINT PROBABILITIES & INDIFFERENCE)
+AUTHOR & MENTOR: SUKANTA HUI
+================================================================================
+
+--------------------------------------------------------------------------------
+1. DEFINITION & MATHEMATICAL FORMULATION
+--------------------------------------------------------------------------------
+In an m x n Two-Person Zero-Sum Game with payoff matrix A = [a_ij]:
+
+• BILINEAR EXPECTED PAYOFF FORMULA:
+      E(p, q) = p^T * A * q = sum_{i=1}^m sum_{j=1}^n p_i * a_ij * q_j
+
+• EXPANDED FORM FOR 2 x 2 GAME:
+      E(p, q) = p_1*q_1*a_11 + p_1*q_2*a_12 + p_2*q_1*a_21 + p_2*q_2*a_22
+
+Where:
+• p = (p_1, p_2)^T is Player A's mixed strategy probability vector (p_1 + p_2 = 1).
+• q = (q_1, q_2)^T is Player B's mixed strategy probability vector (q_1 + q_2 = 1).
+
+--------------------------------------------------------------------------------
+2. EXPECTED PAYOFFS AGAINST PURE STRATEGIES
+--------------------------------------------------------------------------------
+
+• PLAYER A'S EXPECTED PAYOFF AGAINST OPPONENT'S PURE COLUMNS:
+  - If Player B plays pure Column B_1 (q = (1, 0)^T):
+        E(p, B_1) = p_1 * a_11 + p_2 * a_21
+  - If Player B plays pure Column B_2 (q = (0, 1)^T):
+        E(p, B_2) = p_1 * a_12 + p_2 * a_22
+
+• PLAYER B'S EXPECTED PAYOUT AGAINST OPPONENT'S PURE ROWS:
+  - If Player A plays pure Row A_1 (p = (1, 0)^T):
+        E(A_1, q) = q_1 * a_11 + q_2 * a_12
+  - If Player A plays pure Row A_2 (p = (0, 1)^T):
+        E(A_2, q) = q_1 * a_21 + q_2 * a_22
+
+--------------------------------------------------------------------------------
+3. THE INDIFFERENCE PRINCIPLE (EQUALIZATION AT EQUILIBRIUM)
+--------------------------------------------------------------------------------
+At the optimal mixed strategy equilibrium (p*, q*):
+• Player A's strategy p* equalizes expected payoffs across both of Player B's options:
+      E(p*, B_1) = E(p*, B_2) = v* (Value of the Game in ₹)
+• Player B's strategy q* equalizes expected payouts across both of Player A's options:
+      E(A_1, q*) = E(A_2, q*) = v* (Value of the Game in ₹)
+
+--------------------------------------------------------------------------------
+4. FOUR REAL-WORLD BENGAL CASE STUDIES
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: Precision Foundry Long-Run Expected Profit Evaluation (Debangshu)
+Debangshu in Barrackpore evaluated a casting game with matrix [[40, 10], [10, 50]].
+With p = (0.5, 0.5) and q = (0.5, 0.5), the calculated expected return was E(p, q) = ₹27,500.
+
+--------------------------------------------------------------------------------
+CASE STUDY 2: Cold-Chain Logistics Transport Routing Expected Cost (Mamata & Mahima)
+Mamata and Mahima in Kolkata modeled transport breakdowns with [[₹30k, ₹15k], [₹10k, ₹40k]].
+Testing mixed fleet schedules yielded an expected operational expenditure of ₹23,750.
+
+--------------------------------------------------------------------------------
+CASE STUDY 3: Supermarket FMCG Retail Promotional Expected Footfall (Susmita)
+Susmita in Ichapur analyzed mixed weekend discounting [[₹50k, ₹20k], [₹10k, ₹60k]],
+predicting an expected monthly campaign payoff of ₹35,000.
+
+--------------------------------------------------------------------------------
+CASE STUDY 4: Educational High-Tech Lab Patent Licensing Expected Valuation (Abhronila)
+Abhronila calculated expected licensing revenues under randomized legal postures in Jadavpur,
+locking in a steady long-run expected valuation of ₹18 Lakh.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & PRACTICAL ADVICE
+--------------------------------------------------------------------------------
+- Never forget the cross-product terms (p1*q2 and p2*q1) when computing full E(p, q).
+- E(p, q) must always lie between the minimum and maximum cell entries of the matrix.
+- At equilibrium, E(p*, B1) must EXACTLY equal E(p*, B2).
+- State all expected payoffs and game valuations in Indian Rupees (₹).
+
+--------------------------------------------------------------------------------
+6. STUDENT REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Mastered the bilinear formula: E(p, q) = p^T A q.
+[ ] Computed expected payoffs against pure column strategies: E(p, B1) and E(p, B2).
+[ ] Computed expected payouts against pure row strategies: E(A1, q) and E(A2, q).
+[ ] Verified the Indifference Principle at equilibrium: E(p*, B1) = E(p*, B2) = v*.
+[ ] Expressed all expected returns in Indian Rupees (₹).
+
+================================================================================
+END OF STUDY NOTE • MODULE 005_004 • TOPIC 2: EXPECTED PAYOFF
+================================================================================

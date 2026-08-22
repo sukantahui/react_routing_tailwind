@@ -1,0 +1,143 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 002_004 : CRYPTOGRAPHY, WATERMARKING & CIPHER TYPES
+TOPIC 05       : ASYMMETRIC KEY CRYPTOGRAPHY (PUBLIC KEY CRYPTOGRAPHY)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & DUAL-KEY ASYMMETRIC ARCHITECTURE
+--------------------------------------------------------------------------------
+Asymmetric Key Cryptography (introduced by Diffie, Hellman, and Merkle in 1976) 
+resolves the fundamental symmetric key distribution problem by deploying a mathematically 
+linked pair of cryptographic keys:
+
+  1. PUBLIC KEY (K_pub)   : Freely published and distributed over untrusted networks.
+  2. PRIVATE KEY (K_priv) : Kept strictly secret and protected inside hardware crypto tokens.
+
+* TWO COMPLEMENTARY OPERATIONAL MODES:
+  A. CONFIDENTIALITY ENCRYPTION:
+     - Sender encrypts data using Recipient's Public Key: C = E_{Bob_Pub}( P ).
+     - ONLY Recipient's Private Key can decrypt: P = D_{Bob_Priv}( C ).
+  B. AUTHENTICATION & NON-REPUDIATION (DIGITAL SIGNATURES):
+     - Signer creates a signature using their Private Key: S = Sign_{Alice_Priv}( Hash(M) ).
+     - Anyone in the world can verify using Alice's Public Key: Verify_{Alice_Pub}( Hash(M), S ).
+
+--------------------------------------------------------------------------------
+2. ONE-WAY TRAPDOOR FUNCTIONS & THE 3 HARD MATHEMATICAL PROBLEMS
+--------------------------------------------------------------------------------
+
+A One-Way Trapdoor Function y = f(x) is computationally easy to calculate in the 
+forward direction, but computationally infeasible to invert (x = f^(-1)(y)) unless 
+a secret mathematical "Trapdoor" (the Private Key) is known.
+
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| HARD PROBLEM       | MATHEMATICAL FORMULA    | KEY LENGTH EQUIV.  | ALGORITHMS & IMPLEMENTATIONS                   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 1. Prime           | Given N = p * q, find   | 2048 to 4096 bits  | - RSA Algorithm (FIPS 186-5)                   |
+|    Factorization   | primes p and q          | (112-128 bit sec.) | - RSA-OAEP & RSA-PSS Signatures                |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 2. Discrete        | Given g^x = y (mod p),  | 2048 to 4096 bits  | - Diffie-Hellman Key Exchange (DH)             |
+|    Logarithm (DLP) | find exponent x         | (112-128 bit sec.) | - Digital Signature Algorithm (DSA), ElGamal   |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+| 3. Elliptic Curve  | Given Q = k * P on      | 256 to 384 bits    | - Elliptic Curve Cryptography (ECC)            |
+|    DLP (ECDLP)     | y^2 = x^3 + ax + b, k=? | (128-192 bit sec.) | - ECDSA, ECDHE (TLS 1.3), Ed25519 (Signal/SSH) |
++--------------------+-------------------------+--------------------+------------------------------------------------+
+
+--------------------------------------------------------------------------------
+3. PUBLIC KEY INFRASTRUCTURE (PKI) & DIGITAL CERTIFICATES
+--------------------------------------------------------------------------------
+
+* THE MAN-IN-THE-MIDDLE (MitM) KEY REPLACEMENT THREAT:
+  - Without authentication, an active attacker intercepts public keys and substitutes their own.
+
+* X.509 CERTIFICATE AUTHORITIES (CAs):
+  - A trusted Certificate Authority (e.g. DigiCert, Let's Encrypt) cryptographically signs the 
+    user's public key, binding it to their verified domain name or legal identity.
+
+* PERFECT FORWARD SECRECY (PFS - ECDHE):
+  - Generates ephemeral key pairs dynamically per session. Compromising the server's long-term 
+    private key in the future CANNOT decrypt recorded historical network sessions.
+
+--------------------------------------------------------------------------------
+4. POST-QUANTUM THREAT & NIST 2024 PQC STANDARDS
+--------------------------------------------------------------------------------
+
+* SHOR'S ALGORITHM (Peter Shor, 1994):
+  - Solves Prime Factorization and Discrete Logarithms in polynomial time O((log N)^3) on quantum 
+    computers with ~4,000 logical qubits, completely destroying RSA, DH, and ECC.
+
+* NIST 2024 POST-QUANTUM STANDARDS (LATTICE MATHEMATICS):
+  1. FIPS 203 (ML-KEM / CRYSTALS-Kyber)    : Lattice Key Encapsulation (Replaces RSA / ECDH).
+  2. FIPS 204 (ML-DSA / CRYSTALS-Dilithium): Lattice Digital Signatures (Replaces RSA / ECDSA).
+  3. FIPS 205 (SLH-DSA / SPHINCS+)         : Stateless Hash-Based Digital Signatures.
+
+--------------------------------------------------------------------------------
+5. INDIAN STATUTORY COMPLIANCE & LEGAL ADMISSIBILITY
+--------------------------------------------------------------------------------
+
+* IT ACT 2000 SECTION 35 (Certifying Authorities & DSCs):
+  - The Controller of Certifying Authorities (CCA India) licenses CAs (eMudhra, (n)Code) to issue 
+    Class-3 Digital Signature Certificates (DSCs) using 2048-bit RSA keys on FIPS 140-2 crypto-tokens.
+
+* IT ACT 2000 SECTION 5 (Legal Recognition of Digital Signatures):
+  - Electronic records authenticated with an authentic DSC have identical legal validity and 
+    non-repudiation to handwritten physical ink signatures in Indian courts of law.
+
+--------------------------------------------------------------------------------
+6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)
+--------------------------------------------------------------------------------
+
+SCENARIO 1 : UPI BANKING API ECC-256 MIGRATION (KOLKATA FINTECH)
+  * Lead Cryptographic Architect : Mamata | Budget : ₹9,50,000 | Location : Kolkata
+  * Dilemma : High payload latency during peak transaction hours due to bloated 2048-bit RSA certificates on mobile devices.
+  * Action : Mamata migrated banking API endpoints to ECC-256 (secp256k1 & Ed25519), reducing cryptographic 
+    handshake bandwidth by 85% while maintaining 128-bit security and 100% RBI compliance.
+
+SCENARIO 2 : HOSPITAL EHR CLASS-3 DSC INTEGRATION (ICHAPUR HOSPITAL)
+  * Chief Healthcare Technology Officer : Mahima | Budget : ₹5,20,000 | Location : Ichapur
+  * Dilemma : Clinical discharge summaries and e-prescriptions lacked tamper-evident non-repudiation in malpractice disputes.
+  * Action : Implemented CCA India Class-3 Digital Signature Certificates on hardware crypto-tokens for 180+ doctors, 
+    securing 50,000+ patient records under Section 5 of the IT Act 2000 and DPDP Act 2023.
+
+SCENARIO 3 : SCADA TLS 1.3 MUTUAL AUTHENTICATION (BARRACKPORE POWER GRID)
+  * Principal OT Security Architect : Debangshu | Budget : ₹8,80,000 | Location : Barrackpore
+  * Dilemma : Securing machine-to-machine RTU communication channels against rogue spoofing across 220kV power substations.
+  * Action : Deployed TLS 1.3 Mutual Authentication (mTLS) with Ephemeral Elliptic Curve Diffie-Hellman (ECDHE), 
+    guaranteeing Perfect Forward Secrecy and zero rogue substation device injection.
+
+SCENARIO 4 : ELLIPTIC CURVE POINT MULTIPLICATION LAB (JADAVPUR UNIVERSITY)
+  * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
+  * Dilemma : Teaching students how the Double-and-Add algorithm calculates Q = k * P over elliptic curves in Python.
+  * Action : Authored a mathematical visualization toolkit demonstrating geometric point addition (P + Q = R) 
+    and scalar multiplication, guiding 140+ students through mastering ECC and Post-Quantum Kyber lattices.
+
+--------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS & COMMON PITFALLS
+--------------------------------------------------------------------------------
+
+* PROFESSIONAL ASYMMETRIC CRYPTOGRAPHY HABITS:
+  1. Default to ECC (P-256 or Ed25519): Provides equal security to RSA-3072 with 10x smaller keys.
+  2. Enforce Perfect Forward Secrecy (ECDHE): Prevents historical traffic decryption if server keys are stolen.
+  3. Store Private Keys in Hardware Tokens: Class-3 DSCs must reside in FIPS 140-2 Level 2 cryptographic USBs.
+
+* COMMON BEGINNER ASYMMETRIC MISTAKES:
+  - Encrypting with your own Private Key (Private keys are for SIGNING, not encrypting confidential data).
+  - Using "Textbook RSA" without OAEP padding (Vulnerable to multiplicative malleability attacks).
+  - Neglecting certificate expiration and revocation checking (CRL / OCSP stapling).
+  - Forgetting that Shor's algorithm will break classical RSA/ECC (Failing to plan for PQC migration).
+
+--------------------------------------------------------------------------------
+8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
+--------------------------------------------------------------------------------
+[ ] Asymmetric cryptography uses a Public Key (open) and a Private Key (secret).
+[ ] Confidentiality: Encrypt with Recipient's Public Key -> Decrypt with Recipient's Private Key.
+[ ] Digital Signatures: Sign with Sender's Private Key -> Verify with Sender's Public Key.
+[ ] 3 Hard Problems: Prime Factorization (RSA), Discrete Log (DH), Elliptic Curve DLP (ECC).
+[ ] ECC-256 provides equivalent 128-bit security to RSA-3072 with 10x smaller key size.
+[ ] Diffie-Hellman (ECDHE) establishes shared secrets with Perfect Forward Secrecy (PFS).
+[ ] Shor's algorithm breaks RSA/ECC; NIST standardized PQC: FIPS 203 (ML-KEM) & FIPS 204 (ML-DSA).
+[ ] IT Act 2000 Section 35 and 5 legally validate Class-3 DSCs issued under CCA India.
+
+================================================================================
+END OF STUDY GUIDE -- TOPIC 05 (CYBER SECURITY BCAC703)
+================================================================================
