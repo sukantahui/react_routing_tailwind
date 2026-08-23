@@ -441,8 +441,8 @@ const Topic1 = () => {
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
                     <rect x="20" y="25" width="460" height="110" rx="8" fill="#18181b" stroke="#ef4444" strokeWidth="1.5" />
                     <text x="250" y="47" fill="#f87171" fontWeight="bold" textAnchor="middle" fontSize="10">ECB MODE (Electronic Codebook) - INSECURE &amp; FORBIDDEN</text>
-                    <text x="35" y="70" fill="#cbd5e1" font-family="monospace" fontSize="8.5">Block 1: [0xFF 0xFF 0xFF 0xFF] ──[AES]──> [0x8A 0x4C 0x12 0x9B]</text>
-                    <text x="35" y="90" fill="#fca5a5" font-family="monospace" fontSize="8.5">Block 2: [0xFF 0xFF 0xFF 0xFF] ──[AES]──> [0x8A 0x4C 0x12 0x9B] (IDENTICAL!)</text>
+                    <text x="35" y="70" fill="#cbd5e1" font-family="monospace" fontSize="8.5">Block 1: [0xFF 0xFF 0xFF 0xFF] ──[AES]──➔ [0x8A 0x4C 0x12 0x9B]</text>
+                    <text x="35" y="90" fill="#fca5a5" font-family="monospace" fontSize="8.5">Block 2: [0xFF 0xFF 0xFF 0xFF] ──[AES]──➔ [0x8A 0x4C 0x12 0x9B] (IDENTICAL!)</text>
                     <text x="250" y="118" fill="#fca5a5" textAnchor="middle" fontSize="8">Visual outline of bitmap images (ECB Penguin) remains 100% visible!</text>
                   </g>
 
@@ -581,7 +581,7 @@ const Topic1 = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-indigo-400 font-bold">•</span>
-                  <span><strong>Measure Shannon Entropy:</strong> Binary entropy > 7.5 indicates encrypted or packed payloads.</span>
+                  <span><strong>Measure Shannon Entropy:</strong> Binary entropy &gt; 7.5 indicates encrypted or packed payloads.</span>
                 </li>
               </ul>
             </div>
@@ -700,7 +700,7 @@ const Topic1 = () => {
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded-lg border border-gray-800">
                 <span className="text-emerald-400">✔</span>
-                <span>Shannon entropy measures randomness: Plaintext ~4.0, Encrypted >7.5.</span>
+                <span>Shannon entropy measures randomness: Plaintext ~4.0, Encrypted &gt; 7.5.</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded-lg border border-gray-800">
                 <span className="text-emerald-400">✔</span>

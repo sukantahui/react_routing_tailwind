@@ -1,0 +1,123 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: FIREWALL ARCHITECTURES (DUAL-HOMED, SCREENED HOST, SCREENED SUBNET)
+COURSE MODULE: 005_001 - FIREWALLS & PERIMETER DEFENSE ARCHITECTURES (TOPIC 7)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & HISTORICAL ARCHITECTURAL TAXONOMY
+----------------------------------------------------------------------------------------------------
+Firewall Architecture refers to the physical and logical placement of screening routers, packet filters, 
+bastion hosts, and dedicated security zones across an enterprise network boundary. The architecture determines 
+how traffic is partitioned, what failure modes are introduced, and how a security breach in one zone is 
+prevented from propagating into core database networks.
+
+The three classic NIST SP 800-41 firewall architectures are:
+  1. Dual-Homed Host Architecture
+  2. Screened Host Architecture
+  3. Screened Subnet (DMZ) Architecture
+
+
+2. DEEP-DIVE: THE 3 CLASSIC ARCHITECTURAL TOPOLOGIES
+----------------------------------------------------------------------------------------------------
+
+[1. DUAL-HOMED HOST ARCHITECTURE (Single Chokepoint Host):]
+  - Physical Structure: A single computer with at least two Network Interface Cards (NICs) — one connected 
+    to the untrusted Internet and one connected to the internal private LAN.
+  - Critical Kernel Configuration: IP Forwarding is STRICTLY DISABLED (`net.ipv4.ip_forward = 0`).
+  - Mechanics: Packets cannot be routed directly between NICs at Layer 3. Communication is possible ONLY 
+    if an application-level proxy daemon (e.g. SOCKS5, HTTP proxy) runs on the host to mediate connections.
+  - Vulnerability & Failure Mode: Single Point of Failure. If an attacker attains root access or executes a 
+    kernel buffer overflow on the dual-homed host, they can enable IP forwarding and gain unrestricted access 
+    to the internal corporate network.
+
+[2. SCREENED HOST ARCHITECTURE (Router + Bastion Host):]
+  - Physical Structure: Combines an Edge Screening Router with a single internal Bastion Host located on 
+    the private LAN.
+  - Mechanics:
+    - The Screening Router enforces stateless/stateful ACLs allowing external traffic ONLY to the Bastion Host.
+    - All external users must connect to the Bastion Host; direct routing to other LAN workstations is dropped.
+    - Internal LAN hosts can communicate directly with the Bastion Host.
+  - Vulnerability & Failure Mode: If the edge screening router is misconfigured or if the Bastion Host is 
+    compromised, the attacker is already physically located on the internal private LAN subnet, exposing all 
+    workstations to ARP poisoning, lateral SMB worm propagation, and network sniffing.
+
+[3. SCREENED SUBNET ARCHITECTURE (Demilitarized Zone - DMZ):]
+  - Physical Structure: The gold standard of enterprise perimeter security. An isolated intermediate subnet 
+    (the DMZ) is sandwiched between the untrusted external Internet and the trusted internal network.
+  - Deployments:
+    - Single 3-Interface Firewall (Tri-Homed): WAN Interface, DMZ Interface, LAN Interface.
+    - Dual Back-to-Back Firewalls: External Screening Firewall <-> DMZ <-> Internal Screening Firewall.
+  - Mechanics: Public servers (Web, DNS, Mail) reside in the DMZ. The DMZ firewall enforces a one-way policy: 
+    DMZ servers are strictly forbidden from initiating connections into the internal LAN.
+
+
+3. SINGLE FIREWALL (TRI-HOMED) VS DUAL FIREWALL (BACK-TO-BACK)
+----------------------------------------------------------------------------------------------------
++--------------------+------------------------------------+-----------------------------------------+
+| ARCHITECTURAL TYPE | SINGLE TRI-HOMED FIREWALL (1 BOX)  | DUAL FIREWALL BACK-TO-BACK (2 BOXES)    |
++--------------------+------------------------------------+-----------------------------------------+
+| Interface Layout   | 3 Interfaces (WAN, DMZ, LAN)       | External FW (WAN-DMZ) + Internal FW (DMZ-LAN)|
+| Hardware Cost      | Moderate (Single Appliance)        | Higher (Two Hardware Appliances)        |
+| Vendor Diversity   | Single Vendor OS                   | Heterogeneous (e.g. Palo Alto + Fortinet)|
+| Blast Radius       | Zero-day in firewall OS exposes all| Zero-day in External FW stopped by Internal FW|
+| Management Effort  | Centralized single rule base       | Separate rule bases, dual administration|
++--------------------+------------------------------------+-----------------------------------------+
+
+
+4. HETEROGENEOUS BACK-TO-BACK FIREWALL DESIGN PRINCIPLE
+----------------------------------------------------------------------------------------------------
+In high-security banking and defense networks (e.g. Kolkata Reserve Bank clearinghouses or military hubs):
+  - External Firewall: Vendor A (e.g., Palo Alto PAN-OS running App-ID).
+  - Internal Firewall: Vendor B (e.g., Fortinet FortiOS running ASIC SPI).
+
+Why Heterogeneous Firewalls?
+  If a nation-state attacker discovers a critical pre-authentication Remote Code Execution (RCE) zero-day 
+  vulnerability in Vendor A's software, they can breach the external firewall and compromise the DMZ. 
+  However, because the internal firewall runs completely different firmware, kernel code, and hardware ASICs 
+  from Vendor B, the same exploit payload FAILS at the internal perimeter, preventing penetration into the 
+  core banking database.
+
+
+5. COMPARATIVE SUMMARY MATRIX
+----------------------------------------------------------------------------------------------------
++--------------------+-------------------------+-------------------------+--------------------------+
+| ARCHITECTURE       | PHYSICAL COMPLEXITY     | SECURITY LEVEL          | SINGLE POINT OF FAILURE  |
++--------------------+-------------------------+-------------------------+--------------------------+
+| Dual-Homed Host    | Low (1 Multi-NIC PC)    | Low (Software Proxy)    | YES (Root compromise = LAN exposed)|
+| Screened Host      | Moderate (1 Router + 1 PC)| Medium (LAN at risk)  | YES (Bastion is on LAN)  |
+| Screened Subnet    | High (Tri-Homed / Dual) | High to Military Grade  | NO (DMZ isolates breach) |
++--------------------+-------------------------+-------------------------+--------------------------+
+
+
+6. REGIONAL SOC CASE STUDY: BARRACKPORE MUNICIPAL CITIZEN PORTAL (SALT LAKE DC)
+----------------------------------------------------------------------------------------------------
+Pedagogical Incident Response Team:
+  - Lead Infrastructure Architect: Sukanta Hui
+  - Analysts: Mamata (DMZ Routing & WAF Lead), Mahima (Dual-Homed Kernel Hardening Specialist), 
+    Abhronila (SIEM Lateral Movement Hunter), Susmita (Compliance & DPDP Lead), Debangshu (Back-to-Back HA Lead).
+
+Scenario:
+A civic municipal tax collection network in Barrackpore hosted across a hybrid Salt Lake Sector V datacenter:
+- Threat: Attackers exploited an unpatched vulnerability in an open-source CMS running on the public tax server.
+- Architectural Response:
+  - Sukanta Hui and Debangshu architected a Screened Subnet (DMZ) with Back-to-Back firewalls.
+  - The compromised web server was isolated in DMZ Subnet `172.16.1.0/24`.
+  - When the attacker gained a reverse shell and attempted to scan internal LAN subnet `10.10.4.0/24`, the 
+    internal screening firewall dropped 100% of packets and triggered an automated alert on Abhronila's SIEM.
+  - Outcome: The intrusion was strictly contained within the DMZ buffer; zero citizen Aadhaar or tax records 
+    were accessed, saving the municipality ₹15 Crores in statutory DPDP penalties.
+
+
+7. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] Dual-Homed Host disables kernel IP forwarding (`ip_forward=0`); relies on application proxies.
+[ ] Screened Host pairs an edge router with a bastion host physically located on the internal LAN.
+[ ] Screened Subnet (DMZ) is the gold standard, isolating public servers in a dedicated buffer subnet.
+[ ] Tri-Homed Firewall has 3 physical interfaces: Outside (WAN), DMZ (Public Servers), Inside (LAN).
+[ ] Dual Back-to-Back Firewalls provide the highest defense, especially when using heterogeneous vendors.
+[ ] Core DMZ rule: DMZ servers are strictly forbidden from initiating connections into the internal LAN.
+[ ] CERT-In mandates 180-day firewall log retention and NTP synchronization across all architecture tiers.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

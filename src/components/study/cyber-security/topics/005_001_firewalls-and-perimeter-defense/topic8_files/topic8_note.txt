@@ -1,0 +1,121 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: DEMILITARIZED ZONE (DMZ) DESIGN & BASTION HOSTS
+COURSE MODULE: 005_001 - FIREWALLS & PERIMETER DEFENSE ARCHITECTURES (TOPIC 8)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & THE "BUFFER ZONE" SECURITY PHILOSOPHY
+----------------------------------------------------------------------------------------------------
+A Demilitarized Zone (DMZ), also known as a Perimeter Network or Screened Subnet, is a physical or logical 
+subnetwork that contains and exposes an organization's external-facing services (e.g. Web servers, Mail MTAs, 
+Public DNS) to an untrusted network (the public Internet), while isolating the remaining internal corporate 
+network (databases, domain controllers, client workstations) behind an internal firewall tier.
+
+The architectural objective of a DMZ is containment: if an adversary successfully exploits a vulnerability 
+in a public-facing web server, the breach is strictly contained within the DMZ buffer, preventing lateral 
+pivoting into the internal corporate data vault.
+
+
+2. THE DMZ SERVICE TAXONOMY: PERMITTED VS FORBIDDEN ASSETS
+----------------------------------------------------------------------------------------------------
++------------------------------------+--------------------------------------------------------------+
+| PERMITTED IN DMZ (Public Ingress)  | STRICTLY FORBIDDEN IN DMZ (Must Reside in Private LAN)       |
++------------------------------------+--------------------------------------------------------------+
+| - Web Reverse Proxies (NGINX/Envoy)| - Production Databases (PostgreSQL, Oracle, SQL Server)     |
+| - Public Authoritative DNS Servers | - Active Directory Domain Controllers (AD DS / LDAP)         |
+| - External Mail MTAs (Postfix/SMTP)| - Employee Desktops, Laptops & Workstations                  |
+| - Hardened Bastion Jump Hosts      | - Internal File Shares (NFS / SMB / NAS)                     |
+| - SFTP Secure File Gateways        | - Software Source Code Repositories (GitLab / Jenkins)       |
++------------------------------------+--------------------------------------------------------------+
+
+
+3. BASTION HOST ENGINEERING & OPERATING SYSTEM HARDENING
+----------------------------------------------------------------------------------------------------
+A Bastion Host is a heavily fortified server positioned in the DMZ designed to withstand continuous 
+adversary reconnaissance and brute-force attacks. Bastion hosts serve as proxy gateways or administrative 
+jump boxes.
+
+The 6-Step Bastion Hardening Lifecycle:
+  1. MINIMAL OPERATING SYSTEM FOOTPRINT:
+     - Install stripped-down minimal Linux (Alpine, Debian Minimal, Rocky Linux Core).
+     - Remove all compilers (`gcc`, `clang`, `make`), debuggers (`gdb`), and interpreters (`perl`, `python` 
+       where feasible) to prevent attackers from compiling local root exploits.
+
+  2. DAEMON PRUNING & SERVICE DISABLEMENT:
+     - Disable all unneeded background services: `cups`, `rpcbind`, `avahi-daemon`, `telnet`, `ftp`.
+     - Only the single required listening daemon (e.g. OpenSSH on port 22 or NGINX on port 443) is permitted.
+
+  3. SSH HARDENING & MULTI-FACTOR AUTHENTICATION:
+     - Enforce SSH Protocol 2 only; disable password authentication (`PasswordAuthentication no`).
+     - Mandate FIDO2 hardware keys (YubiKey) or Ed25519 cryptographic keys (`ssh-ed25519`).
+     - Disable Root SSH login (`PermitRootLogin no`) and restrict allowed users (`AllowGroups admin_ssh`).
+
+  4. KERNEL & MEMORY PROTECTION:
+     - Enforce Address Space Layout Randomization (ASLR = 2).
+     - Enable Linux Security Modules (SELinux in Enforcing mode or AppArmor profiles).
+     - Mount temporary directories as non-executable (`/tmp` and `/var/tmp` mounted with `noexec,nosuid,nodev`).
+
+  5. IMMUTABLE REMOTE AUDIT LOGGING:
+     - Configure `auditd` and `rsyslog` to stream logs over TLS in real-time to a remote, write-only SIEM.
+     - Local logs on the bastion host can be erased by a root attacker; remote streaming preserves evidence.
+
+  6. FILE INTEGRITY MONITORING (FIM):
+     - Deploy Wazuh, OSSEC, or AIDE to monitor cryptographic hashes of system binaries (`/bin`, `/sbin`, `/etc`).
+
+
+4. PRIVATE VLANS (PVLANS) & EAST-WEST ISOLATION WITHIN THE DMZ
+----------------------------------------------------------------------------------------------------
+A common flaw in naive DMZ designs is placing all DMZ servers in a single flat subnet. If an attacker 
+compromises Web Server 1, they scan and compromise Web Server 2 and the Mail Server via local ARP/TCP scans.
+
+Solution: Private VLANs (PVLANs - RFC 5517):
+  - Promiscuous Port: Connected to the Default Gateway Firewall.
+  - Isolated Ports: Connected to individual DMZ servers.
+  *Mechanics: DMZ servers can communicate ONLY with the firewall gateway. Communication between two DMZ 
+   servers on the same physical switch is blocked at Layer 2, preventing lateral DMZ worm propagation.*
+
+
+5. PINHOLE ACCESS CONTROL MATRIX (ONE-WAY DMZ FIREWALL RULES)
+----------------------------------------------------------------------------------------------------
+  Rule 1 (Ingress WAN -> DMZ):
+    ALLOW: WAN (0.0.0.0/0) -> DMZ_Web (172.16.1.10) Port 443 [TCP]
+  Rule 2 (Admin LAN -> DMZ):
+    ALLOW: Admin_VLAN (10.10.99.0/24) -> DMZ_Bastion (172.16.1.99) Port 22 [TCP - MFA Only]
+  Rule 3 (Database Pinhole DMZ -> LAN DB):
+    ALLOW: DMZ_Web (172.16.1.10) -> Internal_DB (10.10.4.50) Port 5432 [TCP - mTLS Encrypted]
+  Rule 4 (Default Catch-All Lateral Block):
+    DROP : DMZ (172.16.1.0/24) -> Internal_LAN (10.0.0.0/8) ANY [TCP/UDP] (Strict Default-Deny!)
+
+
+6. REGIONAL SOC CASE STUDY: BARRACKPORE MUNICIPAL CITIZEN PORTAL DMZ
+----------------------------------------------------------------------------------------------------
+Pedagogical Incident Response Team:
+  - Lead Perimeter Architect: Sukanta Hui
+  - Analysts: Mamata (Bastion Hardening & SSH Key Lead), Mahima (Private VLAN & Pinhole Specialist), 
+    Abhronila (SIEM Log Hunter), Susmita (Compliance & DPDP Lead), Debangshu (Hardware Appliance Lead).
+
+Scenario:
+A civic municipal tax collection network in Barrackpore with high-security citizen Aadhaar identity data:
+- Threat: Attackers gained remote code execution on a DMZ web application via an unpatched PHP module.
+- Defensive Execution:
+  - Sukanta Hui and Mamata hardened the DMZ Bastion Host, stripping compilers and disabling password logins.
+  - Mahima enforced Private VLAN (PVLAN) isolation: when the compromised web container attempted to scan 
+    the adjacent DMZ Mail server, the switch dropped the packets at Layer 2.
+  - When the attacker attempted to connect to internal payroll servers on port 445, the internal screening 
+    firewall dropped the flow and alerted Abhronila's SOC within 60 seconds.
+  - Outcome: Zero database breach; containment verified; full 180-day forensic telemetry preserved for CERT-In.
+
+
+7. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] DMZ isolates public-facing servers from trusted internal databases and corporate workstations.
+[ ] Production databases and Active Directory Domain Controllers must NEVER reside inside the DMZ.
+[ ] Bastion hosts must be hardened: remove compilers, disable unneeded daemons, enforce SSH MFA keys.
+[ ] Mount `/tmp` and `/var/tmp` with `noexec,nosuid,nodev` to block downloaded exploit binary execution.
+[ ] Private VLANs (PVLANs) prevent lateral Layer 2 East-West pivoting between compromised DMZ servers.
+[ ] Database pinholes must restrict traffic to specific `/32` IPs and single ports using encrypted mTLS.
+[ ] Real-time remote log streaming (`rsyslog-tls`) ensures forensic evidence survives local root wipes.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

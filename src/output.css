@@ -4588,6 +4588,12 @@
       border-color: color-mix(in oklab, var(--color-indigo-900) 40%, transparent);
     }
   }
+  .border-indigo-900\/50 {
+    border-color: color-mix(in srgb, oklch(35.9% 0.144 278.697) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-indigo-900) 50%, transparent);
+    }
+  }
   .border-indigo-950\/50 {
     border-color: color-mix(in srgb, oklch(25.7% 0.09 281.288) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -4910,6 +4916,12 @@
     border-color: color-mix(in srgb, oklch(29.1% 0.149 302.717) 60%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-purple-950) 60%, transparent);
+    }
+  }
+  .border-purple-950\/80 {
+    border-color: color-mix(in srgb, oklch(29.1% 0.149 302.717) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-purple-950) 80%, transparent);
     }
   }
   .border-red-100 {
@@ -5368,8 +5380,32 @@
       border-color: color-mix(in oklab, var(--color-sky-800) 60%, transparent);
     }
   }
+  .border-sky-800\/80 {
+    border-color: color-mix(in srgb, oklch(44.3% 0.11 240.79) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-sky-800) 80%, transparent);
+    }
+  }
   .border-sky-900 {
     border-color: var(--color-sky-900);
+  }
+  .border-sky-900\/50 {
+    border-color: color-mix(in srgb, oklch(39.1% 0.09 240.876) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-sky-900) 50%, transparent);
+    }
+  }
+  .border-sky-950\/60 {
+    border-color: color-mix(in srgb, oklch(29.3% 0.066 243.157) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-sky-950) 60%, transparent);
+    }
+  }
+  .border-sky-950\/80 {
+    border-color: color-mix(in srgb, oklch(29.3% 0.066 243.157) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-sky-950) 80%, transparent);
+    }
   }
   .border-slate-200 {
     border-color: var(--color-slate-200);
@@ -7193,6 +7229,12 @@
     background-color: color-mix(in srgb, oklch(25.7% 0.09 281.288) 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-indigo-950) 30%, transparent);
+    }
+  }
+  .bg-indigo-950\/40 {
+    background-color: color-mix(in srgb, oklch(25.7% 0.09 281.288) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-indigo-950) 40%, transparent);
     }
   }
   .bg-indigo-950\/60 {
@@ -13258,6 +13300,9 @@
   .accent-cyan-500 {
     accent-color: var(--color-cyan-500);
   }
+  .accent-emerald-400 {
+    accent-color: var(--color-emerald-400);
+  }
   .accent-emerald-500 {
     accent-color: var(--color-emerald-500);
   }
@@ -13266,6 +13311,9 @@
   }
   .accent-green-500 {
     accent-color: var(--color-green-500);
+  }
+  .accent-indigo-400 {
+    accent-color: var(--color-indigo-400);
   }
   .accent-indigo-500 {
     accent-color: var(--color-indigo-500);
@@ -13279,8 +13327,14 @@
   .accent-pink-500 {
     accent-color: var(--color-pink-500);
   }
+  .accent-purple-400 {
+    accent-color: var(--color-purple-400);
+  }
   .accent-purple-500 {
     accent-color: var(--color-purple-500);
+  }
+  .accent-rose-400 {
+    accent-color: var(--color-rose-400);
   }
   .accent-rose-500 {
     accent-color: var(--color-rose-500);

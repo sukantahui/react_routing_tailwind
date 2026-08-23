@@ -458,10 +458,10 @@ const Topic4 = () => {
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
                     <rect x="20" y="135" width="460" height="145" rx="8" fill="#18181b" stroke="#ef4444" strokeWidth="1.5" />
                     <text x="250" y="157" fill="#f87171" fontWeight="bold" textAnchor="middle" fontSize="10">SWEET32 COLLISION ATTACK (CVE-2016-2183)</text>
-                    <text x="35" y="180" fill="#cbd5e1" font-family="monospace" fontSize="8.5">Root Cause: 64-bit Block Size -> sqrt(2^64) = 2^32 Blocks (~32 GB of Traffic)</text>
+                    <text x="35" y="180" fill="#cbd5e1" font-family="monospace" fontSize="8.5">Root Cause: 64-bit Block Size ➔ sqrt(2^64) = 2^32 Blocks (~32 GB of Traffic)</text>
                     <rect x="35" y="195" width="430" height="35" rx="4" fill="#450a0a" stroke="#ef4444" strokeWidth="1" />
                     <text x="250" y="217" fill="#fee2e2" font-family="monospace" textAnchor="middle" fontSize="8.5">
-                      Block Collision (C_i == C_j) => Plaintext XOR Leaked: P_i ⊕ P_j = C_{i-1} ⊕ C_{j-1}
+                      Block Collision (C_i == C_j) ➔ Plaintext XOR Leaked: P_i ⊕ P_j = C_{"{i-1}"} ⊕ C_{"{j-1}"}
                     </text>
                     <text x="250" y="255" fill="#fca5a5" textAnchor="middle" fontSize="8">
                       NIST &amp; RBI Mandate: Complete global phaseout of 3DES by December 31, 2023.

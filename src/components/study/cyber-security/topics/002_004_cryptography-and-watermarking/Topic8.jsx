@@ -441,7 +441,7 @@ const Topic8 = () => {
                     <text x="40" y="180" fill="#fca5a5" font-family="monospace" fontSize="9">Step 1: Nonce Recovery:       k = (z1 - z2) / (s1 - s2) mod n</text>
                     <text x="40" y="202" fill="#fca5a5" font-family="monospace" fontSize="9">Step 2: Private Key Recovery: d = (s1*k - z1) / r mod n</text>
                     <text x="250" y="230" fill="#f87171" fontWeight="bold" textAnchor="middle" fontSize="9.5">
-                      ROOT PRIVATE KEY EXTRACTED -> ALL CONSOLES PERMANENTLY JAILBROKEN!
+                      ROOT PRIVATE KEY EXTRACTED ➔ ALL CONSOLES PERMANENTLY JAILBROKEN!
                     </text>
                   </g>
 

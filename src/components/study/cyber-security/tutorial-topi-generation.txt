@@ -186,7 +186,29 @@ import clsx from "clsx";
 avoid opacity-0 class
 make dark mode as default, place divs one after another not side by side, maintain it for all topics
 
+if you need to show any python code then show it as a file, follow the following style
+ like to show my Python Code as follows:
+<PythonFileLoader 
+        fileModule={MainJavaCode}
+        title="Main.py"
+        highlightLines={[]}
+      /> 
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
+import ifExamplePython from "./topic[topic_no]_files/if_example1.py?raw";
+import ifExamplePython from "./topic[topic_no]_files/if_example2.py?raw";
+import ifExampleSh3 from "./topic[topic_no]_files/if_example3.py?raw";
+import switchExample1 from "./topic[topic_no]_files/switch_example1.py?raw";
+import ifElseLadder1 from "./topic[topic_no]_files/if_else_ladder1.py?raw";
 
+
+and keep all .py file separately in a folder name like topic[topic_no]_files, so show them separately with name
+
+use :
+ <PythonFileLoader
+    fileModule={ifElseLadder1}
+    title="Function"
+    highlightLines={[]}
+/>
 do not use opacity-0
 
 for PlainTextPrint i use the following:

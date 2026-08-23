@@ -478,7 +478,7 @@ const Topic10 = () => {
                     <rect x="20" y="175" width="460" height="115" rx="8" fill="#18181b" stroke="#34d399" strokeWidth="1.5" />
                     <text x="250" y="200" fill="#34d399" fontWeight="bold" textAnchor="middle" fontSize="10.5">BREAKING THE SEQUENTIAL KILL CHAIN</text>
                     <text x="35" y="225" fill="#cbd5e1" font-family="monospace" fontSize="8.5">• Linear Model: Breaking ANY 1 link completely stops the cyber intrusion!</text>
-                    <text x="35" y="243" fill="#cbd5e1" font-family="monospace" fontSize="8.5">• Block at Stage 3 (Delivery via Email Filter) -> Stage 4 Exploitation never occurs!</text>
+                    <text x="35" y="243" fill="#cbd5e1" font-family="monospace" fontSize="8.5">• Block at Stage 3 (Delivery via Email Filter) ➔ Stage 4 Exploitation never occurs!</text>
                     <text x="250" y="270" fill="#fbbf24" fontWeight="bold" textAnchor="middle" fontSize="8.5">NCIIPC &amp; CERT-In map national threat advisories to MITRE ATT&amp;CK IDs.</text>
                   </g>
                 </svg>

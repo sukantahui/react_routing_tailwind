@@ -328,7 +328,7 @@ const SVGRoutingIllustration = ({ prefersReducedMotion }) => {
               {router.vector}
             </text>
             {hoverRouter === router.id && (
-              <circle cx={router.x} cy={router.y} r="28" fill="none" stroke="#fbbf24" strokeWidth="2" r="28">
+              <circle cx={router.x} cy={router.y} r="28" fill="none" stroke="#fbbf24" strokeWidth="2">
                 <animate attributeName="r" values="22;30;22" dur="1s" repeatCount="indefinite" />
               </circle>
             )}
