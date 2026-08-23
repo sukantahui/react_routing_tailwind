@@ -664,8 +664,8 @@ level: high`,
               4. Human Error Probability &amp; Technical Friction Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust cognitive fatigue $F$, urgency intensity $I$, and technical friction $R$ to model human error probability 
-              $P_{\text{error}} = 1 - e^{-\frac{F \times I}{R}}$ and see how FIDO2 passkeys reduce actual compromise probability to under 1%:
+              Adjust cognitive fatigue F, urgency intensity I, and technical friction R to model human error probability 
+              P_error = 1 - exp(-(F × I) / R) and see how FIDO2 passkeys reduce actual compromise probability to under 1%:
             </p>
           </div>
 

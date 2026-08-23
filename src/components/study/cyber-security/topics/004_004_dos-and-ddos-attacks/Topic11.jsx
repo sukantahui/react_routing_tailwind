@@ -709,8 +709,8 @@ http {
               4. Incident Response Recovery Time Index (RTI) Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust attack volume $V_{\text{attack}}$, manual mitigation activation time, target disaster recovery SLA, 
-              and toggle automated BGP diversion to model the Recovery Time Index $\text{RTI} = \frac{T_{\text{active}} - T_{\text{onset}}}{\text{SLA}_{\text{rec}}}$ and Enterprise Availability Resilience:
+              Adjust attack volume V_attack, manual mitigation activation time, target disaster recovery SLA,
+              and toggle automated BGP diversion to model the Recovery Time Index RTI = (T_active - T_onset) / SLA_rec and Enterprise Availability Resilience:
             </p>
           </div>
 

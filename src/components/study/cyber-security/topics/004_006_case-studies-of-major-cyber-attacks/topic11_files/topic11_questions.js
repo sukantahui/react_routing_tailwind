@@ -55,7 +55,7 @@ const boardGovernanceCharter = [
 const diamondModelInstance = {
   adversary: "APT29 / Cozy Bear (Russian Foreign Intelligence Service - SVR)",
   capability: "SUNBURST Trojanized DLL + Golden SAML Token Forgery",
-  infrastructure: "DNS DGA Subdomain Tunneling (`avsvmcloud.com`) + Dedicated US Residential Proxies",
+  infrastructure: "DNS DGA Subdomain Tunneling ('avsvmcloud.com') + Dedicated US Residential Proxies",
   victim: "SolarWinds CI/CD Build Pipeline -> US Government Cabinet Agencies & Tech Vendors"
 };`
   },
@@ -190,7 +190,7 @@ const identityAssertion = {
     hint: "Red and Blue teams working collaboratively in real time to test and tune detection rules.",
     level: "Moderate",
     codeExample: `// Purple Team Continuous Tuning Loop:
-// Step 1: Red Team executes atomic test: `Invoke-Mimikatz -DumpCreds`
+// Step 1: Red Team executes atomic test: 'Invoke-Mimikatz -DumpCreds'
 // Step 2: Blue Team verifies if Sysmon Event ID 10 flagged LSASS process access
 // Step 3: If missed, Blue Team writes new Sigma rule and deploys to EDR
 // Step 4: Red Team re-runs attack -> Confirms 100% detection and automated host isolation!`

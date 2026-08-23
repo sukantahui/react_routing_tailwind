@@ -698,7 +698,7 @@ const Topic5 = () => {
               <div className="p-3 bg-gray-900 rounded-xl border border-amber-300 block">
                 <strong className="text-amber-300 block">Observe carefully...</strong>
                 <p className="text-gray-400">
-                  How Garner's formula simplifies CRT: Instead of evaluating large 4-digit exponents, Garner evaluates two tiny 2-digit modular powers $m_1 = C^{d_p} \bmod p$ and $m_2 = C^{d_q} \bmod q$, and recombines them via $M = m_2 + h \cdot q$ in milliseconds.
+                  How Garner's formula simplifies CRT: Instead of evaluating large 4-digit exponents, Garner evaluates two tiny 2-digit modular powers m_1 = C^(d_p) mod p and m_2 = C^(d_q) mod q, and recombines them via M = m_2 + h * q in milliseconds.
                 </p>
               </div>
               <div className="p-3 bg-gray-900 rounded-xl border border-purple-300 block">

@@ -708,7 +708,7 @@ FLUSH PRIVILEGES;`,
             </h2>
             <p className="text-sm text-gray-300 mt-2">
               Select the Kill Chain Phase, Compromised Database Engine, Database User Privilege Level, 
-              and toggle Least Privilege Sandboxing to model the Blast Radius Index $\text{BRI}$, Base CVSS Score, and simulated terminal outputs:
+              and toggle Least Privilege Sandboxing to model the Blast Radius Index (BRI), Base CVSS Score, and simulated terminal outputs:
             </p>
           </div>
 

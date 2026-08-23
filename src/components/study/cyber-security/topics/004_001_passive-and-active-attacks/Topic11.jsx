@@ -510,7 +510,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
                   PHASE 3: ZERO TRUST
                 </text>
                 <text x="95" y="44" fill="#a7f3d0" fontSize="9" textAnchor="middle">
-                  AEAD GHASH + SOAR (<150ms)
+                  AEAD GHASH + SOAR (&lt;150ms)
                 </text>
                 <rect x="12" y="56" width="166" height="42" rx="6" fill="#022c22" />
                 <text x="95" y="72" fill="#6ee7b7" fontSize="8.5" fontWeight="bold" textAnchor="middle">

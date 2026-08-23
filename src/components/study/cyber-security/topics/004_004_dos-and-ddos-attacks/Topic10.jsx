@@ -104,7 +104,7 @@ interface Tunnel100
       categoryBadge: "bg-amber-950 text-amber-300 border-amber-800",
       targetLayer: "Application Layer (WAF Inspection)",
       technicalMechanism:
-        "Evaluates incoming requests against thousands of known attack signatures (OWASP Core Rule Set), accumulating anomaly points; blocks the request only if the cumulative score exceeds a threshold ($\ge 5$).",
+        "Evaluates incoming requests against thousands of known attack signatures (OWASP Core Rule Set), accumulating anomaly points; blocks the request only if the cumulative score exceeds a threshold (Score >= 5).",
       operationalAdvantage: "Minimizes false positive disruptions on legitimate user traffic while blocking complex multi-vector exploits.",
       telemetryIndicator: "WAF transaction logs detailing cumulative anomaly scores (e.g. Score=12 ➔ Blocked)",
       enterpriseStandard: "OWASP ModSecurity / AWS WAF Core Rule Set running in Anomaly Scoring mode.",
@@ -155,7 +155,7 @@ ByteMatchStatement {
       categoryBadge: "bg-purple-950 text-purple-300 border-purple-800",
       targetLayer: "Application API & HTTP/2 Parser",
       technicalMechanism:
-        "Parses GraphQL query Abstract Syntax Trees (AST) to enforce maximum depth limits ($\le 5$), and sanitizes HTTP/2 frames to block Rapid Reset (CVE-2023-44487) stream cancellation exploits.",
+        "Parses GraphQL query Abstract Syntax Trees (AST) to enforce maximum depth limits (Depth <= 5), and sanitizes HTTP/2 frames to block Rapid Reset (CVE-2023-44487) stream cancellation exploits.",
       operationalAdvantage: "Prevents complex API parser and database recursive CPU lockup attacks.",
       telemetryIndicator: "WAF blocking GraphQL requests exceeding query depth 5 and dropping abnormal RST_STREAM bursts",
       enterpriseStandard: "Cloud WAF API Shield with strict GraphQL depth capping and HTTP/2 concurrency controls.",
@@ -716,8 +716,8 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \\
               4. Cloud Scrubbing Throughput &amp; Pipeline Latency Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust ingress dirty flood volume $V_{\text{total}}$, Layer 3/4 FPGA drop rate, Layer 7 WAF drop rate, 
-              and toggle GRE return tunnels to model clean throughput $T_{\text{clean}} = V_{\text{total}} \times (1 - \text{DR}_{\text{L3L4}}) \times (1 - \text{DR}_{\text{L7}})$ and total added latency $\Delta L$:
+              Adjust ingress dirty flood volume V_total, Layer 3/4 FPGA drop rate, Layer 7 WAF drop rate, 
+              and toggle GRE return tunnels to model clean throughput T_clean = V_total × (1 - DR_L3L4) × (1 - DR_L7) and total added latency ΔL:
             </p>
           </div>
 

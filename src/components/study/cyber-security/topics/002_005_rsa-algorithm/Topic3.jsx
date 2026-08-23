@@ -608,7 +608,7 @@ const Topic3 = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-indigo-400 font-bold">•</span>
-                  <span><strong>Pre-Compute CRT Parameters:</strong> Store $d_p, d_q, q_{inv}$ for 4x faster private operations.</span>
+                  <span><strong>Pre-Compute CRT Parameters:</strong> Store d_p, d_q, q_inv for 4x faster private operations.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-indigo-400 font-bold">•</span>

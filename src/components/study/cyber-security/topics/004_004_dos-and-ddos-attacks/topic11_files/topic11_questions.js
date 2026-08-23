@@ -57,7 +57,7 @@ const questions = [
   {
     question: "What was the 2020 AWS Shield 2.3 Tbps DDoS Attack Case Study?",
     shortAnswer: "In February 2020, AWS Shield detected and mitigated a 2.3 Tbps CLDAP (Connectionless LDAP) reflection attack targeting an AWS customer, which stood as the largest volumetric DDoS attack in history at that time, absorbed entirely by AWS's global edge infrastructure.",
-    explanation: "Threat actors abused misconfigured Active Directory domain controllers running CLDAP on UDP port 389 ($56\\times-70\\times$ amplification) to generate a massive 2.3 Tbps flood. AWS Shield's automated Anycast scrubbing network detected the multi-terabit surge, fragmented the traffic across dozens of global edge locations, and filtered malicious CLDAP search responses without customer downtime.",
+    explanation: "Threat actors abused misconfigured Active Directory domain controllers running CLDAP on UDP port 389 (56x-70x amplification) to generate a massive 2.3 Tbps flood. AWS Shield's automated Anycast scrubbing network detected the multi-terabit surge, fragmented the traffic across dozens of global edge locations, and filtered malicious CLDAP search responses without customer downtime.",
     hint: "The 2.3 Tbps CLDAP reflection attack mitigated by Amazon Web Services in 2020.",
     level: "expert",
     codeExample: `// AWS Shield 2.3 Tbps Attack Profile (Feb 2020):
@@ -163,7 +163,7 @@ const questions = [
   {
     question: "What was the 'Spamhaus vs Cyberbunker' 300 Gbps Attack (2013), and how did it demonstrate the power of Open DNS Resolvers?",
     shortAnswer: "In March 2013, Cyberbunker launched a 300 Gbps DNS reflection attack against anti-spam organization Spamhaus using open DNS resolvers, making it the largest recorded DDoS attack of its era and slowing global internet traffic across European Tier-1 IXPs.",
-    explanation: "When Spamhaus blacklisted Cyberbunker, adversaries flooded Spamhaus with 300 Gbps of DNS reflection traffic using open recursive DNS resolvers ($70\\times$ amplification). The volume was so massive that it congested the London Internet Exchange (LINX) and Amsterdam Internet Exchange (AMS-IX), proving that open DNS resolvers could be weaponized to degrade regional internet backbones.",
+    explanation: "When Spamhaus blacklisted Cyberbunker, adversaries flooded Spamhaus with 300 Gbps of DNS reflection traffic using open recursive DNS resolvers (70x amplification). The volume was so massive that it congested the London Internet Exchange (LINX) and Amsterdam Internet Exchange (AMS-IX), proving that open DNS resolvers could be weaponized to degrade regional internet backbones.",
     hint: "The 300 Gbps DNS reflection attack in 2013 that congested European Internet Exchange Points.",
     level: "moderate",
     codeExample: `// Spamhaus vs Cyberbunker 300 Gbps DNS Attack Profile (2013):
@@ -314,7 +314,7 @@ http2_max_concurrent_pushes 0;
   {
     question: "Synthesize the mathematical formulation of the Mitigation Recovery Time Index (RTI), Attack Onset Time (T_onset), Scrubbing Activation Time (T_active), Recovery SLA (SLA_rec), and Enterprise Availability Resilience (Resilience_pct).",
     shortAnswer: "Mitigation Recovery Time Index is RTI = (T_active - T_onset) / SLA_rec; when RTI <= 1.0 (as in GitHub's 8-minute recovery against a 15-minute SLA, RTI = 0.53), Enterprise Availability Resilience is 100.0%; automated Anycast diversion drives RTI to near-zero.",
-    explanation: "Let $T_{\\text{onset}}$ represent the attack onset time ($17:21$ UTC). Let $T_{\\text{active}}$ represent the timestamp when cloud scrubbing fully absorbed the attack ($17:29$ UTC, total elapsed time = $8$ minutes). If the enterprise disaster recovery SLA allows a maximum recovery window of $\\text{SLA}_{\\text{rec}} = 15$ minutes, the Mitigation Recovery Time Index is: $\\text{RTI} = \\frac{8}{15} = 0.533 \\le 1.0$. Because $\\text{RTI} \\le 1.0$, Enterprise Availability Resilience is: $\\text{Resilience} = \\max(0, 100\\% \\times (1 - \\max(0, \\text{RTI} - 1.0))) = 100.0\\%$. Deploying automated BGP Anycast diversion scripts reduces $(T_{\\text{active}} - T_{\\text{onset}})$ to under 5 minutes, ensuring $100\\%$ operational resilience.",
+    explanation: "Let T_onset represent the attack onset time (17:21 UTC). Let T_active represent the timestamp when cloud scrubbing fully absorbed the attack (17:29 UTC, total elapsed time = 8 minutes). If the enterprise disaster recovery SLA allows a maximum recovery window of SLA_rec = 15 minutes, the Mitigation Recovery Time Index is: RTI = 8 / 15 = 0.533 <= 1.0. Because RTI <= 1.0, Enterprise Availability Resilience is: Resilience = max(0, 100% * (1 - max(0, RTI - 1.0))) = 100.0%. Deploying automated BGP Anycast diversion scripts reduces (T_active - T_onset) to under 5 minutes, ensuring 100% operational resilience.",
     hint: "Mathematical proof formula showing that achieving a recovery time within the disaster recovery SLA (RTI <= 1.0) guarantees 100% operational resilience, as proven by GitHub's historic 8-minute mitigation in 2018.",
     level: "expert",
     codeExample: `// Mitigation Recovery Time Index (RTI) Mathematical Proof:

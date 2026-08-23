@@ -699,8 +699,8 @@ _mta-sts IN     TXT     "v=STSv1; id=20260823T120000Z"`,
               4. Email Spoofing Vulnerability &amp; DMARC Armor Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust alignment strictness $A$, DKIM signature strength $S$, and DMARC policy enforcement strength $R$ 
-              to model spoofing vulnerability $P_{\text{spoof}} = 1 - e^{-\frac{A \times S}{R}}$ and see how DMARC `p=reject` reduces spoofing vulnerability below 1.6%:
+              Adjust alignment strictness A, DKIM signature strength S, and DMARC policy enforcement strength R 
+              to model spoofing vulnerability P_spoof = 1 - exp(-(A × S) / R) and see how DMARC `p=reject` reduces spoofing vulnerability below 1.6%:
             </p>
           </div>
 

@@ -355,7 +355,7 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
       incident:
         "Researchers modeled the mathematical interaction between aggregate botnet node volume, upstream ISP pipe capacity, and Anycast cloud scrubbing saturation.",
       defenseStrategy:
-        "Susmita and Abhronila published their mathematical model in IEEE Transactions, proving that Anycast networks with $C_{\\text{scrubbing}} > 5\\times B_{\\text{attack}}$ achieve zero link saturation.",
+        "Susmita and Abhronila published their mathematical model in IEEE Transactions, proving that Anycast networks with C_scrubbing > 5 × B_attack achieve zero link saturation.",
       outcome: "Published peer-reviewed mathematical proof; verified across 75,000 simulated distributed botnet scenarios.",
       metrics: {
         simulationTrials: "75,000 Test Trials",
@@ -694,8 +694,8 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
               4. Botnet Aggregation &amp; Cloud Scrubbing Capacity Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust botnet zombie count $N$, individual node bandwidth $B_i$, and cloud scrubbing capacity $C_{\text{scrubbing}}$ 
-              to model total attack bandwidth $B_{\text{total}} = N \times B_i$ and link saturation probability $P_{\text{saturation}} = 1 - e^{-\frac{\max(0, B_{\text{total}} - C)}{\sigma}}$:
+              Adjust botnet zombie count N, individual node bandwidth B_i, and cloud scrubbing capacity C_scrubbing
+              to model total attack bandwidth B_total = N × B_i and link saturation probability P_saturation = 1 - e^(-max(0, B_total - C) / σ):
             </p>
           </div>
 

@@ -683,8 +683,8 @@ Write-Host "[+] DMARC & External Banner Policies ENFORCED!" -ForegroundColor Gre
               4. Phishing Compromise Probability &amp; Gateway Efficiency Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust incoming phishing volume $V$, email gateway filter efficiency $E$, and human click rate $R_{\text{click}}$ 
-              to model enterprise compromises $N = V \times (1 - E) \times R_{\text{click}} \times R_{\text{submit}}$, and toggle FIDO2 passkeys:
+              Adjust incoming phishing volume V, email gateway filter efficiency E, and human click rate R_click 
+              to model enterprise compromises N = V × (1 - E) × R_click × R_submit, and toggle FIDO2 passkeys:
             </p>
           </div>
 

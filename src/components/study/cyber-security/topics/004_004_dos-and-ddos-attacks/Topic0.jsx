@@ -159,7 +159,7 @@ let attack_payload = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!"; // 30 'a's followed by '
       exploitationVector:
         "The attacker sends ICMP echo requests to the broadcast address of an intermediary network with the Source IP spoofed to the victim, causing every host on the subnet to reply to the victim.",
       vulnerabilityImpact:
-        "Generates up to $250\\times$ bandwidth amplification, overwhelming the victim's network link with unsolicited ICMP echo replies.",
+        "Generates up to 250x bandwidth amplification, overwhelming the victim's network link with unsolicited ICMP echo replies.",
       telemetryIndicator: "Massive influx of ICMP Echo Reply packets originating from dozens of hosts on an external subnet",
       resilientDefense: "Configuring border routers with `no ip directed-broadcast` to drop subnet broadcast ping packets.",
       codeSnippet: `// Smurf Broadcast Amplification:
@@ -703,8 +703,8 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
               4. M/M/1 Queueing Availability &amp; Request Drop Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust server capacity $\mu$, legitimate traffic $\lambda_{\text{legit}}$, attack traffic $\lambda_{\text{attack}}$, 
-              and kernel/WAF mitigation strength $R$ to model request drop probability $P_{\text{drop}} = 1 - e^{-\frac{\lambda_{\text{attack}}}{\mu - \lambda_{\text{legit}}}}$ and see how SYN cookies restore availability above 99%:
+              Adjust server capacity μ, legitimate traffic λ_legit, attack traffic λ_attack,
+              and kernel/WAF mitigation strength R to model request drop probability P_drop = 1 - e^(-λ_attack / (μ - λ_legit)) and see how SYN cookies restore availability above 99%:
             </p>
           </div>
 
@@ -1070,7 +1070,7 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
               <ul className="space-y-2 text-gray-300">
                 <li className="p-2 bg-gray-900 rounded border border-gray-800">
                   <span className="text-indigo-300 font-bold block">Think about...</span>
-                  Why does an M/M/1 queue experience an exponential surge in request drop probability when attack traffic rate $\lambda_{\text{attack}}$ exceeds available service capacity $\mu - \lambda_{\text{legit}}$?
+                  Why does an M/M/1 queue experience an exponential surge in request drop probability when attack traffic rate λ_attack exceeds available service capacity μ - λ_legit?
                 </li>
                 <li className="p-2 bg-gray-900 rounded border border-gray-800">
                   <span className="text-indigo-300 font-bold block">Observe carefully...</span>

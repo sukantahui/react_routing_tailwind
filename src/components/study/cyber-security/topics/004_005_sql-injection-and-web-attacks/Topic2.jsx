@@ -469,7 +469,7 @@ exports.getSortedProducts = async (req, res) => {
                 WHERE user = 'admin' OR 1=1-- ➔ Root Comparison Node Replaced by Tautology OR True!
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Relational logic states: $\text{False} \lor \text{True} \equiv \text{True}$. The tautology forces the row filter to evaluate as TRUE for every tuple in the relation, bypassing authentication.
+                Relational logic states: False OR True ≡ True. The tautology forces the row filter to evaluate as TRUE for every tuple in the relation, bypassing authentication.
               </p>
             </div>
 
@@ -1164,7 +1164,7 @@ exports.getSortedProducts = async (req, res) => {
         {/* SECTION 11: Dedicated Teacher's Note */}
         <section className="pt-4">
           <Teacher
-            note="Teacher's Note: SQL Injection (SQLi) is one of the most critical vulnerability classes in software engineering, rooted in how database parsers build Abstract Syntax Trees (ASTs)! Understand the compilation mechanics: when developers use string concatenation, untrusted user data alters the grammar of the SQL statement before it reaches the query optimizer. Master the 4 SQLi contexts: 1. String Literal Context (requires single quote `'` breakout); 2. Numeric Context (`WHERE id = ...`, no quotes needed, allowing direct injection of `UNION` or `OR` operators); 3. Identifier Context (`ORDER BY` clauses where prepared statement `?` placeholders cannot be used, requiring strict dictionary whitelisting); 4. DML UPDATE/INSERT Statements (overwriting administrative role flags or other users' passwords). Understand why Prepared Statements provide 100% mathematical immunity: the database compiles the query AST template first, and binds user data strictly to leaf value slots in a separate protocol packet, making AST grammar mutation mathematically impossible ($P_{\text{bypass}} = 0.00\%$). Remember that Section 66F of the Indian IT Act treats SQL injection cyber terrorism against critical infrastructure with mandatory Life Imprisonment, and Section 43(a) provides civil damages up to ₹1 Crore for unauthorized database extraction!"
+            note="Teacher's Note: SQL Injection (SQLi) is one of the most critical vulnerability classes in software engineering, rooted in how database parsers build Abstract Syntax Trees (ASTs)! Understand the compilation mechanics: when developers use string concatenation, untrusted user data alters the grammar of the SQL statement before it reaches the query optimizer. Master the 4 SQLi contexts: 1. String Literal Context (requires single quote ' breakout); 2. Numeric Context (WHERE id = ..., no quotes needed, allowing direct injection of UNION or OR operators); 3. Identifier Context (ORDER BY clauses where prepared statement ? placeholders cannot be used, requiring strict dictionary whitelisting); 4. DML UPDATE/INSERT Statements (overwriting administrative role flags or other users' passwords). Understand why Prepared Statements provide 100% mathematical immunity: the database compiles the query AST template first, and binds user data strictly to leaf value slots in a separate protocol packet, making AST grammar mutation mathematically impossible (P_bypass = 0.00%). Remember that Section 66F of the Indian IT Act treats SQL injection cyber terrorism against critical infrastructure with mandatory Life Imprisonment, and Section 43(a) provides civil damages up to ₹1 Crore for unauthorized database extraction!"
           />
         </section>
 

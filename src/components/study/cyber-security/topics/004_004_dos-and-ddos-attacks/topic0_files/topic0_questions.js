@@ -147,7 +147,7 @@ TCP_Header.dst_port = 80;          // Victim Web Port (SAME!)
   {
     question: "What is the 'Smurf Attack' Mechanism, and how does it use ICMP Broadcast Amplification?",
     shortAnswer: "Sending ICMP Echo Request (ping) packets with a spoofed Source IP set to the victim's address to the broadcast address of an unconfigured intermediary network, causing every host on the subnet to flood the victim with replies.",
-    explanation: "The attacker sends 1 ping packet to `192.168.1.255` (broadcast) with `Source IP: 103.25.10.50` (victim). If there are 250 active workstations on that subnet, all 250 workstations simultaneously reply to the victim. The attacker achieves a $250\\times$ amplification factor. Modern routers defeat this by disabling directed broadcast forwarding (`no ip directed-broadcast`).",
+    explanation: "The attacker sends 1 ping packet to `192.168.1.255` (broadcast) with `Source IP: 103.25.10.50` (victim). If there are 250 active workstations on that subnet, all 250 workstations simultaneously reply to the victim. The attacker achieves a 250x amplification factor. Modern routers defeat this by disabling directed broadcast forwarding (`no ip directed-broadcast`).",
     hint: "Shouting through a megaphone into a crowded stadium with someone else's name tag so everyone shouts back at that one person.",
     level: "moderate",
     codeExample: `// Smurf Attack Amplification Formula:
@@ -174,23 +174,27 @@ TCP_Header.dst_port = 80;          // Victim Web Port (SAME!)
     hint: "Section 66 provides up to 3 years imprisonment and ₹5 Lakh fine for fraudulent computer disruption.",
     level: "basic",
     codeExample: `// Statutory Penalty (IT Act Section 66):
-// Offense: Intentionally launching a DoS attack to disrupt an online examination portal
-// Penalty: Up to 3 Years Imprisonment + Fine up to ₹5,00,000`
+    // Offense: Intentionally launching a DoS attack to disrupt an online examination portal
+    // Penalty: Up to 3 Years Imprisonment + Fine up to ₹5,00,000`
   },
   {
     question: "What is 'Memory Leak / Buffer Starvation DoS' in Software Application Security?",
+
     shortAnswer: "Exploiting unmanaged memory allocation bugs in server software by repeatedly sending requests that allocate RAM without releasing it, eventually triggering an Out-Of-Memory (OOM) operating system crash.",
+
     explanation: "If a web application endpoint in Salt Lake allocates a 10MB memory buffer for every unauthenticated session but fails to call `free()` on connection close, an attacker opens 1,000 connections. The server consumes 10GB of RAM in 5 seconds. When RAM is exhausted, the Linux OS kernel's OOM killer terminates the core web server process (`kill -9 nginx`), taking the service offline.",
+
     hint: "Borrowing books from a library and never returning them until all the shelves are empty and the library has to close.",
+
     level: "expert",
+
     codeExample: `// C Vulnerable Memory Allocation Endpoint:
 void handle_request(int client_socket) {
     char *buffer = malloc(10485760); // Allocates 10MB per connection
     read_data(client_socket, buffer);
     // BUG: Missing free(buffer)!
-    // Result: 500 requests ➔ 5GB RAM Leak ➔ Kernel OOM Killer Terminates Server!`
-}
-`
+    // Result: 500 requests ➔ 5GB RAM Leak ➔ Kernel OOM Killer Terminates Server!
+}`
   },
   {
     question: "Synthesize an enterprise-scale Fundamental Denial of Service (DoS) Defense Architecture.",
@@ -238,7 +242,7 @@ ip route 103.25.10.50 255.255.255.255 Null0
   {
     question: "How do 'TCP SYN Cookies' (RFC 4987) prevent SYN Flood DoS Attacks without Allocating Memory?",
     shortAnswer: "By encoding the connection state into the Initial Sequence Number (ISN) of the SYN-ACK packet using a cryptographic hash, eliminating memory allocation until the client returns a valid final ACK.",
-    explanation: "With SYN Cookies enabled (`tcp_syncookies = 1`), when a SYN arrives, the server allocates ZERO memory in the backlog. It computes an ISN cookie: $ISN = \\text{SHA-1}(\\text{ClientIP}, \\text{ClientPort}, \\text{SecretKey}) + t$. It sends the SYN-ACK. If the client is legitimate, it returns an ACK with $ISN + 1$. The server verifies the cryptographic hash, and ONLY THEN allocates connection memory.",
+    explanation: "With SYN Cookies enabled (`tcp_syncookies = 1`), when a SYN arrives, the server allocates ZERO memory in the backlog. It computes an ISN cookie: ISN = SHA-1(ClientIP, ClientPort, SecretKey) + t. It sends the SYN-ACK. If the client is legitimate, it returns an ACK with ISN + 1. The server verifies the cryptographic hash, and ONLY THEN allocates connection memory.",
     hint: "A cloakroom attendant who gives you a claim ticket stamped with a secret cryptographic code instead of storing your coat in a reserved locker before you arrive.",
     level: "expert",
     codeExample: `# Enable TCP SYN Cookies in Linux Kernel:
@@ -316,6 +320,7 @@ while True:
     packet = IP(src=fake_ip, dst=target_ip)/UDP(dport=random.randint(1,65535))/Raw(load=b"X"*1400)
     send(packet, verbose=False)`
   },
+
   {
     question: "Under the Indian Penal Code Section 420, what constitutes Cheating and Dishonestly Inducing Delivery of Property via DoS Extortion?",
     shortAnswer: "Threatening to launch or maintain a DoS attack unless corporate executives pay an extortion ransom, punishable with imprisonment up to 7 years and fines.",
@@ -327,15 +332,15 @@ while True:
 // Penalty: Imprisonment for a term up to 7 Years, and shall also be liable to Fine`
   },
   {
-    question: "Synthesize the mathematical relationship between Legitimate Request Arrival Rate (\\lambda_legit), Attack Traffic Arrival Rate (\\lambda_attack), Server Service Processing Capacity (\\mu), and Request Drop Probability (P_drop) in an M/M/1 Queueing Model.",
-    shortAnswer: "Request drop probability is modeled as P_drop = 1 - e^(- \\lambda_attack / (\\mu - \\lambda_legit)); when attack traffic \\lambda_attack exceeds remaining server capacity (\\mu - \\lambda_legit), service availability collapses to zero (100% request drop rate).",
-    explanation: "In an M/M/1 queueing system, server service capacity is $\\mu$ requests/sec and legitimate traffic is $\\lambda_{\\text{legit}}$. When an attacker injects $\\lambda_{\\text{attack}}$ requests/sec, the total arrival rate is $\\lambda_{\\text{total}} = \\lambda_{\\text{legit}} + \\lambda_{\\text{attack}}$. When $\\lambda_{\\text{total}} \\ge \\mu$, queue length approaches infinity ($L \\to \\infty$), buffer overflows occur, and request drop probability is: $P_{\\text{drop}} = 1 - e^{-\\frac{\\lambda_{\\text{attack}}}{\\mu - \\lambda_{\\text{legit}}}}$. Enforcing upstream rate limiting and anycast load balancing keeps $\\lambda_{\\text{total}} < \\mu$, ensuring $P_{\\text{drop}} \\to 0$.",
+    question: "Synthesize the mathematical relationship between Legitimate Request Arrival Rate (λ_legit), Attack Traffic Arrival Rate (λ_attack), Server Service Processing Capacity (μ), and Request Drop Probability (P_drop) in an M/M/1 Queueing Model.",
+    shortAnswer: "Request drop probability is modeled as P_drop = 1 - e^(- λ_attack / (μ - λ_legit)); when attack traffic λ_attack exceeds remaining server capacity (μ - λ_legit), service availability collapses to zero (100% request drop rate).",
+    explanation: "In an M/M/1 queueing system, server service capacity is μ requests/sec and legitimate traffic is λ_legit. When an attacker injects λ_attack requests/sec, the total arrival rate is λ_total = λ_legit + λ_attack. When λ_total >= μ, queue length approaches infinity (L -> ∞), buffer overflows occur, and request drop probability is: P_drop = 1 - e^(- λ_attack / (μ - λ_legit)). Enforcing upstream rate limiting and anycast load balancing keeps λ_total < μ, ensuring P_drop -> 0.",
     hint: "Mathematical queueing theory formula proving that when attack traffic rate exceeds remaining service capacity, request drop probability reaches 100%.",
     level: "expert",
     codeExample: `// M/M/1 Queueing DoS Availability Calculation:
-// Server Capacity (\mu) = 1,000 req/s | Legitimate Traffic (\lambda_legit) = 200 req/s
-// Attack Traffic (\lambda_attack) = 5,000 req/s
-// Available Capacity = \mu - \lambda_legit = 800 req/s
+// Server Capacity (μ) = 1,000 req/s | Legitimate Traffic (λ_legit) = 200 req/s
+// Attack Traffic (λ_attack) = 5,000 req/s
+// Available Capacity = μ - λ_legit = 800 req/s
 // Exponent = -5000 / 800 = -6.25 ➔ P_drop = 1 - e^(-6.25) = 99.81% (SERVICE COLLAPSED!)`
   }
 ];

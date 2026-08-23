@@ -2,7 +2,7 @@ const questions = [
   {
     question: "What is a DDoS Reflection and Amplification Attack, and what are the two fundamental technical prerequisites that enable it?",
     shortAnswer: "An attack where an adversary sends small requests with a spoofed victim Source IP to misconfigured third-party servers, which return massive response packets to the victim; enabled by: 1. A stateless connectionless protocol (UDP) allowing IP spoofing, and 2. A command where the response size is significantly larger than the request.",
-    explanation: "In a reflection amplification attack, the attacker does not send packets directly to the victim. Instead, the attacker sends a 50-byte request to thousands of open DNS or NTP servers with `Source IP: Victim IP`. The servers process the request and reply with 4,000-byte responses directed at the victim. The attacker multiplies their attack bandwidth by $50\\times$ to $500\\times$, while hiding their own identity behind legitimate reflection servers.",
+    explanation: "In a reflection amplification attack, the attacker does not send packets directly to the victim. Instead, the attacker sends a 50-byte request to thousands of open DNS or NTP servers with `Source IP: Victim IP`. The servers process the request and reply with 4,000-byte responses directed at the victim. The attacker multiplies their attack bandwidth by 50x to 500x, while hiding their own identity behind legitimate reflection servers.",
     hint: "Whispering a one-word question into 1,000 megaphones pointed at someone's house so the megaphones blast 1,000 paragraphs of sound at them.",
     level: "basic",
     codeExample: `// Amplification Ratio Formula:
@@ -12,7 +12,7 @@ const questions = [
   {
     question: "How does a 'DNS Amplification Attack' work, and how does the EDNS0 extension maximize response size?",
     shortAnswer: "The attacker sends a DNS query for `ANY` records with the `EDNS0` (Extension Mechanisms for DNS) buffer size set to 4096 bytes using a spoofed victim IP; the open resolver returns a 3,000-4,000 byte DNS response, achieving a 50x-70x amplification factor.",
-    explanation: "Standard DNS responses over UDP were historically capped at 512 bytes. RFC 6891 introduced EDNS0, allowing UDP buffers up to 4096 bytes. Attackers query domains with heavy DNSSEC keys (`RRSIG`, `DNSKEY`) using `dig ANY isc.org`. A 45-byte query produces a 3,500-byte response ($77\\times$ amplification), completely saturating the victim's downlink.",
+    explanation: "Standard DNS responses over UDP were historically capped at 512 bytes. RFC 6891 introduced EDNS0, allowing UDP buffers up to 4096 bytes. Attackers query domains with heavy DNSSEC keys (`RRSIG`, `DNSKEY`) using `dig ANY isc.org`. A 45-byte query produces a 3,500-byte response (77x amplification), completely saturating the victim's downlink.",
     hint: "Asking a library for 'EVERY SINGLE RECORD ABOUT THIS TOPIC' in one envelope with someone else's return address.",
     level: "basic",
     codeExample: `// Scapy DNS Amplification Query:
@@ -26,7 +26,7 @@ send(packet, loop=1, verbose=False)`
   {
     question: "What was the NTP 'monlist' Command (Mode 7), and why did it provide an unprecedented 556x Amplification Factor?",
     shortAnswer: "The NTP `monlist` diagnostic command returned a list of the last 600 IP addresses that interacted with the NTP server, splitting the response across up to 100 consecutive UDP packets totaling ~48,000 bytes for a single 234-byte request.",
-    explanation: "Network Time Protocol (NTP) included an administrative diagnostic command called `monlist`. When queried with a 234-byte request, the NTP server returned data on the last 600 clients it synced with, packed into up to 100 UDP packets totaling 48,000 bytes ($556\\times$ amplification). A single 10 Mbps broadband connection could generate over 5.5 Gbps of attack traffic directed at the victim in Kolkata.",
+    explanation: "Network Time Protocol (NTP) included an administrative diagnostic command called `monlist`. When queried with a 234-byte request, the NTP server returned data on the last 600 clients it synced with, packed into up to 100 UDP packets totaling 48,000 bytes (556x amplification). A single 10 Mbps broadband connection could generate over 5.5 Gbps of attack traffic directed at the victim in Kolkata.",
     hint: "Asking a hotel receptionist 'Give me the names and addresses of the last 600 guests who stayed here' on a single postcard.",
     level: "moderate",
     codeExample: `// NTP monlist Amplification Factor:
@@ -38,7 +38,7 @@ send(packet, loop=1, verbose=False)`
   {
     question: "What was the 'Memcached UDP Amplification Attack' (2018), and how did it achieve an Astronomical 51,000x Amplification Factor?",
     shortAnswer: "Memcached servers left exposed on the public internet on UDP port 11211 allowed unauthenticated clients to store large values and retrieve them with a tiny `get <key>` request, returning megabytes of data for a 15-byte query (51,000x multiplier), generating historic 1.35 Tbps floods.",
-    explanation: "Memcached was designed as an internal caching system without authentication. System administrators inadvertently exposed port 11211 to the public internet with UDP enabled. Attackers loaded a 1MB payload into a key and sent a 15-byte `get a` UDP request with a spoofed victim IP. The server returned the full 1MB payload ($51,200\\times$ amplification), unleashing the historic 1.35 Tbps DDoS flood against GitHub in February 2018.",
+    explanation: "Memcached was designed as an internal caching system without authentication. System administrators inadvertently exposed port 11211 to the public internet with UDP enabled. Attackers loaded a 1MB payload into a key and sent a 15-byte `get a` UDP request with a spoofed victim IP. The server returned the full 1MB payload (51,200x amplification), unleashing the historic 1.35 Tbps DDoS flood against GitHub in February 2018.",
     hint: "Dropping a ₹1 coin into a vending machine that accidentally dispenses ₹50,000 worth of soda cans into someone's driveway.",
     level: "expert",
     codeExample: `// Memcached Amplification Math:
@@ -112,7 +112,7 @@ options {
   {
     question: "What is 'SNMP Amplification' (Simple Network Management Protocol - UDP Port 161)?",
     shortAnswer: "Sending SNMP `GetBulkRequest` or `GetNextRequest` with the default community string `public` to internet-exposed network devices, returning massive SNMP routing tables and interface statistics (up to 650x amplification).",
-    explanation: "SNMP is used for router monitoring. Many legacy routers expose UDP port 161 with default read-only credentials (`public`). An attacker sends a 60-byte `GetBulkRequest` with `non-repeaters=0, max-repetitions=100`. The router walks its entire MIB tree and returns routing tables, ARP caches, and interface statistics across dozens of large UDP packets totaling ~40,000 bytes ($650\\times$ amplification).",
+    explanation: "SNMP is used for router monitoring. Many legacy routers expose UDP port 161 with default read-only credentials (`public`). An attacker sends a 60-byte `GetBulkRequest` with `non-repeaters=0, max-repetitions=100`. The router walks its entire MIB tree and returns routing tables, ARP caches, and interface statistics across dozens of large UDP packets totaling ~40,000 bytes (650x amplification).",
     hint: "Asking a building security guard for a full copy of the building blueprints and master key list using the default guest password.",
     level: "expert",
     codeExample: `// SNMP GetBulkRequest Amplification:
@@ -222,7 +222,7 @@ interface GigabitEthernet0/1
   {
     question: "What is 'CHARGEN' (Character Generator Protocol - UDP Port 19) Amplification?",
     shortAnswer: "A legacy diagnostic protocol designed in 1983 (RFC 864) that responds to any UDP datagram by sending an endless stream of 72-character repeating ASCII strings (358x amplification factor).",
-    explanation: "CHARGEN was designed for network testing. When it receives a 1-byte UDP packet on port 19, it returns an infinite stream of ASCII characters: ` !\"#$%&'()*+,-./0123456789:;<=>?@ABC...`. An attacker sending a 20-byte packet triggers thousands of bytes of character data ($358\\times$ amplification). Modern systems disable CHARGEN completely.",
+    explanation: "CHARGEN was designed for network testing. When it receives a 1-byte UDP packet on port 19, it returns an infinite stream of ASCII characters: ` !\"#$%&'()*+,-./0123456789:;<=>?@ABC...`. An attacker sending a 20-byte packet triggers thousands of bytes of character data (358x amplification). Modern systems disable CHARGEN completely.",
     hint: "Pressing a button on a broken typewriter that causes it to type 10,000 pages of alphabet letters without stopping.",
     level: "basic",
     codeExample: `// CHARGEN Amplification Flow:
@@ -317,7 +317,7 @@ restrict 127.0.0.1
   {
     question: "What is 'DNS ANY Query Deprecation' (RFC 8482), and how does it neutralize DNS Amplification?",
     shortAnswer: "RFC 8482 allows authoritative DNS servers to respond to `ANY` queries with a single synthetic `HINFO` record (e.g. 'RFC8482') or a single A record, reducing response size from 4,000 bytes to under 100 bytes, destroying the amplification factor.",
-    explanation: "Under RFC 8482 ('Providing Minimal Answers to DNS Queries for Type ANY'), authoritative servers (including Cloudflare and Google) stopped returning all resource records for `ANY` queries. When an attacker sends a `dig ANY cloudflare.com` query, the server returns a tiny 60-byte synthetic `HINFO` record. The response is almost identical in size to the query ($AF \\approx 1.0$), completely destroying the amplification factor.",
+    explanation: "Under RFC 8482 ('Providing Minimal Answers to DNS Queries for Type ANY'), authoritative servers (including Cloudflare and Google) stopped returning all resource records for `ANY` queries. When an attacker sends a `dig ANY cloudflare.com` query, the server returns a tiny 60-byte synthetic `HINFO` record. The response is almost identical in size to the query (AF ≈ 1.0), completely destroying the amplification factor.",
     hint: "When someone asks for 'EVERYTHING ON THE MENU', giving them a 1-page business card that says 'Check our website' instead of a 500-page book.",
     level: "expert",
     codeExample: `// RFC 8482 Minimal ANY Response:
@@ -329,8 +329,8 @@ cloudflare.com. 3789 IN HINFO "RFC8482" "" # Response size is only 64 Bytes! (0x
   },
   {
     question: "Synthesize the mathematical relationship between Attacker Ingress Request Bandwidth (B_req), Protocol Amplification Factor (AF), Cloud Anycast Scrubbing Capacity (C_scrub), and Ingress Link Saturation Probability (P_sat).",
-    shortAnswer: "Reflected flood bandwidth is B_reflected = B_req * AF; saturation probability is modeled as P_sat = 1 - e^(- max(0, B_reflected - C_scrub) / \\sigma_jitter); deploying multi-terabit Anycast cloud scrubbing networks (C_scrub > B_reflected) drives link saturation probability to zero.",
-    explanation: "Let $B_{\\text{req}}$ represent the attacker's outbound request bandwidth (e.g. 10 Gbps generated by a botnet), $AF$ represent the protocol amplification factor (e.g. $70\\times$ for DNS ANY or $556\\times$ for NTP monlist), and $C_{\\text{scrub}}$ represent cloud scrubbing capacity (e.g. 10 Tbps Anycast). Total reflected flood bandwidth is $B_{\\text{reflected}} = B_{\\text{req}} \\times AF = 10 \\times 70 = 700$ Gbps. Without scrubbing (enterprise 10 Gbps link), saturation is $P_{\\text{sat}} = 1 - e^{-(700 - 10)/20} = 100.0\\%$. With Anycast scrubbing ($C_{\\text{scrub}} = 10,000$ Gbps), $B_{\\text{reflected}} < C_{\\text{scrub}}$, keeping $P_{\\text{sat}} = 0.0\\%$.",
+    shortAnswer: "Reflected flood bandwidth is B_reflected = B_req * AF; saturation probability is modeled as P_sat = 1 - e^(- max(0, B_reflected - C_scrub) / σ_jitter); deploying multi-terabit Anycast cloud scrubbing networks (C_scrub > B_reflected) drives link saturation probability to zero.",
+    explanation: "Let B_req represent the attacker's outbound request bandwidth (e.g. 10 Gbps generated by a botnet), AF represent the protocol amplification factor (e.g. 70x for DNS ANY or 556x for NTP monlist), and C_scrub represent cloud scrubbing capacity (e.g. 10 Tbps Anycast). Total reflected flood bandwidth is B_reflected = B_req * AF = 10 * 70 = 700 Gbps. Without scrubbing (enterprise 10 Gbps link), saturation is P_sat = 1 - e^(-(700 - 10)/20) = 100.0%. With Anycast scrubbing (C_scrub = 10,000 Gbps), B_reflected < C_scrub, keeping P_sat = 0.0%.",
     hint: "Mathematical formula proving that multiplying attacker bandwidth by the protocol amplification factor generates multi-gigabit reflected floods that require multi-terabit Anycast cloud scrubbing.",
     level: "expert",
     codeExample: `// Reflection Amplification Mathematical Proof:

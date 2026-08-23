@@ -681,8 +681,8 @@ bool verify_desfire_ev3_aes128(uint8_t card_uid[7], uint8_t aes_key[16]) {
               4. Physical Breach Probability &amp; Mantrap Armor Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust lobby foot traffic proximity score $P$, social opportunity factor $O$, and physical mantrap armor $R$ 
-              to model physical breach probability $P_{\text{physical}} = 1 - e^{-\frac{P \times O}{R}}$ and see how Optical Mantraps reduce breach probability below 1.4%:
+              Adjust lobby foot traffic proximity score P, social opportunity factor O, and physical mantrap armor R 
+              to model physical breach probability P_physical = 1 - exp(-(P × O) / R) and see how Optical Mantraps reduce breach probability below 1.4%:
             </p>
           </div>
 

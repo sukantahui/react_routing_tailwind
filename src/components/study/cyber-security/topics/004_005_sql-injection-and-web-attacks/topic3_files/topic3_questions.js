@@ -11,7 +11,7 @@ const questions = [
   },
   {
     question: "What are the Two Strict Mathematical Conditions required for a 'UNION-Based SQL Injection' query to execute successfully?",
-    shortAnswer: "1. The injected query must return the EXACT same number of columns as the original query ($K_{\\text{orig}} = K_{\\text{inject}}$); 2. The data types of corresponding columns must be compatible between the original and injected queries.",
+    shortAnswer: "1. The injected query must return the EXACT same number of columns as the original query (K_orig = K_inject); 2. The data types of corresponding columns must be compatible between the original and injected queries.",
     explanation: "The SQL `UNION` operator merges the result sets of two queries. If Query 1 returns 3 columns (`id, name, price`) and Query 2 returns 2 columns (`user, pass`), the database engine rejects the statement with a syntax error. Furthermore, if Column 3 in Query 1 is an integer, Column 3 in Query 2 must be an integer or convertible type.",
     hint: "Both queries must have the exact same number of columns and matching data types.",
     level: "moderate",
@@ -287,7 +287,7 @@ SELECT * FROM items LIMIT 1, 10 PROCEDURE ANALYSE(EXTRACTVALUE(1, CONCAT(0x7e, (
   {
     question: "What is 'Automated In-Band SQLi Exploitation with SQLmap'?",
     shortAnswer: "How automated tools like SQLmap test column counts (`--union-cols`), probe string-compatible columns (`--union-char`), and automatically construct optimized `information_schema` dumping queries in seconds.",
-    explanation: "SQLmap automates the manual In-Band testing methodology: 1. It tests `ORDER BY` ranges to find column count $K$. 2. It injects unique string markers (e.g. `QZXQ`) to identify which columns reflect text. 3. It queries `information_schema` to enumerate tables. 4. It executes multi-row `GROUP_CONCAT` queries to dump the entire database to disk in seconds.",
+    explanation: "SQLmap automates the manual In-Band testing methodology: 1. It tests `ORDER BY` ranges to find column count K. 2. It injects unique string markers (e.g. `QZXQ`) to identify which columns reflect text. 3. It queries `information_schema` to enumerate tables. 4. It executes multi-row `GROUP_CONCAT` queries to dump the entire database to disk in seconds.",
     hint: "How automated penetration testing tools figure out the column count and download the whole database in seconds.",
     level: "moderate",
     codeExample: `// SQLmap Automated In-Band Execution:
@@ -296,7 +296,7 @@ sqlmap -u "https://kolkata-fintech.in/item?id=105" --technique=U --banner --dbs 
   {
     question: "Synthesize the mathematical formulation of Column Count Determination (K), Relational Union Compatibility, Error-Vector Reflection, and Data Extraction Throughput.",
     shortAnswer: "Column count is K = max { k in N | Query(ORDER BY k) != Error }; Relational UNION compatibility requires K_orig = K_inject and Type(C_i) == Type(C'_i); In-Band throughput is T_in-band = (Bytes_payload * N_rows) / RTT, exceeding Blind inference by 50,000x; Prepared Statements force K_inject = 0, driving T_in-band = 0.00 bytes/s.",
-    explanation: "Let the original query result set relation be $R_1 \\subset D_1 \\times D_2 \\times \\dots \\times D_K$ of arity $K$. A UNION query creates relation $R_2 \\subset D'_1 \\times D'_2 \\times \\dots \\times D'_{K'}$. The relational union $R_1 \\cup R_2$ is well-formed if and only if $K = K'$ and domain compatibility holds: $D_i \\cong D'_i, \\forall i \\in \\{1, \\dots, K\\}$. In-band data throughput is: $T_{\\text{in-band}} = \\frac{S_{\\text{page}}}{t_{\\text{RTT}}} \\approx 50\\text{ KB/s}$, compared to Time-based blind inference $T_{\\text{blind}} = \\frac{1}{8 \\times t_{\\text{sleep}}} \\approx 0.025\\text{ bytes/s}$. Deploying Parameterized Prepared Statements compiles the query AST with $K_{\\text{inject}} = 0$, mathematically guaranteeing $T_{\\text{in-band}} = 0.00\\text{ bytes/s}$ (100% data insulation).",
+    explanation: "Let the original query result set relation be R_1 subset of D_1 × D_2 × ... × D_K of arity K. A UNION query creates relation R_2 subset of D'_1 × D'_2 × ... × D'_{K'}. The relational union R_1 UNION R_2 is well-formed if and only if K = K' and domain compatibility holds: D_i congruent D'_i for all i in {1, ..., K}. In-band data throughput is: T_in-band = S_page / t_RTT ≈ 50 KB/s, compared to Time-based blind inference T_blind = 1 / (8 × t_sleep) ≈ 0.025 bytes/s. Deploying Parameterized Prepared Statements compiles the query AST with K_inject = 0, mathematically guaranteeing T_in-band = 0.00 bytes/s (100% data insulation).",
     hint: "Mathematical proof formula showing that relational UNION requires matching arity K and compatible domains, achieving 50 KB/s throughput, while Prepared Statements drive throughput to 0.00 bytes/s.",
     level: "expert",
     codeExample: `// In-Band SQLi Throughput & Relational Compatibility Mathematical Proof:

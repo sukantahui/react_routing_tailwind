@@ -289,8 +289,8 @@ const Topic4 = () => {
                 ⚠️ Textbook RSA Multiplicative Malleability Exploit Demonstrated:
               </span>
               <p className="text-gray-300 leading-relaxed font-sans">
-                Attacker intercepts Ciphertext $C = {sandboxCalculations.C}$ and multiplies it by $2^{17} \bmod 3233 = {modExp(2, e, N)}$. 
-                The forged ciphertext becomes $C_{forged} = ({sandboxCalculations.C} \times {modExp(2, e, N)}) \bmod 3233 = {sandboxCalculations.multipliedCipher}$.
+                Attacker intercepts Ciphertext C = {sandboxCalculations.C} and multiplies it by 2^17 mod 3233 = {modExp(2, e, N)}. 
+                The forged ciphertext becomes C_forged = ({sandboxCalculations.C} &times; {modExp(2, e, N)}) mod 3233 = {sandboxCalculations.multipliedCipher}.
               </p>
               <div className="p-2.5 bg-gray-950 rounded-lg border border-rose-900/50 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <span className="text-gray-300">Bank Decrypts $({sandboxCalculations.multipliedCipher})^{2753} \bmod 3233$:</span>
@@ -639,7 +639,7 @@ const Topic4 = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-rose-400 font-bold">•</span>
-                  <span><strong>Using e = 3 with Short Messages:</strong> Attacker extracts plaintext via integer cube roots $M = \sqrt[3]{C}$.</span>
+                  <span><strong>Using e = 3 with Short Messages:</strong> Attacker extracts plaintext via integer cube roots M = cbrt(C).</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-rose-400 font-bold">•</span>

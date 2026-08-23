@@ -385,7 +385,7 @@ class OncologyDataService:
       title: "Formulating the Formal ORM Relational Compiler Invariant Model in IEEE Transactions",
       budget: "₹44,00,000",
       incident:
-        "Researchers formulated mathematical proofs demonstrating that standard ORM relational mapping functions guarantee $\\Delta \\text{AST} = \\emptyset$ unless raw escape hatches are invoked.",
+        "Researchers formulated mathematical proofs demonstrating that standard ORM relational mapping functions guarantee ΔAST = ∅ unless raw escape hatches are invoked.",
       defenseStrategy:
         "Susmita and Abhronila published their mathematical proof in IEEE Transactions, proving that tagged template literals maintain 100% compiler safety.",
       outcome: "Published peer-reviewed mathematical proof; verified across 450,000 simulated ORM query compilation runs.",
@@ -453,7 +453,7 @@ class OncologyDataService:
               inside dynamic <strong>`EXEC()`</strong> or <strong>`EXECUTE IMMEDIATE`</strong> statements remain 100% vulnerable. 
               Secure engineering mandates using <strong>Tagged Template Literals (`$queryRaw\`...\``)</strong> in Prisma, 
               <strong>`sp_executesql`</strong> in T-SQL, <strong>`EXECUTE ... USING`</strong> in PL/SQL, and enforcing CI/CD SAST rules 
-              banning unsafe raw escape methods ($P_{\text{sqli}} = 0.00\%$).
+              banning unsafe raw escape methods (SQL Injection Probability = 0.00%).
             </p>
           </div>
 
@@ -523,7 +523,7 @@ class OncologyDataService:
                   $queryRaw`...`
                 </text>
                 <text x="70" y="106" fill="#7dd3fc" fontSize="7.5" textAnchor="middle">
-                  Passes \${userInput}
+                  {"Passes ${userInput}"}
                 </text>
               </g>
 

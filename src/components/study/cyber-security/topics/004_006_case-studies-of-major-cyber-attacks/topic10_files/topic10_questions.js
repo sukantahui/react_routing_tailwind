@@ -142,7 +142,7 @@ const fishboneCategories = {
     codeExample: `// Digital Evidence Chain of Custody Form:
 const evidenceRecord = {
   evidenceId: "EVD-2026-0823-01",
-  description: "Bit-stream disk image of Dispute Server `acis_srv01`",
+  description: "Bit-stream disk image of Dispute Server 'acis_srv01'",
   acquisitionHash_SHA256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   collectedBy: "Analyst Mamata (Coder & Accotax)",
   verificationHashPostAnalysis: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 (MATCH!)",
@@ -189,7 +189,7 @@ const warRoomProtocol = {
     level: "Moderate",
     codeExample: `// IOC vs IOA Example:
 // IOC (Reactive): SHA-256 = 84c82835a5d21bbcf75a61706d8ab549... (Static signature)
-// IOA (Proactive Behavior): Process = `lsass.exe` injected by non-system parent process + anomalous memory dump`
+// IOA (Proactive Behavior): Process = 'lsass.exe' injected by non-system parent process + anomalous memory dump`
   },
   {
     id: 14,

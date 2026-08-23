@@ -143,7 +143,7 @@ const questions = [
   {
     question: "How do Rate Limiting and WAF Anomaly Detection Detect and Block Blind SQL Injection Attacks?",
     shortAnswer: "Because Blind SQLi requires sending hundreds or thousands of rapid HTTP requests with subtle parameter variations, WAFs and API gateways track request frequencies (e.g. > 50 req/min) or query pattern entropy using Redis sliding windows, automatically blocking the attacker's IP.",
-    explanation: "Extracting a 20-character password via binary search requires $\\approx 140$ HTTP requests. If sent in under 10 seconds, rate limiting middleware flags the IP. Furthermore, time-based attacks that consistently hold server threads for 5 seconds create distinctive long-tail latency spikes in APM monitoring tools (Datadog, Prometheus).",
+    explanation: "Extracting a 20-character password via binary search requires ≈ 140 HTTP requests. If sent in under 10 seconds, rate limiting middleware flags the IP. Furthermore, time-based attacks that consistently hold server threads for 5 seconds create distinctive long-tail latency spikes in APM monitoring tools (Datadog, Prometheus).",
     hint: "Using rate limiters that block users who send hundreds of automated guessing requests per minute.",
     level: "moderate",
     codeExample: `// Redis Sliding Window Rate Limiter (Defeating Blind SQLi Automation):
@@ -206,8 +206,8 @@ if (currentRequests > 60) { // Limit to 60 requests per minute
   },
   {
     question: "What is 'Blind SQL Injection Extraction Speed Calculation' (Linear vs Binary vs Bitmasking)?",
-    shortAnswer: "Linear search requires $\\approx 47.5$ requests/char; Binary search requires exactly $7$ requests/char; Bitmasking requires exactly $8$ requests/char; Time-based binary search takes $\\approx 35$ seconds per character ($7 \\times 5\\text{s}$).",
-    explanation: "Extracting a 16-character password: 1. In-Band UNION: 1 request ($\approx 0.1$ seconds). 2. Boolean Binary Search: $16 \\times 7 = 112$ requests ($\approx 5$ seconds). 3. Time-Based Binary Search (5s sleep): $16 \\times 7 \\times 5\\text{s} = 560$ seconds ($\approx 9.3$ minutes).",
+    shortAnswer: "Linear search requires ≈ 47.5 requests/char; Binary search requires exactly 7 requests/char; Bitmasking requires exactly 8 requests/char; Time-based binary search takes ≈ 35 seconds per character (7 × 5s).",
+    explanation: "Extracting a 16-character password: 1. In-Band UNION: 1 request (≈ 0.1 seconds). 2. Boolean Binary Search: 16 × 7 = 112 requests (≈ 5 seconds). 3. Time-Based Binary Search (5s sleep): 16 × 7 × 5s = 560 seconds (≈ 9.3 minutes).",
     hint: "UNION takes 1 second, Boolean blind takes 5 seconds, and Time-based blind takes 10 minutes.",
     level: "moderate",
     codeExample: `// Total Extraction Time Comparison for 16-Character Password:
@@ -303,7 +303,7 @@ SecRule ARGS "@rx (?i:ascii|substr|length|pg_sleep)" \
   {
     question: "Synthesize the mathematical formulation of Information Entropy (H), Binary Search Query Complexity (Q_binary), Time-Delay Confidence Interval (Delta t), and Extraction Throughput (T_blind).",
     shortAnswer: "Information entropy of character c is H(c) = log2(|Sigma|); Binary search query complexity is Q_binary = N * ceil(log2(|Sigma|)); Time-delay extraction duration is T_blind = N * ceil(log2(|Sigma|)) * (mu + 3*sigma + t_sleep); Prepared Statements force Q_binary = infinity (no information leakage), driving H_leak = 0.00 bits.",
-    explanation: "Let the alphabet of printable characters be $\\Sigma$ ($|\\Sigma| = 95$). The Shannon information entropy of an unknown character is $H(c) = \\log_2(95) \\approx 6.57\\text{ bits}$. Each binary query provides exactly 1 bit of information ($\\Delta I = 1\\text{ bit}$). Therefore, extracting a string of length $N$ requires: $Q_{\\text{binary}} = N \\times \\lceil \\log_2(95) \\rceil = 7N\\text{ queries}$. In time-based blind SQLi with sleep delay $t_{\\text{sleep}}$ and baseline latency $\\mu$, total extraction duration is: $T_{\\text{time}} = 7N \\times (\\mu + t_{\\text{sleep}})$. For $N = 16$ and $t_{\\text{sleep}} = 5\\text{s}$, $T_{\\text{time}} = 7(16) \\times 5.2\\text{s} = 582.4\\text{ seconds}$. Deploying Parameterized Prepared Statements fixes the AST with zero parameter reflection, providing 0 bits of information per request ($\\Delta I = 0$), guaranteeing complete information-theoretic security.",
+    explanation: "Let the alphabet of printable characters be Σ (|Σ| = 95). The Shannon information entropy of an unknown character is H(c) = log2(95) ≈ 6.57 bits. Each binary query provides exactly 1 bit of information (ΔI = 1 bit). Therefore, extracting a string of length N requires: Q_binary = N × ceil(log2(95)) = 7N queries. In time-based blind SQLi with sleep delay t_sleep and baseline latency μ, total extraction duration is: T_time = 7N × (μ + t_sleep). For N = 16 and t_sleep = 5s, T_time = 7(16) × 5.2s = 582.4 seconds. Deploying Parameterized Prepared Statements fixes the AST with zero parameter reflection, providing 0 bits of information per request (ΔI = 0), guaranteeing complete information-theoretic security.",
     hint: "Mathematical proof formula showing that extracting N characters via binary search takes exactly 7N requests, while Prepared Statements eliminate all information leakage.",
     level: "expert",
     codeExample: `// Information Entropy & Binary Search Complexity Mathematical Proof:

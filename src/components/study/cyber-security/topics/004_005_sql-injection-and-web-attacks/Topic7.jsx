@@ -477,7 +477,7 @@ class ContextAwareEncoder {
               </span>
               <ul className="space-y-2 text-gray-300">
                 <li>• <strong className="text-cyan-300">Strict Nonce-Based CSP:</strong> Blocks any inline script lacking the cryptographic per-request nonce.</li>
-                <li>• <strong className="text-purple-300">DOMPurify Client Sanitization:</strong> Strips `<script>` and `onerror` handlers before rendering HTML.</li>
+                <li>• <strong className="text-purple-300">DOMPurify Client Sanitization:</strong> Strips &lt;script&gt; and `onerror` handlers before rendering HTML.</li>
                 <li>• <strong className="text-amber-300">HttpOnly Session Cookies:</strong> Prevents JavaScript from reading session tokens via `document.cookie`.</li>
               </ul>
             </div>
@@ -1042,10 +1042,10 @@ class ContextAwareEncoder {
                   <strong>Using `innerHTML` Directly in Client JS:</strong> Creates fatal DOM XSS vulnerabilities.
                 </li>
                 <li>
-                  <strong>Relying on HTML Entity Encoding Inside `<script>`:</strong> Fails; requires Unicode hex encoding.
+                  <strong>Relying on HTML Entity Encoding Inside &lt;script&gt; Blocks:</strong> Fails; requires Unicode hex encoding.
                 </li>
                 <li>
-                  <strong>Allowing `javascript:` in `<a href>` Links:</strong> Bypasses standard HTML escaping.
+                  <strong>Allowing `javascript:` in &lt;a href&gt; Links:</strong> Bypasses standard HTML escaping.
                 </li>
               </ul>
             </div>

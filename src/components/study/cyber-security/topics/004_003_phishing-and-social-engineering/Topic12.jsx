@@ -709,8 +709,8 @@ Write-Host "[+] Malicious Phishing Email PURGED globally from all 1,199 remainin
               4. Phish-Prone Reduction &amp; Click Vulnerability Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust baseline Phish-Prone rate $P_{\text{baseline}}$, training quality $T$, simulation cadence $C$, and lure difficulty $D$ 
-              to model final click probability $P_{\text{click}} = P_{\text{baseline}} \times e^{-\frac{T \times C}{D}}$ and see how monthly simulations reduce click rates below 2.1%:
+              Adjust baseline Phish-Prone rate P_baseline, training quality T, simulation cadence C, and lure difficulty D 
+              to model final click probability P_click = P_baseline × exp(-(T × C) / D) and see how monthly simulations reduce click rates below 2.1%:
             </p>
           </div>
 

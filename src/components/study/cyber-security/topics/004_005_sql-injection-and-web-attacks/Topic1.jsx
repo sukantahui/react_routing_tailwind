@@ -711,7 +711,7 @@ public class SecureLdapAuthenticator {
             </h2>
             <p className="text-sm text-gray-300 mt-2">
               Select an untrusted data Source, a Sanitization / Binding control, and an Execution Sink to calculate the 
-              Taint Exploitability Probability $P_{\text{exploit}} = (1 - S) \times F_{\text{sink}}$ and observe AST mutation risk:
+              Taint Exploitability Probability P_exploit = (1 - S) × F_sink and observe AST mutation risk:
             </p>
           </div>
 
@@ -1068,7 +1068,7 @@ public class SecureLdapAuthenticator {
                 </li>
                 <li className="p-2 bg-gray-900 rounded border border-gray-800">
                   <span className="text-indigo-300 font-bold block">Observe carefully...</span>
-                  How does submitting a JSON object `{"$ne": null}` in MongoDB bypass password authentication without guessing the password?
+                  How does submitting a JSON object <code className="text-cyan-400 bg-gray-950 px-1 py-0.5 rounded font-mono">&#123;"$ne": null&#125;</code> in MongoDB bypass password authentication without guessing the password?
                 </li>
                 <li className="p-2 bg-gray-900 rounded border border-gray-800">
                   <span className="text-indigo-300 font-bold block">Try changing this...</span>
@@ -1136,7 +1136,7 @@ public class SecureLdapAuthenticator {
         {/* SECTION 11: Dedicated Teacher's Note */}
         <section className="pt-4">
           <Teacher
-            note="Teacher's Note: Injection vulnerabilities represent one of the most fundamental and dangerous classes of cyber attacks, spanning SQL interpreters, operating system shells, NoSQL BSON engines, LDAP filters, and template engines! Master the core principle: injection happens whenever untrusted user data is directly concatenated into an interpreter string instead of being passed as separate protocol data. Master Taint Analysis: trace data from its Source (HTTP headers, query parameters, POST body) through Sanitizers to sensitive Execution Sinks (`db.query()`, `exec()`, `eval()`). Understand why blacklisting and regex escaping fail: attackers bypass filters using character encoding, case variations, or multi-byte sequences. The only true mathematical defense is Parameterized Prepared Statements: by sending the SQL template to the database engine to be compiled into an Abstract Syntax Tree (AST) first, user data is strictly bound to literal leaf values, making syntax mutation mathematically impossible ($P_{\text{exploit}} = 0.00\%$). For operating system commands, use `child_process.execFile()` with structured argument arrays to avoid shell invocation entirely. Remember that Section 66F of the Indian IT Act treats injection cyber terrorism against critical national infrastructure with mandatory Life Imprisonment, and Section 43(a) provides civil damages up to ₹1 Crore for unauthorized database extraction!"
+            note="Teacher's Note: Injection vulnerabilities represent one of the most fundamental and dangerous classes of cyber attacks, spanning SQL interpreters, operating system shells, NoSQL BSON engines, LDAP filters, and template engines! Master the core principle: injection happens whenever untrusted user data is directly concatenated into an interpreter string instead of being passed as separate protocol data. Master Taint Analysis: trace data from its Source (HTTP headers, query parameters, POST body) through Sanitizers to sensitive Execution Sinks (`db.query()`, `exec()`, `eval()`). Understand why blacklisting and regex escaping fail: attackers bypass filters using character encoding, case variations, or multi-byte sequences. The only true mathematical defense is Parameterized Prepared Statements: by sending the SQL template to the database engine to be compiled into an Abstract Syntax Tree (AST) first, user data is strictly bound to literal leaf values, making syntax mutation mathematically impossible (P_exploit = 0.00%). For operating system commands, use `child_process.execFile()` with structured argument arrays to avoid shell invocation entirely. Remember that Section 66F of the Indian IT Act treats injection cyber terrorism against critical national infrastructure with mandatory Life Imprisonment, and Section 43(a) provides civil damages up to ₹1 Crore for unauthorized database extraction!"
           />
         </section>
 

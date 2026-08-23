@@ -359,7 +359,7 @@ echo "[+] Linux Kernel Network Stack Hardened against Volumetric Floods!"`,
       incident:
         "Researchers modeled the mathematical interaction between incoming volumetric flood volume, physical pipe capacity, and ingress packet loss probabilities.",
       defenseStrategy:
-        "Susmita and Abhronila published their mathematical model in IEEE Transactions, proving that eBPF/XDP combined with Anycast scrubbing ensures $P_{\\text{loss}} = 0.0\\%$.",
+        "Susmita and Abhronila published their mathematical model in IEEE Transactions, proving that eBPF/XDP combined with Anycast scrubbing ensures P_loss = 0.0%.",
       outcome: "Published peer-reviewed mathematical proof; verified across 80,000 simulated volumetric flood conditions.",
       metrics: {
         simulationTrials: "80,000 Test Trials",
@@ -697,8 +697,8 @@ echo "[+] Linux Kernel Network Stack Hardened against Volumetric Floods!"`,
               4. Volumetric Bandwidth Saturation &amp; Packet Loss Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust ingress flood volume $V_{\text{ingress}}$, enterprise physical uplink capacity $C_{\text{pipe}}$, 
-              and cloud scrubbing capacity $C_{\text{scrubbing}}$ to model link utilization and packet loss rate $P_{\text{loss}} = 1 - e^{-\frac{\max(0, V - C)}{\sigma}}$:
+              Adjust ingress flood volume V_ingress, enterprise physical uplink capacity C_pipe, 
+              and cloud scrubbing capacity C_scrubbing to model link utilization and packet loss rate P_loss = 1 - e^(-max(0, V - C) / σ):
             </p>
           </div>
 

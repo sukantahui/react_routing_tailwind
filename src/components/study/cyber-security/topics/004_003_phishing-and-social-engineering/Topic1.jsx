@@ -684,8 +684,8 @@ level: critical`,
               4. Persuasion Susceptibility &amp; Verification Friction Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust persuasion intensity $I$, psychological susceptibility $S$, and verification friction $R$ to model breach probability 
-              $P_{\text{breach}} = 1 - e^{-\frac{I \times S}{R}}$ and see how Out-of-Band voice verification reduces breach probability to under 1%:
+              Adjust persuasion intensity I, psychological susceptibility S, and verification friction R to model breach probability 
+              P_breach = 1 - exp(-(I × S) / R) and see how Out-of-Band voice verification reduces breach probability to under 1%:
             </p>
           </div>
 

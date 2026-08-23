@@ -435,10 +435,10 @@ echo "[+] NTP (556x) and Memcached (51,000x) Amplification Vectors COMPLETELY NE
               to generate multi-hundred gigabit volumetric floods by weaponizing misconfigured third-party servers on the internet. 
               These attacks require two fundamental prerequisites: <strong>1. A stateless connectionless protocol (UDP)</strong> 
               that allows forging the victim's IP address in the Source IP field, and <strong>2. An unauthenticated command</strong> 
-              where the response payload is significantly larger than the request payload ($AF = \text{Response} / \text{Request}$). 
-              Key amplification vectors include <strong>DNSSEC EDNS0 ANY queries ($50\times-77\times$)</strong>, 
-              <strong>NTP Mode 7 monlist ($556\times$)</strong>, <strong>Memcached UDP ($51,200\times$)</strong>, 
-              <strong>SNMP GetBulk ($650\times$)</strong>, and <strong>CLDAP ($70\times$)</strong>.
+              where the response payload is significantly larger than the request payload (AF = Response / Request). 
+              Key amplification vectors include <strong>DNSSEC EDNS0 ANY queries (50x - 77x)</strong>, 
+              <strong>NTP Mode 7 monlist (556x)</strong>, <strong>Memcached UDP (51,200x)</strong>, 
+              <strong>SNMP GetBulk (650x)</strong>, and <strong>CLDAP (70x)</strong>.
             </p>
           </div>
 
@@ -717,8 +717,8 @@ echo "[+] NTP (556x) and Memcached (51,000x) Amplification Vectors COMPLETELY NE
               4. Protocol Amplification Multiplier &amp; Bandwidth Saturation Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Select an amplification vector, adjust the attacker outbound query bandwidth $B_{\text{req}}$, 
-              and cloud scrubbing capacity $C_{\text{scrubbing}}$ to model reflected bandwidth $B_{\text{reflected}} = B_{\text{req}} \times AF$ and saturation probability:
+              Select an amplification vector, adjust the attacker outbound query bandwidth B_req, 
+              and cloud scrubbing capacity C_scrubbing to model reflected bandwidth B_reflected = B_req × AF and saturation probability:
             </p>
           </div>
 

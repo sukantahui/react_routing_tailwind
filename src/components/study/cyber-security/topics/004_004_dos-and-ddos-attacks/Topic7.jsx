@@ -698,8 +698,8 @@ routing-options {
               4. Booter Economic Cost Asymmetry &amp; Attacker ROI Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust monthly booter subscription cost $C_{\text{attack}}$, downtime duration, hourly revenue loss, 
-              and extortion ransom demand to model financial cost asymmetry $A_{\text{economic}} = C_{\text{defend}} / C_{\text{attack}}$ and attacker ROI:
+              Adjust monthly booter subscription cost C_attack, downtime duration, hourly revenue loss, 
+              and extortion ransom demand to model financial cost asymmetry A_economic = C_defend / C_attack and attacker ROI:
             </p>
           </div>
 

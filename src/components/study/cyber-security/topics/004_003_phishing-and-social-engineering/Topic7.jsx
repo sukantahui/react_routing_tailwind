@@ -687,8 +687,8 @@ interface GigabitEthernet1/0/24
               4. Baiting Susceptibility &amp; Endpoint Hardening Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust bait allure score $A$, pretext credibility factor $C$, and endpoint hardening strength $R$ 
-              to model compromise probability $P_{\text{pretext}} = 1 - e^{-\frac{A \times C}{R}}$ and see how GPO USB blocking reduces breach probability below 1.6%:
+              Adjust bait allure score A, pretext credibility factor C, and endpoint hardening strength R 
+              to model compromise probability P_pretext = 1 - exp(-(A × C) / R) and see how GPO USB blocking reduces breach probability below 1.6%:
             </p>
           </div>
 

@@ -688,8 +688,8 @@ level: high`,
               4. BEC Wire Fraud Vulnerability &amp; Out-of-Band Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust transfer value $A$, executive authority factor $T$, and dual-auth verification strength $R$ 
-              to model fraud probability $P_{\text{bec}} = 1 - e^{-\frac{A \times T}{R}}$ and see how Out-of-Band verification reduces fraud success below 1.6%:
+              Adjust transfer value A, executive authority factor T, and dual-auth verification strength R 
+              to model fraud probability P_bec = 1 - exp(-(A × T) / R) and see how Out-of-Band verification reduces fraud success below 1.6%:
             </p>
           </div>
 

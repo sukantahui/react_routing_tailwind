@@ -435,7 +435,7 @@ module.exports = SecureFileUploadValidator;`,
       incident:
         "Researchers modeled the mathematical state transitions across 4-stage transformation pipelines (Canonicalize ➔ Validate ➔ Sanitize ➔ Encode).",
       defenseStrategy:
-        "Susmita and Abhronila published their mathematical proof in IEEE Transactions, proving that $x_{\\text{safe}} \\in \\mathcal{L}_{\\text{safe}}$ guarantees $P_{\\text{bypass}} = 0.00\\%$.",
+        "Susmita and Abhronila published their mathematical proof in IEEE Transactions, proving that x_safe in L_safe guarantees P_bypass = 0.00%.",
       outcome: "Published peer-reviewed mathematical proof; verified across 420,000 simulated transformation pipeline executions.",
       metrics: {
         simulationTrials: "420,000 Test Trials",
@@ -500,7 +500,7 @@ module.exports = SecureFileUploadValidator;`,
               via <strong>NFKC Canonicalization</strong> before security checks execute. Finally, <strong>Context-Aware Output Encoding</strong> 
               translates characters into safe entity representations tailored specifically to the destination parser 
               (HTML body entities, JavaScript Unicode hex `\u0027`, URL percent-encoding, or Parameterized SQL bindings), 
-              guaranteeing that data can never be misinterpreted as executable code ($P_{\text{bypass}} = 0.00\%$).
+              guaranteeing that data can never be misinterpreted as executable code (P_bypass = 0.00%).
             </p>
           </div>
 
@@ -1137,7 +1137,7 @@ module.exports = SecureFileUploadValidator;`,
                   <strong>Validating BEFORE Canonicalizing:</strong> Allows non-standard encodings to slip past filters!
                 </li>
                 <li>
-                  <strong>Using HTML Entity Encoding Inside `<script>`:</strong> Fails; JavaScript requires Unicode hex (`\u0027`).
+                  <strong>Using HTML Entity Encoding Inside &lt;script&gt; Blocks:</strong> Fails; JavaScript requires Unicode hex (`\u0027`).
                 </li>
               </ul>
             </div>

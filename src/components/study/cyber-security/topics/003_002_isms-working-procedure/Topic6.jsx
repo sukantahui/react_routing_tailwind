@@ -663,7 +663,7 @@ const Topic6 = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-rose-400 font-bold">•</span>
-                  <span><strong>Concealing Data Breaches:</strong> Violates DPDP Act Section 8(6) -> ₹250 Cr statutory fines.</span>
+                  <span><strong>Concealing Data Breaches:</strong> Violates DPDP Act Section 8(6) &rarr; ₹250 Cr statutory fines.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-rose-400 font-bold">•</span>

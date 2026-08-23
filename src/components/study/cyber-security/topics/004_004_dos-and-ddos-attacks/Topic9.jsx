@@ -713,8 +713,8 @@ end`,
               4. BGP Anycast Dilution &amp; Token Bucket Rate Limiting Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust global flood volume $V_{\text{attack}}$, Anycast PoP count $N_{\text{PoPs}}$ (1 Unicast to 300 Anycast), 
-              Token Bucket capacity $b$, and replenish rate $r$ to model ingress load per PoP $L_{\text{PoP}} = \frac{V_{\text{attack}}}{N_{\text{PoPs}}} \times 1.05$ and saturation probability:
+              Adjust global flood volume V_attack, Anycast PoP count N_PoPs (1 Unicast to 300 Anycast), 
+              Token Bucket capacity b, and replenish rate r to model ingress load per PoP L_PoP = (V_attack / N_PoPs) × 1.05 and saturation probability:
             </p>
           </div>
 

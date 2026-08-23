@@ -463,7 +463,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
       title: "Formulating the Dual-Perimeter Gating Safety Theorem in IEEE Transactions",
       budget: "₹45,00,000",
       incident:
-        "Researchers formulated mathematical proofs demonstrating that joint perimeter gating $G(R) = W(R) \\land C(R)$ reduces exploitability to $P_{\\text{exploit}} = 0.00\\%$.",
+        "Researchers formulated mathematical proofs demonstrating that joint perimeter gating G(R) = W(R) ∧ C(R) reduces exploitability to P_exploit = 0.00%.",
       defenseStrategy:
         "Susmita and Abhronila published their mathematical proof in IEEE Transactions, proving the superiority of joint WAF and Nonce-CSP architectures.",
       outcome: "Published peer-reviewed mathematical proof; verified across 480,000 simulated attack traffic events.",
@@ -530,7 +530,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
               and can be bypassed via novel encoding tricks, the <strong>Browser Perimeter (CSP)</strong> operates at the client DOM layer, 
               enforcing <strong>Strict Nonce-Based Gating (`script-src 'self' 'nonce-...' 'strict-dynamic'`)</strong>. Even if an attacker 
               bypasses the WAF and injects markup into the response, the browser drops any script lacking the cryptographically generated 
-              per-request secret nonce, establishing complete dual-perimeter immunity ($P_{\text{exploit}} = 0.00\%$).
+              per-request secret nonce, establishing complete dual-perimeter immunity (P_exploit = 0.00%).
             </p>
           </div>
 
@@ -621,7 +621,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
                   CRS INSPECTION:
                 </text>
                 <text x="70" y="90" fill="#ffffff" fontSize="7.5" textAnchor="middle">
-                  Score >= 5 ➔ Block!
+                  Score &gt;= 5 ➔ Block!
                 </text>
                 <text x="70" y="106" fill="#c7d2fe" fontSize="7.5" textAnchor="middle">
                   Virtual Patch Active

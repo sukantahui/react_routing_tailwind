@@ -710,8 +710,8 @@ Write-Host "[+] Number Matching & Geolocation Context ENFORCED for all 1,200 use
               4. Holistic Defense-in-Depth Social Engineering Resilience Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust Human Layer $H$, Technical Layer $T$, Policy Layer $P$, and Attacker Sophistication $A$ 
-              to model total enterprise resilience $R_{\text{resilience}} = 1 - e^{-\frac{H \times T \times P}{A}}$ and see how 3-tier defense achieves over 99.2% mitigation:
+              Adjust Human Layer H, Technical Layer T, Policy Layer P, and Attacker Sophistication A 
+              to model total enterprise resilience R_resilience = 1 - exp(-(H × T × P) / A) and see how 3-tier defense achieves over 99.2% mitigation:
             </p>
           </div>
 

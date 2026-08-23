@@ -16,7 +16,7 @@
   "segments": [
     {
       "segmentId": "course-module-1",
-      "title": "First Module",
+      "title": "Segment-1: First Module",
       "level": "Beginner",
       "summary": "Understand logic simplification and computational efficiency concepts.",
       "modules": [
@@ -178,7 +178,7 @@
     },
     {
       "segmentId": "course-module-2",
-      "title": "Cyber Security Foundations & Cryptography",
+      "title": "Segment-2: Cyber Security Foundations & Cryptography",
       "level": "Intermediate",
       "summary": "Master core cyber security principles, the CIA triad, ethical hacking methodologies, and cryptographic algorithms including RSA.",
       "modules": [
@@ -330,7 +330,7 @@
     },
     {
       "segmentId": "course-module-3",
-      "title": "Information Security Management",
+      "title": "Segment-3: Information Security Management",
       "level": "Intermediate",
       "summary": "Explore governance, risk management, ISO/IEC 27001 ISMS frameworks, security policies, and information security audit procedures.",
       "modules": [
@@ -454,7 +454,7 @@
     },
     {
       "segmentId": "course-module-4",
-      "title": "Cyber Attacks & Threat Analysis",
+      "title": "Segment-4: Cyber Attacks & Threat Analysis",
       "level": "Advanced",
       "summary": "Examine the technical mechanisms of active and passive cyber attacks, malware taxonomy, phishing, DoS/DDoS, SQL injection, social engineering, and landmark attack case studies.",
       "modules": [
@@ -642,7 +642,7 @@
     },
     {
       "segmentId": "course-module-5",
-      "title": "Technological Aspects of Cyber Security",
+      "title": "Segment-5: Technological Aspects of Cyber Security",
       "level": "Advanced",
       "summary": "Implement and configure perimeter defenses, Firewalls, IDS/IPS, VPNs, SSL/TLS, IPsec, MFA, and explore AI, Blockchain, and Quantum Cryptography in cyber defense.",
       "modules": [

@@ -556,9 +556,9 @@ describe('DevSecOps SQL Injection Regression Suite', () => {
       title: "Formulating the Formal Remediation AST Diff Invariance Model in IEEE Transactions",
       budget: "₹46,00,000",
       incident:
-        "Researchers modeled the formal grammar tree transformations between vulnerable code ($\Delta T \ne \emptyset$) and remediated parameterized queries ($\Delta T = \emptyset$).",
+        "Researchers modeled the formal grammar tree transformations between vulnerable code (delta T != empty set) and remediated parameterized queries (delta T = empty set).",
       defenseStrategy:
-        "Susmita and Abhronila published their mathematical proof in IEEE Transactions, proving that parameterization guarantees $\Delta \text{AST} = \emptyset$ and $P_{\text{sqli}} = 0.000\%$.",
+        "Susmita and Abhronila published their mathematical proof in IEEE Transactions, proving that parameterization guarantees delta AST = empty set and P_sqli = 0.000%.",
       outcome: "Published peer-reviewed mathematical proof; verified across 500,000 simulated remediation compiler test runs.",
       metrics: {
         simulationTrials: "500,000 Test Trials",
@@ -621,7 +621,7 @@ describe('DevSecOps SQL Injection Regression Suite', () => {
               4. <strong>Code-Level Refactoring</strong> replacing concatenation with 100% <strong>Parameterized Prepared Statements ($1, ?)</strong>, static whitelist maps for dynamic `ORDER BY`, 
               and native array bindings; 5. <strong>Dual-Perimeter Mitigation</strong> deploying temporary WAF virtual patches and strict nonce CSP headers; 
               and 6. <strong>Continuous DevSecOps CI/CD Gates</strong> enforcing automated Jest regression test suites and Semgrep commit blockers. 
-              By freezing query AST templates in Phase 1 and binding user parameters out-of-band in Phase 2 ($\Delta \text{AST} = \emptyset$), 
+              By freezing query AST templates in Phase 1 and binding user parameters out-of-band in Phase 2 (delta AST = empty set), 
               SQL injection exploitability is mathematically reduced to <strong>exactly 0.000%</strong>.
             </p>
           </div>
@@ -1356,7 +1356,7 @@ describe('DevSecOps SQL Injection Regression Suite', () => {
         {/* SECTION 11: Dedicated Teacher's Note */}
         <section className="pt-4">
           <Teacher
-            note="Teacher's Note: Congratulations on completing Module 004_005 on Web Attacks, SQL Injection & Injection Defense! In this Capstone Topic 13, you have mastered the complete, professional 6-Stage Vulnerability Analysis & Remediation Lifecycle: 1. Static Code Analysis (SAST) with Semgrep / CodeQL; 2. Dynamic Fuzzing (DAST) with OWASP ZAP; 3. Root Cause Triage & AST Tracing; 4. Code Refactoring to 100% Parameterized Prepared Statements ($1, ?); 5. Dual-Perimeter Mitigation with WAF Virtual Patching & Nonce CSP; and 6. Continuous DevSecOps Regression Gates. Always remember: in authentication routes, look up the user via a parameterized query ($1) and verify the password hash using constant-time bcrypt in memory. For dynamic `ORDER BY` sorting, never concatenate column names—use strict server-side static whitelist dictionaries. For dynamic `IN (...)` queries in PostgreSQL, use native array binding (`= ANY($1::int[])`). In ORMs, strictly ban raw escape hatches like `$queryRawUnsafe` and enforce Tagged Template Literals (`prisma.$queryRaw\`...\``). In stored procedures, enforce `sp_executesql` with typed `@params`. Above all, understand the mathematical reality: by pre-compiling the query AST template in Phase 1 and binding user parameters out-of-band in Phase 2, you enforce $\Delta \text{AST} = \emptyset$, driving SQL injection exploitability to exactly 0.000% forever. Remember that Section 66F of the Indian IT Act penalizes SQL injection attacks on critical national infrastructure with mandatory Life Imprisonment, and Section 43(a) provides civil damages up to ₹1 Crore for unauthorized database extraction!"
+            note="Teacher's Note: Congratulations on completing Module 004_005 on Web Attacks, SQL Injection & Injection Defense! In this Capstone Topic 13, you have mastered the complete, professional 6-Stage Vulnerability Analysis & Remediation Lifecycle: 1. Static Code Analysis (SAST) with Semgrep / CodeQL; 2. Dynamic Fuzzing (DAST) with OWASP ZAP; 3. Root Cause Triage & AST Tracing; 4. Code Refactoring to 100% Parameterized Prepared Statements ($1, ?); 5. Dual-Perimeter Mitigation with WAF Virtual Patching & Nonce CSP; and 6. Continuous DevSecOps Regression Gates. Always remember: in authentication routes, look up the user via a parameterized query ($1) and verify the password hash using constant-time bcrypt in memory. For dynamic `ORDER BY` sorting, never concatenate column names—use strict server-side static whitelist dictionaries. For dynamic `IN (...)` queries in PostgreSQL, use native array binding (`= ANY($1::int[])`). In ORMs, strictly ban raw escape hatches like `$queryRawUnsafe` and enforce Tagged Template Literals (`prisma.$queryRaw\`...\``). In stored procedures, enforce `sp_executesql` with typed `@params`. Above all, understand the mathematical reality: by pre-compiling the query AST template in Phase 1 and binding user parameters out-of-band in Phase 2, you enforce delta AST = empty set, driving SQL injection exploitability to exactly 0.000% forever. Remember that Section 66F of the Indian IT Act penalizes SQL injection attacks on critical national infrastructure with mandatory Life Imprisonment, and Section 43(a) provides civil damages up to ₹1 Crore for unauthorized database extraction!"
           />
         </section>
 

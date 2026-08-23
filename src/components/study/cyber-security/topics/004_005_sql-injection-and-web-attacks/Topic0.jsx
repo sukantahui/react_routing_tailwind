@@ -755,8 +755,8 @@ def safe_load_user(untrusted_json_string):
               4. Web Attack Surface Index (ASI) &amp; CVSS v3.1 Risk Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust public unauthenticated endpoints $E_{\text{public}}$, authenticated endpoints $E_{\text{auth}}$, 
-              inputs per endpoint, and toggle security controls to model the Attack Surface Index $\text{ASI} = \sum (E + P) \times W_{\text{auth}}$ and Base CVSS Risk:
+              Adjust public unauthenticated endpoints E_public, authenticated endpoints E_auth, 
+              inputs per endpoint, and toggle security controls to model the Attack Surface Index ASI = ∑ (E + P) × W_auth and Base CVSS Risk:
             </p>
           </div>
 

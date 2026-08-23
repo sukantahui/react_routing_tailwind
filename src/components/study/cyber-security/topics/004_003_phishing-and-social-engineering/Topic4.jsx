@@ -684,8 +684,8 @@ exten => _X.,n,Hangup()`,
               4. Mobile Compromise Probability &amp; Passkey Armor Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust mobile channel response multiplier $M$, social engineering persuasion intensity $I$, and passkey defense armor $R$ 
-              to model breach probability $P_{\text{mobile}} = 1 - e^{-\frac{M \times I}{R}}$ and see how FIDO2 passkeys reduce breach probability below 1.5%:
+              Adjust mobile channel response multiplier M, social engineering persuasion intensity I, and passkey defense armor R 
+              to model breach probability P_mobile = 1 - exp(-(M × I) / R) and see how FIDO2 passkeys reduce breach probability below 1.5%:
             </p>
           </div>
 
@@ -1004,7 +1004,7 @@ exten => _X.,n,Hangup()`,
                   <strong>Relying on SMS OTPs as Secure 2FA:</strong> SIM swapping and AiTM reverse proxies capture SMS codes effortlessly.
                 </li>
                 <li>
-                  <strong>Assuming High-Fidelity Executive Voices are Real:</strong> Generative AI voice clones speak in real time (<150ms).
+                  <strong>Assuming High-Fidelity Executive Voices are Real:</strong> Generative AI voice clones speak in real time (&lt;150ms).
                 </li>
               </ul>
             </div>

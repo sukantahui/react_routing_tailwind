@@ -415,7 +415,7 @@ class CitizenHealthService:
       incident:
         "Researchers modeled the formal mathematical grammar trees of SQL compilers under string concatenation versus two-phase prepared statements.",
       defenseStrategy:
-        "Susmita and Abhronila published their mathematical proof in IEEE Transactions, proving that parameterization guarantees $\\Delta \\text{AST} = \\emptyset$ and $P_{\\text{sqli}} = 0.000\\%$.",
+        "Susmita and Abhronila published their mathematical proof in IEEE Transactions, proving that parameterization guarantees ΔAST = ∅ and P_sqli = 0.000%.",
       outcome: "Published peer-reviewed mathematical proof; verified across 400,000 simulated SQL compiler execution runs.",
       metrics: {
         simulationTrials: "400,000 Test Trials",
@@ -479,7 +479,7 @@ class CitizenHealthService:
               permanently freezing all grammar nodes, operators, table names, and logic clauses. In Phase 2 (<strong>`EXECUTE`</strong>), 
               user parameters are transmitted separately over the database binary wire protocol as pure literal data constants. 
               Because parameters completely bypass the SQL parser during execution, characters with syntactic significance 
-              (quotes, semicolons, dashes) are treated strictly as harmless data values ($\Delta \text{AST} = \emptyset$), 
+              (quotes, semicolons, dashes) are treated strictly as harmless data values (Delta AST equals Empty Set), 
               mathematically driving SQL injection exploitability to <strong>exactly 0.000%</strong>.
             </p>
           </div>
@@ -739,7 +739,7 @@ class CitizenHealthService:
           </div>
         </section>
 
-        {/* SECTION 4: Studio 2 - Live AST Invariance & Compilation Laboratory */}
+        {/* SECTION 4: Studio 4 - Live AST Invariance & Compilation Laboratory */}
         <section className="bg-gray-900/90 rounded-2xl border border-gray-800 p-6 sm:p-8 space-y-6 shadow-xl">
           <div className="border-b border-gray-800 pb-4">
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
@@ -865,7 +865,7 @@ class CitizenHealthService:
           </div>
         </section>
 
-        {/* SECTION 5: Studio 4 - Defensive Coding Hardening Code Studio */}
+        {/* SECTION 5: Studio 5 - Defensive Coding Hardening Code Studio */}
         <section className="bg-gray-900/90 rounded-2xl border border-gray-800 p-6 sm:p-8 space-y-6 shadow-xl">
           <div className="border-b border-gray-800 pb-4">
             <span className="text-xs font-bold uppercase tracking-wider text-purple-400">
@@ -1180,7 +1180,7 @@ class CitizenHealthService:
         {/* SECTION 11: Dedicated Teacher's Note */}
         <section className="pt-4">
           <Teacher
-            note="Teacher's Note: Parameterized Queries and Prepared Statements represent the foundational cornerstone of all secure software engineering! Master the Two-Phase Compilation Pipeline: Phase 1 (`PREPARE`) compiles the SQL string into a fixed Abstract Syntax Tree (AST) template, freezing all grammar nodes and clauses; Phase 2 (`EXECUTE`) transmits user parameters out-of-band across the database wire protocol as pure literal data values. Because parameters never pass through the SQL lexer, syntactic characters like quotes and semicolons can NEVER mutate query logic ($\Delta \text{AST} = \emptyset$). Remember that SQL identifiers (table names, column names, `ORDER BY` directions) CANNOT be parameterized and must always be sanitized via strict server-side static whitelist dictionaries. For dynamic `IN (...)` clauses, construct placeholder arrays (`$1, $2, $3`) or use PostgreSQL `= ANY($1::int[])`. Ensure 100% parameterization across all queries—including background ETL scripts and internal reporting cron jobs—to eliminate second-order SQL injection. Remember that Section 66F of the Indian IT Act penalizes SQL injection attacks on critical national infrastructure with mandatory Life Imprisonment, and Section 43(a) provides civil damages up to ₹1 Crore for unauthorized database extraction!"
+            note="Teacher's Note: Parameterized Queries and Prepared Statements represent the foundational cornerstone of all secure software engineering! Master the Two-Phase Compilation Pipeline: Phase 1 (PREPARE) compiles the SQL string into a fixed Abstract Syntax Tree (AST) template, freezing all grammar nodes and clauses; Phase 2 (EXECUTE) transmits user parameters out-of-band across the database wire protocol as pure literal data values. Because parameters never pass through the SQL lexer, syntactic characters like quotes and semicolons can NEVER mutate query logic (Delta AST equals Empty Set). Remember that SQL identifiers (table names, column names, ORDER BY directions) CANNOT be parameterized and must always be sanitized via strict server-side static whitelist dictionaries. For dynamic IN (...) clauses, construct placeholder arrays ($1, $2, $3) or use PostgreSQL = ANY($1::int[]). Ensure 100% parameterization across all queries—including background ETL scripts and internal reporting cron jobs—to eliminate second-order SQL injection. Remember that Section 66F of the Indian IT Act penalizes SQL injection attacks on critical national infrastructure with mandatory Life Imprisonment, and Section 43(a) provides civil damages up to ₹1 Crore for unauthorized database extraction!"
           />
         </section>
 

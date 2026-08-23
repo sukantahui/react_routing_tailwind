@@ -692,8 +692,8 @@ fi`,
               4. Insider Risk Probability &amp; UEBA Defense Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust insider motive stressor score $M$, standing access authorization level $A$, and insider threat controls strength $R$ 
-              to model breach probability $P_{\text{insider}} = 1 - e^{-\frac{M \times A}{R}}$ and see how UEBA and JIT PAM reduce breach probability below 1.6%:
+              Adjust insider motive stressor score M, standing access authorization level A, and insider threat controls strength R 
+              to model breach probability P_insider = 1 - exp(-(M × A) / R) and see how UEBA and JIT PAM reduce breach probability below 1.6%:
             </p>
           </div>
 

@@ -53,7 +53,7 @@ const Topic3 = () => {
       exploitationVector:
         "The attacker sends ICMP echo requests with the Source IP spoofed to match the victim to the broadcast address of an unconfigured intermediary network, causing every subnet host to flood the victim.",
       vulnerabilityImpact:
-        "Produces up to $250\\times$ bandwidth amplification, overwhelming the victim's router with unsolicited ICMP echo replies.",
+        "Produces up to 250x bandwidth amplification, overwhelming the victim's router with unsolicited ICMP echo replies.",
       telemetryIndicator: "Massive influx of ICMP Echo Reply packets originating from dozens of hosts on an external subnet",
       resilientDefense: "Configuring border routers with `no ip directed-broadcast` to drop subnet broadcast ping packets.",
       codeSnippet: `// Smurf Broadcast Amplification:
@@ -358,7 +358,7 @@ print("[+] Protocol Flag Inspection Engine Active on Kolkata Financial Gateway!"
       incident:
         "Researchers modeled the mathematical interaction between embryonic arrival rates, hold timeouts, state table capacity, and TCP connection drop rates.",
       defenseStrategy:
-        "Susmita and Abhronila published their mathematical model in IEEE Transactions, proving that RFC 4987 SYN Cookies eliminate state memory allocation, ensuring $P_{\\text{drop}} = 0.0\\%$.",
+        "Susmita and Abhronila published their mathematical model in IEEE Transactions, proving that RFC 4987 SYN Cookies eliminate state memory allocation, ensuring P_drop = 0.0%.",
       outcome: "Published peer-reviewed mathematical proof; verified across 85,000 simulated protocol flood scenarios.",
       metrics: {
         simulationTrials: "85,000 Test Trials",
@@ -696,8 +696,8 @@ print("[+] Protocol Flag Inspection Engine Active on Kolkata Financial Gateway!"
               4. Protocol State-Table Saturation &amp; Connection Drop Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust incoming SYN packet rate $N_{\text{syn}}$, embryonic connection timeout $T_{\text{timeout}}$, 
-              maximum conntrack capacity $S_{\text{max}}$, and toggle RFC 4987 SYN Cookies to model connection drop rate $P_{\text{drop}} = 1 - e^{-\max(0, U - 1.0) \times 8}$:
+              Adjust incoming SYN packet rate N_syn, embryonic connection timeout T_timeout, 
+              maximum conntrack capacity S_max, and toggle RFC 4987 SYN Cookies to model connection drop rate P_drop = 1 - e^(-max(0, U - 1.0) × 8):
             </p>
           </div>
 

@@ -24,7 +24,7 @@ const questions = [
   {
     question: "What is a 'Smurf Attack', and how does it use ICMP Directed Broadcast Amplification?",
     shortAnswer: "The attacker sends ICMP Echo Request (ping) packets with the Source IP spoofed to match the victim's address to the broadcast address of an unconfigured intermediary network, causing every active host on that subnet to flood the victim with ICMP Echo Replies.",
-    explanation: "The attacker sends 1 ping packet to `192.168.1.255` (broadcast) with `Source IP: 103.25.10.50` (victim). If there are 250 active workstations on that subnet, all 250 workstations simultaneously reply to the victim. The attacker achieves a $250\\times$ amplification factor. Modern routers defeat this by disabling directed broadcast forwarding (`no ip directed-broadcast`).",
+    explanation: "The attacker sends 1 ping packet to `192.168.1.255` (broadcast) with `Source IP: 103.25.10.50` (victim). If there are 250 active workstations on that subnet, all 250 workstations simultaneously reply to the victim. The attacker achieves a 250x amplification factor. Modern routers defeat this by disabling directed broadcast forwarding (`no ip directed-broadcast`).",
     hint: "Shouting someone else's name through a megaphone into a crowded stadium so everyone shouts back at that one person.",
     level: "moderate",
     codeExample: `// Smurf Broadcast Amplification:
@@ -303,7 +303,7 @@ interface GigabitEthernet0/1
   {
     question: "What is 'Conntrack Hash Bucket Collision' in Stateful Firewalls under Protocol Floods?",
     shortAnswer: "When millions of active connections hash into the same firewall hash table buckets, hash lookup time degrades from O(1) to O(N), locking firewall CPU cores in linked-list traversal loops.",
-    explanation: "Linux `conntrack` uses a hash table: $\\text{Bucket} = \\text{Hash}(\\text{Tuple}) \\pmod{\\text{conntrack\\_buckets}}$. If `conntrack_buckets` is sized too small (e.g. 65,536 buckets) while `nf_conntrack_max` is 2,000,000, each bucket contains chains of 30+ linked entries. During an ACK flood, traversing these long linked lists for every incoming packet consumes 100% of CPU cache bandwidth, freezing firewall packet throughput.",
+    explanation: "Linux `conntrack` uses a hash table: Bucket = Hash(Tuple) % conntrack_buckets. If `conntrack_buckets` is sized too small (e.g. 65,536 buckets) while `nf_conntrack_max` is 2,000,000, each bucket contains chains of 30+ linked entries. During an ACK flood, traversing these long linked lists for every incoming packet consumes 100% of CPU cache bandwidth, freezing firewall packet throughput.",
     hint: "Trying to organize 2,000,000 folders into only 10 filing cabinet drawers, making it take 10 minutes to find any single document.",
     level: "expert",
     codeExample: `# Scale Conntrack Hash Buckets in Linux:
@@ -315,7 +315,7 @@ sysctl -w net.netfilter.nf_conntrack_max=2097152
   {
     question: "Synthesize the mathematical relationship between Active Embryonic SYN Ingress Rate (N_syn), Timeout Duration (T_timeout), Maximum Conntrack / SYN Backlog Capacity (S_max), and Legitimate TCP Connection Drop Probability (P_drop).",
     shortAnswer: "State table utilization is U = (N_syn * T_timeout) / S_max; connection drop probability is modeled as P_drop = 1 - e^(- max(0, U - 1.0) * 8); enabling TCP SYN Cookies (RFC 4987) eliminates memory allocation, ensuring P_drop = 0.0%.",
-    explanation: "Let $N_{\\text{syn}}$ represent the rate of incoming spoofed SYN packets (e.g. 50,000 PPS), $T_{\\text{timeout}}$ represent the embryonic connection timeout (e.g. 75 seconds), and $S_{\\text{max}}$ represent the state table / backlog capacity (e.g. 2,000,000 entries). Total active state entries is $N_{\\text{active}} = N_{\\text{syn}} \\times T_{\\text{timeout}} = 50,000 \\times 75 = 3,750,000$. Since $3,750,000 > 2,000,000$, utilization $U = 1.875 > 1.0$. Drop probability is: $P_{\\text{drop}} = 1 - e^{-(1.875 - 1.0) \\times 8} = 1 - e^{-7.0} = 99.91\\%$. Deploying TCP SYN Cookies eliminates state allocation ($T_{\\text{timeout}} = 0$), keeping $U = 0$ and $P_{\\text{drop}} = 0.0\\%$.",
+    explanation: "Let N_syn represent the rate of incoming spoofed SYN packets (e.g. 50,000 PPS), T_timeout represent the embryonic connection timeout (e.g. 75 seconds), and S_max represent the state table / backlog capacity (e.g. 2,000,000 entries). Total active state entries is N_active = N_syn * T_timeout = 50,000 * 75 = 3,750,000. Since 3,750,000 > 2,000,000, utilization U = 1.875 > 1.0. Drop probability is: P_drop = 1 - e^(-(1.875 - 1.0) * 8) = 1 - e^(-7.0) = 99.91%. Deploying TCP SYN Cookies eliminates state allocation (T_timeout = 0), keeping U = 0 and P_drop = 0.0%.",
     hint: "Mathematical formula proving that when active embryonic states exceed conntrack capacity, connection drop rate approaches 100%, and enabling SYN cookies reduces drop rate to 0%.",
     level: "expert",
     codeExample: `// Protocol State Saturation Mathematical Proof:

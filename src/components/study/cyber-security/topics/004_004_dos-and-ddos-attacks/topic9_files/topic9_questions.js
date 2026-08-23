@@ -116,7 +116,7 @@ routing-options {
   {
     question: "What is 'Sliding Window Log' vs 'Sliding Window Counter' in Application Rate Limiting?",
     shortAnswer: "Sliding Window Log tracks every single request timestamp in Redis to provide exact rate limiting at high memory cost; Sliding Window Counter approximates rate limiting by calculating a weighted sum of previous and current time windows, using negligible memory.",
-    explanation: "Fixed Window rate limiting suffers from the 'boundary burst problem' (a user sends 10 requests at 00:59 and 10 requests at 01:00, exceeding the 10 req/min limit in 2 seconds). Sliding Window Counter solves this: $\\text{Count} = \\text{CurrentWindowCount} + \\text{PrevWindowCount} \\times (1 - \\text{TimeElapsedRatio})$. It provides smooth rate limiting with sub-millisecond calculation speed in Redis.",
+    explanation: "Fixed Window rate limiting suffers from the 'boundary burst problem' (a user sends 10 requests at 00:59 and 10 requests at 01:00, exceeding the 10 req/min limit in 2 seconds). Sliding Window Counter solves this: Count = CurrentWindowCount + PrevWindowCount * (1 - TimeElapsedRatio). It provides smooth rate limiting with sub-millisecond calculation speed in Redis.",
     hint: "Calculating your average speed over the exact last 60 seconds rather than resetting your stopwatch at the top of every minute.",
     level: "expert",
     codeExample: `// Redis Sliding Window Counter Rate Limiter (Lua Script):
@@ -184,7 +184,7 @@ class LeakyBucket {
   {
     question: "What is 'Equal-Cost Multi-Path' (ECMP) Hashing in Anycast DDoS Load Distribution?",
     shortAnswer: "Network routers use ECMP to balance traffic across multiple parallel paths or server nodes by computing a 5-tuple hash (SrcIP, SrcPort, DstIP, DstPort, Protocol), distributing 100 Gbps of incoming traffic evenly across 10 scrubbing engines.",
-    explanation: "Inside an Anycast data center, ingress 100 Gbps traffic hits edge border routers. ECMP computes a mathematical hash of the packet header: $\\text{Hash} = (\\text{SrcIP} \\oplus \\text{DstIP} \\oplus \\text{Ports}) \\pmod{N}$. Packets belonging to the same TCP stream consistently route to the same scrubbing server, preventing session desynchronization while distributing the flood evenly.",
+    explanation: "Inside an Anycast data center, ingress 100 Gbps traffic hits edge border routers. ECMP computes a mathematical hash of the packet header: Hash = (SrcIP XOR DstIP XOR Ports) % N. Packets belonging to the same TCP stream consistently route to the same scrubbing server, preventing session desynchronization while distributing the flood evenly.",
     hint: "A highway toll plaza splitting 10 lanes of cars evenly using automatic license plate hashing.",
     level: "expert",
     codeExample: `! Cisco BGP ECMP Multipath Configuration:
@@ -239,7 +239,7 @@ route-map PREPEND-AS-MAP permit 10
   {
     question: "What is 'Behavioral Rate Limiting' based on Session Timing Jitter and Entropy?",
     shortAnswer: "Rate limiters that evaluate the statistical randomness (entropy) of inter-request arrival times; automated attack scripts emit requests at fixed mathematical intervals (zero entropy) and are throttled, while human browsing exhibits high timing jitter.",
-    explanation: "Simple rate limiters only count total requests per second. Behavioral rate limiters calculate the variance of intervals between successive requests: $\\sigma^2 = \\frac{1}{N} \\sum (\\Delta t_i - \\mu)^2$. If a client makes 10 requests with exact 100ms spacing ($\\sigma^2 \\approx 0$), the WAF classifies it as an automated script and applies strict rate limiting, while permitting human visitors with natural timing variations.",
+    explanation: "Simple rate limiters only count total requests per second. Behavioral rate limiters calculate the variance of intervals between successive requests: σ^2 = (1/N) * ∑ (Δt_i - μ)^2. If a client makes 10 requests with exact 100ms spacing (σ^2 ≈ 0), the WAF classifies it as an automated script and applies strict rate limiting, while permitting human visitors with natural timing variations.",
     hint: "A bank teller noticing someone tapping on the desk like a mechanical metronome versus a human tapping irregularly.",
     level: "expert",
     codeExample: `// Behavioral Request Jitter Entropy Evaluation:
@@ -307,8 +307,8 @@ route-map SHED-LOAD-MAP permit 10
   },
   {
     question: "What is 'Sliding Window Rate Limiting with Exponential Decay' in API Gateways?",
-    shortAnswer: "Calculating rate limit counters using continuous exponential mathematical decay ($C(t) = C_0 \\times e^{-\\lambda \\Delta t} + 1$), eliminating discrete time-window resets and preventing boundary burst spikes with $O(1)$ memory.",
-    explanation: "Instead of maintaining arrays of timestamps, exponential decay rate limiters store just 2 numbers: the accumulated counter $C$ and the last request timestamp $T$. When a new request arrives at time $t$, the counter decays: $C = C \\times e^{-\\lambda (t - T)} + 1$. If $C > \\text{Threshold}$, the request is rejected with HTTP 429. This provides smooth, continuous rate limiting with $O(1)$ memory overhead.",
+    shortAnswer: "Calculating rate limit counters using continuous exponential mathematical decay (C(t) = C_0 * e^(-λ * Δt) + 1), eliminating discrete time-window resets and preventing boundary burst spikes with O(1) memory.",
+    explanation: "Instead of maintaining arrays of timestamps, exponential decay rate limiters store just 2 numbers: the accumulated counter C and the last request timestamp T. When a new request arrives at time t, the counter decays: C = C * e^(-λ * (t - T)) + 1. If C > Threshold, the request is rejected with HTTP 429. This provides smooth, continuous rate limiting with O(1) memory overhead.",
     hint: "A radioactive isotope counter that steadily decays over time so old requests fade away continuously.",
     level: "expert",
     codeExample: `// Exponential Decay Rate Limiter Formula:
@@ -364,9 +364,9 @@ neighbor 103.25.10.1 route-map NIXI-LOCAL-PREF permit 10
 sysctl -w net.ipv4.tcp_fastopen=1 # Client only (Disables server-side early data acceptance during floods!)`
   },
   {
-    question: "Synthesize the mathematical formulation of Anycast Global Traffic Fragmentation (L_PoP), Global Attack Volume (V_attack), PoP Count (N_PoPs), BGP Routing Affinity Skew (\\eta_affinity), and Ingress Link Saturation Probability (P_sat).",
-    shortAnswer: "Average load per Anycast PoP is L_PoP = (V_attack / N_PoPs) * \\eta_affinity; link saturation probability is P_sat = 1 - e^(- max(0, L_PoP - C_PoP) / \\sigma_jitter); deploying 300 Anycast PoPs reduces a 1.2 Tbps flood to 4.0 Gbps per PoP (L_PoP << C_PoP), driving P_sat = 0.0%.",
-    explanation: "Let $V_{\\text{attack}}$ represent the global attack volume (e.g. 1,200 Gbps generated by a botnet). Let $N_{\\text{PoPs}}$ represent the number of Anycast scrubbing centers (e.g. 300 data centers). Let $\\eta_{\\text{affinity}}$ represent the BGP routing affinity skew factor (e.g. $1.05$). The average load received by any single Anycast PoP is: $L_{\\text{PoP}} = \\frac{1,200}{300} \\times 1.05 = 4.2$ Gbps. If each PoP possesses a 100 Gbps hardware scrubbing capacity ($C_{\\text{PoP}} = 100$ Gbps), $L_{\\text{PoP}} \\ll C_{\\text{PoP}}$, keeping Ingress Saturation Probability at $P_{\\text{sat}} = 1 - e^{-(0)/20} = 0.0\\%$.",
+    question: "Synthesize the mathematical formulation of Anycast Global Traffic Fragmentation (L_PoP), Global Attack Volume (V_attack), PoP Count (N_PoPs), BGP Routing Affinity Skew (η_affinity), and Ingress Link Saturation Probability (P_sat).",
+    shortAnswer: "Average load per Anycast PoP is L_PoP = (V_attack / N_PoPs) * η_affinity; link saturation probability is P_sat = 1 - e^(- max(0, L_PoP - C_PoP) / σ_jitter); deploying 300 Anycast PoPs reduces a 1.2 Tbps flood to 4.0 Gbps per PoP (L_PoP << C_PoP), driving P_sat = 0.0%.",
+    explanation: "Let V_attack represent the global attack volume (e.g. 1,200 Gbps generated by a botnet). Let N_PoPs represent the number of Anycast scrubbing centers (e.g. 300 data centers). Let η_affinity represent the BGP routing affinity skew factor (e.g. 1.05). The average load received by any single Anycast PoP is: L_PoP = (1,200 / 300) * 1.05 = 4.2 Gbps. If each PoP possesses a 100 Gbps hardware scrubbing capacity (C_PoP = 100 Gbps), L_PoP << C_PoP, keeping Ingress Saturation Probability at P_sat = 1 - e^(-0/20) = 0.0%.",
     hint: "Mathematical proof formula showing that Anycast routing fragments a 1.2 Tbps global flood into 4.2 Gbps increments, rendering link saturation mathematically zero across all 300 scrubbing centers.",
     level: "expert",
     codeExample: `// Anycast Global Traffic Fragmentation Mathematical Proof:

@@ -972,7 +972,7 @@ def get_entropy(data):
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded border border-gray-800">
                 <span className="text-emerald-400">✔</span>
-                <span>Shannon entropy > 7.9 bits/byte distinguishes ciphertext from low-entropy cleartext.</span>
+                <span>Shannon entropy &gt; 7.9 bits/byte distinguishes ciphertext from low-entropy cleartext.</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded border border-gray-800">
                 <span className="text-emerald-400">✔</span>

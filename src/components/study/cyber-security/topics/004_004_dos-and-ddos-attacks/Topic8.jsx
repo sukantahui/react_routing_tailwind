@@ -741,8 +741,8 @@ resource "cloudflare_record" "api_cloudflare" {
               4. Critical Infrastructure Cascading Failure &amp; Cloud EDoS Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust attack request rate $R_{\text{attack}}$, cloud auto-scaling model (Uncapped vs Capped Hardlimit), 
-              and interdependent sector failure rates to model cascading collapse probability $P_{\text{cascade}} = 1 - \prod (1 - p_i)$ and cloud compute billing:
+              Adjust attack request rate R_attack, cloud auto-scaling model (Uncapped vs Capped Hardlimit), 
+              and interdependent sector failure rates to model cascading collapse probability P_cascade = 1 - ∏ (1 - p_i) and cloud compute billing:
             </p>
           </div>
 

@@ -737,8 +737,8 @@ WHERE state = 'active'
               4. Layer 7 Thread Starvation &amp; WAF Proof-of-Work Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust attack request rate $R_{\text{attack}}$, average processing duration $T_{\text{process}}$, 
-              server worker architecture (Apache 256 threads vs Nginx 65,535 connections), and toggle Cloud WAF Proof-of-Work to model thread starvation $P_{\text{starvation}} = 1 - e^{-\max(0, U - 1.0) \times 10}$:
+              Adjust attack request rate R_attack, average processing duration T_process, 
+              server worker architecture (Apache 256 threads vs Nginx 65,535 connections), and toggle Cloud WAF Proof-of-Work to model thread starvation P_starvation = 1 - e^(-max(0, U - 1.0) × 10):
             </p>
           </div>
 

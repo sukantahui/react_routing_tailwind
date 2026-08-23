@@ -360,7 +360,7 @@ const Topic28 = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm font-mono">
               <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col space-y-2">
                 <span className="text-amber-400 font-sans font-bold">Switch CAM Learning Lifecycle:</span>
-                <p className="text-slate-300 text-xs">• 1. Reads Source MAC of incoming frame to update `[MAC -> Port]` table.</p>
+                <p className="text-slate-300 text-xs">• 1. Reads Source MAC of incoming frame to update `[MAC &rarr; Port]` table.</p>
                 <p className="text-slate-300 text-xs">• 2. Looks up Destination MAC; forwards point-to-point if learned.</p>
                 <p className="text-slate-300 text-xs">• 3. Unknown unicast frames are flooded out of all active VLAN ports.</p>
                 <p className="text-slate-300 text-xs">• 4. Unused dynamic entries age out after 300 seconds (5 minutes).</p>

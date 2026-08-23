@@ -88,7 +88,7 @@ const fbiRecoveryDetails = {
   recoveredBTC: 63.7, // ~85% of affiliate share
   recoveryValueUSD: 2300000,
   seizureMethod: "Federal Search Warrant (US District Court for Northern District of California)",
-  cryptographicBasis: "FBI gained possession of private key to Bitcoin wallet `1Mt8nv...`"
+  cryptographicBasis: "FBI gained possession of private key to Bitcoin wallet '1Mt8nv...'"
 };`
   },
   {

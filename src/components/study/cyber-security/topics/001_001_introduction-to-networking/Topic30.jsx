@@ -218,7 +218,7 @@ const Topic30 = () => {
             </div>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              In digital computer networking, <strong className="text-sky-400">Bandwidth</strong> is the theoretical maximum data transfer capacity of a communication channel, representing the maximum volume of bits that can be transmitted per second (measured in bps, Mbps, Gbps, or Tbps). In analog physics, it represents the frequency width ($B = f_{max} - f_{min}$) in Hertz (Hz).
+              In digital computer networking, <strong className="text-sky-400">Bandwidth</strong> is the theoretical maximum data transfer capacity of a communication channel, representing the maximum volume of bits that can be transmitted per second (measured in bps, Mbps, Gbps, or Tbps). In analog physics, it represents the frequency width (B = f_max - f_min) in Hertz (Hz).
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-xs sm:text-sm font-mono">

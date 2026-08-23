@@ -501,7 +501,7 @@ const Topic2 = () => {
                     <text x="125" y="145" fill="#c7d2fe" font-family="monospace" textAnchor="middle" fontSize="9">E   F   G  I/J  K</text>
                     <text x="125" y="170" fill="#c7d2fe" font-family="monospace" textAnchor="middle" fontSize="9">L   P   Q   S   T</text>
                     <text x="125" y="195" fill="#c7d2fe" font-family="monospace" textAnchor="middle" fontSize="9">U   V   W   X   Z</text>
-                    <text x="125" y="225" fill="#94a3b8" textAnchor="middle" fontSize="7.5">Digram Rectangle Rule: "EA" -> "IM"</text>
+                    <text x="125" y="225" fill="#94a3b8" textAnchor="middle" fontSize="7.5">Digram Rectangle Rule: "EA" &rarr; "IM"</text>
                   </g>
 
                   {/* Right: Modern AES SPN Round */}

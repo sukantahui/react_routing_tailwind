@@ -695,8 +695,8 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
               4. Exfiltration &amp; Sabotage Risk Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust exfiltration data volume score $V$, privileged access authorization level $P$, and PAW &amp; DAM controls hardening $R$ 
-              to model breach probability $P_{\text{sabotage}} = 1 - e^{-\frac{V \times P}{R}}$ and see how PAW and WORM vaults reduce breach probability below 1.6%:
+              Adjust exfiltration data volume score V, privileged access authorization level P, and PAW &amp; DAM controls hardening R 
+              to model breach probability P_sabotage = 1 - exp(-(V × P) / R) and see how PAW and WORM vaults reduce breach probability below 1.6%:
             </p>
           </div>
 
@@ -1046,7 +1046,7 @@ bool detect_lsb_steganography(const std::vector<uint8_t>& pixel_bytes) {
               <ul className="space-y-2 text-gray-300">
                 <li className="p-2 bg-gray-900 rounded border border-gray-800">
                   <span className="text-indigo-300 font-bold block">Think about...</span>
-                  Why does Shannon entropy analysis ($H(X) > 4.5$) detect base64 DNS tunneling exfiltration even when query domains look like random strings?
+                  Why does Shannon entropy analysis (H(X) &gt; 4.5) detect base64 DNS tunneling exfiltration even when query domains look like random strings?
                 </li>
                 <li className="p-2 bg-gray-900 rounded border border-gray-800">
                   <span className="text-indigo-300 font-bold block">Observe carefully...</span>

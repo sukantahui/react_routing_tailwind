@@ -352,7 +352,7 @@ exports.getMerchantTaxProfile = async (req, res) => {
       title: "Formulating the Formal Out-of-Band DNS Bandwidth Model in IEEE Transactions",
       budget: "₹38,00,000",
       incident:
-        "Researchers modeled the bandwidth limits and packet entropy of recursive DNS label exfiltration ($T_{\\text{OOB}} = 630\\text{ B/s}$) compared to blind timing.",
+        "Researchers modeled the bandwidth limits and packet entropy of recursive DNS label exfiltration (T_OOB = 630 B/s) compared to blind timing.",
       defenseStrategy:
         "Susmita and Abhronila published their mathematical proof in IEEE Transactions, demonstrating that prepared statements drive OOB throughput to 0.00 bytes/s.",
       outcome: "Published peer-reviewed mathematical proof; verified across 300,000 simulated Out-of-Band DNS packet transmissions.",
@@ -419,7 +419,7 @@ exports.getMerchantTaxProfile = async (req, res) => {
               UNC paths (`\\data.attacker.in\a`), forcing the Windows OS to perform recursive DNS lookups. In Oracle, built-in packages like 
               <strong>`UTL_HTTP`</strong> and <strong>`UTL_INADDR`</strong> generate outbound HTTP and DNS traffic. 
               Because DNS queries (UDP Port 53) effortlessly traverse enterprise perimeter firewalls by recursing through internal corporate DNS resolvers, 
-              OOB DNS exfiltration delivers high throughput (~630 Bytes/s) in a single request ($\Delta t \approx 100\text{ ms}$), 
+              OOB DNS exfiltration delivers high throughput (approximately 630 Bytes/s) in a single request (time delta approximately 100 ms), 
               making it <strong>22,500 times faster</strong> than slow time-based blind SQL injection.
             </p>
           </div>

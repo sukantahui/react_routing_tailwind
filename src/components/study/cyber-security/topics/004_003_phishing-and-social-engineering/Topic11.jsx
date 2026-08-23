@@ -701,8 +701,8 @@ WHERE ((today.daily_download_mb - stats.mean_download) / NULLIF(stats.stddev_dow
               4. UEBA Anomaly Score &amp; Detection Fidelity Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust statistical Z-score deviation $Z$, multi-source log quality $D$, and noise tolerance calibration $R$ 
-              to model threat detection probability $P_{\text{detect}} = 1 - e^{-\frac{Z \times D}{R}}$ and see how calibrated UEBA achieves over 98.4% detection with zero false alarms:
+              Adjust statistical Z-score deviation Z, multi-source log quality D, and noise tolerance calibration R 
+              to model threat detection probability P_detect = 1 - exp(-(Z × D) / R) and see how calibrated UEBA achieves over 98.4% detection with zero false alarms:
             </p>
           </div>
 

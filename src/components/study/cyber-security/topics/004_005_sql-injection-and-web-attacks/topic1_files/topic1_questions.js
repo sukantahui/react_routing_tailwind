@@ -91,7 +91,7 @@ execFile("convert", [req.body.file, "output.png"]); // SECURE: Input treated str
   {
     question: "What is 'CRLF / HTTP Header Injection', and how does it enable HTTP Response Splitting?",
     shortAnswer: "An attack where carriage return (`\\r` / `%0d`) and line feed (`\\n` / `%0a`) characters are injected into response headers (like `Location` or `Set-Cookie`), allowing attackers to insert malicious HTTP response headers or split the response to inject arbitrary HTML payloads.",
-    explanation: "If a server redirects users via `Location: " + redirect_url`, and the attacker supplies `url = /home%0d%0aSet-Cookie: session=attacker_token%0d%0a%0d%0a<script>alert(1)</script>`, the browser parses the newline characters as the start of new HTTP headers and an HTML body, resulting in session fixation or stored XSS.",
+    explanation: "If a server redirects users via `Location: \" + redirect_url`, and the attacker supplies `url = /home%0d%0aSet-Cookie: session=attacker_token%0d%0a%0d%0a<script>alert(1)</script>`, the browser parses the newline characters as the start of new HTTP headers and an HTML body, resulting in session fixation or stored XSS.",
     hint: "Injecting newline characters (Carriage Return and Line Feed) into headers to create fake cookies or extra responses.",
     level: "expert",
     codeExample: `// CRLF Header Injection Exploit:
@@ -209,7 +209,7 @@ stmt.execute(["attacker' OR '1'='1"]); // Safe: Stored strictly as literal email
   {
     question: "What is 'Type Juggling / Loose Comparison Injection' in PHP and JavaScript?",
     shortAnswer: "Vulnerabilities where dynamic interpreters automatically convert data types during loose equality comparisons (`==`), allowing attackers to bypass authentication by providing numeric zeroes or boolean `true` values in place of cryptographic hash strings.",
-    explanation: "In PHP, `'0e12345' == '0e99999'` evaluates to `true` because both strings are treated as scientific notation for zero ($0 \\times 10^x = 0$). If an application checks password hashes using loose `==`, an attacker whose password hash starts with `0e` bypasses authentication. The fix is strictly enforcing strict equality (`===`).",
+    explanation: "In PHP, `'0e12345' == '0e99999'` evaluates to `true` because both strings are treated as scientific notation for zero (0 * 10^x = 0). If an application checks password hashes using loose `==`, an attacker whose password hash starts with `0e` bypasses authentication. The fix is strictly enforcing strict equality (`===`).",
     hint: "When the computer automatically converts text into numbers and mistakenly thinks two different passwords are equal.",
     level: "expert",
     codeExample: `// PHP Type Juggling Flaw:
@@ -305,7 +305,7 @@ rules:
   {
     question: "Synthesize the mathematical formulation of Taint Propagation Probability (P_exploit), Number of Unsanitized Taint Hops (N_hops), Sanitizer Efficiency (S_k), and Sink Sensitivity Factor (F_sink).",
     shortAnswer: "Taint propagation exploitability is P_exploit = PRODUCT [ (1 - S_k) ] * F_sink; when a Parameterized Prepared Statement is deployed (S_k = 1.0), (1 - 1.0) = 0, mathematically driving P_exploit = 0.00%, guaranteeing 100% injection immunity.",
-    explanation: "Let $S_k$ represent the sanitization efficiency at pipeline stage $k$ (where $S_k \\in [0.0, 1.0]$). Let $F_{\\text{sink}}$ represent the sensitivity factor of the execution sink (e.g. $F_{\\text{sink}} = 1.0$ for `system()` and `db.query()`). The overall exploitability probability is: $P_{\\text{exploit}} = \\left( \\prod_{k=1}^{N} (1 - S_k) \\right) \\times F_{\\text{sink}}$. If an application relies on flawed regex escaping ($S_1 = 0.60$), $P_{\\text{exploit}} = (1 - 0.60) \\times 1.0 = 40.0\\%$. However, when a Parameterized Prepared Statement is enforced ($S_1 = 1.0$), $P_{\\text{exploit}} = (1 - 1.0) \\times 1.0 = 0.00\\%$, providing absolute mathematical proof of injection immunity.",
+    explanation: "Let S_k represent the sanitization efficiency at pipeline stage k (where S_k in [0.0, 1.0]). Let F_sink represent the sensitivity factor of the execution sink (e.g. F_sink = 1.0 for system() and db.query()). The overall exploitability probability is: P_exploit = (∏ (1 - S_k)) × F_sink. If an application relies on flawed regex escaping (S_1 = 0.60), P_exploit = (1 - 0.60) × 1.0 = 40.0%. However, when a Parameterized Prepared Statement is enforced (S_1 = 1.0), P_exploit = (1 - 1.0) × 1.0 = 0.00%, providing absolute mathematical proof of injection immunity.",
     hint: "Mathematical proof formula showing that deploying Parameterized Prepared Statements (S_k = 1.0) reduces injection exploitability to absolute zero (0.00%).",
     level: "expert",
     codeExample: `// Taint Propagation Probability Mathematical Proof:

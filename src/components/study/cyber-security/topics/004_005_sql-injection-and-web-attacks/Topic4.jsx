@@ -142,14 +142,14 @@ const Topic4 = () => {
     const passLength = secretPassword.length;
 
     let queriesPerChar = 7;
-    let algorithmName = "Binary Search ($O(N \\log_2 |\\Sigma|)$)";
+    let algorithmName = "Binary Search (O(N log2 |Σ|))";
 
     if (blindTechnique === "boolean_bitmask") {
       queriesPerChar = 8;
-      algorithmName = "8-Bit Bitmasking ($O(8N)$)";
+      algorithmName = "8-Bit Bitmasking (O(8N))";
     } else if (blindTechnique === "time_based_sleep") {
       queriesPerChar = 7;
-      algorithmName = "Time-Based Sleep Oracle ($5\\text{s Sleep}$)";
+      algorithmName = "Time-Based Sleep Oracle (5s Sleep)";
     }
 
     const totalQueries = passLength * queriesPerChar;
@@ -372,7 +372,7 @@ exports.checkAccountStatus = async (req, res) => {
       incident:
         "Researchers formulated the mathematical relationship between Shannon information entropy, binary search query complexity ($7N$), and time-delay confidence intervals.",
       defenseStrategy:
-        "Susmita and Abhronila published their mathematical proof in IEEE Transactions, demonstrating that prepared statements eliminate all information entropy leakage ($\Delta I = 0.00$ bits).",
+        "Susmita and Abhronila published their mathematical proof in IEEE Transactions, demonstrating that prepared statements eliminate all information entropy leakage (ΔI = 0.00 bits).",
       outcome: "Published peer-reviewed mathematical proof; verified across 280,000 simulated blind SQL injection iterations.",
       metrics: {
         simulationTrials: "280,000 Test Trials",
@@ -406,7 +406,7 @@ exports.checkAccountStatus = async (req, res) => {
               Inferential (Blind) SQLi: Boolean-based and Time-based SQL Injection
             </h1>
             <p className="text-xs text-gray-400">
-              Binary search optimization ($7N$), bitmasking, `pg_sleep()`, `WAITFOR DELAY`, statement timeouts, and IT Act Section 66F.
+              Binary search optimization (7N), bitmasking, `pg_sleep()`, `WAITFOR DELAY`, statement timeouts, and IT Act Section 66F.
             </p>
           </div>
           <div className="text-right text-xs text-gray-400 flex flex-col items-start sm:items-end">
@@ -436,8 +436,8 @@ exports.checkAccountStatus = async (req, res) => {
               observing differential response indicators such as HTTP status codes, content-length byte variations, or DOM text reflections. 
               In <strong>Time-Based Blind SQLi</strong>, the attacker injects conditional sleep functions (`pg_sleep(5)`, `WAITFOR DELAY`), 
               measuring network response latency to evaluate subqueries. Using the <strong>Binary Search Algorithm</strong>, 
-              the character search space ($[32, 126]$) is halved with each request, extracting any character in exactly 
-              $\lceil \log_2(95) \rceil = 7$ HTTP queries.
+              the character search space ([32, 126]) is halved with each request, extracting any character in exactly 
+              7 HTTP queries (⌈log2(95)⌉ = 7).
             </p>
           </div>
 
@@ -445,13 +445,13 @@ exports.checkAccountStatus = async (req, res) => {
             {/* Binary Search Mechanics Box */}
             <div className="bg-[#050811] p-5 rounded-xl border border-rose-950/60 space-y-3 text-xs">
               <span className="font-bold text-rose-400 uppercase tracking-wider text-[10px] block">
-                Binary Search Extraction ($7N$ Complexity)
+                Binary Search Extraction (7N Complexity)
               </span>
               <div className="bg-black/90 p-3 rounded font-mono text-rose-300 border border-rose-950/60 text-[11px]">
-                ASCII > 79? (False) ➔ ASCII > 55? (True) ➔ Exact Character Extracted in 7 Steps!
+                ASCII &gt; 79? (False) ➔ ASCII &gt; 55? (True) ➔ Exact Character Extracted in 7 Steps!
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Extracting a 16-character password requires exactly $16 \times 7 = 112$ HTTP queries. In boolean mode, this takes ~5.6 seconds.
+                Extracting a 16-character password requires exactly 16 × 7 = 112 HTTP queries. In boolean mode, this takes ~5.6 seconds.
               </p>
             </div>
 
@@ -753,7 +753,7 @@ exports.checkAccountStatus = async (req, res) => {
               {blindTechnique === "time_based_sleep" && (
                 <div className="space-y-1 pt-1 border-t border-gray-800">
                   <div className="flex justify-between text-gray-400">
-                    <span>3. Injected Sleep Delay ($\Delta t$):</span>
+                    <span>3. Injected Sleep Delay (Δt):</span>
                     <span className="text-amber-400 font-bold font-mono">{sleepDurationSeconds} Seconds</span>
                   </div>
                   <input

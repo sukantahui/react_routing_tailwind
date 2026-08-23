@@ -461,7 +461,7 @@ FLUSH PRIVILEGES;`,
               In-Band (Classic) SQL Injection occurs when an attacker uses the exact same communication channel (HTTP request/response) 
               to launch the exploit and receive exfiltrated database records directly within the application's HTML payload. 
               <strong>UNION-Based SQL Injection</strong> leverages the SQL `UNION` operator to append custom `SELECT` queries to the original result set. 
-              Executing a successful UNION attack requires two strict relational conditions: 1. <strong>Column Count Matching</strong> ($K_{\text{orig}} = K_{\text{inject}}$, determined via `ORDER BY 1, 2, 3...`), 
+              Executing a successful UNION attack requires two strict relational conditions: 1. <strong>Column Count Matching</strong> (K_orig = K_inject, determined via `ORDER BY 1, 2, 3...`), 
               and 2. <strong>Data Type Compatibility</strong> (probed using `NULL` placeholders). Attackers harvest database metadata via `information_schema` 
               and concatenate entire tables using `GROUP_CONCAT()`. <strong>Error-Based SQL Injection</strong> triggers deliberate runtime conversion errors 
               (such as `CAST()` in MSSQL/PostgreSQL or `ExtractValue()` in MySQL) to reflect subquery results inside verbose database error messages.
@@ -794,7 +794,7 @@ FLUSH PRIVILEGES;`,
               {inBandTechnique === "union_based" ? (
                 <div className="space-y-1 pt-1 border-t border-gray-800">
                   <div className="flex justify-between text-gray-400">
-                    <span>3. Injected Column Count ($K_{\text{inject}}$):</span>
+                    <span>3. Injected Column Count (K_inject):</span>
                     <span className="text-cyan-400 font-bold font-mono">{injectedColumnCount} Columns</span>
                   </div>
                   <input

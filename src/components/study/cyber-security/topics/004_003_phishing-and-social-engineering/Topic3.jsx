@@ -685,8 +685,8 @@ Write-Host "[+] Windows Defender ASR Rules ENFORCED! Remote template macro execu
               4. Targeted Exploitation Probability &amp; Defensive Armor Laboratory
             </h2>
             <p className="text-sm text-gray-300 mt-2">
-              Adjust OSINT context specificity $C$, target seniority factor $T$, and defensive armor strength $R$ to model targeted exploit probability 
-              $P_{\text{exploit}} = 1 - e^{-\frac{C \times T}{R}}$ and see how VIP Mailbox Armor &amp; Out-of-Band verification reduce breach probability below 2%:
+              Adjust OSINT context specificity C, target seniority factor T, and defensive armor strength R to model targeted exploit probability 
+              P_exploit = 1 - exp(-(C × T) / R) and see how VIP Mailbox Armor &amp; Out-of-Band verification reduce breach probability below 2%:
             </p>
           </div>
 
