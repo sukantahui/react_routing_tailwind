@@ -1,0 +1,85 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_001 : PASSIVE VS ACTIVE CYBER ATTACKS
+TOPIC 10       : DEFENSIVE ARCHITECTURES FOR ACTIVE ATTACK MITIGATION
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & ZERO TRUST ARCHITECTURE THEORY
+--------------------------------------------------------------------------------
+Unlike passive attacks that silently eavesdrop, active attacks (message modification, 
+masquerade, replay, MitM, and DoS) deliberately alter system state, inject malicious data, 
+forge identities, and exhaust resources.
+
+  * THE ZERO TRUST PARADIGM (NIST SP 800-207) :
+    - Core Rule: "NEVER TRUST, ALWAYS VERIFY."
+    - Perimeter-based security is obsolete. Every user, device, network packet, and API 
+      transaction must be authenticated, authorized, and cryptographically verified at every step.
+
+  * THE ACTIVE MITIGATION FEEDBACK LOOP :
+    1. Cryptographic Invariants (AEAD GHASH, HMAC-SHA256, mTLS).
+    2. Real-Time Detection (SIEM correlation rules).
+    3. Automated Containment (SOAR playbooks isolating rogue ports in <200ms).
+
+--------------------------------------------------------------------------------
+2. MULTI-TIERED ACTIVE DEFENSE MATRIX
+--------------------------------------------------------------------------------
+
++-----------------------+---------+-----------------------------+-----------------------------+
+| ACTIVE THREAT VECTOR  | OSI LVL | ATTACK MECHANISM            | PRODUCTION DEFENSIVE SHIELD |
++-----------------------+---------+-----------------------------+-----------------------------+
+| Data Tampering /      | Layer 7 | In-flight payload bit       | AEAD (AES-256-GCM /         |
+| Message Modification  | / App   | flipping and rewriting.     | ChaCha20-Poly1305) + HMAC.  |
+|                       |         |                             |                             |
+| Identity Masquerade & | Layer 2 | IP/MAC/Email identity       | Dynamic ARP Inspection (DAI)|
+| Spoofing Attacks      | Layer 7 | personation and forgery.    | + DMARC/DKIM/SPF + FIDO2.   |
+|                       |         |                             |                             |
+| Replay Attacks        | Layer 4 | Intercepts valid signed msg | IPsec 64-bit Sliding Window |
+| (Duplicate Requests)  | Layer 7 | and re-transmits it later.  | + Redis Monotonic Nonces.   |
+|                       |         |                             |                             |
+| Man-in-the-Middle     | Layer 7 | Dual-session proxying &     | HSTS Preload + Mutual TLS   |
+| (SSLstrip / MitM)     | / TLS   | protocol SSL stripping.     | (mTLS) + Cert Pinning.      |
+|                       |         |                             |                             |
+| Volumetric & Protocol | Layer 3 | Floods bandwidth or kernel  | BGP FlowSpec + Linux SYN    |
+| Denial of Service     | Layer 4 | half-open socket queues.    | Cookies + Anycast Scrubbing.|
+|                       |         |                             |                             |
+| Lateral Movement &    | Layer 2 | Attacker pivots across flat | Private VLANs + Kubernetes  |
+| Internal Pivoting     | Layer 3 | internal corporate LANs.    | Cilium eBPF Microsegment.   |
++-----------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+3. AUTOMATED INCIDENT RESPONSE (SIEM & SOAR ORCHESTRATION)
+================================================================================
+
+  * SIEM (Security Information & Event Management) :
+    - Ingests millions of events/sec, correlating multi-vector attack anomalies in real time.
+  * SOAR (Security Orchestration, Automation & Response) :
+    - Executes automated remediation scripts within <200 milliseconds:
+        [SIEM Alert] ➔ [SOAR API Call] ➔ [Switch Port Gig0/12 Shutdown] ➔ [Session Revoked]
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : CYBER TERRORISM — Active disruption of critical infrastructure (power grid, 
+                      banking core, nuclear facilities) carries LIFE IMPRISONMENT!
+    - Section 66D   : Cheating by Personation / Active Spoofing (Up to 3 Years Prison + ₹1 Lakh Fine).
+    - Section 66    : Criminal hacking & data damage (Up to 3 Years Prison + ₹5 Lakh Fine).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All active security breaches must be reported to CERT-In within 6 HOURS of detection.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Active defense operates across an active feedback loop: Detect -> Verify -> Contain -> Recover.
+  [✔] AEAD (AES-GCM) uses GHASH polynomial verification to make in-flight data tampering impossible.
+  [✔] FIDO2 WebAuthn uses domain-bound asymmetric cryptography to eliminate password phishing.
+  [✔] Dynamic ARP Inspection (DAI) + DHCP Snooping stops ARP cache poisoning at the switch level.
+  [✔] IPsec 64-bit sliding window discards duplicate or out-of-order replayed packets.
+  [✔] Section 66F of the IT Act mandates LIFE IMPRISONMENT for Cyber Terrorism on critical infrastructure.
+================================================================================

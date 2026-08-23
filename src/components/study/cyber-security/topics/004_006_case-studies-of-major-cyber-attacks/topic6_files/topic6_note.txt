@@ -1,0 +1,143 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: EQUIFAX DATA BREACH (2017) - UNPATCHED APACHE STRUTS FLAW
+COURSE MODULE: 004_006 - LANDMARK CYBER ATTACK CASE STUDIES (TOPIC 6)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. EXECUTIVE SUMMARY & HISTORICAL OVERVIEW
+----------------------------------------------------------------------------------------------------
+Occurring between May 13 and July 29, 2017, the Equifax data breach is the historic textbook case study 
+of catastrophic failure in software asset inventory management, vulnerability patching governance, 
+internal communication breakdowns, and network monitoring visibility gaps.
+
+Equifax—one of the "Big Three" consumer credit reporting agencies in the United States—suffered the 
+exfiltration of sensitive personal and financial dossiers belonging to:
+  - 147 Million American citizens (~50% of the entire US population).
+  - 15.2 Million British citizens and ~19,000 Canadian consumers.
+  - Stolen Data Assets: Social Security numbers (SSNs), dates of birth, full legal names, physical addresses, 
+    driver's license numbers, and 209,000 payment card numbers.
+  - Regulatory Fallout: Over ₹5,800 Crores ($700+ Million) in settlements with the Federal Trade Commission 
+    (FTC), Consumer Financial Protection Bureau (CFPB), and 50 US State Attorneys General.
+  - Threat Actor: Formally attributed and indicted by the US Department of Justice to four military officers 
+    belonging to the 54th Research Institute of the Chinese People's Liberation Army (PLA).
+
+
+2. TECHNICAL ANATOMY OF THE INITIAL EXPLOITATION (CVE-2017-5638)
+----------------------------------------------------------------------------------------------------
+The breach originated on an unpatched legacy web server hosting Equifax's online dispute portal (`ACIS`):
+
+  A. THE VULNERABILITY:
+     - On March 7, 2017, the Apache Software Foundation disclosed CVE-2017-5638 in Apache Struts 2.
+     - Root Cause: A flaw in the `JakartaMultipartParser` component used to handle HTTP multipart file 
+       uploads (e.g. consumer dispute supporting documents).
+     - Trigger: Sending a crafted, malformed `Content-Type` HTTP header containing Object-Graph Navigation 
+       Language (OGNL) expressions.
+
+  B. OGNL INJECTION TO REMOTE CODE EXECUTION (RCE):
+     - When an error occurred while parsing the malformed header, Struts passed the error string through 
+       the OGNL evaluation engine.
+     - The OGNL expression overrode Struts member access restrictions and invoked `java.lang.ProcessBuilder`.
+     - This allowed unauthenticated attackers on the public Internet to execute arbitrary operating 
+       system commands (`whoami`, `bash`, `cmd.exe`) in the context of the web server process.
+
+
+3. THE TRIAD OF GOVERNANCE & ARCHITECTURAL FAILURES
+----------------------------------------------------------------------------------------------------
+Equifax was breached not because a patch didn't exist, but because of three cascading structural failures:
+
+  +-----------------------------------------------------------------------------------------------+
+  |                              THE EQUIFAX STRUCTURAL FAILURE TRIAD                             |
+  +-----------------------------------------------------------------------------------------------+
+  | 1. ASSET INVENTORY FAILURE:       | US-CERT issued warnings on March 8, 2017. Equifax sent a  |
+  |    NO SOFTWARE BILL OF MATERIALS  | company-wide email to patch. However, because Equifax had |
+  |                                   | NO centralized asset inventory, the dispute portal team   |
+  |                                   | did not know their application used Struts!               |
+  +-----------------------------------+-----------------------------------------------------------+
+  | 2. MONITORING BLIND SPOT:         | Equifax had installed network intrusion detection sensors |
+  |    EXPIRED SSL INSPECTION CERT    | (SSiG) to inspect encrypted HTTPS traffic. However, the   |
+  |                                   | SSL certificate expired in 2016 (10 months earlier!).     |
+  |                                   | The sensor silently passed encrypted attack traffic!      |
+  +-----------------------------------+-----------------------------------------------------------+
+  | 3. DATABASE DESIGN COLLAPSE:      | The dispute web server stored unencrypted master database |
+  |    FLAT ACCESS & OVER-PRIVILEGE   | credentials in config files. The web server was permitted |
+  |                                   | to query 48 unrelated core databases containing 147M SSNs.|
+  +-----------------------------------------------------------------------------------------------+
+
+
+4. ADVERSARY DWELL TIME & LOW-AND-SLOW EXFILTRATION (76 DAYS)
+----------------------------------------------------------------------------------------------------
+Once initial RCE was achieved on May 13, 2017:
+  1. PERSISTENCE VIA WEB SHELLS:
+     - The PLA hackers uploaded approximately 30 distinct JSP web shells (China Chopper variants) disguised 
+       as benign files (`logo.jsp`, `help.jsp`) to the web application root.
+  2. INTERNAL RECONNAISSANCE:
+     - Attackers ran discovery scripts to locate database configuration files containing unencrypted master 
+       database connection strings and passwords.
+  3. LOW-AND-SLOW DATABASE HARVESTING:
+     - Over 76 days, attackers executed over 9,000 SQL queries across 48 separate relational databases.
+     - They queried data in small batches (200-500 records at a time) to evade bandwidth spike monitors.
+     - Compressed the query results into small temporary files and exfiltrated them over encrypted HTTPS tunnels 
+       to proxy servers in nearly 20 countries.
+  4. THE ACCIDENTAL DISCOVERY:
+     - On July 29, 2017 (Day 76), Equifax security staff finally renewed the expired SSL inspection certificate.
+     - The moment decryption was re-enabled, the network IDS immediately lit up with critical alerts showing 
+       unauthorized database exfiltration, terminating the 76-day intrusion.
+
+
+5. THE BOTCHED COMMUNICATIONS & REPUTATIONAL DISASTER
+----------------------------------------------------------------------------------------------------
+Equifax's crisis management response compounded the public outrage:
+  - Standalone Breach Portal (`equifaxsecurity2017.com`): Built on generic WordPress; returned contradictory 
+    breach status answers to users.
+  - Phishing Nightmare: A security researcher built a parody site (`securityequifax2017.com`) to prove how 
+    easily consumers could be tricked; the official @Equifax Twitter account tweeted the fake phishing link 
+    to consumers four times!
+  - Executive Resignations: CEO Richard Smith, CIO David Webb, and CISO Susan Mauldin were forced to resign.
+
+
+6. REGIONAL CLASSROOM LAB: FINANCIAL CREDIT BUREAU SECURITY AUDIT (KOLKATA / BARRACKPORE)
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Financial Security Auditor: Sukanta Hui
+  - Analysts: Mamata (AppSec & OGNL Specialist), Mahima (Network Architect), Abhronila (Threat Hunter),
+    Susmita (Incident Commander), Debangshu (Database & Tokenization Specialist).
+
+Scenario:
+A regional consumer credit rating bureau and micro-finance portal in Kolkata with branches in 
+Barrackpore, Ichapur, and Jadavpur processes citizen credit histories:
+
+Vulnerabilities Identified (Mamata & Debangshu):
+1. The public customer dispute web application utilized an uninventoried Java framework with open-source 
+   dependencies that had not been patched in 9 months.
+2. The SSL inspection certificate on the edge Next-Gen Firewall had expired 4 months prior.
+3. The web portal database user account held `SELECT ALL` privileges on the central citizen PAN/Aadhaar vault.
+
+Remediation Deployed by Susmita, Mahima & Abhronila:
+- Implemented an automated Software Bill of Materials (SBOM) scanner inside CI/CD pipelines (Snyk/Dependency-Check) 
+  to automatically block deployments with known Critical CVEs.
+- Deployed Certificate Lifecycle Management (CLM) to automatically renew SSL inspection certificates 30 days 
+  before expiration.
+- Applied Data Tokenization: Cleartext national ID numbers replaced with surrogate tokens; real identities 
+  isolated inside a dedicated FIPS 140-2 Level 3 cryptographic hardware vault.
+- Enforced strict Database Micro-segmentation: Dispute web server restricted solely to dispute tables via mTLS.
+
+
+7. STRATEGIC LESSONS LEARNED FOR ENTERPRISE DEFENSE
+----------------------------------------------------------------------------------------------------
+1. YOU CANNOT SECURE WHAT YOU DO NOT KNOW YOU OWN:
+   Maintain an accurate, continuous, real-time Software Asset Inventory and Software Bill of Materials (SBOM).
+
+2. CERTIFICATE MANAGEMENT IS A CORE SECURITY CONTROL:
+   Expired SSL inspection certificates blind network intrusion sensors. Automate certificate lifecycle tracking.
+
+3. VIRTUAL PATCHING VIA EDGE WAF:
+   When zero-days emerge, deploy instant edge Web Application Firewall (WAF) regex inspection rules while 
+   software engineering teams test and deploy framework updates.
+
+4. DATABASE LEAST PRIVILEGE & TOKENIZATION:
+   Web servers should never hold credentials to global master databases. Enforce strict database micro-
+   segmentation, least privilege, and tokenization at rest.
+
+====================================================================================================
+END OF STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

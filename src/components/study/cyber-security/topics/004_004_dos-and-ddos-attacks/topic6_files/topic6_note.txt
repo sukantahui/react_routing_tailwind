@@ -1,0 +1,83 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_004 : DENIAL OF SERVICE (DoS) & DDoS ATTACKS
+TOPIC 06       : DDoS AMPLIFICATION ATTACKS (DNS & NTP AMPLIFICATION)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE PHYSICS OF REFLECTION
+--------------------------------------------------------------------------------
+DDoS Reflection and Amplification attacks weaponize misconfigured third-party servers to multiply 
+an attacker's bandwidth by $50\times$ to $50,000\times$, requiring two fundamental prerequisites:
+
+  * THE TWO CORE PREREQUISITES :
+    1. STATELESS PROTOCOL (UDP): Allows forging the victim's IP address in the Source IP field.
+    2. ASYMMETRIC RESPONSE PAYLOAD: A small query generates a response packet 10x-50,000x larger!
+
+--------------------------------------------------------------------------------
+2. PROTOCOL AMPLIFICATION FACTOR (AF) TAXONOMY
+--------------------------------------------------------------------------------
+
++----------------------+----------+------------------------+-----------------------------+
+| PROTOCOL             | UDP PORT | AMPLIFICATION FACTOR   | PRIMARY VULNERABLE COMMAND  |
++----------------------+----------+------------------------+-----------------------------+
+| Memcached UDP        | 11211    | 10,000x to 51,200x     | Unauthenticated `get <key>` |
+| NTP (Network Time)   | 123      | 556x Multiplier        | Mode 7 `monlist` command    |
+| SNMPv2c              | 161      | Up to 650x Multiplier  | `GetBulkRequest` (public)   |
+| CHARGEN              | 19       | 358x Multiplier        | Any incoming UDP datagram   |
+| WS-Discovery (ONVIF) | 3702     | 75x to 100x Multiplier | SOAP XML `Probe` discovery  |
+| CLDAP (Active Dir)   | 389      | 56x to 70x Multiplier  | Root DSE `searchRequest`    |
+| DNSSEC (EDNS0 ANY)   | 53       | 50x to 77x Multiplier  | `dig ANY isc.org` (EDNS0)   |
+| SSDP (UPnP Smart TVs)| 1900     | 30x Multiplier         | `M-SEARCH *` discovery     |
++----------------------+----------+------------------------+-----------------------------+
+
+================================================================================
+3. ENTERPRISE DEFENSIVE HARDENING & SERVER REMEDIATION
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | AMPLIFICATION MITIGATED     |
++-------------------+---------+-----------------------------+-----------------------------+
+| BGP Flowspec      | ISP     | RFC 5575 rules pushed to    | Scrubs reflection ports     |
+| (RFC 5575)        | Core    | Tier-1 ISP core routers.    | before reaching enterprise. |
+|                   |         |                             |                             |
+| DNS Response Rate | DNS     | BIND 9 `responses-per-      | Prevents DNS servers from   |
+| Limiting (RRL)    | Server  | second 5; slip 2;`.         | being abused as reflectors. |
+|                   |         |                             |                             |
+| RFC 8482 Minimal  | DNS     | Returns synthetic 64B HINFO | Destroys DNS ANY response   |
+| ANY Response      | Standard| record for ANY queries.     | amplification factor (1x).  |
+|                   |         |                             |                             |
+| NTP & Memcached   | Host    | `disable monitor` in NTP;   | Eliminates 556x monlist &   |
+| Server Hardening  | Config  | `memcached -l 127.0.0.1 -U 0`| 51,000x Memcached vectors.  |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Amplification floods on Critical Systems is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Attacks on PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(f) : Civil compensation up to ₹1 CRORE for causing Denial of Access.
+    - Section 66    : Criminal hacking & service disruption (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Amplification DDoS Extortion (Up to 7 Years Prison).
+    - Section 427   : Mischief & Network Pipe Disruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All reflection DDoS outages must be reported to CERT-In within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory availability safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Amplification requires UDP connectionless spoofing and asymmetric response payloads.
+  [✔] Memcached achieved a historic 51,000x amplification factor, generating 1.35 Tbps against GitHub.
+  [✔] NTP `monlist` returned 600 IP addresses across 100 packets, producing a 556x multiplier.
+  [✔] DNS Response Rate Limiting (RRL) caps responses to the same client IP to 5 per second.
+  [✔] RFC 8482 returns minimal 64-byte HINFO responses for DNS ANY queries, eliminating amplification.
+  [✔] Section 66F of the IT Act penalizes Amplification Cyber Terrorism with Life Imprisonment.
+================================================================================

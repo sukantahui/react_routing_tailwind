@@ -1,0 +1,85 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 02       : PHISHING FUNDAMENTALS: ANATOMY OF A PHISHING EMAIL
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE 7 STRUCTURAL LAYERS OF A PHISHING EMAIL
+--------------------------------------------------------------------------------
+Phishing emails are fraudulent electronic messages designed to deceive human recipients into 
+revealing credentials, downloading malware, or authorizing fraudulent wire transfers:
+
+  * THE 7 STRUCTURAL COMPONENTS :
+    1. ENVELOPE vs HEADER FROM : RFC 5321 MAIL FROM (routing) vs RFC 5322 From (visible display).
+    2. DISPLAY NAME SPOOFING   : Setting visible name to "CEO Name" <attacker@free-mail.xyz>.
+    3. SUBJECT LINE MANIPULATION: Artificial urgency ("Account Suspension in 15 Minutes").
+    4. HYPERLINK DECEPTION     : Mismatched anchor text (<a href="evil.in">bank.in</a>) & subdomains.
+    5. VISUAL BRANDING & BODY  : CSS mimicking Microsoft 365, ICICI Bank, or Zero-Font obfuscation.
+    6. WEAPONIZED ATTACHMENTS  : HTML Smuggling blobs, ISO disk images, weaponized PDF launch actions.
+    7. ROUTING & AUTH HEADERS  : Received hops, Return-Path, SPF, DKIM, and DMARC alignment status.
+
+--------------------------------------------------------------------------------
+2. ADVANCED EVASION TECHNIQUES & TECHNICAL DECEPTIONS
+--------------------------------------------------------------------------------
+
+A. HTML SMUGGLING & ISO PACKAGING :
+   - Base64 JavaScript builds malicious binaries inside browser memory via Blob objects.
+   - Bypasses perimeter gateway static file scanners completely.
+
+B. QUISHING (QR CODE PHISHING) & IMAGE-ONLY EMAILS :
+   - Embeds QR codes or renders the entire email as a single image to evade text NLP filters.
+   - Shifts attack surface to unmanaged personal mobile devices.
+
+C. TIME-OF-CLICK & DYNAMIC FINGERPRINTING :
+   - Serves clean Wikipedia pages to security crawlers; displays phishing portal to real human victims.
+   - Requires Time-of-Click dynamic URL rewriting to detonate links at click time.
+
+================================================================================
+3. ENTERPRISE GATEWAY DEFENSE & EMAIL AUTHENTICATION
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | PHISHING VECTOR NEUTRALIZED |
++-------------------+---------+-----------------------------+-----------------------------+
+| DMARC Policy      | Email   | p=reject enforces strict    | Blocks 100% of exact domain |
+| (p=reject)        | Gateway | SPF & DKIM domain alignment.| spoofing at the perimeter.  |
+|                   |         |                             |                             |
+| Time-of-Click     | URL     | Rewrites links; executes real-| Neutralizes delayed link    |
+| Link Rewriting    | Sandbox | time detonation upon click. | weaponization & redirects.  |
+|                   |         |                             |                             |
+| Content Disarm    | File    | Strips active macros and    | Defeats HTML smuggling and  |
+| & Reconstruction  | Armor   | scripts from attachments.   | weaponized PDF actions.     |
+|                   |         |                             |                             |
+| Computer Vision   | AI      | CNN logo detection comparing| Blocks brand impersonation  |
+| OCR Gatekeeper    | Vision  | visuals against DKIM domain.| and image-only phishing.    |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66D   : Cheating by Personation using computer resources (Up to 3 Years Prison).
+    - Section 43(a) : Civil damages up to ₹1 CRORE for unauthorized access via phishing.
+    - Section 66    : Criminal hacking & fraudulent deception (Up to 3 Years Prison + ₹5 Lakh Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Dishonestly Inducing Delivery of Property (Up to 7 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All phishing compromises & unauthorized administrative access must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory organizational security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Envelope From (RFC 5321) routes mail; Header From (RFC 5322) is what the user sees.
+  [✔] Anchor text deception hides malicious destinations behind trusted display text.
+  [✔] HTML smuggling uses Base64 Blobs in JavaScript to construct binaries locally in RAM.
+  [✔] Time-of-Click link rewriting detonates URLs in sandboxes when clicked, defeating delays.
+  [✔] DMARC p=reject enforces alignment between visible From and SPF/DKIM signing domains.
+  [✔] Section 66D of the IT Act penalizes Cheating by Personation with up to 3 years imprisonment.
+================================================================================

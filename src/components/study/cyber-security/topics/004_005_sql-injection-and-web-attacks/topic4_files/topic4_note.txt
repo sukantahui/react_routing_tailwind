@@ -1,0 +1,85 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 04       : INFERENTIAL (BLIND) SQLi (BOOLEAN-BASED & TIME-BASED)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & INFERENTIAL EXTRACTION MECHANICS
+--------------------------------------------------------------------------------
+Inferential (Blind) SQL Injection occurs when the web application suppresses error messages and does 
+not display database query results on screen, forcing the adversary to reconstruct database contents 
+character-by-character through binary true/false queries:
+
+  * THE TWO CORE BLIND SQLi ORACLES :
+    1. BOOLEAN-BASED ORACLE : Evaluates SQL boolean expressions (`AND 1=1` vs `AND 1=2`), observing 
+                              differential responses (HTTP status codes, content length, text reflection).
+    2. TIME-BASED ORACLE    : Injects conditional sleep functions (`pg_sleep(5)`, `WAITFOR DELAY`), 
+                              measuring HTTP response latency differences to infer character values.
+
+--------------------------------------------------------------------------------
+2. SEARCH COMPLEXITY & OPTIMIZATION ALGORITHMS
+--------------------------------------------------------------------------------
+
++----------------------+--------------------+--------------------------------+----------------------------+
+| SEARCH ALGORITHM     | QUERIES PER CHAR   | TIME (16-CHAR PASSWORD)        | COMPLEXITY FORMULA         |
++----------------------+--------------------+--------------------------------+----------------------------+
+| Linear Search        | ~47.5 Queries      | ~38.0 Seconds (Boolean)        | $O(N \times |\Sigma|)$     |
+| Binary Search        | EXACTLY 7 Queries  | ~5.6 Seconds (Boolean)         | $O(N \times \log_2|\Sigma|)|
+| Bitmasking (8-bit)   | EXACTLY 8 Queries  | ~6.4 Seconds (Boolean)         | $O(8N)$                    |
+| Time-Based (5s Sleep)| 7 Queries (Binary) | 560 Seconds (~9.3 Minutes)     | $Q \times (t + t_{\text{s}})|
++----------------------+--------------------+--------------------------------+----------------------------+
+
+--------------------------------------------------------------------------------
+3. DIALECT-SPECIFIC TIME DELAY ORACLES
+--------------------------------------------------------------------------------
+
+  * PostgreSQL : `AND (SELECT CASE WHEN (1=1) THEN pg_sleep(5) ELSE pg_sleep(0) END)='a'`
+  * MySQL      : `AND IF(ascii(substr(password,1,1))=65, SLEEP(5), 0)`
+  * MSSQL      : `; IF (ascii(substring(password,1,1))=65) WAITFOR DELAY '0:0:5';--`
+  * Oracle     : `AND 1=(CASE WHEN (1=1) THEN dbms_pipe.receive_message('RDS',5) ELSE 0 END)`
+  * SQLite     : `AND (SELECT count(*) FROM sqlite_master WHERE randomblob(50000000))`
+
+================================================================================
+4. ENTERPRISE DEFENSIVE ARCHITECTURE
+================================================================================
+
+  * 100% PARAMETERIZED PREPARED STATEMENTS :
+    - Pre-compiles the query AST; conditional expressions cannot be injected ($H_{\text{leak}} = 0$).
+
+  * DATABASE STATEMENT TIMEOUT CLAMPING :
+    - Setting `statement_timeout = 2000ms` forcefully aborts any injected sleep functions $> 2$ seconds!
+
+  * REDIS SLIDING WINDOW RATE LIMITING :
+    - Restricts clients to 60 requests/minute, blocking automated binary search extraction scripts.
+
+================================================================================
+5. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Blind SQLi attacks on Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized database extraction.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Account Credential Theft (Up to 7 Years Prison).
+    - Section 427   : Mischief & Resource Exhaustion (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Database breaches resulting from Blind SQLi must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Blind SQLi is used when the web application displays zero data and suppresses error messages.
+  [✔] Binary Search extracts each character in exactly $\lceil \log_2(95) \rceil = 7$ HTTP requests.
+  [✔] Time-Based Blind SQLi injects `pg_sleep(5)` or `WAITFOR DELAY` to measure response timing.
+  [✔] Setting `statement_timeout = 2000ms` forcefully terminates time-delay injection queries.
+  [✔] Redis sliding window rate limiters neutralize automated blind extraction scripts.
+  [✔] Section 66F of the IT Act penalizes blind SQL injection cyber terrorism with Life Imprisonment.
+================================================================================

@@ -1,0 +1,82 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 07       : CROSS-SITE SCRIPTING (XSS) - STORED, REFLECTED & DOM-BASED
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & SAME-ORIGIN POLICY (SOP) BYPASS
+--------------------------------------------------------------------------------
+Cross-Site Scripting (XSS) occurs when an application includes untrusted user data in web pages 
+without proper context-aware encoding or sanitization, causing the victim's browser to execute 
+the attacker's client-side JavaScript within the trusted origin context:
+
+  * THE 3 CORE XSS CLASSIFICATIONS :
+    1. STORED XSS (Type II / Persistent) : Payload permanently stored in database (comments, forums).
+    2. REFLECTED XSS (Type I / Non-Persist): Payload reflected immediately in HTTP response (search/error).
+    3. DOM-BASED XSS (Type 0 / Client-Side): Executes entirely in client JS (`location.hash` ➔ `innerHTML`).
+
+--------------------------------------------------------------------------------
+2. CONTEXT-AWARE OUTPUT ENCODING MATRIX
+--------------------------------------------------------------------------------
+
++----------------------+--------------------+--------------------------------+----------------------------+
+| INJECTION CONTEXT    | EXAMPLE SINK       | VULNERABILITY MECHANISM        | SAFE ENCODING MECHANISM    |
++----------------------+--------------------+--------------------------------+----------------------------+
+| HTML Body            | `<div>USER</div>`  | Tag injection (`<script>`)     | HTML Entity (`&lt;`, `&gt;`)|
+| HTML Attribute       | `<input val="USER">| Breakout via quotes (`" on...`)| Attribute Entity (`&quot;`)|
+| JavaScript Block     | `<script>var x=USER| Code execution via quotes (`;`)| Unicode Hex (`\u0027`)     |
+| URL / Href Attribute | `<a href="USER">`  | Pseudo-protocol (`javascript:`)| Whitelist (`https://` only)|
++----------------------+--------------------+--------------------------------+----------------------------+
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURE & HEADERS
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | XSS VECTOR NEUTRALIZED      |
++-------------------+---------+-----------------------------+-----------------------------+
+| Strict Nonce CSP  | Browser | `Content-Security-Policy:   | Completely blocks all       |
+| (Per-Request Nonce| Engine  | script-src 'nonce-...';`    | unauthorized inline scripts.|
+|                   |         |                             |                             |
+| DOMPurify Client  | DOM     | `DOMPurify.sanitize(html)`  | Strips `<script>` and       |
+| Sanitization      | Parser  | before innerHTML rendering. | `onerror` handlers safely.  |
+|                   |         |                             |                             |
+| Secure Session    | Cookie  | `Set-Cookie: session=xyz;   | Prevents `document.cookie`  |
+| Cookie Flags      | Storage | HttpOnly; Secure; SameSite` | session token theft.        |
+|                   |         |                             |                             |
+| Context-Aware     | Backend | Maps characters to entity   | Fixes parser FSM state      |
+| Output Encoding   | Templt  | representations per context.| invariance ($P=0.00\%$).    |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66C   : Identity theft & session token misuse (Up to 3 Years Prison + ₹1 Lakh Fine).
+    - Section 66D   : Cheating by personation using computer resource (Up to 3 Years Prison + Fine).
+    - Section 70    : XSS attacks against PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized computer access/damage.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Financial Redirection via XSS (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Portal Defacement (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - User account hijacking and XSS breaches must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] XSS executes JavaScript in the victim's browser, completely bypassing Same-Origin Policy (SOP).
+  [✔] Stored XSS is permanent in the database, Reflected bounces off the server, DOM executes in JS.
+  [✔] `HttpOnly` stops JavaScript cookie theft, but doesn't prevent background authenticated API calls.
+  [✔] Strict Nonce-Based Content Security Policy (CSP) blocks all scripts lacking the random nonce.
+  [✔] DOMPurify sanitizes rich HTML markup before rendering inside React/Vue SPAs.
+  [✔] Section 66C of the IT Act penalizes session token theft and identity misuse with up to 3 years prison.
+================================================================================

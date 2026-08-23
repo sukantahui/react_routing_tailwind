@@ -1,0 +1,87 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_001 : PASSIVE VS ACTIVE CYBER ATTACKS
+TOPIC 09       : DETECTION & PREVENTION TECHNIQUES FOR PASSIVE ATTACKS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE ASYMMETRIC PASSIVE DEFENSE
+--------------------------------------------------------------------------------
+Because passive cyber attacks (packet sniffing, fiber macrobending taps, electromagnetic 
+eavesdropping) generate ZERO logs, modify ZERO bits, and produce ZERO state transitions (ΔS = ∅), 
+traditional detection-first models fail completely:
+
+  * THE ASYMMETRIC DEFENSIVE MODEL :
+    1. SPECIALIZED INSTRUMENTATION :
+       - Deploy physical/side-channel detection tools (C-OTDR 1625nm, Canary Honeytokens, 
+         Fake Unicast MAC testing).
+    2. 100% PROACTIVE PREVENTION :
+       - Mandate end-to-end cryptography, line-rate MACsec, and Constant-Bitrate (CBR) 
+         traffic padding so intercepted ciphertext is mathematically unreadable.
+
+--------------------------------------------------------------------------------
+2. SPECIALIZED DETECTION & DECEPTION TECHNIQUES
+--------------------------------------------------------------------------------
+
+A. CONTINUOUS OPTICAL TIME-DOMAIN REFLECTOMETRY (C-OTDR) :
+   - Injects an out-of-band supervisory wavelength (1625 nm) alongside live 1310/1550 nm traffic.
+   - Measures Rayleigh backscatter drops as small as 0.05 dB, locating physical macrobending 
+     taps to within ±0.5 meters in real time!
+
+B. REMOTE PROMISCUOUS MODE DETECTION TESTS :
+   - Fake Unicast MAC Probe: Transmits frames with valid IP but bogus MAC (`00:00:00:00:00:01`).
+   - Normal NICs drop in hardware; promiscuous NICs accept and reply, exposing their presence!
+   - Latency Flood Test: Broadcast floods bog down promiscuous kernels, creating measurable RTT spikes.
+
+C. CANARY HONEYTOKEN DECEPTION :
+   - Deliberately plants fake credentials (`DB_PASS=canary_user_kolkata`) inside simulated feeds.
+   - Using the stolen token on any login portal alerts the SOC and reveals the sniffer's IP.
+
+================================================================================
+3. ADVANCED PROACTIVE PREVENTION TECHNIQUES
+================================================================================
+
++-----------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE MECHANISM     | LAYER   | PROTECTIVE ACTION           | ATTACK NEUTRALIZED          |
++-----------------------+---------+-----------------------------+-----------------------------+
+| IEEE 802.1AE MACsec   | Layer 2 | Hardware line-rate AES-256  | Inter-switch wiretaps &     |
+| Line-Rate Encryption  | (Data)  | encryption on switch trunks.| physical tap probes.        |
+|                       |         |                             |                             |
+| Constant-Bitrate      | Layer 3 | Injects continuous dummy    | Traffic Flow Analysis &     |
+| (CBR) Traffic Padding | (IPsec) | packets to enforce flatline.| transmission surge leaks.   |
+|                       |         |                             |                             |
+| Encrypted Client      | Layer 7 | Encrypts SNI and TLS        | ISP browsing snooping &     |
+| Hello (ECH / RFC 9460)| (TLS)   | ClientHello in DNS envelope.| domain fingerprinting.      |
+|                       |         |                             |                             |
+| Post-Quantum ML-KEM   | Crypto  | Replaces RSA/ECC with module| "Harvest Now, Decrypt Later"|
+| Lattice Key Exchange  | Layer   | lattice mathematics (Kyber).| future quantum decryption.  |
+|                       |         |                             |                             |
+| Private VLAN (PVLAN)  | Layer 2 | Isolates switch ports within| Peer-to-peer promiscuous    |
+| Port Isolation        | (Switch)| the same broadcast subnet.  | packet sniffing.            |
+|                       |         |                             |                             |
+| TEMPEST Shielding     | Physical| Faraday cages & ferrite     | Acoustic and RF emanations  |
+| (NATO SDIP-27)        | Zone 0  | chokes on all cabling.      | across air-gapped systems.  |
++-----------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5)  : Mandates reasonable technical security safeguards (E2EE/MACsec) on all citizen data.
+    - Section 33    : Penalties up to ₹250 CRORES for unencrypted data breaches caused by passive sniffing.
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 43(a) : Civil liability up to ₹1 CRORE for unauthorized packet capture and data extraction.
+    - Section 66    : Criminal hacking penalties (Up to 3 Years Prison + ₹5 Lakh Fine).
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Passive attacks are state-invariant (ΔS = ∅); proactive prevention is mandatory.
+  [✔] C-OTDR (1625 nm) detects optical fiber taps with 0.05 dB sensitivity during live traffic.
+  [✔] IEEE 802.1AE MACsec provides hardware AES-256-GCM line-rate encryption on switch links.
+  [✔] Constant-Bitrate (CBR) padding injects continuous dummy noise to eliminate traffic surges.
+  [✔] Encrypted Client Hello (ECH) closes the Server Name Indication (SNI) metadata leak.
+  [✔] Post-Quantum Cryptography (ML-KEM) neutralizes "Harvest Now, Decrypt Later" quantum threats.
+================================================================================

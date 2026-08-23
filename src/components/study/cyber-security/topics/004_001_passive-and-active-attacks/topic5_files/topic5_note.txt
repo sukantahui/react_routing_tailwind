@@ -1,0 +1,100 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_001 : PASSIVE VS ACTIVE CYBER ATTACKS
+TOPIC 05       : ACTIVE ATTACKS: MASQUERADE & IDENTITY SPOOFING
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & IDENTITY MASQUERADE THEORY
+--------------------------------------------------------------------------------
+A Masquerade (or Identity Spoofing) Attack occurs when an unauthorized entity pretentiously 
+assumes the digital identity of a legitimate authorized user, device, or service to gain 
+unauthorized privileges, trust, or access. This violates the AUTHENTICITY and INTEGRITY pillars:
+
+  * THE ESSENCE OF MASQUERADE :
+    - Unlike passive eavesdropping which silently listens, masquerade actively manufactures 
+      false digital credentials:
+        Forged Identity : I_fake ➔ Claims to be I_legitimate (Admin, Gateway, Bank Domain)
+        Target Response : System grants root access, redirects money, or accepts malicious routes.
+
+  * THE ROOT CAUSE :
+    - Legacy protocols (IPv4, SMTP, DNS, ARP, HTTP, BGP) were designed without built-in 
+      cryptographic source authentication, blindly trusting header values.
+
+--------------------------------------------------------------------------------
+2. MASQUERADE THREAT VECTORS & PRODUCTION DEFENSIVE MATRIX
+--------------------------------------------------------------------------------
+
++------------------------+---------+----------------------------+-----------------------------+
+| SPOOFING VECTOR        | LAYER   | EXPLOITATION MECHANISM     | PRODUCTION DEFENSIVE SHIELD |
++------------------------+---------+----------------------------+-----------------------------+
+| IP Address Spoofing    | Layer 3 | Forges source IPv4 address | BCP 38 / uRPF Ingress       |
+|                        | (IP)    | in raw packet headers.     | Filtering on Edge Routers.  |
+|                        |         |                            |                             |
+| ARP / MAC Address      | Layer 2 | Floods gratuitous ARP      | Dynamic ARP Inspection      |
+| Poisoning              | (Data)  | replies associating IP/MAC.| (DAI) + 802.1X Port Auth.   |
+|                        |         |                            |                             |
+| DNS Cache Poisoning    | Layer 7 | Floods forged DNS replies  | DNSSEC Cryptographic Chain  |
+| (Kaminsky Attack)      | (DNS)   | guessing 16-bit TxIDs.     | of Trust (RRSIG/DNSKEY/DS). |
+|                        |         |                            |                             |
+| Email / Phishing       | Layer 7 | Forges SMTP `From:` header | DMARC (p=reject) + DKIM     |
+| Masquerade             | (Mail)  | to impersonate bank domain.| (RSA-2048) + SPF Validation.|
+|                        |         |                            |                             |
+| BGP Prefix Hijacking   | Layer 3 | Advertises forged more-    | RPKI Route Origin           |
+| (AS-Path Spoofing)     | (BGP)   | specific IP prefixes (/24).| Authorization (ROA) Checks. |
+|                        |         |                            |                             |
+| API Credential Replay  | Layer 7 | Steals bearer JWT tokens   | OAuth 2.0 DPoP (RFC 9449)   |
+| (Token Hijacking)      | (HTTP)  | to impersonate users.      | + Mutual TLS (mTLS X.509).  |
+|                        |         |                            |                             |
+| Rogue DHCP Server      | Layer 2 | Starves real DHCP and acts | DHCP Snooping on Enterprise |
+| Masquerading           | (LAN)   | as fake default gateway.   | Switches (Trust Port Only). |
+|                        |         |                            |                             |
+| Phishing / Credential  | User    | Clones login portal UI to  | FIDO2 / WebAuthn Hardware   |
+| Harvesting             | Layer   | steal passwords and OTPs.  | Keys (Origin-Bound Tokens). |
++------------------------+---------+----------------------------+-----------------------------+
+
+================================================================================
+3. CRYPTOGRAPHIC & PROTOCOL AUTHENTICATION PILLARS
+================================================================================
+
+1. EMAIL AUTHENTICATION TRIO (SPF, DKIM, DMARC) :
+   - SPF (Sender Policy Framework): Published in DNS TXT; lists authorized sending IPs.
+   - DKIM (DomainKeys Identified Mail): Cryptographic digital signature over email body.
+   - DMARC: Enforces strict alignment policy (`p=reject` drops unauthenticated emails).
+
+2. DNSSEC (DOMAIN NAME SYSTEM SECURITY EXTENSIONS) :
+   - Cryptographically signs DNS Resource Record Sets (RRsets) with Zone Signing Keys (ZSK).
+   - Validates parent-child delegation through Delegation Signer (DS) hashes up to ICANN Root.
+
+3. UNICAST REVERSE PATH FORWARDING (uRPF / BCP 38) :
+   - Strict Mode: Drops packets if source IP is not reachable via the incoming interface FIB table.
+   - Completely eliminates forged source IP packets at ISP and enterprise borders.
+
+4. FIDO2 / WEBAUTHN PASSKEY AUTHENTICATION :
+   - Origin-Bound Cryptography: Challenge signed with hardware private key bound to browser domain.
+   - Phishing sites (`fake-bank.in`) cannot harvest or reuse WebAuthn credentials!
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66C   : Identity theft & password spoofing (Up to 3 Years Prison + ₹1 Lakh Fine).
+    - Section 66D   : Cheating by Personation using Computer Resource (Up to 3 Years Prison + ₹1 Lakh Fine).
+    - Section 43    : Civil liability up to ₹1 CRORE for unauthorized access via spoofed identity.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5)  : Mandates reasonable technical security safeguards (MFA/Anti-Spoofing).
+    - Section 33    : Penalties up to ₹250 CRORES for systemic data breaches caused by identity masquerade.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Masquerade actively forges digital identities to gain unauthorized trust and access.
+  [✔] IP Spoofing is blocked at network borders using BCP 38 / uRPF Ingress Filtering.
+  [✔] DMARC (`p=reject`) combined with SPF and DKIM eliminates email sender spoofing.
+  [✔] DNSSEC uses hierarchical cryptographic signatures (RRSIG) to stop cache poisoning.
+  [✔] Dynamic ARP Inspection (DAI) + DHCP Snooping stops ARP cache poisoning on switches.
+  [✔] FIDO2/WebAuthn eliminates phishing masquerades via domain origin binding.
+  [✔] IT Act Section 66D specifically punishes Cheating by Personation with 3 years prison.
+================================================================================

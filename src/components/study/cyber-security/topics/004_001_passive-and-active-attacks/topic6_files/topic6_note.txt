@@ -1,0 +1,102 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_001 : PASSIVE VS ACTIVE CYBER ATTACKS
+TOPIC 06       : ACTIVE ATTACKS: REPLAY ATTACKS & TIMESTAMP PROTECTION
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & REPLAY ATTACK PARADOX
+--------------------------------------------------------------------------------
+An Active Replay Attack involves the passive interception and recording of a valid data 
+transmission, followed by its active, delayed re-transmission to the destination server. 
+The receiving server accepts and executes the valid ciphertext a second time:
+
+  * THE ENCRYPTION BLINDSPOT :
+    - Encryption (AES-256 / TLS 1.3) protects confidentiality, but DOES NOT prevent replay!
+    - An attacker does NOT need to decrypt or alter the message:
+        Original Request : Encrypt("Transfer ₹50,000 to Debangshu") ➔ Executed cleanly
+        Replayed Request : Encrypt("Transfer ₹50,000 to Debangshu") ➔ Executed a SECOND time!
+
+  * THE ESSENCE OF DEFENSE :
+    - Defense requires proving MESSAGE FRESHNESS: guaranteeing that a message was generated 
+      specifically for this exact transaction and has never been seen before.
+
+--------------------------------------------------------------------------------
+2. THE FOUR PILLARS OF ANTI-REPLAY PROTECTION
+--------------------------------------------------------------------------------
+
+A. CRYPTOGRAPHIC NONCES (NUMBERS USED ONCE) :
+   - A high-entropy 128-bit random number generated anew for each transaction:
+       Challenge R ∈_R {0, 1}^128  ===>  Response = HMAC_K( R || Payload )
+   - The server verifies R and immediately stores it in a fast Redis TTL cache (300s). 
+     Any duplicate nonce is discarded immediately!
+
+B. MICROSECOND TIMESTAMPS & SLIDING ACCEPTANCE WINDOWS :
+   - Messages carry the sender's current UTC timestamp. The receiver verifies:
+       | t_receive - t_message | ≤ Δt_skew   (e.g. Δt = 300 seconds / 5 minutes)
+   - Eliminates the need to store nonces indefinitely; nonces are only cached within Δt.
+   - Requires synchronized clocks via CERT-In mandated NPL India NTP (samay1.nic.in).
+
+C. IPSEC SLIDING WINDOW ANTI-REPLAY ALGORITHM (RFC 4303) :
+   - Uses a 64-bit or 128-bit sliding bitmap over monotonically increasing Sequence Numbers:
+       1. If Seq > Seq_max : Window slides right, Seq_max = Seq, bitmap |= 1.
+       2. If Seq ≤ Seq_max - 64 : Packet dropped (Too old).
+       3. If inside window : Checks bitmap bit (if 1 -> DROP DUPLICATE; if 0 -> ACCEPT).
+
+D. HTTP IDEMPOTENCY KEYS (RFC 9440) & JWT `jti` CLAIMS :
+   - REST API clients include `Idempotency-Key: UUIDv4` header.
+   - Payment gateways return cached receipts for duplicate requests without re-charging.
+
+================================================================================
+3. REPLAY THREAT VECTORS & PRODUCTION DEFENSIVE MATRIX
+================================================================================
+
++-----------------------+---------+-----------------------------+-----------------------------+
+| THREAT VECTOR         | OSI LVL | EXPLOITATION MECHANISM      | PRODUCTION DEFENSIVE SHIELD |
++-----------------------+---------+-----------------------------+-----------------------------+
+| Financial Payment     | Layer 7 | Captures encrypted payment  | Redis TTL Nonce Caching     |
+| Replay (UPI / REST)   | (HTTP)  | API call & replays 10 times.| + HTTP Idempotency Keys.    |
+|                       |         |                             |                             |
+| Automotive Rolljam    | Phys /  | Jams car receiver while     | Multi-Stage Rolling Code    |
+| Keyfob Replay         | RF      | recording valid unused code.| with Hardware Ephemeral Key.|
+|                       |         |                             |                             |
+| Kerberos Ticket       | Layer 7 | Steals Service Ticket &     | Kerberos Authenticator with |
+| Replay (Active Dir)   | (Auth)  | replays to application.     | 5-min Timestamp Cache.      |
+|                       |         |                             |                             |
+| SCADA Breaker Trip    | Layer 7 | Replays recorded cleartext  | DNP3 Secure Authentication  |
+| Command Replay        | (OT)    | Modbus/DNP3 trip commands.  | (SAv5) Sequence Nonces.     |
+|                       |         |                             |                             |
+| TLS 1.3 0-RTT Early   | Layer 4 | Replays initial 0-RTT       | Disallow 0-RTT for POST;    |
+| Data Replay           | Layer 7 | ClientHello flight data.    | Single-use PSK tickets.     |
+|                       |         |                             |                             |
+| BLE Smart Lock        | Layer 2 | Replays static BLE write    | AES-128-CCM with Ephemeral  |
+| Unlock Replay         | (BLE)   | unlock byte sequences.      | Challenge-Response Nonces.  |
++-----------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * CERT-In MANDATORY TIME SYNCHRONIZATION DIRECTIVE (APRIL 2022) :
+    - All Indian enterprises must synchronize ICT system clocks with Indian Standard Time (IST) 
+      via National Physical Laboratory (NPL) or NIC NTP servers (samay1.nic.in / samay2.nic.in).
+    - Prevents clock drift vulnerabilities in timestamp-based anti-replay engines.
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66    : Criminal hacking & unauthorized packet replay (Up to 3 Years Prison + ₹5 Lakh Fine).
+    - Section 43(g) : Civil damages up to ₹1 CRORE for causing denial of access via packet replay.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5)  : Mandates reasonable technical security safeguards to prevent duplicate reprocessing.
+    - Section 33    : Statutory penalties up to ₹250 CRORES for systemic replay breach vulnerabilities.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Replay attacks succeed against encrypted streams because attackers need not decrypt them.
+  [✔] Cryptographic Nonces (128-bit) guarantee single-use freshness for every message.
+  [✔] Timestamps combined with sliding windows (Δt = 300s) eliminate permanent nonce storage.
+  [✔] IPsec uses a 64/128-packet sliding bitmap to drop duplicate sequence numbers at wire speed.
+  [✔] HTTP Idempotency Keys (RFC 9440) prevent duplicate financial debit replays in REST APIs.
+  [✔] CERT-In mandates microsecond NTP synchronization with NPL India for legal log validity.
+================================================================================

@@ -1,0 +1,74 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 10       : INPUT VALIDATION, SANITIZATION & OUTPUT ENCODING
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE DEFENSE TRIAD
+--------------------------------------------------------------------------------
+The Defense Triad provides end-to-end data lifecycle protection across application perimeters, 
+database storage, and browser rendering contexts:
+
+  * THE 3 CORE PILLARS :
+    1. INPUT VALIDATION  : Syntactic & semantic gating (Accept/Reject) based on strict allowlists.
+    2. SANITIZATION      : Data normalization and transformation (stripping illegal characters/tags).
+    3. OUTPUT ENCODING   : Translating characters into context-safe entity representations (HTML, JS, URL).
+
+--------------------------------------------------------------------------------
+2. THE TLFR VALIDATION FRAMEWORK & UNICODE CANONICALIZATION
+--------------------------------------------------------------------------------
+
++----------------------+--------------------+--------------------------------+----------------------------+
+| VALIDATION PILLAR    | FOCUS METRIC       | IMPLEMENTATION PATTERN         | EXAMPLE SPECIFICATION      |
++----------------------+--------------------+--------------------------------+----------------------------+
+| 1. Type (T)          | Data Primitive     | Schema type enforcement        | String, Integer, UUID, DTO |
+| 2. Length (L)        | Boundary Bounds    | Min / Max character limits     | Length: 15 (GSTIN), 10(PAN)|
+| 3. Format (F)        | Regex Grammar      | Whitelist pattern matching     | `/^[0-9]{2}[A-Z]{5}...$/`  |
+| 4. Range (R)         | Numerical Bounds   | Range boundaries               | Age: 18..100, Amount > 0.0 |
+| Canonicalization     | Unicode Norm       | NFKC Compatibility Composition | `input.normalize('NFKC')`  |
++----------------------+--------------------+--------------------------------+----------------------------+
+
+================================================================================
+3. CONTEXT-AWARE OUTPUT ENCODING MATRIX
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| PARSER DESTINATION| SINK    | ENCODING MECHANISM          | RESULTING SAFE OUTPUT       |
++-------------------+---------+-----------------------------+-----------------------------+
+| HTML Body Text    | `<div>` | HTML Entity Encoding        | `<script>` ➔ `&lt;script&gt;`|
+| HTML Attribute    | `value=`| Attribute Hex Entity        | `"` ➔ `&quot;` / `&#x22;`   |
+| JavaScript Block  | `<scr>` | Unicode Hex Escape Sequence | `'` ➔ `\u0027`, `;` ➔ `\u003B`|
+| Hyperlink Target  | `href=` | URL Scheme Whitelisting     | Enforce `https://` or `/`   |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Input bypasses compromising Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized computer access/damage.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Financial Siphoning via Input Manipulation (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Record Corruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Security breaches resulting from input validation bypasses must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Validation gates data at entry; Sanitization cleans data; Encoding protects data at exit.
+  [✔] Allowlists (positive validation) are vastly superior to easily bypassed blocklists.
+  [✔] Unicode normalization (`NFKC`) must always occur BEFORE applying validation regexes.
+  [✔] Client-side validation is purely for user experience; server-side validation is mandatory for security.
+  [✔] HTML Entity encoding protects HTML text, but JavaScript contexts require Unicode hex (`\u0027`).
+  [✔] Section 66F of the IT Act penalizes input injection attacks on critical systems with Life Imprisonment.
+================================================================================

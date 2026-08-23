@@ -1,0 +1,80 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 12       : SECURITY AWARENESS TRAINING AND SIMULATED PHISHING CAMPAIGNS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & HUMAN RISK MANAGEMENT (HRM)
+--------------------------------------------------------------------------------
+Security Awareness Training transforms the workforce from the weakest security link into an active 
+Human Firewall through continuous simulated testing, micro-learning, and rapid reporting:
+
+  * THE 4 CORE PILLARS OF HUMAN RISK RESILIENCE :
+    1. BASELINE ASSESSMENT: Measuring Phish-Prone Percentage (PPP = Clicks / Sent * 100).
+    2. JUST-IN-TIME (JIT) : Instant 500ms interactive micro-coaching delivered on simulated clicks.
+    3. RAPID REPORTING    : One-click "Report Phishing" inbox button triggering auto-SOAR mailbox purge.
+    4. MICRO-LEARNING     : Monthly 2-minute scenario modules achieving 84% long-term knowledge retention.
+
+--------------------------------------------------------------------------------
+2. ADVANCED SIMULATION TESTING & SAFE HARBOR GOVERNANCE
+--------------------------------------------------------------------------------
+
+A. MULTI-CHANNEL SIMULATION TESTING :
+   - Testing workforce resilience across Email Spear Phishing, Quishing (QR Codes), Smishing, and USB drops.
+
+B. ETHICAL SAFE HARBOR GUIDELINES :
+   - Prohibits cruel/traumatic simulation pretexts (layoffs, pay cuts) to maintain organizational trust.
+
+C. CLICK-TO-REPORT RATIO (C2R) :
+   - Measuring active defense; top enterprises achieve C2R > 10:1 (10 reports for every 1 click).
+
+================================================================================
+3. ENTERPRISE DEFENSIVE CURRICULUMS & CULTURE TRANSFORMATION
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| PROGRAM COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | HUMAN RISK VULNERABILITY    |
++-------------------+---------+-----------------------------+-----------------------------+
+| Monthly Micro-    | Long-   | 90-120 second interactive   | Defeats the Ebbinghaus      |
+| Learning Modules  | Term    | threat scenario challenges. | forgetting curve (84% ret). |
+|                   |         |                             |                             |
+| Just-in-Time (JIT)| Incident| Instant landing page        | Replaces toxic shaming with |
+| Teachable Moments | Coaching| highlighting missed flags.  | constructive feedback.      |
+|                   |         |                             |                             |
+| One-Click Report  | Rapid   | Outlook/Gmail add-in button | Allows SOC to auto-purge    |
+| Phishing Button   | Response| sending raw headers to SOC. | phishing in < 3 minutes.    |
+|                   |         |                             |                             |
+| Security Champions| Peer    | Department advocates in     | Provides peer guidance for  |
+| Network           | Culture | Finance, HR, and Operations.| wire transfers and badges.  |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 43A   : Mandatory Reasonable Security Practices (Workforce Training Compensation).
+    - Section 66D   : Cheating by Personation via deceptive lures (Up to 3 Years Prison + Fine).
+    - Section 66    : Criminal hacking & fraudulent deception using computer systems.
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Dishonestly Inducing Delivery of Property (Up to 7 Years Prison).
+    - Section 419   : Cheating by Personation for Vishing phone scams (Up to 3 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Fast employee reporting enables compliance with the mandatory 6-HOUR incident SLA.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory organizational workforce training; failure triggers ₹250 CRORE fines.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Phish-Prone Percentage (PPP) measures the failure rate on simulated phishing campaigns.
+  [✔] Just-in-Time (JIT) coaching provides instant educational feedback the moment a link is clicked.
+  [✔] Punitive measures cause employees to hide real security mistakes; supportive coaching is vital.
+  [✔] One-click phishing reporting buttons allow automated SOAR cross-mailbox purging in < 3 minutes.
+  [✔] Monthly 2-minute micro-learning yields 84% long-term retention vs 12% for annual lectures.
+  [✔] Section 43A of the IT Act mandates reasonable security practices including workforce training.
+================================================================================

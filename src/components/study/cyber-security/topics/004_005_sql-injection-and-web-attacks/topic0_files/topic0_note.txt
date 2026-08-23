@@ -1,0 +1,99 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 00       : WEB APPLICATION SECURITY OVERVIEW & OWASP TOP 10
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & WEB ARCHITECTURE ATTACK SURFACE
+--------------------------------------------------------------------------------
+Web applications process critical personal, financial, and governmental data across a 4-tier stack:
+  * CLIENT TIER      : Browser DOM, Single Page Apps, Cookies, LocalStorage, Web Tokens.
+  * TRANSPORT TIER   : TLS 1.3, HSTS (Strict-Transport-Security), Certificate Pinning.
+  * APPLICATION TIER : Web APIs, Reverse Proxies, Microservices, Node.js/Java/Python runtimes.
+  * DATA TIER        : Relational RDBMS (PostgreSQL/MySQL), NoSQL (MongoDB), In-memory Caches (Redis).
+
+--------------------------------------------------------------------------------
+2. THE OWASP TOP 10 (2021 STANDARD) TAXONOMY
+--------------------------------------------------------------------------------
+
++--------------------+-------------------------------+-----------------------------------------+
+| OWASP CATEGORY     | RISK NAME                     | CORE VULNERABILITY MECHANISM            |
++--------------------+-------------------------------+-----------------------------------------+
+| A01:2021           | Broken Access Control         | IDOR, horizontal & vertical privilege   |
+|                    | (Rank #1 Most Widespread)     | escalation; missing authorization checks|
+|                    |                               |                                         |
+| A02:2021           | Cryptographic Failures        | Storing plaintext passwords, weak MD5   |
+|                    | (Sensitive Data Exposure)     | hashing, unencrypted HTTP transmission. |
+|                    |                               |                                         |
+| A03:2021           | Injection                     | SQLi, NoSQLi, OS Command Injection,     |
+|                    |                               | and Server-Side Template Injection (SSTI|
+|                    |                               |                                         |
+| A04:2021           | Insecure Design               | Missing architectural threat modeling   |
+|                    |                               | and flawed business logic validation.   |
+|                    |                               |                                         |
+| A05:2021           | Security Misconfiguration     | Default credentials, verbose error stack|
+|                    |                               | traces, open cloud S3 storage buckets.  |
+|                    |                               |                                         |
+| A06:2021           | Vulnerable Components         | Third-party supply chain risks and      |
+|                    |                               | unpatched npm/PyPI dependencies (CVEs). |
+|                    |                               |                                         |
+| A07:2021           | Identification/Authentication | Credential stuffing, missing MFA, and   |
+|                    | Failures                      | insecure session cookie management.     |
+|                    |                               |                                         |
+| A08:2021           | Software/Data Integrity       | Insecure deserialization (Python pickle,|
+|                    | Failures                      | Java ObjectInputStream) and CI/CD flaws.|
+|                    |                               |                                         |
+| A09:2021           | Logging & Monitoring Failures | Missing security audit logs, allowing   |
+|                    |                               | attacker dwell times over 200 days!     |
+|                    |                               |                                         |
+| A10:2021           | Server-Side Request Forgery   | Coercing servers to query internal cloud|
+|                    | (SSRF)                        | metadata APIs (169.254.169.254) for keys|
++--------------------+-------------------------------+-----------------------------------------+
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURES & HARDENING HEADERS
+================================================================================
+
+  * CLIENT & BROWSER SECURITY HEADERS :
+    - Content-Security-Policy    : default-src 'self'; script-src 'self' 'nonce-...'; (Stops XSS)
+    - Strict-Transport-Security  : max-age=63072000; includeSubDomains; preload (Stops SSL Stripping)
+    - X-Frame-Options            : DENY (Completely eliminates Clickjacking UI Redressing)
+    - Set-Cookie Flags           : HttpOnly; Secure; SameSite=Strict (Protects Session Tokens)
+
+  * APPLICATION & DEVSECOPS CONTROLS :
+    - Parameterized Queries      : Prepared statements completely separate SQL code from user data!
+    - Attribute-Based Access     : ABAC / RBAC checks on every single API endpoint (Prevents IDOR).
+    - Supply Chain Auditing      : Automated `npm audit` and Snyk checks in CI/CD pipelines.
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized data access/extraction.
+    - Section 66    : Criminal hacking & data theft (Up to 3 Years Prison + ₹5 Lakh Fine).
+    - Section 66C   : Identity theft & credential misuse (Up to 3 Years Prison + ₹1 Lakh Fine).
+    - Section 66D   : Cheating by personation using computer resource (Up to 3 Years Prison).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 Years Imprisonment).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Web Application Fraud (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Defacement (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Web application breaches and data leaks must be reported to CERT-In within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Broken Access Control (A01) is the #1 risk, causing IDOR and unauthorized data exfiltration.
+  [✔] Parameterized queries (prepared statements) completely neutralize SQL Injection (A03).
+  [✔] Content Security Policy (CSP) headers instruct browsers to block unauthorized JavaScript execution.
+  [✔] SSRF (A10) coerces servers to query internal cloud metadata APIs (`169.254.169.254`) to steal IAM keys.
+  [✔] Session cookies must always specify `HttpOnly`, `Secure`, and `SameSite=Strict` flags.
+  [✔] Section 43(a) of the IT Act provides civil damages up to ₹1 Crore for unauthorized access.
+================================================================================

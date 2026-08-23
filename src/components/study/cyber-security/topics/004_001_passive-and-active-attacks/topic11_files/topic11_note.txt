@@ -1,0 +1,96 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_001 : PASSIVE VS ACTIVE CYBER ATTACKS
+TOPIC 11       : ACTIVE VS PASSIVE ATTACK SCENARIO ANALYSIS (CAPSTONE SYNTHESIS)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE MASTER DICHOTOMY
+--------------------------------------------------------------------------------
+Cyber threats are classified into two foundational paradigms based on their interaction 
+with system state (S) and the CIA Triad:
+
+  * PASSIVE ATTACKS (SECRECY & RECONNAISSANCE) :
+    - Goal: Eavesdrop, capture data, analyze traffic patterns.
+    - System State: Invariant (ΔS = ∅). Zero bits modified, zero server memory altered.
+    - CIA Impact: Directly compromises CONFIDENTIALITY (Integrity and Availability intact).
+    - Detection: Near-impossible via standard IT logs (requires specialized C-OTDR / Honeytokens).
+    - Strategy: 100% Proactive Prevention (Assume wire tapped ➔ End-to-End Encryption / MACsec).
+
+  * ACTIVE ATTACKS (DISRUPTION, FRAUD & TAMPERING) :
+    - Goal: Alter messages, impersonate users, replay requests, intercept sessions, crash systems.
+    - System State: Altered (ΔS ≠ ∅). Bits flipped, permissions elevated, socket queues flooded.
+    - CIA Impact: Directly compromises INTEGRITY and/or AVAILABILITY.
+    - Detection: Highly detectable via SIEM event logs, hash mismatches, buffer overflows.
+    - Strategy: Zero Trust Feedback Loop (Detect ➔ Cryptographic Verification ➔ Automated SOAR).
+
+--------------------------------------------------------------------------------
+2. THE 10-POINT MASTER COMPARATIVE MATRIX
+--------------------------------------------------------------------------------
+
++----+-----------------------+-----------------------------+-----------------------------+
+| #  | EVALUATION DIMENSION  | PASSIVE CYBER ATTACKS       | ACTIVE CYBER ATTACKS        |
++----+-----------------------+-----------------------------+-----------------------------+
+| 1  | Primary Objective     | Eavesdropping & Recon       | Tampering, Fraud, Shutdown  |
+| 2  | CIA Triad Impact      | Confidentiality Breached    | Integrity & Avail Breached  |
+| 3  | System State (ΔS)     | Invariant (ΔS = ∅)          | Altered (ΔS ≠ ∅)            |
+| 4  | Detection Probability | Near-Zero on standard logs  | High (SIEM / IDS Telemetry) |
+| 5  | In-Line Requirement   | Out-of-band / Mirror Ports  | In-line Proxy / Routing req |
+| 6  | Attacker Traceability | Physically Untraceable      | Forensically Logged         |
+| 7  | Primary Vectors       | Sniffing, Traffic Analysis  | Tampering, Masquerade, DoS  |
+| 8  | Defensive Paradigm    | 100% Proactive Encryption   | Zero Trust Dynamic SOAR     |
+| 9  | Forensic Footprint    | Physical Layer OTDR / TDR   | SIEM Audit Logs & Hashes    |
+| 10 | Indian IT Act Penalty | Up to 3 Years (Sec 66)      | LIFE IMPRISONMENT (Sec 66F) |
++----+-----------------------+-----------------------------+-----------------------------+
+
+================================================================================
+3. MULTI-STAGE ATTACK LIFECYCLES (CYBER KILL CHAIN SCENARIOS)
+================================================================================
+
+  * SCENARIO 1 : FINTECH HEIST (KOLKATA SALT LAKE SECTOR V)
+    - Phase 1 (Passive) : Sniffs unsegmented internal VLAN ➔ Captures admin API session tokens.
+    - Phase 2 (Active)  : Masquerades as Finance Officer ➔ Alters wire transfer beneficiary to offshore.
+    - Impact            : ₹12 Crore fraudulent transfer ➔ Neutralized by Zero Trust mTLS & FIDO2.
+
+  * SCENARIO 2 : 220kV POWER TRANSMISSION GRID SABOTAGE (BARRACKPORE)
+    - Phase 1 (Passive) : Measures transformer acoustic hum (100 Hz) + SCADA polling intervals.
+    - Phase 2 (Active)  : Launches 10M Mpps TCP SYN flood (DoS) + Replays Modbus 0x05 breaker trips.
+    - Impact            : Power blackout attempted ➔ Neutralized by Hardware SYN Proxies & SOAR.
+
+  * SCENARIO 3 : ONCOLOGY CLINICAL BREACH (ICHAPUR)
+    - Phase 1 (Passive) : Sniffs unencrypted DICOM radiology feeds over rogue Wi-Fi Evil Twin.
+    - Phase 2 (Active)  : SSLstrip captures physician logins ➔ Alters chemo doses & deploys ransomware.
+    - Impact            : Patient risk ➔ Neutralized by AEAD GHASH verification & Private VLANs.
+
+  * SCENARIO 4 : QUANTUM-RESISTANT TELECOM DEFENSE (JADAVPUR UNIVERSITY)
+    - Phase 1 (Passive) : State-sponsored adversary archives encrypted research telemetry.
+    - Phase 2 (Active)  : Launches ReDoS algorithmic complexity attack + BGP prefix hijacking.
+    - Impact            : Telemetry theft attempted ➔ Neutralized by FIPS 203 ML-KEM-768 & RPKI.
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : CYBER TERRORISM — Active disruption of critical infrastructure (power grid, 
+                      banking core, nuclear facilities) carries LIFE IMPRISONMENT!
+    - Section 66D   : Cheating by Personation / Active Spoofing (Up to 3 Years Prison + ₹1 Lakh Fine).
+    - Section 66    : Criminal hacking & data damage (Up to 3 Years Prison + ₹5 Lakh Fine).
+    - Section 43    : Civil compensation up to ₹1 CRORE for unauthorized access/tampering.
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Mandatory reporting of all active cyber incidents within 6 HOURS of detection.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Passive attacks leave state invariant (ΔS = ∅) and violate Confidentiality.
+  [✔] Active attacks alter system state (ΔS ≠ ∅) and violate Integrity or Availability.
+  [✔] Passive defense requires 100% proactive encryption; Active defense requires Zero Trust SOAR.
+  [✔] Canary tokens turn silent passive sniffing into active, detectable authentication events.
+  [✔] Section 66F of the IT Act mandates LIFE IMPRISONMENT for Cyber Terrorism on critical infrastructure.
+  [✔] All active cyber incidents in India must be reported to CERT-In within 6 hours.
+================================================================================

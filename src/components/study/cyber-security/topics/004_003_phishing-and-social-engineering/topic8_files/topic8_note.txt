@@ -1,0 +1,81 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 08       : INSIDER THREATS: MALICIOUS INSIDERS VS NEGLIGENT EMPLOYEES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & INSIDER THREAT TAXONOMY
+--------------------------------------------------------------------------------
+Insider threats originate from individuals with legitimate credentials and authorized access, 
+classified into three primary archetypes:
+
+  * THE 3 PRIMARY INSIDER ARCHETYPES :
+    1. MALICIOUS INSIDERS   : Intentional data theft, intellectual property sabotage, or espionage.
+    2. NEGLIGENT EMPLOYEES  : Accidental data leaks, cloud misconfigurations, and shadow IT bypasses.
+    3. COMPROMISED INSIDERS : Legitimate accounts hijacked by external threat actors via infostealers.
+
+--------------------------------------------------------------------------------
+2. BEHAVIORAL PATHWAYS & TECHNICAL EXPLOIT MECHANICS
+--------------------------------------------------------------------------------
+
+A. THE CERT CRITICAL PATH TO INSIDER RISK :
+   - Personal Predispositions ➔ Workplace Stressor ➔ Concerning Behavior ➔ Technical Precursor ➔ Malicious Act.
+
+B. THE MICE MOTIVATION FRAMEWORK :
+   - Money (competitor bribes), Ideology (whistleblowing), Coercion (blackmail), Ego (entitlement).
+
+C. ADVANCED INSIDER EXPLOITS :
+   - Notice Period Data Hoarding (mass downloading code/client lists before resigning).
+   - Logic Bomb Sabotage (scripts detonating when the admin's account is deleted).
+   - Accidental Cloud Misconfigurations (publicly exposed S3 buckets and databases).
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURES & GOVERNANCE CONTROLS
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | INSIDER THREAT NEUTRALIZED  |
++-------------------+---------+-----------------------------+-----------------------------+
+| User Behavior     | AI      | Statistical anomaly engine  | Detects off-hours mass data |
+| Analytics (UEBA)  | Monitor | baselining peer activity.   | downloading and hoarding.   |
+|                   |         |                             |                             |
+| Just-in-Time PAM  | Identity| Time-limited admin access   | Eliminates permanent root   |
+| (JIT Access)      | Control | with multi-party signoff.   | standing privileges.        |
+|                   |         |                             |                             |
+| Two-Person Rule   | Ops     | Dual cryptographic approval | Prevents single-admin       |
+| (Four-Eyes)       | Control | required for schema drops.  | logic bombs and sabotage.   |
+|                   |         |                             |                             |
+| Automated SCIM    | HR-IT   | Webhooks revoking 100% of   | Eliminates orphaned accounts|
+| Offboarding       | Sync    | accounts within 30 seconds. | upon employee termination.  |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 72A   : Breach of Confidentiality under lawful contract (Up to 3 Years Prison + ₹5 Lakh Fine).
+    - Section 43(b) : Civil damages up to ₹1 CRORE for copying or extracting corporate data.
+    - Section 66    : Criminal hacking, sabotage, and logic bomb deployment (Up to 3 Years Prison).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 408   : Criminal Breach of Trust by Clerk or Servant (Up to 7 Years Prison + Fine).
+    - Section 420   : Cheating & Dishonestly Inducing Delivery of Property (Up to 7 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All insider data exfiltrations and unauthorized privileged access must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory employee data access governance; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Insider threats comprise Malicious, Negligent, and Compromised employee archetypes.
+  [✔] The CERT Critical Path tracks the progression from workplace stressors to technical violations.
+  [✔] UEBA uses machine learning to detect statistical deviations like mass off-hours data downloads.
+  [✔] The Two-Person Rule requires dual cryptographic approval for destructive administrative actions.
+  [✔] Automated SCIM offboarding revokes accounts and session tokens within 30 seconds of termination.
+  [✔] Section 72A of the IT Act penalizes Breach of Confidentiality with up to 3 years imprisonment.
+================================================================================

@@ -1,0 +1,78 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 10       : TECHNICAL COUNTERMEASURES: EMAIL AUTHENTICATION (SPF, DKIM, DMARC)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & EMAIL AUTHENTICATION ARCHITECTURE
+--------------------------------------------------------------------------------
+Email was designed without native sender verification. Technical email authentication establishes 
+cryptographic and policy identity verification across three core pillars:
+
+  * THE TRIPLE PILLARS OF EMAIL IDENTITY :
+    1. SPF (RFC 7208)  : Authorizes IP addresses permitted to send mail for a domain in DNS TXT records.
+    2. DKIM (RFC 6376) : Asymmetric cryptographic signatures (RSA-2048/Ed25519) ensuring message integrity.
+    3. DMARC (RFC 7489): Enforces domain alignment between Header From and SPF/DKIM; policies (`none`, `quarantine`, `reject`).
+
+--------------------------------------------------------------------------------
+2. ADVANCED PROTOCOLS & COMPLEMENTARY STANDARDS
+--------------------------------------------------------------------------------
+
+A. BIMI & VERIFIED MARK CERTIFICATES (VMC) :
+   - Displays verified corporate trademark logos in webmail inboxes for domains with DMARC `p=reject`.
+
+B. AUTHENTICATED RECEIVED CHAIN (ARC - RFC 8617) :
+   - Preserves authentication results across mailing lists and email forwarders that alter headers.
+
+C. MTA-STS (RFC 8461) & DANE TLSA :
+   - Enforces TLS encryption on SMTP transport, stopping man-in-the-middle STARTTLS stripping attacks.
+
+================================================================================
+3. ENTERPRISE EMAIL DEFENSE & POLICY PROGRESSION
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| PROTOCOL LAYER    | FOCUS   | IMPLEMENTATION MECHANISM    | SPOOFING THREAT NEUTRALIZED |
++-------------------+---------+-----------------------------+-----------------------------+
+| SPF (Sender Policy| Network | DNS TXT listing authorized  | Blocks unauthorized sending |
+| Framework)        | IP Auth | IP ranges with `-all` flag. | IPs from forging Return-Path|
+|                   |         |                             |                             |
+| DKIM (DomainKeys  | Crypto  | 2048-bit RSA / Ed25519      | Detects in-transit message  |
+| Identified Mail)  | Sign    | asymmetric header signatures| tampering and body changes. |
+|                   |         |                             |                             |
+| DMARC (Domain     | Policy  | Enforces Header Alignment;  | Drops 100% of exact-domain  |
+| Enforcement)      | Reject  | `p=reject; pct=100` mode.   | spoofed phishing emails.    |
+|                   |         |                             |                             |
+| ARC (Authenticated| Transit | Cryptographic seal of auth  | Prevents legitimate mailing |
+| Received Chain)   | Forward | results at each mail relay. | lists from breaking DMARC.  |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66D   : Cheating by Personation via email spoofing (Up to 3 Years Prison + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized access via spoofing.
+    - Section 66    : Criminal hacking & fraudulent deception (Up to 3 Years Prison + ₹5 Lakh Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Dishonestly Inducing Delivery of Property (Up to 7 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All domain spoofing outbreaks & mass phishing campaigns must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory email security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] SPF authorizes sending IP addresses; DKIM cryptographically signs email headers and body.
+  [✔] DMARC ties SPF and DKIM together, enforcing alignment with the visible `From:` header.
+  [✔] The 3 DMARC policies are `p=none` (monitor), `p=quarantine` (spam), and `p=reject` (block).
+  [✔] SPF evaluation must not exceed 10 DNS lookups; use SPF flattening to avoid `PermError`.
+  [✔] BIMI displays verified trademark logos next to emails for domains with DMARC `p=reject`.
+  [✔] Section 66D of the IT Act penalizes Cheating by Personation with up to 3 years imprisonment.
+================================================================================

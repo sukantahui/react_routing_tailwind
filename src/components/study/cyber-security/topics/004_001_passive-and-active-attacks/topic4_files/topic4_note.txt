@@ -1,0 +1,114 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_001 : PASSIVE VS ACTIVE CYBER ATTACKS
+TOPIC 04       : ACTIVE ATTACKS: MODIFICATION OF MESSAGES & DATA TAMPERING
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & ACTIVE DATA INTEGRITY THREATS
+--------------------------------------------------------------------------------
+An Active Message Modification Attack involves the unauthorized interception, alteration, 
+substitution, reordering, or injection of data in transit or at rest. This directly violates 
+the INTEGRITY and AUTHENTICITY pillars of the CIA Triad:
+
+  * THE CORRUPTION OF STATE :
+    - Unlike passive attacks (ΔS = ∅), active message tampering creates state corruption:
+        D' ≠ D  (Data payloads altered)
+        C' ≠ C  (System configurations manipulated)
+
+  * THE MALLEABILITY TRAP :
+    - Encryption alone does NOT protect integrity! In stream ciphers (AES-CTR) and CBC mode:
+        C' = C ⊕ Δ  ===>  P' = P ⊕ Δ
+      An attacker can predictably flip bits in ciphertext to alter plaintext values 
+      (e.g. changing ₹500 to ₹50,000) without triggering key decryption errors!
+
+--------------------------------------------------------------------------------
+2. CRYPTOGRAPHIC INTEGRITY & AUTHENTICATION MECHANISMS
+--------------------------------------------------------------------------------
+
+A. MESSAGE AUTHENTICATION CODES (HMAC-SHA256) :
+   - Uses a dual-nested hash construction to prevent length-extension attacks:
+       HMAC(K, m) = H( (K ⊕ opad) || H( (K ⊕ ipad) || m ) )
+   - Guarantees message integrity and proof of shared secret key ownership.
+
+B. AUTHENTICATED ENCRYPTION WITH ASSOCIATED DATA (AEAD - AES-256-GCM) :
+   - Computes GHASH polynomial field authentication over Galois Field GF(2^128):
+       Tag = GHASH_H( AAD, Ciphertext ) ⊕ AES_K(IV)
+   - Any single-bit modification causes tag verification to fail; decryption is instantly aborted.
+
+C. ASYMMETRIC DIGITAL SIGNATURES (Ed25519 / ECDSA) :
+   - Sender signs message hash with private key: S = Sign_Priv( H(m) ).
+   - Receiver verifies using public key: Verify_Pub( H(m), S ).
+   - Guarantees Data Integrity + Non-Repudiation (Sender cannot deny authoring message).
+
+================================================================================
+3. TAMPERING VECTORS & DEFENSIVE COUNTERMEASURES MATRIX
+================================================================================
+
++-----------------------+---------+-----------------------------+-----------------------------+
+| TAMPERING VECTOR      | OSI LVL | EXPLOITATION MECHANISM      | PRODUCTION DEFENSIVE SHIELD |
++-----------------------+---------+-----------------------------+-----------------------------+
+| In-Flight Packet      | Layer 4 | Intercepts TCP stream,      | Authenticated Encryption    |
+| Modification (Scapy)  | Layer 7 | rewrites payload bytes, and | (AES-256-GCM) & HMAC-SHA256.|
+|                       |         | recalculates checksums.     |                             |
+|                       |         |                             |                             |
+| Ciphertext Bit-       | Crypto  | XORs delta into ciphertext  | Mandatory AEAD Ciphers;     |
+| Flipping Attack       | Layer   | to predictably flip decoded | Deprecation of raw CBC/CTR. |
+|                       |         | plaintext bits.             |                             |
+|                       |         |                             |                             |
+| Padding Oracle Attack | Layer 6 | Modifies CBC padding bytes  | Encrypt-then-MAC (EtM) +    |
+| (POODLE / Vaudenay)   | Layer 7 | and observes server error   | Constant-Time verification. |
+|                       |         | responses to decrypt data.  |                             |
+|                       |         |                             |                             |
+| TCP Sequence Number   | Layer 4 | Injects forged packets,     | Cryptographic TLS 1.3       |
+| Desynchronization     |         | altering TCP stream order.  | Record Layer sequence tags. |
+|                       |         |                             |                             |
+| In-Flight SQL / JSON  | Layer 7 | Injects SQL meta-characters | Parameterized Prepared      |
+| Parameter Tampering   |         | into unparameterized inputs.| Statements + CSP Nonces.    |
+|                       |         |                             |                             |
+| Log & Record          | In-Rest | Modifies local system logs  | Merkle Root Trees + WORM    |
+| Tampering on Disk     | Storage | to erase forensic evidence. | Object Lock (AWS Compliance)|
++-----------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. DEFENSE-IN-DEPTH INTEGRITY ARCHITECTURE
+================================================================================
+
+  1. IN-TRANSIT INTEGRITY :
+     - Enforce TLS 1.3 AEAD (AES-256-GCM / ChaCha20-Poly1305) on all external links.
+     - Enforce IEEE 802.1AE MACsec line-rate encryption on all internal switch trunks.
+     - Implement HMAC-SHA256 request signing with microsecond timestamp nonces.
+
+  2. IN-REST INTEGRITY :
+     - Store audit logs in Write-Once-Read-Many (WORM) S3 Compliance buckets.
+     - Build cryptographic Merkle hash trees to guarantee tamper-evident ledgers.
+     - File Integrity Monitoring (FIM / Wazuh) on all system binaries and configs.
+
+  3. IN-MEMORY INTEGRITY :
+     - AMD SEV / Intel SGX hardware memory encryption to defeat RAM injection.
+
+================================================================================
+5. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 65    : Criminal penalties for Tampering with Computer Source Documents (Up to 3 Years Prison + ₹2 Lakh Fine).
+    - Section 66    : Criminal hacking & fraudulent data alteration (Up to 3 Years Prison + ₹5 Lakh Fine).
+    - Section 66C   : Identity theft & password tampering (Up to 3 Years Prison + ₹1 Lakh Fine).
+    - Section 43(a) : Civil damages up to ₹1 CRORE for unauthorized data alteration/damage.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(3)  : Mandates Data Fiduciaries ensure accuracy and completeness of personal data.
+    - Section 8(5)  : Mandates technical safeguards to prevent data modification and breaches.
+    - Section 33    : Penalties up to ₹250 CRORES for systemic integrity failures.
+
+================================================================================
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Active message modification violates the Integrity pillar of the CIA Triad (ΔS ≠ ∅).
+  [✔] Simple encryption does NOT protect integrity—stream ciphers and CBC are bit-flipping malleable!
+  [✔] AEAD (AES-GCM / ChaCha20-Poly1305) combines encryption and cryptographic integrity natively.
+  [✔] HMAC uses dual-nested hashing to prevent length-extension attacks (H((K ^ opad) || H((K ^ ipad) || m))).
+  [✔] Digital Signatures (Ed25519) provide Non-Repudiation in addition to data integrity.
+  [✔] IT Act Section 65 criminalizes intentional source code and configuration tampering with 3 years prison.
+================================================================================

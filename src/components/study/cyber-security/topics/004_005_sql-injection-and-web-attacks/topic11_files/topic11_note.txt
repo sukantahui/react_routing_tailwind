@@ -1,0 +1,87 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 11       : USING ORMS & STORED PROCEDURES SECURELY
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE ORM ESCAPE HATCH PROBLEM
+--------------------------------------------------------------------------------
+While Object-Relational Mappers (ORMs) automatically parameterize standard CRUD operations, 
+they become completely vulnerable to SQL Injection when developers invoke raw SQL escape hatches 
+using string concatenation:
+
+  * THE ORM RAW ESCAPE HATCH MATRIX :
+    1. PRISMA ORM         : `$queryRawUnsafe()` (VULNERABLE) vs `$queryRaw\`...\`` (TAGGED TEMPLATE - SAFE).
+    2. SEQUELIZE ORM      : `Sequelize.literal("..."+input)` (VULNERABLE) vs Standard `{ where }` (SAFE).
+    3. DJANGO ORM         : `RawSQL(f"...{input}")` (VULNERABLE) vs `RawSQL("... %s", (input,))` (SAFE).
+    4. ENTITY FRAMEWORK   : `FromSqlRaw("..."+input)` (VULNERABLE) vs `FromSqlInterpolated($"...{input}")` (SAFE).
+    5. HIBERNATE (JPQL)   : `createQuery("..."+input)` (VULNERABLE) vs `query.setParameter()` (SAFE).
+
+--------------------------------------------------------------------------------
+2. STORED PROCEDURE SECURITY & DYNAMIC EXECUTION
+--------------------------------------------------------------------------------
+
++----------------------+--------------------+--------------------------------+----------------------------+
+| DATABASE RDBMS       | VULNERABLE PATTERN | SECURE PARAMETERIZED PATTERN   | EXECUTION MECHANISM        |
++----------------------+--------------------+--------------------------------+----------------------------+
+| Microsoft SQL Server | `EXEC('SELECT...'+ | `EXEC sp_executesql N'...',    | Caches compiled execution  |
+| (T-SQL)              | @param)`           | N'@param varchar', @param=@val`| plan with literal bindings.|
+|                      |                    |                                |                            |
+| Oracle Database      | `EXECUTE IMMEDIATE | `EXECUTE IMMEDIATE 'SELECT...  | Binds typed variables      |
+| (PL/SQL)             | '... ' || p_param` | WHERE id = :id' USING p_param` | via `USING` clause.        |
+|                      |                    |                                |                            |
+| PostgreSQL           | `EXECUTE '... ' || | `EXECUTE 'SELECT... WHERE      | Native binary parameter    |
+| (PL/pgSQL)           | p_param`           | id = $1' USING p_param`        | formatting across buffers. |
++----------------------+--------------------+--------------------------------+----------------------------+
+
+================================================================================
+3. ENTERPRISE DEFENSIVE HARDENING BLUEPRINT
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | VULNERABILITY NEUTRALIZED   |
++-------------------+---------+-----------------------------+-----------------------------+
+| Standard ORM APIs | Model   | Use high-level query builder| Eliminates manual query     |
+|                   | Layer   | methods (`findUnique()`).   | string construction errors. |
+|                   |         |                             |                             |
+| Tagged Raw SQL    | Complex | Enforce tagged template     | Automatically converts JS   |
+| Templates         | Queries | literals (`$queryRaw\`...\``| variables into parameters.  |
+|                   |         |                             |                             |
+| Dynamic Stored    | DB Svc  | `sp_executesql` / `USING`   | Prevents AST mutation inside|
+| Procedures        | Layer   | parameter binding.          | stored database routines.   |
+|                   |         |                             |                             |
+| CI/CD SAST Gates  | Code    | Semgrep AST rules banning   | Blocks insecure raw escape  |
+|                   | Review  | `$queryRawUnsafe` in git.   | hatches before deployment.  |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : ORM raw SQLi compromising Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized database data extraction.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Financial Siphoning via ORM Exploits (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Database Corruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Database compromises resulting from ORM raw query bugs must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Standard ORM methods parameterize queries; raw escape hatches with concatenation re-introduce SQLi.
+  [✔] Prisma `$queryRaw` tagged template literal is 100% safe; `$queryRawUnsafe()` is vulnerable.
+  [✔] Stored procedures that concatenate strings internally inside `EXEC()` remain completely vulnerable.
+  [✔] Dynamic T-SQL stored procedures must execute via `sp_executesql` with parameter definitions.
+  [✔] PL/SQL dynamic queries must bind parameters out-of-band using the `USING` clause.
+  [✔] Section 66F of the IT Act penalizes ORM and stored procedure SQLi attacks with Life Imprisonment.
+================================================================================

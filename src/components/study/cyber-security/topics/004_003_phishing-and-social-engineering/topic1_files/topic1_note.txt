@@ -1,0 +1,84 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 01       : SOCIAL ENGINEERING PRINCIPLES: AUTHORITY, URGENCY, SCARCITY, TRUST
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & DR. CIALDINI'S PRINCIPLES OF INFLUENCE
+--------------------------------------------------------------------------------
+Social Engineering weaponizes human evolutionary psychology and cognitive heuristics to bypass 
+technical security controls:
+
+  * DR. ROBERT CIALDINI'S 6 PRINCIPLES OF INFLUENCE :
+    1. AUTHORITY    : Reflexive compliance with perceived institutional rank (CEO Fraud / BEC).
+    2. URGENCY/FEAR : Amygdala panic narrowing cognitive bandwidth (15-min account lockout).
+    3. SCARCITY     : Fear of missing out (FOMO) on limited bonuses or vouchers.
+    4. LIKING/TRUST : Rapport-building, compliments & grooming on LinkedIn over weeks.
+    5. RECIPROCITY  : Innate desire to return favors or help a polite colleague (Helpfulness Trap).
+    6. SOCIAL PROOF : Herd conformity ("All senior engineers have already submitted tokens").
+
+--------------------------------------------------------------------------------
+2. ADVANCED SOCIAL ENGINEERING VECTORS
+--------------------------------------------------------------------------------
+
+A. BUSINESS EMAIL COMPROMISE (BEC) & PRETEXTING :
+   - Spoofs executive display names to demand urgent, confidential wire transfers.
+   - Pretexting builds elaborate fictional backstories (e.g. external regulatory auditor).
+
+B. REVERSE SOCIAL ENGINEERING & AI VOICE CLONING :
+   - Sabotages a system, leaves a fake help desk flyer, and waits for victim to call.
+   - Trains generative diffusion models on CEO audio to execute real-time vishing calls.
+
+C. PHYSICAL TAILGATING & BAITING :
+   - Exploits politeness by carrying heavy boxes to bypass biometric door access.
+   - Drops branded USB drives labeled "Executive_Salaries_2026.xlsx.lnk" in lobbies.
+
+================================================================================
+3. COUNTER-INFLUENCE DEFENSE & BOUNDARY CONTROLS
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | INFLUENCE VECTOR NEUTRALIZED|
++-------------------+---------+-----------------------------+-----------------------------+
+| Out-of-Band (OOB) | Process | Mandatory secondary phone   | Neutralizes 100% of BEC CEO |
+| Dual-Authorization| Control | call for wire transfers.    | wire fraud & authority lures|
+|                   |         |                             |                             |
+| Cognitive Pause   | Human   | 30-second "Stop, Look,      | Overcomes urgency-induced   |
+| Workflow          | Reflex  | Think" deliberate check.    | panic & cognitive myopia.   |
+|                   |         |                             |                             |
+| FIDO2 WebAuthn    | Passkey | Cryptographic origin binding| Renders credential phishing |
+| Hardware Keys     | Defense | mathematically checks domain| impossible on spoofed sites.|
+|                   |         |                             |                             |
+| DMARC Policy      | Email   | p=reject enforces strict    | Blocks spoofed executive    |
+| (p=reject)        | Gateway | SPF & DKIM domain alignment.| email headers at perimeter. |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66D   : Cheating by Personation using computer resources (Up to 3 Years Prison).
+    - Section 43(a) : Civil damages up to ₹1 CRORE for unauthorized access via deception.
+    - Section 66    : Criminal hacking & fraudulent deception (Up to 3 Years Prison + ₹5 Lakh Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Dishonestly Inducing Delivery of Property (Up to 7 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All social engineering breaches, BEC compromises & IOCs must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory organizational security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Cialdini's 6 influence principles: Authority, Urgency, Scarcity, Trust, Reciprocity, Social Proof.
+  [✔] Business Email Compromise (BEC) exploits authority bias to bypass wire transfer controls.
+  [✔] Cognitive Pause ("Stop, Look, Think") interrupts urgency-driven impulsive System 1 clicks.
+  [✔] Out-of-Band (OOB) dual authorization requires voice verification for financial transfers.
+  [✔] FIDO2 WebAuthn passkeys make credential phishing mathematically impossible via origin binding.
+  [✔] Section 66D of the IT Act penalizes Cheating by Personation with up to 3 years imprisonment.
+================================================================================

@@ -1,0 +1,116 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_001 : PASSIVE VS ACTIVE CYBER ATTACKS
+TOPIC 01       : PASSIVE ATTACKS: EAVESDROPPING AND WIRETAPPING
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & PHYSICAL FOUNDATIONS OF INTERCEPTION
+--------------------------------------------------------------------------------
+Passive interception threats target the CONFIDENTIALITY (Pillar "C") of communication 
+systems without modifying data payloads, injecting rogue packets, or altering network latency.
+
+  * EAVESDROPPING : The software/logical capture of data packets traversing a communication 
+    channel (e.g. Promiscuous mode sniffing, unencrypted Wi-Fi radio capture, SPAN abuse).
+  * WIRETAPPING   : The physical/hardware interception of electronic or optical signals directly 
+    from the transmission medium (e.g. Optical fiber macrobending, copper inductive clamps).
+
+--------------------------------------------------------------------------------
+2. PHYSICS & MATHEMATICAL PRINCIPLES OF WIRETAPPING
+--------------------------------------------------------------------------------
+
+A. OPTICAL FIBER MACROBENDING TAP :
+   - In standard fiber, Total Internal Reflection (TIR) confines light within the core:
+       Critical Angle: θ_c = arcsin(n_cladding / n_core)
+   - When a mechanical macrobending tap curves the glass fiber beyond its critical radius, 
+     a fraction (1% to 3%) of photons leak through the cladding via evanescent wave refraction.
+   - Optical Attenuation Equation:
+       α = - (10 / L) * log10( P_out / P_in )
+   - An optical tap causing -0.25 dB power loss remains invisible to standard network alarms!
+
+B. COPPER INDUCTIVE CLAMP TAP :
+   - Current flowing through copper conductors generates an alternating concentric magnetic field:
+       B = (μ * I) / (2 * π * r)
+   - An adversary clamps an inductive coil around unshielded twisted pair (UTP) cables. 
+     By Faraday's Law of Induction (e = -N * dΦ/dt), electrical signals are captured 
+     without stripping wire insulation or cutting the circuit!
+
+C. TEMPEST / VAN ECK PHREAKING (RF EMANATIONS) :
+   - High-frequency clocks in display cables (HDMI/DisplayPort) and CPUs radiate electromagnetic 
+     waves that propagate through building walls.
+   - Field Strength:
+       E = sqrt(30 * P_t * G_t) / d
+   - Sensitive radio receivers tuned to harmonic frequencies can reconstruct live desktop screens.
+
+================================================================================
+3. INTERCEPTION MECHANISMS & COMPARATIVE MATRIX
+================================================================================
+
++-----------------------+---------+-----------------------------+-----------------------------+
+| INTERCEPTION TYPE     | OSI LVL | EXPLOITATION MECHANISM      | PRODUCTION COUNTERMEASURE   |
++-----------------------+---------+-----------------------------+-----------------------------+
+| Optical Macrobending  | Layer 1 | Physical fiber curvature to | Optical Time-Domain Reflec- |
+| Wiretap               |         | extract photon leakage.     | tometry (OTDR) + MACsec.    |
+|                       |         |                             |                             |
+| Copper Inductive Tap  | Layer 1 | Magnetic coil sensing EMF   | Shielded Cat6A (S/FTP) +    |
+| (Hall Effect Sensor)  |         | on unshielded twisted pair. | Physical armored conduits.  |
+|                       |         |                             |                             |
+| Promiscuous Packet    | Layer 2 | Disables hardware NIC MAC   | Dynamic ARP Inspection +    |
+| Sniffing (tcpdump)    |         | filtering on shared LAN.    | IEEE 802.1X Port Security.  |
+|                       |         |                             |                             |
+| Wi-Fi 802.11 Monitor  | Layer 2 | Captures raw RF frames over | WPA3 Enterprise + OWE       |
+| Mode (RFMON)          |         | the air without associating.| (Opportunistic Encryption). |
+|                       |         |                             |                             |
+| SPAN Port Abuse       | Layer 2 | Switch CLI configuration to | Strict Switch TACACS+ RBAC  |
+| (Port Mirroring)      |         | mirror VLAN traffic.        | + SNMPv3 Encrypted Auth.    |
+|                       |         |                             |                             |
+| Cleartext Protocol    | Layer 7 | Reads unencrypted ASCII on  | Mandatory TLS 1.3 + SSHv2   |
+| Sniffing (Telnet/HTTP)|         | legacy application ports.   | + IPsec Tunnel Mode (ESP).  |
++-----------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. DEFENSIVE ENGINEERING & DETECTION PARADOX
+================================================================================
+
+THE DETECTION PARADOX :
+  * Because wiretaps and promiscuous sniffers emit ZERO outbound packets, standard routers, 
+    firewalls, and SIEM tools receive ZERO log footprints!
+  * Detection requires specialized physical instrumentation:
+    1. Optical Time-Domain Reflectometry (OTDR): Measures pulse time-delay:
+         d = (c * t) / (2 * n_core)
+       Detects attenuation drops as small as 0.05 dB at exact distances (e.g. 14.2 km).
+    2. Time-Domain Reflectometry (TDR): Identifies copper cable impedance mismatches.
+
+THE DEFENSE-IN-DEPTH BLUEPRINT :
+  1. Layer 1: Armored conduit trays, OTDR optical monitoring, TEMPEST Faraday cages.
+  2. Layer 2: IEEE 802.1AE MACsec line-rate encryption (AES-256-GCM) on all switch trunks.
+  3. Layer 3: IPsec Tunnel Mode with Encapsulating Security Payload (ESP).
+  4. Layer 7: TLS 1.3 with Encrypted Client Hello (ECH) and DNS over HTTPS (DoH).
+
+================================================================================
+5. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INDIAN TELEGRAPH ACT 1885 (SECTION 26) :
+    - Unlawful interception or wiretapping carries criminal imprisonment up to 3 years.
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 43(a) : Civil damages up to ₹1 CRORE for unauthorized extraction/copying of data.
+    - Section 66    : Criminal penalties (up to 3 years prison) for hacking & unauthorized interception.
+    - Section 69    : Strict legal procedure for lawful interception—authorized EXCLUSIVELY by 
+      the Union Home Secretary or State Home Secretary.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5)  : Mandates reasonable technical security safeguards to prevent passive leaks.
+    - Section 33    : Penalties up to ₹250 CRORES for failure to protect citizen data.
+
+================================================================================
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Eavesdropping is software/logical sniffing; Wiretapping is physical/hardware tapping.
+  [✔] Promiscuous mode disables the NIC hardware MAC address filter to capture all local frames.
+  [✔] Optical fiber macrobending leaks 1-3% of photons through cladding without breaking link.
+  [✔] OTDR uses Rayleigh backscattering and Fresnel reflections to locate physical optical taps.
+  [✔] MACsec (IEEE 802.1AE) provides line-rate hardware encryption directly at Layer 2.
+  [✔] Section 69 of the IT Act regulates lawful wiretapping in India with mandatory Home Ministry authorization.
+================================================================================

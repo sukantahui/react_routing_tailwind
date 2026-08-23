@@ -1,0 +1,81 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_004 : DENIAL OF SERVICE (DoS) & DDoS ATTACKS
+TOPIC 05       : APPLICATION LAYER DDoS ATTACKS (HTTP FLOOD AND SLOWLORIS)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & APPLICATION-LAYER TARGETING
+--------------------------------------------------------------------------------
+Application Layer (Layer 7) DDoS attacks target web applications, backend APIs, and databases 
+by generating legitimate-looking HTTP/HTTPS requests, measured in Requests Per Second (RPS):
+
+  * PRIMARY APPLICATION-LAYER ATTACK VECTORS :
+    1. HTTP GET FLOODS     : Target expensive dynamic database queries & un-cached reports.
+    2. SLOWLORIS (HEADERS) : Incomplete HTTP headers sent every 15s holding worker threads open.
+    3. RUDY (SLOW BODY)    : Large Content-Length headers sent at 1 byte/10s to tie up form threads.
+    4. SLOW READ DoS       : Tiny TCP receive windows (32 bytes) forcing servers to buffer responses.
+    5. SSL/TLS EXHAUSTION  : Abuses 15x asymmetric CPU decryption overhead in RSA/ECDHE handshakes.
+    6. HTTP/2 RAPID RESET  : Stream multiplexing abuse (CVE-2023-44487) reaching 398M RPS.
+    7. ReDoS BACKTRACKING  : Crafted inputs triggering exponential $O(2^N)$ regex backtracking CPU lock.
+
+--------------------------------------------------------------------------------
+2. SERVER ARCHITECTURE: THREAD-BASED VS EVENT-DRIVEN
+--------------------------------------------------------------------------------
+
+A. THREAD-PER-CONNECTION (APACHE PREFORK) :
+   - Allocates 1 dedicated process/thread per socket; collapses at 256 Slowloris connections.
+
+B. ASYNCHRONOUS EVENT-DRIVEN (NGINX EPOLL / NODE.JS) :
+   - Multiplexes 65,000+ connections per worker thread using non-blocking I/O, immune to Slowloris!
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURES & WAF POLICIES
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | APPLICATION VECTOR FILTERED |
++-------------------+---------+-----------------------------+-----------------------------+
+| Cloud WAF JS PoW  | Edge    | 5-second JavaScript proof-  | Drops dumb automated HTTP   |
+| (Under Attack)    | Proxy   | of-work challenge page.     | bot scripts (HTTP 403).     |
+|                   |         |                             |                             |
+| Nginx Reverse     | Web     | `client_header_timeout 10s` | Defeats Slowloris & RUDY by |
+| Proxy Timeouts    | Server  | `client_body_timeout 10s`.  | dropping idle connections.  |
+|                   |         |                             |                             |
+| Token Bucket Rate | Route   | `limit_req zone=api rate=15r/s| Prevents database query     |
+| Limiting Policies | Limits  | burst=20 nodelay`.          | connection pool starvation. |
+|                   |         |                             |                             |
+| Database Query    | Data    | `SET statement_timeout = 3s`| Terminates expensive DoS    |
+| Timeout Caps      | Layer   | on backend SQL databases.   | search queries after 3s.    |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Layer 7 attacks on Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Attacks on PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(f) : Civil compensation up to ₹1 CRORE for causing Denial of Access.
+    - Section 66    : Criminal hacking & service disruption (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Layer 7 DDoS Extortion (Up to 7 Years Prison).
+    - Section 427   : Mischief & Web Server Disruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All application-layer DDoS outages must be reported to CERT-In within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory availability safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Layer 7 DDoS attacks target application logic, worker threads, and databases (RPS).
+  [✔] Slowloris sends incomplete HTTP headers every 15s, holding server worker threads open.
+  [✔] RUDY sends form body data at 1 byte/10s, tying up web server form-handling processes.
+  [✔] Asynchronous Nginx event loops (`epoll`) handle 65,000+ connections, defeating Slowloris.
+  [✔] Cloudflare Under Attack Mode uses JavaScript proof-of-work puzzles to drop automated bot scripts.
+  [✔] Section 66F of the IT Act penalizes Layer 7 Cyber Terrorism with Life Imprisonment.
+================================================================================

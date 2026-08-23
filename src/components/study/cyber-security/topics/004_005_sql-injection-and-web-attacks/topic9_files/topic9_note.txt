@@ -1,0 +1,91 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 09       : DEFENSIVE CODING (PARAMETERIZED QUERIES & PREPARED STATEMENTS)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & TWO-PHASE QUERY COMPILATION PIPELINE
+--------------------------------------------------------------------------------
+Parameterized Queries (Prepared Statements) represent the indisputable Gold Standard defense 
+against SQL Injection, enforcing strict mathematical separation between code instructions and literal data:
+
+  * THE TWO-PHASE COMPILATION PIPELINE :
+    1. PHASE 1 (`PREPARE`) : The database engine parses, optimizes, and compiles the SQL query string 
+       into an Abstract Syntax Tree (AST) template, permanently freezing all grammar nodes and clauses.
+    2. PHASE 2 (`EXECUTE`) : User parameters are transmitted separately over the database wire protocol 
+       as pure literal data values, placed directly into pre-compiled execution slots ($\Delta \text{AST} = \emptyset$).
+
+--------------------------------------------------------------------------------
+2. CROSS-LANGUAGE PARAMETER PLACEHOLDER MATRIX
+--------------------------------------------------------------------------------
+
++----------------------+--------------------+--------------------------------+----------------------------+
+| LANGUAGE / DRIVER    | SYNTAX PATTERN     | CODE EXECUTION EXAMPLE         | WIRE PROTOCOL BINDING      |
++----------------------+--------------------+--------------------------------+----------------------------+
+| Node.js (`pg`)       | Positional `$1, $2`| `pool.query('... WHERE id=$1', | Binary parameter buffers   |
+|                      |                    | [userId])`                     | (No client escaping).      |
+|                      |                    |                                |                            |
+| Java (JDBC)          | Positional `?`     | `pstmt.setInt(1, 9841);`       | Native typed setters       |
+|                      |                    | `pstmt.setString(2, name);`    | (`setInt`, `setString`).   |
+|                      |                    |                                |                            |
+| Python (`asyncpg`)   | Positional `$1`    | `await conn.fetch('... WHERE   | Native PostgreSQL wire     |
+|                      |                    | id=$1', user_id)`              | format binding.            |
+|                      |                    |                                |                            |
+| PHP (`PDO`)          | Named `:id` or `?` | `$stmt->execute(['id' => $id]);| True server-side prepare   |
+|                      |                    |                                | (Emulation disabled).      |
+|                      |                    |                                |                            |
+| C# (`ADO.NET`)       | Named `@id`        | `cmd.Parameters.AddWithValue   | Strongly typed             |
+|                      |                    | ("@id", userId);`              | `SqlParameter` objects.    |
++----------------------+--------------------+--------------------------------+----------------------------+
+
+================================================================================
+3. DEFENSIVE PATTERNS FOR SPECIAL SQL CONTEXTS
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| SPECIAL CONTEXT   | CHALLENGE| VULNERABLE APPROACH        | SECURE ARCHITECTURAL PATTERN|
++-------------------+---------+-----------------------------+-----------------------------+
+| Dynamic `ORDER BY`| Column  | Concatenating sort param:   | Server-side whitelist map:  |
+| Sorting Clauses   | Names   | `"ORDER BY " + req.sort`    | `{'date':'created_at'}[val]`|
+|                   |         |                             |                             |
+| Dynamic `IN (...)`| Array   | Joining array as string:    | Positional map: `$1,$2,$3`  |
+| Array Clauses     | Lists   | `"WHERE id IN ("+ids+")"`   | or `= ANY($1::int[])`.      |
+|                   |         |                             |                             |
+| Dynamic Stored    | Internal| `EXEC('SELECT...'+@param)`  | `sp_executesql` with typed  |
+| Procedures        | Queries | inside procedure.           | parameter definitions.      |
+|                   |         |                             |                             |
+| Second-Order SQLi | Stored  | Concatenating DB data into  | 100% Parameterization on    |
+| Risk in Cron/ETL  | Text    | secondary reporting queries.| ALL background batch jobs.  |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Un-parameterized queries compromising Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized database data extraction.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Financial Siphoning via Un-Parameterized SQL (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Database Damage (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Database breaches resulting from un-parameterized queries must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Prepared statements pre-compile the query AST first, separating code from data completely.
+  [✔] Parameters replace data values only; table/column names require static server-side whitelisting.
+  [✔] Dynamic `IN (...)` queries require generating `$1, $2, $3` arrays or using `= ANY($1)`.
+  [✔] Disabling client-side prepared statement emulation ensures true server-side AST protection.
+  [✔] Second-order SQLi requires parameterizing secondary report scripts and background batch jobs.
+  [✔] Section 66F of the IT Act penalizes SQL injection attacks on critical infrastructure with Life Imprisonment.
+================================================================================

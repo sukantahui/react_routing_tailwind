@@ -1,0 +1,88 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 00       : HUMAN VULNERABILITY: THE WEAKEST LINK IN CYBER SECURITY
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE PSYCHOLOGY OF HUMAN VULNERABILITY
+--------------------------------------------------------------------------------
+The human factor is universally described as the most critical vulnerability in cybersecurity: 
+attackers do not need to break AES-256 encryption or find zero-day software exploits if they 
+can manipulate an authorized human into voluntarily handing over credentials or clicking links:
+
+  * KEVIN MITNICK'S AXIOM :
+    "You can have the best technology, firewalls, and encryption, but if an attacker can 
+    manipulate a human into clicking a link or revealing a password, all technical controls 
+    are bypassed."
+
+--------------------------------------------------------------------------------
+2. THE 6 CORE COGNITIVE VULNERABILITY VECTORS
+--------------------------------------------------------------------------------
+
+A. TRUTH-DEFAULT THEORY & DEFAULT-TO-TRUST :
+   - Humans presume honesty in social communications unless blatant anomalies trigger suspicion.
+
+B. COGNITIVE OVERLOAD & DECISION FATIGUE :
+   - Mental exhaustion depletes System 2 analytical scrutiny, forcing fast, intuitive System 1 clicks.
+
+C. AUTHORITY BIAS & MILGRAM OBEDIENCE :
+   - Unquestioning compliance when an email impersonates the CEO, Managing Director, or Police.
+
+D. URGENCY BIAS & FEAR (AMYGDALA HIJACKING) :
+   - Artificial time limits ("15 minutes to account deactivation") trigger panic overriding logic.
+
+E. RECIPROCITY & THE HELPFULNESS TRAP :
+   - Innate human desire to assist a polite colleague or vendor bypasses verification rules.
+
+F. SCARCITY & SOCIAL PROOF :
+   - Fear of missing out (FOMO) on bonuses or conforming to peer actions ("everyone updated").
+
+================================================================================
+3. HUMAN RISK MANAGEMENT (HRM) & FAILING SAFELY
+--------------------------------------------------------------------------------
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | HUMAN ERROR NEUTRALIZED     |
++-------------------+---------+-----------------------------+-----------------------------+
+| FIDO2 WebAuthn    | Passkey | Cryptographic origin binding| Renders credential phishing |
+| Hardware Keys     | Security| mathematically checks domain| 100% ineffective!           |
+|                   |         |                             |                             |
+| Contextual Micro- | Learning| Delivers 90-second feedback | Overcomes forgetting curve; |
+| Training          | Feedback| on failed simulated lures.  | increases retention 500%.   |
+|                   |         |                             |                             |
+| Zero-Blame Culture| Human   | 1-Click Phish Alarm button  | Empowers reporting in <2 min|
+| & Reporting       | Sensor  | with recognition incentives.| without fear of penalty.    |
+|                   |         |                             |                             |
+| Attack Surface    | Host OS | Blocks Office from spawning | Stops weaponized macros from|
+| Reduction (ASR)   | Kernel  | child command shells.       | executing upon user clicks. |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66D   : Cheating by Personation using computer resources (Up to 3 Years Prison).
+    - Section 43(a) : Civil damages up to ₹1 CRORE for unauthorized access via phishing.
+    - Section 66    : Criminal hacking & fraudulent deception (Up to 3 Years Prison + ₹5 Lakh Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Dishonestly Inducing Delivery of Property (Up to 7 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All credential phishing compromises & unauthorized access must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory employee security training; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Humans are the weakest link because psychological cognitive biases bypass technical firewalls.
+  [✔] Truth-Default Theory proves humans naturally default to presuming communications are honest.
+  [✔] Cognitive fatigue and urgency triggers amygdala hijacking, disabling analytical System 2 thinking.
+  [✔] The Human Firewall paradigm transforms employees into proactive sensors with 1-click reporting.
+  [✔] Failing safely with FIDO2 passkeys makes credential phishing mathematically impossible.
+  [✔] Section 66D of the IT Act penalizes Cheating by Personation with up to 3 years imprisonment.
+================================================================================

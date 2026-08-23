@@ -1,0 +1,82 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 03       : TARGETED PHISHING: SPEAR PHISHING, WHALING, AND CLONE PHISHING
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & TARGETED PHISHING TAXONOMY
+--------------------------------------------------------------------------------
+Targeted phishing moves away from mass broadcast spray toward high-context, intelligence-driven 
+operations customized against specific individuals, executives, or active business workflows:
+
+  * THE 4 CORE TARGETED ATTACK TYPES :
+    1. SPEAR PHISHING : High-context lures targeting specific roles, referencing real projects.
+    2. WHALING        : Targeting C-suite executives with legal summons, M&A filings, or tax audits.
+    3. CLONE PHISHING : Duplicating a real historical email, replacing attachments with malware.
+    4. THREAD HIJACK  : Compromising a vendor mailbox to inject malicious replies into active threads.
+
+--------------------------------------------------------------------------------
+2. ADVANCED DELIVERY VECTORS & EVASION MECHANISMS
+--------------------------------------------------------------------------------
+
+A. REMOTE TEMPLATE INJECTION (DOCX) :
+   - Clean `.docx` downloads malicious Word macro template (`.dotm`) dynamically from C2.
+   - Bypasses static perimeter email gateway scanners completely.
+
+B. CALLBACK PHISHING / TOAD ATTACKS :
+   - Clean email with no links or attachments containing only a fake customer care phone number.
+   - Live phone attacker guides the victim to download AnyDesk / Remote Access Trojans.
+
+C. GEOFENCING & COUSIN DOMAINS :
+   - C2 serves exploits only to victim enterprise IP ranges in Kolkata, returning 404 to researchers.
+   - Registers lookalike domains (`kolkata-fintech-cloud.in`) with valid SPF/DKIM records.
+
+================================================================================
+3. ENTERPRISE TARGETED DEFENSE & EXECUTIVE ARMOR
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | TARGETED VECTOR NEUTRALIZED |
++-------------------+---------+-----------------------------+-----------------------------+
+| VIP Executive     | Mailbox | Strict display name matching| Blocks 100% of executive    |
+| Armor Policy      | Gateway | & deep sandbox detonation.  | impersonation & whaling.    |
+|                   |         |                             |                             |
+| Out-of-Band (OOB) | Process | Mandatory voice phone check | Neutralizes Clone Phishing  |
+| Dual-Authorization| Control | on registered phone roster. | & vendor invoice bank fraud.|
+|                   |         |                             |                             |
+| FIDO2 WebAuthn    | Passkey | Cryptographic origin binding| Renders credential theft    |
+| Hardware Keys     | Armor   | mathematically checks domain| impossible on cousin sites. |
+|                   |         |                             |                             |
+| Attack Surface    | Host OS | Blocks Office from spawning | Stops remote template macro |
+| Reduction (ASR)   | Kernel  | child PowerShell processes. | execution upon document open|
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66D   : Cheating by Personation using computer resources (Up to 3 Years Prison).
+    - Section 43(a) : Civil damages up to ₹1 CRORE for unauthorized access via spear phishing.
+    - Section 66    : Criminal hacking & fraudulent deception (Up to 3 Years Prison + ₹5 Lakh Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Dishonestly Inducing Delivery of Property (Up to 7 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All targeted spear-phishing compromises & unauthorized access must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory VIP security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Spear phishing uses OSINT research; Whaling specifically targets C-suite executives.
+  [✔] Clone phishing duplicates authentic historical emails and substitutes weaponized payloads.
+  [✔] Thread Hijacking compromises legitimate vendor mailboxes to inject replies into active threads.
+  [✔] Remote Template Injection fetches macro templates dynamically, bypassing static file scanners.
+  [✔] Out-of-Band (OOB) voice verification neutralizes 100% of banking detail alteration fraud.
+  [✔] Section 66D of the IT Act penalizes Cheating by Personation with up to 3 years imprisonment.
+================================================================================

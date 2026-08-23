@@ -1,0 +1,84 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_004 : DENIAL OF SERVICE (DoS) & DDoS ATTACKS
+TOPIC 09       : DDoS MITIGATION STRATEGIES (RATE LIMITING, GEO-BLOCKING, ANYCAST)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE MULTI-LAYERED MITIGATION FRAMEWORK
+--------------------------------------------------------------------------------
+Effective DDoS mitigation requires a multi-layered defense-in-depth framework combining 
+global routing dilution, carrier-grade upstream filtering, and local application rate shaping:
+
+  * THE CORE MITIGATION TRIAD :
+    1. BGP ANYCAST ROUTING (RFC 4786) : Announces 1 IP prefix from 300+ global PoPs, diluting a 1.2 Tbps
+                                       flood into negligible 4.0 Gbps streams per data center!
+    2. ALGORITHMIC RATE LIMITING      : Token Bucket, Leaky Bucket, and Redis Sliding Window Counters
+                                       capping sustained request rates while permitting human bursts.
+    3. INGRESS FILTERING & GEO-BLOCK  : Strict uRPF (BCP 38) dropping spoofed IPs, and GeoIP2 filtering
+                                       dropping non-domestic attack traffic during emergencies.
+
+--------------------------------------------------------------------------------
+2. RATE LIMITING ALGORITHMIC TAXONOMY
+--------------------------------------------------------------------------------
+
++----------------------+----------+------------------------+-----------------------------+
+| ALGORITHM            | BEHAVIOR | MEMORY OVERHEAD        | PRIMARY USE CASE            |
++----------------------+----------+------------------------+-----------------------------+
+| Token Bucket         | Burst OK | Low (Counter + Time)   | Web APIs & Nginx limit_req  |
+| Leaky Bucket         | Constant | FIFO Queue Buffer      | Video & Network QoS Shaping |
+| Sliding Window Log   | Exact    | High (All Timestamps)  | Strict Security Enforcement |
+| Sliding Window Count | Smooth   | Very Low (Redis Hash)  | Distributed Cloud Gateways  |
+| eBPF / XDP Driver    | Wire-Spd | Ultra-Low (BPF Map)    | 40M PPS Kernel NIC Filtering|
++----------------------+----------+------------------------+-----------------------------+
+
+================================================================================
+3. ENTERPRISE CARRIER & EDGE DEFENSIVE HARDENING
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | DDoS VECTOR MITIGATED       |
++-------------------+---------+-----------------------------+-----------------------------+
+| BGP Anycast PoPs  | Global  | 300+ Data Centers with ECMP | Fragments multi-terabit     |
+| (RFC 4786)        | Ingress | multi-path load sharing.    | volumetric reflection floods|
+|                   |         |                             |                             |
+| BGP Flowspec      | Carrier | RFC 5575 granular ACL rules | Drops reflection ports at   |
+| (RFC 5575)        | Core    | pushed to Tier-1 ISP core.  | ISP core without blackholing|
+|                   |         |                             |                             |
+| Strict uRPF       | Edge    | Cisco `ip verify unicast    | Completely eliminates IP    |
+| (RFC 3704/BCP 38) | Router  | source reachable-via rx`.   | spoofing at the ISP edge.   |
+|                   |         |                             |                             |
+| Nginx GeoIP2 &    | Reverse | MaxMind MMDB in RAM with    | Drops non-domestic botnet   |
+| Token Bucket      | Proxy   | `limit_req zone=api rate=15`| floods and caps API routes. |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : DDoS attacks on Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Attacks on PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(f) : Civil compensation up to ₹1 CRORE for causing Denial of Access.
+    - Section 66    : Criminal hacking & service disruption (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Mitigation Extortion (Up to 7 Years Prison).
+    - Section 427   : Mischief & Web Service Disruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All DDoS service outages must be reported to CERT-In within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory availability safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] BGP Anycast fragments 1+ Tbps global floods into 3.3 Gbps streams across 300+ PoPs.
+  [✔] Token Bucket allows short human browsing bursts while enforcing a steady long-term cap.
+  [✔] Strict uRPF (BCP 38) drops spoofed IP packets where source IP is not reachable via ingress interface.
+  [✔] BGP Flowspec (RFC 5575) provides granular carrier filtering, unlike blunt RTBH blackholing.
+  [✔] eBPF/XDP rate limiters run in the NIC driver, dropping 40+ Million PPS in 12 nanoseconds.
+  [✔] Section 66F of the IT Act penalizes DDoS Cyber Terrorism with Life Imprisonment.
+================================================================================

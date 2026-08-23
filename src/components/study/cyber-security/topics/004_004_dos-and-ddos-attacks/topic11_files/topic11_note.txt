@@ -1,0 +1,75 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_004 : DENIAL OF SERVICE (DoS) & DDoS ATTACKS
+TOPIC 11       : DDoS ATTACK CASE STUDIES (Dyn DNS, GitHub DDoS MITIGATION)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & HISTORIC DDoS MILESTONES
+--------------------------------------------------------------------------------
+Analyzing major real-world DDoS incidents reveals how attack vectors evolved from simple ping floods 
+to multi-terabit amplification attacks and 398 Million RPS Layer 7 stream cancellation exploits:
+
+  * THE 5 HISTORIC DDoS MILESTONES :
+    1. 2016 Dyn DNS Attack           : ~1.2 Tbps Mirai IoT Botnet knocked out Twitter, Netflix & GitHub (DNS SPOF).
+    2. 2018 GitHub Memcached Attack  : 1.35 Tbps (126.9 Mpps) Memcached UDP flood; mitigated in 8 minutes by Akamai!
+    3. 2020 AWS Shield CLDAP Attack  : 2.3 Tbps CLDAP reflection flood absorbed by AWS global Anycast edge.
+    4. 2022 Google Cloud HTTPS Flood : 46 Million RPS HTTPS flood mitigated by Cloud Armor ML protection.
+    5. 2023 HTTP/2 Rapid Reset       : 398 Million RPS flood (CVE-2023-44487) abusing HTTP/2 stream multiplexing.
+
+--------------------------------------------------------------------------------
+2. ARCHITECTURAL LESSONS LEARNED
+--------------------------------------------------------------------------------
+
+A. DUAL-PROVIDER REDUNDANT ANYCAST DNS :
+   - Eliminates DNS Single Point of Failure (SPOF) exposed by Dyn DNS 2016 by splitting authoritative 
+     name server records across two independent global Anycast providers (e.g. AWS Route 53 + Cloudflare).
+
+B. AUTOMATED BGP ANYCAST DIVERSION PLAYBOOK :
+   - Pre-programmed automation scripts shifting traffic to cloud scrubbers in under 5 minutes,
+     as demonstrated by GitHub's flawless 8-minute recovery SLA during the 1.35 Tbps assault.
+
+================================================================================
+3. HISTORIC DDoS INCIDENT COMPARISON MATRIX
+================================================================================
+
++----------------------+----------+------------------------+-----------------------------+
+| INCIDENT & YEAR      | VOLUME   | ATTACK VECTOR          | PRIMARY MITIGATION LESSON   |
++----------------------+----------+------------------------+-----------------------------+
+| Dyn DNS (2016)       | 1.2 Tbps | Mirai IoT TCP/DNS Flood| Dual-Provider Anycast DNS   |
+| GitHub (2018)        | 1.35 Tbps| Memcached UDP (Port 11211) 8-Minute Automated Scrubbing|
+| AWS Shield (2020)    | 2.3 Tbps | CLDAP UDP Reflection   | Global Anycast Terabit Edge |
+| Google Cloud (2022)  | 46M RPS  | HTTPS Layer 7 Flood    | Adaptive ML Bot Protection  |
+| Rapid Reset (2023)   | 398M RPS | HTTP/2 RST_STREAM Abuse| Stream Concurrency Capping  |
++----------------------+----------+------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Multi-terabit attacks on Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Attacks on PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(f) : Civil compensation up to ₹1 CRORE for causing Denial of Access.
+    - Section 66    : Criminal hacking & botnet development (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Case Study Extortion (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Property Disruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All major DDoS service outages must be reported to CERT-In within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory availability safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] The 2016 Dyn DNS attack took down Twitter, Netflix, and GitHub due to DNS Single Point of Failure.
+  [✔] Dual-Provider Anycast DNS (Route 53 + Cloudflare) permanently eliminates single-provider DNS SPOFs.
+  [✔] GitHub mitigated a historic 1.35 Tbps Memcached flood in 8 minutes using automated Akamai scrubbing.
+  [✔] Memcached reflection was globally remediated by disabling UDP by default (`-U 0`) in Memcached 1.5.6+.
+  [✔] HTTP/2 Rapid Reset (CVE-2023-44487) generated 398 Million RPS floods by abusing stream cancellations.
+  [✔] Section 66F of the IT Act penalizes multi-terabit DDoS cyber terrorism with Life Imprisonment.
+================================================================================

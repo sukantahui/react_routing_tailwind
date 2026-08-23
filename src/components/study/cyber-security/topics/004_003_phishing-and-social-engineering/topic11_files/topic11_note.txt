@@ -1,0 +1,79 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 11       : USER BEHAVIOR ANALYTICS (UBA / UEBA) FOR INSIDER THREAT DETECTION
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & UEBA MACHINE LEARNING ARCHITECTURE
+--------------------------------------------------------------------------------
+User and Entity Behavior Analytics (UEBA) moves beyond static SIEM rules by using machine 
+learning to dynamically baseline normal behavior for users and devices, detecting statistical anomalies:
+
+  * THE CORE UEBA ARCHITECTURE LAYERS :
+    1. MULTI-SOURCE INGESTION : Streaming AD, VPN, Endpoint DLP, Proxy, and CloudTrail logs.
+    2. PEER GROUP BASELINING  : Clustering users by department/role to eliminate false positives.
+    3. MACHINE LEARNING ENGINE: Statistical Z-Scores, Isolation Forests, Markov sequence models.
+    4. COMPOSITE RISK SCORING : Aggregating multi-vector indicators into a single 0-100 risk score.
+
+--------------------------------------------------------------------------------
+2. ADVANCED UEBA THREAT DETECTION USE CASES
+--------------------------------------------------------------------------------
+
+A. IMPOSSIBLE TRAVEL & VELOCITY ANOMALIES :
+   - Flagging logins from geographically distant locations (Kolkata & Frankfurt) in impossible times.
+
+B. PRE-RESIGNATION FLIGHT RISK & DATA HOARDING :
+   - Correlating HR notice periods with surges in cross-departmental file share downloads.
+
+C. VIP RECORD SNOOPING & FIRST-TIME-SEEN (FTS) :
+   - Alerting when unauthorized staff view VIP medical records or connect to novel critical servers.
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURES & SOAR INTEGRATION
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | THREAT DETECTED / MITIGATED |
++-------------------+---------+-----------------------------+-----------------------------+
+| Isolation Forest  | Machine | Unsupervised multi-variant  | Detects zero-day anomalous  |
+| Anomaly Engine    | Learning| decision tree partitioning. | insider behavior patterns.  |
+|                   |         |                             |                             |
+| Peer Group        | False   | Dynamic K-means clustering  | Eliminates false alarms     |
+| Baselining        | Positive| by job title and department.| from legitimate DBA loads.  |
+|                   |         |                             |                             |
+| Continuous Access | Identity| Real-time OAuth token       | Terminates active sessions  |
+| Evaluation (CAE)  | Remediat| revocation at Score >= 85.  | during active exfiltration. |
+|                   |         |                             |                             |
+| Honeypot Decoy    | Deceptor| Bogus user accounts placed  | Zero-false-positive alerts  |
+| Accounts          | Armor   | in Active Directory vaults. | on Kerberoasting/spraying.  |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 72A   : Breach of Confidentiality under lawful contract (Up to 3 Years Prison + Fine).
+    - Section 43(b) : Civil damages up to ₹1 CRORE for unauthorized data copying detected by UEBA.
+    - Section 66    : Criminal hacking & fraudulent access using compromised credentials.
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 408   : Criminal Breach of Trust by Clerk or Servant (Up to 7 Years Prison + Fine).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All account takeovers & insider data exfiltrations must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory UEBA monitoring with employee privacy; failure triggers ₹250 CRORE fines.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Traditional SIEMs use static threshold rules; UEBA uses ML to baseline normal behavior.
+  [✔] Peer Group Baselining clusters users by department to reduce false positive alerts.
+  [✔] Isolation Forest detects anomalies in multi-dimensional data without labeled training sets.
+  [✔] Impossible Travel detects logins from two distant cities within impossible timeframes.
+  [✔] Continuous Access Evaluation (CAE) revokes OAuth tokens when UEBA risk score exceeds 85.
+  [✔] Section 72A of the IT Act penalizes Breach of Confidentiality with up to 3 years imprisonment.
+================================================================================
