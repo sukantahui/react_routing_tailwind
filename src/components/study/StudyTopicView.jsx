@@ -47,6 +47,7 @@ import {
 
 import MathSymbolDictionary from "../../common/MathSymbolDictionary";
 import ScreenAnnotator from "../../common/ScreenAnnotator";
+import StudyWhiteboard from "../../common/StudyWhiteboard";
 
 // Import tldraw
 import { Tldraw } from "@tldraw/tldraw";
@@ -420,165 +421,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
     };
   }, [isDragging, leftSidebarWidth]);
 
-  // ----------------------------------------------------------------
-  // 5. CANVAS WHITEBOARD (RIGHT PANEL)
-  // ----------------------------------------------------------------
-  const canvasRef = useRef(null);
-  const contextRef = useRef(null);
-  const isDrawingRef = useRef(false);
-  const lastXRef = useRef(0);
-  const lastYRef = useRef(0);
-  const pendingPoints = useRef([]);
-  const drawPendingRef = useRef(false);
-  const [drawingColor, setDrawingColor] = useState('#38bdf8');
-  const [drawingSize, setDrawingSize] = useState(3);
-  const [isEraser, setIsEraser] = useState(false);
 
-  const loadDrawing = useCallback(() => {
-    const key = `${subjectKey}-whiteboard-${moduleSlug}-${topicIndex}`;
-    const saved = localStorage.getItem(key);
-    if (saved) {
-      try {
-        const image = new Image();
-        image.onload = () => {
-          const ctx = contextRef.current;
-          if (ctx) ctx.drawImage(image, 0, 0);
-        };
-        image.src = saved;
-      } catch (e) {
-        console.warn("Failed to load whiteboard", e);
-      }
-    }
-  }, [moduleSlug, topicIndex]);
-
-  const saveDrawing = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const dataUrl = canvas.toDataURL('image/png');
-    localStorage.setItem(`${subjectKey}-whiteboard-${moduleSlug}-${topicIndex}`, dataUrl);
-  }, [moduleSlug, topicIndex]);
-
-  const downloadDrawing = () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const link = document.createElement('a');
-    link.download = `whiteboard-${moduleSlug}-topic-${topicIndex}.png`;
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-    showToast("Downloaded whiteboard snapshot.");
-  };
-
-  const initCanvas = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const container = canvas.parentElement;
-    if (!container) return;
-    const rect = container.getBoundingClientRect();
-    const width = rect.width - 2;
-    const height = rect.height - 2;
-    if (width <= 0 || height <= 0) return;
-    canvas.width = width * window.devicePixelRatio;
-    canvas.height = height * window.devicePixelRatio;
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    const ctx = canvas.getContext('2d');
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    contextRef.current = ctx;
-    loadDrawing();
-  }, [loadDrawing]);
-
-  useEffect(() => {
-    if (showRightSidebar && activeRightTab === 'canvas') {
-      const timer = setTimeout(initCanvas, 120);
-      return () => clearTimeout(timer);
-    }
-  }, [showRightSidebar, activeRightTab, initCanvas, rightSidebarWidth]);
-
-  const startDrawing = (e) => {
-    if (activeRightTab !== 'canvas') return;
-    e.preventDefault();
-    const canvas = canvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    const clientX = e.clientX ?? e.touches?.[0]?.clientX;
-    const clientY = e.clientY ?? e.touches?.[0]?.clientY;
-    if (clientX == null) return;
-    const x = (clientX - rect.left) * (canvas.width / rect.width);
-    const y = (clientY - rect.top) * (canvas.height / rect.height);
-    isDrawingRef.current = true;
-    pendingPoints.current = [];
-    drawPendingRef.current = false;
-    lastXRef.current = x;
-    lastYRef.current = y;
-  };
-
-  const processPending = () => {
-    const ctx = contextRef.current;
-    if (!ctx) { drawPendingRef.current = false; return; }
-    const rawPoints = pendingPoints.current;
-    if (rawPoints.length === 0) { drawPendingRef.current = false; return; }
-    const allPoints = [{ x: lastXRef.current, y: lastYRef.current }, ...rawPoints];
-    const smoothed = catmullRomSpline(allPoints, 40);
-    if (smoothed.length < 2) {
-      ctx.beginPath();
-      ctx.moveTo(allPoints[0].x, allPoints[0].y);
-      for (let i = 1; i < allPoints.length; i++) ctx.lineTo(allPoints[i].x, allPoints[i].y);
-      ctx.strokeStyle = isEraser ? '#090d16' : drawingColor;
-      ctx.lineWidth = isEraser ? 24 : drawingSize;
-      ctx.stroke();
-      const lastRaw = allPoints[allPoints.length - 1];
-      lastXRef.current = lastRaw.x;
-      lastYRef.current = lastRaw.y;
-    } else {
-      ctx.beginPath();
-      ctx.moveTo(smoothed[0].x, smoothed[0].y);
-      for (let i = 1; i < smoothed.length; i++) ctx.lineTo(smoothed[i].x, smoothed[i].y);
-      ctx.strokeStyle = isEraser ? '#090d16' : drawingColor;
-      ctx.lineWidth = isEraser ? 24 : drawingSize;
-      ctx.stroke();
-      const lastSmoothed = smoothed[smoothed.length - 1];
-      lastXRef.current = lastSmoothed.x;
-      lastYRef.current = lastSmoothed.y;
-    }
-    pendingPoints.current = [];
-    drawPendingRef.current = false;
-  };
-
-  const draw = (e) => {
-    if (activeRightTab !== 'canvas' || !isDrawingRef.current) return;
-    e.preventDefault();
-    const canvas = canvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    const clientX = e.clientX ?? e.touches?.[0]?.clientX;
-    const clientY = e.clientY ?? e.touches?.[0]?.clientY;
-    if (clientX == null) return;
-    const x = (clientX - rect.left) * (canvas.width / rect.width);
-    const y = (clientY - rect.top) * (canvas.height / rect.height);
-    pendingPoints.current.push({ x, y });
-    if (!drawPendingRef.current) {
-      drawPendingRef.current = true;
-      requestAnimationFrame(processPending);
-    }
-  };
-
-  const endDrawing = () => {
-    if (!isDrawingRef.current) return;
-    if (pendingPoints.current.length > 0) {
-      processPending();
-    }
-    saveDrawing();
-    isDrawingRef.current = false;
-  };
-
-  const clearCanvas = () => {
-    const ctx = contextRef.current;
-    const canvas = canvasRef.current;
-    if (!ctx || !canvas) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    saveDrawing();
-    showToast("Whiteboard cleared.");
-  };
 
   // TLDraw Shortcuts helper
   const handleShortcutClick = (key, toolName) => {
@@ -1268,67 +1111,11 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
 
                 {/* TAB 1: CANVAS WHITEBOARD */}
                 {activeRightTab === 'canvas' && (
-                  <div className="flex-1 flex flex-col min-h-0">
-                    <div className="flex items-center justify-between gap-2 mb-3 bg-slate-900 p-2 rounded-xl border border-slate-800">
-                      <div className="flex items-center gap-2">
-                        <input
-                          type="color"
-                          value={drawingColor}
-                          onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }}
-                          className="w-6 h-6 p-0 border-0 rounded cursor-pointer bg-transparent"
-                          title="Pen color"
-                        />
-                        <div className="flex items-center gap-1.5">
-                          <input
-                            type="range"
-                            min="1"
-                            max="16"
-                            value={drawingSize}
-                            onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }}
-                            className="w-16 h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer"
-                          />
-                        </div>
-                        <button
-                          onClick={() => setIsEraser(!isEraser)}
-                          className={`p-1.5 rounded-lg transition ${isEraser ? "bg-slate-700 text-white" : "text-slate-400 hover:text-slate-200"}`}
-                          title="Eraser"
-                        >
-                          <Eraser size={15} />
-                        </button>
-                      </div>
-
-                      <div className="flex items-center gap-1.5">
-                        <button
-                          onClick={clearCanvas}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition"
-                          title="Clear canvas"
-                        >
-                          <Trash2 size={15} />
-                        </button>
-                        <button
-                          onClick={downloadDrawing}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
-                          title="Download PNG snapshot"
-                        >
-                          <Download size={15} />
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="flex-1 relative border border-slate-800 rounded-2xl overflow-hidden bg-slate-950">
-                      <canvas
-                        ref={canvasRef}
-                        onMouseDown={startDrawing}
-                        onMouseMove={draw}
-                        onMouseUp={endDrawing}
-                        onMouseLeave={endDrawing}
-                        onTouchStart={startDrawing}
-                        onTouchMove={draw}
-                        onTouchEnd={endDrawing}
-                        className="touch-none w-full h-full"
-                      />
-                    </div>
-                  </div>
+                  <StudyWhiteboard
+                    storageKey={`${subjectKey}-whiteboard-${moduleSlug}-${topicIndex}`}
+                    topicTitle={topicTitle}
+                    showToast={showToast}
+                  />
                 )}
 
                 {/* TAB 2: TLDRAW CANVAS */}
