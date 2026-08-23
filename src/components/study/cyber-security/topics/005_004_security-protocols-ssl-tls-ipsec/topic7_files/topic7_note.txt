@@ -1,0 +1,103 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: IKE (IKEV1 & IKEV2) AND SECURITY ASSOCIATIONS (SA)
+COURSE MODULE: 005_004 - NETWORK SECURITY PROTOCOLS: SSL, TLS & IPSEC (TOPIC 7)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE ROLE OF INTERNET KEY EXCHANGE (IKE) IN IPSEC
+----------------------------------------------------------------------------------------------------
+IPsec divides network security operations into two decoupled planes:
+1. Control Plane (IKE - UDP Port 500 / 4500):
+   - Handles mutual peer authentication, Diffie-Hellman key exchange, cipher suite negotiation, 
+     and policy binding.
+   - Operates in user-space (e.g., strongSwan `charon` daemon, Libreswan `pluto`).
+2. Data Plane (ESP / AH - IP Protocols 50 / 51):
+   - Executes line-rate symmetric encryption (AES-256-GCM) and hardware-accelerated packet transformations.
+   - Operates in kernel-space (e.g., Linux XFRM).
+
+
+2. IKEV1 (RFC 2409) VS IKEV2 (RFC 7296) ARCHITECTURAL EVOLUTION
+----------------------------------------------------------------------------------------------------
++------------------------------------+--------------------------+--------------------------+
+| Feature                            | IKEv1 (RFC 2409)         | IKEv2 (RFC 7296)         |
++------------------------------------+--------------------------+--------------------------+
+| Message Round Trips for SA Setup   | 6-9 Messages (Slow)      | 4 Messages (Fast)        |
+| Phase 1 Exchange                   | Main Mode (6 msgs) or    | IKE_SA_INIT (2 msgs) +   |
+|                                    | Aggressive Mode (3 msgs) | IKE_AUTH (2 msgs)        |
+| Phase 2 Exchange                   | Quick Mode (3 msgs)      | CREATE_CHILD_SA (2 msgs) |
+| NAT-Traversal (NAT-T)              | Proprietary / Draft Hack | Native Built-in Standard |
+| DoS Anti-Spoofing Cookie           | Inefficient              | Native Stateless Cookie  |
+| Mobility & Multihoming (MOBIKE)    | ❌ Not Supported         | ✔ Native (RFC 4555)      |
+| EAP User Authentication            | ❌ Requires XAUTH hack   | ✔ Native Standard EAP    |
+| Reliability & Retransmission       | Complex / Asymmetrical   | Every Request Acked      |
++------------------------------------+--------------------------+--------------------------+
+
+
+3. THE IKEV2 4-MESSAGE INITIAL HANDSHAKE
+----------------------------------------------------------------------------------------------------
+Exchange 1: IKE_SA_INIT (Messages 1 & 2) - Unauthenticated Cryptographic Parameter Setup
+  - Initiator ➔ Responder (Message 1):
+    `HDR, SAi1 (Proposed Ciphers), KEi (Diffie-Hellman Public Key), Ni (Nonce)`
+  - Responder ➔ Initiator (Message 2):
+    `HDR, SAr1 (Selected Cipher), KEr (DH Public Key), Nr (Nonce), [CERTREQ]`
+  - Outcome: Both peers independently compute the shared secret (SKEYSEED) and derive 7 key streams:
+    (SK_d, SK_ai, SK_ar, SK_ei, SK_er, SK_pi, SK_pr). All subsequent messages are 100% encrypted!
+
+Exchange 2: IKE_AUTH (Messages 3 & 4) - Authenticated Identity & Child SA Creation
+  - Initiator ➔ Responder (Message 3, ENCRYPTED):
+    `HDR, SK { IDi (Identity), [CERT], [CERTREQ], AUTH (Signature/PSK), SAi2, TSi, TSr }`
+  - Responder ➔ Initiator (Message 4, ENCRYPTED):
+    `HDR, SK { IDr (Identity), [CERT], AUTH (Signature/PSK), SAr2, TSi, TSr }`
+  - Outcome: IKE SA (control plane) and initial Child SA (data plane ESP tunnel) are both fully established!
+
+
+4. THE TWO-TIER SA HIERARCHY: IKE SA VS CHILD SA
+----------------------------------------------------------------------------------------------------
+1. IKE SA (Parent SA):
+   - Bidirectional control channel between gateways.
+   - Secures IKE control messages (rekeying, deletion, dead peer detection keepalives).
+   - Identified by 64-bit Initiator and Responder SPIs in IKE header.
+
+2. Child SA (IPsec Data SA):
+   - Unidirectional simplex pair (Inbound SA and Outbound SA) for user data traffic.
+   - Encapsulates payload using ESP or AH.
+   - Identified by 32-bit SPI in ESP header + Destination IP + Protocol 50.
+
+
+5. PERFECT FORWARD SECRECY (PFS) & REKEYING
+----------------------------------------------------------------------------------------------------
+- When an SA approaches its lifetime limit (e.g., 8 hours or 2^32 sequence numbers), IKEv2 initiates 
+  a `CREATE_CHILD_SA` exchange.
+- With Perfect Forward Secrecy (PFS) enabled (e.g., Diffie-Hellman Group 14 or Group 19), a fresh 
+  ephemeral key exchange is executed, ensuring that compromising current keys cannot decrypt past sessions.
+
+
+6. REGIONAL SOC CASE STUDIES (WEST BENGAL)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Treasury Hub ➔ Salt Lake FinTech Interconnect
+  - Infrastructure: strongSwan IKEv2 with ECP-384 and RSA-PSS X.509 digital certificates.
+  - Engineers: Susmita & Mamata.
+  - Outcome: Zero password vulnerabilities; automated 8-hour PFS rekeying without session interruption.
+
+Case 2: Ichapur Defense Telemetry Remote Access VPN
+  - Infrastructure: IKEv2 with EAP-TLS and certificate pinning for field laptops.
+  - Engineers: Debangshu & Mahima.
+  - Outcome: 2-factor hardware token authentication with automated revocation checking via OCSP.
+
+Case 3: Jadavpur Smart City MOBIKE (RFC 4555) Roaming
+  - Infrastructure: Mobile patrol vehicles roaming between Wi-Fi and 5G cellular towers.
+  - Engineers: Sukanta Hui & Scholars.
+  - Outcome: MOBIKE updated outer IP addresses dynamically without tearing down the underlying IPsec SA.
+
+
+7. LINUX STRONGSWAN FORENSIC COMMANDS
+----------------------------------------------------------------------------------------------------
+1. View active IKE and Child SAs:
+   $ sudo swanctl --list-sas
+
+2. Initiate tunnel connection:
+   $ sudo swanctl --initiate --child net-to-net
+
+3. View kernel transformation state:
+   $ sudo ip xfrm state show
+====================================================================================================

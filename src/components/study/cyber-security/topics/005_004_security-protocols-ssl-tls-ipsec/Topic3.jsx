@@ -147,7 +147,7 @@ const Topic3 = () => {
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Master the data-carrying engine of TLS: Authenticated Encryption (AEAD AES-GCM / ChaCha20-Poly1305),
-            Content Type Hiding, Nonce derivation ($IV \oplus \text{Seq}$), and Dynamic Record Sizing.
+            Content Type Hiding, Nonce derivation (Base IV ⊕ Sequence Number), and Dynamic Record Sizing.
           </p>
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <span className="px-3 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-200 border border-slate-700">
@@ -232,7 +232,7 @@ const Topic3 = () => {
                   <span>🔢</span> 3. Implicit Nonce Derivation
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  Derives unique 96-bit Nonces via $\text{Base IV} \oplus \text{Sequence Number}$ without transmitting
+                  Derives unique 96-bit Nonces via Base IV ⊕ Sequence Number without transmitting
                   explicit IVs on the wire, saving 8–16 bytes per packet.
                 </p>
               </div>
@@ -416,7 +416,7 @@ const Topic3 = () => {
                 Studio 2: Live AEAD Nonce Derivation &amp; Anti-Replay Counter
               </h2>
               <p className="text-sm text-slate-400">
-                Observe the bitwise XOR formula ($\text{Base IV} \oplus \text{Seq}$) that derives unique per-record Nonces in TLS 1.3
+                Observe the bitwise XOR formula (Base IV ⊕ Seq) that derives unique per-record Nonces in TLS 1.3
               </p>
             </div>
           </div>

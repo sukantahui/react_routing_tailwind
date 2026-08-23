@@ -1,0 +1,90 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: SECURE SHELL (SSH) & PORT FORWARDING
+COURSE MODULE: 005_004 - NETWORK SECURITY PROTOCOLS: SSL, TLS & IPSEC (TOPIC 8)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE SSH ARCHITECTURE (RFC 4251)
+----------------------------------------------------------------------------------------------------
+Secure Shell (SSH-2) operates at the Application Layer (OSI Layer 7) over TCP Port 22. 
+It consists of three cleanly decoupled protocol layers:
+1. SSH Transport Layer Protocol (RFC 4253):
+   - Server host authentication (X.509 or public key), Diffie-Hellman key exchange, symmetric encryption 
+     (ChaCha20-Poly1305, AES-256-GCM), and data integrity verification.
+2. SSH User Authentication Protocol (RFC 4252):
+   - Authenticates the human user or automated daemon to the server (Public Key, Password, Hostbased, GSSAPI/Kerberos).
+3. SSH Connection Protocol (RFC 4254):
+   - Multiplexes multiple independent logical channels over a single encrypted transport session:
+     • Interactive Shell Sessions (PTY)
+     • SFTP Subsystem (Secure File Transfer)
+     • X11 Graphical Forwarding
+     • TCP Port Forwarding (Local, Remote, Dynamic)
+
+
+2. SSH PORT FORWARDING & TUNNELING MECHANISMS
+----------------------------------------------------------------------------------------------------
+A. Local Port Forwarding (`ssh -L [local_ip:]local_port:remote_host:remote_port user@jump_server`):
+   - Purpose: Directs traffic from a local port on the client machine through the encrypted SSH tunnel 
+     to a destination reachable from the remote SSH server.
+   - Example: `ssh -L 5432:10.14.0.88:5432 debangshu@bastion.barrackpore.gov.in`
+   - Use Case: Accessing an internal PostgreSQL database located in a private datacenter subnet.
+
+B. Remote Port Forwarding (`ssh -R [remote_ip:]remote_port:local_host:local_port user@jump_server`):
+   - Purpose: Opens a listening port on the remote SSH server that forwards incoming connections back through 
+     the SSH tunnel to a local service on the client machine.
+   - Example: `ssh -R 8080:localhost:3000 susmita@public-relay.kolkata.gov.in`
+   - Use Case: Exposing a local web application running on a developer laptop behind NAT to external testers.
+
+C. Dynamic Port Forwarding / SOCKS5 Proxy (`ssh -D local_port user@remote_server`):
+   - Purpose: Turns the SSH client into a local SOCKS5 proxy server. Any browser or application configured 
+     to use `127.0.0.1:local_port` dynamically tunnels all its TCP traffic through the remote server.
+   - Example: `ssh -D 1080 mamata@core.kolkata.gov.in`
+   - Use Case: Securely browsing internal web intranets without modifying individual port mappings.
+
+
+3. SSH KEY ALGORITHMS & CRYPTOGRAPHIC STANDARDS
+----------------------------------------------------------------------------------------------------
++----------------------+-----------+-------------------------+------------------------------------+
+| Algorithm            | Key Size  | Security Level          | Operational Recommendation         |
++----------------------+-----------+-------------------------+------------------------------------+
+| Ed25519 (RFC 8709)   | 256 bits  | 🌟 MAXIMUM (128-bit eq) | Recommended Gold Standard          |
+| RSA (RFC 4253)       | 4096 bits | ✔ HIGH (Minimum 3072b)  | Acceptable legacy standard         |
+| ECDSA (NIST P-256)   | 256 bits  | ⚠️ MODERATE             | Susceptible to poor RNG nonce bias |
+| DSA / RSA 1024       | 1024 bits | ❌ BROKEN / INSECURE    | Prohibited by modern OpenSSH       |
++----------------------+-----------+-------------------------+------------------------------------+
+
+
+4. SSH SERVER HARDENING BEST PRACTICES (`/etc/ssh/sshd_config`)
+----------------------------------------------------------------------------------------------------
+1. Disable Root Login:
+   `PermitRootLogin no`
+2. Disable Password Authentication (Enforce Public Key Only):
+   `PasswordAuthentication no`
+   `PubkeyAuthentication yes`
+3. Limit Maximum Authentication Attempts (Mitigate Brute Force):
+   `MaxAuthTries 3`
+4. Enforce Modern AEAD Ciphers and Key Exchange Groups:
+   `KexAlgorithms curve25519-sha256,diffie-hellman-group16-sha512`
+   `Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com`
+   `MACs hmac-sha2-512-etm@openssh.com`
+5. Replace Insecure Agent Forwarding with ProxyJump:
+   `ssh -J bastion.barrackpore.gov.in internal-db.gov.in`
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL INFRASTRUCTURE)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Bastion Architecture
+  - Infrastructure: Single hardened SSH jump-host with ProxyJump (`ssh -J`) securing 45 internal treasury servers.
+  - Engineers: Susmita & Mamata.
+  - Outcome: Eliminated all direct public IP exposure for backend databases; enforced hardware Ed25519 FIDO2 keys.
+
+Case 2: Ichapur Defense Automated SFTP Batch Ingestion
+  - Infrastructure: Automated daily pension disburser processing ₹85,00,000 via restricted SFTP chroot jail.
+  - Engineers: Debangshu & Mahima.
+  - Outcome: Enforced `ForceCommand internal-sftp` with zero shell access; automated audit trail with forensic checksums.
+
+Case 3: Kolkata FinTech SOCKS5 Intranet Routing
+  - Infrastructure: Dynamic Port Forwarding (`ssh -D 1080`) providing encrypted remote access for 150 financial auditors.
+  - Engineers: Sukanta Hui & Scholars.
+  - Outcome: Eliminated complex multi-port firewall rules; seamless, encrypted browser access to internal ledger portals.
+====================================================================================================

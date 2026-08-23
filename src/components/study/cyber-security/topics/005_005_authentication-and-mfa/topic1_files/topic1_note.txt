@@ -1,0 +1,69 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: THE THREE FACTORS OF AUTHENTICATION
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 1)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE THREE CLASSICAL AUTHENTICATION FACTORS
+----------------------------------------------------------------------------------------------------
+Identity verification is mathematically categorized into three independent factor domains:
+1. Something You KNOW (Knowledge Factor):
+   - Examples: Static passwords, alphanumeric PINs, passphrases, secret answers.
+   - Vulnerabilities: Phishing, credential stuffing, dictionary attacks, keyloggers, social engineering.
+2. Something You HAVE (Possession Factor):
+   - Examples: Hardware security keys (FIDO2 / YubiKey), smartcards (CAC/PIV), software TOTP authenticators 
+     (Google Authenticator), physical cryptographic tokens (RSA SecurID).
+   - Vulnerabilities: Physical theft, device loss, SIM swapping (for SMS), session token theft via infostealers.
+3. Something You ARE / DO (Inherence Factor):
+   - Examples: Physical biometrics (Fingerprint, Facial recognition, Iris/Retina scans) and Behavioral 
+     biometrics (Keystroke typing dynamics, touchscreen swipe pressure, gait analysis).
+   - Vulnerabilities: Silicon mold spoofing, high-resolution photo replay, deepfakes, non-revocability 
+     (compromised biometric traits cannot be re-issued like passwords).
+
+
+2. TRUE MULTI-FACTOR VS MULTI-STEP AUTHENTICATION
+----------------------------------------------------------------------------------------------------
+- Multi-Step Authentication (1FA):
+  • Requiring a Password (Knowledge) followed by an ATM PIN or Security Question (Knowledge).
+  • Both belong to the SAME factor category; a single data breach or keylogger compromises both.
+- True Multi-Factor Authentication (MFA / 2FA):
+  • Requires credentials from at least TWO DIFFERENT mathematical factor categories.
+  • Example: Password (Knowledge) + Hardware FIDO2 Security Key (Possession) = True 2FA.
+  • Example: Password (Knowledge) + YubiKey (Possession) + Fingerprint (Inherence) = True 3FA.
+
+
+3. THE 4TH AND 5TH MODERN EXTENDED FACTORS (CONTEXTUAL & BEHAVIORAL)
+----------------------------------------------------------------------------------------------------
+4. Somewhere You ARE (Location Factor):
+   - GPS coordinates, IP geolocation subnets, BLE beacon proximity, Wi-Fi BSSID triangulation.
+5. Something You DO / Contextual Time (Velocity & Behavioral Factor):
+   - "Impossible Traveler" anomaly detection: If Susmita logs in from Barrackpore at 14:00 and from London 
+     at 14:20, the geographical velocity exceeds physical limits ($v > 1000\text{ km/h}$), triggering an instant lock.
+
+
+4. ADAPTIVE / RISK-BASED AUTHENTICATION ARCHITECTURE
+----------------------------------------------------------------------------------------------------
+Rather than prompting users with high-friction MFA on every action, Adaptive Authentication calculates 
+a real-time Risk Score:
+- Low Risk (Managed corporate laptop, internal IP, normal hours) ➔ Single Sign-On (1FA).
+- Medium Risk (New browser, off-hours, residential IP) ➔ Prompt for TOTP / Push Notification (2FA).
+- High Risk (Tor exit node, unknown foreign country, failed device health) ➔ Mandatory Biometric Step-Up or Block.
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL INFRASTRUCTURE)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury High-Assurance 3FA
+  - Infrastructure: Municipal fund disbursement system requiring Password (Knowledge) + YubiKey (Possession) + Fingerprint (Inherence) for allocations over ₹25,00,000.
+  - Engineers: Susmita & Mamata.
+  - Outcome: Completely eliminated unauthorized municipal fund diversion; 100% compliance under CAG financial audit rules.
+
+Case 2: Ichapur Defense Facility Physical + Logical Convergence
+  - Infrastructure: Consolidated smartcard badges (Possession) and iris scanners (Inherence) guarding server rooms.
+  - Engineers: Debangshu & Mahima.
+  - Outcome: Tailgating and badge-sharing attacks reduced to zero; cryptographic access logs verified by central security.
+
+Case 3: Kolkata FinTech Impossible Traveler Fraud Detection
+  - Infrastructure: Real-time velocity engine monitoring 200,000 mobile banking logins per hour.
+  - Engineers: Sukanta Hui & Scholars.
+  - Outcome: Automatically blocked 450 compromised account takeovers where credentials were leaked on dark web forums.
+====================================================================================================

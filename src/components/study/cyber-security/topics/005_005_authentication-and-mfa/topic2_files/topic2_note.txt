@@ -1,0 +1,75 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: SINGLE-FACTOR AUTHENTICATION (PASSWORDS) & VULNERABILITIES
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 2)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE MATHEMATICS OF PASSWORD ENTROPY
+----------------------------------------------------------------------------------------------------
+Password security is quantified by Shannon Information Entropy (measured in bits):
+$$H = L \cdot \log_2(N)$$
+Where:
+- $L$ = Length of the password (number of characters).
+- $N$ = Character pool size:
+  • Numeric only (0-9): $N = 10 \implies \log_2(10) \approx 3.32\text{ bits/char}$
+  • Alphanumeric (a-z, A-Z, 0-9): $N = 62 \implies \log_2(62) \approx 5.95\text{ bits/char}$
+  • Full ASCII (including symbols): $N = 95 \implies \log_2(95) \approx 6.57\text{ bits/char}$
+
+Length vs Complexity (The Passphrase Paradigm):
+- Short complex password: `P@$$w0rd!` (9 chars, $N=95$) $\implies H = 9 \cdot 6.57 = 59.1\text{ bits}$ (Cracked on modern GPU in seconds).
+- Long multi-word passphrase: `correct horse battery staple` (28 chars, $N=26$) $\implies H = 28 \cdot 4.7 = 131.6\text{ bits}$ (Computationally impossible to crack).
+
+
+2. SECURE PASSWORD STORAGE: HASHING, SALTING & PEPPERING
+----------------------------------------------------------------------------------------------------
+A. Never Store Plaintext or Reversible Encrypted Passwords.
+B. Fast Hashing Algorithms (UNSUITABLE FOR PASSWORDS):
+   - MD5, SHA-1, SHA-256, SHA-512, NTLM: Designed for fast file checksums. Modern GPU rigs (RTX 4090) 
+     compute 50+ BILLION SHA-256 hashes per second, cracking short passwords in minutes.
+C. Slow, Memory-Hard Key Derivation Functions (MANDATORY):
+   1. Bcrypt (RFC 7693): Adaptive Eksblowfish hash with configurable work factor ($2^{\text{cost}}$).
+   2. PBKDF2 (RFC 8018): Iterated HMAC hashing (minimum 600,000 iterations for SHA-256).
+   3. Scrypt (RFC 7914): Memory-hard algorithm requiring gigabytes of RAM to defeat ASIC miners.
+   4. Argon2 (RFC 9106 / PHC Winner): Argon2id provides state-of-the-art resistance against GPU/ASIC 
+      brute-force and side-channel cache-timing attacks.
+D. Cryptographic Salt & Pepper:
+   - Salt: A unique, cryptographically random 16-byte value generated per user and stored alongside the 
+     hash in `/etc/shadow` or database. Defeats precomputed Rainbow Tables and identical hashes.
+   - Pepper: A secret HMAC key stored in a separate Hardware Security Module (HSM) or environment variable.
+
+
+3. PASSWORD ATTACK METHODOLOGIES
+----------------------------------------------------------------------------------------------------
+1. Dictionary Attack: Tests wordlists of commonly used passwords (e.g., `rockyou.txt`).
+2. Brute-Force Attack: Systematically tries every character permutation up to length $L$.
+3. Password Spraying: Tries 1 or 2 common passwords (e.g., `Autumn2026!`) across thousands of accounts 
+   to evade per-account failed-attempt lockout thresholds.
+4. Credential Stuffing: Automated injection of leaked username/password combos from third-party breaches.
+5. Rainbow Tables: Precomputed lookup tables of plaintext-hash pairs; completely neutralized by unique salts.
+
+
+4. MODERN NIST SP 800-63B PASSWORD GUIDELINES
+----------------------------------------------------------------------------------------------------
+- Prohibit Periodic 90-Day Resets: Forced rotations lead users to pick predictable variants (`Summer2026! ➔ Autumn2026!`).
+- Eliminate Arbitrary Complexity Rules: Mandating special characters/numbers encourages predictable substitutions (`@` for `a`).
+- Enforce Minimum Length: Minimum 8 characters for general users; 15+ characters for administrators.
+- Check Against Compromised Password Dictionaries: Block passwords found in known breach databases (HaveIBeenPwned).
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL INFRASTRUCTURE)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Legacy Hash Migration
+  - Infrastructure: Migrating 1,200 municipal staff accounts from legacy MD5/SHA-1 to Argon2id.
+  - Engineers: Susmita & Mamata.
+  - Outcome: Database dump resistance increased by 10,000,000x against offline GPU cracking; 100% salt enforcement.
+
+Case 2: Ichapur Defense Password Spraying Incident Response
+  - Infrastructure: SOC anomaly engine detecting slow password spraying across 800 defense procurement accounts.
+  - Engineers: Debangshu & Mahima.
+  - Outcome: Detected distributed botnet testing `Welcome2026!` across 200 distinct residential IP proxies; automated IP subnet bans.
+
+Case 3: Kolkata FinTech Breach Credential Screening
+  - Infrastructure: Real-time API integration checking new account passwords against 1.2 billion breached passwords.
+  - Engineers: Sukanta Hui & Scholars.
+  - Outcome: Prevented 15,000 users from choosing compromised passwords; reduced credential stuffing incidents to zero.
+====================================================================================================

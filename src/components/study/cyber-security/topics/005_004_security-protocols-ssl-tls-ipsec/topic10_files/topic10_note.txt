@@ -1,0 +1,89 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: DNSSEC (DOMAIN NAME SYSTEM SECURITY EXTENSIONS)
+COURSE MODULE: 005_004 - NETWORK SECURITY PROTOCOLS: SSL, TLS & IPSEC (TOPIC 10)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE DNS VULNERABILITY & THE NEED FOR DNSSEC
+----------------------------------------------------------------------------------------------------
+Standard DNS (RFC 1035) operates over unencrypted UDP Port 53 with zero cryptographic authentication. 
+Attackers on the network path can easily forge DNS responses by guessing the 16-bit Transaction ID (TxID) 
+and source port (Kaminsky DNS Cache Poisoning Attack), redirecting users to fraudulent banking portals.
+
+DNS Security Extensions (DNSSEC - RFC 4033, 4034, 4035) introduces cryptographic origin authentication 
+and data integrity to DNS, guaranteeing that resolution responses originate from legitimate zone 
+authorities and were not modified in transit. Note: DNSSEC does NOT encrypt DNS queries (data remains public).
+
+
+2. THE FOUR CORE DNSSEC RECORD TYPES
+----------------------------------------------------------------------------------------------------
+1. RRSIG (Resource Record Signature):
+   - Contains the digital signature for a specific Resource Record Set (RRset, e.g., A, AAAA, MX).
+   - Validated using the zone's public Zone Signing Key (ZSK).
+2. DNSKEY (DNS Public Key):
+   - Holds the public keys used in the zone:
+     • Zone Signing Key (ZSK - Flag 256): Used for daily signing of RRsets.
+     • Key Signing Key (KSK - Flag 257): Used solely to sign the DNSKEY RRset.
+3. DS (Delegation Signer):
+   - Stored in the PARENT zone (e.g., `.in` holds the DS for `barrackpore.in`).
+   - Contains a cryptographic hash (SHA-256) of the child zone's KSK, creating the parent-child Chain of Trust.
+4. NSEC / NSEC3 (Next Secure Record):
+   - Provides cryptographically verifiable Proof of Non-Existence (NXDOMAIN).
+   - NSEC3 uses salted cryptographic hashing to prevent "Zone Walking" (domain enumeration).
+
+
+3. THE HIERARCHICAL CHAIN OF TRUST
+----------------------------------------------------------------------------------------------------
+Resolution Chain:
+1. Root Zone (`.`):
+   - Trust Anchor: Root KSK-2024 (Managed by ICANN global key signing ceremonies).
+   - Signs Root DNSKEY and `.in` TLD's DS record.
+2. TLD Zone (`.in` / `.gov.in`):
+   - `.in` KSK validates its DNSKEY, which validates the DS record for `barrackpore.gov.in`.
+3. Authoritative Child Zone (`barrackpore.gov.in`):
+   - DS hash matches the child KSK.
+   - Child KSK validates Child ZSK.
+   - Child ZSK validates the `A` record RRSIG (`treasury.barrackpore.gov.in` ➔ `203.0.113.10`).
+   - The recursive resolver sets the `AD=1` (Authenticated Data) flag in the DNS response header!
+
+
+4. KSK VS ZSK DUAL-KEY ROTATION ARCHITECTURE
+----------------------------------------------------------------------------------------------------
+- Zone Signing Key (ZSK):
+  • Key Size: 256-bit ECDSA (Curve P-256) or 1024/2048-bit RSA.
+  • Lifecycle: Rotated frequently (e.g., monthly) without notifying the parent zone registry.
+- Key Signing Key (KSK):
+  • Key Size: 384-bit ECDSA or 2048/4096-bit RSA.
+  • Lifecycle: Rotated infrequently (e.g., annually) because rotation requires updating the parent DS record.
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Portal DNSSEC Rollout
+  - Infrastructure: Automated BIND9 DNSSEC signing with ECDSA P-256 (Algorithm 13) and DS publishing to `.gov.in`.
+  - Engineers: Susmita & Mamata.
+  - Outcome: Neutralized ISP-level DNS cache poisoning; guaranteed authentic routing to municipal tax payment gateways.
+
+Case 2: Ichapur Defense Zone NSEC3 Anti-Zone Walking
+  - Infrastructure: Defense intranet zones deploying NSEC3 with 10 iterations and random salt.
+  - Engineers: Debangshu & Mahima.
+  - Outcome: Prevented adversarial botnets from enumerating hidden internal server hostnames.
+
+Case 3: Kolkata FinTech DANE / TLSA Security
+  - Infrastructure: DNSSEC-anchored TLSA records pinning mail and web server certificates on Port 25/443.
+  - Engineers: Sukanta Hui & Scholars.
+  - Outcome: Immune to fraudulent public CA certificate issuance; 100% compliant under RBI cybersecurity framework.
+
+
+6. FORENSIC AUDIT COMMANDS
+----------------------------------------------------------------------------------------------------
+1. Query with DNSSEC validation flag:
+   $ dig A treasury.barrackpore.gov.in +dnssec +multiline
+
+2. Trace entire DNSSEC chain of trust from root:
+   $ delv @8.8.8.8 treasury.barrackpore.gov.in A
+
+3. Inspect DNSKEY and DS records:
+   $ dig DNSKEY barrackpore.gov.in +short
+   $ dig DS barrackpore.gov.in +short
+====================================================================================================

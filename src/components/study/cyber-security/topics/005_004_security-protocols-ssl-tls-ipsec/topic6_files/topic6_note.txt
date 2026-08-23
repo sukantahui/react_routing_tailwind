@@ -1,0 +1,100 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: IPSEC PROTOCOLS: AUTHENTICATION HEADER (AH) VS ESP
+COURSE MODULE: 005_004 - NETWORK SECURITY PROTOCOLS: SSL, TLS & IPSEC (TOPIC 6)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. PROTOCOL ARCHITECTURAL COMPARISON: AH VS ESP
+----------------------------------------------------------------------------------------------------
+IPsec defines two primary data-plane security protocols operating at the Network Layer (OSI Layer 3):
+1. Authentication Header (AH) - RFC 4302 (IP Protocol 51)
+2. Encapsulating Security Payload (ESP) - RFC 4303 (IP Protocol 50)
+
+Security Services Matrix:
++------------------------------------+--------------------------+--------------------------+
+| Security Feature                   | Authentication Header    | Encapsulating Security   |
+|                                    | (AH - Protocol 51)       | Payload (ESP - Proto 50) |
++------------------------------------+--------------------------+--------------------------+
+| Data Confidentiality (Encryption)  | ❌ NO (Cleartext Payload)| ✔ YES (AES-GCM / ChaCha) |
+| Connectionless Data Integrity      | ✔ YES (Whole Packet)     | ✔ YES (ESP Payload/Trlr) |
+| Data Origin Authentication         | ✔ YES (HMAC / ICV)       | ✔ YES (ICV / GMAC)       |
+| Anti-Replay Protection             | ✔ YES (Sequence Counter) | ✔ YES (Sequence Counter) |
+| Outer IP Header Authentication     | ✔ YES (Immutable fields) | ❌ NO (Enables NAT-T)    |
+| NAT / PAT Router Traversal         | ❌ FAILS COMPLETELY      | ✔ YES (via UDP 4500)     |
+| Current IETF Status (RFC 8221)     | ⚠️ DEPRECATED / HISTORIC  | 🌟 MODERN STANDARD       |
++------------------------------------+--------------------------+--------------------------+
+
+
+2. AUTHENTICATION HEADER (AH - RFC 4302) MECHANICS
+----------------------------------------------------------------------------------------------------
+AH computes an Integrity Check Value (ICV) using a keyed cryptographic hash (HMAC-SHA256) over:
+1. IP Header fields that are IMMUTABLE in transit (Version, IHL, Total Length, Source IP, Destination IP, Protocol).
+2. The AH Header itself (with ICV zeroed out during calculation).
+3. The entire Upper-Layer Payload (TCP/UDP segment and data).
+
+Mutable Fields (Zeroed Out During ICV Calculation):
+- In IPv4: Type of Service / DSCP, Flags, Fragment Offset, Time to Live (TTL), and Header Checksum.
+- In IPv6: Traffic Class, Flow Label, and Hop Limit.
+
+Why AH Invariably Breaks on NAT:
+When a NAT router modifies the Source IP or Destination IP in the IP header, the receiver calculates 
+the ICV using the translated IP, whereas the sender calculated it using the original private IP. 
+The ICV check fails, and the kernel silently drops the packet.
+
+
+3. ENCAPSULATING SECURITY PAYLOAD (ESP - RFC 4303) MECHANICS
+----------------------------------------------------------------------------------------------------
+ESP encapsulates and encrypts the transport payload. 
+ESP Packet Layout (from front to back):
+1. Security Parameters Index (SPI) [4 Bytes]  - Plaintext (SAD lookup key)
+2. Sequence Number [4 Bytes]                  - Plaintext (Anti-replay counter)
+3. Initialization Vector (IV) [8-16 Bytes]   - Plaintext / Derived nonce
+4. Payload Data [Variable]                    - 🔒 ENCRYPTED (AES-256-GCM)
+5. Padding [0-255 Bytes]                      - 🔒 ENCRYPTED (Aligns block boundaries)
+6. Pad Length [1 Byte]                        - 🔒 ENCRYPTED
+7. Next Header [1 Byte]                       - 🔒 ENCRYPTED (Specifies TCP=6, UDP=17, IPv4=4)
+8. Integrity Check Value (ICV) [16 Bytes]     - GMAC Authentication Tag
+
+
+4. COMBINED AEAD VS LEGACY TWO-PASS CIPHER SUITES
+----------------------------------------------------------------------------------------------------
+Legacy Two-Pass Encryption (RFC 2406):
+- Encryption: AES-CBC (Cipher Block Chaining)
+- Integrity: HMAC-SHA256 (Separate hashing pass)
+- Drawbacks: Slower throughput, vulnerable to padding oracle attacks (Lucky Thirteen, POODLE).
+
+Modern Combined AEAD (RFC 4106 / RFC 7634):
+- Algorithms: AES-256-GCM, ChaCha20-Poly1305
+- Advantages: Single-pass hardware-accelerated encryption + authentication via Galois Field arithmetic;
+  50%-75% lower CPU overhead on Intel/AMD processors with AES-NI instructions.
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL INFRASTRUCTURE)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Treasury Leased Line Upgrade
+  - Scenario: Migrating legacy AH-authenticated inter-branch links to modern AES-256-GCM ESP.
+  - Engineers: Susmita & Mamata.
+  - Outcome: Added 100% confidentiality to financial transactions worth ₹50,00,000; reduced CPU load by 45%.
+
+Case 2: Ichapur Defense Pension Database Host-to-Host Encryption
+  - Scenario: Securing inter-rack communication across heterogeneous server architectures.
+  - Engineers: Debangshu & Mahima.
+  - Outcome: Zero sniffing vulnerability; AES-NI hardware acceleration achieving 9.8 Gbps line-rate throughput.
+
+Case 3: Jadavpur University Smart Campus CGNAT Interconnect
+  - Scenario: Connecting branch IoT sensors behind carrier firewalls.
+  - Engineers: Sukanta Hui & Scholars.
+  - Outcome: NAT-T UDP 4500 encapsulation enabled seamless ESP traversal across multi-tiered NAT routers.
+
+
+6. FORENSIC AUDIT COMMANDS
+----------------------------------------------------------------------------------------------------
+1. Display kernel security associations:
+   $ sudo ip xfrm state show
+
+2. Monitor packet and byte counters per SA:
+   $ sudo ip -s xfrm state
+
+3. Trace IPsec wire protocols:
+   $ sudo tcpdump -nn -i eth0 'proto 50 or proto 51 or port 4500'
+====================================================================================================

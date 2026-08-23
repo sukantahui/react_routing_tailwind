@@ -1,0 +1,74 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: AAA FRAMEWORK (AUTHENTICATION, AUTHORIZATION, ACCOUNTING)
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 0)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE AAA SECURITY TRIAD
+----------------------------------------------------------------------------------------------------
+Enterprise access control and identity governance rest upon the AAA architectural model:
+1. Authentication (AuthN):
+   - "Who are you?" Validates the claimed identity of a user, device, or service using credentials 
+     (passwords, digital certificates, biometrics, hardware tokens).
+2. Authorization (AuthZ):
+   - "What are you permitted to do?" Enforces granular permissions, privileges, and access boundaries 
+     (Role-Based Access Control - RBAC, Attribute-Based Access Control - ABAC).
+3. Accounting / Auditing (AuthAcct):
+   - "What did you do, when, and for how long?" Logs user session start/stop times, executed commands, 
+     data transferred, and system modifications for compliance, forensics, and non-repudiation.
+
+
+2. ENTERPRISE AAA PROTOCOLS: RADIUS VS TACACS+ VS DIAMETER
+----------------------------------------------------------------------------------------------------
++----------------------+--------------------------+--------------------------+-----------------------+
+| Feature              | RADIUS (RFC 2865/2866)   | TACACS+ (RFC 8907)       | Diameter (RFC 6733)   |
++----------------------+--------------------------+--------------------------+-----------------------+
+| Transport Layer      | UDP Ports 1812 (Auth)    | TCP Port 49              | TCP / SCTP Port 3868  |
+|                      | & 1813 (Accounting)      | (Reliable Transport)     | (Reliable / Multi-homed)|
+| Architecture         | Combines AuthN & AuthZ   | Decouples AuthN, AuthZ,  | Decoupled & Modular   |
+|                      | into single transaction  | and Accounting into 3    | with 32-bit AVP space |
+| Packet Encryption    | Partial: Encrypts ONLY   | Full: Encrypts ENTIRE    | Native TLS / IPsec    |
+|                      | the password attribute   | packet payload           | End-to-End Encryption |
+| Command Authorization| ❌ Poor (Only privilege  | 🌟 Granular per-command  | 🌟 Granular policy    |
+|                      | levels 1-15)             | CLI authorization        | control               |
+| Primary Use Case     | 802.1X Network Access,   | Router & Switch Admin    | 4G/5G Telecom Cores,  |
+|                      | VPNs, Wi-Fi Enterprise   | Management (Cisco/Junos) | Roaming & Cloud IAM   |
++----------------------+--------------------------+--------------------------+-----------------------+
+
+
+3. 802.1X PORT-BASED NETWORK ACCESS CONTROL (PNAC)
+----------------------------------------------------------------------------------------------------
+802.1X controls physical and wireless port access through three logical entities:
+1. Supplicant: The client device (e.g., Susmita's laptop in Barrackpore) running EAP software.
+2. Authenticator: The edge network switch or wireless access point (AP) acting as a gatekeeper.
+3. Authentication Server: The centralized RADIUS server (e.g., FreeRADIUS) validating credentials.
+- Protocol Wire: Supplicant ──(EAPoL)──> Authenticator ──(RADIUS/UDP)──> RADIUS Server
+
+
+4. ACCESS CONTROL MODELS: RBAC VS ABAC
+----------------------------------------------------------------------------------------------------
+- Role-Based Access Control (RBAC):
+  • Permissions are bound directly to static organizational roles (e.g., `Auditor`, `NetworkAdmin`, `Teller`).
+  • Simple to administer, but inflexible in dynamic environments.
+- Attribute-Based Access Control (ABAC - NIST SP 800-162):
+  • Permissions evaluated dynamically using boolean rules over Subject (Role, Clearance), Object (Sensitivity), 
+    Action (Read, Execute), and Environmental Context (Time: 09:00-17:00, Location: Barrackpore SOC, IP: 10.14.0.0/16).
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL INFRASTRUCTURE)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal 802.1X Network Access Control
+  - Infrastructure: FreeRADIUS cluster with EAP-TLS certificate authentication securing 350 municipal workstations.
+  - Engineers: Susmita & Mamata.
+  - Outcome: Blocked rogue unauthorized laptops from connecting to internal treasury switch ports; automated accounting logs.
+
+Case 2: Ichapur Defense TACACS+ Command-Level Authorization
+  - Infrastructure: Hardened Cisco core switch infrastructure enforcing TACACS+ per-command authorization.
+  - Engineers: Debangshu & Mahima.
+  - Outcome: Prohibited junior administrators from executing `reload`, `format`, or `erase` commands; forensic command audit trail.
+
+Case 3: Kolkata FinTech Diameter 5G Core Roaming Gateway
+  - Infrastructure: Diameter protocol cluster processing 45,000 subscriber authentication requests/second for mobile banking.
+  - Engineers: Sukanta Hui & Scholars.
+  - Outcome: 100% encrypted session accounting and multi-factor authorization; zero unmetered billing leaks.
+====================================================================================================
