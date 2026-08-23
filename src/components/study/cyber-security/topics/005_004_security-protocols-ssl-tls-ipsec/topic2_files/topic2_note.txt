@@ -1,0 +1,140 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: TLS HANDSHAKE PROTOCOL: KEY EXCHANGE, AUTH & CIPHER SUITES
+COURSE MODULE: 005_004 - NETWORK SECURITY PROTOCOLS: SSL, TLS & IPSEC (TOPIC 2)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. ANATOMY OF THE TLS 1.3 1-RTT HANDSHAKE (RFC 8446)
+----------------------------------------------------------------------------------------------------
+The TLS 1.3 Handshake protocol establishes a secure, authenticated, and encrypted channel in a single
+network round trip (1-RTT). The complete message flow proceeds as follows:
+
+Step 1: ClientHello (Initiation & Key Share Proposal):
+  - Client transmits:
+    1. Client Random (32 cryptographic random bytes).
+    2. Supported Versions Extension: '0x0304' (indicating TLS 1.3 support).
+    3. Cipher Suites: AEAD list (e.g., TLS_AES_256_GCM_SHA384, TLS_CHACHA20_POLY1305_SHA256).
+    4. Supported Groups Extension: Named curves (e.g., X25519, secp256r1).
+    5. Key Share Extension: Client's ephemeral public key (e.g., X25519 scalar public key).
+    6. Signature Algorithms: e.g., rsa_pss_rsae_sha256, ecdsa_secp256r1_sha256, ed25519.
+    7. Server Name Indication (SNI): Target domain name.
+
+Step 2: ServerHello (Key Share Agreement):
+  - Server transmits:
+    1. Server Random (32 random bytes; contains downgrade sentinel if applicable).
+    2. Selected Cipher Suite: e.g., TLS_AES_256_GCM_SHA384.
+    3. Selected Version: TLS 1.3 (0x0304).
+    4. Key Share Extension: Server's ephemeral public key matching the client's chosen group.
+  - CRYPTOGRAPHIC TRANSITION:
+    - At this point, both Client and Server compute the Shared Secret (S) via Diffie-Hellman scalar multiplication:
+      S = ECDH(Client_Private, Server_Public) = ECDH(Server_Private, Client_Public)
+    - All subsequent messages in the handshake are 100% ENCRYPTED using derived Handshake Traffic Keys!
+
+Step 3: EncryptedExtensions:
+  - Server sends application-layer negotiation parameters (ALPN for HTTP/2 or HTTP/3, Early Data flags)
+    inside encrypted ciphertext.
+
+Step 4: Certificate & CertificateVerify (Authentication):
+  - Certificate: Server transmits its X.509 certificate chain encrypted.
+  - CertificateVerify: Contains a digital signature created by the server's long-term private key over
+    a SHA-256/SHA-384 hash of the entire preceding handshake transcript. This mathematically proves that
+    the server truly owns the private key corresponding to the public key in the certificate!
+
+Step 5: Server Finished:
+  - Server calculates an HMAC ('verify_data') over the entire handshake transcript using 'server_finished_key'.
+  - Client verifies the certificate signature and finished HMAC, then sends its own 'Finished' message.
+
+Step 6: Application Data:
+  - Bi-directional secure communication begins over derived Application Traffic Keys.
+
+
+2. THE HKDF KEY SCHEDULE (RFC 5869 / RFC 8446 SECTION 7.1)
+----------------------------------------------------------------------------------------------------
+TLS 1.3 uses the HMAC-based Extract-and-Expand Key Derivation Function (HKDF) to derive separate keys
+for handshake encryption, application data, session resumption, and exporting:
+
+Stage 1: Early Secret (Derived from PSK / 0-RTT):
+  - PRK = HKDF-Extract(salt=0, IKM=PSK or 0)
+  - Derived Secret = HKDF-Expand-Label(Early Secret, "derived", Hash(""), Hash.length)
+
+Stage 2: Handshake Secret (Derived from ECDHE Shared Secret):
+  - Handshake Secret = HKDF-Extract(salt=Derived Secret, IKM=ECDHE Shared Secret)
+  - Client Handshake Traffic Secret = HKDF-Expand-Label(Handshake Secret, "c hs traffic", Transcript_Hash)
+  - Server Handshake Traffic Secret = HKDF-Expand-Label(Handshake Secret, "s hs traffic", Transcript_Hash)
+  - Handshake Keys (AES-256) & IVs (96-bit) are expanded from these secrets.
+
+Stage 3: Master Secret (Derived for Application Data):
+  - Master Secret = HKDF-Extract(salt=Derived Handshake, IKM=0)
+  - Client Application Traffic Secret 0 = HKDF-Expand-Label(Master Secret, "c ap traffic", Transcript_Hash)
+  - Server Application Traffic Secret 0 = HKDF-Expand-Label(Master Secret, "s ap traffic", Transcript_Hash)
+  - Application Traffic Keys (AES-GCM) and IVs are expanded for bi-directional HTTP payloads.
+
+
+3. CIPHER SUITE SYNTAX & DISSECTION
+----------------------------------------------------------------------------------------------------
+TLS 1.3 Simplified Syntax:
+  - Example: TLS_AES_256_GCM_SHA384
+    - [TLS]            : Protocol Identifier
+    - [AES_256_GCM]    : AEAD Bulk Encryption & Authentication Algorithm (256-bit key, 128-bit ICV)
+    - [SHA384]         : Cryptographic Hash for HKDF PRF and Handshake Transcript Hashing
+
+Comparison with TLS 1.2 Legacy Syntax:
+  - Example: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    - [TLS]            : Protocol
+    - [ECDHE]          : Key Exchange Algorithm (tied to cipher suite name)
+    - [RSA]            : Certificate Authentication Algorithm
+    - [AES_256_GCM]    : Symmetric Bulk Cipher
+    - [SHA384]         : PRF / MAC Hash
+  - Why TLS 1.3 changed this: Separating Key Exchange (KeyShare extension) and Authentication (Signature Algorithms)
+    from the cipher suite reduced thousands of combinatorial cipher suites down to just 5 clean AEAD options!
+
+
+4. AUTHENTICATION MODELS: SERVER-ONLY VS MUTUAL TLS (mTLS)
+----------------------------------------------------------------------------------------------------
+A. Server-Only Authentication (Standard Web / E-Commerce):
+   - Only the server presents an X.509 certificate.
+   - The client verifies the server's identity, while user authentication occurs later via passwords/cookies at Layer 7.
+   - Scope: Public banking portals, tax collection sites, general internet browsing.
+
+B. Mutual TLS / mTLS (Two-Way Zero-Trust Authentication):
+   - Server sends a 'CertificateRequest' message during the handshake.
+   - The client MUST transmit its own X.509 client certificate and 'CertificateVerify' digital signature.
+   - Both communicating parties cryptographically prove their identities before a single byte of HTTP data is accepted.
+   - Scope: Banking backend microservices, Kubernetes service meshes, payment gateway API connectors.
+
+
+5. REGIONAL WEST BENGAL SOC CASE STUDIES & HANDSHAKE DRILLS
+----------------------------------------------------------------------------------------------------
+Incident Drill 1: Barrackpore FinTech Microservices mTLS Deployment
+  - Infrastructure: Microservices architecture connecting Treasury Disbursal Engine to Payment Switch.
+  - Threat Vector: Risk of rogue container injection and lateral API spoofing.
+  - Solution: Susmita and Mamata implemented Mutual TLS (mTLS) with internal X.509 certificates and RSA-PSS signatures.
+  - Outcome: 100% cryptographic authentication between microservices; unauthorized API calls dropped at the TLS handshake.
+
+Incident Drill 2: Salt Lake Transit Handshake Clock Skew Troubleshooting
+  - Infrastructure: Automated metro transit ticketing gates in Kolkata connecting to cloud fare validators.
+  - Threat Scenario: Ticketing gates failed TLS handshake with error 'SEC_ERROR_EXPIRED_CERTIFICATE'.
+  - Diagnosis: Debangshu and Mahima discovered NTP clock desynchronization on edge ticketing kiosks (time skewed by 4 days).
+  - Outcome: Configured local GPS NTP synchronization; 100% resolution of handshake certificate verification failures.
+
+
+6. ESSENTIAL CLI COMMANDS FOR HANDSHAKE TRACING & DEBUGGING
+----------------------------------------------------------------------------------------------------
+1. Detailed TLS Handshake Trace with OpenSSL CLI:
+   $ openssl s_client -connect bank.barrackpore.gov.in:443 -tls1_3 -msg -tlsextdebug
+
+2. Inspecting Client and Server Public Key Shares with tshark:
+   $ tshark -i eth0 -Y "tls.handshake.type == 1 || tls.handshake.type == 2" -V
+
+3. Testing Mutual TLS (mTLS) API Authentication with cURL:
+   $ curl -v --cert client.crt --key client.key --cacert ca.crt https://api.fintech.barrackpore.gov.in/v1/payout
+
+
+7. STUDENT REVISION CHECKLIST
+----------------------------------------------------------------------------------------------------
+[ ] Draw the step-by-step TLS 1.3 1-RTT handshake packet flow (ClientHello to Application Data).
+[ ] Explain how ECDHE Key Share exchange achieves instant forward secrecy in packet 1 and 2.
+[ ] Describe the 3 stages of the HKDF Key Schedule: Early Secret, Handshake Secret, and Master Secret.
+[ ] Contrast the cipher suite naming conventions of TLS 1.2 vs TLS 1.3.
+[ ] Explain why Mutual TLS (mTLS) is mandatory for Zero Trust microservices architectures.
+====================================================================================================

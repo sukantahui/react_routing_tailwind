@@ -1,0 +1,123 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: HTTPS (HTTP OVER TLS): PORT 443 AND WEB ENCRYPTION
+COURSE MODULE: 005_004 - NETWORK SECURITY PROTOCOLS: SSL, TLS & IPSEC (TOPIC 4)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. ARCHITECTURE OF HTTPS (RFC 2818 / RFC 9110)
+----------------------------------------------------------------------------------------------------
+Hypertext Transfer Protocol Secure (HTTPS) is not a separate protocol; it is standard HTTP layered directly 
+over an encrypted Transport Layer Security (TLS) tunnel on TCP Port 443 (as opposed to cleartext HTTP on Port 80).
+
+A. What is 100% Encrypted by HTTPS:
+   - Request URLs and Path: e.g., '/api/v1/pension_records/disburse' (Hidden from ISPs).
+   - Query String Parameters: e.g., '?account_number=884129&amount=50000' (100% Encrypted).
+   - HTTP Headers: Cookies, Session Tokens, Authorization Bearer Headers, User-Agent.
+   - Request Body: Passwords, credit card numbers, JSON payloads, form data.
+   - Response Body: HTML web pages, financial statements, downloaded PDF documents.
+
+B. What Remains Visible to Network Observers (ISPs, Public Wi-Fi Sniffers):
+   - Destination IP Address: The public IP of the hosting web server / load balancer.
+   - Destination TCP Port: Port 443.
+   - SNI Hostname: Target domain name (e.g., 'treasury.barrackpore.gov.in') unless Encrypted Client Hello (ECH) is enabled.
+   - Packet Timestamps & Volume: Total bytes transferred and flow timing.
+
+
+2. THE X.509 PUBLIC KEY INFRASTRUCTURE (PKI) TRUST MODEL
+----------------------------------------------------------------------------------------------------
+Web trust is anchored in the hierarchical X.509 Certificate Chain:
+
+1. Root Certificate Authority (Root CA):
+   - Self-signed certificates pre-installed in the OS and browser trust stores (e.g., DigiCert, ISRG Root X1).
+   - Kept offline in high-security hardware security modules (HSMs) to prevent compromise.
+2. Intermediate Certificate Authority (Intermediate CA):
+   - Signed by the Root CA. Used for day-to-day signing of end-entity server certificates.
+3. End-Entity (Leaf) Server Certificate:
+   - Issued to a specific domain (e.g., 'treasury.barrackpore.gov.in'). Contains the server's public key,
+     Subject Alternative Name (SAN) list, validity period, and digital signature of the Intermediate CA.
+
+Certificate Validation 4-Step Checklist:
+  [1] Signature Chain Verification: Mathematically verify each signature up to a trusted Root CA in the trust store.
+  [2] Hostname Matching (SAN): Verify that the requested URL matches a domain in the Subject Alternative Name extension.
+  [3] Validity Period Check: Confirm current system time falls strictly between 'NotBefore' and 'NotAfter'.
+  [4] Revocation Status Check: Query the CA's OCSP responder or CRL to ensure the certificate was not revoked.
+
+
+3. WEB SECURITY HARDENING HEADERS & DEFENSES
+----------------------------------------------------------------------------------------------------
+A. HTTP Strict Transport Security (HSTS - RFC 6797):
+   - Header: 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload'
+   - Mechanism: Forces browsers to automatically upgrade all 'http://' links to 'https://' locally and permanently
+     refuse connection if certificate errors occur.
+   - HSTS Preloading: Hardcoding the domain into Chromium/Firefox source code, stopping SSL Stripping on the VERY FIRST visit.
+
+B. Content Security Policy (CSP):
+   - Restricts which domains can load scripts, images, and fonts, mitigating Cross-Site Scripting (XSS).
+
+C. DNS Certification Authority Authorization (CAA - RFC 8659):
+   - A DNS record specifying which exact CAs are legally authorized to issue certificates for the domain:
+     'barrackpore.gov.in. IN CAA 0 issue "digicert.com"'
+   - Any other CA (e.g., Let's Encrypt or Sectigo) attempting to issue a certificate for this domain MUST refuse!
+
+D. Certificate Transparency (CT Logs - RFC 6962):
+   - Public, append-only, cryptographically verifiable Merkle tree ledgers where all issued certificates are logged.
+   - Allows domain owners to detect rogue certificates issued by compromised CAs within minutes.
+
+
+4. ATTACKS ON WEB ENCRYPTION & MITIGATION MATRIX
+----------------------------------------------------------------------------------------------------
++--------------------------+------------------------------------------------+------------------------------------+
+| ATTACK VECTOR            | MECHANISM & IMPACT                             | MITIGATION STANDARD                |
++--------------------------+------------------------------------------------+------------------------------------+
+| SSL Stripping (sslstrip) | Downgrades initial HTTP 301 redirect to HTTP   | HSTS with Browser Preload List     |
+| Mixed Content Injection  | Loading HTTP scripts inside an HTTPS webpage   | 'Upgrade-Insecure-Requests' Header |
+| Rogue CA Spoofing        | Compromised CA issues fake cert for domain     | DNS CAA Records + CT Log Alarms    |
+| Expired Certificate      | Admin forgets renewal; users get security block| ACME Protocol Automated Renewals   |
++--------------------------+------------------------------------------------+------------------------------------+
+
+
+5. REGIONAL WEST BENGAL SOC CASE STUDIES & HTTPS HARDENING
+----------------------------------------------------------------------------------------------------
+Incident Drill 1: Barrackpore Municipal Tax Portal HSTS Preloading
+  - Infrastructure: Public tax assessment and payment portal serving 350,000 citizens in North 24 Parganas.
+  - Threat Scenario:
+    - Susmita and Mamata demonstrated that an attacker on a public cafe Wi-Fi could execute 'sslstrip',
+      intercepting unencrypted HTTP redirects before the browser upgraded to HTTPS.
+  - Remediation:
+    - Sukanta Hui configured HSTS with 'max-age=31536000; includeSubDomains; preload' and submitted the domain
+      to the global Chromium HSTS Preload List.
+  - Outcome:
+    - Browser now opens HTTPS directly without ever sending an initial plaintext HTTP request; 100% immune to SSL stripping.
+
+Incident Drill 2: Salt Lake FinTech Exchange DNS CAA & CT Monitoring
+  - Infrastructure: High-frequency stock and trading API gateway in Sector V.
+  - Threat Scenario:
+    - Debangshu and Mahima audited third-party CA risks and identified that an unauthorized overseas CA could issue
+      a rogue certificate for their domain.
+  - Remediation:
+    - Published DNS CAA records restricting issuance strictly to 'digicert.com' and deployed automated Certificate
+      Transparency (CT) log monitoring via Cloudflare.
+  - Outcome:
+    - Automated alerts trigger in < 60 seconds if any rogue CA attempts to generate a certificate; zero spoofing risk.
+
+
+6. ESSENTIAL CLI COMMANDS FOR HTTPS & CERTIFICATE AUDITING
+----------------------------------------------------------------------------------------------------
+1. Inspecting Server Certificate Chain and SAN Domains with OpenSSL:
+   $ openssl s_client -connect treasury.barrackpore.gov.in:443 -showcerts
+
+2. Verifying HTTP Security Headers with cURL:
+   $ curl -s -D- https://treasury.barrackpore.gov.in -o /dev/null | grep -i "strict-transport-security"
+
+3. Querying DNS CAA Records with Dig:
+   $ dig CAA barrackpore.gov.in +short
+
+
+7. STUDENT REVISION CHECKLIST
+----------------------------------------------------------------------------------------------------
+[ ] Define what is encrypted by HTTPS (URLs, Cookies, Headers, Payloads) vs what is visible to ISPs (IP, Port, SNI).
+[ ] Describe the 4-step X.509 certificate validation pipeline.
+[ ] Explain how SSL Stripping works and how HSTS Preloading prevents it on the very first visit.
+[ ] Explain the security function of DNS CAA records and Certificate Transparency (CT) logs.
+[ ] Differentiate between Active Mixed Content (Scripts/iFrames) and Passive Mixed Content (Images).
+====================================================================================================

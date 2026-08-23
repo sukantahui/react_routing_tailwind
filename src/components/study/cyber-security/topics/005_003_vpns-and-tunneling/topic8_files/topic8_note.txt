@@ -1,0 +1,136 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: SPLIT TUNNELING VS FULL TUNNELING TRADE-OFFS
+COURSE MODULE: 005_003 - VPNS AND TUNNELING (TOPIC 8)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. CORE CONCEPTUAL DEFINITIONS & ARCHITECTURAL FOUNDATION
+----------------------------------------------------------------------------------------------------
+When an enterprise remote employee establishes a Virtual Private Network (VPN) tunnel from home or 
+a public network, all network packets must be routed across the operating system's network interfaces.
+The two primary architectural paradigms that govern this routing behavior are:
+
+1. Full Tunneling (Default-Route Encapsulation):
+   - 100% of the client device's network traffic (destination 0.0.0.0/0) is forcibly encapsulated 
+     and routed through the encrypted VPN tunnel adapter (e.g., tun0, ppp0, wg0).
+   - Internal traffic reaches corporate database servers directly through the intranet.
+   - Public internet traffic (Google, YouTube, Microsoft 365, Zoom) is routed through the VPN tunnel, 
+     exits at the corporate data center gateway, undergoes security inspection, and is forwarded to the web.
+   - This phenomenon is technically known as "Bandwidth Hairpinning" or "Traffic Tromboning".
+
+2. Split Tunneling (Selective / Dynamic Subnet Routing):
+   - The VPN client software dynamically inserts specific subnet routes into the OS routing table.
+   - Only packets destined for private corporate IP ranges (e.g., 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) 
+     are encrypted and routed across the virtual adapter (tun0).
+   - All general public internet traffic (0.0.0.0/0) continues to flow directly through the physical ISP 
+     network interface (eth0, wlan0), completely bypassing corporate security appliances.
+
+
+2. ARCHITECTURAL COMPARISON MATRIX
+----------------------------------------------------------------------------------------------------
++------------------------------+------------------------------------+------------------------------------+
+| PARAMETER                    | FULL TUNNELING                     | SPLIT TUNNELING                    |
++------------------------------+------------------------------------+------------------------------------+
+| Default Route (0.0.0.0/0)    | Points to VPN Tunnel Interface     | Points to Local ISP Gateway        |
+| Security Perimeter Control   | 100% Centralized (NGFW, DLP, IDS)  | Fragmented (Local endpoint only)   |
+| Corporate WAN Bandwidth Load | Extremely High (Heavy Hairpinning) | Low (Direct internet egress)       |
+| User SaaS & Streaming Latency| High (Extra round-trip latency)    | Low (Direct ISP path)              |
+| Dual-Homed Pivot Vulnerability| Blocked by Tunnel Firewall Policy | HIGH RISK (Bridge into Intranet)   |
+| DNS Leak Risk                | Near Zero (Tunnel DNS enforced)    | High (ISP resolver exposure)       |
+| Regulatory Compliance        | PCI-DSS, RBI FinTech, HIPAA Gold   | Requires Strict EDR + ZTNA/SASE    |
++------------------------------+------------------------------------+------------------------------------+
+
+
+3. IN-DEPTH TECHNICAL SECURITY VULNERABILITIES OF SPLIT TUNNELING
+----------------------------------------------------------------------------------------------------
+While Split Tunneling significantly conserves corporate WAN bandwidth, it introduces three severe 
+threat vectors that security analysts must mitigate:
+
+A. The Dual-Homed Endpoint Bridge / Pivot Attack:
+   - When split tunneling is active, the remote laptop is connected simultaneously to two distinct networks:
+     1. The untrusted local Wi-Fi LAN (e.g., coffee shop, public hotspot, home subnet).
+     2. The trusted enterprise private intranet via the encrypted VPN tunnel.
+   - If an adversary on the local subnet compromises the user's laptop (via drive-by exploit, unpatched 
+     SMB service, or malicious ARP poisoning), the laptop becomes a "dual-homed bridge".
+   - If OS-level IP routing (net.ipv4.ip_forward) is enabled or if the attacker establishes a local proxy, 
+     the adversary can route attacks directly into the corporate LAN, completely bypassing perimeter firewalls.
+
+B. DNS Leakage & Domain Snooping:
+   - In poorly configured split-tunnel clients, DNS queries for both corporate internal hostnames 
+     (e.g., erp.barrackpore-hub.internal) and public websites may be resolved by the local ISP's DNS resolver.
+   - Impact: Local eavesdroppers can log employee browsing behavior, and corporate internal hostnames 
+     can be intercepted or poisoned via DNS spoofing.
+
+C. Corporate Visibility & Data Loss Prevention (DLP) Blind Spot:
+   - Because public internet traffic bypasses the corporate gateway, centralized Security Information 
+     and Event Management (SIEM), Data Loss Prevention (DLP), and intrusion detection systems cannot 
+     inspect unencrypted file uploads, cloud storage syncing, or outbound malware command-and-control beacons.
+
+
+4. MODERN EVOLUTION: INVERSE SPLIT TUNNELING & SASE / ZERO TRUST
+----------------------------------------------------------------------------------------------------
+Modern enterprise networks navigate this trade-off using next-generation hybrid approaches:
+
+1. Inverse Split Tunneling (Route Exclusion / SaaS Offloading):
+   - Default route remains inside the tunnel (Full Tunneling principle).
+   - Only explicitly trusted, high-bandwidth cloud services (e.g., Microsoft 365, Teams, Zoom, Webex) 
+     are excluded and allowed direct internet breakout via authenticated domains and CIDR IP lists.
+
+2. Secure Access Service Edge (SASE) & Cloud-Delivered Security:
+   - Instead of routing traffic back to an on-premises physical datacenter, all traffic is sent to a 
+     distributed cloud security pop (Cloud SWG, CASB, ZTNA).
+   - Remote workers in Barrackpore or Kolkata connect to the nearest cloud edge node in Kolkata, getting 
+     near-zero latency while maintaining 100% full-tunnel security inspection.
+
+
+5. REGIONAL WEST BENGAL SOC CASE DRILLS & INCIDENT ANALYSIS
+----------------------------------------------------------------------------------------------------
+Incident Drill 1: The Barrackpore FinTech Dual-Homing Ransomware Infiltration
+  - Incident Summary:
+    During remote operations, an accountant (Susmita) connected her corporate laptop to a compromised 
+    residential Wi-Fi router. Split tunneling was permitted without host-isolation rules.
+  - Attack Vector:
+    An automated botnet on the residential subnet infected the laptop via an open remote assistance port. 
+    The malware detected the active `tun0` interface (10.14.0.0/16) and initiated lateral SMB propagation 
+    toward the Barrackpore accounting database.
+  - Defensive Remediation:
+    Sukanta Hui, Mamata, and Mahima enforced an immediate Full Tunneling policy with 802.1X endpoint 
+    compliance checking. Local network bridging was permanently disabled via Group Policy (GPO).
+
+Incident Drill 2: Salt Lake IT Park WAN Gateway Saturation & Inverse Tunneling Optimization
+  - Incident Summary:
+    A software enterprise in Sector V, Kolkata with 800 remote developers experienced a 98% saturation 
+    of its 1 Gbps corporate leased line during all-hands video conference calls under Full Tunneling.
+  - Solution:
+    Abhronila and Debangshu implemented Inverse Split Tunneling using PAC (Proxy Auto-Config) scripts 
+    and BGP route exclusion for Zoom and Microsoft 365 endpoints.
+  - Result:
+    Corporate WAN utilization dropped from 980 Mbps to 210 Mbps, saving over ₹3.45 Lakhs per month 
+    in burstable bandwidth bandwidth charges while maintaining 100% inspection for all other web traffic.
+
+
+6. OPERATING SYSTEM ROUTING TABLE INSPECTION (PRACTICAL CHEATSHEET)
+----------------------------------------------------------------------------------------------------
+Windows PowerShell Route Inspection:
+  > Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Format-Table
+  # Full Tunnel: NextHop points to VPN Adapter Gateway (e.g., 10.8.0.1)
+  # Split Tunnel: NextHop points to Local ISP Gateway (e.g., 192.168.1.1)
+
+Linux / macOS Terminal Route Inspection:
+  $ ip route show
+  # Full Tunnel: default via 10.8.0.1 dev tun0
+  # Split Tunnel: default via 192.168.1.1 dev wlan0; 10.0.0.0/8 dev tun0
+
+Disabling IP Forwarding on Linux (Preventing Dual-Homed Bridge):
+  $ sudo sysctl -w net.ipv4.ip_forward=0
+  $ sudo sysctl -p
+
+
+7. STUDENT REVISION CHECKLIST
+----------------------------------------------------------------------------------------------------
+[ ] Define the difference in the default route (0.0.0.0/0) between Full and Split Tunneling.
+[ ] Explain why Bandwidth Hairpinning occurs in Full Tunneling and calculate its financial cost.
+[ ] Describe the technical mechanics of a Dual-Homed Endpoint Bridge Attack.
+[ ] Explain how DNS leaks occur in split tunneling and how to verify DNS resolver integrity.
+[ ] Compare traditional Split Tunneling with Modern SASE / ZTNA Cloud-Delivered architectures.
+====================================================================================================

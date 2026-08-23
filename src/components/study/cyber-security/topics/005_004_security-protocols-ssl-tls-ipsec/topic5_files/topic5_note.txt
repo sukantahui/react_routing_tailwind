@@ -1,0 +1,113 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: IPSEC ARCHITECTURE: NETWORK LAYER SECURITY FRAMEWORK
+COURSE MODULE: 005_004 - NETWORK SECURITY PROTOCOLS: SSL, TLS & IPSEC (TOPIC 5)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE IPSEC ARCHITECTURAL FRAMEWORK (RFC 4301)
+----------------------------------------------------------------------------------------------------
+IP Security (IPsec) is an open, standards-based framework defined by the IETF that operates at the 
+Network Layer (Layer 3) of the OSI model. It provides transparent security services for all IPv4 and 
+IPv6 traffic, protecting all upper-layer transport protocols (TCP, UDP, ICMP, OSPF, BGP) without 
+requiring any application modifications.
+
+Core Security Services Delivered by IPsec:
+1. Data Confidentiality: Bulk symmetric encryption (AES-256-GCM, ChaCha20-Poly1305).
+2. Connectionless Data Integrity: Cryptographic hashing and MAC authentication (HMAC-SHA256, ICV).
+3. Data Origin Authentication: Verifying that packets originate from the legitimate peer gateway.
+4. Anti-Replay Protection: Dropping duplicated or out-of-order packets via sliding sequence windows.
+5. Limited Traffic Flow Confidentiality: Masking internal source/destination IP addresses via Tunnel Mode.
+
+
+2. IPSEC OPERATING MODES: TRANSPORT MODE VS TUNNEL MODE
+----------------------------------------------------------------------------------------------------
+A. Transport Mode (Host-to-Host Security):
+   - Scope: Secures communication between two endpoints that understand IPsec directly (e.g., App Server to DB).
+   - Encapsulation: The original IP header is preserved. IPsec headers (ESP/AH) are inserted between the 
+     original IP header and the upper-layer TCP/UDP payload.
+   - Overhead: Minimal (~40 to 52 Bytes).
+   - Limitation: Exposes original source and destination IP addresses to intermediate transit routers.
+
+B. Tunnel Mode (Gateway-to-Gateway / Site-to-Site VPN):
+   - Scope: Secures communication between two network gateways connecting private subnets over the public internet.
+   - Encapsulation: The ENTIRE original IP packet (including inner private IP headers) is encrypted and 
+     encapsulated inside a brand-new outer public IP header.
+   - Overhead: Moderate (~60 to 76 Bytes).
+   - Advantage: Completely hides internal corporate network topology (10.14.0.0/16) from public ISPs.
+
+
+3. THE THREE CORE IPSEC ARCHITECTURAL DATABASES (RFC 4301)
+----------------------------------------------------------------------------------------------------
+1. Security Policy Database (SPD):
+   - Defines WHAT must be done with incoming and outgoing packets based on packet selectors (Src IP, Dst IP, Port, Proto).
+   - Three Mandatory Actions:
+     a. PROTECT : Encapsulate and encrypt the packet using an active Security Association (SA).
+     b. BYPASS  : Transmit the packet in plaintext without IPsec processing (e.g., public DNS).
+     c. DISCARD : Drop the packet immediately (firewall drop).
+
+2. Security Association Database (SAD):
+   - Stores active cryptographic state and parameters for established unidirectional tunnels.
+   - Contains: Security Parameter Index (SPI), Sequence Number Counter, Anti-Replay Window bitmask,
+     Cipher Keys (AES-256), Integrity Keys, Lifetime counters, and Protocol (AH or ESP).
+
+3. Peer Authorization Database (PAD):
+   - Acts as the bridge between IKE identity authentication (certificates, PSKs) and the SPD,
+     guaranteeing that authenticated peers are authorized to request specific subnet policies.
+
+
+4. THE SECURITY ASSOCIATION (SA) CONCEPT
+----------------------------------------------------------------------------------------------------
+- A Security Association (SA) is a simplex (unidirectional) logical connection that affords security services.
+- Because an SA is one-way, full-duplex bi-directional communication between two gateways requires 
+  at least TWO distinct SAs:
+  1. Outbound SA (used by the local gateway to encrypt outgoing packets).
+  2. Inbound SA (used by the local gateway to decrypt incoming packets).
+- An SA is uniquely identified in the kernel by a 3-Tuple:
+  `(Security Parameter Index [SPI], Destination IP Address, Security Protocol [AH or ESP])`
+
+
+5. ANTI-REPLAY SLIDING WINDOW MECHANISM (RFC 4303 SECTION 3.4.3)
+----------------------------------------------------------------------------------------------------
+- Problem: Adversaries on public transit links can record valid encrypted packets and re-inject them to trigger 
+  duplicate actions.
+- Solution: IPsec enforces a 64-packet (or 128-packet) sliding verification window:
+  1. If Seq > Window Head: Packet is accepted, window slides forward, bitmask updated.
+  2. If Seq falls within Window: Check bitmask. If bit == 1 (already seen), REJECT REPLAY. If bit == 0, ACCEPT.
+  3. If Seq < Window Tail: Packet is too old (fell off the left edge of window), REJECT IMMEDIATELY.
+
+
+6. REGIONAL WEST BENGAL SOC CASE STUDIES
+----------------------------------------------------------------------------------------------------
+Incident Drill 1: Barrackpore-to-Kolkata Datacenter Site-to-Site Interconnect
+  - Infrastructure: High-speed IPsec ESP Tunnel Mode connecting Barrackpore Treasury Hub to Salt Lake FinTech Core.
+  - Implementation:
+    - Susmita and Mamata configured strongSwan IKEv2 with AES-256-GCM AEAD and 1400-byte MSS clamping.
+  - Outcome: 100% transparent encryption for all internal database synchronization; zero IP header leakage on public WAN.
+
+Incident Drill 2: Internal Database Host-to-Host Transport Mode Encryption
+  - Infrastructure: High-security pension database communicating with 8 internal web application nodes.
+  - Implementation:
+    - Debangshu and Mahima deployed Transport Mode IPsec with XFRM in the Linux kernel directly between servers.
+  - Outcome: Internal switch sniffing neutralized; zero extra outer IP encapsulation overhead.
+
+
+7. ESSENTIAL CLI COMMANDS FOR IPSEC KERNEL AUDITING (LINUX XFRM)
+----------------------------------------------------------------------------------------------------
+1. Inspecting Active In-Kernel Security Associations (SAD):
+   $ sudo ip xfrm state show
+
+2. Inspecting In-Kernel Security Policy Rules (SPD):
+   $ sudo ip xfrm policy show
+
+3. Monitoring IPsec Packet Counters and Dropped Frames:
+   $ sudo ip -s xfrm state
+
+
+8. STUDENT REVISION CHECKLIST
+----------------------------------------------------------------------------------------------------
+[ ] Define the RFC 4301 IPsec Architecture and explain how it operates at Layer 3.
+[ ] Contrast Transport Mode (Host-to-Host) vs Tunnel Mode (Site-to-Site).
+[ ] Explain the roles of the Security Policy Database (SPD) and Security Association Database (SAD).
+[ ] Describe the 3-Tuple that uniquely identifies an IPsec Security Association.
+[ ] Explain the 64-packet Anti-Replay sliding window algorithm.
+====================================================================================================

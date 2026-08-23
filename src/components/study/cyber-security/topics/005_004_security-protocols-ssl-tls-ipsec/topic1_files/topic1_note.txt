@@ -1,0 +1,135 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: EVOLUTION FROM SSL 2.0/3.0 TO TLS 1.2 AND TLS 1.3
+COURSE MODULE: 005_004 - NETWORK SECURITY PROTOCOLS: SSL, TLS & IPSEC (TOPIC 1)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. CHRONOLOGICAL TIMELINE OF TRANSPORT LAYER ENCRYPTION
+----------------------------------------------------------------------------------------------------
+- 1995: SSL 2.0 (Netscape Communications):
+  - Initial public transport encryption protocol. Severely flawed: no handshake integrity, fixed IVs,
+    vulnerable to truncation attacks, export-grade 40-bit keys. Deprecated by RFC 6176.
+- 1996: SSL 3.0 (Netscape / Paul Kocher):
+  - Complete architectural redesign introducing HMAC-like message authentication and SHA-1/MD5 PRF.
+    Vulnerable to POODLE padding oracle attacks. Officially prohibited by RFC 7568.
+- 1999: TLS 1.0 (RFC 2246 - IETF):
+  - Standardized version of SSL 3.0. Replaced ad-hoc MAC with explicit HMAC and standard PRF.
+    Vulnerable to BEAST (predictable CBC IVs) and SWEET32. Deprecated by RFC 8996.
+- 2006: TLS 1.1 (RFC 4346):
+  - Added explicit Initialization Vectors (IVs) per record to mitigate BEAST; improved padding error handling.
+    Deprecated by RFC 8996 and PCI-DSS.
+- 2008: TLS 1.2 (RFC 5246):
+  - Introduced Authenticated Encryption with Associated Data (AEAD / AES-GCM), SHA-256 PRF, configurable
+    signature hash algorithms. Allowed legacy RSA static key exchange and CBC ciphers (ROBOT / Lucky 13 flaws).
+- 2018: TLS 1.3 (RFC 8446):
+  - Ground-up cryptographic overhaul: removed all broken algorithms, made Perfect Forward Secrecy (PFS)
+    mandatory, reduced handshake latency from 2-RTT to 1-RTT (and 0-RTT resumption), and encrypted the certificate.
+
+
+2. THE FOUR REVOLUTIONARY PILLARS OF TLS 1.3 (RFC 8446)
+----------------------------------------------------------------------------------------------------
+Pillar 1: Radical Cryptographic Pruning (Removing Dead Weight):
+  - Removed Insecure Key Exchanges: Static RSA key transport, Static Diffie-Hellman, and custom DH groups.
+  - Removed Broken Symmetric Ciphers: RC4, DES, 3DES, IDEA, and all CBC-mode ciphers.
+  - Removed Broken Hashes: MD5, SHA-1.
+  - Removed Dangerous Features: Arbitrary renegotiation, TLS-level compression (CRIME fix).
+  - The Only Allowed Ciphers are 5 Modern AEAD Suites:
+    1. TLS_AES_256_GCM_SHA384
+    2. TLS_CHACHA20_POLY1305_SHA256
+    3. TLS_AES_128_GCM_SHA256
+    4. TLS_AES_128_CCM_SHA256
+    5. TLS_AES_128_CCM_8_SHA256
+
+Pillar 2: Mandatory Perfect Forward Secrecy (PFS):
+  - In TLS 1.2 (with static RSA), if an attacker captures encrypted traffic and steals the server's private 
+    key 5 years later, they can retroactively decrypt all recorded past communications.
+  - In TLS 1.3, every session negotiates ephemeral keys via (EC)DHE (Curve25519, P-256). Stealing the server's 
+    long-term private key reveals ZERO past session data!
+
+Pillar 3: 1-RTT Handshake & 0-RTT Early Data Resumption:
+  - TLS 1.2 required 2 full network round-trips (2-RTT) after the TCP 3-way handshake to establish encryption.
+  - TLS 1.3 combines key share generation into the very first ClientHello, completing encryption in 1-RTT.
+  - For returning clients, 0-RTT Early Data enables sending encrypted HTTP GET requests in the very first packet!
+
+Pillar 4: Encrypted Handshake Metadata:
+  - In TLS 1.2, the server transmitted its X.509 certificate and extension headers in cleartext.
+  - In TLS 1.3, the server certificate is encrypted using keys derived during the first half of the handshake,
+    preventing eavesdroppers from observing which specific certificate was served.
+
+
+3. MAJOR HISTORICAL ATTACKS THAT FORCED THE EVOLUTION
+----------------------------------------------------------------------------------------------------
+1. POODLE (CVE-2014-3566 - Padding Oracle On Downgraded Legacy Encryption):
+   - Exploited SSL 3.0's non-deterministic CBC padding to decrypt session cookies byte-by-byte. Led to the
+     total deprecation and prohibition of SSL 3.0 worldwide.
+2. BEAST (CVE-2011-3389 - Browser Exploit Against SSL/TLS):
+   - Exploited predictable chained CBC IVs in TLS 1.0 to recover authentication tokens. Fixed in TLS 1.1 with explicit IVs.
+3. ROBOT (Return Of Bleichenbacher's Oracle Threat):
+   - Exploited PKCS#1 v1.5 padding errors in static RSA key exchange to decrypt traffic. Eliminated permanently
+     in TLS 1.3 by removing static RSA key transport.
+4. SWEET32 (CVE-2016-2183):
+   - Birthday attack on 64-bit block ciphers (3DES, Blowfish) causing collision after 32 GB of data. Eliminated
+     by requiring 128-bit or 256-bit block ciphers (AES-GCM / ChaCha20).
+5. DROWN (CVE-2016-0800 - Decrypting RSA with Obsolete and Weakened eNcryption):
+   - Cross-protocol attack where an attacker probed a legacy SSL 2.0 server sharing the same private key to decrypt
+     modern TLS connections.
+6. CRIME & BREACH (CVE-2012-4929 / CVE-2013-3587):
+   - Exploited data compression algorithms (DEFLATE) by analyzing compressed ciphertext size changes to leak secrets.
+
+
+4. PROTOCOL EVOLUTION COMPARISON MATRIX
+----------------------------------------------------------------------------------------------------
++---------------+-------------+---------------+---------------+--------------------+-----------------------+
+| PROTOCOL      | YEAR        | HANDSHAKE RTT | PFS ENFORCED  | ENCRYPTED CERT     | COMPLIANCE STATUS     |
++---------------+-------------+---------------+---------------+--------------------+-----------------------+
+| SSL 2.0       | 1995        | 2-RTT         | No            | No                 | Prohibited (RFC 6176) |
+| SSL 3.0       | 1996        | 2-RTT         | No            | No                 | Prohibited (RFC 7568) |
+| TLS 1.0       | 1999        | 2-RTT         | No            | No                 | Deprecated (RFC 8996) |
+| TLS 1.1       | 2006        | 2-RTT         | No            | No                 | Deprecated (RFC 8996) |
+| TLS 1.2       | 2008        | 2-RTT         | Optional      | No                 | Production Standard   |
+| TLS 1.3       | 2018        | 1-RTT / 0-RTT | Mandatory     | Yes (Encrypted)    | Recommended Standard  |
++---------------+-------------+---------------+---------------+--------------------+-----------------------+
+
+
+5. REGIONAL WEST BENGAL SOC CASE STUDIES & HARDENING DRILLS
+----------------------------------------------------------------------------------------------------
+Incident Drill 1: Barrackpore Co-operative Bank PCI-DSS 4.0 Hardening
+  - Infrastructure: Core internet banking portal serving 85,000 regional account holders in North 24 Parganas.
+  - Vulnerability Audit:
+    - Susmita and Mamata ran 'nmap --script ssl-enum-ciphers' and discovered active 3DES-CBC and TLS 1.0 support.
+    - Security scanner flagged SWEET32 and non-compliance with Reserve Bank of India (RBI) cyber mandates.
+  - Remediation:
+    - Sukanta Hui reconfigured NGINX web servers: disabled SSL 2.0/3.0, TLS 1.0, and TLS 1.1; enforced TLS 1.2/1.3 only;
+      restricted ciphers strictly to AES-GCM and ChaCha20-Poly1305.
+  - Outcome: Achieved 100% PCI-DSS 4.0 compliance; eliminated all padding oracle attack vectors.
+
+Incident Drill 2: Salt Lake Sector V E-Commerce Portal 0-RTT Optimization
+  - Infrastructure: High-throughput online shopping portal processing 5,000 transactions per minute.
+  - Implementation:
+    - Debangshu and Mahima upgraded web load balancers to TLS 1.3 with 0-RTT session resumption and session tickets.
+  - Outcome:
+    - Connection handshake latency slashed by 65ms per returning mobile shopper.
+    - Server CPU utilization reduced by 28% due to ECDHE session caching; zero drop in checkout conversions.
+
+
+6. ESSENTIAL CLI COMMANDS FOR TLS AUDITING & HARDENING
+----------------------------------------------------------------------------------------------------
+1. Auditing Server Cipher Suites with Nmap:
+   $ nmap --script ssl-enum-ciphers -p 443 bank.barrackpore.gov.in
+
+2. Connecting Specifically via TLS 1.3 using OpenSSL CLI:
+   $ openssl s_client -connect bank.barrackpore.gov.in:443 -tls1_3
+
+3. Testing for POODLE and SWEET32 Vulnerabilities with testssl.sh:
+   $ ./testssl.sh -p -S --sweet32 --poodle bank.barrackpore.gov.in
+
+
+7. STUDENT REVISION CHECKLIST
+----------------------------------------------------------------------------------------------------
+[ ] Explain the historical progression from SSL 2.0 (1995) to TLS 1.3 (2018).
+[ ] Describe why static RSA key exchange was completely removed in TLS 1.3.
+[ ] Define Perfect Forward Secrecy (PFS) and explain how ephemeral Diffie-Hellman guarantees it.
+[ ] Compare the handshake latency of TLS 1.2 (2-RTT) vs TLS 1.3 (1-RTT) vs TLS 1.3 (0-RTT).
+[ ] List the five modern AEAD cipher suites permitted in RFC 8446 (TLS 1.3).
+[ ] Explain the mechanics of POODLE, BEAST, SWEET32, and ROBOT attacks.
+====================================================================================================
