@@ -237,7 +237,7 @@ const Topic29 = () => {
               </text>
 
               {/* Step 1: Download */}
-              <rect x="40" y="40" width="110" height="90" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="40" y="40" width="110" height="90" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="95" y="70" textAnchor="middle" fontSize="28">🌐</text>
               <text x="95" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">1. Download</text>
               <text x="95" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Official MySQL site</text>
@@ -247,7 +247,7 @@ const Topic29 = () => {
               <polygon points="175,80 185,85 175,90" fill="#94a3b8" className="dark:fill-slate-500" />
 
               {/* Step 2: Install */}
-              <rect x="190" y="40" width="110" height="90" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12" stroke="#10b981" strokeWidth="1.5" className="dark:stroke-emerald-400" />
+              <rect x="190" y="40" width="110" height="90" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" />
               <text x="245" y="70" textAnchor="middle" fontSize="28">⚙️</text>
               <text x="245" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">2. Install</text>
               <text x="245" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Run installer</text>
@@ -257,7 +257,7 @@ const Topic29 = () => {
               <polygon points="325,80 335,85 325,90" fill="#94a3b8" className="dark:fill-slate-500" />
 
               {/* Step 3: Configure */}
-              <rect x="340" y="40" width="110" height="90" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+              <rect x="340" y="40" width="110" height="90" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
               <text x="395" y="70" textAnchor="middle" fontSize="28">🔧</text>
               <text x="395" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">3. Configure</text>
               <text x="395" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Root password</text>
@@ -267,7 +267,7 @@ const Topic29 = () => {
               <polygon points="475,80 485,85 475,90" fill="#94a3b8" className="dark:fill-slate-500" />
 
               {/* Step 4: Verify */}
-              <rect x="490" y="40" width="90" height="90" rx="10" fill="#f59e0b" opacity="0.08" className="dark:fill-amber-400 dark:opacity-12" stroke="#f59e0b" strokeWidth="1.5" className="dark:stroke-amber-400" />
+              <rect x="490" y="40" width="90" height="90" rx="10" fill="#f59e0b" opacity="0.08" className="dark:fill-amber-400 dark:opacity-12 dark:stroke-amber-400" stroke="#f59e0b" strokeWidth="1.5" />
               <text x="535" y="70" textAnchor="middle" fontSize="28">✅</text>
               <text x="535" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">4. Verify</text>
               <text x="535" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Test connection</text>

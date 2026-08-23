@@ -475,7 +475,7 @@ const Topic13 = () => {
                       <li><span className="font-medium">Variables:</span> Slack, surplus, artificial</li>
                       <li><span className="font-medium">Penalty:</span> +M (min), -M (max)</li>
                       <li><span className="font-medium">Feasibility:</span> Artificials must be 0</li>
-                      <li><span className="font-medium">If artificial > 0:</span> Infeasible</li>
+                      <li><span className="font-medium">If artificial &gt; 0:</span> Infeasible</li>
                     </ul>
                   </div>
 
@@ -500,7 +500,7 @@ const Topic13 = () => {
                       <li><span className="font-medium">Minimization:</span> All Z ≤ 0</li>
                       <li><span className="font-medium">Zero coefficients:</span> Multiple optima</li>
                       <li><span className="font-medium">Negative coefficients:</span> Continue iterations</li>
-                      <li><span className="font-medium">Artificial > 0:</span> Infeasible</li>
+                      <li><span className="font-medium">Artificial &gt; 0:</span> Infeasible</li>
                     </ul>
                   </div>
                 </div>

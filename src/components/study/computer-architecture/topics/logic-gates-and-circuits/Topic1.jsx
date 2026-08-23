@@ -148,7 +148,7 @@ class Topic1 extends React.Component {
           .replace(/⊕/g, '^');
         
         // Evaluate the expression
-        row['F'] = eval(expr) ? 1 : 0;
+        row['F'] = new Function('A', 'B', 'C', 'return ' + expr)(A, B, C) ? 1 : 0;
       } catch (e) {
         row['F'] = 0;
       }

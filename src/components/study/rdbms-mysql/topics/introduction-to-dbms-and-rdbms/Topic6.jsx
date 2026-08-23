@@ -164,7 +164,7 @@ const Topic6 = () => {
               <polygon points="295,50 305,50 300,58" fill="#94a3b8" className="dark:fill-slate-500" />
 
               {/* Middle: DBMS */}
-              <rect x="50" y="58" width="500" height="50" rx="8" fill="#8b5cf6" opacity="0.15" className="dark:fill-purple-400 dark:opacity-20" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+              <rect x="50" y="58" width="500" height="50" rx="8" fill="#8b5cf6" opacity="0.15" className="dark:fill-purple-400 dark:opacity-20 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
               <text x="300" y="78" textAnchor="middle" fontSize="14" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🗄️ Database Management System (DBMS)</text>
               <text x="300" y="98" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">SQL Interface · Query Optimizer · Transaction Manager · Security</text>
 
@@ -173,7 +173,7 @@ const Topic6 = () => {
               <polygon points="295,118 305,118 300,126" fill="#94a3b8" className="dark:fill-slate-500" />
 
               {/* Bottom: Database */}
-              <rect x="150" y="126" width="300" height="45" rx="8" fill="#10b981" opacity="0.12" className="dark:fill-emerald-400 dark:opacity-15" stroke="#10b981" strokeWidth="1.5" className="dark:stroke-emerald-400" />
+              <rect x="150" y="126" width="300" height="45" rx="8" fill="#10b981" opacity="0.12" className="dark:fill-emerald-400 dark:opacity-15 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" />
               <text x="300" y="148" textAnchor="middle" fontSize="14" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">📦 Database (Data Files)</text>
               <text x="300" y="165" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Tables · Indexes · Views · Logs</text>
             </svg>

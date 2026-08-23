@@ -195,7 +195,7 @@ const Topic5 = () => {
 
                 <div className="my-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                   <ol className="list-decimal pl-6 text-sm text-gray-700 dark:text-gray-300 space-y-2">
-                    <li><strong>Count Allocations:</strong> Count the number of cells with positive allocations (xᵢⱼ > 0)</li>
+                    <li><strong>Count Allocations:</strong> Count the number of cells with positive allocations (xᵢⱼ &gt; 0)</li>
                     <li><strong>Calculate Required:</strong> Required count = m + n - 1</li>
                     <li><strong>Compare:</strong> If allocation count {`<`} required, you have degeneracy</li>
                     <li><strong>Verify:</strong> Double-check that you haven't missed any small allocations</li>
@@ -243,7 +243,7 @@ const Topic5 = () => {
                 <div className="my-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                   <p className="font-mono text-sm text-center">
                     Add ε to a cell where xᵢⱼ = 0<br/>
-                    ε > 0 and ε ≈ 0 (extremely small)<br/>
+                    ε &gt; 0 and ε ≈ 0 (extremely small)<br/>
                     The cell becomes a basic variable<br/>
                     Now basic variables = m + n - 1
                   </p>
@@ -461,7 +461,7 @@ const Topic5 = () => {
                   <text x="475" y="515" textAnchor="middle" className="text-base font-bold fill-purple-600 dark:fill-purple-400">Handling Degeneracy with Epsilon (ε)</text>
                   
                   <text x="100" y="545" className="text-sm fill-gray-700 dark:fill-gray-300">• Add ε to a zero cell (xᵢⱼ = 0)</text>
-                  <text x="100" y="570" className="text-sm fill-gray-700 dark:fill-gray-300">• ε > 0 and ε ≈ 0 (extremely small, no cost impact)</text>
+                  <text x="100" y="570" className="text-sm fill-gray-700 dark:fill-gray-300">• ε &gt; 0 and ε ≈ 0 (extremely small, no cost impact)</text>
                   <text x="100" y="595" className="text-sm fill-gray-700 dark:fill-gray-300">• The ε cell becomes a basic variable</text>
                   <text x="100" y="620" className="text-sm fill-gray-700 dark:fill-gray-300">• Now allocations = m + n - 1 (feasible for simplex)</text>
                   

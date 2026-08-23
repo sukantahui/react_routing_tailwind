@@ -788,16 +788,16 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                                 x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0
 
                                 A feasible optimal solution: x₁=2, x₂=2, x₃=4
-                Budget = 20+16+24=60 > 50, infeasible.
+                Budget = 20+16+24=60 &gt; 50, infeasible.
 
-                Try x₁=2, x₂=2, x₃=3: Budget = 20+16+18=54 > 50
+                Try x₁=2, x₂=2, x₃=3: Budget = 20+16+18=54 &gt; 50
                                 Try x₁=2, x₂=1, x₃=3: Budget = 20+8+18=46 ≤ 50
                                 Z = 500(2)+400(1)+300(3) = 1000+400+900 = 2,300
 
                                 Better: x₁=2, x₂=2, x₃=2 gives budget = 20+16+12=48 ≤ 50, Z = 1000+800+600=2,400
                                 But Parks min is 3, so x₃=3 min.
                                 Try x₁=2, x₂=1, x₃=3: Z=2,300
-                Try x₁=2, x₂=2, x₃=3: Budget=54 > 50, infeasible.
+                Try x₁=2, x₂=2, x₃=3: Budget=54 &gt; 50, infeasible.
                                 Try x₁=1, x₂=2, x₃=3: Police min=2, infeasible.
 
                                 Optimal: x₁=2, x₂=1, x₃=3, Z=2,300

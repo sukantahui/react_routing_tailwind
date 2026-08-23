@@ -532,7 +532,7 @@ const Topic3 = () => {
                     <rect x="20" y="200" width="460" height="85" rx="8" fill="#18181b" stroke="#10b981" strokeWidth="1.5" />
                     <text x="250" y="225" fill="#34d399" fontWeight="bold" textAnchor="middle" fontSize="12">7. ACTIONABLE REPORTING &amp; CLEANUP</text>
                     <text x="250" y="245" fill="#cbd5e1" textAnchor="middle" fontSize="9.5">Executive Summary (Business Risk in ₹ INR) • Developer Code Fixes • Artifact Erase</text>
-                    <text x="250" y="262" fill="#a7f3d0" textAnchor="middle" fontSize="8.5">Verified Safe State Restored -> Re-testing Clearance Issued</text>
+                    <text x="250" y="262" fill="#a7f3d0" textAnchor="middle" fontSize="8.5">Verified Safe State Restored -&gt; Re-testing Clearance Issued</text>
                   </g>
 
                   <defs>

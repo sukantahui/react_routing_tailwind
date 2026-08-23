@@ -410,7 +410,7 @@ const Topic3 = () => {
                   </div>
                   <div className="mt-3 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded text-sm">
                     <p className="font-medium">⚠️ Unbalanced Problem:</p>
-                    <p className="text-gray-700 dark:text-gray-300">Supply (1200) > Demand (1100) → Surplus of 100 units. Need dummy destination.</p>
+                    <p className="text-gray-700 dark:text-gray-300">Supply (1200) &gt; Demand (1100) → Surplus of 100 units. Need dummy destination.</p>
                   </div>
                 </div>
 
@@ -550,14 +550,14 @@ const Topic3 = () => {
                   
                   <rect x="350" y="595" width="250" height="115" rx="10" fill="#F97316" fillOpacity="0.1" stroke="#F97316" strokeWidth="1.5" />
                   <text x="475" y="620" textAnchor="middle" className="text-sm font-bold fill-orange-600 dark:fill-orange-400">Surplus Supply</text>
-                  <text x="475" y="645" textAnchor="middle" className="text-xs fill-gray-700 dark:fill-gray-300">ΣSᵢ > ΣDⱼ</text>
+                  <text x="475" y="645" textAnchor="middle" className="text-xs fill-gray-700 dark:fill-gray-300">ΣSᵢ &gt; ΣDⱼ</text>
                   <text x="475" y="665" textAnchor="middle" className="text-xs fill-gray-700 dark:fill-gray-300">Need dummy destination</text>
                   <text x="475" y="685" textAnchor="middle" className="text-xs fill-gray-700 dark:fill-gray-300">Unused supply</text>
                   <text x="475" y="705" textAnchor="middle" className="text-xs fill-gray-700 dark:fill-gray-300">Zero cost dummy</text>
                   
                   <rect x="620" y="595" width="250" height="115" rx="10" fill="#EF4444" fillOpacity="0.1" stroke="#EF4444" strokeWidth="1.5" />
                   <text x="745" y="620" textAnchor="middle" className="text-sm font-bold fill-red-600 dark:fill-red-400">Excess Demand</text>
-                  <text x="745" y="645" textAnchor="middle" className="text-xs fill-gray-700 dark:fill-gray-300">ΣDⱼ > ΣSᵢ</text>
+                  <text x="745" y="645" textAnchor="middle" className="text-xs fill-gray-700 dark:fill-gray-300">ΣDⱼ &gt; ΣSᵢ</text>
                   <text x="745" y="665" textAnchor="middle" className="text-xs fill-gray-700 dark:fill-gray-300">Need dummy source</text>
                   <text x="745" y="685" textAnchor="middle" className="text-xs fill-gray-700 dark:fill-gray-300">Unmet demand</text>
                   <text x="745" y="705" textAnchor="middle" className="text-xs fill-gray-700 dark:fill-gray-300">Zero cost dummy</text>

@@ -468,7 +468,7 @@ const Topic6 = () => {
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
               <span className="font-bold text-amber-300">Think About:</span>
               <p className="leading-relaxed">
-                Why does updating `balances[user] = 0` BEFORE transferring ETH stop Reentrancy? Because when the attacker's fallback function recursively calls `withdraw()` again, the contract checks `balances[user] >= amount`, sees 0, and reverts the attack immediately!
+                Why does updating `balances[user] = 0` BEFORE transferring ETH stop Reentrancy? Because when the attacker's fallback function recursively calls `withdraw()` again, the contract checks `balances[user] &gt;= amount`, sees 0, and reverts the attack immediately!
               </p>
             </div>
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">

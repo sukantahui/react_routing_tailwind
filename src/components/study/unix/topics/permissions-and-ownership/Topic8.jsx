@@ -1050,7 +1050,7 @@ class Topic8 extends React.Component {
                     </ul>
                     <div className="font-mono p-2 bg-black/20 rounded text-red-400">
                       # Find all setuid files (security audit):<br/>
-                      $ find / -type f -perm /4000 2>/dev/null
+                      $ find / -type f -perm /4000 2&gt;/dev/null
                     </div>
                   </div>
                 </div>
@@ -1153,7 +1153,7 @@ class Topic8 extends React.Component {
           {/* Footer */}
           <footer className="mt-12 pt-8 border-t border-gray-700/30 text-center opacity-70 text-sm">
             <p>Topic 9: Special Permissions • Next: Practical use of sticky bit in /tmp directory</p>
-            <p className="mt-2">Practice: Examine system files with special permissions using <code>find / -perm /4000 2>/dev/null</code></p>
+            <p className="mt-2">Practice: Examine system files with special permissions using <code>find / -perm /4000 2&gt;/dev/null</code></p>
           </footer>
         </div>
       </div>

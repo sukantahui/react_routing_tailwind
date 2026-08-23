@@ -176,19 +176,19 @@ export default function Topic8() {
                 
                 {/* Redirection syntax boxes */}
                 <rect x="50" y="170" width="250" height="30" rx="4" fill="#FEF3C7" stroke="#D97706" strokeWidth="1.5" />
-                <text x="175" y="190" textAnchor="middle" fill="#92400E" fontSize="12">`>` file overwrite stdout</text>
+                <text x="175" y="190" textAnchor="middle" fill="#92400E" fontSize="12">`&gt;` file overwrite stdout</text>
                 
                 <rect x="320" y="170" width="250" height="30" rx="4" fill="#FEF3C7" stroke="#D97706" strokeWidth="1.5" />
-                <text x="445" y="190" textAnchor="middle" fill="#92400E" fontSize="12">`>>` file append stdout</text>
+                <text x="445" y="190" textAnchor="middle" fill="#92400E" fontSize="12">`&gt;&gt;` file append stdout</text>
                 
                 <rect x="50" y="210" width="250" height="30" rx="4" fill="#FEF3C7" stroke="#D97706" strokeWidth="1.5" />
-                <text x="175" y="230" textAnchor="middle" fill="#92400E" fontSize="12">`2>` file redirect stderr</text>
+                <text x="175" y="230" textAnchor="middle" fill="#92400E" fontSize="12">`2&gt;` file redirect stderr</text>
                 
                 <rect x="320" y="210" width="250" height="30" rx="4" fill="#FEF3C7" stroke="#D97706" strokeWidth="1.5" />
-                <text x="445" y="230" textAnchor="middle" fill="#92400E" fontSize="12">`2>&1` stderr→stdout</text>
+                <text x="445" y="230" textAnchor="middle" fill="#92400E" fontSize="12">`2&gt;&1` stderr→stdout</text>
 
                 {hoverSvg && (
-                  <text x="350" y="255" textAnchor="middle" fill="#F59E0B" fontSize="13">💡 `&>` redirects both stdout and stderr (bash)</text>
+                  <text x="350" y="255" textAnchor="middle" fill="#F59E0B" fontSize="13">💡 `&&gt;` redirects both stdout and stderr (bash)</text>
                 )}
               </svg>
             </div>
@@ -244,7 +244,7 @@ echo "force" >| file`}
             </pre>
             <p className="mt-4 text-gray-700 dark:text-gray-200"><strong>Purpose:</strong> Control where command output goes – files, devices, or other commands. <strong>When/Why:</strong> Logging, silent background jobs, script automation, error handling, and building pipelines.</p>
             <div className="mt-4 rounded-lg bg-white p-3 dark:bg-gray-800/60">
-              <p className="text-sm"><span className="font-semibold">🌍 Real‑world:</span> At Barrackpore High School, Swadeep runs a backup script that appends logs with `>> backup.log`. Tuhina uses `grep pattern file > results.txt` to save search results. Debangshu suppresses cron job noise with `script.sh > /dev/null 2>&1`.</p>
+              <p className="text-sm"><span className="font-semibold">🌍 Real‑world:</span> At Barrackpore High School, Swadeep runs a backup script that appends logs with `&gt;&gt; backup.log`. Tuhina uses `grep pattern file &gt; results.txt` to save search results. Debangshu suppresses cron job noise with `script.sh &gt; /dev/null 2&gt;&1`.</p>
             </div>
           </div>
 
@@ -258,7 +258,7 @@ echo "force" >| file`}
             </div>
             <div className="rounded-lg bg-gray-100 p-3 dark:bg-gray-800">
               <p className="text-sm text-gray-700 dark:text-gray-300">
-                💡 <strong>Tip:</strong> Always test redirection with `echo` or `ls` first. Remember that order matters: `> file 2>&1` vs `2>&1 > file` produce different results.
+                💡 <strong>Tip:</strong> Always test redirection with `echo` or `ls` first. Remember that order matters: `&gt; file 2&gt;&1` vs `2&gt;&1 &gt; file` produce different results.
               </p>
             </div>
           </div>
@@ -268,20 +268,20 @@ echo "force" >| file`}
             <div className="rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800/50 dark:bg-amber-950/20 transition-all hover:shadow-md">
               <h3 className="text-xl font-bold text-amber-700 dark:text-amber-400">💡 Pro Tips</h3>
               <ul className="mt-2 list-inside list-disc space-y-1 text-gray-700 dark:text-gray-200">
-                <li>Use `>>` in cron jobs to prevent losing previous log entries.</li>
-                <li>To redirect both stdout and stderr to separate files and also see them on terminal, use `command > out 2> err ; cat out err` or `tee`.</li>
-                <li>Use `exec 2> error.log` to redirect all subsequent stderr in a script.</li>
-                <li>For temporary suppression: `command 2>/dev/null`.</li>
-                <li>Use `set -o noclobber` to prevent accidental overwrites; then `>|` forces overwrite.</li>
+                <li>Use `&gt;&gt;` in cron jobs to prevent losing previous log entries.</li>
+                <li>To redirect both stdout and stderr to separate files and also see them on terminal, use `command &gt; out 2&gt; err ; cat out err` or `tee`.</li>
+                <li>Use `exec 2&gt; error.log` to redirect all subsequent stderr in a script.</li>
+                <li>For temporary suppression: `command 2&gt;/dev/null`.</li>
+                <li>Use `set -o noclobber` to prevent accidental overwrites; then `&gt;|` forces overwrite.</li>
               </ul>
             </div>
             <div className="rounded-xl border border-red-200 bg-red-50 p-5 dark:border-red-800/50 dark:bg-red-950/20 transition-all hover:shadow-md">
               <h3 className="text-xl font-bold text-red-600 dark:text-red-400">⚠️ Common Pitfalls</h3>
               <ul className="mt-2 list-inside list-disc space-y-1 text-gray-700 dark:text-gray-200">
-                <li>Confusing `>` and `>>` – using `>` when you meant `>>` erases previous data.</li>
-                <li>Misplacing `2>&1`: `command 2>&1 > file` sends stderr to current stdout (terminal) and only stdout to file.</li>
-                <li>Forgetting to quote spaces in filenames: `command > "my file.txt"`.</li>
-                <li>Assuming `&>` works in POSIX shells (it's bash/ksh). Use `> file 2>&1` for portability.</li>
+                <li>Confusing `&gt;` and `&gt;&gt;` – using `&gt;` when you meant `&gt;&gt;` erases previous data.</li>
+                <li>Misplacing `2&gt;&1`: `command 2&gt;&1 &gt; file` sends stderr to current stdout (terminal) and only stdout to file.</li>
+                <li>Forgetting to quote spaces in filenames: `command &gt; "my file.txt"`.</li>
+                <li>Assuming `&&gt;` works in POSIX shells (it's bash/ksh). Use `&gt; file 2&gt;&1` for portability.</li>
                 <li>Redirection inside a pipeline affects only the command it applies to, not the whole pipeline.</li>
               </ul>
             </div>
@@ -294,8 +294,8 @@ echo "force" >| file`}
               <div>
                 <p className="font-semibold">For logging:</p>
                 <ul className="ml-5 list-disc text-gray-700 dark:text-gray-200">
-                  <li>Use `>>` for persistent logs (append).</li>
-                  <li>Redirect stderr separately or combine with `2>&1`.</li>
+                  <li>Use `&gt;&gt;` for persistent logs (append).</li>
+                  <li>Redirect stderr separately or combine with `2&gt;&1`.</li>
                   <li>Consider log rotation to avoid huge files.</li>
                 </ul>
               </div>
@@ -313,7 +313,7 @@ echo "force" >| file`}
           {/* Hint section */}
           <div className="animate-fade-slide-up mt-12 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800/40 dark:bg-blue-950/20">
             <h3 className="text-lg font-bold text-blue-700 dark:text-blue-300">🔍 Think about…</h3>
-            <p className="mt-1 text-gray-700 dark:text-gray-200">What happens when you run `echo hello > file` and then `echo world > file`? The second overwrites. Now try `set -o noclobber` and repeat. How do you override? Use `>|`. Also, try `find / -name core 2>/dev/null` – why would you redirect errors to /dev/null? (To hide permission denied messages.)</p>
+            <p className="mt-1 text-gray-700 dark:text-gray-200">What happens when you run `echo hello &gt; file` and then `echo world &gt; file`? The second overwrites. Now try `set -o noclobber` and repeat. How do you override? Use `&gt;|`. Also, try `find / -name core 2&gt;/dev/null` – why would you redirect errors to /dev/null? (To hide permission denied messages.)</p>
           </div>
 
           {/* Teacher's Note */}

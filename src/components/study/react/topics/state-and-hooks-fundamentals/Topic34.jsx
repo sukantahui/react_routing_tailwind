@@ -1085,7 +1085,7 @@ function areDependenciesEqual(prevDeps, nextDeps) {
                       <div className="space-y-1">
                         <div><code>Object.is({}, {})</code> → false</div>
                         <div><code>Object.is([], [])</code> → false</div>
-                        <div><code>Object.is(() => {}, () => {})</code> → false</div>
+                        <div><code>Object.is(() =&gt; {}, () =&gt; {})</code> → false</div>
                       </div>
                     </div>
                   </div>

@@ -100,7 +100,7 @@ const Topic7 = () => {
                   <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                     <h4 className="font-semibold text-blue-700 dark:text-blue-300">Dummy Source</h4>
                     <ul className="list-disc pl-4 text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                      <li>Added when demand > supply</li>
+                      <li>Added when demand &gt; supply</li>
                       <li>Represents unmet demand</li>
                       <li>Supply = deficit amount</li>
                       <li>Zero costs to destinations</li>
@@ -110,7 +110,7 @@ const Topic7 = () => {
                   <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
                     <h4 className="font-semibold text-green-700 dark:text-green-300">Dummy Destination</h4>
                     <ul className="list-disc pl-4 text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                      <li>Added when supply > demand</li>
+                      <li>Added when supply &gt; demand</li>
                       <li>Represents unused supply</li>
                       <li>Demand = surplus amount</li>
                       <li>Zero costs from sources</li>

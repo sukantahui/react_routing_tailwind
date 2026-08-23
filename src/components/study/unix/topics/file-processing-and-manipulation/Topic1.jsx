@@ -270,7 +270,7 @@ const Topic1 = () => {
               <div className="mt-3 bg-white/60 dark:bg-black/20 p-3 rounded-lg">
                 <p><strong>🎓 Teacher's Advice for cut Command Options:</strong></p>
                 <ul className="list-disc ml-5 mt-1 space-y-1">
-                  <li>"At Ichapur, I gave students a messy `/etc/passwd` dump and asked them to extract usernames and home directories. They quickly learned `-d':'` and `-f1,6`. Then I introduced `--output-delimiter=' -> '` to make the output readable."</li>
+                  <li>"At Ichapur, I gave students a messy `/etc/passwd` dump and asked them to extract usernames and home directories. They quickly learned `-d':'` and `-f1,6`. Then I introduced `--output-delimiter=' -&gt; '` to make the output readable."</li>
                   <li>Emphasise that `cut` is limited to one character delimiter. When they encounter multi‑character delimiters, it's time to introduce `awk` in next topics.</li>
                   <li>Classroom exercise: Take a CSV of student marks and use `cut --complement` to drop the 'ID' column, then `--output-delimiter='|'` to produce a pipe‑separated file.</li>
                 </ul>

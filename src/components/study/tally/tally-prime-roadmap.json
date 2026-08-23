@@ -1,328 +1,754 @@
 {
   "trackId": "tallyprime-complete-professional",
   "trackTitle": "TallyPrime Complete Professional Course",
-  "description": "A complete TallyPrime training roadmap from beginner to professional accountant level. Includes GST, TDS, Payroll, Inventory, Banking, MIS Reporting, Financial Statements, and real-world business simulations. Designed for classroom training, self-paced learners, and job-oriented commercial accounting.",
+  "description": "A comprehensive, industry-aligned TallyPrime professional course designed from the official TallyPrime Manual & Tally Certification Standards (Tally Essential Levels 1, 2, 3 & Tally Professional). Covers fundamental bookkeeping, double-entry principles, company setup, voucher management, multi-godown inventory, order processing, full GST compliance (GSTR-1, GSTR-3B, GSTR-2B reconciliation, E-Way Bill, E-Invoicing), TDS/TCS statutory processing, corporate payroll (PF/ESI/PT), MIS reporting, financial analysis, internal audit controls, and real-world commercial case studies.",
   "institute": {
     "name": "Coder & AccoTax",
     "website": "https://www.codernaccotax.co.in",
     "author": "Sukanta Hui",
     "location": "Barrackpore, West Bengal, India",
-    "trackType": "Accounting & Taxation Tutorial Roadmap",
-    "version": "1.0.0",
-    "lastUpdated": "2025-12-07"
+    "trackType": "Commercial Accounting & Taxation Professional Roadmap",
+    "version": "2.0.0",
+    "lastUpdated": "2026-08-23"
   },
   "folder": "tally",
   "subject": "Tally",
 
   "segments": [
     {
-      "segmentId": "foundation",
-      "title": "Segment 1 – Fundamentals of Accounting & TallyPrime (Beginner)",
+      "segmentId": "segment-1-recording-reporting",
+      "title": "Segment 1 – Recording & Reporting (Tally Essential Level 1 - Foundation & Core Accounting)",
       "level": "Beginner",
-      "summary": "Learn the basics of accounting, business transactions, TallyPrime interface, company creation, and basic voucher entry.",
+      "summary": "Master bookkeeping principles, double-entry rules, TallyPrime interface, company configuration, chart of accounts (groups & ledgers), voucher recording, and banking reconciliation.",
       "modules": [
-
         {
           "moduleId": "acc-basics",
           "slug": "accounting-basics",
-          "title": "Accounting Fundamentals",
+          "title": "Principles of Accounting & Bookkeeping Fundamentals",
           "level": "Beginner",
-          "estimatedHours": 4,
-          "tags": ["accounting", "basics", "business-transactions"],
+          "estimatedHours": 6,
+          "tags": ["accounting", "bookkeeping", "golden-rules", "debit-credit", "trial-balance"],
           "topics": [
-            "What is accounting?",
-            "Types of accounts (Real, Personal, Nominal)",
-            "Golden rules of accounting",
-            "Debit & Credit explained",
-            "Source documents & vouchers",
-            "Ledgers, Journal, Trial Balance (concept)",
-            "Tally Test",
-            "Tally Quiz"
+            "Introduction to Accounting: Meaning, Objectives, Scope & Types of Business Entities",
+            "Types of Accounts: Personal, Real, and Nominal Accounts & Modern Asset-Liability Classification",
+            "Golden Rules of Accounting & Modern Rules for Debit and Credit",
+            "Accounting Principles, Concepts (Going Concern, Accrual, Matching, Conservatism) & Conventions",
+            "Source Documents: Cash Memo, Tax Invoice, Purchase Bill, Receipt, Cheque & Voucher Types",
+            "Journal Entries: Recording Transactions in Primary Books with Practical Illustrations",
+            "Ledger Posting, Balancing of Ledger Accounts & Sub-Divisions of Journal",
+            "Preparation of Trial Balance: Purpose, Methods & Errors Not Disclosed by Trial Balance",
+            "Introduction to Final Accounts: Trading Account, Profit & Loss Account & Balance Sheet",
+            "Accounting Fundamentals Practical Assessment & Diagnostic Quiz"
           ],
           "learningOutcomes": [
-            "Understand the core rules of accounting",
-            "Identify business transactions",
-            "Apply debit-credit logic in real examples"
+            "Understand the core foundations and terminology of commercial bookkeeping",
+            "Accurately classify transactions into Personal, Real, and Nominal accounts",
+            "Formulate journal entries applying Golden Rules of Accounting",
+            "Post transactions to ledgers, balance accounts, and compile an accurate Trial Balance"
           ],
           "difficulty": "Easy",
           "difficultyIndex": 1,
           "miniProjects": [
-            "Identify debit/credit for 30 business transactions"
+            "Analyze and journalize 35 real-world commercial business transactions for a trading firm in Barrackpore",
+            "Prepare ledger accounts, post balances, and draft a balanced Trial Balance"
           ],
-          "exercises": { "mcq": 20, "coding": 0, "projects": 1 },
-          "assessment": { "type": "Quiz + Practice Sheet", "passScore": 70 },
-          "careerSkills": ["Strong accounting foundation"],
-          "commonMistakes": ["Wrong classification of accounts"],
+          "exercises": { "mcq": 25, "coding": 0, "projects": 2 },
+          "assessment": { "type": "Comprehensive Practical + Quiz", "passScore": 75 },
+          "careerSkills": ["Financial Bookkeeping", "Journalising", "Ledger Scrutiny", "Trial Balance Preparation"],
+          "commonMistakes": ["Confusing nominal expense accounts with personal party accounts", "Incorrect treatment of trade discount vs cash discount"],
           "previousModule": null,
-          "nextModule": "tally-intro",
-          "badge": "Accounting Basics Badge"
+          "nextModule": "intro-to-tallyprime",
+          "badge": "Bookkeeping Foundation Badge"
         },
 
         {
           "moduleId": "tally-intro",
           "slug": "intro-to-tallyprime",
-          "title": "Introduction to TallyPrime",
+          "title": "Introduction to TallyPrime & Company Configuration",
           "level": "Beginner",
-          "estimatedHours": 3,
-          "tags": ["tallyprime", "interface", "navigation"],
+          "estimatedHours": 5,
+          "tags": ["tallyprime", "interface", "company-creation", "f11-features", "f12-config"],
           "topics": [
-            "What is TallyPrime?",
-            "Differences: Tally ERP 9 vs TallyPrime",
-            "Installing & activating TallyPrime",
-            "Tally Gateway & menu navigation",
-            "Company creation & company features",
-            "Setting up basic configurations",
-            "Practice your skill",
-            "Test your Skill"
+            "Overview of TallyPrime Architecture & Evolution from Tally.ERP 9",
+            "TallyPrime Editions (Silver, Gold, Rental, Educational Mode) & System Requirements",
+            "Installation, Data Directory Setup & Multi-User Network Data Path Configuration",
+            "TallyPrime Screen Anatomy: Top Menu Bar (Company, Data, Exchange, Go To, Import, Export, Print, Help)",
+            "Gateway of Tally, Side Action Buttons, Calculator / Status Bar Navigation",
+            "Company Creation: Corporate Details, Financial Year, Security Control & Currency (₹) Setup",
+            "Company Alteration, Shutting, Deleting & Selecting Multi-Company Data",
+            "Company Features (F11): Accounting, Inventory, Statutory & Taxation, Payroll Overviews",
+            "Configuration Settings (F12) & Global Master Configurations",
+            "TallyPrime Navigation Mastery & Practical Interface Drill"
           ],
           "learningOutcomes": [
-            "Install and activate TallyPrime",
-            "Navigate through Tally menu structure",
-            "Create companies with proper configurations"
+            "Install, configure, and activate TallyPrime on single/multi-user workstations",
+            "Seamlessly navigate the Gateway of Tally using mouse and keyboard shortcuts",
+            "Create and manage companies with complete fiscal and statutory information",
+            "Configure F11 Company Features and F12 Master Preferences"
           ],
-          "difficultyIndex": 1,
-          "miniProjects": ["Create a new company with proper accounting setup"],
-          "exercises": { "mcq": 10, "coding": 0, "projects": 1 },
-          "assessment": { "type": "Practical Test", "passScore": 70 },
-          "previousModule": "acc-basics",
-          "nextModule": "ledger-groups",
-          "badge": "Tally Beginner Badge"
+          "difficultyIndex": 2,
+          "miniProjects": [
+            "Set up a complete new company 'Kolkata Trading Enterprises Pvt Ltd' with proper mailing details, security password, and financial year setup",
+            "Configure F11 features for Accounting and Inventory integration"
+          ],
+          "exercises": { "mcq": 15, "projects": 1 },
+          "assessment": { "type": "Practical Company Setup Test", "passScore": 75 },
+          "previousModule": "accounting-basics",
+          "nextModule": "ledger-and-groups",
+          "badge": "TallyPrime Interface Specialist Badge"
         },
 
         {
           "moduleId": "ledger-groups",
           "slug": "ledger-and-groups",
-          "title": "Ledger Creation & Group Management",
+          "title": "Chart of Accounts – Groups & Ledger Master Management",
           "level": "Beginner",
-          "estimatedHours": 5,
+          "estimatedHours": 6,
+          "tags": ["chart-of-accounts", "groups", "ledgers", "sundry-debtors", "sundry-creditors", "bill-by-bill"],
           "topics": [
-            "Understanding Groups in Tally",
-            "Primary vs Secondary groups",
-            "Creating ledgers with GST details",
-            "Handling opening balances",
-            "Ledger classification best practices"
+            "Concept of Chart of Accounts in TallyPrime",
+            "Detailed Study of 28 Pre-defined Groups (15 Primary Groups & 13 Secondary Groups)",
+            "Creating, Altering & Deleting User-defined Groups and Sub-Groups",
+            "Ledger Master Creation: Sundry Debtors, Sundry Creditors, Capital, Cash, and Bank Ledgers",
+            "Income and Expense Ledgers: Direct vs Indirect Expenses & Incomes Classification",
+            "Multi-Ledger Creation & Chart of Accounts Tree Hierarchy View",
+            "Entering and Verifying Opening Balances & Resolving Difference in Opening Balance",
+            "Bill-by-Bill / Bill-wise Details Setup: New Ref, Agst Ref, Advance, and On Account",
+            "Setting Credit Limits, Credit Periods, and Default Mailing Details for Parties",
+            "Master Audit & Chart of Accounts Verification Lab"
           ],
           "learningOutcomes": [
-            "Create correct ledger groups",
-            "Attach GST configuration in ledgers",
-            "Organize chart of accounts professionally"
+            "Differentiate between Primary and Secondary Groups in TallyPrime",
+            "Design a well-structured Chart of Accounts for commercial trading and service firms",
+            "Create ledgers with accurate tax and bill-wise tracking parameters",
+            "Set opening balances and resolve balance sheet discrepancies"
           ],
-          "difficultyIndex": 2,
+          "difficultyIndex": 3,
           "miniProjects": [
-            "Create 25 business ledgers for a trading company"
+            "Build a complete Chart of Accounts with 40 distinct ledgers for a distribution business in Ichapur",
+            "Enable Bill-wise details on customer and supplier accounts with designated credit terms"
           ],
-          "exercises": { "mcq": 12, "coding": 0, "projects": 1 },
-          "nextModule": "voucher-entry",
-          "badge": "Ledger Master Badge"
+          "exercises": { "mcq": 20, "projects": 1 },
+          "assessment": { "type": "Master Creation Practical", "passScore": 80 },
+          "previousModule": "intro-to-tallyprime",
+          "nextModule": "voucher-entry-basics",
+          "badge": "Chart of Accounts Master Badge"
         },
 
         {
           "moduleId": "voucher-entry",
           "slug": "voucher-entry-basics",
-          "title": "Voucher Entry Basics",
-          "estimatedHours": 6,
-          "topics": [
-            "Contra, Payment, Receipt, Journal, Purchase, Sales",
-            "Voucher configuration & advanced settings",
-            "Practical real-life transactions",
-            "Day Book usage",
-            "Editing & deleting vouchers"
-          ],
-          "learningOutcomes": [
-            "Enter all basic accounting vouchers",
-            "Handle real business entries confidently"
-          ],
-          "miniProjects": ["Enter 40 daily cash & bank transactions"],
-          "exercises": { "mcq": 15, "projects": 1 },
-          "nextModule": "banking-module",
-          "badge": "Voucher Expert Badge"
-        },
-        {
-          "moduleId": "practice",
-          "slug": "voucher-entry-practice",
-          "title": "Voucher Entry Practice",
-          "estimatedHours": 6,
-          "topics": [
-            "Practice1",
-            "Practice2",
-            "Practical real-life transactions",
-            "Day Book usage",
-            "Editing & deleting vouchers"
-          ],
-          "learningOutcomes": [
-            "Enter all basic accounting vouchers",
-            "Handle real business entries confidently"
-          ],
-          "miniProjects": ["Enter 40 daily cash & bank transactions"],
-          "exercises": { "mcq": 15, "projects": 1 },
-          "nextModule": "banking-module",
-          "badge": "Voucher Expert Badge"
-        }
-      ]
-    },
-
-    {
-      "segmentId": "intermediate",
-      "title": "Segment 2 – Inventory, Taxation & Business Operations (Intermediate)",
-      "level": "Intermediate",
-      "summary": "Learn inventory management, GST configuration, stock groups, godowns, and taxation-related transactions.",
-      "modules": [
-
-        {
-          "moduleId": "inventory-basics",
-          "slug": "inventory-management",
-          "title": "Inventory Management in TallyPrime",
-          "estimatedHours": 6,
-          "topics": [
-            "Stock groups & categories",
-            "Units of measure",
-            "Stock items & SKU creation",
-            "Godowns & batches",
-            "Inventory reports"
-          ],
-          "learningOutcomes": [
-            "Create structured inventory records",
-            "Manage multi-godown operations"
-          ],
-          "difficultyIndex": 5,
-          "nextModule": "gst-module"
-        },
-
-        {
-          "moduleId": "gst-module",
-          "slug": "gst-in-tally",
-          "title": "GST Configuration & Transactions",
+          "title": "Voucher Recording & Day-to-Day Accounting Transactions",
+          "level": "Beginner",
           "estimatedHours": 8,
+          "tags": ["vouchers", "contra", "payment", "receipt", "journal", "day-book"],
           "topics": [
-            "Enabling GST",
-            "HSN/SAC setup",
-            "GST ledgers",
-            "Intra/Interstate GST",
-            "Purchase & Sales with GST",
-            "Debit/Credit notes with GST",
-            "GSTR reports"
+            "Understanding Accounting Voucher Types & Functional Shortcuts (F4 to F9, F10)",
+            "Receipt Voucher (F6): Recording Capital Inflow, Customer Collections & Direct Incomes",
+            "Payment Voucher (F5): Recording Supplier Disbursements, Operational Expenses & Asset Purchases",
+            "Contra Voucher (F4): Cash Deposits to Bank, Cash Withdrawals & Inter-Bank Fund Transfers",
+            "Journal Voucher (F7): Adjustment Entries, Depreciation, Rectifications & Opening Adjustments",
+            "Purchase Voucher (F9): As Voucher vs As Accounting Invoice Modes for Service Purchases",
+            "Sales Voucher (F8): As Voucher vs As Accounting Invoice Modes for Service Invoicing",
+            "Day Book Navigation: Date Filtering, Voucher Alteration, Duplication (Alt+2) & Deletion (Alt+D)",
+            "Post-Dated Vouchers, Optional Vouchers & Memorandum Non-Accounting Vouchers",
+            "Day-to-Day Accounting Transaction Simulation Drill"
           ],
-          "miniProjects": ["Record 20 GST purchase & sales bills"],
-          "difficultyIndex": 6,
-          "nextModule": "banking-module"
+          "learningOutcomes": [
+            "Select and record appropriate voucher types for diverse commercial transactions",
+            "Handle bill-wise allocations during payments and receipts (Agst Ref linking)",
+            "Record adjustment entries and asset depreciation in Journal vouchers",
+            "Inspect, filter, and audit entries using the Day Book"
+          ],
+          "difficultyIndex": 4,
+          "miniProjects": [
+            "Record 50 sequential day-to-day business transactions across Cash, Bank, Expense, and Journal vouchers",
+            "Perform Day Book audit and reconcile voucher totals against manual register"
+          ],
+          "exercises": { "mcq": 25, "projects": 2 },
+          "assessment": { "type": "Voucher Entry Speed & Accuracy Exam", "passScore": 80 },
+          "previousModule": "ledger-and-groups",
+          "nextModule": "banking-and-reconciliation",
+          "badge": "Voucher Specialist Badge"
         },
 
         {
           "moduleId": "banking-module",
           "slug": "banking-and-reconciliation",
-          "title": "Banking, Cheque Management & Reconciliation",
+          "title": "Banking Operations, Cheque Management & Bank Reconciliation (BRS)",
+          "level": "Beginner",
+          "estimatedHours": 6,
+          "tags": ["banking", "cheque-printing", "brs", "bank-reconciliation", "e-payments"],
           "topics": [
-            "Bank ledger setup",
-            "Cheque formats",
-            "Bank Reconciliation Statement",
-            "Auto bank reconciliation (import)"
+            "Bank Ledger Configuration: Account Number, IFS Code, Branch, and Cheque Book Allocation",
+            "Cheque Management in TallyPrime: Cheque Range Definition & Cheque Printing Configurations",
+            "Cheque Register, Cheque Deposit Slips, and Payment Advice Generation",
+            "Bank Reconciliation Statement (BRS): Purpose, Timing Differences & Practical Significance",
+            "Manual Bank Reconciliation in TallyPrime (Matching Instrument Dates with Bank Statement)",
+            "Auto Bank Reconciliation: Importing Electronic Bank Statements (Excel, CSV, MT940)",
+            "Handling Post-Dated Cheques (PDC) & PDC Management Register",
+            "Electronic Fund Transfers (e-Payments): NEFT, RTGS, and Direct Bank Integration",
+            "Banking Reports: Deposit Slip, Payment Advice, and Unreconciled Transactions Summary",
+            "End-to-End Bank Reconciliation Practical Case Lab"
+          ],
+          "learningOutcomes": [
+            "Configure corporate bank ledgers and configure automated cheque printing",
+            "Generate cheque deposit slips, payment advices, and manage cheque registers",
+            "Perform manual and automated bank reconciliation with zero un-reconciled discrepancies",
+            "Manage post-dated transactions and monitor liquidity positions"
+          ],
+          "difficultyIndex": 4,
+          "miniProjects": [
+            "Configure HDFC Bank account with multi-leaf cheque books in TallyPrime",
+            "Reconcile monthly bank statement of 60 transactions against Tally book balance using BRS"
+          ],
+          "exercises": { "mcq": 15, "projects": 1 },
+          "assessment": { "type": "BRS Practical Examination", "passScore": 80 },
+          "previousModule": "voucher-entry-basics",
+          "nextModule": "inventory-management",
+          "badge": "Banking & Reconciliation Badge"
+        }
+      ]
+    },
+
+    {
+      "segmentId": "segment-2-inventory-operations",
+      "title": "Segment 2 – Inventory & Order Processing (Tally Essential Level 2 - Commercial Operations)",
+      "level": "Intermediate",
+      "summary": "Master comprehensive stock management, units of measure, godowns, multi-location stock transfers, complete purchase & sales order cycles, batch-wise tracking, BOM, and cost centres.",
+      "modules": [
+        {
+          "moduleId": "inventory-basics",
+          "slug": "inventory-management",
+          "title": "Inventory Management, Stock Masters & Godown Operations",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": ["inventory", "stock-items", "units-of-measure", "godowns", "stock-transfer"],
+          "topics": [
+            "Fundamentals of Inventory Management & Integration with Financial Accounting",
+            "Units of Measure: Simple Units (Nos, Pcs, Kgs, Ltrs) vs Compound Units (Box of 12 Pcs)",
+            "Alternate Units of Measure & Conversion Factors (e.g., 1 Box = 50 Packets)",
+            "Stock Groups & Stock Sub-Groups: Categorizing Products by Brand and Category",
+            "Stock Categories: Multi-dimensional Classification (Size, Colour, Model, Quality)",
+            "Stock Item Creation: SKU, Part Number, Description, Reorder Quantities & Opening Stock",
+            "Godown / Location Management: Primary Godown, Internal Warehouses & Multi-Location Storage",
+            "Inter-Godown Stock Transfer using Stock Journal Voucher (Alt+F7)",
+            "Physical Stock Verification & Recording Physical Stock Vouchers (Alt+F10) for Discrepancy Adjustment",
+            "Inventory Reports: Stock Summary, Godown Summary, Stock Item Movement Analysis & Item Query"
+          ],
+          "learningOutcomes": [
+            "Design multi-tier inventory structures with stock groups and categories",
+            "Set up compound and alternate units of measure with conversion rules",
+            "Manage multi-godown stock allocations and record inter-warehouse transfers",
+            "Perform physical stock audits and analyze comprehensive stock summaries"
           ],
           "difficultyIndex": 5,
-          "nextModule": "cost-centre"
+          "miniProjects": [
+            "Create an inventory catalog of 50 electronics and hardware stock items with multi-units",
+            "Manage stock allocations across Barrackpore Central Warehouse and Kolkata Showroom"
+          ],
+          "exercises": { "mcq": 20, "projects": 2 },
+          "assessment": { "type": "Inventory Master & Transfer Lab", "passScore": 80 },
+          "previousModule": "banking-and-reconciliation",
+          "nextModule": "purchase-and-sales-order",
+          "badge": "Inventory Operations Specialist Badge"
         },
 
         {
-          "moduleId": "cost-centre",
+          "moduleId": "order-processing",
+          "slug": "purchase-and-sales-order",
+          "title": "Invoicing & Complete Order Processing Cycles",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": ["order-processing", "purchase-order", "sales-order", "delivery-note", "debit-note", "credit-note"],
+          "topics": [
+            "Invoicing Modes in TallyPrime: Item Invoice, Accounting Invoice & As Voucher (Ctrl+H)",
+            "Complete Purchase Order Processing Workflow Overview",
+            "Purchase Order (Ctrl+F9): Recording PO with Delivery Dates, Terms & Item Details",
+            "Receipt Note / Goods Receipt (Alt+F9): Tracking Numbers & Inventory Inward without Invoice",
+            "Rejections Out (Ctrl+F5): Returning Damaged Stock Prior to Invoicing",
+            "Purchase Invoice (F9): Linking Tracking Numbers to convert Receipt Notes into Final Bills",
+            "Complete Sales Order Processing Workflow Overview",
+            "Sales Order (Ctrl+F8), Delivery Note / Challan (Alt+F8) & Rejections In (Ctrl+F6)",
+            "Sales Invoice (F8) Generation with Delivery Note Linking & Instant Billing",
+            "Debit Note (Alt+F5) & Credit Note (Alt+F6) for Purchase Returns, Sales Returns & Price Adjustments",
+            "Order Status Reports: Sales Order Outstanding, Purchase Order Outstanding & Pending Delivery Notes"
+          ],
+          "learningOutcomes": [
+            "Execute the end-to-end commercial Purchase Order cycle (PO -> Receipt Note -> Rejection Out -> Bill)",
+            "Execute the end-to-end commercial Sales Order cycle (SO -> Delivery Challan -> Rejection In -> Invoice)",
+            "Use tracking numbers to link inventory vouchers with accounting vouchers seamlessly",
+            "Process debit and credit notes with original invoice cross-referencing"
+          ],
+          "difficultyIndex": 6,
+          "miniProjects": [
+            "Process a 10-step commercial purchase order cycle from vendor quotation to final bill and payment",
+            "Execute a complete sales order cycle including delivery challan, partial rejection, and final billing"
+          ],
+          "exercises": { "mcq": 20, "projects": 2 },
+          "assessment": { "type": "Commercial Order Processing Exam", "passScore": 80 },
+          "previousModule": "inventory-management",
+          "nextModule": "advanced-inventory",
+          "badge": "Commercial Invoicing & Orders Badge"
+        },
+
+        {
+          "moduleId": "adv-inventory",
+          "slug": "advanced-inventory",
+          "title": "Advanced Inventory, Batch-wise Tracking, Price Lists & BOM",
+          "level": "Intermediate",
+          "estimatedHours": 7,
+          "tags": ["batch-tracking", "expiry-dates", "price-levels", "bom", "manufacturing"],
+          "topics": [
+            "Batch-wise Details Setup: Enabling Batches, Manufacturing Dates & Expiry Dates",
+            "Batch Management in Pharmaceuticals, Food Processing & FMCG Distributions",
+            "Expired Batches Alert & Zero-Expiry Sales Prevention Controls",
+            "Actual vs Billed Quantities (Free Schemes, Buy 2 Get 1 Free Transactions)",
+            "Separate Discount Column in Invoices & Cash/Trade Discount Rules",
+            "Additional Cost of Purchases: Allocating Freight, Insurance, and Customs to Item Cost",
+            "Price Levels & Price Lists: Configuring Wholesaler, Retailer, and Distributor Tiered Pricing",
+            "Reorder Levels & Minimum Order Quantity Configuration",
+            "Bill of Materials (BOM) Setup for Manufacturing & Assembly Operations",
+            "Manufacturing Journal Voucher: Converting Raw Materials into Finished Goods with By-products"
+          ],
+          "learningOutcomes": [
+            "Configure and track batch numbers, manufacturing dates, and expiration dates for items",
+            "Implement promotional schemes using Actual vs Billed quantity features",
+            "Design tiered price lists for distinct customer segments",
+            "Configure Bill of Materials (BOM) and record assembly manufacturing entries"
+          ],
+          "difficultyIndex": 6,
+          "miniProjects": [
+            "Set up a pharmaceutical distribution company with batch and expiry tracking for 20 medicines",
+            "Configure a computer manufacturing unit with BOM for desktop assembly and produce 100 units"
+          ],
+          "exercises": { "mcq": 20, "projects": 2 },
+          "assessment": { "type": "Advanced Inventory & BOM Practical", "passScore": 80 },
+          "previousModule": "purchase-and-sales-order",
+          "nextModule": "cost-centre-profit",
+          "badge": "Advanced Inventory Master Badge"
+        },
+
+        {
+          "moduleId": "cost-centres",
           "slug": "cost-centre-profit",
-          "title": "Cost Centres & Profitability Analysis",
+          "title": "Cost Centres, Cost Categories & Profitability Analysis",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": ["cost-centres", "cost-categories", "profitability", "departmental-accounting"],
           "topics": [
-            "Cost centres & categories",
-            "Employee-wise, department-wise allocation",
-            "Profit centre reporting"
+            "Concept of Cost Centres & Profit Centres in Management Accounting",
+            "Enabling Cost Centres & Creating Cost Categories (Departments, Branches, Projects, Executives)",
+            "Creating Cost Centres under Specific Categories",
+            "Allocating Revenue and Non-Revenue Transactions to Cost Centres in Vouchers",
+            "Pre-defined Cost Allocations using Cost Centre Classes",
+            "Multi-dimensional Cost Allocation (e.g., Allocating Salary across Department and Branch simultaneously)",
+            "Cost Centre Breakup, Ledger Breakup, and Group Breakup Reports",
+            "Project-wise and Branch-wise Profitability Statement Generation",
+            "Cost Centre Budgeting & Performance Variance Analysis",
+            "Managerial Cost Allocation Practical Case Study"
           ],
-          "difficultyIndex": 6
+          "learningOutcomes": [
+            "Establish multi-tier cost categories and cost centres for organizational departments",
+            "Allocate voucher expenses and revenues to cost centres accurately",
+            "Use Cost Centre Classes for automated percentage-based allocations",
+            "Generate project-wise and departmental profitability reports"
+          ],
+          "difficultyIndex": 6,
+          "miniProjects": [
+            "Implement departmental cost accounting for an IT solutions firm across Sales, Dev, and HR departments",
+            "Generate project-wise P&L statements for three commercial infrastructure contracts"
+          ],
+          "exercises": { "mcq": 15, "projects": 1 },
+          "assessment": { "type": "Cost Centre Allocation Lab", "passScore": 80 },
+          "previousModule": "advanced-inventory",
+          "nextModule": "gst-fundamentals",
+          "badge": "Cost Centre & Profitability Badge"
         }
       ]
     },
 
     {
-      "segmentId": "advanced",
-      "title": "Segment 3 – Payroll, TDS, Advanced GST & Financial Statements",
-      "summary": "Move into advanced accounting topics including payroll, TDS, financial statement preparation and analysis.",
+      "segmentId": "segment-3-statutory-taxation",
+      "title": "Segment 3 – Statutory & Taxation Mastery (GST, TDS & TCS - Level 3)",
+      "level": "Advanced",
+      "summary": "Master Goods & Services Tax (GST), multi-level tax setup, inward/outward invoices, RCM, GSTR-1, GSTR-3B, GSTR-2B reconciliation, E-Way Bill, E-Invoicing, and direct TDS/TCS statutory compliances.",
       "modules": [
         {
-          "moduleId": "payroll",
-          "slug": "payroll-management",
-          "title": "Payroll Management",
+          "moduleId": "gst-intro",
+          "slug": "gst-fundamentals",
+          "title": "Goods & Services Tax (GST) Fundamentals & Multi-Tier Configuration",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": ["gst", "cgst", "sgst", "igst", "hsn-sac", "tax-configuration"],
           "topics": [
-            "Employee masters",
-            "Attendance & payroll vouchers",
-            "Salary structures & pay heads",
-            "Payroll reports"
+            "Overview of GST Architecture: Dual GST Model, CGST, SGST, IGST, UTGST & Compensation Cess",
+            "GST Registration Types: Regular Dealer vs Composition Scheme Dealer Criteria",
+            "Enabling GST in TallyPrime (F11) & Company GST Registration Profile Setup",
+            "Understanding GST Rate Hierarchy: Company Level, Group Level, Stock Item Level, Ledger Level",
+            "HSN Code (Goods) & SAC (Services) Management and Configuration in TallyPrime",
+            "Creating GST Tax Ledgers: Input CGST/SGST/IGST and Output CGST/SGST/IGST",
+            "Creating GST-Compliant Supplier and Customer Masters with State, GSTIN, and Registration Type",
+            "GST Classification Setup for Uniform Tax Rules across Multiple Items",
+            "Setting up Rounding-Off Ledgers for Invoice Net Totals",
+            "GST Configuration Verification & Master Compliance Audit"
           ],
-          "difficultyIndex": 7
+          "learningOutcomes": [
+            "Understand the legal and operational structure of GST in Indian business accounting",
+            "Configure GST details in TallyPrime at company, group, item, and ledger levels",
+            "Set up HSN/SAC codes and assign accurate GST tax rates",
+            "Create structured Input and Output GST ledger accounts"
+          ],
+          "difficultyIndex": 7,
+          "miniProjects": [
+            "Enable and configure multi-rate GST (5%, 12%, 18%, 28%) for a trading enterprise in West Bengal",
+            "Audit and validate 30 vendor and client GSTINs with proper registration type classification"
+          ],
+          "exercises": { "mcq": 20, "projects": 1 },
+          "assessment": { "type": "GST Configuration Mastery Test", "passScore": 80 },
+          "previousModule": "cost-centre-profit",
+          "nextModule": "gst-transactions",
+          "badge": "GST Setup Master Badge"
         },
 
         {
-          "moduleId": "tds",
+          "moduleId": "gst-vouchers",
+          "slug": "gst-transactions",
+          "title": "Recording Inward & Outward GST Transactions, RCM & Adjustments",
+          "level": "Advanced",
+          "estimatedHours": 9,
+          "tags": ["gst-invoicing", "intra-state", "inter-state", "rcm", "debit-credit-notes", "advance-receipt"],
+          "topics": [
+            "Recording Intra-State Local Sales with CGST & SGST Calculations",
+            "Recording Inter-State Interstate Sales with IGST Calculations",
+            "Recording Inward Local & Inter-State GST Purchases with ITC Eligibility Tagging",
+            "Purchases from Composition Dealers, Unregistered Dealers (URD) & Exempted Purchases",
+            "Export Invoices: Export with Tax vs Export under LUT/Bond & SEZ Supplies",
+            "Reverse Charge Mechanism (RCM): Identifying RCM Purchases & Booking Tax Liability in Journal",
+            "GST on Advance Receipts (Receipt Voucher) & Subsequent Adjustment against Sales Invoice",
+            "Debit Notes and Credit Notes with Original Tax Invoice Linking & Reason Codes",
+            "Sales/Purchase of Capital Goods with GST & Input Tax Credit (ITC) Rules",
+            "Comprehensive Multi-Scenario GST Invoicing Drill"
+          ],
+          "learningOutcomes": [
+            "Accurately compute and record Intra-state and Inter-state GST invoices",
+            "Handle special GST transactions including RCM, exports under LUT, and SEZ sales",
+            "Process GST advance receipts and map adjustments against final bills",
+            "Issue GST-compliant Debit and Credit notes with mandatory statutory references"
+          ],
+          "difficultyIndex": 8,
+          "miniProjects": [
+            "Record 40 comprehensive GST purchase and sales vouchers covering local, interstate, export, and RCM cases",
+            "Process advance customer receipts, generate tax invoices, and adjust advance allocations"
+          ],
+          "exercises": { "mcq": 25, "projects": 2 },
+          "assessment": { "type": "GST Practical Transaction Exam", "passScore": 85 },
+          "previousModule": "gst-fundamentals",
+          "nextModule": "gstr-returns-einvoicing",
+          "badge": "GST Transaction Specialist Badge"
+        },
+
+        {
+          "moduleId": "gst-returns",
+          "slug": "gstr-returns-einvoicing",
+          "title": "GSTR-1, GSTR-3B Returns, GSTR-2B Reconciliation, E-Way Bill & E-Invoicing",
+          "level": "Advanced",
+          "estimatedHours": 9,
+          "tags": ["gstr-1", "gstr-3b", "gstr-2b", "itc-reconciliation", "e-way-bill", "e-invoicing"],
+          "topics": [
+            "GSTR-1 In-Depth Analysis: Table-wise Breakdown (B2B, B2CL, B2CS, CDNR, CDNUR, Export, HSN Summary)",
+            "Resolving Uncertain Transactions & Error Correction in the GST Return Triangle",
+            "Generating GSTR-1 JSON File for Direct Upload to the GST Portal",
+            "GSTR-3B Computation: Outward Supplies, Eligible ITC, Ineligible ITC & Net Tax Calculation",
+            "Set-off Rules for GST Liability: Utilization of IGST, CGST, and SGST Credit against Output Dues",
+            "Recording GST Tax Payment Voucher (Challan Payment via PMT-06) in Payment Voucher",
+            "GSTR-2A & GSTR-2B Reconciliation in TallyPrime: Matching Books with Portal ITC",
+            "E-Way Bill in TallyPrime: Rules, Distance Thresholds, Generating E-Way Bill JSON & Direct Portal Integration",
+            "E-Invoicing in TallyPrime: IRN Generation, Signed QR Code Printing, and Cancellation Procedures",
+            "Annual GST Return (GSTR-9) Overview & Statutory Audit Preparation"
+          ],
+          "learningOutcomes": [
+            "Prepare and validate error-free GSTR-1 and GSTR-3B returns in TallyPrime",
+            "Diagnose and resolve mismatched/uncertain transactions in GST triangulation",
+            "Perform GSTR-2B Input Tax Credit reconciliation to prevent revenue leakage",
+            "Generate E-Way Bills and E-Invoices with direct portal integration"
+          ],
+          "difficultyIndex": 8,
+          "miniProjects": [
+            "Perform complete monthly return filing simulation for a trading firm (GSTR-1 JSON generation + GSTR-3B set-off)",
+            "Execute GSTR-2B reconciliation for 100 purchase invoices and generate E-Way bill for inter-state consignment"
+          ],
+          "exercises": { "mcq": 25, "projects": 2 },
+          "assessment": { "type": "GST Returns & Portal Filing Practical", "passScore": 85 },
+          "previousModule": "gst-transactions",
+          "nextModule": "tds-in-tally",
+          "badge": "GST Return & E-Invoicing Expert Badge"
+        },
+
+        {
+          "moduleId": "tds-module",
           "slug": "tds-in-tally",
-          "title": "TDS Setup & Filing Process",
+          "title": "Tax Deducted at Source (TDS) Setup, Deduction, Payment & Form 26Q",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": ["tds", "tan", "section-194c", "section-194j", "section-194i", "form-26q"],
           "topics": [
-            "TDS nature of payment",
-            "TDS ledgers",
-            "TDS on purchase of services",
-            "TDS reports"
+            "Introduction to TDS Concept, TAN Registration, Threshold Limits & Statutory Obligations",
+            "Enabling TDS in TallyPrime (F11) & Deductor Information Setup",
+            "TDS Nature of Payments Creation: Sec 194C (Contractor), 194J (Professional), 194I (Rent), 194H (Commission), 194Q (Purchase of Goods)",
+            "Creating Expense, Party (with PAN & Deductee Type), and TDS Duty Ledgers",
+            "Booking Expenses with Automated TDS Deduction in Journal & Purchase Vouchers",
+            "Handling Higher Rate of TDS for Non-PAN Cases (Sec 206AA) & Non-Filers (Sec 206AB)",
+            "TDS on Advance Payments & Subsequent Adjustments against Invoices",
+            "Recording Monthly TDS Payment to Government using Challan ITNS 281 in Payment Voucher",
+            "Generating Form 26Q (Quarterly Return of TDS on Domestic Payments) & Form 27Q",
+            "TDS Outstanding Reports, Deductee-wise Breakup & Challan Reconciliation"
           ],
-          "difficultyIndex": 8
+          "learningOutcomes": [
+            "Configure TDS masters, TAN details, and statutory threshold limits",
+            "Record automated TDS deductions across contractor, rent, and professional fees",
+            "Process TDS tax challan payments and generate Form 26Q quarterly returns",
+            "Audit TDS outstanding balances and reconcile deductee statements"
+          ],
+          "difficultyIndex": 8,
+          "miniProjects": [
+            "Set up and process monthly TDS deductions for an enterprise across contractor bills, office rent, and audit fees",
+            "Generate monthly Challan ITNS 281 and compile quarterly Form 26Q return data"
+          ],
+          "exercises": { "mcq": 20, "projects": 1 },
+          "assessment": { "type": "TDS Compliance & Form 26Q Exam", "passScore": 80 },
+          "previousModule": "gstr-returns-einvoicing",
+          "nextModule": "tcs-in-tally",
+          "badge": "TDS Statutory Specialist Badge"
         },
 
         {
-          "moduleId": "financial-statements",
-          "slug": "financial-reporting",
-          "title": "Financial Statements Analysis",
+          "moduleId": "tcs-module",
+          "slug": "tcs-in-tally",
+          "title": "Tax Collected at Source (TCS) Setup, Collection, Payment & Form 27EQ",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": ["tcs", "section-206c", "scrap-sales", "form-27eq", "statutory"],
           "topics": [
-            "Profit & Loss Account",
-            "Balance Sheet",
-            "Cash Flow & Fund Flow",
-            "Ratio Analysis"
+            "Introduction to TCS Concept & Distinction between TDS and TCS",
+            "Applicable Sections: Sec 206C(1) (Timber, Scrap, Minerals), Sec 206C(1H) (Sale of Goods)",
+            "Enabling TCS in TallyPrime & Collector Details Setup",
+            "Creating TCS Nature of Goods, Threshold Limits & Rate Configurations",
+            "Creating Buyer Masters with PAN and TCS Classification",
+            "Recording Sales Transactions with Automatic TCS Collection",
+            "TCS Payment to Government (Challan 281) & Accounting Entries",
+            "Generating Form 27EQ Quarterly Return in TallyPrime",
+            "TCS Outstanding Reports & Statutory Audit Verification",
+            "End-to-End TCS Compliance Practical Drill"
           ],
-          "difficultyIndex": 7
+          "learningOutcomes": [
+            "Configure TCS features, Nature of Goods, and buyer classifications",
+            "Record sales invoices with automatic TCS calculation",
+            "Execute monthly TCS remittance via Challan 281",
+            "Generate Form 27EQ returns and analyze TCS outstandings"
+          ],
+          "difficultyIndex": 7,
+          "miniProjects": [
+            "Set up TCS on scrap sales and commercial timber for a manufacturing unit in Barrackpore",
+            "Record sales with TCS and generate quarterly Form 27EQ return report"
+          ],
+          "exercises": { "mcq": 15, "projects": 1 },
+          "assessment": { "type": "TCS Practical Assessment", "passScore": 80 },
+          "previousModule": "tds-in-tally",
+          "nextModule": "payroll-management",
+          "badge": "TCS Compliance Badge"
         }
       ]
     },
 
     {
-      "segmentId": "pro",
-      "title": "Segment 4 – TallyPrime Professional Level",
-      "summary": "Master-level business reporting, GST returns, auditing, controls, and real-world case studies.",
+      "segmentId": "segment-4-advanced-payroll-mis-audit",
+      "title": "Segment 4 – Advanced Accounting, Payroll, MIS & Controls (Tally Professional)",
+      "level": "Expert",
+      "summary": "Master corporate payroll with PF/ESI/PT compliance, final financial statements preparation, year-end closing, advanced MIS reporting, security controls, Tally audit, and capstone business simulations.",
       "modules": [
         {
-          "moduleId": "audit",
-          "slug": "audit-features",
-          "title": "Audit Features & Internal Control",
+          "moduleId": "payroll-module",
+          "slug": "payroll-management",
+          "title": "Payroll Management & Employee Statutory Compliance (PF, ESI, PT)",
+          "level": "Expert",
+          "estimatedHours": 9,
+          "tags": ["payroll", "provident-fund", "esi", "professional-tax", "salary-processing", "payslip"],
           "topics": [
-            "Tally audit tools",
-            "User roles & security control",
-            "Data backup & restore",
-            "Data repair & migration"
+            "Introduction to Payroll in TallyPrime & Enabling Payroll Features (F11)",
+            "Configuring Employee Groups (Departments: Accounts, HR, Operations, Sales)",
+            "Employee Master Creation: Personal Info, Bank Details, PAN, Aadhaar, PF/ESI/UAN Numbers",
+            "Attendance / Production Types: Present, Leave with Pay, Absent without Pay, Overtime Hours",
+            "Configuring Pay Heads: Earnings (Basic, DA, HRA, Conveyance, Special Allowance, Overtime)",
+            "Configuring Statutory Deductions: Employee PF (12%), Employee ESI (0.75%), Professional Tax (PT)",
+            "Configuring Employer Contributions: Employer PF (12%), EPS, Employer ESI (3.25%), Admin Charges",
+            "Defining Salary Structures & CTC for Employees across Departments",
+            "Recording Monthly Attendance Vouchers (Ctrl+F5)",
+            "Auto-Processing Salary & Statutory Vouchers: Salary Payment, PF Payment, ESI Payment",
+            "Generating Payslips, Pay Sheets, Attendance Registers & Statutory Returns (PF Form 5/10/12A, ESI Summary)"
           ],
-          "difficultyIndex": 9
+          "learningOutcomes": [
+            "Set up complete corporate payroll masters, pay heads, and salary structures",
+            "Compute automated statutory deductions for Provident Fund, ESI, and Professional Tax",
+            "Record monthly attendance and process automated salary disbursement vouchers",
+            "Generate individual payslips, department pay sheets, and statutory PF/ESI returns"
+          ],
+          "difficultyIndex": 9,
+          "miniProjects": [
+            "Set up a complete payroll system for a company with 25 employees across 4 salary slabs",
+            "Process monthly attendance, auto-generate payroll vouchers, and print employee payslips"
+          ],
+          "exercises": { "mcq": 25, "projects": 2 },
+          "assessment": { "type": "Corporate Payroll Practical Exam", "passScore": 85 },
+          "previousModule": "tcs-in-tally",
+          "nextModule": "financial-reporting",
+          "badge": "Payroll & Statutory Specialist Badge"
         },
 
         {
-          "moduleId": "business-reports",
-          "slug": "business-reports",
-          "title": "Business Reporting & MIS",
+          "moduleId": "financial-reporting",
+          "slug": "financial-reporting",
+          "title": "Financial Statements Preparation, Year-End Closing & Adjustments",
+          "level": "Expert",
+          "estimatedHours": 8,
+          "tags": ["balance-sheet", "profit-and-loss", "cash-flow", "ratio-analysis", "year-end-closing"],
           "topics": [
-            "Stock summary analysis",
-            "Ageing analysis",
-            "Outstanding reports (AR/AP)",
-            "Budgeting"
+            "Trial Balance Analysis: Primary View, Detailed View, Ledger-wise & Group-wise Formats",
+            "Trading Account and Profit & Loss Account Configuration: Horizontal vs Vertical (Schedule III) Views",
+            "Balance Sheet Finalization: Liabilities & Assets Analysis, Working Capital & Net Worth Evaluation",
+            "Cash Flow Statement (as per AS-3): Operating, Investing, and Financing Activities Analysis",
+            "Fund Flow Statement Preparation & Working Capital Flow Analysis",
+            "Ratio Analysis in TallyPrime: Current Ratio, Quick Ratio, Debt-Equity Ratio, Gross/Net Profit Margin, Inventory Turnover",
+            "Year-End Adjustment Entries: Depreciation (SLM/WDV), Prepaid Expenses, Accrued Income, Outstanding Liabilities, Bad Debts Provisions",
+            "Closing Stock Valuation Methods (FIFO, LIFO, Weighted Average, Standard Cost)",
+            "Financial Year-End Closing, Data Splitting & Creation of Next Financial Year Company",
+            "Comprehensive Balance Sheet Finalization Practical Case"
           ],
-          "difficultyIndex": 9
+          "learningOutcomes": [
+            "Generate, customize, and analyze Trading, Profit & Loss accounts, and Balance Sheets",
+            "Compute and interpret liquidity, solvency, and profitability ratios for financial decision-making",
+            "Pass critical year-end adjustment entries and provisions in Journal vouchers",
+            "Execute financial year closing and data splitting for new financial years"
+          ],
+          "difficultyIndex": 9,
+          "miniProjects": [
+            "Perform full year-end accounting adjustments (depreciation, provisions, prepaid) and finalize Balance Sheet",
+            "Generate Cash Flow and Ratio Analysis reports with managerial interpretation"
+          ],
+          "exercises": { "mcq": 25, "projects": 2 },
+          "assessment": { "type": "Final Accounts & Balance Sheet Exam", "passScore": 85 },
+          "previousModule": "payroll-management",
+          "nextModule": "business-reports-mis",
+          "badge": "Financial Statements & Analysis Badge"
         },
 
         {
-          "moduleId": "final-projects",
+          "moduleId": "business-mis",
+          "slug": "business-reports-mis",
+          "title": "Management Information System (MIS) & Business Reports Analysis",
+          "level": "Expert",
+          "estimatedHours": 7,
+          "tags": ["mis-reports", "go-to", "aging-analysis", "outstanding-reports", "budgets"],
+          "topics": [
+            "TallyPrime 'Go To' Feature Mastery: Multi-tasking, Context Switching & Deep Drill-Down Navigation",
+            "Accounts Receivable (AR) & Accounts Payable (AP) Aging Analysis (0-30, 31-60, 61-90, 90+ days)",
+            "Bill-wise Outstanding Reports & Overdue Payment Reminders Generation",
+            "Stock Summary Analysis, Slow-Moving / Dead Stock Identification & Reorder Status",
+            "Cash Flow & Funds Flow Forecasting for Working Capital Management",
+            "Negative Cash and Negative Stock Exception Reports & Control Policies",
+            "Budgets & Scenarios Management: Setting Budgets, Tracking Actuals & Variance Analysis",
+            "Multi-Columnar Comparative Reports (Quarterly, Monthly, Year-on-Year)",
+            "Exporting Reports to Excel, PDF, JPEG, XML, HTML & Direct Emailing from TallyPrime",
+            "Executive MIS Dashboard Presentation Case Study"
+          ],
+          "learningOutcomes": [
+            "Utilize the 'Go To' engine for rapid report generation and multi-tasking",
+            "Generate and interpret AR/AP aging reports to control working capital and credit risks",
+            "Create budgets and analyze variance between planned targets and actual figures",
+            "Export and format executive-level MIS reports for corporate leadership"
+          ],
+          "difficultyIndex": 8,
+          "miniProjects": [
+            "Perform debtor aging analysis and draft payment reminder notices for overdue accounts",
+            "Set up annual operational budgets and compile Q1 variance analysis reports"
+          ],
+          "exercises": { "mcq": 20, "projects": 1 },
+          "assessment": { "type": "MIS Reporting & Decision-Making Lab", "passScore": 80 },
+          "previousModule": "financial-reporting",
+          "nextModule": "security-and-audit",
+          "badge": "MIS & Business Reporting Specialist Badge"
+        },
+
+        {
+          "moduleId": "security-audit",
+          "slug": "security-and-audit",
+          "title": "Security Control, Tally Audit, TallyVault & Data Management",
+          "level": "Expert",
+          "estimatedHours": 6,
+          "tags": ["security-control", "user-roles", "tally-audit", "tallyvault", "backup-restore"],
+          "topics": [
+            "Security Control in TallyPrime: Administrator Account & User Roles Configuration",
+            "Creating Custom User Roles (Data Entry Operator, Billing Clerk, Accountant, Auditor)",
+            "Restricting User Permissions: Disallowing Backdated Vouchers, Master Alteration & Specific Reports",
+            "TallyVault: High-Grade Data Encryption and Password Protection",
+            "Tally Audit Feature: Tracking Altered Vouchers, Discrepancies, and User Activity Logs",
+            "Data Backup Strategies: Creating Scheduled Backups & On-Demand Data Archive",
+            "Data Restore Procedures & Safeguarding Corporate Records",
+            "Data Repair, Rewrite & Migration from Tally.ERP 9 to TallyPrime",
+            "Tally on Mobile / Browser Access: Enabling Remote Access via Tally Software Services (TSS)",
+            "Data Integrity & Corporate Security Audit Lab"
+          ],
+          "learningOutcomes": [
+            "Implement role-based security controls and user permission boundaries",
+            "Protect sensitive corporate books using TallyVault encryption",
+            "Conduct internal audits using the Tally Audit trail to identify unauthorized alterations",
+            "Execute reliable data backup, restore, repair, and remote access configurations"
+          ],
+          "difficultyIndex": 9,
+          "miniProjects": [
+            "Configure role-based access control with 3 distinct user levels for a retail enterprise",
+            "Conduct an audit trail review on 100 historical transactions and document altered entries"
+          ],
+          "exercises": { "mcq": 20, "projects": 1 },
+          "assessment": { "type": "Security & Audit Configuration Exam", "passScore": 85 },
+          "previousModule": "business-reports-mis",
+          "nextModule": "capstone-projects",
+          "badge": "Security & Audit Specialist Badge"
+        },
+
+        {
+          "moduleId": "capstone",
           "slug": "capstone-projects",
-          "title": "Capstone Projects & Job Preparation",
+          "title": "Capstone Real-World Business Case Studies & Job Readiness",
+          "level": "Expert",
+          "estimatedHours": 10,
+          "tags": ["capstone-projects", "case-studies", "job-readiness", "interview-prep", "certification"],
           "topics": [
-            "Full business case study (Trading Company)",
-            "Full business case study (Manufacturing Company)",
-            "GST return simulation",
-            "Interview questions & practical tests"
+            "Comprehensive Simulation 1: Complete Commercial Accounting of a Multi-Branch Trading Firm (Barrackpore & Kolkata)",
+            "Comprehensive Simulation 2: Manufacturing Unit Accounting with BOM, Job Costing, Multi-Godown & GST",
+            "Comprehensive Simulation 3: Service Sector Corporate Accounting with TDS, RCM & Professional Invoicing",
+            "Commercial Audit Checklist: Error Detection, Reconciliation & Final Balance Sheet Signing",
+            "TallyPrime Keyboard Shortcuts Master Reference & Speed Drills",
+            "Real-World Accountant Interview Questions, Technical Scenarios & Practical Tests",
+            "Career Opportunities: Roles, Responsibilities, and Best Practices for Commercial Accountants",
+            "Tally Certification Preparation & Final Comprehensive Evaluation"
           ],
-          "difficultyIndex": 10
+          "learningOutcomes": [
+            "Autonomously handle end-to-end commercial accounting for trading, manufacturing, and service businesses",
+            "Execute complete compliance workflows (GST, TDS, TCS, Payroll, BRS, Final Accounts)",
+            "Detect and rectify accounting errors, mismatches, and compliance loopholes",
+            "Ace professional commercial accountant job interviews and technical skill assessments"
+          ],
+          "difficultyIndex": 10,
+          "miniProjects": [
+            "Full-scale 1-month comprehensive business simulation: 100 transactions from voucher entry to BRS, GST filing, TDS remittance, and finalized Balance Sheet",
+            "Complete audit and error rectification of a disrupted company dataset"
+          ],
+          "exercises": { "mcq": 50, "projects": 3 },
+          "assessment": { "type": "Comprehensive Professional Certification Assessment", "passScore": 85 },
+          "previousModule": "security-and-audit",
+          "nextModule": null,
+          "badge": "Certified TallyPrime Professional Badge"
         }
       ]
     }

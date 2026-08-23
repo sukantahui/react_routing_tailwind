@@ -371,7 +371,7 @@ const Topic46 = () => {
                 </h2>
                 <ul className="space-y-3 list-disc pl-6 text-gray-700 dark:text-gray-300">
                   <li>
-                    <strong>Forgetting the base case:</strong> Without if (left >= right) return, the recursion
+                    <strong>Forgetting the base case:</strong> Without if (left &gt;= right) return, the recursion
                     never terminates.
                   </li>
                   <li>
@@ -389,7 +389,7 @@ const Topic46 = () => {
                   </li>
                   <li>
                     <strong>Not handling large arrays:</strong> The O(n) space complexity means merge sort can
-                    be memory-intensive for very large arrays (e.g., > 100 million elements).
+                    be memory-intensive for very large arrays (e.g., &gt; 100 million elements).
                     <span className="block text-sm text-gray-500 dark:text-gray-400 mt-1">
                       — <strong>Debangshu</strong> once tried to sort an array of 50 million integers using merge sort
                       and ran out of memory. He switched to quicksort with in-place partitioning.

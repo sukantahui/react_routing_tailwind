@@ -431,7 +431,7 @@ const Topic1 = () => {
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
               <span className="font-bold text-cyan-300">Think About:</span>
               <p className="leading-relaxed">
-                Why is Section Shannon Entropy ($H > 7.2$) such a powerful malware feature? Because plaintext compiled code has predictable grammar and structure, whereas encrypted ransomware payloads look mathematically like random noise!
+                Why is Section Shannon Entropy ($H &gt; 7.2$) such a powerful malware feature? Because plaintext compiled code has predictable grammar and structure, whereas encrypted ransomware payloads look mathematically like random noise!
               </p>
             </div>
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">

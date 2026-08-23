@@ -692,11 +692,11 @@ const Topic5 = () => {
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded-lg border border-gray-800">
                 <span className="text-emerald-400">✔</span>
-                <span>Confidentiality: Encrypt with Recipient Public Key -> Decrypt with Recipient Private Key.</span>
+                <span>Confidentiality: Encrypt with Recipient Public Key -&gt; Decrypt with Recipient Private Key.</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded-lg border border-gray-800">
                 <span className="text-emerald-400">✔</span>
-                <span>Digital Signature: Sign with Sender Private Key -> Verify with Sender Public Key.</span>
+                <span>Digital Signature: Sign with Sender Private Key -&gt; Verify with Sender Public Key.</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded-lg border border-gray-800">
                 <span className="text-emerald-400">✔</span>

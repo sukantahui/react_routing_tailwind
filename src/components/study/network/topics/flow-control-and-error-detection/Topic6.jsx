@@ -296,7 +296,7 @@ export default function Topic6() {
               <li><strong>Always specify parity type explicitly in protocol documentation</strong> to avoid mismatches.</li>
               <li><strong>Use parity only when error rate is low</strong> and single‑bit errors are the dominant failure mode.</li>
               <li><strong>Combine parity with other checks</strong> (e.g., CRC at frame level) for stronger protection.</li>
-              <li><strong>In software, use bitwise XOR to compute parity efficiently</strong> – e.g., <code>parity = data.reduce((a,b) => a ^ b)</code>.</li>
+              <li><strong>In software, use bitwise XOR to compute parity efficiently</strong> – e.g., <code>parity = data.reduce((a,b) =&gt; a ^ b)</code>.</li>
             </ul>
           </div>
         </section>

@@ -137,7 +137,7 @@ export default function Topic6() {
           <li><strong className="text-purple-300">Use `*args` to forward arguments</strong> – useful in decorators and wrapper functions: `def wrapper(*args, **kwargs): return func(*args, **kwargs)`.</li>
           <li><strong className="text-purple-300">Combine with keyword defaults</strong> – `def func(a, b=1, *args):` – `b` can still be overridden by keyword.</li>
           <li><strong className="text-purple-300">Unpacking inside function</strong> – you can use `*args` again to pass to another function that expects multiple arguments.</li>
-          <li><strong className="text-purple-300">Type hints with `*args`</strong> – `def func(*args: int) -> int:` indicates all args are integers.</li>
+          <li><strong className="text-purple-300">Type hints with `*args`</strong> – `def func(*args: int) -&gt; int:` indicates all args are integers.</li>
         </ul>
       </section>
 

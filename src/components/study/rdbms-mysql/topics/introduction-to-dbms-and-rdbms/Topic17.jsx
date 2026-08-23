@@ -215,12 +215,12 @@ const Topic17 = () => {
               </text>
 
               {/* Domain box */}
-              <rect x="40" y="40" width="520" height="60" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="6 4" className="dark:stroke-blue-400" />
+              <rect x="40" y="40" width="520" height="60" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="6 4" />
               <text x="300" y="65" textAnchor="middle" fontSize="13" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Domain: Integers 1 to 100</text>
               <text x="300" y="85" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">Allowed: 1, 2, 3, ..., 99, 100</text>
 
               {/* Data Type box */}
-              <rect x="40" y="115" width="520" height="60" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12" stroke="#10b981" strokeWidth="1.5" strokeDasharray="6 4" className="dark:stroke-emerald-400" />
+              <rect x="40" y="115" width="520" height="60" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" strokeDasharray="6 4" />
               <text x="300" y="140" textAnchor="middle" fontSize="13" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">📊 Data Type: INT</text>
               <text x="300" y="160" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">Storage: 4 bytes · Range: -2,147,483,648 to 2,147,483,647</text>
 

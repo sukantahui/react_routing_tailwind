@@ -407,7 +407,7 @@ const Topic2 = () => {
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
                     <rect x="25" y="25" width="210" height="110" rx="6" fill="#1e1b4b" stroke="#6366f1" strokeWidth="1.5" />
                     <text x="130" y="47" fill="#818cf8" fontWeight="bold" textAnchor="middle" fontSize="9.5">1. FINANCIAL PERSPECTIVE</text>
-                    <text x="40" y="70" fill="#c7d2fe" font-family="monospace" fontSize="8">• Return on Investment (ROSI > 300%)</text>
+                    <text x="40" y="70" fill="#c7d2fe" font-family="monospace" fontSize="8">• Return on Investment (ROSI &gt; 300%)</text>
                     <text x="40" y="90" fill="#c7d2fe" font-family="monospace" fontSize="8">• Insurance Premium Reductions</text>
                     <text x="40" y="110" fill="#34d399" font-family="monospace" fontSize="8">• Cost-to-Prevention Ratio: 1:12</text>
                   </g>

@@ -162,28 +162,28 @@ const Topic33 = () => {
               </text>
 
               {/* Client icons */}
-              <rect x="30" y="40" width="110" height="90" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="30" y="40" width="110" height="90" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="85" y="70" textAnchor="middle" fontSize="28">💻</text>
               <text x="85" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Command Line</text>
               <text x="85" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">mysql -u root -p</text>
 
-              <rect x="160" y="40" width="110" height="90" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12" stroke="#10b981" strokeWidth="1.5" className="dark:stroke-emerald-400" />
+              <rect x="160" y="40" width="110" height="90" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" />
               <text x="215" y="70" textAnchor="middle" fontSize="28">🖥️</text>
               <text x="215" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Workbench</text>
               <text x="215" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">GUI Client</text>
 
-              <rect x="290" y="40" width="110" height="90" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+              <rect x="290" y="40" width="110" height="90" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
               <text x="345" y="70" textAnchor="middle" fontSize="28">🌐</text>
               <text x="345" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Web Apps</text>
               <text x="345" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">PHP, Python, Java</text>
 
-              <rect x="420" y="40" width="110" height="90" rx="10" fill="#f59e0b" opacity="0.08" className="dark:fill-amber-400 dark:opacity-12" stroke="#f59e0b" strokeWidth="1.5" className="dark:stroke-amber-400" />
+              <rect x="420" y="40" width="110" height="90" rx="10" fill="#f59e0b" opacity="0.08" className="dark:fill-amber-400 dark:opacity-12 dark:stroke-amber-400" stroke="#f59e0b" strokeWidth="1.5" />
               <text x="475" y="70" textAnchor="middle" fontSize="28">📱</text>
               <text x="475" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Mobile Apps</text>
               <text x="475" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Node.js, Flutter</text>
 
               {/* MySQL Server */}
-              <rect x="200" y="150" width="200" height="30" rx="8" fill="#ef4444" opacity="0.08" className="dark:fill-red-400 dark:opacity-12" stroke="#ef4444" strokeWidth="1.5" className="dark:stroke-red-400" />
+              <rect x="200" y="150" width="200" height="30" rx="8" fill="#ef4444" opacity="0.08" className="dark:fill-red-400 dark:opacity-12 dark:stroke-red-400" stroke="#ef4444" strokeWidth="1.5" />
               <text x="300" y="170" textAnchor="middle" fontSize="11" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🗄️ MySQL Server (port 3306)</text>
             </svg>
           </div>

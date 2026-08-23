@@ -10,7 +10,7 @@ export default function CProjectPage() {
 
   useEffect(() => {
     // 1. Import all .c files from the answers folder (as raw strings)
-    const modules = import.meta.glob("./topic9_files/answers/*.js", { as: "raw", eager: true });
+    const modules = import.meta.glob("./topic9_files/answers/*.js", { query: "?raw", import: "default", eager: true });
 
     // 2. Build a lookup map: filename -> source code
     const fileMap = {};

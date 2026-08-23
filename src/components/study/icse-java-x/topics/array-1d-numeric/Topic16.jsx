@@ -221,8 +221,8 @@ const Topic16 = () => {
                   <div className="space-y-3 text-gray-600 dark:text-gray-300">
                     <p>1️⃣ <strong>Initialize</strong> first = Integer.MIN_VALUE, second = Integer.MIN_VALUE</p>
                     <p>2️⃣ <strong>Traverse</strong> each element in array</p>
-                    <p>3️⃣ <strong>If current > first</strong> → second = first, first = current</p>
-                    <p>4️⃣ <strong>Else if current > second AND current != first</strong> → second = current</p>
+                    <p>3️⃣ <strong>If current &gt; first</strong> → second = first, first = current</p>
+                    <p>4️⃣ <strong>Else if current &gt; second AND current != first</strong> → second = current</p>
                     <p>5️⃣ <strong>After loop</strong>, second contains second largest</p>
                     <p>6️⃣ <strong>Edge case</strong> - If second still MIN_VALUE, no second largest exists</p>
                   </div>

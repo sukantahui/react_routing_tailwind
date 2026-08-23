@@ -563,7 +563,7 @@ const Topic4 = () => {
                     <rect x="20" y="200" width="460" height="85" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
                     <text x="250" y="225" fill="#34d399" fontWeight="bold" textAnchor="middle" fontSize="12">DEFENSIVE MITIGATION: ZERO TRUST ARCHITECTURE</text>
                     <text x="250" y="245" fill="#d1fae5" textAnchor="middle" fontSize="9.5">Immutable WORM Backups • FIDO2 Passkeys • EDR Behavioral Isolation • DLP Egress Blocks</text>
-                    <text x="250" y="262" fill="#a7f3d0" textAnchor="middle" fontSize="8.5">"Assume Breach" -> Stop lateral movement before exfiltration occurs</text>
+                    <text x="250" y="262" fill="#a7f3d0" textAnchor="middle" fontSize="8.5">"Assume Breach" -&gt; Stop lateral movement before exfiltration occurs</text>
                   </g>
 
                   <defs>

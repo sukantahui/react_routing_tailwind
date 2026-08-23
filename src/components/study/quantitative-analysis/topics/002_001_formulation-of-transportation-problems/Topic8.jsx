@@ -332,7 +332,7 @@ const Topic8 = () => {
                     <div>
                       <h4 className="font-semibold text-fuchsia-700 dark:text-fuchsia-300">Add Dummy (if needed)</h4>
                       <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
-                        If supply > demand, add a dummy destination column. If demand > supply, add a dummy source row. Set all dummy costs to zero.
+                        If supply &gt; demand, add a dummy destination column. If demand &gt; supply, add a dummy source row. Set all dummy costs to zero.
                       </p>
                       <div className="mt-2 p-2 bg-white dark:bg-gray-700 rounded text-sm font-mono">
                         Surplus supply → Dummy destination<br/>

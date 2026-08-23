@@ -261,7 +261,7 @@ const Topic1 = () => {
 
                 {/* IDS FLOW */}
                 <rect x="40" y="70" width="350" height="40" rx="5" fill="#18181b" stroke="#64748b" />
-                <text x="55" y="94" fill="#f8fafc" fontSize="8.5" fontWeight="bold">Ingress Wire ──────[TAP]──────> Target Server</text>
+                <text x="55" y="94" fill="#f8fafc" fontSize="8.5" fontWeight="bold">Ingress Wire ──────[TAP]──────&gt; Target Server</text>
                 <text x="375" y="94" fill="#34d399" fontSize="8" textAnchor="end">0 µs Latency</text>
 
                 {/* TAP ARROW DOWN */}

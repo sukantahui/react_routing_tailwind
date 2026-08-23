@@ -300,7 +300,7 @@ find . -ctime 0     # status changed within last day`}
           {/* Hint section */}
           <div className="animate-fade-slide-up mt-12 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800/40 dark:bg-blue-950/20">
             <h3 className="text-lg font-bold text-blue-700 dark:text-blue-300">🔍 Think about…</h3>
-            <p className="mt-1 text-gray-700 dark:text-gray-200">Create a file, run `stat` and note all three times. Then `cat` the file and stat again – atime changed, others unchanged. Then `echo "x" >> file` and stat – mtime and ctime changed. Then `chmod 644 file` – only ctime changed. Finally, `mv file file2` – ctime changes (directory entry), mtime/atime same. These experiments solidify the differences.</p>
+            <p className="mt-1 text-gray-700 dark:text-gray-200">Create a file, run `stat` and note all three times. Then `cat` the file and stat again – atime changed, others unchanged. Then `echo "x" &gt;&gt; file` and stat – mtime and ctime changed. Then `chmod 644 file` – only ctime changed. Finally, `mv file file2` – ctime changes (directory entry), mtime/atime same. These experiments solidify the differences.</p>
           </div>
 
           {/* Teacher's Note */}

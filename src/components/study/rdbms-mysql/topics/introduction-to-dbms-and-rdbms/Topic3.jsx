@@ -207,10 +207,9 @@ const Topic3 = () => {
                 d="M 300 20 L 470 70 L 470 130 L 300 170 L 130 130 L 130 70 Z"
                 fill="#3b82f6"
                 opacity="0.08"
-                className="dark:fill-blue-400 dark:opacity-12"
+                className="dark:fill-blue-400 dark:opacity-12 dark:stroke-slate-500"
                 stroke="#94a3b8"
-                strokeWidth="1.5"
-                className="dark:stroke-slate-500"
+                strokeWidth="1.5"
               />
 
               {/* Database icon in shield */}

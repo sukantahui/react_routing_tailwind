@@ -79,7 +79,7 @@ const JavaScriptEditableCodeBlock = ({
 
     try {
       // eslint-disable-next-line no-eval
-      eval(code);
+      new Function(code)();
       setConsoleOutput(captured);
     } catch (err) {
       setError(err.message);

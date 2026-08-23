@@ -93,7 +93,7 @@ const Topic50 = () => {
                     </span>
                     where <strong>a</strong> is the number of recursive calls (a ≥ 3). This gives
                     <span className="text-red-600 dark:text-red-400 font-semibold"> O(aⁿ)</span> time in the worst case
-                    (if a > 1 and reduction is by a constant), or <span className="text-emerald-600 dark:text-emerald-400 font-semibold">O(n)</span>
+                    (if a &gt; 1 and reduction is by a constant), or <span className="text-emerald-600 dark:text-emerald-400 font-semibold">O(n)</span>
                     if the subproblems are independent and divided by a factor.
                   </p>
                   <p>
@@ -271,7 +271,7 @@ const Topic50 = () => {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="bg-red-50/60 dark:bg-red-900/20 p-5 rounded-xl border border-red-200 dark:border-red-800">
-                    <p className="font-semibold text-red-600 dark:text-red-400">Exponential (a > 1, reduction by 1)</p>
+                    <p className="font-semibold text-red-600 dark:text-red-400">Exponential (a &gt; 1, reduction by 1)</p>
                     <p className="font-mono text-lg text-center">
                       T(n) = a·T(n-1) + O(1), &nbsp; T(0)=O(1)
                     </p>
@@ -283,7 +283,7 @@ const Topic50 = () => {
                     </p>
                   </div>
                   <div className="bg-emerald-50/60 dark:bg-emerald-900/20 p-5 rounded-xl border border-emerald-200 dark:border-emerald-800">
-                    <p className="font-semibold text-emerald-600 dark:text-emerald-400">Linear (a > 1, reduction by a)</p>
+                    <p className="font-semibold text-emerald-600 dark:text-emerald-400">Linear (a &gt; 1, reduction by a)</p>
                     <p className="font-mono text-lg text-center">
                       T(n) = a·T(n/a) + O(1), &nbsp; T(1)=O(1)
                     </p>
@@ -328,7 +328,7 @@ const Topic50 = () => {
                   <div className="p-4 rounded-xl bg-indigo-50/60 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800/40">
                     <p className="text-gray-700 dark:text-gray-200">
                       <span className="font-semibold text-indigo-600 dark:text-indigo-400">AI Decision Trees:</span>{" "}
-                      In game AI, each state may have many possible moves (branching factor > 2). Exploring all
+                      In game AI, each state may have many possible moves (branching factor &gt; 2). Exploring all
                       moves is multiple recursion.
                     </p>
                   </div>

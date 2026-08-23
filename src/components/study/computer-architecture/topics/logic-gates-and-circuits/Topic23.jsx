@@ -63,7 +63,7 @@ const Topic23 = () => {
             <p className="text-lg"><span className="font-mono text-purple-300">Why needed:</span> Basic encoders fail with multiple active inputs. Priority encoders resolve ambiguity.</p>
           </div>
           <div>
-            <p className="text-lg"><span className="font-mono text-purple-300">Priority order:</span> Usually, the highest-numbered input has highest priority (e.g., I7 > I6 > ... > I0).</p>
+            <p className="text-lg"><span className="font-mono text-purple-300">Priority order:</span> Usually, the highest-numbered input has highest priority (e.g., I7 &gt; I6 &gt; ... &gt; I0).</p>
             <p className="text-lg"><span className="font-mono text-purple-300">Additional signals:</span> Many priority encoders include enable inputs and outputs for cascading (e.g., EI, EO, GS).</p>
           </div>
         </div>

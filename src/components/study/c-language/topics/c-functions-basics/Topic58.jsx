@@ -9,7 +9,7 @@ export default function COutputPage() {
     // 🔥 Load all .c files dynamically
     const modules = import.meta.glob(
       "./topic58_files/answers/*.c",
-      { as: "raw", eager: true }
+      { query: "?raw", import: "default", eager: true }
     );
 
     // Convert module keys into cleaner lookup map

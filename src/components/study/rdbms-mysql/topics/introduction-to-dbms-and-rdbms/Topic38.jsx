@@ -161,7 +161,7 @@ const Topic38 = () => {
               </text>
 
               {/* File */}
-              <rect x="30" y="40" width="110" height="90" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="30" y="40" width="110" height="90" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="85" y="70" textAnchor="middle" fontSize="28">📄</text>
               <text x="85" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">SQL File</text>
               <text x="85" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">.sql / .zip</text>
@@ -171,7 +171,7 @@ const Topic38 = () => {
               <polygon points="175,80 185,85 175,90" fill="#94a3b8" className="dark:fill-slate-500" />
 
               {/* Import Methods */}
-              <rect x="190" y="40" width="220" height="90" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12" stroke="#10b981" strokeWidth="1.5" className="dark:stroke-emerald-400" />
+              <rect x="190" y="40" width="220" height="90" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" />
               <text x="300" y="65" textAnchor="middle" fontSize="20">🔄</text>
               <text x="300" y="85" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Import Methods</text>
               <text x="300" y="100" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">CLI · Workbench · phpMyAdmin</text>
@@ -182,7 +182,7 @@ const Topic38 = () => {
               <polygon points="445,80 455,85 445,90" fill="#94a3b8" className="dark:fill-slate-500" />
 
               {/* Database */}
-              <rect x="460" y="40" width="110" height="90" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+              <rect x="460" y="40" width="110" height="90" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
               <text x="515" y="70" textAnchor="middle" fontSize="28">🗄️</text>
               <text x="515" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">MySQL</text>
               <text x="515" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Database</text>

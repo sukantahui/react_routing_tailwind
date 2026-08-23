@@ -160,7 +160,7 @@ const Topic12 = () => {
                             </text>
 
                             {/* Table 1: Students */}
-                            <rect x="20" y="35" width="160" height="120" rx="8" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+                            <rect x="20" y="35" width="160" height="120" rx="8" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
                             <text x="100" y="55" textAnchor="middle" fontSize="11" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">📊 Students</text>
                             <line x1="30" y1="62" x2="170" y2="62" stroke="#3b82f6" strokeWidth="1" className="dark:stroke-blue-400" />
                             <text x="35" y="78" fontSize="9" fill="#475569" className="dark:fill-slate-400">ID (PK)</text>
@@ -169,7 +169,7 @@ const Topic12 = () => {
                             <text x="35" y="120" fontSize="9" fill="#475569" className="dark:fill-slate-400">...</text>
 
                             {/* Table 2: Courses */}
-                            <rect x="220" y="35" width="160" height="120" rx="8" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12" stroke="#10b981" strokeWidth="1.5" className="dark:stroke-emerald-400" />
+                            <rect x="220" y="35" width="160" height="120" rx="8" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" />
                             <text x="300" y="55" textAnchor="middle" fontSize="11" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">📊 Courses</text>
                             <line x1="230" y1="62" x2="370" y2="62" stroke="#10b981" strokeWidth="1" className="dark:stroke-emerald-400" />
                             <text x="235" y="78" fontSize="9" fill="#475569" className="dark:fill-slate-400">CourseID (PK)</text>
@@ -178,7 +178,7 @@ const Topic12 = () => {
                             <text x="235" y="120" fontSize="9" fill="#475569" className="dark:fill-slate-400">...</text>
 
                             {/* Table 3: Enrollments */}
-                            <rect x="420" y="35" width="160" height="120" rx="8" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+                            <rect x="420" y="35" width="160" height="120" rx="8" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
                             <text x="500" y="55" textAnchor="middle" fontSize="11" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">📊 Enrollments</text>
                             <line x1="430" y1="62" x2="570" y2="62" stroke="#8b5cf6" strokeWidth="1" className="dark:stroke-purple-400" />
                             <text x="435" y="78" fontSize="9" fill="#475569" className="dark:fill-slate-400">EnrollID (PK)</text>

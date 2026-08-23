@@ -405,7 +405,7 @@ const Topic45 = () => {
                   <div className="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800/40">
                     <p className="text-gray-700 dark:text-gray-200">
                       <span className="font-semibold text-emerald-600 dark:text-emerald-400">✓</span>{" "}
-                      <strong>Use iterative traversal</strong> for very deep trees (h > 1000) to avoid stack overflow.
+                      <strong>Use iterative traversal</strong> for very deep trees (h &gt; 1000) to avoid stack overflow.
                     </p>
                   </div>
                   <div className="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800/40">

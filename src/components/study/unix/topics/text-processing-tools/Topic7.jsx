@@ -592,7 +592,7 @@ const Topic7 = () => {
                 </h4>
                 <p className="text-gray-300 text-sm">
                   Always follow: Test → Backup → Execute → Verify<br />
-                  <code className="text-green-300">sed '...' file > newfile && mv file file.bak && mv newfile file</code>
+                  <code className="text-green-300">sed '...' file &gt; newfile && mv file file.bak && mv newfile file</code>
                 </p>
               </div>
             </div>

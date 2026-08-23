@@ -264,8 +264,8 @@ const Topic4 = () => {
                   <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                     <h4 className="font-semibold text-blue-700 dark:text-blue-300">Primal Perspective</h4>
                     <ul className="list-disc pl-4 text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                      <li>If slack > 0 (constraint loose) → yᵢ = 0</li>
-                      <li>If yᵢ > 0 → constraint is tight (slack = 0)</li>
+                      <li>If slack &gt; 0 (constraint loose) → yᵢ = 0</li>
+                      <li>If yᵢ &gt; 0 → constraint is tight (slack = 0)</li>
                       <li>Loose constraints have zero shadow price</li>
                       <li>Tight constraints can have positive shadow price</li>
                     </ul>
@@ -273,8 +273,8 @@ const Topic4 = () => {
                   <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
                     <h4 className="font-semibold text-green-700 dark:text-green-300">Dual Perspective</h4>
                     <ul className="list-disc pl-4 text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                      <li>If dual constraint slack > 0 → xⱼ = 0</li>
-                      <li>If xⱼ > 0 → dual constraint is tight</li>
+                      <li>If dual constraint slack &gt; 0 → xⱼ = 0</li>
+                      <li>If xⱼ &gt; 0 → dual constraint is tight</li>
                       <li>Unprofitable products have zero production</li>
                       <li>Products produced have zero reduced cost</li>
                     </ul>

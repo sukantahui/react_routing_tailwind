@@ -426,7 +426,7 @@ const Topic13 = () => {
                                 </code>
                                 <div className="mt-2 p-2 bg-gray-800 rounded">
                                     <p className="text-xs text-green-300">Solution:</p>
-                                    <code className="text-xs">avg = (count > 0) ? sum/count : 0</code>
+                                    <code className="text-xs">avg = (count &gt; 0) ? sum/count : 0</code>
                                 </div>
                             </div>
                             
@@ -444,7 +444,7 @@ const Topic13 = () => {
                                 <h4 className="font-bold text-red-300 mb-2">Wrong MIN/MAX Init</h4>
                                 <p className="text-sm mb-2">Initializing min with 0 when all values are positive</p>
                                 <code className="text-xs block bg-gray-900 p-2 rounded">
-                                    min = 0  # Will never update if all values > 0
+                                    min = 0  # Will never update if all values &gt; 0
                                 </code>
                                 <div className="mt-2 p-2 bg-gray-800 rounded">
                                     <p className="text-xs text-green-300">Better:</p>

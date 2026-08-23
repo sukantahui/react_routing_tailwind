@@ -368,7 +368,7 @@ const Topic16 = () => {
                                 <ul className="space-y-2 text-sm">
                                     <li className="flex items-start gap-2">
                                         <span className="text-rose-300 font-bold">&</span>
-                                        <span><code>&></code> - Redirect both stdout and stderr</span>
+                                        <span><code>&&gt;</code> - Redirect both stdout and stderr</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-sky-300 font-bold">|&</span>
@@ -376,11 +376,11 @@ const Topic16 = () => {
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-amber-300 font-bold">{`>&`}</span>
-                                        <span><code>2>&1</code> - Redirect stderr to stdout</span>
+                                        <span><code>2&gt;&1</code> - Redirect stderr to stdout</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-purple-300 font-bold">{`>()`}</span>
-                                        <span><code>>(command)</code> - Process substitution</span>
+                                        <span><code>&gt;(command)</code> - Process substitution</span>
                                     </li>
                                 </ul>
                             </div>
@@ -395,7 +395,7 @@ const Topic16 = () => {
                             <div className="mt-4 bg-purple-900/20 p-4 rounded-lg border border-purple-700/50">
                                 <h4 className="font-bold text-purple-300 mb-2">Key Patterns:</h4>
                                 <p className="text-sm">
-                                    <code>2>&1</code> is read as "redirect file descriptor 2 (stderr) 
+                                    <code>2&gt;&1</code> is read as "redirect file descriptor 2 (stderr) 
                                     to where file descriptor 1 (stdout) currently goes"
                                 </p>
                             </div>

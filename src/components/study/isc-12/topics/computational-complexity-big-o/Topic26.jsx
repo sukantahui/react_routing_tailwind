@@ -279,7 +279,7 @@ const Topic26 = () => {
                   </table>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Factorial time is the worst common complexity. For n > 10, it becomes infeasible quickly.
+                  Factorial time is the worst common complexity. For n &gt; 10, it becomes infeasible quickly.
                 </p>
               </section>
 

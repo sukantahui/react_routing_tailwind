@@ -424,7 +424,7 @@ const Topic44 = () => {
                   <div className="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800/40">
                     <p className="text-gray-700 dark:text-gray-200">
                       <span className="font-semibold text-emerald-600 dark:text-emerald-400">✓</span>{" "}
-                      <strong>Don't use for n > 20</strong> — the number of moves becomes too large for practical use.
+                      <strong>Don't use for n &gt; 20</strong> — the number of moves becomes too large for practical use.
                     </p>
                   </div>
                   <div className="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800/40">

@@ -158,7 +158,7 @@ const Topic12 = () => {
             Explore <strong>Autonomous Cyber Defense (DARPA Cyber Grand Challenge)</strong> with sub-second genetic patch synthesis, 
             master <strong>eBPF live kernel hot-patching with 0.00s downtime</strong>, evaluate 
             <strong>Cryptographic Bill of Materials (CBOM)</strong> discovery, and analyze 
-            <strong>Mosca's Theorem ($X+Y>Z$)</strong> to eliminate "Harvest Now, Decrypt Later" risks.
+            <strong>Mosca's Theorem ($X+Y&gt;Z$)</strong> to eliminate "Harvest Now, Decrypt Later" risks.
           </p>
         </header>
 
@@ -281,7 +281,7 @@ const Topic12 = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-4 text-xs">
               <span className="font-bold text-slate-400 uppercase tracking-wider block">
-                Mosca's Inequality Parameters ($X + Y > Z$)
+                Mosca's Inequality Parameters ($X + Y &gt; Z$)
               </span>
 
               {/* Slider X */}
@@ -355,7 +355,7 @@ const Topic12 = () => {
               </div>
 
               <div className="p-3 bg-slate-900/60 rounded-lg border border-slate-800 text-[11px] text-slate-400 font-sans">
-                <strong>Harvest Now, Decrypt Later (HNDL): </strong> If $X + Y > Z$, data is already compromised today because attackers are archiving current encrypted network traffic to crack once $Z$ is reached!
+                <strong>Harvest Now, Decrypt Later (HNDL): </strong> If $X + Y &gt; Z$, data is already compromised today because attackers are archiving current encrypted network traffic to crack once $Z$ is reached!
               </div>
             </div>
           </div>
@@ -477,7 +477,7 @@ const Topic12 = () => {
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
               <span className="font-bold text-cyan-300">Think About:</span>
               <p className="leading-relaxed">
-                Why does Mosca's Theorem mandate immediate PQC migration even if quantum computers are 10 years away? Because if your data must stay secret for 15 years ($X=15$) and your migration takes 5 years ($Y=5$), $15 + 5 = 20 > 10$! Adversaries archiving traffic today will decrypt your secrets 10 years before their shelf life expires!
+                Why does Mosca's Theorem mandate immediate PQC migration even if quantum computers are 10 years away? Because if your data must stay secret for 15 years ($X=15$) and your migration takes 5 years ($Y=5$), $15 + 5 = 20 &gt; 10$! Adversaries archiving traffic today will decrypt your secrets 10 years before their shelf life expires!
               </p>
             </div>
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
@@ -486,7 +486,7 @@ const Topic12 = () => {
                 <li>DARPA Cyber Grand Challenge proved autonomous discovery and hot-patching.</li>
                 <li>eBPF enables zero-downtime kernel-level patch injection in sub-seconds.</li>
                 <li>Cryptographic Bill of Materials (CBOM) inventories all crypto assets.</li>
-                <li>Mosca's Theorem ($X+Y>Z$) measures HNDL quantum peril windows.</li>
+                <li>Mosca's Theorem ($X+Y&gt;Z$) measures HNDL quantum peril windows.</li>
                 <li>Moving Target Defense (MTD) randomizes attack surfaces continuously.</li>
               </ul>
             </div>

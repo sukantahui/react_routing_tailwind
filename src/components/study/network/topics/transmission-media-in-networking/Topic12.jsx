@@ -263,7 +263,7 @@ const Topic12 = () => {
               </ul>
             </div>
           </div>
-          <p className="text-xs text-gray-600 dark:text-gray-400 mt-3">💡 <strong>Solution:</strong> If jitter is high, switch from Wi-Fi to Ethernet; if loss >1%, check for congested router.</p>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mt-3">💡 <strong>Solution:</strong> If jitter is high, switch from Wi-Fi to Ethernet; if loss &gt;1%, check for congested router.</p>
         </div>
 
         {/* Professional Tips & Common Pitfalls */}

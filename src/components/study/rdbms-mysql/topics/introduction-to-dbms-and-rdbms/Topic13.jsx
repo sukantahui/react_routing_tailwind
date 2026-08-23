@@ -162,7 +162,7 @@ const Topic13 = () => {
               </text>
 
               {/* DBMS side */}
-              <rect x="20" y="40" width="260" height="120" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+              <rect x="20" y="40" width="260" height="120" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
               <text x="150" y="65" textAnchor="middle" fontSize="16" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🗄️ DBMS</text>
               <text x="150" y="85" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">General-purpose</text>
               <text x="150" y="100" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">No relationships</text>
@@ -171,7 +171,7 @@ const Topic13 = () => {
               <text x="150" y="145" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">File-based</text>
 
               {/* RDBMS side */}
-              <rect x="320" y="40" width="260" height="120" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="320" y="40" width="260" height="120" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="450" y="65" textAnchor="middle" fontSize="16" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">📊 RDBMS</text>
               <text x="450" y="85" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">Relational</text>
               <text x="450" y="100" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">Foreign keys</text>

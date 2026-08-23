@@ -543,7 +543,7 @@ export default class Topic1 extends Component {
                     These are virtual files showing live system state. Writing to them can crash the system.
                   </p>
                   <div className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                    <span className="font-semibold">Example:</span> <code className="font-mono">echo 1 > /proc/sys/</code> requires caution
+                    <span className="font-semibold">Example:</span> <code className="font-mono">echo 1 &gt; /proc/sys/</code> requires caution
                   </div>
                 </div>
               </div>

@@ -779,7 +779,7 @@ class Topic3 extends React.Component {
                             </svg>
                           </div>
                           <div>
-                            <span className="font-semibold">Test with echo:</span> <code>echo "test" > file</code> to check write
+                            <span className="font-semibold">Test with echo:</span> <code>echo "test" &gt; file</code> to check write
                           </div>
                         </div>
                         

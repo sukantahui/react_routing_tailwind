@@ -355,7 +355,7 @@ const Topic34 = () => {
                     because it's "just addition." In reality, it uses O(n) stack space.
                   </li>
                   <li>
-                    <strong>Using recursion for large n:</strong> For n > 10,000, recursion can cause stack overflow.
+                    <strong>Using recursion for large n:</strong> For n &gt; 10,000, recursion can cause stack overflow.
                     Use iteration or the formula.
                   </li>
                   <li>

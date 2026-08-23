@@ -161,7 +161,7 @@ const Topic37 = () => {
               </text>
 
               {/* Write */}
-              <rect x="20" y="40" width="110" height="90" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="20" y="40" width="110" height="90" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="75" y="70" textAnchor="middle" fontSize="24">✏️</text>
               <text x="75" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Write</text>
               <text x="75" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Create Query</text>
@@ -171,7 +171,7 @@ const Topic37 = () => {
               <polygon points="165,80 175,85 165,90" fill="#94a3b8" className="dark:fill-slate-500" />
 
               {/* Save */}
-              <rect x="180" y="40" width="110" height="90" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12" stroke="#10b981" strokeWidth="1.5" className="dark:stroke-emerald-400" />
+              <rect x="180" y="40" width="110" height="90" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" />
               <text x="235" y="70" textAnchor="middle" fontSize="24">💾</text>
               <text x="235" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Save</text>
               <text x="235" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">.sql file</text>
@@ -181,7 +181,7 @@ const Topic37 = () => {
               <polygon points="325,80 335,85 325,90" fill="#94a3b8" className="dark:fill-slate-500" />
 
               {/* Version Control */}
-              <rect x="340" y="40" width="110" height="90" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+              <rect x="340" y="40" width="110" height="90" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
               <text x="395" y="70" textAnchor="middle" fontSize="24">🔁</text>
               <text x="395" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Version</text>
               <text x="395" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Git / SVN</text>
@@ -191,7 +191,7 @@ const Topic37 = () => {
               <polygon points="485,80 495,85 485,90" fill="#94a3b8" className="dark:fill-slate-500" />
 
               {/* Reuse */}
-              <rect x="500" y="40" width="80" height="90" rx="10" fill="#f59e0b" opacity="0.08" className="dark:fill-amber-400 dark:opacity-12" stroke="#f59e0b" strokeWidth="1.5" className="dark:stroke-amber-400" />
+              <rect x="500" y="40" width="80" height="90" rx="10" fill="#f59e0b" opacity="0.08" className="dark:fill-amber-400 dark:opacity-12 dark:stroke-amber-400" stroke="#f59e0b" strokeWidth="1.5" />
               <text x="540" y="70" textAnchor="middle" fontSize="24">🔄</text>
               <text x="540" y="95" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Reuse</text>
               <text x="540" y="110" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Scripts</text>

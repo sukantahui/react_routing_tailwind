@@ -161,25 +161,25 @@ const Topic34 = () => {
               </text>
 
               {/* Command line method */}
-              <rect x="20" y="40" width="170" height="90" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="20" y="40" width="170" height="90" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="105" y="65" textAnchor="middle" fontSize="20">💻</text>
               <text x="105" y="85" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Command Line</text>
               <text x="105" y="100" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">CREATE DATABASE mydb;</text>
 
               {/* Workbench method */}
-              <rect x="215" y="40" width="170" height="90" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12" stroke="#10b981" strokeWidth="1.5" className="dark:stroke-emerald-400" />
+              <rect x="215" y="40" width="170" height="90" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" />
               <text x="300" y="65" textAnchor="middle" fontSize="20">🖥️</text>
               <text x="300" y="85" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">MySQL Workbench</text>
               <text x="300" y="100" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Right-click → Create Schema</text>
 
               {/* phpMyAdmin method */}
-              <rect x="410" y="40" width="170" height="90" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+              <rect x="410" y="40" width="170" height="90" rx="10" fill="#8b5cf6" opacity="0.08" className="dark:fill-purple-400 dark:opacity-12 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
               <text x="495" y="65" textAnchor="middle" fontSize="20">🌐</text>
               <text x="495" y="85" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">phpMyAdmin</text>
               <text x="495" y="100" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">New → Create Database</text>
 
               {/* Result */}
-              <rect x="200" y="150" width="200" height="30" rx="8" fill="#f59e0b" opacity="0.12" className="dark:fill-amber-400 dark:opacity-15" stroke="#f59e0b" strokeWidth="1.5" className="dark:stroke-amber-400" />
+              <rect x="200" y="150" width="200" height="30" rx="8" fill="#f59e0b" opacity="0.12" className="dark:fill-amber-400 dark:opacity-15 dark:stroke-amber-400" stroke="#f59e0b" strokeWidth="1.5" />
               <text x="300" y="170" textAnchor="middle" fontSize="11" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">✅ Database Created!</text>
             </svg>
           </div>

@@ -222,7 +222,7 @@ const Topic11 = () => {
                           className="transition-all duration-300 hover:fill-emerald-500"
                         />
                         <text x="0" y="0" textAnchor="middle" fill="white" fontSize="12" dy=".3em">Condition</text>
-                        <text x="0" y="15" textAnchor="middle" fill="#a7f3d0" fontSize="10" dy=".3em">$3 > 75</text>
+                        <text x="0" y="15" textAnchor="middle" fill="#a7f3d0" fontSize="10" dy=".3em">$3 &gt; 75</text>
                         
                         {/* Animated decision point */}
                         <circle cx="0" cy="0" r="4" fill="#f59e0b">

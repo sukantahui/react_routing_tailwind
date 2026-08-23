@@ -338,7 +338,7 @@ const Topic6 = () => {
                       <li>For each row: RHS / coefficient in entering column</li>
                       <li>Choose the row with the <span className="font-bold">smallest positive ratio</span></li>
                       <li>Its basic variable leaves the basis</li>
-                      <li>Ensure denominator > 0</li>
+                      <li>Ensure denominator &gt; 0</li>
                     </ul>
                     <div className="mt-2 text-xs font-mono bg-white dark:bg-gray-800 p-2 rounded">
                       Row 1: 10/2 = 5<br/>

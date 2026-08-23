@@ -44,7 +44,7 @@ const Topic3 = () => {
         </div>
 
         {/* Overview */}
-        <div className={cardClasses} style={{ animationDelay: '0.1s' }} className="animate-fade-slide-up">
+        <div className={`${cardClasses} animate-fade-slide-up`} style={{ animationDelay: '0.1s' }}>
           <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
             <span className="text-3xl">📚</span> Essential String Methods
           </h2>

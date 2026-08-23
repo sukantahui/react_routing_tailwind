@@ -247,7 +247,7 @@ export default class EditableCodeBlock extends Component {
     };
 
     try {
-      eval(js);
+      new Function(js)();
       this.setState({ consoleOutput: captured });
     } catch (err) {
       const match = (err.stack || "").match(/<anonymous>:(\d+):/);

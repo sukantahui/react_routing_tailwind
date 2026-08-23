@@ -560,7 +560,7 @@ sed -n '10,20p' config.cnf`}
                     </p>
                     <pre className="bg-red-900/30 text-red-100 p-2 rounded mt-2 text-xs">
                       # WRONG: cat file.txt | sed -i 's/old/new/'
-                      # CORRECT: sed 's/old/new/' file.txt > newfile.txt
+                      # CORRECT: sed 's/old/new/' file.txt &gt; newfile.txt
                     </pre>
                   </div>
                 </div>

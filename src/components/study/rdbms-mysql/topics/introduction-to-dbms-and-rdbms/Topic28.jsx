@@ -161,7 +161,7 @@ const Topic28 = () => {
               </text>
 
               {/* Community Edition */}
-              <rect x="30" y="40" width="260" height="130" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12" stroke="#10b981" strokeWidth="2" className="dark:stroke-emerald-400" />
+              <rect x="30" y="40" width="260" height="130" rx="10" fill="#10b981" opacity="0.08" className="dark:fill-emerald-400 dark:opacity-12 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="2" />
               <text x="160" y="65" textAnchor="middle" fontSize="14" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🆓 Community Edition</text>
               <text x="160" y="85" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">Free · Open Source · GPL</text>
               <text x="160" y="105" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">✓ Full SQL Features</text>
@@ -170,7 +170,7 @@ const Topic28 = () => {
               <text x="160" y="150" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">✓ Great for Learning &amp; Startups</text>
 
               {/* Enterprise Edition */}
-              <rect x="310" y="40" width="260" height="130" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="2" className="dark:stroke-blue-400" />
+              <rect x="310" y="40" width="260" height="130" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="2" />
               <text x="440" y="65" textAnchor="middle" fontSize="14" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🏢 Enterprise Edition</text>
               <text x="440" y="85" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">Commercial · Paid · Licensed</text>
               <text x="440" y="105" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">✓ All Community Features +</text>

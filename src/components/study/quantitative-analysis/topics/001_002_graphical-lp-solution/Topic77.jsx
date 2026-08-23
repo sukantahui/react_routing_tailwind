@@ -622,7 +622,7 @@ const Topic77 = () => {
                         <p className="text-sm text-gray-700 dark:text-gray-300">
                           <span className="font-semibold">Solution:</span> Optimal at (6, 4) with Z = 10(6) + 8(4) = 60 + 32 = ₹92 lakhs.
                           <br />
-                          Resource utilization: Senior Lawyers: 4(6)+3(4)=36 (100%), Junior Lawyers: 2(6)+5(4)=32 (>30 infeasible!)
+                          Resource utilization: Senior Lawyers: 4(6)+3(4)=36 (100%), Junior Lawyers: 2(6)+5(4)=32 (&gt;30 infeasible!)
                           <br />
                           Wait - this point is infeasible. The actual optimal is different.
                         </p>

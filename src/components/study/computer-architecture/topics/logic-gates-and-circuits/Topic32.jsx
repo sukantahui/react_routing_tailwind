@@ -75,7 +75,7 @@ const Topic32 = () => {
               {/* Correction logic block */}
               <rect x="230" y="40" width="100" height="80" rx="6" fill="none" stroke="currentColor" strokeWidth="2" />
               <text x="280" y="80" fill="currentColor" fontSize="10" textAnchor="middle">Correction</text>
-              <text x="280" y="100" fill="currentColor" fontSize="8" textAnchor="middle">(detect >9 or carry)</text>
+              <text x="280" y="100" fill="currentColor" fontSize="8" textAnchor="middle">(detect &gt;9 or carry)</text>
 
               {/* Connections to correction logic */}
               <line x1="200" y1="60" x2="230" y2="60" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
@@ -176,7 +176,7 @@ const Topic32 = () => {
       <section className="mt-8 p-6 bg-red-900/30 rounded-xl border border-red-700 animate-[fadeInUp_0.6s_ease-out] motion-reduce:animate-none">
         <h2 className="text-2xl font-semibold text-red-400 mb-4">🚨 Common Mistakes</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-200">
-          <li><strong>Forgetting the correction step:</strong> Using a plain binary adder on BCD numbers yields invalid results for sums >9.</li>
+          <li><strong>Forgetting the correction step:</strong> Using a plain binary adder on BCD numbers yields invalid results for sums &gt;9.</li>
           <li><strong>Incorrect correction condition:</strong> Missing the case where S3=1 and (S2=1 or S1=1) (i.e., sum 10–15).</li>
           <li><strong>Adding 6 when not needed:</strong> This would produce a result off by 6.</li>
           <li><strong>Not handling the carry properly:</strong> The carry from the first adder must be included in the correction decision.</li>
@@ -201,7 +201,7 @@ const Topic32 = () => {
         <h2 className="text-2xl font-semibold text-purple-400 mb-4">🔧 Professional Tips</h2>
         <ul className="list-disc list-inside space-y-2 text-gray-200">
           <li><strong>Using the 7483:</strong> The 7483 has carry‑in and carry‑out, making it easy to cascade. For correction, you can set the carry‑in of the second adder to 0 and add 6 via the B inputs.</li>
-          <li><strong>Detecting sum >9:</strong> The condition S3·(S2+S1) can be implemented with one AND and one OR gate (or a 3‑input AND if you prefer).</li>
+          <li><strong>Detecting sum &gt;9:</strong> The condition S3·(S2+S1) can be implemented with one AND and one OR gate (or a 3‑input AND if you prefer).</li>
           <li><strong>Speed:</strong> The critical path goes through two adders; for high‑speed designs, consider look‑ahead correction.</li>
           <li><strong>BCD subtraction:</strong> Similar correction can be applied for BCD subtraction using 9’s or 10’s complement.</li>
           <li><strong>Power:</strong> BCD adders consume more power than binary adders due to extra gates; use only when decimal I/O is required.</li>

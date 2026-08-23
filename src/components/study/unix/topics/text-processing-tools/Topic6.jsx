@@ -524,7 +524,7 @@ class Topic6 extends React.Component {
                                 </p>
                                 <div className="font-mono bg-gray-900 text-emerald-400 p-4 rounded-lg text-sm">
                                     <code>
-                                        sed -n '50,100p' server.log > errors.log
+                                        sed -n '50,100p' server.log &gt; errors.log
                                     </code>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4">

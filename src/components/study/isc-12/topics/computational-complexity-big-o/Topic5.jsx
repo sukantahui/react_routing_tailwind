@@ -340,7 +340,7 @@ const Topic5 = () => {
                     <strong>Assuming all logs are base 10:</strong> Always check the base; many scientific contexts use base e.
                   </li>
                   <li>
-                    <strong>Ignoring domain restrictions:</strong> log_b(x) is only defined for x > 0.
+                    <strong>Ignoring domain restrictions:</strong> log_b(x) is only defined for x &gt; 0.
                     <span className="block text-sm text-gray-500 dark:text-gray-400 mt-1">
                       — <strong>Susmita</strong> once tried to compute log₂(-8) and got an error in her program,
                       because she didn't check the input validity.

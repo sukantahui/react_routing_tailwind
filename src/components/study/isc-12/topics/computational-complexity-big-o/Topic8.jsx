@@ -333,7 +333,7 @@ const Topic8 = () => {
                   <div className="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800/40">
                     <p className="text-gray-700 dark:text-gray-200">
                       <span className="font-semibold text-emerald-600 dark:text-emerald-400">✓</span>{" "}
-                      <strong>Use bit shifts</strong> for performance: n >> 1 instead of n / 2.
+                      <strong>Use bit shifts</strong> for performance: n &gt;&gt; 1 instead of n / 2.
                     </p>
                   </div>
                   <div className="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800/40">

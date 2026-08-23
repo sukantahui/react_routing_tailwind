@@ -203,7 +203,7 @@ export default function Topic1() {
             <li>Use Data Validation with formula =COUNTIF($A$2:$A$100, A2)=1 to block new duplicates.</li>
             <li>Create composite keys when no single column is unique: =A2&"-"&B2.</li>
             <li>Use Excel's “Remove Duplicates” tool (Data tab) to clean existing data.</li>
-            <li>Before a critical lookup, test for duplicates with =COUNTIF(range, lookup_value)>1.</li>
+            <li>Before a critical lookup, test for duplicates with =COUNTIF(range, lookup_value)&gt;1.</li>
           </ul>
         </section>
 

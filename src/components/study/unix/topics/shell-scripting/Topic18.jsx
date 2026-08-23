@@ -312,15 +312,15 @@ const Topic18 = () => {
                                     <h4 className="font-semibold text-gray-800 dark:text-white mb-3">File Descriptor Redirection</h4>
                                     <div className="space-y-3">
                                         <div className="flex items-center justify-between">
-                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">command > file</code>
-                                            <div className="text-gray-600 dark:text-gray-400">Short for 1> file</div>
+                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">command &gt; file</code>
+                                            <div className="text-gray-600 dark:text-gray-400">Short for 1&gt; file</div>
                                         </div>
                                         <div className="flex items-center justify-between">
-                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">command 2>&1</code>
+                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">command 2&gt;&1</code>
                                             <div className="text-gray-600 dark:text-gray-400">Redirect stderr to stdout</div>
                                         </div>
                                         <div className="flex items-center justify-between">
-                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">command > file 2>&1</code>
+                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">command &gt; file 2&gt;&1</code>
                                             <div className="text-gray-600 dark:text-gray-400">Both to file (old style)</div>
                                         </div>
                                         <div className="flex items-center justify-between">
@@ -399,7 +399,7 @@ const Topic18 = () => {
                             <div className="p-4 bg-white/50 dark:bg-gray-700/50 rounded-lg">
                                 <p className="text-gray-700 dark:text-gray-300">
                                     <strong>Scenario:</strong> Tuhina manages application logs in Shyamnagar. 
-                                    Using `>>` ensures log entries are preserved instead of overwritten.
+                                    Using `&gt;&gt;` ensures log entries are preserved instead of overwritten.
                                 </p>
                             </div>
                         </div>
@@ -447,8 +447,8 @@ const Topic18 = () => {
                             />
                             <div className="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
                                 <p className="text-gray-700 dark:text-gray-300">
-                                    <strong>Professional Tip:</strong> Use `&>` when you need to capture both stdout and stderr 
-                                    to the same file. This is cleaner than `command > file 2>&1`.
+                                    <strong>Professional Tip:</strong> Use `&&gt;` when you need to capture both stdout and stderr 
+                                    to the same file. This is cleaner than `command &gt; file 2&gt;&1`.
                                 </p>
                             </div>
                         </div>
@@ -558,7 +558,7 @@ command > output.log 2>&1`}
                         <div className="p-4 bg-white/70 dark:bg-gray-700/70 rounded-lg">
                             <h3 className="font-semibold text-yellow-800 dark:text-yellow-300 mb-2">Noclobber Protection</h3>
                             <p className="text-yellow-700 dark:text-yellow-300 mb-2">
-                                <strong>Problem:</strong> `>` overwrites files without warning
+                                <strong>Problem:</strong> `&gt;` overwrites files without warning
                             </p>
                             <code className="text-sm text-yellow-800 dark:text-yellow-300 block bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded mb-2">
 {`# Enable noclobber to prevent overwrites
@@ -567,14 +567,14 @@ echo "test" > existing_file.txt  # Error: cannot overwrite
 echo "test" >| existing_file.txt  # Force overwrite with >|`}
                             </code>
                             <p className="text-yellow-700 dark:text-yellow-300">
-                                <strong>Solution:</strong> Use `set -o noclobber` or `>|` to force overwrite
+                                <strong>Solution:</strong> Use `set -o noclobber` or `&gt;|` to force overwrite
                             </p>
                         </div>
 
                         <div className="p-4 bg-white/70 dark:bg-gray-700/70 rounded-lg">
                             <h3 className="font-semibold text-blue-800 dark:text-blue-300 mb-2">Empty File Creation</h3>
                             <p className="text-blue-700 dark:text-blue-300 mb-2">
-                                <strong>Problem:</strong> `>` creates empty file even if command fails
+                                <strong>Problem:</strong> `&gt;` creates empty file even if command fails
                             </p>
                             <code className="text-sm text-blue-800 dark:text-blue-300 block bg-blue-100 dark:bg-blue-900/30 p-3 rounded mb-2">
 {`# Creates empty file even if ls fails
@@ -602,7 +602,7 @@ ls /nonexistent > output.txt
                             <div className="p-4 bg-white/50 dark:bg-gray-700/50 rounded-lg">
                                 <h3 className="font-semibold text-gray-800 dark:text-white mb-2">Logging Strategy</h3>
                                 <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-                                    <li>Use `>>` for log files to preserve history</li>
+                                    <li>Use `&gt;&gt;` for log files to preserve history</li>
                                     <li>Separate stdout and stderr for debugging</li>
                                     <li>Use timestamps in log entries</li>
                                     <li>Consider log rotation for large files</li>

@@ -166,7 +166,7 @@ const Topic7 = () => {
             Quantum computers harness quantum superposition and entanglement to solve fundamental mathematical problems exponentially faster than classical computers.
             Examine how <strong>Shor's Algorithm ($O((\log N)^3)$) completely breaks RSA, Diffie-Hellman, and ECC</strong>, analyze 
             <strong>Grover's Algorithm quadratic key-halving on AES</strong>, calculate the <strong>Logical vs Physical Qubit requirements under Surface Codes</strong>, 
-            and apply <strong>Mosca's Theorem ($X+Y>Z$)</strong> to counter <strong>Harvest Now, Decrypt Later (HNDL)</strong> attacks.
+            and apply <strong>Mosca's Theorem ($X+Y&gt;Z$)</strong> to counter <strong>Harvest Now, Decrypt Later (HNDL)</strong> attacks.
           </p>
         </header>
 
@@ -460,7 +460,7 @@ const Topic7 = () => {
                 <li>Shor's Algorithm breaks RSA, DH, and ECC in polynomial time $O((\log N)^3)$.</li>
                 <li>Grover's Algorithm halves symmetric key bit security (AES-128 $\rightarrow$ 64 bits).</li>
                 <li>AES-256 retains 128-bit quantum security and is permanently safe.</li>
-                <li>Mosca's Theorem: If $X + Y > Z$, systems are already exposed to HNDL.</li>
+                <li>Mosca's Theorem: If $X + Y &gt; Z$, systems are already exposed to HNDL.</li>
                 <li>Hybrid TLS 1.3 combines classical and post-quantum keys for safe transit.</li>
               </ul>
             </div>

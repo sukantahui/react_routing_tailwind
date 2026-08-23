@@ -1077,7 +1077,7 @@ level: high`,
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded border border-gray-800">
                 <span className="text-emerald-400">✔</span>
-                <span>Out-of-Band (OOB) dual authorization requires verbal confirmation for wire transfers > ₹1,00,000.</span>
+                <span>Out-of-Band (OOB) dual authorization requires verbal confirmation for wire transfers &gt; ₹1,00,000.</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded border border-gray-800">
                 <span className="text-emerald-400">✔</span>

@@ -198,7 +198,7 @@ const Topic6 = () => {
                   <div className="p-4 bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20 rounded-xl hover:scale-[1.02] transition-all duration-300">
                     <h4 className="font-semibold text-rose-700 dark:text-rose-300">1. Surplus Supply</h4>
                     <ul className="list-disc pl-4 text-sm text-gray-700 dark:text-gray-300 space-y-1 mt-2">
-                      <li>ΣSᵢ > ΣDⱼ</li>
+                      <li>ΣSᵢ &gt; ΣDⱼ</li>
                       <li>More supply than demand</li>
                       <li>Need dummy destination</li>
                       <li>Unused supply exists</li>
@@ -213,7 +213,7 @@ const Topic6 = () => {
                   <div className="p-4 bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20 rounded-xl hover:scale-[1.02] transition-all duration-300">
                     <h4 className="font-semibold text-rose-700 dark:text-rose-300">2. Excess Demand</h4>
                     <ul className="list-disc pl-4 text-sm text-gray-700 dark:text-gray-300 space-y-1 mt-2">
-                      <li>ΣDⱼ > ΣSᵢ</li>
+                      <li>ΣDⱼ &gt; ΣSᵢ</li>
                       <li>More demand than supply</li>
                       <li>Need dummy source</li>
                       <li>Unmet demand exists</li>
@@ -254,7 +254,7 @@ const Topic6 = () => {
                   The key to handling unbalanced problems is to convert them into balanced problems by adding dummy sources or destinations with zero costs. This allows the use of standard transportation algorithms.
                 </p>
 
-                <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Case 1: Surplus Supply (ΣSᵢ > ΣDⱼ)</h3>
+                <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Case 1: Surplus Supply (ΣSᵢ &gt; ΣDⱼ)</h3>
                 <div className="my-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                   <ol className="list-decimal pl-6 text-sm text-gray-700 dark:text-gray-300 space-y-2">
                     <li>Calculate surplus: Surplus = ΣSᵢ - ΣDⱼ</li>
@@ -265,7 +265,7 @@ const Topic6 = () => {
                   </ol>
                 </div>
 
-                <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Case 2: Excess Demand (ΣDⱼ > ΣSᵢ)</h3>
+                <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Case 2: Excess Demand (ΣDⱼ &gt; ΣSᵢ)</h3>
                 <div className="my-4 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
                   <ol className="list-decimal pl-6 text-sm text-gray-700 dark:text-gray-300 space-y-2">
                     <li>Calculate deficit: Deficit = ΣDⱼ - ΣSᵢ</li>
@@ -327,7 +327,7 @@ const Topic6 = () => {
                   </div>
                   <div className="mt-3 p-3 bg-rose-50 dark:bg-rose-900/20 rounded text-sm">
                     <p className="font-medium text-rose-700 dark:text-rose-300">⚠️ Unbalanced: Surplus Supply</p>
-                    <p className="text-gray-700 dark:text-gray-300">Supply (3000) > Demand (2200) → Surplus of 800 units. Add dummy destination with demand 800 and zero costs.</p>
+                    <p className="text-gray-700 dark:text-gray-300">Supply (3000) &gt; Demand (2200) → Surplus of 800 units. Add dummy destination with demand 800 and zero costs.</p>
                   </div>
                 </div>
 
@@ -414,7 +414,7 @@ const Topic6 = () => {
                   </div>
                   <div className="mt-3 p-3 bg-rose-50 dark:bg-rose-900/20 rounded text-sm">
                     <p className="font-medium text-rose-700 dark:text-rose-300">⚠️ Unbalanced: Surplus Supply</p>
-                    <p className="text-gray-700 dark:text-gray-300">Supply (1500) > Demand (1000) → Surplus of 500 books. Add dummy destination for unused supplies.</p>
+                    <p className="text-gray-700 dark:text-gray-300">Supply (1500) &gt; Demand (1000) → Surplus of 500 books. Add dummy destination for unused supplies.</p>
                   </div>
                 </div>
               </div>
@@ -446,7 +446,7 @@ const Topic6 = () => {
                   <rect x="50" y="70" width="850" height="260" rx="15" fill="#F43F5E" fillOpacity="0.1" stroke="#F43F5E" strokeWidth="2">
                     <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
                   </rect>
-                  <text x="475" y="105" textAnchor="middle" className="text-lg font-bold fill-rose-600 dark:fill-rose-400">Case 1: Surplus Supply (ΣSᵢ > ΣDⱼ)</text>
+                  <text x="475" y="105" textAnchor="middle" className="text-lg font-bold fill-rose-600 dark:fill-rose-400">Case 1: Surplus Supply (ΣSᵢ &gt; ΣDⱼ)</text>
                   
                   <rect x="80" y="125" width="250" height="80" rx="10" fill="#10B981" fillOpacity="0.15" stroke="#10B981" strokeWidth="1.5" />
                   <text x="205" y="155" textAnchor="middle" className="text-sm font-bold fill-green-600 dark:fill-green-400">Total Supply</text>
@@ -457,7 +457,7 @@ const Topic6 = () => {
                   <text x="475" y="180" textAnchor="middle" className="text-base font-mono fill-gray-700 dark:fill-gray-300">ΣDⱼ = 400</text>
                   
                   <path d="M 450 165 L 480 165" stroke="#F43F5E" strokeWidth="3" />
-                  <text x="465" y="155" textAnchor="middle" className="text-xs font-bold fill-rose-600 dark:fill-rose-400">></text>
+                  <text x="465" y="155" textAnchor="middle" className="text-xs font-bold fill-rose-600 dark:fill-rose-400">&gt;</text>
                   
                   <rect x="80" y="230" width="790" height="80" rx="10" fill="#FEF3C7" dark:fill="#78350F" fillOpacity="0.3" stroke="#F59E0B" strokeWidth="1.5" />
                   <text x="475" y="260" textAnchor="middle" className="text-sm font-bold fill-amber-600 dark:fill-amber-400">Solution: Add Dummy Destination</text>
@@ -468,7 +468,7 @@ const Topic6 = () => {
                   <rect x="50" y="360" width="850" height="260" rx="15" fill="#F43F5E" fillOpacity="0.1" stroke="#F43F5E" strokeWidth="2">
                     <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" begin="1s" />
                   </rect>
-                  <text x="475" y="395" textAnchor="middle" className="text-lg font-bold fill-rose-600 dark:fill-rose-400">Case 2: Excess Demand (ΣDⱼ > ΣSᵢ)</text>
+                  <text x="475" y="395" textAnchor="middle" className="text-lg font-bold fill-rose-600 dark:fill-rose-400">Case 2: Excess Demand (ΣDⱼ &gt; ΣSᵢ)</text>
                   
                   <rect x="80" y="415" width="250" height="80" rx="10" fill="#10B981" fillOpacity="0.15" stroke="#10B981" strokeWidth="1.5" />
                   <text x="205" y="445" textAnchor="middle" className="text-sm font-bold fill-green-600 dark:fill-green-400">Total Supply</text>
@@ -536,7 +536,7 @@ const Topic6 = () => {
                 <div className="p-4 bg-pink-50 dark:bg-pink-900/20 rounded-lg hover:bg-pink-100 dark:hover:bg-pink-900/30 transition-all duration-300">
                   <h4 className="font-semibold text-pink-700 dark:text-pink-300">💡 Dummy Direction</h4>
                   <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
-                    Remember: Supply > Demand → Add dummy destination. Demand > Supply → Add dummy source. The dummy goes where there's a shortage.
+                    Remember: Supply &gt; Demand → Add dummy destination. Demand &gt; Supply → Add dummy source. The dummy goes where there's a shortage.
                   </p>
                 </div>
                 
@@ -653,8 +653,8 @@ const Topic6 = () => {
                 <div className="p-4 bg-rose-50 dark:bg-rose-900/20 rounded-lg">
                   <h4 className="font-semibold text-rose-700 dark:text-rose-300">🔧 Add Dummies Correctly</h4>
                   <ul className="list-disc pl-4 text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                    <li>Supply > Demand → Add dummy destination</li>
-                    <li>Demand > Supply → Add dummy source</li>
+                    <li>Supply &gt; Demand → Add dummy destination</li>
+                    <li>Demand &gt; Supply → Add dummy source</li>
                     <li>Set dummy costs to zero</li>
                     <li>Verify the problem is now balanced</li>
                   </ul>

@@ -139,7 +139,7 @@ Now execute: 3@q`}</pre>
           <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl p-6 border-l-8 border-emerald-500 transition-all duration-300 hover:shadow-md">
             <h3 className="text-xl font-bold mb-2">🌍 Where Macros Save Hours</h3>
             <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-              <li>📋 <strong>Swadeep</strong> needs to add <code>#include &lt;debug.h&gt;</code> to 200 C files – records macro <code>ggO#include &lt;debug.h&gt;&lt;Esc&gt;:w&lt;CR&gt;:n&lt;CR></code>, then <code>200@a</code>.</li>
+              <li>📋 <strong>Swadeep</strong> needs to add <code>#include &lt;debug.h&gt;</code> to 200 C files – records macro <code>ggO#include &lt;debug.h&gt;&lt;Esc&gt;:w&lt;CR&gt;:n&lt;CR&gt;</code>, then <code>200@a</code>.</li>
               <li>📊 <strong>Abhronila</strong> formats a messy log file: records a macro that deletes lines matching "DEBUG", then reformats timestamps, then repeats for the whole file with <code>1000@q</code>.</li>
               <li>🏫 <strong>Barrackpore lab</strong> teachers use macros to auto‑grade assignments: macro adds comments, inserts scores, and saves each student file.</li>
               <li>🐞 <strong>Debangshu</strong> debugs JavaScript: macro that inserts <code>console.log('variable:', variable)</code> for the variable under the cursor.</li>

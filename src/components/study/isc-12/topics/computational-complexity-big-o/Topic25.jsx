@@ -274,7 +274,7 @@ const Topic25 = () => {
                   </table>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  For n > 30, O(2ⁿ) algorithms become impractical for any real-world application.
+                  For n &gt; 30, O(2ⁿ) algorithms become impractical for any real-world application.
                   This is why exponential algorithms are only used for very small inputs (n ≤ 20).
                 </p>
               </section>

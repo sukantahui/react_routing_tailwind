@@ -231,7 +231,7 @@ const Topic15 = () => {
                   <div className="p-4 rounded-xl bg-indigo-50/60 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800/40">
                     <p className="text-gray-700 dark:text-gray-200">
                       <span className="font-semibold text-indigo-600 dark:text-indigo-400">Example 3:</span>{" "}
-                      Processing an array of size n (O(n)), then a matrix of size n×m (O(n·m)). Total = O(n + n·m) = O(n·m) if m > 1.
+                      Processing an array of size n (O(n)), then a matrix of size n×m (O(n·m)). Total = O(n + n·m) = O(n·m) if m &gt; 1.
                     </p>
                   </div>
                   <div className="p-4 rounded-xl bg-indigo-50/60 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800/40">

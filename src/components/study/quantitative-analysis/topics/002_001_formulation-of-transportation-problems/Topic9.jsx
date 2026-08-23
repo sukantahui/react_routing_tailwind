@@ -554,7 +554,7 @@ const Topic9 = () => {
                   <div>
                     <h4 className="font-semibold text-red-700 dark:text-red-300">Wrong Dummy Addition</h4>
                     <p className="text-sm text-gray-700 dark:text-gray-300">
-                      Adding dummy source when dummy destination is needed (or vice versa). Supply > Demand → Dummy Destination. Demand > Supply → Dummy Source.
+                      Adding dummy source when dummy destination is needed (or vice versa). Supply &gt; Demand → Dummy Destination. Demand &gt; Supply → Dummy Source.
                     </p>
                   </div>
                 </div>

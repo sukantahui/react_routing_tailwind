@@ -977,7 +977,7 @@ export default class Topic14 extends React.Component {
                 <tbody>
                   <tr className={isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-50"}>
                     <td className="p-3 border">Check world-writable files</td>
-                    <td className="p-3 border font-mono text-sm">find / -perm -o+w -type f 2>/dev/null</td>
+                    <td className="p-3 border font-mono text-sm">find / -perm -o+w -type f 2&gt;/dev/null</td>
                     <td className="p-3 border">Find insecure permissions</td>
                     <td className="p-3 border">Weekly</td>
                   </tr>
@@ -1001,7 +1001,7 @@ export default class Topic14 extends React.Component {
                   </tr>
                   <tr className={isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-50"}>
                     <td className="p-3 border">Check ACLs recursively</td>
-                    <td className="p-3 border font-mono text-sm">getfacl -R /shared > acl_backup.txt</td>
+                    <td className="p-3 border font-mono text-sm">getfacl -R /shared &gt; acl_backup.txt</td>
                     <td className="p-3 border">Audit and backup ACLs</td>
                     <td className="p-3 border">Monthly</td>
                   </tr>

@@ -897,7 +897,7 @@ class Topic4 extends React.Component {
                                     </li>
                                     <li className="flex items-start">
                                         <span className="text-purple-500 mr-2">🤖</span>
-                                        <span>Use <code>2>/dev/null</code> to suppress permission errors</span>
+                                        <span>Use <code>2&gt;/dev/null</code> to suppress permission errors</span>
                                     </li>
                                     <li className="flex items-start">
                                         <span className="text-purple-500 mr-2">🤖</span>

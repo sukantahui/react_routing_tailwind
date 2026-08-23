@@ -441,7 +441,7 @@ const Topic9 = () => {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-rose-400 font-bold">•</span>
-                <span><strong>Ignoring PQC Key Size Network Overhead:</strong> Dilithium and Kyber keys (> 1 KB) exceed 1,460-byte TCP MSS, causing packet fragmentation unless tuned.</span>
+                <span><strong>Ignoring PQC Key Size Network Overhead:</strong> Dilithium and Kyber keys (&gt; 1 KB) exceed 1,460-byte TCP MSS, causing packet fragmentation unless tuned.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-rose-400 font-bold">•</span>

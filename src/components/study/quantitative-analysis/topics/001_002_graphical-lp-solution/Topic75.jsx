@@ -545,13 +545,13 @@ const Topic75 = () => {
                     
                     <div className="border-t border-gray-300 dark:border-gray-600 my-2 pt-2">
                       <p className="font-bold text-green-600 dark:text-green-400">Outward Shift (Relax):</p>
-                      <p className="ml-4">b → b + Δb (Δb > 0)</p>
+                      <p className="ml-4">b → b + Δb (Δb &gt; 0)</p>
                       <p className="ml-4 text-sm text-gray-500 dark:text-gray-400">Feasible region expands</p>
                     </div>
                     
                     <div className="border-t border-gray-300 dark:border-gray-600 my-2 pt-2">
                       <p className="font-bold text-red-600 dark:text-red-400">Inward Shift (Tighten):</p>
-                      <p className="ml-4">b → b - Δb (Δb > 0)</p>
+                      <p className="ml-4">b → b - Δb (Δb &gt; 0)</p>
                       <p className="ml-4 text-sm text-gray-500 dark:text-gray-400">Feasible region shrinks</p>
                     </div>
                     

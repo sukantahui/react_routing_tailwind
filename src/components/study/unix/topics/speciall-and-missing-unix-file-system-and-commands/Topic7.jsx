@@ -228,7 +228,7 @@ du -c                     # produce grand total`}
                 <li>To see progress for large directories, use `du -sh --apparent-size` for apparent vs actual block usage.</li>
                 <li>`df -h --output=source,size,used,avail,pcent,target` customises columns.</li>
                 <li>Combine `du` with `find` to list largest files: `find /home -type f -exec du -b {} + | sort -nr | head -20`.</li>
-                <li>Set up monitoring: `df -h` in cron to alert when usage > 90%.</li>
+                <li>Set up monitoring: `df -h` in cron to alert when usage &gt; 90%.</li>
               </ul>
             </div>
             <div className="rounded-xl border border-red-200 bg-red-50 p-5 dark:border-red-800/50 dark:bg-red-950/20 transition-all hover:shadow-md">
@@ -251,7 +251,7 @@ du -c                     # produce grand total`}
                 <p className="font-semibold">For monitoring:</p>
                 <ul className="ml-5 list-disc text-gray-700 dark:text-gray-200">
                   <li>Regularly run `df -h` on critical mounts.</li>
-                  <li>Alert when use percentage > 85% (leave buffer).</li>
+                  <li>Alert when use percentage &gt; 85% (leave buffer).</li>
                   <li>Use `-i` to monitor inode exhaustion (can cause 'no space' even with free blocks).</li>
                 </ul>
               </div>

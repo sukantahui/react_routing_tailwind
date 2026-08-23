@@ -1073,7 +1073,7 @@ const Topic6 = () => {
                       "p-4 rounded-lg font-mono mb-4",
                       "bg-gray-800/50"
                     )}>
-                      <code className="text-green-400">const [state, setState] = useState(() => expensiveInitialization())</code>
+                      <code className="text-green-400">const [state, setState] = useState(() =&gt; expensiveInitialization())</code>
                     </div>
                     <div className="text-sm opacity-70">
                       ✅ Function runs only on initial render
@@ -1298,8 +1298,8 @@ const Topic6 = () => {
                         <span className="text-green-400">✅</span>
                         <div>
                           <div className="font-mono text-sm text-green-300">
-                            setCount(prev => prev + 1)<br/>
-                            setCount(prev => prev + 1) // Works correctly
+                            setCount(prev =&gt; prev + 1)<br/>
+                            setCount(prev =&gt; prev + 1) // Works correctly
                           </div>
                         </div>
                       </div>
@@ -1325,7 +1325,7 @@ const Topic6 = () => {
                         <span className="text-green-400">✅</span>
                         <div>
                           <div className="font-mono text-sm text-green-300">
-                            const [data, setData] = useState(() => expensiveCalculation())
+                            const [data, setData] = useState(() =&gt; expensiveCalculation())
                           </div>
                           <div className="text-xs opacity-70">Runs only once</div>
                         </div>
@@ -1390,8 +1390,8 @@ const Topic6 = () => {
                           &nbsp;&nbsp;email: '',<br/>
                           &nbsp;&nbsp;message: ''<br/>
                           {"}"})<br/><br/>
-                          const handleChange = (e) => {"{"}<br/>
-                          &nbsp;&nbsp;setForm(prev => ({"{"}<br/>
+                          const handleChange = (e) =&gt; {"{"}<br/>
+                          &nbsp;&nbsp;setForm(prev =&gt; ({"{"}<br/>
                           &nbsp;&nbsp;&nbsp;&nbsp;...prev,<br/>
                           &nbsp;&nbsp;&nbsp;&nbsp;[e.target.name]: e.target.value<br/>
                           &nbsp;&nbsp;{"}"}))<br/>
@@ -1431,11 +1431,11 @@ const Topic6 = () => {
                           const [data, setData] = useState(null)<br/>
                           const [loading, setLoading] = useState(true)<br/>
                           const [error, setError] = useState(null)<br/><br/>
-                          useEffect(() => {"{"}<br/>
+                          useEffect(() =&gt; {"{"}<br/>
                           &nbsp;&nbsp;fetchData()<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;.then(data => setData(data))<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;.catch(err => setError(err))<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;.finally(() => setLoading(false))<br/>
+                          &nbsp;&nbsp;&nbsp;&nbsp;.then(data =&gt; setData(data))<br/>
+                          &nbsp;&nbsp;&nbsp;&nbsp;.catch(err =&gt; setError(err))<br/>
+                          &nbsp;&nbsp;&nbsp;&nbsp;.finally(() =&gt; setLoading(false))<br/>
                           {"}"}, [])
                         </div>
                       </div>
@@ -1673,7 +1673,7 @@ const Topic6 = () => {
                       "text-sm transition-colors duration-500",
                       isDarkMode ? "text-gray-300" : "text-gray-600"
                     )}>
-                      Use (prev) => newValue pattern for reliable updates.
+                      Use (prev) =&gt; newValue pattern for reliable updates.
                     </p>
                   </div>
                 </div>

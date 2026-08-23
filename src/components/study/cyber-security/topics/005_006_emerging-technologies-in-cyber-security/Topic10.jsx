@@ -409,7 +409,7 @@ const Topic10 = () => {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-rose-400 font-bold">•</span>
-                <span><strong>Overlooking TCP Packet Fragmentation:</strong> ML-DSA certificates (> 3 KB) exceed standard 1,460-byte MSS; tune Linux `initcwnd` to 30 packets.</span>
+                <span><strong>Overlooking TCP Packet Fragmentation:</strong> ML-DSA certificates (&gt; 3 KB) exceed standard 1,460-byte MSS; tune Linux `initcwnd` to 30 packets.</span>
               </li>
             </ul>
           </div>

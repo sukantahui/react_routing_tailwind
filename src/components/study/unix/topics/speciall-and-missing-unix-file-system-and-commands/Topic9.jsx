@@ -233,7 +233,7 @@ command | tee intermediate.txt | next_command`}
             </pre>
             <p className="mt-4 text-gray-700 dark:text-gray-200"><strong>Purpose:</strong> Save a copy of output while still displaying it in real time. <strong>When/Why:</strong> Logging scripts, debugging pipelines, writing to configuration files with sudo, splitting a data stream for parallel processing.</p>
             <div className="mt-4 rounded-lg bg-white p-3 dark:bg-gray-800/60">
-              <p className="text-sm"><span className="font-semibold">🌍 Real‑world:</span> At Barrackpore High School, the lab administrator runs `make 2>&1 | tee build.log` to compile software while saving errors. Tuhina uses `echo 'export PATH=$PATH:/opt/bin' | sudo tee /etc/profile.d/custom.sh` to write system configuration. Swadeep debugs a pipeline: `csvtool readable data.csv | tee debug.txt | wc -l`.</p>
+              <p className="text-sm"><span className="font-semibold">🌍 Real‑world:</span> At Barrackpore High School, the lab administrator runs `make 2&gt;&1 | tee build.log` to compile software while saving errors. Tuhina uses `echo 'export PATH=$PATH:/opt/bin' | sudo tee /etc/profile.d/custom.sh` to write system configuration. Swadeep debugs a pipeline: `csvtool readable data.csv | tee debug.txt | wc -l`.</p>
             </div>
           </div>
 
@@ -247,7 +247,7 @@ command | tee intermediate.txt | next_command`}
             </div>
             <div className="rounded-lg bg-gray-100 p-3 dark:bg-gray-800">
               <p className="text-sm text-gray-700 dark:text-gray-300">
-                💡 <strong>Tip:</strong> When writing to root-owned files, remember: `sudo tee` works, `sudo echo > file` does not. Use `tee` whenever you need to preserve terminal output while logging.
+                💡 <strong>Tip:</strong> When writing to root-owned files, remember: `sudo tee` works, `sudo echo &gt; file` does not. Use `tee` whenever you need to preserve terminal output while logging.
               </p>
             </div>
           </div>
@@ -257,10 +257,10 @@ command | tee intermediate.txt | next_command`}
             <div className="rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800/50 dark:bg-amber-950/20 transition-all hover:shadow-md">
               <h3 className="text-xl font-bold text-amber-700 dark:text-amber-400">💡 Pro Tips</h3>
               <ul className="mt-2 list-inside list-disc space-y-1 text-gray-700 dark:text-gray-200">
-                <li>Combine with process substitution to write to multiple different commands: `command | tee >(grep error > errors.log) >(wc -l > count.txt)`.</li>
+                <li>Combine with process substitution to write to multiple different commands: `command | tee &gt;(grep error &gt; errors.log) &gt;(wc -l &gt; count.txt)`.</li>
                 <li>Use `tee -a` for persistent logs (prevents overwriting on each run).</li>
-                <li>Capture both stdout and stderr with `2>&1 | tee log` – crucial for build scripts.</li>
-                <li>Use `tee >(command1) >(command2) >/dev/null` to broadcast to parallel processes without terminal clutter.</li>
+                <li>Capture both stdout and stderr with `2&gt;&1 | tee log` – crucial for build scripts.</li>
+                <li>Use `tee &gt;(command1) &gt;(command2) &gt;/dev/null` to broadcast to parallel processes without terminal clutter.</li>
                 <li>Check exit status: `PIPESTATUS[0]` for tee's exit code in bash.</li>
               </ul>
             </div>
@@ -268,8 +268,8 @@ command | tee intermediate.txt | next_command`}
               <h3 className="text-xl font-bold text-red-600 dark:text-red-400">⚠️ Common Pitfalls</h3>
               <ul className="mt-2 list-inside list-disc space-y-1 text-gray-700 dark:text-gray-200">
                 <li>Forgetting `-a` and overwriting important logs.</li>
-                <li>Using `sudo` only on `echo` but not on redirect: `sudo echo "text" > /root/file` fails.</li>
-                <li>Not merging stderr: `cmd | tee log` only captures stdout; stderr still goes to terminal (but not to log). Use `2>&1`.</li>
+                <li>Using `sudo` only on `echo` but not on redirect: `sudo echo "text" &gt; /root/file` fails.</li>
+                <li>Not merging stderr: `cmd | tee log` only captures stdout; stderr still goes to terminal (but not to log). Use `2&gt;&1`.</li>
                 <li>Assuming `tee` works with files that have spaces without quoting: `tee "my file.log"`.</li>
                 <li>Using `tee` in scripts and not checking its exit code (if a file is unwritable, tee fails but pipeline may still succeed).</li>
               </ul>
@@ -283,7 +283,7 @@ command | tee intermediate.txt | next_command`}
               <div>
                 <p className="font-semibold">For logging:</p>
                 <ul className="ml-5 list-disc text-gray-700 dark:text-gray-200">
-                  <li>Always use `2>&1 | tee` if you need errors in log.</li>
+                  <li>Always use `2&gt;&1 | tee` if you need errors in log.</li>
                   <li>Use `-a` when appending to existing logs.</li>
                   <li>Rotate logs to avoid huge files.</li>
                 </ul>
@@ -302,7 +302,7 @@ command | tee intermediate.txt | next_command`}
           {/* Hint section */}
           <div className="animate-fade-slide-up mt-12 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800/40 dark:bg-blue-950/20">
             <h3 className="text-lg font-bold text-blue-700 dark:text-blue-300">🔍 Think about…</h3>
-            <p className="mt-1 text-gray-700 dark:text-gray-200">Run `echo hello | tee out.txt > /dev/null`. Where does "hello" go? (To out.txt only, not terminal.) Now try `echo hello | tee -a out.txt | cat`. The `cat` gets the stream and prints it. How would you write to two log files and also display on terminal? (Answer: `command | tee log1.txt log2.txt` – tee writes to both files and stdout by default.)</p>
+            <p className="mt-1 text-gray-700 dark:text-gray-200">Run `echo hello | tee out.txt &gt; /dev/null`. Where does "hello" go? (To out.txt only, not terminal.) Now try `echo hello | tee -a out.txt | cat`. The `cat` gets the stream and prints it. How would you write to two log files and also display on terminal? (Answer: `command | tee log1.txt log2.txt` – tee writes to both files and stdout by default.)</p>
           </div>
 
           {/* Teacher's Note */}

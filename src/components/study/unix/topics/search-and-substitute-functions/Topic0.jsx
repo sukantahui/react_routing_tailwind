@@ -251,7 +251,7 @@ grep -B 2 -A 3 "exception" trace.log
           <div className="font-mono text-sm bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
             <code className="text-indigo-600 dark:text-indigo-400">grep [OPTIONS] PATTERN [FILE...]</code>
           </div>
-          <p className="mt-4 text-gray-700 dark:text-gray-200"><span className="font-semibold">Return type:</span> Exit status (0=found, 1=not found, >1=error) and prints matching lines to stdout.</p>
+          <p className="mt-4 text-gray-700 dark:text-gray-200"><span className="font-semibold">Return type:</span> Exit status (0=found, 1=not found, &gt;1=error) and prints matching lines to stdout.</p>
           <p className="mt-2"><span className="font-semibold">Purpose:</span> Search input files (or stdin) for lines matching a PATTERN. Used daily by sysadmins, developers, and data analysts to filter logs, configs, and code.</p>
           <p className="mt-2"><span className="font-semibold">When & Why:</span> When you need fast, powerful text search in terminal — from debugging server errors to finding function definitions in a codebase.</p>
         </div>

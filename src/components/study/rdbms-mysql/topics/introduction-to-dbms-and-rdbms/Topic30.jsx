@@ -205,7 +205,7 @@ const Topic30 = () => {
               </text>
 
               {/* Workbench icon */}
-              <rect x="220" y="40" width="160" height="90" rx="12" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="2" className="dark:stroke-blue-400" />
+              <rect x="220" y="40" width="160" height="90" rx="12" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="2" />
               <text x="300" y="75" textAnchor="middle" fontSize="32">🖥️</text>
               <text x="300" y="105" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">MySQL Workbench</text>
               <text x="300" y="120" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Version 8.0</text>

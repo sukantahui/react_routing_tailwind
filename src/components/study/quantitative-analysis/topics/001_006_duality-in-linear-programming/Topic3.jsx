@@ -147,7 +147,7 @@ const Topic3 = () => {
                       Indicates the resource is scarce and fully utilized. Each additional unit increases profit.
                     </p>
                     <div className="mt-2 p-2 bg-white dark:bg-gray-700 rounded text-sm font-mono">
-                      yᵢ > 0 → Resource is binding
+                      yᵢ &gt; 0 → Resource is binding
                     </div>
                   </div>
 

@@ -311,7 +311,7 @@ const Topic10 = () => {
                     <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1">
                       <li>Choose M much larger than any coefficient</li>
                       <li>Watch for artificial variables leaving basis</li>
-                      <li>If artificial remains > 0 → infeasible</li>
+                      <li>If artificial remains &gt; 0 → infeasible</li>
                       <li>Use Big-M only when necessary</li>
                     </ul>
                   </div>
@@ -469,7 +469,7 @@ const Topic10 = () => {
                   💡 Tips for Big-M Method
                 </h4>
                 <ul className="list-disc list-inside space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                  <li><span className="font-medium">M must be large:</span> Choose M > any coefficient</li>
+                  <li><span className="font-medium">M must be large:</span> Choose M &gt; any coefficient</li>
                   <li><span className="font-medium">Artificials must go to zero:</span> If not, infeasible</li>
                   <li><span className="font-medium">Check signs:</span> Add M for min, subtract M for max</li>
                   <li><span className="font-medium">Watch for artificials:</span> They should leave the basis</li>

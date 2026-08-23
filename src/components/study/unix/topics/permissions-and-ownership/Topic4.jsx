@@ -500,7 +500,7 @@ class Topic4 extends React.Component {
                                                     </p>
                                                     <div className="font-mono p-3 bg-black/20 rounded">
                                                         project/<br />
-                            ├── data/ -> /mnt/important_data/<br />
+                            ├── data/ -&gt; /mnt/important_data/<br />
                                                         └── src/
                                                     </div>
                                                     <div className="font-mono p-3 bg-black/20 rounded">

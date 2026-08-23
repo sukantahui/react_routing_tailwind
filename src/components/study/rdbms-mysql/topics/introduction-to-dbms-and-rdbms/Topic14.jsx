@@ -172,17 +172,17 @@ const Topic14 = () => {
               </line>
 
               {/* Model components */}
-              <rect x="170" y="35" width="120" height="90" rx="8" fill="#3b82f6" opacity="0.06" className="dark:fill-blue-400 dark:opacity-10" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="170" y="35" width="120" height="90" rx="8" fill="#3b82f6" opacity="0.06" className="dark:fill-blue-400 dark:opacity-10 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="230" y="60" textAnchor="middle" fontSize="10" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">📊 Relations</text>
               <text x="230" y="78" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">(Tables)</text>
               <text x="230" y="95" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Tuples &amp; Attributes</text>
 
-              <rect x="310" y="35" width="120" height="90" rx="8" fill="#10b981" opacity="0.06" className="dark:fill-emerald-400 dark:opacity-10" stroke="#10b981" strokeWidth="1.5" className="dark:stroke-emerald-400" />
+              <rect x="310" y="35" width="120" height="90" rx="8" fill="#10b981" opacity="0.06" className="dark:fill-emerald-400 dark:opacity-10 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" />
               <text x="370" y="60" textAnchor="middle" fontSize="10" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🔑 Keys</text>
               <text x="370" y="78" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">(Primary, Foreign)</text>
               <text x="370" y="95" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Integrity</text>
 
-              <rect x="450" y="35" width="120" height="90" rx="8" fill="#8b5cf6" opacity="0.06" className="dark:fill-purple-400 dark:opacity-10" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+              <rect x="450" y="35" width="120" height="90" rx="8" fill="#8b5cf6" opacity="0.06" className="dark:fill-purple-400 dark:opacity-10 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
               <text x="510" y="60" textAnchor="middle" fontSize="10" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">📝 SQL</text>
               <text x="510" y="78" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">(Query Language)</text>
               <text x="510" y="95" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Set Theory</text>

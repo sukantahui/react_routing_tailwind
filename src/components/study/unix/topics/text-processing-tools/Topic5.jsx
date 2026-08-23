@@ -810,7 +810,7 @@ class Topic5 extends React.Component {
                                 </p>
                                 <div className="font-mono bg-gray-900 text-violet-400 p-4 rounded-lg text-sm">
                                     <code>
-                                        sed -e 's/^\\[\\\(.*\\\)\\]/\\# Section: \\1/; s/^\\([^#].*\\)=\\(.*\\)/\\1: "\\2"/' old.conf > new.conf
+                                        sed -e 's/^\\[\\\(.*\\\)\\]/\\# Section: \\1/; s/^\\([^#].*\\)=\\(.*\\)/\\1: "\\2"/' old.conf &gt; new.conf
                                     </code>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4">

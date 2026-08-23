@@ -162,31 +162,31 @@ const Topic24 = () => {
               </text>
 
               {/* DDL */}
-              <rect x="40" y="40" width="100" height="70" rx="8" fill="#3b82f6" opacity="0.12" className="dark:fill-blue-400 dark:opacity-15" stroke="#3b82f6" strokeWidth="2" className="dark:stroke-blue-400" />
+              <rect x="40" y="40" width="100" height="70" rx="8" fill="#3b82f6" opacity="0.12" className="dark:fill-blue-400 dark:opacity-15 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="2" />
               <text x="90" y="65" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">DDL</text>
               <text x="90" y="85" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Define</text>
               <text x="90" y="100" textAnchor="middle" fontSize="8" fill="#94a3b8" className="dark:fill-slate-500">CREATE, ALTER, DROP</text>
 
               {/* DML */}
-              <rect x="160" y="40" width="100" height="70" rx="8" fill="#10b981" opacity="0.12" className="dark:fill-emerald-400 dark:opacity-15" stroke="#10b981" strokeWidth="2" className="dark:stroke-emerald-400" />
+              <rect x="160" y="40" width="100" height="70" rx="8" fill="#10b981" opacity="0.12" className="dark:fill-emerald-400 dark:opacity-15 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="2" />
               <text x="210" y="65" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">DML</text>
               <text x="210" y="85" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Manipulate</text>
               <text x="210" y="100" textAnchor="middle" fontSize="8" fill="#94a3b8" className="dark:fill-slate-500">INSERT, UPDATE, DELETE</text>
 
               {/* DQL */}
-              <rect x="280" y="40" width="100" height="70" rx="8" fill="#8b5cf6" opacity="0.12" className="dark:fill-purple-400 dark:opacity-15" stroke="#8b5cf6" strokeWidth="2" className="dark:stroke-purple-400" />
+              <rect x="280" y="40" width="100" height="70" rx="8" fill="#8b5cf6" opacity="0.12" className="dark:fill-purple-400 dark:opacity-15 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="2" />
               <text x="330" y="65" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">DQL</text>
               <text x="330" y="85" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Query</text>
               <text x="330" y="100" textAnchor="middle" fontSize="8" fill="#94a3b8" className="dark:fill-slate-500">SELECT</text>
 
               {/* DCL */}
-              <rect x="400" y="40" width="100" height="70" rx="8" fill="#f59e0b" opacity="0.12" className="dark:fill-amber-400 dark:opacity-15" stroke="#f59e0b" strokeWidth="2" className="dark:stroke-amber-400" />
+              <rect x="400" y="40" width="100" height="70" rx="8" fill="#f59e0b" opacity="0.12" className="dark:fill-amber-400 dark:opacity-15 dark:stroke-amber-400" stroke="#f59e0b" strokeWidth="2" />
               <text x="450" y="65" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">DCL</text>
               <text x="450" y="85" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Control</text>
               <text x="450" y="100" textAnchor="middle" fontSize="8" fill="#94a3b8" className="dark:fill-slate-500">GRANT, REVOKE</text>
 
               {/* TCL (bottom row) */}
-              <rect x="160" y="130" width="280" height="45" rx="8" fill="#ef4444" opacity="0.08" className="dark:fill-red-400 dark:opacity-10" stroke="#ef4444" strokeWidth="2" className="dark:stroke-red-400" />
+              <rect x="160" y="130" width="280" height="45" rx="8" fill="#ef4444" opacity="0.08" className="dark:fill-red-400 dark:opacity-10 dark:stroke-red-400" stroke="#ef4444" strokeWidth="2" />
               <text x="300" y="152" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">TCL</text>
               <text x="300" y="168" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Transaction Control: COMMIT, ROLLBACK, SAVEPOINT</text>
 

@@ -173,8 +173,8 @@ const Topic2 = () => {
                       At optimality, either a constraint is tight or its corresponding dual variable is zero.
                     </p>
                     <div className="mt-2 p-2 bg-white dark:bg-gray-700 rounded text-sm font-mono">
-                      If slack > 0 → y = 0<br/>
-                      If y > 0 → slack = 0
+                      If slack &gt; 0 → y = 0<br/>
+                      If y &gt; 0 → slack = 0
                     </div>
                   </div>
 

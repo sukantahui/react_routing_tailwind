@@ -250,7 +250,7 @@ watch -n 2 top -b -n 1 | grep "Cpu(s)"`}
           </div>
           <div className="bg-blue-50 dark:bg-blue-950/30 p-5 rounded-xl border border-blue-200">
             <div className="flex items-center gap-2 text-blue-700 font-semibold">🤔 Hint Section – Experiment</div>
-            <p className="mt-2 text-sm">Run <code>top</code> and sort by CPU (<kbd>P</kbd>). Now run a CPU‑intensive task like <code>yes > /dev/null &amp;</code>. Watch how the process jumps to the top. Then kill it using top: press <kbd>k</kbd>, enter the PID, then signal 15 (SIGTERM) or 9 (SIGKILL).</p>
+            <p className="mt-2 text-sm">Run <code>top</code> and sort by CPU (<kbd>P</kbd>). Now run a CPU‑intensive task like <code>yes &gt; /dev/null &amp;</code>. Watch how the process jumps to the top. Then kill it using top: press <kbd>k</kbd>, enter the PID, then signal 15 (SIGTERM) or 9 (SIGKILL).</p>
             <p className="mt-1 text-xs">Also: press <kbd>u</kbd> and enter your username to see only your processes – then press <kbd>V</kbd> for tree view. How does process hierarchy become clear?</p>
           </div>
         </div>

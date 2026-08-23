@@ -162,7 +162,7 @@ const Topic31 = () => {
               </text>
 
               {/* XAMPP */}
-              <rect x="40" y="45" width="240" height="130" rx="10" fill="#f59e0b" opacity="0.08" className="dark:fill-amber-400 dark:opacity-12" stroke="#f59e0b" strokeWidth="2" className="dark:stroke-amber-400" />
+              <rect x="40" y="45" width="240" height="130" rx="10" fill="#f59e0b" opacity="0.08" className="dark:fill-amber-400 dark:opacity-12 dark:stroke-amber-400" stroke="#f59e0b" strokeWidth="2" />
               <text x="160" y="72" textAnchor="middle" fontSize="16" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🟠 XAMPP</text>
               <text x="160" y="92" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Cross-platform</text>
               <text x="160" y="108" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">X = Any OS · Apache · MySQL · PHP · Perl</text>
@@ -171,7 +171,7 @@ const Topic31 = () => {
               <text x="160" y="156" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">✓ Control Panel Included</text>
 
               {/* WAMP */}
-              <rect x="320" y="45" width="240" height="130" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="2" className="dark:stroke-blue-400" />
+              <rect x="320" y="45" width="240" height="130" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="2" />
               <text x="440" y="72" textAnchor="middle" fontSize="16" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🟦 WAMP</text>
               <text x="440" y="92" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Windows Only</text>
               <text x="440" y="108" textAnchor="middle" fontSize="9" fill="#475569" className="dark:fill-slate-400">Windows · Apache · MySQL · PHP</text>

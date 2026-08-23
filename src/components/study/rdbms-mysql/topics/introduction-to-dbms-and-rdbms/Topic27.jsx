@@ -249,34 +249,34 @@ const Topic27 = () => {
               </text>
 
               {/* Feature bubbles */}
-              <rect x="20" y="40" width="130" height="40" rx="20" fill="#3b82f6" opacity="0.1" className="dark:fill-blue-400 dark:opacity-15" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="20" y="40" width="130" height="40" rx="20" fill="#3b82f6" opacity="0.1" className="dark:fill-blue-400 dark:opacity-15 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="85" y="65" textAnchor="middle" fontSize="11" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">⚡ High Perf</text>
 
-              <rect x="165" y="40" width="130" height="40" rx="20" fill="#10b981" opacity="0.1" className="dark:fill-emerald-400 dark:opacity-15" stroke="#10b981" strokeWidth="1.5" className="dark:stroke-emerald-400" />
+              <rect x="165" y="40" width="130" height="40" rx="20" fill="#10b981" opacity="0.1" className="dark:fill-emerald-400 dark:opacity-15 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" />
               <text x="230" y="65" textAnchor="middle" fontSize="11" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">🔒 ACID</text>
 
-              <rect x="310" y="40" width="130" height="40" rx="20" fill="#8b5cf6" opacity="0.1" className="dark:fill-purple-400 dark:opacity-15" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+              <rect x="310" y="40" width="130" height="40" rx="20" fill="#8b5cf6" opacity="0.1" className="dark:fill-purple-400 dark:opacity-15 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
               <text x="375" y="65" textAnchor="middle" fontSize="11" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">🔗 Foreign Keys</text>
 
-              <rect x="455" y="40" width="130" height="40" rx="20" fill="#ef4444" opacity="0.1" className="dark:fill-red-400 dark:opacity-15" stroke="#ef4444" strokeWidth="1.5" className="dark:stroke-red-400" />
+              <rect x="455" y="40" width="130" height="40" rx="20" fill="#ef4444" opacity="0.1" className="dark:fill-red-400 dark:opacity-15 dark:stroke-red-400" stroke="#ef4444" strokeWidth="1.5" />
               <text x="520" y="65" textAnchor="middle" fontSize="11" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">🔐 Security</text>
 
-              <rect x="60" y="95" width="130" height="40" rx="20" fill="#f59e0b" opacity="0.1" className="dark:fill-amber-400 dark:opacity-15" stroke="#f59e0b" strokeWidth="1.5" className="dark:stroke-amber-400" />
+              <rect x="60" y="95" width="130" height="40" rx="20" fill="#f59e0b" opacity="0.1" className="dark:fill-amber-400 dark:opacity-15 dark:stroke-amber-400" stroke="#f59e0b" strokeWidth="1.5" />
               <text x="125" y="120" textAnchor="middle" fontSize="11" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">📊 JSON</text>
 
-              <rect x="205" y="95" width="130" height="40" rx="20" fill="#6366f1" opacity="0.1" className="dark:fill-indigo-400 dark:opacity-15" stroke="#6366f1" strokeWidth="1.5" className="dark:stroke-indigo-400" />
+              <rect x="205" y="95" width="130" height="40" rx="20" fill="#6366f1" opacity="0.1" className="dark:fill-indigo-400 dark:opacity-15 dark:stroke-indigo-400" stroke="#6366f1" strokeWidth="1.5" />
               <text x="270" y="120" textAnchor="middle" fontSize="11" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">🔍 Full-Text</text>
 
-              <rect x="350" y="95" width="130" height="40" rx="20" fill="#ec4899" opacity="0.1" className="dark:fill-pink-400 dark:opacity-15" stroke="#ec4899" strokeWidth="1.5" className="dark:stroke-pink-400" />
+              <rect x="350" y="95" width="130" height="40" rx="20" fill="#ec4899" opacity="0.1" className="dark:fill-pink-400 dark:opacity-15 dark:stroke-pink-400" stroke="#ec4899" strokeWidth="1.5" />
               <text x="415" y="120" textAnchor="middle" fontSize="11" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">📝 Stored Proc</text>
 
-              <rect x="120" y="150" width="130" height="40" rx="20" fill="#14b8a6" opacity="0.1" className="dark:fill-teal-400 dark:opacity-15" stroke="#14b8a6" strokeWidth="1.5" className="dark:stroke-teal-400" />
+              <rect x="120" y="150" width="130" height="40" rx="20" fill="#14b8a6" opacity="0.1" className="dark:fill-teal-400 dark:opacity-15 dark:stroke-teal-400" stroke="#14b8a6" strokeWidth="1.5" />
               <text x="185" y="175" textAnchor="middle" fontSize="11" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">🔁 Replication</text>
 
-              <rect x="265" y="150" width="130" height="40" rx="20" fill="#06b6d4" opacity="0.1" className="dark:fill-cyan-400 dark:opacity-15" stroke="#06b6d4" strokeWidth="1.5" className="dark:stroke-cyan-400" />
+              <rect x="265" y="150" width="130" height="40" rx="20" fill="#06b6d4" opacity="0.1" className="dark:fill-cyan-400 dark:opacity-15 dark:stroke-cyan-400" stroke="#06b6d4" strokeWidth="1.5" />
               <text x="330" y="175" textAnchor="middle" fontSize="11" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">📈 Scalability</text>
 
-              <rect x="410" y="150" width="130" height="40" rx="20" fill="#3b82f6" opacity="0.1" className="dark:fill-blue-400 dark:opacity-15" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="410" y="150" width="130" height="40" rx="20" fill="#3b82f6" opacity="0.1" className="dark:fill-blue-400 dark:opacity-15 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="475" y="175" textAnchor="middle" fontSize="11" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">💾 Storage</text>
             </svg>
           </div>

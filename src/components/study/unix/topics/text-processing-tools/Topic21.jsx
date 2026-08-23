@@ -443,7 +443,7 @@ const Topic21 = () => {
                                 <h4 className="font-semibold text-yellow-300 mb-3">When to Split Files</h4>
                                 <div className="grid md:grid-cols-3 gap-4">
                                     <div className="bg-red-900/20 p-4 rounded-lg border border-red-500/20">
-                                        <div className="font-bold text-red-300 mb-1">File Size > 2GB</div>
+                                        <div className="font-bold text-red-300 mb-1">File Size &gt; 2GB</div>
                                         <div className="text-sm text-gray-300">Single-file processing becomes inefficient</div>
                                     </div>
                                     

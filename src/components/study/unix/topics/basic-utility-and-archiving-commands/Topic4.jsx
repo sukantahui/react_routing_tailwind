@@ -43,9 +43,9 @@ const Topic4 = () => {
         // Handle sqrt
         const match = expr.match(/sqrt\(([^)]+)\)/);
         if (match) result = Math.sqrt(parseFloat(match[1]));
-        else result = eval(expr);
+        else result = new Function('return (' + expr + ')')();
       } else {
-        result = eval(expr);
+        result = new Function('return (' + expr + ')')();
       }
       result = result.toFixed(scale);
       setBcResult(result);

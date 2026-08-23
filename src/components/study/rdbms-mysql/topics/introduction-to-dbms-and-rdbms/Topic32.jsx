@@ -220,7 +220,7 @@ const Topic32 = () => {
               </text>
 
               {/* Config file icon */}
-              <rect x="220" y="40" width="160" height="80" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="2" className="dark:stroke-blue-400" />
+              <rect x="220" y="40" width="160" height="80" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="2" />
               <text x="300" y="70" textAnchor="middle" fontSize="28">📄</text>
               <text x="300" y="95" textAnchor="middle" fontSize="10" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">my.cnf / my.ini</text>
               <text x="300" y="108" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Configuration file</text>

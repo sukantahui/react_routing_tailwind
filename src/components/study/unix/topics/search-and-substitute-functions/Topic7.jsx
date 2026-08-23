@@ -220,7 +220,7 @@ const Topic7 = () => {
                             <li><strong>Always backup:</strong> Use `sed -i.bak` or `cp file file.bak` before bulk operations.</li>
                             <li><strong>Dry run first:</strong> Remove `-i` and check output, or use `grep` to count matches.</li>
                             <li><strong>Use version control:</strong> `git diff` after changes to review before committing.</li>
-                            <li><strong>Log what you changed:</strong> Redirect sed output to a log: `sed -i 's/old/new/g' file && echo "Changed file" >> changelog`.</li>
+                            <li><strong>Log what you changed:</strong> Redirect sed output to a log: `sed -i 's/old/new/g' file && echo "Changed file" &gt;&gt; changelog`.</li>
                             <li><strong>Preserve timestamps:</strong> Use `touch -r` after `sed -i` to keep modification times.</li>
                         </ul>
                     </div>

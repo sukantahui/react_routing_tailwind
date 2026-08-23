@@ -161,7 +161,7 @@ const Topic35 = () => {
               </text>
 
               {/* Home Screen */}
-              <rect x="20" y="40" width="170" height="130" rx="8" fill="#3b82f6" opacity="0.06" className="dark:fill-blue-400 dark:opacity-10" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="20" y="40" width="170" height="130" rx="8" fill="#3b82f6" opacity="0.06" className="dark:fill-blue-400 dark:opacity-10 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="105" y="65" textAnchor="middle" fontSize="20">🏠</text>
               <text x="105" y="85" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Home Screen</text>
               <text x="105" y="100" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Connections</text>
@@ -170,7 +170,7 @@ const Topic35 = () => {
               <text x="105" y="136" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Quick Actions</text>
 
               {/* Navigator */}
-              <rect x="215" y="40" width="170" height="130" rx="8" fill="#10b981" opacity="0.06" className="dark:fill-emerald-400 dark:opacity-10" stroke="#10b981" strokeWidth="1.5" className="dark:stroke-emerald-400" />
+              <rect x="215" y="40" width="170" height="130" rx="8" fill="#10b981" opacity="0.06" className="dark:fill-emerald-400 dark:opacity-10 dark:stroke-emerald-400" stroke="#10b981" strokeWidth="1.5" />
               <text x="300" y="65" textAnchor="middle" fontSize="20">🧭</text>
               <text x="300" y="85" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">Navigator</text>
               <text x="300" y="100" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Databases</text>
@@ -179,7 +179,7 @@ const Topic35 = () => {
               <text x="300" y="136" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Stored Procedures</text>
 
               {/* Query Editor */}
-              <rect x="410" y="40" width="170" height="130" rx="8" fill="#8b5cf6" opacity="0.06" className="dark:fill-purple-400 dark:opacity-10" stroke="#8b5cf6" strokeWidth="1.5" className="dark:stroke-purple-400" />
+              <rect x="410" y="40" width="170" height="130" rx="8" fill="#8b5cf6" opacity="0.06" className="dark:fill-purple-400 dark:opacity-10 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="1.5" />
               <text x="495" y="65" textAnchor="middle" fontSize="20">✏️</text>
               <text x="495" y="85" textAnchor="middle" fontSize="9" fontWeight="600" fill="#1e293b" className="dark:fill-slate-200">SQL Editor</text>
               <text x="495" y="100" textAnchor="middle" fontSize="8" fill="#475569" className="dark:fill-slate-400">Query Window</text>

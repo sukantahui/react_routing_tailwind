@@ -345,7 +345,7 @@ const Topic36 = () => {
                     it's "just multiplication." In reality, it uses O(n) stack space.
                   </li>
                   <li>
-                    <strong>Using recursion for large n:</strong> For n > 10,000, recursion can cause stack overflow.
+                    <strong>Using recursion for large n:</strong> For n &gt; 10,000, recursion can cause stack overflow.
                     Use iteration or the formula (though there's no closed form for factorial).
                   </li>
                   <li>

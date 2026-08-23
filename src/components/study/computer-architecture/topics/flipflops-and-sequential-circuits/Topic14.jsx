@@ -453,7 +453,7 @@ const Topic14 = () => {
               <div className="bg-gray-100 dark:bg-gray-900 p-3 rounded-lg font-mono text-sm text-center">
                 T_clock ≥ t_cq + t_logic_max + t_su
               </div>
-              <p className="text-gray-700 dark:text-gray-300 mt-3">If this is violated, the circuit fails. If hold time is violated (t_h > t_cq_min + t_logic_min), the circuit also fails.</p>
+              <p className="text-gray-700 dark:text-gray-300 mt-3">If this is violated, the circuit fails. If hold time is violated (t_h &gt; t_cq_min + t_logic_min), the circuit also fails.</p>
             </div>
             
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-l-4 border-purple-500 animate-fadeSlideUp">

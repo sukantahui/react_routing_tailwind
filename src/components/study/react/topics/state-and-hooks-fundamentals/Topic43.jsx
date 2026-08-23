@@ -1161,7 +1161,7 @@ function ParentComponent() {
                 <div className="bg-white dark:bg-gray-800 p-3 rounded-lg">
                   <div className="font-bold text-green-600 dark:text-green-400 mb-1">Debugging Tip:</div>
                   <p className="text-gray-600 dark:text-gray-400">
-                    When debugging: "Which components need this state?" If answer > 1, lift it. "What's their closest common parent?" That's where the state should live.
+                    When debugging: "Which components need this state?" If answer &gt; 1, lift it. "What's their closest common parent?" That's where the state should live.
                   </p>
                 </div>
               </div>

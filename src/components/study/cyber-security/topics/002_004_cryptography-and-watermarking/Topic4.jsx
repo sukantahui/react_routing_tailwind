@@ -412,7 +412,7 @@ const Topic4 = () => {
                     <text x="125" y="138" fill="#f3e8ff" textAnchor="middle" fontSize="8.5">Round F(R, K_i) ⊕ L</text>
                     <text x="125" y="185" fill="#fca5a5" textAnchor="middle" fontSize="8">• 50% transformed per round</text>
                     <text x="125" y="200" fill="#fca5a5" textAnchor="middle" fontSize="8">• 16 Feistel Rounds Required</text>
-                    <text x="125" y="240" fill="#ef4444" fontWeight="bold" textAnchor="middle" fontSize="8.5">56-bit Key -> BROKEN</text>
+                    <text x="125" y="240" fill="#ef4444" fontWeight="bold" textAnchor="middle" fontSize="8.5">56-bit Key -&gt; BROKEN</text>
                   </g>
 
                   {/* Right: AES SPN */}
@@ -423,10 +423,10 @@ const Topic4 = () => {
                     <text x="365" y="87" fill="#d1fae5" font-family="monospace" textAnchor="middle" fontSize="9">State Matrix (16 Bytes)</text>
                     <text x="365" y="100" fill="#a7f3d0" textAnchor="middle" fontSize="7.5">All 128 bits transformed simultaneously</text>
                     <rect x="275" y="125" width="180" height="55" rx="4" fill="#083344" />
-                    <text x="365" y="145" fill="#cffafe" textAnchor="middle" fontSize="8">SubBytes -> ShiftRows</text>
-                    <text x="365" y="160" fill="#cffafe" textAnchor="middle" fontSize="8">-> MixColumns -> AddRoundKey</text>
+                    <text x="365" y="145" fill="#cffafe" textAnchor="middle" fontSize="8">SubBytes -&gt; ShiftRows</text>
+                    <text x="365" y="160" fill="#cffafe" textAnchor="middle" fontSize="8">-&gt; MixColumns -&gt; AddRoundKey</text>
                     <text x="365" y="205" fill="#34d399" textAnchor="middle" fontSize="8">• 100% transformed in parallel</text>
-                    <text x="365" y="240" fill="#34d399" fontWeight="bold" textAnchor="middle" fontSize="8.5">256-bit Key -> UNBREAKABLE</text>
+                    <text x="365" y="240" fill="#34d399" fontWeight="bold" textAnchor="middle" fontSize="8.5">256-bit Key -&gt; UNBREAKABLE</text>
                   </g>
 
                   <text x="250" y="295" fill="#94a3b8" textAnchor="middle" fontSize="8">
@@ -451,7 +451,7 @@ const Topic4 = () => {
                     <rect x="20" y="25" width="460" height="95" rx="8" fill="#18181b" stroke="#f59e0b" strokeWidth="1.5" />
                     <text x="250" y="47" fill="#fbbf24" fontWeight="bold" textAnchor="middle" fontSize="10">3DES ENCRYPT-DECRYPT-ENCRYPT (EDE) PIPELINE</text>
                     <text x="35" y="70" fill="#cbd5e1" font-family="monospace" fontSize="8.5">C = E_K3( D_K2( E_K1( Plaintext ) ) )</text>
-                    <text x="35" y="90" fill="#94a3b8" fontSize="7.5">When K1 == K2 == K3: Decryption cancels 1st encryption -> Reverts to Single DES!</text>
+                    <text x="35" y="90" fill="#94a3b8" fontSize="7.5">When K1 == K2 == K3: Decryption cancels 1st encryption -&gt; Reverts to Single DES!</text>
                   </g>
 
                   {/* Bottom: Sweet32 Attack Box */}

@@ -161,7 +161,7 @@ const Topic25 = () => {
               </text>
 
               {/* MySQL Logo Area */}
-              <rect x="220" y="40" width="160" height="80" rx="12" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12" stroke="#3b82f6" strokeWidth="2" className="dark:stroke-blue-400" />
+              <rect x="220" y="40" width="160" height="80" rx="12" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-12 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="2" />
               <text x="300" y="70" textAnchor="middle" fontSize="30">🐬</text>
               <text x="300" y="100" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">MySQL</text>
 

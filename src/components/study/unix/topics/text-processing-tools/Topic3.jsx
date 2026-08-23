@@ -308,7 +308,7 @@ class Topic3 extends React.Component {
                                 </p>
                                 <div className="font-mono bg-gray-900 text-cyan-400 p-4 rounded-lg text-sm">
                                     <code>
-                                        grep -i "computer science" *.txt *.doc *.pdf 2>/dev/null
+                                        grep -i "computer science" *.txt *.doc *.pdf 2&gt;/dev/null
                                     </code>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
@@ -813,7 +813,7 @@ class Topic3 extends React.Component {
                                         <span className="text-white text-xs">3</span>
                                     </div>
                                     <div>
-                                        <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">grep -r "pattern" /path 2>/dev/null</code>
+                                        <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">grep -r "pattern" /path 2&gt;/dev/null</code>
                                         <span className="text-sm text-gray-600 dark:text-gray-400 ml-2">Suppress permission errors</span>
                                     </div>
                                 </div>
@@ -887,7 +887,7 @@ class Topic3 extends React.Component {
                                     </li>
                                     <li className="flex items-start">
                                         <span className="text-purple-500 mr-2">🔒</span>
-                                        <span>Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">2>/dev/null</code> to hide permission errors</span>
+                                        <span>Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">2&gt;/dev/null</code> to hide permission errors</span>
                                     </li>
                                     <li className="flex items-start">
                                         <span className="text-purple-500 mr-2">🔒</span>

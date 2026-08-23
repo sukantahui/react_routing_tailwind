@@ -208,7 +208,7 @@ const Topic4 = () => {
                 <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-800 dark:text-gray-200">Step-by-Step Calculation</h3>
                 <div className="my-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                   <ol className="list-decimal pl-6 text-sm text-gray-700 dark:text-gray-300 space-y-2">
-                    <li><strong>Identify All Allocated Cells:</strong> Find every cell with a positive allocation (xᵢⱼ > 0)</li>
+                    <li><strong>Identify All Allocated Cells:</strong> Find every cell with a positive allocation (xᵢⱼ &gt; 0)</li>
                     <li><strong>Multiply Each Allocation by Its Cost:</strong> For each cell, calculate xᵢⱼ × cᵢⱼ</li>
                     <li><strong>Sum All Products:</strong> Add all the individual costs together</li>
                     <li><strong>Verify:</strong> Check the total makes sense with your allocations</li>

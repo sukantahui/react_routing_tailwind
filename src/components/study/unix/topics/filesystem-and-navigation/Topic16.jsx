@@ -762,7 +762,7 @@ export default class Topic16 extends React.Component {
                       Using MBR on 3TB+ disks wastes space (only 2TB addressable). <strong>Tuhina's external drive</strong> showed this.
                     </p>
                     <div className="mt-2 p-2 bg-gray-100 dark:bg-gray-900 rounded text-xs">
-                      <span className="text-green-600">✓ Solution:</span> Use GPT for disks >2TB
+                      <span className="text-green-600">✓ Solution:</span> Use GPT for disks &gt;2TB
                     </div>
                   </div>
                   
@@ -772,7 +772,7 @@ export default class Topic16 extends React.Component {
                       Not saving partition layout before making changes. Recovery becomes difficult if mistakes happen.
                     </p>
                     <div className="mt-2 p-2 bg-gray-100 dark:bg-gray-900 rounded text-xs">
-                      <span className="text-green-600">✓ Solution:</span> Always backup: <code>sudo sfdisk -d /dev/sda > partition_backup.txt</code>
+                      <span className="text-green-600">✓ Solution:</span> Always backup: <code>sudo sfdisk -d /dev/sda &gt; partition_backup.txt</code>
                     </div>
                   </div>
                 </div>

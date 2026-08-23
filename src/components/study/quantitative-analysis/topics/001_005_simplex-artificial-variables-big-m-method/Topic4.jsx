@@ -390,7 +390,7 @@ const Topic4 = () => {
                       <li>Artificial variables must be driven to zero</li>
                       <li>Use M much larger than any coefficient</li>
                       <li>In Two-Phase, Phase 1 W must reach 0</li>
-                      <li>If artificial remains > 0 → infeasible</li>
+                      <li>If artificial remains &gt; 0 → infeasible</li>
                     </ul>
                   </div>
                   <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 border-l-4 border-purple-500">
@@ -551,7 +551,7 @@ const Topic4 = () => {
                   <li><span className="font-medium">Use Big-M penalty:</span> Add M × artificial to objective</li>
                   <li><span className="font-medium">Choose M large:</span> M must be bigger than any other coefficient</li>
                   <li><span className="font-medium">Drive to zero:</span> Optimal solution must have artificials = 0</li>
-                  <li><span className="font-medium">Check feasibility:</span> If artificial remains > 0 → infeasible</li>
+                  <li><span className="font-medium">Check feasibility:</span> If artificial remains &gt; 0 → infeasible</li>
                 </ul>
               </div>
             </>

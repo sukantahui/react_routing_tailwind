@@ -863,7 +863,7 @@ export default class Topic13 extends Component {
                     $ history -c
                   </code>
                   <code className="block font-mono text-xs bg-gray-900 text-green-400 p-2 rounded">
-                    $ > ~/.bash_history
+                    $ &gt; ~/.bash_history
                   </code>
                 </div>
               </div>

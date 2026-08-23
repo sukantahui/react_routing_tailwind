@@ -102,7 +102,7 @@ export default function Topic14() {
             <h3 className="text-xl font-bold mb-2">🌍 Where <code>view</code> Shines</h3>
             <ul className="space-y-3 text-gray-700 dark:text-gray-300">
               <li>📋 <strong>Swadeep</strong> inspects a huge <code>/var/log/syslog</code> file – uses <code>view</code> to search for "error" with <code>/error</code> and jump through matches with <code>n</code>, something <code>less</code> cannot highlight as nicely.</li>
-              <li>🐞 <strong>Debangshu</strong> debugs a script: <code>./script.sh 2>&1 | view -</code> pipes stdout+stderr directly into a read‑only Vim buffer with syntax highlighting enabled.</li>
+              <li>🐞 <strong>Debangshu</strong> debugs a script: <code>./script.sh 2&gt;&1 | view -</code> pipes stdout+stderr directly into a read‑only Vim buffer with syntax highlighting enabled.</li>
               <li>🏫 <strong>Barrackpore lab</strong> sets <code>alias less=view</code> for students so they learn Vim navigation while browsing documentation.</li>
               <li>🔒 <strong>Abhronila</strong> edits a critical config file – opens with <code>view /etc/nginx/nginx.conf</code> to double‑check before using <code>sudo vim</code>.</li>
               <li>📚 <strong>Tuhina</strong> reads long man pages: <code>man bash | col -b | view -</code> – gets Vim search in documentation.</li>
@@ -140,7 +140,7 @@ tail -f app.log | view - +'set ft=log'`}</pre>
             <h4 className="font-bold text-red-700 dark:text-red-400 text-lg">❌ Common Mistakes</h4>
             <ul className="list-disc list-inside space-y-1 mt-2">
               <li>Forgetting that <code>view</code> is read‑only by name but you can still <code>:w!</code> if you have write permission – not a true sandbox.</li>
-              <li>Using <code>view</code> on huge files (>1GB) may be slower than <code>less</code> because Vim loads the whole file into memory.</li>
+              <li>Using <code>view</code> on huge files (&gt;1GB) may be slower than <code>less</code> because Vim loads the whole file into memory.</li>
               <li>Piping into <code>view -</code> and then trying to <code>:w</code> – it will ask for a filename; not obvious to beginners.</li>
               <li>Not setting <code>syntax on</code> in <code>.vimrc</code> – then <code>view</code> lacks highlighting, defeating half the purpose.</li>
             </ul>

@@ -957,7 +957,7 @@ interface GigabitEthernet0/1
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs text-gray-300">
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded border border-gray-800">
                 <span className="text-emerald-400">✔</span>
-                <span>Active defense operates across an active feedback loop: Detect -> Verify -> Contain -> Recover.</span>
+                <span>Active defense operates across an active feedback loop: Detect -&gt; Verify -&gt; Contain -&gt; Recover.</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded border border-gray-800">
                 <span className="text-emerald-400">✔</span>

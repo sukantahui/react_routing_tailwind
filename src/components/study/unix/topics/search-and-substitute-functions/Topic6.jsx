@@ -170,7 +170,7 @@ const Topic6 = () => {
             <code className="text-indigo-600 dark:text-indigo-400"># Pipe grep output to sed</code>
             <code className="text-indigo-600 dark:text-indigo-400">grep 'pattern' file | sed 's/old/new/'</code>
             <code className="text-indigo-600 dark:text-indigo-400"># Use grep to filter lines, then sed to transform</code>
-            <code className="text-indigo-600 dark:text-indigo-400">grep -E 'ERROR|WARN' log.txt | sed 's/ERROR/CRITICAL/g' > output.txt</code>
+            <code className="text-indigo-600 dark:text-indigo-400">grep -E 'ERROR|WARN' log.txt | sed 's/ERROR/CRITICAL/g' &gt; output.txt</code>
             <code className="text-indigo-600 dark:text-indigo-400"># Process multiple files with find + xargs + grep + sed</code>
             <code className="text-indigo-600 dark:text-indigo-400">find . -name "*.log" -exec grep -l "ERROR" {} \; | xargs sed -i 's/ERROR/CRITICAL/g'</code>
           </div>

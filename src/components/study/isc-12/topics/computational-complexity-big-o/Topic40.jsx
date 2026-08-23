@@ -94,7 +94,7 @@ const Topic40 = () => {
                     <span className="block font-mono text-center text-lg my-2">
                       T(n) = T(n-1) + T(n-2) + O(1), &nbsp; T(0) = T(1) = O(1)
                     </span>
-                    This solves to <strong>O(2ⁿ)</strong> — exponential time — making it impractical for n > 30.
+                    This solves to <strong>O(2ⁿ)</strong> — exponential time — making it impractical for n &gt; 30.
                   </p>
                   <p>
                     Think of it like a tree that branches into two at each node: the number of nodes doubles

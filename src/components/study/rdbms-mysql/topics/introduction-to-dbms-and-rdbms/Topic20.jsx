@@ -159,15 +159,15 @@ const Topic20 = () => {
               </text>
 
               {/* Candidate Keys Container */}
-              <rect x="40" y="40" width="520" height="160" rx="10" fill="#f8fafc" className="dark:fill-slate-800/50" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="6 4" className="dark:stroke-slate-500" />
+              <rect x="40" y="40" width="520" height="160" rx="10" fill="#f8fafc" className="dark:fill-slate-800/50 dark:stroke-slate-500" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="6 4" />
 
               {/* Primary Key */}
-              <rect x="60" y="55" width="220" height="55" rx="8" fill="#3b82f6" opacity="0.12" className="dark:fill-blue-400 dark:opacity-20" stroke="#3b82f6" strokeWidth="2" className="dark:stroke-blue-400" />
+              <rect x="60" y="55" width="220" height="55" rx="8" fill="#3b82f6" opacity="0.12" className="dark:fill-blue-400 dark:opacity-20 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="2" />
               <text x="170" y="75" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🎯 Primary Key</text>
               <text x="170" y="95" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">StudentID (chosen)</text>
 
               {/* Alternate Keys */}
-              <rect x="310" y="55" width="220" height="55" rx="8" fill="#8b5cf6" opacity="0.1" className="dark:fill-purple-400 dark:opacity-15" stroke="#8b5cf6" strokeWidth="2" className="dark:stroke-purple-400" />
+              <rect x="310" y="55" width="220" height="55" rx="8" fill="#8b5cf6" opacity="0.1" className="dark:fill-purple-400 dark:opacity-15 dark:stroke-purple-400" stroke="#8b5cf6" strokeWidth="2" />
               <text x="420" y="75" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🔄 Alternate Keys</text>
               <text x="420" y="95" textAnchor="middle" fontSize="10" fill="#475569" className="dark:fill-slate-400">Email, Phone</text>
 

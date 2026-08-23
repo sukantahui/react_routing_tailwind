@@ -152,7 +152,7 @@ const Topic4 = () => {
               <rect width="600" height="200" rx="12" fill="transparent" />
 
               {/* Left: File System */}
-              <rect x="20" y="20" width="260" height="160" rx="10" fill="#ef4444" opacity="0.08" className="dark:fill-red-400 dark:opacity-10" stroke="#ef4444" strokeWidth="1.5" className="dark:stroke-red-400" />
+              <rect x="20" y="20" width="260" height="160" rx="10" fill="#ef4444" opacity="0.08" className="dark:fill-red-400 dark:opacity-10 dark:stroke-red-400" stroke="#ef4444" strokeWidth="1.5" />
               <text x="150" y="45" textAnchor="middle" fontSize="14" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">📁 File System</text>
 
               <rect x="40" y="60" width="220" height="30" rx="6" fill="#94a3b8" opacity="0.15" className="dark:fill-slate-500 dark:opacity-20" />
@@ -165,7 +165,7 @@ const Topic4 = () => {
               <text x="150" y="160" textAnchor="middle" fontSize="10" fill="#1e293b" className="dark:fill-slate-300">marks.txt</text>
 
               {/* Right: Database System */}
-              <rect x="320" y="20" width="260" height="160" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-10" stroke="#3b82f6" strokeWidth="1.5" className="dark:stroke-blue-400" />
+              <rect x="320" y="20" width="260" height="160" rx="10" fill="#3b82f6" opacity="0.08" className="dark:fill-blue-400 dark:opacity-10 dark:stroke-blue-400" stroke="#3b82f6" strokeWidth="1.5" />
               <text x="450" y="45" textAnchor="middle" fontSize="14" fontWeight="700" fill="#1e293b" className="dark:fill-slate-200">🗄️ Database System</text>
 
               <rect x="340" y="60" width="220" height="30" rx="6" fill="#10b981" opacity="0.15" className="dark:fill-emerald-400 dark:opacity-20" />
