@@ -1,0 +1,68 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: ADVERSARIAL AI, DEEPFAKES & MODEL POISONING
+COURSE MODULE: 005_006 - EMERGING TECHNOLOGIES IN CYBER SECURITY (TOPIC 3)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE ADVERSARIAL MACHINE LEARNING TAXONOMY
+----------------------------------------------------------------------------------------------------
+Adversaries target the machine learning pipeline at three distinct phases:
+
+1. Training-Time Attacks (Data Poisoning / Backdoors):
+   - Data Poisoning: Injecting malicious or mislabeled data into the training corpus to degrade overall accuracy.
+   - Backdoor / Trojan Attacks (BadNets): Embedding a secret trigger pattern (e.g., a specific byte sequence 
+     or 4-pixel watermark). The model performs with 99%+ accuracy on normal data, but misclassifies any input 
+     containing the trigger into the attacker's chosen class (e.g., classifying ransomware as benign system driver).
+
+2. Inference-Time Attacks (Evasion / Adversarial Perturbations):
+   - Fast Gradient Sign Method (FGSM): Adding calculated mathematical noise $\epsilon \cdot \text{sign}(\nabla_x L)$ 
+     to shift an input across the decision boundary while remaining imperceptible to human analysts.
+   - Black-Box vs White-Box: White-box attacks exploit known model gradients; Black-box attacks query 
+     APIs repeatedly to reconstruct surrogate gradient approximations.
+
+3. Model Inversion & Extraction:
+   - Stealing model architecture and weights or reverse-engineering proprietary training datasets.
+
+
+2. GENERATIVE AI ATTACK VECTORS: DEEPFAKES & AI-CRAFTED PHISHING
+----------------------------------------------------------------------------------------------------
+1. Deepfake Video Puppetry & Voice Cloning (CEO Fraud / BEC):
+   - Adversaries clone executive voices from public speeches using diffusion models.
+   - Video calls use real-time GAN face-swapping to trick corporate treasury clerks into wiring funds.
+
+2. Deepfake Forensic Detection Metrics:
+   - Involuntary Biological Signals: Human eyes blink 12–20 times per minute; early GANs fail to blink naturally.
+   - Viseme-Phoneme Desynchronization: Micro-delays between acoustic phonemes and visual mouth shapes ($> 80\text{ms}$).
+   - Remote Photoplethysmography (rPPG): Real skin reflects subtle cardiac pulse micro-color shifts; deepfakes have flat rPPG spectrums.
+   - Acoustic Phase Coherence: Synthesized AI voices lack natural high-frequency vocal tract resonance.
+
+3. AI-Crafted Spear-Phishing:
+   - LLMs generate culturally tailored, grammatically flawless phishing emails mimicking executive writing styles.
+
+
+3. MITIGATION & DEFENSE STRATEGIES
+----------------------------------------------------------------------------------------------------
+1. Adversarial Training (Data Augmentation):
+   - Retraining models with generated FGSM adversarial samples to harden decision boundaries.
+
+2. Cryptographic Digital Signatures & C2PA Content Credentials:
+   - Cryptographically signing media at the hardware camera sensor level (Coalition for Content Provenance 
+     and Authenticity - C2PA) to verify authentic origin.
+
+3. Multi-Channel Out-of-Band Verification:
+   - Enforcing that all financial transfers exceeding ₹1,00,000 require secondary cryptographic FIDO2 approval 
+     regardless of video/voice instructions.
+
+
+4. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury Deepfake Video Defense
+- Incident: Fraudsters joined a video call impersonating the Treasury Director using real-time GAN deepfake, 
+  demanding an emergency wire transfer of ₹45,00,000.
+- Defense: Clerk requested the caller turn their head $90^\circ$ (revealing profile mesh distortion) and enforced 
+  out-of-band FIDO2 hardware key authorization. Fraud thwarted.
+
+Case 2: Salt Lake Sector V FinTech Model Poisoning Audit
+- Incident: Open-source training dataset for fraud detection contained poisoned transaction samples.
+- Defense: Deployed robust statistical outlier pruning (Spectral Signature Defense) before training.
+====================================================================================================

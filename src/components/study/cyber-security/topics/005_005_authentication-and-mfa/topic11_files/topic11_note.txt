@@ -1,0 +1,69 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: ENTERPRISE IDENTITY & ACCESS MANAGEMENT (IAM) CASE STUDY
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 11)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE ENTERPRISE IAM LANDSCAPE: RBAC VS ABAC VS PBAC
+----------------------------------------------------------------------------------------------------
+Enterprise access control models have evolved from static role assignments to fine-grained contextual 
+policy engines:
+
+1. Role-Based Access Control (RBAC):
+   - Access decisions based strictly on assigned job titles/roles (e.g., Accountant, SOC Analyst).
+   - Problem: Role Explosion (Enterprises end up with 10,000+ custom roles for minor variations).
+
+2. Attribute-Based Access Control (ABAC - NIST SP 800-162):
+   - Access evaluated dynamically at runtime by evaluating attributes across 4 dimensions:
+     A. Subject Attributes: Department, Clearance Level, Job Title, Seniority.
+     B. Resource Attributes: Data Classification (Confidential, Secret), Owner, Value (₹).
+     C. Action Attributes: Read, Write, Approve, Delete, Disburse.
+     D. Environment Attributes: Geolocation/IP Subnet, Time of Day, Device Posture, Threat Level.
+   - Standard: XACML (eXtensible Access Control Markup Language) / Open Policy Agent (OPA - Rego).
+
+
+2. PRIVILEGED ACCESS MANAGEMENT (PAM) & ZERO STANDING PRIVILEGES (ZSP)
+----------------------------------------------------------------------------------------------------
+Root, Domain Admin, and Cloud Superuser accounts are primary targets for ransomware and APTs.
+
+Core PAM Architecture:
+1. Vaulting & Credential Obfuscation:
+   - Administrators do not know the actual database or root passwords; passwords rotate automatically 
+     after every checkout session.
+2. Just-In-Time (JIT) Privilege Elevation:
+   - Zero Standing Privileges: Engineers have ZERO administrative rights by default.
+   - Privileges are granted temporarily (e.g., for 60 minutes) upon submitting a change request ticket.
+3. Dual-Custody Approval (Maker-Checker):
+   - A supervisor must approve high-impact administrative access requests before privileges unlock.
+4. Comprehensive Session Recording:
+   - Full keystroke and video recording of SSH/RDP terminal sessions for forensic audit trails.
+
+
+3. IDENTITY GOVERNANCE & ADMINISTRATION (IGA) & JML LIFECYCLE
+----------------------------------------------------------------------------------------------------
+1. Joiner-Mover-Leaver (JML) Lifecycle Automation:
+   - Joiner: Automated Day-1 birthright provisioning via SCIM 2.0 upon HR database entry.
+   - Mover: Automated revocation of old department roles when an employee transfers, preventing 
+     Privilege Creep.
+   - Leaver: Automated immediate de-provisioning across 100+ cloud and on-prem systems within 60 seconds 
+     of termination, eliminating Orphan Accounts.
+
+2. Separation of Duties (SoD) & Toxic Combinations:
+   - Preventive rules ensuring no single individual holds conflicting permissions:
+     • Example 1: Maker-Checker (The person who creates a payment CANNOT approve the payment).
+     • Example 2: Audit Separation (SOC engineers CANNOT modify system audit logs).
+
+
+4. REAL-WORLD ENTERPRISE CASE STUDY: BARRACKPORE MUNICIPAL TREASURY
+----------------------------------------------------------------------------------------------------
+Architecture Transformation:
+- Challenge: 350 employees across 18 departments with static administrative passwords, legacy Active Directory, 
+  and no centralized visibility into cloud contractor access.
+- Implementation:
+  1. Centralized Identity Provider (Okta / Entra ID) with SCIM 2.0 automated HR sync.
+  2. Phishing-Resistant MFA: Mandatory YubiKey 5 NFC hardware passkeys (NIST AAL3).
+  3. Contextual ABAC: Financial transfers > ₹5,00,000 restricted to trusted office IP subnets 
+     during banking hours (08:00–20:00 IST) with dual-director biometric approval.
+  4. CyberArk PAM: Zero Standing Privileges for infrastructure engineers; JIT elevation with session recording.
+- Results: 98% reduction in unauthorized access risk; zero audit non-conformities under ISO 27001.
+====================================================================================================

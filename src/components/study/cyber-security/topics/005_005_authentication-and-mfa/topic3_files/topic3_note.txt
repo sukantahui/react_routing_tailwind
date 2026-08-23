@@ -1,0 +1,107 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: MULTI-FACTOR AUTHENTICATION (MFA/2FA) FUNDAMENTALS
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 3)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. CONCEPTUAL FOUNDATIONS OF MULTI-FACTOR AUTHENTICATION (MFA)
+----------------------------------------------------------------------------------------------------
+Multi-Factor Authentication (MFA) is a security mechanism requiring a user to present credentials from 
+two or more mathematically independent authentication factor categories before being granted system access.
+
+The Three Core Pillars of Authentication Factors:
+1. Something You KNOW (Knowledge Factor):
+   - Passwords, passphrases, PINs, challenge question answers (deprecated).
+   - Vulnerability: Phishing, keylogging, credential stuffing, dictionary attacks.
+
+2. Something You HAVE (Possession Factor):
+   - Software TOTP tokens (Google Authenticator, Microsoft Authenticator).
+   - Hardware Security Keys (YubiKey 5 NFC, FIDO2/WebAuthn tokens).
+   - Smart cards, cryptographic USB dongles, SMS/Email OTP (phishable).
+   - Vulnerability: Physical theft, SIM swapping (for SMS), session interception.
+
+3. Something You ARE (Inherence Factor):
+   - Capacitive/optical fingerprint scanners, 3D infrared facial recognition, iris scans.
+   - Vascular vein recognition, voice biometric analysis.
+   - Vulnerability: Non-revocability, high False Rejection Rates (FRR), presentation attacks (spoofing).
+
+Extended Modern Factors (Zero-Trust Context):
+4. Somewhere You ARE (Location Factor): GPS geofencing, BSSID Wi-Fi checks, corporate subnet CIDR.
+5. Something You DO (Behavioral Factor): Keystroke dynamics, touchscreen swipe velocity, gait analysis.
+
+
+2. MULTI-STEP 1FA VS TRUE MULTI-FACTOR AUTHENTICATION (2FA)
+----------------------------------------------------------------------------------------------------
+A critical conceptual error in cybersecurity architecture is conflating "Multi-Step" with "Multi-Factor".
+
++-------------------------+----------------------------------+------------------+-------------------------+
+| Configuration           | Factors Presented                | Classification   | Security Assurance      |
++-------------------------+----------------------------------+------------------+-------------------------+
+| Password + PIN          | Knowledge + Knowledge            | Multi-Step 1FA   | VULNERABLE (Single Pt)  |
+| Password + Security Q   | Knowledge + Knowledge            | Multi-Step 1FA   | VULNERABLE (Single Pt)  |
+| Password + SMS OTP      | Knowledge + Possession (Weak)    | True 2FA (Basic) | Moderate (SIM Swap risk)|
+| Password + TOTP App     | Knowledge + Possession (App)     | True 2FA (Std)   | Strong (AAL2 Compliant) |
+| Password + FIDO2 Key    | Knowledge + Possession (Crypto)  | True 2FA (High)  | Phishing Resistant(AAL3)|
+| Biometric + FIDO2 Key   | Inherence + Possession           | True 2FA (Passwd)| Highest Enterprise Grade|
++-------------------------+----------------------------------+------------------+-------------------------+
+
+
+3. NIST SP 800-63B AUTHENTICATOR ASSURANCE LEVELS (AAL)
+----------------------------------------------------------------------------------------------------
+The National Institute of Standards and Technology (NIST) classifies MFA strength into three levels:
+
+1. AAL1 (Low Assurance):
+   - Single-factor or multi-step single-factor authentication (e.g., password only).
+   - Suitable only for low-impact, non-sensitive public web services.
+
+2. AAL2 (Moderate Assurance):
+   - Requires multi-factor authentication using two distinct factor categories.
+   - Permitted authenticators: Software TOTP/HOTP, out-of-band push notifications with number matching.
+   - Defeats automated credential stuffing and dictionary attacks.
+
+3. AAL3 (High Assurance - Phishing Resistant):
+   - Requires hardware-based cryptographic authenticators (FIDO2 / WebAuthn / Smart Card) with 
+     origin-binding proofs.
+   - Resistant to Adversary-in-the-Middle (AitM) phishing proxies (Evilginx) and session hijacking.
+
+
+4. MFA BYPASS TECHNIQUES & MODERN DEFENSES
+----------------------------------------------------------------------------------------------------
+1. MFA Prompt Bombing (MFA Fatigue Attack):
+   - Attackers flood a user's phone with 50+ push approval requests at 02:00 AM until the victim 
+     accidentally or frustatedly taps "Approve".
+   - Modern Defense: Enforce Number Matching (user must enter a 2-digit number displayed on the login 
+     screen into the mobile app) and Context-Rich Prompts (showing app name and location).
+
+2. Adversary-in-the-Middle (AitM) Reverse Proxies (Evilginx):
+   - Attackers proxy traffic between the real banking server and victim, capturing the session cookie 
+     after the user completes software TOTP.
+   - Modern Defense: Deploy FIDO2/WebAuthn with cryptographic origin binding (validates TLS origin).
+
+3. SIM Swapping:
+   - Attackers bribe or trick telecom operators into reassigning the victim's phone number to an 
+     attacker-controlled SIM card to intercept SMS OTPs.
+   - Modern Defense: Deprecate SMS OTP entirely; enforce app-based TOTP or hardware passkeys.
+
+
+5. ADAPTIVE RISK-BASED STEP-UP AUTHENTICATION (CONTEXTUAL MFA)
+----------------------------------------------------------------------------------------------------
+Adaptive MFA evaluates contextual risk signals during login and dynamically demands additional authentication 
+only when anomalous risk thresholds are breached:
+- Risk Signals: New device MAC/User-Agent, Impossible Traveler velocity (> 900 km/h), Tor exit node IP, 
+  high financial transaction values (e.g., transfer > ₹5,00,000 at Barrackpore Treasury).
+- Low Risk   : Seamless login without user friction (SSO).
+- Medium Risk: Step-up software TOTP prompt.
+- High Risk  : Step-up FIDO2 hardware touch + biometric biometric verification or complete block.
+
+
+6. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury Disbursals
+- Architecture: Mandatory AAL3 FIDO2 + PIN for approving government budget allocations exceeding ₹10,00,000.
+- Result: 100% immunity against credential-stealing spear-phishing attacks.
+
+Case 2: Kolkata FinTech Core Payment Gateway
+- Architecture: Migration from simple push notifications to Number Matching after an MFA Fatigue drill.
+- Result: Accidental push approvals dropped to 0.0%; unauthorized logins eliminated.
+====================================================================================================

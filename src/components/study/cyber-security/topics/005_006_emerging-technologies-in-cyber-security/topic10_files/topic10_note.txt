@@ -1,0 +1,66 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: NIST POST-QUANTUM STANDARDS (KYBER & DILITHIUM)
+COURSE MODULE: 005_006 - EMERGING TECHNOLOGIES IN CYBER SECURITY (TOPIC 10)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. NIST FINALIZED STANDARDS OVERVIEW (AUGUST 2024 FIPS RELEASE)
+----------------------------------------------------------------------------------------------------
+In August 2024, the National Institute of Standards and Technology (NIST) published the official Federal Information 
+Processing Standards (FIPS) for Post-Quantum Cryptography:
+
+1. FIPS 203: ML-KEM (Module-Lattice-Based Key-Encapsulation Mechanism - CRYSTALS-Kyber):
+   - Primary standard for general-purpose key exchange across TLS 1.3, SSH, and IPsec VPNs.
+   - Mathematical Core: Module Learning With Errors (M-LWE) over polynomial quotient ring $R_q = \mathbb{Z}_q[X]/(X^{256} + 1)$ 
+     with prime modulus $q = 3329$.
+
+2. FIPS 204: ML-DSA (Module-Lattice-Based Digital Signature Algorithm - CRYSTALS-Dilithium):
+   - Primary standard for general-purpose digital signatures across X.509 PKI, code signing, and identity tokens.
+   - Mathematical Core: Fiat-Shamir with Aborts over Module Lattices with modulus $q = 8380417$.
+
+3. FIPS 205: SLH-DSA (Stateless Hash-Based Digital Signature Algorithm - SPHINCS+):
+   - Conservative backup standard relying strictly on SHA-256 / SHAKE-256 for firmware and long-term verification.
+
+
+2. ML-KEM (CRYSTALS-KYBER) ALGORITHMIC PIPELINE
+----------------------------------------------------------------------------------------------------
+1. Parameter Sets:
+   - ML-KEM-512 (Rank $k=2$): NIST Level 1 (AES-128 equivalent). Public Key: 800 Bytes | Ciphertext: 768 Bytes.
+   - ML-KEM-768 (Rank $k=3$): NIST Level 3 (AES-192 equivalent - Recommended Default). Public Key: 1,184 Bytes | Ciphertext: 1,088 Bytes.
+   - ML-KEM-1024 (Rank $k=4$): NIST Level 5 (AES-256 equivalent). Public Key: 1,568 Bytes | Ciphertext: 1,568 Bytes.
+
+2. Three Core Operations:
+   - KeyGen(): Generates $\mathbf{A} \in R_q^{k \times k}$ via SHAKE-128, secret $\mathbf{s}$, and error $\mathbf{e}$. Computes $\mathbf{t} = \mathbf{A}\mathbf{s} + \mathbf{e}$.
+   - Encaps(pk): Picks random $m \in \{0,1\}^{256}$, derives noise, computes $\mathbf{u} = \mathbf{A}^T\mathbf{r} + \mathbf{e}_1$ and $v = \mathbf{t}^T\mathbf{r} + e_2 + \text{Decompress}(m)$.
+   - Decaps(c, sk): Reconstructs $m'$ and applies the Fujisaki-Okamoto (FO) transform to re-encrypt and verify ciphertext validity.
+
+
+3. ML-DSA (CRYSTALS-DILITHIUM) ALGORITHMIC PIPELINE
+----------------------------------------------------------------------------------------------------
+1. Parameter Sets:
+   - ML-DSA-44 ($k=4, l=4$): NIST Level 2. Public Key: 1,312 Bytes | Signature: 2,420 Bytes.
+   - ML-DSA-65 ($k=6, l=5$): NIST Level 3 (Recommended Default). Public Key: 1,952 Bytes | Signature: 3,293 Bytes.
+   - ML-DSA-87 ($k=8, l=7$): NIST Level 5. Public Key: 2,592 Bytes | Signature: 4,595 Bytes.
+
+2. Rejection Sampling (Fiat-Shamir with Aborts):
+   - Computes candidate signature vector $\mathbf{z} = \mathbf{y} + c\mathbf{s}_1$.
+   - Checks if $\|\mathbf{z}\|_\infty < \gamma_1 - \beta$. If violated, it aborts and restarts with fresh $\mathbf{y}$.
+   - This mathematical rejection guarantees that the signature reveals zero statistical information about secret key $\mathbf{s}_1$.
+
+
+4. ENTERPRISE DEPLOYMENT & MIGRATION MANDATES
+----------------------------------------------------------------------------------------------------
+- NSA CNSA 2.0 Mandate: Full enterprise transition to ML-KEM and ML-DSA by 2030; legacy RSA/ECC prohibited by 2033.
+- Hybrid TLS 1.3 Deployment: Combine X25519 with ML-KEM-768 (`X25519Kyber768Draft00`) to guarantee defense-in-depth.
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury Hybrid TLS Gateway
+- Architecture: Upgraded NGINX reverse proxies to OpenSSL 3.0 with liboqs provider, serving X25519Kyber768.
+- Result: 100% quantum-safe web sessions; average handshake latency increased by only 2.4 milliseconds.
+
+Case 2: Salt Lake Sector V FinTech ML-DSA Core Banking Migration
+- Architecture: Replaced RSA-2048 client certificate authentication with NIST FIPS 204 ML-DSA-65.
+- Result: 100% compliance with RBI post-quantum guidelines; verified microsecond signing on payment gateways.
+====================================================================================================

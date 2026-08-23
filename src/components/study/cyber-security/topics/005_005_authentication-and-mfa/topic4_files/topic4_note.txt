@@ -1,0 +1,98 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: TOTP (RFC 6238) & HOTP (RFC 4226) CRYPTOGRAPHY
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 4)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE MATHEMATICAL SPECIFICATION OF HOTP (RFC 4226)
+----------------------------------------------------------------------------------------------------
+The HMAC-Based One-Time Password algorithm generates unpredictable single-use codes based on an 
+incrementing 64-bit event counter $C$ and a shared secret key $K$.
+
+Mathematical Formula:
+$$\text{HOTP}(K, C) = \text{Truncate}(\text{HMAC-SHA-1}(K, C)) \pmod{10^d}$$
+
+Step-by-Step Algorithm:
+1. Counter Serialization: Counter $C$ is serialized into an 8-byte big-endian integer.
+2. HMAC Computation: Compute 20-byte HMAC-SHA1 digest: $HS = \text{HMAC-SHA-1}(K, C)$.
+3. Dynamic Truncation (DT):
+   - Extract low-order 4 bits of the last byte: $\text{Offset} = HS[19] \ \& \ \text{0x0F}$.
+   - Extract 4 bytes starting at Offset: $P = HS[\text{Offset} : \text{Offset}+4]$.
+4. Binary Conversion:
+   - Convert $P$ into a 31-bit unsigned integer (mask MSB): $\text{Snum} = P \ \& \ \text{0x7FFFFFFF}$.
+5. Modulo Reduction:
+   - Compute final code: $\text{Code} = \text{Snum} \pmod{10^d}$ (typically $d = 6$ or $d = 8$ digits).
+
+
+2. THE SPECIFICATION OF TOTP (RFC 6238)
+----------------------------------------------------------------------------------------------------
+Time-Based One-Time Password is an extension of HOTP where the static counter $C$ is replaced by a 
+dynamically calculated time counter $T$:
+
+$$T = \left\lfloor \frac{\text{Current Epoch Time} - T_0}{X} \right\rfloor$$
+
+Where:
+- $T_0$ = Starting Unix epoch time (default $T_0 = 0$).
+- $X$ = Time-step interval in seconds (RFC standard default $X = 30\text{ seconds}$).
+- Current Epoch Time = Seconds elapsed since January 1, 1970 UTC.
+
+Formula:
+$$\text{TOTP}(K, \text{Time}) = \text{HOTP}\left(K, \left\lfloor \frac{\text{Time}}{30} \right\rfloor\right)$$
+
+Key Advantages:
+- No network communication required between phone and server during login.
+- Zero battery consumption from background radio signals.
+- Codes automatically expire after 30 seconds.
+
+
+3. KEY ENROLLMENT & URI FORMAT: OTP AUTH
+----------------------------------------------------------------------------------------------------
+During user registration, the server generates a random 160-bit (20-byte) secret $K$, encodes it into 
+Base32 format, and embeds it in a standard `otpauth://` QR code URI:
+
+Format:
+`otpauth://totp/CoderAccoTax:susmita@bank.in?secret=JBSWY3DPEHPK3PXP&issuer=CoderAccoTax&algorithm=SHA1&digits=6&period=30`
+
+URI Parameters:
+- `secret`: Base32-encoded secret shared key.
+- `issuer`: Name of corporate portal/bank.
+- `algorithm`: SHA1 (default), SHA256, or SHA512.
+- `digits`: 6 (default) or 8.
+- `period`: Time-step in seconds (default 30).
+
+
+4. CLOCK DRIFT & SERVER-SIDE VERIFICATION WINDOW
+----------------------------------------------------------------------------------------------------
+Because hardware clocks drift over time, the server checks a tolerance window $W = \pm 1$ time-step:
+$$\text{Valid Counters} = \{ T-1, T, T+1 \}$$
+
+- $T-1$: Validates code generated 30 seconds ago (handles network latency or client clock running slow).
+- $T$: Validates code generated in current 30-second window.
+- $T+1$: Validates code generated 30 seconds in the future (handles client clock running fast).
+
+Replay Attack Prevention:
+- When a code matching counter $T_x$ is successfully validated, the server records $T_x$ in a 
+  high-speed cache (Redis) with a 60-second TTL.
+- If the exact same code is submitted again within the same 30-second window, the server immediately 
+  rejects it with a "Replay Attack Detected" forensic alarm.
+
+
+5. HOTP DESYNCHRONIZATION & LOOK-AHEAD WINDOW
+----------------------------------------------------------------------------------------------------
+In HOTP (hardware token with a physical push button), if a user presses the button 5 times without 
+logging in, the client counter advances to $C=5$ while the server counter remains at $C=0$.
+- Resynchronization Solution: The server searches ahead across a Look-Ahead Window (e.g., $s = 20$ steps):
+  Server checks $C+1, C+2, \dots, C+20$.
+- When a match is found at $C+5$, the server validates the user and updates its internal counter to 5.
+
+
+6. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Treasury Employee Portal
+- Problem: Remote municipal staff experienced failed logins due to mobile phone clock drift.
+- Remediation: Configured FreeRADIUS TOTP tolerance to $W=\pm 1$ (60s total window) and enforced NTP sync.
+
+Case 2: Kolkata FinTech Merchant Settlement Gateway
+- Problem: Adversaries intercepted TOTP codes over unencrypted public Wi-Fi and attempted replay attacks.
+- Remediation: Implemented Redis atomic counter consumption ensuring each 30s code is strictly single-use.
+====================================================================================================

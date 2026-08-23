@@ -1,0 +1,64 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: ARTIFICIAL INTELLIGENCE & MACHINE LEARNING IN CYBER DEFENSE
+COURSE MODULE: 005_006 - EMERGING TECHNOLOGIES IN CYBER SECURITY (TOPIC 1)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. TAXONOMY OF MACHINE LEARNING PARADIGMS IN CYBER DEFENSE
+----------------------------------------------------------------------------------------------------
+AI & ML provide high-dimensional statistical pattern recognition across three foundational paradigms:
+
+1. Supervised Learning:
+   - Training Data: Labeled datasets (e.g., 500,000 known benign files and 500,000 labeled malware samples).
+   - Algorithms: Random Forest, Gradient Boosted Decision Trees (XGBoost, LightGBM), Support Vector Machines (SVM), 
+     Deep Convolutional Neural Networks (CNNs).
+   - Core Applications: PE Malware Classification, Phishing URL Detection, Spam Filtering, DGA Domain Detection.
+
+2. Unsupervised Learning:
+   - Training Data: Unlabeled raw network telemetry and system logs.
+   - Algorithms: Isolation Forests, One-Class SVM, K-Means Clustering, Deep Autoencoders (Reconstruction Error), 
+     Principal Component Analysis (PCA).
+   - Core Applications: Zero-Day Anomaly Detection, Insider Threat Detection, C2 Beaconing Discovery, DNS Tunneling.
+
+3. Reinforcement Learning (RL):
+   - Training Data: Interaction with an environment via Actions, States, and Rewards.
+   - Algorithms: Deep Q-Networks (DQN), Proximal Policy Optimization (PPO).
+   - Core Applications: Autonomous Firewall ACL Tuning, Dynamic Honeypot Deception Routing, Automated Penetration Testing.
+
+
+2. FEATURE ENGINEERING FOR CYBER SECURITY CLASSIFIERS
+----------------------------------------------------------------------------------------------------
+Extracting numerical representations from raw binary files and network flows:
+
+1. Static PE Binary Features:
+   - Section Shannon Entropy ($H = -\sum p_i \log_2 p_i$): Values $> 7.2$ indicate packing/encryption.
+   - Import Address Table (IAT) Suspicious APIs: `VirtualAllocEx`, `WriteProcessMemory`, `CreateRemoteThread`.
+   - Opcode $n$-grams: Frequencies of byte instruction sequences (e.g., `MOV-XOR-JMP`).
+   - Digital Authenticode Signatures and Certificate Validity.
+
+2. Network Flow Telemetry Features (NetFlow / IPFIX):
+   - Packet inter-arrival time variance (detects fixed-interval C2 beaconing).
+   - Byte ratio (Inbound vs Outbound bytes - detects large data exfiltration).
+   - TCP Flag combinations (SYN-FIN anomalies).
+
+
+3. MODEL PERFORMANCE METRICS: PRECISION, RECALL & F1-SCORE
+----------------------------------------------------------------------------------------------------
+In cybersecurity, False Positives (FP) waste analyst time, while False Negatives (FN) cause catastrophic breaches:
+
+- Accuracy: $\frac{TP + TN}{TP + TN + FP + FN}$ (Misleading in imbalanced datasets where 99.99% of traffic is benign).
+- Precision (Positive Predictive Value): $\frac{TP}{TP + FP}$ (Measures alert fidelity; high precision = low false alarms).
+- Recall (True Positive Rate / Sensitivity): $\frac{TP}{TP + FN}$ (Measures threat detection rate; high recall = zero missed attacks).
+- F1-Score: Harmonic mean: $F_1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$.
+
+
+4. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury Malware Gateway
+- Architecture: Deployed XGBoost classifier analyzing incoming email attachments via static PE features.
+- Result: 99.4% detection of packed polymorphic ransomware droppers; eliminated zero-day email compromises.
+
+Case 2: Salt Lake Sector V FinTech Network Anomaly Engine
+- Architecture: Deployed Deep Autoencoders monitoring East-West server traffic for reconstruction error spikes.
+- Result: Detected a hidden Cobalt Strike C2 beaconing channel within 12 minutes of lateral probe.
+====================================================================================================

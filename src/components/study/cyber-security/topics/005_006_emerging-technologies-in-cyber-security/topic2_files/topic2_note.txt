@@ -1,0 +1,66 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: AI ANOMALY DETECTION, PREDICTIVE CTI & SOAR AUTOMATION
+COURSE MODULE: 005_006 - EMERGING TECHNOLOGIES IN CYBER SECURITY (TOPIC 2)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. USER & ENTITY BEHAVIOR ANALYTICS (UEBA) ANOMALY SCORING
+----------------------------------------------------------------------------------------------------
+Traditional SIEM alerts on static rules (e.g., 5 failed logins). UEBA uses unsupervised machine learning 
+to evaluate multi-dimensional contextual deviations:
+
+1. Behavioral Baselines:
+   - Peer Group Modeling: Compares an accountant's activity against all other accountants in the company.
+   - Temporal Profiling: Normal working hours ($09:00 - 18:00$ IST).
+   - Resource Sensitivity: Accessing internal files vs crown-jewel databases.
+   - Geovelocity Analysis: Detecting "Impossible Travel" (e.g., logging in from Kolkata at 14:00 and from 
+     London at 14:15).
+
+2. Composite Risk Scoring:
+   $$\text{Risk Score} = \sum_{i=1}^{n} w_i \cdot \text{AnomalySignal}_i \in [0, 100]$$
+
+
+2. PREDICTIVE CYBER THREAT INTELLIGENCE: CVSS VS EPSS
+----------------------------------------------------------------------------------------------------
+1. CVSS (Common Vulnerability Scoring System):
+   - Measures theoretical technical severity in a vacuum (Base Score $0.0 - 10.0$).
+   - Flaw: Over 60% of all published CVEs receive CVSS $\ge 7.0$ (High/Critical), overwhelming IT teams.
+
+2. EPSS (Exploit Prediction Scoring System - FIRST.org):
+   - Machine Learning model trained on global honeypots, dark web chatter, GitHub exploit repositories, 
+     and active IDS detections.
+   - Output: Probability $P \in [0, 1]$ that a vulnerability will be actively weaponized and exploited 
+     in the wild within the next 30 days.
+   - Strategic Value: Enables data-driven vulnerability management, focusing remediation on the top 5% 
+     of vulnerabilities actively targeted by threat actors.
+
+
+3. SECURITY ORCHESTRATION, AUTOMATION & RESPONSE (SOAR)
+----------------------------------------------------------------------------------------------------
+SOAR platforms (Splunk SOAR, Cortex XSOAR, Microsoft Sentinel) connect disparate APIs across EDR, Firewalls, 
+IdPs, SIEMs, and IT ticketing:
+
+1. MTTD & MTTR Optimization:
+   - Mean Time to Detect (MTTD): Reduced from days to sub-seconds using AI telemetry streaming.
+   - Mean Time to Respond (MTTR): Reduced from 45 minutes of manual ticketing down to under 500 milliseconds.
+
+2. Standardized SOAR Playbook Execution:
+   - Step 1: Ingest high-confidence alert from SIEM / XDR.
+   - Step 2: Query Threat Intelligence (VirusTotal / AlienVault) via API to enrich IoCs.
+   - Step 3: Automated Containment:
+     • EDR API: Isolate infected endpoint from network.
+     • IdP API: Revoke user OAuth refresh tokens and force passwordless passkey re-auth.
+     • Firewall API: Deploy dynamic egress block rule for C2 IP.
+   - Step 4: Governance: File Jira post-incident ticket and page on-call SOC lead.
+
+
+4. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury Automated Containment
+- Architecture: Integrated Microsoft Sentinel SOAR with CrowdStrike EDR and Entra ID.
+- Result: Sub-second isolation of compromised workstations; 0.0% lateral ransomware spread.
+
+Case 2: Salt Lake Sector V FinTech EPSS Vulnerability Remediation
+- Architecture: Prioritized 1,200 server patches using EPSS scores ($P > 0.10$) rather than raw CVSS.
+- Result: Reduced critical patching backlog by 82% while mitigating 100% of in-the-wild exploited CVEs.
+====================================================================================================

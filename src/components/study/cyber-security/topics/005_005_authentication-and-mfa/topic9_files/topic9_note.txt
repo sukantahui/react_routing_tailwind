@@ -1,0 +1,75 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: PASSWORDLESS AUTHENTICATION & PASSKEYS
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 4)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. CONCEPTUAL FOUNDATIONS OF PASSKEYS
+----------------------------------------------------------------------------------------------------
+Passkeys are consumer-friendly, standardized discoverable FIDO2/WebAuthn credentials designed to 
+permanently replace passwords across all operating systems and consumer devices.
+
+The Two Types of Passkeys:
+1. Multi-Device Passkeys (Synced Passkeys):
+   - Cryptographic private keys are synchronized across all devices in a user's cloud ecosystem 
+     (Apple iCloud Keychain, Google Password Manager, Microsoft Account, Bitwarden / 1Password).
+   - Private keys are end-to-end encrypted using a key derived from the user's device lock screen passcode.
+   - Benefit: Seamless backup and instant multi-device availability (no risk of lockout if a phone is lost).
+
+2. Single-Device Passkeys (Device-Bound Passkeys):
+   - Private keys are bound strictly to a physical hardware security key chip (YubiKey 5 NFC / TPM).
+   - Keys are non-exportable and never synchronized to any cloud service.
+   - Enterprise Mandate: Required for high-security banking, government treasury, and defense.
+
+
+2. FIDO CTAP2 BACKUP FLAGS: BE & BS
+----------------------------------------------------------------------------------------------------
+In FIDO2 / WebAuthn, `authenticatorData` includes two specific bit flags indicating passkey sync state:
+- Bit 3 (BE - Backup Eligibility): Set to 1 if the authenticator is capable of backing up the private key.
+- Bit 4 (BS - Backup State): Set to 1 if the private key is currently backed up to a cloud keychain.
+
+Enterprise Policy Enforcement:
+- High-assurance Relying Parties (e.g., Barrackpore Municipal Treasury) inspect the `BE` and `BS` flags.
+- Policy: If `BE == 1` or `BS == 1`, reject registration to prevent cloud-synchronized passkeys.
+
+
+3. HYBRID TRANSPORT (FIDO CROSS-DEVICE AUTHENTICATION / caBLE)
+----------------------------------------------------------------------------------------------------
+FIDO Cross-Device Authentication (Client to Authenticator over Bluetooth Low Energy - caBLE) allows a user 
+to log in on an untrusted desktop computer (e.g., in a public library or internet cafe) using their personal 
+smartphone without typing anything:
+
+Workflow:
+1. Desktop Browser displays a WebAuthn QR code containing an ephemeral public key and session routing ID.
+2. User scans QR code with their mobile phone camera.
+3. Proximity Verification: The phone and desktop exchange Bluetooth Low Energy (BLE) advertisements.
+   • BLE radio signal guarantees physical proximity (< 10 meters distance).
+   • Prevents a remote phishing attacker on the other side of the world from forwarding the QR code to a victim!
+4. Encrypted Tunnel: Phone and PC establish an end-to-end encrypted AES-256-GCM tunnel through a cloud relay.
+5. User completes biometric face/fingerprint scan on the phone.
+6. The phone signs the WebAuthn challenge for the desktop's origin and transmits the assertion over the tunnel.
+
+
+4. PASSKEYS VS TRADITIONAL AUTHENTICATION MATRIX
+----------------------------------------------------------------------------------------------------
++---------------------------+---------------------------------+----------------------------------------+
+| Dimension                 | Traditional Passwords + 2FA     | Modern Passkeys (FIDO2)                |
++---------------------------+---------------------------------+----------------------------------------+
+| Phishing Vulnerability    | High (AitM reverse proxies)     | 100% Phishing Immune (Origin Binding)  |
+| Credential Stuffing       | Vulnerable to reuse dumps       | Mathematically Impossible (Public Key) |
+| Human Memory Burden       | High (Memorizing complex chars) | Zero (Biometric or PIN unlock)         |
+| Account Recovery          | Vulnerable email/SMS reset links| Cloud sync or hardware backup key      |
+| Login Speed & Friction    | High (Typing 16 chars + OTP)    | Instant (< 1 second single tap)        |
++---------------------------+---------------------------------+----------------------------------------+
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Public Grievance Portal
+- Architecture: Integrated Google/Apple synced passkeys for 150,000 citizens submitting utility complaints.
+- Result: Password reset helpdesk tickets dropped by 92%; citizen account takeover dropped to 0.0%.
+
+Case 2: Salt Lake Sector V FinTech Developer Cloud
+- Architecture: Replaced passwords and SMS OTPs with Device-Bound passkeys on hardware YubiKeys.
+- Result: 100% compliance with Zero Trust Architecture (NIST SP 800-207).
+====================================================================================================

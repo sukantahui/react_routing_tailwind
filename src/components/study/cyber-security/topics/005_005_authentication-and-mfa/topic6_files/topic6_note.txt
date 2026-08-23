@@ -1,0 +1,83 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: BIOMETRIC AUTHENTICATION TECHNOLOGIES
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 6)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. CORE MODALITIES OF PHYSIOLOGICAL BIOMETRICS
+----------------------------------------------------------------------------------------------------
+Biometrics authenticates users based on distinct, measurable biological characteristics ("Something You ARE"):
+
+1. Fingerprint Recognition:
+   - Friction ridge skin patterns on fingertips.
+   - Sensor Technologies: Optical (TFT/CMOS camera), Capacitive (silicon semiconductor array), 
+     Ultrasonic (high-frequency sound waves penetrating epidermal layers).
+   - Feature Extraction: Minutiae points (Ridge Endings, Bifurcations, Core, Delta).
+   - Mathematical Representation: $(x_i, y_i, \theta_i, \text{type}_i)$.
+
+2. Facial Recognition:
+   - Geometry and texture of the human face.
+   - Sensor Technologies: 2D RGB cameras, 3D Structured Light Infrared Projectors (30,000 dots), 
+     Time-of-Flight (ToF) sensors.
+   - Feature Extraction: Deep Neural Network embeddings mapping facial landmarks into a 128-D or 
+     512-D normalized hypersphere vector space.
+   - Matching Metric: Cosine Similarity or Euclidean Distance between probe and gallery vectors.
+
+3. Iris Scanning (Daugman's Algorithm):
+   - Epigenetic trabecular meshwork pattern of the human iris muscle.
+   - Sensor Technology: Near-Infrared (NIR 700–900 nm) illumination to illuminate dark brown irises.
+   - Feature Extraction: Multi-scale 2D Gabor wavelets transform the unwrapped polar coordinate iris 
+     into a 2048-bit binary "IrisCode" with a 2048-bit noise mask (eyelids/eyelashes).
+   - Matching Metric: Fractional Hamming Distance ($HD = \frac{\sum (A \oplus B)}{N}$). Match declared if $HD < 0.32$.
+
+
+2. THE BIOMETRIC TEMPLATE NON-REVOCABILITY DILEMMA
+----------------------------------------------------------------------------------------------------
+Unlike passwords or cryptographic keys, biological biometric traits are permanently non-revocable and public:
+- If an adversary breaches a raw biometric database, the victim CANNOT change their face, fingerprint, or iris.
+- Architectural Mandate: Raw biometric images must NEVER be stored in central databases.
+- Storage Solutions:
+  1. Secure Enclave / TPM: Storing templates strictly inside hardware-isolated security chips on the client device.
+  2. Cancellable Biometrics (BioHashing): Applying parameterized, non-invertible mathematical transforms. 
+     If compromised, a new transform key is issued to produce a completely distinct template from the same finger.
+
+
+3. PRESENTATION ATTACK DETECTION (PAD / LIVENESS VERIFICATION - ISO/IEC 30107-3)
+----------------------------------------------------------------------------------------------------
+A Presentation Attack occurs when an adversary presents a synthetic replica (spoof artifact) to a sensor:
+- Spoof Types: 2D printed photographs, digital screen playback, 3D silicon/latex masks, gelatin fake fingerprints (gummy fingers), prosthetic eyes.
+
+Liveness Detection Techniques:
+1. Hardware-Based (Active):
+   - Infrared depth sensing (verifies 3D facial curvature).
+   - Thermal infrared imaging (verifies $36.5^\circ\text{C} - 37.5^\circ\text{C}$ biological heat signature).
+   - Pulse oximetry & optical coherence tomography (detects capillary blood pulsation).
+2. Software-Based (Passive):
+   - Involuntary micro-blinking and pupil dilation analysis.
+   - Micro-texture reflection analysis (detecting screen pixel moire patterns or printed paper glare).
+   - Challenge-Response (asking user to turn head or smile).
+
+
+4. ACCURACY COMPARISON OF BIOMETRIC MODALITIES
+----------------------------------------------------------------------------------------------------
++-------------------+--------------------+--------------------+-----------------------+--------------------+
+| Modality          | Uniqueness / EER   | Speed / Throughput | Sensor Cost           | Ease of Spoofing   |
++-------------------+--------------------+--------------------+-----------------------+--------------------+
+| Fingerprint       | High (EER ~0.1%)   | Fast (< 500ms)     | Low to Medium (₹500)  | Medium (Silicon)   |
+| 2D Facial         | Moderate (EER ~2%) | Fast (< 300ms)     | Very Low (Webcam)     | High (Photo/Video) |
+| 3D Structured Face| High (EER ~0.05%)  | Fast (< 400ms)     | High (IR dot mesh)    | Very Low (Anti-PAD)|
+| Iris Recognition  | Extreme (EER ~10^-6| Moderate (~1 sec)  | High (NIR Camera)     | Extremely Low      |
++-------------------+--------------------+--------------------+-----------------------+--------------------+
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL INFRASTRUCTURE)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury Biometric Authorization
+- Architecture: Ultrasonic fingerprint sensors paired with 3D IR facial mesh for approving municipal 
+  payments over ₹10,00,000.
+- Result: 100% defeat of presentation attacks and proxy attendance fraud.
+
+Case 2: Salt Lake Sector V FinTech Data Center Access Control
+- Architecture: Dual-eye Iris scanning (Daugman algorithm, $HD < 0.30$) for tier-4 server room entry.
+- Result: Zero false acceptances recorded over 36 months; immune to lighting variations.
+====================================================================================================

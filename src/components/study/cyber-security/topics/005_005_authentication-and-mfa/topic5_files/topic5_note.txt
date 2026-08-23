@@ -1,0 +1,95 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: SMS/EMAIL OTPS, SIM SWAPPING & SS7 INTERCEPTION
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 5)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE VULNERABILITY MATRIX OF SMS-BASED & EMAIL-BASED OTP
+----------------------------------------------------------------------------------------------------
+While SMS and Email OTP remain common in consumer banking, NIST SP 800-63B explicitly deprecates 
+SMS-based authentication due to critical telecommunication and infrastructure vulnerabilities:
+
++-------------------------+---------------------------------+------------------------------------------+
+| Authentication Channel  | Underlying Threat Vectors       | NIST SP 800-63B Classification           |
++-------------------------+---------------------------------+------------------------------------------+
+| SMS OTP                 | SIM Swap, SS7 routing, IMSI-C   | RESTRICTED (Phishable, Deprecated)       |
+| Email OTP               | Mailbox compromise, IMAP sniff  | RESTRICTED (High single-point risk)      |
+| Software TOTP App       | AitM reverse proxy (Evilginx)   | AAL2 (Permitted for standard enterprise) |
+| FIDO2 Hardware Key      | None (Origin-bound cryptography)| AAL3 (Phishing-Resistant Standard)       |
++-------------------------+---------------------------------+------------------------------------------+
+
+
+2. ANATOMY OF A SIM SWAPPING ATTACK
+----------------------------------------------------------------------------------------------------
+SIM Swapping (Subscriber Identity Module swapping) is a telecom-layer attack where an adversary transfers 
+the victim's legitimate phone number to an attacker-controlled SIM card.
+
+The Attack Chain:
+1. Reconnaissance: Attacker harvests victim's full name, date of birth, Aadhaar/PAN details via social 
+   engineering or data breach dumps.
+2. Telecom Social Engineering / Insider Bribery: Attacker visits a retail telecom franchise in Kolkata 
+   or calls customer support, claiming their phone was lost or damaged, and requests a replacement SIM.
+3. Network Provisioning: The telecom carrier updates the Home Location Register (HLR) database, binding 
+   the victim's phone number (MSISDN) to the attacker's new physical SIM card (IMSI).
+4. Service Termination: The victim's smartphone abruptly loses all cellular signal ("No Service").
+5. Credential Takeover: Attacker initiates "Forgot Password" on banking portals; all SMS OTP codes are 
+   routed directly to the attacker's phone, completing unauthorized fund transfers.
+
+
+3. SS7 (SIGNALING SYSTEM NO. 7) INTERCEPTION ATTACKS
+----------------------------------------------------------------------------------------------------
+SS7 is the global telecommunication signaling protocol developed in 1975 to route calls, SMS, and roaming 
+metadata across global carrier networks.
+
+Root Flaw:
+- SS7 was engineered under the assumption of a closed, trusted network of state telecom monopolies.
+- SS7 protocol lacks cryptographic authentication, digital signatures, or origin verification.
+
+The SS7 SMS Interception Mechanics:
+1. Global Title Access: Adversaries buy or lease access to an SS7 signaling gateway (often via compromised 
+   telecom nodes in developing jurisdictions).
+2. Routing Query: Attacker sends an SS7 `MAP_SEND_ROUTING_INFO_FOR_SM` (SRI_SM) message querying the 
+   target's phone number (MSISDN).
+3. HLR Leakage: The victim's home carrier HLR replies with the target's International Mobile Subscriber 
+   Identity (IMSI) and current Serving MSC (Mobile Switching Center) address.
+4. Location Update Spoofing: Attacker sends a spoofed `MAP_UPDATE_LOCATION` packet claiming the victim 
+   has roamed to a rogue MSC operated by the attacker.
+5. Cleartext SMS Delivery: When the bank's SMS gateway dispatches an OTP, the cellular core forwards the 
+   SMS packet directly to the attacker's rogue station across continents in cleartext.
+
+
+4. IMSI CATCHERS (STINGRAYS & ROGUE CELL TOWERS)
+----------------------------------------------------------------------------------------------------
+IMSI Catchers are portable false base stations (cell towers) that broadcast higher power signals than 
+legitimate cellular towers, forcing nearby mobile devices to connect to them.
+- Downgrade Mechanism: Forces the phone connection to fall back from encrypted 4G/5G LTE to insecure 
+  2G GSM (which uses weak or zero A5/1 encryption).
+- Impact: Intercepts all cleartext SMS OTP messages transmitted over the local radio frequency airwaves.
+
+
+5. CARRIER-GRADE DEFENSIVE COUNTERMEASURES & BANKING CONTROLS
+----------------------------------------------------------------------------------------------------
+1. Carrier SIM-Swap Detection API:
+   - Banks query the telecom carrier API before dispatching high-value SMS OTPs.
+   - If the SIM card's IMSI was changed within the last 24–48 hours, the bank automatically blocks SMS 
+     disbursement and forces in-person branch verification or hardware passkey authentication.
+
+2. SMS OTP Deprecation:
+   - Replacing SMS OTP with cryptographic app-based push notifications (with Number Matching) or FIDO2.
+
+3. Cellular SS7 Firewall & Diameter Edge Filtering:
+   - Telecom operators deploy signaling firewalls filtering untrusted `UpdateLocation` messages originating 
+     from unverified international Global Titles.
+
+
+6. REGIONAL SOC CASE STUDIES (WEST BENGAL INFRASTRUCTURE)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Retail Banking SIM-Swap Syndicate
+- Attack: Adversaries bribed a local mobile store agent in Ichapur with ₹10,000 to issue duplicate SIM 
+  cards, intercepting SMS OTPs to drain ₹45,00,000 from local accounts.
+- Resolution: Mandated real-time SIM-Swap timestamp checking on all transactions exceeding ₹25,000.
+
+Case 2: Salt Lake Sector V FinTech SS7 Eavesdropping Incident
+- Attack: An international threat actor redirected executive SMS OTPs using leased European SS7 gateways.
+- Resolution: Migrated all administrative access to FIDO2 WebAuthn keys; deprecated SMS completely.
+====================================================================================================

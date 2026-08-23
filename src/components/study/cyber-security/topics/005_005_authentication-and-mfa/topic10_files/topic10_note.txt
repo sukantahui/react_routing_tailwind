@@ -1,0 +1,89 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: SSO & FEDERATED IDENTITY PROTOCOLS (SAML, OAUTH 2.0 & OIDC)
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 10)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE FEDERATED IDENTITY LANDSCAPE: SAML VS OAUTH VS OIDC
+----------------------------------------------------------------------------------------------------
+Understanding the distinct architectural roles of the three dominant identity protocols:
+
+1. SAML 2.0 (Security Assertion Markup Language):
+   - Purpose: Enterprise Federation & Web Browser Single Sign-On (SSO).
+   - Data Format: XML with XML Signatures (DSig) and XML Encryption.
+   - Roles: Identity Provider (IdP e.g., Okta / Entra ID) and Service Provider (SP e.g., Salesforce).
+   - Mechanism: Browser redirects carrying `<samlp:AuthnRequest>` and base64-encoded `<samlp:Response>`.
+
+2. OAuth 2.0 (RFC 6749):
+   - Purpose: Delegated Authorization (API Access Delegation).
+   - Key Principle: "OAuth is NOT an authentication protocol!" It issues Access Tokens granting 
+     permission to access protected resources on behalf of a user.
+   - Tokens: Access Tokens (Bearer) and Refresh Tokens.
+
+3. OpenID Connect 1.0 (OIDC):
+   - Purpose: Identity & User Authentication layer built directly on top of OAuth 2.0.
+   - Data Format: JSON & JSON Web Tokens (JWT).
+   - Roles: OpenID Provider (OP) and Relying Party (RP).
+   - Introduction: Introduces the `ID Token` (JWT asserting user identity, email, and authentication time).
+
+
+2. OAUTH 2.0 / OIDC AUTHORIZATION CODE FLOW WITH PKCE (RFC 7636)
+----------------------------------------------------------------------------------------------------
+Mandatory for all Single Page Apps (SPAs), Mobile Apps, and confidential web clients:
+
+The PKCE (Proof Key for Code Exchange) Flow:
+1. Client generates a cryptographically random `code_verifier` (43–128 URL-safe characters).
+2. Client computes `code_challenge = BASE64URL(SHA-256(code_verifier))`.
+3. Client redirects user to Authorization Server with `code_challenge` and `code_challenge_method=S256`.
+4. User authenticates; Authorization Server returns an ephemeral `authorization_code`.
+5. Client sends `authorization_code` + original `code_verifier` to `/token` endpoint.
+6. Authorization Server computes SHA-256 on the verifier; if it matches the stored challenge, it issues 
+   the `ID Token` and `Access Token`.
+7. Defense: Prevents malicious apps on the device from intercepting and redeeming the authorization code!
+
+
+3. JSON WEB TOKEN (JWT) RFC 7519 ARCHITECTURE
+----------------------------------------------------------------------------------------------------
+Structure: `Header.Payload.Signature` (Base64URL encoded)
+
+1. Header:
+   - `{"alg": "RS256", "typ": "JWT", "kid": "key_2026_01"}`
+2. Payload (Claims):
+   - `iss` (Issuer): URL of the issuing identity provider.
+   - `sub` (Subject): Unique immutable user ID.
+   - `aud` (Audience): Client ID of the application intended to receive this token.
+   - `exp` (Expiration Time): Unix timestamp after which token is invalid.
+   - `iat` (Issued At): Unix timestamp of generation.
+   - `nonce`: Cryptographic random string preventing replay attacks.
+3. Signature:
+   - $\text{Signature} = \text{HMAC-SHA256}(\text{Header} \ || \ \text{Payload}, \text{Secret})$ or $\text{RSA-SHA256}$.
+
+
+4. TOP PROTOCOL VULNERABILITIES & FORENSIC EXPLOITS
+----------------------------------------------------------------------------------------------------
+1. XML Signature Wrapping (XSW) in SAML:
+   - Adversary modifies the XML DOM tree, inserting an unsigned rogue admin Assertion while keeping the 
+     original signed assertion. If the signature validator and business logic inspect different elements, 
+     privilege escalation occurs.
+   - Defense: Strict schema validation and absolute XPath element binding.
+
+2. JWT "alg: none" Vulnerability:
+   - Attacker alters JWT header to `{"alg": "none"}`, strips the signature, and accesses admin endpoints.
+   - Defense: Hardcode permitted signature algorithms on the backend; reject `none` unconditionally.
+
+3. JWT Key Confusion (Algorithm Switching: RS256 -> HS256):
+   - Attacker changes `alg` from RS256 (asymmetric) to HS256 (symmetric) and signs the token using the 
+     server's public RSA key as the HMAC secret!
+   - Defense: Never use the same verification function for both symmetric and asymmetric keys.
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury SAML XSW Remediation
+- Threat: Penetration testing revealed SAML response parsing vulnerability in legacy vendor portal.
+- Remediation: Enforced XML Signature Reference ID validation and moved to OIDC PKCE.
+
+Case 2: Salt Lake Sector V FinTech OAuth 2.0 PKCE Hardening
+- Threat: Public mobile banking apps were susceptible to authorization code interception.
+- Remediation: Enforced RFC 7636 PKCE S256 across all Android and iOS client endpoints.
+====================================================================================================

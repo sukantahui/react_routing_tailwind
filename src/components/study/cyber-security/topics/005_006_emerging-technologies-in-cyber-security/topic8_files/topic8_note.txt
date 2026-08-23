@@ -1,0 +1,73 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: QUANTUM KEY DISTRIBUTION (QKD) & BB84 PROTOCOL
+COURSE MODULE: 005_006 - EMERGING TECHNOLOGIES IN CYBER SECURITY (TOPIC 8)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. PHYSICAL FOUNDATIONS OF QUANTUM KEY DISTRIBUTION (QKD)
+----------------------------------------------------------------------------------------------------
+Unlike Post-Quantum Cryptography (PQC), which relies on unproven mathematical computational complexity 
+(e.g., Lattice problems), QKD security is guaranteed by the fundamental Laws of Quantum Physics:
+
+1. Heisenberg Uncertainty Principle:
+   - Measuring one observable of a quantum state unavoidably perturbs conjugate observables.
+   - Any eavesdropper (Eve) attempting to measure a photon in flight irreversibly disturbs its quantum state.
+
+2. No-Cloning Theorem:
+   - An unknown quantum state cannot be cloned or copied without measuring (and disturbing) it.
+   - Eve cannot intercept a photon, copy it, and forward the original to Bob.
+
+
+2. THE BB84 PROTOCOL STEP-BY-STEP (BENNETT & BRASSARD 1984)
+----------------------------------------------------------------------------------------------------
+1. Preparation (Alice):
+   - Alice generates a random bit string (0 or 1) and selects a random measurement basis:
+     • Rectilinear Basis ($+$): $|0^\circ\rangle = 0$, $|90^\circ\rangle = 1$.
+     • Diagonal Basis ($\times$): $|45^\circ\rangle = 0$, $|135^\circ\rangle = 1$.
+   - Alice emits single polarized photons across the quantum optical fiber channel.
+
+2. Measurement (Bob):
+   - Bob independently and randomly chooses a basis ($+$ or $\times$) to measure each incoming photon.
+   - If Bob chooses the same basis as Alice, he gets the exact bit Alice sent.
+   - If Bob chooses the wrong basis, quantum collapse causes him to measure 0 or 1 with 50% random probability.
+
+3. Sifting Phase (Public Authenticated Classical Channel):
+   - Alice and Bob announce their chosen bases over a classical authenticated channel (NOT the bit values!).
+   - They discard all bits where their bases did not match, retaining the Sifted Key ($\approx 50\%$ of transmitted bits).
+
+4. Parameter Estimation & Quantum Bit Error Rate (QBER):
+   - Alice and Bob compare a random sample subset of their sifted bits to calculate the error rate:
+     $$\text{QBER} = \frac{\text{Number of Erroneous Bits}}{\text{Total Sample Bits}}$$
+   - Normal Optical Fiber Noise: $\text{QBER} \approx 1\% - 3\%$.
+   - Eavesdropper (Intercept-Resend Attack): Eve chooses wrong bases 50% of the time, inducing an average 
+     $\text{QBER} = 25\%$.
+   - Security Threshold (Shor-Preskill Bound): If $\text{QBER} > 11.0\%$, they ABORT the exchange!
+
+5. Error Correction (Cascade / LDPC) & Privacy Amplification (Toeplitz Universal Hashing):
+   - Reconciles minor optical noise and compresses the sifted key into a final symmetric One-Time Pad (OTP) 
+     or AES-256 key, completely eliminating any partial information Eve might have intercepted.
+
+
+3. QKD HARDWARE ARCHITECTURE & PHYSICAL CHALLENGES
+----------------------------------------------------------------------------------------------------
+- Distance Limits: Single-photon optical fiber attenuation limits point-to-point QKD to $\sim 100 - 150\text{ km}$ 
+  without Quantum Repeaters.
+- Trusted Node Networks: Long-distance QKD relies on secure physical bunkers (Trusted Relays) or Satellite QKD 
+  (e.g., Chinese Micius satellite / ISRO quantum payloads).
+- Single-Photon Light Source Vulnerability (Photon Number Splitting - PNS):
+  • Weak coherent laser pulses occasionally emit 2 or more identical photons in a single pulse.
+  • Eve splits off 1 photon and lets the second pass undisturbed (PNS Attack).
+  • Mitigation: Decoy State Protocol (interspersing pulses of varying photon intensities).
+
+
+4. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore-to-Kolkata Dedicated Dark Fiber QKD Link
+- Architecture: 28 km dark fiber QKD link connecting Barrackpore Municipal Treasury to Salt Lake Sector V core.
+- Result: Generated 1.2 kbps of continuous unconditional OTP symmetric keys for municipal fund authorization; 
+  QBER maintained at 1.8% (well below the 11% threshold).
+
+Case 2: Ichapur Defense Optical QKD Perimeter
+- Architecture: Free-space optical QKD interconnecting secure defense CAD terminal bunkers.
+- Result: Intercept-resend probe test induced 26.2% QBER, instantly triggering automated optical beam shutdown.
+====================================================================================================

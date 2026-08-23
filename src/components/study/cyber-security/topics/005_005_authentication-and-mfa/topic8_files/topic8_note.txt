@@ -1,0 +1,89 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: FIDO2, WEBAUTHN & U2F HARDWARE SECURITY STANDARDS
+COURSE MODULE: 005_005 - AUTHENTICATION FRAMEWORKS & MFA (TOPIC 8)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. THE EVOLUTION OF FIDO ALLIANCE STANDARDS
+----------------------------------------------------------------------------------------------------
+The FIDO (Fast IDentity Online) Alliance developed open standards to eliminate shared secrets (passwords):
+
+1. FIDO U2F (Universal 2nd Factor - 2014):
+   - Designed strictly as a second factor alongside a static password (Password + USB Key Tap).
+   - Protocol: U2F raw message framing over USB HID / NFC.
+
+2. FIDO2 (2018 - Present):
+   - Supports true single-step passwordless login (Key Tap + PIN/Biometric on device).
+   - Composed of two complementary standardized specifications:
+     A. W3C WebAuthn (Web Authentication API): JavaScript browser API standard.
+     B. FIDO CTAP2 (Client-to-Authenticator Protocol 2): Protocol enabling browsers to communicate 
+        with external USB/NFC/BLE hardware authenticators and on-device platform chips.
+
+
+2. W3C WEBAUTHN ARCHITECTURAL WORKFLOW
+----------------------------------------------------------------------------------------------------
+Registration Phase (`navigator.credentials.create`):
+1. Relying Party (Server) generates a cryptographically random 32-byte `challenge` and sets `rp.id`.
+2. Browser contacts Hardware Authenticator via CTAP2.
+3. Authenticator prompts user for physical touch (User Presence) and PIN/Biometric (User Verification).
+4. Authenticator generates a unique asymmetric keypair (ECDSA P-256 / Ed25519) bound strictly to the `rp.id`.
+5. Authenticator returns the Public Key and Attestation Object to the server.
+6. Server stores the Public Key alongside the `credentialId` in its database (NO SHARED SECRETS STORED).
+
+Authentication Phase (`navigator.credentials.get`):
+1. Server generates a new cryptographic `challenge`.
+2. Browser passes challenge and `rp.id` to the hardware key.
+3. Hardware key prompts for physical contact touch (UP) and PIN (UV).
+4. Hardware key signs the payload ($\text{authenticatorData} \ || \ \text{clientDataHash}$) using its private key.
+5. Browser returns the signed assertion to the server.
+6. Server verifies the signature against the stored public key.
+
+
+3. CRYPTOGRAPHIC ORIGIN BINDING (THE PHISHING IMMUNITY MECHANISM)
+----------------------------------------------------------------------------------------------------
+Why FIDO2 completely neutralizes Adversary-in-the-Middle (AitM) reverse proxies (Evilginx):
+
+1. When a victim visits a phishing proxy (`https://bank-login.barrackpore-fake.net`), the browser 
+   computes `clientDataJSON.origin = "https://bank-login.barrackpore-fake.net"`.
+2. The hardware key signs this exact origin string into the cryptographic payload.
+3. The phishing proxy relays the signature to the real banking server (`https://bank.barrackpore.gov.in`).
+4. The real server computes SHA-256 on its expected origin (`https://bank.barrackpore.gov.in`) and checks 
+   it against the signature.
+5. Result: Cryptographic signature verification FAILS mathematically on the real server! Access DENIED.
+
+
+4. CTAP2 FLAGS & AUTHENTICATOR DATA STRUCTURE
+----------------------------------------------------------------------------------------------------
+The `authenticatorData` byte array contains 37+ bytes of structured security assertions:
+- Bytes 0–31: SHA-256 Hash of the Relying Party ID (`rpIdHash`).
+- Byte 32: Bitwise Flags:
+  • Bit 0 (UP - User Presence): Set to 1 if physical contact touch was verified.
+  • Bit 2 (UV - User Verification): Set to 1 if on-device PIN or biometric was verified.
+  • Bit 6 (AT - Attestation Data): Set to 1 if credential creation data is included.
+  • Bit 7 (ED - Extension Data): Set to 1 if WebAuthn extensions are included.
+- Bytes 33–36: 32-bit Signature Counter (`signCount`) to detect cloned hardware keys.
+
+
+5. HARDWARE KEYS VS SOFTWARE PASSWORDS COMPARISON
+----------------------------------------------------------------------------------------------------
++---------------------------+---------------------------------+----------------------------------------+
+| Dimension                 | Static Passwords / SMS OTP      | FIDO2 Hardware Keys (YubiKey 5 NFC)    |
++---------------------------+---------------------------------+----------------------------------------+
+| Phishing Resistance       | Zero (Trivially phished via AitM| 100% Phishing Immune (Origin-Bound)    |
+| Secret Storage            | Shared secrets in server DB     | Public keys on server; Private key in HSM
+| Credential Stuffing       | High vulnerability              | Zero vulnerability (No shared secrets) |
+| Replay Attacks            | Vulnerable within time window   | Cryptographically impossible (Challenge|
+| NIST SP 800-63B Level     | AAL1 / RESTRICTED               | AAL3 (Highest Enterprise Assurance)    |
++---------------------------+---------------------------------+----------------------------------------+
+
+
+6. REGIONAL SOC CASE STUDIES (WEST BENGAL INFRASTRUCTURE)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury Disbursals Core
+- Policy: Mandatory YubiKey 5 NFC hardware keys for approving payments exceeding ₹10,00,000.
+- Result: 100% elimination of phishing compromise; full AAL3 compliance.
+
+Case 2: Salt Lake Sector V FinTech Data Center Cloud Access
+- Policy: Zero Trust network enforcement requiring FIDO2 WebAuthn authentication for SSH terminal access.
+- Result: Zero credential leaks over 24 months; certified PCI-DSS 4.0 requirement 8.3 compliance.
+====================================================================================================

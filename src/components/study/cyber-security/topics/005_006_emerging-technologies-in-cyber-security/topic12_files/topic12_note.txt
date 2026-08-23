@@ -1,0 +1,53 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: AUTONOMOUS CYBER DEFENSE & QUANTUM RESILIENCE
+COURSE MODULE: 005_006 - EMERGING TECHNOLOGIES IN CYBER SECURITY (TOPIC 12)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. AUTONOMOUS CYBER DEFENSE: DARPA CGC & SELF-HEALING ARCHITECTURES
+----------------------------------------------------------------------------------------------------
+As machine-speed AI attacks evolve, human SOC response times (hours/days) are mathematically incapable of defending 
+critical infrastructure. Autonomous Cyber Defense automates the full vulnerability lifecycle without human intervention:
+
+1. DARPA Cyber Grand Challenge (CGC) Foundational Pillars:
+   - Automated Vulnerability Discovery: Concolic execution, AFL++ coverage-guided fuzzing, and static taint analysis.
+   - Genetic Code Repair & Patch Synthesis: Synthesizing memory-safe C/Rust code replacements using formal AST transformations.
+   - Hot Binary Patching: Live in-memory code injection via eBPF and Linux kernel runtime rewrites with 0.00s downtime.
+
+2. Multi-Agent Defensive Reasoning:
+   - Continuous adversarial co-evolution: Autonomous AI Red Teams discover zero-days and automatically pass telemetry 
+     to Autonomous AI Blue Teams to synthesize hot-patches before adversaries exploit the vulnerability in production.
+
+
+2. QUANTUM RESILIENCE & CRYPTOGRAPHIC BILL OF MATERIALS (CBOM)
+----------------------------------------------------------------------------------------------------
+1. Cryptographic Bill of Materials (CBOM - CycloneDX / SPDX):
+   - A machine-readable inventory of all cryptographic algorithms, certificate chains, key lengths, and cipher suites 
+     embedded across an enterprise's software repositories, microservices, and network hardware.
+
+2. Mosca's Theorem of Quantum Risk ($X + Y > Z$):
+   - $X$ = Security Shelf Life (Time in years data must remain secret; e.g., 20 years for military/banking).
+   - $Y$ = Migration Time (Time in years to inventory, upgrade, and deploy PQC across enterprise infrastructure).
+   - $Z$ = CRQC Arrival Time (Time in years until a Cryptanalytically Relevant Quantum Computer exists).
+   - If $X + Y > Z$, data is ALREADY in critical peril due to "Harvest Now, Decrypt Later" (HNDL) attacks!
+
+
+3. AUTONOMOUS SELF-HEALING & DECEPTION HONEYNETS
+----------------------------------------------------------------------------------------------------
+- Dynamic Honeynets & Moving Target Defense (MTD): Continuously shifting IP addresses, port numbers, and OS memory 
+  layouts every 60 seconds, creating an unpredictable, disorienting attack surface for automated adversary scanners.
+- Automated Ephemeral Pod Re-creation: Destroying and rebuilding cloud microservice containers every 15 minutes from 
+  verified golden images, completely wiping any in-memory rootkits or persistence implants.
+
+
+4. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury Sub-Second Autonomous Hot-Patching
+- Architecture: Deployed automated eBPF binary patching on treasury disbursement API servers.
+- Result: Detected a zero-day integer overflow exploit, synthesized a memory-safe fix, and hot-injected the patch 
+  in 280 milliseconds with zero server downtime.
+
+Case 2: Salt Lake Sector V FinTech Enterprise CBOM & Mosca Quantum Audit
+- Architecture: Scanned 1,200 microservice repositories, cataloged 14,000 RSA/ECC instances, and executed automated PQC migration.
+- Result: Closed a 7-year Mosca HNDL peril window; achieved full quantum resilience 4 years ahead of RBI mandates.
+====================================================================================================

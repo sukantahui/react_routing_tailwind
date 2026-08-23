@@ -1,0 +1,64 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: DECENTRALIZED IDENTITY (DID) & TAMPER-PROOF AUDIT LOGGING
+COURSE MODULE: 005_006 - EMERGING TECHNOLOGIES IN CYBER SECURITY (TOPIC 5)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. W3C DECENTRALIZED IDENTIFIERS (DID) ARCHITECTURE
+----------------------------------------------------------------------------------------------------
+A Decentralized Identifier (DID) is a globally unique URI conforming to the W3C standard:
+$$\text{did}:\text{method}:\text{method-specific-id}$$
+Example: `did:ion:EiD...` or `did:indy:sovrin:12345`
+
+1. Core Components:
+   - DID Document: A JSON-LD document containing cryptographic public keys, authentication protocols, 
+     and service endpoints.
+   - Self-Sovereignty: The identity owner creates and controls the private key independently of any 
+     centralized tech company (Google/Apple) or state authority.
+   - Verifiable Data Registry: A decentralized blockchain ledger storing DID Documents and revocation registries.
+
+
+2. THE W3C TRUST TRIANGLE: ISSUER, HOLDER & VERIFIER
+----------------------------------------------------------------------------------------------------
+1. Issuer (e.g., West Bengal Municipal Govt / University):
+   - Issues a digitally signed Verifiable Credential (VC) to the Holder.
+   - Publishes credential schema and revocation accumulators to the blockchain registry.
+
+2. Holder / Subject (Citizen / Student):
+   - Stores VCs in a local edge Identity Wallet on their mobile device.
+   - Generates Verifiable Presentations (VPs) using Zero-Knowledge Proofs (ZKPs).
+
+3. Verifier / Relying Party (Bank / Employer):
+   - Requests specific identity claims (e.g., "Prove age $\ge 18$ and active municipal clearance").
+   - Cryptographically verifies the Issuer's digital signature by querying the public key from the blockchain.
+
+
+3. SELECTIVE DISCLOSURE & ZERO-KNOWLEDGE PROOFS (BBS+ SIGNATURES)
+----------------------------------------------------------------------------------------------------
+- Traditional Identity (Physical Aadhaar / Driving License): Over-discloses private data (e.g., showing entire 
+  card with full address and DOB just to enter a restricted room).
+- Selective Disclosure (BBS+ / zk-SNARKs): The Holder generates a mathematical proof demonstrating:
+  $$\text{Age} \ge 18 \quad \land \quad \text{Salary} > \text{₹50,000}$$
+  WITHOUT revealing their exact Date of Birth, home address, or exact salary figure!
+
+
+4. TAMPER-PROOF SIEM & SOC AUDIT LOGGING
+----------------------------------------------------------------------------------------------------
+- Challenge: Threat actors who compromise Domain Admin or root credentials alter local `/var/log` or SIEM tables 
+  to delete evidence of lateral movement.
+- Solution: Automated Log Hash Merkle Anchoring:
+  • Every 60 seconds, SOC log ingestion engine hashes all log entries into a Merkle Tree.
+  • The single root hash is written to an immutable blockchain ledger.
+  • Cryptographic Non-Repudiation: Any subsequent post-incident SQL edit creates an immediate hash mismatch.
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury Officer Credentialing
+- Architecture: Issued W3C Verifiable Credentials for municipal treasury officers with BBS+ selective disclosure.
+- Result: Eliminated credential forgery and credential stuffing across 40 department portals.
+
+Case 2: Salt Lake Sector V FinTech Regulatory Audit Ledger
+- Architecture: Anchoring hourly transaction hashes onto Ethereum Layer-2 for RBI regulatory compliance.
+- Result: 100% indisputable audit trail during external cyber forensic audits.
+====================================================================================================

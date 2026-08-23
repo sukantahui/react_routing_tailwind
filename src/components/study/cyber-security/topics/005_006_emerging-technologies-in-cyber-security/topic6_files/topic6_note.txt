@@ -1,0 +1,63 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: SMART CONTRACT VULNERABILITIES & SECURITY BEST PRACTICES
+COURSE MODULE: 005_006 - EMERGING TECHNOLOGIES IN CYBER SECURITY (TOPIC 6)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. TAXONOMY OF CRITICAL SMART CONTRACT VULNERABILITIES
+----------------------------------------------------------------------------------------------------
+Smart contracts run immutably on the Ethereum Virtual Machine (EVM); once deployed, bugs cannot be patched 
+without complex upgrade proxies.
+
+1. Reentrancy Vulnerability (SWC-107):
+   - Flaw: The contract executes an external ETH transfer (`call.value()`) to an untrusted contract BEFORE 
+     updating the caller's internal balance variable.
+   - Attack Mechanism: The attacker's fallback function intercepts execution and recursively calls `withdraw()` 
+     again, draining the entire vault balance before the balance is ever set to zero.
+   - Historical Precedent: The DAO Hack (2016) - Drained 3.6 million ETH ($60M at the time), leading to the 
+     Ethereum / Ethereum Classic hard fork.
+
+2. Flash Loan Price Oracle Manipulation (SWC-110):
+   - Flaw: Relying on spot reserves (`getReserves()`) of a single Automated Market Maker (AMM) pool for pricing.
+   - Attack: Attacker borrows ₹50,00,00,000 in uncollateralized Flash Loans, dumps the assets to crash the spot 
+     price inside a single block transaction, exploits the under-priced collateral, and repays the loan with 
+     massive arbitrage profit.
+
+3. Integer Overflow / Underflow (SWC-101):
+   - Flaw: In Solidity $< 0.8.0$, uint8 values exceeding 255 wrapped around to 0 ($255 + 1 = 0$), and $0 - 1 = 255$.
+   - Mitigation: Native compiler arithmetic overflow checking in Solidity $\ge 0.8.0$ and OpenZeppelin SafeMath.
+
+4. Faulty Access Control (`tx.origin` vs `msg.sender` - SWC-115):
+   - Flaw: Using `tx.origin` for authorization checks allows phishing contracts to execute privileged functions 
+     on behalf of the victim.
+
+
+2. SECURITY BEST PRACTICES & DESIGN PATTERNS
+----------------------------------------------------------------------------------------------------
+1. Checks-Effects-Interactions (CEI) Pattern:
+   - Always perform input checks first, update internal state variables (Effects) second, and execute external 
+     contracts / token transfers (Interactions) LAST.
+
+2. OpenZeppelin ReentrancyGuard Mutex:
+   - Use `nonReentrant` modifier to lock the contract during external calls.
+
+3. Decentralized Oracles & TWAP:
+   - Use Chainlink Decentralized Oracle Networks or Uniswap v3 Time-Weighted Average Price (TWAP) to resist 
+     flash loan spot-price manipulation.
+
+4. Automated Formal Verification & Fuzzing:
+   - Use static analysis tools (Slither, Mythril) and invariant fuzzing (Foundry / Echidna) to mathematically 
+     prove contract safety before mainnet deployment.
+
+
+3. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Salt Lake Sector V DeFi Protocol Audit
+- Architecture: Audited a decentralized lending vault contract using Slither and Foundry invariant fuzzing.
+- Result: Discovered and patched a critical reentrancy bug in the reward claiming logic before mainnet launch, 
+  securing ₹35,00,00,000 in liquidity pools.
+
+Case 2: Barrackpore Municipal Escrow Contract Hardening
+- Architecture: Implemented OpenZeppelin `ReentrancyGuard` and multi-signature authorization (`Gnosis Safe`) 
+  for municipal vendor escrow releases.
+====================================================================================================

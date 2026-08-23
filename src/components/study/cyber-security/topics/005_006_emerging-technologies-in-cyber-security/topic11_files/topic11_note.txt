@@ -1,0 +1,54 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: ZERO TRUST ARCHITECTURE (NIST SP 800-207)
+COURSE MODULE: 005_006 - EMERGING TECHNOLOGIES IN CYBER SECURITY (TOPIC 11)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. CORE TENETS OF ZERO TRUST (NIST SP 800-207)
+----------------------------------------------------------------------------------------------------
+Zero Trust Architecture (ZTA) replaces the obsolete "Castle-and-Moat" perimeter model with a continuous, 
+session-based, dynamic authorization doctrine: "Never Trust, Always Verify; Assume Breach."
+
+The 7 Foundational Tenets (NIST SP 800-207 Section 2.1):
+1. All data sources and computing services are considered resources.
+2. All communication is secured regardless of network location (internal corporate LAN is as untrusted as public internet).
+3. Access to individual enterprise resources is granted on a per-session basis.
+4. Access to resources is determined by dynamic policy (including client identity, application, device posture, and environmental attributes).
+5. The enterprise monitors and measures the integrity and security posture of all owned and associated assets continuously.
+6. All resource authentication and authorization are dynamic and strictly enforced before access is allowed.
+7. The enterprise collects as much information as possible about the current state of assets, network infrastructure, 
+   and communications and uses it to improve its security posture.
+
+
+2. ARCHITECTURAL COMPONENTS: PDP & PEP
+----------------------------------------------------------------------------------------------------
+1. Policy Decision Point (PDP):
+   - Policy Engine (PE): The mathematical brain responsible for deciding whether to grant, deny, or revoke access to a resource based on enterprise policies and continuous risk scoring.
+   - Policy Administrator (PA): Responsible for establishing or shutting down the communication channel between Subject and Resource by commanding the PEP (e.g., issuing ephemeral mTLS credentials).
+
+2. Policy Enforcement Point (PEP):
+   - A distributed proxy/gateway (e.g., Envoy / Cloudflare Tunnel / Zscaler ZPA) that intercepts, inspects, and terminates live connections, strictly enforcing the PA's instructions.
+
+
+3. MICRO-SEGMENTATION & SOFTWARE-DEFINED PERIMETER (SDP)
+----------------------------------------------------------------------------------------------------
+- Micro-Segmentation: Dividing network workloads into granular, cryptographically isolated zones down to individual microservices and containers, preventing lateral movement.
+- Software-Defined Perimeter (SDP): Hiding internal servers behind an invisible default-deny boundary; servers have no public listening ports ($0.0.0.0:0$) and become accessible ONLY via dynamic mutual TLS tunnels established after successful PDP evaluation.
+
+
+4. CONTINUOUS ADAPTIVE RISK EVALUATION
+----------------------------------------------------------------------------------------------------
+$$\text{Trust Score} = w_1 \cdot \text{Identity} + w_2 \cdot \text{DeviceHealth} + w_3 \cdot \text{BehaviorRisk} + w_4 \cdot \text{Context}$$
+- If a user's device disables EDR or initiates abnormal file downloads mid-session, the PDP immediately terminates the connection without waiting for session expiration.
+
+
+5. REGIONAL SOC CASE STUDIES (WEST BENGAL DEPLOYMENTS)
+----------------------------------------------------------------------------------------------------
+Case 1: Barrackpore Municipal Treasury Micro-Segmentation
+- Architecture: Replaced internal flat VLANs with Zero Trust micro-segmentation across 40 department subnets.
+- Result: Contained a localized ransomware outbreak to a single testing workstation; 0.0% lateral spread to treasury databases.
+
+Case 2: Salt Lake Sector V FinTech Continuous PDP Authorization
+- Architecture: Integrated Microsoft Entra Continuous Access Evaluation (CAE) with CrowdStrike EDR signals.
+- Result: Sub-second session revocation upon impossible travel or malware execution; zero credential reuse.
+====================================================================================================
