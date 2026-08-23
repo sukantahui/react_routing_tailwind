@@ -1,0 +1,155 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: WANNACRY & NOTPETYA (2017) - ETERNALBLUE WORM OUTBREAKS
+COURSE MODULE: 004_006 - LANDMARK CYBER ATTACK CASE STUDIES (TOPIC 5)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. EXECUTIVE OVERVIEW & CHRONOLOGICAL SIGNIFICANCE
+----------------------------------------------------------------------------------------------------
+The year 2017 witnessed the most destructive, automated global malware outbreaks in internet history. 
+Within a two-month span, the weaponization of a single leaked National Security Agency (NSA) exploit—
+"EternalBlue"—ignited two historic global cyber catastrophes:
+
+  A. WANNACRY (MAY 12, 2017):
+     - The fastest-spreading crypto-ransomware worm in history.
+     - Infected over 230,000 computers in 150 countries within hours.
+     - Crippled the United Kingdom's National Health Service (NHS), forcing ambulance diversions and 
+       cancelling 19,000 medical appointments; halted global production at Renault, FedEx, and Telefónica.
+     - Halted by British researcher Marcus Hutchins registering a hardcoded "kill-switch" domain.
+
+  B. NOTPETYA (JUNE 27, 2017):
+     - The single most financially destructive cyber weapon in human history ($10+ Billion / ₹83,000+ Crores).
+     - State-sponsored Russian GRU cyber assault (Sandworm) targeting the Ukrainian state on Constitution Eve.
+     - Masqueraded as ransomware, but was mathematically an irreversible destructive wiper that permanently 
+       destroyed Master File Tables (MFTs) and wiped global giants (Maersk, FedEx/TNT, Merck, Saint-Gobain).
+
+
+2. TECHNICAL ANATOMY OF ETERNALBLUE & DOUBLEPULSAR
+----------------------------------------------------------------------------------------------------
+In April 2017, the hacking persona "The Shadow Brokers" publicly released the "Lost in Translation" cache 
+stolen from the NSA's Tailored Access Operations (TAO / Equation Group):
+
+  A. ETERNALBLUE (CVE-2017-0144 / MS17-010):
+     - Targeted a critical Remote Code Execution vulnerability in Microsoft Server Message Block version 1 
+       (SMBv1) driver `srv.sys` listening on TCP Port 445.
+     - Exploited mathematical integer overflow flaws in how the server handled `SMB_COM_TRANSACTION2` 
+       secondary buffer allocations.
+     - Allowed unauthenticated remote attackers on the Internet or internal LAN to achieve Ring-0 kernel 
+       code execution without requiring ANY human user interaction (Zero-Click).
+
+  B. DOUBLEPULSAR KERNEL IMPLANT:
+     - A stealthy, memory-resident Ring-0 kernel backdoor injected by EternalBlue.
+     - Intercepted SMB packets on Port 445 and injected user-mode DLL payloads directly into Windows 
+       processes (`lsass.exe`, `explorer.exe`) without touching the physical hard drive.
+
+
+3. THE DIVERGENT MALWARE COMPARISON: WANNACRY VS NOTPETYA
+----------------------------------------------------------------------------------------------------
++----------------------+---------------------------------------+---------------------------------------+
+| FEATURE / DIMENSION  | WANNACRY (MAY 2017)                   | NOTPETYA (JUNE 2017)                  |
++----------------------+---------------------------------------+---------------------------------------+
+| MALWARE CATEGORY     | True Crypto-Ransomware                | Destructive Wiper (Fake Ransomware)   |
++----------------------+---------------------------------------+---------------------------------------+
+| THREAT ACTOR         | Lazarus Group (North Korea)           | Sandworm Team / GRU (Russia)          |
++----------------------+---------------------------------------+---------------------------------------+
+| INITIAL INGRESS      | Automated public IPv4 Port 445 Scan   | Supply Chain Update in M.E.Doc Tax App|
++----------------------+---------------------------------------+---------------------------------------+
+| PROPAGATION ENGINES  | EternalBlue (SMBv1 only)              | Dual-Engine: EternalBlue + Mimikatz   |
+|                      |                                       | credential dump + PsExec/WMI          |
++----------------------+---------------------------------------+---------------------------------------+
+| RECOVERY FEASIBILITY | Possible (Real RSA-2048 / AES-128)    | IMPOSSIBLE: Installation key is bogus;|
+|                      | Decryption keys existed upon payment  | raw AES key discarded from memory!    |
++----------------------+---------------------------------------+---------------------------------------+
+| TARGETING SCOPE      | Global opportunistic mass infection   | Geopolitical assault on Ukraine;      |
+|                      |                                       | spilled into multinational networks   |
++----------------------+---------------------------------------+---------------------------------------+
+| TOTAL DAMAGE (EST.)  | ~$4 Billion (₹33,000 Crores)          | ~$10+ Billion (₹83,000+ Crores)       |
++----------------------+---------------------------------------+---------------------------------------+
+
+
+4. DECONSTRUCTING THE WANNACRY SINKHOLE KILL-SWITCH
+----------------------------------------------------------------------------------------------------
+Marcus Hutchins (@MalwareTech) decompiled the WannaCry binary and discovered an unreferenced string:
+  `http://www.iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com`
+
+The Binary's Kill-Switch Logic:
+  1. WannaCry initialized a raw HTTP request to this nonsense domain.
+  2. If the connection FAILED (normal state for an unregistered domain), it concluded it was running 
+     in a live target environment and unleashed EternalBlue propagation and `.WNCRY` encryption.
+  3. If the connection SUCCEEDED (the domain resolved), the malware assumed it was running inside an 
+     automated anti-malware analysis sandbox (which simulates internet access) and cleanly terminated.
+  4. Hutchins registered the domain for $10.69, immediately converting it into a global sinkhole that 
+     halted WannaCry executions worldwide within minutes.
+
+
+5. NOTPETYA'S SUPPLY CHAIN INVASION & GLOBAL COLLAPSE
+----------------------------------------------------------------------------------------------------
+NotPetya bypassed all network perimeters through a devastating supply chain vector:
+  - Attackers compromised the update server of Intellect Service in Kyiv, makers of "M.E.Doc" (Ukrainian 
+    tax software mandated for corporate tax compliance).
+  - On June 27, 2017, a backdoored software update (`ezvit.exe`) pushed NotPetya to every connected firm.
+
+THE DUAL-ENGINE LATERAL SPREADER:
+NotPetya did not need unpatched SMBv1 systems. Once inside:
+  1. It extracted plaintext domain administrator passwords from LSASS memory using embedded Mimikatz.
+  2. It scanned internal subnets and executed itself on fully patched Windows computers via PsExec and WMI:
+     `wmic /node:"10.0.1.50" process call create "rundll32.exe C:\Windows\perfc.dat,#1"`
+
+THE DESTRUCTIVE MFT / MBR WIPE:
+NotPetya forced a reboot and displayed a fake `CHKDSK` screen:
+  - While pretending to repair disk errors, it encrypted the NTFS Master File Table (MFT) using a random, 
+    unrecoverable XOR key.
+  - Overwrote the Master Boot Record (MBR) with a custom bootloader displaying a ransom demand.
+  - The single contact email (`wowsmith123456@posteo.net`) was terminated by Posteo within 2 hours.
+
+THE MAERSK PARALYSIS & THE PORT HARCOURT MIRACLE:
+A.P. Møller-Maersk (the world's largest container shipping line) was paralyzed:
+  - 76 port terminals ground to a halt; container gates locked; thousands of cargo ships stuck at sea.
+  - All 150+ global Domain Controllers were completely wiped within minutes.
+  - THE SAVIOR: A single domain controller at a branch office in Port Harcourt, Nigeria happened to be 
+    offline due to a local power blackout during the attack.
+  - Maersk flew the physical Nigerian hard drive to London to successfully resurrect its global IT empire.
+
+
+6. REGIONAL CLASSROOM LAB: HEALTHCARE & CONTAINER PORT AUDIT (KOLKATA / BARRACKPORE)
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Critical Infrastructure Auditor: Sukanta Hui
+  - Analysts: Mamata (SMB Protocol Analyst), Mahima (Hospital Network Architect), Abhronila (Threat Hunter),
+    Susmita (Incident Commander), Debangshu (Storage & WORM Specialist).
+
+Scenario:
+A regional healthcare hospital network in Barrackpore and a logistics container terminal at the Kolkata 
+Port were evaluated for worm resilience:
+
+Vulnerabilities Discovered (Mamata & Debangshu):
+1. Subnet scans revealed legacy Windows 7 and Windows XP workstations in diagnostic imaging labs with 
+   SMBv1 enabled and TCP Port 445 open to the entire internal LAN.
+2. The accounting department used third-party tax software with unmonitored automatic background updates.
+3. Backup shares were mounted with persistent domain administrative write permissions.
+
+Remediation Executed by Susmita, Mahima & Abhronila:
+- Executed PowerShell scripts across all subnets to permanently uninstall the legacy `SMB1Protocol` feature.
+- Enforced host-based firewall rules blocking all East-West (client-to-client) TCP Port 445 traffic.
+- Configured automated 48-hour emergency patch management SLAs for any CVE listed on the CISA KEV catalog.
+- Migrated hospital and port backups to AWS S3 Object Lock immutable vaults in Compliance Mode.
+
+
+7. STRATEGIC ARCHITECTURAL TAKEAWAYS
+----------------------------------------------------------------------------------------------------
+1. UNCONDITIONAL SMBv1 DEPRECATION:
+   Disable SMBv1 permanently across all operating systems; filter Port 445 at all border firewalls.
+
+2. EMERGENCY 24-48 HOUR PATCH SLAs:
+   Critical Remote Code Execution vulnerabilities must be patched immediately; waiting 30-60 days is fatal.
+
+3. WORKLOAD MICRO-SEGMENTATION:
+   Client workstations on the same VLAN should never talk directly to each other over SMB/RPC ports.
+
+4. IMMUTABLE WORM & OFFLINE COPIES:
+   Wipers target mounted backup shares; maintaining immutable cloud vaults and offline air-gapped backups 
+   is the only guaranteed disaster recovery mechanism.
+
+====================================================================================================
+END OF STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

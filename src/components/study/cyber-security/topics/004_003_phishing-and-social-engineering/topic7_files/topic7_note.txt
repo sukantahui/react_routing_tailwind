@@ -1,0 +1,83 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 07       : BAITING AND PRETEXTING TACTICS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THREAT TAXONOMY
+--------------------------------------------------------------------------------
+Baiting and Pretexting manipulate human greed, curiosity, deference to authority, and social 
+helpfulness to compromise digital networks and physical facilities:
+
+  * BAITING TACTICS (PHYSICAL & DIGITAL) :
+    - Physical: Dropping infected USB flash drives or BadUSB Rubber Duckys labeled "Salaries 2026".
+    - Digital : Distributing trojanized software cracks, pirated tools, or typosquatted PyPI packages.
+
+  * PRETEXTING TACTICS (IDENTITY FABRICATION) :
+    - Inventing an elaborate persona (e.g. State Pollution Inspector, Senior Audit Director).
+    - 5 Core Principles: Plausibility, Contextual Depth, Authority, Empathy, and Isolation.
+    - Elicitation Techniques: Bracketing and deliberate false statements to extract confidential specs.
+
+--------------------------------------------------------------------------------
+2. ADVANCED EXPLOIT MECHANISMS & HARDWARE IMPLANTS
+--------------------------------------------------------------------------------
+
+A. BadUSB & KEYSTROKE INJECTION (USB RUBBER DUCKY) :
+   - Microcontrollers registering as HID keyboards, injecting PowerShell payloads at 1,000 WPM.
+   - Bypasses traditional file-based antivirus scanners completely.
+
+B. O.MG MALICIOUS CABLES :
+   - USB charging cables with embedded ESP8266 Wi-Fi chips triggering keystrokes wirelessly.
+
+C. 802.1X PORT SECURITY & HARDWARE BLOCKING :
+   - Drops unauthorized LAN Turtle implants plugging into RJ45 wall jacks lacking certificates.
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURES & HARDENING CONTROLS
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | THREAT VECTOR NEUTRALIZED   |
++-------------------+---------+-----------------------------+-----------------------------+
+| GPO Device        | Host    | Prohibits unauthorized USB  | Blocks 100% of BadUSB       |
+| Restrictions      | USB     | storage & unapproved HIDs.  | and dropped flash drives.   |
+|                   |         |                             |                             |
+| Out-of-Band       | Process | Mandatory phone validation  | Neutralizes fake auditor,   |
+| Pretext Challenge | Control | against official directory. | vendor & inspector pretexts.|
+|                   |         |                             |                             |
+| 802.1X Network    | Network | EAP-TLS machine certificate | Drops unauthorized rogue    |
+| Port Security     | Layer   | requirement for RJ45 jacks. | LAN Turtle hardware implants|
+|                   |         |                             |                             |
+| Hardware USB Data | Travel  | Severed D+/D- data pins in  | Blocks juice jacking in     |
+| Blockers (Condoms)| Defense | physical charging adapters. | public charging stations.   |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66D   : Cheating by Personation in pretexting operations (Up to 3 Years Prison).
+    - Section 43(a) : Civil damages up to ₹1 CRORE for unauthorized access via baiting.
+    - Section 66    : Criminal hacking & fraudulent deception (Up to 3 Years Prison + ₹5 Lakh Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Dishonestly Inducing Delivery of Property (Up to 7 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All rogue hardware implants & baiting compromises must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory endpoint security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Baiting exploits curiosity and greed; Pretexting invents elaborate fictional personas.
+  [✔] BadUSB devices emulate HID keyboards, injecting PowerShell scripts at 1,000 words/min.
+  [✔] Elicitation techniques like Bracketing extract secrets without asking direct questions.
+  [✔] Windows GPO USB device restrictions prevent unauthorized USB storage and HID drivers.
+  [✔] 802.1X EAP-TLS port security blocks rogue hardware implants from connecting to wall jacks.
+  [✔] Section 66D of the IT Act penalizes Cheating by Personation with up to 3 years imprisonment.
+================================================================================

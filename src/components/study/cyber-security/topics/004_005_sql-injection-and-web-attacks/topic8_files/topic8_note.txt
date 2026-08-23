@@ -1,0 +1,89 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 08       : CROSS-SITE REQUEST FORGERY (CSRF) & BROKEN ACCESS CONTROL
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & AMBIENT AUTHORITY EXPLOITATION
+--------------------------------------------------------------------------------
+Cross-Site Request Forgery (CSRF) exploits "ambient authority"—the browser's automatic inclusion 
+of stored session cookies with every cross-site request—tricking authenticated victims into executing 
+unintended state-changing actions on trusted web applications:
+
+  * THE CORE ANTI-CSRF MECHANISMS :
+    1. SAMESITE COOKIE ATTRIBUTES : `SameSite=Strict` (blocks all cross-site cookie transmission).
+    2. SYNCHRONIZER TOKEN PATTERN : Secret per-session cryptographically random token embedded in forms.
+    3. DOUBLE-SUBMIT COOKIE       : Stateless HMAC token in cookie matched against custom request header.
+
+--------------------------------------------------------------------------------
+2. BROKEN ACCESS CONTROL TAXONOMY (OWASP TOP 10 #1)
+--------------------------------------------------------------------------------
+
++----------------------+--------------------+--------------------------------+----------------------------+
+| VULNERABILITY TYPE   | ATTACK VECTOR      | EXPLOITATION MECHANISM         | DEFENSIVE MITIGATION       |
++----------------------+--------------------+--------------------------------+----------------------------+
+| Insecure Direct      | `/api/invoice/105` | Changing integer ID to access  | Verify tenant ownership:   |
+| Object Ref (IDOR)    |                    | another user's invoice data.   | `WHERE id=$1 AND user_id=$2`|
+|                      |                    |                                |                            |
+| Vertical Privilege   | `/admin/resetDB`   | Regular user invokes hidden    | Backend role middleware:   |
+| Escalation           |                    | administrative API endpoints.  | `requireRole('ADMIN')`     |
+|                      |                    |                                |                            |
+| Mass Assignment      | `User.update(body)`| Attacker injects hidden JSON:  | Whitelisted Data Transfer  |
+| (Over-Posting)       |                    | `{"isAdmin": true}`.           | Objects (DTOs).            |
+|                      |                    |                                |                            |
+| Multi-Tenant Leakage | Shared PostgreSQL  | Query omits `tenant_id` filter,| PostgreSQL Row-Level       |
+|                      | Tables             | mixing corporate records.      | Security (RLS) policies.   |
++----------------------+--------------------+--------------------------------+----------------------------+
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURE
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | VULNERABILITY NEUTRALIZED   |
++-------------------+---------+-----------------------------+-----------------------------+
+| SameSite=Strict   | Cookie  | `Set-Cookie: session=xyz;   | Completely blocks all       |
+| Cookies           | Storage | Secure; HttpOnly; SameSite` | ambient cross-site cookies. |
+|                   |         |                             |                             |
+| Double-Submit     | HTTP    | Validates matching token in | Defeats 100% of CSRF form   |
+| Anti-CSRF Token   | Header  | `X-XSRF-TOKEN` header.      | submissions ($P=0.00\%$).   |
+|                   |         |                             |                             |
+| Tenant Ownership  | Data    | `SELECT * FROM data WHERE   | Eliminates Insecure Direct  |
+| Middleware        | Access  | id=$1 AND tenant_id=$2`     | Object References (IDOR).   |
+|                   |         |                             |                             |
+| Non-Enumerable    | Model   | Cryptographic UUIDv4 strings| Prevents automated sequential|
+| References        | Layer   | (`/api/invoices/UUIDv4`).   | parameter enumeration.      |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66C   : Identity theft & credential misuse via CSRF (Up to 3 Years Prison + ₹1 Lakh Fine).
+    - Section 66D   : Cheating by personation using computer resource (Up to 3 Years Prison + Fine).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized computer access/damage.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Funds Siphoning via CSRF (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Record Deletion via IDOR (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Broken access control data leaks and unauthorized actions must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] CSRF exploits ambient authority where browsers automatically attach cookies to cross-site requests.
+  [✔] `SameSite=Strict` blocks cookies on all cross-site links, completely neutralizing CSRF.
+  [✔] Anti-CSRF tokens embed secret cryptographically random codes that outside websites cannot read.
+  [✔] IDOR occurs when an application references database keys without validating user ownership.
+  [✔] Mass Assignment allows attackers to inject `isAdmin: true` into database update models.
+  [✔] Section 66C of the IT Act penalizes identity theft and unauthorized session actions with up to 3 years prison.
+================================================================================

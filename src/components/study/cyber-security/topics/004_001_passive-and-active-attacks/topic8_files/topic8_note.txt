@@ -1,0 +1,94 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_001 : PASSIVE VS ACTIVE CYBER ATTACKS
+TOPIC 08       : ACTIVE ATTACKS: DENIAL OF SERVICE (DoS & DDoS) FUNDAMENTALS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & AVAILABILITY THREAT THEORY
+--------------------------------------------------------------------------------
+A Denial of Service (DoS) or Distributed Denial of Service (DDoS) Attack is an active cyber 
+threat designed to overwhelm, exhaust, or crash target systems, rendering them unavailable 
+to legitimate users. This directly violates the AVAILABILITY pillar of the CIA Triad:
+
+  * THE ESSENCE OF DoS :
+    - Confidentiality : Intact (No secret data stolen).
+    - Integrity       : Intact (No data altered).
+    - Availability    : DESTROYED (Legitimate users receive 504 Gateway Timeouts or connection drops).
+
+  * BOTNETS & SCALING :
+    - Attackers command thousands or millions of compromised IoT bots (Mirai botnets) 
+      to unleash coordinated multi-terabit volumetric floods across global networks.
+
+--------------------------------------------------------------------------------
+2. THE THREE PILLARS OF DDoS THREAT VECTORS
+--------------------------------------------------------------------------------
+
+A. VOLUMETRIC AMPLIFICATION FLOODS (MEASURED IN Gbps / Tbps) :
+   - Exploits stateless UDP protocols with spoofed victim source IPs:
+       * DNS Amplification (EDNS0)  : ~50x to 70x Amplification Factor (AF)
+       * NTP monlist Reflection     : ~556x Amplification Factor (AF)
+       * Memcached UDP Reflection   : ~10,000x to 51,000x Amplification Factor (AF!)
+   - Math: Inbound_Volume = Bots × Egress_Rate × Amplification_Factor
+
+B. PROTOCOL & STATE EXHAUSTION ATTACKS (MEASURED IN Mpps) :
+   - Saturates stateful connection tables, firewalls, and OS socket buffers:
+       * TCP SYN Flood  : Fills `SYN_RECV` half-open backlog queue, dropping connections.
+       * Smurf Attack   : ICMP echo broadcasts reflecting from entire subnets.
+       * Teardrop       : Overlapping IP fragment offsets crashing legacy kernel reassembly.
+
+C. APPLICATION LAYER (LAYER 7) RESOURCE EXHAUSTION (MEASURED IN RPS) :
+   - Forces heavy backend CPU computation, database queries, or thread locks:
+       * HTTP/2 Rapid Reset (CVE-2023-44487) : HEADERS + RST_STREAM floods (398M RPS record!).
+       * Slowloris / RUDY                    : Incomplete headers/body holding worker threads.
+       * ReDoS (Regex Denial of Service)     : Catastrophic backtracking O(2^n) locking CPU.
+
+================================================================================
+3. PRODUCTION ANTI-DDoS DEFENSIVE MATRIX
+================================================================================
+
++-----------------------+---------+-----------------------------+-----------------------------+
+| DDoS ATTACK VECTOR    | OSI LVL | EXPLOITATION MECHANISM      | PRODUCTION DEFENSIVE SHIELD |
++-----------------------+---------+-----------------------------+-----------------------------+
+| Volumetric UDP / DNS  | Layer 3 | Sinks ISP WAN links with    | BGP Anycast Scrubbing PoPs  |
+| Amplification Flood   | Layer 4 | hundreds of gigabits/sec.   | + Upstream BGP FlowSpec.    |
+|                       |         |                             |                             |
+| TCP SYN Flood         | Layer 4 | Exhausts kernel half-open   | Linux TCP SYN Cookies       |
+| (Backlog Exhaustion)  | (TCP)   | socket buffer tables.       | (`net.ipv4.tcp_syncookies`).|
+|                       |         |                             |                             |
+| Slowloris / RUDY      | Layer 7 | Sends slow headers/bodies,  | Nginx event-driven model +  |
+| Slow HTTP Attack      | (HTTP)  | locking web worker threads. | `client_header_timeout 10s`.|
+|                       |         |                             |                             |
+| HTTP/2 Rapid Reset    | Layer 7 | Sends stream headers and    | HTTP/2 Concurrent Stream    |
+| Stream Flood          | (HTTP/2)| cancels immediately.        | Caps + Edge WAF Rate Limits.|
+|                       |         |                             |                             |
+| ReDoS Catastrophic    | Layer 7 | Exploits regex backtracking | Google RE2 DFA linear-time  |
+| Backtracking          | (App)   | locking CPU in O(2^n) time. | regular expression engine.  |
+|                       |         |                             |                             |
+| NTP monlist /         | Layer 4 | Exploits open UDP services  | Disable monlist in NTP;     |
+| Memcached Reflection  | (UDP)   | returning giant responses.  | Bind Memcached to localhost.|
++-----------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : CYBER TERRORISM — Intentionally denying access to critical infrastructure 
+                      (power grids, banking switches, nuclear systems) carries LIFE IMPRISONMENT!
+    - Section 66    : Criminal hacking & system disruption (Up to 3 Years Prison + ₹5 Lakh Fine).
+    - Section 43(f) : Civil damages up to ₹1 CRORE for causing denial of computer access.
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All DDoS and ransomware attacks must be reported to CERT-In within 6 HOURS of detection.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] DoS/DDoS attacks violate the Availability pillar of the CIA Triad.
+  [✔] UDP reflection attacks achieve up to 50,000x amplification (Memcached UDP 11211).
+  [✔] TCP SYN Cookies encode state into the 32-bit ISN, defeating SYN floods without memory buffers.
+  [✔] Slowloris exhausts worker threads using slow headers with minimal bandwidth.
+  [✔] BGP Anycast disperses global multi-terabit floods across hundreds of distributed scrubbing centers.
+  [✔] Section 66F of the IT Act mandates LIFE IMPRISONMENT for Cyber Terrorism via critical DoS.
+================================================================================

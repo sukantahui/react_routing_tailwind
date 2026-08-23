@@ -1,0 +1,79 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_004 : DENIAL OF SERVICE (DoS) & DDoS ATTACKS
+TOPIC 03       : NETWORK PROTOCOL DDoS ATTACKS (SYN FLOOD AND SMURF ATTACK)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & PROTOCOL STATE EXHAUSTION
+--------------------------------------------------------------------------------
+Network Protocol DDoS attacks target stateful connection tracking tables (`conntrack`), memory buffers, 
+and network appliances (firewalls, load balancers), measured in Packets Per Second (PPS/Mpps):
+
+  * PRIMARY PROTOCOL ATTACK VECTORS :
+    1. TCP SYN FLOODS      : Fills half-open TCP backlog queues, consuming TCB memory buffers.
+    2. SMURF ATTACKS       : Exploits directed ICMP broadcast amplification on unconfigured subnets.
+    3. FRAGGLE ATTACKS     : UDP counterpart to Smurf targeting UDP Echo (port 7) / Chargen (port 19).
+    4. ACK & SYN-ACK FLOODS: Forces expensive firewall state table lookups & RST generation.
+    5. SOCKSTRESS FLOODS   : Completes handshakes with TCP Window Size 0 to lock socket memory.
+
+--------------------------------------------------------------------------------
+2. PROTOCOL STATE-TABLE DYNAMICS & TCB ALLOCATION
+--------------------------------------------------------------------------------
+
+A. TRANSMISSION CONTROL BLOCK (TCB) ALLOCATION :
+   - Each embryonic half-open TCP socket consumes ~480 bytes of non-pageable kernel RAM.
+
+B. FIREWALL HASH BUCKET COLLISION :
+   - Inadequately sized conntrack hash buckets degrade lookup speeds from $O(1)$ to $O(N)$ during floods.
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURES & KERNEL HARDENING
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | PROTOCOL VECTOR FILTERED    |
++-------------------+---------+-----------------------------+-----------------------------+
+| Border Router     | Layer 3 | Cisco IOS `no ip directed-  | Completely neutralizes      |
+| Broadcast Drop    | Network | broadcast` on all interfaces.| Smurf & Fraggle broadcasts. |
+|                   |         |                             |                             |
+| Hardware TCP      | Inline  | F5 / A10 proxy completing   | Shields backend web servers |
+| SYN Proxy         | Gateway | handshake before forwarding.| from half-open SYN queues.  |
+|                   |         |                             |                             |
+| Linux TCP SYN     | Kernel  | `net.ipv4.tcp_syncookies = 1`| Completely eliminates TCB   |
+| Cookie Engine     | Stack   | with `tcp_synack_retries = 2`| memory backlog allocation.  |
+|                   |         |                             |                             |
+| Scaled Conntrack  | Firewall| `nf_conntrack_max = 2097152`| Prevents state table        |
+| Hash Table        | State   | with hashsize = 524288.     | exhaustion crashes.         |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Protocol floods on Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Attacks on PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(f) : Civil compensation up to ₹1 CRORE for causing Denial of Access.
+    - Section 66    : Criminal hacking & service disruption (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Protocol DDoS Extortion (Up to 7 Years Prison).
+    - Section 427   : Mischief & State-Table / Server Disruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All protocol DDoS outages must be reported to CERT-In within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory availability safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Protocol DDoS attacks target stateful connection tables and CPU processing (Mpps).
+  [✔] TCP SYN floods fill the server's half-open backlog; defeated via RFC 4987 TCP SYN Cookies.
+  [✔] Smurf attacks exploit ICMP broadcast amplification; defeated via `no ip directed-broadcast`.
+  [✔] Hardware SYN Proxies complete three-way handshakes before passing traffic to backend servers.
+  [✔] Scaling conntrack hash buckets (`hashsize = 524288`) prevents O(N) lookup degradation.
+  [✔] Section 66F of the IT Act penalizes Protocol Cyber Terrorism with Life Imprisonment.
+================================================================================

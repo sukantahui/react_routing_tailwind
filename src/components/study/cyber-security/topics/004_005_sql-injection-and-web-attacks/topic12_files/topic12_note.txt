@@ -1,0 +1,82 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 12       : WEB APPLICATION FIREWALLS (WAF) & CONTENT SECURITY POLICY (CSP)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE DUAL-PERIMETER ARCHITECTURE
+--------------------------------------------------------------------------------
+Comprehensive defense-in-depth establishes two complementary security perimeters:
+
+  * THE DUAL-PERIMETER PILLARS :
+    1. INBOUND PERIMETER (WAF) : Inspects Layer 7 HTTP/HTTPS traffic at the cloud edge, blocking SQLi, 
+       XSS, RCE, and bots via anomaly scoring and OpenAPI schema allowlists.
+    2. BROWSER PERIMETER (CSP) : Restricts browser script execution via cryptographic nonces (`nonce-SECRET`), 
+       neutralizing XSS in the client DOM even if an attacker injects markup.
+
+--------------------------------------------------------------------------------
+2. WAF ANOMALY SCORING & PARANOIA LEVELS (CRS)
+--------------------------------------------------------------------------------
+
++----------------------+--------------------+--------------------------------+----------------------------+
+| PARANOIA LEVEL (PL)  | SENSITIVITY        | INSPECTION BEHAVIOR            | TYPICAL APPLICATION CONTEXT|
++----------------------+--------------------+--------------------------------+----------------------------+
+| PL1 (Default)        | Baseline           | Core high-confidence signatures| Standard public web portals|
+| PL2 (Elevated)       | High               | Adds strict regex decode checks| E-Commerce, SaaS, Portals  |
+| PL3 (High)           | Very High          | Checks charsets & char counts  | Banking & FinTech Gateways |
+| PL4 (Extreme)        | Maximum            | Extreme anomaly scoring        | Defense & Power Grid SCADA |
++----------------------+--------------------+--------------------------------+----------------------------+
+
+================================================================================
+3. COMPREHENSIVE PRODUCTION SECURITY HEADERS SUITE
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| SECURITY HEADER   | DIRECTIVE VALUE                       | VULNERABILITY NEUTRALIZED   |
++-------------------+---------+-----------------------------+-----------------------------+
+| Content Security  | `default-src 'self'; script-src       | Cross-Site Scripting (XSS), |
+| Policy (CSP)      | 'self' 'nonce-...' 'strict-dynamic';  | Data Exfiltration &         |
+|                   | object-src 'none'; frame-ancestors    | Clickjacking Attacks.       |
+|                   | 'none';`                              |                             |
+|                   |                                       |                             |
+| HSTS              | `max-age=63072000; includeSubDomains; | SSL Stripping & Man-in-the- |
+|                   | preload`                              | Middle (MitM) Attacks.      |
+|                   |                                       |                             |
+| MIME Sniffing     | `X-Content-Type-Options: nosniff`     | MIME-confusion script exec. |
+|                   |                                       |                             |
+| Referrer Policy   | `strict-origin-when-cross-origin`     | URL Token & Parameter leaks.|
+|                   |                                       |                             |
+| Permissions Policy| `camera=(), microphone=(), geo=()`    | Hardware sensor exploitation|
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : WAF bypasses compromising Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized database data extraction.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Financial Siphoning via Perimeter Bypasses (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Database Damage (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Security breaches resulting from perimeter bypasses must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] WAF operates at Layer 7; inspects HTTP parameters, headers, and request bodies.
+  [✔] WAFs are not a substitute for Parameterized Queries; they buy time via Virtual Patching.
+  [✔] Strict Nonce-Based CSP (`script-src 'nonce-...'`) completely neutralizes XSS in the browser.
+  [✔] `frame-ancestors 'none'` supersedes `X-Frame-Options: DENY` for Clickjacking defense.
+  [✔] Use CSP Report-Only mode during staging to audit violations without breaking functionality.
+  [✔] Section 66F of the IT Act penalizes perimeter attacks on critical infrastructure with Life Imprisonment.
+================================================================================

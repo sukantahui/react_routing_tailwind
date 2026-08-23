@@ -1,0 +1,82 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_004 : DENIAL OF SERVICE (DoS) & DDoS ATTACKS
+TOPIC 00       : INTRODUCTION TO DENIAL OF SERVICE (DoS) ATTACKS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE CIA AVAILABILITY PILLAR
+--------------------------------------------------------------------------------
+A Denial of Service (DoS) attack intentionally deprives authorized legitimate users of access to a 
+computer system, network resource, or web application, violating the AVAILABILITY pillar of the CIA triad:
+
+  * THE 3 PRIMARY DoS ATTACK DIMENSIONS :
+    1. VOLUMETRIC ATTACKS : Measured in Bits Per Second (Gbps) ➔ Saturates upstream network links.
+    2. PROTOCOL ATTACKS   : Measured in Packets Per Second (PPS) ➔ Exhausts firewall `conntrack` tables.
+    3. APPLICATION ATTACKS: Measured in Requests Per Second (RPS) ➔ Exhausts server CPU & SQL pools.
+
+--------------------------------------------------------------------------------
+2. TECHNICAL TAXONOMY OF RESOURCE EXHAUSTION & LOGIC CRASHES
+--------------------------------------------------------------------------------
+
+A. PROTOCOL & STATE EXHAUSTION :
+   - SYN Flood        : Fills the server's half-open TCP backlog queue; defeated via TCP SYN Cookies.
+   - Ping of Death    : Reassembles fragmented ICMP packets exceeding the 65,535-byte IPv4 limit (BSOD).
+   - Teardrop Attack  : Overlapping IP packet offsets causing kernel memory reassembly corruption.
+   - Land Attack      : Spoofing Source IP = Destination IP, causing infinite internal connection loops.
+
+B. SLOW-RATE APPLICATION LAYER EXHAUSTION :
+   - Slowloris        : Transmits incomplete HTTP headers slowly (every 15s), holding worker threads.
+   - R-U-Dead-Yet(RUDY): Submits huge POST Content-Length headers, sending 1 byte every 10 seconds.
+   - ReDoS            : Exploits exponential $O(2^N)$ regular expression backtracking, locking CPU cores.
+
+================================================================================
+3. ENTERPRISE DEFENSIVE HARDENING & KERNEL TUNING
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | DoS ATTACK NEUTRALIZED      |
++-------------------+---------+-----------------------------+-----------------------------+
+| Upstream ISP      | Network | BGP Flowspec & Null0 Route  | Drops volumetric pipe       |
+| Perimeter         | Pipe    | discard at upstream router. | saturation before firewall. |
+|                   |         |                             |                             |
+| Stateful Firewall | State   | `nf_conntrack_max = 2000000`| Prevents firewall state     |
+| Table Scaling     | Memory  | with embryonic drop timers. | table exhaustion crashes.   |
+|                   |         |                             |                             |
+| Linux Kernel TCP  | OS      | `net.ipv4.tcp_syncookies = 1`| Completely neutralizes      |
+| Stack Tuning      | Backlog | with short FIN/SYN timeouts.| TCP SYN Flood queue dumps.  |
+|                   |         |                             |                             |
+| Reverse Proxy     | App     | Nginx asynchronous `epoll`  | Defeats Slowloris & RUDY by |
+| Event Engine      | Threads | with short header timeouts. | buffering headers non-block.|
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : DoS on Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : DoS attacks on PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(f) : Civil compensation up to ₹1 CRORE for causing Denial of Access.
+    - Section 66    : Criminal hacking & service disruption (Up to 3 Years Prison + ₹5 Lakh Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 427   : Mischief & Service Disruption causing loss (Up to 2 Years Prison).
+    - Section 420   : Cheating & Fraudulent DoS Extortion Ransoms (Up to 7 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All DoS service outages affecting operations must be reported to CERT-In within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory availability safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] DoS attacks directly violate the Availability pillar of the CIA Triad.
+  [✔] Volumetric attacks saturate bandwidth (Gbps); Protocol attacks exhaust connection state (PPS).
+  [✔] Application attacks (Slowloris, RUDY) consume server threads (RPS) using minimal bandwidth.
+  [✔] TCP SYN Cookies (RFC 4987) encode connection state into ISN, eliminating backlog memory allocation.
+  [✔] Section 66F of the IT Act penalizes DoS Cyber Terrorism with Life Imprisonment.
+  [✔] Section 43(f) of the IT Act provides civil damages up to ₹1 Crore for denying authorized access.
+================================================================================

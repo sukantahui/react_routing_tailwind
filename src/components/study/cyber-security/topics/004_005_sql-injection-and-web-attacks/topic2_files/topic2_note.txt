@@ -1,0 +1,82 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 02       : SQL INJECTION (SQLi) FUNDAMENTALS & WORKING PRINCIPLES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & RDBMS QUERY COMPILATION
+--------------------------------------------------------------------------------
+SQL Injection occurs when untrusted user input is directly concatenated into an SQL statement, 
+altering the database parser's Abstract Syntax Tree (AST) before execution:
+
+  * THE 4 SQL INJECTION CONTEXTS :
+    1. STRING LITERAL CONTEXT : `WHERE user = 'USER'` ➔ Requires single quote `'` breakout.
+    2. NUMERIC CONTEXT        : `WHERE id = USER`     ➔ No quotes needed; executes SQL commands directly!
+    3. IDENTIFIER CONTEXT     : `ORDER BY USER`       ➔ Cannot use `?` placeholders; requires whitelisting!
+    4. DML UPDATE / INSERT    : `UPDATE ... SET bio = USER` ➔ Overwrites other users' roles/passwords.
+
+--------------------------------------------------------------------------------
+2. DATABASE DIALECT FINGERPRINTING MATRIX
+--------------------------------------------------------------------------------
+
++----------------------+--------------------+---------------------+----------------------------+
+| RDBMS ENGINE         | COMMENT SYNTAX     | STRING CONCATENATION| VERSION DETECTION FUNCTION |
++----------------------+--------------------+---------------------+----------------------------+
+| MySQL / MariaDB      | `#`  or  `-- `     | `CONCAT('a','b')`   | `SELECT VERSION();`        |
+| PostgreSQL           | `--`               | `'a' || 'b'`        | `SELECT version();`        |
+| Microsoft SQL Server | `--`               | `'a' + 'b'`         | `SELECT @@VERSION;`        |
+| Oracle Database      | `--`               | `'a' || 'b'`        | `SELECT banner FROM v$ver;`|
+| SQLite               | `--`               | `'a' || 'b'`        | `SELECT sqlite_version();` |
++----------------------+--------------------+---------------------+----------------------------+
+
+================================================================================
+3. ENTERPRISE DEFENSIVE HARDENING BLUEPRINT
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | VULNERABILITY NEUTRALIZED   |
++-------------------+---------+-----------------------------+-----------------------------+
+| Parameterized     | Query   | Pre-compiles AST template;  | Eliminates 100% of String & |
+| Prepared Stmts    | Layer   | binds user data to slots.   | Numeric SQL Injection ($0\%$).|
+|                   |         |                             |                             |
+| Identifier Array  | Dynamic | Maps user sort options to   | Completely neutralizes      |
+| Whitelisting      | Sort    | pre-approved SQL fragments. | `ORDER BY` SQL injection.   |
+|                   |         |                             |                             |
+| Least Privilege   | DB User | Revokes DDL & admin rights  | Prevents `DROP TABLE` and   |
+| Database Accounts | Privs   | from web application user.  | `xp_cmdshell` execution.    |
+|                   |         |                             |                             |
+| Real-Time DAM     | Audit   | Database Activity Monitoring| Alerts SIEM upon detecting  |
+| & SIEM Monitoring | Layer   | tracking query anomalies.   | unauthorized query spikes.  |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : SQLi attacks on Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized database extraction.
+    - Section 66    : Criminal hacking & data tampering (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Balance Manipulation (Up to 7 Years Prison).
+    - Section 427   : Mischief & Database Destruction (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Database compromises resulting from SQL injection must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] String concatenation mutates the query AST, while Prepared Statements keep the AST fixed.
+  [✔] Numeric context SQLi requires no quotes, executing operators (`UNION`, `OR`) directly.
+  [✔] Tautology `' OR 1=1--` bypasses login because `False OR True === True` for all database rows.
+  [✔] `ORDER BY` injection cannot use `?` placeholders and must be protected via strict whitelists.
+  [✔] MySQL comments require a trailing space (`-- `) or hash (`#`), while Postgres uses `--`.
+  [✔] Section 66F of the IT Act penalizes SQL injection cyber terrorism with Life Imprisonment.
+================================================================================

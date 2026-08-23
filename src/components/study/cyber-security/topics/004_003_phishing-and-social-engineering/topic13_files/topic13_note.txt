@@ -1,0 +1,85 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 13       : SOCIAL ENGINEERING DEFENSE AND CORPORATE CASE STUDIES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & DEFENSE-IN-DEPTH ARCHITECTURE
+--------------------------------------------------------------------------------
+Social engineering cannot be solved by technology or awareness alone. Enterprise immunity requires 
+a synchronized 3-Tier Defense-in-Depth Matrix combining Policy, Technical, and Human controls:
+
+  * THE 3-TIER SOCIAL ENGINEERING DEFENSE MATRIX :
+    1. POLICY TIER    : Mandatory Out-of-Band (OOB) dual verification (> ₹1,00,000) & Two-Person rules.
+    2. TECHNICAL TIER : FIDO2 Hardware Keys (YubiKey), DMARC `p=reject`, Number Matching MFA & UEBA ML.
+    3. HUMAN TIER     : 500ms Just-in-Time (JIT) coaching, One-Click Report button & Security Champions.
+
+--------------------------------------------------------------------------------
+2. LANDMARK REAL-WORLD CORPORATE CASE STUDIES
+--------------------------------------------------------------------------------
+
+A. 2020 TWITTER / X BITCOIN SCAM :
+   - Spear vishing phone calls to remote IT support bypassed VPN MFA, compromising 130 VIP accounts.
+
+B. 2013-2015 EVALDAS RIMASAUSKAS BEC (GOOGLE & FACEBOOK) :
+   - ₹1,000+ Crores ($120M) stolen using fake invoices and cloned Quanta Computer Latvian shell company.
+
+C. 2022 CLOUDFLARE VS TWILIO (0KTAPUS AiTM PHISHING) :
+   - Cloudflare neutralized 100% of attacks due to mandatory FIDO2 hardware-bound origin binding keys.
+
+D. 2022 UBER MFA FATIGUE SOCIAL ENGINEERING :
+   - Attacker spammed MFA push alerts at 1 AM and posed as IT support on WhatsApp to gain approval.
+
+E. 2016 BANGLADESH BANK SWIFT HEIST :
+   - Spear phishing email with malicious CV enabled ₹8,000+ Crore ($951M) attempted SWIFT wire theft.
+
+================================================================================
+3. ENTERPRISE SOCIAL ENGINEERING DEFENSE MATRIX
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE PILLAR    | FOCUS   | IMPLEMENTATION MECHANISM    | SOCIAL ENGINEERING THREAT   |
++-------------------+---------+-----------------------------+-----------------------------+
+| Policy Controls   | Process | Mandatory Out-of-Band (OOB) | Neutralizes BEC supplier    |
+|                   | Protocol| verbal callback validation. | swindles and invoice fraud. |
+|                   |         |                             |                             |
+| Technical Controls| Crypto  | FIDO2 WebAuthn hardware keys| Defeats AiTM reverse proxies|
+|                   | Identity| with origin domain binding. | and credential harvesting.  |
+|                   |         |                             |                             |
+| Human Controls    | Culture | 500ms JIT Teachable Moments | Reduces Phish-Prone rate    |
+|                   | Habit   | & One-Click Report buttons. | below 2.1% across workforce.|
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 70    : Social engineering attacks on PROTECTED SYSTEMS (Up to 10 YEARS PRISON).
+    - Section 66D   : Cheating by Personation via social engineering (Up to 3 Years Prison + Fine).
+    - Section 43A   : Mandatory Reasonable Security Practices (Workforce training & compensation).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Dishonestly Inducing Delivery of Property (Up to 7 Years Prison).
+    - Section 419   : Cheating by Personation for Vishing phone scams (Up to 3 Years Prison).
+
+  * EMERGENCY FINANCIAL FRAUD REPORTING :
+    - MHA I4C National Cybercrime Helpline 1930 (CFCFRMS Platform) freezes stolen funds in transit.
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All social engineering compromises & BEC attacks must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory social engineering safeguards; failure triggers ₹250 CRORE fines.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Social engineering immunity requires a 3-tier matrix: Policy, Technical, and Human controls.
+  [✔] FIDO2 WebAuthn hardware keys mathematically defeat AiTM phishing proxies via origin binding.
+  [✔] Mandatory Out-of-Band (OOB) phone callbacks stop 100% of BEC fake invoice wire fraud.
+  [✔] Number Matching in authenticator apps stops MFA Fatigue / Push Notification Bombing.
+  [✔] MHA Helpline 1930 (CFCFRMS) coordinates with banks to freeze stolen fraud funds in transit.
+  [✔] Section 70 of the IT Act penalizes social engineering attacks on Protected Systems with 10 years prison.
+================================================================================

@@ -1,0 +1,81 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 09       : PRIVILEGE ABUSE, DATA EXFILTRATION, AND SABOTAGE
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THREAT TAXONOMY
+--------------------------------------------------------------------------------
+Privilege Abuse, Data Exfiltration, and Sabotage represent the most destructive internal threat 
+actions, weaponizing legitimate administrative authorization against the enterprise:
+
+  * THE 3 PRIMARY INTERNAL THREAT VECTORS :
+    1. PRIVILEGE ABUSE   : Misusing authorized access (snooping on executive salaries, mass SQL dumps).
+    2. COVERT EXFILTRATION: Stealing data via DNS Tunneling, ICMP payloads, and LSB Image Steganography.
+    3. INFRASTRUCTURE SABOTAGE: Volume Shadow Copy deletion, Logic Bombs, and Partition Table wiping.
+
+--------------------------------------------------------------------------------
+2. ADVANCED EXPLOIT MECHANICS & COVERT CHANNELS
+--------------------------------------------------------------------------------
+
+A. DNS TUNNELING EXFILTRATION & SHANNON ENTROPY :
+   - Encodes stolen data in DNS query subdomains (`base64.c2.attacker.com`) over outbound UDP 53.
+   - Detected via Shannon entropy analysis ($H(X) > 4.5$) and query length inspection.
+
+B. LEAST SIGNIFICANT BIT (LSB) STEGANOGRAPHY :
+   - Hides confidential text inside the lowest-order bit of RGB image pixels (invisible visually).
+   - Detected via Chi-Square ($\chi^2$) statistical analysis of sample pairs of values.
+
+C. LIVING OFF THE LAND (LotL) SABOTAGE :
+   - Uses pre-installed native binaries (`vssadmin`, `certutil`, `bitsadmin`, `tar`, `dd`) to evade AV.
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURES & PRIVILEGED ARMOR
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | INTERNAL THREAT NEUTRALIZED |
++-------------------+---------+-----------------------------+-----------------------------+
+| Privileged Access | Admin   | Hardened dedicated laptop   | Prevents data exfiltration  |
+| Workstations (PAW)| Host    | with zero internet egress.  | during administrative tasks.|
+|                   |         |                             |                             |
+| Database Activity | Data    | Real-time SQL inspection    | Terminates unauthorized     |
+| Monitoring (DAM)  | Layer   | blocking queries > 50 rows. | mass record dump queries.   |
+|                   |         |                             |                             |
+| Immutable WORM    | Backup  | S3 Object Lock Compliance   | Guarantees recovery from    |
+| Storage           | Layer   | timer preventing deletion.  | root admin sabotage wipes.  |
+|                   |         |                             |                             |
+| Privileged Session| Forensics| Centralized video & keystroke| Produces tamper-proof legal |
+| Recording (PSR)   | Audit   | recording of admin sessions.| evidence of privilege abuse.|
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 70    : Unauthorized access/sabotage of PROTECTED SYSTEMS (Up to 10 YEARS PRISON).
+    - Section 43(c) : Civil compensation up to ₹1 CRORE for introducing contaminants/sabotage.
+    - Section 66B   : Receiving or retaining stolen computer data (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 427   : Mischief & Sabotage causing damage to property (Up to 2 Years Prison).
+    - Section 408   : Criminal Breach of Trust by Clerk or Servant (Up to 7 Years Prison + Fine).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All data exfiltration, database sabotage, and privileged abuse must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory organizational data safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Privilege Abuse uses legitimate rights illicitly; Privilege Escalation gains rights illegally.
+  [✔] DNS Tunneling encodes stolen data into lookup subdomains, bypassing firewalls on UDP port 53.
+  [✔] LSB Steganography hides binary data in image pixels, detected via Chi-Square statistical tests.
+  [✔] Privileged Access Workstations (PAW) have zero internet access, isolating admin operations.
+  [✔] Immutable WORM backups prevent deletion even by the root administrator until the timer expires.
+  [✔] Section 70 of the IT Act penalizes sabotage of Protected Critical Systems with up to 10 years prison.
+================================================================================

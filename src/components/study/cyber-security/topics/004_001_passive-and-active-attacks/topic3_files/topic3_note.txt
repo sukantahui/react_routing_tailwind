@@ -1,0 +1,103 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_001 : PASSIVE VS ACTIVE CYBER ATTACKS
+TOPIC 03       : CHARACTERISTICS & CHALLENGES IN DETECTING PASSIVE ATTACKS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE DETECTION ASYMMETRY
+--------------------------------------------------------------------------------
+Passive cyber attacks represent the most asymmetric threat paradigm in computer network 
+security. Because passive threats alter zero bits, inject zero packets, and produce zero 
+system state changes, standard intrusion detection systems (IDS) and security logs 
+receive ZERO forensic event warnings:
+
+  * THE DETECTION ASYMMETRY :
+    - Active Attacks  : Loud digital anomalies (Failed login spikes, 504 timeouts, crash dumps).
+    - Passive Attacks : Completely silent (Promiscuous NIC sniffing, optical macrobending taps).
+
+  * THE PREVENTION PARADOX :
+    - Because detection in real-time is virtually impossible on standard network infrastructure, 
+      defensive architecture must focus 100% on PROACTIVE PREVENTION (End-to-End Encryption, 
+      Zero-Trust Authentication, and Constant-Rate Traffic Padding).
+
+--------------------------------------------------------------------------------
+2. PHYSICAL & LOGICAL CHARACTERISTICS OF PASSIVE ATTACKS
+--------------------------------------------------------------------------------
+
++-------------------------+------------------------------------+-----------------------------+
+| ATTRIBUTE / METRIC      | PHYSICAL / LOGICAL PHENOMENON      | FORENSIC DETECTABILITY      |
++-------------------------+------------------------------------+-----------------------------+
+| Outbound Transmission   | 0 bytes transmitted (Listen-only   | Zero log footprints on      |
+|                         | promiscuous / monitor mode).       | intermediate routers & SIEM.|
+|                         |                                    |                             |
+| Energy Extraction       | <0.3 dB optical photon leakage or  | Hidden within normal dirty  |
+|                         | micro-volt electromagnetic fields. | connector optical variance. |
+|                         |                                    |                             |
+| System State Invariance | ΔS = ∅ (No files modified, no      | OS and application health   |
+|                         | memory corrupted, no delay added). | metrics show 100% normal.   |
+|                         |                                    |                             |
+| Reconnaissance Role     | Acts as silent precursor for       | Discovers credentials for   |
+|                         | Advanced Persistent Threats (APTs).| subsequent active attacks.  |
++-------------------------+------------------------------------+-----------------------------+
+
+================================================================================
+3. ADVANCED DETECTION PARADIGMS & SPECIALIZED INSTRUMENTATION
+================================================================================
+
+1. CANARY HONEYTOKENS (DECOY CREDENTIALS) :
+   - Planting unique fake credentials (e.g. `DB_PASS=canary_user_kolkata`) inside simulated 
+     cleartext traffic. When an eavesdropper uses the token on a login portal, the canary backend 
+     instantly alerts the SOC, proving that passive sniffing took place!
+
+2. REMOTE PROMISCUOUS MODE DETECTION TESTS :
+   - Fake Unicast MAC Addressing: Sending an ARP/ICMP packet with the target's IP but a bogus 
+     destination MAC (`00:00:00:00:00:01`). Normal NICs drop it in hardware; promiscuous NICs 
+     accept it and reply, exposing their silent sniffing presence!
+   - Latency Flooding Test: Flooding non-matching broadcast ARP frames; promiscuous hosts 
+     suffer millisecond processing delays while filtering frames in kernel software.
+
+3. CONTINUOUS TIME-DOMAIN REFLECTOMETRY (C-OTDR & TDR) :
+   - C-OTDR (Optical): Injects 1625nm supervisory light pulses during live traffic, detecting 
+     Rayleigh backscatter drops as small as 0.05 dB at exact geographic markers (±0.5 meters).
+   - TDR (Copper): Transmits fast electrical voltage pulses down copper twisted pairs to detect 
+     impedance discontinuities (Z_0 = 100 Ohms) caused by inductive taps.
+
+4. HARVEST NOW, DECRYPT LATER (HNDL) & POST-QUANTUM DEFENSES :
+   - Adversaries archive encrypted diplomatic/financial streams today to decrypt later via quantum 
+     computers running Shor's Algorithm.
+   - Mitigation: Deploy NIST Post-Quantum Standards (FIPS 203 ML-KEM / CRYSTALS-Kyber).
+
+================================================================================
+4. PROACTIVE DEFENSE-IN-DEPTH ARCHITECTURE
+================================================================================
+
+  * Layer 1 (Physical)  : Armored steel conduits + Continuous C-OTDR pulse monitoring.
+  * Layer 2 (Data Link) : IEEE 802.1AE MACsec (AES-256-GCM) line encryption + Private VLANs.
+  * Layer 3 (Network)   : IPsec Tunnel Mode with ESP and Constant-Bitrate (CBR) Traffic Padding.
+  * Layer 7 (App Layer) : TLS 1.3 AEAD + Encrypted Client Hello (ECH) + DNS over HTTPS (DoH).
+
+================================================================================
+5. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 43(a) : Civil liability up to ₹1 CRORE for unauthorized copying/extraction of data.
+    - Section 66    : Criminal penalties (up to 3 years prison) for unauthorized interception/hacking.
+    - Section 69    : Sovereign lawful interception procedure authorized exclusively by Home Secretary.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5)  : Mandates reasonable technical security safeguards (E2EE/MACsec) to prevent leaks.
+    - Section 33    : Penalties up to ₹250 CRORES for systemic data breaches caused by unencrypted flows.
+
+================================================================================
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Passive attacks are state-invariant (ΔS = ∅); detection fails on standard routers.
+  [✔] The Prevention Paradox dictates 100% reliance on proactive end-to-end encryption.
+  [✔] Canary Honeytokens reveal passive eavesdroppers when stolen decoy credentials are used.
+  [✔] Promiscuous NICs can be remotely detected using fake unicast MAC address tests.
+  [✔] Continuous C-OTDR detects optical fiber macrobending taps with 0.05 dB sensitivity.
+  [✔] Post-Quantum Cryptography (ML-KEM) neutralizes "Harvest Now, Decrypt Later" quantum threats.
+  [✔] DPDP Act Section 33 penalizes unencrypted citizen data leaks with fines up to ₹250 Crores.
+================================================================================

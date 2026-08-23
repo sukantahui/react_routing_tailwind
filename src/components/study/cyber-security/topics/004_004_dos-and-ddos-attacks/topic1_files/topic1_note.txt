@@ -1,0 +1,81 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_004 : DENIAL OF SERVICE (DoS) & DDoS ATTACKS
+TOPIC 01       : FROM DoS TO DISTRIBUTED DENIAL OF SERVICE (DDoS)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE BOTNET MULTIPLIER
+--------------------------------------------------------------------------------
+While single-source DoS attacks are constrained by the attacker's single network link, Distributed 
+Denial of Service (DDoS) weaponizes thousands or millions of globally compromised zombie hosts:
+
+  * THE BOTNET MULTIPLIER ARCHITECTURE :
+    1. BOTMASTER      : The adversary issuing attack commands via Command and Control (C2).
+    2. ZOMBIE BOTS    : Compromised IoT cameras, routers, and servers executing the flood.
+    3. C2 TOPOLOGIES  : Centralized IRC/HTTP vs Decentralized P2P DHT vs Fast-Flux DNS & DGAs.
+    4. MULTI-VECTOR   : Simultaneous 1+ Tbps Volumetric, 50 Mpps Protocol, and 200k RPS App floods.
+
+--------------------------------------------------------------------------------
+2. ADVANCED BOTNET MECHANICS & EVASION TECHNIQUES
+--------------------------------------------------------------------------------
+
+A. DOMAIN GENERATION ALGORITHMS (DGA) & FAST-FLUX DNS :
+   - DGAs generate 500 random C2 domains daily; Fast-Flux shifts C2 IPs every 60s (defeats static blacklists).
+
+B. THE MIRAI IOT PARADIGM (2016) :
+   - Automated Telnet brute-forcing with 62 factory default passwords assembled 400,000 IoT bots (1.2 Tbps).
+
+C. ASYMMETRICAL DDoS ECONOMICS :
+   - Attackers spend ₹1,500 on booter subscriptions to inflict ₹2.5+ Crores in enterprise downtime.
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURES & CLOUD SCRUBBING
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | DDoS ATTACK NEUTRALIZED     |
++-------------------+---------+-----------------------------+-----------------------------+
+| Global BGP Anycast| Global  | Advertises same IP from 300+| Dilutes multi-terabit floods|
+| Scrubbing Centers | Cloud   | PoPs, absorbing in hardware.| into small local chunks.    |
+|                   |         |                             |                             |
+| Upstream BGP      | ISP     | RFC 5575 rules pushed to    | Scrubs packet anomalies     |
+| Flowspec          | Core    | Tier-1 ISP core routers.    | before reaching enterprise. |
+|                   |         |                             |                             |
+| Origin Firewall   | Host    | Drops all ingress traffic   | Prevents direct-to-origin   |
+| Lockdown          | Armor   | not coming from Cloudflare. | proxy bypass floods.        |
+|                   |         |                             |                             |
+| WAF JavaScript    | Layer 7 | Under Attack Mode 5-second  | Drops dumb automated HTTP   |
+| Proof-of-Work     | App     | cryptographic JS challenge. | bot scripts (HTTP 403).     |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : DDoS on Critical National Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : DDoS attacks on PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(c) : Civil compensation up to ₹1 CRORE for distributing botnet contaminants.
+    - Section 66    : Criminal hacking & operating C2 infrastructure (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Ransom DDoS Extortion (Up to 7 Years Prison).
+    - Section 427   : Mischief & Service Disruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All distributed denial of service outages must be reported to CERT-In within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory availability safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Single-source DoS is blocked by single IP filters; DDoS requires global Anycast scrubbing.
+  [✔] Botnets use P2P DHT and Domain Generation Algorithms (DGA) to prevent C2 takedowns.
+  [✔] Mirai (2016) weaponized 62 default IoT passwords across 400,000 cameras to break 1 Tbps.
+  [✔] BGP Anycast routes attack traffic to the closest local scrubbing center, diluting the flood.
+  [✔] BGP Flowspec (RFC 5575) allows injecting granular firewall rules into upstream ISP core routers.
+  [✔] Section 66F of the IT Act penalizes DDoS Cyber Terrorism with Life Imprisonment.
+================================================================================

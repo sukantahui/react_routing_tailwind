@@ -1,0 +1,89 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 13       : INTERACTIVE SQL INJECTION VULNERABILITY ANALYSIS & REMEDIATION
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE 6-STAGE REMEDIATION LIFECYCLE
+--------------------------------------------------------------------------------
+Comprehensive vulnerability analysis and remediation follows a systematic 6-stage enterprise workflow:
+
+  * THE 6-STAGE LIFECYCLE :
+    1. STAGE 1 (SAST STATIC SCAN)    : Semgrep / CodeQL AST pattern analysis identifying concatenation sinks.
+    2. STAGE 2 (DAST DYNAMIC FUZZ)   : OWASP ZAP / Burp Suite active payload fuzzing to verify live exploitability.
+    3. STAGE 3 (ROOT CAUSE TRIAGE)   : Inspect AST grammar mutation and trace taint flow to database sinks.
+    4. STAGE 4 (CODE REMEDIATION)    : Refactor 100% of queries to Parameterized Prepared Statements ($1, ?).
+    5. STAGE 5 (DUAL-PERIMETER GATE) : Deploy temporary WAF virtual patches and strict nonce CSP headers.
+    6. STAGE 6 (CI/CD REGRESSION)    : Enforce Semgrep blocking gates and automated Jest/Mocha regression suites.
+
+--------------------------------------------------------------------------------
+2. MASTER REMEDIATION PATTERNS MATRIX
+--------------------------------------------------------------------------------
+
++----------------------+--------------------+--------------------------------+----------------------------+
+| VULNERABILITY SCENARIO| FLAWED CODE PATTERN| REMEDIATED CODE PATTERN        | COMPILATION INVARIANT      |
++----------------------+--------------------+--------------------------------+----------------------------+
+| 1. Auth Bypass Login | String concat in   | `pool.query('... WHERE u=$1',  | AST Invariant; Password    |
+|    Route             | SQL query text     | [username]) + bcrypt.compare() | verified via bcrypt.       |
+|                      |                    |                                |                            |
+| 2. Dynamic `ORDER BY`| Concatenating sort | Static whitelist map lookup:   | Safely resolves identifier |
+|    Column Injection  | parameter strings  | `ALLOWED_COLS[sort] || 'id'`   | from static dictionary.    |
+|                      |                    |                                |                            |
+| 3. Dynamic `IN (...)`| `WHERE id IN (` +  | PostgreSQL array binding:      | Bound as single typed array|
+|    Array Batch Query | ids.join(',') + `)`| `WHERE id = ANY($1::int[])`    | parameter out-of-band.     |
+|                      |                    |                                |                            |
+| 4. Prisma Raw Escape | `$queryRawUnsafe`  | Tagged Template Literal:       | Prisma converts variables  |
+|    Hatch Injection   | with concatenation | `prisma.$queryRaw\`... $1\``   | into parameter slots ($1). |
+|                      |                    |                                |                            |
+| 5. Dynamic Stored    | Internal `EXEC()`  | `sp_executesql` with typed     | Caches compiled execution  |
+|    Procedure SQLi    | concatenation      | `@params` definition strings   | plan with literal bindings.|
++----------------------+--------------------+--------------------------------+----------------------------+
+
+================================================================================
+3. AUTOMATED DEVSECOPS CI/CD REGRESSION TESTING
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| TEST / GATE LAYER | TOOL    | IMPLEMENTATION PATTERN      | FAILURE CONDITION           |
++-------------------+---------+-----------------------------+-----------------------------+
+| SAST Pull Request | Semgrep | Scans for string concat     | Fails build on any raw      |
+| Blocking Gate     | Linter  | in `pool.query` or ORMs.    | concatenation in SQL.       |
+|                   |         |                             |                             |
+| DAST Staging Fuzz | OWASP   | Automated baseline scan     | Fails build if any high     |
+| Scan              | ZAP     | injecting 5,000 SQLi probes.| severity alert is returned. |
+|                   |         |                             |                             |
+| Automated Jest    | Jest /  | Sends `' OR 1=1--` to API   | Fails test if response body |
+| Integration Tests | Supertest| asserts 0 matched records.  | returns unexpected records. |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Un-remediated SQLi compromising Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized database data extraction.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Financial Siphoning via SQLi Exploits (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Database Damage (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Security breaches resulting from un-remediated SQLi must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Follow the 6-stage lifecycle: SAST ➔ DAST ➔ Triage ➔ Refactor ➔ WAF Patch ➔ CI/CD Gates.
+  [✔] Auth routes must query username with `$1` and verify passwords using bcrypt.
+  [✔] Dynamic `ORDER BY` sorting requires strict server-side static whitelist dictionaries.
+  [✔] Dynamic `IN (...)` queries in PostgreSQL use `= ANY($1::int[])` array parameter binding.
+  [✔] Prisma `$queryRaw` tagged template literal guarantees 100% parameterization by design.
+  [✔] Section 66F of the IT Act penalizes SQL injection attacks on critical infrastructure with Life Imprisonment.
+================================================================================

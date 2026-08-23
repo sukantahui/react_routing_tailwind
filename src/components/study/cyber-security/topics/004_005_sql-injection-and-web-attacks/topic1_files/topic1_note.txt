@@ -1,0 +1,89 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 01       : ANATOMY OF INJECTION VULNERABILITIES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE FUNDAMENTAL INJECTION FLAW
+--------------------------------------------------------------------------------
+Injection vulnerabilities occur when untrusted user data is directly concatenated into an interpreter 
+string without structured parameter binding, causing the interpreter to treat user data as executable code:
+
+  * THE 8 CORE INJECTION VECTORS :
+    1. SQL INJECTION (SQLi)        : Manipulates RDBMS database queries (`' OR '1'='1`).
+    2. OS COMMAND INJECTION        : Executes host terminal shell commands (`system()`, `exec()`).
+    3. NoSQL INJECTION             : Bypasses authentication using BSON operator objects (`$ne`, `$gt`).
+    4. LDAP INJECTION              : Bypasses Active Directory queries using filter wildcards (`*`).
+    5. XPATH / XML INJECTION       : Navigates XML document trees to extract confidential nodes.
+    6. SERVER-SIDE TEMPLATE (SSTI) : Evaluates expressions in Jinja2/Twig, leading to backend RCE (`{{7*7}}`).
+    7. CODE INJECTION (`eval()`)   : Evaluates user input as native JavaScript/Python/PHP code.
+    8. CRLF / HEADER INJECTION     : Injects `\r\n` characters to force HTTP response splitting.
+
+--------------------------------------------------------------------------------
+2. TAINT ANALYSIS PIPELINE : SOURCE ➔ SANITIZER ➔ SINK
+--------------------------------------------------------------------------------
+
++---------------+-----------------------+-----------------------------+-------------------------------+
+| TAINT STAGE   | DEFINITION            | EXAMPLES IN APPLICATION     | SECURITY OBJECTIVE            |
++---------------+-----------------------+-----------------------------+-------------------------------+
+| Source        | Entry point of data   | `req.query`, `req.body`,    | Must be treated as tainted    |
+|               | from external client. | HTTP headers, cookies.      | and untrusted by default!     |
+|               |                       |                             |                               |
+| Sanitizer /   | Security control or   | Schema validation, regex,   | Neutralizes taint or binds    |
+| Binder        | parameter binder.     | Prepared Statement binding. | data to compiled AST slots.   |
+|               |                       |                             |                               |
+| Execution     | Dangerous function or | `db.query()`, `eval()`,     | Must NEVER execute raw        |
+| Sink          | interpreter parser.   | `exec()`, `child_process`.  | concatenated tainted strings! |
++---------------+-----------------------+-----------------------------+-------------------------------+
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURE & CODE BLUEPRINTS
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | INJECTION VECTOR NEUTRALIZED|
++-------------------+---------+-----------------------------+-----------------------------+
+| Parameterized     | SQL /   | Protocol-level AST parameter| Completely neutralizes all  |
+| Prepared Stmts    | RDBMS   | binding (`db.execute(sql)`).| SQL Injection ($P=0.00\%$). |
+|                   |         |                             |                             |
+| Non-Shell Exec    | OS Host | `child_process.execFile()`  | Eliminates OS Command       |
+| (`execFile()`)    | Kernel  | passing argument arrays.    | Injection entirely.         |
+|                   |         |                             |                             |
+| Strict JSON       | NoSQL / | Enforces primitive types,   | Neutralizes NoSQL operator  |
+| Schema Validation | MongoDB | rejecting BSON object inputs| injection (`$ne`, `$gt`).   |
+|                   |         |                             |                             |
+| Static Taint Flow | DevSec  | Semgrep / CodeQL AST taint  | Blocks vulnerable pull      |
+| Analysis (CI/CD)  | Ops     | tracking build gates.       | requests automatically!     |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Injection attacks on Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized data extraction.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Balance Manipulation (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Property Deletion (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Database breaches resulting from injection attacks must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Injection occurs when untrusted data is concatenated into an interpreter without parameter binding.
+  [✔] Prepared Statements compile the query AST first, making AST tree mutation mathematically impossible.
+  [✔] OS Command Injection escapes application code to execute shell commands with host privileges.
+  [✔] NoSQL Injection abuses MongoDB BSON operator objects (`$ne: null`) to bypass authentication.
+  [✔] Server-Side Template Injection (SSTI) allows direct Remote Code Execution (RCE) via template engines.
+  [✔] Section 66F of the IT Act penalizes injection cyber terrorism with Life Imprisonment.
+================================================================================

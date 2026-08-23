@@ -1,0 +1,148 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: SONY PICTURES HACK (2014) - NATION-STATE CYBER WARFARE & EXTORTION
+COURSE MODULE: 004_006 - LANDMARK CYBER ATTACK CASE STUDIES (TOPIC 3)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. EXECUTIVE SUMMARY & GEOPOLITICAL CONTEXT
+----------------------------------------------------------------------------------------------------
+On November 24, 2014, Sony Pictures Entertainment (Culver City, California) suffered a catastrophic, 
+state-sponsored hybrid cyber attack. Claimed by a group calling itself "#GOP" (Guardians of Peace) and 
+subsequently attributed by the United States Federal Bureau of Investigation (FBI) to North Korea's 
+military intelligence agency (Reconnaissance General Bureau / Lazarus Group), the attack combined 
+destructive wiper malware, massive data exfiltration, public extortion, and physical threats.
+
+The attack was triggered by the upcoming release of the satirical comedy film "The Interview", which 
+depicted a plot to assassinate North Korean leader Kim Jong Un. The incident fundamentally reshaped 
+corporate threat modeling by demonstrating that commercial enterprises could become targets of destructive 
+nation-state cyber warfare and psychological extortion.
+
+
+2. TECHNICAL ANATOMY OF THE INTRUSION & ACTIVE DIRECTORY COLLAPSE
+----------------------------------------------------------------------------------------------------
+The attackers spent an estimated two months roaming Sony's internal network undetected:
+
+  A. INITIAL ACCESS & SPEAR-PHISHING:
+     - Attackers delivered spear-phishing emails containing malicious PDF and macro-enabled attachments 
+       targeting Sony network engineers and executive assistants.
+     - Exploited known vulnerabilities to establish initial footholds on user workstations.
+
+  B. THE CATASTROPHIC PLAINTEXT CREDENTIAL VAULT:
+     - During internal reconnaissance, attackers located unencrypted, shared administrative directories.
+     - Discovered files named `passwords.xlsx` and `passwords.txt` containing thousands of plaintext 
+       credentials: Domain Administrator passwords, AWS root API keys, database credentials, and 
+       executive email encryption certificates.
+
+  C. ACTIVE DIRECTORY FLAT DOMAIN COLLAPSE:
+     - Sony lacked Microsoft's recommended 3-Tier Administrative Architecture.
+     - IT staff regularly logged into Tier 2 end-user workstations using Tier 0 Domain Admin accounts.
+     - Attackers extracted cached administrative credentials from `lsass.exe` memory using Mimikatz-style 
+       LSASS memory dumping, granting them total domain dominance.
+
+
+3. THE DESTRUCTIVE DISK WIPER: WIPALL (DESTOVER / BRAVAD)
+----------------------------------------------------------------------------------------------------
+Unlike conventional ransomware designed to extort money for decryption keys, WIPALL was an unrecoverable 
+wiper weapon designed for total kinetic-like data destruction:
+
+  +-----------------------------------------------------------------------------------------------+
+  |                                   WIPALL / DESTOVER EXECUTION SEQUENCE                        |
+  +-----------------------------------------------------------------------------------------------+
+  | PHASE 1: ANTI-RECOVERY PURGE      | Silently deletes Volume Shadow Copies & backup catalogs:   |
+  |                                   | `vssadmin.exe Delete Shadows /All /Quiet`                 |
+  |                                   | `bcdedit /set {default} recoveryenabled No`               |
+  +-----------------------------------+-----------------------------------------------------------+
+  | PHASE 2: RAW DRIVER INJECTION     | Loads EldoS `elrawdsk.sys` (legitimate signed disk driver)|
+  |                                   | using hardcoded commercial license string `#EldoS#RawDisk#`|
+  |                                   | to bypass Windows user-mode raw disk write restrictions.  |
+  +-----------------------------------+-----------------------------------------------------------+
+  | PHASE 3: RAW SECTOR OVERWRITE     | Directly overwrites Master Boot Record (MBR), partition   |
+  |                                   | tables, and file headers on `\\.\PhysicalDrive0` with 0s. |
+  +-----------------------------------+-----------------------------------------------------------+
+  | PHASE 4: KERNEL PANIC / REBOOT    | Forces an immediate unhandled kernel exception (BSOD) or  |
+  |                                   | hard reboot; systems restart into "Operating System Not   |
+  |                                   | Found" with permanently unrecoverable partition geometry. |
+  +-----------------------------------------------------------------------------------------------+
+
+Result: Over 3,000 corporate computers and 800+ enterprise servers were permanently bricked, halting 
+studio operations for weeks.
+
+
+4. MASS EXFILTRATION, LEAKS & HYBRID EXTORTION
+----------------------------------------------------------------------------------------------------
+Prior to triggering the destructive wiper payload, the attackers exfiltrated over 100 Terabytes of data:
+
+  A. UNRELEASED INTELLECTUAL PROPERTY:
+     - Four unreleased feature films were leaked onto BitTorrent tracker networks: "Fury", "Annie", 
+       "Still Alice", and "Mr. Turner".
+
+  B. EXECUTIVE EMAILS & CONFIDENTIAL CONTRACTS:
+     - Leaked 30,000+ internal emails from Sony Co-Chair Amy Pascal and CEO Michael Lynton, exposing 
+       candid Hollywood dealmaking, contract disputes, and sensitive private discussions.
+     - Published salary lists and Social Security numbers of 47,000 employees and celebrity actors.
+
+  C. PHYSICAL TERROR THREATS & CINEMA BOYCOTT:
+     - On December 16, 2014, the attackers issued threats of physical terrorist violence against movie 
+       theaters planning to screen "The Interview", evoking the September 11 attacks.
+     - Major North American theater chains (AMC, Regal, Cinemark) pulled the film, forcing Sony to pivot 
+       to an unprecedented digital video-on-demand (VOD) release model.
+
+
+5. FORENSIC ATTRIBUTION & NATION-STATE RETALIATION
+----------------------------------------------------------------------------------------------------
+On December 19, 2014, the FBI officially attributed the breach to North Korea:
+  - Technical Overlap: Code structure, XOR decryption algorithms, and hardcoded C2 IP ranges matched the 
+    2013 "DarkSeoul" attacks against South Korean banks and television stations.
+  - US Diplomatic Response: President Barack Obama publicly condemned the attack and signed 
+    Executive Order 13687, imposing direct economic sanctions against North Korea's Reconnaissance 
+    General Bureau (RGB).
+
+
+6. REGIONAL CLASSROOM LAB: MEDIA PRODUCTION STUDIO SECURITY AUDIT (KOLKATA / BARRACKPORE)
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Media Security Auditor: Sukanta Hui
+  - Analysts: Mamata (Active Directory Specialist), Mahima (Network Architect), Abhronila (Threat Hunter),
+    Susmita (Incident Commander), Debangshu (PAM & Storage Specialist).
+
+Scenario:
+A major regional television and digital media production house located in Kolkata with studio facilities 
+in Barrackpore, Ichapur, and Jadavpur produces high-budget regional film content. During a security audit:
+
+Vulnerabilities Discovered (Mamata & Debangshu):
+1. Post-production editors and studio legal staff were on the same unsegmented LAN with direct read/write 
+   access to the central 4K Video Master SAN storage array.
+2. System administrators stored database and cloud backup credentials in a shared folder in `passwords.txt`.
+3. Workstations lacked Windows Credential Guard, leaving LSASS memory exposed to dumping.
+
+Remediation Deployed by Susmita, Mahima & Abhronila:
+- Implemented Microsoft 3-Tier Active Directory administrative model: Domain Admins are strictly prohibited 
+  from logging into Tier 2 workstations.
+- Deployed a Privileged Access Management (PAM) vault with Just-In-Time credential checkout and automatic 
+  session rotation, eliminating all plaintext password files.
+- Segmented the Post-Production SAN storage into an isolated VLAN (VLAN 60) with strict egress filtering 
+  and Data Loss Prevention (DLP) monitoring to block multi-gigabyte external file uploads.
+- Configured immutable, air-gapped Write-Once-Read-Many (WORM) cloud backups with AWS S3 Object Lock.
+
+
+7. CORE ARCHITECTURAL LESSONS LEARNED
+----------------------------------------------------------------------------------------------------
+1. ZERO PLAINTEXT CREDENTIALS (MANDATE PAM):
+   Storing passwords in spreadsheets or text files is fatal. Deploy enterprise PAM vaults with automated 
+   credential rotation.
+
+2. ACTIVE DIRECTORY ADMINISTRATIVE TIERING:
+   Isolate Domain Controllers (Tier 0) from enterprise servers (Tier 1) and user workstations (Tier 2). 
+   Enforce Windows Defender Credential Guard to prevent LSASS dumping.
+
+3. IMMUTABLE WORM & AIR-GAPPED BACKUPS:
+   Wipers target local restore points and mounted backup volumes. Maintain write-once, immutable cloud 
+   snapshots and offline tape backups for bare-metal disaster recovery.
+
+4. NETWORK EGRESS MONITORING & DLP:
+   Exfiltrating 100 Terabytes requires weeks of high-bandwidth outbound transmission. Continuous network 
+   telemetry and egress throttling must trigger immediate automated host quarantine.
+
+====================================================================================================
+END OF STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

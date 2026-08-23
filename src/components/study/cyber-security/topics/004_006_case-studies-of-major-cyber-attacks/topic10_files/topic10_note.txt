@@ -1,0 +1,127 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: INCIDENT RESPONSE TIMELINE & POST-MORTEM ROOT CAUSE ANALYSIS
+COURSE MODULE: 004_006 - LANDMARK CYBER ATTACK CASE STUDIES (TOPIC 10)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. EXECUTIVE OVERVIEW: THE INCIDENT RESPONSE LIFECYCLE (NIST SP 800-61 REV 2)
+----------------------------------------------------------------------------------------------------
+Incident Response (IR) is the structured, systematic methodology an organization executes to prepare for, 
+detect, contain, eradicate, recover from, and analyze cyber security breaches.
+
+According to NIST Special Publication 800-61 Rev 2 and SANS, the incident response lifecycle comprises 
+six continuous, interconnected phases:
+
+  +-------------------+---------------------------------------------------------------------------+
+  | PHASE             | CORE OPERATIONAL OBJECTIVES                                               |
+  +-------------------+---------------------------------------------------------------------------+
+  | 1. PREPARATION    | Tooling deployment (EDR, SIEM), incident playbooks, out-of-band war rooms,|
+  |                   | call trees, forensic acquisition kits, tabletop training simulations.     |
+  +-------------------+---------------------------------------------------------------------------+
+  | 2. IDENTIFICATION | Threat detection, alert triage, scope definition, Indicator of Compromise |
+  |                   | (IOC) enrichment, severity classification (P1-Critical to P4-Low).        |
+  +-------------------+---------------------------------------------------------------------------+
+  | 3. CONTAINMENT    | Short-Term: Host network isolation, disabling compromised accounts.       |
+  |                   | Long-Term: Sandboxing, forensic disk/RAM capture, C2 traffic redirection. |
+  +-------------------+---------------------------------------------------------------------------+
+  | 4. ERADICATION    | Purging malware binaries, terminating rootkits, deleting JSP web shells,  |
+  |                   | revoking forged Kerberos/SAML tokens, rotating KRBTGT passwords twice.    |
+  +-------------------+---------------------------------------------------------------------------+
+  | 5. RECOVERY       | Phased restoration from clean offline backups in isolated staging VLANs,  |
+  |                   | applying patches, rotating credentials, 24/7 heightened SOC surveillance. |
+  +-------------------+---------------------------------------------------------------------------+
+  | 6. LESSONS LEARNED| 5 Whys Root Cause Analysis, Fishbone diagrams, blameless post-mortem,     |
+  |                   | updating defensive controls, Jira tracking for architectural remediation. |
+  +-------------------+---------------------------------------------------------------------------+
+
+
+2. DIGITAL FORENSICS & SUPER-TIMELINE RECONSTRUCTION
+----------------------------------------------------------------------------------------------------
+During forensic investigation, analysts reconstruct the adversary's actions with millisecond accuracy:
+
+  A. FORENSIC SUPER-TIMELINES (PLASO / LOG2TIMELINE):
+     - Aggregates file system MACB timestamps ($MFT), Windows Event Logs, web access logs, browser history, 
+       prefetch execution artifacts, and network NetFlows into a unified chronological stream.
+
+  B. MACB TIMESTAMPS & TIMESTOMPING DETECTION:
+     - Modified (M), Accessed (A), Changed ($MFT record - C), Born / Creation (B).
+     - Timestomping Detection: Malware authors modify `$STANDARD_INFORMATION` attributes to forge old dates. 
+       Forensic analysts compare this against kernel-protected `$FILE_NAME` timestamps in the NTFS $MFT 
+       to expose forged creation dates.
+
+  C. VOLATILE MEMORY FORENSICS (RFC 3227):
+     - Order of Volatility: Capture volatile CPU registers and RAM before pulling power cables.
+     - Tools: WinPmem / LiME for acquisition; Volatility 3 (`windows.netscan`, `windows.malfind`) to locate 
+       injected shellcode, unmapped DLLs, and decrypted cryptographic keys in memory.
+
+
+3. ROOT CAUSE ANALYSIS (RCA) & BLAMELESS POST-MORTEM
+----------------------------------------------------------------------------------------------------
+A. THE "5 WHYS" METHODOLOGY:
+   - Iteratively drilling down past superficial symptoms to uncover foundational governance and architectural failures.
+   - Example: 1. Server breached -> 2. Unpatched Struts -> 3. Notice not received -> 4. No centralized SBOM -> 5. ROOT CAUSE: Lack of executive DevSecOps governance and funding.
+
+B. ISHIKAWA (FISHBONE) DIAGRAM MAPPING:
+   - Categorizes causes across: People (training, sharing), Process (patch SLAs, change control), Technology 
+     (expired SSL certs, flat VLANs), and Management (understaffed SOC, lack of CISO Board visibility).
+
+C. BLAMELESS POST-MORTEM CULTURE:
+   - Assumes employees acted in good faith with available information.
+   - Eliminates blame and fear, encouraging rapid incident reporting while focusing on engineering guardrails.
+
+
+4. STATUTORY & REGULATORY REPORTING CLOCKS
+----------------------------------------------------------------------------------------------------
++----------------------+--------------------------+----------------------------------------------------+
+| REGULATORY BODY      | MANDATORY REPORTING CLOCK| JURISDICTION & COVERAGE                            |
++----------------------+--------------------------+----------------------------------------------------+
+| CERT-In (India)      | WITHIN 6 HOURS           | All Indian companies, data centers, intermediaries |
+|                      |                          | under Section 70B of Information Technology Act    |
++----------------------+--------------------------+----------------------------------------------------+
+| TSA Pipeline (US)    | WITHIN 12 HOURS          | Critical pipeline and energy infrastructure owners |
++----------------------+--------------------------+----------------------------------------------------+
+| EU GDPR (Article 33) | WITHIN 72 HOURS          | Personal data breaches impacting EU citizen PII   |
++----------------------+--------------------------+----------------------------------------------------+
+| Indian DPDP Act 2023 | REASONABLE / BOARD NOTIF | Data Fiduciaries notifying Data Protection Board   |
+|                      |                          | (Penalties up to ₹200 Crores for non-reporting)   |
++----------------------+--------------------------+----------------------------------------------------+
+
+
+5. REGIONAL CLASSROOM LAB: ENTERPRISE CSIRT WAR GAME (KOLKATA / BARRACKPORE)
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Incident Commander: Sukanta Hui
+  - Analysts: Mamata (Forensic Super-Timeline Specialist), Mahima (Network Containment Specialist),
+    Abhronila (Threat Hunter & Volatility Specialist), Susmita (Post-Mortem & Communications Lead),
+    Debangshu (Eradication & Identity Recovery Specialist).
+
+Scenario:
+A regional banking and logistics network headquartered in Kolkata with branch hubs in Barrackpore, 
+Ichapur, and Jadavpur simulated an active ransomware intrusion drill:
+
+Execution Sequence:
+1. IDENTIFICATION (Abhronila & Mamata): Flagged abnormal PowerShell script block execution (Event ID 4104) 
+   and live memory injection in `lsass.exe` on a core server; correlated timeline using Plaso.
+2. CONTAINMENT (Mahima): Executed automated EDR host isolation and applied Kubernetes NetworkPolicies within 
+   12 minutes; captured volatile RAM image using WinPmem.
+3. REGULATORY CLOCK (Susmita): Initiated statutory 6-hour CERT-In incident notification form.
+4. ERADICATION (Debangshu): Rotated Active Directory KRBTGT password hashes twice, purged dropped JSP web shells, 
+   and revoked compromised service account tokens.
+5. RECOVERY & POST-MORTEM (Sukanta Hui & Susmita): Restored workloads in an isolated staging VLAN, verified 
+   patches, and published a blameless post-mortem converting findings into tracked Jira engineering tickets.
+
+
+6. STRATEGIC TAKEAWAYS FOR CSIRT LEADERSHIP
+----------------------------------------------------------------------------------------------------
+1. SPEED IS SURVIVAL:
+   Compress Mean Time to Detect (MTTD) to < 1 hour and Mean Time to Contain (MTTR) to < 2 hours.
+
+2. NEVER POWER OFF BEFORE RAM CAPTURE:
+   Volatile memory holds encryption keys and in-memory shellcode that disappears upon reboot.
+
+3. POST-MORTEM MUST DRIVE PERMANENT ARCHITECTURAL CHANGE:
+   Convert post-mortem action items into tracked engineering deliverables with strict SLAs.
+
+====================================================================================================
+END OF STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

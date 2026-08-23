@@ -1,0 +1,83 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_004 : DENIAL OF SERVICE (DoS) & DDoS ATTACKS
+TOPIC 08       : IMPACT OF DDoS ATTACKS ON CRITICAL INFRASTRUCTURE AND CLOUD SERVICES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & PHYSICAL-CYBER CONVERGENCE
+--------------------------------------------------------------------------------
+DDoS attacks on Critical National Information Infrastructure (CNII) and cloud environments 
+transcend digital disruption, threatening physical grid stability, economic collapse, and human lives:
+
+  * THE 6 CRITICAL CNII SECTORS IN INDIA (NCIIPC / SECTION 70A IT ACT) :
+    1. POWER & ENERGY    : SCADA 220kV protection relays, IEC 61850 trip signals, Smart Meter HES.
+    2. BANKING & BFSI    : RTGS, NEFT, UPI, Core Banking Switches, National Settlement Hubs.
+    3. TELECOM & INTERNET: Submarine Cable Landing Stations (Mumbai/Chennai), Tier-1 IXPs, `.in` ccTLD.
+    4. TRANSPORTATION    : Indian Railways PRS (Tatkal booking), Air Traffic Telemetry (ADS-B).
+    5. HEALTHCARE & ICU  : Real-time ICU patient telemetry, Oncology registers, Emergency 112 dispatch.
+    6. GOV & CITIZEN     : Aadhaar UIDAI authentication (80M daily requests), PDS food grain networks.
+
+--------------------------------------------------------------------------------
+2. CLOUD MULTI-TENANCY & ECONOMIC DENIAL OF SUSTAINABILITY (EDoS)
+--------------------------------------------------------------------------------
+
+A. ECONOMIC DENIAL OF SUSTAINABILITY (EDoS) :
+   - Exploits auto-scaling cloud groups (AWS EC2 / Lambda) by sending continuous Layer 7 traffic;
+     the cluster auto-scales to hundreds of instances, bankrupting the victim with ₹45 Lakh monthly bills!
+
+B. MULTI-TENANT NOISY NEIGHBOR CONTAMINATION :
+   - An 800 Gbps flood targeting Tenant A saturates shared Top-of-Rack (ToR) switches and NAT gateways,
+     inflicting collateral packet drops on innocent medical and municipal tenants in the same cloud zone.
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURES & RESILIENCE CONTROLS
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | INFRASTRUCTURE PROTECTED    |
++-------------------+---------+-----------------------------+-----------------------------+
+| Out-of-Band (OOB) | Power   | Dedicated OPGW Dark Fiber   | Completely isolates SCADA   |
+| Dark Fiber Links  | SCADA   | along 220kV power towers.   | telemetry from public WAN.  |
+|                   |         |                             |                             |
+| Dual-Provider     | Cloud   | Route 53 + Cloudflare       | Eliminates DNS Single Point |
+| Anycast DNS       | Layer   | active-active resolution.   | of Failure (Dyn DNS style). |
+|                   |         |                             |                             |
+| Auto-Scaling Hard | Cloud   | `max_size = 20` cap with    | Completely prevents EDoS    |
+| Caps & Alarms     | Compute | CloudWatch billing alarms.  | auto-scaling bankruptcies.  |
+|                   |         |                             |                             |
+| Cisco QoS DSCP    | Router  | Tags IEC 61850 / Modbus with| Guarantees SCADA telemetry  |
+| Tagging (EF/46)   | Ingress | Expedited Forwarding (EF).  | priority during congestion. |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Attacks on Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Attacks on PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 70A   : NCIIPC National Critical Infrastructure Framework and 24/7 Monitoring.
+    - Section 43(f) : Civil compensation up to ₹1 CRORE for causing Denial of Access.
+    - Section 66    : Criminal hacking & service disruption (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Critical Infrastructure Extortion (Up to 7 Years Prison).
+    - Section 427   : Mischief & Public Utility Disruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All critical infrastructure and cloud DDoS outages must be reported to CERT-In within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory availability safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Section 70 of the IT Act penalizes attacks on designated Protected Systems with up to 10 years prison.
+  [✔] Section 66F penalizes DDoS cyber terrorism against critical national infrastructure with Life Imprisonment.
+  [✔] Economic Denial of Sustainability (EDoS) bankrupts cloud victims by exploiting auto-scaling clusters.
+  [✔] Multi-tenant noisy neighbor contamination causes collateral outages on innocent cloud co-tenants.
+  [✔] Out-of-band (OOB) dark fiber isolates industrial SCADA telemetry from public internet DDoS attacks.
+  [✔] Dual-provider Anycast DNS eliminates catastrophic DNS single points of failure (Dyn DNS).
+================================================================================

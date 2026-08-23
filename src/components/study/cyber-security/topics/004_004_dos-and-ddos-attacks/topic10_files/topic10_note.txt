@@ -1,0 +1,79 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_004 : DENIAL OF SERVICE (DoS) & DDoS ATTACKS
+TOPIC 10       : CLOUD-BASED DDoS SCRUBBING CENTERS AND WEB APPLICATION FIREWALLS (WAF)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & CLOUD SCRUBBING ARCHITECTURE
+--------------------------------------------------------------------------------
+Cloud-based DDoS Scrubbing Centers provide multi-terabit edge ingestion, hardware silicon filtering, 
+and Layer 7 Web Application Firewall (WAF) inspection to deliver clean traffic to customer origins:
+
+  * THE 3-STAGE SCRUBBING PIPELINE :
+    1. INGESTION TIER : Ingests multi-terabit floods via 300+ BGP Anycast global Points of Presence (PoPs).
+    2. HARDWARE TIER  : FPGA / ASIC silicon drops volumetric UDP/ICMP and evaluates SYN cookies in 4.2ns.
+    3. WAF & RETURN   : Layer 7 WAF inspects HTTP/HTTPS, returning clean traffic via GRE/IPsec tunnels.
+
+--------------------------------------------------------------------------------
+2. WAF SECURITY MODELS & BOT MANAGEMENT
+--------------------------------------------------------------------------------
+
+A. NEGATIVE VS POSITIVE SECURITY MODELS :
+   - Negative Model : OWASP Core Rule Set anomaly scoring (blocks known attack signatures).
+   - Positive Model : Strict OpenAPI/JSON schema validation (blocks all non-whitelisted parameters).
+
+B. TLS JA3/JA4 FINGERPRINTING & VIRTUAL PATCHING :
+   - JA3/JA4 hashes TLS Client Hello parameters, blocking automated botnets regardless of spoofed User-Agents.
+   - Virtual Patching blocks zero-day exploits (e.g. Log4Shell CVE-2021-44228) at the cloud edge in minutes.
+
+================================================================================
+3. ENTERPRISE DEFENSIVE HARDENING & GRE TUNNEL SPECS
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | DDoS VECTOR MITIGATED       |
++-------------------+---------+-----------------------------+-----------------------------+
+| BGP Anycast       | Edge    | 300+ Global PoPs ingesting  | Absorbs 10+ Tbps volumetric |
+| Scrubbing Center  | Ingress | 10+ Tbps attack bandwidth.  | multi-vector DDoS floods.   |
+|                   |         |                             |                             |
+| Hardware FPGA     | Silicon | Layer 3/4 stateless packet  | Filters UDP amplification   |
+| Packet Engines    | Pipeline| inspection in 4.2ns.        | & computes TCP SYN Cookies. |
+|                   |         |                             |                             |
+| Cloud WAF JA4     | Web App | JA4 Bot Management &        | Blocks headless browser bots|
+| & Virtual Patch   | Layer   | OpenAPI schema validation.  | and Layer 7 HTTP exploits.  |
+|                   |         |                             |                             |
+| Redundant GRE     | Return  | `ip tcp adjust-mss 1436`    | Transmits clean traffic to  |
+| Return Tunnels    | Tunnel  | with MTU 1476 encapsulation.| origin without fragmentation|
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : Attacks on Protected Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Attacks on PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(f) : Civil compensation up to ₹1 CRORE for causing Denial of Access.
+    - Section 66    : Criminal hacking & service disruption (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Scrubbing Extortion (Up to 7 Years Prison).
+    - Section 427   : Mischief & Web Service Disruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All major DDoS attacks mitigated by cloud scrubbers must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory availability safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Always-On scrubbing provides 0-second automatic protection vs On-Demand's 2-15 minute BGP shift.
+  [✔] GRE return tunnels require TCP MSS clamping to 1436 bytes to prevent WAN MTU packet fragmentation.
+  [✔] Hardware FPGA packet engines evaluate HMAC SYN cookies in silicon in under 5 nanoseconds.
+  [✔] TLS JA3/JA4 fingerprinting detects automated botnets regardless of spoofed User-Agent headers.
+  [✔] WAF Virtual Patching shields zero-day vulnerabilities (Log4Shell) at the edge within hours.
+  [✔] Section 66F of the IT Act penalizes Cloud DDoS Cyber Terrorism with Life Imprisonment.
+================================================================================

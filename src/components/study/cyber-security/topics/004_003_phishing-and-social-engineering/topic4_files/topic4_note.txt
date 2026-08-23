@@ -1,0 +1,84 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 04       : VOICE AND SMS PHISHING: VISHING AND SMISHING ATTACKS
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & TELEPHONY SOCIAL ENGINEERING ARCHITECTURE
+--------------------------------------------------------------------------------
+Vishing (Voice Phishing) and Smishing (SMS Phishing) exploit the intimacy, urgency, and high 
+response rates of mobile telecommunication channels:
+
+  * THE 4 CORE TELEPHONY THREAT VECTORS :
+    1. VISHING (VOICE PHISHING) : Live voice manipulation using authority or fake IT support.
+    2. SMISHING (SMS PHISHING)  : Urgent SMS messages with shortened links (KYC / Bill Disconnect).
+    3. CALLER ID SPOOFING       : SIP header manipulation making calls appear from legitimate banks.
+    4. SIM SWAPPING / HIJACKING : Porting victim phone numbers to attacker SIMs to steal SMS 2FA.
+
+--------------------------------------------------------------------------------
+2. ADVANCED TELEPHONY ATTACK INNOVATIONS
+--------------------------------------------------------------------------------
+
+A. REAL-TIME AI VOICE CLONING (DEEPFAKE VISHING) :
+   - Neural diffusion models synthesize executive speech in real time (<150ms latency).
+   - Impersonates the CEO over live phone calls to demand emergency wire transfers.
+
+B. ADVERSARY-IN-THE-MIDDLE (AiTM) REVERSE PROXYING :
+   - Attacker guides victim to Evilginx proxy, capturing session cookies (`ESTSAUTH`).
+   - Bypasses SMS OTP multi-factor authentication completely.
+
+C. AUTOMATED IVR PHONE TREES (ROBOCALLING) :
+   - Asterisk PBX autodialers instruct victims to type ATM PINs via DTMF keypad tones.
+
+================================================================================
+3. ENTERPRISE TELEPHONY DEFENSE & PASSKEY ARMOR
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | TELEPHONY VECTOR NEUTRALIZED|
++-------------------+---------+-----------------------------+-----------------------------+
+| FIDO2 WebAuthn    | Passkey | Cryptographic origin binding| Eliminates speakable OTPs;  |
+| Hardware Tokens   | Armor   | refuses to sign fake domains| stops 100% of AiTM proxies. |
+|                   |         |                             |                             |
+| STIR/SHAKEN       | Telecom | Carrier-level cryptographic | Blocks spoofed SIP caller   |
+| Verification      | Protocol| digital certificates (RFC). | IDs before phone rings.     |
+|                   |         |                             |                             |
+| TRAI DLT Header   | SMS     | Blockchain-based commercial | Scrubbing unverified grey-  |
+| Scrubbing         | Gateway | SMS header registration.    | route SMS sender headers.   |
+|                   |         |                             |                             |
+| Verbal Duress     | Process | Pre-shared secret passphrase| Defeats real-time deepfake  |
+| Passphrase        | Protocol| required for voice transfers| AI voice cloning vishing.   |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66D   : Cheating by Personation using computer/mobile resources (Up to 3 Years Prison).
+    - Section 43(a) : Civil damages up to ₹1 CRORE for unauthorized access via vishing.
+    - Section 66    : Criminal hacking & fraudulent deception (Up to 3 Years Prison + ₹5 Lakh Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Dishonestly Inducing Delivery of Property (Up to 7 Years Prison).
+
+  * TRAI TCCCPR REGULATIONS 2018 :
+    - Mandatory DLT registration for commercial SMS headers to prevent alphanumeric spoofing.
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All telephony compromises & account takeovers must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory employee voice training; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Vishing uses live voice calls; Smishing uses SMS text messages with shortened links.
+  [✔] Caller ID spoofing manipulates SIP `From:` headers on unauthenticated VoIP gateways.
+  [✔] SIM swapping social engineers telecom stores to steal the victim's phone number and 2FA OTPs.
+  [✔] Adversary-in-the-Middle (AiTM) reverse proxies capture session cookies, bypassing SMS OTPs.
+  [✔] FIDO2 passkeys make phishing impossible because there is no OTP to speak aloud on the phone.
+  [✔] Section 66D of the IT Act penalizes Cheating by Personation with up to 3 years imprisonment.
+================================================================================

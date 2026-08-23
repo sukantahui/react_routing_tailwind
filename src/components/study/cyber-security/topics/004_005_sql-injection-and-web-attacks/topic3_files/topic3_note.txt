@@ -1,0 +1,76 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 03       : IN-BAND SQLi (ERROR-BASED & UNION-BASED SQL INJECTION)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & IN-BAND EXTRACTION TAXONOMY
+--------------------------------------------------------------------------------
+In-Band SQL Injection occurs when the attacker sends the exploit and receives exfiltrated database 
+records directly within the application's HTTP response channel:
+
+  * THE TWO CORE IN-BAND TECHNIQUES :
+    1. UNION-BASED SQLi : Appends a custom `SELECT` query to the original query results using `UNION`.
+    2. ERROR-BASED SQLi : Triggers deliberate runtime database errors containing query data inside error text.
+
+--------------------------------------------------------------------------------
+2. UNION-BASED SQLi EXPLOITATION PIPELINE
+--------------------------------------------------------------------------------
+
+  * STEP 1: Determine Column Count via `ORDER BY`:
+    - Inject `ORDER BY 1--`, `ORDER BY 2--`, `ORDER BY 3--` until an error occurs ($K = 3$).
+
+  * STEP 2: Identify String-Compatible Columns:
+    - Inject `UNION SELECT 'test', NULL, NULL--` until query executes without type errors.
+
+  * STEP 3: Suppress Original Query Results:
+    - Set original parameter to false (`id = -1`) so the UI renders the injected UNION data.
+
+  * STEP 4: Harvest Database Schema & Dump Tables:
+    - Query `information_schema.tables` and `information_schema.columns` to map tables.
+    - Use `GROUP_CONCAT()` or `string_agg()` to exfiltrate entire tables in a single HTTP response!
+
+--------------------------------------------------------------------------------
+3. ERROR-BASED SQLi DIALECT PATTERNS
+--------------------------------------------------------------------------------
+
++----------------------+---------------------------------------------------+-----------------------------------+
+| RDBMS ENGINE         | VULNERABLE FUNCTION / MECHANISM                   | RETURNED ERROR BEHAVIOR           |
++----------------------+---------------------------------------------------+-----------------------------------+
+| Microsoft SQL Server | `CAST((SELECT password FROM users) AS INT)`       | Conversion failed: 'SecretPass'   |
+| PostgreSQL           | `CAST((SELECT password FROM users LIMIT 1) AS INT)`| Invalid input syntax for int: '...'|
+| MySQL / MariaDB      | `ExtractValue(1, CONCAT(0x7e, (SELECT pass)))`    | XPATH syntax error: '~SecretPass' |
+| Oracle Database      | `CTXSYS.DRITHSX.SN(1, (SELECT password FROM usr))`| CTX-DR Error: 'SecretPass'        |
++----------------------+---------------------------------------------------+-----------------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : In-band SQLi dumping Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized database extraction.
+    - Section 66    : Criminal hacking & data manipulation (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Commercial Trade Secret Theft (Up to 7 Years Prison).
+    - Section 427   : Mischief & Database Alteration (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Database leaks resulting from In-Band SQLi must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] UNION SQLi requires identical column counts ($K$) and compatible data types.
+  [✔] `ORDER BY 1, 2, 3...` determines the exact column count of the original query.
+  [✔] Prepending `id = -1` suppresses legitimate records so the UI renders injected UNION data.
+  [✔] Error-Based SQLi exploits `CAST()` or `ExtractValue()` to reflect data inside error messages.
+  [✔] Disabling verbose database error messages in production completely neutralizes Error-Based SQLi.
+  [✔] Parameterized Prepared Statements provide 100% mathematical immunity against In-Band SQLi.
+================================================================================

@@ -1,0 +1,82 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_003 : PHISHING, SOCIAL ENGINEERING & INSIDER THREATS
+TOPIC 06       : PHYSICAL SOCIAL ENGINEERING: TAILGATING, SHOULDER SURFING, DUMPSTER DIVING
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & PHYSICAL THREAT TAXONOMY
+--------------------------------------------------------------------------------
+Physical social engineering bypasses electronic perimeter cyber defenses by targeting physical 
+access controls, human social politeness, document disposal, and visual eavesdropping:
+
+  * THE 4 CORE PHYSICAL THREAT VECTORS :
+    1. TAILGATING / PIGGYBACKING : Sneaking behind authorized staff; exploiting politeness.
+    2. SHOULDER SURFING          : Visual observation of screens, keypads, or PIN pads in cafes/lobbies.
+    3. DUMPSTER DIVING (TRASHING): Sifting through corporate waste to recover un-shredded records.
+    4. BADGE CLONING (RFID/NFC)  : Skimming legacy 125kHz proximity cards using Flipper Zero / Proxmark3.
+
+--------------------------------------------------------------------------------
+2. ADVANCED PHYSICAL EXPLOIT MECHANICS
+--------------------------------------------------------------------------------
+
+A. 125kHz RFID CLONING vs MIFARE DESFire EV3 :
+   - Legacy 125kHz EM4100/HID Prox broadcast static plaintext IDs cloned in 2 seconds.
+   - 13.56MHz DESFire EV3 uses AES-128 cryptographic mutual authentication immune to cloning.
+
+B. OPTICAL ANTI-TAILGATING MANTRAPS & 3D SENSORS :
+   - Interlocking two-door airlocks with overhead Time-of-Flight depth sensors count passing bodies.
+
+C. THERMAL KEYPAD RECOVERY & LASER MICROPHONES :
+   - FLIR thermal cameras detect heat dissipation sequence on pressed numeric PIN keys.
+   - Infrared lasers demodulate vocal vibrations from meeting room window glass.
+
+================================================================================
+3. ENTERPRISE DEFENSIVE ARCHITECTURES & PHYSICAL CONTROLS
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | PHYSICAL THREAT NEUTRALIZED |
++-------------------+---------+-----------------------------+-----------------------------+
+| Anti-Tailgating   | Access  | 3D overhead Time-of-Flight  | Blocks 100% of tailgating   |
+| Mantrap Portals   | Control | sensors & interlocking doors| & piggybacking attempts.    |
+|                   |         |                             |                             |
+| MIFARE DESFire EV3| Badge   | 13.56MHz Smart Cards with   | Eliminates wireless badge   |
+| Cryptographic RFID| Tech    | AES-128 mutual auth tokens. | skimming & Flipper cloning. |
+|                   |         |                             |                             |
+| DIN 66399 Level   | Waste   | Cross-cut micro-shredders   | Renders dumpster diving     |
+| P-5 Shredding     | Disposal| particles <= 30 mm² (dust). | mathematically impossible.  |
+|                   |         |                             |                             |
+| Polarized Privacy | Visual  | 30-degree micro-louver      | Blocks shoulder surfing     |
+| Screen Filters    | Privacy | optical light blocking cone.| in public cafes & lobbies.  |
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 447   : Criminal Trespass via unauthorized physical entry (Up to 3 Months Prison).
+    - Section 379   : Theft of physical corporate records & waste paperwork (Up to 3 Years Prison).
+    - Section 420   : Cheating & dishonestly obtaining physical visitor badges (Up to 7 Years Prison).
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for physical access to server rooms.
+    - Section 66    : Criminal penalties for accessing computer resources (Up to 3 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All physical perimeter breaches compromising critical systems must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory physical data security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] Tailgating exploits human social politeness; mantraps eliminate tailgating physically.
+  [✔] Legacy 125kHz RFID badges lack encryption and can be cloned in 2 seconds via Flipper Zero.
+  [✔] MIFARE DESFire EV3 smart cards use AES-128 mutual authentication, making cloning impossible.
+  [✔] DIN 66399 Level P-5 micro-cut shredding destroys documents into particles <= 30 mm².
+  [✔] Polarized 30-degree micro-louver privacy screens defeat shoulder surfing visual eavesdropping.
+  [✔] Section 447 of the IPC penalizes Criminal Trespass with imprisonment and fines.
+================================================================================

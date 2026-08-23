@@ -1,0 +1,128 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: SOLARWINDS SUPPLY CHAIN ATTACK (2020) - SUNBURST & SVR
+COURSE MODULE: 004_006 - LANDMARK CYBER ATTACK CASE STUDIES (TOPIC 7)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. EXECUTIVE OVERVIEW & HISTORICAL LANDMARK
+----------------------------------------------------------------------------------------------------
+Disclosed in December 2020, the SolarWinds "SUNBURST" supply chain compromise represents the pinnacle of 
+nation-state cyber espionage in modern history. Orchestrated by APT29 ("Cozy Bear" / "Nobelium" / "Midnight 
+Blizzard"), the elite cyber intelligence arm of the Russian Foreign Intelligence Service (SVR), the campaign 
+bypassed traditional enterprise perimeters by infiltrating the software development lifecycle of a major 
+IT infrastructure management vendor.
+
+By compromising SolarWinds' internal build pipeline, the SVR successfully injected a stealthy backdoor 
+into digitally signed software updates distributed to approximately 18,000 public and private organizations 
+worldwide, selectively conducting deep post-exploitation espionage against the highest levels of the United 
+States government (Departments of Treasury, State, Homeland Security, Commerce, Defense) and elite 
+technology corporations (Microsoft, FireEye).
+
+
+2. TECHNICAL ANATOMY OF THE CI/CD INJECTION: SUNSPOT & SUNBURST
+----------------------------------------------------------------------------------------------------
+The attackers gained persistent access to SolarWinds' internal development network in late 2019:
+
+  A. THE BUILDER IMPLANT: SUNSPOT
+     - A custom implant running in the background of the build environment.
+     - Monitored running processes for instances of `msbuild.exe` (Microsoft Build Engine).
+     - The millisecond compilation began, SUNSPOT dynamically replaced clean source code file 
+       `InventoryManager.cs` with a malicious trojanized source file containing the SUNBURST backdoor.
+     - As soon as the compiler finished generating the compiled assembly, SUNSPOT immediately restored 
+       the original clean source code file.
+     - DEVELOPER INVISIBILITY: Developers checking source code repositories (Git) saw zero malicious code!
+
+  B. THE TROJANIZED ASSEMBLY: `SolarWinds.Orion.Core.BusinessLayer.dll`
+     - The compiled binary contained the full SUNBURST backdoor logic.
+     - Because it was produced by SolarWinds' official build pipeline, it passed directly to the code-signing 
+       server and was signed with SolarWinds' authentic Symantec/DigiCert cryptographic digital certificate.
+     - Customer antivirus and EDR agents whitelisted the file by default due to its valid digital signature.
+
+
+3. STEALTH, EVASION & DNS DGA C2 INFRASTRUCTURE
+----------------------------------------------------------------------------------------------------
++----------------------+-------------------------------------------------------------------------------+
+| MECHANISM / FEATURE  | TECHNICAL EXECUTION IN SUNBURST                                               |
++----------------------+-------------------------------------------------------------------------------+
+| MANDATORY DORM теме  | Remained dormant for 12 to 14 days post-installation to bypass sandboxes.    |
++----------------------+-------------------------------------------------------------------------------+
+| FNV-1a STRING HASHING| Calculated one-way hashes of running security processes to avoid strings in RAM.|
++----------------------+-------------------------------------------------------------------------------+
+| DNS DGA TUNNELING    | Encoded victim computer GUID and domain into subdomains of `avsvmcloud.com`.  |
+|                      | Example: `04a29fb4890c12.appsync-api.eu-west-1.avsvmcloud.com`                |
++----------------------+-------------------------------------------------------------------------------+
+| OPERATIONAL FILTERING| SVR selectively activated second-stage payloads on only ~100-300 elite targets.|
++----------------------+-------------------------------------------------------------------------------+
+| IN-MEMORY INJECTION  | Deployed TEARDROP to load customized Cobalt Strike Beacons directly into RAM. |
++----------------------+-------------------------------------------------------------------------------+
+
+
+4. CLOUD IDENTITY COMPROMISE: THE GOLDEN SAML ATTACK
+----------------------------------------------------------------------------------------------------
+Once inside victim enterprise networks, APT29 executed the groundbreaking "Golden SAML" attack to achieve 
+persistent, undetectable access to Microsoft 365 and Azure cloud infrastructure:
+
+  1. The attackers pivoted from on-premises servers to the organization's Active Directory Federation 
+     Services (ADFS) server.
+  2. Extracted the private X.509 token-signing certificate and private key.
+  3. Using this stolen private key, attackers forged valid SAML authentication response tokens offline.
+  4. PRESENTATION TO CLOUD: The attacker presented the forged SAML token to Microsoft Entra ID (Azure AD).
+  5. Bypassed all passwords, multi-factor authentication (MFA) prompts, and conditional access policies, 
+     allowing attackers to impersonate any corporate identity (including Global Administrators) at will.
+
+
+5. DETECTION & STRATEGIC REMEDIATION
+----------------------------------------------------------------------------------------------------
+A. FIREEYE'S DISCOVERY:
+   In December 2020, FireEye's SOC detected an unauthorized secondary MFA phone registration on an employee 
+   account. An out-of-band phone call confirmed the employee had not registered the device, uncovering 
+   the global campaign.
+
+B. EXECUTIVE ORDER 14028 & SLSA FRAMEWORK:
+   - President Joe Biden signed Executive Order 14028, mandating Zero Trust architectures, universal MFA, 
+     and mandatory Software Bill of Materials (SBOM) for all software vendors selling to the US government.
+   - Creation of the SLSA (Supply-chain Levels for Software Artifacts) framework by Google and OpenSSF, 
+     mandating reproducible, hermetic builds and cryptographic build attestations (in-toto).
+
+
+6. REGIONAL CLASSROOM LAB: MANAGED SERVICE PROVIDER (MSP) & CI/CD AUDIT (KOLKATA / BARRACKPORE)
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead DevSecOps Auditor: Sukanta Hui
+  - Analysts: Mamata (CI/CD Pipeline Security), Mahima (Identity & SAML Architect), Abhronila (Threat Hunter),
+    Susmita (Incident Commander), Debangshu (HSM & Code Signing Specialist).
+
+Scenario:
+A regional software vendor and Managed Service Provider (MSP) based in Kolkata with client infrastructure 
+in Barrackpore, Ichapur, and Jadavpur builds enterprise remote management software:
+
+Vulnerabilities Discovered (Mamata & Debangshu):
+1. Build servers were persistent virtual machines connected to corporate office LANs with outbound internet access.
+2. Code-signing private keys were stored in a standard Windows certificate store without hardware HSM protection.
+3. The internal ADFS server lacked dedicated administrative tiering, allowing domain admins to export signing certificates.
+
+Remediation Executed by Susmita, Mahima & Abhronila:
+- Migrated CI/CD pipelines to ephemeral, single-use, air-gapped container runners implementing SLSA Level 3 provenance.
+- Moved private code-signing keys into a FIPS 140-2 Level 3 Hardware Security Module (HSM) requiring M-of-N multi-party quorum.
+- Hardened cloud identity: Enforced Intune-compliant device certificate requirements and migrated from legacy ADFS to Microsoft Entra cloud authentication with Conditional Access.
+- Enforced strict egress filtering: Enterprise IT monitoring servers prohibited from outbound internet connections.
+
+
+7. STRATEGIC TAKEAWAYS FOR SUPPLY CHAIN DEFENSE
+----------------------------------------------------------------------------------------------------
+1. CODE SIGNING DOES NOT EQUAL CODE INTEGRITY:
+   Compromised build systems produce validly signed malware. Security must verify the entire build provenance.
+
+2. EPHEMERAL, HERMETIC BUILD ENVIRONMENTS:
+   Build servers must be spun up on-demand, air-gapped from the Internet, and destroyed immediately post-build.
+
+3. HARDEN CLOUD FEDERATION & PROTECT SIGNING KEYS:
+   ADFS token-signing certificates must be protected with Tier 0 security to prevent Golden SAML cloud hijacking.
+
+4. NETWORK ISOLATION FOR IT MONITORING PLATFORMS:
+   Core infrastructure management platforms (SolarWinds, Nagios, Zabbix) must be strictly isolated with zero 
+   outbound WAN internet access.
+
+====================================================================================================
+END OF STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

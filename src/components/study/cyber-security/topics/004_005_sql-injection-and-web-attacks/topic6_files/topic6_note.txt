@@ -1,0 +1,82 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_005 : WEB ATTACKS, SQL INJECTION & INJECTION DEFENSE
+TOPIC 06       : IMPACT OF SQLi (DATA THEFT, AUTH BYPASS & TAKEOVER)
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & THE 5-PHASE SQLi KILL CHAIN
+--------------------------------------------------------------------------------
+SQL Injection is not merely an information disclosure bug; it represents a full kill-chain vector capable 
+of escalating from authentication bypass to full host operating system and Active Directory takeover:
+
+  * THE 5 KILL-CHAIN PHASES :
+    1. AUTHENTICATION BYPASS  : Bypasses login gates via `' OR 1=1--` or elevates role to `SUPER_ADMIN`.
+    2. MASS DATA THEFT        : Exfiltrates millions of customer credentials, PAN cards, and health records.
+    3. DATA TAMPERING & DoS   : Overwrites financial balances (`UPDATE`) or drops database tables (`DROP TABLE`).
+    4. HOST OS TAKEOVER (RCE) : Executes shell commands via `xp_cmdshell`, `INTO OUTFILE`, or `COPY PROGRAM`.
+    5. LATERAL DOMAIN PIVOT   : Dumps LSASS NetNTLM hashes using Mimikatz to compromise the Domain Controller!
+
+--------------------------------------------------------------------------------
+2. DIALECT-SPECIFIC REMOTE CODE EXECUTION (RCE) VECTORS
+--------------------------------------------------------------------------------
+
++----------------------+---------------------------------------------------+-----------------------------------+
+| RDBMS ENGINE         | EXECUTION VECTOR / MECHANISM                      | RESULTING HOST PRIVILEGE          |
++----------------------+---------------------------------------------------+-----------------------------------+
+| Microsoft SQL Server | `EXEC master..xp_cmdshell 'powershell.exe ...'`   | Windows Service Account / Admin   |
+| MySQL / MariaDB      | `SELECT ... INTO OUTFILE '/var/www/shell.php'`    | Web Server `www-data` OS User     |
+| PostgreSQL           | `COPY (SELECT '') TO PROGRAM 'nc -e /bin/bash...'`| Linux `postgres` System Account   |
+| Oracle Database      | `DBMS_JAVA.RUNJAVA` / Java Stored Procedures      | Host Operating System User Shell  |
++----------------------+---------------------------------------------------+-----------------------------------+
+
+================================================================================
+3. ENTERPRISE DEFENSIVE HARDENING BLUEPRINT
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE LAYER     | FOCUS   | IMPLEMENTATION MECHANISM    | BLAST RADIUS MITIGATION     |
++-------------------+---------+-----------------------------+-----------------------------+
+| Parameterized     | Query   | 100% Prepared Statements    | Reduces Blast Radius Index  |
+| Prepared Stmts    | Layer   | compiling AST template first| $\text{BRI}$ to exactly 0.00.|
+|                   |         |                             |                             |
+| Principle of      | DB User | Revokes DDL, `xp_cmdshell`, | Prevents table deletion and |
+| Least Privilege   | Privs   | and `FILE` permissions.     | OS shell execution.         |
+|                   |         |                             |                             |
+| OS Mandatory      | Host    | AppArmor / SELinux profiles | Prevents database daemons   |
+| Access Control    | Kernel  | denying shell spawning.     | from executing `/bin/sh`.   |
+|                   |         |                             |                             |
+| Remote Immutable  | SOC &   | Streams audit logs to remote| Prevents attackers from     |
+| SIEM Logging      | Audit   | write-once Splunk cluster.  | tampering with audit trails.|
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : SQLi host takeover of Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Unauthorized access to PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(a) : Civil compensation up to ₹1 CRORE for unauthorized database extraction/damage.
+    - Section 66    : Criminal hacking & data tampering (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent Balance Manipulation (Up to 7 Years Prison).
+    - Section 427   : Mischief & Digital Property Destruction (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - Database compromises and host takeovers must be reported within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory reasonable security safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] SQLi impacts span 5 phases: Auth Bypass ➔ Data Theft ➔ Data Tampering ➔ Host RCE ➔ Domain Pivot.
+  [✔] MSSQL `xp_cmdshell` spawns `cmd.exe` directly on the host machine from SQL queries.
+  [✔] MySQL `INTO OUTFILE` writes executable PHP web shells into the web server's document root.
+  [✔] Least privilege database accounts prevent attackers from dropping tables or executing shell commands.
+  [✔] AppArmor/SELinux profiles deny database processes from spawning `/bin/sh` or `/usr/bin/nc`.
+  [✔] Section 66F of the IT Act penalizes SQL injection host takeover with Life Imprisonment.
+================================================================================

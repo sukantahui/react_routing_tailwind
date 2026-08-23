@@ -1,0 +1,85 @@
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES : CYBER SECURITY (BCAC703)
+MODULE 004_004 : DENIAL OF SERVICE (DoS) & DDoS ATTACKS
+TOPIC 04       : TCP THREE-WAY HANDSHAKE EXPLOITATION AND SYN COOKIES
+AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
+
+1. EXECUTIVE OVERVIEW & HANDSHAKE ASYMMETRY
+--------------------------------------------------------------------------------
+Under RFC 793, the TCP Three-Way Handshake introduces a dangerous resource allocation asymmetry:
+
+  * THE HANDSHAKE SEQUENCE & ASYMMETRY :
+    1. STEP 1 (SYN)    : Client sends SYN ➔ Server allocates ~480B TCB in SYN Backlog (SYN_RECV).
+    2. STEP 2 (SYN-ACK): Server sends SYN-ACK and waits up to 75 seconds for the final ACK.
+    3. STEP 3 (ACK)    : Client returns ACK ➔ Socket transitions to ESTABLISHED.
+    4. THE EXPLOIT     : Attacker floods spoofed SYNs; server commits gigabytes of RAM holding
+                         half-open states, while the attacker commits zero resources!
+
+--------------------------------------------------------------------------------
+2. THE RFC 4987 TCP SYN COOKIE CRYPTOGRAPHIC ARCHITECTURE
+--------------------------------------------------------------------------------
+
+A. 32-BIT INITIAL SEQUENCE NUMBER (ISN) ENCODING :
+   - Bits 31-27 (5 Bits) : Timestamp epoch $t = (\text{time}() >> 6) \pmod{32}$ (advances every 64s).
+   - Bits 26-24 (3 Bits) : Encoded Maximum Segment Size (MSS) index $m \in [0, 7]$.
+   - Bits 23-0 (24 Bits) : Cryptographic Signature = $\text{HMAC-SHA1}(\text{4-Tuple} \parallel t \parallel \text{SecretKey}) \pmod{2^{24}}$.
+
+B. VERIFICATION ON STEP 3 :
+   - Server computes $\text{ISN} = \text{Ack} - 1$, extracts $t$ and $m$, verifies timestamp validity,
+     and re-computes HMAC. Only upon a valid match does the server allocate socket memory!
+
+C. TCP TIMESTAMPS EXTENSION (RFC 7323) :
+   - Encodes Window Scale (4 bits) and SACK (1 bit) into the TCP Timestamp TSval field,
+     preserving full TCP performance features during SYN flood attacks.
+
+================================================================================
+3. ENTERPRISE DEFENSIVE HARDENING & LINUX KERNEL TUNING
+================================================================================
+
++-------------------+---------+-----------------------------+-----------------------------+
+| DEFENSE COMPONENT | FOCUS   | IMPLEMENTATION MECHANISM    | SYN EXPLOIT MITIGATED       |
++-------------------+---------+-----------------------------+-----------------------------+
+| Linux TCP SYN     | Kernel  | `net.ipv4.tcp_syncookies = 1`| Completely eliminates half- |
+| Cookie Engine     | Stack   | with `tcp_timestamps = 1`.  | open TCB RAM allocation.    |
+|                   |         |                             |                             |
+| Scaled Backlog    | Queue   | `tcp_max_syn_backlog = 8192`| Expands embryonic & accept  |
+| & Accept Queues   | Memory  | with `somaxconn = 65535`.   | queues under peak traffic.  |
+|                   |         |                             |                             |
+| Reduced SYN-ACK   | Timeout | `tcp_synack_retries = 2`    | Reduces embryonic hold time |
+| Retransmissions   | Timer   | (drops dead sessions in 7s).| from 75s to ~7 seconds.     |
+|                   |         |                             |                             |
+| Hardware FPGA     | Inline  | F5 / A10 proxy validating   | Shields backend web servers |
+| SYN Proxy         | Gateway | handshakes in hardware.     | from multi-million PPS SYNs.|
++-------------------+---------+-----------------------------+-----------------------------+
+
+================================================================================
+4. STATUTORY & REGULATORY COMPLIANCE IN INDIA
+================================================================================
+
+  * INFORMATION TECHNOLOGY ACT 2000 :
+    - Section 66F   : SYN floods on Critical Infrastructure is CYBER TERRORISM (LIFE IMPRISONMENT).
+    - Section 70    : Attacks on PROTECTED SYSTEMS (Up to 10 YEARS IMPRISONMENT + Fine).
+    - Section 43(f) : Civil compensation up to ₹1 CRORE for causing Denial of Access.
+    - Section 66    : Criminal hacking & service disruption (Up to 3 Years Prison + Fine).
+
+  * INDIAN PENAL CODE (IPC) :
+    - Section 420   : Cheating & Fraudulent SYN Flood Extortion (Up to 7 Years Prison).
+    - Section 427   : Mischief & Electronic Server Disruption (Up to 2 Years Prison).
+
+  * CERT-In MANDATORY INCIDENT REPORTING DIRECTIVE :
+    - All protocol DDoS outages must be reported to CERT-In within 6 HOURS.
+
+  * DIGITAL PERSONAL DATA PROTECTION (DPDP) ACT 2023 :
+    - Section 8(5) & 33: Mandatory availability safeguards; failure triggers fines up to ₹250 CRORES.
+
+================================================================================
+5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+================================================================================
+  [✔] TCP Handshake asymmetry forces the server to allocate TCB memory before client verification.
+  [✔] RFC 4987 SYN Cookies encode state into the 32-bit ISN with ZERO half-open memory allocation.
+  [✔] The ISN encodes a 5-bit timestamp (t), 3-bit MSS index (m), and 24-bit HMAC signature.
+  [✔] TCP Timestamps (RFC 7323) preserve Window Scale and SACK permissions during SYN Cookie mode.
+  [✔] Hardening `tcp_synack_retries = 2` terminates dead embryonic sessions in ~7s instead of 75s.
+  [✔] Section 66F of the IT Act penalizes TCP Handshake Cyber Terrorism with Life Imprisonment.
+================================================================================
