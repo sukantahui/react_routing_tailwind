@@ -1,0 +1,95 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: NETWORK-BASED (NIDS) VS HOST-BASED (HIDS)
+COURSE MODULE: 005_002 - INTRUSION DETECTION (IDS), IPS & HONEYPOTS (TOPIC 2)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & ARCHITECTURAL SCOPE
+----------------------------------------------------------------------------------------------------
+A Network-based Intrusion Detection System (NIDS) monitors and analyzes network traffic across an entire 
+subnet or broadcast domain via promiscuous sniffing on network TAPs or switch SPAN ports (e.g., Snort, Suricata, Zeek).
+  - Scope: Broad subnet visibility, detecting port scans, SYN floods, unencrypted protocol anomalies, and 
+    network-level malware propagation.
+  - Limitation: Completely blind to encrypted payloads (TLS 1.3, SSH, IPsec) and local host-level modifications.
+
+A Host-based Intrusion Detection System (HIDS) is a dedicated software agent or daemon running directly inside 
+a host operating system kernel and user space (e.g., Wazuh, OSSEC, Linux Auditd, Microsoft Sysmon).
+  - Scope: Deep local host visibility, inspecting OS system calls, local authentication events (Windows Event ID 
+    4624/4625, `/var/log/auth.log`), File Integrity Monitoring (FIM), privilege escalations, and active processes.
+  - Key Advantage: Inspects data inside application memory AFTER TLS decryption.
+
+
+2. COMPREHENSIVE COMPARISON MATRIX: NIDS VS HIDS
+----------------------------------------------------------------------------------------------------
++--------------------+------------------------------------+-----------------------------------------+
+| CHARACTERISTIC     | NETWORK-BASED IDS (NIDS)           | HOST-BASED IDS (HIDS)                   |
++--------------------+------------------------------------+-----------------------------------------+
+| Inspection Point   | Physical Network Wire (TAP / SPAN) | Operating System Kernel & User Space    |
+| Primary Focus      | Network Packets & Flow Anomalies   | OS Logs, Syscalls, File Hashes, Memory  |
+| Deployment Scope   | 1 Appliance protects entire subnet | Requires Agent on every individual host |
+| TLS 1.3 Visibility | Blind (Cannot decrypt ciphertext)  | 100% Plaintext (Inspects post-decryption)|
+| Host CPU Overhead  | 0% impact on monitored servers     | 1% - 5% CPU & RAM per monitored host    |
+| Core Capabilities  | SYN Flood, Port Sweep, Shellcode   | File Integrity (FIM), Privilege Escalation|
+| Compromise Impact  | Attacker on host cannot kill NIDS  | Root attacker can disable local agent   |
++--------------------+------------------------------------+-----------------------------------------+
+
+
+3. FILE INTEGRITY MONITORING (FIM) IN HIDS
+----------------------------------------------------------------------------------------------------
+File Integrity Monitoring (FIM) is the cryptographic baseline auditing of critical operating system files 
+(e.g., `/etc/passwd`, `/etc/shadow`, `/bin/login`, `C:\Windows\System32\ntoskrnl.exe`).
+
+Operational Mechanics:
+  1. Baseline Generation: During agent installation, HIDS computes cryptographic hashes (SHA-256) and stores 
+     permissions, file sizes, and ownership in an encrypted local database.
+  2. Real-Time OS Kernel Hooking: Utilizing Linux `inotify` or Windows `ReadDirectoryChangesW`, HIDS monitors 
+     filesystem system calls (`open`, `write`, `chmod`, `unlink`).
+  3. Hash Verification & Alerting: If a rootkit modifies a binary, HIDS detects that SHA-256 hash mismatch, 
+     generating an immediate critical alert in the SIEM.
+
+
+4. THE ENCRYPTED TRAFFIC BLIND SPOT (TLS 1.3 & E2EE)
+----------------------------------------------------------------------------------------------------
+With over 95% of modern enterprise and web traffic encrypted using TLS 1.3 Perfect Forward Secrecy (PFS), 
+passive out-of-band NIDS sensors can only see encrypted ciphertext strings.
+
+Why HIDS Solves the TLS Blind Spot:
+  - Inside a web server or database, the TLS termination point decrypts the incoming packet.
+  - The application writes the decrypted request into server memory and audit logs (`/var/log/nginx/access.log`, 
+    SQL audit tables).
+  - HIDS agents read these local plaintext logs and memory structures, instantly detecting SQL injection, 
+    XSS, and command injections that slipped past NIDS untouched.
+
+
+5. REGIONAL SOC CASE STUDY: BARRACKPORE & SALT LAKE ENTERPRISE HYBRID DRILL
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Intrusion Architect: Sukanta Hui
+  - Analysts: Mamata (NIDS Wire Sniffer Lead), Mahima (HIDS Agent & Wazuh Specialist), 
+    Abhronila (FIM & SHA-256 Baseline Lead), Susmita (Compliance & DPDP Auditor), Debangshu (Agent Sizing Lead).
+
+Scenario:
+A high-security State Secretariat datacenter in Salt Lake Sector V with remote administrative nodes in Barrackpore:
+- Threat: An insider threat with legitimate SSH credentials logged into a core Linux database server and 
+  attempted to install a kernel-mode rootkit by replacing `/bin/login`.
+- Hybrid Defense Response:
+  - NIDS (Mamata & Debangshu) saw legitimate SSH encrypted ciphertext on port 22, generating no alert.
+  - HIDS (Mahima & Abhronila) running Wazuh FIM caught the unauthorized modification of `/bin/login` within 
+    40 milliseconds via `inotify` SHA-256 hash mismatch.
+  - Susmita and Sukanta Hui correlated the HIDS alert with user authentication logs, isolating the server 
+    and preserving forensic memory dumps for statutory CERT-In reporting.
+  - Outcome: Rootkit neutralized before persistence achieved; 100% compliance with CERT-In directives.
+
+
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] NIDS monitors entire subnets on the wire; HIDS monitors local operating systems via host agents.
+[ ] NIDS is blind to encrypted TLS 1.3 traffic; HIDS sees plaintext data post-decryption.
+[ ] HIDS performs File Integrity Monitoring (FIM) using SHA-256 cryptographic baseline hashes.
+[ ] NIDS introduces zero CPU overhead on servers; HIDS consumes 1–5% host CPU/RAM resources.
+[ ] Modern Defense-in-Depth requires BOTH NIDS (for network perimeter) AND HIDS (for endpoints).
+[ ] CERT-In mandates 180-day retention of all NIDS packet alerts and HIDS FIM logs.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

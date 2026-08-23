@@ -1,0 +1,94 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: HONEYNETS & PRODUCTION VS RESEARCH HONEYPOTS
+COURSE MODULE: 005_002 - INTRUSION DETECTION (IDS), IPS & HONEYPOTS (TOPIC 10)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & THE HONEYNET ARCHITECTURAL PARADIGM
+----------------------------------------------------------------------------------------------------
+A Honeynet is a highly controlled network architecture consisting of two or more honeypots configured to 
+simulate an entire authentic enterprise ecosystem (e.g. firewalls, routers, Windows Active Directory Domain 
+Controllers, database servers, and client workstations).
+
+The Honeynet Security Gateway (Honeywall):
+  The Honeywall is the dedicated gateway through which ALL honeynet traffic must pass. It performs two 
+  mandatory functions:
+  1. Data Control: Prevents the honeynet from being used to compromise other systems (strict egress rate-limiting, 
+     connection limits, dropping internal RFC 1918 pivots).
+  2. Data Capture: Invisibly records 100% of all ingress and egress packet streams, keystrokes, and system calls 
+     without alerting the adversary.
+
+
+2. PRODUCTION VS RESEARCH HONEYPOTS COMPARISON
+----------------------------------------------------------------------------------------------------
++----------------------+------------------------------------+------------------------------------+
+| CHARACTERISTIC       | PRODUCTION HONEYPOTS               | RESEARCH HONEYPOTS                 |
++----------------------+------------------------------------+------------------------------------+
+| Primary Purpose      | Direct enterprise risk reduction   | Long-term threat intelligence &    |
+|                      | and high-fidelity breach detection | malware reverse engineering        |
+| Operational Context  | Inside corporate LANs, DMZs, VPCs  | Exposed directly to public internet|
+| Deployment Operators | Corporate SOC & Incident Response  | Security Researchers, CERT-In, Labs|
+| Data Collected       | Alerts, compromised host IPs, TTPs | Full disk images, rootkits, zero-days|
+| Architecture Type    | Low-to-Medium Interaction decoys   | High-Interaction multi-node Honeynets|
+| Action on Breach     | Instant automated host quarantine  | Allow attacker to interact for days|
+| Threat Value         | Eliminates SOC alert fatigue       | Discovers unknown hacker campaigns |
++----------------------+------------------------------------+------------------------------------+
+
+
+3. HONEYWALL DATA CONTROL & DATA CAPTURE MECHANISMS
+----------------------------------------------------------------------------------------------------
+1. DATA CONTROL (CONTAINMENT):
+   - Outbound Connection Limits: Restricts the honeynet to a maximum of 10 outbound connections per hour.
+   - Internal Network Isolation: Automatically drops any packet originating from the honeynet destined for 
+     internal production subnets (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`).
+   - TCP Stream Snapping: If an attacker attempts an external denial-of-service attack from a honeypot, 
+     the Honeywall injects TCP RST packets to sever the connection.
+
+2. DATA CAPTURE (OBSERVABILITY):
+   - Layer 2 Invisible Sniffing: Honeywall bridges packets at the data link layer without MAC or IP addresses.
+   - Kernel Syscall Telemetry: Captures process executions (`execve`), network sockets, and file writes.
+
+
+4. DYNAMIC DECEPTION TOPOLOGIES & SHADOW VLANS
+----------------------------------------------------------------------------------------------------
+In modern enterprise architectures (e.g. Cisco ACI or VMware NSX), Deception Orchestrators dynamically 
+assign unallocated IP addresses across all active VLANs to virtual honeynet nodes. When an attacker scans 
+an internal subnet, they encounter a randomized mix of real production servers and synthetic decoy nodes, 
+reversing the attacker's asymmetric advantage.
+
+
+5. REGIONAL SOC CASE STUDY: BARRACKPORE TELECOM & SALT LAKE CYBER RANGE
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Intrusion Architect: Sukanta Hui
+  - Analysts: Mamata (Honeywall Data Control Lead), Mahima (Active Directory Decoy Architect), 
+    Abhronila (Research Honeynet Orchestrator), Susmita (Compliance & CERT-In Auditor), Debangshu (MITRE ATT&CK Mapper).
+
+Scenario:
+A collaborative threat intelligence initiative connecting Barrackpore Telecom Core to the Salt Lake State Cyber Range:
+- Architecture:
+  - Mamata configured a multi-node High-Interaction Honeynet containing 1 Active Directory Domain Controller, 
+    2 Database servers, and 5 Windows 11 client nodes behind an automated Honeywall gateway.
+  - Debangshu integrated automated MITRE ATT&CK mapping and EVE JSON streaming into the State SOC SIEM.
+- Tactical Engagement:
+  - An international Advanced Persistent Threat (APT) group compromised a decoy workstation via a phishing exploit.
+  - The Honeynet allowed the adversary to operate for 72 hours, capturing their proprietary in-memory lateral 
+    movement scripts, C2 domain infrastructure, and credential harvesting tools.
+  - When the attacker attempted to pivot into the real state financial grid, Mamata's Honeywall dropped the outbound SYN packets.
+  - Susmita and Sukanta Hui generated a comprehensive threat advisory and submitted the zero-day IOCs to CERT-In.
+  - Outcome: Zero production data compromised; 14 new MITRE ATT&CK TTPs documented; full statutory compliance verified.
+
+
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] A Honeynet is a network of two or more honeypots simulating an entire realistic enterprise ecosystem.
+[ ] The Honeywall gateway performs two mandatory functions: Data Control (containment) and Data Capture (logging).
+[ ] Production honeypots detect internal intrusions and trigger instant host isolation.
+[ ] Research honeypots study global hacker motives, capture zero-day malware, and map MITRE ATT&CK TTPs.
+[ ] Honeywalls drop all traffic from honeynet nodes destined for internal RFC 1918 private subnets.
+[ ] Dynamic deception populates dark IP space with synthetic decoys to confuse attacker reconnaissance.
+[ ] CERT-In mandates 180-day retention of all honeynet interaction logs synchronized with NPL India NTP servers.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

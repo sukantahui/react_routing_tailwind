@@ -1,0 +1,85 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: IPSEC VPNS (TUNNEL MODE VS TRANSPORT MODE)
+COURSE MODULE: 005_003 - VPNS AND TUNNELING (TOPIC 5)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. OVERVIEW OF THE IPSEC PROTOCOL FRAMEWORK
+----------------------------------------------------------------------------------------------------
+IPsec (Internet Protocol Security - RFC 4301) is a suite of protocols operating at the Network Layer (Layer 3) 
+to provide cryptographically authenticated and encrypted communication across IP networks.
+IPsec operates in two fundamental encapsulation modes:
+  1. Tunnel Mode (Default for Gateway-to-Gateway & Gateway-to-Host)
+  2. Transport Mode (Default for Host-to-Host & L2TP/GRE Encryption)
+
+
+2. IPSEC TUNNEL MODE (FULL PACKET ENCAPSULATION)
+----------------------------------------------------------------------------------------------------
+- Packet Structure:
+  [ New Outer Public IP Header ] + [ ESP Header ] + [ ENCRYPTED: Original Inner IP Header + TCP/UDP + Data ] + [ ESP Trailer / ICV ]
+- Characteristics:
+  - The entire original IP packet (including private source `10.10.1.5` and destination `10.20.1.50`) is encrypted.
+  - A brand-new public routable IP header is prepended to traverse public intermediate routers.
+  - Intermediate eavesdroppers and ISPs cannot discover which internal machines are communicating.
+- Primary Use Cases:
+  - Site-to-Site VPNs connecting branch offices to central datacenters.
+  - Remote Access VPNs connecting mobile workers to corporate gateways.
+
+
+3. IPSEC TRANSPORT MODE (PAYLOAD-ONLY ENCAPSULATION)
+----------------------------------------------------------------------------------------------------
+- Packet Structure:
+  [ Original IP Header (Cleartext) ] + [ ESP Header ] + [ ENCRYPTED: TCP/UDP Header + Data Payload ] + [ ESP Trailer / ICV ]
+- Characteristics:
+  - Reuses the original IP header without generating a new outer header.
+  - Only the Layer 4 transport payload (TCP/UDP data) is encrypted; IP addresses remain visible.
+  - Reduces packet overhead by 20 bytes compared to Tunnel Mode.
+- Primary Use Cases:
+  - End-to-end Host-to-Host encryption between two servers on the same LAN or datacenter.
+  - Underlying transport encryption for GRE over IPsec or L2TP/IPsec tunnels.
+
+
+4. PROTOCOL COMPARISON: AH VS ESP & NAT COMPATIBILITY
+----------------------------------------------------------------------------------------------------
++----------------------+----------------------+----------------------+----------------------+
+| IPSEC PROTOCOL       | CONFIDENTIALITY      | INTEGRITY & AUTH     | NAT TRAVERSAL (NAT-T)|
++----------------------+----------------------+----------------------+----------------------+
+| Authentication Header| NONE (Cleartext)     | YES (Cryptographic)  | ❌ INCOMPATIBLE (NAT |
+| (AH - Protocol 51)   |                      | (Hashes Outer IP)    | breaks integrity!)   |
++----------------------+----------------------+----------------------+----------------------+
+| Encapsulating Sec    | YES (AES-256-GCM /   | YES (AEAD 128-bit    | ✔ 100% COMPATIBLE    |
+| Payload (ESP - 50)   | ChaCha20-Poly1305)   | Auth Tag)            | (UDP Port 4500)      |
++----------------------+----------------------+----------------------+----------------------+
+
+
+5. REGIONAL SOC CASE STUDY: BARRACKPORE MUNICIPAL CORE IPSEC ARCHITECTURE
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead IPsec Architect: Sukanta Hui
+  - Analysts: Mamata (Tunnel Mode Gateway Lead), Mahima (Transport Mode Datacenter Specialist), 
+    Abhronila (NAT-T Diagnostics Engineer), Susmita (Compliance & CERT-In Auditor), Debangshu (Cryptographic Engineer).
+
+Scenario:
+The North 24 Parganas municipal administration deployed a dual-mode IPsec security architecture:
+- Implementation Details:
+  - Mamata and Debangshu configured IPsec ESP Tunnel Mode with AES-256-GCM and IKEv2 on edge routers connecting 
+    Barrackpore (`10.10.0.0/16`) to the Salt Lake Sector V Datacenter (`10.20.0.0/16`).
+  - Mahima configured IPsec Transport Mode between internal database clusters in Salt Lake to encrypt internal replication.
+- Threat Neutralization:
+  - Adversaries attempted sniffing internal SQL queries on datacenter switches and tried injecting route modifications on the public fiber link.
+  - Internal traffic was protected by Transport Mode; WAN traffic was protected by Tunnel Mode with full IP address obfuscation.
+  - Outcome: 100% data confidentiality achieved; full compliance with CERT-In and the DPDP Act 2023.
+
+
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] Tunnel Mode encrypts the entire original IP packet and appends a new public IP header.
+[ ] Transport Mode encrypts only the Layer 4 payload, preserving the original IP header.
+[ ] Tunnel Mode is used for Site-to-Site and Remote Access; Transport Mode is used for Host-to-Host.
+[ ] AH (Protocol 51) is incompatible with NAT because NAT IP rewriting breaks AH hash integrity.
+[ ] ESP (Protocol 50) with NAT-T (UDP 4500) is the universal enterprise standard for IPsec VPNs.
+[ ] CERT-In mandates 180-day retention of all IPsec Security Association (SA) negotiation and session logs.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

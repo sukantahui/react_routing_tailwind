@@ -1,0 +1,94 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: HONEYPOTS & CYBER DECEPTION TECHNOLOGY
+COURSE MODULE: 005_002 - INTRUSION DETECTION (IDS), IPS & HONEYPOTS (TOPIC 8)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & THE GOLDEN HONEYPOT AXIOM
+----------------------------------------------------------------------------------------------------
+A Honeypot is a decoy security asset (server, database, application, or credential) intentionally deployed 
+on a network with NO authorized production purpose.
+
+The Golden Honeypot Axiom (Lance Spitzner, The Honeynet Project):
+  "A honeypot has no authorized legitimate business traffic. Therefore, ANY packet, connection attempt, 
+   or login interaction touching a honeypot is 100% MALICIOUS or ANOMALOUS by definition."
+
+Key Value Proposition:
+  - While traditional IDS sensors generate thousands of false alarms, a honeypot generates ZERO FALSE POSITIVES. 
+    Every alert is a high-confidence True Positive representing active reconnaissance, lateral movement, or insider threat.
+
+
+2. THE 4 STRATEGIC OBJECTIVES OF DECEPTION TECHNOLOGY
+----------------------------------------------------------------------------------------------------
+1. HIGH-FIDELITY EARLY WARNING:
+   - Catches attackers during the initial reconnaissance and lateral movement phase before they reach real crown jewels.
+2. ADVERSARY TIME DILATION & RESOURCE EXHAUSTION:
+   - Forces attackers to waste hours probing fake simulated networks, increasing the likelihood they make a mistake.
+3. ZERO-DAY THREAT INTELLIGENCE:
+   - Captures novel zero-day exploits, rootkits, and malware payloads in flight for reverse engineering.
+4. EVIDENCE COLLECTION & ATTRIBUTION:
+   - Records keystrokes, downloaded toolkits, and attacker C2 IP addresses for law enforcement and CERT-In.
+
+
+3. THE SPECTRUM OF DECEPTION ASSETS
+----------------------------------------------------------------------------------------------------
+1. DECOY SERVERS (HONEYPOTS):
+   - Fake SSH, RDP, Web, and Database servers simulating vulnerable services across internal subnets.
+2. HONEYTOKENS (CANARYTOKENS):
+   - Fake embedded credentials, AWS API access keys, or SQL connection strings planted in memory, source code, 
+     or browser caches. If an attacker uses the token, a webhook alert fires immediately.
+3. HONEYFILES (BAIT DOCUMENTS):
+   - Fake sensitive files (e.g. `salaries_2026.docx`, `employee_tax_pan_cards.xlsx`) embedded with invisible web bugs 
+     or DNS beacons that trigger alerts when opened.
+4. HONEYCREDENTIALS (HONEY ACCOUNTS):
+   - Fake domain administrator accounts in Active Directory (e.g. `svc_backup_admin`). Legitimate staff never use 
+     it; any Kerberos ticket request (AS-REQ) immediately exposes an active Kerberoasting attack.
+
+
+4. LEGAL, ETHICAL & CONTAINMENT CONSIDERATIONS
+----------------------------------------------------------------------------------------------------
+1. ENTRAPMENT VS ENTICEMENT:
+   - Enticement (Legal): Placing a tempting decoy on an existing private network and observing who attacks it.
+   - Entrapment (Illegal in criminal law): Actively tricking or coercing an innocent party into committing an 
+     illegal act they would not otherwise attempt.
+2. DATA CONTAINMENT & EGRESS FILTERING:
+   - The critical risk: If an adversary fully compromises a high-interaction honeypot, they may attempt to use 
+     it as a pivot or launchpad to attack real production systems or external targets.
+   - Mitigation: Strict egress firewall rules and rate-limiting routers isolate the honeypot in a quarantined 
+     sandbox, allowing ingress attacks but preventing outbound pivots.
+
+
+5. REGIONAL SOC CASE STUDY: BARRACKPORE SUBSTATION & SALT LAKE CLEARING
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Intrusion Architect: Sukanta Hui
+  - Analysts: Mamata (Canarytoken Architect), Mahima (Active Directory Honeytoken Lead), 
+    Abhronila (Decoy Isolation Engineer), Susmita (Compliance & CERT-In Auditor), Debangshu (Threat Intel Lead).
+
+Scenario:
+A state financial clearing house in Salt Lake Sector V with a secondary grid substation in Barrackpore:
+- Threat Vector: An insider with valid employee credentials attempted to steal confidential banking databases 
+  by performing unauthorized lateral reconnaissance across internal VLANs.
+- Deception Engineering Defense:
+  - Sukanta Hui and Mamata planted Canarytoken honeyfiles (`bank_master_keys.docx`) and deployed decoy SQL honeyports.
+  - Mahima configured a fake Active Directory honey-administrator account (`svc_treasury_adm`).
+  - When the insider attempted to open the honeyfile and requested a Kerberos ticket for the honey account, 
+    instant Tier-1 alerts fired with zero false alarms.
+  - Debangshu and Susmita tracked the physical switch port, isolated the workstation, and generated immutable 
+    forensic evidence for statutory CERT-In and judicial audit.
+  - Outcome: Zero production data compromised; insider apprehended; 100% compliance with CERT-In directives.
+
+
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] The Golden Honeypot Axiom: Any traffic touching a honeypot is 100% malicious (Zero False Positives).
+[ ] Honeypots waste attacker time, detect lateral movement, and capture zero-day threat intelligence.
+[ ] Canarytokens / Honeyfiles trigger automated DNS/HTTP webhooks when opened or accessed.
+[ ] Active Directory Honeycredentials detect Kerberoasting and lateral password spraying.
+[ ] Enticement is legally permitted; Entrapment involves coercing someone into committing a crime.
+[ ] Egress containment and sandboxing are mandatory to prevent honeypots from being used as pivot launchpads.
+[ ] CERT-In mandates 180-day retention of all honeypot telemetry synchronized with NPL India NTP servers.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

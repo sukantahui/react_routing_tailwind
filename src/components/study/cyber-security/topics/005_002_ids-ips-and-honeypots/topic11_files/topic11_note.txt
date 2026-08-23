@@ -1,0 +1,93 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: INTEGRATING IDS/IPS & HONEYPOTS WITH SIEM & SOC
+COURSE MODULE: 005_002 - INTRUSION DETECTION (IDS), IPS & HONEYPOTS (TOPIC 11)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & THE UNIFIED SOC ARCHITECTURE
+----------------------------------------------------------------------------------------------------
+In modern enterprise cybersecurity, standalone intrusion sensors and deception traps operating in isolation 
+create fragmented data silos. Security Operations Centers (SOCs) achieve holistic visibility by integrating 
+Network IDS/IPS (Suricata, Snort), Host IDS (Wazuh, Sysmon), and Cyber Deception assets (Canarytokens, Honeynets) 
+into a centralized Security Information and Event Management (SIEM) and Security Orchestration, Automation, 
+and Response (SOAR) platform.
+
+
+2. THE 4-STAGE TELEMETRY PIPELINE: INGESTION TO CONTAINMENT
+----------------------------------------------------------------------------------------------------
+1. DISTRIBUTED INGESTION & DATA STREAMING:
+   - Sensors emit structured telemetry (Suricata `eve.json`, Wazuh alerts, Cowrie JSON) to high-throughput 
+     message queues (Apache Kafka, Fluentbit, Vector).
+2. NORMALIZATION & PARSING:
+   - Translates diverse vendor formats into a standardized schema: Elastic Common Schema (ECS) or Open 
+     Cybersecurity Schema Framework (OCSF).
+3. SIEM MULTI-SOURCE CORRELATION:
+   - Rule Correlation Engines link disparate events sharing common 5-tuples (SrcIP, DstIP, Timestamp) 
+     or user accounts across a 5-minute sliding window.
+   - Example: NIDS Alert (SQL Injection Probe) + Honeypot Decoy Hit (100% True Positive) + Endpoint EDR 
+     (Process Injection) ➔ High-Severity Consolidated Incident!
+4. SOAR AUTOMATED PLAYBOOK EXECUTION:
+   - Executes zero-touch response actions within 500 milliseconds: dynamically pushes firewall block rules, 
+     isolates compromised host in EDR, revokes Active Directory sessions, and opens ticketing records.
+
+
+3. THE TRIAGE CONE: REDUCING 100,000 ALERTS TO ACTIONABLE INCIDENTS
+----------------------------------------------------------------------------------------------------
+  [ 100,000 Raw Network Packets / Sec ]
+             │ (Suricata / Snort Rule Filtering)
+  [ 1,000 Raw IDS / Honeypot Alerts / Day ]
+             │ (SIEM Correlation, Whitelisting & De-duplication)
+  [ 25 Actionable Security Incidents ]
+             │ (SOAR Automated Triage & Tier-1 Playbooks)
+  [ 3 Confirmed Critical Breaches for Tier-2 / Tier-3 Human Forensics ]
+
+
+4. STATUTORY INDIAN CERT-IN COMPLIANCE & LEGAL MANDATES
+----------------------------------------------------------------------------------------------------
+Under statutory directives issued by the Indian Computer Emergency Response Team (CERT-In) and the Digital 
+Personal Data Protection (DPDP) Act 2023:
+  1. Mandatory 180-Day Immutable Log Retention:
+     - All SIEM logs, firewall events, IDS/IPS alerts, honeypot telemetry, and DNS queries must be preserved 
+       within Indian jurisdiction for a minimum of 180 days.
+  2. NPL India NTP Clock Synchronization:
+     - All servers, routers, and sensors must synchronize system clocks with the National Physical Laboratory (NPL) 
+       India or authorized national NTP stratum-1 servers to ensure legally undisputed forensic timestamps.
+  3. Mandatory 6-Hour Incident Reporting:
+     - Any confirmed cybersecurity breach or ransomware incident must be reported to CERT-In within 6 hours 
+       of identification.
+
+
+5. REGIONAL SOC CASE STUDY: BARRACKPORE TELECOM & SALT LAKE STATE SOC
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Intrusion Architect: Sukanta Hui
+  - Analysts: Mamata (SIEM Ingestion & Kafka Lead), Mahima (SOAR Playbook Automation Specialist), 
+    Abhronila (Multi-Source Correlation Architect), Susmita (Compliance & CERT-In Auditor), Debangshu (Tier-3 Threat Hunter).
+
+Scenario:
+The West Bengal State Security Operations Center in Salt Lake Sector V monitoring the Barrackpore municipal gateway:
+- Coordinated Cyber Attack:
+  - Adversaries launched a multi-vector campaign: automated credential spraying on the external VPN, a zero-day 
+    SQL injection probe on the civic tax portal, and internal lateral movement toward a Canarytoken database share.
+- Integrated Defense Response:
+  - Mamata's Kafka pipeline ingested Suricata EVE JSON alerts and Canarytoken webhooks into an OpenSearch SIEM.
+  - Abhronila's correlation engine linked the external IP and the internal lateral move into a single Tier-1 Incident ticket.
+  - Mahima's SOAR playbook fired automatically: pushed IP blocks to the perimeter firewall in 350ms, isolated 
+    the compromised employee laptop via Wazuh EDR, and notified the on-duty analyst.
+  - Susmita and Sukanta Hui generated a formal statutory incident report and transmitted the forensic artifact bundle to CERT-In within 2 hours.
+  - Outcome: Zero financial data compromised; attack terminated in < 1 second; 100% compliance with CERT-In and DPDP Act 2023.
+
+
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] SIEM normalizes diverse sensor logs into standardized schemas (Elastic Common Schema - ECS).
+[ ] Multi-source correlation links IDS alerts, honeypot decoys, and EDR telemetry into consolidated incidents.
+[ ] SOAR playbooks automate firewall IP blocks, host isolation, and account revocation in < 1 second.
+[ ] Deception alerts (100% True Positive) enable safe automated SOAR isolation without human delay.
+[ ] CERT-In mandates 180-day retention of all SIEM logs synchronized with NPL India NTP servers.
+[ ] CERT-In mandates reporting confirmed cybersecurity incidents within 6 hours of discovery.
+[ ] Combining IDS/IPS, Honeypots, SIEM, and SOAR completes the holistic, defense-in-depth security lifecycle.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

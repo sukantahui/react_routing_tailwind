@@ -1,0 +1,101 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: TYPES OF HONEYPOTS (LOW VS HIGH INTERACTION)
+COURSE MODULE: 005_002 - INTRUSION DETECTION (IDS), IPS & HONEYPOTS (TOPIC 9)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & THE LEVEL OF INTERACTION TAXONOMY
+----------------------------------------------------------------------------------------------------
+Honeypots are classified according to the depth of interaction and operational freedom granted to the adversary. 
+The level of interaction dictates the fidelity of threat intelligence gathered, the complexity of deployment, 
+and the operational security risk of attacker pivoting.
+
+
+2. THE 3 TIERS OF HONEYPOT INTERACTION
+----------------------------------------------------------------------------------------------------
+1. LOW-INTERACTION HONEYPOTS (LIH):
+   - Definition: Software emulators that simulate specific network services and fixed protocol banners. 
+     There is NO real underlying operating system, kernel, or real execution environment.
+   - Prominent Tools:
+     - Cowrie: Emulates SSH & Telnet services with a fake virtual file system.
+     - Dionaea: Emulates SMB, MSSQL, FTP, HTTP to capture automated malware payloads and worms.
+     - Conpot: Emulates industrial control systems (ICS/SCADA) Modbus, DNP3, and S7comm protocols.
+     - Honeyd: Simulates entire network topologies with synthetic TCP/IP stack personality fingerprints.
+   - Strengths: Extremely low CPU/RAM footprint (1 server can host 5,000 decoys); 0% risk of host compromise.
+   - Limitations: Easily fingerprinted by experienced human hackers; cannot capture novel zero-day kernel exploits.
+
+2. MEDIUM-INTERACTION HONEYPOTS (MIH):
+   - Definition: Emulates complex application-level logic (e.g. web forms, databases) without real backend execution.
+   - Prominent Tools:
+     - Glastopf / Snare & Tanner: Emulates vulnerable web applications, capturing SQL injection and local file inclusion (LFI).
+   - Strengths: Higher realism for automated web scrapers and scanner bots; safe containment.
+
+3. HIGH-INTERACTION HONEYPOTS (HIH):
+   - Definition: Real, fully functional, un-emulated operating systems (Windows Server, Linux) running real applications. 
+     Attackers gain genuine administrator or root shell access.
+   - Prominent Tools: Real KVM / VMware virtual machines instrumented with eBPF, Sysmon, and Honeynet Honeywalls.
+   - Strengths: Maximum forensic realism; impossible to fingerprint; captures novel zero-day kernel rootkits and live human TTPs.
+   - Limitations: Highest operational risk. Mandates strict egress data containment and automated VM snapshot rollback.
+
+
+3. THE INTERACTION VS RISK VS INTEL TRADEOFF MATRIX
+----------------------------------------------------------------------------------------------------
++----------------------+---------------------------+---------------------------+---------------------------+
+| METRIC               | LOW-INTERACTION (LIH)     | MEDIUM-INTERACTION (MIH)  | HIGH-INTERACTION (HIH)    |
++----------------------+---------------------------+---------------------------+---------------------------+
+| OS Environment       | Simulated / Emulated      | Emulated Application      | Real Physical / VM OS     |
+| Attacker Freedom     | Minimal (Predefined cmds) | Moderate (Web queries)    | Complete (Root / Admin)   |
+| Hardware Cost / Scale| Tiny (Runs on Raspberry Pi| Low (Standard server)     | High (Requires dedicated  |
+|                      | or 5,000 per 1U server)   |                           | RAM / VM per instance)    |
+| Operational Risk     | 0.0% (Cannot be pivoted)  | Very Low (< 1.0%)         | High (Mandates Honeywall) |
+| Intel Depth Captured | Automated scans & malware | Web vulnerabilities & SQLi| Full rootkits & zero-days |
+| Fingerprintability   | High (Easy to detect)     | Moderate                  | Near Zero (It is real OS) |
++----------------------+---------------------------+---------------------------+---------------------------+
+
+
+4. KERNEL TELEMETRY & DATA CONTROL FOR HIGH-INTERACTION HONEYPOTS
+----------------------------------------------------------------------------------------------------
+To safely run High-Interaction Honeypots without attacker evasion or lateral pivoting:
+  1. Out-of-Band Kernel Tracing: Deploy eBPF (Extended Berkeley Packet Filter) or hypervisor introspection 
+     to capture keystrokes, process execution (`execve`), and memory injections without installing observable in-guest agents.
+  2. Data Control (Honeywall Egress Containment):
+     - Rate-limiting outbound connections to a strict maximum (e.g., 5 packets/second).
+     - Dropping all outbound packets destined for internal RFC 1918 private subnets.
+     - Dynamic connection termination if the honeypot attempts to initiate an external port scan.
+  3. Ephemeral Virtual Disks: Revert the VM to a clean base snapshot every 24 hours or immediately following 
+     confirmed rootkit extraction.
+
+
+5. REGIONAL SOC CASE STUDY: BARRACKPORE SCADA & SALT LAKE CLOUD
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Intrusion Architect: Sukanta Hui
+  - Analysts: Mamata (Conpot SCADA Specialist), Mahima (Cowrie SSH Deployer), 
+    Abhronila (High-Interaction Honeywall Architect), Susmita (Compliance & CERT-In Auditor), Debangshu (eBPF Kernel Lead).
+
+Scenario:
+A hybrid critical infrastructure grid connecting Barrackpore water purification SCADA to Salt Lake Cloud:
+- Architectural Defense:
+  - Mamata deployed 20 Low-Interaction Conpot instances emulating Modbus PLC relays across industrial subnets.
+  - Mahima and Debangshu deployed a High-Interaction Debian Linux honeypot instrumented with eBPF tracing 
+    inside an isolated DMZ protected by an Abhronila Honeywall gateway.
+- Tactical Results:
+  - The Conpot sensors trapped 8,400 automated Internet-of-Things (IoT) Mirai botnet probes with 0% CPU overhead.
+  - An advanced APT actor breached the High-Interaction honeypot: eBPF captured the attacker's proprietary 
+    zero-day ELF memory injector; Honeywall containment dropped the attacker's attempted lateral SSH pivot.
+  - Outcome: Zero industrial disruption; zero-day binary reverse-engineered; 100% CERT-In compliance verified.
+
+
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] Low-Interaction honeypots (Cowrie, Dionaea, Conpot) emulate services with 0% risk of host compromise.
+[ ] High-Interaction honeypots run real operating systems, capturing zero-day kernel rootkits and live human TTPs.
+[ ] Medium-Interaction honeypots (Glastopf) emulate web application logic and SQL injection responses.
+[ ] High-Interaction honeypots require Honeywalls with strict egress filtering to prevent attacker pivots.
+[ ] eBPF and hypervisor introspection record attacker keystrokes invisibly without in-guest agents.
+[ ] Ephemeral VM snapshots allow automated restoration of compromised honeypots to clean base states.
+[ ] CERT-In mandates 180-day retention of all honeypot telemetry synchronized with NPL India NTP servers.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

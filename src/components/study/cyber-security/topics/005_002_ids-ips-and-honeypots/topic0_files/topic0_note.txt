@@ -1,0 +1,97 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: INTRODUCTION TO INTRUSION DETECTION SYSTEMS (IDS)
+COURSE MODULE: 005_002 - INTRUSION DETECTION (IDS), IPS & HONEYPOTS (TOPIC 0)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & THE GENESIS OF INTRUSION DETECTION
+----------------------------------------------------------------------------------------------------
+An Intrusion Detection System (IDS) is a hardware appliance or software application that passively monitors 
+network traffic or system host events for malicious activity, policy violations, or unauthorized access, 
+producing alerts for a centralized Security Operations Center (SOC) or SIEM repository.
+
+Historical Foundations:
+  - James P. Anderson (1980): Published "Computer Security Threat Monitoring and Surveillance", introducing 
+    the concept that user behavior deviates from normal baselines during an attack and classifying threats 
+    into External Penetrations, Internal Misuse, and Clandestine Users.
+  - Dr. Dorothy Denning (1987): Published the seminal paper "An Intrusion-Detection Model", establishing 
+    the mathematical foundation for state transition engines, statistical profiles, and rule-based anomaly 
+    detection still used by modern IDS platforms.
+
+
+2. THE 3 FOUNDATIONAL SUBSYSTEMS OF AN IDS
+----------------------------------------------------------------------------------------------------
+  1. SENSORS / PROBES (Data Capture Subsystem):
+     - Placed at strategic network tap points (SPAN ports, optical splitters) or installed as host agents.
+     - Operates network interfaces in Promiscuous Mode using raw packet capture drivers (libpcap, AF_PACKET, 
+       DPDK, PF_RING) to ingest all frames traversing the wire regardless of destination MAC address.
+
+  2. ANALYSIS ENGINE (Detection & Processing Engine):
+     - The "brain" of the IDS. Compares incoming packet headers and payload byte streams against known attack 
+       signatures (Signature-based) or baseline behavioral models (Anomaly-based).
+
+  3. ALERTING & MANAGEMENT CONSOLE (Reporting Subsystem):
+     - Formats detected indicators of compromise (IoCs) into structured alerts (IDMEF RFC 4765, CEF, JSON), 
+       pushing telemetry over TLS to SIEM platforms and triggering SOC analyst workflows.
+
+
+3. THE CLASSIC ANALOGY: FIREWALL VS INTRUSION DETECTION SYSTEM
+----------------------------------------------------------------------------------------------------
++--------------------+------------------------------------+-----------------------------------------+
+| CHARACTERISTIC     | FIREWALL (THE SECURITY GATE / DOOR)| INTRUSION DETECTION SYSTEM (THE ALARM)  |
++--------------------+------------------------------------+-----------------------------------------+
+| Primary Analogy    | Locked Door / Security Guard       | CCTV Camera / Burglar Alarm / Motion Sens|
+| Operational Action | Active (Permits or Drops packets)  | Passive (Monitors and Alerts on threats)|
+| Network Placement  | In-line (All traffic must cross it)| Out-of-Band (Receives mirrored traffic) |
+| Latency Overhead   | Introduces microsecond delay       | Zero packet forwarding delay on wire    |
+| Failure Impact     | Fail-Closed halts network traffic  | Appliance failure leaves traffic intact |
+| Inspection Focus   | Layer 3/4 5-Tuples & App-ID        | Deep Payload Byte Matching & Heuristics |
++--------------------+------------------------------------+-----------------------------------------+
+
+
+4. PROMISCUOUS MODE & PACKET CAPTURE MECHANICS
+----------------------------------------------------------------------------------------------------
+In standard network interface operation, the Network Interface Card (NIC) hardware filter discards any 
+Ethernet frame whose Destination MAC address does not match the local host MAC or the broadcast address.
+
+In Promiscuous Mode:
+  - The NIC hardware filter is disabled.
+  - The NIC passes 100% of all frames traversing the physical Ethernet segment directly to the operating 
+    system kernel network stack (via libpcap/AF_PACKET), allowing the IDS to inspect all conversations 
+    occurring across the broadcast domain or mirrored SPAN port.
+
+
+5. REGIONAL SOC CASE STUDY: BARRACKPORE MUNICIPAL FINANCIAL NETWORK (SALT LAKE DC)
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Intrusion Architect: Sukanta Hui
+  - Analysts: Mamata (Packet Sniffing & Libpcap Lead), Mahima (Sensor Placement Specialist), 
+    Abhronila (Detection Engine & Signature Hunter), Susmita (Compliance & CERT-In Auditor), Debangshu (Hardware TAP Lead).
+
+Scenario:
+A municipal banking switch in Barrackpore connected to a primary core datacenter in Salt Lake Sector V:
+- Threat: Attackers bypassed edge perimeter firewalls via legitimate port 443 credentials, initiating 
+  internal lateral reconnaissance and port sweeping against internal database clusters.
+- Solution Deployed:
+  - Sukanta Hui and Debangshu installed passive optical network TAPs mirroring 10 Gbps East-West traffic 
+    into a cluster of dedicated NIDS sensors.
+  - Mamata and Mahima tuned promiscuous packet capture using AF_PACKET ring buffers.
+  - Abhronila's detection engine identified anomalous TCP SYN sweeps across internal database subnets, 
+    generating an automated high-severity SIEM alert within 1.2 seconds.
+  - Outcome: Attackers neutralized before database exfiltration; 100% forensic pcap evidence captured for 
+    statutory reporting under the DPDP Act 2023.
+
+
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] IDS operates as a passive monitoring system ("Burglar Alarm"), alerting on threats without dropping packets.
+[ ] James Anderson (1980) and Dorothy Denning (1987) established the foundational models of intrusion detection.
+[ ] The 3 core subsystems of an IDS are: Sensors/Probes, Analysis Engine, and Alerting/Management Console.
+[ ] Promiscuous Mode disables NIC MAC filtering to capture 100% of packets on the mirrored physical segment.
+[ ] An IDS deployed out-of-band introduces ZERO forwarding latency to production network traffic.
+[ ] Firewalls enforce access policy (Active); IDS detects malicious behavior within permitted traffic (Passive).
+[ ] CERT-In mandates 180-day retention of all IDS alert telemetry synchronized with NPL India NTP servers.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

@@ -1,0 +1,89 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: VPN ARCHITECTURE (REMOTE ACCESS VS SITE-TO-SITE)
+COURSE MODULE: 005_003 - VPNS AND TUNNELING (TOPIC 2)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & ARCHITECTURAL TAXONOMY
+----------------------------------------------------------------------------------------------------
+VPN architectures are fundamentally divided into two major operational paradigms based on topology, 
+endpoint termination, addressing mechanisms, and operational transparency:
+  1. Remote Access VPN (Client-to-Gateway)
+  2. Site-to-Site VPN (Gateway-to-Gateway / Router-to-Router)
+
+
+2. REMOTE ACCESS VPN ARCHITECTURE (CLIENT-TO-GATEWAY)
+----------------------------------------------------------------------------------------------------
+- Definition: Connects individual roaming endpoint devices (laptops, mobile devices) to a centralized 
+  corporate VPN security concentrator across the public internet.
+- Operational Characteristics:
+  - Client Software: Requires client agent software (e.g. Cisco AnyConnect, WireGuard, OpenVPN Connect) 
+    or a web browser (Clientless SSL-VPN).
+  - Addressing: The gateway dynamically leases a private virtual IP address from an IP pool 
+    (e.g., `10.200.1.50/24`) and installs a virtual network interface (TUN/TAP adapter) on the client OS.
+  - Authentication: User-centric; combines PKI machine certificates with Multi-Factor Authentication (MFA) 
+    via RADIUS, TACACS+, or SAML 2.0 identity providers (IdPs).
+  - Transparency: Visible to the end-user, requiring manual or automated Always-On connection initiation.
+
+
+3. SITE-TO-SITE VPN ARCHITECTURE (GATEWAY-TO-GATEWAY)
+----------------------------------------------------------------------------------------------------
+- Definition: Connects two or more permanent, geographically separated Local Area Network (LAN) subnets 
+  through their respective edge gateway routers or Next-Generation Firewalls (NGFWs).
+- Operational Characteristics:
+  - Endpoint Hardware: Terminated directly on edge hardware routers (Cisco, Fortinet, pfSense).
+  - Addressing: No client IP translation required; internal subnets (e.g., Barrackpore `10.10.0.0/16` and 
+    Salt Lake `10.20.0.0/16`) communicate directly through Virtual Tunnel Interfaces (VTIs).
+  - Routing: Supports dynamic routing protocols (BGP, OSPF) over Route-Based IPsec or GRE-over-IPsec tunnels.
+  - Authentication: Device-centric; authenticated using Pre-Shared Keys (PSKs) or mutual X.509 router certificates.
+  - Transparency: 100% transparent to end-users; workstations require no client software.
+
+
+4. COMPREHENSIVE ARCHITECTURAL COMPARISON MATRIX
+----------------------------------------------------------------------------------------------------
++----------------------+------------------------------------+------------------------------------+
+| CRITERION            | REMOTE ACCESS VPN                  | SITE-TO-SITE (ROUTER-TO-ROUTER)    |
++----------------------+------------------------------------+------------------------------------+
+| Termination Point    | Endpoint Host to Central Gateway   | Branch Edge Router to HQ Router    |
+| Client Software      | Required (TUN/TAP or Browser)      | None (100% Transparent to clients) |
+| Session Lifetime     | Ephemeral (Hours/Days per session) | Persistent (Always-On 24/7)        |
+| IP Allocation        | Dynamic Virtual IP Pool Lease      | Fixed Internal Subnet Routing      |
+| Routing Mechanism    | Host Routing Table Injection       | Route-Based VTI / Dynamic BGP/OSPF |
+| Authentication       | User Credentials + MFA + Machine PKI| Device PSK / Mutual X.509 PKI     |
+| Protocols Used       | SSL/TLS (OpenVPN), WireGuard, IKEv2| IPsec ESP Tunnel Mode (IKEv2)      |
+| Fault Detection      | Inactivity Timers / Heartbeats     | Dead Peer Detection (DPD) / BFD    |
++----------------------+------------------------------------+------------------------------------+
+
+
+5. REGIONAL SOC CASE STUDY: BARRACKPORE MUNICIPAL HYBRID NETWORK
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Intrusion Architect: Sukanta Hui
+  - Analysts: Mamata (Site-to-Site IPsec Lead), Mahima (Remote Worker MFA Architect), 
+    Abhronila (SD-WAN Tunnel Specialist), Susmita (Compliance & CERT-In Auditor), Debangshu (Cryptographic Engineer).
+
+Scenario:
+A hybrid architecture deployed for the North 24 Parganas municipal administration:
+- Deployment Details:
+  - Mamata and Debangshu configured a permanent Route-Based Site-to-Site IPsec mesh connecting 
+    the Barrackpore Main Office (`10.10.0.0/16`), Ichapur Substation (`10.12.0.0/16`), and Shyamnagar Center (`10.14.0.0/16`) 
+    to the Salt Lake Datacenter (`10.20.0.0/16`) over dual redundant gigabit broadband lines.
+  - Mahima deployed a Remote Access WireGuard gateway with SAML MFA for 150 roaming municipal field inspectors.
+- Operational Results:
+  - Sub-second BGP failover maintained 100% uptime during an ISP fiber cut in Shyamnagar.
+  - Remote inspectors accessed tax databases securely from mobile tablets with 0% data leakage.
+  - Full statutory compliance achieved with 180-day forensic log archiving under CERT-In directives.
+
+
+6. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] Remote Access VPN connects individual roaming endpoints to a central gateway with dynamic virtual IPs.
+[ ] Site-to-Site VPN connects entire branch networks transparently using router-to-router hardware tunnels.
+[ ] Route-Based VPNs use Virtual Tunnel Interfaces (VTIs) to support dynamic routing (BGP and OSPF).
+[ ] Dead Peer Detection (DPD) periodically verifies remote router liveness in Site-to-Site tunnels.
+[ ] Remote Access VPNs mandate Multi-Factor Authentication (MFA) to prevent credential abuse.
+[ ] CERT-In mandates 180-day retention of all VPN authentication logs synchronized with NPL India NTP servers.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

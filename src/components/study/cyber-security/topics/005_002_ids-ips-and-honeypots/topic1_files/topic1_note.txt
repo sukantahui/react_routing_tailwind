@@ -1,0 +1,107 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: DIFFERENCES BETWEEN IDS (PASSIVE) AND IPS (ACTIVE)
+COURSE MODULE: 005_002 - INTRUSION DETECTION (IDS), IPS & HONEYPOTS (TOPIC 1)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & THE PASSIVE VS ACTIVE PREVENTION DICHOTOMY
+----------------------------------------------------------------------------------------------------
+An Intrusion Detection System (IDS) is a passive monitoring system positioned out-of-band (via network TAP 
+or SPAN port). It inspects a mirrored copy of network traffic and generates alerts for security analysts 
+without modifying or delaying the live packet stream on the production wire.
+
+An Intrusion Prevention System (IPS) is an active security device deployed directly in-line across the 
+network data path (in transparent bridge or routed mode). Every packet must physically traverse the IPS 
+inspection engine before being forwarded to its destination. When the IPS detects an attack, it drops 
+the packet, resets the TCP connection, and blocks the source IP in real-time before the exploit reaches 
+the target server.
+
+
+2. COMPREHENSIVE COMPARISON MATRIX: IDS VS IPS
+----------------------------------------------------------------------------------------------------
++--------------------+------------------------------------+-----------------------------------------+
+| CHARACTERISTIC     | INTRUSION DETECTION SYSTEM (IDS)   | INTRUSION PREVENTION SYSTEM (IPS)       |
++--------------------+------------------------------------+-----------------------------------------+
+| Network Placement  | Out-of-Band (Passive TAP / SPAN)   | In-Line (Transparent Bridge / Routed)   |
+| Primary Action     | Passive Alerting & Logging Only    | Active Inline Dropping & Connection Term|
+| Latency Overhead   | 0 microseconds (Zero impact on wire)| 15 - 50 microseconds per packet         |
+| Failure Mode       | Fail-Safe (Network stays 100% up)  | Requires Hardware Bypass NIC (Fail-Open)|
+| False Positive Risk| Annoyance / Alert Fatigue for SOC  | Catastrophic Business Outage (Valid drop)|
+| Single-Packet Attack| Exploit succeeds before alert seen| Exploit dropped in-flight before target |
+| Active Techniques  | Log to SIEM, Optional TCP RST spoof| Packet Drop, TCP RST, Dynamic FW Update |
++--------------------+------------------------------------+-----------------------------------------+
+
+
+3. ACTIVE MITIGATION MECHANISMS IN AN IPS
+----------------------------------------------------------------------------------------------------
+When an IPS matches a high-confidence signature, it executes one of the following active countermeasures:
+  1. INLINE PACKET DROP:
+     - Discards the offending Ethernet frame from the forwarding buffer, preventing it from reaching egress.
+  2. TCP RESET INJECTION (`reject`):
+     - Transmits spoofed TCP packets with the RST flag set to both client and server, immediately tearing 
+       down the underlying TCP connection socket.
+  3. SOURCE RATE-LIMITING & THROTTLING:
+     - Restricts bandwidth for suspicious sources to mitigate volumetric DDoS or brute-force scanning.
+  4. DYNAMIC FIREWALL BLOCKLIST INTEGRATION:
+     - Sends automated API commands to edge perimeter firewalls to inject a temporary 1–24 hour IP drop rule.
+  5. NORMALIZATION & PAYLOAD SCRUBBING:
+     - Rewrites overlapping IP fragments and strips malformed HTTP headers before forwarding.
+
+
+4. HARDWARE BYPASS RELAYS (FAIL-OPEN VS FAIL-CLOSE)
+----------------------------------------------------------------------------------------------------
+Because an IPS sits directly in-line, an unexpected hardware failure, kernel panic, or power outage would 
+sever all enterprise network connectivity.
+
+Solution: Hardware Bypass NICs (Optical / Electrical Relays):
+  - In normal operation, optical relays route light through the IPS CPU inspection cores.
+  - If the IPS appliance loses power or software crashes, physical mechanical optical relays snap together 
+    within 8 milliseconds, bridging the two network ports directly (Fail-Open), ensuring production traffic 
+    continues to flow uninterrupted while the appliance reboots.
+
+
+5. THE FALSE POSITIVE OPERATIONAL DILEMMA
+----------------------------------------------------------------------------------------------------
+Deploying an IPS in aggressive active-blocking mode carries severe operational risk. If a legitimate banking 
+transaction matches a loose exploit signature, the IPS drops the transaction, directly causing financial 
+loss and customer outrage.
+
+Best Practice Tuning Methodology:
+  - Phase 1 (Days 1–30) : Deploy IPS in Detection-Only Mode (IDS mode).
+  - Phase 2 (Days 31–45): Analyze alert logs; tune out false positives for internal business applications.
+  - Phase 3 (Day 46+)   : Enable Active Inline Dropping ONLY on verified, high-confidence critical signatures 
+    (e.g., Log4Shell, EternalBlue, known ransomware C2 beaconing).
+
+
+6. REGIONAL SOC CASE STUDY: BARRACKPORE & SALT LAKE CORE PERIMETER DRILL
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Intrusion Architect: Sukanta Hui
+  - Analysts: Mamata (IPS Inline Bridge Lead), Mahima (Hardware Bypass Specialist), 
+    Abhronila (Signature Confidence Tuning Hunter), Susmita (Compliance & DPDP Lead), Debangshu (Latency Optimization Lead).
+
+Scenario:
+A high-throughput UPI payment switch in Salt Lake Sector V with regional server clusters in Barrackpore:
+- Threat: Attackers weaponized a newly disclosed zero-day Remote Code Execution exploit targeting payment gateways.
+- Tactical Decision:
+  - Sukanta Hui and Mamata transitioned perimeter sensors from passive IDS mode to active inline IPS mode.
+  - Mahima installed redundant optical bypass switches to guarantee fail-open reliability during maintenance.
+  - Abhronila configured high-confidence inline dropping for the exploit pattern: when the attacker launched 
+    the exploit, the IPS dropped the TCP frame within 18 microseconds, preventing code execution on origin servers.
+  - Outcome: Zero compromise; ₹40 Crores in daily banking transactions processed without disruption; 
+    passed CERT-In compliance review.
+
+
+7. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] IDS is passive and out-of-band; IPS is active and deployed directly in-line.
+[ ] IDS alerts on attacks; IPS drops malicious packets and terminates TCP sessions in real-time.
+[ ] IDS introduces zero latency; IPS introduces microsecond processing delay on the live wire.
+[ ] False positives in IDS cause alert fatigue; false positives in IPS cause legitimate business outages.
+[ ] Hardware Bypass switches use optical relays to fail-open during IPS power or hardware failure.
+[ ] Always run an IPS in detection-only mode for 30 days before enabling active inline blocking.
+[ ] CERT-In mandates 180-day retention of all IPS drop and alert logs synchronized with NPL India NTP.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

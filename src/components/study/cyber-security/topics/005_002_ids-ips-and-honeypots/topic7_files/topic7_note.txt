@@ -1,0 +1,104 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: SNORT RULE SYNTAX & SURICATA ARCHITECTURE
+COURSE MODULE: 005_002 - INTRUSION DETECTION (IDS), IPS & HONEYPOTS (TOPIC 7)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & THE INDUSTRY STANDARD IDS/IPS ENGINES
+----------------------------------------------------------------------------------------------------
+Snort (created by Martin Roesch in 1998, now Cisco Talos) and Suricata (Open Information Security Foundation - OISF) 
+are the two industry-standard open-source Network Intrusion Detection & Prevention Systems. Both parse packet 
+headers, reassemble TCP streams, tokenize application protocols, and match rules at line rate.
+
+
+2. THE ANATOMY OF A SNORT RULE
+----------------------------------------------------------------------------------------------------
+A Snort rule consists of two main logical sections: the Rule Header and the Rule Options.
+
+Rule Header Format:
+  `Action Protocol Source_IP Source_Port Direction Destination_IP Destination_Port`
+
+Example Rule:
+  `alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS 80 (msg:"EXPLOIT SQL Injection"; content:"UNION SELECT"; nocase; sid:1000001; rev:1;)`
+
+Breakdown of Rule Header Fields:
+  1. Action: `alert` (generate alert), `log` (log packet), `pass` (ignore), `drop` (IPS drop & block), 
+     `reject` (drop & send TCP RST), `sdrop` (silent drop).
+  2. Protocol: `tcp`, `udp`, `icmp`, `ip`.
+  3. Source IP / Port: Variable `$EXTERNAL_NET` (any external IP), `$HOME_NET`, or CIDR `10.10.0.0/16`.
+  4. Direction: `->` (Unidirectional client-to-server) or `<>` (Bidirectional).
+  5. Destination IP / Port: `$HTTP_SERVERS $HTTP_PORTS`.
+
+
+3. ADVANCED SNORT RULE OPTIONS & PAYLOAD MATCHING MODIFIERS
+----------------------------------------------------------------------------------------------------
+1. METADATA OPTIONS:
+   - `msg:"..."` -> Human-readable alert description.
+   - `sid:1000001` -> Snort Rule ID (< 100: Reserved; 100-999,999: Custom local rules; > 1,000,000: Official Talos/ET rules).
+   - `rev:1` -> Revision number of the signature.
+   - `classtype:web-application-attack` -> Severity classification mapped to priority.
+
+2. PAYLOAD POSITION MODIFIERS:
+   - `content:"|00 01 02|"` -> Binary hex matching enclosed in pipes.
+   - `nocase` -> Case-insensitive string matching.
+   - `depth:10` -> Search for content within first 10 bytes of payload.
+   - `offset:5` -> Start searching after skipping first 5 bytes.
+   - `distance:4` -> Relative offset from previous content match.
+   - `within:8` -> Relative depth from previous content match.
+   - `fast_pattern` -> Designates the specific content string used by the Multi-Pattern Matcher (MPM).
+
+3. APPLICATION-LAYER HTTP MODIFIERS:
+   - `http_uri`, `http_header`, `http_client_body`, `http_method`, `http_cookie`, `http_stat_code`.
+
+
+4. SNORT 2 VS SNORT 3 VS SURICATA COMPARISON
+----------------------------------------------------------------------------------------------------
++----------------------+---------------------------+---------------------------+---------------------------+
+| FEATURE              | SNORT 2                   | SNORT 3                   | SURICATA                  |
++----------------------+---------------------------+---------------------------+---------------------------+
+| Architecture         | Single-Threaded process   | Multi-Threaded per worker | Multi-Threaded Native     |
+| Multi-Core Scaling   | Requires multi-instances  | Native multi-threading    | Hardware thread pinning   |
+| Config Language      | Plain text `snort.conf`   | Modern Lua scripting      | Modern YAML format        |
+| Hardware Offloading  | Basic                     | Hyperscan regex engine    | Hyperscan, DPDK, AF_PACKET|
+| Protocol Parsers     | Preprocessors (C-code)    | Pluggable Inspectors      | Deep HTTP, TLS, DNS, SMB  |
+| Output Telemetry     | Unified2, Syslog, PCAP    | JSON, Syslog, Alert CSV   | EVE JSON (Standard SIEM)  |
+| TLS SNI Extraction   | Limited                   | OpenAppID                 | Native TLS Cert & SNI     |
++----------------------+---------------------------+---------------------------+---------------------------+
+
+
+5. SURICATA EVE JSON (EXTENSIBLE EVENT FORMAT)
+----------------------------------------------------------------------------------------------------
+Suricata emits real-time structured JSON logs (`eve.json`) consumed directly by SIEM platforms (Elasticsearch, 
+Splunk, Wazuh). Every flow event contains timestamp, 5-tuple, protocol metadata, HTTP URI, and TLS certificates.
+
+
+6. REGIONAL SOC CASE STUDY: BARRACKPORE TELECOM & SALT LAKE CLOUD
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Intrusion Architect: Sukanta Hui
+  - Analysts: Mamata (Rule Syntax Engineer), Mahima (Suricata Multi-Thread Architect), 
+    Abhronila (Hyperscan Optimization Specialist), Susmita (Compliance & CERT-In Auditor), Debangshu (EVE JSON Lead).
+
+Scenario:
+A 100 Gbps telecommunications gateway in Barrackpore routing citizen digital traffic to Salt Lake Sector V:
+- Challenge: Legacy single-threaded Snort 2 sensors experienced 40% CPU packet drop during morning traffic peaks.
+- Tactical Engineering Solution:
+  - Sukanta Hui and Mahima replaced legacy Snort 2 with multi-threaded Suricata utilizing Intel Hyperscan MPM.
+  - Mamata authored tuned custom rules using `http_uri` and `fast_pattern` to avoid payload backtracking.
+  - Debangshu streamed Suricata `eve.json` into an Elasticsearch cluster with 180-day retention.
+  - Outcome: Sensor packet drops dropped to 0.00%; line-rate inspection throughput achieved 94 Gbps; 100% CERT-In compliance.
+
+
+7. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] Snort Rule Header syntax: Action Protocol SrcIP SrcPort -> DstIP DstPort.
+[ ] Local custom Snort SIDs must be numbered between 100 and 999,999.
+[ ] `content` modifiers: `nocase`, `offset`, `depth`, `distance`, `within`, `fast_pattern`.
+[ ] Suricata is natively multi-threaded; Snort 2 is single-threaded; Snort 3 uses Lua multi-threading.
+[ ] Intel Hyperscan enables high-speed regex multi-pattern matching across tens of thousands of rules.
+[ ] Suricata `eve.json` provides unified JSON telemetry for SIEM and SOC threat correlation.
+[ ] CERT-In mandates 180-day retention of all IDS alert telemetry synchronized with NPL India NTP servers.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================

@@ -1,0 +1,102 @@
+====================================================================================================
+ACADEMIC STUDY GUIDE & FORENSIC NOTES: INLINE VS TAP / SPAN PORT DEPLOYMENT MODES
+COURSE MODULE: 005_002 - INTRUSION DETECTION (IDS), IPS & HONEYPOTS (TOPIC 5)
+INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
+====================================================================================================
+
+1. DEFINITION & THE SENSOR INGESTION IMPERATIVE
+----------------------------------------------------------------------------------------------------
+An Intrusion Detection System (IDS) is only as effective as the packet data it receives. Deploying sensors 
+requires choosing between three fundamental network tap and interception architectures:
+  1. Physical Hardware Network TAP (Test Access Point)
+  2. Switch Port Analyzer (SPAN / Mirror Port)
+  3. In-Line Active Insertion (Transparent Bridge / Routed Hop)
+
+
+2. COMPREHENSIVE COMPARISON MATRIX: TAP VS SPAN VS INLINE
+----------------------------------------------------------------------------------------------------
++--------------------+------------------------------------+------------------------------------+------------------------------------+
+| CHARACTERISTIC     | HARDWARE NETWORK TAP (PASSIVE)     | SWITCH SPAN / MIRROR PORT          | IN-LINE ACTIVE INSERTION (IPS)     |
++--------------------+------------------------------------+------------------------------------+------------------------------------+
+| Operational Layer  | Physical Layer (Layer 1 Splitting) | Data Link Layer (Layer 2 Switching)| Data Link / Network (Layer 2/3)    |
+| Packet Fidelity    | 100% (Preserves malformed/CRC errs)| Filtered (Switch drops bad packets)| Normalizes & modifies packets      |
+| Switch CPU Impact  | 0% (Independent passive hardware)  | 5% - 25% Switch CPU load           | 0% Switch CPU (Appliance CPU used) |
+| Oversubscription   | None (Dedicated dual RX/TX ports)  | Severe (Mirrors 2 Gbps to 1 Gbps)  | None (Full wire transmission)      |
+| Failure Dynamic    | Fail-Safe (Light passes 100% up)   | Fail-Safe (Switch functions normal)| Requires Optical Bypass (Fail-Open)|
+| Latency Overhead   | 0.0 microseconds added on wire     | 0.0 microseconds added on wire     | 15 - 50 microseconds added delay   |
+| Threat Mitigation  | Passive Alerting Only              | Passive Alerting Only              | Active In-Line Dropping & TCP RST  |
++--------------------+------------------------------------+------------------------------------+------------------------------------+
+
+
+3. THE SWITCH SPAN OVERSUBSCRIPTION MATHEMATICAL BOTTLENECK
+----------------------------------------------------------------------------------------------------
+A full-duplex 1 Gbps Ethernet connection supports 1 Gbps Transmit (TX) and 1 Gbps Receive (RX) simultaneously 
+(Total aggregate bandwidth = 2.0 Gbps).
+
+The Problem:
+  - If a switch is configured to mirror both TX and RX of a 1 Gbps link to a single 1 Gbps SPAN destination port:
+  - Total Ingress Volume = $\text{TX (1 Gbps)} + \text{RX (1 Gbps)} = 2.0\text{ Gbps}$
+  - SPAN Port Capacity = $1.0\text{ Gbps}$
+  - Result: When network utilization exceeds 50%, the switch internal output buffer overflows and SILENTLY 
+    DISCARDS 50%+ of mirrored packets. Attackers exploit this window to slip zero-day exploits through 
+    unmonitored packet drops.
+
+
+4. OPTICAL SPLITTER PHYSICS (INSERTION LOSS & SPLIT RATIOS)
+----------------------------------------------------------------------------------------------------
+Passive Optical TAPs use microscopic fused optical prisms to split light traveling across fiber optic cables.
+
+Split Ratios & Insertion Loss:
+  - 70/30 Split Ratio (Standard): 70% of light continues across production link (Insertion Loss: ~1.8 dB); 
+    30% of light redirected to IDS sensor (Insertion Loss: ~5.8 dB).
+  - 50/50 Split Ratio: 50% to production (Loss: ~3.4 dB); 50% to IDS (Loss: ~3.4 dB).
+  - Optical Power Budget: Network engineers must calculate total fiber link attenuation ($\text{dB}$) to ensure 
+    the 70% transmitted light is strong enough for the receiving switch optics without optical signal failure.
+
+
+5. NETWORK PACKET BROKERS (NPB) & LOAD-BALANCING FARMS
+----------------------------------------------------------------------------------------------------
+In high-speed 40 Gbps / 100 Gbps datacenter backbones, a single IDS appliance cannot process 148 million 
+packets/second.
+
+The Network Packet Broker (NPB) Solution:
+  1. Aggregation: Combines mirrored feeds from 20+ optical TAPs across core switches into a centralized fabric.
+  2. Protocol Optimization: Strips unneeded protocols (Netflix, YouTube streaming video, internal backup SAN traffic) 
+     using hardware BPF filters.
+  3. 5-Tuple Symmetrical Load-Balancing: Distributes flows across 4 to 8 parallel IDS sensor appliances, ensuring 
+     both directions of a TCP session are routed to the same sensor core for stateful inspection.
+
+
+6. REGIONAL SOC CASE STUDY: BARRACKPORE OPTICAL CORE & SALT LAKE DC
+----------------------------------------------------------------------------------------------------
+Pedagogical Team:
+  - Lead Intrusion Architect: Sukanta Hui
+  - Analysts: Mamata (Optical TAP Sizing Lead), Mahima (Switch SPAN & VLAN Mirroring Specialist), 
+    Abhronila (Network Packet Broker Architect), Susmita (Compliance & CERT-In Auditor), Debangshu (Hardware Bypass Lead).
+
+Scenario:
+A 40 Gbps state infrastructure backbone connecting Barrackpore municipal sub-stations to the Salt Lake Data Center:
+- Threat Vector: Legacy switch SPAN ports were dropping 38% of mirrored packets during morning peak tax filing 
+  hours, allowing a stealthy SQL injection exploit to slip into internal financial databases uninspected.
+- Tactical Engineering Solution:
+  - Sukanta Hui and Mamata replaced software SPAN ports with 70/30 passive optical hardware TAPs.
+  - Abhronila installed an active Network Packet Broker (NPB) aggregating TAP signals and distributing flows 
+    with symmetrical 5-tuple hashing across an 8-node Suricata NIDS cluster.
+  - Debangshu verified zero optical attenuation errors ($< 1.8\text{ dB}$ insertion loss).
+  - Outcome: Mirrored packet drop rate plummeted from 38% to exactly 0.00%; 100% line-rate forensic visibility 
+    restored; passed CERT-In audit with commendation.
+
+
+7. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
+----------------------------------------------------------------------------------------------------
+[ ] Hardware TAPs provide 100% full-duplex line-rate packet capture with zero switch CPU overhead.
+[ ] Switch SPAN ports drop packets when aggregate TX+RX exceeds port capacity (Oversubscription).
+[ ] SPAN ports discard malformed Layer-1 CRC error frames before the IDS can inspect them.
+[ ] Passive optical TAPs split light (70/30 or 50/50) with predictable insertion loss (~1.8 dB).
+[ ] In-line IPS deployments require hardware optical bypass switches to fail-open during power loss.
+[ ] Network Packet Brokers (NPBs) filter streaming noise and balance traffic across multiple IDS sensors.
+[ ] CERT-In mandates 180-day retention of all TAP/SPAN alert logs synchronized with NPL India NTP servers.
+
+====================================================================================================
+END OF ACADEMIC STUDY GUIDE - CODER & ACCOTAX BARRACKPORE - ALL RIGHTS RESERVED
+====================================================================================================
