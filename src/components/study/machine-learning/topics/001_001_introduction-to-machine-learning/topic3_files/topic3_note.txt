@@ -1,0 +1,105 @@
+=============================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES
+Course: Introduction to Machine Learning (Subject Code: BCAC701B)
+Module 1: Introduction to Machine Learning
+Topic 3: Types of Machine Learning
+Author: Sukanta Hui | Barrackpore, West Bengal, India
+=============================================================================
+
+1. THE FOUR CORE TAXONOMIC PARADIGMS OF MACHINE LEARNING
+-----------------------------------------------------------------------------
+Machine Learning algorithms are classified into four foundational paradigms 
+based on the Nature of the Training Signal, the Presence of Ground-Truth Labels, 
+and the Feedback Mechanism:
+
+1.1 SUPERVISED LEARNING (Direct Feedback from Teacher):
+- Training Corpus: Labeled dataset D = {(x_1, y_1), (x_2, y_2), ..., (x_N, y_N)}
+  where x_i in R^d (feature vector) and y_i in Y (ground truth target).
+- Objective: Learn a mapping function h: X -> Y that minimizes empirical risk:
+    min_w (1/N) * sum_{i=1}^N L(h(x_i; w), y_i)
+- Primary Sub-Tasks:
+  1. Regression: Continuous real-valued target (e.g., flat pricing in ₹ Lakhs).
+  2. Classification: Discrete categorical target (e.g., Spam vs Ham, Cancerous vs Benign).
+- Representative Algorithms: Linear/Logistic Regression, Decision Trees, Random 
+  Forests, Gradient Boosting (XGBoost/LightGBM), Support Vector Machines (SVM), 
+  Convolutional Neural Networks (CNN).
+
+1.2 UNSUPERVISED LEARNING (Zero Feedback / Structure Discovery):
+- Training Corpus: Unlabeled dataset D = {x_1, x_2, ..., x_N}
+- Objective: Discover latent geometric manifolds, probability density clusters, 
+  or low-dimensional representations without human annotation.
+- Primary Sub-Tasks:
+  1. Clustering: Grouping similar instances (k-Means, Hierarchical, DBSCAN).
+  2. Dimensionality Reduction: Compressing features while retaining variance (PCA, t-SNE, UMAP).
+  3. Anomaly Detection: Identifying rare low-density outliers (Isolation Forest, One-Class SVM).
+  4. Association Rule Mining: Discovering market basket co-occurrences (Apriori, FP-Growth).
+
+1.3 SEMI-SUPERVISED LEARNING (Sparse Feedback + Mass Unlabeled Data):
+- Training Corpus: A small labeled set D_L = {(x_i, y_i)}_{i=1}^l combined with a 
+  massive unlabeled volume D_U = {x_j}_{j=l+1}^{l+u}, where u >> l.
+- Core Assumptions:
+  1. Smoothness Assumption: Points close in high-density space share the same label.
+  2. Cluster Assumption: Decision boundaries pass through low-density valleys.
+  3. Manifold Assumption: High-dimensional data lies on a low-dimensional manifold.
+- Representative Techniques: Label Propagation, Pseudo-Labeling, Self-Training, 
+  Consistency Regularization (FixMatch).
+
+1.4 REINFORCEMENT LEARNING (Delayed Evaluative Feedback):
+- Architecture: An autonomous Agent interacts with a dynamic Environment modeled 
+  as a Markov Decision Process (MDP): (S, A, P, R, gamma).
+- Feedback Type: Scalar Reward / Penalty signal r_t after executing action a_t in state s_t.
+- Objective: Maximize expected cumulative discounted reward:
+    G_t = sum_{k=0}^infinity gamma^k * r_{t+k+1}  where gamma in [0, 1)
+- Representative Algorithms: Q-Learning, SARSA, Deep Q-Networks (DQN), Proximal 
+  Policy Optimization (PPO), Actor-Critic (A2C).
+
+-----------------------------------------------------------------------------
+2. COMPREHENSIVE TAXONOMY COMPARISON MATRIX
+-----------------------------------------------------------------------------
++------------------+---------------------+---------------------+---------------------+
+| Paradigm         | Input Data Type     | Feedback Signal     | Primary Objective   |
++------------------+---------------------+---------------------+---------------------+
+| Supervised       | Features + Labels   | Direct & Immediate  | Predictive Mapping  |
+| Unsupervised     | Features only       | None (Self-guided)  | Latent Structure    |
+| Semi-Supervised  | 1-5% Labeled + Rest | Direct on Seed      | Manifold Spreading  |
+| Reinforcement    | States from Env     | Delayed Reward/Loss | Policy Optimization |
++------------------+---------------------+---------------------+---------------------+
+
+-----------------------------------------------------------------------------
+3. MODERN EXTENSIONS: SELF-SUPERVISED LEARNING (FOUNDATION MODELS)
+-----------------------------------------------------------------------------
+Self-Supervised Learning (SSL):
+- Creates supervisory labels automatically from raw unannotated data via Pretext Tasks.
+- Examples: Masked Language Modeling in BERT (predicting masked words), Next Token 
+  Prediction in GPT-4, and Contrastive Visual Learning in CLIP.
+- Enables foundational models to pre-train on internet-scale text/images and adapt 
+  downstream to diverse tasks with zero or few labeled examples.
+
+-----------------------------------------------------------------------------
+4. REAL-WORLD INDUSTRIAL CASE STUDIES
+-----------------------------------------------------------------------------
+Case 1: Supervised Loan Default Prediction (Kolkata Retail Banking)
+- Input: Customer demographics, CIBIL score, monthly salary in ₹.
+- Target: 1 (Defaulted within 12 months) vs 0 (Paid on time).
+- Method: XGBoost Classifier with 94.2% ROC-AUC.
+
+Case 2: Unsupervised Customer RFM Segmentation (Ichapur Retail Store)
+- Input: Purchase Recency (days), Frequency (visits/month), Monetary spend (₹).
+- Target: None (Unsupervised k-Means with k=4 discovered High-Value Champions).
+
+Case 3: Semi-Supervised Chest X-Ray Triage (Jadavpur Health Hub)
+- Input: 50,000 chest radiographs where only 1,000 are annotated by radiologists.
+- Method: Label propagation over deep visual feature embeddings, reaching 96% accuracy.
+
+Case 4: Reinforcement Learning for Smart Grid Battery Storage (Barrackpore Solar)
+- Input: Solar generation forecast, real-time grid power tariff (₹/kWh), battery charge state.
+- Method: DQN agent decides when to charge, store, or sell power to maximize revenue.
+
+-----------------------------------------------------------------------------
+5. INSTRUCTOR CHECKLIST & SUMMARY (SUKANTA HUI)
+-----------------------------------------------------------------------------
+[ ] Memorize the exact data requirements for all 4 learning paradigms.
+[ ] Clearly distinguish between Regression (continuous) vs Classification (discrete).
+[ ] Understand the Smoothness and Manifold assumptions in Semi-Supervised learning.
+[ ] Explain the exploration vs exploitation trade-off in Reinforcement Learning.
+=============================================================================

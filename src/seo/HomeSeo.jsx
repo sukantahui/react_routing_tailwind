@@ -178,8 +178,8 @@ export default function HomeSEO() {
           2. CANONICAL + HREFLANG
       ====================================================== */}
       <link rel="canonical" href="https://codernaccotax.co.in/" />
-      <link rel="alternate" href="https://codernaccotax.co.in/" hreflang="en-in" />
-      <link rel="alternate" href="https://codernaccotax.co.in/" hreflang="x-default" />
+      <link rel="alternate" href="https://codernaccotax.co.in/" hrefLang="en-in" />
+      <link rel="alternate" href="https://codernaccotax.co.in/" hrefLang="x-default" />
       <link rel="icon" href="/cnat.ico" />
 
       {/* =====================================================

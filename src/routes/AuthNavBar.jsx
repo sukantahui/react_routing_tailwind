@@ -327,6 +327,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     // Programming
     { to: "/javascript/roadmap", label: "JavaScript Roadmap", icon: "bi-filetype-js", category: "programming", color: "text-amber-400 bg-amber-400/10 border-amber-400/20", badge: "Hot", desc: "Core JavaScript, ES6+, Async & DOM" },
     { to: "/python/roadmap", label: "Python Roadmap", icon: "bi-filetype-py", category: "programming", color: "text-sky-400 bg-sky-400/10 border-sky-400/20", badge: "Popular", desc: "Python 3 basics to advanced algorithms" },
+    { to: "/machine-learning/roadmap", label: "Machine Learning", icon: "bi-cpu", category: "programming", color: "text-fuchsia-400 bg-fuchsia-400/10 border-fuchsia-400/20", badge: "AI / ML", desc: "Supervised, unsupervised, regression, classification & neural models" },
     { to: "/c-language/roadmap", label: "C Programming", icon: "bi-filetype-c", category: "programming", color: "text-blue-400 bg-blue-400/10 border-blue-400/20", desc: "Foundational procedural programming & memory" },
     { to: "/java-core/roadmap", label: "Core Java Roadmap", icon: "bi-cpu", category: "programming", color: "text-orange-400 bg-orange-400/10 border-orange-400/20", badge: "Essential", desc: "OOP, Collections, Multithreading & JVM" },
     { to: "/unix/roadmap", label: "UNIX & Shell", icon: "bi-terminal", category: "programming", color: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20", desc: "Linux commands, pipelines & bash scripting" },

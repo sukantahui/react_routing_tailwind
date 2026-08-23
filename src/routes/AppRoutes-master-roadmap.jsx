@@ -197,6 +197,10 @@ const ROUTES = {
   QUANTITATIVE_ANALYSIS_ROADMAP: '/quantitative-analysis/roadmap',
   QUANTITATIVE_ANALYSIS_MODULE: '/quantitative-analysis/module/:slug',
   QUANTITATIVE_ANALYSIS_TOPIC: '/quantitative-analysis/topic/:moduleSlug/:topicIndex',
+
+  MACHINE_LEARNING_ROADMAP: '/machine-learning/roadmap',
+  MACHINE_LEARNING_MODULE: '/machine-learning/module/:slug',
+  MACHINE_LEARNING_TOPIC: '/machine-learning/topic/:moduleSlug/:topicIndex',
 };
 
 // ============================================================
@@ -365,6 +369,13 @@ import nodeRoadmap from
   "../components/study/node/node-roadmap.json";
 const nodeTopicModules = import.meta.glob(
   "../components/study/node/topics/*/Topic*.jsx"
+);
+
+// Machine Learning
+import machineLearningRoadmap from
+  "../components/study/machine-learning/machine_learning_roadmap.json";
+const machineLearningTopicModules = import.meta.glob(
+  "../components/study/machine-learning/topics/*/Topic*.jsx"
 );
 
 //first
@@ -1140,6 +1151,39 @@ export default function AppRoutes() {
               subjectKey="node"
               topicModules={nodeTopicModules}
               topicBasePath="../components/study/node/topics"
+            />
+          }
+        />
+        {/* ------------------------------------------------------------------ */}
+        {/* Machine Learning */}
+        <Route
+          path={ROUTES.MACHINE_LEARNING_ROADMAP}
+          element={
+            <StudyRoadmap
+              roadmapData={machineLearningRoadmap}
+              subjectKey="machine-learning"
+            />
+          }
+        />
+
+        <Route
+          path={ROUTES.MACHINE_LEARNING_MODULE}
+          element={
+            <StudyModuleView
+              roadmapData={machineLearningRoadmap}
+              subjectKey="machine-learning"
+            />
+          }
+        />
+
+        <Route
+          path={ROUTES.MACHINE_LEARNING_TOPIC}
+          element={
+            <StudyTopicView
+              roadmapData={machineLearningRoadmap}
+              subjectKey="machine-learning"
+              topicModules={machineLearningTopicModules}
+              topicBasePath="../components/study/machine-learning/topics"
             />
           }
         />

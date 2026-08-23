@@ -546,16 +546,17 @@ const Topic3 = () => {
                 "dark:bg-slate-800/40"
               )}
             >
-              <p
+              <div
                 className={clsx(
-                  "text-sm leading-relaxed text-slate-700",
+                  "text-sm leading-relaxed text-slate-700 space-y-2",
                   "dark:text-slate-300"
                 )}
               >
-                <strong>Dr. Debangshu</strong> works at a hospital in{" "}
-                <strong>Naihati</strong>. The hospital's patient database must
-                be excellent. Here's why:
-                <br />
+                <p>
+                  <strong>Dr. Debangshu</strong> works at a hospital in{" "}
+                  <strong>Naihati</strong>. The hospital's patient database must
+                  be excellent. Here's why:
+                </p>
                 <ul className="list-disc pl-5 space-y-1 mt-2">
                   <li>
                     <strong>Integrity:</strong> Patient records must be accurate
@@ -590,8 +591,10 @@ const Topic3 = () => {
                     intuitive interface to quickly update records.
                   </li>
                 </ul>
-                A poor database in this context would have serious consequences.
-              </p>
+                <p>
+                  A poor database in this context would have serious consequences.
+                </p>
+              </div>
             </div>
           </div>
         </section>

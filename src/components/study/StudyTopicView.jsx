@@ -45,6 +45,9 @@ import {
   Binary
 } from "lucide-react";
 
+import MathSymbolDictionary from "../../common/MathSymbolDictionary";
+import ScreenAnnotator from "../../common/ScreenAnnotator";
+
 // Import tldraw
 import { Tldraw } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
@@ -205,9 +208,10 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
     }
   });
 
-  const [activeRightTab, setActiveRightTab] = useState('canvas'); // 'canvas' | 'tldraw' | 'scratchpad' | 'cheatsheet'
+  const [activeRightTab, setActiveRightTab] = useState('canvas'); // 'canvas' | 'tldraw' | 'scratchpad' | 'cheatsheet' | 'math'
   const [focusMode, setFocusMode] = useState(false); // hides sidebars for reading focus
   const [drawAnywhere, setDrawAnywhere] = useState(false);
+  const [showMathSymbols, setShowMathSymbols] = useState(false);
   const [fontSize, setFontSize] = useState('normal'); // 'normal' | 'large'
   const [copiedLink, setCopiedLink] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
@@ -596,154 +600,9 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
   };
 
   // ----------------------------------------------------------------
-  // 6. DRAW ANYWHERE OVERLAY CANVAS
+  // 6. MAIN CONTENT REF
   // ----------------------------------------------------------------
-  const overlayCanvasRef = useRef(null);
-  const overlayCtxRef = useRef(null);
-  const overlayIsDrawing = useRef(false);
-  const overlayLastX = useRef(0);
-  const overlayLastY = useRef(0);
-  const overlayPending = useRef([]);
-  const overlayDrawPending = useRef(false);
   const mainContentRef = useRef(null);
-
-  const overlayLoadDrawing = useCallback(() => {
-    const key = `${subjectKey}-drawanywhere-${moduleSlug}-${topicIndex}`;
-    const saved = localStorage.getItem(key);
-    if (saved) {
-      try {
-        const image = new Image();
-        image.onload = () => {
-          const ctx = overlayCtxRef.current;
-          if (ctx) ctx.drawImage(image, 0, 0);
-        };
-        image.src = saved;
-      } catch (e) {
-        void e;
-      }
-    }
-  }, [moduleSlug, topicIndex]);
-
-  const overlaySaveDrawing = useCallback(() => {
-    const canvas = overlayCanvasRef.current;
-    if (!canvas) return;
-    const dataUrl = canvas.toDataURL('image/png');
-    localStorage.setItem(`${subjectKey}-drawanywhere-${moduleSlug}-${topicIndex}`, dataUrl);
-  }, [moduleSlug, topicIndex]);
-
-  const initOverlayCanvas = useCallback(() => {
-    const canvas = overlayCanvasRef.current;
-    const container = mainContentRef.current;
-    if (!canvas || !container) return;
-    const width = container.scrollWidth;
-    const height = container.scrollHeight;
-    if (width <= 0 || height <= 0) return;
-    canvas.width = width * window.devicePixelRatio;
-    canvas.height = height * window.devicePixelRatio;
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    const ctx = canvas.getContext('2d');
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    overlayCtxRef.current = ctx;
-    overlayLoadDrawing();
-  }, [overlayLoadDrawing]);
-
-  useEffect(() => {
-    if (drawAnywhere && mainContentRef.current) {
-      const timer = setTimeout(initOverlayCanvas, 100);
-      return () => clearTimeout(timer);
-    }
-  }, [drawAnywhere, initOverlayCanvas]);
-
-  const overlayStartDrawing = (e) => {
-    if (!drawAnywhere) return;
-    e.preventDefault();
-    const canvas = overlayCanvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    const clientX = e.clientX ?? e.touches?.[0]?.clientX;
-    const clientY = e.clientY ?? e.touches?.[0]?.clientY;
-    if (clientX == null) return;
-    const x = (clientX - rect.left) * (canvas.width / rect.width);
-    const y = (clientY - rect.top) * (canvas.height / rect.height);
-    overlayIsDrawing.current = true;
-    overlayPending.current = [];
-    overlayDrawPending.current = false;
-    overlayLastX.current = x;
-    overlayLastY.current = y;
-  };
-
-  const overlayProcessPending = () => {
-    const ctx = overlayCtxRef.current;
-    if (!ctx) { drawPendingRef.current = false; return; }
-    const points = overlayPending.current;
-    if (points.length === 0) { drawPendingRef.current = false; return; }
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    const allPoints = [{ x: overlayLastX.current, y: overlayLastY.current }, ...points];
-    const smoothed = catmullRomSpline(allPoints, 40);
-    if (isEraser) ctx.globalCompositeOperation = 'destination-out';
-    if (smoothed.length < 2) {
-      ctx.beginPath();
-      ctx.moveTo(allPoints[0].x, allPoints[0].y);
-      for (let i = 1; i < allPoints.length; i++) ctx.lineTo(allPoints[i].x, allPoints[i].y);
-      ctx.strokeStyle = isEraser ? '#fff' : drawingColor;
-      ctx.lineWidth = isEraser ? 24 : drawingSize;
-      ctx.stroke();
-      const last = allPoints[allPoints.length - 1];
-      overlayLastX.current = last.x;
-      overlayLastY.current = last.y;
-    } else {
-      ctx.beginPath();
-      ctx.moveTo(smoothed[0].x, smoothed[0].y);
-      for (let i = 1; i < smoothed.length; i++) ctx.lineTo(smoothed[i].x, smoothed[i].y);
-      ctx.strokeStyle = isEraser ? '#fff' : drawingColor;
-      ctx.lineWidth = isEraser ? 24 : drawingSize;
-      ctx.stroke();
-      const last = smoothed[smoothed.length - 1];
-      overlayLastX.current = last.x;
-      overlayLastY.current = last.y;
-    }
-    ctx.globalCompositeOperation = 'source-over';
-    overlayPending.current = [];
-    overlayDrawPending.current = false;
-  };
-
-  const overlayDraw = (e) => {
-    if (!drawAnywhere || !overlayIsDrawing.current) return;
-    e.preventDefault();
-    const canvas = overlayCanvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    const clientX = e.clientX ?? e.touches?.[0]?.clientX;
-    const clientY = e.clientY ?? e.touches?.[0]?.clientY;
-    if (clientX == null) return;
-    const x = (clientX - rect.left) * (canvas.width / rect.width);
-    const y = (clientY - rect.top) * (canvas.height / rect.height);
-    overlayPending.current.push({ x, y });
-    if (!overlayDrawPending.current) {
-      overlayDrawPending.current = true;
-      requestAnimationFrame(overlayProcessPending);
-    }
-  };
-
-  const overlayEndDrawing = () => {
-    if (!overlayIsDrawing.current) return;
-    if (overlayPending.current.length > 0) {
-      processPending();
-    }
-    overlaySaveDrawing();
-    overlayIsDrawing.current = false;
-  };
-
-  const overlayClear = () => {
-    const ctx = overlayCtxRef.current;
-    const canvas = overlayCanvasRef.current;
-    if (!ctx || !canvas) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    overlaySaveDrawing();
-    showToast("Screen annotations cleared.");
-  };
 
   // ----------------------------------------------------------------
   // 7. DYNAMIC TOPIC COMPONENT
@@ -915,6 +774,16 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
               >
                 <PenTool size={16} className={drawAnywhere ? "text-rose-400" : "text-slate-400"} />
                 <span className="hidden md:inline">{drawAnywhere ? "Stop Annotating" : "Annotate"}</span>
+              </button>
+
+              {/* Math Symbol Dictionary button */}
+              <button
+                onClick={() => setShowMathSymbols(true)}
+                className="px-3 py-1.5 rounded-xl text-sm font-semibold border transition flex items-center gap-1.5 bg-purple-950/40 border-purple-800/80 text-purple-300 hover:bg-purple-900/60 hover:text-white hover:border-purple-600 shadow-sm"
+                title="Open Mathematical Symbols & Pronunciation Dictionary"
+              >
+                <Sigma size={16} className="text-purple-400" />
+                <span className="hidden xl:inline">Math Symbols</span>
               </button>
 
               {/* Focus mode button */}
@@ -1294,22 +1163,14 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
 
             </div>
 
-            {/* DRAW ANYWHERE CANVAS OVERLAY */}
+            {/* PROFESSIONAL DRAW ANYWHERE CANVAS OVERLAY */}
             {drawAnywhere && (
-              <div className="absolute inset-0 pointer-events-none z-20">
-                <canvas
-                  ref={overlayCanvasRef}
-                  className="w-full h-full pointer-events-auto touch-none"
-                  style={{ touchAction: 'none' }}
-                  onMouseDown={overlayStartDrawing}
-                  onMouseMove={overlayDraw}
-                  onMouseUp={overlayEndDrawing}
-                  onMouseLeave={overlayEndDrawing}
-                  onTouchStart={overlayStartDrawing}
-                  onTouchMove={overlayDraw}
-                  onTouchEnd={overlayEndDrawing}
-                />
-              </div>
+              <ScreenAnnotator
+                containerRef={mainContentRef}
+                storageKey={`${subjectKey}-drawanywhere-${moduleSlug}-${topicIndex}`}
+                onClose={() => setDrawAnywhere(false)}
+                showToast={showToast}
+              />
             )}
           </main>
 
@@ -1383,6 +1244,16 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                         }`}
                     >
                       Formulas
+                    </button>
+
+                    <button
+                      onClick={() => setActiveRightTab('math')}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition ${activeRightTab === 'math'
+                          ? "bg-purple-900/80 text-purple-200 border border-purple-700 shadow-sm"
+                          : "text-slate-400 hover:text-slate-200"
+                        }`}
+                    >
+                      Symbols
                     </button>
                   </div>
 
@@ -1614,6 +1485,13 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                   </div>
                 )}
 
+                {/* TAB 5: MATH SYMBOL & PRONUNCIATION DICTIONARY */}
+                {activeRightTab === 'math' && (
+                  <div className="flex-1 overflow-y-auto pr-1">
+                    <MathSymbolDictionary className="p-3 sm:p-4 rounded-xl border border-slate-800 bg-slate-900/90 shadow-none" />
+                  </div>
+                )}
+
               </div>
             </aside>
           )}
@@ -1621,55 +1499,32 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
         </div>
       </div>
 
+
+
       {/* ============================================================== */}
-      {/* FLOATING TOOLBAR – DRAW ANYWHERE (BOTTOM DOCK) */}
+      {/* GLOBAL MATH SYMBOLS & PRONUNCIATION MODAL DIALOG */}
       {/* ============================================================== */}
-      {drawAnywhere && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex items-center gap-3 bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-2xl px-4 py-2.5 shadow-2xl">
-          <button
-            onClick={() => setDrawAnywhere(false)}
-            className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold transition"
-          >
-            ✕ Exit
-          </button>
+      {showMathSymbols && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
+          <div className="bg-slate-900 border border-purple-500/50 rounded-2xl w-full max-w-6xl max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 space-y-6">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-4 sticky top-0 bg-slate-900 z-10">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">🔣</span>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white">Mathematical Symbol &amp; Pronunciation Dictionary</h3>
+                  <p className="text-xs text-slate-400">Available across all course modules &amp; topics</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowMathSymbols(false)}
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer text-lg font-bold"
+              >
+                ✕
+              </button>
+            </div>
 
-          <div className="w-px h-6 bg-slate-800" />
-
-          <input
-            type="color"
-            value={drawingColor}
-            onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }}
-            className="w-7 h-7 p-0 border-0 rounded cursor-pointer bg-transparent"
-            title="Pen color"
-          />
-
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs text-slate-400 font-semibold">Size</span>
-            <input
-              type="range"
-              min="1"
-              max="16"
-              value={drawingSize}
-              onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }}
-              className="w-16 h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer"
-            />
+            <MathSymbolDictionary />
           </div>
-
-          <button
-            onClick={() => setIsEraser(!isEraser)}
-            className={`p-2 rounded-xl transition ${isEraser ? "bg-slate-700 text-white" : "text-slate-400 hover:text-slate-200"}`}
-            title="Eraser"
-          >
-            <Eraser size={16} />
-          </button>
-
-          <button
-            onClick={overlayClear}
-            className="p-2 rounded-xl text-slate-400 hover:text-rose-400 transition"
-            title="Clear all screen markings"
-          >
-            <Trash2 size={16} />
-          </button>
         </div>
       )}
 

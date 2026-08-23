@@ -551,16 +551,17 @@ const Topic1 = () => {
                 "dark:bg-slate-800/40"
               )}
             >
-              <p
+              <div
                 className={clsx(
-                  "text-sm leading-relaxed text-slate-700",
+                  "text-sm leading-relaxed text-slate-700 space-y-2",
                   "dark:text-slate-300"
                 )}
               >
-                <strong>Susmita</strong>, a teacher at a school in{" "}
-                <strong>Ichapur</strong>, uses a digital attendance system.
-                Here's how data processing works:
-                <br />
+                <p>
+                  <strong>Susmita</strong>, a teacher at a school in{" "}
+                  <strong>Ichapur</strong>, uses a digital attendance system.
+                  Here's how data processing works:
+                </p>
                 <ul className="list-disc pl-5 space-y-1 mt-2">
                   <li>
                     <strong>Collection:</strong> Students scan their ID cards
@@ -588,9 +589,11 @@ const Topic1 = () => {
                     in the school's database for future reference and report cards.
                   </li>
                 </ul>
-                This cycle happens thousands of times a day in schools,
-                transforming raw attendance data into meaningful records.
-              </p>
+                <p>
+                  This cycle happens thousands of times a day in schools,
+                  transforming raw attendance data into meaningful records.
+                </p>
+              </div>
             </div>
           </div>
         </section>

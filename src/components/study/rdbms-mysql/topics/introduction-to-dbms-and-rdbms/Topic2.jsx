@@ -461,16 +461,17 @@ const Topic2 = () => {
                 "dark:bg-slate-800/40"
               )}
             >
-              <p
+              <div
                 className={clsx(
-                  "text-sm leading-relaxed text-slate-700",
+                  "text-sm leading-relaxed text-slate-700 space-y-2",
                   "dark:text-slate-300"
                 )}
               >
-                <strong>Abhronila</strong>, the school administrator at{" "}
-                <strong>Shyamnagar</strong> High School, manages a database that
-                stores:
-                <br />
+                <p>
+                  <strong>Abhronila</strong>, the school administrator at{" "}
+                  <strong>Shyamnagar</strong> High School, manages a database that
+                  stores:
+                </p>
                 <ul className="list-disc pl-5 space-y-1 mt-2">
                   <li>
                     <strong>Students table:</strong> Columns: StudentID, Name,
@@ -489,15 +490,15 @@ const Topic2 = () => {
                     SubjectID, Marks, ExamDate
                   </li>
                 </ul>
-                Using the database, she can:
+                <p>Using the database, she can:</p>
                 <ul className="list-disc pl-5 space-y-1 mt-2">
                   <li>Generate report cards for each student</li>
                   <li>Track attendance and performance</li>
                   <li>Assign teachers to subjects</li>
                   <li>Communicate with parents</li>
                 </ul>
-                This database is the backbone of the school's operations.
-              </p>
+                <p>This database is the backbone of the school's operations.</p>
+              </div>
             </div>
           </div>
         </section>

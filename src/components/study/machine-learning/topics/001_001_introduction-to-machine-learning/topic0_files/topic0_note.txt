@@ -1,0 +1,187 @@
+=============================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES
+Course: Introduction to Machine Learning (Subject Code: BCAC701B)
+Module 1: Introduction to Machine Learning
+Topic 0: Meaning and Scope of Machine Learning
+Author: Sukanta Hui | Barrackpore, West Bengal, India
+=============================================================================
+
+1. FOUNDATIONAL DEFINITIONS OF MACHINE LEARNING
+-----------------------------------------------------------------------------
+1.1 Arthur Samuel's Classical Definition (1959):
+"Machine Learning is the subfield of computer science that gives computers the 
+ability to learn without being explicitly programmed."
+Arthur Samuel created a self-learning Checkers program on the IBM 704 that 
+evaluated thousands of board positions and improved its decision heuristics 
+over time through self-play.
+
+1.2 Tom M. Mitchell's Formal Mathematical Definition (1997):
+"A computer program is said to learn from experience E with respect to some class 
+of tasks T and performance measure P, if its performance at tasks in T, as 
+measured by P, improves with experience E."
+
+Formal Mathematical Formulation:
+- Task (T): The operational objective the system executes.
+- Performance Metric (P): The quantitative evaluation function.
+- Experience (E): The historical dataset of observed feature-target pairs:
+    D = { (x_1, y_1), (x_2, y_2), ..., (x_N, y_N) }
+- Monotonic Condition: d P(T) / d E > 0
+
+-----------------------------------------------------------------------------
+2. CORE MACHINE LEARNING PRINCIPLES: PIECE-BY-PIECE BREAKDOWN
+-----------------------------------------------------------------------------
+
+Piece 1: What are X and y?
+- Suppose we want to predict house prices in Kolkata and Salt Lake:
+    Size (sq ft) [x_1] | Bedrooms [x_2] | Age [x_3] | Actual Price [y]
+    1000               | 2              | 10        | Rs. 40 Lakhs
+    1500               | 3              | 5         | Rs. 60 Lakhs
+    2000               | 4              | 3         | Rs. 85 Lakhs
+    2500               | 4              | 2         | Rs. 110 Lakhs
+
+  Here:
+  - X = Input Features (house size, number of bedrooms, age)
+  - y = Observed Outcome (actual house price)
+  - Conceptually: X = [size, bedrooms, age], y = actual price
+  - Each single row of X is called an "input vector": x = [1500, 3, 5], 
+    and its observed outcome is y = Rs. 60 Lakhs.
+
+Piece 2: What does "Historical Input Vectors X and Observed Outcomes y" Mean?
+- We give the algorithm past examples:
+    [1000, 2, 10] --------> Rs. 40L
+    [1500, 3, 5]  --------> Rs. 60L
+    [2000, 4, 3]  --------> Rs. 85L
+    [2500, 4, 2]  --------> Rs. 110L
+- The algorithm studies these examples and discovers the mathematical relationship.
+
+Piece 3: What is the Hypothesis Function h(x)?
+- The hypothesis is simply the prediction rule learned by the machine:
+    h(x) = w^T x + b
+- In plain English:
+    Prediction = (Weighted combination of inputs) + Bias
+- Concrete Example:
+    Price = (0.03 * Size) + (5 * Bedrooms) - (2 * Age) + 10
+  - The numbers [0.03, 5, -2] are the Weights (w).
+  - The number 10 is the Bias (b).
+
+Piece 4: What does w^T x Mean?
+- For x = [x_1, x_2, x_3] and w = [w_1, w_2, w_3]:
+    w^T x = (w_1 * x_1) + (w_2 * x_2) + (w_3 * x_3)
+    h(x)  = (w_1 * x_1) + (w_2 * x_2) + (w_3 * x_3) + b
+- For our house example:
+    h(x) = (weight_1 * size) + (weight_2 * bedrooms) + (weight_3 * age) + bias
+- Key Point: The programmer does NOT choose those weights manually!
+
+Piece 5: What does Gradient Optimization Do?
+- This is the learning part:
+    1. Start with initial/random weights (w = [0, 0, 0], b = 0).
+    2. Make predictions h(x).
+    3. Compare predicted h(x) vs actual y using a Loss Function.
+    4. Compute gradient (slope of error) and adjust weights: w := w - alpha * grad.
+    5. Repeat until weights converge (w = [0.03, 5, -2], b = 10).
+
+Piece 6: The Most Important Sentence (Traditional vs Machine Learning)
+- "The programmer defines the learning algorithm and architecture, not the business decision rules."
+- Traditional Programming:
+    Programmer writes explicit IF/ELSE rules:
+      IF income > Rs. 50,000 AND age > 25 THEN approve ELSE reject
+      [Programmer] ===> [Rules + Data] ===> [Output]
+- Machine Learning:
+    Programmer provides architecture + historical data (X, y):
+      [Historical Data X, y] + [Learning Algorithm] ===> [Learned Model h(x)] ===> [Output]
+
+Piece 7: A Very Simple Example (Spam vs Legitimate Email)
+- Historical training data:
+    [5 exclamation, 10 dollar, 2 links] ----> Spam
+    [1 exclamation, 2 dollar, 0 links]  ----> Not Spam
+- Model learns parameters: h(x) = sigma(w^T x + b).
+- A new email arrives: x_new = [6, 12, 3] ==> h(x_new) = 0.94 (94% probability of Spam).
+
+Piece 8: In One Sentence (The Grand Takeaway)
+- "Instead of programming the exact prediction rules by hand, we give the machine 
+   historical examples (X, y), and an optimization algorithm automatically learns 
+   the parameters w and b that produce a useful prediction function h(x) = w^T x + b."
+- Memory Rule:
+    Traditional Programming: Rules + Data ===> Output
+    Machine Learning:        Data + Answers + Algorithm ===> Learned Rules/Model ===> Output
+
+-----------------------------------------------------------------------------
+3. MATHEMATICAL SYMBOL, PRONUNCIATION & NOTATION DICTIONARY
+-----------------------------------------------------------------------------
+Symbol | Name               | Pronunciation        | Meaning / Role in Tutorial
+-------+--------------------+----------------------+----------------------------------------------
+  ∑    | Capital Sigma      | SIG-muh (/ˈsɪɡ.mə/)  | Summation: Add terms from i=1 to N
+  σ    | Lowercase Sigma    | SIG-muh (/ˈsɪɡ.mə/)  | Sigmoid: Squashes values to [0.0, 1.0] probability
+ w^T   | Transpose Vector   | TRANS-pose           | Flips column vector to row for dot product w^T x
+  y^   | Y-Hat (Prediction) | WYE-hat (/waɪ hæt/)  | Model's predicted output vs ground truth y
+  λ    | Lambda             | LAM-duh (/ˈlæm.də/)  | Regularization penalty multiplier
+ Ω(w)  | Capital Omega      | oh-MAY-guh           | Model complexity penalty: ||w||_2^2 = sum(w_j^2)
+  ∇    | Nabla / Del        | NAB-luh / DEL        | Gradient vector of first-order partial derivatives
+  α    | Alpha / Eta        | AL-fuh / AY-tuh      | Learning rate / optimizer step size
+  ∈    | Element Of         | IN / belongs to      | Set membership (x_i in R^d, y_i in {0, 1})
+ R^d   | Blackboard Bold R  | R-d / Real Numbers   | d-dimensional continuous real coordinate space
+argmin | Argmin             | ARG-min              | Returns the optimal weights w* minimizing cost
+ J / L | Script J / Loss    | COST / LOSS          | J is total cohort cost; L is single sample loss
+  ∂    | Partial Deriv (Del)| PAR-shul d           | Rate of change w.r.t one specific weight parameter
+||w||2 | L2 Euclidean Norm  | L-TWO NORM           | Vector magnitude: sqrt(w_1^2 + w_2^2 + ...)
+  θ    | Theta              | THAY-tuh / THEE-tuh  | Generalized parameter collection theta = {w, b}
+μ / σ^2| Mu & Sigma-Squared | MYEW & SIG-muh sq    | Mean and Variance for feature normalization
+  ≈    | Approx Equal       | uh-PROX-ih-mit-lee   | Rounded numerical approximation (e.g. h(x) ~ 66.4)
+  ∏    | Capital Pi         | PYE (/paɪ/)          | Product of sequence (multiplies all terms)
+
+-----------------------------------------------------------------------------
+4. INTRODUCTORY PRACTICAL PYTHON LAB: STUDY HOURS VS EXAM MARKS
+-----------------------------------------------------------------------------
+Program Code (Scikit-Learn & Matplotlib):
+
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    from sklearn.linear_model import LinearRegression
+
+    # 1. Historical Dataset (Experience E)
+    data = {
+        "Hours": [1, 2, 3, 4, 5, 6, 7, 8],
+        "Marks": [35, 40, 48, 55, 62, 70, 78, 85]
+    }
+    df = pd.DataFrame(data)
+
+    # 2. Input Matrix X and Target y
+    X = df[["Hours"]]
+    y = df["Marks"]
+
+    # 3. Fit Model (Learns w and b)
+    model = LinearRegression()
+    model.fit(X, y)
+
+    # 4. Extract Parameters
+    w = model.coef_[0]       # ~ 7.30 marks / hour
+    b = model.intercept_     # ~ 26.29 baseline marks
+
+    # 5. Prediction on Unseen Student (5.5 study hours)
+    pred_5_5 = model.predict([[5.5]])[0]  # => 66.4 Marks
+
+    # 6. Plot Data & Hypothesis Line
+    plt.scatter(X, y, color="blue", label="Actual Data (X, y)")
+    plt.plot(X, model.predict(X), color="red", label="Regression Line h(x)")
+    plt.xlabel("Study Hours")
+    plt.ylabel("Marks")
+    plt.title("Linear Regression - Inductive Learning")
+    plt.legend()
+    plt.show()
+
+-----------------------------------------------------------------------------
+5. SCOPE AND TAXONOMY OF MACHINE LEARNING
+-----------------------------------------------------------------------------
+1. Supervised Learning: Labeled pairs (x, y) for Regression & Classification.
+2. Unsupervised Learning: Unlabeled vectors {x} for Clustering & Dimensionality Reduction.
+3. Semi-Supervised Learning: Small labeled dataset D_L + massive unlabeled dataset D_U.
+4. Reinforcement Learning: Agent-Environment interaction via State, Action, Reward (MDP).
+
+-----------------------------------------------------------------------------
+6. REAL-WORLD REGIONAL INDUSTRIAL CASE STUDIES
+-----------------------------------------------------------------------------
+Case 1: Student Grade Prediction & Early Warning in Barrackpore (Mamata & Mahima)
+Case 2: Automated Real Estate Valuation in Salt Lake & New Town (Debangshu)
+Case 3: Retail Customer Clustering & Basket Analysis in Ichapur (Susmita)
+Case 4: Diabetic Retinopathy Vision Diagnostics in Jadavpur (Abhronila)
+=============================================================================
