@@ -850,47 +850,25 @@ const Topic0 = () => {
           </div>
         </section>
 
-        {/* PRINTABLE STUDY GUIDE NOTE */}
+        {/* COMPREHENSIVE PRACTICE QUESTIONS & ANSWERS */}
         <section className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                <span className="text-blue-400">06.</span> Academic Note & Printable Revision Guide
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-400 mt-1">
-                Print or export clean ASCII academic notes prepared by Sukanta Hui for BCA semester revision.
-              </p>
-            </div>
-            <span className="px-3 py-1 rounded bg-slate-800 border border-slate-700 text-gray-300 text-xs font-mono self-start sm:self-auto">
-              ASCII Revision Guide
-            </span>
-          </div>
-
-          <div className="bg-slate-950 border border-slate-800 rounded-xl p-4">
-            <PlainTextPrint
-              text={noteText}
-              fileName="Topic0_Value_of_Case_Study_Analysis_in_Cyber_Security.txt"
-            />
-          </div>
+          <FAQTemplate
+            title="The Value of Case Study Analysis in Cyber Security FAQs"
+            subtitle="30 In-depth Practice Questions & Forensic Case Analysis Deep Dives"
+            questions={questions}
+          />
         </section>
 
-        {/* 30 COMPREHENSIVE PRACTICE QUESTIONS & ANSWERS */}
-        <section className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-                <span className="text-blue-400">07.</span> Comprehensive Exam & Interview Question Bank
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-400 mt-1">
-                30 in-depth conceptual, analytical, and forensic questions with code snippets, hints, and model answers.
-              </p>
-            </div>
-            <span className="px-3 py-1 rounded bg-blue-950 border border-blue-800 text-blue-300 text-xs font-mono self-start sm:self-auto">
-              30 Topic Questions
-            </span>
-          </div>
-
-          <FAQTemplate questions={questions} />
+        {/* PRINTABLE STUDY GUIDE NOTE */}
+        <section className="space-y-4">
+          <PlainTextPrint
+            content={noteText}
+            title="The Value of Case Study Analysis in Cyber Security (Printable Study Guide)"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic0_note.txt"
+          />
         </section>
 
         {/* TEACHER SUKANTA HUI PROFILE FOOTER */}
