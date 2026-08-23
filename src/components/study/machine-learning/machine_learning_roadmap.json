@@ -1,0 +1,851 @@
+{
+  "trackId": "machine-learning-bcac701b",
+  "trackTitle": "Introduction to Machine Learning (BCA Semester)",
+  "description": "A complete Introduction to Machine Learning course covering Machine Learning fundamentals, data preprocessing, regression, classification, clustering, decision trees, model evaluation, and real-world applications with practical examples.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "Machine Learning Tutorial",
+    "version": "1.0.0"
+  },
+  "folder": "machine-learning",
+  "subject": "Introduction to Machine Learning",
+  "subjectCode": "BCAC701B",
+  "course": {
+    "program": "Bachelor of Computer Applications",
+    "semester": "Semester-VII",
+    "academicYear": "2026",
+    "credits": "5 (3L + 4P)",
+    "weeklyContactHours": "3L + 4P",
+    "totalAllottedHours": 45,
+    "prerequisites": [
+      "Basic Python programming",
+      "Basic statistics",
+      "Basic mathematics",
+      "Basic data handling with CSV files",
+      "Basic understanding of functions and variables"
+    ]
+  },
+  "segments": [
+    {
+      "segmentId": "introduction-ml-data-preprocessing",
+      "title": "Segment 1 – Introduction to ML & Data Preprocessing",
+      "level": "Beginner",
+      "allocatedHours": 9,
+      "modules": [
+        {
+          "moduleId": "ml-introduction",
+          "slug": "001_001_introduction-to-machine-learning",
+          "title": "Introduction to Machine Learning",
+          "estimatedHours": 2,
+          "topics": [
+            "Meaning and scope of Machine Learning",
+            "Machine Learning vs traditional programming",
+            "Why Machine Learning is needed",
+            "Types of Machine Learning",
+            "Supervised learning",
+            "Unsupervised learning",
+            "Semi-supervised learning (basic idea)",
+            "Classification and regression overview",
+            "Clustering overview",
+            "Applications of Machine Learning",
+            "Machine Learning workflow",
+            "Data, features, labels and target variables",
+            "Training, validation and testing data",
+            "Real-world Machine Learning examples",
+            "Worked Example 1: Student pass/fail prediction",
+            "Worked Example 2: House price prediction",
+            "Worked Example 3: Customer churn prediction",
+            "Worked Example 4: Spam email classification",
+            "Worked Example 5: Customer segmentation",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the meaning and scope of Machine Learning",
+            "Differentiate major types of Machine Learning",
+            "Identify features, labels and target variables",
+            "Describe a basic Machine Learning workflow",
+            "Identify suitable Machine Learning applications"
+          ],
+          "difficulty": "Easy"
+        },
+        {
+          "moduleId": "ml-data-types-and-preprocessing",
+          "slug": "001_002_data-types-and-preprocessing",
+          "title": "Data Types and Preprocessing",
+          "estimatedHours": 3,
+          "topics": [
+            "Understanding datasets",
+            "Rows, columns and observations",
+            "Numerical data",
+            "Categorical data",
+            "Discrete and continuous variables",
+            "Structured and unstructured data (basic idea)",
+            "Data preprocessing concept",
+            "Data cleaning",
+            "Handling missing values",
+            "Mean, median and mode imputation",
+            "Removing duplicate records",
+            "Detecting inconsistent data",
+            "Outlier concept",
+            "Basic outlier detection",
+            "Data transformation",
+            "Feature scaling",
+            "Normalization",
+            "Standardization",
+            "Encoding categorical variables",
+            "One-hot encoding",
+            "Ordinal encoding (basic idea)",
+            "Worked Example 1: Cleaning a student dataset",
+            "Worked Example 2: Handling missing salary values",
+            "Worked Example 3: Encoding city and gender columns",
+            "Worked Example 4: Scaling age and income features",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Identify common data types used in Machine Learning",
+            "Clean datasets by handling missing and inconsistent values",
+            "Apply basic feature transformation techniques",
+            "Explain the purpose of feature scaling and encoding"
+          ],
+          "difficulty": "Easy-Medium"
+        },
+        {
+          "moduleId": "ml-feature-selection-train-test",
+          "slug": "001_003_feature-selection-and-training-testing-data",
+          "title": "Feature Selection and Training & Testing Data",
+          "estimatedHours": 2,
+          "topics": [
+            "Meaning of features and target",
+            "Feature selection concept",
+            "Relevant and irrelevant features",
+            "Correlation and feature relationships",
+            "Basic feature selection techniques",
+            "Train-test split",
+            "Training dataset",
+            "Testing dataset",
+            "Validation dataset",
+            "Data leakage (basic idea)",
+            "Random state and reproducibility",
+            "Importance of representative datasets",
+            "Worked Example 1: Selecting features for house price prediction",
+            "Worked Example 2: Splitting a student dataset",
+            "Worked Example 3: Identifying data leakage",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Select suitable features for model building",
+            "Separate features and target variables",
+            "Create training and testing datasets",
+            "Explain the importance of avoiding data leakage"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "ml-eda",
+          "slug": "001_004_exploratory-data-analysis",
+          "title": "Exploratory Data Analysis",
+          "estimatedHours": 2,
+          "topics": [
+            "Meaning and purpose of EDA",
+            "Descriptive statistics",
+            "Mean, median, mode and range",
+            "Variance and standard deviation",
+            "Minimum and maximum values",
+            "Frequency distributions",
+            "Correlation",
+            "Basic data visualisation",
+            "Histogram",
+            "Bar chart",
+            "Scatter plot",
+            "Box plot",
+            "Interpreting patterns and relationships",
+            "Detecting unusual observations",
+            "Worked Example 1: EDA of student performance data",
+            "Worked Example 2: EDA of house prices",
+            "Worked Example 3: Detecting an outlier using a box plot",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Summarize a dataset using basic statistics",
+            "Create and interpret common EDA visualisations",
+            "Identify patterns, relationships and possible outliers"
+          ],
+          "difficulty": "Easy-Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "regression-techniques",
+      "title": "Segment 2 – Regression Techniques",
+      "level": "Intermediate",
+      "allocatedHours": 9,
+      "modules": [
+        {
+          "moduleId": "simple-linear-regression",
+          "slug": "002_001_simple-linear-regression",
+          "title": "Simple Linear Regression",
+          "estimatedHours": 3,
+          "topics": [
+            "Meaning of regression",
+            "Regression vs classification",
+            "Dependent and independent variables",
+            "Simple linear regression model",
+            "Regression equation",
+            "Slope and intercept",
+            "Regression line",
+            "Prediction using a regression equation",
+            "Ordinary Least Squares (basic intuition)",
+            "Residuals and prediction errors",
+            "Fitting a regression line",
+            "Interpreting regression coefficients",
+            "Worked Example 1: Salary prediction from experience",
+            "Worked Example 2: House price prediction from area",
+            "Worked Example 3: Sales prediction from advertising expenditure",
+            "Worked Example 4: Marks prediction from study hours",
+            "Numerical Exercises",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain simple linear regression",
+            "Fit a basic regression model",
+            "Predict values using a regression equation",
+            "Interpret slope, intercept and residuals"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "multiple-regression",
+          "slug": "002_002_multiple-linear-regression",
+          "title": "Multiple Linear Regression",
+          "estimatedHours": 2,
+          "topics": [
+            "Concept of multiple regression",
+            "Multiple independent variables",
+            "Multiple regression equation",
+            "Feature coefficients",
+            "Interpreting coefficients",
+            "Training a multiple regression model",
+            "Prediction using multiple features",
+            "Multicollinearity (basic idea)",
+            "Feature selection in regression",
+            "Worked Example 1: House price using area and bedrooms",
+            "Worked Example 2: Sales using multiple advertising channels",
+            "Worked Example 3: Student marks using study hours and attendance",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain multiple linear regression",
+            "Use multiple features for prediction",
+            "Interpret regression coefficients",
+            "Recognize the basic effect of correlated predictors"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "regression-model-evaluation",
+          "slug": "002_003_regression-model-evaluation",
+          "title": "Regression Model Evaluation",
+          "estimatedHours": 2,
+          "topics": [
+            "Need for model evaluation",
+            "Prediction error",
+            "Mean Absolute Error (MAE)",
+            "Mean Squared Error (MSE)",
+            "Root Mean Squared Error (RMSE)",
+            "Comparison of MAE, MSE and RMSE",
+            "Residual analysis",
+            "Training error and testing error",
+            "R-squared (basic idea)",
+            "Choosing an appropriate regression metric",
+            "Worked Example 1: Manual MAE calculation",
+            "Worked Example 2: Manual MSE calculation",
+            "Worked Example 3: Manual RMSE calculation",
+            "Worked Example 4: Comparing two regression models",
+            "Numerical Exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Calculate MAE, MSE and RMSE",
+            "Interpret regression evaluation results",
+            "Compare regression models using suitable metrics"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "regression-practical-examples",
+          "slug": "002_004_regression-applications-and-practice",
+          "title": "Regression Applications and Practice",
+          "estimatedHours": 2,
+          "topics": [
+            "End-to-end regression workflow",
+            "Dataset preparation",
+            "Feature-target separation",
+            "Train-test splitting",
+            "Model training",
+            "Prediction",
+            "Model evaluation",
+            "Interpreting regression results",
+            "Basic polynomial regression (overview)",
+            "Limitations of linear regression",
+            "Worked Example 1: Complete house price prediction",
+            "Worked Example 2: Complete student marks prediction",
+            "Worked Example 3: Sales forecasting example",
+            "Coding Exercises",
+            "Numerical Exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Apply the complete regression workflow",
+            "Interpret predictions and evaluation metrics",
+            "Identify basic limitations of linear regression"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "classification-techniques",
+      "title": "Segment 3 – Classification Techniques",
+      "level": "Intermediate",
+      "allocatedHours": 9,
+      "modules": [
+        {
+          "moduleId": "logistic-regression",
+          "slug": "003_001_logistic-regression",
+          "title": "Logistic Regression",
+          "estimatedHours": 2,
+          "topics": [
+            "Classification concept",
+            "Binary classification",
+            "Multiclass classification (basic idea)",
+            "Logistic Regression",
+            "Logistic function",
+            "Probability output",
+            "Classification threshold",
+            "Decision boundary",
+            "Training Logistic Regression",
+            "Prediction of class labels",
+            "Worked Example 1: Student pass/fail prediction",
+            "Worked Example 2: Loan approval prediction",
+            "Worked Example 3: Customer churn prediction",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain Logistic Regression for classification",
+            "Interpret probability-based predictions",
+            "Build a basic binary classifier"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "knn",
+          "slug": "003_002-k-nearest-neighbours-knn",
+          "title": "K-Nearest Neighbours (KNN)",
+          "estimatedHours": 2,
+          "topics": [
+            "Concept of KNN",
+            "Instance-based learning",
+            "Distance concept",
+            "Euclidean distance",
+            "Choosing the value of K",
+            "Nearest-neighbour voting",
+            "KNN classification",
+            "Effect of feature scaling on KNN",
+            "Advantages and limitations of KNN",
+            "Worked Example 1: Fruit classification",
+            "Worked Example 2: Student classification",
+            "Worked Example 3: KNN with different values of K",
+            "Numerical Exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the KNN algorithm",
+            "Calculate basic distances for KNN",
+            "Choose a suitable K value",
+            "Recognize the importance of feature scaling"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "naive-bayes",
+          "slug": "003_003_naive-bayes-classifier",
+          "title": "Naive Bayes Classifier",
+          "estimatedHours": 2,
+          "topics": [
+            "Bayes theorem",
+            "Conditional probability",
+            "Naive Bayes assumption",
+            "Prior probability",
+            "Likelihood",
+            "Posterior probability",
+            "Naive Bayes classification workflow",
+            "Text classification overview",
+            "Spam classification example",
+            "Worked Example 1: Simple categorical Naive Bayes",
+            "Worked Example 2: Email spam classification",
+            "Worked Example 3: Small student classification problem",
+            "Numerical Exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the basic idea of Naive Bayes",
+            "Apply Bayes theorem to simple classification problems",
+            "Interpret prior, likelihood and posterior probabilities"
+          ],
+          "difficulty": "Medium-Advanced"
+        },
+        {
+          "moduleId": "classification-evaluation",
+          "slug": "003_004-classification-model-evaluation",
+          "title": "Classification Model Evaluation",
+          "estimatedHours": 3,
+          "topics": [
+            "Need for classification evaluation",
+            "Confusion matrix",
+            "Actual and predicted classes",
+            "True Positive",
+            "True Negative",
+            "False Positive",
+            "False Negative",
+            "Accuracy",
+            "Precision",
+            "Recall",
+            "F1-score",
+            "Sensitivity and specificity (basic idea)",
+            "Class imbalance (basic idea)",
+            "Comparing classification models",
+            "Worked Example 1: Constructing a confusion matrix",
+            "Worked Example 2: Calculating accuracy",
+            "Worked Example 3: Calculating precision",
+            "Worked Example 4: Calculating recall",
+            "Worked Example 5: Calculating F1-score",
+            "Worked Example 6: Comparing Logistic Regression and KNN",
+            "Numerical Exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Construct and interpret a confusion matrix",
+            "Calculate accuracy, precision and recall",
+            "Calculate and interpret F1-score",
+            "Select suitable classification metrics"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "clustering-decision-tree",
+      "title": "Segment 4 – Clustering and Decision Tree",
+      "level": "Intermediate",
+      "allocatedHours": 9,
+      "modules": [
+        {
+          "moduleId": "k-means-clustering",
+          "slug": "004_001_k-means-clustering",
+          "title": "K-Means Clustering",
+          "estimatedHours": 3,
+          "topics": [
+            "Clustering concept",
+            "Unsupervised learning",
+            "Similarity and distance",
+            "K-Means algorithm",
+            "Centroid concept",
+            "Choosing the number of clusters K",
+            "Centroid initialization",
+            "Assignment step",
+            "Centroid update step",
+            "Iteration and convergence",
+            "Within-cluster variation",
+            "Elbow method (basic idea)",
+            "Cluster interpretation",
+            "Worked Example 1: Customer segmentation",
+            "Worked Example 2: Student grouping",
+            "Worked Example 3: Product grouping",
+            "Worked Example 4: K-Means with K=2",
+            "Worked Example 5: K-Means with K=3",
+            "Numerical Exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the purpose of clustering",
+            "Apply the basic K-Means procedure",
+            "Interpret centroids and clusters",
+            "Use a simple method for selecting K"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "decision-tree-concept",
+          "slug": "004_002_decision-tree-concept-and-structure",
+          "title": "Decision Tree Concept and Structure",
+          "estimatedHours": 2,
+          "topics": [
+            "Decision tree concept",
+            "Supervised learning using decision trees",
+            "Root node",
+            "Internal node",
+            "Branch",
+            "Leaf node",
+            "Decision rules",
+            "Tree construction",
+            "Splitting data",
+            "Stopping criteria",
+            "Tree depth",
+            "Overfitting in decision trees",
+            "Basic pruning concept",
+            "Worked Example 1: Student pass/fail decision tree",
+            "Worked Example 2: Loan approval decision tree",
+            "Worked Example 3: Simple product classification tree",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Identify the main components of a decision tree",
+            "Explain how decision rules are formed",
+            "Interpret a simple decision tree"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "entropy-information-gain",
+          "slug": "004_003_entropy-and-information-gain",
+          "title": "Entropy and Information Gain",
+          "estimatedHours": 2,
+          "topics": [
+            "Need for splitting criteria",
+            "Entropy concept",
+            "Information content",
+            "Entropy formula",
+            "Information Gain",
+            "Calculating entropy",
+            "Calculating weighted entropy",
+            "Selecting the best split",
+            "Worked Example 1: Entropy of a binary dataset",
+            "Worked Example 2: Information gain for a feature",
+            "Worked Example 3: Selecting the root node",
+            "Numerical Exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain entropy and information gain",
+            "Calculate entropy for simple datasets",
+            "Select a suitable split using information gain"
+          ],
+          "difficulty": "Medium-Advanced"
+        },
+        {
+          "moduleId": "decision-tree-practical",
+          "slug": "004_004-decision-tree-model-building-and-interpretation",
+          "title": "Decision Tree Model Building and Interpretation",
+          "estimatedHours": 2,
+          "topics": [
+            "Building a decision tree model",
+            "Preparing training data",
+            "Model fitting",
+            "Prediction",
+            "Tree visualisation",
+            "Interpreting decision rules",
+            "Feature importance (basic idea)",
+            "Comparing tree depth",
+            "Overfitting control",
+            "Worked Example 1: Complete student prediction model",
+            "Worked Example 2: Loan approval model",
+            "Worked Example 3: Comparing shallow and deep trees",
+            "Coding Exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Build a basic decision tree classifier",
+            "Visualize and interpret decision rules",
+            "Recognize basic overfitting issues in trees"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "model-evaluation-applications",
+      "title": "Segment 5 – Model Evaluation and Applications",
+      "level": "Intermediate-Advanced",
+      "allocatedHours": 9,
+      "modules": [
+        {
+          "moduleId": "model-validation",
+          "slug": "005_001_model-validation",
+          "title": "Model Validation",
+          "estimatedHours": 2,
+          "topics": [
+            "Meaning of model validation",
+            "Generalization",
+            "Training performance vs testing performance",
+            "Validation dataset",
+            "Cross-validation concept",
+            "K-fold cross-validation",
+            "Advantages of cross-validation",
+            "Limitations of cross-validation",
+            "Worked Example 1: Simple train-validation-test workflow",
+            "Worked Example 2: Five-fold cross-validation",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain model validation",
+            "Differentiate training, validation and test data",
+            "Describe the basic K-fold cross-validation procedure"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "overfitting-underfitting",
+          "slug": "005_002_overfitting-and-underfitting",
+          "title": "Overfitting and Underfitting",
+          "estimatedHours": 2,
+          "topics": [
+            "Model complexity",
+            "Overfitting",
+            "Underfitting",
+            "Good generalization",
+            "Training error and testing error",
+            "Bias and variance (basic idea)",
+            "Causes of overfitting",
+            "Causes of underfitting",
+            "Reducing overfitting",
+            "Reducing underfitting",
+            "Regularization (basic idea)",
+            "Tree depth and overfitting",
+            "Worked Example 1: Detecting overfitting in a decision tree",
+            "Worked Example 2: Comparing training and testing accuracy",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Identify overfitting and underfitting",
+            "Compare training and testing performance",
+            "Suggest basic approaches to improve generalization"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "model-comparison",
+          "slug": "005_003-model-comparison-and-selection",
+          "title": "Model Comparison and Selection",
+          "estimatedHours": 2,
+          "topics": [
+            "Need for model comparison",
+            "Baseline model",
+            "Model parameters and hyperparameters",
+            "Choosing suitable evaluation metrics",
+            "Comparing regression models",
+            "Comparing classification models",
+            "Cross-validation for model comparison",
+            "Basic hyperparameter tuning",
+            "Interpreting model performance",
+            "Worked Example 1: Comparing Logistic Regression and KNN",
+            "Worked Example 2: Comparing regression models",
+            "Worked Example 3: Selecting the best model using cross-validation",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Compare multiple Machine Learning models",
+            "Choose suitable evaluation metrics",
+            "Select a model based on validation results"
+          ],
+          "difficulty": "Medium-Advanced"
+        },
+        {
+          "moduleId": "ml-applications",
+          "slug": "005_004-machine-learning-applications-and-case-studies",
+          "title": "Machine Learning Applications and Case Studies",
+          "estimatedHours": 2,
+          "topics": [
+            "Real-world Machine Learning workflow",
+            "ML applications in education",
+            "ML applications in finance",
+            "ML applications in healthcare",
+            "ML applications in marketing",
+            "ML applications in business",
+            "Customer churn prediction",
+            "Student performance prediction",
+            "House price prediction",
+            "Spam detection",
+            "Customer segmentation",
+            "Loan approval prediction",
+            "Interpreting model results",
+            "Ethical considerations in Machine Learning",
+            "Dataset bias",
+            "Model bias",
+            "Responsible use of Machine Learning",
+            "Worked Example 1: Student performance case study",
+            "Worked Example 2: Customer churn case study",
+            "Worked Example 3: Customer segmentation case study",
+            "Mini Project",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Identify real-world applications of Machine Learning",
+            "Apply an end-to-end ML workflow to a small dataset",
+            "Interpret and communicate model results",
+            "Recognize basic ethical and bias-related issues"
+          ],
+          "difficulty": "Medium-Advanced"
+        },
+        {
+          "moduleId": "ml-mini-project",
+          "slug": "005_005-machine-learning-mini-project",
+          "title": "Machine Learning Mini Project",
+          "estimatedHours": 1,
+          "topics": [
+            "Problem definition",
+            "Dataset selection",
+            "Data loading",
+            "Data cleaning",
+            "Exploratory Data Analysis",
+            "Feature selection",
+            "Train-test split",
+            "Model selection",
+            "Model training",
+            "Prediction",
+            "Model evaluation",
+            "Result interpretation",
+            "Visualisation of results",
+            "Project report preparation",
+            "Project presentation",
+            "Example Project 1: House Price Prediction",
+            "Example Project 2: Student Performance Prediction",
+            "Example Project 3: Customer Segmentation",
+            "Example Project 4: Loan Approval Prediction"
+          ],
+          "learningOutcomes": [
+            "Apply the complete Machine Learning workflow",
+            "Prepare and analyse a small dataset",
+            "Train and evaluate a suitable ML model",
+            "Present and interpret project findings"
+          ],
+          "difficulty": "Advanced"
+        }
+      ]
+    }
+  ],
+  "courseOutcomes": [
+    {
+      "code": "CO1",
+      "description": "Explain the basic concepts, types, and applications of machine learning in data-driven problem solving.",
+      "mappedModules": [
+        "M1"
+      ],
+      "learningLevels": [
+        "K1",
+        "K2"
+      ]
+    },
+    {
+      "code": "CO2",
+      "description": "Prepare datasets through preprocessing, feature selection, and data transformation for model building.",
+      "mappedModules": [
+        "M1"
+      ],
+      "learningLevels": [
+        "K2",
+        "K3"
+      ]
+    },
+    {
+      "code": "CO3",
+      "description": "Apply fundamental machine learning algorithms for regression, classification, and clustering tasks.",
+      "mappedModules": [
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "learningLevels": [
+        "K3",
+        "K4"
+      ]
+    },
+    {
+      "code": "CO4",
+      "description": "Evaluate and interpret the performance of machine learning models using appropriate metrics.",
+      "mappedModules": [
+        "M2",
+        "M3",
+        "M5"
+      ],
+      "learningLevels": [
+        "K4",
+        "K5"
+      ]
+    },
+    {
+      "code": "CO5",
+      "description": "Use suitable tools and libraries to implement simple machine learning solutions on real datasets.",
+      "mappedModules": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5"
+      ],
+      "learningLevels": [
+        "K3",
+        "K4",
+        "K5"
+      ]
+    }
+  ],
+  "recommendedLearningOrder": [
+    "ml-introduction",
+    "ml-data-types-and-preprocessing",
+    "ml-feature-selection-train-test",
+    "ml-eda",
+    "simple-linear-regression",
+    "multiple-regression",
+    "regression-model-evaluation",
+    "regression-practical-examples",
+    "logistic-regression",
+    "knn",
+    "naive-bayes",
+    "classification-evaluation",
+    "k-means-clustering",
+    "decision-tree-concept",
+    "entropy-information-gain",
+    "decision-tree-practical",
+    "model-validation",
+    "overfitting-underfitting",
+    "model-comparison",
+    "ml-applications",
+    "ml-mini-project"
+  ],
+  "assessment": {
+    "type": "Concepts + Numerical Problems + Coding Exercises + Module Tests + Mini Project",
+    "recommendedPractice": [
+      "Short Questions",
+      "Conceptual Questions",
+      "Solved Numerical Problems",
+      "Unsolved Numerical Problems",
+      "Python Coding Exercises",
+      "Dataset Analysis Exercises",
+      "Model Evaluation Exercises",
+      "Case Studies",
+      "Previous/Exam-style Problems",
+      "Mini Project"
+    ]
+  },
+  "textBooks": [
+    "Machine Learning using Python, Manaranjan Pradhan & U. Dinesh Kumar, Wiley India (2019; also 2nd edition 2025).",
+    "Machine Learning with Python, Abhishek Vijayvargia, BPB Publications (2018).",
+    "Applied Machine Learning Solutions with Python, Siddhanta Bhatta, BPB Publications (2022).",
+    "Introduction to Machine Learning with Python: A Guide for Data Scientists, Andreas C. Müller & Sarah Guido, Shroff Publishers (2016).",
+    "Data Science and Machine Learning Using Python, Reema Thareja, McGraw Hill India."
+  ]
+}
