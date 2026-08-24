@@ -1,0 +1,43 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 6: Looping Constructs: WHILE ... DO, REPEAT ... UNTIL, and LOOP with LEAVE / ITERATE
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE THREE LOOPING CONSTRUCTS IN MYSQL
+--------------------------------------------------------------------------------
+1. WHILE ... DO ... END WHILE (Pre-Test Loop):
+   - Condition checked *before* entry. Runs 0 or more times.
+   - Syntax:
+     WHILE condition DO
+         -- Loop statements
+         SET counter = counter + 1;
+     END WHILE;
+
+2. REPEAT ... UNTIL condition END REPEAT (Post-Test Loop):
+   - Condition checked *after* execution. Runs at least 1 time.
+   - Loop continues *until* the condition becomes TRUE (exits on TRUE).
+   - CRITICAL SYNTAX: NO semicolon after the `UNTIL condition` line!
+   - Syntax:
+     REPEAT
+         -- Loop statements
+         SET counter = counter + 1;
+     UNTIL counter >= target
+     END REPEAT;
+
+3. [label:] LOOP ... END LOOP [label] (Infinite Loop with LEAVE/ITERATE):
+   - Infinite loop requiring explicit `LEAVE` to exit.
+   - Syntax:
+     my_loop: LOOP
+         IF condition THEN
+             LEAVE my_loop;   -- Breaks out (break)
+         END IF;
+         IF skip_condition THEN
+             ITERATE my_loop; -- Skips to next iteration (continue)
+         END IF;
+     END LOOP my_loop;
+
+2. LOOP CONTROL: LEAVE VS ITERATE
+--------------------------------------------------------------------------------
+- LEAVE label: Immediately terminates the labeled loop (equivalent to `break`).
+- ITERATE label: Skips remaining statements and starts next cycle (equivalent to `continue`).

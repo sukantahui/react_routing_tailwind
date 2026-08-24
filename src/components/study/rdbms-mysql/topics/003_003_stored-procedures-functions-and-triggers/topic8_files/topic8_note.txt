@@ -1,0 +1,24 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 8: Stored Procedures vs Stored Functions: Differences, Rules, and Restrictions
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. COMPREHENSIVE ARCHITECTURAL COMPARISON
+--------------------------------------------------------------------------------
+Feature                | Stored Procedure               | Stored Function
+-----------------------+--------------------------------+---------------------------------
+Invocation             | CALL procedure_name(args);     | SELECT function_name(args);
+Return Mechanism       | OUT params + Result Sets       | Exactly 1 Scalar (RETURNS/RETURN)
+Parameter Modes        | IN, OUT, INOUT                 | Strictly IN only
+SQL Expression Use     | CANNOT be used in expressions  | CAN be used in SELECT, WHERE, ORDER BY
+Transaction Control    | START TRANSACTION, COMMIT,     | FORBIDDEN (Error 1422)
+                       | ROLLBACK fully supported       |
+Primary Purpose        | Business workflows, ETL tasks  | Reusable scalar math, formatting
+
+2. ARCHITECTURAL DECISION RULE
+--------------------------------------------------------------------------------
+- Use Stored Procedures when executing multi-statement transactional workflows, 
+  modifying multiple tables, returning multiple result sets, or handling batch data.
+- Use Stored Functions when performing pure scalar mathematical calculations, 
+  business rule categorizations, or string transformations directly inside SQL queries.

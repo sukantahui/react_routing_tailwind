@@ -1,0 +1,30 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 9: Deterministic vs Non-Deterministic Functions and Characteristics
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. DETERMINISTIC VS NOT DETERMINISTIC
+--------------------------------------------------------------------------------
+1. DETERMINISTIC:
+   - For identical input arguments, the function ALWAYS returns the exact same result.
+   - Example: Mathematical calculations, currency formatting, tax rates.
+   - Required for MySQL 8.0 Functional Indexes (`CREATE INDEX ... ((fn(col)))`).
+
+2. NOT DETERMINISTIC:
+   - Output may vary across invocations even with identical input arguments.
+   - Example: Functions calling `NOW()`, `CURDATE()`, `RAND()`, `UUID()`, or reading 
+     frequently modified tables.
+
+2. SQL DATA ACCESS CHARACTERISTICS
+--------------------------------------------------------------------------------
+- NO SQL: Routine contains no SQL statements (pure in-memory arithmetic / string math).
+- READS SQL DATA: Routine contains `SELECT` queries that read table data without modifying.
+- MODIFIES SQL DATA: Routine contains `INSERT`, `UPDATE`, or `DELETE` statements.
+- CONTAINS SQL: Routine contains SQL statements that neither read nor write tables (default).
+
+3. BINARY LOGGING & REPLICATION SAFETY (ERROR 1418)
+--------------------------------------------------------------------------------
+When MySQL Binary Logging (`log_bin`) is enabled for replication, creating a non-deterministic 
+function without characteristics throws `Error 1418`. Declaring `DETERMINISTIC` or `READS SQL DATA` 
+guarantees that replica servers execute the exact same computation without replication drift.

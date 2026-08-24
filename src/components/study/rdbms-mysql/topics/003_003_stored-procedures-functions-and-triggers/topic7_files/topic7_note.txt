@@ -1,0 +1,41 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 7: Creating and Invoking User-Defined Stored Functions (UDF)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. USER-DEFINED STORED FUNCTION SYNTAX
+--------------------------------------------------------------------------------
+    DELIMITER //
+    CREATE FUNCTION function_name (
+        param1 data_type,
+        param2 data_type
+    )
+    RETURNS return_data_type
+    [DETERMINISTIC | NOT DETERMINISTIC]
+    [READS SQL DATA | NO SQL | CONTAINS SQL | MODIFIES SQL DATA]
+    [COMMENT 'description']
+    BEGIN
+        DECLARE v_result return_data_type;
+        -- Procedural logic (SET, IF, CASE, LOOP)
+        RETURN v_result;
+    END //
+    DELIMITER ;
+
+2. INVOKING STORED FUNCTIONS IN SQL EXPRESSIONS
+--------------------------------------------------------------------------------
+Stored functions evaluate to a scalar value and are invoked directly inside 
+SQL queries (like built-in functions such as `ROUND()` or `CONCAT()`):
+
+    -- Inside SELECT clause:
+    SELECT student_name, fn_calculate_academic_gst(base_fee) AS gst FROM students;
+
+    -- Inside WHERE clause filter:
+    SELECT student_name FROM students WHERE fn_get_letter_grade(score) = 'A+';
+
+3. CARDINAL RESTRICTIONS ON STORED FUNCTIONS
+--------------------------------------------------------------------------------
+1. Must return exactly ONE scalar value via `RETURN scalar_val;`.
+2. All parameters are strictly `IN` parameters (no `OUT` or `INOUT` allowed).
+3. CANNOT contain explicit transaction controls (`START TRANSACTION`, `COMMIT`, `ROLLBACK`).
+4. CANNOT return direct tabular result sets (e.g. uncaptured `SELECT *` throws error).
