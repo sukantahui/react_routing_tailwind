@@ -1,0 +1,29 @@
+TOPIC_ID: 003_001_004
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 4: Class attributes vs Instance attributes
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Class Attributes vs Instance Attributes in Python. Explores memory distribution, namespaces (`Class.__dict__` vs `instance.__dict__`), the Attribute Shadowing trap (how `self.var = ...` unintentionally masks class-level attributes), the critical Mutable Class Attribute bug (where in-place modification of class-level lists/dicts silently mutates state across all instances in RAM), enterprise design patterns (global instance counters, auto-incrementing sequence IDs, centralized registries, and configuration constants with `ClassVar`), and an executive institute analytics case study.
+
+CORE CONCEPTS:
+1. Class Attributes Definition and Memory Placement (Class.__dict__)
+2. Instance Attributes Definition and Memory Placement (instance.__dict__)
+3. The Attribute Lookup Resolution Path (Instance -> Class -> Base Classes)
+4. Attribute Shadowing: Creating instance attributes that override class attributes
+5. Updating Class Attributes Globally via ClassName.var = ...
+6. The Mutable Class Attribute Shared RAM Disaster
+7. Best Practices for Shared Mutable Collections in Class Design
+8. Production Design Patterns with Class Attributes:
+   - Global auto-incrementing sequence counters
+   - Centralized instance registries
+   - Domain constants and default configurations with ClassVar
+9. Memory Optimization & Footprint Comparison
+10. Domain Analytics Suite: Aggregated Institute Metrics vs Individual Student Records
+
+REAL-WORLD SCENARIOS:
+- Generating unique auto-incrementing invoice numbers and enrollment IDs without external databases
+- Building aggregated executive analytics dashboards tracking total revenue and cash flow across all active student objects
+- Debugging catastrophic multi-tenant data leaks caused by shared mutable class-level dictionaries
+- Managing branch-wide configuration defaults that can be selectively overridden by individual regional franchises

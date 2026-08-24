@@ -1,0 +1,38 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+         TOPIC 0: OOP PARADIGM: PROCEDURAL VS OBJECT-ORIENTED THINKING
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. PROCEDURAL VS OBJECT-ORIENTED PROGRAMMING
+--------------------------------------------------------------------------------
+  Feature               Procedural (POP)                Object-Oriented (OOP)
+  ------------------------------------------------------------------------------
+  Core Focus            Functions & Sequence of steps   Objects (Data + Behavior)
+  Data Placement        Detached (dicts, tuples, globals) Encapsulated inside classes
+  Data Protection       None (any function can mutate)  Protected via access controls
+  Code Reuse            Function calls & copy-paste     Inheritance & Polymorphism
+  Real-World Modeling   Difficult for large domains     Intuitive & highly scalable
+
+--------------------------------------------------------------------------------
+2. THE FOUR PILLARS OF OOP
+--------------------------------------------------------------------------------
+  1. Encapsulation : Bundles attributes and methods; hides internal representations.
+  2. Abstraction   : Exposes clean public APIs; conceals low-level complexity.
+  3. Inheritance   : Derives specialized classes from general base classes.
+  4. Polymorphism  : Interacts with diverse objects through a uniform interface.
+
+--------------------------------------------------------------------------------
+3. THE MINDSET SHIFT
+--------------------------------------------------------------------------------
+  • Procedural : "What step-by-step procedures do I execute on raw data?"
+  • OOP        : "What autonomous entities exist in my domain, what data do they
+                  own, and how do they communicate?"
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 0: OOP PARADIGM & MENTAL MODEL
+================================================================================

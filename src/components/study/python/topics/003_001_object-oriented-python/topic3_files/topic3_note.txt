@@ -1,0 +1,42 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+            TOPIC 3: INSTANCE METHODS & THE 'self' PARAMETER
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. HOW PYTHON TRANSLATES METHOD CALLS
+--------------------------------------------------------------------------------
+  • Syntactic Sugar:
+      account.deposit(5000.0)
+
+  • Under the Hood (CPython):
+      BankAccount.deposit(account, 5000.0)
+
+  • Key Takeaway:
+      Python automatically injects the instance (`account`) as the first
+      argument (`self`) when invoked through an instance reference!
+
+--------------------------------------------------------------------------------
+2. UNBOUND FUNCTIONS VS BOUND METHODS
+--------------------------------------------------------------------------------
+  • `BankAccount.deposit` -> <class 'function'> (Unbound, lives in Class dict)
+  • `account.deposit`     -> <class 'method'> (Bound to `account` instance)
+
+--------------------------------------------------------------------------------
+3. METHOD CHAINING PATTERN (return self)
+--------------------------------------------------------------------------------
+  class InvoiceBuilder:
+      def add_item(self, name, price):
+          self.items.append((name, price))
+          return self  # Enables chaining!
+
+  # Fluent Usage:
+  inv = InvoiceBuilder().add_item("Course", 15000).add_item("Book", 1000)
+
+================================================================================
+         END OF STUDY NOTE • TOPIC 3: INSTANCE METHODS & 'self'
+================================================================================

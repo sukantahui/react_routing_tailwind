@@ -1,0 +1,44 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_009: MODULES & PACKAGES
+           TOPIC 8: CREATING & MANAGING VIRTUAL ENVIRONMENTS (venv)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. QUICK-START VIRTUAL ENVIRONMENT LIFECYCLE
+--------------------------------------------------------------------------------
+  Step 1: Create Environment
+    $ python -m venv .venv
+
+  Step 2: Activate Environment
+    • Windows (PowerShell) : .\.venv\Scripts\Activate.ps1
+    • Windows (CMD)        : .venv\Scripts\activate.bat
+    • macOS / Linux (Bash) : source .venv/bin/activate
+
+  Step 3: Install Project Packages
+    $ python -m pip install -r requirements.txt
+
+  Step 4: Deactivate When Done
+    $ deactivate
+
+--------------------------------------------------------------------------------
+2. FIXING WINDOWS POWERSHELL SECURITY RESTRICTION
+--------------------------------------------------------------------------------
+  Error: "running scripts is disabled on this system"
+  Solution (Run once in PowerShell):
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+--------------------------------------------------------------------------------
+3. HOW ACTIVATION WORKS UNDER THE HOOD
+--------------------------------------------------------------------------------
+  • Activation simply prepends `.venv\Scripts` (or `.venv/bin`) to your OS PATH.
+  • When you type `python` or `pip`, the operating system invokes the virtualenv
+    executable first before any global system Python.
+  • Deactivation restores your original system PATH.
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 8: VIRTUAL ENVIRONMENTS (venv)
+================================================================================

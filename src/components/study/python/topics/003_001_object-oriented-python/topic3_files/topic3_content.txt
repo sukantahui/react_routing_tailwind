@@ -1,0 +1,26 @@
+TOPIC_ID: 003_001_003
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 3: Instance methods & the self parameter
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive guide to Python instance methods, the explicit `self` parameter, method resolution, and bound method mechanics. Explores how Python translates syntactic sugar `obj.method(arg)` into `Class.method(obj, arg)`, the fundamental difference between Unbound Functions stored in the class namespace vs Bound Methods bound to living instances, the Method Chaining pattern returning `self` for fluent builder pipelines, internal helper conventions (`_helper(self)`), passing bound methods as first-class callbacks into higher-order functions, and inter-object method collaboration in multi-account banking ledgers.
+
+CORE CONCEPTS:
+1. Instance Method Declaration and the Mandatory 'self' Parameter
+2. Method Invocation Mechanics: obj.method() -> Class.method(obj)
+3. Unbound Class Functions vs Instance Bound Methods (bound_method.__self__)
+4. What happens when 'self' is omitted (TypeError: takes 0 positional arguments but 1 was given)
+5. Method Chaining Pattern (Fluent Interface returning 'self')
+6. Method Delegation: Calling brother methods via self.other_method()
+7. Internal Private Helper Methods Convention (_helper)
+8. Passing Bound Methods as First-Class Higher-Order Callbacks
+9. Inter-Object Method Collaboration (e.g. account1.transfer_to(account2, amount))
+10. State Invariant Guards across Complex Method Operations
+
+REAL-WORLD SCENARIOS:
+- Building fluent, readable configuration pipelines and GST Tax Invoice builders via method chaining
+- Delegating complex data validation to internal helper routines before mutating database records
+- Passing bound instance methods as event listeners and validation callbacks into generic audit processors
+- Executing multi-account financial transfers with atomic debit and credit invariant checks

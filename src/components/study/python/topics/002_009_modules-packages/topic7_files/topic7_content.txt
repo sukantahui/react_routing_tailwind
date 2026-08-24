@@ -1,0 +1,26 @@
+TOPIC_ID: 002_009_007
+MODULE: 002_009_modules-packages
+TITLE: Topic 7: Third-party packages and pip package manager
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive guide to the Python third-party package ecosystem, the Python Package Index (PyPI), and the `pip` package manager. Covers the full pip command lifecycle (install, pinned versions `==`, upgrade, uninstall, list, show, freeze), the critical distinction between bare `pip` and `python -m pip` (preventing multi-version interpreter binding confusion), packaging distribution formats (Source Distributions `.tar.gz` vs pre-compiled Wheels `.whl`), wheel filename anatomy under PEP 427, pip local wheel caching, domain-specific third-party packages (requests, pandas, pydantic, pytest), and programmatic metadata auditing with `importlib.metadata`.
+
+CORE CONCEPTS:
+1. What is PyPI (Python Package Index) and Package Repositories
+2. Essential pip CLI Commands (install, upgrade, uninstall, list, show, freeze)
+3. Version Pinning Syntax (==, >=, <=, ~= compatible release)
+4. The Interpreter Binding Rule: Why python -m pip is mandatory
+5. Source Distributions (sdist / .tar.gz) vs Built Distributions (Wheels / .whl)
+6. Wheel Filename Anatomy: Python tag, ABI tag, Platform tag (PEP 427)
+7. Pip Wheel Caching & Offline Installations (pip cache)
+8. Popular Third-Party Ecosystem Libraries Across Domains
+9. Defensive Optional Import Patterns (try...except ImportError)
+10. Programmatic Dependency Auditing with importlib.metadata
+
+REAL-WORLD SCENARIOS:
+- Resolving 'ModuleNotFoundError' when packages are installed into the wrong Python interpreter
+- Speeding up CI/CD build pipelines by leveraging pre-compiled wheels and pip download caching
+- Selecting robust open-source libraries for backend microservices, data science, and API integrations
+- Programmatically auditing installed production packages for compliance and version tracking

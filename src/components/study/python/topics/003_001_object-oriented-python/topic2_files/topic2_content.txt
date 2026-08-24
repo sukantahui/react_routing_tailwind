@@ -1,0 +1,26 @@
+TOPIC_ID: 003_001_002
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 2: Constructors & the __init__() method
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Python class constructors, initializer methods, and input validation guards inside `__init__()`. Covers the role of the `self` parameter, setting mandatory and default arguments, parameter validation and raising defensive exceptions (`ValueError`), the fundamental return None rule (why `__init__` cannot return a value), flexible variadic constructors (`*args` and `**kwargs`), Python's alternative constructor pattern using `@classmethod` factory methods (`from_dict`, `from_csv_string`), the classic mutable default argument trap (`def __init__(self, items=[])`) and its canonical `None` fix, and production domain case studies.
+
+CORE CONCEPTS:
+1. The Role and Purpose of the __init__() Initializer
+2. Parameter Declaration: Mandatory vs Default Arguments
+3. Invariant Validation: Raising ValueError / TypeError during construction
+4. The Return None Constraint: Why __init__ cannot return values
+5. Variadic Constructors with *args and **kwargs
+6. Alternative Constructors Pattern using @classmethod (Factory Pattern)
+7. The Mutable Default Argument Bug (Shared Reference Trap in RAM)
+8. Canonical Solution: Defaulting to None (self.items = list(items) if items is not None else [])
+9. Auto-Generating Sequence IDs and Derived Attributes
+10. Domain Case Study: Student Admission & Fee Ledger Accounting
+
+REAL-WORLD SCENARIOS:
+- Parsing dynamic JSON payloads from external REST APIs directly into strongly-typed domain models via from_dict classmethods
+- Preventing silent data pollution in multi-user environments caused by shared mutable default lists
+- Enforcing strict business logic validation (non-empty names, positive fee amounts, valid discount boundaries) upon object creation
+- Generating automated financial ledgers, tracking installment schedules, and printing formal invoices
