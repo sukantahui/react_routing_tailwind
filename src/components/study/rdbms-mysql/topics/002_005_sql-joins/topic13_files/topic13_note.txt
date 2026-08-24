@@ -1,0 +1,133 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_005 - Mastering SQL Joins & Multi-Table Queries
+TOPIC 13: Complex Join Lab: Customer Orders, Shipments, and Payments Analytics
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. CAPSTONE LAB OVERVIEW & ENTERPRISE ARCHITECTURE
+--------------------------------------------------------------------------------
+This hands-on capstone lab synthesizes all concepts mastered across Module 002_005:
+• INNER JOIN, LEFT JOIN, RIGHT JOIN, and Emulated FULL OUTER JOIN.
+• SELF JOIN hierarchies, Non-Equi range joins, and USING clause deduplication.
+• CTE Pre-Aggregation to prevent Aggregate Fan-Out data inflation bugs.
+• Complex multi-table enterprise pipelines for order fulfillment and payment audits.
+
+
+2. THE ENTERPRISE SCHEMA SPECIFICATION
+--------------------------------------------------------------------------------
+1. `customers(customer_id, customer_name, email, city, tier)`
+2. `orders(order_id, customer_id, order_date, total_amount, status)`
+3. `order_items(item_id, order_id, product_id, quantity, unit_price)`
+4. `products(product_id, product_name, category_id, base_price)`
+5. `shipments(shipment_id, order_id, carrier_name, tracking_no, dispatch_date, delivery_status)`
+6. `payments(payment_id, order_id, customer_id, payment_date, payment_method, amount_paid, payment_status)`
+7. `loyalty_tiers(tier_name, min_annual_spend, max_annual_spend, cashback_pct)`
+
+
+3. CORE CAPSTONE QUERIES & ANALYTICS PIPELINES
+--------------------------------------------------------------------------------
+
+QUERY 1: 360-Degree Customer Lifetime Balance & Fulfillment Pipeline
+• Computes total order value, total collected payments, outstanding balance, and delivery status in Indian Rupee (₹).
+```sql
+WITH customer_order_summary AS (
+    SELECT 
+        customer_id, 
+        COUNT(DISTINCT order_id) AS total_orders_placed,
+        SUM(total_amount) AS gross_order_value
+    FROM orders 
+    WHERE status != 'CANCELLED'
+    GROUP BY customer_id
+),
+customer_payment_summary AS (
+    SELECT 
+        customer_id, 
+        SUM(amount_paid) AS total_payments_settled
+    FROM payments 
+    WHERE payment_status = 'SETTLED'
+    GROUP BY customer_id
+),
+customer_shipment_summary AS (
+    SELECT 
+        o.customer_id,
+        COUNT(CASE WHEN s.delivery_status = 'DELIVERED' THEN 1 END) AS total_delivered,
+        COUNT(CASE WHEN s.delivery_status = 'IN_TRANSIT' THEN 1 END) AS total_in_transit
+    FROM orders o
+    LEFT JOIN shipments s ON o.order_id = s.order_id
+    GROUP BY o.customer_id
+)
+SELECT 
+    c.customer_id,
+    c.customer_name,
+    c.city,
+    COALESCE(ord.total_orders_placed, 0) AS total_orders,
+    CONCAT('₹', FORMAT(COALESCE(ord.gross_order_value, 0), 2)) AS gross_orders,
+    CONCAT('₹', FORMAT(COALESCE(pay.total_payments_settled, 0), 2)) AS settled_payments,
+    CONCAT('₹', FORMAT(COALESCE(ord.gross_order_value, 0) - COALESCE(pay.total_payments_settled, 0), 2)) AS net_outstanding,
+    COALESCE(shp.total_delivered, 0) AS shipments_delivered,
+    COALESCE(shp.total_in_transit, 0) AS shipments_in_transit
+FROM customers c
+LEFT JOIN customer_order_summary ord USING (customer_id)
+LEFT JOIN customer_payment_summary pay USING (customer_id)
+LEFT JOIN customer_shipment_summary shp USING (customer_id)
+ORDER BY c.customer_id;
+```
+
+QUERY 2: Order Fulfillment Discrepancy & Anti-Join Audit
+• Identifies paid orders that have NOT been dispatched after 48 hours:
+```sql
+SELECT 
+    o.order_id,
+    c.customer_name,
+    o.order_date,
+    p.amount_paid,
+    TIMESTAMPDIFF(HOUR, o.order_date, NOW()) AS hours_since_order
+FROM orders o
+INNER JOIN customers c USING (customer_id)
+INNER JOIN payments p USING (order_id)
+LEFT JOIN shipments s USING (order_id)
+WHERE p.payment_status = 'SETTLED'
+  AND s.shipment_id IS NULL -- Anti-join isolating unfulfilled orders!
+  AND TIMESTAMPDIFF(HOUR, o.order_date, NOW()) > 48;
+```
+
+QUERY 3: Non-Equi Loyalty Tier Dynamic Rebate Assignment
+```sql
+SELECT 
+    c.customer_name,
+    c.city,
+    SUM(o.total_amount) AS annual_spend,
+    lt.tier_name,
+    lt.cashback_pct,
+    ROUND(SUM(o.total_amount) * (lt.cashback_pct / 100), 2) AS earned_rebate
+FROM customers c
+INNER JOIN orders o USING (customer_id)
+INNER JOIN loyalty_tiers lt 
+    ON SUM(o.total_amount) >= lt.min_annual_spend 
+   AND (SUM(o.total_amount) < lt.max_annual_spend OR lt.max_annual_spend IS NULL)
+WHERE YEAR(o.order_date) = 2026
+GROUP BY c.customer_id, c.customer_name, c.city, lt.tier_name, lt.cashback_pct;
+```
+
+
+4. PERFORMANCE TUNING CHECKLIST FOR COMPLEX LABS
+--------------------------------------------------------------------------------
+1. Index foreign key join paths on `customer_id`, `order_id`, `product_id`.
+2. Inspect `EXPLAIN FORMAT=TREE` to check join algorithms (Hash Join / Nested Loop).
+3. Use CTE pre-aggregation to avoid $M \times N$ row proliferation.
+4. Ensure clean fallback formatting with `COALESCE()` and `CONCAT('₹', ...)`.
+
+
+5. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Integrated multi-table queries combining CTEs, outer joins, and anti-joins.
+[x] Mastered customer 360-degree ledger reconciliation without row multiplication.
+[x] Automated shipping fulfillment gap detection using Anti-Join techniques.
+[x] Applied Non-Equi joins for dynamic loyalty tier rewards calculation.
+[x] Verified query execution plans with EXPLAIN to ensure zero unindexed full scans.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

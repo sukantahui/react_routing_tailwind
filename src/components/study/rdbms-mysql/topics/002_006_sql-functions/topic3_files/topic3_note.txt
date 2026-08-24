@@ -1,0 +1,96 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_006 - Built-in Functions, Grouping & Aggregations
+TOPIC 3: Numeric & Math Functions: ROUND, TRUNCATE, CEIL, FLOOR, ABS, MOD, POWER, SQRT
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE NUMERIC & MATHEMATICAL FUNCTIONS?
+--------------------------------------------------------------------------------
+Numeric functions are scalar mathematical operations in MySQL that perform arithmetic, 
+rounding, truncation, modulus, power, and algebraic transformations on numbers (`INT`, 
+`DECIMAL`, `FLOAT`, `DOUBLE`).
+
+Core 8 Functions Covered:
+1. `ROUND(x, d)`: Rounds `x` to `d` decimal places (half-up rounding).
+2. `TRUNCATE(x, d)`: Truncates `x` to `d` decimal places without rounding.
+3. `CEIL(x)` / `CEILING(x)`: Returns the smallest integer $\ge x$ (rounds up).
+4. `FLOOR(x)`: Returns the largest integer $\le x$ (rounds down).
+5. `ABS(x)`: Returns the absolute (positive) magnitude of `x`.
+6. `MOD(n, m)` / `%`: Returns the remainder of $n$ divided by $m$.
+7. `POWER(x, y)` / `POW(x, y)`: Calculates $x^y$.
+8. `SQRT(x)`: Calculates the square root $\sqrt{x}$.
+
+
+2. ROUND() VS TRUNCATE(): THE CRITICAL FINANCIAL DIFFERENCE
+--------------------------------------------------------------------------------
+• `ROUND(125.768, 2)` ➔ `125.77` (Examines 3rd decimal digit 8, rounds up).
+• `TRUNCATE(125.768, 2)` ➔ `125.76` (Simply chops off digits beyond position 2 without rounding).
+
+Negative Decimal Places:
+Both functions support negative `d` to round/truncate to tens, hundreds, or thousands:
+• `ROUND(1542.50, -2)` ➔ `1500.00` (Rounds to nearest hundred).
+• `ROUND(1560.00, -2)` ➔ `1600.00` (Rounds to nearest hundred).
+• `TRUNCATE(1580.00, -2)` ➔ `1500.00`.
+
+
+3. CEIL() VS FLOOR()
+--------------------------------------------------------------------------------
+• Positive Numbers:
+  `CEIL(4.1)` ➔ `5` | `FLOOR(4.9)` ➔ `4`.
+• Negative Numbers:
+  `CEIL(-4.9)` ➔ `-4` | `FLOOR(-4.1)` ➔ `-5`.
+
+Practical E-Commerce Use Cases:
+1. Pagination Page Count:
+   `CEIL(total_records / page_size)` ➔ `CEIL(105 / 10)` = `11` pages!
+2. Full Packaging Boxes:
+   `FLOOR(units_manufactured / box_capacity)` ➔ `FLOOR(105 / 10)` = `10` full boxes.
+
+
+4. ABS() & MOD()
+--------------------------------------------------------------------------------
+1. `ABS(x)`:
+   Calculates variances and discrepancies without caring about positive/negative signs:
+   `ABS(budget_amount - actual_expense)` ➔ Variance in Indian Rupee (₹).
+
+2. `MOD(n, m)` (or `n % m`):
+   • Checking Even/Odd: `WHERE MOD(student_id, 2) = 0` (Even IDs).
+   • Round-Robin Batch Assignment: `MOD(student_id, 3) + 1` (Assigns to Lab 1, 2, or 3).
+
+
+5. POWER() & SQRT()
+--------------------------------------------------------------------------------
+• Compound Interest & Depreciation:
+  $\text{Amount} = P \times \text{POWER}(1 + \frac{r}{100}, t)$.
+• Euclidean Distance & Geographic Proximity:
+  $\text{Distance} = \text{SQRT}(\text{POWER}(x_2 - x_1, 2) + \text{POWER}(y_2 - y_1, 2))$.
+
+
+6. BENCHMARK ACADEMY & COMMERCE EXAMPLES
+--------------------------------------------------------------------------------
+```sql
+-- Course fee calculations, GST, installment rounding, and pagination:
+SELECT 
+    course_id,
+    course_fee AS raw_fee,
+    ROUND(course_fee * 1.18, 2) AS fee_with_gst,
+    TRUNCATE(course_fee / 3, 2) AS monthly_installment_base,
+    CEIL(course_fee / 3) AS monthly_installment_rounded_up,
+    ABS(course_fee - 5000.00) AS variance_from_benchmark
+FROM courses;
+```
+
+
+7. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] `ROUND(x, d)` rounds half-up; `TRUNCATE(x, d)` chops off decimal digits.
+[x] Negative decimal parameters (`d < 0`) round to tens, hundreds, thousands.
+[x] Use `CEIL(total / size)` for calculating pagination page counts.
+[x] Use `ABS()` for calculating budget-versus-actual variance magnitudes.
+[x] `MOD(n, 2) = 0` filters even numbers for alternating roster splits.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

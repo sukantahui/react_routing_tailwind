@@ -1,0 +1,118 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_006 - Built-in Functions, Grouping & Aggregations
+TOPIC 0: Scalar Functions vs Aggregate Functions Overview
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE SQL FUNCTIONS?
+--------------------------------------------------------------------------------
+A SQL Function is a built-in or user-defined subroutine that accepts zero, one, or more 
+input parameters, performs a deterministic or non-deterministic computation, and returns 
+a single computed output value.
+
+In MySQL, functions are fundamentally categorized into two major classes based on their 
+cardinality transformation (how many rows they consume vs how many values they produce):
+1. Scalar Functions (Single-Row Functions)
+2. Aggregate Functions (Multi-Row / Group Functions)
+
+
+2. SCALAR FUNCTIONS (SINGLE-ROW FUNCTIONS)
+--------------------------------------------------------------------------------
+Definition:
+A `Scalar Function` operates on individual values (one row at a time) and returns exactly 
+ONE result for EVERY single input row processed.
+
+Key Characteristics:
+• Input/Output Cardinality: $1 \text{ row in } \longrightarrow 1 \text{ value out}$.
+• Evaluation Context: Can be used in `SELECT`, `WHERE`, `ORDER BY`, `HAVING`, and `ON` clauses.
+• Zero Grouping Required: Does not require a `GROUP BY` clause.
+
+Major Categories of Scalar Functions:
+1. String Functions: `CONCAT()`, `UPPER()`, `LOWER()`, `SUBSTRING()`, `LENGTH()`, `TRIM()`.
+2. Numeric & Mathematical: `ROUND()`, `CEIL()`, `FLOOR()`, `ABS()`, `MOD()`, `POWER()`.
+3. Date & Time: `NOW()`, `CURDATE()`, `DATE_ADD()`, `DATEDIFF()`, `DATE_FORMAT()`.
+4. Conditional & Control Flow: `IF()`, `IFNULL()`, `COALESCE()`, `CASE ... WHEN`.
+
+Benchmark Example:
+```sql
+SELECT 
+    student_id,
+    UPPER(student_name) AS uppercase_name,
+    CONCAT(city, ', West Bengal') AS full_location,
+    ROUND(course_fee * 1.18, 2) AS fee_with_18pct_gst
+FROM students;
+```
+If `students` has 5 rows, this query returns exactly 5 rows with transformed scalar attributes.
+
+
+3. AGGREGATE FUNCTIONS (MULTI-ROW / GROUP FUNCTIONS)
+--------------------------------------------------------------------------------
+Definition:
+An `Aggregate Function` operates on a collection of values across multiple rows (a column set 
+or partitioned group) and summarizes them into exactly ONE single scalar summary value.
+
+Key Characteristics:
+• Input/Output Cardinality: $N \text{ rows in } \longrightarrow 1 \text{ summary value out}$.
+• Evaluation Context: Primarily used in `SELECT` and `HAVING` clauses.
+• Prohibited in `WHERE` Clause: Cannot be placed directly in a `WHERE` clause because `WHERE` filters individual rows before grouping occurs.
+
+The Big 5 Standard Aggregate Functions:
+1. `COUNT()`: Counts the number of rows or non-null values.
+2. `SUM()`: Calculates the total arithmetic sum of numeric values.
+3. `AVG()`: Calculates the arithmetic mean ($\frac{\sum x}{N}$) ignoring NULLs.
+4. `MIN()`: Finds the minimum value (numeric, string alphabetical, or date).
+5. `MAX()`: Finds the maximum value.
+
+Benchmark Example:
+```sql
+SELECT 
+    COUNT(student_id) AS total_enrolled_students,
+    CONCAT('₹', FORMAT(SUM(course_fee), 2)) AS total_tuition_revenue,
+    CONCAT('₹', FORMAT(AVG(course_fee), 2)) AS average_course_fee,
+    CONCAT('₹', FORMAT(MIN(course_fee), 2)) AS lowest_course_fee,
+    CONCAT('₹', FORMAT(MAX(course_fee), 2)) AS highest_course_fee
+FROM courses;
+```
+If `courses` has 100 rows, this query compresses 100 rows into exactly 1 summary row.
+
+
+4. COMPREHENSIVE ARCHITECTURAL COMPARISON MATRIX
+--------------------------------------------------------------------------------
++-------------------------------+-----------------------------------+-----------------------------------+
+| Architectural Dimension       | Scalar Functions                  | Aggregate Functions               |
++-------------------------------+-----------------------------------+-----------------------------------+
+| Row Transformation            | 1-to-1 ($1 \to 1$)                | Many-to-1 ($N \to 1$)             |
+| Output Row Count              | Same as input table rows          | Single row (or 1 row per group)   |
+| WHERE Clause Allowed?         | YES (e.g. `WHERE LENGTH(name)>5`) | NO (Must use `HAVING` for groups) |
+| GROUP BY Requirement          | Never required                    | Required when mixing scalars      |
+| NULL Handling                 | Returns NULL for NULL arguments   | Ignores NULLs (except `COUNT(*)`) |
+| Determinism                   | Mostly deterministic              | Deterministic across dataset      |
++-------------------------------+-----------------------------------+-----------------------------------+
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Mixing Unaggregated Columns without GROUP BY:
+   In MySQL with `ONLY_FULL_GROUP_BY` enabled (default in 5.7+ and 8.0+), writing:
+   `SELECT student_name, AVG(score) FROM exam_results;`
+   triggers `ERROR 1055 (42000): In aggregated query without GROUP BY, expression of SELECT list is not in GROUP BY`.
+2. Putting Aggregate Functions in WHERE Clauses:
+   Writing `WHERE AVG(score) > 80` throws `ERROR 1111 (HY000): Invalid use of group function`.
+   Fix: Place aggregate filters in the `HAVING` clause!
+3. Forgetting NULL Elimination in `AVG()`:
+   `AVG(column)` divides by the count of NON-NULL values, not the total row count.
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Scalar functions transform individual rows 1-to-1 (`UPPER`, `ROUND`, `NOW`).
+[x] Aggregate functions compress multiple rows N-to-1 (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`).
+[x] Aggregate functions are illegal in `WHERE` clauses; filter aggregates with `HAVING`.
+[x] Aggregate functions ignore `NULL` values during calculation (except `COUNT(*)`).
+[x] Enable `ONLY_FULL_GROUP_BY` SQL mode to prevent indeterminate mixed column queries.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

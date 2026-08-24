@@ -1,0 +1,125 @@
+================================================================================
+RDBMS MySQL Course - Module 002_006: Built-in Functions, Grouping & Aggregations
+Topic 8: CASE Statement: Simple CASE vs Searched CASE Expressions
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. INTRODUCTION TO THE SQL CASE EXPRESSION
+--------------------------------------------------------------------------------
+The CASE expression is the universal, ANSI SQL-compliant conditional construct.
+Unlike procedural flow-control statements in stored procedures, the CASE
+expression can be evaluated directly inside any DQL query clause:
+- SELECT clause (derived columns, conditional labeling)
+- WHERE clause (dynamic filtering conditions)
+- ORDER BY clause (custom non-alphabetical sorting hierarchies)
+- GROUP BY clause (bucketed / categorized aggregation)
+- HAVING clause (aggregated condition thresholds)
+
+MySQL supports two distinct syntactic forms of CASE:
+1. Simple CASE: Evaluates a single base expression against discrete literal values.
+2. Searched CASE: Evaluates arbitrary boolean predicates independently in sequence.
+
+2. SIMPLE CASE SYNTAX & MECHANICS
+--------------------------------------------------------------------------------
+Syntax:
+    CASE base_expression
+        WHEN value_1 THEN result_1
+        WHEN value_2 THEN result_2
+        ...
+        [ELSE default_result]
+    END
+
+How it works:
+- MySQL evaluates `base_expression`.
+- It performs an equality check: `base_expression = value_1`, `base_expression = value_2`, etc.
+- As soon as the first exact match is found, MySQL returns the corresponding result
+  and terminates evaluation (short-circuit evaluation).
+- If no WHEN match is found, it returns the ELSE value.
+- If ELSE is omitted and no match occurs, CASE returns NULL.
+
+Limitation of Simple CASE:
+- Cannot perform range checks (<, >, BETWEEN).
+- Cannot test for NULL using IS NULL (because Simple CASE tests with '=' operator,
+  and `NULL = NULL` yields UNKNOWN, never TRUE).
+
+Example:
+    SELECT 
+        student_name,
+        branch_code,
+        CASE branch_code
+            WHEN 'BKP' THEN 'Barrackpore Central'
+            WHEN 'KOL' THEN 'Kolkata Head Office'
+            WHEN 'ICH' THEN 'Ichapur Learning Hub'
+            WHEN 'JAD' THEN 'Jadavpur Tech Center'
+            ELSE 'Other Branch'
+        END AS branch_name
+    FROM student_enrollments;
+
+3. SEARCHED CASE SYNTAX & MECHANICS
+--------------------------------------------------------------------------------
+Syntax:
+    CASE 
+        WHEN condition_1 THEN result_1
+        WHEN condition_2 THEN result_2
+        ...
+        [ELSE default_result]
+    END
+
+How it works:
+- No base expression is provided after the `CASE` keyword.
+- Each `WHEN` clause contains an independent boolean predicate.
+- MySQL evaluates predicates sequentially from top to bottom.
+- When the first predicate evaluates to TRUE, its corresponding THEN result is returned.
+- Subsequent WHEN branches are completely skipped (short-circuiting).
+- Handles complex inequalities, AND/OR logical combinations, and IS NULL tests.
+
+Example (Academic Grading & Tier Classification):
+    SELECT 
+        student_name,
+        marks_obtained,
+        CASE 
+            WHEN marks_obtained >= 90 THEN 'A+ (Outstanding)'
+            WHEN marks_obtained >= 80 THEN 'A (Excellent)'
+            WHEN marks_obtained >= 60 THEN 'B (First Class)'
+            WHEN marks_obtained >= 40 THEN 'C (Pass)'
+            WHEN marks_obtained IS NULL THEN 'Absent / Incomplete'
+            ELSE 'F (Fail)'
+        END AS performance_grade
+    FROM student_marks;
+
+4. ADVANCED PATTERN: CONDITIONAL AGGREGATION (PIVOTING WITH CASE)
+--------------------------------------------------------------------------------
+One of the most powerful database engineering techniques is nesting CASE
+inside aggregate functions (SUM, COUNT, AVG) to transpose rows into columns:
+
+    SELECT 
+        centre_location,
+        COUNT(*) AS total_admissions,
+        SUM(CASE WHEN course_type = 'Full-Stack React' THEN 1 ELSE 0 END) AS react_students,
+        SUM(CASE WHEN course_type = 'Advanced Java' THEN 1 ELSE 0 END) AS java_students,
+        SUM(CASE WHEN fee_status = 'PAID' THEN fee_amount_inr ELSE 0 END) AS collected_revenue_inr
+    FROM admissions_data
+    GROUP BY centre_location;
+
+5. CUSTOM SORTING IN ORDER BY USING CASE
+--------------------------------------------------------------------------------
+To sort rows in a non-standard business sequence (e.g. 'URGENT' > 'HIGH' > 'MEDIUM' > 'LOW'):
+
+    SELECT task_id, title, priority_level
+    FROM support_tickets
+    ORDER BY 
+        CASE priority_level
+            WHEN 'URGENT' THEN 1
+            WHEN 'HIGH' THEN 2
+            WHEN 'MEDIUM' THEN 3
+            WHEN 'LOW' THEN 4
+            ELSE 5
+        END ASC;
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always include an explicit ELSE clause to prevent accidental NULL fallbacks.
+2. Order WHEN conditions in Searched CASE from most specific to least specific.
+3. Use Searched CASE whenever handling NULL tests (e.g. WHEN col IS NULL).
+4. Leverage CASE inside SUM() for fast SQL matrix pivoting without stored procedures.
+5. In WHERE clauses, avoid wrapping index columns in CASE expressions to preserve B-Tree index efficiency.

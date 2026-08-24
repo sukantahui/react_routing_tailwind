@@ -1,0 +1,86 @@
+================================================================================
+RDBMS MySQL Course - Module 002_006: Built-in Functions, Grouping & Aggregations
+Topic 12: Filtering Grouped Data: HAVING Clause vs WHERE Clause
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. INTRODUCTION: THE TWO FILTERING LAYERS IN SQL
+--------------------------------------------------------------------------------
+In SQL, data filtering operates at two fundamentally distinct stages of the query
+execution pipeline:
+1. Row-Level Filtering (`WHERE` clause): Filters individual raw rows *before*
+   they are grouped.
+2. Group-Level Filtering (`HAVING` clause): Filters summarized group rows *after*
+   aggregation calculations have been computed.
+
+2. DETAILED COMPARISON: WHERE vs HAVING
+--------------------------------------------------------------------------------
++--------------------------+------------------------------+-------------------------------+
+| Feature / Property       | WHERE Clause                 | HAVING Clause                 |
++--------------------------+------------------------------+-------------------------------+
+| Execution Phase          | Before GROUP BY (Stage 2)    | After GROUP BY & Aggregation  |
+| Operating Level          | Individual Rows (Tuples)     | Aggregated Groups (Buckets)   |
+| Accepts Aggregates?      | NO (Error 1111: Invalid use) | YES (COUNT, SUM, AVG, etc.)   |
+| Index Utilization        | Uses B-Tree Indexes efficiently | Cannot use B-Tree indexes directly |
+| Filters Non-Aggregates?  | Yes (Fast row pruning)       | Yes (Possible but inefficient) |
+| Requirement of GROUP BY  | Independent of GROUP BY      | Usually paired with GROUP BY  |
++--------------------------+------------------------------+-------------------------------+
+
+3. WHY AGGREGATES FAIL IN THE WHERE CLAUSE (ERROR 1111)
+--------------------------------------------------------------------------------
+Attempting to filter with an aggregate function in WHERE triggers:
+  Error 1111 (HY000): Invalid use of group function.
+
+Explanation:
+- When MySQL evaluates the WHERE clause, rows are being scanned one-by-one.
+- At this stage, groups do not yet exist, and total counts, sums, or averages
+  have not been calculated.
+- Therefore, `WHERE COUNT(*) > 5` is logically impossible at this stage.
+
+Solution:
+- If filtering by an aggregate condition across groups -> Use `HAVING`.
+  `SELECT batch_name, COUNT(*) FROM batches GROUP BY batch_name HAVING COUNT(*) >= 10;`
+- If filtering individual rows against a table-wide average -> Use a Subquery in WHERE:
+  `SELECT student_name, marks FROM students WHERE marks > (SELECT AVG(marks) FROM students);`
+
+4. COMBINING WHERE AND HAVING IN A SINGLE QUERY
+--------------------------------------------------------------------------------
+Enterprise SQL queries leverage both clauses simultaneously for maximum performance:
+- `WHERE` prunes inactive/irrelevant records upfront, reducing dataset size.
+- `GROUP BY` organizes the remaining pruned records into groups.
+- `HAVING` filters the computed group metrics.
+
+Example (High-Performing Active Batches):
+    SELECT 
+        centre_city,
+        course_stream,
+        COUNT(*) AS active_students,
+        SUM(fee_paid_inr) AS collected_revenue_inr,
+        ROUND(AVG(marks_pct), 2) AS batch_avg_score
+    FROM student_enrollments
+    WHERE registration_status = 'ACTIVE' AND fee_paid_inr > 0   -- Row-level filter (prunes inactive)
+    GROUP BY centre_city, course_stream                         -- Partition into groups
+    HAVING COUNT(*) >= 5 AND AVG(marks_pct) >= 75.00             -- Group-level filter (high performers)
+    ORDER BY collected_revenue_inr DESC;
+
+5. THE HAVING CLAUSE WITHOUT GROUP BY
+--------------------------------------------------------------------------------
+When `HAVING` is used without a `GROUP BY` clause, MySQL treats the entire table
+as a single global group.
+- If the aggregate condition is satisfied, the 1 summary row is returned.
+- If not satisfied, 0 rows are returned (empty set).
+
+Example:
+    SELECT 
+        COUNT(*) AS total_students,
+        AVG(marks_pct) AS class_average
+    FROM exam_results
+    HAVING AVG(marks_pct) >= 60;  -- Returns row only if whole class average >= 60
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always push row-level column predicates to the `WHERE` clause to minimize memory
+   and CPU consumption during grouping.
+2. Reserve the `HAVING` clause strictly for conditions involving aggregate functions
+   (`HAVING COUNT(*) >= 5`, `HAVING SUM(revenue) > 100000`).
+3. Never filter unaggregated columns in `HAVING` when they can be filtered in `WHERE`.

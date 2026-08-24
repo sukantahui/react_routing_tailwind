@@ -1,0 +1,88 @@
+================================================================================
+RDBMS MySQL Course - Module 002_006: Built-in Functions, Grouping & Aggregations
+Topic 9: Aggregate Functions: COUNT(*), COUNT(col), SUM(), AVG(), MIN(), MAX()
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. INTRODUCTION TO SQL AGGREGATE FUNCTIONS
+--------------------------------------------------------------------------------
+Aggregate functions perform a calculation on a set of values across multiple rows
+and return a single scalar summary value (N -> 1 compression).
+
+Unlike scalar functions (which operate on one row at a time), aggregate functions
+summarize entire tables or subsets of rows grouped by a `GROUP BY` clause.
+
+Core SQL Aggregate Functions:
+- COUNT(*): Returns the total number of rows in the table or group, including NULLs and duplicates.
+- COUNT(column_name): Returns the number of NON-NULL values in the specified column.
+- COUNT(DISTINCT column_name): Returns the number of unique, non-null values.
+- SUM(column_name): Calculates the mathematical sum of numeric values (ignores NULLs).
+- AVG(column_name): Calculates the arithmetic mean: SUM(col) / COUNT(col) (ignores NULLs).
+- MIN(column_name): Finds the minimum value (numeric, string alphabetical, or chronological date).
+- MAX(column_name): Finds the maximum value (numeric, string alphabetical, or chronological date).
+
+2. CRITICAL BEHAVIOR: NULL VALUE HANDLING IN AGGREGATIONS
+--------------------------------------------------------------------------------
+Understanding how aggregate functions treat NULL values is essential for accuracy:
+
+1. `COUNT(*)` counts all rows regardless of whether any or all column values are NULL.
+2. `COUNT(column)` ignores rows where `column IS NULL`.
+3. `SUM(column)` skips NULL values. If all rows in the group are NULL, SUM() returns NULL!
+4. `AVG(column)` calculates `SUM(column) / COUNT(column)`. Because `COUNT(column)`
+   only counts non-null rows, NULL rows are completely excluded from both the
+   numerator and denominator.
+   - Example: Values = [100, NULL, 200].
+     AVG = (100 + 200) / 2 = 150 (NOT 300 / 3 = 100).
+5. `MIN(column)` and `MAX(column)` ignore NULL values. If all values are NULL, they return NULL.
+
+To include NULL values as zero in AVG():
+    SELECT AVG(COALESCE(score, 0)) AS average_including_absentees FROM exam_results;
+
+3. CLAUSE PLACEMENT & SQL EXECUTION ORDER
+--------------------------------------------------------------------------------
+SQL Execution Order:
+  1. FROM & JOIN
+  2. WHERE (Row-level filtering BEFORE aggregation)
+  3. GROUP BY (Grouping rows)
+  4. HAVING (Group-level filtering AFTER aggregation)
+  5. SELECT (Projection & Aggregate calculations)
+  6. DISTINCT
+  7. ORDER BY
+  8. LIMIT / OFFSET
+
+Rule:
+- Aggregate functions CANNOT be used in the WHERE clause!
+  INCORRECT: `SELECT * FROM students WHERE marks > AVG(marks);` -- Error 1111: Invalid use of group function
+  CORRECT: Subquery in WHERE: `SELECT * FROM students WHERE marks > (SELECT AVG(marks) FROM students);`
+  CORRECT: Filtering aggregated groups: `SELECT branch, AVG(marks) FROM students GROUP BY branch HAVING AVG(marks) > 75;`
+
+4. AGGREGATING NON-NUMERIC DATA (STRINGS & DATES)
+--------------------------------------------------------------------------------
+- MIN() and MAX() work seamlessly on:
+  - String/Text columns (lexicographical dictionary ordering):
+    `MIN(student_name)` -> 'Abhronila Saha'
+    `MAX(student_name)` -> 'Susmita Sen'
+  - Date & Timestamp columns (chronological ordering):
+    `MIN(admission_date)` -> Earliest admission date
+    `MAX(admission_date)` -> Latest admission date
+
+5. PRODUCTION EXAMPLES (ACADEMY & E-COMMERCE)
+--------------------------------------------------------------------------------
+Example 1: Comprehensive Financial & Enrollment Summary
+    SELECT 
+        COUNT(*) AS total_registered_students,
+        COUNT(scholarship_amount) AS students_with_scholarship,
+        COUNT(DISTINCT city) AS unique_cities_represented,
+        SUM(tuition_fee_inr) AS gross_tuition_revenue_inr,
+        COALESCE(SUM(scholarship_amount), 0) AS total_scholarships_granted_inr,
+        ROUND(AVG(tuition_fee_inr), 2) AS average_fee_per_student_inr,
+        MIN(admission_date) AS earliest_batch_start,
+        MAX(admission_date) AS latest_batch_start
+    FROM student_master;
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Use `COUNT(*)` for row counts; use `COUNT(col)` only when specifically tracking non-null completeness.
+2. Always wrap `SUM()` in `COALESCE(SUM(col), 0)` for financial reporting on filtered datasets.
+3. Be mindful that `AVG()` ignores NULLs; use `AVG(COALESCE(col, 0))` if unrecorded entries should count as zero.
+4. Never place aggregate functions directly in the `WHERE` clause; use subqueries or `HAVING`.

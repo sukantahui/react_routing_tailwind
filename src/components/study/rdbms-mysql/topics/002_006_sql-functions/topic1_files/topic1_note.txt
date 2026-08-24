@@ -1,0 +1,93 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_006 - Built-in Functions, Grouping & Aggregations
+TOPIC 1: String Functions: CONCAT, CONCAT_WS, SUBSTRING, LENGTH, CHAR_LENGTH
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE STRING FUNCTIONS?
+--------------------------------------------------------------------------------
+String functions are scalar operations designed to manipulate, concatenate, extract, 
+and inspect alphanumeric text data (`VARCHAR`, `CHAR`, `TEXT`) in MySQL.
+
+This topic focuses on the core 5 string inspection and manipulation functions:
+1. `CONCAT()`
+2. `CONCAT_WS()`
+3. `SUBSTRING()` / `SUBSTR()`
+4. `LENGTH()` (Byte length)
+5. `CHAR_LENGTH()` / `CHARACTER_LENGTH()` (Character count)
+
+
+2. CONCAT() VS CONCAT_WS()
+--------------------------------------------------------------------------------
+1. `CONCAT(str1, str2, ...)`:
+   • Concatenates two or more strings together end-to-end.
+   • ⚠️ The NULL Poisoning Trap: If ANY argument passed to `CONCAT()` is `NULL`, 
+     the entire function returns `NULL`!
+   • Example: `CONCAT('Mamata', NULL, 'Hui')` ➔ `NULL`.
+
+2. `CONCAT_WS(separator, str1, str2, ...)` (Concatenate With Separator):
+   • The first argument is the separator inserted between all subsequent string arguments.
+   • ✅ NULL Resilient: `CONCAT_WS()` automatically skips `NULL` arguments without poisoning the output!
+   • Example: `CONCAT_WS(' ', 'Mamata', NULL, 'Hui')` ➔ `'Mamata Hui'`.
+
+
+3. SUBSTRING() / SUBSTR()
+--------------------------------------------------------------------------------
+Syntax Variations:
+1. `SUBSTRING(str, start_pos)`: Extracts text from `start_pos` to the end of string.
+2. `SUBSTRING(str, start_pos, length)`: Extracts `length` characters starting from `start_pos`.
+3. `SUBSTRING(str FROM start_pos FOR length)`: Standard SQL syntax.
+
+Key Behavioral Rules:
+• 1-Indexed: In MySQL, string indexing begins at `1` (NOT 0).
+• Negative Indices: Negative start positions count backwards from the end of the string.
+  `SUBSTRING('Barrackpore', -4)` ➔ `'pore'`.
+
+
+4. LENGTH() VS CHAR_LENGTH(): THE UTF-8 MULTI-BYTE DISTINCTION
+--------------------------------------------------------------------------------
+In modern multi-lingual databases (`utf8mb4` character set):
+• `LENGTH(str)`: Returns the string length measured in BYTES.
+• `CHAR_LENGTH(str)`: Returns the string length measured in CHARACTERS / CODE POINTS.
+
+Examples:
+• ASCII Text ('Kolkata'):
+  `LENGTH('Kolkata')` = 7 bytes | `CHAR_LENGTH('Kolkata')` = 7 characters.
+• Bengali / Unicode Script ('কলকাতা'):
+  Each Bengali character consumes 3 bytes in UTF-8.
+  `LENGTH('কলকাতা')` = 18 bytes | `CHAR_LENGTH('কলকাতা')` = 6 characters!
+• Emoji ('🚀'):
+  `LENGTH('🚀')` = 4 bytes | `CHAR_LENGTH('🚀')` = 1 character.
+
+Rule of Thumb:
+Always use `CHAR_LENGTH()` when validating user interface input lengths (e.g. usernames, bios).
+
+
+5. BENCHMARK ACADEMY & COMMERCE EXAMPLES
+--------------------------------------------------------------------------------
+```sql
+-- Building clean full address strings:
+SELECT 
+    student_id,
+    CONCAT_WS(', ', student_name, street_address, city, 'West Bengal') AS full_address,
+    CONCAT('CA-', SUBSTRING(student_id, 2), '-', UPPER(SUBSTRING(student_name, 1, 3))) AS student_badge_code,
+    CHAR_LENGTH(student_name) AS name_char_count,
+    LENGTH(student_name) AS name_byte_count
+FROM students;
+```
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] `CONCAT()` returns `NULL` if any input argument is `NULL`.
+[x] `CONCAT_WS(sep, ...)` skips `NULL` arguments safely.
+[x] SQL string indices are 1-based (start position is 1).
+[x] Negative start positions in `SUBSTRING()` count backwards from string end.
+[x] `LENGTH()` measures bytes; `CHAR_LENGTH()` measures characters.
+[x] Always use `CHAR_LENGTH()` for input validation on multi-byte UTF-8 databases.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

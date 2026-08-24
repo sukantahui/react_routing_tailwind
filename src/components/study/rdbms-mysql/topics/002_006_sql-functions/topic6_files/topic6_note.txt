@@ -1,0 +1,91 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_006 - Built-in Functions, Grouping & Aggregations
+TOPIC 6: Date Extraction & Formatting: EXTRACT, DATE_FORMAT, STR_TO_DATE, YEAR, MONTH, DAY
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE DATE EXTRACTION & FORMATTING FUNCTIONS?
+--------------------------------------------------------------------------------
+Date extraction and formatting functions allow SQL developers to isolate specific components 
+of a date/time (e.g. year, month name, day of week), format raw timestamps into executive 
+reporting strings, and parse non-standard text strings back into relational date types.
+
+Key Functions Covered:
+1. Component Extractors: `YEAR()`, `MONTH()`, `DAY()` / `DAYOFMONTH()`, `HOUR()`, `MINUTE()`, `SECOND()`.
+2. Calendar Information: `MONTHNAME()`, `DAYNAME()`, `DAYOFWEEK()`, `DAYOFYEAR()`, `QUARTER()`, `WEEK()`.
+3. Standard ANSI Extractor: `EXTRACT(unit FROM date)`.
+4. Output String Formatter: `DATE_FORMAT(date, format_mask)`.
+5. Input String Parser: `STR_TO_DATE(str, format_mask)`.
+
+
+2. DATE_FORMAT() SPECIFIERS CHEATSHEET
+--------------------------------------------------------------------------------
+Format specifiers begin with a `%` symbol:
+• `%Y`: 4-digit Year (`2026`).
+• `%y`: 2-digit Year (`26`).
+• `%M`: Full Month Name (`August`).
+• `%b`: Abbreviated Month Name (`Aug`).
+• `%m`: 2-digit Month (`01` to `12`).
+• `%c`: Month without leading zero (`1` to `12`).
+• `%d`: 2-digit Day of month with leading zero (`01` to `31`).
+• `%e`: Day of month without leading zero (`1` to `31`).
+• `%D`: Day of month with English suffix (`24th`, `1st`, `2nd`, `3rd`).
+• `%W`: Full Weekday Name (`Monday`).
+• `%a`: Abbreviated Weekday (`Mon`).
+• `%H`: 24-hour Hour (`00` to `23`).
+• `%h` / `%I`: 12-hour Hour (`01` to `12`).
+• `%i`: 2-digit Minute (`00` to `59`).
+• `%s` / `%S`: 2-digit Second (`00` to `59`).
+• `%p`: AM or PM.
+
+Real-World Indian Reporting Format:
+`DATE_FORMAT(admission_date, '%d-%b-%Y')` ➔ `'24-Aug-2026'`.
+`DATE_FORMAT(NOW(), '%W, %D %M %Y at %h:%i %p')` ➔ `'Monday, 24th August 2026 at 02:30 PM'`.
+
+
+3. STR_TO_DATE(): PARSING RAW USER INPUT STRINGS
+--------------------------------------------------------------------------------
+When importing external CSV files or third-party bank statements with non-standard date text:
+• Input: `'24/08/2026'` (DD/MM/YYYY Indian format).
+• Query: `STR_TO_DATE('24/08/2026', '%d/%m/%Y')` ➔ Produces valid `DATE` `'2026-08-24'`.
+• US Format: `STR_TO_DATE('08-24-2026', '%m-%d-%Y')` ➔ `'2026-08-24'`.
+
+
+4. EXTRACT(UNIT FROM DATE)
+--------------------------------------------------------------------------------
+Standard ANSI SQL syntax to extract specific temporal parts:
+• `EXTRACT(YEAR FROM NOW())` ➔ `2026`.
+• `EXTRACT(MONTH FROM NOW())` ➔ `8`.
+• `EXTRACT(QUARTER FROM NOW())` ➔ `3`.
+• `EXTRACT(YEAR_MONTH FROM NOW())` ➔ `202608`.
+
+
+5. BENCHMARK ACADEMY & COMMERCE EXAMPLES
+--------------------------------------------------------------------------------
+```sql
+-- Generating monthly revenue summaries and executive formatted dates:
+SELECT 
+    student_id,
+    student_name,
+    DATE_FORMAT(admission_date, '%d-%b-%Y') AS display_date,
+    DAYNAME(admission_date) AS day_enrolled,
+    MONTHNAME(admission_date) AS enrollment_month,
+    QUARTER(admission_date) AS financial_quarter,
+    DATE_FORMAT(NOW(), '%D %M %Y (%h:%i %p)') AS printable_timestamp
+FROM students;
+```
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] `YEAR()`, `MONTH()`, `DAY()` extract integer date components directly.
+[x] `MONTHNAME()` and `DAYNAME()` return readable strings (`August`, `Monday`).
+[x] `DATE_FORMAT(d, mask)` formats raw dates into custom presentation strings.
+[x] `STR_TO_DATE(str, mask)` converts legacy/external strings into native SQL `DATE`.
+[x] `EXTRACT(unit FROM date)` provides ANSI-compliant temporal extraction.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

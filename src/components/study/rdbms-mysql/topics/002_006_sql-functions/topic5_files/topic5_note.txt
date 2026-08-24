@@ -1,0 +1,88 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_006 - Built-in Functions, Grouping & Aggregations
+TOPIC 5: Date Calculations: DATE_ADD, DATE_SUB, DATEDIFF, TIMEDIFF, TIMESTAMPDIFF
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE DATE CALCULATION FUNCTIONS?
+--------------------------------------------------------------------------------
+Date calculation functions in MySQL perform temporal arithmetic: adding/subtracting intervals 
+(days, months, years, hours), calculating differences between two dates/times, and computing 
+human-readable durations (e.g. age in years, shipment delay in hours).
+
+Core 5 Functions Covered:
+1. `DATE_ADD(date, INTERVAL expr unit)` / `ADDDATE()`: Adds an interval to a date/time.
+2. `DATE_SUB(date, INTERVAL expr unit)` / `SUBDATE()`: Subtracts an interval from a date/time.
+3. `DATEDIFF(expr1, expr2)`: Calculates `expr1 - expr2` in integer DAYS.
+4. `TIMEDIFF(expr1, expr2)`: Calculates `expr1 - expr2` formatted as `HH:MM:SS` (limited to 838 hours).
+5. `TIMESTAMPDIFF(unit, datetime_expr1, datetime_expr2)`: Calculates `datetime_expr2 - datetime_expr1` 
+   in specified units (YEAR, MONTH, DAY, HOUR, MINUTE, SECOND).
+
+
+2. DATE_ADD() & DATE_SUB() INTERVAL SYNTAX
+--------------------------------------------------------------------------------
+Standard Syntax:
+• `DATE_ADD(CURDATE(), INTERVAL 30 DAY)`: Adds 30 days.
+• `DATE_SUB(NOW(), INTERVAL 3 MONTH)`: Subtracts 3 months.
+• Native SQL Shorthand:
+  `CURDATE() + INTERVAL 7 DAY` or `NOW() - INTERVAL 2 HOUR`.
+
+Supported Temporal Units:
+• Single Units: `MICROSECOND`, `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`.
+• Composite Units:
+  `DAY_HOUR`: `INTERVAL '1 12' DAY_HOUR` (1 day and 12 hours).
+  `HOUR_MINUTE`: `INTERVAL '2:30' HOUR_MINUTE` (2 hours and 30 minutes).
+
+
+3. DATEDIFF() VS TIMESTAMPDIFF(): THE CRITICAL DIFFERENCE
+--------------------------------------------------------------------------------
+1. `DATEDIFF(date1, date2)`:
+   • Order of operands: `date1 - date2` (First argument minus Second argument).
+   • Return value: Integer number of DAYS only (ignores the time portion).
+   • Example: `DATEDIFF('2026-08-30', '2026-08-20')` ➔ `10` days.
+
+2. `TIMESTAMPDIFF(unit, datetime1, datetime2)`:
+   • Order of operands: `datetime2 - datetime1` (Second argument minus First argument!).
+   • Supports versatile units: `YEAR`, `MONTH`, `DAY`, `HOUR`, `MINUTE`, `SECOND`.
+   • Real-World Student Age:
+     `TIMESTAMPDIFF(YEAR, dob, CURDATE())` ➔ Returns exact completed years of age!
+
+
+4. TIMEDIFF() & ITS LIMITATIONS
+--------------------------------------------------------------------------------
+• Syntax: `TIMEDIFF(time1, time2)`: Computes difference between two times.
+• Format: Returns a `TIME` value formatted as `HH:MM:SS`.
+• ⚠️ Range Constraint: The MySQL `TIME` type has a hard range limit of `-838:59:59` to `838:59:59` (~34.9 days).
+  For time spans exceeding 34 days, always use `TIMESTAMPDIFF(HOUR, ...)`!
+
+
+5. BENCHMARK ACADEMY & COMMERCE EXAMPLES
+--------------------------------------------------------------------------------
+```sql
+-- Calculating age, course expiration date, and fee installment due dates:
+SELECT 
+    student_id,
+    student_name,
+    dob,
+    TIMESTAMPDIFF(YEAR, dob, CURDATE()) AS exact_age_years,
+    admission_date,
+    DATE_ADD(admission_date, INTERVAL 6 MONTH) AS course_completion_target,
+    DATE_ADD(admission_date, INTERVAL 30 DAY) AS first_installment_due_date,
+    DATEDIFF(CURDATE(), admission_date) AS days_since_enrollment
+FROM students;
+```
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] `DATE_ADD()` and `DATE_SUB()` adjust temporal values using `INTERVAL expr unit`.
+[x] `DATEDIFF(d1, d2)` computes `d1 - d2` in integer days.
+[x] `TIMESTAMPDIFF(unit, d1, d2)` computes `d2 - d1` in requested units (YEAR, HOUR, etc.).
+[x] Use `TIMESTAMPDIFF(YEAR, dob, CURDATE())` for computing student/employee age.
+[x] `TIMEDIFF()` is capped at 838 hours; use `TIMESTAMPDIFF(HOUR, ...)` for longer durations.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

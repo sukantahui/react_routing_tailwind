@@ -3013,6 +3013,13 @@
   .scroll-mt-6 {
     scroll-margin-top: calc(var(--spacing) * 6);
   }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thumb-slate-700 {
+    --tw-scrollbar-thumb: var(--color-slate-700);
+    scrollbar-color: var(--tw-scrollbar-thumb) var(--tw-scrollbar-track);
+  }
   .list-inside {
     list-style-position: inside;
   }
@@ -10399,6 +10406,14 @@
     --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
     --tw-gradient-stops: var(--tw-gradient-via-stops);
   }
+  .via-indigo-950\/40 {
+    --tw-gradient-via: color-mix(in srgb, oklch(25.7% 0.09 281.288) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-via: color-mix(in oklab, var(--color-indigo-950) 40%, transparent);
+    }
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
   .via-indigo-950\/70 {
     --tw-gradient-via: color-mix(in srgb, oklch(25.7% 0.09 281.288) 70%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -12605,6 +12620,9 @@
   }
   .pb-16 {
     padding-bottom: calc(var(--spacing) * 16);
+  }
+  .pb-20 {
+    padding-bottom: calc(var(--spacing) * 20);
   }
   .pb-24 {
     padding-bottom: calc(var(--spacing) * 24);
@@ -16324,6 +16342,14 @@
       color: var(--color-red-500);
     }
   }
+  .selection\:bg-cyan-500 {
+    & *::selection {
+      background-color: var(--color-cyan-500);
+    }
+    &::selection {
+      background-color: var(--color-cyan-500);
+    }
+  }
   .selection\:bg-cyan-500\/30 {
     & *::selection {
       background-color: color-mix(in srgb, oklch(71.5% 0.143 215.221) 30%, transparent);
@@ -16414,6 +16440,14 @@
     }
     &::selection {
       color: var(--color-slate-200);
+    }
+  }
+  .selection\:text-slate-900 {
+    & *::selection {
+      color: var(--color-slate-900);
+    }
+    &::selection {
+      color: var(--color-slate-900);
     }
   }
   .selection\:text-white {
@@ -17516,6 +17550,16 @@
     &:hover {
       @media (hover: hover) {
         border-color: var(--color-indigo-500);
+      }
+    }
+  }
+  .hover\:border-indigo-500\/30 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 30%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-indigo-500) 30%, transparent);
+        }
       }
     }
   }
@@ -36009,6 +36053,16 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-scrollbar-thumb {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-scrollbar-track {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;
@@ -36317,6 +36371,8 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-scrollbar-thumb: #0000;
+      --tw-scrollbar-track: #0000;
       --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
       --tw-divide-y-reverse: 0;

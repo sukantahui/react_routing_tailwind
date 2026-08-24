@@ -1,0 +1,78 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_006 - Built-in Functions, Grouping & Aggregations
+TOPIC 4: Date & Time Retrieval: NOW(), CURDATE(), CURTIME(), UTC_TIMESTAMP()
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE DATE & TIME RETRIEVAL FUNCTIONS?
+--------------------------------------------------------------------------------
+Temporal retrieval functions in MySQL return the current date, time, or timestamp from the 
+server's operating system clock or configured time zone session.
+
+Core Retrieval Functions Covered:
+1. `NOW()` / `CURRENT_TIMESTAMP()` / `CURRENT_TIMESTAMP`: Returns current `YYYY-MM-DD HH:MM:SS` in local session time zone.
+2. `CURDATE()` / `CURRENT_DATE()` / `CURRENT_DATE`: Returns current date `YYYY-MM-DD`.
+3. `CURTIME()` / `CURRENT_TIME()` / `CURRENT_TIME`: Returns current time `HH:MM:SS`.
+4. `UTC_TIMESTAMP()`: Returns current date and time in Coordinated Universal Time (UTC / GMT+0).
+5. `UTC_DATE()` & `UTC_TIME()`: Returns current date and time in UTC.
+6. `SYSDATE()`: Evaluates the exact real-time clock at the moment of function execution (unlike `NOW()`).
+
+
+2. NOW() VS SYSDATE(): THE DETERMINISM DISTINCTION
+--------------------------------------------------------------------------------
+• `NOW()`:
+  Evaluates ONCE at the start of statement execution. If a query runs for 10 seconds, 
+  every row inserted or evaluated receives the EXACT SAME timestamp!
+  ✅ Safe for binary logging and replication.
+
+• `SYSDATE()`:
+  Evaluates dynamically at the exact millisecond each individual row is processed.
+  ⚠️ Can return different timestamps within the same query and causes non-deterministic replication bugs!
+
+
+3. LOCAL TIME ZONE VS UTC: THE GLOBAL ARCHITECTURE RULE
+--------------------------------------------------------------------------------
+In India (IST - Indian Standard Time), local time is UTC+05:30.
+• `NOW()` returns: `'2026-08-24 14:15:00'` (IST).
+• `UTC_TIMESTAMP()` returns: `'2026-08-24 08:45:00'` (UTC).
+
+Global Best Practice:
+Always store timestamps in UTC (`UTC_TIMESTAMP()` or `TIMESTAMP` data type) in multi-region 
+databases, and convert to user local time zones (`CONVERT_TZ()`) at the presentation layer!
+
+
+4. FRACTIONAL SECOND PRECISION (MICROSECONDS)
+--------------------------------------------------------------------------------
+Since MySQL 5.6.4+, temporal functions support fractional second precision up to 6 digits (microseconds):
+• `NOW(3)` ➔ `'2026-08-24 14:15:00.125'` (Milliseconds).
+• `NOW(6)` ➔ `'2026-08-24 14:15:00.125482'` (Microseconds).
+
+
+5. BENCHMARK ACADEMY & COMMERCE EXAMPLES
+--------------------------------------------------------------------------------
+```sql
+-- Capturing student admission timestamps in IST and UTC:
+SELECT 
+    student_id,
+    student_name,
+    CURDATE() AS admission_date,
+    CURTIME() AS submission_time,
+    NOW() AS recorded_timestamp_ist,
+    UTC_TIMESTAMP() AS global_audit_timestamp_utc
+FROM students;
+```
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] `NOW()` returns local date and time (`YYYY-MM-DD HH:MM:SS`).
+[x] `CURDATE()` returns only date; `CURTIME()` returns only time.
+[x] `NOW()` evaluates once per statement; `SYSDATE()` evaluates per row.
+[x] `UTC_TIMESTAMP()` provides timezone-neutral timestamps for global applications.
+[x] Specify fractional seconds using `NOW(3)` or `NOW(6)` for millisecond/microsecond precision.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

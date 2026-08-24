@@ -1,0 +1,100 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_006 - Built-in Functions, Grouping & Aggregations
+TOPIC 7: Flow Control & Conditional Functions: IF(), IFNULL(), NULLIF(), COALESCE()
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE FLOW CONTROL FUNCTIONS?
+--------------------------------------------------------------------------------
+Flow control and conditional functions evaluate Boolean predicates and NULL states dynamically 
+during query evaluation, returning alternate values without requiring complex procedural blocks.
+
+Core 4 Functions Covered:
+1. `IF(expr1, expr2, expr3)`: Ternary operator ($cond \ ? \ true\_val : false\_val$).
+2. `IFNULL(expr1, expr2)`: 2-argument NULL replacement ($expr1 \text{ if not null, else } expr2$).
+3. `NULLIF(expr1, expr2)`: Returns `NULL` if $expr1 = expr2$, else returns $expr1$ (essential for zero division defense).
+4. `COALESCE(val1, val2, ..., valN)`: Multi-argument fallback (returns the FIRST non-null value in the list).
+
+
+2. IF(EXPR1, EXPR2, EXPR3)
+--------------------------------------------------------------------------------
+Syntax:
+• `expr1`: Boolean condition to evaluate (TRUE, FALSE, or NULL).
+• `expr2`: Value returned if `expr1` is TRUE (or non-zero).
+• `expr3`: Value returned if `expr1` is FALSE or NULL.
+
+Example:
+```sql
+SELECT 
+    student_name,
+    course_fee,
+    IF(course_fee >= 5000, 'Premium Course', 'Standard Course') AS tier_label
+FROM courses;
+```
+
+
+3. IFNULL() VS COALESCE()
+--------------------------------------------------------------------------------
+1. `IFNULL(expr1, expr2)`:
+   • MySQL-specific function taking exactly 2 arguments.
+   • Returns `expr1` if it is NOT NULL; otherwise returns `expr2`.
+   • Example: `IFNULL(middle_name, '')`.
+
+2. `COALESCE(val1, val2, ..., valN)`:
+   • ANSI SQL Standard function taking arbitrary (2 or more) arguments.
+   • Evaluates left-to-right and returns the FIRST non-null argument.
+   • Example: `COALESCE(personal_email, parent_email, student_phone, 'No Contact Info')`.
+   • Real-World Financial Reporting:
+     `COALESCE(SUM(order_amount), 0)` ➔ Guarantees numeric `0` instead of `NULL` on empty tables!
+
+
+4. NULLIF(): THE DIVISION BY ZERO DEFENDER
+--------------------------------------------------------------------------------
+Syntax:
+`NULLIF(expr1, expr2)`
+• If `expr1 = expr2`, returns `NULL`.
+• If `expr1 != expr2`, returns `expr1`.
+
+Critical Production Use Case (Preventing Division by Zero):
+In MySQL, dividing by zero returns `NULL` and issues a warning. Using `NULLIF(col, 0)` converts 0 
+into NULL before division:
+```sql
+-- Safe Profit Margin / Pass Rate Calculation:
+SELECT 
+    batch_name,
+    total_students,
+    passed_students,
+    ROUND((passed_students / NULLIF(total_students, 0)) * 100, 2) AS pass_percentage
+FROM batch_results;
+-- If total_students = 0, NULLIF returns NULL, preventing division by zero errors!
+```
+
+
+5. BENCHMARK ACADEMY & COMMERCE EXAMPLES
+--------------------------------------------------------------------------------
+```sql
+-- Reconciling student contact information and fee balances:
+SELECT 
+    student_id,
+    student_name,
+    IF(is_active = 1, 'Active Student', 'Archived/Inactive') AS membership_status,
+    IFNULL(phone_number, 'Pending Verification') AS contact_phone,
+    COALESCE(guardian_phone, student_phone, emergency_contact, 'N/A') AS primary_phone,
+    ROUND((paid_installments / NULLIF(total_installments, 0)) * 100, 1) AS fee_progress_pct
+FROM students;
+```
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] `IF(cond, true_val, false_val)` evaluates ternary branch logic in SELECT queries.
+[x] `IFNULL(val, default)` replaces NULLs with fallback values (2 arguments).
+[x] `COALESCE(v1, v2, ...)` returns the first non-null value across multi-argument cascades.
+[x] `NULLIF(v1, v2)` returns NULL if arguments are equal (crucial for `NULLIF(denominator, 0)`).
+[x] Standardize on ANSI-compliant `COALESCE()` for portable SQL code across database engines.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

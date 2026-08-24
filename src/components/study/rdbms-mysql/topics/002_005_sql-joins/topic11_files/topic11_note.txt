@@ -1,0 +1,118 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_005 - Mastering SQL Joins & Multi-Table Queries
+TOPIC 11: Filtering Joined Data: WHERE vs ON Clause Placement Differences
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. THE FUNDAMENTAL PUZZLE: WHERE VS ON CLAUSE
+--------------------------------------------------------------------------------
+In SQL, predicates can be placed in two primary locations:
+1. The `ON` clause (attached directly to the `JOIN` operation).
+2. The `WHERE` clause (placed after all table joins).
+
+While `ON` and `WHERE` behave identically for `INNER JOIN`, they produce radically 
+different results when applied to `LEFT (OUTER) JOIN` and `RIGHT (OUTER) JOIN`!
+
+
+2. BEHAVIOR IN INNER JOIN
+--------------------------------------------------------------------------------
+In an `INNER JOIN`, placing a non-join filter in the `ON` clause versus the `WHERE` clause 
+produces the exact same final result set.
+
+```sql
+-- Query A (Filter in ON):
+SELECT * FROM students s 
+INNER JOIN enrollments e ON s.student_id = e.student_id AND e.status = 'ACTIVE';
+
+-- Query B (Filter in WHERE):
+SELECT * FROM students s 
+INNER JOIN enrollments e ON s.student_id = e.student_id 
+WHERE e.status = 'ACTIVE';
+```
+In MySQL, both queries generate identical relational results because the query optimizer 
+pushes down predicates during query plan generation.
+
+
+3. BEHAVIOR IN LEFT (OUTER) JOIN: THE CRITICAL DIVERGENCE
+--------------------------------------------------------------------------------
+In a `LEFT JOIN`, the placement of a right-table filter changes the fundamental business logic:
+
+CASE 1: Filter in the `ON` Clause (Filters Right Table BEFORE Joining)
+```sql
+SELECT 
+    s.student_name,
+    c.course_title,
+    e.status
+FROM students s
+LEFT JOIN enrollments e 
+    ON s.student_id = e.student_id 
+   AND e.status = 'ACTIVE' -- Filter applied during join evaluation
+LEFT JOIN courses c ON e.course_id = c.course_id;
+```
+Behavior:
+• Preserves ALL students from the left table (`students`).
+• If a student has no active enrollment, the right-table attributes are filled with `NULL`.
+• Student count: 100% of students retained!
+
+CASE 2: Filter in the `WHERE` Clause (Filters Intermediate Result AFTER Joining)
+```sql
+SELECT 
+    s.student_name,
+    c.course_title,
+    e.status
+FROM students s
+LEFT JOIN enrollments e ON s.student_id = e.student_id
+LEFT JOIN courses c ON e.course_id = c.course_id
+WHERE e.status = 'ACTIVE'; -- Filter applied AFTER left join!
+```
+Behavior:
+• Discards all students whose enrollment status is `NULL` or inactive.
+• Effectively converts the `LEFT JOIN` into an `INNER JOIN`!
+• Student count: Unenrolled / inactive students are eliminated!
+
+
+4. THE BENCHMARK ACADEMY EXAMPLE
+--------------------------------------------------------------------------------
+Students:
+• Mamata (Active in MySQL)
+• Debangshu (Inactive in React)
+• Susmita (Unenrolled / NULL)
+
+Output with Filter in `ON (e.status = 'ACTIVE')`:
+| student_name  | course_title | status  |
+| ------------- | ------------ | ------- |
+| Mamata Hui    | MySQL Master | ACTIVE  |
+| Debangshu Roy | NULL         | NULL    |
+| Susmita Sen   | NULL         | NULL    |
+(All 3 students preserved!)
+
+Output with Filter in `WHERE (e.status = 'ACTIVE')`:
+| student_name  | course_title | status  |
+| ------------- | ------------ | ------- |
+| Mamata Hui    | MySQL Master | ACTIVE  |
+(Debangshu and Susmita eliminated!)
+
+
+5. FILTERING THE LEFT TABLE IN A LEFT JOIN
+--------------------------------------------------------------------------------
+What if the filter is on the LEFT table (e.g. `s.city = 'Barrackpore'`)?
+• In `WHERE (s.city = 'Barrackpore')`:
+  Restricts the entire result to students from Barrackpore.
+• In `ON (s.city = 'Barrackpore')`:
+  This is a logic anti-pattern. Students not from Barrackpore will still be returned, 
+  but with NULL enrollment columns! Always place left-table filters in the `WHERE` clause.
+
+
+6. SUMMARY CHECKLIST & RULES OF THUMB
+--------------------------------------------------------------------------------
+[x] `INNER JOIN`: `ON` and `WHERE` filter placement produces identical results.
+[x] `LEFT JOIN` Right-Table Filter in `ON`: Filters matched rows while preserving all left rows with NULLs.
+[x] `LEFT JOIN` Right-Table Filter in `WHERE`: Discards NULLs, converting the query into an INNER JOIN.
+[x] Left-Table Filters: Always place in the `WHERE` clause.
+[x] Anti-Join Pattern: Uses `WHERE right_table.id IS NULL` to explicitly find orphaned records.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

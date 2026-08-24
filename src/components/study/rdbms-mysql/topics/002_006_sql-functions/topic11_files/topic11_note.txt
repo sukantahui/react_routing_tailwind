@@ -1,0 +1,82 @@
+================================================================================
+RDBMS MySQL Course - Module 002_006: Built-in Functions, Grouping & Aggregations
+Topic 11: The GROUP BY Clause: Mechanics of Grouping and Column Selection Rules
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. INTRODUCTION TO THE GROUP BY CLAUSE
+--------------------------------------------------------------------------------
+The `GROUP BY` clause groups rows that share identical values in one or more
+columns into summary rows. It transforms raw individual records into statistical
+aggregates (e.g. totals by department, counts by city, averages by semester).
+
+Core Concept:
+  Input: N unstructured rows
+  Partitioning: Bucket rows by group key
+  Output: 1 summary row per distinct group key combination
+
+2. THE SQL EXECUTION LIFECYCLE & CLAUSE ORDER
+--------------------------------------------------------------------------------
+Understanding the logical execution order is vital for mastering GROUP BY:
+  1. FROM & JOIN     -> Locate source tables and join datasets
+  2. WHERE           -> Filter individual rows BEFORE grouping
+  3. GROUP BY        -> Partition rows into distinct buckets
+  4. HAVING          -> Filter aggregated groups AFTER grouping
+  5. SELECT          -> Compute aggregate calculations & project columns
+  6. DISTINCT        -> Eliminate duplicate output rows
+  7. ORDER BY        -> Sort final aggregated result set
+  8. LIMIT / OFFSET  -> Restrict number of output rows
+
+Key Takeaway:
+- The WHERE clause filters rows *before* GROUP BY creates buckets.
+- Aggregates cannot appear in WHERE because groups do not yet exist!
+
+3. COLUMN SELECTION RULES & ONLY_FULL_GROUP_BY
+--------------------------------------------------------------------------------
+Standard SQL Rule:
+Any column listed in the `SELECT` clause MUST satisfy one of two conditions:
+1. It is explicitly listed in the `GROUP BY` clause.
+2. It is enclosed within an aggregate function (COUNT, SUM, AVG, MIN, MAX, GROUP_CONCAT).
+
+The ONLY_FULL_GROUP_BY SQL Mode:
+- In MySQL 5.7+ and 8.0+, `ONLY_FULL_GROUP_BY` is enabled by default.
+- If you select an unaggregated column that is not in the GROUP BY clause:
+  Error 1055 (42000): 'table.col' isn't in GROUP BY clause and contains
+  nonaggregated column which is not functionally dependent on columns in GROUP BY.
+
+Why this rule exists:
+- If a group contains 5 different values for `student_name` (e.g. Mamata, Susmita, Mahima),
+  which name should MySQL pick for the single summary row?
+- Allowing arbitrary column selection leads to non-deterministic, random bugs.
+
+Functional Dependency Exception:
+- If you group by the table's PRIMARY KEY (e.g. `GROUP BY student_id`), MySQL allows
+  selecting other columns from that table (`student_name`, `email`) without aggregate
+  functions, because `student_id -> student_name` is a strict 1:1 functional dependency.
+
+4. GROUPING BY EXPRESSIONS & DERIVED COLUMNS
+--------------------------------------------------------------------------------
+MySQL allows grouping by calculated expressions and scalar functions:
+- Grouping by date extract: `GROUP BY YEAR(admission_date), MONTH(admission_date)`
+- Grouping by string initial: `GROUP BY LEFT(student_name, 1)`
+- Grouping by conditional CASE:
+    SELECT 
+        CASE WHEN marks >= 60 THEN 'First Class' ELSE 'Standard' END AS tier,
+        COUNT(*) AS student_count
+    FROM exam_marks
+    GROUP BY tier;
+
+5. PERFORMANCE & INDEXING (LOOSE VS TIGHT INDEX SCAN)
+--------------------------------------------------------------------------------
+Grouping large tables can be computationally heavy, requiring temporary tables
+and disk filesort (`Using temporary; Using filesort`).
+- An index covering the `GROUP BY` column(s) allows MySQL to perform a Tight or
+  Loose Index Scan (`Using index for group-by`), reading pre-grouped index pages
+  directly without temporary table overhead.
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Never disable `ONLY_FULL_GROUP_BY` to bypass Error 1055; rewrite the query properly.
+2. Filter unneeded rows early in the `WHERE` clause before grouping to minimize memory load.
+3. Group by the primary key when you need to project multiple entity attributes.
+4. Index grouping columns to benefit from index-based aggregation.

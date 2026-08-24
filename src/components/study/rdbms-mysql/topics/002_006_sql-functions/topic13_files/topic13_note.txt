@@ -1,0 +1,89 @@
+================================================================================
+RDBMS MySQL Course - Module 002_006: Built-in Functions, Grouping & Aggregations
+Topic 13: Grouping by Multiple Columns and Expressions
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. INTRODUCTION TO MULTI-COLUMN GROUPING
+--------------------------------------------------------------------------------
+While single-column grouping aggregates data by a single category (e.g. by city),
+real-world business intelligence requires multi-dimensional analysis:
+- City + Course Stream (e.g. Kolkata - React, Kolkata - Java, Barrackpore - React)
+- Year + Month (temporal trend breakdown)
+- Department + Job Role + Employment Type
+
+Mechanics:
+- When you specify `GROUP BY col1, col2`, MySQL forms a unique composite group key
+  `(col1_val, col2_val)`.
+- Rows are aggregated into the same bucket ONLY if they share identical values
+  for BOTH `col1` AND `col2`.
+- Total generated groups = Number of unique pairs (Cartesian subset of distinct values).
+
+2. GROUPING BY EXPRESSIONS & SCALAR TRANSFORMATIONS
+--------------------------------------------------------------------------------
+MySQL allows grouping by calculated expressions, functions, and formulas:
+
+1. Temporal Grouping:
+   `GROUP BY YEAR(admission_date), MONTH(admission_date)`
+   `GROUP BY YEAR(admission_date), QUARTER(admission_date)`
+
+2. String Normalization Grouping:
+   `GROUP BY UPPER(TRIM(city)), department_code`
+   Ensures casing inconsistencies ('kolkata', 'Kolkata', 'KOLKATA') collapse into one group.
+
+3. Numeric Histogram Binning:
+   `GROUP BY FLOOR(fee_amount_inr / 2000) * 2000`
+   Creates ₹2,000 price brackets (₹0-1999, ₹2000-3999, ₹4000-5999).
+
+4. Conditional Tier Grouping:
+   `GROUP BY CASE WHEN marks >= 75 THEN 'Distinction' ... END`
+
+3. COLUMN SELECTION RULES IN MULTI-COLUMN GROUPING
+--------------------------------------------------------------------------------
+Under MySQL's default `ONLY_FULL_GROUP_BY` mode:
+- Every unaggregated column in `SELECT` MUST be present in the `GROUP BY` list.
+- If you write `SELECT centre_city, course_stream, batch_time, COUNT(*) FROM ... GROUP BY centre_city, course_stream`,
+  the query FAILS with Error 1055 because `batch_time` is neither in GROUP BY nor in an aggregate.
+- Solution: Add `batch_time` to GROUP BY, wrap it in `GROUP_CONCAT(batch_time)`, or use `MIN(batch_time)`.
+
+4. PERFORMANCE & COMPOSITE B-TREE INDEXING
+--------------------------------------------------------------------------------
+Multi-column grouping is resource-intensive if unindexed:
+- Without an index, MySQL must materialize a temporary table on disk and perform filesort
+  (`Using temporary; Using filesort`).
+- Optimal Composite Index:
+  Create an index whose columns match the grouping order:
+  `CREATE INDEX idx_city_stream ON student_enrollments(centre_city, course_stream, fee_amount_inr);`
+- This allows MySQL to perform a Tight Index Scan, reading pre-grouped index records directly.
+
+5. PRODUCTION EXAMPLES (ACADEMY & E-COMMERCE)
+--------------------------------------------------------------------------------
+Example 1: Multi-Dimensional Center & Course Matrix
+    SELECT 
+        centre_city,
+        course_stream,
+        COUNT(*) AS enrolled_students,
+        SUM(fee_amount_inr) AS stream_revenue_inr,
+        ROUND(AVG(marks_pct), 2) AS stream_avg_score
+    FROM student_enrollments
+    WHERE admission_status = 'CONFIRMED'
+    GROUP BY centre_city, course_stream
+    ORDER BY centre_city ASC, stream_revenue_inr DESC;
+
+Example 2: Monthly Financial Trends with Expressions
+    SELECT 
+        YEAR(payment_date) AS fiscal_year,
+        MONTH(payment_date) AS fiscal_month,
+        MONTHNAME(payment_date) AS month_name,
+        COUNT(transaction_id) AS total_txns,
+        SUM(amount_inr) AS monthly_turnover_inr
+    FROM fee_transactions
+    GROUP BY YEAR(payment_date), MONTH(payment_date), MONTHNAME(payment_date)
+    ORDER BY fiscal_year DESC, fiscal_month DESC;
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Match the `SELECT` column list strictly with all non-aggregated `GROUP BY` columns.
+2. Build composite B-Tree indexes matching the `GROUP BY col1, col2` column order.
+3. Use expression aliases in MySQL to simplify readability.
+4. Filter individual rows in `WHERE` before multi-column partitioning.

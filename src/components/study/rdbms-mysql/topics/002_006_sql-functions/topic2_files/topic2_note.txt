@@ -1,0 +1,93 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_006 - Built-in Functions, Grouping & Aggregations
+TOPIC 2: String Transformations: UPPER, LOWER, TRIM, LTRIM, RTRIM, REPLACE, LPAD, RPAD
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE STRING TRANSFORMATION FUNCTIONS?
+--------------------------------------------------------------------------------
+String transformation functions are scalar operations used to clean, standardize, sanitize, 
+pad, and substitute text values stored in MySQL database tables.
+
+Key Functions Covered:
+1. Case Conversion: `UPPER()` / `UCASE()`, `LOWER()` / `LCASE()`
+2. Whitespace & Character Stripping: `TRIM()`, `LTRIM()`, `RTRIM()`
+3. Text Substitution: `REPLACE()`
+4. Fixed-Width Padding: `LPAD()`, `RPAD()`
+
+
+2. CASE CONVERSION: UPPER() & LOWER()
+--------------------------------------------------------------------------------
+• `UPPER(str)`: Converts all alphabetic characters in `str` to uppercase.
+• `LOWER(str)`: Converts all alphabetic characters in `str` to lowercase.
+
+Use Cases:
+• Standardizing user search queries: `WHERE LOWER(email) = LOWER('Student@Domain.com')`.
+• Formatting uppercase codes: `UPPER(course_code)` ➔ `'MYSQL-PRO'`.
+
+
+3. WHITESPACE STRIPPING: TRIM(), LTRIM(), RTRIM()
+--------------------------------------------------------------------------------
+• `LTRIM(str)`: Strips leading (leftmost) spaces.
+• `RTRIM(str)`: Strips trailing (rightmost) spaces.
+• `TRIM(str)`: Strips both leading and trailing spaces.
+• Advanced Syntax:
+  `TRIM(BOTH 'x' FROM str)`: Strips specific character 'x' from both ends.
+  `TRIM(LEADING '0' FROM str)`: Strips leading zeros.
+
+
+4. TEXT SUBSTITUTION: REPLACE()
+--------------------------------------------------------------------------------
+Syntax:
+`REPLACE(str, from_str, to_str)`
+
+Behavioral Rules:
+• Case-Sensitive Replacement: By default in utf8mb4 collations, `REPLACE()` is case-sensitive.
+• Global Replacement: Replaces ALL occurrences of `from_str` within `str`.
+• Substring Deletion: Passing `''` as `to_str` deletes all occurrences of `from_str`.
+  `REPLACE('983-000-1234', '-', '')` ➔ `'9830001234'`.
+
+
+5. FIXED-WIDTH PADDING: LPAD() & RPAD()
+--------------------------------------------------------------------------------
+Syntax:
+• `LPAD(str, len, pad_str)`: Left-pads string `str` with `pad_str` until total length equals `len`.
+• `RPAD(str, len, pad_str)`: Right-pads string `str` with `pad_str` until total length equals `len`.
+
+Critical Use Cases:
+1. Standardized Invoice / Roll Number Formats:
+   `LPAD(student_id, 6, '0')`: Turns `101` into `'000101'`.
+2. Fixed-Width Banking & EDI File Exports:
+   Exporting 20-character fixed-width columns for banking NEFT / RTGS settlement files.
+3. Truncation Hazard:
+   If `len` is smaller than `CHAR_LENGTH(str)`, `LPAD()` and `RPAD()` will TRUNCATE the string to `len`!
+
+
+6. BENCHMARK ACADEMY & COMMERCE EXAMPLES
+--------------------------------------------------------------------------------
+```sql
+-- Sanitizing inputs, generating standard IDs, and formatting displays:
+SELECT 
+    student_id,
+    UPPER(TRIM(student_name)) AS sanitized_name,
+    LOWER(TRIM(email)) AS standardized_email,
+    REPLACE(phone_number, '+91-', '') AS clean_phone,
+    LPAD(student_id, 6, '0') AS padded_id,
+    RPAD(course_title, 20, '.') AS fixed_display_title
+FROM students;
+```
+
+
+7. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] `UPPER()` and `LOWER()` standardize case across queries and inputs.
+[x] `TRIM()` removes leading/trailing spaces and specific character prefixes.
+[x] `REPLACE(str, from, to)` replaces all matching instances globally.
+[x] `LPAD()` and `RPAD()` generate fixed-width formatted sequence strings.
+[x] Watch out: If target length `len` is smaller than string length, padding functions truncate text.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================
