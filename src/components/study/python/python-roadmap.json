@@ -8,8 +8,8 @@
     "author": "Sukanta Hui",
     "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
     "trackType": "Python Tutorial Roadmap",
-    "version": "1.0.0",
-    "lastUpdated": "2025-12-04"
+    "version": "1.2.0",
+    "lastUpdated": "2026-08-24"
   },
   "folder": "python",
   "subject": "Python",
@@ -46,7 +46,7 @@
       "modules": [
         {
           "moduleId": "py-intro",
-          "slug": "getting-started-with-python",
+          "slug": "001_001_getting-started-with-python",
           "title": "Getting Started with Python",
           "level": "Beginner",
           "estimatedHours": 3,
@@ -114,7 +114,7 @@
         },
         {
           "moduleId": "python-syntax",
-          "slug": "python-syntax-and-basics",
+          "slug": "001_002_python-syntax-and-basics",
           "title": "Python Syntax, Variables & Data Types",
           "level": "Beginner",
           "estimatedHours": 4,
@@ -186,7 +186,7 @@
         },
         {
           "moduleId": "operators",
-          "slug": "operators-and-expressions",
+          "slug": "001_003_operators-and-expressions",
           "title": "Operators, Expressions & Basic Logic",
           "level": "Beginner",
           "estimatedHours": 4,
@@ -257,7 +257,7 @@
         },
         {
           "moduleId": "control-flow",
-          "slug": "control-flow-conditions",
+          "slug": "001_004_control-flow-conditions",
           "title": "Control Flow & Decision Making",
           "level": "Beginner",
           "estimatedHours": 4,
@@ -321,7 +321,7 @@
         },
         {
           "moduleId": "loops",
-          "slug": "loops-and-iteration",
+          "slug": "001_005_loops-and-iteration",
           "title": "Loops & Basic Iteration",
           "level": "Beginner",
           "estimatedHours": 5,
@@ -385,70 +385,83 @@
             "Control Flow module"
           ],
           "previousModule": "control-flow",
-          "nextModule": null,
+          "nextModule": "segment1-test",
           "badge": "Loop Wizard Badge"
         },
         {
           "moduleId": "segment1-test",
-          "slug": "segmment1-test",
-          "title": "Test for Segment 1",
+          "slug": "001_006_segment1-test",
+          "title": "Segment 1 – Comprehensive Foundation Assessment",
           "level": "Beginner",
-          "estimatedHours": 1,
+          "estimatedHours": 2,
           "tags": [
-            "for",
-            "while",
-            "iteration"
+            "assessment",
+            "foundation-test",
+            "quiz",
+            "mcq",
+            "evaluation"
           ],
           "topics": [
-            "Test for Segment 1"
+            "Python Introduction, Setup & Execution",
+            "Variables, Identifiers & Core Data Types",
+            "Operators, Precedence & Expression Evaluation",
+            "Conditional Logic & Decision Branching",
+            "Iteration, Nested Loops & Flow Control",
+            "Comprehensive MCQ & Code Tracing Test"
           ],
           "learningOutcomes": [
-            "Use for and while loops correctly",
-            "Control loop execution flow",
-            "Solve numeric and pattern-based problems"
+            "Evaluate full grasp of core Python fundamentals",
+            "Verify syntax understanding, debugging, and code tracing ability",
+            "Ensure readiness to progress into functions, data structures, and OOP"
           ],
           "prerequisites": [
-            "control-flow"
+            "py-intro",
+            "python-syntax",
+            "operators",
+            "control-flow",
+            "loops"
           ],
           "difficulty": "Medium",
           "difficultyIndex": 5,
-          "summary": "Repeat tasks efficiently with Python loops.",
+          "summary": "Comprehensive examination covering all topics of Segment 1 to validate solid programming foundations.",
           "miniProjects": [
-            "Mini Project: ATM Menu Program"
+            "Foundation Capstone Review: Interactive CLI Quiz & Multi-concept Problem Solving"
           ],
           "exercises": {
-            "mcq": 16,
-            "coding": 12,
+            "mcq": 50,
+            "coding": 15,
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz",
-            "passScore": 70
+            "type": "Comprehensive Segment Exam",
+            "passScore": 75
           },
           "useCases": [
-            "Processing lists",
-            "Automating repeated tasks"
+            "Validating beginner readiness for functions and advanced data structures",
+            "Diagnostic self-assessment and mock interview preparation"
           ],
           "careerSkills": [
-            "Algorithmic logic"
+            "Code tracing & debugging",
+            "Foundation concept verification"
           ],
           "commonMistakes": [
-            "Infinite loops",
-            "Wrong range() usage"
+            "Rushing through fundamentals without practicing logic tracing",
+            "Overlooking edge cases in condition checks and loop bounds"
           ],
           "references": [
-            "Python Docs – for, while",
-            "Real Python – Loops"
+            "Python Docs – Foundation Tutorial",
+            "Coder & AccoTax Foundation Review Papers"
           ],
           "teachingTips": [
-            "Use step-by-step dry runs."
+            "Encourage time-bound mock tests to build speed and accuracy.",
+            "Review incorrect MCQs systematically before moving to Segment 2."
           ],
           "preReading": [
-            "Control Flow module"
+            "Segment 1 Core Fundamentals Modules"
           ],
-          "previousModule": "control-flow",
-          "nextModule": null,
-          "badge": "Loop Wizard Badge"
+          "previousModule": "loops",
+          "nextModule": "functions-core",
+          "badge": "Foundation Master Badge"
         }
       ]
     },
@@ -456,18 +469,20 @@
       "segmentId": "intermediate",
       "title": "Segment 2 – Practical Python for Real-World Development (Intermediate)",
       "level": "Intermediate",
-      "summary": "Move from basics to real-world Python development including lists, tuples, dictionaries, functions, modules & file handling.",
+      "summary": "Move from basics to real-world Python development including functions, lists, tuples, dictionaries, sets, string processing, and robust file handling.",
       "modules": [
         {
           "moduleId": "functions-core",
-          "slug": "functions-basics",
+          "slug": "002_001_functions-basics",
           "title": "Functions & Modular Logic",
           "level": "Intermediate",
           "estimatedHours": 5,
           "tags": [
             "functions",
             "parameters",
-            "return"
+            "return",
+            "scope",
+            "lambda"
           ],
           "topics": [
             "Introduction to Functions: Definition, syntax, and purpose",
@@ -493,18 +508,18 @@
             "Short Questions"
           ],
           "learningOutcomes": [
-            "Define reusable functions",
-            "Use *args and **kwargs",
-            "Organize logic into modules"
+            "Define reusable functions and modularize program logic",
+            "Use *args, **kwargs, and default parameter mechanisms confidently",
+            "Understand variable scope, namespaces, and lambda functions"
           ],
           "prerequisites": [
-            "loops"
+            "segment1-test"
           ],
           "difficulty": "Medium",
           "difficultyIndex": 6,
-          "summary": "Create reusable building blocks using functions.",
+          "summary": "Create reusable, clean, and modular building blocks using Python functions.",
           "miniProjects": [
-            "Mini Project: Calculator with Functions"
+            "Mini Project: Multi-Utility Math & Finance Calculator with Functions"
           ],
           "exercises": {
             "mcq": 20,
@@ -512,84 +527,126 @@
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz + Project",
-            "passScore": 75
-          },
-          "nextModule": "lists"
-        },
-        {
-          "moduleId": "test-python-function",
-          "slug": "test-python-function",
-          "title": "Test Python Function",
-          "level": "Intermediate",
-          "estimatedHours": 6,
-          "visibility": "loggedIn",
-          "tags": [
-            "test",
-            "memory",
-            "address"
-          ],
-          "topics": [
-            "Test 1",
-            "Test 2 Moderate",
-            "Test3 Expert"
-          ],
-          "learningOutcomes": [
-            "Use pointers to work with memory addresses",
-            "Apply pointer arithmetic to traverse arrays",
-            "Understand the connection between arrays and pointers in C"
-          ],
-          "prerequisites": [
-            "strings-core"
-          ],
-          "difficulty": "Medium-Advanced",
-          "difficultyIndex": 7,
-          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
-          "miniProjects": [
-            "Practice: Pointers and Memory Addressing - Mini Project 1"
-          ],
-          "exercises": {
-            "mcq": 20,
-            "coding": 12,
-            "projects": 1
-          },
-          "assessment": {
-            "type": "Quiz + Mini Project",
+            "type": "Quiz + Coding Exercises",
             "passScore": 75
           },
           "useCases": [
-            "Passing large arrays efficiently to functions",
-            "Working with low level memory operations"
+            "Structuring complex scripts into modular components",
+            "Building reusable helper utilities"
           ],
           "careerSkills": [
-            "Thinking in terms of addresses and references",
-            "Understanding how higher level languages implement references"
+            "Modular code architecture",
+            "Clean code & DRY principle (Don't Repeat Yourself)"
           ],
           "commonMistakes": [
-            "Dereferencing NULL or uninitialized pointers",
-            "Incorrect pointer arithmetic that steps outside valid memory"
+            "Using mutable default arguments (e.g., def func(a=[]))",
+            "Modifying global variables without 'global' keyword declaration",
+            "Forgetting return statements resulting in unexpected None"
           ],
           "references": [
-            "Pointers in C tutorials and articles",
-            "The C Programming Language - pointers chapter"
+            "Python Docs – Defining Functions",
+            "Real Python – Defining Your Own Python Function"
           ],
           "teachingTips": [
-            "Use step by step diagrams showing addresses and contents.",
-            "Give small pointer puzzles to build intuition."
+            "Demonstrate visual function stack call diagrams.",
+            "Provide code refactoring exercises transforming raw code into clean functions."
           ],
           "preReading": [
-            "Strings and Character Arrays module"
+            "Segment 1 Core Fundamentals"
           ],
-          "previousModule": "strings-core",
-          "nextModule": "memory-dynamic",
-          "badge": "Pointer Pro Badge"
+          "previousModule": "segment1-test",
+          "nextModule": "test-python-function",
+          "badge": "Function Architect Badge"
+        },
+        {
+          "moduleId": "test-python-function",
+          "slug": "002_002_test-python-function",
+          "title": "Python Functions Assessment & Test Paper",
+          "level": "Intermediate",
+          "estimatedHours": 3,
+          "visibility": "loggedIn",
+          "tags": [
+            "functions",
+            "test-paper",
+            "args-kwargs",
+            "lambda",
+            "scope",
+            "assessment"
+          ],
+          "topics": [
+            "Function Declaration vs Function Calling Analysis",
+            "Arguments: Positional, Keyword, Default, and Required",
+            "Variable-Length Arguments (*args and **kwargs) in Practice",
+            "Return Values, NoneType Handling & Tuple Unpacking",
+            "Lambda Expressions & Higher-Order Functions",
+            "Variable Scope, Global Keyword & Lifetime Analysis",
+            "50-Marks Comprehensive Written & Descriptive Examination"
+          ],
+          "learningOutcomes": [
+            "Test mastery in designing modular and reusable Python functions",
+            "Demonstrate command over variable-length arguments (*args, **kwargs)",
+            "Explain and solve problems on variable scope, namespaces, and lambdas",
+            "Complete rigorous descriptive and coding assessments for functions"
+          ],
+          "prerequisites": [
+            "functions-core"
+          ],
+          "difficulty": "Intermediate",
+          "difficultyIndex": 6,
+          "summary": "Comprehensive 50-mark examination paper evaluating function concepts, argument passing, return mechanisms, variable scope, and lambda expressions.",
+          "miniProjects": [
+            "Complete 50-Mark Python Functions Examination Paper"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 5,
+            "descriptive": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "50-Mark Examination Paper",
+            "passScore": 75
+          },
+          "useCases": [
+            "Validating functional programming skills before data structure operations",
+            "Classroom assessment and mock technical interview readiness"
+          ],
+          "careerSkills": [
+            "Technical articulation of Python concepts",
+            "Defensive parameter handling and modular problem solving"
+          ],
+          "commonMistakes": [
+            "Confusing *args (tuple) with **kwargs (dictionary)",
+            "Misplacing default parameters before non-default parameters",
+            "Creating side-effects inside functions unintentionally"
+          ],
+          "references": [
+            "Python Docs – Defining Functions",
+            "Coder & AccoTax Python Function Test Series"
+          ],
+          "teachingTips": [
+            "Have students write detailed explanations along with code snippets.",
+            "Conduct peer code reviews for functional solutions."
+          ],
+          "preReading": [
+            "Functions & Modular Logic module"
+          ],
+          "previousModule": "functions-core",
+          "nextModule": "lists",
+          "badge": "Function Master Badge"
         },
         {
           "moduleId": "lists",
-          "slug": "lists-and-methods",
+          "slug": "002_003_lists-and-methods",
           "title": "Lists & Essential List Operations",
           "level": "Intermediate",
           "estimatedHours": 5,
+          "tags": [
+            "lists",
+            "data-structures",
+            "comprehensions",
+            "methods"
+          ],
           "topics": [
             "Introduction to lists & use cases",
             "Creating lists (literals, list constructor)",
@@ -616,20 +673,68 @@
             "Real-world use cases (queues, stacks, records)"
           ],
           "learningOutcomes": [
-            "Store and process list collections",
-            "Use comprehensions effectively"
+            "Store, slice, and manipulate dynamic collections using lists",
+            "Apply in-place mutations and built-in list methods effectively",
+            "Write concise, idiomatic list comprehensions",
+            "Work with 2D matrices and nested list structures"
           ],
           "prerequisites": [
-            "functions-core"
+            "test-python-function"
           ],
-          "difficultyIndex": 6
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Master Python lists, methods, multi-dimensional structures, and list comprehensions.",
+          "miniProjects": [
+            "Mini Project: Student Grade Ranking & Statistics Analyzer"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Exercises",
+            "passScore": 75
+          },
+          "useCases": [
+            "Managing dynamic collections and sequential records",
+            "Data transformation and filtering pipelines"
+          ],
+          "careerSkills": [
+            "Collection manipulation",
+            "Writing pythonic and clean data transformations"
+          ],
+          "commonMistakes": [
+            "Modifying a list while iterating over it",
+            "Confusing sort() (in-place) with sorted() (returns new list)",
+            "Accidental shallow copy bugs with nested lists"
+          ],
+          "references": [
+            "Python Docs – Data Structures (Lists)",
+            "Real Python – Python Lists and Tuples"
+          ],
+          "teachingTips": [
+            "Illustrate list indexing vs slicing visually.",
+            "Demonstrate the difference between aliasing (a = b) and copying (a = b.copy())."
+          ],
+          "preReading": [
+            "Functions & Loops modules"
+          ],
+          "previousModule": "test-python-function",
+          "nextModule": "tuples",
+          "badge": "List Master Badge"
         },
         {
           "moduleId": "tuples",
-          "slug": "tuples",
-          "title": "Tuples",
+          "slug": "002_004_tuples",
+          "title": "Tuples & Immutability",
           "level": "Intermediate",
-          "estimatedHours": 1,
+          "estimatedHours": 2,
+          "tags": [
+            "tuples",
+            "immutability",
+            "packing-unpacking"
+          ],
           "topics": [
             "Introduction to tuples",
             "Creating tuples (with and without parentheses)",
@@ -655,21 +760,67 @@
           ],
           "learningOutcomes": [
             "Understand and apply tuple immutability effectively",
-            "Use tuple packing and unpacking for clean code",
+            "Use tuple packing and unpacking for clean and expressive code",
             "Choose tuples appropriately for fixed and read-only data",
-            "Avoid common tuple-related mistakes"
+            "Use tuples as hashable dictionary keys"
           ],
           "prerequisites": [
             "lists"
           ],
-          "difficultyIndex": 5
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 5,
+          "summary": "Learn immutable sequences, variable unpacking, and efficient read-only data management.",
+          "miniProjects": [
+            "Mini Project: Geographic Coordinates & Immutable Record Store"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Exercises",
+            "passScore": 75
+          },
+          "useCases": [
+            "Returning multiple values from functions",
+            "Storing fixed coordinate systems and configuration constants"
+          ],
+          "careerSkills": [
+            "Data safety and immutability concepts",
+            "Memory-efficient collection design"
+          ],
+          "commonMistakes": [
+            "Forgetting trailing comma for single-element tuples: (5) vs (5,)",
+            "Attempting item assignment on immutable tuples: t[0] = 10"
+          ],
+          "references": [
+            "Python Docs – Tuples and Sequences",
+            "Real Python – Python Tuples"
+          ],
+          "teachingTips": [
+            "Show memory footprint comparison between lists and tuples.",
+            "Demonstrate pythonic variable swapping: a, b = b, a."
+          ],
+          "preReading": [
+            "Lists & Essential List Operations"
+          ],
+          "previousModule": "lists",
+          "nextModule": "dictionaries",
+          "badge": "Tuple Specialist Badge"
         },
         {
           "moduleId": "dictionaries",
-          "slug": "dictionaries",
-          "title": "Dictionaries",
+          "slug": "002_005_dictionaries",
+          "title": "Dictionaries & Key-Value Mappings",
           "level": "Intermediate",
-          "estimatedHours": 2,
+          "estimatedHours": 3,
+          "tags": [
+            "dictionaries",
+            "hash-map",
+            "key-value",
+            "comprehensions"
+          ],
           "topics": [
             "Introduction to dictionaries",
             "Dictionary structure: keys and values",
@@ -691,22 +842,68 @@
             "Test your Skill"
           ],
           "learningOutcomes": [
-            "Create, update, and manage dictionaries confidently",
-            "Handle nested and complex dictionary structures",
-            "Use dictionary comprehension for clean and efficient code",
-            "Choose dictionaries appropriately for real-world problems"
+            "Create, update, and manage key-value pairs confidently",
+            "Handle nested and complex dictionary data structures",
+            "Use dictionary comprehension for clean and efficient transformations",
+            "Safely query nested dictionaries using get() and setdefault()"
           ],
           "prerequisites": [
-            "lists"
+            "tuples"
           ],
-          "difficultyIndex": 6
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Master key-value mappings, dictionary methods, nested JSON-like structures, and dict comprehensions.",
+          "miniProjects": [
+            "Mini Project: Product Catalog & Inventory Management System"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Representing real-world entities (JSON records, user profiles)",
+            "Fast lookups, word frequency counts, and caches"
+          ],
+          "careerSkills": [
+            "Structuring associative data",
+            "Optimizing lookup operations"
+          ],
+          "commonMistakes": [
+            "Directly accessing non-existent keys triggering KeyError instead of using .get()",
+            "Using unhashable types (like lists) as dictionary keys"
+          ],
+          "references": [
+            "Python Docs – Mapping Types (dict)",
+            "Real Python – Dictionaries in Python"
+          ],
+          "teachingTips": [
+            "Compare searching in a list O(N) vs searching in a dictionary O(1).",
+            "Have students build real-world nested structures like employee records."
+          ],
+          "preReading": [
+            "Tuples & Lists modules"
+          ],
+          "previousModule": "tuples",
+          "nextModule": "sets",
+          "badge": "Dictionary Pro Badge"
         },
         {
           "moduleId": "sets",
-          "slug": "sets",
-          "title": "Sets",
+          "slug": "002_006_sets",
+          "title": "Sets & Set Operations",
           "level": "Intermediate",
-          "estimatedHours": 1,
+          "estimatedHours": 2,
+          "tags": [
+            "sets",
+            "uniqueness",
+            "math-sets",
+            "frozenset"
+          ],
           "topics": [
             "Introduction to sets",
             "Creating sets (set literal and set constructor)",
@@ -730,110 +927,290 @@
           ],
           "learningOutcomes": [
             "Work confidently with unique data collections using sets",
-            "Apply set operations to solve real-world problems",
-            "Understand mutable vs immutable sets",
-            "Choose sets appropriately for performance and uniqueness"
+            "Apply set mathematical operations (union, intersection, difference) to solve problems",
+            "Understand mutable sets vs immutable frozensets",
+            "Choose sets appropriately for fast O(1) membership testing and deduplication"
           ],
           "prerequisites": [
-            "lists"
+            "dictionaries"
           ],
-          "difficultyIndex": 5
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 5,
+          "summary": "Master distinct element collections, set theory operations, and high-performance membership checks.",
+          "miniProjects": [
+            "Mini Project: Social Network Mutual Friends & Tag Management System"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Exercises",
+            "passScore": 70
+          },
+          "useCases": [
+            "Deduplicating large collections instantly",
+            "Permission checking and tag overlap calculation"
+          ],
+          "careerSkills": [
+            "Efficient data filtering",
+            "Applying mathematical set theory in programming"
+          ],
+          "commonMistakes": [
+            "Creating an empty set with {} (which creates an empty dict) instead of set()",
+            "Using remove() on a non-existent element causing KeyError (use discard() instead)"
+          ],
+          "references": [
+            "Python Docs – Set Types",
+            "Real Python – Sets in Python"
+          ],
+          "teachingTips": [
+            "Draw Venn diagrams to visually map union, intersection, and symmetric difference.",
+            "Demonstrate instant deduplication of lists using set()."
+          ],
+          "preReading": [
+            "Dictionaries & Lists modules"
+          ],
+          "previousModule": "dictionaries",
+          "nextModule": "strings",
+          "badge": "Set Specialist Badge"
         },
         {
           "moduleId": "strings",
-          "slug": "string-processing",
+          "slug": "002_007_string-processing",
           "title": "String Processing & Pattern Handling",
           "level": "Intermediate",
           "estimatedHours": 4,
-          "topics": [
-            "String methods (upper, lower, split, replace)",
-            "Slicing",
-            "Joining lists",
-            "Escape sequences",
-            "Basic regex (concept)"
+          "tags": [
+            "strings",
+            "text-processing",
+            "regex",
+            "formatting"
           ],
-          "difficultyIndex": 6
+          "topics": [
+            "String creation, multiline strings & escape sequences",
+            "String immutability & memory representation",
+            "Indexing, slicing, step slicing & reversing strings",
+            "Essential string methods: upper, lower, title, strip, split, join, replace",
+            "Searching & validation: find, rfind, count, startswith, endswith, isdigit, isalpha",
+            "Advanced formatting: f-strings, format() method, padding, alignment",
+            "Joining lists of strings with join()",
+            "Basic regular expressions concept with re module",
+            "Pattern matching: search(), match(), findall(), sub()",
+            "Common string processing algorithms (palindromes, anagrams, word counts)"
+          ],
+          "learningOutcomes": [
+            "Clean, sanitize, and validate user textual data",
+            "Use slicing, splitting, and joining to parse raw text streams",
+            "Apply f-string formatting for structured reports",
+            "Use basic regular expressions to extract patterns"
+          ],
+          "prerequisites": [
+            "sets"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Master textual manipulation, string methods, f-strings, and pattern matching.",
+          "miniProjects": [
+            "Mini Project: Text Analyzer, Word Frequency Counter & Password Strength Validator"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Exercises",
+            "passScore": 75
+          },
+          "useCases": [
+            "Data cleaning and text mining",
+            "Form validation (emails, phone numbers, passwords)"
+          ],
+          "careerSkills": [
+            "Data preprocessing",
+            "Text mining & string algorithm proficiency"
+          ],
+          "commonMistakes": [
+            "Attempting in-place string modification: s[0] = 'H'",
+            "Using + in a loop to concatenate strings (slow O(N^2)) instead of ''.join()"
+          ],
+          "references": [
+            "Python Docs – String Methods",
+            "Real Python – Python String Formatting"
+          ],
+          "teachingTips": [
+            "Demonstrate why ''.join(list) is dramatically faster than string concatenation in loops.",
+            "Build a mini interactive text transformation pipeline."
+          ],
+          "preReading": [
+            "Lists & Sets modules"
+          ],
+          "previousModule": "sets",
+          "nextModule": "file-handling",
+          "badge": "Text Processing Pro Badge"
         },
         {
           "moduleId": "file-handling",
-          "title": "File Handling",
-          "slug": "file-handling",
+          "slug": "002_008_file-handling",
+          "title": "File Handling & Persistence (Text, CSV & JSON)",
+          "level": "Intermediate",
           "estimatedHours": 8,
-          "difficultyIndex": 7,
+          "tags": [
+            "file-io",
+            "csv",
+            "json",
+            "context-managers"
+          ],
           "topics": [
-            "Introduction to File Handling",
+            "Introduction to File Handling & Persistence",
             "Why File Handling is Needed",
-            "Types of Files",
-            "Text Files vs Binary Files",
-            "File Paths (Absolute & Relative)",
-            "Current Working Directory",
-            "Opening Files with open()",
-            "File Object",
-            "File Modes (r, w, a, x)",
-            "Read & Write Modes (r+, w+, a+)",
+            "Types of Files: Text Files vs Binary Files",
+            "File Paths: Absolute & Relative Paths",
+            "Current Working Directory & os path management",
+            "Opening Files with open() and File Modes (r, w, a, x, r+, w+, a+)",
             "Binary File Modes (rb, wb, ab, rb+, wb+, ab+)",
-            "Closing Files",
-            "Using with open() as file",
-            "Reading Files using read()",
-            "Reading Files using read(size)",
-            "Reading Files using readline()",
-            "Reading Files using readlines()",
-            "Reading Files Line by Line",
-            "Writing Files using write()",
-            "Writing Multiple Lines using writelines()",
-            "Appending Data to Files",
-            "File Pointer",
-            "tell() Method",
-            "seek() Method",
-            "Reading Binary Files",
-            "Writing Binary Files",
-            "Copying Binary Files",
-            "Working with Bytes",
-            "Working with Bytearray",
-            "CSV File Handling",
-            "csv.reader()",
-            "csv.writer()",
-            "csv.DictReader()",
-            "csv.DictWriter()",
-            "JSON File Handling",
-            "json.load()",
-            "json.loads()",
-            "json.dump()",
-            "json.dumps()",
-            "File Encoding (UTF-8, ASCII)",
-            "Handling Unicode Text",
-            "Checking File Existence",
-            "Creating Files",
-            "Renaming Files",
-            "Deleting Files",
-            "Creating Directories",
-            "Removing Directories",
-            "Listing Directory Contents",
-            "FileNotFoundError",
-            "PermissionError",
-            "IOError",
-            "UnicodeDecodeError",
-            "Exception Handling with try-except-finally",
-            "Best Practices for File Handling",
-            "Student Record Management Project",
-            "CSV Database Project",
-            "JSON Configuration Project",
-            "Binary File Copy Project"
-          ]
+            "The with statement & automatic resource cleanup",
+            "Reading Files: read(), read(size), readline(), readlines()",
+            "Iterating Over Files Line by Line for Memory Efficiency",
+            "Writing Files: write(), writelines(), appending data",
+            "File Pointer Manipulation: tell() and seek()",
+            "Working with Bytes & Bytearray for Binary Files",
+            "CSV File Handling with csv module (reader, writer, DictReader, DictWriter)",
+            "JSON Serialization & Deserialization: json.load(), json.loads(), json.dump(), json.dumps()",
+            "File Encoding (UTF-8, ASCII) & Unicode Handling",
+            "File Existence Checks & Safe File Deletion/Renaming",
+            "Exception Handling in I/O (FileNotFoundError, PermissionError, UnicodeDecodeError)",
+            "Best Practices for Production File Handling"
+          ],
+          "learningOutcomes": [
+            "Read and write text, CSV, and JSON files reliably using the with context manager",
+            "Handle file pointers, binary files, and custom encodings safely",
+            "Prevent data loss through proper exception handling and defensive I/O",
+            "Build complete data storage and reporting workflows"
+          ],
+          "prerequisites": [
+            "strings"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master file I/O operations, context managers, structured CSV and JSON data persistence.",
+          "miniProjects": [
+            "Project 1: Student Record CSV Database System",
+            "Project 2: JSON-Based Application Configuration & State Store"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Quiz + Practical Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Persisting application state between runs",
+            "Exporting reports to CSV and consuming JSON APIs"
+          ],
+          "careerSkills": [
+            "Data persistence engineering",
+            "Safe resource and context management"
+          ],
+          "commonMistakes": [
+            "Opening files without 'with' statement and forgetting to close them",
+            "Overwriting files unintentionally with 'w' mode instead of 'a'",
+            "Ignoring UTF-8 encoding causing UnicodeDecodeErrors on different OSs"
+          ],
+          "references": [
+            "Python Docs – Reading and Writing Files",
+            "Real Python – Working with Files in Python"
+          ],
+          "teachingTips": [
+            "Show live examples of memory leaks from unclosed file handles.",
+            "Compare manual CSV parsing vs csv.DictReader()."
+          ],
+          "preReading": [
+            "Strings & Dictionaries modules"
+          ],
+          "previousModule": "strings",
+          "nextModule": "modules-packages",
+          "badge": "File Handling Master Badge"
         },
         {
           "moduleId": "modules-packages",
-          "slug": "modules-packages",
+          "slug": "002_009_modules-packages",
           "title": "Modules, Packages & Python Standard Library",
+          "level": "Intermediate",
           "estimatedHours": 5,
-          "topics": [
-            "import & from-import",
-            "Built-in modules: math, random, datetime",
-            "Creating user-defined modules",
-            "Concept of packages",
-            "Working with Virtual Environment (concept)"
+          "tags": [
+            "modules",
+            "packages",
+            "standard-library",
+            "virtualenv"
           ],
-          "difficultyIndex": 7
+          "topics": [
+            "import & from-import syntax variations",
+            "Module search path (sys.path) and module namespace",
+            "Built-in standard library modules: math, random, datetime, sys, os",
+            "Creating and structuring custom user-defined modules",
+            "The __name__ == '__main__' idiom explained with practical use cases",
+            "Concept of packages & __init__.py files",
+            "Relative vs absolute imports in packages",
+            "Third-party packages and pip package manager",
+            "Creating and managing Virtual Environments (venv)",
+            "requirements.txt generation and dependency management"
+          ],
+          "learningOutcomes": [
+            "Organize code into modular files and reusable multi-file packages",
+            "Utilize core Python standard library modules effectively",
+            "Use __name__ == '__main__' for script execution and testing",
+            "Create isolated virtual environments and manage package dependencies"
+          ],
+          "prerequisites": [
+            "file-handling"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 7,
+          "summary": "Learn to structure large codebases with modules, packages, the standard library, and virtual environments.",
+          "miniProjects": [
+            "Mini Project: Custom Multi-Module Finance & Math Toolkit Package"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Package Design",
+            "passScore": 75
+          },
+          "useCases": [
+            "Structuring large multi-developer Python applications",
+            "Distributing reusable libraries and isolating production dependencies"
+          ],
+          "careerSkills": [
+            "Software architecture & modular design",
+            "Environment management & dependency reproducibility"
+          ],
+          "commonMistakes": [
+            "Naming custom files after standard modules (e.g. naming a file random.py or math.py)",
+            "Circular import dependencies between modules"
+          ],
+          "references": [
+            "Python Docs – Modules and Packages",
+            "Real Python – Python Modules and Packages"
+          ],
+          "teachingTips": [
+            "Walk through creating a clean project directory layout.",
+            "Demonstrate step-by-step how circular imports happen and how to resolve them."
+          ],
+          "preReading": [
+            "Functions & File Handling modules"
+          ],
+          "previousModule": "file-handling",
+          "nextModule": "oop-basics",
+          "badge": "Package Architect Badge"
         }
       ]
     },
@@ -841,132 +1218,394 @@
       "segmentId": "advanced",
       "title": "Segment 3 – Advanced Python Programming",
       "level": "Advanced",
-      "summary": "Deepen your Python mastery with OOP, exceptions, advanced functions, decorators, generators, JSON, and more.",
+      "summary": "Deepen your Python mastery with Object-Oriented Programming (OOP), robust exception handling, closures, decorators, generators, and advanced comprehensions.",
       "modules": [
         {
           "moduleId": "oop-basics",
-          "slug": "object-oriented-python",
-          "title": "Object-Oriented Programming in Python",
-          "estimatedHours": 6,
-          "topics": [
-            "Classes & objects",
-            "Constructors (__init__)",
-            "Methods & attributes",
-            "Class variables vs instance variables",
-            "Inheritance & method overriding",
-            "super() keyword",
-            "Polymorphism & abstraction"
+          "slug": "003_001_object-oriented-python",
+          "title": "Object-Oriented Programming (OOP) in Python",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": [
+            "oop",
+            "classes",
+            "objects",
+            "inheritance",
+            "polymorphism"
           ],
-          "difficultyIndex": 8
-        },
-        {
-          "moduleId": "exceptions-basic",
-          "slug": "basic-exception-handling",
-          "title": "Basic Exception Handling",
-          "level": "Beginner–Intermediate",
-          "estimatedHours": 3,
-          "difficulty": "Medium",
-          "difficultyIndex": 5,
-          "summary": "Learn how to handle runtime errors gracefully and make Python programs robust, user-friendly, and crash-free.",
           "topics": [
-            "What are runtime errors and why they occur",
-            "Difference between syntax errors and runtime errors",
-            "Common Python exceptions: ValueError, TypeError, ZeroDivisionError",
-            "try and except blocks",
-            "Handling multiple exceptions",
-            "Using else with try-except",
-            "Basic input validation using exception handling",
-            "Raising custom exceptions",
-            "Debugging using breakpoints",
-            "Common Python errors",
-            "Writing safe and fault-tolerant programs"
+            "OOP Paradigm: Procedural vs Object-Oriented thinking",
+            "Classes, Instances & Objects: syntax and lifecycle",
+            "Constructors & the __init__() method",
+            "Instance methods & the self parameter",
+            "Class attributes vs Instance attributes",
+            "Class methods (@classmethod) & Static methods (@staticmethod)",
+            "Encapsulation & Data Hiding (Public, Protected _var, Private __var, Name Mangling)",
+            "Properties & Getters/Setters with @property",
+            "Inheritance: Single, Multiple, Multilevel, and Hierarchical",
+            "Method Overriding & super() function",
+            "Method Resolution Order (MRO)",
+            "Polymorphism & Duck Typing in Python",
+            "Magic / Dunder Methods: __str__, __repr__, __len__, __eq__, __add__",
+            "Abstract Base Classes (abc module)"
           ],
           "learningOutcomes": [
-            "Explain the difference between syntax errors and runtime errors",
-            "Handle common Python exceptions confidently",
-            "Prevent program crashes using try-except blocks",
-            "Validate user input safely",
-            "Write beginner-level robust Python programs"
+            "Model real-world entities into cohesive classes and objects",
+            "Implement inheritance, method overriding, and polymorphism correctly",
+            "Use encapsulation, property decorators, and dunder methods for pythonic classes",
+            "Apply OOP design principles (SOLID basics) in Python applications"
           ],
           "prerequisites": [
-            "control-flow",
-            "loops"
+            "modules-packages"
           ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Master Object-Oriented design, classes, inheritance, dunder methods, and polymorphism in Python.",
           "miniProjects": [
-            "Safe Calculator with Exception Handling",
-            "Student Marks Input Validation System"
+            "Mini Project 1: Banking System with Accounts, Transactions & Interest Logic",
+            "Mini Project 2: Library & Book Rental Management OOP System"
           ],
           "exercises": {
-            "mcq": 12,
-            "coding": 8,
+            "mcq": 22,
+            "coding": 14,
             "projects": 2
           },
           "assessment": {
-            "type": "Quiz + Coding Exercise",
-            "passScore": 70
+            "type": "Quiz + Capstone OOP Project",
+            "passScore": 75
           },
           "useCases": [
-            "Preventing program crashes due to wrong input",
-            "Building reliable calculators",
-            "Handling unexpected user behavior"
+            "Building scalable enterprise applications and game entities",
+            "Designing clean API clients and domain models"
+          ],
+          "careerSkills": [
+            "Object-oriented software design",
+            "Clean abstraction & maintainable domain modeling"
+          ],
+          "commonMistakes": [
+            "Forgetting 'self' as the first parameter in instance methods",
+            "Modifying class variables through instances expecting class-level changes",
+            "Over-complicating designs with unnecessary deep inheritance hierarchies"
+          ],
+          "references": [
+            "Python Docs – Classes",
+            "Real Python – Object-Oriented Programming (OOP) in Python 3"
+          ],
+          "teachingTips": [
+            "Start with physical analogies (Blueprints vs Houses).",
+            "Show how magic methods make custom objects behave like native Python types."
+          ],
+          "preReading": [
+            "Modules & Packages module"
+          ],
+          "previousModule": "modules-packages",
+          "nextModule": "exceptions-basic",
+          "badge": "OOP Champion Badge"
+        },
+        {
+          "moduleId": "exceptions-basic",
+          "slug": "003_002_basic-exception-handling",
+          "title": "Robust Exception Handling & Defensive Coding",
+          "level": "Intermediate-Advanced",
+          "estimatedHours": 4,
+          "tags": [
+            "exceptions",
+            "try-except",
+            "debugging",
+            "custom-exceptions"
+          ],
+          "topics": [
+            "What are runtime errors and why they occur",
+            "Difference between syntax errors and runtime exceptions",
+            "Python Exception Hierarchy (BaseException, Exception, Standard Exceptions)",
+            "Common built-in exceptions: ValueError, TypeError, IndexError, KeyError, ZeroDivisionError",
+            "try, except, else, and finally blocks architecture",
+            "Handling specific multiple exceptions vs bare except traps",
+            "Accessing exception objects with as (e.g., except ValueError as e)",
+            "Raising exceptions intentionally using raise keyword",
+            "Creating User-Defined Custom Exception Classes",
+            "Exception Chaining (raise ... from ...)",
+            "Using assertions with assert for internal invariant checks",
+            "Debugging techniques & pdb breakpoints",
+            "Best practices: Fail fast, log errors, defensive programming"
+          ],
+          "learningOutcomes": [
+            "Prevent program crashes through structured try-except-else-finally blocks",
+            "Distinguish error types and handle them specifically without masking bugs",
+            "Create custom exception classes tailored to domain logic",
+            "Apply defensive coding techniques in production applications"
+          ],
+          "prerequisites": [
+            "oop-basics"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master exception handling, custom exception architectures, and write crash-proof production code.",
+          "miniProjects": [
+            "Mini Project 1: Safe Multi-Operation Calculator with Fault-Tolerant Input",
+            "Mini Project 2: Robust User Registration & Data Validation Engine with Custom Exceptions"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Quiz + Coding Exercises",
+            "passScore": 75
+          },
+          "useCases": [
+            "Building fault-tolerant server endpoints and CLI tools",
+            "Validating user inputs and network responses safely"
           ],
           "careerSkills": [
             "Defensive programming mindset",
-            "Writing production-safe beginner code",
-            "Understanding real-world error scenarios"
+            "Production reliability & structured error logging"
           ],
           "commonMistakes": [
-            "Catching all exceptions using bare except",
-            "Using exceptions instead of proper logic checks",
-            "Ignoring error messages without understanding them"
-          ],
-          "teachingTips": [
-            "Demonstrate program crash vs handled execution",
-            "Use real-life analogies (seat belts, safety nets)",
-            "Encourage students to read error messages carefully"
+            "Using bare except: or except Exception: pass which silences critical bugs",
+            "Using exceptions for ordinary control flow logic instead of conditionals"
           ],
           "references": [
             "Python Docs – Errors and Exceptions",
-            "Real Python – Python Exceptions"
+            "Real Python – Python Exceptions: An Introduction"
           ],
-          "badge": "Exception Handler Badge",
-          "previousModule": "loops",
-          "nextModule": "functions-core"
+          "teachingTips": [
+            "Demonstrate a live program crash vs gracefully handled recovery.",
+            "Emphasize the purpose of the 'finally' clause for guaranteed resource cleanup."
+          ],
+          "preReading": [
+            "OOP Basics module"
+          ],
+          "previousModule": "oop-basics",
+          "nextModule": "decorators-gen",
+          "badge": "Exception Handler Badge"
         },
         {
           "moduleId": "decorators-gen",
-          "slug": "decorators-generators",
+          "slug": "003_003_decorators-generators",
           "title": "Decorators, Generators & Iterators",
-          "topics": [
-            "Advanced functions",
-            "Closures",
-            "Decorators (function & syntax)",
-            "Yield & generators",
-            "Custom iterators"
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "decorators",
+            "generators",
+            "iterators",
+            "closures",
+            "yield"
           ],
-          "difficultyIndex": 9
+          "topics": [
+            "First-Class Functions: Passing and returning functions",
+            "Inner functions and variable scope closures",
+            "Understanding Decorators: Concept and @decorator syntax",
+            "Writing custom decorators (logging, timing execution, authentication)",
+            "Decorators with arguments & functools.wraps preservation",
+            "Chaining multiple decorators",
+            "Iteration protocol: __iter__() and __next__()",
+            "Creating custom iterator classes",
+            "Generators & the yield statement",
+            "Generator functions vs regular functions",
+            "Generator expressions for memory efficiency",
+            "Infinite streams and large data processing with generators"
+          ],
+          "learningOutcomes": [
+            "Write custom decorators for logging, timing, and validation",
+            "Preserve function metadata with functools.wraps",
+            "Build custom iterator classes using __iter__ and __next__",
+            "Use generators and yield to stream large datasets with minimal memory overhead"
+          ],
+          "prerequisites": [
+            "exceptions-basic"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 9,
+          "summary": "Master metaprogramming with decorators, closures, custom iterators, and memory-efficient generators.",
+          "miniProjects": [
+            "Mini Project 1: Performance Profiler & Authorization Decorator Suite",
+            "Mini Project 2: High-Performance Large Log File Streamer using Generators"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Exercises",
+            "passScore": 75
+          },
+          "useCases": [
+            "Adding logging, authentication, and caching to web frameworks (Flask/FastAPI/Django)",
+            "Processing massive gigabyte-scale datasets without memory exhaustion"
+          ],
+          "careerSkills": [
+            "Advanced metaprogramming",
+            "Memory-optimized algorithmic streaming"
+          ],
+          "commonMistakes": [
+            "Forgetting @functools.wraps causing function names and docstrings to be lost",
+            "Consuming a generator once and expecting it to restart automatically"
+          ],
+          "references": [
+            "Python Docs – Generators & Iterators",
+            "Real Python – Primer on Python Decorators"
+          ],
+          "teachingTips": [
+            "Compare memory usage between a 10-million element list vs a generator.",
+            "Step through decorator execution order with print statements."
+          ],
+          "preReading": [
+            "Functions & Exception Handling modules"
+          ],
+          "previousModule": "exceptions-basic",
+          "nextModule": "json-handling",
+          "badge": "Pythonic Magician Badge"
         },
         {
           "moduleId": "json-handling",
-          "slug": "working-with-json",
-          "title": "Working with JSON & External Data",
-          "topics": [
-            "json.dumps() & json.loads()",
-            "Reading JSON files",
-            "Building small JSON-based apps"
+          "slug": "003_004_working-with-json",
+          "title": "Working with JSON & External Data APIs",
+          "level": "Intermediate-Advanced",
+          "estimatedHours": 4,
+          "tags": [
+            "json",
+            "api",
+            "serialization",
+            "data-parsing"
           ],
-          "difficultyIndex": 8
+          "topics": [
+            "JSON Format overview: types, syntax, and schema standards",
+            "JSON in Python: Mapping Python types to JSON types",
+            "Serialization: json.dump() vs json.dumps() with indent, sort_keys",
+            "Deserialization: json.load() vs json.loads()",
+            "Handling custom Python objects with custom JSONEncoders & object_hook",
+            "Working with nested JSON structures and API payloads",
+            "Consuming REST API data using urllib / requests",
+            "Validating and sanitizing JSON data schemas",
+            "Building JSON-backed persistent data stores"
+          ],
+          "learningOutcomes": [
+            "Serialize complex Python objects into formatted JSON strings and files",
+            "Parse, filter, and extract data from deeply nested JSON API payloads",
+            "Write custom JSON encoders and decoders for complex domain objects",
+            "Build persistent JSON-based mini databases"
+          ],
+          "prerequisites": [
+            "decorators-gen"
+          ],
+          "difficulty": "Intermediate-Advanced",
+          "difficultyIndex": 8,
+          "summary": "Master JSON data interchange, serialization, custom object hooks, and external API integration.",
+          "miniProjects": [
+            "Mini Project: Weather & Currency REST API Consumer & Local Cache Engine"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + API Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Integrating with backend REST APIs and microservices",
+            "Configuration file storage and data transfer"
+          ],
+          "careerSkills": [
+            "Data serialization standards",
+            "REST API consumption & payload parsing"
+          ],
+          "commonMistakes": [
+            "Trying to serialize non-supported types (like datetime or custom classes) without custom encoders",
+            "Confusing json.dump (files) with json.dumps (strings)"
+          ],
+          "references": [
+            "Python Docs – json module",
+            "Real Python – Working With JSON Data in Python"
+          ],
+          "teachingTips": [
+            "Show live API responses and have students write parsing pipelines.",
+            "Demonstrate pretty-printing with indent=4."
+          ],
+          "preReading": [
+            "Dictionaries & File Handling modules"
+          ],
+          "previousModule": "decorators-gen",
+          "nextModule": "comprehensions-advanced",
+          "badge": "JSON Data Pro Badge"
         },
         {
           "moduleId": "comprehensions-advanced",
-          "slug": "advance-comprehensions",
-          "title": "Advanced Comprehensions & Lambda Expressions",
-          "topics": [
-            "List, dict & set comprehensions",
-            "Conditional comprehensions",
-            "Lambda, map, filter & reduce"
+          "slug": "003_005_advance-comprehensions",
+          "title": "Advanced Comprehensions & Functional Programming",
+          "level": "Advanced",
+          "estimatedHours": 4,
+          "tags": [
+            "comprehensions",
+            "functional",
+            "lambda",
+            "map-filter-reduce"
           ],
-          "difficultyIndex": 8
+          "topics": [
+            "Deep Dive: List, Dict, and Set Comprehensions",
+            "Nested and Multi-variable Comprehensions with filtering",
+            "Readability guidelines: When to use comprehensions vs loops",
+            "Functional tools: map(), filter(), and functools.reduce()",
+            "any() and all() predicates for quick boolean checks",
+            "zip() and itertools module essentials (count, cycle, repeat, chain)",
+            "Pure functions & immutable programming principles in Python",
+            "Building clean data transformation pipelines"
+          ],
+          "learningOutcomes": [
+            "Write clean, readable, multi-clause comprehensions across lists, sets, and dictionaries",
+            "Apply functional programming tools (map, filter, reduce, itertools) to transform data",
+            "Evaluate when comprehensions improve readability vs when regular loops are preferable",
+            "Construct concise data transformation pipelines"
+          ],
+          "prerequisites": [
+            "json-handling"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Master advanced comprehension techniques, functional data pipelines, map, filter, reduce, and itertools.",
+          "miniProjects": [
+            "Mini Project: E-Commerce Transaction Aggregator & Analytics Pipeline"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Exercises",
+            "passScore": 75
+          },
+          "useCases": [
+            "Data analytics and feature engineering pipelines",
+            "High-density data transformations in backends and algorithms"
+          ],
+          "careerSkills": [
+            "Functional programming mindset",
+            "Writing idiomatic, high-velocity Python"
+          ],
+          "commonMistakes": [
+            "Writing over-complex multi-line nested comprehensions that sacrifice readability",
+            "Forgetting that map() and filter() return lazy iterators in Python 3"
+          ],
+          "references": [
+            "Python Docs – Functional Programming HOWTO",
+            "Real Python – Python List Comprehensions"
+          ],
+          "teachingTips": [
+            "Refactor 10-line loop code blocks into 1-2 line idiomatic expressions.",
+            "Emphasize the Zen of Python: 'Readability counts'."
+          ],
+          "preReading": [
+            "Lists, Dictionaries, and Decorators modules"
+          ],
+          "previousModule": "json-handling",
+          "nextModule": "advanced-file-os",
+          "badge": "Comprehension Guru Badge"
         }
       ]
     },
@@ -974,55 +1613,305 @@
       "segmentId": "pro",
       "title": "Segment 4 – Python Pro Level & Ecosystem Mastery",
       "level": "Pro",
-      "summary": "Master-level Python concepts for production applications including file operations, optimization, modules, testing and best practices.",
+      "summary": "Master production-level engineering concepts: OS automation, performance profiling, Big-O algorithm optimization, unit testing, and full capstone project deployment.",
       "modules": [
         {
           "moduleId": "advanced-file-os",
-          "slug": "filesystem-os",
-          "title": "Advanced File Operations & OS Module",
-          "topics": [
-            "os & sys module",
-            "Directory traversal",
-            "Creating backup scripts",
-            "Automating repetitive tasks"
+          "slug": "004_001_filesystem-os",
+          "title": "Advanced File Operations, OS & Subprocess Automation",
+          "level": "Pro",
+          "estimatedHours": 6,
+          "tags": [
+            "os",
+            "sys",
+            "pathlib",
+            "subprocess",
+            "automation"
           ],
-          "difficultyIndex": 9
+          "topics": [
+            "os module: environment variables, cwd, file system queries",
+            "Modern path manipulation with pathlib.Path",
+            "Directory traversal: os.walk(), scandir(), and glob patterns",
+            "shutil module: copying, moving, archiving, and recursive deletions",
+            "Command-line arguments parsing: sys.argv & argparse module",
+            "Running external shell commands using subprocess module (run, Popen, pipes)",
+            "Building automated system maintenance scripts",
+            "Automated directory backup and file organizer scripts"
+          ],
+          "learningOutcomes": [
+            "Use pathlib and os.walk to automate complex filesystem operations",
+            "Execute system commands and capture outputs securely using subprocess",
+            "Build production-ready CLI tools with arguments via argparse",
+            "Write cross-platform automation and maintenance scripts"
+          ],
+          "prerequisites": [
+            "comprehensions-advanced"
+          ],
+          "difficulty": "Pro",
+          "difficultyIndex": 9,
+          "summary": "Learn to write real-world automation scripts, system utilities, and CLI tools using OS, pathlib, and subprocess.",
+          "miniProjects": [
+            "Mini Project: Automated Directory Organizer & Backup Engine CLI Tool"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Automation Script Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "DevOps automation, batch renaming, file backups, and log archiving",
+            "Automated data ingestion pipelines"
+          ],
+          "careerSkills": [
+            "CLI tool development",
+            "System administration & task automation"
+          ],
+          "commonMistakes": [
+            "Hardcoding OS-specific path separators ('\\' vs '/') instead of using pathlib.Path",
+            "Using shell=True in subprocess without sanitizing inputs (command injection vulnerability)"
+          ],
+          "references": [
+            "Python Docs – os and pathlib modules",
+            "Real Python – Python's pathlib Module: Taming the File System"
+          ],
+          "teachingTips": [
+            "Build an interactive script that cleans up a messy Downloads folder.",
+            "Demonstrate safe subprocess execution vs dangerous shell execution."
+          ],
+          "preReading": [
+            "File Handling & Advanced Comprehensions"
+          ],
+          "previousModule": "comprehensions-advanced",
+          "nextModule": "performance-optimization",
+          "badge": "Automation Pro Badge"
         },
         {
           "moduleId": "performance-optimization",
-          "slug": "performance-optimization",
-          "title": "Performance, Optimization & Big-O for Python",
-          "topics": [
-            "Measuring performance",
-            "Optimizing loops",
-            "Efficient data structures",
-            "Big-O thinking"
+          "slug": "004_002_performance-optimization",
+          "title": "Performance Optimization, Profiling & Big-O Thinking",
+          "level": "Pro",
+          "estimatedHours": 5,
+          "tags": [
+            "optimization",
+            "profiling",
+            "big-o",
+            "memory",
+            "timeit"
           ],
-          "difficultyIndex": 10
+          "topics": [
+            "Big-O notation basics (Time & Space complexity: O(1), O(N), O(N log N), O(N^2))",
+            "Comparing lookup costs across Python data structures (list, set, dict, deque)",
+            "Benchmarking code with timeit module",
+            "Profiling CPU execution using cProfile and pstats",
+            "Memory profiling and reducing object footprint with __slots__",
+            "Optimizing loops, lookups, and eliminating algorithmic bottlenecks",
+            "collections module: deque, Counter, defaultdict, OrderedDict, namedtuple",
+            "Best practices for high-throughput Python applications"
+          ],
+          "learningOutcomes": [
+            "Analyze and calculate the Big-O time and space complexity of Python algorithms",
+            "Profile Python applications to identify execution bottlenecks using cProfile and timeit",
+            "Use specialized collections (deque, Counter, defaultdict) for optimal performance",
+            "Apply memory and speed optimization techniques in production systems"
+          ],
+          "prerequisites": [
+            "advanced-file-os"
+          ],
+          "difficulty": "Pro",
+          "difficultyIndex": 10,
+          "summary": "Master algorithm analysis, Big-O complexity, performance profiling with cProfile, and high-speed data structures.",
+          "miniProjects": [
+            "Mini Project: Code Profiling & Algorithm Optimization Benchmark Suite"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Profiling Report",
+            "passScore": 75
+          },
+          "useCases": [
+            "Optimizing slow backend services and database querying loops",
+            "Tuning data structures for high-concurrency systems"
+          ],
+          "careerSkills": [
+            "Algorithm analysis & optimization",
+            "Production profiling & memory diagnostics"
+          ],
+          "commonMistakes": [
+            "Premature optimization without profiling first",
+            "Using lists for repeated search or FIFO queue operations instead of sets/deques"
+          ],
+          "references": [
+            "Python Docs – The Python Profilers",
+            "Real Python – Python Profiling and Optimization"
+          ],
+          "teachingTips": [
+            "Benchmark O(N) list search against O(1) set search with 1,000,000 items.",
+            "Show how __slots__ reduces memory for millions of class instances."
+          ],
+          "preReading": [
+            "Data Structures & Decorators modules"
+          ],
+          "previousModule": "advanced-file-os",
+          "nextModule": "testing",
+          "badge": "Performance Optimizer Badge"
         },
         {
           "moduleId": "testing",
-          "slug": "python-testing",
-          "title": "Testing Basics in Python (Unit Testing Concepts)",
-          "topics": [
-            "Testing importance",
-            "Simple test cases",
-            "Testing functions",
-            "Mocking (conceptual)"
+          "slug": "004_003_python-testing",
+          "title": "Automated Testing, PyTest & Quality Assurance",
+          "level": "Pro",
+          "estimatedHours": 6,
+          "tags": [
+            "testing",
+            "unit-test",
+            "pytest",
+            "mocking",
+            "tdd"
           ],
-          "difficultyIndex": 10
+          "topics": [
+            "Why automated testing is mandatory for professional software",
+            "Types of testing: Unit testing, Integration testing, Functional testing",
+            "Built-in unittest framework: TestCase, assertions, setUp and tearDown",
+            "Modern testing with PyTest: test discovery, assert statements, fixtures",
+            "Parametrized tests with @pytest.mark.parametrize",
+            "Testing exceptions with pytest.raises",
+            "Mocking external dependencies with unittest.mock (patch, Mock, MagicMock)",
+            "Measuring Code Coverage with coverage.py / pytest-cov",
+            "Introduction to Test-Driven Development (TDD) workflow"
+          ],
+          "learningOutcomes": [
+            "Write clean, automated unit and integration tests using PyTest and unittest",
+            "Use fixtures and parametrizations to test edge cases comprehensively",
+            "Mock external services, network calls, and file I/O safely",
+            "Generate test coverage reports and follow TDD best practices"
+          ],
+          "prerequisites": [
+            "performance-optimization"
+          ],
+          "difficulty": "Pro",
+          "difficultyIndex": 10,
+          "summary": "Master automated testing in Python with unittest, PyTest, fixtures, mocks, and test coverage analysis.",
+          "miniProjects": [
+            "Mini Project: Comprehensive PyTest Test Suite for an E-Commerce Order & Payment Engine"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Test Suite Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Ensuring production stability in CI/CD deployment pipelines",
+            "Refactoring complex enterprise legacy codebases with confidence"
+          ],
+          "careerSkills": [
+            "Automated test engineering",
+            "Quality assurance & TDD methodology"
+          ],
+          "commonMistakes": [
+            "Writing tests that depend on execution order or shared mutable global state",
+            "Failing to mock network calls or disk writes in unit tests"
+          ],
+          "references": [
+            "PyTest Official Documentation",
+            "Real Python – Getting Started With Testing in Python"
+          ],
+          "teachingTips": [
+            "Demonstrate refactoring code and watching automated tests catch regressions instantly.",
+            "Walk through TDD: Red → Green → Refactor cycle."
+          ],
+          "preReading": [
+            "OOP & Exceptions modules"
+          ],
+          "previousModule": "performance-optimization",
+          "nextModule": "final-projects",
+          "badge": "Testing & QA Pro Badge"
         },
         {
           "moduleId": "final-projects",
-          "slug": "capstone-projects",
-          "title": "Capstone Projects & Interview Preparation",
-          "topics": [
-            "Building complete Python projects",
-            "Preparing for interviews",
-            "Portfolio building",
-            "Common Python interview questions"
+          "slug": "004_004_capstone-projects",
+          "title": "Capstone Projects, Portfolio & Interview Mastery",
+          "level": "Pro",
+          "estimatedHours": 10,
+          "tags": [
+            "capstone",
+            "portfolio",
+            "interview-prep",
+            "full-project"
           ],
-          "difficultyIndex": 11
+          "topics": [
+            "End-to-End project architecture & clean directory layout",
+            "Integrating SQLite / JSON persistence, OOP models, and business logic",
+            "Configuring logging, error handling, and modular CLI / GUI interfaces",
+            "Writing complete documentation (README.md, docstrings, typing hints)",
+            "Publishing projects to GitHub with Git commits, issues, and releases",
+            "Top Python Technical Interview Questions & Coding Challenges",
+            "System design basics for Python backends",
+            "Resume and portfolio presentation strategies"
+          ],
+          "learningOutcomes": [
+            "Architect and develop complete, production-grade Python applications from scratch",
+            "Apply OOP, defensive programming, automated tests, and persistence together",
+            "Build an impressive developer portfolio on GitHub",
+            "Confidently solve technical coding problems in Python job interviews"
+          ],
+          "prerequisites": [
+            "testing"
+          ],
+          "difficulty": "Pro",
+          "difficultyIndex": 11,
+          "summary": "Build capstone software, assemble a professional GitHub portfolio, and master technical Python interviews.",
+          "miniProjects": [
+            "Capstone Option 1: Full-Featured Student Information & Fee Management CLI System",
+            "Capstone Option 2: Personal Finance & Investment Tracker with Persistence & Analytics",
+            "Capstone Option 3: Automated Web Scraper & Report Generation Engine"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 12,
+            "projects": 3
+          },
+          "assessment": {
+            "type": "Comprehensive Capstone Project & Viva",
+            "passScore": 80
+          },
+          "useCases": [
+            "Showcasing professional skills to employers and clients",
+            "Cracking software engineer & Python developer job interviews"
+          ],
+          "careerSkills": [
+            "Full-lifecycle software development",
+            "Technical interview problem solving & portfolio showcase"
+          ],
+          "commonMistakes": [
+            "Building projects without documentation, tests, or clear README instructions",
+            "Neglecting code style (PEP 8) and type hints in portfolio projects"
+          ],
+          "references": [
+            "PEP 8 – Style Guide for Python Code",
+            "Coder & AccoTax Career & Interview Guide"
+          ],
+          "teachingTips": [
+            "Conduct mock technical interviews with live coding rounds.",
+            "Provide detailed code review feedback on students' capstone projects."
+          ],
+          "preReading": [
+            "All preceding roadmap segments"
+          ],
+          "previousModule": "testing",
+          "nextModule": "turtle-foundation",
+          "badge": "Python Pro Engineer Badge"
         }
       ]
     },
@@ -1049,10 +1938,16 @@
         {
           "moduleId": "turtle-foundation",
           "title": "Module 1 – Turtle Foundations & First Drawings",
-          "slug": "turtle-foundation",
+          "slug": "005_001_turtle-foundation",
           "level": "Beginner",
           "estimatedHours": 4,
           "conceptDepth": "Core",
+          "tags": [
+            "turtle",
+            "graphics",
+            "coordinates",
+            "visual"
+          ],
           "topics": [
             "Introduction to Turtle Graphics: history, educational purpose, and real-world relevance",
             "Understanding the Turtle screen: canvas, coordinate system (Cartesian plane), origin (0,0), and quadrants",
@@ -1073,241 +1968,668 @@
             "Introduction to turtle.done() and program lifecycle completion"
           ],
           "learningOutcomes": [
-            "Understand graphical coordinate systems",
-            "Control turtle movement precisely",
-            "Draw basic shapes programmatically"
+            "Understand graphical coordinate systems and Cartesian geometry",
+            "Control turtle movement, pen status, and heading angles precisely",
+            "Draw basic geometric shapes and coordinate art programmatically"
           ],
+          "prerequisites": [
+            "final-projects"
+          ],
+          "difficulty": "Easy",
+          "difficultyIndex": 2,
+          "summary": "Start visual programming with turtle graphics, screen coordinates, pen controls, and geometric shapes.",
           "labExercises": [
             "Draw square, triangle, rectangle",
             "Draw initials of your name",
             "Create simple border design"
           ],
-          "miniProject": "Design a digital nameplate using Turtle",
-          "assessment": {
+          "miniProjects": [
+            "Design a digital personalized nameplate using Turtle"
+          ],
+          "exercises": {
             "mcq": 12,
             "coding": 6,
-            "practical": 1
+            "projects": 1
           },
-          "commonErrors": [
-            "Incorrect angle usage",
-            "Misunderstanding direction",
-            "Not resetting turtle position"
+          "assessment": {
+            "type": "Practical Drawing + Quiz",
+            "passScore": 70
+          },
+          "useCases": [
+            "Learning coordinate geometry visually",
+            "Building spatial reasoning and algorithmic thinking"
+          ],
+          "careerSkills": [
+            "Visual programming & spatial reasoning",
+            "Algorithmic drawing"
+          ],
+          "commonMistakes": [
+            "Incorrect angle calculations (exterior vs interior angles)",
+            "Misunderstanding Cartesian coordinate quadrants",
+            "Forgetting to call turtle.done() leaving windows unresponsive"
+          ],
+          "references": [
+            "Python Docs – turtle graphics",
+            "Real Python – Beginner's Guide to Python Turtle"
           ],
           "teachingTips": [
-            "Use real-world compass analogy",
-            "Show coordinate grid visually"
+            "Use real-world compass analogy (0° = East, 90° = North).",
+            "Show coordinate grid visually before drawing."
           ],
-          "badge": "Turtle Explorer"
+          "preReading": [
+            "Segment 1 Core Fundamentals"
+          ],
+          "previousModule": "final-projects",
+          "nextModule": "turtle-design",
+          "badge": "Turtle Explorer Badge"
         },
         {
           "moduleId": "turtle-design",
-          "slug": "turtle-design",
+          "slug": "005_002_turtle-design",
           "title": "Module 2 – Colors, Styles & Visual Design",
           "level": "Beginner",
           "estimatedHours": 4,
           "conceptDepth": "Core + Creative",
+          "tags": [
+            "turtle",
+            "colors",
+            "rgb",
+            "styling"
+          ],
           "topics": [
-            "Pen control: penup(), pendown()",
-            "Line thickness and styling",
-            "Color systems (RGB, named colors)",
-            "Fill mechanics",
-            "Background design",
-            "Speed vs rendering performance"
+            "Pen control: penup(), pendown() and pensize()",
+            "Line thickness, pensize, and cap styling",
+            "Color systems (RGB 0-255 vs 0-1, hex codes, named colors)",
+            "Fill mechanics: begin_fill(), end_fill(), fillcolor()",
+            "Background canvas design and window customization",
+            "Speed vs rendering performance: speed() settings",
+            "Combining geometric fills to compose complex graphics"
           ],
           "learningOutcomes": [
-            "Create visually appealing designs",
-            "Apply color theory basics in coding"
+            "Create visually appealing multi-color graphic designs",
+            "Apply color theory and RGB models in programmatic drawing",
+            "Control fill mechanics to create solid and multi-layered art"
           ],
+          "prerequisites": [
+            "turtle-foundation"
+          ],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 3,
+          "summary": "Master color systems, fill mechanics, and line styling to create dynamic visual designs.",
           "labExercises": [
-            "Draw traffic signal",
-            "Create national flag",
-            "Draw geometric colored tiles"
+            "Draw traffic signal with illuminated lights",
+            "Create national flag with exact proportions",
+            "Draw geometric colored floor tiles"
           ],
-          "miniProject": "Design a digital poster (festival theme)",
-          "assessment": {
+          "miniProjects": [
+            "Design a digital themed festival poster using Turtle"
+          ],
+          "exercises": {
             "mcq": 10,
             "coding": 5,
-            "design": 1
+            "projects": 1
           },
-          "badge": "Creative Designer"
+          "assessment": {
+            "type": "Design Project + Quiz",
+            "passScore": 70
+          },
+          "useCases": [
+            "Creative poster design and UI mockups",
+            "Illustrating color theory concepts through code"
+          ],
+          "careerSkills": [
+            "Creative computing & color manipulation",
+            "Visual composition & styling"
+          ],
+          "commonMistakes": [
+            "Forgetting to call colormode(255) when using 0-255 RGB integers",
+            "Mismatched begin_fill() and end_fill() calls causing visual glitches"
+          ],
+          "references": [
+            "Python Docs – turtle color methods",
+            "Real Python – Python Turtle Colors"
+          ],
+          "teachingTips": [
+            "Demonstrate how RGB values blend into millions of shades.",
+            "Show contrast principles for background and foreground elements."
+          ],
+          "preReading": [
+            "Turtle Foundations module"
+          ],
+          "previousModule": "turtle-foundation",
+          "nextModule": "turtle-patterns",
+          "badge": "Creative Designer Badge"
         },
         {
           "moduleId": "turtle-patterns",
-          "slug": "turtle-patterns",
+          "slug": "005_003_turtle-patterns",
           "title": "Module 3 – Patterns, Loops & Mathematical Art",
           "level": "Beginner–Intermediate",
           "estimatedHours": 5,
           "conceptDepth": "Logic + Math",
+          "tags": [
+            "patterns",
+            "math-art",
+            "geometry",
+            "spirals"
+          ],
           "topics": [
-            "Using loops for repetition",
-            "Polygon logic (360/n rule)",
-            "Nested loops for pattern creation",
-            "Spirals and radial symmetry",
-            "Angle mathematics in design",
-            "Pattern optimization"
+            "Using loops for drawing repetitive structures",
+            "Polygon mathematics: The 360/n degree exterior angle rule",
+            "Nested loops for complex geometric pattern creation",
+            "Spirals, Archimedean spirals, and radial symmetry",
+            "Angle mathematics in star polygons and mandalas",
+            "Color gradients and hue shifts inside iterative loops",
+            "Pattern optimization and computational efficiency"
           ],
           "learningOutcomes": [
-            "Translate mathematical logic into visual patterns",
-            "Build complex designs using loops"
+            "Translate mathematical geometric formulas into stunning visual patterns",
+            "Build complex symmetry and mandala art using nested iteration",
+            "Calculate exact exterior angles for arbitrary n-sided polygons"
           ],
+          "prerequisites": [
+            "turtle-design"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 4,
+          "summary": "Combine mathematics, polygons, spirals, and nested loops to generate intricate generative art.",
           "labExercises": [
-            "Draw hexagon, octagon",
-            "Spiral pattern",
-            "Flower pattern"
+            "Draw regular polygons (hexagon, octagon, decagon)",
+            "Spiral geometric rainbow pattern",
+            "Multi-petal rotating flower pattern"
           ],
-          "miniProject": "Mandala pattern generator",
-          "assessment": {
+          "miniProjects": [
+            "Algorithmic Mandala & Sacred Geometry Pattern Generator"
+          ],
+          "exercises": {
             "mcq": 15,
-            "coding": 8
+            "coding": 8,
+            "projects": 1
           },
-          "badge": "Pattern Architect"
+          "assessment": {
+            "type": "Generative Art Challenge + Quiz",
+            "passScore": 75
+          },
+          "useCases": [
+            "Generative digital art and screen savers",
+            "Visualizing trigonometric and polygon geometry"
+          ],
+          "careerSkills": [
+            "Mathematical modeling",
+            "Generative algorithmic design"
+          ],
+          "commonMistakes": [
+            "Calculating angles without accounting for full 360-degree rotation",
+            "Running high-repetition loops without turning up turtle speed"
+          ],
+          "references": [
+            "Python Docs – Turtle geometry",
+            "Math and Art with Python Turtle"
+          ],
+          "teachingTips": [
+            "Have students derive polygon formulas on a whiteboard first.",
+            "Demonstrate rotating shapes around a central origin."
+          ],
+          "preReading": [
+            "Colors & Styles module"
+          ],
+          "previousModule": "turtle-design",
+          "nextModule": "turtle-modular",
+          "badge": "Pattern Architect Badge"
         },
         {
           "moduleId": "turtle-modular",
-          "slug": "turtle-modular",
+          "slug": "005_004_turtle-modular",
           "title": "Module 4 – Modular Graphics with Functions",
           "level": "Intermediate",
           "estimatedHours": 5,
+          "tags": [
+            "functions",
+            "modular-art",
+            "shape-library",
+            "reusability"
+          ],
           "topics": [
-            "Reusable drawing functions",
-            "Parameterized graphics",
-            "Building shape libraries",
-            "Combining multiple patterns",
-            "Clean code practices in graphics"
+            "Writing reusable drawing functions (draw_circle, draw_star, draw_house)",
+            "Parameterized graphics (position x, y, radius, color, rotation)",
+            "Preserving turtle position and heading with state restore functions",
+            "Building an extensible custom Shape & Icon Library",
+            "Combining multiple modular shapes into complex town and nature scenes",
+            "Clean code and DRY principles in graphical programming"
           ],
           "learningOutcomes": [
-            "Write reusable graphical components",
-            "Build scalable design systems"
+            "Write parameterized, reusable graphic functions for complex drawings",
+            "Construct scalable shape libraries with independent coordinates",
+            "Compose large composite landscapes, cityscapes, and illustrations cleanly"
           ],
-          "miniProject": "Create a graphics toolkit (shapes library)",
-          "assessment": {
-            "coding": 10,
-            "project": 1
+          "prerequisites": [
+            "turtle-patterns"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Encapsulate drawing logic into parameterized functions to build reusable visual asset libraries.",
+          "labExercises": [
+            "Parameterized Star function with variable rays and inner/outer radius",
+            "House and Tree generator functions",
+            "Night sky generator placing 50 random stars and a crescent moon"
+          ],
+          "miniProjects": [
+            "Complete Landscape Art Toolkit (Sun, Mountains, Trees, Houses & Rivers)"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 8,
+            "projects": 1
           },
-          "badge": "Graphics Engineer"
+          "assessment": {
+            "type": "Modular Art Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Creating game assets and background sprites",
+            "Architectural and procedural landscape generation"
+          ],
+          "careerSkills": [
+            "Modular code architecture",
+            "Procedural asset design"
+          ],
+          "commonMistakes": [
+            "Leaving pen down while moving between function calls causing stray lines",
+            "Hardcoding fixed coordinates instead of relative offset calculations"
+          ],
+          "references": [
+            "Python Docs – Functional drawing",
+            "Real Python – Modular Turtle Graphics"
+          ],
+          "teachingTips": [
+            "Teach students to create a draw_at(x, y, func) wrapper helper.",
+            "Emphasize that functions should leave the turtle in a predictable state."
+          ],
+          "preReading": [
+            "Patterns & Functions modules"
+          ],
+          "previousModule": "turtle-patterns",
+          "nextModule": "turtle-animation",
+          "badge": "Graphics Engineer Badge"
         },
         {
           "moduleId": "turtle-animation",
-          "slug": "turtle-animation",
+          "slug": "005_005_turtle-animation",
           "title": "Module 5 – Animation & Motion Logic",
           "level": "Intermediate",
           "estimatedHours": 6,
+          "tags": [
+            "animation",
+            "tracer",
+            "physics",
+            "game-loop"
+          ],
           "topics": [
-            "Frame-based animation concept",
-            "Controlling redraw (tracer, update)",
-            "Smooth motion techniques",
-            "Timing and delays",
-            "Simulating physics (basic motion)"
+            "Frame-based animation concepts and frames per second (FPS)",
+            "Controlling redraw with tracer(0) and update() for instant rendering",
+            "Eliminating flickering in Turtle animations",
+            "Timing and loop delays using time.sleep() and ontimer()",
+            "Simulating basic 2D physics: velocity, acceleration, and gravity",
+            "Boundary detection and wall bouncing logic",
+            "Multi-object synchronized animation loops"
           ],
           "learningOutcomes": [
-            "Create smooth animations",
-            "Understand time-based logic"
+            "Eliminate frame stutter and screen flickering using tracer(0) and update()",
+            "Apply velocity, delta time, and gravity formulas in animation loops",
+            "Implement boundary collision detection for moving graphical objects"
           ],
-          "miniProject": "Bouncing ball simulation",
-          "assessment": {
+          "prerequisites": [
+            "turtle-modular"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 6,
+          "summary": "Master smooth frame animation, physics simulations, boundary bouncing, and tracer controls.",
+          "labExercises": [
+            "Bouncing ball with gravity and energy dampening",
+            "Analog clock with moving second, minute, and hour hands",
+            "Solar system simulation with orbiting planets"
+          ],
+          "miniProjects": [
+            "Bouncing Balls Multi-Particle Physics Simulation with Gravity"
+          ],
+          "exercises": {
+            "mcq": 12,
             "coding": 8,
-            "project": 1
+            "projects": 1
           },
-          "badge": "Animator"
+          "assessment": {
+            "type": "Animation Challenge",
+            "passScore": 75
+          },
+          "useCases": [
+            "Physics simulations and scientific visual demonstrations",
+            "Game movement engines and animated user interfaces"
+          ],
+          "careerSkills": [
+            "Time-step animation logic",
+            "Basic computational physics"
+          ],
+          "commonMistakes": [
+            "Forgetting screen.update() when tracer is 0, causing a blank screen",
+            "Using blocking delays in interaction loops"
+          ],
+          "references": [
+            "Python Docs – turtle screen tracer",
+            "Physics and Animation in Python"
+          ],
+          "teachingTips": [
+            "Compare the slow step-by-step drawing vs instant tracer(0) redraw.",
+            "Explain Newton's laws of motion through simple velocity += acceleration code."
+          ],
+          "preReading": [
+            "Modular Graphics module"
+          ],
+          "previousModule": "turtle-modular",
+          "nextModule": "turtle-interaction",
+          "badge": "Animator Badge"
         },
         {
           "moduleId": "turtle-interaction",
-          "slug": "turtle-interaction",
+          "slug": "005_006_turtle-interaction",
           "title": "Module 6 – Event Handling & User Interaction",
           "level": "Intermediate–Advanced",
           "estimatedHours": 6,
+          "tags": [
+            "event-driven",
+            "keyboard",
+            "mouse",
+            "listeners"
+          ],
           "topics": [
-            "Keyboard input handling",
-            "Mouse click events",
-            "Real-time interaction design",
-            "User-controlled graphics",
-            "State management"
+            "Event-driven programming model concepts",
+            "Screen event listening: screen.listen()",
+            "Keyboard input binding: screen.onkey() and screen.onkeypress()",
+            "Mouse click event handling: screen.onclick() and turtle.onclick()",
+            "Mouse drag events with ondrag() for freehand drawing",
+            "Real-time user controls: moving, steering, and aiming",
+            "Managing game and interactive states (active, paused, game-over)",
+            "Creating interactive buttons and clickable UI on canvas"
           ],
           "learningOutcomes": [
-            "Build interactive programs",
-            "Handle real-time events"
+            "Build responsive event-driven graphical programs in Python",
+            "Capture keyboard strokes and mouse click/drag events accurately",
+            "Design custom clickable UI buttons and control panels on the canvas"
           ],
-          "miniProject": "Drawing app using mouse",
-          "assessment": {
-            "coding": 10,
-            "project": 1
+          "prerequisites": [
+            "turtle-animation"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Build real-time interactive graphical software with keyboard bindings, mouse clicks, and drag events.",
+          "labExercises": [
+            "User-controlled turtle moving with Arrow keys (WASD)",
+            "Click-to-draw shape generator at cursor position",
+            "Interactive color palette selector"
+          ],
+          "miniProjects": [
+            "Interactive Paint & Freehand Drawing App with Colors, Brush Sizes & Clear Canvas Button"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 8,
+            "projects": 1
           },
-          "badge": "Interactive Developer"
+          "assessment": {
+            "type": "Interactive App Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Building games, drawing software, and interactive educational tools",
+            "Learning event-driven GUI concepts applicable to Tkinter and web frameworks"
+          ],
+          "careerSkills": [
+            "Event-driven architecture",
+            "UI event handling & state tracking"
+          ],
+          "commonMistakes": [
+            "Forgetting to call screen.listen() causing keyboard events to be ignored",
+            "Passing function calls with () to onkey instead of passing function references"
+          ],
+          "references": [
+            "Python Docs – turtle event handling",
+            "Real Python – Event-Driven Python Turtle"
+          ],
+          "teachingTips": [
+            "Explain callback functions: passing functions as variables to event listeners.",
+            "Build an interactive Etch-a-Sketch game live with students."
+          ],
+          "preReading": [
+            "Animation & Motion module"
+          ],
+          "previousModule": "turtle-animation",
+          "nextModule": "turtle-advanced",
+          "badge": "Interactive Developer Badge"
         },
         {
           "moduleId": "turtle-advanced",
-          "slug": "turtle-advanced",
-          "title": "Module 7 – Advanced Graphics & Recursive Art",
+          "slug": "005_007_turtle-advanced",
+          "title": "Module 7 – Advanced Graphics, Recursion & Fractal Art",
           "level": "Advanced",
           "estimatedHours": 6,
+          "tags": [
+            "recursion",
+            "fractals",
+            "math-art",
+            "trees"
+          ],
           "topics": [
-            "Recursion in graphics",
-            "Fractal design (tree, snowflake)",
-            "Complex symmetry",
-            "Mathematical visualization"
+            "Understanding recursion through visual geometry",
+            "Base cases and recursive step branches in graphical drawing",
+            "Fractal Tree generator: branching angles, length reduction, and branch color shifts",
+            "Koch Snowflake fractal: recursive line subdivision",
+            "Sierpinski Triangle generator with recursion and chaos game algorithm",
+            "Dragon Curve and space-filling fractal curves",
+            "Visualizing mathematical concepts (Golden ratio, Fibonacci spirals)",
+            "Optimizing recursive rendering depth and call stacks"
           ],
           "learningOutcomes": [
-            "Apply recursion visually",
-            "Create advanced mathematical art"
+            "Understand and apply recursive algorithms visually",
+            "Generate classic fractal structures (Fractal Trees, Koch Snowflake, Sierpinski Triangle)",
+            "Manage recursive call stack limits and branch angle variations"
           ],
-          "miniProject": "Fractal tree generator",
-          "assessment": {
-            "coding": 10,
-            "project": 1
+          "prerequisites": [
+            "turtle-interaction"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Master recursion through stunning visual fractal trees, Koch snowflakes, and Sierpinski triangles.",
+          "labExercises": [
+            "Realistic fractal tree with colored leaves and wind variation",
+            "Koch Snowflake generator with level slider",
+            "Sierpinski recursive triangle gasket"
+          ],
+          "miniProjects": [
+            "Interactive Recursive Fractal Art Studio (Tree, Snowflake, Sierpinski)"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 8,
+            "projects": 1
           },
-          "badge": "Visual Mathematician"
+          "assessment": {
+            "type": "Fractal Art Challenge + Viva",
+            "passScore": 75
+          },
+          "useCases": [
+            "Procedural nature generation in game engines (trees, terrain, coastlines)",
+            "Visualizing algorithmic recursion intuitively"
+          ],
+          "careerSkills": [
+            "Recursive algorithm mastery",
+            "Procedural generation & computational geometry"
+          ],
+          "commonMistakes": [
+            "Missing base case causing RecursionError (maximum recursion depth exceeded)",
+            "Failing to backtrack turtle position/angle after recursive branch returns"
+          ],
+          "references": [
+            "Python Docs – Recursive graphics",
+            "Fractals and Recursion with Python"
+          ],
+          "teachingTips": [
+            "Trace a small depth=2 tree step-by-step on the board before running code.",
+            "Add random angle variations to make fractal trees look realistic like nature."
+          ],
+          "preReading": [
+            "Interaction & Functions modules"
+          ],
+          "previousModule": "turtle-interaction",
+          "nextModule": "turtle-game-dev",
+          "badge": "Visual Mathematician Badge"
         },
         {
           "moduleId": "turtle-game-dev",
-          "slug": "turtle-game-dev",
-          "title": "Module 8 – Game Development with Turtle",
+          "slug": "005_008_turtle-game-dev",
+          "title": "Module 8 – Complete Game Development with Turtle",
           "level": "Advanced",
           "estimatedHours": 8,
+          "tags": [
+            "game-development",
+            "snake-game",
+            "pong",
+            "collision-detection"
+          ],
           "topics": [
-            "Game loop architecture",
-            "Collision detection",
-            "Score systems",
-            "Object movement logic",
-            "Basic game physics"
+            "Complete Game Loop Architecture: Input → Update → Collision → Render → Score",
+            "Object-Oriented Game Entities (Player, Enemies, Collectibles, Borders)",
+            "Precision 2D Collision Detection: Distance formula & bounding box methods",
+            "Scoreboards, High Score persistence, and Lives display using turtle.write()",
+            "Sound effects integration (winsound / playsound conceptual)",
+            "Building Classic Games from scratch: Snake Game, Pong (2-Player), Space Invaders clone",
+            "Game Over, Restart mechanisms, and progressive difficulty scaling",
+            "Refactoring game code for clean maintainability"
           ],
           "learningOutcomes": [
-            "Build complete mini games",
-            "Understand core game logic"
+            "Architect and code complete, fully playable 2D arcade games from scratch",
+            "Implement collision detection, score systems, and progressive game loops",
+            "Apply OOP principles to structure game entities cleanly"
           ],
-          "miniProject": "Snake / Catch game",
-          "assessment": {
-            "project": 1,
-            "viva": 1
+          "prerequisites": [
+            "turtle-advanced"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Build complete 2D arcade games like Snake, Pong, and Space Invaders with collision detection and scoreboards.",
+          "labExercises": [
+            "2-Player Classic Pong Game with bouncing ball and paddle physics",
+            "Classic Snake Game with growing body segments, food spawning, and score keeper",
+            "Turtle Crossing Game (Frogger clone) with moving cars and level progression"
+          ],
+          "miniProjects": [
+            "Complete Arcade Game Suite: Full Snake Game + Pong with High Score Persistence"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 10,
+            "projects": 2
           },
-          "badge": "Game Developer"
+          "assessment": {
+            "type": "Complete Game Build & Code Review",
+            "passScore": 75
+          },
+          "useCases": [
+            "Developing 2D arcade games and game logic foundations",
+            "Portfolio projects demonstrating complete software architecture"
+          ],
+          "careerSkills": [
+            "Game loop architecture & collision mechanics",
+            "End-to-end interactive application design"
+          ],
+          "commonMistakes": [
+            "Allowing instant 180-degree reversal in Snake causing self-collision bugs",
+            "Updating score text without clearing previous text causing overlapping smudges"
+          ],
+          "references": [
+            "Real Python – Build a Snake Game in Python With Turtle",
+            "Python Game Development Tutorials"
+          ],
+          "teachingTips": [
+            "Break the Snake game into 5 manageable phases: Window → Snake Move → Food → Collision → Score.",
+            "Have students play each other's games and conduct bug testing."
+          ],
+          "preReading": [
+            "Animation, Interaction & OOP modules"
+          ],
+          "previousModule": "turtle-advanced",
+          "nextModule": "turtle-capstone",
+          "badge": "Game Developer Badge"
         },
         {
           "moduleId": "turtle-capstone",
-          "slug": "turtle-capstone",
-          "title": "Module 9 – Capstone Project & Portfolio",
+          "slug": "005_009_turtle-capstone",
+          "title": "Module 9 – Visual Capstone Project & Portfolio",
           "level": "Advanced",
           "estimatedHours": 8,
+          "tags": [
+            "capstone",
+            "portfolio",
+            "creative-computing",
+            "final-project"
+          ],
           "topics": [
-            "Project planning",
-            "UI + animation + interaction",
-            "Optimization",
-            "Presentation skills"
+            "Creative Project Planning: Idea, Wireframe, Math & Architecture",
+            "Integrating UI design, smooth animations, audio cues, and user interaction",
+            "Code optimization, docstrings, and modular package structuring",
+            "Exporting canvas art to vector and image formats (PostScript / PNG)",
+            "Showcasing interactive visual projects on GitHub and live portfolios",
+            "Project Presentation & Code Walkthrough Skills"
           ],
           "learningOutcomes": [
-            "Build a professional-level project",
-            "Showcase portfolio work"
+            "Develop a standout, production-quality visual project or game from scratch",
+            "Integrate advanced animations, event-driven interactions, and mathematical algorithms",
+            "Present, document, and publish your project into a professional portfolio"
           ],
+          "prerequisites": [
+            "turtle-game-dev"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 9,
+          "summary": "Develop, polish, and showcase a master-level visual application, game, or mathematical simulation.",
           "capstoneOptions": [
-            "Interactive game",
-            "Digital art generator",
-            "Educational simulation"
+            "Option 1: Complete Multi-Level Arcade Game (e.g. Space Shooter / Breakout / Maze Runner)",
+            "Option 2: Generative Digital Art & Fractal Studio with Export Capabilities",
+            "Option 3: Interactive Physics / Solar System / Mathematical Simulation"
           ],
-          "assessment": {
-            "project": 1,
-            "presentation": 1,
-            "passScore": 75
+          "exercises": {
+            "mcq": 10,
+            "coding": 6,
+            "projects": 1
           },
-          "badge": "Turtle Master"
+          "assessment": {
+            "type": "Capstone Project Submission & Presentation",
+            "passScore": 80
+          },
+          "useCases": [
+            "Demonstrating creative coding and computational thinking to recruiters",
+            "Publishing standalone desktop games and educational tools"
+          ],
+          "careerSkills": [
+            "Creative computing & software presentation",
+            "Project lifecycle execution"
+          ],
+          "commonMistakes": [
+            "Neglecting code documentation and instructions on how to play/run the project",
+            "Feature creep: starting too many features before polishing the core mechanic"
+          ],
+          "references": [
+            "Python Turtle Documentation",
+            "Coder & AccoTax Creative Coding Showcase"
+          ],
+          "teachingTips": [
+            "Organize a classroom demo day where students present their projects.",
+            "Record gameplay demos for their portfolios."
+          ],
+          "preReading": [
+            "All Turtle Modules"
+          ],
+          "previousModule": "turtle-game-dev",
+          "nextModule": null,
+          "badge": "Turtle Master Badge"
         }
       ]
     }
