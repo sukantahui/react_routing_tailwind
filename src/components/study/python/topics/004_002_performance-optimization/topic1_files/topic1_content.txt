@@ -1,0 +1,26 @@
+TOPIC_ID: 004_002_001
+MODULE: 004_002_performance-optimization
+TITLE: Topic 1: Comparing lookup costs across Python data structures (list, set, dict, deque)
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to empirical and theoretical access costs, search complexities, memory layouts, and mutation characteristics across Python's primary built-in data structures: `list`, `set`, `dict`, `tuple`, and `collections.deque`. Deep dive into linear membership scans ($O(N)$) in contiguous dynamic arrays versus constant-time hash table bucket lookups ($O(1)$) in sets and dictionaries. Analysis of head/tail mutation economics: the severe $O(N)$ memory-shifting bottleneck of `list.insert(0, x)` and `list.pop(0)` versus the $O(1)$ pointer-block unlinking of `deque.appendleft()` and `deque.popleft()`. Memory layout inspection with `sys.getsizeof()`, cache locality prefetching, pointer chasing tradeoffs, and an institutional student candidate roster lookup optimizer case study demonstrating a 10,000x+ throughput boost using hash sets for ID verification across 50,000 enrolled students.
+
+CORE CONCEPTS:
+1. Membership Search Cost Comparison: `list` vs `set` vs `dict` vs `deque`
+2. CPython Internal Memory Layouts: Contiguous Dynamic Arrays vs Compact Hash Tables vs Doubly Linked Blocks
+3. Head/Tail Mutation Economics: `list.insert(0)` Shifting ($O(N)$) vs `deque.appendleft()` ($O(1)$)
+4. FIFO Queue Operations: `list.pop(0)` Bottlenecks vs `deque.popleft()` High-Throughput
+5. Memory Overhead Profiling with `sys.getsizeof()`
+6. CPU Cache Locality vs Hash Table Pointer Chasing
+7. Amortized $O(1)$ Dynamic Array Over-Allocation Mechanics
+8. Tuple Immutability & Minimal Memory Footprint
+9. Data Structure Selection Strategy Framework
+10. Case Study: Institutional Admission Roster Verification Throughput Optimizer
+
+REAL-WORLD SCENARIOS:
+- Refactoring high-frequency authentication and token validation filters from list scans to hash sets
+- Building high-throughput producer-consumer worker queues with `collections.deque`
+- Minimizing memory consumption in multi-million record microservices by choosing optimal data structures
+- Eliminating silent quadratic scaling regressions caused by `list.insert(0)` in batch loops

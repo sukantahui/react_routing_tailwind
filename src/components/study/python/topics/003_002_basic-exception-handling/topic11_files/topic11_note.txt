@@ -1,0 +1,38 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_002: EXCEPTION HANDLING
+            TOPIC 11: DEBUGGING TECHNIQUES & PDB BREAKPOINTS IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ESSENTIAL PDB DEBUGGER COMMANDS
+--------------------------------------------------------------------------------
+  • n (next)     : Execute current line, stop at next line in same function.
+  • s (step)     : Step into the function call on the current line.
+  • c (continue) : Resume execution until the next breakpoint.
+  • q (quit)     : Abort debugging session and terminate program.
+  • p <expr>     : Evaluate and print value of variable or expression.
+  • w (where)    : Print the entire call stack with current frame arrow.
+  • u (up)       : Move current frame up one level in the call stack.
+  • d (down)     : Move current frame down one level in the call stack.
+  • l (list)     : Show 11 lines of source code around current line.
+
+--------------------------------------------------------------------------------
+2. SETTING BREAKPOINTS (PYTHON 3.7+)
+--------------------------------------------------------------------------------
+  def calculate(val):
+      breakpoint()  # Drops directly into interactive (Pdb) prompt!
+      return val * 2
+
+--------------------------------------------------------------------------------
+3. POST-MORTEM DEBUGGING
+--------------------------------------------------------------------------------
+  $ python -m pdb my_script.py
+  # Drops into the exact line and scope where the crash occurred!
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 11: PDB DEBUGGING TECHNIQUES
+================================================================================

@@ -1,0 +1,37 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+          TOPIC 4: DECORATORS WITH ARGUMENTS & FUNCTOOLS.WRAPS IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE 3-TIER DECORATOR FACTORY BLUEPRINT
+--------------------------------------------------------------------------------
+  # Tier 1: Factory (takes decorator parameters)
+  def repeat(num_times: int = 3):
+      # Tier 2: Decorator (takes target function)
+      def decorator(func):
+          # Tier 3: Wrapper (takes runtime arguments)
+          @functools.wraps(func)
+          def wrapper(*args, **kwargs):
+              for _ in range(num_times):
+                  result = func(*args, **kwargs)
+              return result
+          return wrapper
+      return decorator
+
+--------------------------------------------------------------------------------
+2. HOW `@repeat(3)` EVALUATES
+--------------------------------------------------------------------------------
+  @repeat(3)
+  def greet(): pass
+
+  # Step 1: dec = repeat(3)
+  # Step 2: greet = dec(greet)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 4: DECORATORS WITH ARGUMENTS
+================================================================================

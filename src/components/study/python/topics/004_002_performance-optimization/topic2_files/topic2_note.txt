@@ -1,0 +1,35 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_002: PERFORMANCE OPTIMIZATION
+               TOPIC 2: BENCHMARKING CODE WITH THE TIMEIT MODULE
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. TIMEIT BENCHMARKING PATTERNS
+--------------------------------------------------------------------------------
+  # Measure statement with setup:
+  t = timeit.timeit(
+      stmt="'-'.join(str(i) for i in range(100))",
+      setup="pass",
+      number=10000
+  )
+
+  # Run repeated passes and take minimum:
+  times = timeit.repeat(callable_fn, number=10000, repeat=5)
+  best_time = min(times) # Filters out OS context switch delays!
+
+--------------------------------------------------------------------------------
+2. PYTHON IDIOM SPEED CHEATSHEET
+--------------------------------------------------------------------------------
+  * String Formatting  : f"{a} {b}" > " " + b > "%s %s" > "{}".format()
+  * Dict Creation      : {} literal > dict() constructor (No global lookup)
+  * List Creation      : [] literal > list() constructor
+  * Emptiness Check    : if not seq: > if len(seq) == 0:
+  * Sequence Filtering : [x for x in seq if cond] > for loop with .append()
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 2: TIMEIT BENCHMARKING MODULE
+================================================================================

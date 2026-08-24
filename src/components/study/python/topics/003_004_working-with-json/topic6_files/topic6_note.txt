@@ -1,0 +1,36 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_004: WORKING WITH JSON
+           TOPIC 6: CONSUMING REST API DATA USING urllib & requests
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CONSUMING WITH STANDARD urllib.request
+--------------------------------------------------------------------------------
+  req = urllib.request.Request(url, headers={"User-Agent": "MyClient", "Accept": "application/json"})
+  with urllib.request.urlopen(req, timeout=5.0) as res:
+      data = json.load(res)
+
+--------------------------------------------------------------------------------
+2. CONSUMING WITH requests
+--------------------------------------------------------------------------------
+  res = requests.get(url, headers=headers, timeout=5.0)
+  res.raise_for_status()  # Raises HTTPError on 4xx/5xx
+  data = res.json()
+
+--------------------------------------------------------------------------------
+3. RESILIENT EXPONENTIAL BACKOFF & CACHE PATTERN
+--------------------------------------------------------------------------------
+  for attempt in range(max_retries):
+      try:
+          return fetch()
+      except Exception:
+          time.sleep(backoff)
+          backoff *= 2
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 6: REST API CONSUMPTION
+================================================================================

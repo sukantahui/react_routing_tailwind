@@ -1,0 +1,31 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_005: ADVANCED COMPREHENSIONS
+           TOPIC 4: ANY() AND ALL() PREDICATES FOR QUICK BOOLEAN CHECKS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. SHORT-CIRCUIT EVALUATION
+--------------------------------------------------------------------------------
+  * any(generator) : Halts immediately on the FIRST True value
+  * all(generator) : Halts immediately on the FIRST False value
+
+--------------------------------------------------------------------------------
+2. VACUOUS TRUTH ON EMPTY LISTS
+--------------------------------------------------------------------------------
+  * all([]) == True   (Vacuously True: every element in empty set passes)
+  * any([]) == False  (False: no element exists to pass)
+  * Defensive Check: if seq and all(cond for x in seq): ...
+
+--------------------------------------------------------------------------------
+3. GENERATOR VS LIST COMPREHENSION TRAP
+--------------------------------------------------------------------------------
+  * Correct   : any(check(x) for x in stream)    # O(1) Memory, short-circuits
+  * DANGEROUS : any([check(x) for x in stream])  # O(N) Memory, NO short-circuit!
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 4: ANY AND ALL PREDICATES
+================================================================================

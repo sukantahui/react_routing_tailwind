@@ -1,0 +1,27 @@
+TOPIC_ID: 002_007_009
+MODULE: 002_007_string-processing
+TITLE: Topic 9: Common string processing algorithms (palindromes, anagrams, word counts)
+LEVEL: Intermediate
+DIFFICULTY: Medium-Advanced
+
+OVERVIEW:
+Comprehensive exploration of core algorithmic string techniques, time/space complexity trade-offs, and industrial text processing pipelines in Python. Covers palindrome verification (slice reversal vs O(1) space two-pointer inward scan), anagram detection (O(N log N) sorted comparison vs O(N) Counter frequency hashing and anagram group clustering), word and character frequency analysis with collections.Counter, N-gram generation (bigrams, trigrams), 2D Dynamic Programming for Levenshtein Edit Distance, lossless Run-Length Encoding (RLE) compression, case conversion (snake_case <-> camelCase), Caesar/ROT13 cipher encryptions, and enterprise document analytics with typo-tolerant fuzzy search.
+
+CORE CONCEPTS:
+1. Palindrome Algorithms: Slice Reversal (s == s[::-1]) & Two-Pointer Inward Scan (O(1) Space)
+2. Anagram Algorithms: Sorting (O(N log N)) vs Counter Frequency Hashing (O(N))
+3. Anagram Group Clustering using Canonical Character Keys
+4. Word Frequency Distributions & collections.Counter.most_common()
+5. First Non-Repeating Character Algorithm in Single-Pass Hashing
+6. N-Gram Extraction (Bigrams and Trigrams for Text Similarity & NLP)
+7. Levenshtein Edit Distance via 2D Dynamic Programming Matrix
+8. Lossless String Compression: Run-Length Encoding (RLE) & Decompression
+9. Case Normalization: snake_case to camelCase and PascalCase
+10. Caesar Cipher & ROT13 Symmetric Cryptographic Rotation (ord and chr)
+11. Industrial Text Mining: Readability, Lexical Density, and Typo-Tolerant Course Finder
+
+REAL-WORLD SCENARIOS:
+- Building typo-tolerant search bars for student course catalogs using Levenshtein distance
+- Clustering customer reviews and detecting duplicate product inquiries with anagram hashing
+- Automated readability and keyword density indexing for educational learning portals
+- Compressing repetitive genomic / network telemetry sequences using Run-Length Encoding

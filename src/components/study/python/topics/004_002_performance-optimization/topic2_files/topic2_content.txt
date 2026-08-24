@@ -1,0 +1,26 @@
+TOPIC_ID: 004_002_002
+MODULE: 004_002_performance-optimization
+TITLE: Topic 2: Benchmarking code with timeit module
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to high-precision micro-benchmarking and performance profiling using Python's standard `timeit` module. Deep dive into statistical benchmarking principles: understanding why wall-clock timers like `time.time()` are flawed for micro-benchmarks, isolating setup overhead with `setup=` statements, passing parameterized callables with `functools.partial`, using `timeit.repeat()`, why taking the mathematical minimum (`min(times)`) accurately filters out operating system context-switching noise and CPU interrupt variance, and disabling garbage collection during microsecond measurements. Analysis of common Python syntax shootouts (f-strings vs string formatting, dict literals `{}` vs `dict()` constructor, truthiness checks `if not seq:` vs `len(seq) == 0`), bytecode disassembly inspections with `dis.dis()`, auto-scaling iteration timers with `Timer.autorange()`, and an institutional student admission transformation benchmark suite case study comparing loop appends, list comprehensions, dict comprehensions, and generator pipelines with statistical standard deviation reporting.
+
+CORE CONCEPTS:
+1. Micro-Benchmarking Principles with Python's `timeit` Module
+2. Flaws of `time.time()` & `time.perf_counter()` for Nanosecond Micro-Tests
+3. `timeit.timeit()` vs `timeit.repeat()` Execution Modes
+4. Statistical Accuracy: Why `min()` Filters Out OS Interrupts & Noise
+5. Isolating Setup Costs from Timed Code Blocks
+6. Parameterized Function Benchmarking with `functools.partial`
+7. Python Syntax & Idiom Shootouts (Strings, Lists, Dicts, Emptiness)
+8. CPython Bytecode Disassembly Analysis with `dis.dis()`
+9. Auto-Scaling Iteration Calibration with `Timer.autorange()`
+10. Case Study: Institutional Admission Data Ingestion Pipeline Benchmark Suite
+
+REAL-WORLD SCENARIOS:
+- Resolving engineering team debates on syntax idioms with empirical microsecond benchmarks
+- Identifying whether list comprehensions or `map()` provides faster data transformation in ETL pipelines
+- Measuring micro-latency regressions across Python version upgrades (Python 3.11/3.12/3.13 Specializing Adaptive Interpreter)
+- Building automated CI/CD micro-benchmarking regression test suites

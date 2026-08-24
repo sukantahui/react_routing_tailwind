@@ -1,0 +1,26 @@
+TOPIC_ID: 003_001_000
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 0: OOP Paradigm: Procedural vs Object-Oriented thinking
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive introduction to Object-Oriented Programming (OOP) in Python and the fundamental shift from Procedural thinking to Object-Oriented design. Contrasts procedural architectures (where detached data structures and isolated functions lead to fragmented state, external mutation, and bug vulnerabilities) with OOP paradigms (where state and behavior are cohesively bundled into self-validating classes). Explores the Four Pillars of OOP (Encapsulation, Abstraction, Inheritance, and Polymorphism), real-world domain entity modeling, and clean state invariant protection.
+
+CORE CONCEPTS:
+1. Procedural vs Object-Oriented Programming Paradigms
+2. The Problem with Procedural Data Structures (External State Mutation & Lack of Validation)
+3. Bundling State (Attributes) and Behavior (Methods)
+4. The Four Pillars of OOP: Encapsulation, Abstraction, Inheritance, Polymorphism
+5. Encapsulation & Data Protection: Hiding internal state behind validated methods
+6. Abstraction: Exposing simple public interfaces while hiding complex internal mechanics
+7. Inheritance: Code reuse and specialization across domain hierarchies
+8. Polymorphism: Processing diverse objects through a unified interface
+9. Invariant Enforcement in Classes (e.g., preventing negative account balances)
+10. Domain-Driven Object Modeling (Doctors, Patients, Appointments, Accounts)
+
+REAL-WORLD SCENARIOS:
+- Refactoring legacy procedural banking code with dictionary state into encapsulated BankAccount classes
+- Designing decoupled payment gateway architectures (UPI, Credit Cards, Net Banking) via polymorphic interfaces
+- Preventing data corruption in enterprise healthcare and student records through self-validating entities
+- Transitioning developer mindset from "sequence of tasks" to "interacting autonomous objects"

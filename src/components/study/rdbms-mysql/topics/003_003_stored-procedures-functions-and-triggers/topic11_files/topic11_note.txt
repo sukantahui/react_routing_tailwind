@@ -1,0 +1,27 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 11: Trigger Event Types: INSERT, UPDATE, and DELETE Triggers
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE THREE TRIGGER EVENT TYPES
+--------------------------------------------------------------------------------
+1. INSERT Triggers:
+   - Activated on `INSERT`, `INSERT ... SELECT`, `LOAD DATA INFILE`, and `REPLACE`.
+   - Has access ONLY to `NEW.column_name` (`OLD` is undefined/NULL).
+   - Use Cases: Default code generation, department counter increments, capacity checks.
+
+2. UPDATE Triggers:
+   - Activated on `UPDATE` statements.
+   - Has access to BOTH `OLD.column_name` (pre-update) AND `NEW.column_name` (post-update).
+   - Use Cases: Price change auditing, status transition verification, modified timestamps.
+
+3. DELETE Triggers:
+   - Activated on `DELETE` statements (Note: `TRUNCATE TABLE` bypasses triggers!).
+   - Has access ONLY to `OLD.column_name` (`NEW` is undefined/NULL).
+   - Use Cases: Archiving deleted rows to historical tables, decrementing summary counters.
+
+2. MULTI-ROW DML EXECUTION BEHAVIOR
+--------------------------------------------------------------------------------
+MySQL triggers are strictly row-level (`FOR EACH ROW`). If a single `UPDATE` or `DELETE` 
+statement affects 100 rows, the trigger fires 100 individual times in order.

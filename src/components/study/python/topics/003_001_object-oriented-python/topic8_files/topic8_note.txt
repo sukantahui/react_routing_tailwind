@@ -1,0 +1,42 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+            TOPIC 8: INHERITANCE TOPOLOGIES & THE MIXIN PATTERN
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE 4 PRIMARY INHERITANCE TOPOLOGIES
+--------------------------------------------------------------------------------
+  1. Single Inheritance       : class Employee(Person): pass
+  2. Multilevel Inheritance   : class Manager(Employee): pass  (Person -> Emp -> Mgr)
+  3. Multiple Inheritance     : class SuperAdmin(User, AuditMixin, SMSMixin): pass
+  4. Hierarchical Inheritance : class Student(User): pass; class Faculty(User): pass
+
+--------------------------------------------------------------------------------
+2. THE MIXIN DESIGN PATTERN
+--------------------------------------------------------------------------------
+  Mixins are small, self-contained classes providing a specific capability
+  without being instantiated directly on their own:
+
+  class JSONExportMixin:
+      def to_json(self):
+          return json.dumps(self.__dict__)
+
+  class ClientRecord(BaseModel, JSONExportMixin):
+      pass
+
+--------------------------------------------------------------------------------
+3. IS-A VS HAS-A RULE
+--------------------------------------------------------------------------------
+  • Use Inheritance (IS-A) only when a strict taxonomic relationship holds:
+    "A Student IS A User" -> class Student(User):
+
+  • Use Composition (HAS-A) when an object simply owns another component:
+    "A Student HAS AN Address" -> self.address = Address(...)
+
+================================================================================
+         END OF STUDY NOTE • TOPIC 8: INHERITANCE & MIXINS
+================================================================================

@@ -1,0 +1,26 @@
+TOPIC_ID: 002_009_008
+MODULE: 002_009_modules-packages
+TITLE: Topic 8: Creating and managing Virtual Environments (venv)
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive guide to creating, activating, managing, and troubleshooting Python Virtual Environments using the standard library `venv` module. Covers virtual environment directory structures (Scripts/ on Windows vs bin/ on POSIX, Lib/site-packages/, pyvenv.cfg), the internal CPython boot redirection mechanism (sys.prefix vs sys.base_prefix), the PATH prepending activation mechanics, cross-platform activation commands (PowerShell, CMD, Bash, Zsh), resolving PowerShell script execution policy security errors, deactivation, and programmatic runtime isolation auditing.
+
+CORE CONCEPTS:
+1. Why Virtual Environments are Essential (Dependency Isolation & Conflict Prevention)
+2. Creating Virtual Environments with python -m venv .venv
+3. Anatomy of a Virtual Environment Directory
+4. The Role of pyvenv.cfg in Interpreter Redirection
+5. sys.prefix vs sys.base_prefix Mechanics
+6. How Activation Works: OS PATH Prepending & VIRTUAL_ENV Environment Variable
+7. Cross-Platform Activation: PowerShell, CMD, Bash, Zsh
+8. Fixing Windows PowerShell ExecutionPolicy Security Errors
+9. Deactivation ($ deactivate) and Environment Teardown
+10. Programmatic Environment Detection & Health Auditing
+
+REAL-WORLD SCENARIOS:
+- Isolating distinct client projects with conflicting dependency versions (e.g. Django 3.2 vs Django 5.0) on the same machine
+- Configuring automated local development onboarding scripts for junior developers
+- Debugging 'script execution is disabled' errors on fresh Windows development machines
+- Verifying deployment sandbox isolation in production CI/CD Docker containers

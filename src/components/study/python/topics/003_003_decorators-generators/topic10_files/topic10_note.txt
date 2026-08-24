@@ -1,0 +1,34 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+         TOPIC 10: GENERATOR EXPRESSIONS FOR MEMORY EFFICIENCY IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. GENERATOR EXPRESSION SYNTAX
+--------------------------------------------------------------------------------
+  # List Comprehension: Allocates full list in RAM (O(N)):
+  list_data = [x ** 2 for x in range(1000000)]
+
+  # Generator Expression: Streams lazily on demand (O(1)):
+  gen_data  = (x ** 2 for x in range(1000000))
+
+--------------------------------------------------------------------------------
+2. PARENTHESES REDUCTION IN SINGLE-ARGUMENT CALLS
+--------------------------------------------------------------------------------
+  # Idiomatic single parentheses:
+  total = sum(x ** 2 for x in numbers)
+  largest = max(s for s in scores if s < 100)
+
+--------------------------------------------------------------------------------
+3. SHORT-CIRCUITING WITH any() AND all()
+--------------------------------------------------------------------------------
+  # Evaluates ONLY until first match is found:
+  has_passed = any(score >= 40 for score in student_scores)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 10: GENERATOR EXPRESSIONS
+================================================================================

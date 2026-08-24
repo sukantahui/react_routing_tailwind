@@ -1,0 +1,23 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 13: Real-World Trigger Use Cases: Automated Audit Logging & Validation
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. FOUR ENTERPRISE TRIGGER ARCHITECTURAL PATTERNS
+--------------------------------------------------------------------------------
+1. Immutable Audit Trail Logging:
+   - Captures every INSERT, UPDATE, and DELETE into a separate audit table with 
+     actor user (`USER()`), timestamp (`NOW()`), action type, and JSON state diffs.
+
+2. Complex Cross-Table Constraint Validation:
+   - Enforces business rules that standard CHECK constraints cannot handle (e.g. 
+     checking if classroom seat capacity is exceeded before inserting enrollment).
+
+3. Real-Time Summary Synchronization:
+   - Keeps denormalized aggregate counters (e.g. `department.total_students`, 
+     `course.enrolled_count`) synchronized in real time without expensive `COUNT(*)` queries.
+
+4. Data Sanitization & Soft-Delete Interception:
+   - Sanitizes text casing, validates phone/PAN formats, or intercepts DELETE 
+     statements to set `is_active = FALSE` instead of physical deletion.

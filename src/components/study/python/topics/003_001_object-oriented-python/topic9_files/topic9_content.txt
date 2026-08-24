@@ -1,0 +1,26 @@
+TOPIC_ID: 003_001_009
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 9: Method Overriding & super() function
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Method Overriding and the `super()` function in Python. Deep dive into extending parent logic vs completely replacing inherited behavior, modern zero-argument `super()` in Python 3 vs legacy `super(Child, self)` syntax, the true internal mechanics of `super()` in multiple inheritance and diamond topologies (delegating to the next class in MRO rather than the immediate lexical parent), cooperative constructor chaining with `**kwargs` propagation, avoiding brittle explicit class calls, and an enterprise multi-tier student tuition concession and layered fee calculation engine case study.
+
+CORE CONCEPTS:
+1. Method Overriding Mechanics: Redefining Methods in Subclasses
+2. Extending vs Replacing Inherited Behavior
+3. Zero-Argument super() in Python 3 vs Legacy super(Class, self)
+4. The True Meaning of super(): Next in MRO Linearization Sequence
+5. Cooperative Multiple Inheritance in Diamond Topologies
+6. Why super() Guarantees Every Ancestral Method is Called Exactly Once
+7. Cooperative Constructor Chaining with **kwargs Forwarding
+8. Avoiding Direct Explicit Base Class Calls (e.g. Base.method(self))
+9. Layered Computation Pipelines Using super().calculate()
+10. Case Study: Multi-Tier Fee Concession & Transaction Processing Engine
+
+REAL-WORLD SCENARIOS:
+- Building extensible request-processing middleware pipelines (Authentication -> Encryption -> Database) using cooperative super()
+- Forwarding heterogeneous configuration payloads through multi-inheritance Mixins via dynamic **kwargs unpacking
+- Refactoring complex financial engines with layered discount rules (Base Gross -> Scholarship -> Early Bird -> Promo Rebates)
+- Ensuring complete constructor safety and avoiding double-execution bugs in enterprise cloud SDKs

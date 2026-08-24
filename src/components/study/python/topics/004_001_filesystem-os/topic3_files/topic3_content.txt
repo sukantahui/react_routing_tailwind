@@ -1,0 +1,26 @@
+TOPIC_ID: 004_001_003
+MODULE: 004_001_filesystem-os
+TITLE: Topic 3: shutil module: copying, moving, archiving, and recursive deletions
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to high-level filesystem management and archiving using Python's `shutil` standard library module. Deep dive into the copying hierarchy (`shutil.copyfile` vs `shutil.copy` vs `shutil.copy2`), preserving POSIX/Windows metadata and modification timestamps, moving files across partitions with `shutil.move()`, recursive directory tree cloning with `shutil.copytree(dirs_exist_ok=True, ignore=shutil.ignore_patterns())`, safe recursive deletion with `shutil.rmtree()`, custom `onerror`/`on_exc` handlers for read-only permission recovery on Windows, disk space telemetry via `shutil.disk_usage()`, standard archive compression (`shutil.make_archive()`) supporting `.zip`, `.tar.gz`, and `.tar.bz2`, archive extraction with `shutil.unpack_archive()`, and an institutional automated multi-campus backup and snapshot archiving engine case study.
+
+CORE CONCEPTS:
+1. The File Copying Hierarchy (`copyfile` vs `copy` vs `copy2`)
+2. Preserving File Timestamps & Metadata with `shutil.copy2()`
+3. Cross-Drive File & Folder Relocation with `shutil.move()`
+4. Recursive Directory Tree Cloning (`shutil.copytree(dirs_exist_ok=True)`)
+5. Pattern-Based Exclusion Filters with `shutil.ignore_patterns()`
+6. Safe Recursive Deletions (`shutil.rmtree()`)
+7. Handling Read-Only Permission Locks on Windows (`stat.S_IWRITE`)
+8. Host Disk Storage Quota Inspection (`shutil.disk_usage()`)
+9. High-Level Compression & Packaging (`shutil.make_archive()`, `.zip`, `.tar.gz`)
+10. Case Study: Institutional Automated Backup & Archiving Engine
+
+REAL-WORLD SCENARIOS:
+- Automating nightly database backups and student KYC document archiving across multi-campus networks
+- Deploying application packages by creating self-contained distribution `.zip` bundles
+- Verifying server storage capacity threshold before initiating large data ingestion jobs
+- Gracefully handling permission-locked files during automated CI/CD workspace teardowns

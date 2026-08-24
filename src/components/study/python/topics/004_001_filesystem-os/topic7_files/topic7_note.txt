@@ -1,0 +1,35 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_001: FILESYSTEM & OS
+           TOPIC 7: AUTOMATED DIRECTORY BACKUP & FILE ORGANIZER SCRIPTS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. EXTENSION-BASED DIRECTORY ORGANIZER
+--------------------------------------------------------------------------------
+  CATEGORY_MAP = {
+      "Documents": {".pdf", ".docx", ".txt"},
+      "Data": {".csv", ".json", ".xlsx"},
+      "Media": {".png", ".jpg", ".svg"}
+  }
+  # Match extension and move with collision handling:
+  shutil.move(src_path, dest_dir / unique_name)
+
+--------------------------------------------------------------------------------
+2. TWO-STAGE SHA-256 DUPLICATE DETECTION
+--------------------------------------------------------------------------------
+  # Stage 1: Group by file size (os.path.getsize)
+  # Stage 2: Hash only files in same size group (hashlib.sha256 in 64KB chunks)
+
+--------------------------------------------------------------------------------
+3. INCREMENTAL BACKUP SYNC
+--------------------------------------------------------------------------------
+  if not dst.exists() or src.stat().st_mtime > dst.stat().st_mtime:
+      shutil.copy2(src, dst)  # Sync only new or updated files
+
+================================================================================
+     END OF STUDY NOTE • MODULE 004_001: FILESYSTEM & OS AUTOMATION (COMPLETE)
+================================================================================

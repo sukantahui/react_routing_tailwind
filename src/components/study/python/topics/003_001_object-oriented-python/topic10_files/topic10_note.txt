@@ -1,0 +1,38 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+                TOPIC 10: METHOD RESOLUTION ORDER (MRO) IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. INSPECTING MRO IN PYTHON
+--------------------------------------------------------------------------------
+  • Via Tuple Attribute : ClassName.__mro__
+  • Via List Method     : ClassName.mro()
+
+--------------------------------------------------------------------------------
+2. THE C3 LINEARIZATION FORMULA
+--------------------------------------------------------------------------------
+  L(C) = [C] + merge(L(B1), L(B2), ..., [B1, B2, ...])
+
+  Three Guiding Properties:
+    1. Subclasses appear before parent base classes.
+    2. Base classes declared in class header (B1, B2) preserve left-to-right order.
+    3. Monotonicity: If A precedes B in one class, A must precede B in all subclasses.
+
+--------------------------------------------------------------------------------
+3. INCONSISTENT MRO CONFLICT TRAP & FIX
+--------------------------------------------------------------------------------
+  ❌ CONTRADICTION (Causes TypeError):
+      class B(A): pass
+      class Bad(A, B): pass  # Demands A before B, but B inherits A!
+
+  ✓ CORRECT (Specialized before general):
+      class Good(B, A): pass
+
+================================================================================
+            END OF STUDY NOTE • TOPIC 10: METHOD RESOLUTION ORDER
+================================================================================

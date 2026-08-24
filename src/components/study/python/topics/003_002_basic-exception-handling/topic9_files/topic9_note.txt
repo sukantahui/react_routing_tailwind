@@ -1,0 +1,35 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_002: EXCEPTION HANDLING
+            TOPIC 9: EXCEPTION CHAINING (RAISE ... FROM ...) IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. EXPLICIT CHAINING (`raise ... from e`)
+--------------------------------------------------------------------------------
+  try:
+      raw = socket.read()
+  except TimeoutError as e:
+      # Explicitly chains e as the direct cause:
+      raise PaymentGatewayTimeoutError("Bank timed out") from e
+
+  # Populates: err.__cause__ = e
+  # Traceback: "The above exception was the direct cause of the following exception"
+
+--------------------------------------------------------------------------------
+2. SUPPRESSED CHAINING (`raise ... from None`)
+--------------------------------------------------------------------------------
+  try:
+      execute_internal_db()
+  except InternalSqlError:
+      # Suppresses internal traceback to prevent leaking schema details:
+      raise UserVisibleError("Failed to update profile") from None
+
+  # Sets: err.__suppress_context__ = True
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 9: EXCEPTION CHAINING (FROM)
+================================================================================

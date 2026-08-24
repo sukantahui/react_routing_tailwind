@@ -1,0 +1,33 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_004: WORKING WITH JSON
+             TOPIC 3: JSON DESERIALIZATION: json.load() VS json.loads()
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. json.loads() VS json.load()
+--------------------------------------------------------------------------------
+  • `json.loads(s)` : Parses in-memory string or bytes into Python objects.
+  • `json.load(f)`  : Parses directly from an open file/stream object.
+
+--------------------------------------------------------------------------------
+2. HIGH-PRECISION FINANCIAL DECODING
+--------------------------------------------------------------------------------
+  from decimal import Decimal
+  doc = json.loads(payload, parse_float=Decimal)
+  # Prevents IEEE-754 binary floating-point roundoff drift!
+
+--------------------------------------------------------------------------------
+3. PINPOINTING JSONDecodeError
+--------------------------------------------------------------------------------
+  try:
+      data = json.loads(corrupt_str)
+  except json.JSONDecodeError as e:
+      print(f"{e.msg} at line {e.lineno}, column {e.colno} (pos {e.pos})")
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 3: JSON DESERIALIZATION
+================================================================================

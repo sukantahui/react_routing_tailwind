@@ -1,0 +1,526 @@
+
+=======================================================
+Segment ID: foundation | Title: Segment 1 – Python Core Fundamentals (Beginner)
+=======================================================
+  Module ID: py-intro | Slug: 001_001_getting-started-with-python | Title: Getting Started with Python
+    Topic 0: What is Python and where it is used
+    Topic 1: Features of Python – interpreted, high-level, portable
+    Topic 2: Python installation (Windows, macOS, Linux)
+    Topic 3: Using IDLE, VS Code, PyCharm
+    Topic 4: Running Python files vs interactive shell
+    Topic 5: print() function and first program
+    Topic 6: Basic debugging through print statements
+  Module ID: python-syntax | Slug: 001_002_python-syntax-and-basics | Title: Python Syntax, Variables & Data Types
+    Topic 0: Python indentation rules
+    Topic 1: Comments (# single-line)
+    Topic 2: Variables and naming conventions
+    Topic 3: Keywords and identifiers
+    Topic 4: Core data types: int, float, str, bool
+    Topic 5: Type casting: int(), float(), str(), bool()
+    Topic 6: Input using input()
+    Topic 7: Basic formatting: sep, end
+    Topic 8: Input Handling & Output Formatting
+  Module ID: operators | Slug: 001_003_operators-and-expressions | Title: Operators, Expressions & Basic Logic
+    Topic 0: Arithmetic operators
+    Topic 1: Assignment and compound assignment
+    Topic 2: Comparison operators
+    Topic 3: Logical operators (and, or, not)
+    Topic 4: String concatenation & f-strings
+    Topic 5: Operator precedence
+    Topic 6: Evaluating expressions
+    Topic 7: Evaluating Expressions in Python
+  Module ID: control-flow | Slug: 001_004_control-flow-conditions | Title: Control Flow & Decision Making
+    Topic 0: if, elif, else
+    Topic 1: Nested conditions
+    Topic 2: Multiple conditions using logical operators
+    Topic 3: Building real-world scenarios: login check, grading system
+  Module ID: loops | Slug: 001_005_loops-and-iteration | Title: Loops & Basic Iteration
+    Topic 0: while loop
+    Topic 1: for loop with range()
+    Topic 2: Loop control: break, continue, pass
+    Topic 3: Nested loops
+    Topic 4: Pattern printing
+    Topic 5: Simple menu-driven programs
+    Topic 6: Jump Statements
+    Topic 7: Output Practice
+  Module ID: segment1-test | Slug: 001_006_segment1-test | Title: Segment 1 – Comprehensive Foundation Assessment
+    Topic 0: Python Introduction, Setup & Execution
+    Topic 1: Variables, Identifiers & Core Data Types
+    Topic 2: Operators, Precedence & Expression Evaluation
+    Topic 3: Conditional Logic & Decision Branching
+    Topic 4: Iteration, Nested Loops & Flow Control
+    Topic 5: Comprehensive MCQ & Code Tracing Test
+
+=======================================================
+Segment ID: intermediate | Title: Segment 2 – Practical Python for Real-World Development (Intermediate)
+=======================================================
+  Module ID: functions-core | Slug: 002_001_functions-basics | Title: Functions & Modular Logic
+    Topic 0: Introduction to Functions: Definition, syntax, and purpose
+    Topic 1: Function Declaration vs Function Calling (Invocation)
+    Topic 2: Types of Functions: Built-in vs User-defined functions
+    Topic 3: Parameters and Arguments: Meaning and differences
+    Topic 4: Types of Arguments: Positional, Keyword, Default, and Required
+    Topic 5: Default Parameter Values and their usage
+    Topic 6: Variable-Length Arguments: *args (non-keyword arguments)
+    Topic 7: Variable-Length Keyword Arguments: **kwargs
+    Topic 8: Unpacking arguments in function calls
+    Topic 9: Return Statement: Returning single and multiple values
+    Topic 10: Functions without return (None type behavior)
+    Topic 11: Lambda (Anonymous) Functions: Syntax and basic usage
+    Topic 12: Use cases of lambda with functions like map(), filter()
+    Topic 13: Scope of Variables: Local Scope and Global Scope
+    Topic 14: Global Keyword and modifying global variables
+    Topic 15: Lifetime of variables and namespace concept
+    Topic 16: Best Practices: Writing clean and reusable functions
+    Topic 17: Common Errors and Debugging in Functions
+    Topic 18: Practice Questions
+    Topic 19: Test your skill
+    Topic 20: Short Questions
+  Module ID: test-python-function | Slug: 002_002_test-python-function | Title: Python Functions Assessment & Test Paper
+    Topic 0: Function Declaration vs Function Calling Analysis
+    Topic 1: Arguments: Positional, Keyword, Default, and Required
+    Topic 2: Variable-Length Arguments (*args and **kwargs) in Practice
+    Topic 3: Return Values, NoneType Handling & Tuple Unpacking
+    Topic 4: Lambda Expressions & Higher-Order Functions
+    Topic 5: Variable Scope, Global Keyword & Lifetime Analysis
+    Topic 6: 50-Marks Comprehensive Written & Descriptive Examination
+  Module ID: lists | Slug: 002_003_lists-and-methods | Title: Lists & Essential List Operations
+    Topic 0: Introduction to lists & use cases
+    Topic 1: Creating lists (literals, list constructor)
+    Topic 2: Accessing elements: indexing & slicing
+    Topic 3: Negative indexing & slicing tricks
+    Topic 4: Mutating operations: append(), insert(), extend()
+    Topic 5: Removing elements: remove(), pop(), clear(), del
+    Topic 6: Searching in lists: in, index(), count()
+    Topic 7: Updating list elements
+    Topic 8: Sorting lists: sort() vs sorted()
+    Topic 9: Custom sorting using key functions
+    Topic 10: Reversing lists: reverse() vs slicing
+    Topic 11: List comprehension (basics)
+    Topic 12: Conditional list comprehensions
+    Topic 13: Nested list comprehensions (readability rules)
+    Topic 14: Nested lists & 2D data structures
+    Topic 15: Iterating lists (for, enumerate)
+    Topic 16: Copying lists: shallow copy vs reference
+    Topic 17: List unpacking & starred expressions
+    Topic 18: Lists vs tuples: when to use what
+    Topic 19: Lists vs sets vs dictionaries
+    Topic 20: Performance considerations of lists
+    Topic 21: Common list pitfalls & errors
+    Topic 22: Real-world use cases (queues, stacks, records)
+  Module ID: tuples | Slug: 002_004_tuples | Title: Tuples & Immutability
+    Topic 0: Introduction to tuples
+    Topic 1: Creating tuples (with and without parentheses)
+    Topic 2: Single-element tuples and trailing comma
+    Topic 3: Tuple packing and unpacking
+    Topic 4: Indexing and slicing tuples
+    Topic 5: Negative indexing
+    Topic 6: Immutability of tuples
+    Topic 7: Why tuples are immutable
+    Topic 8: Accessing elements inside nested tuples
+    Topic 9: Tuple concatenation and repetition
+    Topic 10: Tuple methods: count() and index()
+    Topic 11: Iterating through tuples
+    Topic 12: Membership testing using in
+    Topic 13: Tuple assignment and swapping variables
+    Topic 14: Tuples as function return values
+    Topic 15: Tuples vs lists: key differences
+    Topic 16: Performance benefits of tuples
+    Topic 17: Tuples as dictionary keys
+    Topic 18: Common tuple pitfalls and errors
+    Topic 19: Real-world use cases (coordinates, records, fixed data)
+    Topic 20: Test Tuple Skill
+  Module ID: dictionaries | Slug: 002_005_dictionaries | Title: Dictionaries & Key-Value Mappings
+    Topic 0: Introduction to dictionaries
+    Topic 1: Dictionary structure: keys and values
+    Topic 2: Creating dictionaries (literals, dict constructor)
+    Topic 3: Accessing values using keys
+    Topic 4: Handling missing keys (in, get(), default values)
+    Topic 5: Adding key-value pairs
+    Topic 6: Updating existing entries
+    Topic 7: Removing items: pop(), popitem(), del, clear()
+    Topic 8: Dictionary methods: keys(), values(), items()
+    Topic 9: Iterating dictionaries (keys, values, items)
+    Topic 10: Nested dictionaries
+    Topic 11: Dictionary comprehension
+    Topic 12: Merging dictionaries
+    Topic 13: Copying dictionaries (shallow vs reference)
+    Topic 14: Checking key existence
+    Topic 15: Dictionary vs list: when to use what
+    Topic 16: Real-world use cases (configs, counters, mappings)
+    Topic 17: Test your Skill
+  Module ID: sets | Slug: 002_006_sets | Title: Sets & Set Operations
+    Topic 0: Introduction to sets
+    Topic 1: Creating sets (set literal and set constructor)
+    Topic 2: Unique nature of sets
+    Topic 3: Unordered and unindexed collections
+    Topic 4: Adding elements: add(), update()
+    Topic 5: Removing elements: remove(), discard(), pop(), clear()
+    Topic 6: Membership testing using in
+    Topic 7: Iterating through sets
+    Topic 8: Set length and basic operations
+    Topic 9: Mathematical set operations
+    Topic 10: Union, intersection, difference
+    Topic 11: Symmetric difference
+    Topic 12: Set comparison: subset, superset, disjoint sets
+    Topic 13: Frozen sets (immutable sets)
+    Topic 14: Set comprehension
+    Topic 15: Removing duplicates using sets
+    Topic 16: Sets vs lists vs tuples
+    Topic 17: Performance benefits of sets
+    Topic 18: Real-world use cases (unique users, tags, permissions)
+  Module ID: strings | Slug: 002_007_string-processing | Title: String Processing & Pattern Handling
+    Topic 0: String creation, multiline strings & escape sequences
+    Topic 1: String immutability & memory representation
+    Topic 2: Indexing, slicing, step slicing & reversing strings
+    Topic 3: Essential string methods: upper, lower, title, strip, split, join, replace
+    Topic 4: Searching & validation: find, rfind, count, startswith, endswith, isdigit, isalpha
+    Topic 5: Advanced formatting: f-strings, format() method, padding, alignment
+    Topic 6: Joining lists of strings with join()
+    Topic 7: Basic regular expressions concept with re module
+    Topic 8: Pattern matching: search(), match(), findall(), sub()
+    Topic 9: Common string processing algorithms (palindromes, anagrams, word counts)
+  Module ID: file-handling | Slug: 002_008_file-handling | Title: File Handling & Persistence (Text, CSV & JSON)
+    Topic 0: Introduction to File Handling & Persistence
+    Topic 1: Why File Handling is Needed
+    Topic 2: Types of Files: Text Files vs Binary Files
+    Topic 3: File Paths: Absolute & Relative Paths
+    Topic 4: Current Working Directory & os path management
+    Topic 5: Opening Files with open() and File Modes (r, w, a, x, r+, w+, a+)
+    Topic 6: Binary File Modes (rb, wb, ab, rb+, wb+, ab+)
+    Topic 7: The with statement & automatic resource cleanup
+    Topic 8: Reading Files: read(), read(size), readline(), readlines()
+    Topic 9: Iterating Over Files Line by Line for Memory Efficiency
+    Topic 10: Writing Files: write(), writelines(), appending data
+    Topic 11: File Pointer Manipulation: tell() and seek()
+    Topic 12: Working with Bytes & Bytearray for Binary Files
+    Topic 13: CSV File Handling with csv module (reader, writer, DictReader, DictWriter)
+    Topic 14: JSON Serialization & Deserialization: json.load(), json.loads(), json.dump(), json.dumps()
+    Topic 15: File Encoding (UTF-8, ASCII) & Unicode Handling
+    Topic 16: File Existence Checks & Safe File Deletion/Renaming
+    Topic 17: Exception Handling in I/O (FileNotFoundError, PermissionError, UnicodeDecodeError)
+    Topic 18: Best Practices for Production File Handling
+  Module ID: modules-packages | Slug: 002_009_modules-packages | Title: Modules, Packages & Python Standard Library
+    Topic 0: import & from-import syntax variations
+    Topic 1: Module search path (sys.path) and module namespace
+    Topic 2: Built-in standard library modules: math, random, datetime, sys, os
+    Topic 3: Creating and structuring custom user-defined modules
+    Topic 4: The __name__ == '__main__' idiom explained with practical use cases
+    Topic 5: Concept of packages & __init__.py files
+    Topic 6: Relative vs absolute imports in packages
+    Topic 7: Third-party packages and pip package manager
+    Topic 8: Creating and managing Virtual Environments (venv)
+    Topic 9: requirements.txt generation and dependency management
+
+=======================================================
+Segment ID: advanced | Title: Segment 3 – Advanced Python Programming
+=======================================================
+  Module ID: oop-basics | Slug: 003_001_object-oriented-python | Title: Object-Oriented Programming (OOP) in Python
+    Topic 0: OOP Paradigm: Procedural vs Object-Oriented thinking
+    Topic 1: Classes, Instances & Objects: syntax and lifecycle
+    Topic 2: Constructors & the __init__() method
+    Topic 3: Instance methods & the self parameter
+    Topic 4: Class attributes vs Instance attributes
+    Topic 5: Class methods (@classmethod) & Static methods (@staticmethod)
+    Topic 6: Encapsulation & Data Hiding (Public, Protected _var, Private __var, Name Mangling)
+    Topic 7: Properties & Getters/Setters with @property
+    Topic 8: Inheritance: Single, Multiple, Multilevel, and Hierarchical
+    Topic 9: Method Overriding & super() function
+    Topic 10: Method Resolution Order (MRO)
+    Topic 11: Polymorphism & Duck Typing in Python
+    Topic 12: Magic / Dunder Methods: __str__, __repr__, __len__, __eq__, __add__
+    Topic 13: Abstract Base Classes (abc module)
+  Module ID: exceptions-basic | Slug: 003_002_basic-exception-handling | Title: Robust Exception Handling & Defensive Coding
+    Topic 0: What are runtime errors and why they occur
+    Topic 1: Difference between syntax errors and runtime exceptions
+    Topic 2: Python Exception Hierarchy (BaseException, Exception, Standard Exceptions)
+    Topic 3: Common built-in exceptions: ValueError, TypeError, IndexError, KeyError, ZeroDivisionError
+    Topic 4: try, except, else, and finally blocks architecture
+    Topic 5: Handling specific multiple exceptions vs bare except traps
+    Topic 6: Accessing exception objects with as (e.g., except ValueError as e)
+    Topic 7: Raising exceptions intentionally using raise keyword
+    Topic 8: Creating User-Defined Custom Exception Classes
+    Topic 9: Exception Chaining (raise ... from ...)
+    Topic 10: Using assertions with assert for internal invariant checks
+    Topic 11: Debugging techniques & pdb breakpoints
+    Topic 12: Best practices: Fail fast, log errors, defensive programming
+  Module ID: decorators-gen | Slug: 003_003_decorators-generators | Title: Decorators, Generators & Iterators
+    Topic 0: First-Class Functions: Passing and returning functions
+    Topic 1: Inner functions and variable scope closures
+    Topic 2: Understanding Decorators: Concept and @decorator syntax
+    Topic 3: Writing custom decorators (logging, timing execution, authentication)
+    Topic 4: Decorators with arguments & functools.wraps preservation
+    Topic 5: Chaining multiple decorators
+    Topic 6: Iteration protocol: __iter__() and __next__()
+    Topic 7: Creating custom iterator classes
+    Topic 8: Generators & the yield statement
+    Topic 9: Generator functions vs regular functions
+    Topic 10: Generator expressions for memory efficiency
+    Topic 11: Infinite streams and large data processing with generators
+  Module ID: json-handling | Slug: 003_004_working-with-json | Title: Working with JSON & External Data APIs
+    Topic 0: JSON Format overview: types, syntax, and schema standards
+    Topic 1: JSON in Python: Mapping Python types to JSON types
+    Topic 2: Serialization: json.dump() vs json.dumps() with indent, sort_keys
+    Topic 3: Deserialization: json.load() vs json.loads()
+    Topic 4: Handling custom Python objects with custom JSONEncoders & object_hook
+    Topic 5: Working with nested JSON structures and API payloads
+    Topic 6: Consuming REST API data using urllib / requests
+    Topic 7: Validating and sanitizing JSON data schemas
+    Topic 8: Building JSON-backed persistent data stores
+  Module ID: comprehensions-advanced | Slug: 003_005_advance-comprehensions | Title: Advanced Comprehensions & Functional Programming
+    Topic 0: Deep Dive: List, Dict, and Set Comprehensions
+    Topic 1: Nested and Multi-variable Comprehensions with filtering
+    Topic 2: Readability guidelines: When to use comprehensions vs loops
+    Topic 3: Functional tools: map(), filter(), and functools.reduce()
+    Topic 4: any() and all() predicates for quick boolean checks
+    Topic 5: zip() and itertools module essentials (count, cycle, repeat, chain)
+    Topic 6: Pure functions & immutable programming principles in Python
+    Topic 7: Building clean data transformation pipelines
+
+=======================================================
+Segment ID: pro | Title: Segment 4 – Python Pro Level & Ecosystem Mastery
+=======================================================
+  Module ID: advanced-file-os | Slug: 004_001_filesystem-os | Title: Advanced File Operations, OS & Subprocess Automation
+    Topic 0: os module: environment variables, cwd, file system queries
+    Topic 1: Modern path manipulation with pathlib.Path
+    Topic 2: Directory traversal: os.walk(), scandir(), and glob patterns
+    Topic 3: shutil module: copying, moving, archiving, and recursive deletions
+    Topic 4: Command-line arguments parsing: sys.argv & argparse module
+    Topic 5: Running external shell commands using subprocess module (run, Popen, pipes)
+    Topic 6: Building automated system maintenance scripts
+    Topic 7: Automated directory backup and file organizer scripts
+  Module ID: performance-optimization | Slug: 004_002_performance-optimization | Title: Performance Optimization, Profiling & Big-O Thinking
+    Topic 0: Big-O notation basics (Time & Space complexity: O(1), O(N), O(N log N), O(N^2))
+    Topic 1: Comparing lookup costs across Python data structures (list, set, dict, deque)
+    Topic 2: Benchmarking code with timeit module
+    Topic 3: Profiling CPU execution using cProfile and pstats
+    Topic 4: Memory profiling and reducing object footprint with __slots__
+    Topic 5: Optimizing loops, lookups, and eliminating algorithmic bottlenecks
+    Topic 6: collections module: deque, Counter, defaultdict, OrderedDict, namedtuple
+    Topic 7: Best practices for high-throughput Python applications
+  Module ID: testing | Slug: 004_003_python-testing | Title: Automated Testing, PyTest & Quality Assurance
+    Topic 0: Why automated testing is mandatory for professional software
+    Topic 1: Types of testing: Unit testing, Integration testing, Functional testing
+    Topic 2: Built-in unittest framework: TestCase, assertions, setUp and tearDown
+    Topic 3: Modern testing with PyTest: test discovery, assert statements, fixtures
+    Topic 4: Parametrized tests with @pytest.mark.parametrize
+    Topic 5: Testing exceptions with pytest.raises
+    Topic 6: Mocking external dependencies with unittest.mock (patch, Mock, MagicMock)
+    Topic 7: Measuring Code Coverage with coverage.py / pytest-cov
+    Topic 8: Introduction to Test-Driven Development (TDD) workflow
+  Module ID: final-projects | Slug: 004_004_capstone-projects | Title: Capstone Projects, Portfolio & Interview Mastery
+    Topic 0: End-to-End project architecture & clean directory layout
+    Topic 1: Integrating SQLite / JSON persistence, OOP models, and business logic
+    Topic 2: Configuring logging, error handling, and modular CLI / GUI interfaces
+    Topic 3: Writing complete documentation (README.md, docstrings, typing hints)
+    Topic 4: Publishing projects to GitHub with Git commits, issues, and releases
+    Topic 5: Top Python Technical Interview Questions & Coding Challenges
+    Topic 6: System design basics for Python backends
+    Topic 7: Resume and portfolio presentation strategies
+
+=======================================================
+Segment ID: turtle-graphics-pro | Title: Segment 5 – Python Turtle & Creative Graphics Programming (Enhanced)
+=======================================================
+  Module ID: turtle-foundation | Slug: 005_001_turtle-foundation | Title: Module 1 – Turtle Foundations & First Drawings
+    Topic 0: Introduction to Turtle Graphics: history, educational purpose, and real-world relevance
+    Topic 1: Understanding the Turtle screen: canvas, coordinate system (Cartesian plane), origin (0,0), and quadrants
+    Topic 2: Screen configuration: setup(), title(), bgcolor(), screensize()
+    Topic 3: Turtle object creation and lifecycle
+    Topic 4: Turtle cursor (pen) behavior: position, heading, visibility (showturtle(), hideturtle())
+    Topic 5: Movement fundamentals: forward(), backward(), distance control and precision
+    Topic 6: Rotation control: left(), right(), setheading(), degrees vs angles
+    Topic 7: Understanding heading direction (0°, 90°, 180°, 270°) with compass analogy
+    Topic 8: Absolute positioning: goto(x, y), setx(), sety()
+    Topic 9: Relative vs absolute movement (concept clarity with examples)
+    Topic 10: Drawing straight lines and connected paths
+    Topic 11: Creating basic geometric shapes: square, rectangle, triangle (step-by-step logic)
+    Topic 12: Using dot() and stamp() for marking positions
+    Topic 13: Pen control basics: penup(), pendown() for movement without drawing
+    Topic 14: Resetting and clearing: clear(), reset(), home()
+    Topic 15: Understanding drawing flow and sequence of commands
+    Topic 16: Introduction to turtle.done() and program lifecycle completion
+  Module ID: turtle-design | Slug: 005_002_turtle-design | Title: Module 2 – Colors, Styles & Visual Design
+    Topic 0: Pen control: penup(), pendown() and pensize()
+    Topic 1: Line thickness, pensize, and cap styling
+    Topic 2: Color systems (RGB 0-255 vs 0-1, hex codes, named colors)
+    Topic 3: Fill mechanics: begin_fill(), end_fill(), fillcolor()
+    Topic 4: Background canvas design and window customization
+    Topic 5: Speed vs rendering performance: speed() settings
+    Topic 6: Combining geometric fills to compose complex graphics
+  Module ID: turtle-patterns | Slug: 005_003_turtle-patterns | Title: Module 3 – Patterns, Loops & Mathematical Art
+    Topic 0: Using loops for drawing repetitive structures
+    Topic 1: Polygon mathematics: The 360/n degree exterior angle rule
+    Topic 2: Nested loops for complex geometric pattern creation
+    Topic 3: Spirals, Archimedean spirals, and radial symmetry
+    Topic 4: Angle mathematics in star polygons and mandalas
+    Topic 5: Color gradients and hue shifts inside iterative loops
+    Topic 6: Pattern optimization and computational efficiency
+  Module ID: turtle-modular | Slug: 005_004_turtle-modular | Title: Module 4 – Modular Graphics with Functions
+    Topic 0: Writing reusable drawing functions (draw_circle, draw_star, draw_house)
+    Topic 1: Parameterized graphics (position x, y, radius, color, rotation)
+    Topic 2: Preserving turtle position and heading with state restore functions
+    Topic 3: Building an extensible custom Shape & Icon Library
+    Topic 4: Combining multiple modular shapes into complex town and nature scenes
+    Topic 5: Clean code and DRY principles in graphical programming
+  Module ID: turtle-animation | Slug: 005_005_turtle-animation | Title: Module 5 – Animation & Motion Logic
+    Topic 0: Frame-based animation concepts and frames per second (FPS)
+    Topic 1: Controlling redraw with tracer(0) and update() for instant rendering
+    Topic 2: Eliminating flickering in Turtle animations
+    Topic 3: Timing and loop delays using time.sleep() and ontimer()
+    Topic 4: Simulating basic 2D physics: velocity, acceleration, and gravity
+    Topic 5: Boundary detection and wall bouncing logic
+    Topic 6: Multi-object synchronized animation loops
+  Module ID: turtle-interaction | Slug: 005_006_turtle-interaction | Title: Module 6 – Event Handling & User Interaction
+    Topic 0: Event-driven programming model concepts
+    Topic 1: Screen event listening: screen.listen()
+    Topic 2: Keyboard input binding: screen.onkey() and screen.onkeypress()
+    Topic 3: Mouse click event handling: screen.onclick() and turtle.onclick()
+    Topic 4: Mouse drag events with ondrag() for freehand drawing
+    Topic 5: Real-time user controls: moving, steering, and aiming
+    Topic 6: Managing game and interactive states (active, paused, game-over)
+    Topic 7: Creating interactive buttons and clickable UI on canvas
+  Module ID: turtle-advanced | Slug: 005_007_turtle-advanced | Title: Module 7 – Advanced Graphics, Recursion & Fractal Art
+    Topic 0: Understanding recursion through visual geometry
+    Topic 1: Base cases and recursive step branches in graphical drawing
+    Topic 2: Fractal Tree generator: branching angles, length reduction, and branch color shifts
+    Topic 3: Koch Snowflake fractal: recursive line subdivision
+    Topic 4: Sierpinski Triangle generator with recursion and chaos game algorithm
+    Topic 5: Dragon Curve and space-filling fractal curves
+    Topic 6: Visualizing mathematical concepts (Golden ratio, Fibonacci spirals)
+    Topic 7: Optimizing recursive rendering depth and call stacks
+  Module ID: turtle-game-dev | Slug: 005_008_turtle-game-dev | Title: Module 8 – Complete Game Development with Turtle
+    Topic 0: Complete Game Loop Architecture: Input → Update → Collision → Render → Score
+    Topic 1: Object-Oriented Game Entities (Player, Enemies, Collectibles, Borders)
+    Topic 2: Precision 2D Collision Detection: Distance formula & bounding box methods
+    Topic 3: Scoreboards, High Score persistence, and Lives display using turtle.write()
+    Topic 4: Sound effects integration (winsound / playsound conceptual)
+    Topic 5: Building Classic Games from scratch: Snake Game, Pong (2-Player), Space Invaders clone
+    Topic 6: Game Over, Restart mechanisms, and progressive difficulty scaling
+    Topic 7: Refactoring game code for clean maintainability
+  Module ID: turtle-capstone | Slug: 005_009_turtle-capstone | Title: Module 9 – Visual Capstone Project & Portfolio
+    Topic 0: Creative Project Planning: Idea, Wireframe, Math & Architecture
+    Topic 1: Integrating UI design, smooth animations, audio cues, and user interaction
+    Topic 2: Code optimization, docstrings, and modular package structuring
+    Topic 3: Exporting canvas art to vector and image formats (PostScript / PNG)
+    Topic 4: Showcasing interactive visual projects on GitHub and live portfolios
+    Topic 5: Project Presentation & Code Walkthrough Skills
+
+=======================================================
+Segment ID: data-science-analytics | Title: Segment 6 – Python for Data Science, Analytics & Visualization (NumPy, Pandas & Matplotlib)
+=======================================================
+  Module ID: numpy-foundations | Slug: 006_001_numpy-foundations-ndarrays | Title: NumPy Foundations & Multi-Dimensional N-D Arrays
+    Topic 0: Introduction to Scientific Computing & the PyData Ecosystem
+    Topic 1: Why NumPy? Performance, memory layout (C-contiguous vs Fortran) & GIL bypass
+    Topic 2: The ndarray object: creation, properties, and internal buffer architecture
+    Topic 3: Array Creation Routines: np.array, np.zeros, np.ones, np.empty, np.full
+    Topic 4: Range and Spaced Arrays: np.arange vs np.linspace, logspace, geomspace
+    Topic 5: Identity & Diagonal Matrices: np.eye, np.identity, np.diag
+    Topic 6: Random Array Generation with np.random (rand, randn, randint, choice, seed)
+    Topic 7: Core ndarray Attributes: ndim, shape, size, dtype, itemsize, nbytes
+    Topic 8: Data Types in NumPy: int32, int64, float32, float64, complex, bool, and astype() casting
+    Topic 9: 1D, 2D, and 3D Array Indexing, Slicing, and Striding
+    Topic 10: Boolean Masking, Logical Filtering & np.extract
+    Topic 11: Fancy Indexing with integer coordinate arrays
+    Topic 12: Views vs Deep Copies: understanding base attribute and .copy() memory mechanics
+    Topic 13: Reshaping & Restructuring: reshape, resize, ravel vs flatten, transpose, swapaxes
+  Module ID: numpy-math-broadcasting | Slug: 006_002_numpy-mathematics-broadcasting | Title: NumPy Mathematics, Vectorization, Broadcasting & Linear Algebra
+    Topic 0: Vectorized Operations vs Slow Python Iteration Loops
+    Topic 1: Element-wise Arithmetic: +, -, *, /, //, %, ** on matching shapes
+    Topic 2: NumPy Universal Functions (ufuncs): np.sqrt, np.exp, np.log, np.sin, np.cos, np.abs
+    Topic 3: Broadcasting Rules: Rules of dimension matching, trailing dimensions, and stretching
+    Topic 4: 1D-to-2D and Row/Column Broadcasting in mathematical computations
+    Topic 5: Statistical Aggregations: np.mean, np.median, np.std, np.var, np.min, np.max, np.sum
+    Topic 6: The axis Parameter Demystified: axis=0 (column-wise) vs axis=1 (row-wise)
+    Topic 7: Cumulative operations: np.cumsum, np.cumprod
+    Topic 8: Sorting & Searching: np.sort, np.argsort, np.where, np.argmax, np.argmin, np.nonzero
+    Topic 9: Set Operations in NumPy: np.unique, np.intersect1d, np.union1d, np.setdiff1d
+    Topic 10: Linear Algebra (np.linalg): Matrix multiplication (np.dot and @ operator)
+    Topic 11: Matrix Transposition, Inversion (np.linalg.inv), Determinant (np.linalg.det)
+    Topic 12: Solving Systems of Linear Equations using np.linalg.solve
+    Topic 13: Array Combining & Splitting: vstack, hstack, concatenate, vsplit, hsplit
+    Topic 14: File I/O in NumPy: np.save (.npy), np.savez (.npz), np.load, np.savetxt, np.loadtxt
+  Module ID: pandas-series-dataframe | Slug: 006_003_pandas-series-dataframe-fundamentals | Title: Pandas Series & DataFrame Fundamentals
+    Topic 0: Introduction to Pandas: Tabular Data Structures for Real-World Analytics
+    Topic 1: The Pandas Series: creation from lists, dicts, ndarrays, custom index labels
+    Topic 2: Series indexing, slicing, alignment, and vector operations
+    Topic 3: The Pandas DataFrame: 2D labeled tabular data architecture
+    Topic 4: Creating DataFrames from dictionaries, lists of dicts, 2D arrays, and Series
+    Topic 5: Essential DataFrame Attributes: shape, columns, index, dtypes, values, ndim, size
+    Topic 6: Quick Inspection Methods: head(), tail(), sample(), info(), describe()
+    Topic 7: Data Ingestion & Export: pd.read_csv, to_csv, pd.read_excel, to_excel, pd.read_json
+    Topic 8: Column Selection, Addition, Deletion (del, drop), and Renaming (rename())
+    Topic 9: Row Indexing with .loc[] (label-based) vs .iloc[] (integer positional indexing)
+    Topic 10: Combining Row & Column slicing in a single .loc[] / .iloc[] call
+    Topic 11: Boolean Indexing, Multi-condition Filtering (&, |, ~), and the query() method
+    Topic 12: Sorting Data: sort_values(by=..., ascending=...) and sort_index()
+    Topic 13: Rankings, Unique Values, and Frequency Counts (value_counts(), unique(), nunique())
+  Module ID: pandas-data-wrangling | Slug: 006_004_pandas-data-cleaning-wrangling | Title: Data Cleaning, Handling Missing Data & Wrangling with Pandas
+    Topic 0: Why Data Cleaning Accounts for 80% of Real-World Data Work
+    Topic 1: Detecting Missing Values: isnull(), isna(), notnull(), and missing value heatmaps
+    Topic 2: Dropping Missing Data: dropna() with axis, how ('any' vs 'all'), thresh, and subset
+    Topic 3: Imputing Missing Data: fillna() with constant, mean, median, mode, forward-fill (ffill), backward-fill (bfill)
+    Topic 4: Detecting and Removing Duplicates: duplicated(subset=...), drop_duplicates()
+    Topic 5: Data Type Conversion: astype(), pd.to_numeric(errors='coerce'), pd.to_datetime()
+    Topic 6: String Processing with .str Accessor: lower, upper, strip, replace, contains, split, extract
+    Topic 7: DateTime Engineering with .dt Accessor: year, month, day, day_name, is_leap_year
+    Topic 8: Setting DateTime index and basic date range filtering
+    Topic 9: Applying Functions to Data: apply(), map(), applymap() / map() on Series vs DataFrames
+    Topic 10: Anonymous Lambda functions inside apply() for custom column transformations
+    Topic 11: Binning & Discretization: pd.cut (equal interval) vs pd.qcut (equal quantile)
+    Topic 12: Outlier Detection basics: Z-score method and IQR (Interquartile Range) filtering
+    Topic 13: Chaining Operations with Pipe and Method Chaining for readable pipelines
+  Module ID: pandas-grouping-aggregation | Slug: 006_005_pandas-grouping-aggregation-pivots | Title: Data Transformation, GroupBy, Aggregations & Pivot Tables
+    Topic 0: The Split-Apply-Combine Analytical Framework
+    Topic 1: The groupby() Operation: grouping by single and multiple columns
+    Topic 2: Built-in Aggregations: sum(), mean(), median(), count(), std(), min(), max(), first(), last()
+    Topic 3: Custom Multi-Column Aggregations with agg(): passing dictionaries of functions
+    Topic 4: Filtering Groups with filter(): keeping groups that satisfy custom criteria
+    Topic 5: Group Transformations with transform(): broadcasting group statistics back to original rows
+    Topic 6: Combining DataFrames: pd.concat (concatenating along rows axis=0 and columns axis=1)
+    Topic 7: Merging & Relational Joins with pd.merge(): inner, outer, left, right joins and on/left_on/right_on keys
+    Topic 8: Handling overlapping column names with suffixes in merges
+    Topic 9: Reshaping Data: Pivot Tables with pd.pivot_table() (index, columns, values, aggfunc, fill_value, margins)
+    Topic 10: Cross-Tabulations: pd.crosstab() for contingency tables and frequency analysis
+    Topic 11: Melting DataFrames: pd.melt() from wide-format to tidy long-format
+    Topic 12: Hierarchical MultiIndex DataFrames: creation, indexing, unstack(), and stack()
+    Topic 13: Time-Series Operations: resampling (resample()), frequency conversion, and rolling window averages (rolling())
+  Module ID: matplotlib-visualization | Slug: 006_006_matplotlib-data-visualization | Title: Matplotlib Fundamentals & Data Storytelling
+    Topic 0: The Power of Visual Data Storytelling & Principles of Effective Charts
+    Topic 1: Matplotlib Architecture: Backend, Artist Layer, and Pyplot Interface
+    Topic 2: Figure vs Axes Anatomy: Figure, Axes, Axis, Ticks, Labels, Title, Legend, Spines
+    Topic 3: The Object-Oriented Interface: fig, ax = plt.subplots() vs functional plt.plot()
+    Topic 4: Core Plot Types: Line plots (trend analysis), Scatter plots (correlation), Bar charts (vertical & horizontal)
+    Topic 5: Distribution Charts: Histograms (bins, density) and Box Plots (quartiles & outlier detection)
+    Topic 6: Part-to-Whole Visualizations: Pie charts and Donut charts with explode & autopct
+    Topic 7: Customizing Chart Elements: titles, axis labels, font sizes, custom ticks, grid lines, and axis limits
+    Topic 8: Styling Lines and Markers: linewidth, linestyle, color codes, alpha transparency, marker styles
+    Topic 9: Color Palettes, Colormaps (cmaps), and Colorbars
+    Topic 10: Annotations: Adding text labels, callout arrows, and highlighting data points with ax.annotate()
+    Topic 11: Multi-Panel Dashboards: Grid layouts with plt.subplots(rows, cols), sharex, sharey, and GridSpec
+    Topic 12: Plotting directly from Pandas DataFrames using df.plot() and Series.plot()
+    Topic 13: Exporting Publication-Quality Visuals: plt.savefig() with dpi=300, transparent=True, bbox_inches='tight'
+  Module ID: seaborn-statistical-viz | Slug: 006_007_seaborn-statistical-visualization | Title: Statistical Data Visualization with Seaborn
+    Topic 0: Introduction to Seaborn: High-Level Statistical Graphics built on top of Matplotlib
+    Topic 1: Seaborn Aesthetic Themes and Palettes: sns.set_theme(), set_style(), set_palette(), color_palette()
+    Topic 2: Visualizing Univariate & Bivariate Distributions: histplot(), kdeplot(), ecdfplot(), rugplot()
+    Topic 3: Categorical Visualizations: barplot() (with confidence intervals), countplot(), boxplot(), violinplot()
+    Topic 4: Categorical Scatter Plots: stripplot() and jitter, swarmplot() for discrete point distributions
+    Topic 5: Relational Plots: scatterplot() and lineplot() with hue, size, and style dimensional encodings
+    Topic 6: Matrix & Correlation Plots: Computing correlation matrices and rendering annotated Heatmaps (sns.heatmap())
+    Topic 7: Customizing Heatmaps: annot=True, fmt, cmap (coolwarm, viridis, magma), cbar, mask for triangle matrices
+    Topic 8: Multi-Plot Grid Visualizations: PairGrid, pairplot() for pairwise bivariate distributions across all numerical features
+    Topic 9: Faceted Grids: FacetGrid, catplot(), displot(), and relplot() for split-category dashboards
+    Topic 10: Regression & Trend Analysis: regplot() and lmplot() with linear fit lines and confidence bands
+    Topic 11: Fine-Tuning Seaborn with Underlying Matplotlib Axes objects
+  Module ID: eda-capstone-project | Slug: 006_008_exploratory-data-analysis-capstone | Title: Exploratory Data Analysis (EDA) Capstone & Portfolio Project
+    Topic 0: The Complete Exploratory Data Analysis (EDA) Blueprint & Methodology
+    Topic 1: Phase 1 – Problem Definition & Domain Context Understanding
+    Topic 2: Phase 2 – Data Collection, Ingestion & Initial Health Check (shape, dtypes, missingness, anomalies)
+    Topic 3: Phase 3 – Data Cleaning, Imputation & Feature Transformation Pipeline
+    Topic 4: Phase 4 – Univariate Analysis (Distributions, Skewness, Outliers, Frequency Distributions)
+    Topic 5: Phase 5 – Bivariate & Multivariate Analysis (Correlations, Cross-tabulations, Group Trends)
+    Topic 6: Phase 6 – Feature Engineering & Insight Generation (Deriving ratios, flags, and aggregate metrics)
+    Topic 7: Phase 7 – Synthesis, Business Recommendations & Actionable Insights
+    Topic 8: Structuring professional Jupyter Notebooks with markdown, headings, and clean narratives
+    Topic 9: Translating Technical Findings into Executive Presentation Decks and Visual Summaries
+    Topic 10: Publishing Complete Data Science Projects to GitHub with READMEs and Visual Artifacts

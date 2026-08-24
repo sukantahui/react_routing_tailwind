@@ -1,0 +1,26 @@
+TOPIC_ID: 004_001_005
+MODULE: 004_001_filesystem-os
+TITLE: Topic 5: Running external shell commands using subprocess module (run, Popen, pipes)
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to spawning, controlling, and communicating with external operating system processes using Python's `subprocess` standard library module. Deep dive into synchronous process execution with `subprocess.run()`, inspecting the `CompletedProcess` struct (`.returncode`, `.stdout`, `.stderr`), enforcing exit codes with `check=True` and `CalledProcessError`, implementing timeout protection (`timeout=...`, `TimeoutExpired`), eliminating critical command injection vulnerabilities by passing token lists rather than `shell=True`, asynchronous process spawning with `subprocess.Popen()`, line-by-line real-time stdout streaming, two-way process interaction with `process.communicate()`, process status polling (`poll()`, `wait()`, `terminate()`, `kill()`), chaining multi-process pipelines with OS pipes (`pipe1 | pipe2`), and an institutional microservice health inspector and CLI runner case study.
+
+CORE CONCEPTS:
+1. Synchronous Command Execution with `subprocess.run()`
+2. Anatomy of `CompletedProcess` (`.returncode`, `.stdout`, `.stderr`, `.args`)
+3. Defensive Exit Code Verification (`check=True`, `subprocess.CalledProcessError`)
+4. Timeout Safeguards for External Binaries (`timeout=...`, `subprocess.TimeoutExpired`)
+5. Critical Security Invariant: Command Injection Prevention (List Tokens vs `shell=True`)
+6. Asynchronous Background Execution with `subprocess.Popen()`
+7. Real-Time stdout/stderr Stream Iteration (`for line in proc.stdout:`)
+8. Two-Way Buffered Communication (`proc.communicate(input=...)`)
+9. Multi-Process Pipeline Chaining via OS Pipes (`p1.stdout -> p2.stdin`)
+10. Case Study: Institutional Microservice Health Inspector & External Command Runner
+
+REAL-WORLD SCENARIOS:
+- Invoking Git commands, Docker CLI tools, and database backup utilities from Python backend services
+- Streaming live stdout compilation and test progress logs to web dashboards in real-time
+- Safeguarding against command injection attacks in cloud endpoints that execute system utilities
+- Setting hard execution timeouts on slow network calls or external scripts to prevent server worker thread hangs

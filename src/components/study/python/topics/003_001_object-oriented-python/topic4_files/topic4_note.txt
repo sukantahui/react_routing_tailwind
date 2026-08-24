@@ -1,0 +1,44 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+            TOPIC 4: CLASS ATTRIBUTES VS INSTANCE ATTRIBUTES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CORE COMPARISON MATRIX
+--------------------------------------------------------------------------------
+  Dimension             Class Attribute                 Instance Attribute
+  ------------------------------------------------------------------------------
+  Where Defined         Directly inside class body      Inside __init__ on `self`
+  Where Stored          Class.__dict__ (Shared)         instance.__dict__ (Isolated)
+  Memory Copies         Exactly 1 copy in RAM           1 copy PER instance
+  Accessed Via          ClassName.attr or obj.attr      self.attr or obj.attr
+  Modified Via          ClassName.attr = new_val        self.attr = new_val
+
+--------------------------------------------------------------------------------
+2. THE ATTRIBUTE SHADOWING MECHANISM
+--------------------------------------------------------------------------------
+  class Franchise:
+      hq = "Barrackpore"
+
+  f1 = Franchise()
+  f1.hq = "Shyamnagar"  # Creates 'hq' in f1.__dict__; Franchise.hq UNCHANGED!
+
+--------------------------------------------------------------------------------
+3. THE MUTABLE CLASS ATTRIBUTE DISASTER
+--------------------------------------------------------------------------------
+  ❌ BUGGY (All instances share same list in RAM!):
+      class Student:
+          badges = []  # Shared across all students!
+
+  ✓ CORRECT (Isolated list per instance):
+      class Student:
+          def __init__(self):
+              self.badges = []
+
+================================================================================
+     END OF STUDY NOTE • TOPIC 4: CLASS VS INSTANCE ATTRIBUTES
+================================================================================

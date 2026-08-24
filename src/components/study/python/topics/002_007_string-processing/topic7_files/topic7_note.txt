@@ -1,0 +1,77 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_007: STRING PROCESSING
+        TOPIC 7: BASIC REGULAR EXPRESSIONS CONCEPT WITH PYTHON re MODULE
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE BACKSLASH PLAGUE & RAW STRINGS r"..."
+--------------------------------------------------------------------------------
+  • Why use r"..." for all regex?
+    In normal strings, '\' is an escape character ('\n' = newline, '\b' = backspace).
+    In regex, '\b' means word boundary and '\d' means digit.
+    Using raw strings (r"...") tells Python to preserve backslashes literally so
+    the regex engine receives '\b' instead of ASCII backspace '\x08'!
+
+--------------------------------------------------------------------------------
+2. CORE METACHARACTERS CHEAT SHEET
+--------------------------------------------------------------------------------
+  Symbol   Meaning                         Example & Match
+  ------------------------------------------------------------------------------
+  .        Any character except newline    'c.t' matches 'cat', 'cut', 'c#t'
+  ^        Start of string (or line in re.M)'^Python' matches if string starts with Python
+  $        End of string (or line in re.M)  '2026$' matches if string ends with 2026
+  |        Alternation (OR)                'cat|dog' matches 'cat' or 'dog'
+  []       Character set                   '[aeiou]' matches any lowercase vowel
+  [^...]   Negated character set           '[^0-9]' matches any non-digit character
+  \b       Word boundary                   r'\bcat\b' matches 'cat' in 'the cat' (not 'catch')
+  \B       Non-word boundary               r'\Bcat\B' matches inside 'scatter'
+
+--------------------------------------------------------------------------------
+3. SHORTHAND CHARACTER CLASSES
+--------------------------------------------------------------------------------
+  Class    Matches                         Equivalent Character Set
+  ------------------------------------------------------------------------------
+  \d       Any decimal digit               [0-9]
+  \D       Any non-digit character         [^0-9]
+  \w       Any alphanumeric or underscore  [a-zA-Z0-9_]
+  \W       Any non-word character          [^a-zA-Z0-9_]
+  \s       Any whitespace character        [ \t\n\r\f\v]
+  \S       Any non-whitespace character    [^ \t\n\r\f\v]
+
+--------------------------------------------------------------------------------
+4. QUANTIFIERS: GREEDY VS LAZY (NON-GREEDY)
+--------------------------------------------------------------------------------
+  Quantifier   Meaning                     Greedy Mode      Lazy Mode (?)
+  ------------------------------------------------------------------------------
+  *            0 or more times             .* (Longest)     .*? (Shortest)
+  +            1 or more times             .+ (Longest)     .+? (Shortest)
+  ?            0 or 1 time (Optional)      a?               a??
+  {n}          Exactly n times             \d{6}            -
+  {m,n}        Between m and n times       \d{2,4}          \d{2,4}?
+
+  Classic HTML Trap:
+    Input   : "<p>First</p><p>Second</p>"
+    Greedy  : r"<p>.*</p>"   -> Captures "<p>First</p><p>Second</p>" (Swallowed all!)
+    Lazy    : r"<p>.*?</p>"  -> Captures ["<p>First</p>", "<p>Second</p>"] (Correct!)
+
+--------------------------------------------------------------------------------
+5. REGEX COMPILATION & FLAGS
+--------------------------------------------------------------------------------
+  • Pattern Pre-Compilation:
+      pattern = re.compile(r"^[1-9]\d{5}$")
+      is_valid = bool(pattern.match(pincode))
+
+  • Core Compilation Flags:
+      re.IGNORECASE (re.I) : Case-insensitive matching.
+      re.MULTILINE  (re.M) : ^ and $ match start and end of every line.
+      re.DOTALL     (re.S) : Enables . (dot) to match newlines (\n).
+      re.VERBOSE    (re.X) : Allows multi-line formatted regex with comments.
+      Combining Flags      : re.compile(pattern, re.I | re.M | re.X)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 7: BASIC REGULAR EXPRESSIONS (re)
+================================================================================

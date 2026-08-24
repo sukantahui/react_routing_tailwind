@@ -1,0 +1,26 @@
+TOPIC_ID: 003_001_005
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 5: Class methods (@classmethod) & Static methods (@staticmethod)
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Python's three method archetypes: Instance Methods (`self`), Class Methods (`@classmethod`, `cls`), and Static Methods (`@staticmethod`). Deep dives into memory bindings, decorator transformations, and architectural selection criteria. Detailed coverage of Alternative Constructors / Factory Patterns using `@classmethod` (`from_dict`, `from_json`, `from_csv`), why `cls(...)` provides subclass inheritance safety over hardcoded constructors, and using `@staticmethod` for domain-scoped utility algorithms, financial math, and regex data validators.
+
+CORE CONCEPTS:
+1. The Three Method Types: Instance Method vs Class Method vs Static Method
+2. First Parameter Binding: self (Instance) vs cls (Class) vs None (Static)
+3. @classmethod Decorator Mechanics and Invocation
+4. Alternative Constructors / Factory Pattern (from_dict, from_json)
+5. Subclass Polymorphism Advantage with cls(...) vs ClassName(...)
+6. @staticmethod Decorator Mechanics and Invocation
+7. Scoping Domain Utilities and Pure Functions in Class Namespaces
+8. Inter-Method Collaboration (Instance methods invoking Static utilities)
+9. Memory Footprint and Method Descriptors in CPython
+10. Case Study: Enterprise Payroll, TDS Tax Calculation & HR JSON Ingestion
+
+REAL-WORLD SCENARIOS:
+- Ingesting serialized JSON/CSV records from third-party REST APIs into strongly typed domain models via polymorphic classmethod factories
+- Calculating complex Indian GST/TDS tax slabs and bank loan EMI amortizations via reusable static methods
+- Updating global system configurations and standard working hours across an entire fleet of employee objects simultaneously
+- Enforcing domain-specific validation rules (PAN cards, GSTINs, email formats) within appropriate business model namespaces

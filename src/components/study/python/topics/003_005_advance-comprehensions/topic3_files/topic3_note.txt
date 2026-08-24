@@ -1,0 +1,30 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_005: ADVANCED COMPREHENSIONS
+        TOPIC 3: FUNCTIONAL TOOLS: MAP(), FILTER(), AND FUNCTOOLS.REDUCE()
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE FUNCTIONAL TRINITY
+--------------------------------------------------------------------------------
+  * map(fn, seq)               : Transforms items lazily (returns iterator)
+  * filter(pred, seq)          : Selects items lazily (returns iterator)
+  * functools.reduce(fn, seq)  : Folds items sequentially into single value
+
+--------------------------------------------------------------------------------
+2. REDUCE ACCUMULATOR TEMPLATE
+--------------------------------------------------------------------------------
+  total = functools.reduce(lambda acc, x: acc + x, numbers, 0)
+
+--------------------------------------------------------------------------------
+3. PARTIAL APPLICATION (`functools.partial`)
+--------------------------------------------------------------------------------
+  add_18_gst = functools.partial(calc_tax, rate=0.18)
+  gross_fees = list(map(add_18_gst, base_fees))
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 3: FUNCTIONAL TOOLS
+================================================================================

@@ -1,0 +1,37 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_005: ADVANCED COMPREHENSIONS
+        TOPIC 6: PURE FUNCTIONS & IMMUTABLE PROGRAMMING PRINCIPLES IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. PURE FUNCTION INVARIANTS
+--------------------------------------------------------------------------------
+  * Deterministic: Same input ALWAYS returns exact same output
+  * Zero Side-Effects: Never mutates arguments, globals, or external I/O
+  * Referential Transparency: func(x) can be replaced with its returned value
+
+--------------------------------------------------------------------------------
+2. FROZEN DATACLASS & COPY-ON-WRITE
+--------------------------------------------------------------------------------
+  @dataclass(frozen=True)
+  class Student:
+      id: str
+      fee: Decimal
+      badges: Tuple[str, ...] = ()
+
+  # Update without mutating:
+  updated_student = dataclasses.replace(student, fee=new_fee)
+
+--------------------------------------------------------------------------------
+3. FUNCTIONAL STATE REDUCER
+--------------------------------------------------------------------------------
+  def reducer(state: State, action: Action) -> State:
+      return {**state, "balance": state["balance"] + action["amount"]}
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 6: PURE FUNCTIONS & IMMUTABILITY
+================================================================================

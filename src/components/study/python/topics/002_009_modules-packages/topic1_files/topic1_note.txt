@@ -1,0 +1,52 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_009: MODULES & PACKAGES
+            TOPIC 1: MODULE SEARCH PATH (sys.path) & MODULE NAMESPACES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. sys.path RESOLUTION PRECEDENCE HIERARCHY
+--------------------------------------------------------------------------------
+  Tier 1: Current Script Directory (sys.path[0])
+          The directory containing the input script that was run.
+  Tier 2: PYTHONPATH Directories
+          Paths listed in the PYTHONPATH environment variable (if set).
+  Tier 3: Python Standard Library Directories
+          Built-in C extension modules and standard library files (e.g. lib/).
+  Tier 4: Third-Party Packages (site-packages)
+          Installed via pip in global Python or isolated Virtual Environments.
+
+--------------------------------------------------------------------------------
+2. MODULE NAMESPACE & ESSENTIAL DUNDER ATTRIBUTES
+--------------------------------------------------------------------------------
+  Every imported module is an instance of types.ModuleType with an isolated dict.
+
+  Attribute       Description                          Example Return
+  ------------------------------------------------------------------------------
+  __name__        Module identifier string             "math", "__main__"
+  __file__        Path to module source on disk        "C:/Python313/Lib/math.py"
+  __doc__         Module docstring                     "This module provides..."
+  __package__     Package name if part of a package    "my_app.services"
+  __spec__        Module specification object          ModuleSpec(...)
+
+--------------------------------------------------------------------------------
+3. THE MODULE SHADOWING DISASTER
+--------------------------------------------------------------------------------
+  Problem:
+    Creating a file named `random.py` in your project causes `import random` to
+    load YOUR empty file instead of Python's standard `random` module because
+    sys.path[0] has higher priority than the standard library!
+
+  Symptom:
+    AttributeError: module 'random' has no attribute 'randint'
+
+  Prevention Rule:
+    NEVER name script files after standard modules (math.py, json.py, csv.py,
+    random.py, email.py, string.py, logging.py, typing.py).
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 1: sys.path & MODULE NAMESPACES
+================================================================================

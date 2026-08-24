@@ -1,0 +1,53 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_009: MODULES & PACKAGES
+        TOPIC 0: IMPORT & FROM-IMPORT SYNTAX VARIATIONS & NAMESPACE ARCHITECTURE
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. IMPORT SYNTAX VARIATIONS CHEAT SHEET
+--------------------------------------------------------------------------------
+  Syntax Pattern               Access Syntax        Pros & Cons
+  ------------------------------------------------------------------------------
+  import math                  math.sqrt(16)        Clean, explicit, no collisions.
+  import datetime as dt        dt.date.today()      Compact alias, namespace intact.
+  from math import sqrt, pi    sqrt(16), pi         Direct access; potential collision.
+  from math import sqrt as sq  sq(16)               Direct access + prevents collision.
+  from math import *           sqrt(16), sin(0)     ANTI-PATTERN: Pollutes namespace!
+
+--------------------------------------------------------------------------------
+2. WHY WILDCARD IMPORTS (from module import *) ARE DANGEROUS
+--------------------------------------------------------------------------------
+  1. Namespace Pollution: Floods current scope with hundreds of hidden symbols.
+  2. Silent Shadowing: If two modules define 'connect()', the second wildcard
+     silently overwrites the first without warning.
+  3. Traceability: Makes code reviews difficult — cannot tell where a function lives.
+  4. Tooling Degradation: Breaks IDE autocompletion and static linting.
+
+--------------------------------------------------------------------------------
+3. THE 4-STEP CPYTHON IMPORT LIFECYCLE
+--------------------------------------------------------------------------------
+  Step 1: Check in-memory cache in sys.modules. If cached, return immediately.
+  Step 2: Search directories listed in sys.path (cwd, PYTHONPATH, stdlib, site-packages).
+  Step 3: Compile source .py into bytecode (.pyc) inside __pycache__/ directory.
+  Step 4: Execute module top-level code in a new namespace and bind name locally.
+
+--------------------------------------------------------------------------------
+4. RESOLVING CIRCULAR IMPORT CYCLES
+--------------------------------------------------------------------------------
+  Error:
+    ImportError: cannot import name 'X' from partially initialized module
+
+  Proven Solutions:
+  1. Deferred / Local Import: Move 'import X' inside the specific function body.
+  2. Architectural Refactoring (Best Practice): Extract shared types and models
+     into a separate 'models.py' or 'common.py' to form a clean DAG.
+  3. Module-Level Import: Use 'import module_b' and call 'module_b.func()' instead
+     of 'from module_b import func'.
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 0: IMPORT SYNTAX & NAMESPACES IN PYTHON
+================================================================================

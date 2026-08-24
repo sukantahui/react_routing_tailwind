@@ -1,0 +1,39 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+              TOPIC 8: GENERATORS & THE YIELD STATEMENT IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE `yield` KEYWORD MECHANICS
+--------------------------------------------------------------------------------
+  def my_generator():
+      print("Starting...")
+      yield 1  # Suspends execution and returns 1 to caller!
+      print("Resuming...")
+      yield 2  # Suspends again!
+
+  • Calling `gen = my_generator()` does NOT run the code; it returns a Generator!
+  • Calling `next(gen)` executes until the next `yield` statement.
+
+--------------------------------------------------------------------------------
+2. THE 4 GENERATOR STATES
+--------------------------------------------------------------------------------
+  1. GEN_CREATED   : Instantiated but `next()` not yet called.
+  2. GEN_SUSPENDED : Paused at a `yield` statement.
+  3. GEN_RUNNING   : Currently executing code inside the frame.
+  4. GEN_CLOSED    : Completed execution or closed with `close()`.
+
+--------------------------------------------------------------------------------
+3. GENERATOR RETURN VALUES (PEP 380)
+--------------------------------------------------------------------------------
+  def stream():
+      yield 100
+      return "DONE"  # Raises StopIteration("DONE") -> exc.value = "DONE"
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 8: GENERATORS & YIELD
+================================================================================

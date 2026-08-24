@@ -1,0 +1,26 @@
+TOPIC_ID: 003_002_009
+MODULE: 003_002_basic-exception-handling
+TITLE: Topic 9: Exception Chaining (raise ... from ...)
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Python Exception Chaining and PEP 3134. Deep dive into explicit exception chaining (`raise NewException from OriginalException`), the `__cause__` attribute, implicit chaining inside `except` blocks, the `__context__` attribute, suppressing root-cause tracebacks using `raise NewException from None` (`__suppress_context__ = True`), building robust Subsystem Exception Translation Layers to protect architectural abstraction boundaries, and an enterprise banking and fee payment gateway client case study.
+
+CORE CONCEPTS:
+1. What is Exception Chaining (PEP 3134)?
+2. Explicit Chaining Syntax: `raise NewError from CauseError`
+3. The `__cause__` Attribute & "The above exception was the direct cause..." Tracebacks
+4. Implicit Chaining & The `__context__` Attribute
+5. Suppressing Chained Tracebacks with `raise NewError from None`
+6. `__suppress_context__` Flag Mechanics
+7. Subsystem Exception Translation Layer Architecture
+8. Translating Low-Level Driver Errors to Clean Domain Exceptions
+9. Sanitizing Public API Errors vs Preserving Forensic Telemetry
+10. Case Study: Enterprise Banking & Fee Payment Gateway Suite
+
+REAL-WORLD SCENARIOS:
+- Translating low-level SQL and socket driver timeouts into high-level domain exceptions (`PaymentGatewayTimeoutError`) with full forensic roots
+- Sanitizing public REST API errors with `from None` so internal database schemas or sensitive keys never leak to client browsers
+- Inspecting `err.__cause__` in centralized logging platforms (Datadog, Sentry, AWS CloudWatch) for immediate root-cause identification
+- Preserving pristine tracebacks across multi-layer microservice request pipelines

@@ -1,0 +1,42 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+          TOPIC 5: CLASS METHODS (@classmethod) & STATIC METHODS (@staticmethod)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE THREE METHOD TYPES AT A GLANCE
+--------------------------------------------------------------------------------
+  Method Type        Decorator       First Parameter    Can Access
+  ------------------------------------------------------------------------------
+  Instance Method    (None)          self (Instance)    Instance & Class State
+  Class Method       @classmethod    cls (Class)        Class State only (Factories)
+  Static Method      @staticmethod   (None)             Neither (Pure Utility)
+
+--------------------------------------------------------------------------------
+2. ALTERNATIVE CONSTRUCTOR FACTORY PATTERN
+--------------------------------------------------------------------------------
+  class Course:
+      def __init__(self, title, fee):
+          self.title = title
+          self.fee = fee
+
+      @classmethod
+      def from_dict(cls, data: dict):
+          # cls(...) ensures subclass polymorphism when inherited!
+          return cls(title=data['title'], fee=data['fee'])
+
+--------------------------------------------------------------------------------
+3. STATIC METHOD UTILITY PATTERN
+--------------------------------------------------------------------------------
+  class TaxUtils:
+      @staticmethod
+      def calculate_gst(amount: float, rate: float = 18.0) -> float:
+          return amount * (rate / 100)
+
+================================================================================
+     END OF STUDY NOTE • TOPIC 5: @classmethod & @staticmethod
+================================================================================

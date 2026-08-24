@@ -1,0 +1,26 @@
+TOPIC_ID: 003_001_006
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 6: Encapsulation & Data Hiding (Public, Protected _var, Private __var, Name Mangling)
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Encapsulation and Data Hiding in Python. Deep dive into Python's three access levels: Public attributes (`var`), Protected single-underscore convention (`_var`), and Private double-underscore attributes (`__var`). Detailed technical breakdown of CPython's Name Mangling engine (`_ClassName__var`), the philosophy of "We are all consenting adults here", why double underscores were designed specifically for subclass inheritance collision avoidance rather than absolute security, guarding invariants with validation interfaces, and building an institutional banking treasury vault case study.
+
+CORE CONCEPTS:
+1. The Encapsulation Paradigm: Bundling State and Restricting Direct Mutation
+2. Public Attributes (Unrestricted access)
+3. Protected Attributes (_var single leading underscore convention)
+4. Private Attributes (__var double leading underscore)
+5. CPython Name Mangling Mechanics: How __attr transforms to _ClassName__attr in RAM
+6. The Python Philosophy: "We are all consenting adults here"
+7. True Purpose of Name Mangling: Subclass Attribute Collision Prevention
+8. Defensive State Protection: Hashing PINs and Security Tokens
+9. Failed Attempt Counters, Account Lockouts, and Dynamic Masking
+10. Immutable Audit Trails and Institutional Security Vaults
+
+REAL-WORLD SCENARIOS:
+- Securing digital wallet balances and multi-factor PIN authentication routines from direct external script tampering
+- Preventing accidental attribute name overwrites in multi-tiered cloud microservice SDK inheritance hierarchies
+- Logging unalterable security audit trails for corporate treasury transactions and bank disbursements
+- Masking sensitive financial identifiers (e.g. credit card numbers, GSTINs, PAN numbers) for customer-facing interfaces

@@ -1,0 +1,26 @@
+TOPIC_ID: 003_001_008
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 8: Inheritance: Single, Multiple, Multilevel, and Hierarchical
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to all four primary Inheritance Topologies in Python: Single Inheritance, Multilevel Inheritance, Multiple Inheritance (and the Mixin architectural pattern), and Hierarchical Inheritance. Deep dives into constructor chaining (`super().__init__()`), state propagation through ancestral hierarchies, multiple mixin composition (`JSONExportMixin`, `AuditLoggerMixin`, `SMSNotifierMixin`), dynamic type inspection with `isinstance()` and `issubclass()`, the core design principle of "Favor Composition over Inheritance", and a production-grade educational Role-Based Access Control (RBAC) user hierarchy case study.
+
+CORE CONCEPTS:
+1. The 4 Inheritance Topologies: Single, Multilevel, Multiple, and Hierarchical
+2. Single Inheritance (Derived class extending 1 Base class)
+3. Multilevel Inheritance (Grandparent -> Parent -> Child linear chains)
+4. Multiple Inheritance (Derived class extending 2+ Base classes)
+5. The Mixin Architectural Pattern (Composable single-responsibility capability classes)
+6. Hierarchical Inheritance (Single Root branching into multiple specialized siblings)
+7. Constructor Chaining with super().__init__() across Hierarchies
+8. Type Reflection: isinstance() and issubclass() behavior
+9. Method Resolution Order (MRO) Introduction
+10. Architectural Principles: "IS-A" (Inheritance) vs "HAS-A" (Composition)
+
+REAL-WORLD SCENARIOS:
+- Structuring multi-tiered educational portal authentication systems with student, faculty, and administrative role hierarchies
+- Composing enterprise contracts with plug-and-play Mixins for JSON serialization, audit trail logging, and automated SMS alerts
+- Architecting scalable cloud microservice domain models sharing standardized base telemetry while branching into distinct protocols
+- Preventing monolithic fragile base class hierarchies by decomposing capabilities into clean, reusable mixins

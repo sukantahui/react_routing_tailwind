@@ -1,0 +1,23 @@
+TOPIC_ID: 002_007_001
+MODULE: 002_007_string-processing
+TITLE: Topic 1: String immutability & memory representation
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive deep dive into Python string immutability and internal CPython memory architecture (PEP 393). Explores object identity (id(), is vs ==), string interning (sys.intern), CPython compact representation, hashability, and memory-efficient concatenation strategies (join vs +=).
+
+CORE CONCEPTS:
+1. Understanding Immutability (Why strings cannot be mutated in place)
+2. Variable Rebinding vs Object Mutation
+3. Object Identity & Memory Address: id(), is vs ==
+4. CPython String Architecture & PEP 393 (PyASCIIObject, 1-byte, 2-byte, 4-byte Unicode)
+5. String Interning & Memory Optimization (sys.intern())
+6. Performance: Loop Concatenation (O(N^2)) vs ''.join() (O(N))
+7. Hashability & Dictionary Key Stability
+
+REAL-WORLD SCENARIOS:
+- Immutable financial audit logs and receipt tracking in Barrackpore & Kolkata (₹)
+- Memory profiling and optimization for high-throughput API gateways
+- Token deduplication and dictionary key performance in search engines
+- Thread-safe configuration caching across microservices

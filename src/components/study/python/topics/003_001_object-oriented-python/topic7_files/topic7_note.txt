@@ -1,0 +1,52 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+            TOPIC 7: PROPERTIES & GETTERS/SETTERS WITH @property
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ANATOMY OF A PYTHON PROPERTY
+--------------------------------------------------------------------------------
+  class Product:
+      def __init__(self, price: float):
+          self.price = price  # Routes to setter
+
+      @property
+      def price(self) -> float:
+          return self._price  # Reads protected backing variable
+
+      @price.setter
+      def price(self, val: float):
+          if val < 0:
+              raise ValueError("Price cannot be negative!")
+          self._price = float(val)  # NEVER assign to self.price!
+
+      @price.deleter
+      def price(self):
+          del self._price
+
+--------------------------------------------------------------------------------
+2. THE INFINITE RECURSION TRAP IN SETTERS
+--------------------------------------------------------------------------------
+  ❌ BUGGY (RecursionError: maximum recursion depth exceeded):
+      @price.setter
+      def price(self, val):
+          self.price = val  # Re-calls the setter infinitely!
+
+  ✓ CORRECT:
+      @price.setter
+      def price(self, val):
+          self._price = val  # Assigns to internal backing variable
+
+--------------------------------------------------------------------------------
+3. THE UNIFORM ACCESS PRINCIPLE
+--------------------------------------------------------------------------------
+  Start with `self.price = 100`. If you need validation later, replace it
+  with `@property` without altering any calling code (`p.price = 200`).
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 7: PROPERTIES & @property
+================================================================================

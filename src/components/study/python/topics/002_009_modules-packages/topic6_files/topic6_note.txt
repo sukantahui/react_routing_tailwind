@@ -1,0 +1,39 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_009: MODULES & PACKAGES
+                 TOPIC 6: RELATIVE VS ABSOLUTE IMPORTS IN PACKAGES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ABSOLUTE VS RELATIVE IMPORTS COMPARISON
+--------------------------------------------------------------------------------
+  Feature                 Absolute Import             Explicit Relative Import
+  ------------------------------------------------------------------------------
+  Syntax                  from app.core import db     from ..core import db
+  Starting Point          sys.path root               Current file's package level
+  PEP 8 Preference        Preferred Standard          Allowed for internal packages
+  Portability             Coupled to package name     Portable (rename package safely)
+  Direct CLI Execution    Works (if in PYTHONPATH)    Crashes without `-m` flag
+
+--------------------------------------------------------------------------------
+2. RELATIVE IMPORT DOT TOKENS
+--------------------------------------------------------------------------------
+  • `.`    -> Sibling in the same directory: `from .models import User`
+  • `..`   -> Parent package directory:      `from ..auth import verify`
+  • `...`  -> Grandparent directory:         `from ...core import settings`
+
+--------------------------------------------------------------------------------
+3. FIXING "attempted relative import with no known parent package"
+--------------------------------------------------------------------------------
+  • Problem:
+      Running `python app/billing/calc.py` directly causes `__package__ = None`.
+  • Solution (Best Practice):
+      Run as a module from project root:
+        python -m app.billing.calc
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 6: RELATIVE VS ABSOLUTE IMPORTS
+================================================================================

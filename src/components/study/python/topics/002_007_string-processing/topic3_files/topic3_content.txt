@@ -1,0 +1,27 @@
+TOPIC_ID: 002_007_003
+MODULE: 002_007_string-processing
+TITLE: Topic 3: Essential string methods: upper, lower, title, strip, split, join, replace
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive mastery of core Python string transformation and parsing methods. Explores case conversions (upper, lower, capitalize, title, swapcase, casefold), whitespace and character-set stripping (strip, lstrip, rstrip), delimiter tokenization and multi-line parsing (split, rsplit, splitlines, maxsplit), guaranteed 3-tuple partitioning (partition, rpartition), sequence stitching (join), substring replacement (replace with count), and fluent method chaining.
+
+CORE CONCEPTS:
+1. Case Transformations: upper(), lower(), capitalize(), title(), swapcase()
+2. Unicode Normalization: lower() vs casefold() for International Text
+3. Boundary Sanitization: strip(), lstrip(), rstrip() and Character-Set Mechanics
+4. Tokenization: split() with whitespace collapsing vs split(sep) with exact separators
+5. Controlled Splitting: maxsplit with split() and rsplit()
+6. 3-Tuple Partitioning: partition() and rpartition() (Head, Sep, Tail) vs split()
+7. Multi-Line Documents: splitlines(keepends=True/False)
+8. Sequence Stitching: delimiter.join(iterable) and O(N) Buffer Optimization
+9. Substring Substitution: replace(old, new, count) and Substring Removal
+10. Fluent Pipeline Architecture: Clean Method Chaining (.strip().lower().replace())
+
+REAL-WORLD SCENARIOS:
+- Ingesting and cleaning raw user registration spreadsheets in Barrackpore & Kolkata
+- Normalizing multi-format email addresses, contact numbers, and postal addresses
+- Parsing server configuration files (KEY = VALUE) using partition()
+- Processing multi-line financial invoices and banking receipts
+- Sanitizing file names, URL query strings, and database query parameters

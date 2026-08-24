@@ -1,0 +1,26 @@
+TOPIC_ID: 003_002_011
+MODULE: 003_002_basic-exception-handling
+TITLE: Topic 11: Debugging techniques & pdb breakpoints
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to debugging Python applications and using the Python Debugger (`pdb`). Deep dive into setting interactive breakpoints with the built-in `breakpoint()` function (Python 3.7+), mastering core PDB navigation commands (`n` next, `s` step, `c` continue, `q` quit, `p`/`pp` print/pretty-print, `w` where/stack, `u`/`d` up/down stack frames, `l` list code), post-mortem debugging with `pdb.post_mortem()` and `python -m pdb`, configuring structured logging with the `logging` module vs fragile `print()` debugging, and an enterprise exam score reconciliation diagnostics suite case study.
+
+CORE CONCEPTS:
+1. Interactive Debugging with Python's Built-in `breakpoint()`
+2. Essential PDB Commands Reference (`n`, `s`, `c`, `q`, `p`, `w`, `u`, `d`, `l`)
+3. Call Stack Frame Navigation (Inspecting caller frames with `u` and `d`)
+4. The `PYTHONBREAKPOINT` Environment Variable
+5. Post-Mortem Debugging (`pdb.post_mortem()`, `pdb.pm()`, `python -m pdb`)
+6. Inspecting Unhandled Exception Frames with `sys.exc_info()` and `traceback`
+7. Why Structured Logging Beats `print()` Debugging
+8. The 5 Standard Log Levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
+9. Capturing Complete Tracebacks with `logger.exception()`
+10. Case Study: Institutional Score Reconciliation & Forensic Debugger Suite
+
+REAL-WORLD SCENARIOS:
+- Stepping line-by-line through complex calculations to diagnose off-by-one errors and floating-point precision drift
+- Dropping into post-mortem debugging sessions when test suites or batch jobs crash in staging environments
+- Replacing scattered `print()` statements with configurable loggers that can be throttled or redirected in production
+- Traversing multi-layer call stack frames to pinpoint which function argument caused an upstream invariant failure

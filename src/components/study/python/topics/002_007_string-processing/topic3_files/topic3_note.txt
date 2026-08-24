@@ -1,0 +1,91 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_007: STRING PROCESSING
+        TOPIC 3: ESSENTIAL STRING METHODS (UPPER, LOWER, TITLE, STRIP, SPLIT, JOIN, REPLACE)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CASE CONVERSION METHODS MATRIX
+--------------------------------------------------------------------------------
+  Method         Description                                   Example -> Output
+  ------------------------------------------------------------------------------
+  s.upper()      Converts all characters to UPPERCASE.        "kolkata" -> "KOLKATA"
+  s.lower()      Converts all characters to lowercase.        "PYTHON" -> "python"
+  s.capitalize() Capitalizes 1st char of string only.         "hello world" -> "Hello world"
+  s.title()      Capitalizes 1st letter of every word.        "sukanta hui" -> "Sukanta Hui"
+  s.swapcase()   Inverts uppercase <-> lowercase.             "PyThOn" -> "pYtHoN"
+  s.casefold()   Aggressive Unicode caseless matching.        "Straße" -> "strasse"
+
+--------------------------------------------------------------------------------
+2. WHITESPACE & CHARACTER STRIPPING: strip(), lstrip(), rstrip()
+--------------------------------------------------------------------------------
+  • Default (no args): Strips leading/trailing spaces, tabs (\t), newlines (\n), \r.
+  • Custom chars: s.strip(chars) takes a SET of individual characters, NOT a substring!
+      Example: "www.example.com".strip("w.com") -> "example"
+  • Left/Right variants:
+      s.lstrip() -> Cleans leading (left) characters only.
+      s.rstrip() -> Cleans trailing (right) characters only.
+
+--------------------------------------------------------------------------------
+3. TOKENIZATION & PARSING: split(), rsplit(), splitlines()
+--------------------------------------------------------------------------------
+  1. s.split() (No Arguments):
+     • Collapses multiple consecutive whitespaces of any type.
+     • Automatically discards empty strings.
+     • Example: "A    B   C".split() -> ["A", "B", "C"]
+
+  2. s.split(sep) (Explicit Separator):
+     • Does NOT collapse consecutive separators.
+     • Preserves empty strings.
+     • Example: "A,,B".split(",") -> ["A", "", "B"]
+
+  3. maxsplit Parameter:
+     • s.split(sep, maxsplit=N) -> Performs at most N splits from left.
+     • s.rsplit(sep, maxsplit=N) -> Performs at most N splits from right.
+
+  4. s.splitlines(keepends=False):
+     • Splits string at line boundaries (\n, \r\n, \r, \v, \f).
+
+--------------------------------------------------------------------------------
+4. GUARANTEED 3-TUPLE PARTITIONING: partition() & rpartition()
+--------------------------------------------------------------------------------
+  • Syntax: s.partition(sep) -> (head, sep, tail)
+  • Scans left-to-right; splits at the FIRST occurrence of sep.
+  • If sep IS NOT FOUND: returns (s, "", "") -> Never raises ValueError!
+  • rpartition(sep) -> Scans right-to-left; splits at LAST occurrence.
+  • Best use case: Parsing "KEY = VALUE" configs, URL query strings, email domains.
+
+--------------------------------------------------------------------------------
+5. SEQUENCE STITCHING: delimiter.join(iterable)
+--------------------------------------------------------------------------------
+  • Syntax: "delimiter".join(list_of_strings)
+  • Crucial Rule: All elements in the iterable MUST be of type 'str'.
+      If elements are integers or floats, use: "".join(str(x) for x in data).
+  • Performance: join() pre-calculates total memory size and allocates the
+    heap buffer ONCE in O(N) time (avoid += in loops which is O(N^2)).
+
+--------------------------------------------------------------------------------
+6. SUBSTRING REPLACEMENT: s.replace(old, new, count)
+--------------------------------------------------------------------------------
+  • Replaces occurrences of 'old' with 'new'.
+  • Optional 'count': Limits the maximum number of replacements from left to right.
+      Example: "banana".replace("a", "o", 2) -> "bonona"
+  • Delete substrings by replacing with empty string: s.replace("bad_word", "").
+
+--------------------------------------------------------------------------------
+7. FLUENT METHOD CHAINING PIPELINE
+--------------------------------------------------------------------------------
+  Because all string methods return a new string object, you can chain operations:
+    clean_text = (
+        raw_input
+        .strip()
+        .replace("-", " ")
+        .title()
+    )
+
+================================================================================
+           END OF STUDY NOTE • TOPIC 3: ESSENTIAL STRING METHODS
+================================================================================

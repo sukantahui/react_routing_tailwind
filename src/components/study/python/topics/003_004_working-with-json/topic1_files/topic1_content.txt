@@ -1,0 +1,26 @@
+TOPIC_ID: 003_004_001
+MODULE: 003_004_working-with-json
+TITLE: Topic 1: JSON in Python: Mapping Python types to JSON types
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Python Data Type Mapping in the `json` module. Deep dive into how Python data types are coerced and converted into JSON representations, dictionary key stringification, bypassing non-basic keys with `skipkeys=True`, handling special floating-point numbers (`NaN`, `Infinity`) with strict `allow_nan=False` compliance, auditing round-trip type mutations (`tuple -> list`, `int keys -> str keys`), restoring type fidelity via post-processing hooks, and an enterprise enrollment record type sanitizer case study.
+
+CORE CONCEPTS:
+1. Python to JSON Type Coercion Rules
+2. Dictionary Key Stringification (int/float/bool -> string)
+3. Non-String Key Filtering using `skipkeys=True`
+4. Special Floating-Point Handling: `NaN`, `Infinity`, `-Infinity`
+5. Strict RFC 8259 Compliance with `allow_nan=False`
+6. Round-Trip Type Mutation Audit (`tuple -> list`)
+7. Custom Schema-Based Type Restoration
+8. Handling Unsupported Types: `set`, `datetime`, `Decimal`, `bytes`
+9. Recursive Domain Object Sanitization
+10. Case Study: Institutional Course Enrollment & Financial Ledger Type Sanitizer
+
+REAL-WORLD SCENARIOS:
+- Exporting database query sets and Decimal monetary records to REST API JSON endpoints
+- Preserving tuple coordinate immutability and integer primary key mapping across client-server round-trips
+- Sanitizing legacy financial models containing NaN values before exporting to web frontend charts
+- Building robust data ingestion pre-processors that normalize heterogeneous Python dictionaries

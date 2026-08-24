@@ -1,0 +1,43 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_002: PERFORMANCE OPTIMIZATION
+               TOPIC 3: CPU PROFILING WITH CPROFILE & PSTATS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CPROFILE EXECUTION RECIPES
+--------------------------------------------------------------------------------
+  # Programmatic Profiling:
+  profiler = cProfile.Profile()
+  profiler.enable()
+  my_heavy_function()
+  profiler.disable()
+
+  # Format and sort with pstats:
+  stats = pstats.Stats(profiler)
+  stats.strip_dirs()
+  stats.sort_stats(pstats.SortKey.CUMULATIVE)
+  stats.print_stats(10)
+
+--------------------------------------------------------------------------------
+2. CPROFILE METRICS CHEATSHEET
+--------------------------------------------------------------------------------
+  * ncalls  : Number of times the function was called
+  * tottime : Time spent IN the function body itself (excluding sub-calls)
+  * percall : tottime / ncalls (Average time per call)
+  * cumtime : Time spent IN the function AND ALL ITS CHILDREN
+  * percall : cumtime / ncalls (Average cumulative time per call)
+
+--------------------------------------------------------------------------------
+3. EXPORTING FOR SNAKEVIZ FLAMEGRAPHS
+--------------------------------------------------------------------------------
+  profiler.dump_stats("profile.pstats")
+  # View in terminal / browser:
+  # $ snakeviz profile.pstats
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 3: CPROFILE & PSTATS MODULES
+================================================================================

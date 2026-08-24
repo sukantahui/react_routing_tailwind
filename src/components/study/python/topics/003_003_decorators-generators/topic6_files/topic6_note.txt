@@ -1,0 +1,36 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+               TOPIC 6: THE PYTHON ITERATION PROTOCOL IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ITERABLE VS ITERATOR
+--------------------------------------------------------------------------------
+  • Iterable : Object implementing `__iter__()` returning an iterator (e.g. list, tuple, dict).
+  • Iterator : Object implementing `__iter__()` returning self, and `__next__()` returning elements.
+
+--------------------------------------------------------------------------------
+2. HOW PYTHON'S `for` LOOP RUNS
+--------------------------------------------------------------------------------
+  iterator = iter(iterable)
+  while True:
+      try:
+          item = next(iterator)
+          # Process item
+      except StopIteration:
+          break
+
+--------------------------------------------------------------------------------
+3. SENTINEL PROTOCOL: `iter(callable, sentinel)`
+--------------------------------------------------------------------------------
+  # Reads 4KB chunks until end of file (b""):
+  for chunk in iter(lambda: f.read(4096), b""):
+      process(chunk)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 6: ITERATION PROTOCOL
+================================================================================

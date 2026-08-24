@@ -1,0 +1,26 @@
+TOPIC_ID: 002_007_008
+MODULE: 002_007_string-processing
+TITLE: Topic 8: Pattern matching: search(), match(), findall(), sub()
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive exploration of pattern matching, extraction, streaming, and substitution methods in Python's `re` module. Explores the differences between `search()`, `match()`, and `fullmatch()`, the anatomy of the `Match` object (`.group()`, `.groups()`, `.groupdict()`, `.span()`), return type rules for `re.findall()` based on capture group counts, memory-efficient streaming with `re.finditer()`, complex delimiter splitting with `re.split()`, and pattern substitution with `re.sub()`, backreferences (`\1`, `\g<name>`), callable replacement functions for dynamic transformations (USD to INR, PII masking), and `re.subn()`.
+
+CORE CONCEPTS:
+1. Matching Trio: re.search() (first anywhere), re.match() (anchored at index 0), re.fullmatch() (exact entire string)
+2. Match Object Anatomy: .group(0), .group(n), .groups() tuple, .start(), .end(), .span() coordinates
+3. Named Capture Groups: (?P<name>...) and .groupdict() structured dictionary extraction
+4. re.findall() Return Structure Rules: List of strings (0 or 1 group) vs list of tuples (2+ groups)
+5. Memory-Efficient Streaming: re.finditer() lazy generator of Match objects
+6. Advanced Delimiter Splitting: re.split(pattern, text) & preserving separators with capturing groups
+7. Pattern Substitution: re.sub() with backreferences (\1, \2, \g<name>)
+8. Dynamic Callback Functions: Passing callable transformers to re.sub()
+9. Substitution Tracking: re.subn() returning (new_string, count)
+10. Industrial Applications: Web server access log parsers and enterprise PII data redactors
+
+REAL-WORLD SCENARIOS:
+- Parsing multi-line Nginx / Apache web server access logs into structured JSON / database records
+- Masking sensitive PII (Indian mobile numbers, PAN cards, credit cards, emails) before public auditing
+- Swapping and standardizing date formats across international formats (ISO YYYY-MM-DD to DD-MM-YYYY)
+- Parsing complex multi-delimiter CSV and text payloads with re.split()

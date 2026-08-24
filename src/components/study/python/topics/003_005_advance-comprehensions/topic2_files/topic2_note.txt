@@ -1,0 +1,33 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_005: ADVANCED COMPREHENSIONS
+        TOPIC 2: READABILITY GUIDELINES: WHEN TO USE COMPREHENSIONS VS LOOPS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. WHEN TO USE COMPREHENSIONS
+--------------------------------------------------------------------------------
+  * Constructing a new list, dict, or set from an existing iterable
+  * Maximum of 1 loop and 1 simple filter guard
+  * Transforming data without side-effects (Pure functions)
+
+--------------------------------------------------------------------------------
+2. WHEN TO USE PROCEDURAL LOOPS
+--------------------------------------------------------------------------------
+  * Executing side-effects (I/O, database writes, file logging)
+  * Exception handling required (try...except)
+  * Logic exceeds 2 nested loops or spans > 3 physical lines
+  * Complex branching logic (multiple if-elif-else statements)
+
+--------------------------------------------------------------------------------
+3. MEMORY RULE: LIST vs GENERATOR
+--------------------------------------------------------------------------------
+  * Eager List [x for x in seq]     : O(N) RAM (Need len, indexing, multiple passes)
+  * Lazy Generator (x for x in seq) : O(1) RAM (Streaming into sum, max, or file)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 2: READABILITY & REFACTORING
+================================================================================

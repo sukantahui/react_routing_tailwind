@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_007
+MODULE: 003_003_decorators-generators
+TITLE: Topic 7: Creating custom iterator classes
+LEVEL: Advanced
+DIFFICULTY: Medium-Hard
+
+OVERVIEW:
+Comprehensive master guide to Creating Custom Iterator Classes in Python. Deep dive into building custom range iterators with floating-point step support (`FloatRange`), designing sliding window iterators over sequences (`SlidingWindowIterator`), implementing round-robin circular schedulers (`CircularIterator`), building lazy database cursor pagination iterators (`LazyDatabasePaginatorIterator`), maintaining cursor state across invocations, avoiding float IEEE-754 precision drift, and an institutional examination rank and merit tier iterator case study.
+
+CORE CONCEPTS:
+1. Designing Custom Iterator Classes from Scratch
+2. Managing Internal Pointer/Cursor State (`self._cursor`)
+3. Proper `StopIteration` Condition Handling (Upper & Lower Bounds)
+4. Building `FloatRange(start, stop, step)` Supporting Floats
+5. Solving Float Precision Drift (`round(val, 10)`)
+6. Building Sliding Window Iterators over Time Series Data
+7. Building Circular (Round-Robin) Schedulers
+8. Lazy Page-by-Page Database Cursor Pagination
+9. Encapsulating Complex Domain Ranking Logic into Iterators
+10. Case Study: Institutional Exam Rank & Merit Scholarship Iterator Suite
+
+REAL-WORLD SCENARIOS:
+- Streaming large financial transactions and database records in pages without Out-Of-Memory (OOM) crashes
+- Calculating rolling moving averages and statistical metrics over time-series financial datasets using sliding window iterators
+- Building custom task schedulers and round-robin load balancers using circular iterators
+- Generating floating-point coordinate steps for 3D physics engines, rendering, and scientific simulations

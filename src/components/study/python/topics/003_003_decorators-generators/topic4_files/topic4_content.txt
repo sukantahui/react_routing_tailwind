@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_004
+MODULE: 003_003_decorators-generators
+TITLE: Topic 4: Decorators with arguments & functools.wraps preservation
+LEVEL: Advanced
+DIFFICULTY: Medium-Hard
+
+OVERVIEW:
+Comprehensive master guide to Decorators with Arguments and Deep Metadata Preservation in Python. Deep dive into the 3-tier function factory architecture (`factory(*config) -> decorator(func) -> wrapper(*args, **kwargs)`), understanding why decorators with arguments require an extra level of lexical scoping and closure nesting, writing parameterized retry decorators with exponential backoff delay, building in-memory caching decorators with TTL (Time-To-Live) expiration and eviction, preserving introspection metadata via `@functools.wraps`, and a multi-campus tuition discount policy case study.
+
+CORE CONCEPTS:
+1. Why Decorators with Arguments require a 3-Tier Nested Architecture
+2. The Outer Decorator Factory: Taking Configuration Parameters
+3. The Middle Decorator Function: Taking the Target Callable
+4. The Innermost Wrapper Function: Forwarding Runtime Arguments
+5. Execution Mechanics of `@factory(arg1, arg2)`
+6. Parameterized Resilience Decorators: Exponential Backoff & Retry
+7. In-Memory Caching Decorators with TTL Expiration & LRU Eviction
+8. Inspecting Cache Hit/Miss Stats via Wrapper Attributes (`cache_info()`)
+9. Critical Role of `@functools.wraps(func)` in 3-Tier Decorators
+10. Case Study: Multi-Campus Dynamic Tuition Policy Engine
+
+REAL-WORLD SCENARIOS:
+- Writing configurable `@retry(max_retries=5, backoff=2.0)` decorators for flaky third-party payment gateway APIs
+- Building `@memoize(ttl=60)` decorators for high-throughput database lookups with automatic cache invalidation
+- Creating parameterized validation decorators like `@validate_range(min_val=10, max_val=100)` for form controllers
+- Enforcing institutional financial concession rules and discount caps across multiple regional campuses

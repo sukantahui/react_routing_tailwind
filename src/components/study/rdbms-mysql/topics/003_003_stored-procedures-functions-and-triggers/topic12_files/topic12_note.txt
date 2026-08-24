@@ -1,0 +1,29 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 12: Referencing Modified Data using NEW and OLD Pseudo-Records
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE NEW AND OLD PSEUDO-RECORDS?
+--------------------------------------------------------------------------------
+- `OLD`: A virtual read-only record representing the column values of the row 
+  *before* the DML operation executes (available in `UPDATE` and `DELETE`).
+- `NEW`: A virtual record representing the column values of the row *after* 
+  or during the DML operation (available in `INSERT` and `UPDATE`).
+
+2. MUTATION & PERMISSION MATRIX
+--------------------------------------------------------------------------------
+Trigger Timing & Event | OLD Record Access | NEW Record Access
+-----------------------+-------------------+------------------------------------
+BEFORE INSERT          | Undefined / NULL  | Read / Write (`SET NEW.col = val`)
+AFTER INSERT           | Undefined / NULL  | Read-Only
+BEFORE UPDATE          | Read-Only         | Read / Write (`SET NEW.col = val`)
+AFTER UPDATE           | Read-Only         | Read-Only
+BEFORE DELETE          | Read-Only         | Undefined / NULL
+AFTER DELETE           | Read-Only         | Undefined / NULL
+
+3. DELTA CALCULATIONS & AUDIT SNAPSHOTS
+--------------------------------------------------------------------------------
+- Delta math: `SET v_diff = NEW.salary - OLD.salary;`
+- Immutable checks: `IF OLD.student_id != NEW.student_id THEN SIGNAL ... END IF;`
+- JSON change snapshots: `JSON_OBJECT('old', OLD.val, 'new', NEW.val)`

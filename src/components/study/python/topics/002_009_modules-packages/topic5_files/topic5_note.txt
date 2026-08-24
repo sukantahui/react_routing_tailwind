@@ -1,0 +1,51 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_009: MODULES & PACKAGES
+              TOPIC 5: CONCEPT OF PACKAGES & THE ROLES OF __init__.py
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. WHAT IS A PYTHON PACKAGE?
+--------------------------------------------------------------------------------
+  • A Python Package is a folder on disk containing Python module (.py) files
+    and an `__init__.py` file.
+  • Packages enable hierarchical multi-level namespaces (e.g. `app.services.auth`).
+
+--------------------------------------------------------------------------------
+2. THE 3 PRIMARY ROLES OF __init__.py
+--------------------------------------------------------------------------------
+  1. Package Identifier:
+     Tells Python that the directory is a package and should be treated as a
+     module namespace on `sys.path`.
+  2. Package Initialization:
+     Executes setup code once when the package is imported into memory.
+  3. API Elevation (Facade Pattern - BEST PRACTICE):
+     Imports classes and functions from internal submodules into `__init__.py`
+     so consumers can import directly from the package root:
+       from my_package import Calculator  # Clean Facade!
+     Instead of deep awkward paths:
+       from my_package.services.engine.calculator import Calculator # Ugly!
+
+--------------------------------------------------------------------------------
+3. REGULAR PACKAGES VS PEP 420 NAMESPACE PACKAGES
+--------------------------------------------------------------------------------
+  • Regular Package:
+      Must contain `__init__.py`. Can have `__file__` attribute and execute code.
+  • Implicit Namespace Package (Python 3.3+ PEP 420):
+      Does NOT have `__init__.py`. Allows splitting a single package namespace
+      across multiple separate directories or physical disk locations.
+
+--------------------------------------------------------------------------------
+4. PACKAGE-LEVEL __all__ WHITELIST
+--------------------------------------------------------------------------------
+  Inside `my_package/__init__.py`:
+    __all__ = ['PublicClass', 'public_func']
+  Restricts what is exported when someone writes:
+    from my_package import *
+
+================================================================================
+           END OF STUDY NOTE • TOPIC 5: PACKAGES & __init__.py FILES
+================================================================================

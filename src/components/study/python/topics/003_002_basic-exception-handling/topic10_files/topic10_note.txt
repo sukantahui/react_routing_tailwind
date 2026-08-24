@@ -1,0 +1,31 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_002: EXCEPTION HANDLING
+          TOPIC 10: USING ASSERTIONS (`assert`) FOR INTERNAL INVARIANTS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE FUNDAMENTAL GOLDEN RULE
+--------------------------------------------------------------------------------
+  • Use `raise`  : For all public function input validation, user inputs, auth.
+  • Use `assert` : For internal programmer sanity checks, postconditions, invariants.
+
+--------------------------------------------------------------------------------
+2. THE PYTHON `-O` FLAG (WHY ASSERTS DISAPPEAR)
+--------------------------------------------------------------------------------
+  Running `python -O script.py` sets `__debug__ = False` and completely removes
+  every `assert` statement from bytecode during compilation!
+  -> Therefore, never use assert for security or business validations!
+
+--------------------------------------------------------------------------------
+3. THE TUPLE TRAP
+--------------------------------------------------------------------------------
+  ❌ BAD  : assert (score >= 0, "Error")  # Non-empty tuple -> ALWAYS TRUE!
+  ✓ GOOD : assert score >= 0, "Error"    # Evaluates boolean properly
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 10: ASSERTIONS & INVARIANTS
+================================================================================

@@ -1,0 +1,36 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_004: WORKING WITH JSON
+              TOPIC 7: VALIDATING AND SANITIZING JSON DATA SCHEMAS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. JSON SCHEMA DRAFT 2020-12 SPECIFICATION
+--------------------------------------------------------------------------------
+  schema = {
+      "type": "object",
+      "required": ["student_id", "email", "fee"],
+      "properties": {
+          "student_id": {"type": "string", "pattern": "^STU-\\d{3}$"},
+          "email": {"type": "string", "format": "email"},
+          "fee": {"type": "number", "minimum": 10000}
+      },
+      "additionalProperties": False
+  }
+
+--------------------------------------------------------------------------------
+2. DEFENSE-IN-DEPTH XSS SANITIZATION
+--------------------------------------------------------------------------------
+  clean_str = html.escape(re.sub(r"<[^>]*>", "", raw_text).strip())
+
+--------------------------------------------------------------------------------
+3. PYDANTIC / MODEL VALIDATION & COERCION
+--------------------------------------------------------------------------------
+  # Validates fields, coerces strings to float/Decimal, and returns structured errors.
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 7: JSON SCHEMA VALIDATION
+================================================================================

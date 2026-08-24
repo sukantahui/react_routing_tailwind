@@ -1,0 +1,78 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_007: STRING PROCESSING
+        TOPIC 9: COMMON STRING PROCESSING ALGORITHMS (PALINDROMES, ANAGRAMS, WORD COUNTS)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. PALINDROME VERIFICATION ALGORITHMS
+--------------------------------------------------------------------------------
+  A. Slicing Approach:
+       clean = "".join(c.lower() for c in s if c.isalnum())
+       return clean == clean[::-1]
+       • Time Complexity: O(N)
+       • Space Complexity: O(N) (Creates reversed copy of string)
+
+  B. Two-Pointer Inward Scan (Optimal Space):
+       left, right = 0, len(s) - 1
+       while left < right:
+           while left < right and not s[left].isalnum(): left += 1
+           while left < right and not s[right].isalnum(): right -= 1
+           if s[left].lower() != s[right].lower(): return False
+           left += 1; right -= 1
+       return True
+       • Time Complexity: O(N)
+       • Space Complexity: O(1) auxiliary space (No string copying!)
+
+--------------------------------------------------------------------------------
+2. ANAGRAM DETECTION ALGORITHMS
+--------------------------------------------------------------------------------
+  A. Sorting Method:
+       return sorted(s1.lower()) == sorted(s2.lower())
+       • Time Complexity: O(N log N) (Dominated by Timsort)
+       • Space Complexity: O(N) (Allocates sorted lists)
+
+  B. Frequency Counter Method:
+       return collections.Counter(s1.lower()) == collections.Counter(s2.lower())
+       • Time Complexity: O(N) (Linear single-pass hashing)
+       • Space Complexity: O(1) (At most 26 lowercase English character keys)
+
+--------------------------------------------------------------------------------
+3. LEVENSHTEIN EDIT DISTANCE (DYNAMIC PROGRAMMING)
+--------------------------------------------------------------------------------
+  • Calculates minimum number of single-character edits (Insert, Delete, Replace)
+    to transform string s1 into s2.
+  • DP State Recurrence:
+      if s1[i-1] == s2[j-1]:
+          dp[i][j] = dp[i-1][j-1]
+      else:
+          dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])
+  • Time Complexity: O(M * N) | Space Complexity: O(M * N)
+
+--------------------------------------------------------------------------------
+4. RUN-LENGTH ENCODING (RLE) COMPRESSION
+--------------------------------------------------------------------------------
+  • Replaces consecutive duplicate characters with char + count:
+      Input  : "AAAAABBBCCCCCCDDDDDEEEEEEE"
+      Output : "A5B3C6D5E7"
+  • Decompression:
+      "".join(char * int(count) for char, count in re.findall(r"([A-Za-z])(\d+)", s))
+
+--------------------------------------------------------------------------------
+5. SUMMARY OF ALGORITHMIC COMPLEXITY
+--------------------------------------------------------------------------------
+  Algorithm                     Time Complexity    Space Complexity
+  ------------------------------------------------------------------------------
+  Two-Pointer Palindrome        O(N)               O(1)
+  Counter Anagram Check         O(N)               O(1) (fixed alphabet)
+  Anagram Group Clustering      O(N * K log K)     O(N * K)
+  First Unique Character        O(N)               O(1)
+  Levenshtein Distance          O(M * N)           O(M * N)
+  Run-Length Encoding           O(N)               O(N)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 9: COMMON STRING PROCESSING ALGORITHMS
+================================================================================

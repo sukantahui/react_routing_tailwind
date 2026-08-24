@@ -1,0 +1,26 @@
+TOPIC_ID: 003_004_004
+MODULE: 003_004_working-with-json
+TITLE: Topic 4: Handling custom Python objects with custom JSONEncoders & object_hook
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to Custom JSON Serialization and Deserialization in Python. Deep dive into subclassing `json.JSONEncoder`, overriding the `default(self, o)` method to handle non-primitive types (`datetime`, `Decimal`, `UUID`, `set`, and custom class instances), calling `super().default(o)` to preserve standard `TypeError` behavior, deserializing structured dictionaries into rich Python domain models using `object_hook` and `object_pairs_hook`, designing type discriminator tags (`__type__` / `__model__`), building bidirectional Dataclass JSON codecs, and an institutional student portfolio case study.
+
+CORE CONCEPTS:
+1. Subclassing `json.JSONEncoder`
+2. Overriding `default(self, o)` Serialization Method
+3. Delegating to `super().default(o)` for Unsupported Types
+4. Using `cls=CustomEncoder` in `json.dump()` and `json.dumps()`
+5. Reconstructing Classes with `object_hook` in `json.load()` and `json.loads()`
+6. Using Type Discriminator Tags (`__type__`, `__model__`, `__dataclass__`)
+7. Handling Complex Types: `datetime`, `date`, `Decimal`, `UUID`, `Enum`, `set`
+8. Bidirectional Unified Codec Architecture for Python Dataclasses
+9. Method Restoration on Deserialized Domain Objects
+10. Case Study: Institutional Student Portfolio & Merit Grant Codec Suite
+
+REAL-WORLD SCENARIOS:
+- Serializing rich SQLAlchemy, Django, and Pydantic domain models to JSON without writing manual dictionary conversion boilerplate
+- Reconstructing complex nested business entities with callable methods directly from JSON API payloads
+- Preserving Decimal currency precision and ISO date objects across distributed microservices
+- Creating portable database caching layers that store and restore custom Python objects seamlessly

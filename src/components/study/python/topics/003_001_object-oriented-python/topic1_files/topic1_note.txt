@@ -1,0 +1,40 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+          TOPIC 1: CLASSES, INSTANCES & OBJECTS: SYNTAX & LIFECYCLE
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. DEFINING & INSTANTIATING CLASSES
+--------------------------------------------------------------------------------
+  • Class Definition:
+      class StudentRegistration:
+          institute = "Coder & AccoTax"   # Class attribute
+
+  • Object Instantiation:
+      s1 = StudentRegistration()          # Creates new heap instance
+      s1.name = "Abhishek"               # Instance attribute
+
+--------------------------------------------------------------------------------
+2. THE 4 STAGES OF THE CPYTHON OBJECT LIFECYCLE
+--------------------------------------------------------------------------------
+  Stage 1: Allocation      -> __new__(cls) creates and returns the raw instance.
+  Stage 2: Initialization  -> __init__(self) sets up initial attributes.
+  Stage 3: Active Usage    -> Interacting via methods; reference count tracked.
+  Stage 4: Destruction     -> __del__(self) executed by GC when refcount hits 0.
+
+--------------------------------------------------------------------------------
+3. ATTRIBUTE RESOLUTION HIERARCHY
+--------------------------------------------------------------------------------
+  When you access `obj.attribute`:
+    1. Check `obj.__dict__` (Instance Namespace)
+    2. Check `Class.__dict__` (Class Namespace)
+    3. Check Base Class Namespaces (MRO)
+    4. Raise AttributeError if not found anywhere
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 1: CLASSES, INSTANCES & LIFECYCLE
+================================================================================

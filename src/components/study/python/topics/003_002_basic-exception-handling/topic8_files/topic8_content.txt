@@ -1,0 +1,26 @@
+TOPIC_ID: 003_002_008
+MODULE: 003_002_basic-exception-handling
+TITLE: Topic 8: Creating User-Defined Custom Exception Classes
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to architecting and implementing User-Defined Custom Exception Classes in Python. Deep dive into subclassing `Exception` (why you must never inherit from `BaseException`), creating root domain base exceptions (e.g. `CoderAccoTaxError`), enriching exception instances with structured contextual forensic attributes (`student_id`, `deficit`, `status_code`, `timestamp`), serializing custom exceptions into REST API JSON payloads, ordering hierarchical `except` blocks from most specific to most general to prevent shadowing traps, and an enterprise educational admission and tuition scheme validation engine case study.
+
+CORE CONCEPTS:
+1. Why and When to Create Custom Exceptions
+2. Subclassing `Exception` vs `BaseException`
+3. Domain Root Exception Pattern (`class MyLibraryError(Exception):`)
+4. Attaching Custom Contextual Attributes to Exception Instances
+5. Overriding `__init__()` and `__str__()` Safely
+6. Serializing Custom Exceptions to JSON / API Payloads
+7. Hierarchical Exception Dispatch: Most Specific to Most General
+8. The Exception Shadowing Anti-Pattern
+9. Polymorphic Domain Recovery Strategies
+10. Case Study: Institutional Admission & Billing Exception Suite
+
+REAL-WORLD SCENARIOS:
+- Building enterprise API services with structured error codes (`ERR_DUPLICATE_APPLICANT`, `ERR_CAPACITY_EXCEEDED`)
+- Providing automated waitlist numbers and deficit calculations embedded directly inside caught exception instances
+- Implementing root domain base classes for SDKs so client applications can catch all library-specific errors with a single `except` statement
+- Preventing accidental capture of `KeyboardInterrupt` and `SystemExit` by strictly inheriting from `Exception`

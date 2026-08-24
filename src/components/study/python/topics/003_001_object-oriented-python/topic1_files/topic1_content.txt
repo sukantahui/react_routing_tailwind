@@ -1,0 +1,30 @@
+TOPIC_ID: 003_001_001
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 1: Classes, Instances & Objects: syntax and lifecycle
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to class definitions, object instantiation, memory layout, and the full runtime lifecycle in Python (CPython). Explores class declaration syntax following PEP 8 PascalCase standards, creating multiple distinct living instances in heap memory, inspecting memory addresses with `id()` and `hex()`, verifying types with `type()` and `isinstance()`, the 4 stages of the CPython object lifecycle (`__new__` memory allocation $\rightarrow$ `__init__` state initialization $\rightarrow$ active usage and reference counting with `sys.getrefcount` $\rightarrow$ `__del__` garbage collection), and how Python represents namespaces internally using `__dict__`.
+
+CORE CONCEPTS:
+1. Class Definition Syntax (PEP 8 PascalCase Convention)
+2. Object Instantiation (Invoking Class Constructor Callables)
+3. Object Identity & Heap Memory (id(), hex(id()), 'is' operator)
+4. Type Checking & Verification (type() vs isinstance())
+5. The 4 Stages of CPython Object Lifecycle:
+   - Stage 1: Allocation via __new__(cls, ...)
+   - Stage 2: State Initialization via __init__(self, ...)
+   - Stage 3: Active Usage & Reference Counting (sys.getrefcount)
+   - Stage 4: Deallocation & Destructor via __del__(self)
+6. Internal Object Representation & Namespaces (obj.__dict__)
+7. Class Namespace (Class.__dict__) vs Instance Namespace (instance.__dict__)
+8. Attribute Lookup Resolution Order
+9. Attribute Shadowing & Overriding
+10. Garbage Collection & Automatic Memory Management
+
+REAL-WORLD SCENARIOS:
+- Tracking physical hardware assets and commercial logistics vehicles through state transitions (ACTIVE, IN_SERVICE, RETIRED)
+- Inspecting memory overhead and namespace footprint of large volumes of instantiated objects
+- Debugging memory leaks caused by circular references in long-running Python background worker daemons
+- Customizing instance allocation for singleton patterns or immutable types using __new__

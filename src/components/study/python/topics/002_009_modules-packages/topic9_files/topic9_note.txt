@@ -1,0 +1,47 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_009: MODULES & PACKAGES
+           TOPIC 9: requirements.txt GENERATION & DEPENDENCY MANAGEMENT
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. VERSION SPECIFIERS QUICK REFERENCE
+--------------------------------------------------------------------------------
+  Operator        Meaning                         Example
+  ------------------------------------------------------------------------------
+  ==              Exact Pinned Version            requests==2.31.0
+  >=              Minimum Allowed Version         pandas>=2.1.0
+  <=              Maximum Allowed Version         urllib3<=2.0.0
+  ~=              Compatible Release (SemVer)     fastapi~=0.110.0 (Allows 0.110.1)
+  !=              Excluded Buggy Version          pydantic!=2.5.0
+
+--------------------------------------------------------------------------------
+2. ENVIRONMENT MARKERS (PLATFORM BRANCHING)
+--------------------------------------------------------------------------------
+  • Windows Only:
+      colorama>=0.4.6; sys_platform == 'win32'
+  • Linux/macOS Only:
+      uvloop>=0.19.0; sys_platform != 'win32'
+  • Specific Python Version:
+      typing-extensions>=4.0.0; python_version < '3.10'
+
+--------------------------------------------------------------------------------
+3. LAYERED REQUIREMENTS ARCHITECTURE (BEST PRACTICE)
+--------------------------------------------------------------------------------
+  • `requirements/base.txt`: Core shared app packages (FastAPI, Requests, SQLAlchemy)
+  • `requirements/dev.txt`:  `-r base.txt` + testing tools (pytest, black, flake8)
+  • `requirements/prod.txt`: `-r base.txt` + production servers (gunicorn, sentry)
+
+--------------------------------------------------------------------------------
+4. INSTALLATION & AUDIT COMMANDS
+--------------------------------------------------------------------------------
+  • Install Dev:   python -m pip install -r requirements/dev.txt
+  • Install Prod:  python -m pip install --no-cache-dir -r requirements/prod.txt
+  • Verify Health: python -m pip check
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 9: requirements.txt & DEPENDENCIES
+================================================================================

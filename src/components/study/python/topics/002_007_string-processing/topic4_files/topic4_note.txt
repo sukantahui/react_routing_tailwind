@@ -1,0 +1,74 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_007: STRING PROCESSING
+        TOPIC 4: SEARCHING & VALIDATION (FIND, RFIND, COUNT, STARTSWITH, ENDSWITH, ISDIGIT, ISALPHA)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. SUBSTRING SEARCHING: find() VS index()
+--------------------------------------------------------------------------------
+  Method       Direction    If Found              If NOT Found
+  ------------------------------------------------------------------------------
+  s.find(sub)  Left-to-Right Lowest index (int)   Returns -1 (Safe!)
+  s.rfind(sub) Right-to-Left Highest index (int)  Returns -1 (Safe!)
+  s.index(sub) Left-to-Right Lowest index (int)   Raises ValueError: substring not found
+  s.rindex(sub)Right-to-Left Highest index (int)  Raises ValueError: substring not found
+
+  Rule of Thumb:
+  • Use 'sub in s' if you only need a boolean existence check.
+  • Use s.find(sub) if you need the position and want to handle missing values safely.
+  • Use s.index(sub) only when the substring is guaranteed to exist or within try/except.
+
+--------------------------------------------------------------------------------
+2. OCCURRENCE COUNTING: s.count(sub, start, stop)
+--------------------------------------------------------------------------------
+  • Returns the number of NON-OVERLAPPING occurrences of 'sub' in s[start:stop].
+  • Critical Gotcha:
+      "banana".count("ana") -> 1 (NOT 2, because 'ana' at index 1 consumes chars).
+
+--------------------------------------------------------------------------------
+3. PREFIX & SUFFIX MATCHING: startswith() & endswith()
+--------------------------------------------------------------------------------
+  • Syntax:
+      s.startswith(prefix_or_tuple, start, stop)
+      s.endswith(suffix_or_tuple, start, stop)
+  • Matching Multiple Candidates:
+      Pass a TUPLE (not list or set):
+      is_doc = filename.endswith((".pdf", ".docx", ".xlsx"))
+      is_web = url.startswith(("http://", "https://"))
+
+--------------------------------------------------------------------------------
+4. THE NUMERIC PREDICATE HIERARCHY
+--------------------------------------------------------------------------------
+  Hierarchy: isdecimal() ⊆ isdigit() ⊆ isnumeric()
+
+  Input String     isdecimal()   isdigit()   isnumeric()   Notes
+  ------------------------------------------------------------------------------
+  "12345"          True          True        True          Base-10 ASCII digits
+  "²" (\u00B2)     False         True        True          Superscript digit
+  "½" (\u00BD)     False         False       True          Vulgar fraction
+  "四" (\u56DB)    False         False       True          Chinese numeral (4)
+  "-10"            False         False       False         Minus sign is not digit
+  "3.14"           False         False       False         Decimal point is not digit
+
+--------------------------------------------------------------------------------
+5. CHARACTER CLASSIFICATION PREDICATES MATRIX
+--------------------------------------------------------------------------------
+  Predicate Method   Returns True IF:
+  ------------------------------------------------------------------------------
+  s.isalpha()        All characters are alphabetic letters (A-Z, a-z, Unicode letters) & len > 0.
+  s.isalnum()        All characters are alphanumeric (letters or numbers) & len > 0.
+  s.isascii()        All characters are in the 7-bit ASCII range (0..127) or string is empty.
+  s.isspace()        All characters are whitespace (space, \t, \n, \r) & len > 0.
+  s.isprintable()    All characters are printable (no unescaped control codes like \n, \x00).
+  s.isidentifier()   String forms a valid Python language identifier (variable name).
+  s.islower()        All cased characters are lowercase & contains at least 1 cased char.
+  s.isupper()        All cased characters are uppercase & contains at least 1 cased char.
+  s.istitle()        String matches title-case conventions & contains at least 1 cased char.
+
+================================================================================
+           END OF STUDY NOTE • TOPIC 4: SEARCHING & VALIDATION METHODS
+================================================================================

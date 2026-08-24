@@ -1,0 +1,31 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_004: WORKING WITH JSON
+             TOPIC 8: BUILDING JSON-BACKED PERSISTENT DATA STORES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ATOMIC WRITE PATTERN (ZERO 0-BYTE CORRUPTIONS)
+--------------------------------------------------------------------------------
+  def atomic_save(data, target_path):
+      target_dir = os.path.dirname(os.path.abspath(target_path))
+      fd, tmp_path = tempfile.mkstemp(dir=target_dir, prefix="db_tmp_", suffix=".json")
+      with os.fdopen(fd, "w", encoding="utf-8") as f:
+          json.dump(data, f, indent=2)
+          f.flush()
+          os.fsync(f.fileno())  # Commit buffers to physical disk
+      os.replace(tmp_path, target_path)  # Atomic filesystem inode swap
+
+--------------------------------------------------------------------------------
+2. APPEND-ONLY NDJSON WAL ENGINE
+--------------------------------------------------------------------------------
+  with open("tx_log.ndjson", "a", encoding="utf-8") as f:
+      f.write(json.dumps({"action": "INSERT", "data": record}) + "\n")
+      f.flush()
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 8: JSON PERSISTENT DATA STORES
+================================================================================

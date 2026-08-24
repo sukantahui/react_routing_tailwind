@@ -1,0 +1,46 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_009: MODULES & PACKAGES
+      TOPIC 2: BUILT-IN STANDARD LIBRARY MODULES (MATH, RANDOM, DATETIME, SYS, OS)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE 5 PILLAR STANDARD LIBRARY MODULES QUICK REFERENCE
+--------------------------------------------------------------------------------
+  Module      Core Capabilities                              Key Functions
+  ------------------------------------------------------------------------------
+  math        High-precision math, roots, gcd, trigonometry  sqrt, ceil, floor, gcd, isclose
+  random      Pseudo-random simulation & sampling            randint, choice, sample, shuffle
+  datetime    Calendar dates, clock times, duration math     date, datetime, timedelta, strftime
+  sys         CPython interpreter & memory internals         argv, platform, version, getsizeof
+  os          Operating system & file path management        getcwd, listdir, environ, path.join
+
+--------------------------------------------------------------------------------
+2. RANDOM VS SECRETS (SECURITY RULE)
+--------------------------------------------------------------------------------
+  • Use `random`: Simulations, games, statistical sampling, data shuffling.
+  • Use `secrets`: Passwords, authentication tokens, password reset links, OTPs.
+  • NEVER use `random` for generating security keys or sensitive tokens!
+
+--------------------------------------------------------------------------------
+3. DATETIME: strftime() VS strptime()
+--------------------------------------------------------------------------------
+  • strftime (Format): Datetime Object -> Formatted String
+      now.strftime("%d-%b-%Y") -> "24-Aug-2026"
+  • strptime (Parse): Raw String -> Datetime Object
+      dt.datetime.strptime("24-08-2026", "%d-%m-%Y") -> datetime(2026, 8, 24)
+
+--------------------------------------------------------------------------------
+4. CROSS-PLATFORM PATH RULE (os.path.join)
+--------------------------------------------------------------------------------
+  • BAD (Platform Dependent):
+      path = folder + "\\" + filename  # Fails on Linux/macOS
+  • GOOD (Cross-Platform):
+      path = os.path.join(folder, filename) # Works on Windows, Linux, and macOS
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 2: CORE STANDARD LIBRARY MODULES
+================================================================================

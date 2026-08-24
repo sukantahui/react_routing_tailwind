@@ -1,0 +1,73 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_007: STRING PROCESSING
+        TOPIC 1: STRING IMMUTABILITY & MEMORY REPRESENTATION IN CPYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. WHAT IS IMMUTABILITY?
+--------------------------------------------------------------------------------
+  • A string in Python is an IMMUTABLE sequence. Once created in memory, its
+    contents cannot be modified, resized, or overwritten in place.
+  • Attempting item assignment raises a fatal TypeError:
+      s = "Kolkata"
+      s[0] = "k"   # Raises TypeError: 'str' object does not support item assignment
+  • To change a string, you must construct a BRAND NEW string object in memory.
+
+--------------------------------------------------------------------------------
+2. VARIABLE REBINDING VS OBJECT MUTATION
+--------------------------------------------------------------------------------
+  • Beginners often confuse variable rebinding with mutation:
+      city = "Barrackpore"
+      old_id = id(city)
+      city = city + " North"
+      new_id = id(city)
+  • Here, the original object "Barrackpore" was NOT mutated. A brand-new string
+    "Barrackpore North" was allocated at a different memory address (new_id != old_id),
+    and the variable name 'city' was rebound (pointed) to the new object.
+
+--------------------------------------------------------------------------------
+3. CPYTHON STRING MEMORY ARCHITECTURE (PEP 393)
+--------------------------------------------------------------------------------
+  Python 3.3+ uses the Flexible String Representation (PEP 393):
+  • 1-byte per character (Latin-1 / ASCII): If max codepoint < 256
+  • 2-bytes per character (UCS-2): If max codepoint < 65,536 (e.g. Devanagari, Bengali)
+  • 4-bytes per character (UCS-4): If max codepoint >= 65,536 (e.g. Emojis 🚀)
+  • This delivers massive memory savings compared to allocating 4 bytes for every ASCII char.
+
+--------------------------------------------------------------------------------
+4. STRING INTERNING (sys.intern)
+--------------------------------------------------------------------------------
+  • String Interning is a memory optimization where CPython reuses a single
+    shared memory object for identical string literals (especially valid Python identifiers).
+  • For interned strings:
+      a = "susmita_student"
+      b = "susmita_student"
+      a is b   # True! (Both point to the EXACT same memory address)
+  • Manual interning via sys.intern() speeds up dictionary lookups by enabling
+    pointer comparison (O(1)) instead of character-by-character comparison (O(N)).
+
+--------------------------------------------------------------------------------
+5. PERFORMANCE: LOOP CONCATENATION VS ''.join()
+--------------------------------------------------------------------------------
+  • BAD PRACTICE (O(N^2) Complexity):
+      s = ""
+      for word in word_list:
+          s += word   # Allocates new memory buffer & copies all data on EVERY step!
+  • BEST PRACTICE (O(N) Complexity):
+      s = "".join(word_list)  # Pre-computes total size, allocates memory ONCE!
+
+--------------------------------------------------------------------------------
+6. WHY IMMUTABILITY MATTERS (SECURITY & HASHABILITY)
+--------------------------------------------------------------------------------
+  1. Hash Stability: Strings can be safely used as Dictionary keys and Set items.
+  2. Thread Safety: Immutable objects are inherently free from race conditions.
+  3. Security: String arguments (file paths, database passwords, tokens) cannot
+     be maliciously altered by secondary functions after validation.
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 1: STRING IMMUTABILITY & MEMORY ARCHITECTURE
+================================================================================

@@ -1,0 +1,26 @@
+TOPIC_ID: 002_009_006
+MODULE: 002_009_modules-packages
+TITLE: Topic 6: Relative vs absolute imports in packages
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive guide to Relative vs Absolute Imports in Python packages. Covers PEP 8 standard recommendations, the syntax of explicit relative imports using dot notation (`.` for current directory, `..` for parent directory, `...` for grandparent directory), the deprecation of implicit relative imports in Python 3, the exact mechanics and causes of `ImportError: attempted relative import with no known parent package`, and industry-standard resolution strategies (running with `-m`, configuring `PYTHONPATH`, or standardizing on absolute imports).
+
+CORE CONCEPTS:
+1. Absolute Imports: Syntax, Clarity & PEP 8 Recommendations
+2. Explicit Relative Imports: Dot Navigation (., .., ...)
+3. Ban on Implicit Relative Imports in Python 3
+4. The Role of __package__ and __name__ in Import Resolution
+5. The Infamous 'attempted relative import with no known parent package' Error
+6. Resolution 1: Running Package Modules with python -m pkg.sub.module
+7. Resolution 2: Setting the PYTHONPATH Environment Variable
+8. Reusable Library Portability: Why Libraries Prefer Relative Imports
+9. Avoiding the 'Dot Madness' Anti-Pattern (Excessive Dot Climbing)
+10. Production Case Study: E-Commerce Multi-Tier Logistics & Billing System
+
+REAL-WORLD SCENARIOS:
+- Refactoring library codebases without breaking internal cross-module references
+- Diagnosing and fixing 'attempted relative import' crashes during local development and CI/CD pipelines
+- Structuring microservices with clear boundaries between domain modules and shared core utilities
+- Developing modular web backends (FastAPI / Django) with maintainable import graphs

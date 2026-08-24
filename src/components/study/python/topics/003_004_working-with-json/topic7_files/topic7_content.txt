@@ -1,0 +1,26 @@
+TOPIC_ID: 003_004_007
+MODULE: 003_004_working-with-json
+TITLE: Topic 7: Validating and sanitizing JSON data schemas
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to Validating, Constraining, and Sanitizing JSON Data Schemas in Python. Deep dive into the official JSON Schema standard (Draft 2020-12 / Draft 7), defining required properties, type constraints, numeric ranges (`minimum`, `maximum`), regex patterns (`pattern`), array bounds (`minItems`, `uniqueItems`), building lightweight zero-dependency schema validators in standard Python, modern Pydantic-style model validation and automatic type coercion, defense-in-depth sanitization against Cross-Site Scripting (XSS) injection attacks, and an institutional student admission application validation suite.
+
+CORE CONCEPTS:
+1. JSON Schema Specification Standard (Draft 2020-12 / Draft 7)
+2. Declarative Schema Keywords: `type`, `required`, `properties`, `additionalProperties`
+3. Constraint Rules: `minimum`, `maximum`, `minLength`, `pattern`, `enum`
+4. Catching and Structuring `jsonschema.exceptions.ValidationError`
+5. Lightweight Zero-Dependency Pure Python Schema Validation
+6. Pydantic-Style Validation Models & Automatic Type Coercion
+7. Field-Level Custom Predicates and Whitespace Trimming
+8. Sanitizing Dangerous Injections (HTML/XSS Script Stripping)
+9. Batch Processing & Quarantining Invalid Payloads
+10. Case Study: Institutional Student Admission Application Validator Suite
+
+REAL-WORLD SCENARIOS:
+- Validating external REST API incoming webhook payloads before updating backend databases
+- Enforcing strict contract schemas between frontend JavaScript forms and Python FastAPI/Flask backends
+- Sanitizing user-submitted form data against malicious XSS `<script>` injections and SQL control characters
+- Ensuring financial fields (tuition fees, payment tokens) stay strictly within permissible business logic boundaries

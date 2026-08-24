@@ -1,0 +1,31 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_004: WORKING WITH JSON
+           TOPIC 1: MAPPING PYTHON DATA TYPES TO JSON SPECIFICATIONS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. KEY COERCION & skipkeys
+--------------------------------------------------------------------------------
+  • JSON keys MUST be strings.
+  • Python int/float/bool keys are automatically coerced to strings: {101: "A"} -> {"101": "A"}
+  • Tuple keys raise TypeError unless `skipkeys=True` is passed: `json.dumps(d, skipkeys=True)`
+
+--------------------------------------------------------------------------------
+2. SPECIAL FLOATS: NaN & INFINITY
+--------------------------------------------------------------------------------
+  • Default `json.dumps()` emits unquoted `NaN` (Illegal in strict RFC 8259).
+  • Use `allow_nan=False` to raise ValueError and enforce strict compliance.
+
+--------------------------------------------------------------------------------
+3. ROUND-TRIP MUTATIONS
+--------------------------------------------------------------------------------
+  • `tuple` (1, 2)  ---> `list` [1, 2]
+  • `dict` {101: v} ---> `dict` {"101": v}
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 1: PYTHON-JSON TYPE MAPPING
+================================================================================

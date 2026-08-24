@@ -1,0 +1,26 @@
+TOPIC_ID: 002_009_009
+MODULE: 002_009_modules-packages
+TITLE: Topic 9: requirements.txt generation and dependency management
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to `requirements.txt` generation, version pinning specifiers, and enterprise dependency management. Explores the mechanics and syntax of requirements files (exact pins `==`, minimums `>=`, compatible release `~=`, and environment markers for OS-specific branching), layered dependency architecture (`base.txt`, `dev.txt`, `prod.txt` using the `-r` include flag), the limitations of naive `pip freeze` vs modern tooling (`pip-tools` `pip-compile`, `pipreqs`, and `pyproject.toml` PEP 621 standards), and automated programmatic requirement validation with `importlib.metadata`.
+
+CORE CONCEPTS:
+1. What is requirements.txt and Why it is Essential
+2. Exporting Pinned Dependencies with pip freeze > requirements.txt
+3. The 5 Version Specifier Operators (==, >=, <=, ~=, !=)
+4. Environment Markers (sys_platform, python_version)
+5. Layered Enterprise Architecture: requirements/base.txt, dev.txt, prod.txt
+6. Recursive Include Syntax: -r base.txt
+7. Drawbacks of Naive pip freeze (Transitive Pollution & Loss of Intent)
+8. Deterministic Lockfiles with pip-tools (requirements.in -> pip-compile)
+9. Automated Source Scanning with pipreqs
+10. Programmatic Requirement Verification & Audit Engine
+
+REAL-WORLD SCENARIOS:
+- Structuring multi-stage Docker builds where production images exclude heavy testing packages like pytest and black
+- Pinning dependencies safely to prevent breaking updates from disrupting live production APIs
+- Designing maintainable multi-environment configuration files for local dev, staging, and production
+- Automating dependency security and compliance verification in CI/CD release pipelines

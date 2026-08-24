@@ -1,0 +1,32 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_005: ADVANCED COMPREHENSIONS
+       TOPIC 1: NESTED AND MULTI-VARIABLE COMPREHENSIONS WITH FILTERING
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. FLATTENING 2D LISTS
+--------------------------------------------------------------------------------
+  # Loop order is EXACTLY same as nested for-loops (Left to Right):
+  flat_list = [item for row in matrix for item in row]
+
+--------------------------------------------------------------------------------
+2. CONSTRUCTING 2D MATRICES
+--------------------------------------------------------------------------------
+  matrix = [[f"R{r}C{c}" for c in range(cols)] for r in range(rows)]
+
+--------------------------------------------------------------------------------
+3. CARTESIAN PRODUCTS & MATRIX TRANSPOSITION
+--------------------------------------------------------------------------------
+  # Cartesian product:
+  pairs = [(x, y) for x in list_a for y in list_b if x != y]
+
+  # Matrix transposition (rows <-> columns):
+  transposed = [[matrix[r][c] for r in range(num_rows)] for c in range(num_cols)]
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 1: NESTED COMPREHENSIONS
+================================================================================

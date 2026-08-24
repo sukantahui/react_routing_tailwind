@@ -1,0 +1,40 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+                TOPIC 6: ENCAPSULATION & DATA HIDING IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE THREE ACCESS CONVENTIONS
+--------------------------------------------------------------------------------
+  Level       Syntax        CPython Behavior                Convention Meaning
+  ------------------------------------------------------------------------------
+  Public      self.name     Unrestricted access             Freely accessible
+  Protected   self._branch  No runtime restriction          Internal use / Subclass
+  Private     self.__pin    Mangled to _Class__pin in RAM   Collision avoidance
+
+--------------------------------------------------------------------------------
+2. CPYTHON NAME MANGLING MECHANICS
+--------------------------------------------------------------------------------
+  class Vault:
+      def __init__(self):
+          self.__code = 1234
+
+  v = Vault()
+  # v.__code raises AttributeError!
+  # But v._Vault__code is accessible:
+  print(v._Vault__code)  # Output: 1234
+
+--------------------------------------------------------------------------------
+3. PHILOSOPHY: "WE ARE ALL CONSENTING ADULTS HERE"
+--------------------------------------------------------------------------------
+  Python does not enforce hardware memory protection. Double underscores
+  exist primarily to prevent name clashes in inheritance hierarchies,
+  not to act as impenetrable security walls.
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 6: ENCAPSULATION & NAME MANGLING
+================================================================================

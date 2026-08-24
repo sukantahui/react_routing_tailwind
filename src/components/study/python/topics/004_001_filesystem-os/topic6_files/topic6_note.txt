@@ -1,0 +1,38 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_001: FILESYSTEM & OS
+           TOPIC 6: BUILDING AUTOMATED SYSTEM MAINTENANCE SCRIPTS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. LOG ROTATION & GZIP COMPRESSION
+--------------------------------------------------------------------------------
+  # Rotate and compress oversized log:
+  with open("app.log", "rb") as f_in, gzip.open("app.log.gz", "wb") as f_out:
+      shutil.copyfileobj(f_in, f_out)
+  # Reset original log:
+  with open("app.log", "w") as f_reset:
+      f_reset.write("[CYCLE_RESET]\n")
+
+--------------------------------------------------------------------------------
+2. STALE TEMP SWEEPER
+--------------------------------------------------------------------------------
+  for root, dirs, files in os.walk(path, topdown=False):
+      for f in files:
+          if f.endswith((".tmp", ".bak", ".pyc")):
+              os.remove(os.path.join(root, f))
+
+--------------------------------------------------------------------------------
+3. DISK CAPACITY ALERTS
+--------------------------------------------------------------------------------
+  usage = shutil.disk_usage("/")
+  used_pct = (usage.used / usage.total) * 100
+  if used_pct > 85.0:
+      send_alert("WARNING: Disk capacity critical!")
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 6: AUTOMATED MAINTENANCE
+================================================================================

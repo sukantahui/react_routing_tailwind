@@ -1,0 +1,34 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_001: FILESYSTEM & OS
+             TOPIC 4: COMMAND-LINE ARGUMENTS: SYS.ARGV & ARGPARSE MODULE
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. SYS.ARGV RAW TOKENS
+--------------------------------------------------------------------------------
+  * sys.argv[0] : Running script name/path string
+  * sys.argv[1:]: Raw list of command-line argument strings
+
+--------------------------------------------------------------------------------
+2. ARGPARSE STANDARD ARGUMENTS
+--------------------------------------------------------------------------------
+  parser = argparse.ArgumentParser(description="CLI Tool")
+  parser.add_argument("source", type=Path, help="Positional required")
+  parser.add_argument("-c", "--campus", choices=["bkp", "kol"], default="bkp")
+  parser.add_argument("-b", "--batch", type=int, default=50)
+  parser.add_argument("-d", "--dry-run", action="store_true")
+
+--------------------------------------------------------------------------------
+3. SUBPARSER MULTI-COMMAND ROUTING
+--------------------------------------------------------------------------------
+  sub = parser.add_subparsers(dest="command", required=True)
+  enroll_p = sub.add_parser("enroll", help="Enroll candidate")
+  audit_p = sub.add_parser("audit", help="Audit records")
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 4: ARGPARSE & CLI ENGINEERING
+================================================================================

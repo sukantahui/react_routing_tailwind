@@ -1,0 +1,38 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+            TOPIC 1: INNER FUNCTIONS & VARIABLE SCOPE CLOSURES IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE LEGB SCOPE RESOLUTION RULE
+--------------------------------------------------------------------------------
+  • L (Local)     : Inside current function
+  • E (Enclosing) : Inside parent functions (def inside def)
+  • G (Global)    : Top-level module variables
+  • B (Built-in)  : Python built-in names (len, range, max)
+
+--------------------------------------------------------------------------------
+2. CLOSURE ANATOMY
+--------------------------------------------------------------------------------
+  A closure remembers values in enclosing scopes even after the outer function
+  finishes execution!
+  Inspected via: `fn.__closure__[0].cell_contents`
+
+--------------------------------------------------------------------------------
+3. THE `nonlocal` KEYWORD
+--------------------------------------------------------------------------------
+  def make_counter():
+      count = 0
+      def increment():
+          nonlocal count  # Mandatory to mutate enclosing variable!
+          count += 1
+          return count
+      return increment
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 1: INNER FUNCTIONS & CLOSURES
+================================================================================

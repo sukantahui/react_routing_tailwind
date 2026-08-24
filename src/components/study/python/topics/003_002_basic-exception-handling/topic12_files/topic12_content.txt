@@ -1,0 +1,26 @@
+TOPIC_ID: 003_002_012
+MODULE: 003_002_basic-exception-handling
+TITLE: Topic 12: Best practices: Fail fast, log errors, defensive programming
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive capstone guide to production exception handling best practices and defensive software architecture in Python. Deep dive into the Fail-Fast design principle, replacing nested 'Pyramid of Doom' conditionals with clean guard clauses, the dangers of silent exception swallowing (`except: pass`), structured forensic logging with contextual metadata and graceful degradation, comparing EAFP (Easier to Ask for Forgiveness than Permission) vs LBYL (Look Before You Leap), defensive invariant contracts (preconditions, postconditions, and class invariants), atomic transaction rollbacks on failure, and an enterprise educational ledger billing engine case study.
+
+CORE CONCEPTS:
+1. The Fail-Fast Design Philosophy
+2. Guard Clauses vs Nested 'Pyramid of Doom' Conditionals
+3. Silent Exception Swallowing Anti-Pattern (`except: pass`)
+4. Audited Graceful Degradation & Offline Queuing
+5. EAFP (Easier to Ask for Forgiveness) vs LBYL (Look Before You Leap)
+6. Avoiding TOCTOU (Time-of-Check to Time-of-Use) Race Hazards
+7. Defensive Programming Contracts: Preconditions, Postconditions, Class Invariants
+8. Atomic State Rollbacks on Exception
+9. Complete Exception Handling Lifecycle Synthesis
+10. Case Study: Resilient Educational Ledger & Billing Engine
+
+REAL-WORLD SCENARIOS:
+- Building resilient financial ledger services that automatically snapshot state, execute calculations, and roll back balances upon error
+- Replacing fragile, deeply nested `if/else` ladders with linear fail-fast guard clauses at API entry boundaries
+- Enqueuing failed network transactions to offline recovery buffers rather than crashing or silently swallowing errors
+- Applying EAFP dictionary and file access to eliminate multithreaded race conditions

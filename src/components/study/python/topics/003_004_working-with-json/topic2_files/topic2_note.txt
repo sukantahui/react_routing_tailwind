@@ -1,0 +1,35 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_004: WORKING WITH JSON
+              TOPIC 2: JSON SERIALIZATION: json.dump() VS json.dumps()
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. json.dumps() VS json.dump()
+--------------------------------------------------------------------------------
+  • `json.dumps(obj)` : Returns a JSON-formatted string in memory.
+  • `json.dump(obj, f)` : Streams JSON directly into an open file/stream object.
+
+--------------------------------------------------------------------------------
+2. FORMATTING & MINIFICATION RECIPES
+--------------------------------------------------------------------------------
+  • Pretty-Print : `json.dumps(data, indent=4, sort_keys=True)`
+  • Minified     : `json.dumps(data, separators=(",", ":"), sort_keys=True)`
+  • Canonical    : Deterministic output for SHA-256 signatures and hashing.
+
+--------------------------------------------------------------------------------
+3. ATOMIC FILE PERSISTENCE PATTERN
+--------------------------------------------------------------------------------
+  temp_fd, temp_path = tempfile.mkstemp(dir=target_dir)
+  with os.fdopen(temp_fd, "w", encoding="utf-8") as f:
+      json.dump(data, f, indent=2)
+      f.flush()
+      os.fsync(f.fileno())
+  os.replace(temp_path, target_filepath)  # Atomic rename!
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 2: JSON SERIALIZATION
+================================================================================

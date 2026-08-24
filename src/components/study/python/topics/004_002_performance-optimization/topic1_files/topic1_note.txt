@@ -1,0 +1,31 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_002: PERFORMANCE OPTIMIZATION
+          TOPIC 1: LOOKUP COSTS & MUTATION COMPLEXITIES ACROSS DATA STRUCTURES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. DATA STRUCTURE COMPLEXITY SUMMARY MATRIX
+--------------------------------------------------------------------------------
+  Data Structure  | Search (x in ds) | Head Insert/Pop | Tail Insert/Pop | Indexing
+  ----------------+------------------+-----------------+-----------------+----------
+  list            | O(N) Linear Scan | O(N) Mem Shift  | O(1) Amortized  | O(1)
+  set             | O(1) Hash Bucket | N/A (Unordered) | O(1) Add/Remove | N/A
+  dict            | O(1) Key Hash    | N/A (Ordered)   | O(1) Key Set/Del| O(1) Key
+  collections.deque| O(N) Traversal  | O(1) Block Link | O(1) Block Link | O(N) Mid
+
+--------------------------------------------------------------------------------
+2. SELECTION RULES FOR PRODUCTION SYSTEMS
+--------------------------------------------------------------------------------
+  * Need fast membership queries (`if id in collection:`) -> USE SET (O(1))
+  * Need key-value mapping and fast lookups               -> USE DICT (O(1))
+  * Need FIFO queue / Sliding window (push/pop both ends) -> USE DEQUE (O(1))
+  * Need ordered sequence with direct index access        -> USE LIST (O(1) index)
+  * Need immutable fixed tuple data with minimal RAM      -> USE TUPLE
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 1: DATA STRUCTURE LOOKUP & MUTATION
+================================================================================

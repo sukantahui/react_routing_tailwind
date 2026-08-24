@@ -1,0 +1,44 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_009: MODULES & PACKAGES
+              TOPIC 7: THIRD-PARTY PACKAGES & THE PIP PACKAGE MANAGER
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ESSENTIAL PIP COMMANDS CHEATSHEET
+--------------------------------------------------------------------------------
+  Action                  Command
+  ------------------------------------------------------------------------------
+  Install Package         python -m pip install <package_name>
+  Install Exact Version   python -m pip install <package_name>==2.31.0
+  Upgrade Package         python -m pip install --upgrade <package_name>
+  Uninstall Package       python -m pip uninstall <package_name> -y
+  List Installed          python -m pip list
+  Show Package Details    python -m pip show <package_name>
+  Export Dependencies     python -m pip freeze > requirements.txt
+  Inspect Download Cache  python -m pip cache list
+
+--------------------------------------------------------------------------------
+2. THE GOLDEN RULE: ALWAYS USE 'python -m pip'
+--------------------------------------------------------------------------------
+  • Problem:
+      Bare `pip install requests` might target Python 3.11, while your terminal
+      `python` command points to Python 3.13!
+  • Solution:
+      Using `python -m pip install requests` guarantees that packages are
+      installed into the EXACT Python interpreter you are currently executing.
+
+--------------------------------------------------------------------------------
+3. WHEELS (.whl) VS SOURCE DISTRIBUTIONS (.tar.gz)
+--------------------------------------------------------------------------------
+  • Wheel (.whl):
+      Pre-compiled binary ZIP archive. Installs in milliseconds without a C compiler.
+  • Source Distribution (sdist):
+      Raw source code. Requires a local C/C++ compiler for native extensions.
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 7: THIRD-PARTY PACKAGES & PIP
+================================================================================

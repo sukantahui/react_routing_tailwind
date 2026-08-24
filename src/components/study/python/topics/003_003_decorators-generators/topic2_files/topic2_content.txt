@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_002
+MODULE: 003_003_decorators-generators
+TITLE: Topic 2: Understanding Decorators: Concept and @decorator syntax
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Python Decorators, the `@decorator` syntactic sugar, and higher-order function wrapping. Deep dive into the mechanics of `@my_decorator` being equivalent to `func = my_decorator(func)`, building universal wrappers supporting arbitrary arguments with `*args, **kwargs`, capturing and forwarding return values, the critical metadata erasure trap and its solution via `@functools.wraps(func)`, stacking multiple orthogonal decorators, and an institutional student admission telemetry and forensic audit decorator suite case study.
+
+CORE CONCEPTS:
+1. What is a Python Decorator?
+2. Syntactic Sugar Mechanics: `@decorator` vs `func = decorator(func)`
+3. Decorator Anatomy: Outer Decorator Function + Inner Wrapper Function
+4. Forwarding Arguments with `*args, **kwargs`
+5. Returning Values from Wrapper Functions
+6. The Metadata Erasure Trap (`__name__` becoming `'wrapper'`)
+7. Preserving Signatures & Metadata with `@functools.wraps`
+8. Inspecting Primordial Unwrapped Functions with `__wrapped__`
+9. Stacking Multiple Decorators (Top-Down Execution & Bottom-Up Wrapping)
+10. Case Study: Institutional Admission & Telemetry Decorator Suite
+
+REAL-WORLD SCENARIOS:
+- Measuring high-precision millisecond latency of database and API endpoints with `@performance_timer`
+- Logging full input arguments and return statuses for compliance auditing without polluting business logic
+- Validating regex patterns on input parameters (e.g. Student ID format) before reaching core controllers
+- Enforcing user authorization guards and role checks seamlessly across multiple microservice endpoints

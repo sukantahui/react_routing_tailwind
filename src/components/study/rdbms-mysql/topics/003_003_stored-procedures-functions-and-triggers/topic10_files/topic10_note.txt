@@ -1,0 +1,41 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 10: Database Triggers Overview and Execution Timing (BEFORE vs AFTER)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A DATABASE TRIGGER?
+--------------------------------------------------------------------------------
+A Database Trigger is a named server-side routine associated with a specific table 
+that automatically executes (fires) when an `INSERT`, `UPDATE`, or `DELETE` event 
+occurs on that table.
+
+2. TRIGGER SYNTAX & TIMING BLUEPRINT
+--------------------------------------------------------------------------------
+    DELIMITER //
+    CREATE TRIGGER trigger_name
+    { BEFORE | AFTER } { INSERT | UPDATE | DELETE }
+    ON table_name
+    FOR EACH ROW
+    BEGIN
+        -- Procedural logic (SET NEW.col, IF, INSERT into audit_log, SIGNAL)
+    END //
+    DELIMITER ;
+
+3. BEFORE VS AFTER EXECUTION TIMING
+--------------------------------------------------------------------------------
+1. BEFORE Triggers:
+   - Fires *before* the row is written to the table storage engine.
+   - CAN modify incoming values: `SET NEW.first_name = UPPER(TRIM(NEW.first_name));`
+   - Ideal for: Data sanitization, default value enrichment, constraint validation.
+
+2. AFTER Triggers:
+   - Fires *after* the row has been successfully committed to storage.
+   - CANNOT modify `NEW` values (read-only).
+   - Ideal for: Audit trail logging, notification queue insertion, replica aggregation.
+
+4. TRANSACTIONAL ATOMICITY
+--------------------------------------------------------------------------------
+A trigger executes within the exact same transaction as the invoking DML query. 
+If a trigger raises an error (e.g. via `SIGNAL SQLSTATE '45000'`), the entire 
+outer DML statement is immediately aborted and rolled back.

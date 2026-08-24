@@ -1,0 +1,25 @@
+TOPIC_ID: 002_007_006
+MODULE: 002_007_string-processing
+TITLE: Topic 6: Joining lists of strings with join()
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive exploration of delimiter.join(iterable) sequence stitching, CPython memory architecture, and defensive data transformation. Explores why join() is a string method rather than a list method (design polymorphism), delimiter placement mechanics (no trailing or leading separators), handling non-string items defensively via map(str, ...) and generator expressions, dictionary key and value joining, the two-pass CPython allocation algorithm (O(N) linear time vs O(N^2) loop += catastrophe), and industrial multi-format document generation (CSV, Markdown tables, bulk SQL inserts, HTML lists).
+
+CORE CONCEPTS:
+1. delimiter.join(iterable) Syntax & Delimiter Mechanics
+2. Python Design Rationale: Why separator.join() Instead of list.join(separator)
+3. Delimiter Placement Invariant: Separator Placed Strictly BETWEEN Elements
+4. Handling Empty Iterables ([]) and Single-Element Lists (['One'])
+5. Non-String Type Casting & TypeError Prevention: list comp, map(str, ...), generators
+6. Dictionary Joining: Keys by default, dict.values(), and key=value pairs
+7. Memory Architecture: Two-Pass C Allocation & Why join() is O(N)
+8. Performance Danger of Loop += Concatenation: O(N^2) Quadratic Reallocation
+9. Multi-Format Exporters: CSV Tables, Markdown Tables, Bulk SQL Batches, HTML Lists
+
+REAL-WORLD SCENARIOS:
+- Generating bulk SQL INSERT batches and WHERE IN clauses dynamically
+- Building high-performance CSV and Markdown audit reports for financial portals
+- Formatting URL query strings (key=value&...) and HTTP header streams
+- Constructing multi-line terminal dashboards and email notifications

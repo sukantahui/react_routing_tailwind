@@ -1,0 +1,37 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_002: EXCEPTION HANDLING
+            TOPIC 12: EXCEPTION HANDLING & DEFENSIVE CODING BEST PRACTICES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE FAIL-FAST GUARD CLAUSE PATTERN
+--------------------------------------------------------------------------------
+  def process_user(user_data):
+      if not isinstance(user_data, dict):
+          raise TypeError("Expected dict")
+      if "id" not in user_data:
+          raise ValueError("Missing ID")
+      # Flat, clean happy path follows!
+
+--------------------------------------------------------------------------------
+2. EAFP VS LBYL
+--------------------------------------------------------------------------------
+  • EAFP (Pythonic): try: return data[key] except KeyError: return None
+  • LBYL (Cautious): if key in data: return data[key] else: return None
+
+--------------------------------------------------------------------------------
+3. THE 5 CARDINAL RULES OF PYTHON EXCEPTION HANDLING
+--------------------------------------------------------------------------------
+  1. Never use bare `except:` or `except Exception: pass` (Silent Swallow).
+  2. Always catch the most specific exception class first.
+  3. Validate public inputs with `raise` (Fail-Fast); check math with `assert`.
+  4. Use `raise ... from e` when wrapping low-level errors into domain exceptions.
+  5. Always maintain clean atomic rollback guarantees in financial/data writes.
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 12: EXCEPTION BEST PRACTICES CAPSTONE
+================================================================================

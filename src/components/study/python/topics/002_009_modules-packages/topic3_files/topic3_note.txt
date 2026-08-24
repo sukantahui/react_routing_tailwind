@@ -1,0 +1,43 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_009: MODULES & PACKAGES
+            TOPIC 3: CREATING & STRUCTURING CUSTOM USER-DEFINED MODULES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CANONICAL PEP 8 MODULE LAYOUT
+--------------------------------------------------------------------------------
+  1. Module Docstring: """Module description, author, version, and license."""
+  2. Standard Imports:
+       - Block 1: Standard library (os, sys, math)
+       - Block 2: Third-party packages (requests, pandas)
+       - Block 3: Local project modules (from . import models)
+  3. Public Export Whitelist: __all__ = ["MyClass", "my_function"]
+  4. Module Constants: UPPERCASE_WITH_UNDERSCORES (e.g. GST_RATE = 0.18)
+  5. Classes & Core Business Logic Functions
+  6. Private Internal Helper Functions: Prefix with leading underscore (_helper)
+  7. Module Execution Guard: if __name__ == '__main__':
+
+--------------------------------------------------------------------------------
+2. HOW __all__ CONTROLS EXPORTS
+--------------------------------------------------------------------------------
+  • `__all__` is a list of strings specifying which symbols are exported
+    when someone executes `from my_module import *`.
+  • When defined: ONLY symbols in `__all__` are exported.
+  • When omitted: All symbols EXCEPT those starting with `_` are exported.
+  • Best Practice: ALWAYS define `__all__` in library modules to make public APIs explicit!
+
+--------------------------------------------------------------------------------
+3. MULTI-MODULE LAYERED ARCHITECTURE
+--------------------------------------------------------------------------------
+  • config.py      -> Holds constants, environment variables, settings.
+  • logic.py       -> Pure calculations, algorithms, transformations.
+  • formatter.py   -> Output formatting, ASCII tables, and presentation.
+  • main.py        -> Orchestrates the workflow by importing from layers.
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 3: CUSTOM USER-DEFINED MODULES
+================================================================================

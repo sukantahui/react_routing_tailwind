@@ -1,0 +1,48 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+            TOPIC 2: CONSTRUCTORS & THE __init__() INITIALIZER METHOD
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ANATOMY OF A VALIDATED CONSTRUCTOR
+--------------------------------------------------------------------------------
+  class CourseEnrollment:
+      def __init__(self, student_id: str, name: str, fee: float, discount: float = 0.0):
+          # 1. Validation Guard:
+          if fee <= 0:
+              raise ValueError("Fee must be positive!")
+
+          # 2. State Binding:
+          self.student_id = student_id
+          self.name = name
+          self.fee = fee
+          self.discount = discount
+
+          # 3. Derived State:
+          self.net_fee = fee * (1 - discount / 100)
+
+--------------------------------------------------------------------------------
+2. THE MUTABLE DEFAULT ARGUMENT TRAP & FIX
+--------------------------------------------------------------------------------
+  ❌ BUGGY (Shared list in RAM):
+      def __init__(self, name: str, skills: list = []):
+          self.skills = skills
+
+  ✓ CORRECT (Isolated fresh list per instance):
+      def __init__(self, name: str, skills: list = None):
+          self.skills = list(skills) if skills is not None else []
+
+--------------------------------------------------------------------------------
+3. ALTERNATIVE CONSTRUCTORS VIA @classmethod
+--------------------------------------------------------------------------------
+  @classmethod
+  def from_dict(cls, data: dict):
+      return cls(student_id=data['id'], name=data['name'], fee=data['fee'])
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 2: CONSTRUCTORS & __init__()
+================================================================================

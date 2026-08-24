@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_005
+MODULE: 003_003_decorators-generators
+TITLE: Topic 5: Chaining multiple decorators
+LEVEL: Advanced
+DIFFICULTY: Medium-Hard
+
+OVERVIEW:
+Comprehensive master guide to Chaining and Stacking Multiple Decorators in Python. Deep dive into the bottom-up wrapping definition model (`func = dec1(dec2(dec3(func)))`) vs top-down runtime onion layer execution flow (Dec1 Entry -> Dec2 Entry -> Dec3 Entry -> Core Function -> Dec3 Exit -> Dec2 Exit -> Dec1 Exit), critical security hazards in decorator ordering (e.g. why placing `@require_auth` above `@lru_cache` is mandatory to avoid serving cached privileged data to unauthenticated users), stacking custom decorators with Python built-ins (`@classmethod`, `@staticmethod`, `@property`), and an institutional digital degree certificate pipeline case study.
+
+CORE CONCEPTS:
+1. The Mathematical Foundation of Decorator Composition
+2. Wrapping Order: Bottom to Top (Closest to function wraps first)
+3. Execution Flow: Top to Bottom (Onion Layer Entry/Exit Model)
+4. The Security Ordering Hazard: Auth Before Cache vs Cache Before Auth
+5. Stacking Orthogonal Cross-Cutting Concerns (Auth, Cache, Timing, Auditing)
+6. Stacking Custom Decorators with Built-in Class Decorators (`@classmethod`)
+7. Preserving Metadata Chains with `@functools.wraps` Across Multiple Layers
+8. Debugging and Unwrapping Multi-Layered Decorator Stacks (`__wrapped__`)
+9. Architectural Best Practices for Enterprise Middleware Pipelines
+10. Case Study: Institutional Degree & Certificate Generation Pipeline
+
+REAL-WORLD SCENARIOS:
+- Building enterprise web middleware pipelines stacking `@rate_limit`, `@authenticate_jwt`, `@validate_schema`, and `@audit_log`
+- Preventing security vulnerabilities by ensuring authorization decorators always execute before response caching layers
+- Combining validation and digital blockchain signatures on sensitive financial disbursements and certificates
+- Writing clean OOP models with stacked `@classmethod` and custom auditing decorators

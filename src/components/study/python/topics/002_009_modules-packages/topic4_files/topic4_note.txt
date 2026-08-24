@@ -1,0 +1,42 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_009: MODULES & PACKAGES
+           TOPIC 4: THE __name__ == '__main__' IDIOM & DUAL-PURPOSE MODULES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE MECHANICS OF __name__
+--------------------------------------------------------------------------------
+  How Python is Executed            Value of __name__       Code in Guard Runs?
+  ------------------------------------------------------------------------------
+  python my_script.py (Direct)      "__main__"              YES (Guard evaluates True)
+  import my_script (Imported)       "my_script"             NO  (Guard evaluates False)
+
+--------------------------------------------------------------------------------
+2. WHY THE MAIN GUARD IS MANDATORY
+--------------------------------------------------------------------------------
+  • Problem: Without `if __name__ == '__main__':`, any top-level executable code
+    (e.g. print statements, database connections, GUI windows) will run
+    IMMEDIATELY whenever another file imports your module!
+  • Solution: Wrap all execution, demo code, CLI parsing, and benchmarks inside:
+      if __name__ == '__main__':
+          main()
+
+--------------------------------------------------------------------------------
+3. TOP 3 PRACTICAL USE CASES FOR THE MAIN GUARD
+--------------------------------------------------------------------------------
+  1. Dual-Purpose Modules:
+     Functions serve as an importable library for web apps, and the guard provides
+     an interactive Command-Line Interface (CLI) using `sys.argv`.
+  2. Embedded Unit Tests & Verification:
+     Allows running quick assert checks directly from the terminal without
+     polluting production consumers.
+  3. Performance Benchmarks:
+     Measures algorithm execution time via `time.perf_counter()` on demand.
+
+================================================================================
+           END OF STUDY NOTE • TOPIC 4: THE __name__ == '__main__' IDIOM
+================================================================================
