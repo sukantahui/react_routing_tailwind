@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_008
+MODULE: 003_003_decorators-generators
+TITLE: Topic 8: Generators & the yield statement
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Python Generators and the `yield` statement. Deep dive into the mechanics of generator instantiation vs execution, how `yield` suspends the execution frame while preserving local variable state, the generator state lifecycle (`GEN_CREATED`, `GEN_SUSPENDED`, `GEN_RUNNING`, `GEN_CLOSED`), building infinite and finite sequence generators with O(1) memory complexity (Fibonacci and tuition installment schedules), returning values from generator functions via `StopIteration.value` (PEP 380), and an institutional student admission stream generator case study.
+
+CORE CONCEPTS:
+1. What is a Python Generator Function?
+2. The Mechanics of the `yield` Keyword
+3. Frame Freezing & Resumption (`inspect.getgeneratorstate`)
+4. The 4 Generator States: CREATED, SUSPENDED, RUNNING, CLOSED
+5. Infinite Stream Generators with O(1) Memory (Fibonacci)
+6. Safe Stream Slicing using `itertools.islice`
+7. Returning Values from Generators (`return result`)
+8. How `return value` Populates `StopIteration.value` (PEP 380)
+9. Extracting Metadata Reports upon Generator Completion
+10. Case Study: Institutional Student Admission & Settlement Stream Generator
+
+REAL-WORLD SCENARIOS:
+- Streaming gigabyte-scale CSV/JSON audit logs line-by-line with constant minimal RAM usage
+- Generating progressive installment and loan repayment schedules lazily for financial dashboards
+- Emitting real-time progress events from long-running background tasks to frontend WebSockets
+- Encapsulating complex multi-stage pipeline state without writing cumbersome custom Iterator classes

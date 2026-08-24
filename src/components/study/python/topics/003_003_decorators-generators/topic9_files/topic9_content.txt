@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_009
+MODULE: 003_003_decorators-generators
+TITLE: Topic 9: Generator functions vs regular functions
+LEVEL: Advanced
+DIFFICULTY: Medium-Hard
+
+OVERVIEW:
+Comprehensive master architectural guide comparing Generator Functions vs Regular Functions in Python. Deep dive into Eager Evaluation vs Lazy Evaluation, benchmarking memory footprint (O(N) vs O(1)) using `sys.getsizeof`, understanding first-item ready latency, subgenerator delegation via `yield from` (PEP 380), bidirectional coroutine communication using `gen.send(value)`, `gen.throw(Exc)`, and `gen.close()`, and an enterprise multi-campus regional financial consolidation pipeline suite case study.
+
+CORE CONCEPTS:
+1. Eager Evaluation (Regular Functions) vs Lazy Evaluation (Generators)
+2. Memory Footprint Benchmarking (`sys.getsizeof` & `tracemalloc`)
+3. First-Item Latency & Streaming Responsiveness
+4. Subgenerator Delegation via `yield from` (PEP 380)
+5. Capturing Subgenerator Return Values in Delegators
+6. Bidirectional Communication: `gen.send(value)`
+7. Coroutine Priming (`next(gen)` or `gen.send(None)`)
+8. Stream Interruption & Teardown: `gen.throw()` and `gen.close()`
+9. Multi-Stage Pipeline Composition
+10. Case Study: Multi-Campus Regional Financial Consolidation Suite
+
+REAL-WORLD SCENARIOS:
+- Consolidating independent branch ledger streams into unified corporate accounting reports with zero RAM bloat
+- Building microservice pipeline architectures where intermediate stages process data asynchronously
+- Implementing stateful event-driven coroutines that receive telemetry packets from IoT devices via `send()`
+- Handling massive ETL data migrations without loading full database tables into application memory

@@ -1,0 +1,41 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_002: EXCEPTION HANDLING
+            TOPIC 7: RAISING EXCEPTIONS INTENTIONALLY WITH `raise`
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. SYNTAX OF THE `raise` STATEMENT
+--------------------------------------------------------------------------------
+  # Preferred syntax with descriptive message:
+  raise ValueError("Withdrawal amount cannot be negative!")
+
+  # Raising existing exception instance:
+  err = TypeError("Expected integer")
+  raise err
+
+--------------------------------------------------------------------------------
+2. RE-RAISING ACTIVE EXCEPTIONS (BARE `raise`)
+--------------------------------------------------------------------------------
+  try:
+      execute_database_commit()
+  except DatabaseError as e:
+      log_error_to_file(e)
+      rollback_transaction()
+      raise  # Re-raises the active exception preserving original traceback!
+
+--------------------------------------------------------------------------------
+3. FAIL-FAST VS ERROR CODES
+--------------------------------------------------------------------------------
+  ❌ BAD (Return Code):
+      if amount < 0: return -1  # Caller forgets to check and corrupts DB!
+
+  ✓ GOOD (Fail-Fast Exception):
+      if amount < 0: raise ValueError("Amount must be positive")
+
+================================================================================
+         END OF STUDY NOTE • TOPIC 7: RAISING EXCEPTIONS WITH `raise`
+================================================================================

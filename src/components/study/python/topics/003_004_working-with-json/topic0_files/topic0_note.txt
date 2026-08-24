@@ -1,0 +1,40 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_004: WORKING WITH JSON
+           TOPIC 0: JSON FORMAT OVERVIEW, SYNTAX RULES & SCHEMA STANDARDS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE 6 NATIVE JSON DATA TYPES (RFC 8259)
+--------------------------------------------------------------------------------
+  1. String  : Enclosed in DOUBLE QUOTES ("name": "Sourav")
+  2. Number  : Integer (24) or Float (9.45)
+  3. Object  : Key-Value pairs with string keys ({"city": "Kolkata"})
+  4. Array   : Ordered collection of values (["Python", "AI"])
+  5. Boolean : Lowercase `true` or `false`
+  6. Null    : Lowercase `null`
+
+--------------------------------------------------------------------------------
+2. STRICT JSON SYNTAX RULES
+--------------------------------------------------------------------------------
+  • Keys MUST use double quotes (`"key"` NOT `'key'`).
+  • Strings MUST use double quotes (`"val"` NOT `'val'`).
+  • NO trailing commas (`[1, 2]` NOT `[1, 2,]`).
+  • NO comments allowed in standard JSON.
+
+--------------------------------------------------------------------------------
+3. PYTHON TO JSON TYPE MAPPING
+--------------------------------------------------------------------------------
+  dict          <---> object
+  list, tuple   <---> array
+  str           <---> string
+  int, float    <---> number
+  True / False  <---> true / false
+  None          <---> null
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 0: JSON FORMAT & SCHEMA STANDARDS
+================================================================================

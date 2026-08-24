@@ -1,0 +1,26 @@
+TOPIC_ID: 003_001_010
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 10: Method Resolution Order (MRO)
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Python's Method Resolution Order (MRO) and the C3 Linearization Algorithm. Deep dive into how CPython resolves method and attribute lookups across complex single, multiple, and diamond inheritance hierarchies. Explores inspecting MRO with `Class.__mro__` and `Class.mro()`, the mathematical C3 merge formula, the Monotonicity constraint and diagnosing `TypeError: Cannot create a consistent method resolution order (MRO)` conflicts, programmatically implementing the C3 merge algorithm in Python, and an enterprise event middleware plugin pipeline case study.
+
+CORE CONCEPTS:
+1. What is MRO (Method Resolution Order)?
+2. Inspecting MRO: Class.__mro__ vs Class.mro()
+3. The C3 Linearization Algorithm (C3 Merge Formula)
+4. Local Precedence Order and Monotonicity Constraints
+5. Diamond Problem Resolution in CPython
+6. Inconsistent MRO Diagnosis: Why contradictory base ordering causes TypeError
+7. Resolving Inconsistent Hierarchies by Correcting Base Ordering
+8. Programmatic Implementation of C3 Merge Algorithm in Pure Python
+9. Deterministic Middleware & Plugin Pipelines Ordered by MRO
+10. Case Study: Production API Gateway Middleware Suite
+
+REAL-WORLD SCENARIOS:
+- Diagnosing and fixing fatal `TypeError: Cannot create a consistent method resolution order` exceptions in complex multi-tenant frameworks
+- Ordering HTTP middleware stages (Rate Limiting -> Authentication -> Audit Logging) deterministically using multiple inheritance MRO
+- Predicting exact method override execution sequences in large web frameworks (Django, FastAPI, PyTorch)
+- Implementing custom plugin systems that guarantee each plugin executes once in strict precedence order

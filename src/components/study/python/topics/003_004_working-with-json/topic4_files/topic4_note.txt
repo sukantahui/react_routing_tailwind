@@ -1,0 +1,37 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_004: WORKING WITH JSON
+              TOPIC 4: CUSTOM JSONENCODERS & object_hook DESERIALIZATION
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CUSTOM JSONEncoder SUBCLASS
+--------------------------------------------------------------------------------
+  class EnterpriseEncoder(json.JSONEncoder):
+      def default(self, o):
+          if isinstance(o, datetime):
+              return o.isoformat()
+          elif isinstance(o, Decimal):
+              return float(o)
+          elif isinstance(o, Student):
+              return {"__type__": "Student", **o.__dict__}
+          return super().default(o)  # Raises TypeError if unknown!
+
+  json_str = json.dumps(data, cls=EnterpriseEncoder)
+
+--------------------------------------------------------------------------------
+2. OBJECT_HOOK DESERIALIZATION
+--------------------------------------------------------------------------------
+  def custom_object_hook(dct):
+      if dct.get("__type__") == "Student":
+          return Student(**dct)
+      return dct
+
+  student = json.loads(json_str, object_hook=custom_object_hook)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 4: CUSTOM JSON CODECS
+================================================================================

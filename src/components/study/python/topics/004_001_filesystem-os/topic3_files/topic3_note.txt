@@ -1,0 +1,35 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_001: FILESYSTEM & OS
+             TOPIC 3: SHUTIL MODULE: COPYING, MOVING, ARCHIVING & DELETIONS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. COPYING FLAVORS
+--------------------------------------------------------------------------------
+  * shutil.copyfile(src, dst)   : Data only (Dest must be file name)
+  * shutil.copy(src, dst)       : Data + Permission mode bits
+  * shutil.copy2(src, dst)      : Data + Permissions + Full Timestamps (Enterprise Standard)
+
+--------------------------------------------------------------------------------
+2. RECURSIVE CLONING & PRUNING
+--------------------------------------------------------------------------------
+  * shutil.copytree(
+        src, dst,
+        dirs_exist_ok=True,
+        ignore=shutil.ignore_patterns("*.pyc", ".git", "*.tmp")
+    )
+
+--------------------------------------------------------------------------------
+3. ARCHIVING & DISK QUOTAS
+--------------------------------------------------------------------------------
+  * shutil.make_archive("backup_2026", "zip", root_dir="vault")
+  * shutil.unpack_archive("backup_2026.zip", extract_dir="restored")
+  * total, used, free = shutil.disk_usage("C:\\")
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 3: SHUTIL MODULE & BACKUPS
+================================================================================

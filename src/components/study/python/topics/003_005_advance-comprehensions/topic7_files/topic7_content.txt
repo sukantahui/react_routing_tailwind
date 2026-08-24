@@ -1,0 +1,26 @@
+TOPIC_ID: 003_005_007
+MODULE: 003_005_advance-comprehensions
+TITLE: Topic 7: Building clean data transformation pipelines
+LEVEL: Advanced
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to Building Clean Data Transformation Pipelines in Python. Deep dive into generator pipeline composition (`stage3(stage2(stage1(stream)))`), pull-based streaming evaluation, constant O(1) memory footprint during multi-gigabyte transformations, designing fluent domain-specific language (DSL) builders with method chaining (`.filter()`, `.map()`, `.take()`, `.collect()`), resilient pipelines with error interception and Dead-Letter Queue (DLQ) quarantine, memory profiling of eager lists vs lazy streaming conveyors, and an institutional admission Extract-Transform-Load (ETL) and financial audit pipeline case study.
+
+CORE CONCEPTS:
+1. Multi-Stage Generator Pipeline Architecture
+2. Pull-Based Lazy Streaming Mechanics
+3. Constant O(1) Memory Footprint during Streaming
+4. Fluent Pipeline Builder DSL (Method Chaining)
+5. Terminal Actions vs Intermediate Lazy Transformers
+6. Error Interception & Dead-Letter Queue (DLQ) Quarantine
+7. Schema Normalization & Type Sanitization
+8. Stream Partitioning & Telemetry Metrics Tracking
+9. Idempotency & Replayability in Data Pipelines
+10. Case Study: Institutional Admission Multi-Stage ETL & Financial Audit Pipeline
+
+REAL-WORLD SCENARIOS:
+- Ingesting, cleaning, and validating millions of real-time IoT sensor telemetry events
+- Building scalable financial ETL pipelines that calculate taxes, currencies, and discounts without loading full datasets into memory
+- Sanitizing and quarantining corrupt API request payloads before ingestion into transactional databases
+- Paginating and batching data for bulk updates in cloud databases

@@ -1,0 +1,42 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+            TOPIC 0: FIRST-CLASS FUNCTIONS & HIGHER-ORDER PROGRAMMING
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. FUNCTIONS ARE FIRST-CLASS OBJECTS
+--------------------------------------------------------------------------------
+  In Python, functions are instances of `types.FunctionType`.
+  They can be:
+    1. Assigned to variables: `alias = my_func`
+    2. Passed as arguments:   `execute(my_func)`
+    3. Returned from functions: `return custom_calc`
+    4. Stored in collections: `table = {"ACTION": my_func}`
+
+--------------------------------------------------------------------------------
+2. FUNCTION FACTORIES (RETURNING FUNCTIONS)
+--------------------------------------------------------------------------------
+  def make_multiplier(n):
+      def multiplier(x):
+          return x * n
+      return multiplier
+
+  times_two = make_multiplier(2)
+  print(times_two(10))  # Output: 20
+
+--------------------------------------------------------------------------------
+3. COMMAND DISPATCH TABLE PATTERN
+--------------------------------------------------------------------------------
+  HANDLERS = {
+      "PAY": handle_pay,
+      "REFUND": handle_refund
+  }
+  HANDLERS.get(action, default_handler)(payload)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 0: FIRST-CLASS FUNCTIONS
+================================================================================

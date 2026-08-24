@@ -1,0 +1,39 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_001: FILESYSTEM & OS
+             TOPIC 1: MODERN PATH MANIPULATION WITH PATHLIB.PATH
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. PATH ANATOMY
+--------------------------------------------------------------------------------
+  p = Path("vault/students/2026/sourav.kyc.pdf")
+  * p.name        : "sourav.kyc.pdf"
+  * p.stem        : "sourav.kyc"
+  * p.suffix      : ".pdf"
+  * p.suffixes    : [".kyc", ".pdf"]
+  * p.parent      : Path("vault/students/2026")
+  * p.parents[1]  : Path("vault/students")
+
+--------------------------------------------------------------------------------
+2. SLASH OPERATOR & TRANSFORMATIONS
+--------------------------------------------------------------------------------
+  * path = base_dir / "folder" / "file.txt"    # Cross-platform joining
+  * new_p = p.with_suffix(".json")             # Change extension
+  * new_p = p.with_name("archived.pdf")        # Change filename
+
+--------------------------------------------------------------------------------
+3. ONE-LINER I/O & DIRECTORIES
+--------------------------------------------------------------------------------
+  * p.write_text("Hello World", encoding="utf-8")
+  * text = p.read_text(encoding="utf-8")
+  * p.mkdir(parents=True, exist_ok=True)
+  * p.unlink(missing_ok=True)
+  * list(p.rglob("*.pdf"))                      # Recursive search
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 1: PATHLIB.PATH
+================================================================================

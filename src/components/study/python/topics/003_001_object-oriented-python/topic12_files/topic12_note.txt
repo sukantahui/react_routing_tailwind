@@ -1,0 +1,34 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+             TOPIC 12: MAGIC / DUNDER METHODS & THE PYTHON DATA MODEL
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. REPRESENTATION: __str__ VS __repr__
+--------------------------------------------------------------------------------
+  • __str__  : User-friendly informal string for print() and str().
+  • __repr__ : Unambiguous developer string, ideally eval(repr(obj)) == obj.
+
+--------------------------------------------------------------------------------
+2. CONTAINER & SEQUENCE DUNDERS
+--------------------------------------------------------------------------------
+  • len(obj)       -> obj.__len__()
+  • obj[i]         -> obj.__getitem__(i)
+  • obj[i] = v     -> obj.__setitem__(i, v)
+  • item in obj    -> obj.__contains__(item)
+  • for x in obj   -> obj.__iter__()
+
+--------------------------------------------------------------------------------
+3. ARITHMETIC & CALLABLE DUNDERS
+--------------------------------------------------------------------------------
+  • a + b          -> a.__add__(b)
+  • b + a          -> a.__radd__(b)  (reflected fallback)
+  • obj(arg)       -> obj.__call__(arg) (Callable functor)
+
+================================================================================
+         END OF STUDY NOTE • TOPIC 12: MAGIC & DUNDER METHODS
+================================================================================

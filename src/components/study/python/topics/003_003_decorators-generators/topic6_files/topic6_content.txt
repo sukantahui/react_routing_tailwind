@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_006
+MODULE: 003_003_decorators-generators
+TITLE: Topic 6: Iteration protocol: __iter__() and __next__()
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Python's Iteration Protocol, `__iter__()`, and `__next__()`. Deep dive into the precise architectural distinction between an Iterable (an object defining `__iter__()`) and an Iterator (an object defining both `__iter__()` and `__next__()`), deconstructing what the Python `for` loop actually executes under the hood (`iter()` + `while True` + `try...except StopIteration`), the 2-argument stream iteration protocol (`iter(callable, sentinel)`), single-pass exhaustion of iterators, the idempotence rule (`it.__iter__() is it`), and a production student classroom roster iterator engine case study.
+
+CORE CONCEPTS:
+1. What is the Python Iteration Protocol?
+2. Iterable vs Iterator: The Core Architectural Difference
+3. The Role of `iter()` and `__iter__()`
+4. The Role of `next()` and `__next__()`
+5. The `StopIteration` Exception and Loop Termination
+6. Deconstructing the Python `for` Loop into a While Loop
+7. The 2-Argument `iter(callable, sentinel)` Protocol
+8. Single-Pass Nature & Exhaustion of Iterators
+9. The Idempotence Property (`iter(it) is it`)
+10. Case Study: Classroom Student Roster & Ledger Iterator Engine
+
+REAL-WORLD SCENARIOS:
+- Reading large files or network sockets in fixed-size chunks using `iter(lambda: file.read(4096), b"")`
+- Implementing paginated database cursor iterators that fetch records lazily on demand
+- Building custom domain collections that support multiple independent iterations across threads
+- Handling memory-efficient stream processing pipelines without loading entire datasets into memory

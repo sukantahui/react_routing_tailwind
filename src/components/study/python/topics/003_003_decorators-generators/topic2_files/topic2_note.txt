@@ -1,0 +1,44 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+          TOPIC 2: UNDERSTANDING DECORATORS & @DECORATOR SYNTAX IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE UNIVERSAL DECORATOR TEMPLATE
+--------------------------------------------------------------------------------
+  import functools
+
+  def my_decorator(func):
+      @functools.wraps(func)  # Mandatory to preserve __name__ and __doc__!
+      def wrapper(*args, **kwargs):
+          # 1. Pre-execution logic
+          print("Before function execution")
+
+          # 2. Execute original function
+          result = func(*args, **kwargs)
+
+          # 3. Post-execution logic
+          print("After function execution")
+
+          # 4. Mandatory return!
+          return result
+      return wrapper
+
+--------------------------------------------------------------------------------
+2. THE `@` SYNTACTIC SUGAR EQUIVALENCE
+--------------------------------------------------------------------------------
+  @my_decorator
+  def process():
+      pass
+
+  # Identical to:
+  # def process(): pass
+  # process = my_decorator(process)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 2: PYTHON DECORATORS SYNTAX
+================================================================================

@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_010
+MODULE: 003_003_decorators-generators
+TITLE: Topic 10: Generator expressions for memory efficiency
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Generator Expressions for Memory Efficiency in Python. Deep dive into Generator Expression syntax `(expr for item in iterable if condition)`, comparing List Comprehensions `[...]` vs Generator Expressions `(...)`, parentheses reduction in single-argument function calls (`sum(x**2 for x in data)`), short-circuiting evaluation with `any()` and `all()`, memory profiling using `sys.getsizeof` and `tracemalloc`, Unix-style chained generator expression pipelines, and an institutional examination audit stream analyzer case study.
+
+CORE CONCEPTS:
+1. Syntax & Semantics of Generator Expressions `(expr for x in seq if cond)`
+2. List Comprehension `[...]` vs Generator Expression `(...)`
+3. Single-Argument Parentheses Reduction (`sum(...)`, `min(...)`, `max(...)`)
+4. Short-Circuiting Evaluation with `any()`, `all()`, and `next()`
+5. Memory Profiling with `sys.getsizeof` and `tracemalloc`
+6. O(1) Constant Space vs O(N) Linear List Allocation
+7. Composing Multi-Stage Unix-Style Pipelines with Chained GenExps
+8. Lazy Streaming from Raw Text & CSV Feeds
+9. Combining GenExps with Filter-Map-Reduce Aggregations
+10. Case Study: Institutional Exam Audit & Scholarship Stream Analyzer
+
+REAL-WORLD SCENARIOS:
+- Ingesting and validating gigabyte-scale transaction logs using multi-stage chained generator expressions
+- Calculating running financial sums and statistics without loading entire database tables into RAM
+- Performing fast boolean validation checks on large collections using short-circuiting `any()` and `all()`
+- Transforming telemetry payloads across microservice message queues with zero intermediate array overhead

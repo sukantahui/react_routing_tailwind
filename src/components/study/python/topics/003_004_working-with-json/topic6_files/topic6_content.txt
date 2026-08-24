@@ -1,0 +1,26 @@
+TOPIC_ID: 003_004_006
+MODULE: 003_004_working-with-json
+TITLE: Topic 6: Consuming REST API data using urllib / requests
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to Consuming External REST API JSON Endpoints in Python using both standard library `urllib.request` and the third-party `requests` package. Deep dive into making HTTP GET and POST requests, setting custom HTTP headers (`User-Agent`, `Accept`, `Authorization`), automatic payload serialization with `json={...}`, response status gating with `response.raise_for_status()`, implementing network timeouts and exponential backoff retry loops for transient 503 errors, building local disk caching engines with Time-To-Live (TTL) expiration timestamps, and an institutional Weather & Forex Currency API consumer case study.
+
+CORE CONCEPTS:
+1. Standard Library `urllib.request` vs `requests`
+2. Making HTTP GET Requests & Parsing JSON Streams
+3. Making HTTP POST Requests with JSON Body Payloads
+4. Setting Custom Request Headers & Bearer Auth Tokens
+5. Inspecting Status Codes & `response.raise_for_status()`
+6. Mandatory Request Timeouts (`timeout=5.0`)
+7. Exponential Backoff Retry Loops for Transient 5xx Errors
+8. Local Disk Caching Engine with Time-To-Live (TTL) Timestamps
+9. Offline Fallbacks & Graceful Service Degradation
+10. Case Study: Institutional Weather & Forex Currency Conversion API Consumer
+
+REAL-WORLD SCENARIOS:
+- Consuming live weather data feeds and international currency exchange rate APIs
+- Integrating third-party payment gateway webhooks (Razorpay / Stripe) into backend servers
+- Building resilient microservice communication pipelines that tolerate network jitter
+- Protecting backend apps from rate-limits and API quota depletion using local TTL caches

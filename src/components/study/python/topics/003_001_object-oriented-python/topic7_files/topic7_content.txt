@@ -1,0 +1,26 @@
+TOPIC_ID: 003_001_007
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 7: Properties & Getters/Setters with @property
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Python Properties and the `@property` decorator. Explores the Pythonic way of managing attribute access without Java-style boilerplate `get_val()` / `set_val()` methods. Deep dive into `@property` getters, `@<attr>.setter` mutators with type and range validation, `@<attr>.deleter` cleanup hooks, avoiding the fatal infinite recursion bug (`self.val = val` inside `setter`), computed dynamic attributes, read-only protection, caching expensive computations with `functools.cached_property`, the Python Uniform Access Principle, and an enterprise smart server room thermostat and HVAC energy telemetry case study.
+
+CORE CONCEPTS:
+1. The Pythonic Way: Replacing Explicit Getters/Setters with Properties
+2. The @property Decorator Pipeline (Getter)
+3. The @<attr>.setter Decorator (Validated Mutator)
+4. The @<attr>.deleter Decorator (Deletion Hook)
+5. The Infinite Recursion Setter Trap (self.attr = val vs self._attr = val)
+6. Read-Only Attributes (Defining Getter without Setter)
+7. Dynamically Computed Properties (e.g. full_name, gpa, is_passing)
+8. Performance Optimization with functools.cached_property
+9. The Uniform Access Principle: Seamless Attribute Refactoring
+10. Bi-Directional Conversion Properties: Celsius <-> Fahrenheit
+
+REAL-WORLD SCENARIOS:
+- Seamlessly refactoring high-traffic legacy codebases from plain public attributes to validated property setters without breaking external API contracts
+- Building bi-directional unit conversion engines (e.g. Celsius <-> Fahrenheit, USD <-> INR currency rates)
+- Caching expensive statistical audit summaries and database aggregations via @cached_property to eliminate redundant calculations
+- Protecting safety-critical operational thresholds in smart thermostats, robotics, and financial ledgers

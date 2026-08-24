@@ -1,0 +1,26 @@
+TOPIC_ID: 003_004_000
+MODULE: 003_004_working-with-json
+TITLE: Topic 0: JSON Format overview: types, syntax, and schema standards
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to the JSON Data Interchange Format (RFC 8259), syntax standards, data types, and schema contracts in Python. Deep dive into the 6 native JSON data types (string, number, object, array, boolean, null), strict syntax rules (double quotes for keys/strings, prohibition of trailing commas and comments), bidirectional Python-to-JSON type mapping equivalences, tuple-to-array asymmetry gotchas, declarative schema verification, and an institutional student portal and examination API schema case study.
+
+CORE CONCEPTS:
+1. What is JSON (JavaScript Object Notation - RFC 8259)?
+2. The 6 Fundamental JSON Data Types: string, number, object, array, boolean, null
+3. Strict JSON Syntax Rules & Common Hazards (Single quotes, Trailing commas, Comments)
+4. Python Types to JSON Types Mapping Matrix
+5. The Tuple-to-Array Asymmetry Round-Trip Gotcha
+6. Unsupported Python Types: Sets, Datetime, Bytes, and Custom Objects
+7. Catching and Diagnosing `json.JSONDecodeError`
+8. Programmatic JSON Schema Validation Rules
+9. API Envelope Contract Architecture
+10. Case Study: Institutional Student Portal & Exam Registry JSON API Spec
+
+REAL-WORLD SCENARIOS:
+- Exchanging data between Python backend microservices and frontend React/JavaScript clients
+- Validating external REST API payloads against institutional data schema contracts before database insertion
+- Serializing structured system configurations and environment definitions into portable JSON documents
+- Debugging syntax and schema corruption in legacy JSON database dumps

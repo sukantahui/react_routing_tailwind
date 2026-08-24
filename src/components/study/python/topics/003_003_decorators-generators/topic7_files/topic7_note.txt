@@ -1,0 +1,36 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+               TOPIC 7: CREATING CUSTOM ITERATOR CLASSES IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CUSTOM ITERATOR CLASS SKELETON
+--------------------------------------------------------------------------------
+  class MyIterator:
+      def __init__(self, data):
+          self.data = data
+          self.cursor = 0
+
+      def __iter__(self):
+          return self  # Idempotence: returns self
+
+      def __next__(self):
+          if self.cursor >= len(self.data):
+              raise StopIteration("Stream completed")
+          item = self.data[self.cursor]
+          self.cursor += 1
+          return item
+
+--------------------------------------------------------------------------------
+2. ADVANCED PATTERNS: FloatRange & SlidingWindow
+--------------------------------------------------------------------------------
+  • FloatRange(start, stop, step): Generates float step sequences.
+  • SlidingWindow(data, size): Yields rolling N-element tuples.
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 7: CUSTOM ITERATOR CLASSES
+================================================================================

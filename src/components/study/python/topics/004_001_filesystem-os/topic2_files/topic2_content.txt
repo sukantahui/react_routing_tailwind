@@ -1,0 +1,26 @@
+TOPIC_ID: 004_001_002
+MODULE: 004_001_filesystem-os
+TITLE: Topic 2: Directory traversal: os.walk(), scandir(), and glob patterns
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to recursive directory tree traversal, high-speed filesystem scanning, and Unix pattern matching in Python. Deep dive into `os.walk(top, topdown=True)` mechanics, unpacking the `(root, dirs, files)` 3-tuple, dynamic in-place directory subtree pruning (`dirs[:] = [...]`), top-down vs bottom-up (`topdown=False`) tree iteration, high-performance scanning with `os.scandir()` and `os.DirEntry` attribute caching, wildcard filename matching with `glob.glob()`, streaming generators with `glob.iglob()`, in-memory filtering with `fnmatch.fnmatch()` and `fnmatch.filter()`, and an institutional multi-campus storage tree crawler and indexing suite case study.
+
+CORE CONCEPTS:
+1. `os.walk()` Tree Traversal Anatomy (`(root, dirs, files)` 3-tuple)
+2. In-Place Subtree Pruning Invariant (`dirs[:] = [...]` or `dirs.remove()`)
+3. Top-Down vs Bottom-Up Traversal (`topdown=False` for recursive cleanup)
+4. High-Throughput Scanning with `os.scandir()` Context Manager
+5. `os.DirEntry` Inode Attribute Caching (Eliminating redundant `stat` calls)
+6. Unix Wildcard Shell Pattern Matching (`glob.glob()`, `glob.iglob()`)
+7. In-Memory Filename Filtering (`fnmatch.fnmatch()`, `fnmatch.filter()`)
+8. Case-Sensitivity Rules across Operating Systems (`fnmatchcase`)
+9. Building Storage Telemetry, Extension Indexes & Duplicate Detectors
+10. Case Study: Institutional Multi-Campus Storage Tree Crawler & Indexer
+
+REAL-WORLD SCENARIOS:
+- Crawling large multi-terabyte enterprise file storage systems while pruning cache and hidden `.git` directories
+- High-speed batch processing of millions of incoming invoices with `os.scandir()`
+- Searching for all customer tax documents matching specific date formats (`audit_2026_q?.csv`)
+- Recursively removing stale temporary files bottom-up (`topdown=False`) without encountering "directory not empty" errors

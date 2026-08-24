@@ -1,0 +1,40 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+            TOPIC 11: POLYMORPHISM, DUCK TYPING & TYPING PROTOCOLS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE DUCK TYPING PHILOSOPHY
+--------------------------------------------------------------------------------
+  "If it walks like a duck and quacks like a duck, it's a duck."
+
+  In Python, polymorphism does NOT require classes to inherit from a common
+  parent. As long as an object implements the required methods, it can be
+  passed to any function expecting that behavior:
+
+  def process(engine):
+      engine.generate("Report")  # Works with PDF, Excel, HTML, etc.!
+
+--------------------------------------------------------------------------------
+2. NOMINAL SUBTYPING VS STRUCTURAL PROTOCOLS (PEP 544)
+--------------------------------------------------------------------------------
+  • Nominal (Inheritance): class Dog(Animal) -> Subtype by NAME
+  • Structural (Protocol): class AutoPayable(Protocol): -> Subtype by SHAPE
+
+  @runtime_checkable
+  class AutoPayable(Protocol):
+      def process_charge(self, amount: float) -> bool: ...
+
+--------------------------------------------------------------------------------
+3. OPERATOR POLYMORPHISM
+--------------------------------------------------------------------------------
+  Define `__add__`, `__sub__`, `__mul__` to allow custom domain objects
+  to respond polymorphically to standard arithmetic operators.
+
+================================================================================
+             END OF STUDY NOTE • TOPIC 11: POLYMORPHISM & DUCK TYPING
+================================================================================

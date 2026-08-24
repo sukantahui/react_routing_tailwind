@@ -1,0 +1,34 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_005: ADVANCED COMPREHENSIONS
+        TOPIC 5: ZIP() AND ITERTOOLS MODULE ESSENTIALS (COUNT, CYCLE, CHAIN)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ZIP VARIANTS
+--------------------------------------------------------------------------------
+  * zip(a, b)                      : Silently truncates to shortest sequence
+  * zip(a, b, strict=True)         : Raises ValueError if lengths differ (Python 3.10+)
+  * itertools.zip_longest(a, b)    : Pads shorter sequences with fillvalue
+  * zip(*pairs)                    : Unzips / transposes paired collections
+
+--------------------------------------------------------------------------------
+2. INFINITE ITERATORS & BOUNDING
+--------------------------------------------------------------------------------
+  * itertools.count(start, step)   : Infinite numbers 100, 101, 102...
+  * itertools.cycle(iterable)      : Infinite round-robin cycling A -> B -> C -> A
+  * itertools.repeat(val, times)   : Repeats constant value
+  * itertools.islice(stream, 0, N) : Slices infinite generators safely
+
+--------------------------------------------------------------------------------
+3. CHAINING & MASKING
+--------------------------------------------------------------------------------
+  * itertools.chain.from_iterable(nested) : Zero-copy O(N) sequence flattening
+  * itertools.compress(data, mask)        : High-speed boolean filtering
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 5: ITERTOOLS ESSENTIALS
+================================================================================

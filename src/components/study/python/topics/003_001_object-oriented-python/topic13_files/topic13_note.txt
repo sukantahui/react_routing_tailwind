@@ -1,0 +1,40 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+              TOPIC 13: ABSTRACT BASE CLASSES (ABC MODULE) IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. DEFINING AN ABSTRACT BASE CLASS
+--------------------------------------------------------------------------------
+  from abc import ABC, abstractmethod
+
+  class BaseConnector(ABC):
+      @abstractmethod
+      def connect(self) -> bool:
+          pass
+
+      @property
+      @abstractmethod
+      def provider_name(self) -> str:
+          pass
+
+--------------------------------------------------------------------------------
+2. INSTANTIATION BLOCKER
+--------------------------------------------------------------------------------
+  Attempting to instantiate `BaseConnector()` directly or a subclass that fails
+  to override every `@abstractmethod` raises:
+  -> TypeError: Can't instantiate abstract class SubClass with abstract methods
+
+--------------------------------------------------------------------------------
+3. VIRTUAL SUBCLASSES VIA REGISTER()
+--------------------------------------------------------------------------------
+  BaseConnector.register(ExternalThirdPartyClass)
+  # Now issubclass(ExternalThirdPartyClass, BaseConnector) returns True!
+
+================================================================================
+           END OF STUDY NOTE • TOPIC 13: ABSTRACT BASE CLASSES
+================================================================================

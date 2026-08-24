@@ -1,0 +1,36 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+               TOPIC 5: CHAINING MULTIPLE DECORATORS IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE ONION LAYER EXECUTION MODEL
+--------------------------------------------------------------------------------
+  @decorator_1   <-- Layer 1: Runs 1st on Entry, Runs 3rd on Exit
+  @decorator_2   <-- Layer 2: Runs 2nd on Entry, Runs 2nd on Exit
+  @decorator_3   <-- Layer 3: Runs 3rd on Entry, Runs 1st on Exit
+  def target_function(): pass
+
+  Wrapping Order (Definition): target = dec1(dec2(dec3(target)))
+  Execution Flow (Runtime)   : Dec1 -> Dec2 -> Dec3 -> Func -> Dec3 -> Dec2 -> Dec1
+
+--------------------------------------------------------------------------------
+2. THE CRITICAL SECURITY ORDERING RULE
+--------------------------------------------------------------------------------
+  [CORRECT]:
+    @require_auth      # 1. Gatekeeper blocks unauthenticated users first!
+    @in_memory_cache   # 2. Only authenticated users can access cache.
+    def get_secret(): pass
+
+  [INSECURE CRITICAL BUG]:
+    @in_memory_cache   # BUG: Returns cached secret without checking auth!
+    @require_auth
+    def get_secret(): pass
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 5: DECORATOR CHAINING
+================================================================================

@@ -1,0 +1,26 @@
+TOPIC_ID: 003_004_002
+MODULE: 003_004_working-with-json
+TITLE: Topic 2: Serialization: json.dump() vs json.dumps() with indent, sort_keys
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to JSON Serialization in Python. Deep dive into the architectural differences between `json.dumps()` (in-memory string serialization) and `json.dump()` (direct file/stream serialization with constant O(1) buffer overhead), formatting parameters (`indent`, `sort_keys`, `separators`), creating deterministic canonical JSON for SHA-256 cryptographic signatures, production atomic file persistence using `tempfile` and `os.replace` to prevent zero-byte corrupt files, and an institutional course catalog exporter case study.
+
+CORE CONCEPTS:
+1. `json.dumps()`: In-Memory String Serialization & Memory Considerations
+2. `json.dump()`: Direct File / Stream Serialization
+3. Formatting Parameters: `indent=4` for Pretty-Printing
+4. Alphabetical Canonical Sorting with `sort_keys=True`
+5. Whitespace Minification with `separators=(',', ':')`
+6. Deterministic Canonical JSON Generation
+7. Cryptographic SHA-256 Checksums over JSON Documents
+8. Atomic File Persistence Pattern (`write -> flush -> os.fsync -> os.replace`)
+9. Preventing Zero-Byte Corrupted Files during System Crashes
+10. Case Study: Institutional Course Catalog & Examination Fee Exporter
+
+REAL-WORLD SCENARIOS:
+- Writing multi-gigabyte database export dumps directly to disk with `json.dump()` without running out of RAM
+- Generating deterministic JSON payloads for digital signatures in financial and blockchain ledgers
+- Persisting mission-critical system state and configuration files with atomic file replacement
+- Compressing JSON network traffic by removing redundant whitespace with minified separators

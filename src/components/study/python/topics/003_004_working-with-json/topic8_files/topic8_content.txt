@@ -1,0 +1,26 @@
+TOPIC_ID: 003_004_008
+MODULE: 003_004_working-with-json
+TITLE: Topic 8: Building JSON-backed persistent data stores
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to Building Production-Grade JSON-Backed Persistent Document Stores and Embedded Databases in Python. Deep dive into ACID-like atomic writes using `tempfile` and `os.replace` (eliminating corrupt 0-byte database files on power outages), thread-safe concurrency locks (`threading.RLock`), building in-memory hash indices for O(1) secondary attribute lookups, high-throughput append-only Newline-Delimited JSON (NDJSON) Write-Ahead Logging (WAL), snapshot compaction engines, automated timestamped backup rotation, and an institutional student registry database case study.
+
+CORE CONCEPTS:
+1. The 0-Byte Corrupt File Vulnerability in Direct Writes
+2. Atomic Write & Inode Swap Pattern (`tempfile` + `os.fsync` + `os.replace`)
+3. Concurrency Control with Reentrant Locks (`threading.RLock`)
+4. In-Memory Document Store with Secondary Hash Indexing
+5. Append-Only NDJSON / JSON Lines Write-Ahead Logging (WAL)
+6. Transaction Log Replay & State Reconciliation
+7. Snapshot Compaction & Checkpointing Engines
+8. Automated Timestamped Backup Snapshots & Rotation
+9. Disaster Recovery & Emergency Backup Rollback
+10. Case Study: Institutional Student Registry & Fee Ledger JSON Database Engine
+
+REAL-WORLD SCENARIOS:
+- Building lightweight embedded configuration and user profile stores for desktop / serverless apps without spinning up heavyweight PostgreSQL/MongoDB servers
+- Creating crash-resilient telemetry and transaction ledgers for point-of-sale (POS) terminals
+- Managing high-speed local caching layers that survive process restarts without data loss
+- Developing local developer tools and CLI applications with instant zero-configuration database persistence

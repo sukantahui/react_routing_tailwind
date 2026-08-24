@@ -1,0 +1,26 @@
+TOPIC_ID: 004_001_000
+MODULE: 004_001_filesystem-os
+TITLE: Topic 0: os module: environment variables, cwd, file system queries
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to Python's `os` module for operating system automation and process management. Deep dive into inspecting and managing environment variables (`os.environ`, `os.getenv`, `os.environ.setdefault`), safe credential fallback patterns, process introspection (`os.getpid`, `os.name`, `os.cpu_count`), current working directory management (`os.getcwd`, `os.chdir`), low-level filesystem queries and file metadata (`os.path.exists`, `os.path.isfile`, `os.path.isdir`, `os.path.getsize`, `os.stat`), safe recursive directory creation (`os.makedirs(exist_ok=True)`), atomic file replacement with `os.replace`, testing permission bits with `os.access`, and an institutional server environment and health auditor case study.
+
+CORE CONCEPTS:
+1. `os.environ` Mapping vs `os.getenv('KEY', default)`
+2. Defensive Environment Variable Handling for Production Secrets
+3. Operating System & Process Introspection (`os.getpid`, `os.name`, `sys.platform`)
+4. Current Working Directory Management (`os.getcwd`, `os.chdir`)
+5. Filesystem Classification (`os.path.exists`, `os.path.isfile`, `os.path.isdir`)
+6. Low-Level Inode & Metadata Inspection (`os.stat`, `os.path.getmtime`, `os.path.getsize`)
+7. Recursive Directory Tree Creation (`os.makedirs(path, exist_ok=True)`)
+8. Atomic File Renaming and Overwrites (`os.replace` vs `os.rename`)
+9. Permission Bit Testing (`os.access`, `os.R_OK`, `os.W_OK`, `os.X_OK`)
+10. Case Study: Institutional Server Environment & Health Auditor
+
+REAL-WORLD SCENARIOS:
+- Ingesting cloud database credentials and API secret keys safely from containerized Docker/Kubernetes environments
+- Inspecting server storage vaults, verifying log directory write permissions before initiating mission-critical pipelines
+- Auditing process IDs (PIDs) and system resources across distributed microservices
+- Creating nested log, backup, and temporary cache directories idempotently with `exist_ok=True`

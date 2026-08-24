@@ -1,0 +1,26 @@
+TOPIC_ID: 003_004_005
+MODULE: 003_004_working-with-json
+TITLE: Topic 5: Working with nested JSON structures and API payloads
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to Navigating, Transforming, and Sanitizing Deeply Nested JSON Structures and REST API Payloads in Python. Deep dive into safe path navigation without `KeyError`/`IndexError` (`safe_get_path(data, ["a", "b", 0, "c"])`), flattening nested JSON trees into tabular dot-delimited dictionaries, unpacking REST API envelope responses (`status`, `pagination`, `data`), aggregating metrics across nested arrays with generator expressions, recursive PII redaction (masking passwords, auth tokens, banking accounts), recursive key normalization (`camelCase` to `snake_case`), and an institutional multi-campus university payload pipeline case study.
+
+CORE CONCEPTS:
+1. Navigating Deep Multi-Level Dictionaries and Arrays
+2. Safe Path Lookup Pattern (`safe_get_path(data, path, default)`)
+3. Flattening Arbitrary Nested JSON Trees (`dict.a.b[0].c`)
+4. REST API Envelope Architecture (`status`, `pagination`, `items`)
+5. Filtering and Reshaping Nested Arrays
+6. Aggregating Metrics Across Multi-Level Child Elements
+7. Recursive PII Redaction and Data Masking
+8. Recursive Key Transformation (`camelCase` to `snake_case`)
+9. Defensive Fallbacks for Null and Missing Keys
+10. Case Study: Institutional Multi-Campus Admission & Fee Ledger Pipeline
+
+REAL-WORLD SCENARIOS:
+- Ingesting complex, deeply nested JSON responses from Stripe / Razorpay payment gateways and Salesforce APIs
+- Extracting nested analytics metrics from Google Cloud / AWS CloudWatch telemetry logs
+- Redacting confidential student Aadhaar numbers, passwords, and banking CVV codes before writing to Elasticsearch logs
+- Converting JavaScript frontend camelCase form submissions to idiomatic Python snake_case before database persistence

@@ -1,0 +1,26 @@
+TOPIC_ID: 003_005_003
+MODULE: 003_005_advance-comprehensions
+TITLE: Topic 3: Functional tools: map(), filter(), and functools.reduce()
+LEVEL: Advanced
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to Functional Programming Tools in Python: `map()`, `filter()`, and `functools.reduce()`. Deep dive into the functional trinity, lazy evaluation and iterator consumption in Python 3, folding and pairwise accumulation patterns, currying and partial function application with `functools.partial`, head-to-head performance benchmarks comparing built-in C functions against list comprehensions and lambda expressions, designing multi-stage functional data pipelines, and an institutional financial ledger and GST tax computation case study.
+
+CORE CONCEPTS:
+1. The Functional Trinity: `map()`, `filter()`, and `reduce()`
+2. Lazy Evaluation & Single-Pass Iterators in Python 3
+3. The Accumulator Pattern in `functools.reduce()`
+4. Safe Initializer Argument in `reduce()` (Preventing TypeErrors on Empty Streams)
+5. Syntactic Comparison: `map()` + `lambda` vs List Comprehensions
+6. Performance: Built-in C Functions (`map(int, ...)`) vs Comprehensions vs Lambdas
+7. Partial Function Application with `functools.partial`
+8. Multi-Stage Pipeline Composition (`filter -> map -> reduce`)
+9. Multi-Metric State Reducers with Custom Accumulators
+10. Case Study: Institutional Financial Ledger & GST Tax Functional Pipeline
+
+REAL-WORLD SCENARIOS:
+- Ingesting, cleaning, and calculating tax breakdowns across multi-million record payment streams
+- Building composable, reusable data transformation pipelines using `functools.partial`
+- Computing multi-metric financial audits and statistical rolling aggregates without mutating source records
+- Applying high-speed C-level string casting and encoding transformations using `map()`

@@ -1,0 +1,26 @@
+TOPIC_ID: 003_004_003
+MODULE: 003_004_working-with-json
+TITLE: Topic 3: Deserialization: json.load() vs json.loads()
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to JSON Deserialization in Python. Deep dive into the architectural differences between `json.loads()` (in-memory string and UTF-8 bytes parsing) and `json.load()` (direct file/stream deserialization), catching and diagnosing `json.JSONDecodeError` (`lineno`, `colno`, `pos`), custom numeric decoding using `parse_float=Decimal` for 100% exact financial decimal arithmetic, preserving large 64-bit integer IDs with `parse_int=str`, handling non-standard constants with `parse_constant`, defensive file loading with automatic backup restoration, and an institutional exam audit stream deserializer case study.
+
+CORE CONCEPTS:
+1. `json.loads()`: In-Memory String & Byte Parsing
+2. `json.load()`: Direct Stream & File Deserialization
+3. Pinpointing Malformed Syntax with `json.JSONDecodeError`
+4. Custom Float Decoding with `parse_float=Decimal`
+5. Preventing IEEE-754 Binary Floating-Point Rounding Drift
+6. Preserving Large Numeric Identifiers with `parse_int=str`
+7. Non-Standard Float Constant Interception via `parse_constant`
+8. Defensive File Ingestion Pattern (Missing, 0-byte, Corrupt)
+9. Automated Backup Quarantine and Recovery
+10. Case Study: Institutional Examination Audit Stream Deserializer
+
+REAL-WORLD SCENARIOS:
+- Ingesting financial accounting statements and billing receipts without losing fractional currency cents
+- Parsing incoming API request payloads in FastAPI / Flask web servers
+- Preserving 64-bit Snowflake / Twitter / Discord entity IDs without integer precision clipping
+- Loading system configuration files safely with automatic fallback defaults

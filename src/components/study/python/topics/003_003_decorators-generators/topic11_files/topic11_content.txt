@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_011
+MODULE: 003_003_decorators-generators
+TITLE: Topic 11: Infinite streams and large data processing with generators
+LEVEL: Advanced
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to Infinite Streams and Large Data Processing with Python Generators. Deep dive into creating infinite event streams (`while True: yield data`), safely bounding infinite streams using `itertools.islice`, `itertools.takewhile`, and `itertools.cycle`, processing multi-gigabyte files and server logs line-by-line with constant O(1) memory, guaranteed resource cleanup with `try...finally` and `gen.close()`, real-time time-series moving metrics with `collections.deque`, backpressure management, and an institutional enterprise server telemetry and security probe monitor case study.
+
+CORE CONCEPTS:
+1. Infinite Stream Generation with `while True: yield item`
+2. Safe Stream Bounding using `itertools.islice(gen, N)`
+3. Conditional Consumption with `itertools.takewhile` and `itertools.dropwhile`
+4. Round-Robin Resource Scheduling with `itertools.cycle`
+5. Chunked Large File & Log Ingestion with Constant O(1) RAM
+6. Guaranteed Resource Teardown using `try...finally` Blocks
+7. Premature Stream Termination with `gen.close()` (GeneratorExit)
+8. Real-Time Rolling Metrics using `collections.deque(maxlen=N)`
+9. Multi-Stage Pipeline Composition for High-Volume Streaming
+10. Case Study: Institutional Enterprise Server Telemetry Stream Monitor
+
+REAL-WORLD SCENARIOS:
+- Ingesting and analyzing multi-terabyte Nginx/Apache web access logs without crashing servers
+- Processing live IoT sensor telemetry feeds and heartbeats in continuous real-time loops
+- Implementing sliding window moving averages for stock market and currency exchange tickers
+- Real-time DDoS and unauthorized security probe detection on institutional portal endpoints

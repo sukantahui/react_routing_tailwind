@@ -1,0 +1,36 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_001: FILESYSTEM & OS
+       TOPIC 2: DIRECTORY TRAVERSAL: OS.WALK(), SCANDIR(), AND GLOB PATTERNS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. OS.WALK() & IN-PLACE PRUNING
+--------------------------------------------------------------------------------
+  for root, dirs, files in os.walk(top_dir, topdown=True):
+      # Prune hidden or cache folders in-place:
+      dirs[:] = [d for d in dirs if not d.startswith(".") and d != "__pycache__"]
+      for f in files:
+          full_path = os.path.join(root, f)
+
+--------------------------------------------------------------------------------
+2. HIGH-SPEED OS.SCANDIR()
+--------------------------------------------------------------------------------
+  with os.scandir(folder_path) as entries:
+      for entry in entries:
+          if entry.is_file():
+              size = entry.stat().st_size  # CACHED from directory read!
+
+--------------------------------------------------------------------------------
+3. GLOB & FNMATCH PATTERNS
+--------------------------------------------------------------------------------
+  * glob.glob("reports/2026/q?.csv")             # Immediate search
+  * glob.iglob("vault/**/*.pdf", recursive=True) # Lazy streaming generator
+  * fnmatch.filter(names, "stu_*.json")          # In-memory list filter
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 2: DIRECTORY TRAVERSAL
+================================================================================

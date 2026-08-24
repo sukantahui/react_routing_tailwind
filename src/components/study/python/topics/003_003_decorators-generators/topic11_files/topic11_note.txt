@@ -1,0 +1,44 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+      TOPIC 11: INFINITE STREAMS & LARGE DATA PROCESSING WITH GENERATORS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. INFINITE STREAM GENERATION & SAFE BOUNDING
+--------------------------------------------------------------------------------
+  def telemetry_stream():
+      seq = 1
+      while True:
+          yield {"seq": seq, "time": time.time()}
+          seq += 1
+
+  # SAFE: Take first 100 items:
+  for event in itertools.islice(telemetry_stream(), 100):
+      process(event)
+
+--------------------------------------------------------------------------------
+2. CHUNKED LARGE FILE PROCESSING WITH GUARANTEED CLEANUP
+--------------------------------------------------------------------------------
+  def read_large_file(filepath):
+      f = open(filepath, "r")
+      try:
+          for line in f:
+              yield parse(line)
+      finally:
+          f.close()  # Guaranteed to run on gen.close() or exit!
+
+--------------------------------------------------------------------------------
+3. ROLLING WINDOW METRICS WITH deque(maxlen=N)
+--------------------------------------------------------------------------------
+  window = collections.deque(maxlen=5)
+  for reading in sensor_stream():
+      window.append(reading)
+      moving_avg = sum(window) / len(window)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 11: INFINITE STREAMS
+================================================================================

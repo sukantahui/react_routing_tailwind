@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_000
+MODULE: 003_003_decorators-generators
+TITLE: Topic 0: First-Class Functions: Passing and returning functions
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to First-Class Functions and Higher-Order Programming in Python. Deep dive into the core computer science concept of 'First-Class Citizens' (treating functions as standard objects with memory addresses, types, and attributes), assigning function objects to variables, passing functions as arguments to other functions (Higher-Order Functions), returning dynamically generated functions from function factories, building O(1) Command Dispatch Tables to eliminate sprawling `if/elif/else` ladders, inspecting function introspection attributes (`__name__`, `__doc__`, `__code__`, `__annotations__`), and a composable educational financial pipeline case study.
+
+CORE CONCEPTS:
+1. What are First-Class Functions?
+2. Functions as Objects: Identity, Type (`types.FunctionType`), and References
+3. Function Aliasing: Assigning Function Objects to Variables
+4. Higher-Order Functions (Functions that accept functions as parameters)
+5. Nested Functions & Returning Function Objects
+6. Dynamic Function Factory Pattern
+7. Command Dispatch Tables (Replacing If/Else Ladders with Dictionary Lookups)
+8. Composable Pipeline Architecture (`compose(*functions)`)
+9. Function Introspection & Dunder Attributes (`__name__`, `__doc__`, `__code__`)
+10. Case Study: Composable Financial Functor Pipeline for Educational Billing
+
+REAL-WORLD SCENARIOS:
+- Building dynamic discount and tax calculator factories customized per branch or geographic zone
+- Eliminating multi-page conditional ladders in API controllers using dictionary command dispatch tables
+- Designing flexible data transformation pipelines (e.g. sanitizing input strings, applying tax, calculating totals) by composing small pure functions
+- Passing custom sorting keys and validator strategies to modular business services

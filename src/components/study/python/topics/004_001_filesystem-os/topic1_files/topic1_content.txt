@@ -1,0 +1,26 @@
+TOPIC_ID: 004_001_001
+MODULE: 004_001_filesystem-os
+TITLE: Topic 1: Modern path manipulation with pathlib.Path
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to modern object-oriented path manipulation with Python's `pathlib` standard library module. Deep dive into `Path.cwd()`, `Path.home()`, the intuitive slash `/` operator for cross-platform path joining, full path anatomy decomposition (`.name`, `.stem`, `.suffix`, `.suffixes`, `.parent`, `.parents`), pure path transformations with `.with_suffix()` and `.with_name()`, concise file I/O operations (`path.read_text()`, `path.write_text()`, `path.unlink(missing_ok=True)`), idempotent recursive directory creation with `path.mkdir(parents=True, exist_ok=True)`, pattern matching with `path.glob()` and recursive `path.rglob()`, computing relative paths with `path.relative_to()`, and an institutional digital document vault and path manager case study.
+
+CORE CONCEPTS:
+1. `pathlib.Path` Object-Oriented Philosophy vs Legacy `os.path` Strings
+2. Cross-Platform Path Joining with the `/` Slash Operator
+3. Comprehensive Path Anatomy (`.name`, `.stem`, `.suffix`, `.suffixes`, `.parent`)
+4. Pure Copy-on-Write Transformations (`.with_suffix()`, `.with_name()`, `.with_stem()`)
+5. Concise File I/O (`path.read_text()`, `path.write_text()`, `path.touch()`)
+6. Idempotent Directory Management (`path.mkdir(parents=True, exist_ok=True)`)
+7. Safe File Removal (`path.unlink(missing_ok=True)`)
+8. Directory Scanning & Wildcards (`path.iterdir()`, `path.glob()`, `path.rglob()`)
+9. Resolving Canonical Absolute Paths (`path.resolve()`, `path.relative_to()`)
+10. Case Study: Institutional Digital Document Vault & Path Manager
+
+REAL-WORLD SCENARIOS:
+- Standardizing cross-platform filesystem paths across Windows, Linux, and macOS in cloud Docker containers
+- Creating automated student and client dossier folders with organized KYC documentation
+- Batch renaming and format-converting thousands of media files with `.with_suffix()`
+- Scanning nested repository directories recursively for compliance and data integrity audits

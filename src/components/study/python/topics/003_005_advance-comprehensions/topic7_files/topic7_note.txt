@@ -1,0 +1,38 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_005: ADVANCED COMPREHENSIONS
+               TOPIC 7: BUILDING CLEAN DATA TRANSFORMATION PIPELINES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. GENERATOR CONVEYOR PIPELINES
+--------------------------------------------------------------------------------
+  def stage1(source): yield ...
+  def stage2(stream): yield ...
+  def stage3(stream): yield ...
+
+  pipeline = stage3(stage2(stage1(data_stream)))  # O(1) Memory Streaming
+
+--------------------------------------------------------------------------------
+2. FLUENT METHOD CHAINING DSL
+--------------------------------------------------------------------------------
+  result = (
+      FluentPipeline.from_iterable(raw_data)
+      .filter(lambda x: x["marks"] >= 60)
+      .map(lambda x: {**x, "tax": x["fee"] * 0.18})
+      .take(10)
+      .collect()
+  )
+
+--------------------------------------------------------------------------------
+3. DEAD-LETTER QUEUE (DLQ) RESILIENCE
+--------------------------------------------------------------------------------
+  * Never crash on corrupt records; route parsing failures to DLQ
+  * Track metrics: Ingested, Processed, Quarantined
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 7: DATA TRANSFORMATION PIPELINES
+================================================================================

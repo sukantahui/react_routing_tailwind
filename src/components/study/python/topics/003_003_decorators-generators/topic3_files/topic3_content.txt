@@ -1,0 +1,26 @@
+TOPIC_ID: 003_003_003
+MODULE: 003_003_decorators-generators
+TITLE: Topic 3: Writing custom decorators (logging, timing execution, authentication)
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to writing Custom Production Decorators in Python. Deep dive into building stateful call-counter decorators (`func.calls += 1`), high-precision execution timing and latency profiling decorators (`time.perf_counter()`), slow-execution warning alerts, building Role-Based Access Control (RBAC) security decorators (`@require_roles('ADMIN')`), sliding-window rate-limiting decorators, and an enterprise examination security portal case study.
+
+CORE CONCEPTS:
+1. Designing Custom Production Decorators
+2. Stateful Call Counter Decorators using Function Attributes
+3. Structured Audit Logging with Timestamp and Parameter Serialization
+4. High-Precision Performance Profiling (`time.perf_counter()`)
+5. Latency Threshold Alerting (Slow Query / Transaction Warnings)
+6. Authentication & Session Verification Decorators
+7. Role-Based Access Control (RBAC) Security Decorators
+8. Sliding-Window Rate Limiting & Throttling Decorators
+9. Multi-Tiered Orthogonal Decorator Architectures
+10. Case Study: Institutional Exam Security & Telemetry Portal
+
+REAL-WORLD SCENARIOS:
+- Securing REST API endpoints so only users with verified JWT tokens or specific admin roles can execute mutating writes
+- Throttling sensitive endpoints (e.g. login attempts or grade submission) to prevent brute-force attacks and DDOS
+- Profiling database query latency across microservice clusters and sending alerts to Prometheus/Datadog when queries exceed 50ms
+- Recording immutable forensic compliance audit trails of all financial disbursements and exam modifications

@@ -1,0 +1,26 @@
+TOPIC_ID: 003_002_007
+MODULE: 003_002_basic-exception-handling
+TITLE: Topic 7: Raising exceptions intentionally using raise keyword
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to intentionally raising and propagating exceptions in Python using the `raise` keyword. Deep dive into syntax (`raise ValueError("msg")`), enforcing function preconditions and business invariants fail-fast, why raising exceptions is vastly superior to returning error codes (`return -1` or `return None`), re-raising active exceptions using bare `raise` to preserve original tracebacks during audit logging and state rollback, and an enterprise student financial digital wallet invariant guard case study.
+
+CORE CONCEPTS:
+1. Syntax and Mechanics of the `raise` Statement
+2. Raising Built-in Exceptions (ValueError, TypeError, PermissionError)
+3. Descriptive Error Messages for Debuggability
+4. Precondition & Business Invariant Enforcement
+5. The Danger of Returning Error Codes vs Raising Exceptions
+6. Fail-Fast Design Philosophy
+7. Re-Raising Active Exceptions with Bare `raise`
+8. Preserving the Original Traceback During Re-Raising
+9. The "Log, Rollback & Re-Raise" Production Middleware Pattern
+10. Case Study: Institutional Student Wallet & Financial Guard Engine
+
+REAL-WORLD SCENARIOS:
+- Protecting safety-critical banking and financial transaction balances against negative withdrawals and overdrafts
+- Validating strict domain formats (Indian Income Tax PAN regex, phone numbers, email addresses) at API boundaries
+- Building robust database middleware that logs forensic audit trails, rolls back active sessions, and re-raises exceptions upwards
+- Replacing silent bug-inducing `return None` error patterns with explicit fail-fast exception raises

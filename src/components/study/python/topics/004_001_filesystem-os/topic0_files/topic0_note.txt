@@ -1,0 +1,36 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_001: FILESYSTEM & OS
+           TOPIC 0: OS MODULE: ENVIRONMENT VARIABLES, CWD, FILE SYSTEM QUERIES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. ENVIRONMENT VARIABLES
+--------------------------------------------------------------------------------
+  * os.getenv("DB_URL", "fallback")   : Safe read with fallback (No KeyError)
+  * os.environ["KEY"] = "val"         : Sets environment variable for process
+  * os.environ.setdefault("K", "v")   : Sets only if not already present
+
+--------------------------------------------------------------------------------
+2. CWD & FILESYSTEM QUERIES
+--------------------------------------------------------------------------------
+  * os.getcwd()                       : Returns absolute path of current working dir
+  * os.path.exists(path)              : Checks if file/folder exists
+  * os.path.isfile(path)              : True if regular file
+  * os.path.isdir(path)               : True if directory
+  * os.path.getsize(path)             : File size in bytes
+  * os.stat(path)                     : Full low-level filesystem inode metadata
+
+--------------------------------------------------------------------------------
+3. DIRECTORY CRUD & PERMISSIONS
+--------------------------------------------------------------------------------
+  * os.makedirs(path, exist_ok=True)  : Recursively creates directory tree safely
+  * os.replace(src, dst)              : Atomic cross-platform file replacement
+  * os.access(path, os.R_OK | os.W_OK): Tests read/write permissions
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 0: OS MODULE & ENVIRONMENT
+================================================================================

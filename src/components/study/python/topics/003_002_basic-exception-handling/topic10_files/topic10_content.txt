@@ -1,0 +1,26 @@
+TOPIC_ID: 003_002_010
+MODULE: 003_002_basic-exception-handling
+TITLE: Topic 10: Using assertions with assert for internal invariant checks
+LEVEL: Intermediate-Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to assertions and the `assert` statement in Python. Deep dive into syntax (`assert condition, message`), understanding `AssertionError`, the fundamental boundary between public input validation (`raise`) and internal developer invariant checking (`assert`), the critical security hazard of the Python `-O` optimization flag (`__debug__ == False` stripping all assertions from bytecode), the infamous tuple trap (`assert (x > 0, "msg")` always evaluating to True), legitimate production assert patterns (mathematical postconditions, private preconditions, unreachable branch sentinels), and an enterprise exam ranking and normalization engine case study.
+
+CORE CONCEPTS:
+1. Syntax and Mechanics of the `assert` Statement
+2. `AssertionError` Lifecycle and Debugging
+3. The Golden Boundary: `assert` (Internal Invariants) vs `raise` (Input Validation)
+4. The Python `-O` & `-OO` Optimization Flags
+5. The `__debug__` Built-in Constant
+6. Security Vulnerability: Why `assert` Must Never Guard Authentication/Authorization
+7. The Infamous Assert Tuple Trap: `assert (condition, message)`
+8. Postcondition Invariant Checks (Math, Normalization, Monotonicity)
+9. Unreachable Branch Sentinels in Pattern Matching
+10. Case Study: Institutional Exam Grading, Rank & Normalization Engine
+
+REAL-WORLD SCENARIOS:
+- Verifying mathematical properties after complex statistical calculations (percentiles sum to 100%, matrix dimensions match)
+- Ensuring ranking lists are strictly monotonic without altering public API error contracts
+- Guarding internal private helper methods against programmer logic errors during refactoring
+- Avoiding security breaches caused by running Python with `-O` flag where critical assertions are removed

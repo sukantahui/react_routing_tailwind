@@ -1,0 +1,34 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_003: DECORATORS & GENERATORS
+          TOPIC 9: GENERATOR FUNCTIONS VS REGULAR FUNCTIONS IN PYTHON
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. EAGER VS LAZY EVALUATION
+--------------------------------------------------------------------------------
+  • Regular Function : Allocates all N items in memory upfront (O(N) RAM).
+  • Generator Function: Yields 1 item at a time on demand (O(1) RAM).
+
+--------------------------------------------------------------------------------
+2. SUBGENERATOR DELEGATION: `yield from` (PEP 380)
+--------------------------------------------------------------------------------
+  def master_pipeline():
+      # Delegates stream and captures subgenerator's return value:
+      bp_count = yield from branch_stream("Barrackpore")
+      kol_count = yield from branch_stream("Kolkata")
+      return bp_count + kol_count
+
+--------------------------------------------------------------------------------
+3. COROUTINE COMMUNICATION: `send()`, `throw()`, `close()`
+--------------------------------------------------------------------------------
+  • `next(g)` or `g.send(None)` : Primes the generator.
+  • `g.send(val)`               : Injects `val` into active `yield` expression.
+  • `g.close()`                 : Raises `GeneratorExit` to terminate cleanly.
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 9: GENERATORS VS FUNCTIONS
+================================================================================

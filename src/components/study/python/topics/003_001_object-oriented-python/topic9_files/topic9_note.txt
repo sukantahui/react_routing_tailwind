@@ -1,0 +1,41 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_001: OBJECT-ORIENTED PYTHON
+                TOPIC 9: METHOD OVERRIDING & THE super() FUNCTION
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. EXTENDING VS REPLACING PARENT BEHAVIOR
+--------------------------------------------------------------------------------
+  • EXTENDING (Recommended for layered behavior):
+      class Child(Parent):
+          def process(self):
+              super().process()  # Runs parent logic first
+              print("Child custom logic")
+
+  • REPLACING (Completely overrides parent):
+      class Child(Parent):
+          def process(self):
+              print("Child exclusive logic")  # Ignores parent
+
+--------------------------------------------------------------------------------
+2. THE TRUE NATURE OF super()
+--------------------------------------------------------------------------------
+  In Python, `super()` does NOT mean "call my direct lexical parent".
+  It means: "Search the MRO (Method Resolution Order) of the active instance,
+  and invoke the method on the NEXT class in that sequence!"
+
+--------------------------------------------------------------------------------
+3. COOPERATIVE CONSTRUCTOR WITH **kwargs
+--------------------------------------------------------------------------------
+  class MixinA:
+      def __init__(self, key_a=None, **kwargs):
+          super().__init__(**kwargs)
+          self.key_a = key_a
+
+================================================================================
+         END OF STUDY NOTE • TOPIC 9: METHOD OVERRIDING & super()
+================================================================================

@@ -1,0 +1,32 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_005: ADVANCED COMPREHENSIONS
+              TOPIC 0: DEEP DIVE: LIST, DICT, AND SET COMPREHENSIONS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE THREE COMPREHENSION CONTAINERS
+--------------------------------------------------------------------------------
+  * List Comprehension : [x * 2 for x in seq if x > 0]
+  * Dict Comprehension : {k: v for k, v in pairs if v > 0}
+  * Set Comprehension  : {x.upper() for x in seq}  (Auto-Deduplicated)
+
+--------------------------------------------------------------------------------
+2. FILTERING IF vs TERNARY IF-ELSE
+--------------------------------------------------------------------------------
+  * Filtering (Subset)      : [x for x in seq if x >= 50]
+  * Transformation (All)    : ["PASS" if x >= 50 else "FAIL" for x in seq]
+  * Combined (Both)         : [A if cond1 else B for x in seq if filter_cond]
+
+--------------------------------------------------------------------------------
+3. DICTIONARY INVERSION
+--------------------------------------------------------------------------------
+  * 1-to-1 Inversion : {v: k for k, v in orig_dict.items()}
+  * 1-to-Many Group  : {val: [k for k, v in d.items() if v == val] for val in set(d.values())}
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 0: COMPREHENSIONS DEEP DIVE
+================================================================================

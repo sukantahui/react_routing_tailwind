@@ -1,0 +1,38 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+          PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_004: WORKING WITH JSON
+              TOPIC 5: WORKING WITH NESTED JSON STRUCTURES & API PAYLOADS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. SAFE PATH TRAVERSAL PATTERN
+--------------------------------------------------------------------------------
+  def safe_get(data, path, default=None):
+      curr = data
+      for token in path:
+          if isinstance(curr, dict) and isinstance(token, str):
+              curr = curr.get(token)
+          elif isinstance(curr, (list, tuple)) and isinstance(token, int):
+              curr = curr[token] if 0 <= token < len(curr) else None
+          else: return default
+          if curr is None: return default
+      return curr
+
+  name = safe_get(payload, ["institution", "branches", 0, "top_student", "name"])
+
+--------------------------------------------------------------------------------
+2. RECURSIVE PII MASKING
+--------------------------------------------------------------------------------
+  def redact_pii(data):
+      if isinstance(data, dict):
+          return {k: "********" if "password" in k or "token" in k else redact_pii(v) for k, v in data.items()}
+      elif isinstance(data, list):
+          return [redact_pii(x) for x in data]
+      return data
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 5: NESTED JSON STRUCTURES
+================================================================================

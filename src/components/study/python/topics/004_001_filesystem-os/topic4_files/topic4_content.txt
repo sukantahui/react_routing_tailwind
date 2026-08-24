@@ -1,0 +1,26 @@
+TOPIC_ID: 004_001_004
+MODULE: 004_001_filesystem-os
+TITLE: Topic 4: Command-line arguments parsing: sys.argv & argparse module
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to command-line interface (CLI) engineering in Python using `sys.argv` and the production standard `argparse` module. Deep dive into token streaming and raw parameter unpacking with `sys.argv`, configuring `argparse.ArgumentParser` with descriptions and epilogs, positional vs optional flags, type coercion (`type=int`, `type=Path`), choices validation, boolean flags with `action='store_true'`, subparser routing with `add_subparsers()`, mutually exclusive flag groups (`add_mutually_exclusive_group()`), custom regex and type validators, auto-formatted `--help` manual generation, and an institutional multi-command CLI management suite case study.
+
+CORE CONCEPTS:
+1. Low-Level `sys.argv` Token Stream Anatomy (`sys.argv[0]` vs `sys.argv[1:]`)
+2. Modern CLI Building with `argparse.ArgumentParser`
+3. Positional Arguments vs Optional Flags (`-c`, `--campus`)
+4. Automatic Type Coercion & Casting (`type=int`, `type=Path`)
+5. Value Constraining with `choices=['barrackpore', 'kolkata']`
+6. Boolean Flags & Switches with `action='store_true'`
+7. Subcommand Dispatching with `add_subparsers(dest='command')`
+8. Mutually Exclusive Flag Groups (`add_mutually_exclusive_group()`)
+9. Custom Validation Functions (`argparse.ArgumentTypeError`)
+10. Case Study: Institutional Multi-Command CLI Operations Suite
+
+REAL-WORLD SCENARIOS:
+- Building enterprise DevOps and system administration CLI tools with structured subcommands (`enroll`, `audit`, `backup`)
+- Adding dry-run mode (`--dry-run`) to prevent unintentional modifications in production environments
+- Exporting automated audit reports in multiple formats (`--format table|json|csv`) via CLI switches
+- Validating strict domain IDs and fiscal date parameters at the CLI boundary before executing backend services

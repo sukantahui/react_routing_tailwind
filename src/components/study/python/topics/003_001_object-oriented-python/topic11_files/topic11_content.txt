@@ -1,0 +1,26 @@
+TOPIC_ID: 003_001_011
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 11: Polymorphism & Duck Typing in Python
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Polymorphism, Dynamic Dispatch, and Duck Typing in Python. Deep dive into the philosophy of "If it walks like a duck and quacks like a duck, it's a duck", eliminating brittle conditional `if/elif type(x) == Y:` checks, operator overloading and built-in operator polymorphism, modern Python 3.8+ Static Duck Typing with `typing.Protocol` (PEP 544: Structural Subtyping), `@runtime_checkable` validation, and an enterprise multi-channel payment and notification gateway hub case study.
+
+CORE CONCEPTS:
+1. What is Polymorphism in Python?
+2. The Duck Typing Philosophy: Dynamic Dispatch without Shared Base Classes
+3. Eliminating Brittle Type-Checking Anti-Patterns (type() vs isinstance() vs Duck Typing)
+4. Built-in Operator Polymorphism (+, *, len(), in)
+5. Custom Operator Overloading (__add__, __sub__, __mul__, __eq__)
+6. Nominal Subtyping (Inheritance) vs Structural Subtyping (Shape/Interface matching)
+7. Modern Static Duck Typing with typing.Protocol (PEP 544)
+8. Using @runtime_checkable for Protocol-based isinstance() checks
+9. Designing Loose-Coupled Polymorphic Adapters
+10. Case Study: Multi-Channel Gateway Dispatcher (Razorpay, Stripe, WhatsApp, Cash)
+
+REAL-WORLD SCENARIOS:
+- Unifying diverse third-party payment gateways (Razorpay, Stripe, PayPal, Campus Cash) behind a uniform polymorphic dispatcher
+- Composing multi-format document generators (PDF, Excel, HTML) without rigid inheritance hierarchies
+- Building clean domain-driven financial value objects (MoneyINR) with polymorphic arithmetic operations
+- Enforcing structural API contracts in enterprise codebases using typing.Protocol without tight coupling

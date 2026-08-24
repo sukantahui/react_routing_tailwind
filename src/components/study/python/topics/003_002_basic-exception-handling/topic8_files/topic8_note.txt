@@ -1,0 +1,46 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 3 • MODULE 003_002: EXCEPTION HANDLING
+            TOPIC 8: CREATING USER-DEFINED CUSTOM EXCEPTION CLASSES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. DEFINING DOMAIN BASE EXCEPTIONS
+--------------------------------------------------------------------------------
+  class InstituteAppError(Exception):
+      """Root domain base exception."""
+      pass
+
+  class AdmissionError(InstituteAppError):
+      pass
+
+  class CourseQuotaExceededError(AdmissionError):
+      pass
+
+--------------------------------------------------------------------------------
+2. ATTACHING RICH CONTEXTUAL ATTRIBUTES
+--------------------------------------------------------------------------------
+  class TuitionDeficitError(InstituteAppError):
+      def __init__(self, student_id: str, deficit: float):
+          self.student_id = student_id
+          self.deficit = deficit
+          super().__init__(f"Student {student_id} has fee deficit of INR {deficit:,.2f}")
+
+--------------------------------------------------------------------------------
+3. HIERARCHICAL EXCEPT ORDERING
+--------------------------------------------------------------------------------
+  try:
+      process_admission()
+  except CourseQuotaExceededError:    # 1. Most Specific First
+      handle_waitlist()
+  except AdmissionError:              # 2. Intermediate Subsystem Base
+      handle_admission_error()
+  except InstituteAppError:           # 3. Root Domain Base Last
+      handle_general_error()
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 8: CUSTOM EXCEPTION CLASSES
+================================================================================

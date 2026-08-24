@@ -1,0 +1,27 @@
+TOPIC_ID: 003_001_013
+MODULE: 003_001_object-oriented-python
+TITLE: Topic 13: Abstract Base Classes (abc module)
+LEVEL: Advanced
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive master guide to Abstract Base Classes (ABCs) and the `abc` module in Python. Deep dive into defining formal interface contracts with `from abc import ABC, abstractmethod`, the CPython instantiation blocker (`TypeError: Can't instantiate abstract class with abstract methods`), abstract properties (`@property` + `@abstractmethod`), abstract classmethods and staticmethods, Virtual Subclasses via `ABC.register()` and `__subclasshook__`, standard library compliance with `collections.abc` (`Sequence`, `Mapping`), the Template Method design pattern, and an enterprise institutional payroll and TDS tax engine case study.
+
+CORE CONCEPTS:
+1. What is an Abstract Base Class (ABC)?
+2. The abc Module: ABC, @abstractmethod, and @abstractproperty
+3. Instantiation Blocker Mechanics: Why abstract classes cannot be instantiated
+4. Enforcing Method Implementation Contracts on Subclasses
+5. Abstract Properties: Combining @property with @abstractmethod
+6. Abstract Classmethods and Staticmethods
+7. Virtual Subclasses via ABC.register() (Subtyping without inheritance)
+8. Customizing issubclass() via __subclasshook__
+9. Python Standard Library collections.abc Interfaces (Sequence, Mapping)
+10. The Template Method Pattern: Concrete workflows calling abstract steps
+11. Case Study: Production Institutional Payroll & TDS Tax System
+
+REAL-WORLD SCENARIOS:
+- Enforcing uniform plugin lifecycles (connect, execute, disconnect) across database and cloud connectors
+- Designing enterprise payroll calculators where base salary rules and tax brackets are enforced as abstract properties
+- Registering third-party SDK adapters as virtual subclasses via ABC.register() without invasive inheritance
+- Inheriting from collections.abc.Sequence to build custom immutable domain collections with free battery-included methods (count, index, slicing)
