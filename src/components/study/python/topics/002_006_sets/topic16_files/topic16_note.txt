@@ -1,0 +1,48 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                      TOPIC 16: SETS VS LISTS VS TUPLES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE MASTER COMPARISON MATRIX
+--------------------------------------------------------------------------------
+  Feature               | List (list)           | Tuple (tuple)         | Set (set)
+  ----------------------+-----------------------+-----------------------+-----------------------
+  Syntax Literal        | `[1, 2, 3]`           | `(1, 2, 3)`           | `{1, 2, 3}`
+  Mutability            | Mutable               | Immutable             | Mutable
+  Ordering              | Ordered (Insertion)   | Ordered (Insertion)   | Unordered (Arbitrary)
+  Duplicates Allowed?   | YES                   | YES                   | NO (Enforces unique)
+  Indexing & Slicing    | YES (`data[0]`)       | YES (`data[0]`)       | NO (TypeError)
+  Membership 'in' Time  | O(N) Linear Scan      | O(N) Linear Scan      | O(1) Hash Table Lookup
+  Memory Efficiency     | Moderate (~800 KB/100K)| Highest (~800 KB/100K)| Lowest (~8 MB/100K)
+  Hashable (Dict Key)?  | NO                    | YES (if items hashable)| NO (frozenset YES)
+  Math Set Operations   | NO                    | NO                    | YES (|, &, -, ^, etc.)
+
+--------------------------------------------------------------------------------
+2. WHEN TO CHOOSE WHICH CONTAINER
+--------------------------------------------------------------------------------
+  • Choose TUPLE when:
+    - Data represents a fixed heterogeneous record (e.g. `(id, name, price)`).
+    - Data should be protected against accidental mutation.
+    - You need a hashable key for a dictionary.
+    - Maximum memory compactness and construction speed are critical.
+
+  • Choose LIST when:
+    - Data represents a homogeneous collection that changes size dynamically.
+    - Element sequence/ordering must be preserved.
+    - Duplicate entries are valid and meaningful (e.g. event stream).
+    - You need index-based random access (`items[i]`).
+
+  • Choose SET when:
+    - You need to enforce absolute uniqueness (zero duplicates).
+    - You perform frequent membership checks (`if item in container`).
+    - You need mathematical set algebra (Union, Intersection, Difference).
+    - Memory overhead is acceptable in exchange for O(1) lookup speed.
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 16: SETS VS LISTS VS TUPLES
+================================================================================

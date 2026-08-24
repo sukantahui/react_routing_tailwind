@@ -1,0 +1,22 @@
+TOPIC_ID: 002_007_000
+MODULE: 002_007_string-processing
+TITLE: Topic 0: String creation, multiline strings & escape sequences
+LEVEL: Intermediate
+DIFFICULTY: Easy
+
+OVERVIEW:
+Mastery of fundamental string creation mechanisms in Python: single, double, and triple quotes, docstring specifications, escape sequences (\n, \t, \\, \', \", \u20B9 for Indian Rupee), raw strings (r"..."), and invoice generation.
+
+CORE CONCEPTS:
+1. String Literals (Single vs Double Quotes)
+2. Triple Quotes (''' and """) for Multiline Layouts & Docstrings
+3. Escape Sequences: \n, \t, \\, \', \", \r, \b, \u
+4. Raw Strings (r"") and Windows Path Disambiguation
+5. Explicit String Casting via str() Constructor
+6. Line Continuation with Backslash (\)
+
+REAL-WORLD SCENARIOS:
+- Generating formatted GST invoices and fee receipts in Barrackpore & Kolkata (₹)
+- Windows filesystem path configuration in Python scripts
+- Formatting CLI terminal output with tabs and newlines
+- Handling Unicode symbols and regional languages

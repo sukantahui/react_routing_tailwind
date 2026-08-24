@@ -1,0 +1,55 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                    TOPIC 15: REMOVING DUPLICATES USING SETS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE 3 DEDUPLICATION STRATEGIES
+--------------------------------------------------------------------------------
+Python developers have three primary ways to deduplicate collections:
+
+  Method 1: `list(set(my_list))`
+    • Best for: When element sequence/order DOES NOT MATTER.
+    • Speed: O(N) linear time.
+    • Caveat: Scrambles the original order!
+
+  Method 2: `list(dict.fromkeys(my_list))`
+    • Best for: Deduplicating while PRESERVING EXACT INSERTION ORDER.
+    • Speed: O(N) linear time.
+    • Feature: Guaranteed in Python 3.7+ (compact dictionary ordering).
+
+  Method 3: `seen = set()` with Loop or Generator
+    • Best for: Streams of complex dictionaries or custom objects where
+      deduplication is evaluated on a single specific key attribute.
+    • Speed: O(N) linear time.
+
+--------------------------------------------------------------------------------
+2. TIME COMPLEXITY COMPARISON
+--------------------------------------------------------------------------------
+  Technique                         | Time Complexity | Preserves Order?
+  ----------------------------------+-----------------+-------------------------
+  `list(set(data))`                 | O(N)            | NO (Scrambled)
+  `list(dict.fromkeys(data))`       | O(N)            | YES
+  `seen = set()` loop               | O(N)            | YES
+  Nested list `if x not in result`  | O(N^2)          | YES (Extremely SLOW!)
+
+--------------------------------------------------------------------------------
+3. THE FATAL O(N^2) NESTED LIST TRAP
+--------------------------------------------------------------------------------
+  • Writing:
+    ```python
+    unique_list = []
+    for x in raw_data:
+        if x not in unique_list:  # SLOW O(N) scan on every item!
+            unique_list.append(x)
+    ```
+  • For 100,000 items, nested list scanning takes over 15 seconds!
+  • Using a set reduces the time to under 0.005 seconds (3,000x faster)!
+
+================================================================================
+         END OF STUDY NOTE • TOPIC 15: REMOVING DUPLICATES WITH SETS
+================================================================================

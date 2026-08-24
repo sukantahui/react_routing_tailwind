@@ -1,0 +1,22 @@
+TOPIC_ID: 002_006_012
+MODULE: 002_006_sets
+TITLE: Topic 12: Set comparison: subset, superset, disjoint sets
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Comprehensive breakdown of relational set comparisons: improper subsets (<= / .issubset) and supersets (>= / .issuperset), strict proper comparisons (< and >), disjoint set validation via .isdisjoint() with short-circuit evaluation, and RBAC permission clearance engines.
+
+CORE CONCEPTS:
+1. Subset Testing (<= and issubset()): Inclusivity, Empty set subset rules
+2. Superset Testing (>= and issuperset()): Inclusivity, Universals
+3. Strict / Proper Subset (<) and Proper Superset (>): Absence of methods
+4. Disjoint Set Testing: isdisjoint() and short-circuit optimization vs bool(A & B)
+5. Mixed-type comparisons with methods vs strict operator requirements
+6. Time Complexity: O(len(A)) for subset, O(min(len(A), len(B))) for isdisjoint
+
+REAL-WORLD SCENARIOS:
+- RBAC role clearance and administrative security auditing in Kolkata tech firms
+- Prerequisite skill verification for advanced course cohorts in Barrackpore (₹)
+- Shift overlap detection and schedule collision prevention in HR systems
+- Schema validation for incoming API parameters

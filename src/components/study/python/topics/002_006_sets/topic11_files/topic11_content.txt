@@ -1,0 +1,22 @@
+TOPIC_ID: 002_006_011
+MODULE: 002_006_sets
+TITLE: Topic 11: Symmetric difference
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Exhaustive guide to set Symmetric Difference (Exclusive OR / XOR): mathematical definitions ((A | B) - (A & B)), operator ^ vs method .symmetric_difference(), in-place mutating variants (^= / .symmetric_difference_update), algebraic properties (commutativity, associativity, self-inversion A ^ A == set()), odd-multiplicity multi-chaining, and real-world bank reconciliation anomaly detection.
+
+CORE CONCEPTS:
+1. Symmetric Difference Mathematical Foundation (A Δ B)
+2. Operator ^ vs Named Method .symmetric_difference()
+3. In-Place Mutation: ^= and .symmetric_difference_update()
+4. Algebraic Laws: Commutativity (A ^ B == B ^ A) and Self-Inversion (A ^ A == set())
+5. Three-Way Chaining (A ^ B ^ C) & Odd-Multiplicity Inclusion
+6. Single-Argument Limitation of .symmetric_difference()
+
+REAL-WORLD SCENARIOS:
+- Bank statement vs ERP ledger reconciliation in Barrackpore (₹)
+- Infrastructure configuration drift detection between Staging and Production in Kolkata
+- Synchronizing bi-directional offline mobile databases
+- Single-course exclusive student fee auditing

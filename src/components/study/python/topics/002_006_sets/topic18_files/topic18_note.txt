@@ -1,0 +1,44 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+         TOPIC 18: REAL-WORLD USE CASES (UNIQUE USERS, TAGS, PERMISSIONS)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. TOP 4 PRODUCTION ARCHITECTURES POWERED BY SETS
+--------------------------------------------------------------------------------
+
+  Use Case 1: Unique User Tracking & DAU Analytics
+    • Collects user IDs into a set to compute Daily Active Users in O(1).
+    • Churn / Retention Metrics:
+      - Returning: `day1 & day2`
+      - New: `day2 - day1`
+      - Churned: `day1 - day2`
+
+  Use Case 2: Multi-Tag Search & E-Commerce Filtering
+    • AND Query (Requires ALL tags): `search_tags <= item_tags` (Subset)
+    • OR Query (Requires ANY tag): `not search_tags.isdisjoint(item_tags)` (Disjoint)
+    • NOT Query (Exclude tags): `item_tags.isdisjoint(excluded_tags)`
+
+  Use Case 3: Enterprise RBAC Security Clearance
+    • Aggregates multiple user roles: `effective_perms = role1_perms | role2_perms`
+    • O(1) Access Guard: `required_perm in effective_perms`
+
+  Use Case 4: Social Network Friend Recommendations
+    • Mutual Connections: `user_friends & candidate_friends`
+    • Non-Friend Candidates: `friends_of_friends - user_friends - {user}`
+
+--------------------------------------------------------------------------------
+2. ARCHITECTURAL BEST PRACTICES
+--------------------------------------------------------------------------------
+  • Use sets whenever relationships (unions, intersections, differences)
+    or containment checks are fundamental to your business domain.
+  • Store static role definitions as `frozenset` to ensure immutability and
+    thread safety.
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 18: REAL-WORLD SET USE CASES
+================================================================================

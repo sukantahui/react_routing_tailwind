@@ -1,0 +1,47 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                          TOPIC 11: SYMMETRIC DIFFERENCE
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. TOPIC OVERVIEW & MATHEMATICAL DEFINITION
+--------------------------------------------------------------------------------
+Symmetric Difference (A Δ B or A ^ B):
+  • Returns the set of all elements that belong to EITHER set A or set B,
+    but NOT to both (i.e. Disjunctive Union / Exclusive OR / XOR).
+  • Mathematical Equivalence: `A ^ B == (A | B) - (A & B) == (A - B) | (B - A)`
+  • Time Complexity: O(len(A) + len(B)).
+
+--------------------------------------------------------------------------------
+2. SYNTAX & IN-PLACE VARIANTS
+--------------------------------------------------------------------------------
+  • Operator (Strict sets only): `A ^ B`
+  • Method (Accepts any iterable): `A.symmetric_difference(iterable)`
+  • In-Place Mutating Operator: `A ^= B`
+  • In-Place Mutating Method: `A.symmetric_difference_update(iterable)`
+
+--------------------------------------------------------------------------------
+3. MATHEMATICAL PROPERTIES
+--------------------------------------------------------------------------------
+  • Commutative: `A ^ B == B ^ A`
+  • Associative: `(A ^ B) ^ C == A ^ (B ^ C)`
+  • Identity: `A ^ set() == A`
+  • Self-Inverse: `A ^ A == set()` (Self-cancelling XOR!)
+  • Multi-Set Chaining: In `A ^ B ^ C`, elements appearing in an ODD number
+    of sets are preserved; elements appearing in an EVEN number are cancelled.
+
+--------------------------------------------------------------------------------
+4. PRODUCTION INDUSTRY APPLICATIONS
+--------------------------------------------------------------------------------
+  • Financial Bank Reconciliation: Finding unreconciled ledger discrepancies.
+  • Configuration Drift Detection: Spotting diffs between Prod and Staging.
+  • Bi-Directional Database Sync: Identifying unsynchronized records.
+  • Cross-Cohort Exclusivity: Grouping single-course students.
+
+================================================================================
+            END OF STUDY NOTE • TOPIC 11: SYMMETRIC DIFFERENCE
+================================================================================

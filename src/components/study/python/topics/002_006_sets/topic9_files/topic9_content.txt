@@ -1,0 +1,22 @@
+TOPIC_ID: 002_006_009
+MODULE: 002_006_sets
+TITLE: Topic 9: Mathematical set operations
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Comprehensive structural introduction to discrete mathematics set algebra in Python: the 4 core operations (Union, Intersection, Difference, Symmetric Difference), operators (| & - ^) vs named methods, type enforcement rules, multi-set chaining, and in-place mutating variants.
+
+CORE CONCEPTS:
+1. The 4 Fundamental Operations: Union, Intersection, Difference, Symmetric Difference
+2. Operators (| & - ^) vs Methods (.union, .intersection, .difference, .symmetric_difference)
+3. Strict Operand Typing with Operators vs Polymorphic Iterables with Methods
+4. Multi-Set Chaining: A | B | C and A.union(B, C, D)
+5. Non-Mutating (New Set Creation) vs In-Place Mutation (|= &= -= ^=)
+6. Mathematical Venn Diagram Models and Cardinality Rules
+
+REAL-WORLD SCENARIOS:
+- Multi-course cross-enrollment and fee breakdown in Barrackpore (₹)
+- Consolidating customer lead databases across Kolkata and Ichapur
+- Identifying exclusive churn segments in subscription SaaS platforms
+- Role-Based Access Control (RBAC) permission resolution

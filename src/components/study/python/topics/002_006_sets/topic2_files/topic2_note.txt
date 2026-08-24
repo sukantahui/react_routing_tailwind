@@ -1,0 +1,68 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                         TOPIC 2: UNIQUE NATURE OF SETS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE ESSENCE OF UNIQUENESS IN PYTHON SETS
+--------------------------------------------------------------------------------
+The unique nature of Python sets is their defining property:
+  • No duplicate values can ever exist inside a set.
+  • Adding duplicate elements does NOT throw an error; it simply overwrites or
+    discards the redundant entry silently.
+  • Uniqueness is evaluated via a TWO-STEP INVARIANT:
+      Step 1: `hash(a) == hash(b)`  (Quick hash code comparison)
+      Step 2: `a == b`              (Exact value equality verification)
+
+--------------------------------------------------------------------------------
+2. HOW PYTHON DETERMINES DUPLICATION
+--------------------------------------------------------------------------------
+Two elements `a` and `b` are considered duplicates by a set if and only if:
+  1. Their hash values match: `hash(a) == hash(b)`
+  2. Their equality comparison returns True: `a == b`
+
+Crucial Examples of Deduplication:
+  • Integers and Floats:
+      `42 == 42.0` is True, and `hash(42) == hash(42.0)`.
+      Therefore, `{42, 42.0}` evaluates to `{42}` (len: 1).
+
+  • Booleans and Integers:
+      `True == 1` is True, and `hash(True) == hash(1)`.
+      `False == 0` is True, and `hash(False) == hash(0)`.
+      Therefore, `{1, True}` evaluates to `{1}` (len: 1).
+      `{0, False}` evaluates to `{0}` (len: 1).
+
+  • Strings (Case Sensitive):
+      `"Barrackpore"` != `"barrackpore"`.
+      Therefore, `{"Barrackpore", "barrackpore"}` has length 2!
+
+--------------------------------------------------------------------------------
+3. CONTROLLING UNIQUENESS IN USER-DEFINED CLASSES
+--------------------------------------------------------------------------------
+To make custom objects deduplicate properly in a set:
+  1. Implement `__eq__(self, other)` to compare logical business keys.
+  2. Implement `__hash__(self)` to return the hash of those same keys.
+  3. Hash Invariant: If `a == b`, then `hash(a) == hash(b)` MUST hold true!
+
+--------------------------------------------------------------------------------
+4. REAL-WORLD INDUSTRIAL APPLICATIONS
+--------------------------------------------------------------------------------
+  • E-Commerce Order Deduplication: Discarding double-click checkout attempts.
+  • Electoral & Voter Verification: Ensuring one vote per citizen ID.
+  • Web Analytics: Counting unique daily active visitors (DAU) from IP logs.
+  • Database ETL Pipelines: Sanitizing CSV / JSON feeds prior to SQL ingestion.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & GOTCHAS
+--------------------------------------------------------------------------------
+  [x] Assuming `True` and `1` can both exist in the same set (they cannot!).
+  [x] Modifying custom object fields after insertion into a set (hash corruption).
+  [x] Expecting case-insensitive string deduplication (strings are case-sensitive).
+
+================================================================================
+            END OF STUDY NOTE • TOPIC 2: UNIQUE NATURE OF SETS
+================================================================================

@@ -1,0 +1,23 @@
+TOPIC_ID: 002_006_002
+MODULE: 002_006_sets
+TITLE: Topic 2: Unique Nature of Sets
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Deep dive into set uniqueness mechanics in Python: mathematical foundations, the 2-step duplicate detection algorithm (hash check + equality check), numerical equivalencies (1 vs 1.0 vs True, 0 vs 0.0 vs False), case-sensitivity in strings, custom class hashing via __eq__ and __hash__, and real-world voter/order deduplication.
+
+CORE CONCEPTS:
+1. Uniqueness Guarantee & Automatic Duplicate Pruning
+2. The Two-Step Invariant: hash(a) == hash(b) AND a == b
+3. Boolean and Integer Overlap (True == 1, False == 0)
+4. Floating-Point and Integer Equivalence (42 == 42.0)
+5. Case Sensitivity in String Hashing ("Python" vs "python")
+6. Custom Class Uniqueness with __hash__ and __eq__
+7. Hash Table Invariants and Immutability Requirements
+
+REAL-WORLD SCENARIOS:
+- Voter ID registry deduplication in Barrackpore & Kolkata
+- Election grant calculation in Indian Rupees (₹)
+- Preventing duplicate transaction processing in banking APIs
+- Tracking Daily Active Users (DAU) by IP address

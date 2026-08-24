@@ -1,0 +1,65 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                     TOPIC 4: ADDING ELEMENTS: ADD() & UPDATE()
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. TOPIC OVERVIEW & MUTATION METHODS
+--------------------------------------------------------------------------------
+Python sets are mutable containers: you can add new elements after creation.
+Python provides two specialized methods for adding elements:
+  1. `set.add(element)`: Inserts a single hashable element.
+  2. `set.update(*iterables)`: Inserts multiple elements from one or more iterables.
+
+Both methods mutate the calling set in place and return `None`.
+
+--------------------------------------------------------------------------------
+2. METHOD 1: set.add(element)
+--------------------------------------------------------------------------------
+  • Syntax: `my_set.add(item)`
+  • Time Complexity: O(1) average time.
+  • Behavior: Takes a SINGLE hashable item. Computes `hash(item)` and inserts it.
+  • Duplicates: If the item already exists, it is silently ignored.
+  • Crucial Rule: The argument MUST be immutable/hashable.
+    - `my_set.add("Python")`    -> Valid!
+    - `my_set.add((1, 2))`      -> Valid!
+    - `my_set.add([1, 2])`      -> TypeError: unhashable type: 'list'
+
+--------------------------------------------------------------------------------
+3. METHOD 2: set.update(*iterables) (OR |= OPERATOR)
+--------------------------------------------------------------------------------
+  • Syntax: `my_set.update(iter1, iter2, ...)` or `my_set |= set2`
+  • Time Complexity: O(K) where K is the total elements across all iterables.
+  • Behavior: Unpacks each iterable argument and inserts every individual item.
+  • Versatility: Can accept lists, tuples, strings, ranges, dictionaries, sets,
+    and generator expressions simultaneously!
+  • Dictionary behavior: Extracts keys by default (unless `.values()` is passed).
+
+--------------------------------------------------------------------------------
+4. THE 3 CLASSIC TRAPS TO AVOID
+--------------------------------------------------------------------------------
+  [x] Trap 1: `s.update("Kolkata")` splits the string into 7 characters:
+      {'K', 'o', 'l', 'k', 'a', 't'}. Use `s.add("Kolkata")` for words!
+  [x] Trap 2: `s = s.add("React")` reassigns `s` to `None` because `.add()`
+      mutates in place and returns `None`.
+  [x] Trap 3: `s.add([1, 2, 3])` crashes with TypeError. Use `s.update([1, 2, 3])`!
+
+--------------------------------------------------------------------------------
+5. SUMMARY COMPARISON CHEAT SHEET
+--------------------------------------------------------------------------------
+  Feature               | set.add()                     | set.update()
+  ----------------------+-------------------------------+------------------------
+  Argument Type         | Single hashable element       | One or more iterables
+  String Handling       | Adds word as single string    | Unpacks into characters
+  Accepts Lists/Tuples  | Treats as 1 element (fails    | Unpacks elements and
+                        | on mutable list)              | adds each item
+  Multiple Arguments    | Exactly 1 argument            | Arbitrary (*iterables)
+  Return Value          | None (in-place mutation)      | None (in-place mutation)
+
+================================================================================
+           END OF STUDY NOTE • TOPIC 4: ADDING ELEMENTS TO SETS
+================================================================================

@@ -1,0 +1,43 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                   TOPIC 9: MATHEMATICAL SET OPERATIONS OVERVIEW
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. THE 4 PILLARS OF MATHEMATICAL SET OPERATIONS
+--------------------------------------------------------------------------------
+Python sets directly implement discrete mathematics set operations:
+  1. Union (`A | B` or `A.union(B)`): All elements in A, B, or both.
+  2. Intersection (`A & B` or `A.intersection(B)`): Elements in BOTH A and B.
+  3. Difference (`A - B` or `A.difference(B)`): Elements in A but NOT in B.
+  4. Symmetric Difference (`A ^ B` or `A.symmetric_difference(B)`):
+     Elements in exactly ONE set (in A or B, but NOT in both).
+
+--------------------------------------------------------------------------------
+2. METHODS VS OPERATORS: THE GOLDEN RULE
+--------------------------------------------------------------------------------
+  • OPERATORS (`|`, `&`, `-`, `^`):
+    - STRICT: Both the left and right operands MUST be `set` or `frozenset` objects.
+    - Example: `my_set | [1, 2]` -> CRASHES with TypeError!
+
+  • METHODS (`.union()`, `.intersection()`, `.difference()`, `.symmetric_difference()`):
+    - FLEXIBLE: Accepts ANY iterable (Lists, Tuples, Dictionaries, Generators).
+    - Example: `my_set.union([1, 2])` -> SUCCEEDS seamlessly!
+
+--------------------------------------------------------------------------------
+3. IN-PLACE MUTATING VARIANTS
+--------------------------------------------------------------------------------
+  Operation             | Non-Mutating (New Set) | In-Place Mutating (None)
+  ----------------------+------------------------+--------------------------
+  Union                 | A | B / A.union(B)     | A |= B / A.update(B)
+  Intersection          | A & B / A.intersection | A &= B / A.intersection_update
+  Difference            | A - B / A.difference   | A -= B / A.difference_update
+  Symmetric Difference  | A ^ B / A.sym_diff     | A ^= B / A.symmetric_difference_update
+
+================================================================================
+       END OF STUDY NOTE • TOPIC 9: MATHEMATICAL SET OPERATIONS OVERVIEW
+================================================================================

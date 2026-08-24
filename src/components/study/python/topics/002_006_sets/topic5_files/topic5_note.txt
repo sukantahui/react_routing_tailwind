@@ -1,0 +1,48 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+             TOPIC 5: REMOVING ELEMENTS: REMOVE(), DISCARD(), POP(), CLEAR()
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. OVERVIEW OF SET REMOVAL METHODS
+--------------------------------------------------------------------------------
+Python provides four distinct built-in methods to remove elements from a set:
+  1. `set.remove(elem)`: Removes `elem`; RAISES `KeyError` if not found.
+  2. `set.discard(elem)`: Removes `elem`; SILENT NO-OP if not found.
+  3. `set.pop()`: Removes & returns an ARBITRARY element; RAISES `KeyError` if empty.
+  4. `set.clear()`: Empties the entire set in place, leaving `set()`.
+
+--------------------------------------------------------------------------------
+2. DETAILED COMPARISON TABLE
+--------------------------------------------------------------------------------
+  Method         | Target Item Exists       | Target Item Missing   | Return Value
+  ---------------+--------------------------+-----------------------+--------------
+  s.remove(x)    | Deletes x from bucket    | RAISES KeyError!      | None
+  s.discard(x)   | Deletes x from bucket    | Silent safe no-op     | None
+  s.pop()        | Deletes 1st active bucket| RAISES KeyError (empty)| Popped element
+  s.clear()      | Wipes all active buckets | Safe on empty set     | None
+
+--------------------------------------------------------------------------------
+3. REMOVING MULTIPLE ELEMENTS AT ONCE
+--------------------------------------------------------------------------------
+  A. Using `difference_update(*iterables)`:
+     `s.difference_update(["A", "B", "C"])`  # Modifies s in place
+
+  B. Using in-place subtraction operator `-=`:
+     `s -= {"A", "B"}`                      # Requires a set operand
+
+--------------------------------------------------------------------------------
+4. BEST PRACTICE RULES
+--------------------------------------------------------------------------------
+  • Use `s.remove(x)` when the element MUST exist, and absence indicates a bug.
+  • Use `s.discard(x)` when you want defensive deletion without try/except blocks.
+  • Use `s.pop()` when draining tasks or picking an arbitrary worker from a pool.
+  • Use `s.clear()` when resetting or recycling an existing set object.
+
+================================================================================
+         END OF STUDY NOTE • TOPIC 5: REMOVING ELEMENTS FROM SETS
+================================================================================

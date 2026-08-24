@@ -1,0 +1,22 @@
+TOPIC_ID: 002_006_015
+MODULE: 002_006_sets
+TITLE: Topic 15: Removing duplicates using sets
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Exhaustive guide to data deduplication algorithms in Python: fast standard list(set(data)) O(N) deduplication, order-preserving deduplication via dict.fromkeys(), seen-set generator patterns for streaming pipelines, avoiding the catastrophic O(N^2) nested list scanning trap, and deduplicating custom objects via __hash__ and __eq__.
+
+CORE CONCEPTS:
+1. Standard Unordered Deduplication via list(set(data))
+2. Order-Preserved Deduplication via list(dict.fromkeys(data))
+3. The seen-set Generator Pipeline Pattern
+4. The O(N^2) Nested List Scanning Trap
+5. Deduplicating Custom Objects via __hash__ & __eq__
+6. Key-Based Deduplication across Dictionaries and JSON Streams
+
+REAL-WORLD SCENARIOS:
+- Voter electoral roll deduplication in Barrackpore & Kolkata
+- Payment webhook event deduplication and replay protection
+- Deduplicating search engine web crawler URLs
+- Sanitizing user email subscriber lists

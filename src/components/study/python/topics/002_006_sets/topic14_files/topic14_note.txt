@@ -1,0 +1,52 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                          TOPIC 14: SET COMPREHENSION
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. WHAT IS A SET COMPREHENSION?
+--------------------------------------------------------------------------------
+A Set Comprehension is an elegant, concise, and high-performance Python construct
+for generating, transforming, and filtering sets in a single expressive line.
+
+Syntax:
+  `{expression for item in iterable if condition}`
+
+How it operates under the hood:
+  1. Iterates over the source `iterable`.
+  2. Evaluates the `if condition` (if present).
+  3. Evaluates `expression` to transform the element.
+  4. Automatically computes `hash(transformed_value)` and inserts it into
+     a new set, eliminating any duplicates on the fly!
+
+--------------------------------------------------------------------------------
+2. COMPREHENSION SYNTAX COMPARISON
+--------------------------------------------------------------------------------
+  Container Type        | Syntax Pattern                    | Duplicates?
+  ----------------------+-----------------------------------+-------------------
+  List Comprehension    | `[x**2 for x in data]`            | Preserved
+  Set Comprehension     | `{x**2 for x in data}`            | Collapsed/Unique
+  Dict Comprehension    | `{k: v for k, v in data}`         | Unique Keys
+  Generator Expression  | `(x**2 for x in data)`            | Lazy Stream
+
+--------------------------------------------------------------------------------
+3. MULTI-LOOP SET COMPREHENSIONS (FLATTENING)
+--------------------------------------------------------------------------------
+  • Syntax: `{item for sublist in matrix for item in sublist}`
+  • The order of `for` clauses matches the order of nested for-loops!
+
+--------------------------------------------------------------------------------
+4. PRODUCTION INDUSTRY APPLICATIONS
+--------------------------------------------------------------------------------
+  • Sanitizing messy user input (stripping whitespace, lowercasing).
+  • Extracting unique domain names from email lists.
+  • Flattening multi-level permission structures.
+  • Filtering and deduplicating webhook event streams.
+
+================================================================================
+            END OF STUDY NOTE • TOPIC 14: SET COMPREHENSIONS
+================================================================================

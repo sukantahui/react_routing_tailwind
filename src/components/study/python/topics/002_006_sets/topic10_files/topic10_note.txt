@@ -1,0 +1,46 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                   TOPIC 10: UNION, INTERSECTION, AND DIFFERENCE
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. OPERATION 1: UNION (A | B or A.union(*others))
+--------------------------------------------------------------------------------
+  • Definition: All distinct items present in set A, set B, or both.
+  • Time Complexity: O(len(A) + len(B)).
+  • In-Place Mutating Operator: `A |= B` (or `A.update(*others)`).
+  • Key Use Case: Merging user registries, aggregating multi-source IDs.
+
+--------------------------------------------------------------------------------
+2. OPERATION 2: INTERSECTION (A & B or A.intersection(*others))
+--------------------------------------------------------------------------------
+  • Definition: Only the common items present simultaneously in all sets.
+  • Time Complexity: O(min(len(A), len(B))) - Python loops over smaller set!
+  • In-Place Mutating Operator: `A &= B` (or `A.intersection_update(*others)`).
+  • Key Use Case: Candidate skill matching, mutual friend discovery.
+
+--------------------------------------------------------------------------------
+3. OPERATION 3: DIFFERENCE (A - B or A.difference(*others))
+--------------------------------------------------------------------------------
+  • Definition: Items in set A that are NOT present in set B.
+  • Time Complexity: O(len(A)).
+  • In-Place Mutating Operator: `A -= B` (or `A.difference_update(*others)`).
+  • Crucial Rule: NON-COMMUTATIVE! `A - B != B - A`.
+  • Key Use Case: Missing form fields, identifying unsubscribed churn users.
+
+--------------------------------------------------------------------------------
+4. OPERATOR VS METHOD BEHAVIOR SUMMARY
+--------------------------------------------------------------------------------
+  Operation     | Operator Syntax (Sets Only) | Method Syntax (Any Iterable)
+  --------------+-----------------------------+------------------------------
+  Union         | A | B | C                   | A.union(list1, tuple2)
+  Intersection  | A & B & C                   | A.intersection(list1, tuple2)
+  Difference    | A - B - C                   | A.difference(list1, tuple2)
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 10: UNION, INTERSECTION, DIFFERENCE
+================================================================================

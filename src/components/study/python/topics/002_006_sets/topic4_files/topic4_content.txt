@@ -1,0 +1,23 @@
+TOPIC_ID: 002_006_004
+MODULE: 002_006_sets
+TITLE: Topic 4: Adding Elements: add(), update()
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Comprehensive breakdown of set mutation methods: set.add() for inserting single hashable items in O(1) time vs set.update() for unpacking and batch-ingesting multiple iterables in O(K) time, string-splitting pitfalls in update, the None return value trap, and multi-argument batch processing.
+
+CORE CONCEPTS:
+1. set.add() Method Mechanics & O(1) Insertion
+2. set.update() Method Mechanics & Bulk Unpacking
+3. In-Place Mutation and the None Return Value Trap
+4. String Treatment: add("text") vs update("text")
+5. Multi-iterable Arguments: set.update(list1, tuple2, range3)
+6. The |= Augmented Assignment Operator vs update()
+7. Error Handling: Adding unhashable containers to add()
+
+REAL-WORLD SCENARIOS:
+- Consolidating multi-branch student admissions across Barrackpore, Ichapur, and Kolkata
+- Batch ingestion of webhook payments with fee calculations in Indian Rupees (₹)
+- Tag registration in e-commerce product catalogs
+- Aggregating unique sensor telemetry logs from distributed IoT nodes

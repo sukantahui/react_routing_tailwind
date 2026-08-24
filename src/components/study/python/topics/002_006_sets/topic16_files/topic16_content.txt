@@ -1,0 +1,22 @@
+TOPIC_ID: 002_006_016
+MODULE: 002_006_sets
+TITLE: Topic 16: Sets vs lists vs tuples
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Comprehensive architectural comparison of Python's primary built-in data structures: sets vs lists vs tuples across 9 critical dimensions (mutability, ordering, uniqueness, indexing/slicing, membership complexity, memory overhead, hashability, literals, and mathematical operations), accompanied by practical decision workflows.
+
+CORE CONCEPTS:
+1. 9-Dimensional Master Comparison Grid
+2. Memory Footprint Benchmarking: Tuple (most compact) vs List vs Set (hash table overhead)
+3. Membership Lookup Speedup: O(1) Hash Table vs O(N) Array Scans
+4. Immutability & Hashability Rules (Tuple vs Set vs Frozenset)
+5. Practical Decision Matrix for Container Selection
+6. Architectural Synergy: Composing Tuples in Sets and Lists
+
+REAL-WORLD SCENARIOS:
+- E-commerce shopping cart pipelines with immutable product tuples and promo sets in Barrackpore & Kolkata (₹)
+- High-throughput API gateway routing and request rate limiting
+- Database ORM record representation and caching layers
+- Financial transaction ledger reconciliation and batch settlement

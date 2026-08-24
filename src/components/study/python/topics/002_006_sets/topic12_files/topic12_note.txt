@@ -1,0 +1,51 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+             TOPIC 12: SET COMPARISON: SUBSET, SUPERSET, DISJOINT SETS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. SUBSET AND SUPERSET RELATIONSHIPS
+--------------------------------------------------------------------------------
+  • Subset (`A <= B` or `A.issubset(B)`):
+    - True if every element of set A is also contained in set B.
+    - An identical set is always a subset of itself (`A <= A` is True).
+
+  • Superset (`A >= B` or `A.issuperset(B)`):
+    - True if set A contains every element of set B.
+
+--------------------------------------------------------------------------------
+2. STRICT / PROPER COMPARISONS (OPERATOR ONLY!)
+--------------------------------------------------------------------------------
+  • Proper Subset (`A < B`):
+    - True if `A <= B` AND `A != B` (Set A is strictly smaller than B).
+  • Proper Superset (`A > B`):
+    - True if `A >= B` AND `A != B` (Set A has strictly more elements).
+  • Note: There are NO method equivalents for `<` and `>` (Operator only).
+
+--------------------------------------------------------------------------------
+3. DISJOINT SETS: set.isdisjoint()
+--------------------------------------------------------------------------------
+  • Definition: Two sets are disjoint if they share ZERO common elements.
+  • Syntax: `A.isdisjoint(B)`
+  • Time Complexity: O(min(len(A), len(B))) with short-circuiting!
+  • Performance Advantage: Stops on the first shared item without allocating
+    an intermediate intersection set (`bool(A & B)` is slower!).
+
+--------------------------------------------------------------------------------
+4. COMPARISON CHEAT SHEET
+--------------------------------------------------------------------------------
+  Relationship          | Operator Syntax | Method Syntax        | Strict?
+  ----------------------+-----------------+----------------------+----------
+  Subset (Improper)     | A <= B          | A.issubset(B)        | Allows A==B
+  Proper Subset         | A < B           | (None - Op only)     | Requires A!=B
+  Superset (Improper)   | A >= B          | A.issuperset(B)      | Allows A==B
+  Proper Superset       | A > B           | (None - Op only)     | Requires A!=B
+  Disjoint (No overlap) | (None)          | A.isdisjoint(B)      | Zero shared items
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 12: SUBSET, SUPERSET, DISJOINT
+================================================================================
