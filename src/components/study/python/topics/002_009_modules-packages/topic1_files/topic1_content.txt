@@ -1,0 +1,26 @@
+TOPIC_ID: 002_009_001
+MODULE: 002_009_modules-packages
+TITLE: Topic 1: Module search path (sys.path) and module namespace
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive exploration of Python's module search path (sys.path) resolution hierarchy, module namespace internals, and defensive import architecture. Explores the 4-tier search precedence (sys.path[0] script directory -> PYTHONPATH -> Standard Library -> site-packages), the mechanics of programmatic path manipulation (sys.path.insert vs sys.path.append), the structure of module namespaces (module.__dict__ and ModuleType), standard dunder metadata attributes (__name__, __file__, __doc__, __package__, __spec__), differences between globals() and locals(), and the diagnosis and prevention of the catastrophic Module Shadowing problem (e.g. naming custom scripts math.py, random.py, csv.py).
+
+CORE CONCEPTS:
+1. sys.path Hierarchy: 4-Tier Resolution Precedence
+2. Script Directory Priority: sys.path[0] Behavior
+3. Programmatic Path Injection: sys.path.insert(0, path)
+4. Module Namespaces: The ModuleType and module.__dict__
+5. Module Dunder Metadata: __name__, __file__, __doc__, __package__, __spec__
+6. Scope Boundaries: globals() vs locals() in Module Contexts
+7. The Module Shadowing Disaster: Local Files Overriding Standard Libraries
+8. Automated Shadowing Detection: Auditing Script Names
+9. Dynamic Plugin Discovery: Inspecting Namespaces at Runtime
+10. PEP-8 Directory Layouts for Multi-Module Production Projects
+
+REAL-WORLD SCENARIOS:
+- Debugging mysterious AttributeError crashes caused by local module shadowing (math.py, random.py)
+- Dynamically loading third-party plugins from external directories into enterprise software
+- Configuring custom PYTHONPATH environments across staging and production Docker containers
+- Auditing legacy codebases for un-namespaced global variable leaks

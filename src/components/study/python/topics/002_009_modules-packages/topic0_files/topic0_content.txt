@@ -1,0 +1,26 @@
+TOPIC_ID: 002_009_000
+MODULE: 002_009_modules-packages
+TITLE: Topic 0: import & from-import syntax variations
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive guide to Python's module import architecture, syntax variations, namespace boundaries, and CPython execution internals. Explores direct module imports (import math), module aliasing (import datetime as dt), selective symbol imports (from decimal import Decimal), symbol aliasing (from statistics import mean as avg), and why wildcard imports (from module import *) represent a severe production anti-pattern. Covers the 4-step import lifecycle (sys.modules cache -> sys.path search -> __pycache__ bytecode compilation -> execution), dynamic imports via importlib.import_module, the anatomy of circular dependency cycles, and DAG architectural refactoring.
+
+CORE CONCEPTS:
+1. Direct Module Imports: Qualified Namespace Access (import module)
+2. Module Aliasing: Custom Namespace Aliases (import module as alias)
+3. Specific Symbol Imports: Direct Identifier Binding (from module import symbol)
+4. Symbol Aliasing: Avoiding Local Name Collisions (from module import symbol as alias)
+5. The Wildcard Anti-Pattern: Namespace Pollution & Shadowing (from module import *)
+6. CPython 4-Step Import Lifecycle: sys.modules -> sys.path -> __pycache__ -> exec
+7. In-Memory Cache: Inspecting & Accessing sys.modules
+8. Dynamic Imports at Runtime: importlib.import_module() & importlib.reload()
+9. Circular Dependency Trap: Understanding "partially initialized module" errors
+10. Circular Import Resolutions: Function-level deferred imports & shared model refactoring
+
+REAL-WORLD SCENARIOS:
+- Structuring large multi-file Python enterprise backends with clean namespace isolation
+- Resolving circular dependency deadlocks in microservice database and domain models
+- Building dynamic plugin systems that load modules based on user configuration strings
+- Designing high-precision financial tax calculation toolkits with Decimal imports

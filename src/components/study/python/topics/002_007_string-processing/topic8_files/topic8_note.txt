@@ -1,0 +1,72 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_007: STRING PROCESSING
+        TOPIC 8: PATTERN MATCHING & SUBSTITUTION (SEARCH, MATCH, FINDALL, SUB)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. CORE PATTERN MATCHING TRIO: match() VS search() VS fullmatch()
+--------------------------------------------------------------------------------
+  Method           Where it Looks               Returns on Match    Returns on Fail
+  ------------------------------------------------------------------------------
+  re.match(p, s)   Index 0 ONLY (Start of str)  Match object        None
+  re.search(p, s)  Scans ENTIRE string          Match object (1st)  None
+  re.fullmatch(p,s)Entire string must match     Match object        None
+
+  Example: s = "ID: 9402"
+    re.match(r"\d+", s)     -> None (Starts with 'I')
+    re.search(r"\d+", s)    -> <Match object; span=(4, 8), match='9402'>
+    re.fullmatch(r"\d+", s) -> None (Contains non-digits)
+
+--------------------------------------------------------------------------------
+2. THE Match OBJECT ANATOMY & METHODS
+--------------------------------------------------------------------------------
+  Given m = re.search(r"(\d{4})-(\d{2})-(\d{2})", "Date: 2026-08-24")
+
+  Method / Property    Sample Return Value         Description
+  ------------------------------------------------------------------------------
+  m.group() / group(0) "2026-08-24"                Full matched text
+  m.group(1)           "2026"                      1st captured subgroup (Year)
+  m.group(2)           "08"                        2nd captured subgroup (Month)
+  m.group(3)           "24"                        3rd captured subgroup (Day)
+  m.groups()           ("2026", "08", "24")        Tuple of all captured groups
+  m.groupdict()        {"year": "2026", ...}       Dict if named groups used (?P<name>)
+  m.start(), m.end()   6, 16                       Start and End index positions
+  m.span()             (6, 16)                     Tuple of (start, end) indices
+
+--------------------------------------------------------------------------------
+3. re.findall() RETURN STRUCTURE RULES
+--------------------------------------------------------------------------------
+  • 0 Groups in Pattern: Returns list of strings [full_match_1, full_match_2, ...]
+  • 1 Group in Pattern : Returns list of strings [group1_match_1, group1_match_2, ...]
+  • 2+ Groups in Pattern: Returns list of tuples [(g1, g2), (g1, g2), ...]
+
+--------------------------------------------------------------------------------
+4. re.finditer(): STREAMING Match OBJECTS
+--------------------------------------------------------------------------------
+  • Memory-efficient iterator for large text files and web logs.
+  • Yields Match objects lazily one at a time:
+      for match in pattern.finditer(huge_log_stream):
+          ip = match.group("ip")
+          status = match.group("status")
+
+--------------------------------------------------------------------------------
+5. re.sub() & re.subn(): BACKREFERENCES & DYNAMIC CALLBACKS
+--------------------------------------------------------------------------------
+  • Backreferences in Replacement String:
+      re.sub(r"(\d{4})-(\d{2})-(\d{2})", r"\3-\2-\1", "2026-08-24") -> "24-08-2026"
+  • Named Backreferences:
+      re.sub(r"(?P<first>\w+)\s+(?P<last>\w+)", r"\g<last>, \g<first>", "Susmita Mukherjee")
+  • Dynamic Callable Callback:
+      def mask_phone(m):
+          return "+91 ******" + m.group()[-4:]
+      re.sub(r"[6-9]\d{9}", mask_phone, text)
+  • re.subn():
+      Returns (new_string, count_of_substitutions)
+
+================================================================================
+           END OF STUDY NOTE • TOPIC 8: PATTERN MATCHING & SUBSTITUTION
+================================================================================

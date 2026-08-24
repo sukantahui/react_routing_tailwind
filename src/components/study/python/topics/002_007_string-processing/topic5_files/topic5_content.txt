@@ -1,0 +1,26 @@
+TOPIC_ID: 002_007_005
+MODULE: 002_007_string-processing
+TITLE: Topic 5: Advanced formatting: f-strings, format() method, padding, alignment
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive guide to modern and structured string formatting in Python. Explores formatted string literals (f-strings, PEP 498 & PEP 701), inline expressions and ternary branching, self-documenting debugging specifiers (f"{var=}"), escaping braces, the format specification mini-language (alignments <, >, ^, =, custom fill characters, width, float precision :.2f, percentages :.1%, thousands separators :,), integer base conversions (binary, octal, hex), str.format() positional & named mapping with dictionary unpacking, and production financial invoice generation.
+
+CORE CONCEPTS:
+1. Formatted String Literals (f-strings) & Expression Evaluation
+2. Self-Documenting Debugging: f"{expression=}" (Python 3.8+)
+3. Curly Brace Escaping ({{ and }}) & Conversion Specifiers (!r, !s, !a)
+4. Format Specification Mini-Language Anatomy: [[fill]align][sign][#][0][width][grouping][.precision][type]
+5. Field Alignment & Padding: < (left), > (right), ^ (center), = (sign-aware)
+6. Float Precision (:.2f) & Percentage Calculations (:.1%)
+7. Thousands Grouping Separators (:, and :_) & Zero-Padding (:06d)
+8. Base Representations: Binary (:b), Octal (:o), Hexadecimal (:x, :#X)
+9. str.format() Method: Positional {0}, Named {name}, and Dict Unpacking (**kwargs)
+10. Datetime Formatting Inside f-Strings (:%Y-%m-%d %H:%M:%S)
+
+REAL-WORLD SCENARIOS:
+- Generating polished student fee receipts, GST tax breakdowns, and payment invoices
+- Structuring terminal dashboard tables with fixed-width column alignments
+- Self-documenting debug logging for production server microservices
+- Formatting currency balances and percentage discount metrics for e-commerce

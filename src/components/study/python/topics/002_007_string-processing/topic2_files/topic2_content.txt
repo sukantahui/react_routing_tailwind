@@ -1,0 +1,24 @@
+TOPIC_ID: 002_007_002
+MODULE: 002_007_string-processing
+TITLE: Topic 2: Indexing, slicing, step slicing & reversing strings
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive exploration of string sequence navigation in Python, covering positive (0-based) and negative indexing, half-open slicing interval semantics [start:stop), step strides [start:stop:step], the slice reversal idiom s[::-1], boundary clamping tolerance without IndexError, and high-performance fixed-width packet parsing.
+
+CORE CONCEPTS:
+1. Positive 0-Based Indexing (0 to len-1) & Negative Indexing (-1 to -len)
+2. Character Access Mechanics: Python has no separate 'char' type (returns str of length 1)
+3. Boundary Safety & IndexError Behavior in Indexing vs Slicing
+4. Slicing Semantics: Half-Open Interval [start:stop) and Length Formula
+5. Omission Defaults: [:stop], [start:], [:], [::step]
+6. Step Strides & Negative Strides: s[::-1] for O(N) C-level String Reversal
+7. Palindrome Verification: Case-insensitive, punctuation-agnostic phrase checking
+8. Real-World Applications: Fixed-width legacy log parsing, packet telemetry, token slicing
+
+REAL-WORLD SCENARIOS:
+- Parsing fixed-width payment telemetry and audit packets in Barrackpore & Kolkata
+- Extracting ISO date segments (YYYY-MM-DD), rolling timestamps, and transaction codes
+- Building robust search engine palindrome filters and anagram preprocessors
+- Sanitizing and extracting sub-components from emails, URLs, and serial numbers

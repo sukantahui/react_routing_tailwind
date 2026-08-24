@@ -1,0 +1,26 @@
+TOPIC_ID: 002_007_007
+MODULE: 002_007_string-processing
+TITLE: Topic 7: Basic regular expressions concept with re module
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive introduction to Python's regular expressions engine using the built-in `re` module. Covers the critical Backslash Plague and why raw strings (r"...") are mandatory, fundamental metacharacters (. ^ $ | [] ()), character sets and ranges, word boundaries (\b), shorthand character classes (\d, \w, \s, \D, \W, \S), quantifier mechanics (* + ? {m,n}), the classic greedy vs non-greedy (lazy) trap (.* vs .*?), pattern pre-compilation with re.compile(), core regex compilation flags (re.IGNORECASE, re.MULTILINE, re.DOTALL, re.VERBOSE), and enterprise validation of Indian IDs (PAN, GSTIN, PIN code, mobile).
+
+CORE CONCEPTS:
+1. The Backslash Plague: Why Python Regex Requires Raw Strings (r"...")
+2. Core Metacharacters: . (any char), ^ (start), $ (end), | (or), () (group)
+3. Character Sets & Ranges: [abc], [a-z0-9], Negated Sets [^0-9]
+4. Word Boundaries: \b (word edge) vs \B (non-word boundary)
+5. Predefined Shorthand Classes: \d (digits), \w (word chars), \s (whitespace)
+6. Quantifiers: * (0+), + (1+), ? (0 or 1), {n}, {m,n}
+7. Greedy (.*) vs Non-Greedy / Lazy (.*?) Evaluation Mechanics
+8. Pattern Compilation: re.compile() for Reusability and Performance
+9. Regex Flags: re.IGNORECASE (re.I), re.MULTILINE (re.M), re.DOTALL (re.S), re.VERBOSE (re.X)
+10. Combining Flags with Bitwise OR: re.I | re.M | re.X
+
+REAL-WORLD SCENARIOS:
+- Validating Indian PAN cards, 15-digit GSTINs, and 6-digit postal PIN codes
+- Extracting whole-word search tokens using \b word boundaries
+- Correctly isolating multiple HTML/XML tags without greedy regex swallowing
+- Parsing multi-line server audit logs with re.MULTILINE and re.DOTALL

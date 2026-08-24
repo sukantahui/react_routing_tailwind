@@ -271,7 +271,7 @@ export default function Topic5() {
                 <text x="65" y="142" fill="#fecaca" fontSize="13" fontWeight="bold">💥 CRASH: KeyError: 'UnknownCity'</text>
 
                 <text x="50" y="185" fill="#cbd5e1" fontSize="12">• Computes hash("UnknownCity").</text>
-                <text x="50" y="210" fill="#cbd5e1" fontSize="12">• Inspects bucket -> Finds item is absent.</text>
+                <text x="50" y="210" fill="#cbd5e1" fontSize="12">• Inspects bucket → Finds item is absent.</text>
                 <text x="50" y="235" fill="#fca5a5" fontSize="12" fontWeight="bold">• Immediately raises KeyError and terminates execution!</text>
 
                 {/* Right: discard() */}
@@ -282,7 +282,7 @@ export default function Topic5() {
                 <text x="475" y="142" fill="#a7f3d0" fontSize="13" fontWeight="bold">🛡️ SAFE NO-OP: Returns None (Zero Error)</text>
 
                 <text x="460" y="185" fill="#cbd5e1" fontSize="12">• Computes hash("UnknownCity").</text>
-                <text x="460" y="210" fill="#cbd5e1" fontSize="12">• Inspects bucket -> Finds item is absent.</text>
+                <text x="460" y="210" fill="#cbd5e1" fontSize="12">• Inspects bucket → Finds item is absent.</text>
                 <text x="460" y="235" fill="#34d399" fontSize="12" fontWeight="bold">• Silently exits without error. Program continues safely!</text>
               </svg>
             ) : (
@@ -294,7 +294,7 @@ export default function Topic5() {
                 <text x="50" y="95" fill="#38bdf8" fontSize="15" fontWeight="bold">item = s.pop()  (Arbitrary Extraction)</text>
 
                 <rect x="50" y="115" width="340" height="45" rx="6" fill="#0c4a6e" stroke="#0ea5e9" />
-                <text x="65" y="142" fill="#bae6fd" fontSize="12" fontWeight="bold">Extracts 1st Occupied Bucket -> Returns Element</text>
+                <text x="65" y="142" fill="#bae6fd" fontSize="12" fontWeight="bold">Extracts 1st Occupied Bucket → Returns Element</text>
 
                 <text x="50" y="185" fill="#cbd5e1" fontSize="12">• Removes 1 item from hash table.</text>
                 <text x="50" y="210" fill="#cbd5e1" fontSize="12">• Returns the extracted element to caller.</text>
@@ -305,7 +305,7 @@ export default function Topic5() {
                 <text x="460" y="95" fill="#fbbf24" fontSize="15" fontWeight="bold">s.clear()  (Total In-Place Reset)</text>
 
                 <rect x="460" y="115" width="340" height="45" rx="6" fill="#451a03" stroke="#f59e0b" />
-                <text x="475" y="142" fill="#fde68a" fontSize="12" fontWeight="bold">Deallocates all Buckets -> Resets len(s) == 0</text>
+                <text x="475" y="142" fill="#fde68a" fontSize="12" fontWeight="bold">Deallocates all Buckets → Resets len(s) == 0</text>
 
                 <text x="460" y="185" fill="#cbd5e1" fontSize="12">• Wipes all table elements in place.</text>
                 <text x="460" y="210" fill="#cbd5e1" fontSize="12">• Keeps existing memory object reference alive.</text>

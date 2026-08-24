@@ -1,0 +1,26 @@
+TOPIC_ID: 002_009_004
+MODULE: 002_009_modules-packages
+TITLE: Topic 4: The __name__ == '__main__' idiom explained with practical use cases
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive exploration of Python's `__name__ == '__main__'` idiom, execution context mechanics, and dual-purpose module design. Explains how CPython dynamically assigns `__name__ = '__main__'` during direct script execution and `__name__ = 'module_name'` during imports. Demonstrates why omitting the guard causes disastrous side effects (such as unwanted executions, CLI prompts, and test suite pollution upon import), how to design dual-purpose modules (functioning as clean importable libraries for web backends AND interactive CLI utilities for terminal operators), and how to leverage the guard for embedded self-tests and performance benchmarks.
+
+CORE CONCEPTS:
+1. The Dunder Name Mechanism: Dynamic Assignment by CPython
+2. Direct Execution Mode (__name__ == '__main__')
+3. Import Mode (__name__ == 'module_name')
+4. Preventing Import Side Effects (accidental execution of top-level code)
+5. Dual-Purpose Architecture: Library + CLI Tool
+6. Parsing sys.argv inside the Execution Guard
+7. Embedded Unit Testing and Self-Verification via Assertions
+8. Micro-Benchmarking Algorithms with time.perf_counter()
+9. Standard Entry Point Functions (def main(): ...)
+10. Enterprise Case Study: GST Tax Invoice Generator & CLI Tool
+
+REAL-WORLD SCENARIOS:
+- Writing backend utility modules that can be imported by FastAPI endpoints while remaining executable from cron jobs
+- Building database migration scripts that can be tested in isolation from the terminal
+- Eliminating performance overhead and unintended side effects during automated test suite runs
+- Developing multi-tier command-line tools with interactive fallbacks for system administrators

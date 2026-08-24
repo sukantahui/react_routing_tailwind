@@ -1,0 +1,76 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_007: STRING PROCESSING
+        TOPIC 5: ADVANCED FORMATTING (F-STRINGS, FORMAT METHOD, PADDING & ALIGNMENT)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. FORMAT SPECIFICATION MINI-LANGUAGE ANATOMY
+--------------------------------------------------------------------------------
+  Syntax: {[expression] : [[fill]align] [sign] [#] [0] [width] [grouping] [.precision] [type]}
+
+  Components:
+  • fill      : Any single character used for padding (e.g. '*', '-', '_', '0').
+  • align     : '<' (Left), '>' (Right), '^' (Center), '=' (Sign-aware).
+  • sign      : '+' (Show sign always), '-' (Negative only), ' ' (Leading space for +).
+  • #         : Alternate form (prefixes 0b, 0o, 0x for binary, octal, hex).
+  • 0         : Enable zero-padding (equivalent to fill '0' with align '=').
+  • width     : Minimum total field width.
+  • grouping  : ',' (Thousands comma) or '_' (Thousands underscore).
+  • precision : Number of decimal places for floats, or max characters for strings.
+  • type      : 'f' (float), 'd' (int), 's' (str), '%' (percent), 'e' (scientific),
+                'b' (binary), 'o' (octal), 'x' / 'X' (hex).
+
+--------------------------------------------------------------------------------
+2. COMMON FORMAT SPECIFIERS CHEAT SHEET
+--------------------------------------------------------------------------------
+  Format Code          Sample Value      Output String       Description
+  ------------------------------------------------------------------------------
+  {val:.2f}            124.5678          "124.57"            Fixed 2 decimal digits
+  {val:,.2f}           1250000.5         "1,250,000.50"      Currency with commas
+  {val:.1%}            0.185             "18.5%"             Percentage formatting
+  {val:06d}            942               "000942"            Zero-padded 6 digits
+  {val:<15}            "Python"          "Python         "   Left-aligned width 15
+  {val:>15}            "Python"          "         Python"   Right-aligned width 15
+  {val:^15}            "Python"          "    Python     "   Center-aligned width 15
+  {val:*^15}           "Python"          "****Python*****"   Center fill with '*'
+  {val:#x}             255               "0xff"              Hexadecimal with prefix
+  {val:#b}             13                "0b1101"            Binary with prefix
+  {dt:%d-%b-%Y}        2026-08-24        "24-Aug-2026"       Formatted Datetime
+
+--------------------------------------------------------------------------------
+3. SELF-DOCUMENTING DEBUGGING: f"{var=}" (Python 3.8+)
+--------------------------------------------------------------------------------
+  • Placing an '=' sign directly after an expression prints both the expression
+    text and its evaluated result:
+      x = 10; y = 25
+      print(f"{x + y = }")       # Output: "x + y = 35"
+      print(f"{x * y = :,.2f}")   # Output: "x * y = 250.00"
+
+--------------------------------------------------------------------------------
+4. ESCAPING BRACES & CONVERSION FLAGS
+--------------------------------------------------------------------------------
+  • Escaping: Use double curly braces {{ and }} to print literal { and }:
+      f"JSON: {{ 'id': {user_id} }}" -> "JSON: { 'id': 101 }"
+  • Conversion Flags:
+      !s -> Forces str() conversion.
+      !r -> Forces repr() conversion (adds quotes, shows escape codes).
+      !a -> Forces ascii() conversion (escapes non-ASCII characters).
+
+--------------------------------------------------------------------------------
+5. str.format() VS f-STRINGS COMPARISON
+--------------------------------------------------------------------------------
+  Feature               f-Strings (f"...")          str.format()
+  ------------------------------------------------------------------------------
+  Introduced in         Python 3.6                  Python 2.7 / 3.0
+  Execution Speed       Blistering Fast (Bytecode)  Slower (Function call overhead)
+  Syntax Readability    Inline & Natural            Positional / Placeholder based
+  Dynamic Templates     Defined at compile time     Can be loaded dynamically from DB
+  Dictionary Unpack     Direct variable access      Requires .format(**dict)
+
+================================================================================
+           END OF STUDY NOTE • TOPIC 5: ADVANCED STRING FORMATTING
+================================================================================

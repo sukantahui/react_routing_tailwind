@@ -1,0 +1,25 @@
+TOPIC_ID: 002_007_004
+MODULE: 002_007_string-processing
+TITLE: Topic 4: Searching & validation: find, rfind, count, startswith, endswith, isdigit, isalpha
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive exploration of string searching, occurrence counting, boundary checking, and character classification methods in Python. Covers substring discovery with find() and rfind() vs strict index(), non-overlapping occurrence calculation with count(), prefix and suffix matching using startswith() and endswith() with candidate tuples, removeprefix()/removesuffix(), the numeric predicate hierarchy (isdecimal vs isdigit vs isnumeric), alphabetic and identifier validation (isalpha, isalnum, isidentifier), and production security threat scanning.
+
+CORE CONCEPTS:
+1. Substring Discovery: find(), rfind() (-1 on failure) vs index(), rindex() (raises ValueError)
+2. Membership Testing: in and not in Operators
+3. Occurrence Counting: count(sub, start, stop) and Non-Overlapping Occurrence Rules
+4. Prefix and Suffix Verification: startswith() and endswith() with Tuples of Candidates
+5. Clean Affix Stripping: removeprefix() and removesuffix() (Python 3.9+)
+6. The Numeric Predicate Hierarchy: isdecimal() ⊂ isdigit() ⊂ isnumeric()
+7. Character Classification: isalpha(), isalnum(), isascii(), isspace(), isprintable()
+8. State & Identifier Validation: islower(), isupper(), istitle(), isidentifier()
+9. Production Security Scanning: Detecting SQLi and XSS Injection Payloads
+
+REAL-WORLD SCENARIOS:
+- Validating Indian PAN cards, PIN codes, and mobile numbers in Barrackpore & Kolkata
+- Routing uploaded documents by verifying file extensions (.pdf, .xlsx, .docx)
+- Scanning user inputs for malicious script tags and SQL injection keywords
+- Verifying valid Python variable names and configuration keys dynamically

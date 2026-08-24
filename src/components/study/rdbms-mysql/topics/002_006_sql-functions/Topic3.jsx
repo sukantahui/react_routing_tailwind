@@ -218,7 +218,7 @@ FROM students;`,
               <span className="text-xs font-mono font-bold text-teal-400 uppercase">1. Rounding vs Truncation</span>
               <strong className="text-white text-xs block font-mono">ROUND(125.768, 2) = 125.77 | TRUNCATE = 125.76</strong>
               <p className="text-xs text-slate-300">
-                <code>ROUND()</code> evaluates the $(d+1)^{\text{th}}$ digit for half-up rounding, while <code>TRUNCATE()</code> discards digits past $d$ without rounding.
+                <code>ROUND()</code> evaluates the (d+1)th digit for half-up rounding, while <code>TRUNCATE()</code> discards digits past d without rounding.
               </p>
             </div>
 
