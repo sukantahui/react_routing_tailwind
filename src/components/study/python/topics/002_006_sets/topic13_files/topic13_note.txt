@@ -1,0 +1,43 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                    TOPIC 13: FROZEN SETS (IMMUTABLE SETS)
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. WHAT IS A FROZENSET?
+--------------------------------------------------------------------------------
+A `frozenset` is the immutable, hashable sibling of the standard Python `set`:
+  • Creation: `fs = frozenset([item1, item2, ...])`
+  • Immutability: Elements CANNOT be added, removed, popped, or cleared.
+  • Hashability: Has a valid `hash(fs)` code, making it legal as:
+    1. A Dictionary Key: `my_dict[frozenset([...])] = value`
+    2. An Element of another Set: `{frozenset([...]), frozenset([...])}`
+    3. A Thread-safe global configuration constant.
+
+--------------------------------------------------------------------------------
+2. COMPARISON: SET VS FROZENSET
+--------------------------------------------------------------------------------
+  Feature               | set                           | frozenset
+  ----------------------+-------------------------------+------------------------
+  Mutability            | Mutable                       | Immutable
+  Hashable?             | NO (TypeError on hash())      | YES (Has __hash__())
+  Can be a Dict Key?    | NO                            | YES
+  Can be in another Set?| NO (Cannot nest sets)        | YES (Nested sets!)
+  Literal Syntax        | `{1, 2, 3}`                   | `frozenset([1, 2, 3])`
+  Mutation Methods      | add, remove, pop, clear       | NONE (AttributeError)
+  Math Operations       | |, &, -, ^, <=, >=, etc.      | |, &, -, ^, <=, >=, etc.
+
+--------------------------------------------------------------------------------
+3. MATHEMATICAL OPERATIONS & RETURN TYPES
+--------------------------------------------------------------------------------
+  • `frozenset` fully supports union, intersection, difference, and subset checks!
+  • If the LEFT operand is a set, the result is a `set`.
+  • If the LEFT operand is a frozenset, the result is a `frozenset`.
+
+================================================================================
+             END OF STUDY NOTE • TOPIC 13: FROZEN SETS
+================================================================================

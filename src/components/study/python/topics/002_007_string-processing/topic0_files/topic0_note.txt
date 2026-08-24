@@ -1,0 +1,53 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+            PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_007: STRING PROCESSING
+        TOPIC 0: STRING CREATION, MULTILINE STRINGS & ESCAPE SEQUENCES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. STRING CREATION & QUOTING RULES
+--------------------------------------------------------------------------------
+  • Single Quotes: `'Hello World'`
+  • Double Quotes: `"Hello World"`
+  • In Python, single and double quotes are completely interchangeable.
+  • Quote Embedding Best Practice:
+    - If string contains single quotes: wrap in double quotes `"...'..."`
+    - If string contains double quotes: wrap in single quotes `'..."...'`
+
+--------------------------------------------------------------------------------
+2. MULTILINE STRINGS & DOCSTRINGS
+--------------------------------------------------------------------------------
+  • Triple Single `'''...'''` or Triple Double `"""..."""`
+  • Preserves exact newlines, indentation, and tabs.
+  • When placed as the first statement in a function, class, or module,
+    triple quoted strings become official documentation strings (Docstrings).
+
+--------------------------------------------------------------------------------
+3. ESCAPE SEQUENCES IN PYTHON
+--------------------------------------------------------------------------------
+  Escape Code   | Description                   | Visual Representation
+  --------------+-------------------------------+-----------------------
+  `\n`          | Linefeed / Newline            | Moves to next line
+  `\t`          | Horizontal Tab                | Advances to next tab stop (4-8 spaces)
+  `\\`          | Literal Backslash             | `\`
+  `\'`          | Literal Single Quote          | `'`
+  `\"`          | Literal Double Quote          | `"`
+  `\r`          | Carriage Return               | Returns cursor to start of line
+  `\b`          | Backspace                     | Deletes previous character
+  `\uXXXX`      | 16-bit Unicode (e.g. `\u20B9`)| `₹` (Indian Rupee)
+
+--------------------------------------------------------------------------------
+4. RAW STRINGS: `r"..."` or `r'...'`
+--------------------------------------------------------------------------------
+  • Prefixing a string with `r` or `R` suppresses escape sequence parsing.
+  • Backslashes are treated as literal characters.
+  • Indispensable for:
+    1. Windows File Paths: `r"C:\Users\susmita\notes.txt"`
+    2. Regular Expressions: `r"\d{3}-\d{4}"`
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 0: STRING CREATION & ESCAPE SEQUENCES
+================================================================================

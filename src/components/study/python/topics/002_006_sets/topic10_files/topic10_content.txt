@@ -1,0 +1,22 @@
+TOPIC_ID: 002_006_010
+MODULE: 002_006_sets
+TITLE: Topic 10: Union, intersection, difference
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Exhaustive analysis of the three core set algebraic operations: Union (A | B / .union), Intersection (A & B / .intersection), and Difference (A - B / .difference), along with their in-place mutating variants (|=, &=, -=), multi-collection chaining, algorithm complexities, and production HR skill-matching engines.
+
+CORE CONCEPTS:
+1. Union (| and union()): Logic, Time Complexity, Multi-source merging
+2. Intersection (& and intersection()): Logic, Small-set optimization, Mutual filtering
+3. Difference (- and difference()): Relative complement, Non-commutativity, Missing-data detection
+4. In-Place Mutations: |=, &=, -= and memory reclamation
+5. Multi-Set Chaining: A | B | C, A & B & C, A - B - C
+6. Mixed-type argument ingestion with methods vs strict operator checks
+
+REAL-WORLD SCENARIOS:
+- Cross-cohort student enrollment and combo discount accounting in Barrackpore (₹)
+- Automated job applicant skill matching vs vacancy criteria in Kolkata tech jobs
+- Finding missing mandatory fields in incoming JSON payloads
+- Audience segmentation for email marketing campaigns

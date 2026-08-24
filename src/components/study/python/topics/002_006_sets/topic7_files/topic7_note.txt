@@ -1,0 +1,52 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                         TOPIC 7: ITERATING THROUGH SETS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. TOPIC OVERVIEW & ITERATION MECHANICS
+--------------------------------------------------------------------------------
+Sets in Python implement the standard Iterator Protocol:
+  • Calling `iter(my_set)` returns a `set_iterator` object.
+  • Calling `next(iterator)` traverses the sparse hash table, skipping empty
+    slots and yielding occupied bucket elements one by one.
+  • When all elements are visited, `StopIteration` is raised automatically.
+
+--------------------------------------------------------------------------------
+2. ITERATION CHARACTERISTICS
+--------------------------------------------------------------------------------
+  • Complete Coverage: Every single unique element is visited exactly once.
+  • Non-Deterministic Order: The order in which elements appear depends on
+    internal hash bucket distributions and `PYTHONHASHSEED`.
+  • Ordered Iteration: To iterate in sorted sequence without mutating the set,
+    wrap the set in `sorted()`: `for x in sorted(my_set):`.
+
+--------------------------------------------------------------------------------
+3. THE FATAL TRAP: MUTATION DURING ITERATION
+--------------------------------------------------------------------------------
+  • Mutating a set (calling `.add()`, `.remove()`, `.pop()`, `.discard()`)
+    while iterating over it raises `RuntimeError: Set changed size during iteration`.
+  • Why? Because mutating the set can trigger table resizing and shift bucket
+    positions, corrupting the iterator's internal cursor.
+  • Fix 1: Iterate over a shallow clone: `for item in my_set.copy():`
+  • Fix 2: Reconstruct using a set comprehension: `my_set = {x for x in my_set if condition}`
+
+--------------------------------------------------------------------------------
+4. USEFUL ITERATION PATTERNS
+--------------------------------------------------------------------------------
+  A. With Enumerate (Generating Loop Counters):
+     `for idx, item in enumerate(my_set, start=1):`
+
+  B. With Tuple Unpacking:
+     `for name, roll, fee in student_tuples_set:`
+
+  C. With Map and Filter:
+     `for transformed in map(str.upper, my_set):`
+
+================================================================================
+            END OF STUDY NOTE • TOPIC 7: ITERATING THROUGH SETS
+================================================================================

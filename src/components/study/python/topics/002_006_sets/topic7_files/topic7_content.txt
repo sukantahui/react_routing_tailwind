@@ -1,0 +1,23 @@
+TOPIC_ID: 002_006_007
+MODULE: 002_006_sets
+TITLE: Topic 7: Iterating through sets
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+In-depth breakdown of Python set traversal mechanisms: Iterator Protocol (__iter__, __next__, StopIteration), non-deterministic hash bucket traversal, enumerate() counter generation, tuple unpacking across composite sets, preventing the RuntimeError mutation trap, and sorted iteration patterns.
+
+CORE CONCEPTS:
+1. Standard for-loop traversal of sets
+2. The Iterator Protocol (__iter__ and __next__)
+3. RuntimeError: Set changed size during iteration
+4. Safe mutation workarounds (copy() and Set Comprehensions)
+5. enumerate() with sets (Loop counters vs Indexing)
+6. Tuple unpacking in multi-attribute sets
+7. Sorted non-mutating traversal via sorted()
+
+REAL-WORLD SCENARIOS:
+- Broadcasting SMS exam notifications in Barrackpore & Kolkata
+- Calculating batch tuition fee revenues in Indian Rupees (₹)
+- Processing multi-attribute student enrollment tuples
+- Safe in-place filtering of expired cache records

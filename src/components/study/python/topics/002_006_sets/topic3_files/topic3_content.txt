@@ -1,0 +1,23 @@
+TOPIC_ID: 002_006_003
+MODULE: 002_006_sets
+TITLE: Topic 3: Unordered and Unindexed Collections
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Comprehensive analysis of why Python sets are unordered and unindexed: memory architecture differences between contiguous lists and sparse hash tables, TypeError on subscripting/slicing, hash seed randomization (PYTHONHASHSEED), order preservation workarounds with dict.fromkeys(), and sorting sets.
+
+CORE CONCEPTS:
+1. Unordered Nature of Sets
+2. Lack of Sequence Indexing and Slicing (TypeError)
+3. Contiguous Array vs Open-Addressing Hash Buckets
+4. Hash Seed Randomization (PYTHONHASHSEED)
+5. Small Integer Hash Coincidence (hash(n) == n)
+6. Accessing Elements: next(iter()), sorted(), list conversion
+7. Deduplicating with Order Preservation: dict.fromkeys()
+
+REAL-WORLD SCENARIOS:
+- Real-time payment webhook deduplication in Barrackpore & Kolkata
+- Revenue calculation in Indian Rupees (₹)
+- Preventing test flakiness from non-deterministic set iteration
+- Ordered unique item processing in ETL pipelines

@@ -1,0 +1,48 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                   TOPIC 8: SET LENGTH AND BASIC OPERATIONS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. SET LENGTH: len(my_set)
+--------------------------------------------------------------------------------
+  • Time Complexity: O(1) instantaneous constant time.
+  • How it works: In CPython, the `PySetObject` C-struct maintains an explicit
+    `used` counter updated on every insertion and deletion. Calling `len(s)`
+    simply reads this field without traversing hash buckets.
+
+--------------------------------------------------------------------------------
+2. BOOLEAN TRUTHINESS
+--------------------------------------------------------------------------------
+  • `bool(set())` evaluates to `False` (Empty container).
+  • `bool({elem, ...})` evaluates to `True` (Populated container).
+  • Idiomatic Guard Pattern:
+    ```python
+    if not my_set:
+        print("Set is empty")
+    ```
+
+--------------------------------------------------------------------------------
+3. COPYING SETS: ALIASING VS SHALLOW COPY
+--------------------------------------------------------------------------------
+  • Aliasing (`s2 = s1`): Copies only the memory pointer. Mutating `s2`
+    mutates `s1`!
+  • Shallow Copy (`s2 = s1.copy()` or `s2 = set(s1)`): Allocates a new,
+    independent set object in memory.
+
+--------------------------------------------------------------------------------
+4. BUILT-IN AGGREGATE FUNCTIONS
+--------------------------------------------------------------------------------
+  • `min(s)`: Smallest element in O(N) time.
+  • `max(s)`: Largest element in O(N) time.
+  • `sum(s)`: Sum of numeric elements in O(N) time.
+  • `any(s)`: True if at least one element is truthy.
+  • `all(s)`: True if all elements are truthy (True for empty set!).
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 8: SET LENGTH & BASIC OPERATIONS
+================================================================================

@@ -1,0 +1,29 @@
+TOPIC_ID: 002_006_000
+MODULE: 002_006_sets
+TITLE: Topic 0: Introduction to Sets in Python
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Introduction to Python sets as distinct, unordered, and mutable collections of unique, hashable items. Explains memory architecture, hash table implementation, set literal vs constructor syntax, the empty set trap, deduplication mechanics, and O(1) membership testing.
+
+CORE CONCEPTS:
+1. Definition of Set in Python
+2. Set Uniqueness and Automatic Duplicate Pruning
+3. Unordered Nature and Lack of Indexing / Slicing
+4. Hashability Requirement for Set Elements
+5. Creation: Set Literals {} vs set() Constructor
+6. The {} vs set() Empty Set Trap
+7. Membership Testing using 'in' and 'not in' operators
+8. Hash Table Internals and O(1) vs O(N) Complexity
+
+REAL-WORLD CONTEXTS:
+- Student Enrollment Registry deduplication in Barrackpore & Kolkata institutions
+- Role-based authorization systems in web backends
+- Unique tag tracking in publishing software
+- Vocabulary filtering in NLP text processing
+
+COMMON ERRORS:
+- TypeError: 'set' object is not subscriptable (when trying my_set[0])
+- TypeError: unhashable type: 'list' (when adding mutable containers to a set)
+- Creating a dict when meaning to create a set via my_var = {}

@@ -1,0 +1,60 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                   TOPIC 6: MEMBERSHIP TESTING USING 'IN' & 'NOT IN'
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. OVERVIEW & TIME COMPLEXITY
+--------------------------------------------------------------------------------
+Membership testing in Python answers the question: "Does element X exist in
+collection S?"
+
+Operators:
+  • `item in my_set`: Returns True if `item` exists in the set; False otherwise.
+  • `item not in my_set`: Returns True if `item` is absent; False otherwise.
+
+Performance Comparison:
+  • Set Membership (`x in my_set`):  O(1) average time (Instant hash jump).
+  • List Membership (`x in my_list`): O(N) linear time (Scans every item).
+  • For 1,000,000 items, sets are up to 10,000x faster than lists!
+
+--------------------------------------------------------------------------------
+2. HOW 'IN' WORKS INTERNALLY (HASH TABLE LOOKUP)
+--------------------------------------------------------------------------------
+When evaluating `target in my_set`:
+  1. Python computes `hash(target)`.
+  2. Jumps directly to the computed hash bucket index.
+  3. If bucket is empty -> Returns False immediately in 1 step!
+  4. If bucket is occupied -> Compares `target == bucket_item`.
+     - If True -> Returns True.
+     - If False -> Follows collision probe chain until empty bucket or match.
+
+--------------------------------------------------------------------------------
+3. BOOLEAN & NUMERICAL EQUIVALENCE GOTCHAS
+--------------------------------------------------------------------------------
+  • `True in {1}` evaluates to True (because `True == 1` and hashes match).
+  • `False in {0}` evaluates to True (because `False == 0` and hashes match).
+  • `42.0 in {42}` evaluates to True (because `42.0 == 42` and hashes match).
+
+--------------------------------------------------------------------------------
+4. REAL-WORLD PRODUCTION USE CASES
+--------------------------------------------------------------------------------
+  • High-Throughput API Gateway Authorization: Checking token scopes in O(1).
+  • Firewall Blacklisting: Blocking malicious IP addresses in real time.
+  • Spell Checkers & Vocabulary Verification: Validating dictionary words.
+  • Web Scraping: Skipping previously visited URLs.
+
+--------------------------------------------------------------------------------
+5. COMMON PITFALLS & GOTCHAS
+--------------------------------------------------------------------------------
+  [x] Converting list to set inside a loop: `for x in data: if x in set(list):`
+      (Re-creates set on every iteration, destroying O(1) performance to O(N^2)!)
+  [x] Forgetting that strings are case-sensitive: `'kolkata' in {'Kolkata'}` -> False.
+
+================================================================================
+          END OF STUDY NOTE • TOPIC 6: MEMBERSHIP TESTING IN SETS
+================================================================================

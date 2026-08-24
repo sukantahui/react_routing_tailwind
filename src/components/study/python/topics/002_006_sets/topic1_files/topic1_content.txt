@@ -1,0 +1,23 @@
+TOPIC_ID: 002_006_001
+MODULE: 002_006_sets
+TITLE: Topic 1: Creating Sets (Set Literal and Set Constructor)
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Comprehensive breakdown of Python set creation techniques: set literal curly braces {}, set() constructor function, empty set initialization, iterable unpacking, dictionary key/value extraction, generator transformations, and bytecode BUILD_SET optimizations.
+
+CORE CONCEPTS:
+1. Set Literal Syntax {val1, val2, ...}
+2. set() Type Constructor Function
+3. Empty Set Trap: {} (dict) vs set() (set)
+4. Converting Strings, Lists, Tuples, Ranges & Byte Strings
+5. Converting Dictionaries: keys(), values(), items()
+6. Bytecode Mechanics: BUILD_SET vs CALL_FUNCTION
+7. Single-element Sets vs Single-element Tuples
+
+REAL-WORLD SCENARIOS:
+- Deduplicating exam registration forms in Barrackpore & Kolkata
+- Extracting distinct course fee tiers in Rupees (₹)
+- Extracting unique ASCII byte values from network streams
+- Converting database query result tuples into lookup sets

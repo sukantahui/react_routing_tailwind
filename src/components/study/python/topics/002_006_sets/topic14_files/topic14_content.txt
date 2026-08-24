@@ -1,0 +1,22 @@
+TOPIC_ID: 002_006_014
+MODULE: 002_006_sets
+TITLE: Topic 14: Set comprehension
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Comprehensive breakdown of Python set comprehensions: syntax ({expr for x in iterable if cond}), execution pipeline, automatic on-the-fly deduplication, nested loops for matrix flattening, conditional filtering, comparing set vs list vs dict comprehensions, and data cleansing patterns.
+
+CORE CONCEPTS:
+1. Set Comprehension Syntax & Pipeline Mechanics
+2. Automatic In-Flight Hash Deduplication
+3. Conditional Filtering (if-predicate clauses)
+4. Multi-Loop Nested Comprehensions & Matrix Flattening
+5. Comparing Set vs List vs Dict vs Generator Comprehensions
+6. Performance: C-Level loop execution speedup vs manual append loops
+
+REAL-WORLD SCENARIOS:
+- Normalizing messy payment webhook payloads in Barrackpore & Kolkata
+- Extracting unique valid email domains from customer databases
+- Deduplicating and title-casing candidate names for certification
+- Filtering and aggregating product tag inventories

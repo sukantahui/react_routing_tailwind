@@ -1,14 +1,14 @@
 {
   "trackId": "python-basic-to-pro",
   "trackTitle": "Python from Basic to Pro",
-  "description": "A complete Python learning roadmap from absolute beginner to pro level, designed for classroom learners, self-paced students, and real-world developers. Includes hands-on examples, exercises, projects, assessments, and mastery-based progression.",
+  "description": "A complete Python learning roadmap from absolute beginner to pro level, designed for classroom learners, self-paced students, and real-world developers. Includes hands-on examples, exercises, projects, assessments, data science (NumPy, Pandas, Matplotlib, Seaborn), and creative graphics progression.",
   "institute": {
     "name": "Coder & AccoTax",
     "website": "https://www.codernaccotax.co.in",
     "author": "Sukanta Hui",
     "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
     "trackType": "Python Tutorial Roadmap",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "lastUpdated": "2026-08-24"
   },
   "folder": "python",
@@ -2628,8 +2628,710 @@
             "All Turtle Modules"
           ],
           "previousModule": "turtle-game-dev",
-          "nextModule": null,
+          "nextModule": "numpy-foundations",
           "badge": "Turtle Master Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "data-science-analytics",
+      "title": "Segment 6 – Python for Data Science, Analytics & Visualization (NumPy, Pandas & Matplotlib)",
+      "level": "Intermediate → Advanced",
+      "summary": "Master essential data science libraries in Python: high-performance array computations with NumPy, tabular data wrangling and manipulation with Pandas, and publication-grade data visualizations with Matplotlib and Seaborn.",
+      "pedagogy": {
+        "approach": [
+          "Data-first computation (raw tables to actionable insights)",
+          "Vectorization over manual loops",
+          "Real-world data manipulation (finance, student marks, transactions, sensor logs)",
+          "Interactive visual analytics & storytelling"
+        ],
+        "teachingModel": "Data Ingestion → Vectorized Cleaning → Aggregation & Pivots → Visual Exploration → Insights Report",
+        "tools": [
+          "NumPy",
+          "Pandas",
+          "Matplotlib",
+          "Seaborn",
+          "Jupyter Notebook",
+          "VS Code"
+        ]
+      },
+      "modules": [
+        {
+          "moduleId": "numpy-foundations",
+          "slug": "006_001_numpy-foundations-ndarrays",
+          "title": "NumPy Foundations & Multi-Dimensional N-D Arrays",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": [
+            "numpy",
+            "ndarrays",
+            "scientific-computing",
+            "vectorization",
+            "slicing"
+          ],
+          "topics": [
+            "Introduction to Scientific Computing & the PyData Ecosystem",
+            "Why NumPy? Performance, memory layout (C-contiguous vs Fortran) & GIL bypass",
+            "The ndarray object: creation, properties, and internal buffer architecture",
+            "Array Creation Routines: np.array, np.zeros, np.ones, np.empty, np.full",
+            "Range and Spaced Arrays: np.arange vs np.linspace, logspace, geomspace",
+            "Identity & Diagonal Matrices: np.eye, np.identity, np.diag",
+            "Random Array Generation with np.random (rand, randn, randint, choice, seed)",
+            "Core ndarray Attributes: ndim, shape, size, dtype, itemsize, nbytes",
+            "Data Types in NumPy: int32, int64, float32, float64, complex, bool, and astype() casting",
+            "1D, 2D, and 3D Array Indexing, Slicing, and Striding",
+            "Boolean Masking, Logical Filtering & np.extract",
+            "Fancy Indexing with integer coordinate arrays",
+            "Views vs Deep Copies: understanding base attribute and .copy() memory mechanics",
+            "Reshaping & Restructuring: reshape, resize, ravel vs flatten, transpose, swapaxes"
+          ],
+          "learningOutcomes": [
+            "Construct and configure multi-dimensional NumPy ndarrays efficiently",
+            "Apply slicing, striding, fancy indexing, and boolean filtering to extract sub-arrays",
+            "Understand the memory differences between array views and deep copies",
+            "Reshape, transpose, and restructure arrays for linear algebra and data science pipelines"
+          ],
+          "prerequisites": [
+            "turtle-capstone"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Master NumPy's multi-dimensional ndarray architecture, creation routines, slicing, indexing, and memory views.",
+          "labExercises": [
+            "Creating and reshaping 1D sequences into 3D RGB image-like arrays",
+            "Extracting specific sub-matrices using 2D slicing and striding",
+            "Filtering positive numbers and outliers using boolean mask indexing"
+          ],
+          "miniProjects": [
+            "Mini Project: Digital Image Pixel Manipulation & Matrix Filter Engine using NumPy"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Matrix Manipulation Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "High-speed numerical processing for finance, engineering, and image processing",
+            "Preparing multi-dimensional inputs for machine learning algorithms"
+          ],
+          "careerSkills": [
+            "Vectorized numerical computing",
+            "Multi-dimensional matrix reasoning"
+          ],
+          "commonMistakes": [
+            "Modifying a slice thinking it's a copy and unintentionally altering the original array",
+            "Confusing np.arange (exclusive step) with np.linspace (inclusive endpoints count)"
+          ],
+          "references": [
+            "NumPy Official Documentation",
+            "Real Python – NumPy Tutorial: Your First Steps Into Data Science in Python"
+          ],
+          "teachingTips": [
+            "Benchmark a 10-million element array addition in pure Python vs NumPy to showcase 50x-100x speedup.",
+            "Draw 2D grid diagrams on the board to illustrate row-major vs column-major indexing."
+          ],
+          "preReading": [
+            "Lists, Performance Optimization & Python Pro Modules"
+          ],
+          "previousModule": "turtle-capstone",
+          "nextModule": "numpy-math-broadcasting",
+          "badge": "NumPy Foundation Badge"
+        },
+        {
+          "moduleId": "numpy-math-broadcasting",
+          "slug": "006_002_numpy-mathematics-broadcasting",
+          "title": "NumPy Mathematics, Vectorization, Broadcasting & Linear Algebra",
+          "level": "Intermediate–Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "broadcasting",
+            "ufuncs",
+            "linear-algebra",
+            "statistics",
+            "linalg"
+          ],
+          "topics": [
+            "Vectorized Operations vs Slow Python Iteration Loops",
+            "Element-wise Arithmetic: +, -, *, /, //, %, ** on matching shapes",
+            "NumPy Universal Functions (ufuncs): np.sqrt, np.exp, np.log, np.sin, np.cos, np.abs",
+            "Broadcasting Rules: Rules of dimension matching, trailing dimensions, and stretching",
+            "1D-to-2D and Row/Column Broadcasting in mathematical computations",
+            "Statistical Aggregations: np.mean, np.median, np.std, np.var, np.min, np.max, np.sum",
+            "The axis Parameter Demystified: axis=0 (column-wise) vs axis=1 (row-wise)",
+            "Cumulative operations: np.cumsum, np.cumprod",
+            "Sorting & Searching: np.sort, np.argsort, np.where, np.argmax, np.argmin, np.nonzero",
+            "Set Operations in NumPy: np.unique, np.intersect1d, np.union1d, np.setdiff1d",
+            "Linear Algebra (np.linalg): Matrix multiplication (np.dot and @ operator)",
+            "Matrix Transposition, Inversion (np.linalg.inv), Determinant (np.linalg.det)",
+            "Solving Systems of Linear Equations using np.linalg.solve",
+            "Array Combining & Splitting: vstack, hstack, concatenate, vsplit, hsplit",
+            "File I/O in NumPy: np.save (.npy), np.savez (.npz), np.load, np.savetxt, np.loadtxt"
+          ],
+          "learningOutcomes": [
+            "Perform vectorized calculations without explicit for-loops",
+            "Apply NumPy broadcasting rules confidently across arrays of different dimensions",
+            "Compute statistical metrics across specific matrix axes (rows vs columns)",
+            "Solve linear algebra equations and perform matrix operations using np.linalg",
+            "Save and load serialized binary NumPy arrays"
+          ],
+          "prerequisites": [
+            "numpy-foundations"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master vectorized mathematics, universal functions (ufuncs), multi-dimensional broadcasting, and linear algebra with NumPy.",
+          "labExercises": [
+            "Normalizing student examination marks using z-score normalization",
+            "Solving a 3-variable linear equation system using matrix inversion and np.linalg.solve",
+            "Simulating multi-asset financial portfolio returns with broadcasting"
+          ],
+          "miniProjects": [
+            "Mini Project: Multi-Variable Statistical Analysis & Equation Solver Engine"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Broadcasting & Linear Algebra Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Machine learning feature scaling, distance matrices, and loss calculations",
+            "Engineering simulations, signal processing, and numerical physics"
+          ],
+          "careerSkills": [
+            "High-performance vectorized computing",
+            "Linear algebra implementation"
+          ],
+          "commonMistakes": [
+            "Confusing axis=0 (collapsing across rows) with axis=1 (collapsing across columns)",
+            "Attempting broadcasting on non-compatible shapes without prepending 1-dimensions"
+          ],
+          "references": [
+            "NumPy Broadcasting Documentation",
+            "Real Python – Look Ma, No For-Loops: Array Programming With NumPy"
+          ],
+          "teachingTips": [
+            "Use clear visual diagrams showing how a (3, 1) vector broadcasts across a (1, 4) vector to create a (3, 4) matrix.",
+            "Write both Python loop and NumPy one-liners side-by-side to highlight vectorization elegance."
+          ],
+          "preReading": [
+            "NumPy Foundations module"
+          ],
+          "previousModule": "numpy-foundations",
+          "nextModule": "pandas-series-dataframe",
+          "badge": "NumPy Math Master Badge"
+        },
+        {
+          "moduleId": "pandas-series-dataframe",
+          "slug": "006_003_pandas-series-dataframe-fundamentals",
+          "title": "Pandas Series & DataFrame Fundamentals",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "pandas",
+            "dataframe",
+            "series",
+            "csv",
+            "indexing",
+            "loc-iloc"
+          ],
+          "topics": [
+            "Introduction to Pandas: Tabular Data Structures for Real-World Analytics",
+            "The Pandas Series: creation from lists, dicts, ndarrays, custom index labels",
+            "Series indexing, slicing, alignment, and vector operations",
+            "The Pandas DataFrame: 2D labeled tabular data architecture",
+            "Creating DataFrames from dictionaries, lists of dicts, 2D arrays, and Series",
+            "Essential DataFrame Attributes: shape, columns, index, dtypes, values, ndim, size",
+            "Quick Inspection Methods: head(), tail(), sample(), info(), describe()",
+            "Data Ingestion & Export: pd.read_csv, to_csv, pd.read_excel, to_excel, pd.read_json",
+            "Column Selection, Addition, Deletion (del, drop), and Renaming (rename())",
+            "Row Indexing with .loc[] (label-based) vs .iloc[] (integer positional indexing)",
+            "Combining Row & Column slicing in a single .loc[] / .iloc[] call",
+            "Boolean Indexing, Multi-condition Filtering (&, |, ~), and the query() method",
+            "Sorting Data: sort_values(by=..., ascending=...) and sort_index()",
+            "Rankings, Unique Values, and Frequency Counts (value_counts(), unique(), nunique())"
+          ],
+          "learningOutcomes": [
+            "Create, inspect, and manipulate 1D Series and 2D DataFrames with labeled axes",
+            "Ingest tabular data from CSV, Excel, and JSON files and export cleaned results",
+            "Select, slice, and filter DataFrame rows and columns using .loc[], .iloc[], and boolean masks",
+            "Compute summary statistics, value frequencies, and sorted rankings effortlessly"
+          ],
+          "prerequisites": [
+            "numpy-math-broadcasting"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Master Pandas Series and DataFrames, data ingestion, label/integer indexing with loc/iloc, and boolean filtering.",
+          "labExercises": [
+            "Load a CSV of employee records, rename columns, and filter top earners",
+            "Extract rows using complex boolean conditions (Age > 25 & City == 'Kolkata')",
+            "Compute frequency counts and summary statistics of student grades across schools"
+          ],
+          "miniProjects": [
+            "Mini Project: Employee Salary & Performance Registry Explorer using Pandas"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "DataFrame Query & Filter Challenge",
+            "passScore": 75
+          },
+          "useCases": [
+            "Business reporting, finance spreadsheet automation, and customer analytics",
+            "Loading datasets for exploratory data analysis (EDA)"
+          ],
+          "careerSkills": [
+            "Tabular data manipulation",
+            "Data filtering & selection proficiency"
+          ],
+          "commonMistakes": [
+            "Confusing .loc (inclusive of end label) with .iloc (exclusive of end index)",
+            "Forgetting parentheses around multiple boolean conditions: (df['A'] > 5) & (df['B'] < 10)"
+          ],
+          "references": [
+            "Pandas Official Documentation",
+            "Real Python – The Pandas DataFrame: Make Working With Data Delightful"
+          ],
+          "teachingTips": [
+            "Show how Pandas DataFrames bridge the gap between SQL tables, Excel spreadsheets, and Python code.",
+            "Compare selecting columns via dot notation df.col vs bracket notation df['col']."
+          ],
+          "preReading": [
+            "NumPy Modules & File Handling"
+          ],
+          "previousModule": "numpy-math-broadcasting",
+          "nextModule": "pandas-data-wrangling",
+          "badge": "Pandas Pioneer Badge"
+        },
+        {
+          "moduleId": "pandas-data-wrangling",
+          "slug": "006_004_pandas-data-cleaning-wrangling",
+          "title": "Data Cleaning, Handling Missing Data & Wrangling with Pandas",
+          "level": "Intermediate–Advanced",
+          "estimatedHours": 7,
+          "tags": [
+            "data-cleaning",
+            "missing-values",
+            "wrangling",
+            "datetime",
+            "type-conversion"
+          ],
+          "topics": [
+            "Why Data Cleaning Accounts for 80% of Real-World Data Work",
+            "Detecting Missing Values: isnull(), isna(), notnull(), and missing value heatmaps",
+            "Dropping Missing Data: dropna() with axis, how ('any' vs 'all'), thresh, and subset",
+            "Imputing Missing Data: fillna() with constant, mean, median, mode, forward-fill (ffill), backward-fill (bfill)",
+            "Detecting and Removing Duplicates: duplicated(subset=...), drop_duplicates()",
+            "Data Type Conversion: astype(), pd.to_numeric(errors='coerce'), pd.to_datetime()",
+            "String Processing with .str Accessor: lower, upper, strip, replace, contains, split, extract",
+            "DateTime Engineering with .dt Accessor: year, month, day, day_name, is_leap_year",
+            "Setting DateTime index and basic date range filtering",
+            "Applying Functions to Data: apply(), map(), applymap() / map() on Series vs DataFrames",
+            "Anonymous Lambda functions inside apply() for custom column transformations",
+            "Binning & Discretization: pd.cut (equal interval) vs pd.qcut (equal quantile)",
+            "Outlier Detection basics: Z-score method and IQR (Interquartile Range) filtering",
+            "Chaining Operations with Pipe and Method Chaining for readable pipelines"
+          ],
+          "learningOutcomes": [
+            "Diagnose, handle, and impute missing and corrupted values in real datasets",
+            "Clean messy text columns using vectorized string operations (.str)",
+            "Parse, transform, and extract time features from date columns (.dt)",
+            "Apply custom transformation functions across DataFrame rows and columns",
+            "Construct robust end-to-end data cleaning pipelines"
+          ],
+          "prerequisites": [
+            "pandas-series-dataframe"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master industrial data cleaning, missing value imputation, text sanitization, datetime parsing, and outlier detection.",
+          "labExercises": [
+            "Clean a dirty raw customer dataset with inconsistent date formats, null emails, and duplicate IDs",
+            "Impute missing salary numbers with department-specific median values",
+            "Extract city names and postal codes from unformatted address text strings"
+          ],
+          "miniProjects": [
+            "Mini Project: Industrial Raw Transaction Data Cleaning & Sanitization Engine"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Messy Data Cleaning Practicum",
+            "passScore": 75
+          },
+          "useCases": [
+            "Sanitizing raw user logs, CSV exports, survey forms, and scrape data",
+            "Building automated data validation pipelines for ETL backends"
+          ],
+          "careerSkills": [
+            "Data wrangling & preprocessing",
+            "Data quality assurance"
+          ],
+          "commonMistakes": [
+            "Modifying a DataFrame slice without .copy() triggering SettingWithCopyWarning",
+            "Filling missing values with mean without checking for extreme outlier skewness"
+          ],
+          "references": [
+            "Pandas Working with Missing Data",
+            "Real Python – Python Data Cleaning With Pandas and NumPy"
+          ],
+          "teachingTips": [
+            "Provide an intentionally messy dataset full of typos, whitespace, missing numbers, and date formats for students to clean.",
+            "Demonstrate SettingWithCopyWarning and how .copy() solves it permanently."
+          ],
+          "preReading": [
+            "Pandas Series & DataFrame Fundamentals"
+          ],
+          "previousModule": "pandas-series-dataframe",
+          "nextModule": "pandas-grouping-aggregation",
+          "badge": "Data Wrangling Pro Badge"
+        },
+        {
+          "moduleId": "pandas-grouping-aggregation",
+          "slug": "006_005_pandas-grouping-aggregation-pivots",
+          "title": "Data Transformation, GroupBy, Aggregations & Pivot Tables",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": [
+            "groupby",
+            "aggregation",
+            "pivot-table",
+            "merge-join",
+            "time-series"
+          ],
+          "topics": [
+            "The Split-Apply-Combine Analytical Framework",
+            "The groupby() Operation: grouping by single and multiple columns",
+            "Built-in Aggregations: sum(), mean(), median(), count(), std(), min(), max(), first(), last()",
+            "Custom Multi-Column Aggregations with agg(): passing dictionaries of functions",
+            "Filtering Groups with filter(): keeping groups that satisfy custom criteria",
+            "Group Transformations with transform(): broadcasting group statistics back to original rows",
+            "Combining DataFrames: pd.concat (concatenating along rows axis=0 and columns axis=1)",
+            "Merging & Relational Joins with pd.merge(): inner, outer, left, right joins and on/left_on/right_on keys",
+            "Handling overlapping column names with suffixes in merges",
+            "Reshaping Data: Pivot Tables with pd.pivot_table() (index, columns, values, aggfunc, fill_value, margins)",
+            "Cross-Tabulations: pd.crosstab() for contingency tables and frequency analysis",
+            "Melting DataFrames: pd.melt() from wide-format to tidy long-format",
+            "Hierarchical MultiIndex DataFrames: creation, indexing, unstack(), and stack()",
+            "Time-Series Operations: resampling (resample()), frequency conversion, and rolling window averages (rolling())"
+          ],
+          "learningOutcomes": [
+            "Execute advanced Split-Apply-Combine aggregations using groupby() and agg()",
+            "Join and merge multiple relational DataFrames using inner, outer, left, and right joins",
+            "Construct multi-dimensional Pivot Tables and cross-tabulations for business reporting",
+            "Reshape datasets between wide and long formats with pivot, melt, and stack/unstack",
+            "Compute moving averages and resample time-series data"
+          ],
+          "prerequisites": [
+            "pandas-data-wrangling"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Master GroupBy aggregations, relational dataset merging, multi-level pivot tables, wide-to-long reshaping, and time-series rolling windows.",
+          "labExercises": [
+            "Compute monthly department-wise sales totals, average order value, and profit margins",
+            "Merge customer, orders, and products tables to compute total lifetime customer value",
+            "Build an interactive multi-dimensional revenue pivot table with row and column totals"
+          ],
+          "miniProjects": [
+            "Mini Project: E-Commerce Multi-Branch Sales & Inventory Relational Analytics Hub"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 14,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "GroupBy & Relational Analytics Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Executive business dashboards, financial reporting, and KPI scorecards",
+            "Data warehouse aggregation and relational table consolidation"
+          ],
+          "careerSkills": [
+            "Business analytics & BI reporting",
+            "Relational data merging & multi-dimensional pivoting"
+          ],
+          "commonMistakes": [
+            "Confusing merge (database-style join) with concat (pure stacking)",
+            "Forgetting reset_index() after groupby when a flat DataFrame is required"
+          ],
+          "references": [
+            "Pandas GroupBy User Guide",
+            "Real Python – Pandas GroupBy: Your Guide to Grouping Data in Python"
+          ],
+          "teachingTips": [
+            "Compare SQL queries (GROUP BY, JOIN) with their exact Pandas equivalents.",
+            "Demonstrate how pivot tables turn thousands of raw transaction rows into executive summaries."
+          ],
+          "preReading": [
+            "Data Cleaning & Wrangling module"
+          ],
+          "previousModule": "pandas-data-wrangling",
+          "nextModule": "matplotlib-visualization",
+          "badge": "Aggregation & Pivot Master Badge"
+        },
+        {
+          "moduleId": "matplotlib-visualization",
+          "slug": "006_006_matplotlib-data-visualization",
+          "title": "Matplotlib Fundamentals & Data Storytelling",
+          "level": "Intermediate–Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "matplotlib",
+            "visualization",
+            "plotting",
+            "subplots",
+            "charts"
+          ],
+          "topics": [
+            "The Power of Visual Data Storytelling & Principles of Effective Charts",
+            "Matplotlib Architecture: Backend, Artist Layer, and Pyplot Interface",
+            "Figure vs Axes Anatomy: Figure, Axes, Axis, Ticks, Labels, Title, Legend, Spines",
+            "The Object-Oriented Interface: fig, ax = plt.subplots() vs functional plt.plot()",
+            "Core Plot Types: Line plots (trend analysis), Scatter plots (correlation), Bar charts (vertical & horizontal)",
+            "Distribution Charts: Histograms (bins, density) and Box Plots (quartiles & outlier detection)",
+            "Part-to-Whole Visualizations: Pie charts and Donut charts with explode & autopct",
+            "Customizing Chart Elements: titles, axis labels, font sizes, custom ticks, grid lines, and axis limits",
+            "Styling Lines and Markers: linewidth, linestyle, color codes, alpha transparency, marker styles",
+            "Color Palettes, Colormaps (cmaps), and Colorbars",
+            "Annotations: Adding text labels, callout arrows, and highlighting data points with ax.annotate()",
+            "Multi-Panel Dashboards: Grid layouts with plt.subplots(rows, cols), sharex, sharey, and GridSpec",
+            "Plotting directly from Pandas DataFrames using df.plot() and Series.plot()",
+            "Exporting Publication-Quality Visuals: plt.savefig() with dpi=300, transparent=True, bbox_inches='tight'"
+          ],
+          "learningOutcomes": [
+            "Create professional, publication-ready data visualizations using Matplotlib's OO interface",
+            "Select and construct appropriate chart types for comparisons, trends, distributions, and compositions",
+            "Customize colors, typography, annotations, legends, and axis ticks with precision",
+            "Design multi-chart analytical dashboards and export high-resolution vector/raster graphics"
+          ],
+          "prerequisites": [
+            "pandas-grouping-aggregation"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master data visualization, Figure/Axes architecture, multi-chart subplots, annotations, and publication-ready charting with Matplotlib.",
+          "labExercises": [
+            "Plotting quarterly company revenue trends with customized markers and gridlines",
+            "Creating a 2x2 subplot dashboard displaying sales, regional breakdown, customer age distribution, and margins",
+            "Annotating maximum peak points and historical milestone events on a stock price chart"
+          ],
+          "miniProjects": [
+            "Mini Project: Multi-Panel Financial Market & Economic Indicator Dashboard"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Data Visualization & Dashboard Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Academic research publications, investor presentations, and data journalism",
+            "Interactive exploration of complex analytical trends and distributions"
+          ],
+          "careerSkills": [
+            "Data storytelling & visual communication",
+            "Multi-panel figure design"
+          ],
+          "commonMistakes": [
+            "Mixing functional pyplot (plt.title) with object-oriented axes methods (ax.set_title)",
+            "Overcrowding axes labels causing unreadable overlapping text (solve with plt.xticks(rotation=45))"
+          ],
+          "references": [
+            "Matplotlib Official Documentation",
+            "Real Python – Python Plotting With Matplotlib (A Beginner's Guide)"
+          ],
+          "teachingTips": [
+            "Emphasize the OO interface (fig, ax) right from day 1 over pyplot state machine.",
+            "Show examples of bad charts (chart junk) vs clean, minimalist data-ink ratio charts."
+          ],
+          "preReading": [
+            "Pandas Grouping & Aggregations module"
+          ],
+          "previousModule": "pandas-grouping-aggregation",
+          "nextModule": "seaborn-statistical-viz",
+          "badge": "Matplotlib Visualizer Badge"
+        },
+        {
+          "moduleId": "seaborn-statistical-viz",
+          "slug": "006_007_seaborn-statistical-visualization",
+          "title": "Statistical Data Visualization with Seaborn",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "seaborn",
+            "statistical-viz",
+            "heatmaps",
+            "distributions",
+            "pairplots"
+          ],
+          "topics": [
+            "Introduction to Seaborn: High-Level Statistical Graphics built on top of Matplotlib",
+            "Seaborn Aesthetic Themes and Palettes: sns.set_theme(), set_style(), set_palette(), color_palette()",
+            "Visualizing Univariate & Bivariate Distributions: histplot(), kdeplot(), ecdfplot(), rugplot()",
+            "Categorical Visualizations: barplot() (with confidence intervals), countplot(), boxplot(), violinplot()",
+            "Categorical Scatter Plots: stripplot() and jitter, swarmplot() for discrete point distributions",
+            "Relational Plots: scatterplot() and lineplot() with hue, size, and style dimensional encodings",
+            "Matrix & Correlation Plots: Computing correlation matrices and rendering annotated Heatmaps (sns.heatmap())",
+            "Customizing Heatmaps: annot=True, fmt, cmap (coolwarm, viridis, magma), cbar, mask for triangle matrices",
+            "Multi-Plot Grid Visualizations: PairGrid, pairplot() for pairwise bivariate distributions across all numerical features",
+            "Faceted Grids: FacetGrid, catplot(), displot(), and relplot() for split-category dashboards",
+            "Regression & Trend Analysis: regplot() and lmplot() with linear fit lines and confidence bands",
+            "Fine-Tuning Seaborn with Underlying Matplotlib Axes objects"
+          ],
+          "learningOutcomes": [
+            "Produce attractive, statistically rigorous visualizations with minimal code using Seaborn",
+            "Examine relationships and multi-dimensional correlations using heatmaps and pairplots",
+            "Apply categorical encodings (hue, size, style) to visualize 4-5 dimensions on a single chart",
+            "Construct faceted grid subplots across categorical segments"
+          ],
+          "prerequisites": [
+            "matplotlib-visualization"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Master statistical graphics, distribution modeling, annotated correlation heatmaps, pairplots, and faceted grids with Seaborn.",
+          "labExercises": [
+            "Generate a full-feature correlation heatmap for housing price features with custom colormap masking",
+            "Build violin plots comparing salary distributions across job roles and gender categories",
+            "Construct a faceted relplot visualizing customer churn across subscription tiers and tenure months"
+          ],
+          "miniProjects": [
+            "Mini Project: Healthcare & Demographic Risk Factor Statistical Analysis Suite"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Statistical Visualization Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Exploratory Data Analysis in Data Science, Machine Learning, and Bioinformatics",
+            "Statistical reporting and hypothesis testing visualization"
+          ],
+          "careerSkills": [
+            "Statistical visualization design",
+            "Multi-dimensional correlation analysis"
+          ],
+          "commonMistakes": [
+            "Passing non-numeric data to correlation functions causing computation errors",
+            "Using violin plots on very small datasets where density estimation is misleading"
+          ],
+          "references": [
+            "Seaborn Official Documentation & Gallery",
+            "Statistical Data Visualization in Python With Seaborn"
+          ],
+          "teachingTips": [
+            "Show how Seaborn handles grouping, color encoding, and legend generation automatically in one line of code.",
+            "Demonstrate heatmaps as the primary tool to spot multi-collinearity before feeding data to ML models."
+          ],
+          "preReading": [
+            "Matplotlib Fundamentals module"
+          ],
+          "previousModule": "matplotlib-visualization",
+          "nextModule": "eda-capstone-project",
+          "badge": "Seaborn Statistical Pro Badge"
+        },
+        {
+          "moduleId": "eda-capstone-project",
+          "slug": "006_008_exploratory-data-analysis-capstone",
+          "title": "Exploratory Data Analysis (EDA) Capstone & Portfolio Project",
+          "level": "Advanced",
+          "estimatedHours": 10,
+          "tags": [
+            "eda",
+            "data-science",
+            "capstone",
+            "portfolio",
+            "data-analysis"
+          ],
+          "topics": [
+            "The Complete Exploratory Data Analysis (EDA) Blueprint & Methodology",
+            "Phase 1 – Problem Definition & Domain Context Understanding",
+            "Phase 2 – Data Collection, Ingestion & Initial Health Check (shape, dtypes, missingness, anomalies)",
+            "Phase 3 – Data Cleaning, Imputation & Feature Transformation Pipeline",
+            "Phase 4 – Univariate Analysis (Distributions, Skewness, Outliers, Frequency Distributions)",
+            "Phase 5 – Bivariate & Multivariate Analysis (Correlations, Cross-tabulations, Group Trends)",
+            "Phase 6 – Feature Engineering & Insight Generation (Deriving ratios, flags, and aggregate metrics)",
+            "Phase 7 – Synthesis, Business Recommendations & Actionable Insights",
+            "Structuring professional Jupyter Notebooks with markdown, headings, and clean narratives",
+            "Translating Technical Findings into Executive Presentation Decks and Visual Summaries",
+            "Publishing Complete Data Science Projects to GitHub with READMEs and Visual Artifacts"
+          ],
+          "learningOutcomes": [
+            "Execute an end-to-end Exploratory Data Analysis project on raw, real-world datasets independently",
+            "Combine NumPy, Pandas, Matplotlib, and Seaborn to uncover hidden patterns and correlations",
+            "Formulate actionable business recommendations backed by data-driven visualizations",
+            "Assemble a standout data science portfolio project ready for job interviews"
+          ],
+          "prerequisites": [
+            "seaborn-statistical-viz"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 9,
+          "summary": "Execute an end-to-end industrial Exploratory Data Analysis capstone project, formulate business insights, and assemble a portfolio project.",
+          "capstoneOptions": [
+            "Option 1: Complete E-Commerce Customer Purchasing Behavior & Churn EDA",
+            "Option 2: Real Estate Housing Market Trends, Valuation & Neighborhood Analysis",
+            "Option 3: Global Healthcare Epidemic & Hospital Admission Predictive Analytics EDA"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 3
+          },
+          "assessment": {
+            "type": "Comprehensive Capstone Project & Viva Presentation",
+            "passScore": 80
+          },
+          "useCases": [
+            "Showcasing end-to-end Data Analyst & Data Scientist skills to tech employers",
+            "Solving real-world business and operational challenges with data analytics"
+          ],
+          "careerSkills": [
+            "End-to-end data analytics workflow",
+            "Business insight formulation & visual data storytelling"
+          ],
+          "commonMistakes": [
+            "Generating dozens of charts without synthesizing what business insights they reveal",
+            "Skipping data validation and rushing into visualization with uncleaned data"
+          ],
+          "references": [
+            "Kaggle Exploratory Data Analysis Guide",
+            "Coder & AccoTax Data Science Capstone Standards"
+          ],
+          "teachingTips": [
+            "Guide students through the 'So What?' test: for every chart, write a 2-sentence business takeaway.",
+            "Conduct mock presentation reviews where students present their EDA findings to the class."
+          ],
+          "preReading": [
+            "All Data Science & Visualization Modules"
+          ],
+          "previousModule": "seaborn-statistical-viz",
+          "nextModule": null,
+          "badge": "Data Science Master Badge"
         }
       ]
     }

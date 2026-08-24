@@ -1,0 +1,22 @@
+TOPIC_ID: 002_006_018
+MODULE: 002_006_sets
+TITLE: Topic 18: Real-world use cases (unique users, tags, permissions)
+LEVEL: Intermediate
+DIFFICULTY: Medium
+
+OVERVIEW:
+Comprehensive architectural capstone applying Python set theory to 4 foundational software systems: real-time unique active user (DAU) analytics and cohort retention, e-commerce multi-tag faceted search engines, enterprise RBAC role clearance guards, and social network graph mutual friend recommendation algorithms.
+
+CORE CONCEPTS:
+1. Daily Active Users (DAU) & Cohort Retention Analytics with Set Algebra
+2. Faceted E-Commerce Multi-Tag Search (AND, OR, NOT Queries)
+3. Enterprise RBAC (Role-Based Access Control) Security Engines
+4. Graph Analysis & Social Network Mutual Friend Recommendations
+5. Thread-Safe Global Authorization Caching
+6. Architectural Best Practices for Production Set Applications
+
+REAL-WORLD SCENARIOS:
+- Real-time DAU tracking and churn analytics on educational portals in Barrackpore & Kolkata
+- Faceted e-commerce course catalog search in Indian Rupees (₹)
+- Enterprise multi-role permission clearance engines
+- Recommendation pipelines for student study groups in Jadavpur

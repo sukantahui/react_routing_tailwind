@@ -1,0 +1,46 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+                PYTHON PROGRAMMING • SEGMENT 2 • MODULE 002_006: SETS
+                    TOPIC 17: PERFORMANCE BENEFITS OF SETS
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. TIME COMPLEXITY: SETS VS LISTS
+--------------------------------------------------------------------------------
+  Operation                     | List (Dynamic Array)  | Set (Hash Table)
+  ------------------------------+-----------------------+-----------------------
+  Membership Testing (`in`)     | O(N) Linear Time      | O(1) Constant Time
+  Add / Append Element          | O(1) Amortized        | O(1) Amortized
+  Delete / Remove Element       | O(N) Shift Pointers   | O(1) Mark Dummy
+  Union (`A | B`)               | O(len(A) * len(B)) *  | O(len(A) + len(B))
+  Intersection (`A & B`)        | O(len(A) * len(B)) *  | O(min(len(A), len(B)))
+  Difference (`A - B`)          | O(len(A) * len(B)) *  | O(len(A))
+
+  * When simulated via nested loops/list comprehensions.
+
+--------------------------------------------------------------------------------
+2. WHY SETS ARE O(1) UNDER THE HOOD
+--------------------------------------------------------------------------------
+  • Direct Hash Addressability:
+    `bucket_index = hash(element) & (table_size - 1)`
+  • When Python searches for `item in my_set`:
+    1. Computes `hash(item)`.
+    2. Jumps directly to `bucket_index` in RAM (O(1)).
+    3. If full, checks equality (`==`).
+    4. Completes in nanoseconds, whether the set has 10 items or 10,000,000 items!
+
+--------------------------------------------------------------------------------
+3. THE SPACE-TIME TRADE-OFF
+--------------------------------------------------------------------------------
+  • Sets achieve O(1) lookup speed by trading memory:
+    - Lists store compact contiguous arrays (~8 bytes/item).
+    - Sets maintain sparse hash tables (~32-64 bytes/item).
+  • Rule of Thumb: If you query a collection repeatedly with `in`, ALWAYS convert
+    it to a set!
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 17: PERFORMANCE BENEFITS OF SETS
+================================================================================

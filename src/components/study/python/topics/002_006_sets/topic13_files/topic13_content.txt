@@ -1,0 +1,22 @@
+TOPIC_ID: 002_006_013
+MODULE: 002_006_sets
+TITLE: Topic 13: Frozen sets (immutable sets)
+LEVEL: Intermediate
+DIFFICULTY: Easy-Medium
+
+OVERVIEW:
+Complete technical analysis of Python frozenset: immutability guarantees, hashability and __hash__() implementation, dictionary key mapping with order-independent multi-tags, constructing nested sets of sets, thread-safe global constants, and return type rules in mixed set/frozenset operations.
+
+CORE CONCEPTS:
+1. frozenset Creation & Absence of Literal Syntax
+2. Immutability: Rejection of .add(), .remove(), .pop(), .clear() (AttributeError)
+3. Hashability: Enabling frozenset as Dictionary Keys and Set Elements
+4. Nested Sets: Constructing Sets of Sets via frozenset
+5. Mixed Operand Type Rules (Left Operand Determines Return Type)
+6. Thread-Safety and Tamper-Proof Configuration Patterns
+
+REAL-WORLD SCENARIOS:
+- Course bundle price mapping with order-independent tag lookups in Barrackpore (₹)
+- Thread-safe RBAC permission constant definitions in Kolkata fintech systems
+- Caching graph algorithms and bipartite graph edge sets
+- Document classification tag mapping in NLP pipelines
