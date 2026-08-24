@@ -1,0 +1,26 @@
+TOPIC_ID: 004_001_006
+MODULE: 004_001_filesystem-os
+TITLE: Topic 6: Building automated system maintenance scripts
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to engineering automated system maintenance, log rotation, cache purging, and server health monitoring scripts in Python. Deep dive into age-based and size-based log file rotation, streaming gzip compression with the standard `gzip` module, atomic log truncation patterns, recursive junk file sweeping (`.tmp`, `.bak`, `.pyc`, `~*`), bottom-up directory sweeping with `topdown=False`, implementing `--dry-run` simulation modes for safe operations, monitoring host storage thresholds with `shutil.disk_usage()`, warning/critical threshold alerts, generating structured JSON telemetry for monitoring daemons, and an institutional automated server maintenance engine case study.
+
+CORE CONCEPTS:
+1. Automated Log File Rotation Protocols (Size-based & Age-based)
+2. Streaming Gzip Compression with Python's Standard `gzip` Module
+3. Safe Log Reset & Truncation without Breaking Open File Handles
+4. Recursive Temp File & Bytecode Cache Sweeping
+5. Bottom-Up Traversal for Safe Cache Removal (`topdown=False`)
+6. Safe Simulation Architectures (`--dry-run` Mode)
+7. Host Storage & Memory Capacity Telemetry (`shutil.disk_usage()`)
+8. Multi-Tiered Alert Thresholds (Warning >80%, Critical >90%)
+9. Structured JSON Diagnostic Logging & Auditing
+10. Case Study: Institutional Automated Server Maintenance Daemon
+
+REAL-WORLD SCENARIOS:
+- Preventing production server disk crashes by automatically rotating and gzipping high-volume web access logs
+- Purging stale cache files and compiled `.pyc` bytecode before deployment builds
+- Running scheduled cron / Windows Task Scheduler maintenance jobs that emit signed audit logs
+- Automated pre-flight health checks verifying adequate disk space before initiating nightly backups

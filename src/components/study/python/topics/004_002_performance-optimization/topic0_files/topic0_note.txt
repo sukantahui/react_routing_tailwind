@@ -1,0 +1,37 @@
+================================================================================
+                    CODER & ACCOTAX • EDUCATIONAL TUTORIAL SERIES
+       PYTHON PROGRAMMING • SEGMENT 4: PRO LEVEL • MODULE 004_002: PERFORMANCE OPTIMIZATION
+          TOPIC 0: BIG-O NOTATION BASICS: TIME & SPACE COMPLEXITY CLASSES
+================================================================================
+Teacher & Mentor: Sukanta Hui
+Location: Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+--------------------------------------------------------------------------------
+1. BIG-O COMPLEXITY CLASSIFICATION HIERARCHY
+--------------------------------------------------------------------------------
+  O(1)       : Constant Time        (Dictionary lookup, list indexing, pop/append)
+  O(log N)   : Logarithmic Time     (Binary Search in sorted array)
+  O(N)       : Linear Time          (Single loop, linear scan, min/max/sum)
+  O(N log N) : Linearithmic Time    (Python's Timsort: sorted(arr), arr.sort())
+  O(N^2)     : Quadratic Time       (Nested loops, naive pairwise comparisons)
+  O(2^N)     : Exponential Time     (Naive recursive Fibonacci, powerset generation)
+
+--------------------------------------------------------------------------------
+2. TIME COMPLEXITY SIMPLIFICATION RULES
+--------------------------------------------------------------------------------
+  * Drop Constants           : O(5N) -> O(N); O(100) -> O(1)
+  * Drop Lower-Order Terms   : O(N^2 + 500N + 10) -> O(N^2)
+  * Sequential Operations Add: O(A) + O(B) -> O(A + B)
+  * Nested Operations Multiply: for i in N: for j in M: -> O(N * M)
+
+--------------------------------------------------------------------------------
+3. SPACE COMPLEXITY & MEMORY TRADEOFFS
+--------------------------------------------------------------------------------
+  * Eager List Comprehension : [x for x in range(N)] -> O(N) Space (High RAM)
+  * Lazy Generator Expression : (x for x in range(N)) -> O(1) Space (Constant RAM)
+  * Hash Indexing Tradeoff    : O(N) auxiliary space trades memory for O(1) time!
+
+================================================================================
+        END OF STUDY NOTE • TOPIC 0: BIG-O TIME & SPACE COMPLEXITY
+================================================================================

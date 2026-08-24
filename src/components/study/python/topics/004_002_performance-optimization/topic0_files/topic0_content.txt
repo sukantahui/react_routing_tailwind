@@ -1,0 +1,26 @@
+TOPIC_ID: 004_002_000
+MODULE: 004_002_performance-optimization
+TITLE: Topic 0: Big-O notation basics (Time & Space complexity: O(1), O(N), O(N log N), O(N^2))
+LEVEL: Pro
+DIFFICULTY: Hard
+
+OVERVIEW:
+Comprehensive master guide to asymptotic algorithmic complexity, Big-O notation, Time Complexity, and Space/Memory Complexity in Python. Deep dive into fundamental complexity classes: O(1) constant time hash lookups and index queries, O(log N) logarithmic binary search trees, O(N) linear iteration and sequence filtering, O(N log N) linearithmic Timsort sorting, O(N^2) quadratic nested loops, and exponential growth traps. In-depth analysis of space complexity, in-place O(1) auxiliary pointer operations versus eager O(N) memory allocations, memory profiling with `sys.getsizeof()`, lazy generator streams versus eager list materialization, empirical latency benchmarking with `time.perf_counter_ns()`, and an institutional student fee and admission ledger query complexity auditor case study demonstrating a 1000x speedup by replacing naive O(N*M) nested loops with O(N+M) dictionary hash indexing.
+
+CORE CONCEPTS:
+1. Asymptotic Complexity Theory & Big-O Notation
+2. Core Time Complexity Classes: O(1), O(log N), O(N), O(N log N), O(N^2), O(2^N)
+3. Big-O Simplification Rules (Dropping Constants & Lower-Order Terms)
+4. Space / Memory Complexity & Auxiliary Allocations
+5. In-Place O(1) Pointer Algorithms vs O(N) Deep Allocations
+6. Lazy Streaming Generators (O(1) RAM) vs Eager Lists (O(N) RAM)
+7. Measuring Object Memory Footprint with `sys.getsizeof()`
+8. Empirical Latency Benchmarking with `time.perf_counter_ns()`
+9. Space-Time Tradeoffs (Hash Table Indexing for O(1) Query Access)
+10. Case Study: Institutional Fee Ledger Reconciliation Complexity Optimization
+
+REAL-WORLD SCENARIOS:
+- Refactoring quadratic O(N^2) nested loops into linear O(N) dictionary hash lookups in backend API endpoints
+- Preventing cloud server out-of-memory (OOM) crashes by streaming large dataset queries via lazy generators
+- Selecting optimal data structures based on Big-O access and insertion complexities
+- Passing technical coding and system architecture interviews at top tech companies
