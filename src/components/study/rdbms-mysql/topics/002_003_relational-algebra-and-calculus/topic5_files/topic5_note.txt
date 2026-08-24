@@ -1,0 +1,85 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 5: Type Compatibility / Union Compatibility Rules in Relational Operations
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. FORMAL DEFINITION OF TYPE / UNION COMPATIBILITY
+--------------------------------------------------------------------------------
+In Relational Algebra, two relations $R(A_1, A_2, \dots, A_n)$ and $S(B_1, B_2, \dots, B_m)$
+are defined to be "Union-Compatible" (or "Type-Compatible") if and only if they satisfy
+TWO strict mathematical conditions:
+
+RULE 1: IDENTICAL DEGREE (ARITY)
+• The number of attributes in relation $R$ must exactly equal the number of attributes in relation $S$:
+  $$\text{Degree}(R) = \text{Degree}(S) \iff n = m$$
+
+RULE 2: COMPATIBLE ORDERED DOMAINS
+• For every attribute position $i \in \{1, 2, \dots, n\}$, the domain of the $i$-th attribute in $R$
+  must be compatible with or identical to the domain of the $i$-th attribute in $S$:
+  $$\text{dom}(A_i) \cong \text{dom}(B_i) \quad \forall i \in \{1, \dots, n\}$$
+
+
+2. WHY IS TYPE COMPATIBILITY MANDATORY?
+--------------------------------------------------------------------------------
+1. UNIFIED SCHEMA HEADER:
+   - When performing Set Union ($R \cup S$), Set Intersection ($R \cap S$), or Set Difference ($R - S$),
+     the resulting output relation must have a well-defined, single schema header.
+2. PREVENTING DATA TYPE CHAOS:
+   - Without domain compatibility, unioning an integer ID column with a string address column would
+     create ambiguous, untyped columns that violate First Normal Form (1NF) domain atomicity.
+3. ATTRIBUTE NAMES DO NOT NEED TO MATCH:
+   - In pure Relational Algebra and SQL, attribute NAMES can differ (e.g. `emp_name` vs `student_name`).
+   - The output relation inherits the attribute names of the FIRST relation ($R$) in the expression.
+
+
+3. MYSQL TYPE COERCION & COMPATIBILITY HIERARCHY
+--------------------------------------------------------------------------------
+When executing `UNION`, `INTERSECT`, or `EXCEPT` across differing data types, MySQL applies
+automatic type promotion:
+• `TINYINT` ➔ `SMALLINT` ➔ `INT` ➔ `BIGINT` ➔ `DECIMAL` ➔ `DOUBLE`
+• `CHAR(10)` ➔ `VARCHAR(50)` ➔ `TEXT`
+• Explicit casting with `CAST(col AS CHAR(50))` is recommended to avoid collation/encoding bugs.
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Compatible Union with Differing Column Names (Mamata's Academy Directory)
+-- Relation 1: Students(student_id INT, full_name VARCHAR(100), city VARCHAR(50))
+-- Relation 2: Faculty(faculty_id INT, instructor_name VARCHAR(100), location VARCHAR(50))
+-- Both have Degree = 3, Domains: (INT, VARCHAR, VARCHAR) ➔ 100% Union-Compatible!
+SELECT student_id, full_name, city FROM students
+UNION
+SELECT faculty_id, instructor_name, location FROM faculty;
+
+CASE 2: Incompatible Schema Failure & Explicit Projection Alignment
+-- FLAWED: Attempting to union a 3-column table with a 2-column table:
+-- SELECT id, name, fee FROM students UNION SELECT id, name FROM faculty; -- ERROR 1222!
+-- RESOLVED: Align degrees by projecting compatible NULL or default placeholder:
+SELECT student_id, full_name, admission_fee FROM students
+UNION
+SELECT faculty_id, instructor_name, 0.00 AS admission_fee FROM faculty;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Positional Domain Mismatches:
+   - `SELECT name, id FROM R UNION SELECT id, name FROM S;` -- Pairs string with int positionally!
+2. Mismatched Column Count (MySQL Error 1222):
+   - `The used SELECT statements have a different number of columns.`
+3. Collation Mismatches:
+   - Unioning `utf8mb4_general_ci` with `latin1_swedish_ci` causes runtime collation errors.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Verify that both relations have identical column counts (Degree equality).
+[x] Verify that attributes appear in exact matching positional domain order.
+[x] Use explicit `CAST()` or placeholder columns (`NULL AS col`) to align mismatched schemas.
+[x] Remember that the output relation inherits column names from the FIRST `SELECT` query.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

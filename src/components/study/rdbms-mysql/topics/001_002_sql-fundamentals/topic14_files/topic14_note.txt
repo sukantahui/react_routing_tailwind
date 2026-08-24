@@ -1,0 +1,95 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 14: Pattern Matching with LIKE and Wildcards (% and _)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THE LIKE OPERATOR?
+--------------------------------------------------------------------------------
+The `LIKE` operator performs string pattern matching against textual data columns in SQL.
+Unlike the `=` operator (which requires exact equality), `LIKE` evaluates dynamic patterns
+using special wildcard characters.
+
+THE 2 STANDARD SQL WILDCARDS:
+1. `%` (Percent Sign): Matches zero, one, or multiple arbitrary characters.
+   - Example: `'Mam%'` matches `'Mam'`, `'Mamata'`, `'Mamon'`, `'Mamata Hui'`.
+2. `_` (Underscore): Matches exactly ONE single arbitrary character.
+   - Example: `'M_hima'` matches `'Mahima'`, `'Mohima'`.
+
+
+2. SARGABILITY & B-TREE INDEX BEHAVIOR WITH LIKE
+--------------------------------------------------------------------------------
+A. PREFIX SEARCH (SARGABLE - FAST!):
+   `WHERE first_name LIKE 'Mam%'`
+   - MySQL uses a B-Tree index range scan (type: `range` in EXPLAIN).
+   - Traverses root-to-leaf in O(log N) microseconds.
+
+B. LEADING WILDCARD (NON-SARGABLE - SLOW!):
+   `WHERE first_name LIKE '%ata'` or `WHERE first_name LIKE '%amat%'`
+   - Because the starting character is unknown, MySQL CANNOT navigate the B-Tree.
+   - Forces a full table scan (type: `ALL`), reading every single data page from disk.
+   - For sub-string searches in large text, use MySQL Full-Text Search (`MATCH ... AGAINST`).
+
+
+3. ESCAPING LITERAL % AND _ CHARACTERS
+--------------------------------------------------------------------------------
+When searching for actual percent signs or underscores in your data (e.g. discount codes or usernames):
+A. DEFAULT BACKSLASH ESCAPING:
+   `WHERE promo_code LIKE '10\\%%'` -- Matches codes starting with '10%'
+   `WHERE username LIKE 'user\\_%'`  -- Matches usernames starting with 'user_'
+
+B. EXPLICIT ESCAPE CLAUSE:
+   `WHERE discount LIKE '20!%%' ESCAPE '!'`
+
+
+4. CASE SENSITIVITY & COLLATION
+--------------------------------------------------------------------------------
+By default, MySQL performs case-insensitive comparisons under `_ci` collations:
+• `WHERE city LIKE 'barrackpore%'` matches `'Barrackpore'`, `'BARRACKPORE'`, `'barrackpore'`.
+• For case-sensitive matching, use binary collation:
+  `WHERE city LIKE 'Barrackpore%' COLLATE utf8mb4_bin;` (or use `BINARY` operator).
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Finding Gmail Student Accounts in Barrackpore College
+SELECT
+    roll_no,
+    CONCAT(first_name, ' ', last_name) AS student_name,
+    email
+FROM students
+WHERE email LIKE '%@gmail.com'
+  AND city = 'Barrackpore';
+
+CASE 2: Debangshu Finding SKUs Matching Kolkata Warehouse Product Patterns
+SELECT
+    sku_code,
+    product_name,
+    unit_price AS "Price (₹)"
+FROM products
+WHERE sku_code LIKE 'KOL-2026-___'; -- Exactly 3 digits after prefix
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Overusing Leading Wildcards (`LIKE '%text%'`):
+   - Causes severe performance degradation on production tables with millions of rows.
+2. Forgetting to Escape Underscores:
+   - Writing `WHERE code LIKE 'PROMO_100'` unintentionally matches `'PROMOA100'`, `'PROMOB100'`, etc.
+3. Using `LIKE` with NULL Columns:
+   - `NULL LIKE '%'` evaluates to `UNKNOWN` and returns 0 rows!
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Prefer prefix matching (`'prefix%'`) to leverage B-Tree index range scans.
+[x] Always escape literal `%` and `_` characters with backslashes.
+[x] Use MySQL Full-Text Search (`FULLTEXT` indexes) for large documents instead of `LIKE '%word%'`.
+[x] Use `NOT LIKE` to filter out unwanted domain names or prefixes.
+[x] Check column collation to ensure desired case-sensitivity behavior.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

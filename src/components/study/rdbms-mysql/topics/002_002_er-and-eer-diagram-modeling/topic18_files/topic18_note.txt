@@ -1,0 +1,113 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 18: Real-World Comprehensive ER Case Study: Airline Reservation System
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. SYSTEM OVERVIEW & BUSINESS REQUIREMENTS
+--------------------------------------------------------------------------------
+The Airline Reservation & Flight Management System (connecting Kolkata CCU to international
+and domestic destinations like Delhi DEL, Mumbai BOM, and Bagdogra IXB) requires a complete
+enterprise ER and Relational schema.
+
+CORE SYSTEM ENTITIES:
+1. `Airport`: `(airport_code [PK, 3-char IATA], airport_name, city, state, country)`
+2. `Airplane_Type`: `(type_name [PK], max_seats, company)`
+3. `Airplane`: `(airplane_id [PK], total_seats, airplane_type [FK])`
+4. `Flight`: `(flight_number [PK], airline, weekdays)`
+5. `Flight_Leg`: `(flight_number [PK, FK], leg_number [PK], departure_airport [FK], arrival_airport [FK], scheduled_dep_time, scheduled_arr_time)`
+6. `Leg_Instance`: `(flight_number [PK, FK], leg_number [PK, FK], flight_date [PK], available_seats, assigned_airplane [FK])`
+7. `Seat_Reservation`: `(flight_number [PK, FK], leg_number [PK, FK], flight_date [PK, FK], seat_number [PK], customer_name, customer_phone, fare_paid)`
+
+
+2. COMPLETE RELATIONAL SCHEMA IMPLEMENTATION (MYSQL INNODB)
+--------------------------------------------------------------------------------
+CREATE TABLE airports (
+    airport_code CHAR(3) PRIMARY KEY, -- e.g. 'CCU', 'DEL'
+    airport_name VARCHAR(100) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    country VARCHAR(50) NOT NULL DEFAULT 'India'
+) ENGINE=InnoDB;
+
+CREATE TABLE airplane_types (
+    type_name VARCHAR(50) PRIMARY KEY, -- e.g. 'Boeing 737-800'
+    max_seats INT NOT NULL,
+    manufacturer VARCHAR(50) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE airplanes (
+    airplane_id INT AUTO_INCREMENT PRIMARY KEY,
+    airplane_type VARCHAR(50) NOT NULL,
+    total_seats INT NOT NULL,
+    CONSTRAINT fk_plane_type FOREIGN KEY (airplane_type)
+        REFERENCES airplane_types(type_name) ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+CREATE TABLE flights (
+    flight_number VARCHAR(10) PRIMARY KEY, -- e.g. 'AI-772', '6E-204'
+    airline_name VARCHAR(50) NOT NULL,
+    weekdays VARCHAR(20) NOT NULL -- e.g. 'Daily', 'Mon,Wed,Fri'
+) ENGINE=InnoDB;
+
+CREATE TABLE flight_legs (
+    flight_number VARCHAR(10) NOT NULL,
+    leg_number INT NOT NULL,
+    departure_airport CHAR(3) NOT NULL,
+    arrival_airport CHAR(3) NOT NULL,
+    scheduled_dep_time TIME NOT NULL,
+    scheduled_arr_time TIME NOT NULL,
+    PRIMARY KEY (flight_number, leg_number),
+    CONSTRAINT fk_leg_flight FOREIGN KEY (flight_number) REFERENCES flights(flight_number) ON DELETE CASCADE,
+    CONSTRAINT fk_leg_dep FOREIGN KEY (departure_airport) REFERENCES airports(airport_code),
+    CONSTRAINT fk_leg_arr FOREIGN KEY (arrival_airport) REFERENCES airports(airport_code)
+) ENGINE=InnoDB;
+
+CREATE TABLE leg_instances (
+    flight_number VARCHAR(10) NOT NULL,
+    leg_number INT NOT NULL,
+    flight_date DATE NOT NULL,
+    available_seats INT NOT NULL,
+    assigned_airplane_id INT NOT NULL,
+    PRIMARY KEY (flight_number, leg_number, flight_date),
+    CONSTRAINT fk_inst_leg FOREIGN KEY (flight_number, leg_number)
+        REFERENCES flight_legs(flight_number, leg_number) ON DELETE CASCADE,
+    CONSTRAINT fk_inst_plane FOREIGN KEY (assigned_airplane_id)
+        REFERENCES airplanes(airplane_id)
+) ENGINE=InnoDB;
+
+CREATE TABLE seat_reservations (
+    flight_number VARCHAR(10) NOT NULL,
+    leg_number INT NOT NULL,
+    flight_date DATE NOT NULL,
+    seat_number VARCHAR(4) NOT NULL, -- e.g. '12A', '14F'
+    passenger_name VARCHAR(100) NOT NULL,
+    passenger_phone VARCHAR(15) NOT NULL,
+    fare_paid DECIMAL(10, 2) NOT NULL,
+    PRIMARY KEY (flight_number, leg_number, flight_date, seat_number),
+    CONSTRAINT fk_res_inst FOREIGN KEY (flight_number, leg_number, flight_date)
+        REFERENCES leg_instances(flight_number, leg_number, flight_date) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+3. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Overbooking Seats:
+   - Forgetting composite primary key `(flight_number, leg_number, flight_date, seat_number)` allows double-booking seat 12A on the same date.
+2. Flattening Flight and Leg Instance:
+   - Treating `Flight` and `Leg_Instance` as a single table causes massive data redundancy because the flight schedule is repeated for every calendar day.
+3. Missing Airport Code Constraints:
+   - Departure and Arrival airports must reference valid 3-letter IATA codes.
+
+
+4. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Separate static flight schedules (`flights`, `flight_legs`) from concrete daily departures (`leg_instances`).
+[x] Use composite primary keys spanning 4 levels down to seat reservations.
+[x] Configure `ON DELETE CASCADE` down the schedule hierarchy.
+[x] Enforce seat booking uniqueness at the database level.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

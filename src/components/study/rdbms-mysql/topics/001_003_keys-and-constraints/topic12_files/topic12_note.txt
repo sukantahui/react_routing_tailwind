@@ -1,0 +1,98 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 12: Adding and Modifying Constraints with ALTER TABLE
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. MANAGING CONSTRAINTS ON EXISTING TABLES
+--------------------------------------------------------------------------------
+In real-world software lifecycles, database tables evolve over time. New business rules
+require adding, modifying, or relaxing constraints on tables that already contain millions of rows.
+
+CORE RULE OF CONSTRAINT ADDITIONS:
+Before MySQL permits adding a constraint to an existing table, ALL existing rows in the table
+MUST already satisfy the proposed rule. If even one row violates the rule, the `ALTER TABLE`
+statement fails immediately!
+
+
+2. SYNTAX FOR ADDING CONSTRAINTS VIA ALTER TABLE
+--------------------------------------------------------------------------------
+A. ADDING A PRIMARY KEY:
+   ALTER TABLE students
+   ADD CONSTRAINT pk_students PRIMARY KEY (student_id);
+
+B. ADDING A UNIQUE CONSTRAINT:
+   ALTER TABLE students
+   ADD CONSTRAINT uq_students_email UNIQUE (email);
+
+C. ADDING A FOREIGN KEY CONSTRAINT:
+   ALTER TABLE student_payments
+   ADD CONSTRAINT fk_payments_students FOREIGN KEY (student_id)
+       REFERENCES students(student_id)
+       ON DELETE RESTRICT
+       ON UPDATE CASCADE;
+
+D. ADDING A CHECK CONSTRAINT:
+   ALTER TABLE students
+   ADD CONSTRAINT chk_students_fee_floor CHECK (admission_fee >= 10000.00);
+
+E. ADDING A NOT NULL CONSTRAINT:
+   ALTER TABLE students
+   MODIFY first_name VARCHAR(50) NOT NULL;
+
+
+3. ATOMIC MULTI-CONSTRAINT ALTER TABLE
+--------------------------------------------------------------------------------
+Multiple constraints can be added in a single atomic statement to minimize table locking:
+ALTER TABLE students
+    ADD CONSTRAINT uq_students_roll UNIQUE (roll_no),
+    ADD CONSTRAINT chk_fee_floor CHECK (admission_fee >= 10000.00),
+    MODIFY city VARCHAR(50) NOT NULL DEFAULT 'Barrackpore';
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Data Cleanup & Constraint Application Workflow
+-- Step 1: Audit and repair existing data violating proposed rules
+UPDATE students SET admission_fee = 10000.00 WHERE admission_fee < 10000.00;
+UPDATE students SET phone_no = '0000000000' WHERE phone_no IS NULL;
+
+-- Step 2: Apply constraints safely
+ALTER TABLE students
+    ADD CONSTRAINT chk_fee_floor CHECK (admission_fee >= 10000.00),
+    MODIFY phone_no VARCHAR(10) NOT NULL;
+
+CASE 2: Debangshu's Kolkata E-Commerce Order Relationship Migration
+-- Step 1: Clean orphaned order items before adding FK
+DELETE FROM order_items
+WHERE order_id NOT IN (SELECT order_id FROM customer_orders);
+
+-- Step 2: Attach named Foreign Key constraint
+ALTER TABLE order_items
+    ADD CONSTRAINT fk_items_orders FOREIGN KEY (order_id)
+    REFERENCES customer_orders(order_id) ON DELETE CASCADE;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Pre-Existing Data Violations:
+   - Trying to add `UNIQUE (email)` when duplicate emails exist aborts with Error 1062.
+2. Long Table Locks on Large Datasets:
+   - Modifying columns on tables with millions of rows can block concurrent writes unless using online schema alteration tools (`ALGORITHM=INPLACE` or `gh-ost`).
+3. Forgetting Data Types in `MODIFY NOT NULL`:
+   - Must specify full data type: `MODIFY col VARCHAR(50) NOT NULL`.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Run pre-flight audit queries (`SELECT ... WHERE NOT (rule)`) before applying constraints.
+[x] Clean and normalize legacy data before executing `ALTER TABLE`.
+[x] Use explicit `CONSTRAINT symbol_name` when adding constraints via ALTER TABLE.
+[x] Combine multiple constraint additions into a single `ALTER TABLE` statement.
+[x] Use `ALGORITHM=INPLACE` or `ALGORITHM=INSTANT` where supported in MySQL 8.0.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

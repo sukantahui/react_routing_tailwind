@@ -1,0 +1,101 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 3: Referential Integrity Rules & Foreign Key Checks
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE REFERENTIAL INTEGRITY RULES?
+--------------------------------------------------------------------------------
+Referential Integrity is the foundational relational database property ensuring that all
+references from a child table to a parent table remain strictly valid. If table B contains a
+foreign key referencing table A, every non-null value in table B MUST correspond to a valid,
+existing primary/unique key value in table A.
+
+ENGINE ENFORCEMENT:
+MySQL InnoDB enforces referential integrity during write operations (`INSERT`, `UPDATE`, `DELETE`)
+by acquiring shared row-level locks on referenced parent records and evaluating constraint rules.
+
+
+2. THE `foreign_key_checks` SYSTEM VARIABLE
+--------------------------------------------------------------------------------
+MySQL provides a server/session-level toggle: `foreign_key_checks` (0 or 1).
+
+A. DISABLING FOREIGN KEY CHECKS (ETL & MIGRATIONS ONLY):
+   SET foreign_key_checks = 0;
+   -- 1. Truncating parent tables with active foreign key references
+   -- 2. Bulk loading multi-million row dump files in arbitrary table order
+   -- 3. Creating circular dependency schemas (Table A references B, B references A)
+   SET foreign_key_checks = 1;
+
+B. DANGERS OF LEAVING FOREIGN KEY CHECKS OFF:
+   If left disabled, applications can insert orphaned child records or corrupt existing
+   relational linkages. Always re-enable immediately in the same session.
+
+
+3. THE 4 REFERENTIAL ACTIONS COMPARED
+--------------------------------------------------------------------------------
+1. `RESTRICT` (Default):
+   - Blocks parent deletion or modification if matching child records exist.
+   - Throws Error 1451.
+2. `CASCADE`:
+   - Deletes or updates matching child records automatically.
+3. `SET NULL`:
+   - Sets child foreign key columns to NULL. Requires nullable child columns.
+4. `NO ACTION`:
+   - In MySQL InnoDB, behaves identically to `RESTRICT`.
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Bulk Data Migration Script
+-- Step 1: Disable checks for high-speed dump restore
+SET foreign_key_checks = 0;
+
+TRUNCATE TABLE student_payments;
+TRUNCATE TABLE course_enrollments;
+TRUNCATE TABLE students;
+
+-- Step 2: Load data dump files
+LOAD DATA INFILE 'students_dump.csv' INTO TABLE students ...;
+LOAD DATA INFILE 'payments_dump.csv' INTO TABLE student_payments ...;
+
+-- Step 3: Re-enable foreign key validation
+SET foreign_key_checks = 1;
+
+CASE 2: Debangshu's Kolkata Audit Trail & Order Relationship
+CREATE TABLE invoices (
+    invoice_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    customer_id INT NOT NULL,
+    invoice_amount DECIMAL(10, 2) NOT NULL,
+    -- Referential Integrity Constraints
+    CONSTRAINT fk_inv_order FOREIGN KEY (order_id)
+        REFERENCES customer_orders(order_id) ON DELETE RESTRICT,
+    CONSTRAINT fk_inv_customer FOREIGN KEY (customer_id)
+        REFERENCES customers(customer_id) ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Forgetting to Re-enable `foreign_key_checks`:
+   - Leaves database vulnerable to orphaned records from subsequent queries.
+2. Circular Table Drop Failures:
+   - Dropping parent before child fails with Error 3730 unless checks are disabled or child is dropped first.
+3. Lock Spikes on Massive Cascades:
+   - Cascading deletions on tables with millions of child rows acquire thousands of row locks, stalling concurrent writes.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Keep `foreign_key_checks = 1` active in all production application environments.
+[x] Use `SET foreign_key_checks = 0` only inside tightly scoped migration scripts.
+[x] Always pair temporary disables with an immediate `SET foreign_key_checks = 1;`.
+[x] Use `RESTRICT` on critical financial and institutional master records.
+[x] Profile cascading delete performance on large tables before deploying to production.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

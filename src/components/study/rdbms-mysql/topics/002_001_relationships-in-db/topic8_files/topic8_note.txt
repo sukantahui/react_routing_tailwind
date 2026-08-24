@@ -1,0 +1,96 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_001 - Table Relationships & Referential Actions
+TOPIC 8: Choosing the Right Referential Integrity Action for Business Needs
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. THE ARCHITECTURAL DECISION MATRIX
+--------------------------------------------------------------------------------
+Selecting the appropriate referential action (`CASCADE`, `RESTRICT`, or `SET NULL`) is a vital
+architectural decision that directly impacts data integrity, application behavior, and legal compliance.
+
+BUSINESS SCENARIO CLASSIFICATION:
+1. Existential / Master-Detail Composition (USE CASCADE):
+   - Child entity cannot exist without parent.
+   - Example: Order -> Order Items, Post -> Comments, Student -> Verification Documents.
+2. Financial, Legal & Compliance Audit Ledgers (USE RESTRICT):
+   - Child records have permanent financial, tax, or legal retention value.
+   - Example: Customer -> Invoices, Student -> Payment Receipts, Product -> Order History.
+3. Advisory / Optional Allocations (USE SET NULL):
+   - Child records exist independently; parent pointer is purely advisory.
+   - Example: Student -> Assigned Mentor, Employee -> Assigned Office Desk/Locker, Post -> Category.
+
+
+2. COMPREHENSIVE DECISION TREE
+--------------------------------------------------------------------------------
+Question 1: Does the child record have independent legal/financial value?
+  ├── YES ──> USE 'RESTRICT' (Prevent deletion; enforce explicit archival or soft delete)
+  └── NO  ──> Proceed to Question 2
+
+Question 2: Should child records be deleted when the parent is deleted?
+  ├── YES (Existential Child) ──> USE 'CASCADE'
+  └── NO (Independent Entity)  ──> Question 3: Can foreign key be NULL?
+                                      ├── YES ──> USE 'SET NULL'
+                                      └── NO  ──> Redesign schema or use 'RESTRICT'
+
+
+3. PRODUCTION DDL SCHEMAS BY USE CASE
+--------------------------------------------------------------------------------
+A. FINANCIAL RESTRICTION (BARRACKPORE ACCOUNTS):
+   CREATE TABLE gst_invoices (
+       invoice_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+       client_id INT NOT NULL,
+       tax_amount DECIMAL(12, 2) NOT NULL,
+       CONSTRAINT fk_inv_client FOREIGN KEY (client_id)
+           REFERENCES clients(client_id)
+           ON DELETE RESTRICT -- Absolute protection against financial data loss!
+           ON UPDATE CASCADE
+   ) ENGINE=InnoDB;
+
+B. EXISTENTIAL COMPOSITION (KOLKATA E-COMMERCE):
+   CREATE TABLE shopping_cart_items (
+       cart_id BIGINT UNSIGNED NOT NULL,
+       product_id INT NOT NULL,
+       quantity INT NOT NULL DEFAULT 1,
+       PRIMARY KEY (cart_id, product_id),
+       CONSTRAINT fk_cart_items FOREIGN KEY (cart_id)
+           REFERENCES shopping_carts(cart_id)
+           ON DELETE CASCADE -- Cart destroyed ➔ Items wiped cleanly!
+           ON UPDATE CASCADE
+   ) ENGINE=InnoDB;
+
+C. OPTIONAL ADVISORY ALLOCATION (STUDENT MENTORS):
+   CREATE TABLE students (
+       student_id INT AUTO_INCREMENT PRIMARY KEY,
+       first_name VARCHAR(50) NOT NULL,
+       mentor_id INT NULL,
+       CONSTRAINT fk_student_mentor FOREIGN KEY (mentor_id)
+           REFERENCES faculty(faculty_id)
+           ON DELETE SET NULL -- Faculty leaves ➔ Student remains enrolled!
+           ON UPDATE CASCADE
+   ) ENGINE=InnoDB;
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Blanket Application of CASCADE:
+   - Blindly adding `ON DELETE CASCADE` to all foreign keys leads to catastrophic accidental data deletion in production.
+2. Incompatible Nullability:
+   - Choosing `SET NULL` on a column defined as `NOT NULL` causes table creation failure.
+3. Forgetting ON UPDATE CASCADE:
+   - Leaving update rules as default `RESTRICT` prevents harmless primary key refactoring and renumbering.
+
+
+5. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use `RESTRICT` by default for financial, accounting, tax, and user account records.
+[x] Use `CASCADE` only when child data is 100% meaningless without the parent entity.
+[x] Use `SET NULL` for optional references (mentors, managers, equipment allocations).
+[x] Always combine your chosen delete rule with `ON UPDATE CASCADE`.
+[x] Document the business justification for every foreign key referential action in schema comments.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

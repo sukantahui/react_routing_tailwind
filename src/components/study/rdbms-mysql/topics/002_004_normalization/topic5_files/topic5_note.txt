@@ -1,0 +1,95 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 5: Transitive Functional Dependencies (X → Y and Y → Z)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A TRANSITIVE FUNCTIONAL DEPENDENCY?
+--------------------------------------------------------------------------------
+In a relational schema R, a functional dependency $X \rightarrow Z$ is a Transitive Dependency 
+if there exists an intermediate attribute set Y such that:
+1. $X \rightarrow Y$ holds
+2. $Y \rightarrow Z$ holds
+3. $Y \rightarrow X$ does NOT hold (Y is not a candidate key)
+4. $Z \not\subseteq X$ and $Z \not\subseteq Y$ (Z is non-trivial and non-prime)
+
+In plain English:
+A non-prime attribute Z depends on the primary key X only indirectly via another 
+non-prime attribute Y ($X \rightarrow Y \rightarrow Z$).
+A non-key column is determining another non-key column!
+
+
+2. BENCHMARK EXAMPLE OF A TRANSITIVE DEPENDENCY
+--------------------------------------------------------------------------------
+Consider a student admission table:
+`Students_Admission(student_id, student_name, department_id, department_name, department_head, building_block)`
+
+Primary Key: `student_id`
+
+Functional Dependencies:
+1. `student_id → department_id` (Each student belongs to exactly one department).
+2. `department_id → {department_name, department_head, building_block}` 
+   (Each department has one name, one head, and is located in one building).
+3. Transitive Indirect Dependency:
+   `student_id → {department_name, department_head, building_block}`
+
+Why this is a Transitive Dependency:
+• `student_id` is the Primary Key (X).
+• `department_id` is a Non-Prime intermediate attribute (Y).
+• `department_head` is a Non-Prime attribute (Z).
+• `student_id → department_id` and `department_id → department_head`, but `department_id ↛ student_id`.
+• Therefore, `department_head` is transitively dependent on `student_id` through `department_id`!
+
+
+3. WHY TRANSITIVE DEPENDENCIES CAUSE MODIFICATION ANOMALIES
+--------------------------------------------------------------------------------
+1. Update Anomaly:
+   If the Computer Science department head changes from 'Dr. A. Roy' to 'Dr. P. Sen', 
+   and 500 students are enrolled in that department, all 500 student records must be updated. 
+   Missing 1 record causes contradictory department heads in the database.
+2. Insertion Anomaly:
+   You cannot insert a new academic department (e.g. 'Robotics Engineering') if no students 
+   have enrolled yet, because `student_id` cannot be NULL.
+3. Deletion Anomaly:
+   If the only student in the 'Biotech' department graduates and their row is deleted, 
+   the entire 'Biotech' department, its head, and building location are permanently erased!
+
+
+4. THE THIRD NORMAL FORM (3NF) STANDARD
+--------------------------------------------------------------------------------
+Definition of Third Normal Form (3NF):
+A relation schema R is in 3NF if and only if:
+1. It is in Second Normal Form (2NF).
+2. NO non-prime attribute is transitively dependent on any candidate key of R.
+
+Equivalently, for every non-trivial functional dependency $X \rightarrow A$ in R, 
+at least one of the following conditions MUST hold:
+• Condition 1: X is a Super Key of R.
+• Condition 2: A is a Prime Attribute (A is part of some candidate key of R).
+
+
+5. 3NF DECOMPOSITION PROCEDURE
+--------------------------------------------------------------------------------
+To eliminate transitive dependency $X \rightarrow Y \rightarrow Z$:
+1. Create a dedicated table for the intermediate determinant and its dependents:
+   `Departments(department_id [PK], department_name, department_head, building_block)`
+2. Retain the determinant Y as a Foreign Key in the original table:
+   `Students(student_id [PK], student_name, department_id [FK])`
+3. Remove transitively dependent attributes Z (`department_name`, `department_head`, `building_block`) 
+   from the original table.
+
+
+6. SUMMARY CHECKLIST FOR TRANSITIVE DEPENDENCIES
+--------------------------------------------------------------------------------
+[x] Transitive Dependency: $X \rightarrow Y$ and $Y \rightarrow Z$ implies indirect dependency $X \rightarrow Z$.
+[x] Occurs when a non-prime attribute Y determines another non-prime attribute Z.
+[x] Transitive dependencies cause severe Insertion, Update, and Deletion anomalies.
+[x] Third Normal Form (3NF) strictly eliminates all transitive dependencies.
+[x] 3NF Rule: For every non-trivial $X \rightarrow A$, either X is a super key OR A is a prime attribute.
+[x] Decompose by creating a dedicated table where Y becomes the Primary Key, and Y remains as a Foreign Key in the original table.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

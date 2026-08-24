@@ -1,0 +1,108 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 11: Logical Operators (AND, OR, NOT, and XOR)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE LOGICAL OPERATORS IN SQL?
+--------------------------------------------------------------------------------
+Logical operators combine or negate multiple boolean search conditions in `WHERE`, `HAVING`,
+and `ON` clauses to build compound filtering expressions.
+
+THE 4 LOGICAL OPERATORS IN MYSQL:
+1. `AND` (or `&&`): Returns TRUE only if BOTH conditions evaluate to TRUE.
+2. `OR` (or `||`): Returns TRUE if EITHER condition (or both) evaluates to TRUE.
+3. `NOT` (or `!`): Inverts the boolean outcome (TRUE becomes FALSE; FALSE becomes TRUE).
+4. `XOR`: Exclusive OR; returns TRUE if exactly ONE operand is TRUE (and the other is FALSE).
+
+
+2. OPERATOR PRECEDENCE & DE MORGAN'S LAWS
+--------------------------------------------------------------------------------
+A. PRECEDENCE HIERARCHY:
+   1. `NOT` (Highest logical precedence)
+   2. `AND`
+   3. `OR` / `XOR` (Lowest logical precedence)
+
+B. WHY PARENTHESES `()` ARE MANDATORY:
+   Because `AND` executes before `OR`, the query:
+   `WHERE city = 'Barrackpore' OR city = 'Kolkata' AND fee >= 15000`
+   is parsed by MySQL as:
+   `WHERE city = 'Barrackpore' OR (city = 'Kolkata' AND fee >= 15000)`
+   (Which accidentally returns ALL Barrackpore students regardless of their fee!).
+   
+   Correct grouping:
+   `WHERE (city = 'Barrackpore' OR city = 'Kolkata') AND fee >= 15000;`
+
+C. DE MORGAN'S LAWS FOR SQL LOGIC REFACTORING:
+   • `NOT (A AND B)` is logically equivalent to `(NOT A) OR (NOT B)`
+   • `NOT (A OR B)` is logically equivalent to `(NOT A) AND (NOT B)`
+
+
+3. THREE-VALUED LOGIC TRUTH TABLES (WITH NULLs)
+--------------------------------------------------------------------------------
+Expression           | Evaluates To
+--------------------------------------------------------------------------------
+TRUE AND UNKNOWN     | UNKNOWN (Rejected in WHERE)
+FALSE AND UNKNOWN    | FALSE (Rejected in WHERE)
+TRUE OR UNKNOWN      | TRUE (Accepted in WHERE!)
+FALSE OR UNKNOWN     | UNKNOWN (Rejected in WHERE)
+NOT UNKNOWN          | UNKNOWN (Rejected in WHERE)
+
+
+4. SHORT-CIRCUIT EVALUATION IN MYSQL
+--------------------------------------------------------------------------------
+MySQL evaluates conditions from left to right and short-circuits:
+• In `A AND B`: If `A` is FALSE, MySQL skips evaluating `B` entirely.
+• In `A OR B`: If `A` is TRUE, MySQL skips evaluating `B` entirely.
+Placing cheaper, indexed, or highly selective conditions on the left improves performance.
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Finding Eligible Scholarship Candidates in Barrackpore College
+SELECT
+    roll_no,
+    CONCAT(first_name, ' ', last_name) AS student_name,
+    admission_fee AS "Fee (₹)",
+    city
+FROM students
+WHERE (city = 'Barrackpore' OR city = 'Ichapur')
+  AND is_active = 1
+  AND admission_fee <= 15000.00;
+
+CASE 2: Debangshu Finding Flagged High-Risk Orders in Kolkata E-Commerce
+SELECT
+    order_number,
+    customer_id,
+    total_amount AS "Amount (₹)",
+    order_status
+FROM customer_orders
+WHERE (order_status = 'pending' OR order_status = 'processing')
+  AND total_amount >= 50000.00
+  AND NOT (payment_method = 'COD');
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Missing Parentheses when Mixing AND with OR:
+   - The single most common logical bug in SQL application code.
+2. Inverting Conditions Incorrectly:
+   - Writing `WHERE NOT (city = 'Kolkata' AND fee > 10000)` excludes only Kolkata students with fee > 10000,
+     while retaining Kolkata students with fee <= 10000 and all other cities!
+3. Overlooking Short-Circuit Behavior in Stored Functions:
+   - Stored functions with side effects may not execute if placed on the right side of a short-circuited AND/OR.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Always explicitly wrap `OR` groups in parentheses `( ... )` when combining with `AND`.
+[x] Use `NOT IN` or `NOT EXISTS` rather than long chains of `AND col <> 'val'`.
+[x] Apply De Morgan's laws to simplify convoluted negative conditions.
+[x] Place indexed, highly selective conditions first to take advantage of short-circuiting.
+[x] Test boolean expressions against truth tables when dealing with nullable columns.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

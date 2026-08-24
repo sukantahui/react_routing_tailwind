@@ -1,0 +1,92 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 17: Tuple Relational Calculus (TRC) - Safe Expressions & Quantifiers (∀, ∃)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS TUPLE RELATIONAL CALCULUS (TRC)?
+--------------------------------------------------------------------------------
+While Relational Algebra is PROCEDURAL (specifying HOW to retrieve data step-by-step),
+Tuple Relational Calculus (TRC) is a NON-PROCEDURAL / DECLARATIVE formal query language
+based on First-Order Predicate Logic. It describes WHAT data to retrieve without specifying
+the retrieval algorithm.
+
+MATHEMATICAL SYNTAX:
+$$\{ t \mid P(t) \}$$
+where:
+• $t$ is a TUPLE VARIABLE.
+• $P(t)$ is a FIRST-ORDER LOGIC FORMULA (Predicate) that evaluates to TRUE or FALSE for tuple $t$.
+• If only specific attributes are desired: $\{ t.A_1, t.A_2 \mid P(t) \}$.
+
+
+2. ATOMIC FORMULAS & QUANTIFIERS IN TRC
+--------------------------------------------------------------------------------
+ATOMS (Basic Building Blocks):
+1. Relation Membership: $t \in R$ (tuple $t$ belongs to relation $R$).
+2. Attribute Comparison with Constant: $t.A \ \theta \ c$ (e.g. $t.\text{city} = \text{'Barrackpore'}$).
+3. Attribute Comparison between Tuples: $t.A \ \theta \ u.B$ (e.g. $t.\text{student\_id} = u.\text{student\_id}$).
+
+CONNECTIVES & QUANTIFIERS:
+• Boolean Connectives: $\land$ (AND), $\lor$ (OR), $\neg$ (NOT), $\rightarrow$ (Implication).
+• Existential Quantifier ($\exists$):
+  $$\exists u \in S \ (P(u)) \quad \text{("There exists at least one tuple } u \text{ in } S \text{ such that } P(u) \text{ is true")}$$
+• Universal Quantifier ($\forall$):
+  $$\forall u \in S \ (P(u)) \quad \text{("For every tuple } u \text{ in } S, \ P(u) \text{ is true")}$$
+• Duality (De Morgan's Laws for Quantifiers):
+  $$\forall u \ P(u) \equiv \neg \exists u \ \neg P(u)$$
+  $$\exists u \ P(u) \equiv \neg \forall u \ \neg P(u)$$
+
+
+3. SAFETY OF TRC EXPRESSIONS & DOMAIN OF THE FORMULA $\text{DOM}(P)$
+--------------------------------------------------------------------------------
+An UNSAFE TRC expression is one that can evaluate to an INFINITE number of tuples!
+Example of an Unsafe Expression:
+$$\{ t \mid \neg(t \in \text{Students}) \}$$
+(This asks for all tuples in the universe that are NOT students—infinite tuples!).
+
+SAFETY DEFINITION (DOM-bounded):
+An expression $\{ t \mid P(t) \}$ is defined to be SAFE if and only if:
+1. Every component value of the result tuple $t$ belongs to $\text{DOM}(P)$ (the active domain of constants in the query and current database relations).
+2. For every subformula $\exists u (Q(u))$, if $Q(u)$ is true, then $u$ is bound within $\text{DOM}(Q)$.
+3. For every subformula $\forall u (Q(u))$, if $u$ is outside $\text{DOM}(Q)$, $Q(u)$ is vacuously true.
+
+
+4. REAL-WORLD TRC CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Simple Filter & Projection
+-- Query: "Find names of all students from Barrackpore"
+-- TRC: $\{ t.\text{full\_name} \mid t \in \text{Students} \land t.\text{city} = \text{'Barrackpore'} \}$
+SELECT full_name FROM students WHERE city = 'Barrackpore';
+
+CASE 2: Existential Join (Students enrolled in 'MySQL Masterclass')
+-- TRC: $\{ s.\text{full\_name} \mid s \in \text{Students} \land \exists e \in \text{Enrollments} \exists c \in \text{Courses} (e.\text{student\_id} = s.\text{student\_id} \land e.\text{course\_id} = c.\text{course\_id} \land c.\text{course\_title} = \text{'MySQL Masterclass'}) \}$
+SELECT s.full_name
+FROM students s
+WHERE EXISTS (
+    SELECT 1 FROM enrollments e JOIN courses c ON e.course_id = c.course_id
+    WHERE e.student_id = s.student_id AND c.course_title = 'MySQL Masterclass'
+);
+
+CASE 3: Universal Quantification (Students enrolled in ALL Core Courses)
+-- TRC: $\{ s.\text{full\_name} \mid s \in \text{Students} \land \forall c \in \text{Core\_Courses} (\exists e \in \text{Enrollments} (e.\text{student\_id} = s.\text{student\_id} \land e.\text{course\_id} = c.\text{course\_id})) \}$
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Writing Unsafe Expressions:
+   - Forgetting to bind tuple variables to relations ($t \in R$) produces infinite result domains.
+2. Confusing Quantifier Scopes ($\exists$ vs $\forall$).
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Always explicitly bind tuple variables: $t \in \text{RelationName}$.
+[x] Use Existential Quantifier ($\exists$) for 1:N existence checks (`WHERE EXISTS`).
+[x] Use Universal Quantifier ($\forall$) or $\neg \exists \neg$ for 'FOR ALL' queries.
+[x] Ensure every TRC formula is mathematically Safe (DOM-bounded).
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

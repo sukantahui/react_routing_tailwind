@@ -1,0 +1,80 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 7: Theta Join (⨝θ) and Equijoin Operations
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. THE THETA JOIN (⨝θ) DEFINITION & MATHEMATICAL SEMANTICS
+--------------------------------------------------------------------------------
+The Theta Join (denoted by the bowtie symbol with a theta subscript, $\bowtie_\theta$)
+is a binary relational algebra operator that combines related tuples from two relations
+based on a specified comparison condition $\theta$.
+
+MATHEMATICAL DEFINITION:
+$$R \bowtie_\theta S = \sigma_\theta(R \times S)$$
+where $\theta$ is a boolean predicate of the form:
+$$A_i \ \theta \ B_j$$
+where $\theta \in \{ =, \neq, <, \le, >, \ge \}$, $A_i$ is an attribute of $R$, and $B_j$ is an attribute of $S$.
+
+KEY MATHEMATICAL PROPERTIES:
+1. DEGREE (ARITY):
+   $$\text{Degree}(R \bowtie_\theta S) = \text{Degree}(R) + \text{Degree}(S)$$
+   (Both join key columns $A_i$ and $B_j$ are preserved in the output schema).
+2. CARDINALITY BOUNDS:
+   $$0 \le |R \bowtie_\theta S| \le |R| \times |S|$$
+3. COMMUTATIVE (UP TO TUPLE ORDER):
+   $$R \bowtie_\theta S \equiv S \bowtie_{\theta'} R$$
+
+
+2. EQUIJOIN (A SPECIAL CASE OF THETA JOIN)
+--------------------------------------------------------------------------------
+An Equijoin is a Theta Join where the comparison operator $\theta$ is STRICTLY EQUALITY ($=$):
+$$\theta \equiv (A_i = B_j)$$
+• Example: $\text{Students} \bowtie_{\text{Students.student\_id} = \text{Enrollments.student\_id}} \text{Enrollments}$
+• Equijoins preserve BOTH matching columns in the result schema (unlike Natural Join, which projects away the duplicate column).
+
+
+3. NON-EQUI THETA JOINS (RANGE & INEQUALITY JOINS)
+--------------------------------------------------------------------------------
+When $\theta \in \{ <, \le, >, \ge, \text{BETWEEN} \}$, it is a Non-Equi Join:
+• Salary Grade Band Matching: $\text{Employees} \bowtie_{\text{salary} \ge \text{min\_sal} \land \text{salary} \le \text{max\_sal}} \text{Salary\_Grades}$
+• Temporal Interval Overlaps: $\text{Bookings} \bowtie_{\text{start\_time} < \text{other.end\_time} \land \text{end\_time} > \text{other.start\_time}} \text{Bookings}$
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Equijoin on Student Enrollments (Mamata's Academy)
+-- Relational Algebra:
+-- $\text{Students} \bowtie_{\text{Students.student\_id} = \text{Enrollments.student\_id}} \text{Enrollments}$
+SELECT s.student_id, s.full_name, e.course_id, e.enrolled_at
+FROM students s
+INNER JOIN enrollments e ON s.student_id = e.student_id;
+
+CASE 2: Non-Equi Fee Band Matching (Debangshu's Kolkata Scholarship Audit)
+-- Relational Algebra:
+-- $\text{Students} \bowtie_{\text{Students.admission\_fee} \ge \text{Bands.min\_fee} \land \text{Students.admission\_fee} \le \text{Bands.max\_fee}} \text{Fee\_Bands}$
+SELECT s.full_name, s.admission_fee, b.band_tier, b.scholarship_pct
+FROM students s
+INNER JOIN fee_bands b ON s.admission_fee >= b.min_fee AND s.admission_fee <= b.max_fee;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Confusing Equijoin with Natural Join:
+   - Equijoin keeps BOTH columns (`R.id` and `S.id`); Natural Join keeps only ONE single merged column.
+2. Inefficient Nested Loop Scans on Non-Equi Joins:
+   - Non-equi joins ($>, <$) cannot use Hash Join algorithms and often require Range B-Tree index scans.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use Theta Join notation: $R \bowtie_\theta S \equiv \sigma_\theta(R \times S)$.
+[x] Identify Equijoins as theta joins with equality ($=$) predicates.
+[x] Use Non-Equi joins for salary bands, grading tiers, and temporal interval overlap checks.
+[x] Index join foreign keys with B-Tree indexes to enable sub-millisecond Equijoin performance.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

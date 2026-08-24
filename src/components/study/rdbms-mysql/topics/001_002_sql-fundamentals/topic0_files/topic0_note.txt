@@ -1,0 +1,163 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 0: Understanding MySQL Data Types (Numeric, String, Date/Time)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE DATA TYPES AND WHY DO THEY MATTER?
+--------------------------------------------------------------------------------
+A data type is an attribute of a column that tells the MySQL database engine:
+1. What kind of values can be stored (integers, decimals, text, dates, binary).
+2. How many bytes of storage space will be allocated per row.
+3. What operations can be performed on the data (arithmetic, string concatenation, date arithmetic).
+4. How data is sorted, indexed, and validated for integrity.
+
+WHY CAREFUL DATA TYPE SELECTION IS CRITICAL:
+• Storage Efficiency: Millions of rows multiply wasted bytes rapidly (e.g. BIGINT vs TINYINT).
+• Memory & Buffer Pool Optimization: Smaller columns fit more rows into RAM (InnoDB Buffer Pool).
+• Index Efficiency: Narrow data types yield smaller B-Tree indexes and faster lookups.
+• Data Integrity: Prevents invalid input (e.g. alphabets in phone numbers or dates).
+• Calculation Accuracy: Using DECIMAL prevents floating-point rounding errors in currency (₹).
+
+
+2. NUMERIC DATA TYPES
+--------------------------------------------------------------------------------
+A. EXACT INTEGER TYPES:
++------------+---------+----------------------------+-----------------------------+
+| Type       | Storage | Signed Range               | Unsigned Range (UNSIGNED)   |
++------------+---------+----------------------------+-----------------------------+
+| TINYINT    | 1 Byte  | -128 to 127                | 0 to 255                    |
+| SMALLINT   | 2 Bytes | -32,768 to 32,767          | 0 to 65,535                 |
+| MEDIUMINT  | 3 Bytes | -8,388,608 to 8,388,607    | 0 to 16,777,215             |
+| INT / INTEGER| 4 Bytes| -2,147,483,648 to 2.14B    | 0 to 4,294,967,295          |
+| BIGINT     | 8 Bytes | -9.22 x 10^18 to 9.22 x 10^18 | 0 to 18.44 x 10^18        |
++------------+---------+----------------------------+-----------------------------+
+
+KEY ATTRIBUTES:
+• UNSIGNED: Eliminates negative numbers and doubles the positive range. Ideal for auto-increment IDs, ages, quantities.
+• ZEROFILL: Automatically adds UNSIGNED and pads displayed numbers with leading zeros (e.g. INT(4) ZEROFILL stores 7 as '0007').
+• BOOLEAN / BOOL: In MySQL, BOOL is an alias for TINYINT(1). 0 represents FALSE, non-zero (usually 1) represents TRUE.
+
+B. EXACT FIXED-POINT NUMERIC TYPE (FOR FINANCIAL & CURRENCY DATA):
+• DECIMAL(M, D) / NUMERIC(M, D):
+  - M = Total precision (total number of digits, 1 to 65).
+  - D = Scale (number of digits after decimal point, 0 to 30).
+  - Example: DECIMAL(10, 2) stores up to ₹99,999,999.99 without rounding errors.
+  - RULE: ALWAYS use DECIMAL for monetary transactions, account balances, and tax computations.
+
+C. APPROXIMATE FLOATING-POINT TYPES (FOR SCIENTIFIC DATA):
+• FLOAT (4 Bytes): Single-precision floating point (~7 decimal digits accuracy).
+• DOUBLE (8 Bytes): Double-precision floating point (~15 decimal digits accuracy).
+• WARNING: Never use FLOAT or DOUBLE for financial amounts (₹) due to IEEE 754 binary rounding approximations.
+
+
+3. STRING & TEXT DATA TYPES
+--------------------------------------------------------------------------------
+A. FIXED vs VARIABLE LENGTH STRINGS:
+• CHAR(M):
+  - Fixed length (0 to 255 characters).
+  - Right-padded with spaces upon storage; spaces removed upon retrieval.
+  - Fast lookup for known fixed-size strings: State codes ('WB', 'MH'), Pin codes ('700120'), MD5 hashes (32 chars), UUIDs (36 chars).
+• VARCHAR(M):
+  - Variable length (0 to 65,535 characters, shared row limit).
+  - Stores only actual characters plus 1 or 2 bytes length prefix.
+  - Ideal for names, addresses, emails, book titles.
+
+B. LARGE TEXT TYPES (OFF-PAGE STORAGE IN INNODB):
+• TINYTEXT: Up to 255 bytes.
+• TEXT: Up to 65,535 bytes (~64 KB).
+• MEDIUMTEXT: Up to 16,777,215 bytes (~16 MB).
+• LONGTEXT: Up to 4,294,967,295 bytes (~4 GB).
+• NOTE: TEXT types cannot have DEFAULT values in older MySQL versions and require prefix lengths when indexed.
+
+C. ENUM AND SET TYPES:
+• ENUM('Active', 'Inactive', 'Suspended'): Stores 1 of predefined string options as an internal integer index (1 Byte for ≤ 255 items).
+• SET('Read', 'Write', 'Execute'): Stores 0 or more options as a bitmask (1 to 8 Bytes).
+
+
+4. DATE & TIME DATA TYPES
+--------------------------------------------------------------------------------
++-----------+---------+-------------------------+-----------------------------------+
+| Type      | Storage | Format                  | Range                             |
++-----------+---------+-------------------------+-----------------------------------+
+| DATE      | 3 Bytes | YYYY-MM-DD              | 1000-01-01 to 9999-12-31          |
+| TIME      | 3 Bytes | HH:MM:SS / HHH:MM:SS    | -838:59:59 to 838:59:59           |
+| DATETIME  | 5 Bytes | YYYY-MM-DD HH:MM:SS     | 1000-01-01 00:00:00 to 9999-12-31 |
+| TIMESTAMP | 4 Bytes | YYYY-MM-DD HH:MM:SS     | 1970-01-01 00:00:01 to 2038-01-19 |
+| YEAR      | 1 Byte  | YYYY                    | 1901 to 2155                      |
++-----------+---------+-------------------------+-----------------------------------+
+
+DATETIME vs TIMESTAMP CRITICAL DIFFERENCES:
+1. Time Zone Sensitivity:
+   - DATETIME: Constant literal value. What you insert is what you get, regardless of server timezone.
+   - TIMESTAMP: Converted from current session timezone to UTC for storage, and converted back to session timezone on retrieval.
+2. Range:
+   - DATETIME: 1000 to 9999 (vast historical/future range, ideal for Birthdays).
+   - TIMESTAMP: 1970 to Jan 2038 (Unix Epoch limitation, ideal for audit timestamps: created_at, updated_at).
+3. Automatic Initialization:
+   - `created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP`
+   - `updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP`
+
+
+5. REAL-WORLD SCHEMA DESIGN EXAMPLES (CLASSROOM SCENARIOS)
+--------------------------------------------------------------------------------
+SCENARIO 1: Barrackpore College Student Registration (Mamata & Abhronila)
+CREATE TABLE students (
+    student_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone_no CHAR(10) NOT NULL,              -- 10-digit mobile number in India
+    date_of_birth DATE NOT NULL,             -- DATETIME is wasteful for DOB
+    admission_fee DECIMAL(8, 2) NOT NULL,   -- e.g. ₹15,500.00
+    is_enrolled TINYINT(1) DEFAULT 1,        -- Boolean flag
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+SCENARIO 2: Kolkata Retail E-Commerce Product Catalog (Susmita & Debangshu)
+CREATE TABLE products (
+    product_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    sku_code CHAR(12) UNIQUE NOT NULL,       -- Fixed 12-char code
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    cost_price DECIMAL(10, 2) NOT NULL,      -- Accurate currency ₹
+    selling_price DECIMAL(10, 2) NOT NULL,
+    stock_quantity SMALLINT UNSIGNED DEFAULT 0, -- 0 to 65,535 items
+    status ENUM('draft', 'active', 'archived') DEFAULT 'draft',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+6. COMMON PITFALLS & BEGINNER MISTAKES
+--------------------------------------------------------------------------------
+1. Using VARCHAR to store Numbers or Dates:
+   - Sorting fails: '10' comes before '2' in alphabetical string comparison.
+   - Arithmetic and index lookups are slow and consume unnecessary bytes.
+2. Using FLOAT/DOUBLE for Money & Currency:
+   - Rounding anomalies: 0.1 + 0.2 may equal 0.30000000000000004.
+   - Always use DECIMAL(precision, scale).
+3. Using DATETIME for Dates of Birth or Anniversaries:
+   - Stores time component (00:00:00) that wastes 2 extra bytes per row and complicates DATE comparisons.
+4. Over-allocating VARCHAR Lengths recklessly (e.g. VARCHAR(255) for 2-letter state codes):
+   - In-memory temporary tables allocate maximum length in RAM during sorting and joins.
+5. Storing Phone Numbers as INT:
+   - Drops leading zeros (e.g. '09830012345' becomes 9830012345).
+   - Phone numbers should be CHAR(10) or VARCHAR(15).
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use the smallest integer type that accommodates future maximum growth.
+[x] Add UNSIGNED to ID columns, counts, and non-negative values.
+[x] Use DECIMAL for all price, salary, and tax values (₹).
+[x] Use CHAR for fixed-length codes (MD5, SHA-256, State Codes, PIN codes).
+[x] Use VARCHAR for variable-length text (Names, Addresses, Emails).
+[x] Use DATE for calendar dates (DOB, Holiday lists).
+[x] Use TIMESTAMP with CURRENT_TIMESTAMP for audit tracking columns.
+[x] Use ENUM for fixed, non-changing enumerated states ('active', 'inactive').
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

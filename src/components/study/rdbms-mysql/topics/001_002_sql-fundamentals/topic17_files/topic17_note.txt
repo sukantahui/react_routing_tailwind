@@ -1,0 +1,111 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 17: Pagination and Record Limiting with LIMIT, OFFSET, and Keyset Pagination
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THE LIMIT AND OFFSET CLAUSE?
+--------------------------------------------------------------------------------
+The `LIMIT` clause restricts the maximum number of rows returned by a `SELECT` query.
+When paired with `OFFSET`, it enables classic Offset-Based Pagination in web and mobile applications.
+
+A. BASIC SYNTAX:
+   SELECT column_1, column_2
+   FROM table_name
+   ORDER BY sort_column
+   LIMIT row_count OFFSET offset_count;
+
+   Alternative MySQL 2-Argument Syntax:
+   LIMIT offset_count, row_count;
+   (Example: `LIMIT 20, 10;` skips 20 rows and returns the next 10 rows).
+
+B. CALCULATING PAGINATION IN APPLICATION CODE:
+   • Page Size (e.g. `limit = 10`)
+   • Page Number (1-based: `page = 1, 2, 3...`)
+   • Formula: `offset = (page - 1) * limit`
+   - Page 1: `LIMIT 10 OFFSET 0`
+   - Page 2: `LIMIT 10 OFFSET 10`
+   - Page 3: `LIMIT 10 OFFSET 20`
+
+
+2. THE DEEP OFFSET PERFORMANCE CLIFF
+--------------------------------------------------------------------------------
+While `LIMIT 10 OFFSET 0` is instant, querying `LIMIT 10 OFFSET 1000000` is catastrophic!
+WHY?
+Because MySQL must read and sort all 1,000,010 candidate rows from disk, and then discard the
+first 1,000,000 rows to deliver the final 10!
+As the user navigates deeper into paginated tables, query latency increases linearly.
+
+
+3. THE ENTERPRISE SOLUTION: KEYSET (CURSOR) PAGINATION
+--------------------------------------------------------------------------------
+Instead of skipping rows with `OFFSET`, Keyset Pagination filters by the last seen Primary Key ID
+or Indexed Timestamp from the previous page:
+
+SYNTAX:
+SELECT student_id, first_name, email
+FROM students
+WHERE student_id > 10500 -- Last seen ID on previous page
+ORDER BY student_id ASC
+LIMIT 10;
+
+BENEFITS OF KEYSET PAGINATION:
+• Constant O(log N) execution time regardless of whether page is #1 or #10,000.
+• Immune to "drift" bugs (rows inserted or deleted while a user is paginating).
+
+
+4. DEFERRED JOIN PAGINATION TRICK
+--------------------------------------------------------------------------------
+If offset-based page jumping is strictly required (e.g. jumping directly to Page 500),
+use a *Deferred Join* to read only index keys in the subquery:
+SELECT s.*
+FROM students s
+JOIN (
+    SELECT student_id FROM students ORDER BY admission_date DESC LIMIT 10 OFFSET 50000
+) AS page_keys ON s.student_id = page_keys.student_id;
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Paginating Student Rosters in Barrackpore College Portal
+SELECT
+    roll_no,
+    CONCAT(first_name, ' ', last_name) AS student_name,
+    admission_fee AS "Tuition (₹)"
+FROM students
+ORDER BY student_id ASC
+LIMIT 10 OFFSET 0; -- Page 1
+
+CASE 2: Debangshu Cursor Paginating Kolkata Infinite-Scroll E-Commerce Products
+SELECT
+    product_id,
+    product_name,
+    unit_price AS "Price (₹)"
+FROM products
+WHERE product_id > 5020 -- Cursor pointer
+ORDER BY product_id ASC
+LIMIT 20;
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Using `LIMIT` Without an `ORDER BY` Clause:
+   - Without `ORDER BY`, the database returns non-deterministic rows; page 2 may return rows already shown on page 1!
+2. Parameter Order Confusion:
+   - `LIMIT 10 OFFSET 20` (Limit first) vs `LIMIT 20, 10` (Offset first). Writing `LIMIT 10, 20` when you meant page 2 skips 10 and returns 20.
+3. Giant Deep Offsets Crashing Production Databases.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Always pair `LIMIT` with a deterministic `ORDER BY` clause.
+[x] Use explicit `LIMIT count OFFSET skip` syntax to avoid parameter confusion.
+[x] Adopt Keyset (Cursor) Pagination (`WHERE id > last_seen_id LIMIT 20`) for infinite scrolling feeds.
+[x] Use Deferred Joins for fast deep offset page jumping.
+[x] Enforce hard limits on maximum page size in REST API parameters (e.g. max 100 items per request).
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

@@ -1,0 +1,105 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_001 - Table Relationships & Referential Actions
+TOPIC 3: Many-to-Many (M:N) Relationship (Bridge / Junction Tables)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A MANY-TO-MANY (M:N) RELATIONSHIP?
+--------------------------------------------------------------------------------
+A Many-to-Many (M:N) relationship occurs when an entity instance in Table A can be associated
+with multiple instances of Table B, AND an instance of Table B can be associated with multiple
+instances of Table A.
+
+EXAMPLES:
+• Students & Courses: A student enrolls in multiple courses; a course contains multiple students.
+• Doctors & Patients: A doctor treats multiple patients; a patient visits multiple doctors.
+• Orders & Products: An order contains multiple products; a product is included in multiple orders.
+
+
+2. WHY DIRECT M:N CANNOT BE IMPLEMENTED WITHOUT A JUNCTION TABLE
+--------------------------------------------------------------------------------
+Attempting to link two tables directly in a Many-to-Many relationship fails for two reasons:
+1. First Normal Form (1NF) Violation: Storing comma-separated lists (`courses: "1,2,3"`) in `students`
+   violates atomic attribute rules, prevents foreign key referential enforcement, and disables B-Tree indexing.
+2. Relational Foreign Key Limitation: A standard Foreign Key column can only hold ONE single parent ID
+   per row.
+
+SOLUTION: THE BRIDGE / JUNCTION TABLE
+A Junction Table (also called an Associative Entity or Bridge Table) decomposes ONE Many-to-Many
+relationship into TWO One-to-Many (1:N) relationships:
+• Table A (1) ───< (N) Junction Table (N) >─── (1) Table B
+
+
+3. RELATIONAL JUNCTION TABLE SCHEMA PATTERN
+--------------------------------------------------------------------------------
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_title VARCHAR(100) NOT NULL,
+    course_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00
+) ENGINE=InnoDB;
+
+-- BRIDGE / JUNCTION TABLE
+CREATE TABLE student_courses (
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    enrolled_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    grade CHAR(2) NULL,
+    -- Composite Primary Key prevents duplicate enrollments
+    PRIMARY KEY (student_id, course_id),
+    CONSTRAINT fk_sc_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id) ON DELETE CASCADE,
+    CONSTRAINT fk_sc_course FOREIGN KEY (course_id)
+        REFERENCES courses(course_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+4. QUERYING M:N RELATIONSHIPS USING 2 JOINS
+--------------------------------------------------------------------------------
+Querying data across a Many-to-Many relationship requires joining the two master tables
+through the junction table:
+
+SELECT s.first_name, c.course_title, sc.enrolled_at
+FROM students s
+INNER JOIN student_courses sc ON s.student_id = sc.student_id
+INNER JOIN courses c ON sc.course_id = c.course_id
+WHERE s.student_id = 101;
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Multi-Course Enrollment System
+-- Student Mamata Hui enrolls in MySQL and React concurrently
+INSERT INTO student_courses (student_id, course_id) VALUES (101, 1), (101, 2);
+
+CASE 2: Debangshu's Kolkata E-Commerce Order Items Bridge Table
+CREATE TABLE order_items (
+    order_id BIGINT UNSIGNED NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    PRIMARY KEY (order_id, product_id),
+    CONSTRAINT fk_items_order FOREIGN KEY (order_id)
+        REFERENCES orders(order_id) ON DELETE CASCADE,
+    CONSTRAINT fk_items_product FOREIGN KEY (product_id)
+        REFERENCES products(product_id) ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Always create an intermediate Junction table for M:N relationships.
+[x] Use a Composite Primary Key `(id_a, id_b)` in the junction table to prevent duplicate associations.
+[x] Store relationship payload attributes (e.g. `enrollment_date`, `quantity`, `price`) in the junction table.
+[x] Query M:N data by joining Parent A -> Junction -> Parent B with 2 `JOIN` clauses.
+[x] Create a reverse secondary index on `(course_id, student_id)` to optimize reverse lookups.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

@@ -1,0 +1,95 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_005 - Mastering SQL Joins & Multi-Table Queries
+TOPIC 2: LEFT (OUTER) JOIN: Preserving Left-Table Records and Handling NULLs
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A LEFT (OUTER) JOIN?
+--------------------------------------------------------------------------------
+A `LEFT JOIN` (or `LEFT OUTER JOIN`) is a relational join operation that returns:
+1. ALL rows from the Left table (Table A), regardless of whether they have a match in the Right table.
+2. For matching rows in the Right table (Table B), the corresponding column values are returned.
+3. For unmatched rows in the Left table, ALL columns from the Right table are populated with `NULL`.
+
+Mathematical Definition:
+Given relations $R_1$ (Left) and $R_2$ (Right), the Left Outer Join ($R_1 ⟕ R_2$) is:
+      $R_1 ⟕ R_2 = (R_1 \bowtie R_2) \cup \left( (R_1 - \pi_{R_1}(R_1 \bowtie R_2)) \times \{ (\text{null}, \dots, \text{null}) \} \right)$
+
+
+2. SQL SYNTAX FOR LEFT JOIN
+--------------------------------------------------------------------------------
+```sql
+-- ANSI SQL-92 Standard Syntax:
+SELECT 
+    s.student_id,
+    s.student_name,
+    s.city,
+    COALESCE(c.course_title, 'Unassigned') AS course_title,
+    COALESCE(c.course_fee, 0.00) AS course_fee
+FROM students s
+LEFT JOIN courses c ON s.course_id = c.course_id;
+```
+Note: The keyword `OUTER` is optional; `LEFT JOIN` and `LEFT OUTER JOIN` are completely identical in MySQL.
+
+
+3. THE "LEFT JOIN ... WHERE right_table.id IS NULL" PATTERN (FINDING ORPHANS / DIFFERENCES)
+--------------------------------------------------------------------------------
+One of the most powerful and common patterns in SQL is using `LEFT JOIN` to find 
+unmatched records or orphan child rows:
+
+```sql
+-- Finding all students who are NOT enrolled in any course:
+SELECT s.student_id, s.student_name, s.city
+FROM students s
+LEFT JOIN courses c ON s.course_id = c.course_id
+WHERE c.course_id IS NULL;
+```
+This is mathematically equivalent to the Relational Algebra Set Difference operation ($R_1 - R_2$).
+
+
+4. HANDLING NULLS PRODUCED BY LEFT JOINS
+--------------------------------------------------------------------------------
+When a left row has no match, the right columns become `NULL`. Clean ways to handle NULLs:
+1. `COALESCE(expression, default_value)`:
+   Returns the first non-null argument:
+   `COALESCE(c.course_title, 'Self-Study')`
+2. `IFNULL(column, default_value)`:
+   MySQL-specific shortcut:
+   `IFNULL(c.course_fee, 0.00)`
+3. `CASE WHEN ... THEN ... ELSE ... END`:
+   `CASE WHEN c.course_id IS NULL THEN 'Not Enrolled' ELSE 'Active' END AS status`
+
+
+5. THE FATAL "WHERE CLAUSE TRAP" ON LEFT JOINS
+--------------------------------------------------------------------------------
+⚠️ THE DANGER ZONE:
+Placing a filter on the Right table in the `WHERE` clause accidentally converts your `LEFT JOIN` 
+into an `INNER JOIN`!
+
+```sql
+-- ❌ BAD: Accidental INNER JOIN (Susmita with NULL course is discarded!)
+SELECT s.student_name, c.course_title
+FROM students s
+LEFT JOIN courses c ON s.course_id = c.course_id
+WHERE c.course_fee > 4000; -- Filters out NULLs!
+
+-- ✅ GOOD: Preserves all students while filtering only matched courses
+SELECT s.student_name, c.course_title
+FROM students s
+LEFT JOIN courses c ON s.course_id = c.course_id AND c.course_fee > 4000;
+```
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] `LEFT JOIN` guarantees all rows from the Left table appear in the output.
+[x] Unmatched right columns are populated with `NULL`.
+[x] Use `WHERE right_col IS NULL` to find records in Table A that do not exist in Table B.
+[x] Handle NULLs gracefully with `COALESCE()` and `IFNULL()`.
+[x] Beware of the WHERE clause trap: filtering right columns in `WHERE` turns a LEFT JOIN into an INNER JOIN.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

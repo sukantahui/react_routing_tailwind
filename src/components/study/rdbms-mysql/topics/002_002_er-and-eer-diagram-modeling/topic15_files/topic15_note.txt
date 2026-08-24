@@ -1,0 +1,90 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 15: ER-to-Relational Mapping: Step 5 – M:N & n-ary Relationships
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. STEP 5 OF THE ER-TO-RELATIONAL MAPPING ALGORITHM
+--------------------------------------------------------------------------------
+Binary Many-to-Many (M:N) and higher-degree n-ary relationships CANNOT embed foreign keys
+directly in either participating entity table without causing repeating groups and severe 1NF/2NF violations.
+Therefore, Step 5 mandates the creation of a DEDICATED BRIDGE / JUNCTION RELATION (Table).
+
+FORMAL RULE FOR BINARY M:N RELATIONSHIPS:
+• For each binary M:N relationship type $R$ between entity types $S$ and $T$:
+  1) Create a new relation (table) $R_{Junction}$.
+  2) Include the PRIMARY KEY of $S$ and the PRIMARY KEY of $T$ as FOREIGN KEY attributes in $R_{Junction}$.
+  3) The PRIMARY KEY of $R_{Junction}$ is the COMPOSITE KEY:
+     $PK(R_{Junction}) = \{ PK(S), PK(T) \}$.
+  4) Include any simple relationship descriptive attributes of $R$ directly as columns in $R_{Junction}$.
+  5) Configure `ON DELETE CASCADE` on both foreign keys to maintain referential integrity.
+
+
+2. MAPPING HIGHER-DEGREE n-ary RELATIONSHIPS (TERNARY, QUATERNARY)
+--------------------------------------------------------------------------------
+FORMAL RULE FOR n-ary RELATIONSHIPS:
+• For each n-ary relationship type $R$ among entity types $E_1, E_2, \dots, E_n$:
+  1) Create a dedicated relation (table) $R_{n\text{-ary}}$.
+  2) Include the PRIMARY KEYS of all $n$ participating entity types as FOREIGN KEY attributes.
+  3) PRIMARY KEY DETERMINATION:
+     - If all participation cardinalities are Many (M:N:P), the PK is the composite of ALL $n$ foreign keys:
+       $PK(R) = \{ PK(E_1), PK(E_2), \dots, PK(E_n) \}$.
+     - If one entity $E_i$ has a 1-cardinality constraint (e.g. 1:N:M), the PK is the composite of
+       the remaining $n-1$ foreign keys, excluding $PK(E_i)$.
+  4) Include all descriptive relationship attributes as columns in $R_{n\text{-ary}}$.
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Binary M:N Bridge Table (Mamata's Student Course Enrollments)
+CREATE TABLE student_course_enrollments (
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    enrolled_date DATE NOT NULL DEFAULT (CURRENT_DATE),
+    final_grade CHAR(2) NULL,
+    PRIMARY KEY (student_id, course_id), -- Composite PK
+    CONSTRAINT fk_enr_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id) ON DELETE CASCADE,
+    CONSTRAINT fk_enr_course FOREIGN KEY (course_id)
+        REFERENCES courses(course_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CASE 2: Ternary M:N:P Relationship (Doctor Prescribes Medicine to Patient)
+CREATE TABLE prescriptions (
+    doctor_id INT NOT NULL,
+    patient_id INT NOT NULL,
+    medicine_id INT NOT NULL,
+    dosage_instructions VARCHAR(100) NOT NULL,
+    prescribed_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (doctor_id, patient_id, medicine_id), -- Composite 3-Way PK
+    CONSTRAINT fk_presc_doc FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id) ON DELETE CASCADE,
+    CONSTRAINT fk_presc_pat FOREIGN KEY (patient_id) REFERENCES patients(patient_id) ON DELETE CASCADE,
+    CONSTRAINT fk_presc_med FOREIGN KEY (medicine_id) REFERENCES medicines(medicine_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Using Standalone Surrogate PKs without Composite UNIQUE:
+   - Creating `id INT AUTO_INCREMENT PRIMARY KEY` on a junction table without a `UNIQUE(student_id, course_id)`
+     constraint permits duplicate enrollments for the same student in the same course.
+2. Missing Reverse Indexing:
+   - While `PRIMARY KEY (student_id, course_id)` indexes `student_id` lookups, queries filtering by
+     `course_id` alone will do full table scans unless an explicit secondary index `INDEX(course_id)` is added!
+3. Forgetting `ON DELETE CASCADE` on Junction FKs:
+   - Deleting a course or student will fail or leave orphaned rows.
+
+
+5. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Create a dedicated junction table for every M:N and n-ary relationship.
+[x] Define Composite Primary Key spanning the foreign keys of participating entities.
+[x] If using a surrogate PK, ALWAYS add `UNIQUE(entity1_id, entity2_id)`.
+[x] Create a secondary index on the SECOND column of the composite primary key for reverse lookups.
+[x] Add `ON DELETE CASCADE` across all junction table foreign keys.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

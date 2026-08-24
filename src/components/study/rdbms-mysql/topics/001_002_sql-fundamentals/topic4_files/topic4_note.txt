@@ -1,0 +1,101 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 4: DESCRIBE Table and SHOW CREATE TABLE
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. INSPECTING TABLE STRUCTURE: DESCRIBE / DESC
+--------------------------------------------------------------------------------
+The `DESCRIBE` statement (or its shorthand `DESC`, or `EXPLAIN`) provides a tabular breakdown
+of a table's column definitions, data types, nullability, key indexing, default values, and extra attributes.
+
+A. SYNTAX:
+   DESCRIBE table_name;
+   DESC table_name;
+   EXPLAIN table_name;
+   SHOW COLUMNS FROM table_name;
+
+B. OUTPUT COLUMNS EXPLAINED:
+1. `Field`: Name of the column.
+2. `Type`: MySQL data type with length/precision (e.g. `varchar(50)`, `int unsigned`).
+3. `Null`: `YES` if the column permits NULL values; `NO` if `NOT NULL` is enforced.
+4. `Key`: Indicates index membership:
+   • `PRI`: Column is part of the PRIMARY KEY.
+   • `UNI`: Column has a UNIQUE index (no duplicate values permitted).
+   • `MUL`: Column has a non-unique index (multiple occurrences permitted) or is the first column of a compound index.
+5. `Default`: Fallback value when omitted during INSERT, or `NULL`.
+6. `Extra`: Additional attributes like `auto_increment`, `DEFAULT_GENERATED`, `on update CURRENT_TIMESTAMP`, `STORED GENERATED`.
+
+
+2. REVEALING THE FULL DDL CONTRACT: SHOW CREATE TABLE
+--------------------------------------------------------------------------------
+While `DESCRIBE` gives column-level summary, `SHOW CREATE TABLE` outputs the exact, complete,
+restorable `CREATE TABLE` SQL statement used to construct the table, including:
+• All column definitions with character sets and collations.
+• Exact constraint names (Foreign Keys, Unique constraints, Check constraints).
+• Explicit index names and composite key definitions.
+• Table options: `ENGINE`, `AUTO_INCREMENT` next value, `DEFAULT CHARSET`, `COLLATE`, and `COMMENT`.
+
+A. SYNTAX:
+   SHOW CREATE TABLE table_name;
+
+B. USING SHOW CREATE TABLE FOR SCHEMA MIGRATIONS & REPLICATION:
+• Essential for diagnosing foreign key mismatch errors (Error 1215/1824).
+• Essential for recreating identical table structures across environments (Local -> Staging -> Production).
+• Used internally by `mysqldump` to generate backup DDL.
+
+
+3. EXTENDED DISCOVERY: SHOW FULL COLUMNS & SHOW TABLE STATUS
+--------------------------------------------------------------------------------
+A. SHOW FULL COLUMNS FROM table_name:
+   Adds `Collation`, `Privileges`, and `Comment` columns to the standard `DESCRIBE` output.
+
+B. SHOW TABLE STATUS LIKE 'table_name':
+   Displays physical InnoDB engine metrics:
+   • `Rows`: Estimated total row count.
+   • `Avg_row_length`: Average bytes per record.
+   • `Data_length`: Total disk bytes consumed by table data.
+   • `Index_length`: Total disk bytes consumed by secondary indexes.
+   • `Auto_increment`: Next auto-increment ID to be assigned.
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Inspecting Student Table in Barrackpore College
+DESCRIBE students;
+/*
++---------------+------------------+------+-----+---------+----------------+
+| Field         | Type             | Null | Key | Default | Extra          |
++---------------+------------------+------+-----+---------+----------------+
+| student_id    | int unsigned     | NO   | PRI | NULL    | auto_increment |
+| roll_no       | varchar(20)      | NO   | UNI | NULL    |                |
+| first_name    | varchar(50)      | NO   |     | NULL    |                |
+| admission_fee | decimal(8,2)     | NO   |     | 15000.00|                |
++---------------+------------------+------+-----+---------+----------------+
+*/
+
+CASE 2: Debangshu Troubleshooting Foreign Keys in Kolkata E-Commerce
+SHOW CREATE TABLE customer_orders;
+-- Reveals exact FOREIGN KEY constraint names:
+-- CONSTRAINT `fk_order_customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`)
+
+
+5. COMMON PITFALLS & BEGINNER MISTAKES
+--------------------------------------------------------------------------------
+1. Confusing `DESCRIBE tbl;` (Table schema metadata) with `EXPLAIN SELECT ...;` (Query execution plan).
+2. Forgetting that `DESCRIBE` does NOT show Foreign Key constraint names or ON DELETE rules (Use `SHOW CREATE TABLE`!).
+3. Relying on `Rows` from `SHOW TABLE STATUS` as an exact count for InnoDB (it is an approximation; use `SELECT COUNT(*)` for exact numbers).
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use `DESC table_name;` for quick interactive column inspection.
+[x] Use `SHOW CREATE TABLE table_name;` when writing migration scripts or debugging FK constraints.
+[x] Use `SHOW FULL COLUMNS FROM table_name;` to view column comments and collations.
+[x] Query `INFORMATION_SCHEMA.COLUMNS` for programmatic metadata inspection in application code.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

@@ -1,0 +1,92 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_001 - Table Relationships & Referential Actions
+TOPIC 7: Referential Actions: SET NULL, RESTRICT, and NO ACTION
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE NON-CASCADING REFERENTIAL ACTIONS?
+--------------------------------------------------------------------------------
+When parent records are deleted or updated, not all child records should be deleted.
+MySQL provides three non-cascading referential actions to protect data:
+
+A. ON DELETE / UPDATE RESTRICT (DEFAULT IN MYSQL):
+   • Rejects the parent `DELETE` or `UPDATE` operation with Error 1451 immediately if any child record
+     currently references that parent key.
+   • Protects financial, accounting, and institutional records from accidental deletion.
+
+B. ON DELETE / UPDATE NO ACTION:
+   • In standard SQL, `NO ACTION` allows deferred integrity checks until transaction commit.
+   • In MySQL InnoDB, `NO ACTION` is treated as EXACTLY IDENTICAL to `RESTRICT` (immediate check).
+
+C. ON DELETE / UPDATE SET NULL:
+   • When a parent record is deleted or its key updated, MySQL automatically sets the Foreign Key
+     column in all matching child rows to `NULL`.
+   • CRITICAL PREREQUISITE: The Foreign Key column in the child table MUST be nullable (`INT NULL`)!
+   • Best used when child records can exist independently without an assigned parent
+     (e.g. Employee without a manager, Student without an assigned mentor/hostel room).
+
+
+2. COMPREHENSIVE ACTION MATRIX
+--------------------------------------------------------------------------------
+REFERENTIAL ACTION   PARENT DELETE BEHAVIOR            FOREIGN KEY NULLABILITY NEED
+--------------------------------------------------------------------------------
+CASCADE              Deletes matching child rows       Can be NOT NULL or NULL
+RESTRICT (Default)   Aborts with Error 1451            Can be NOT NULL or NULL
+NO ACTION            Aborts with Error 1451 (InnoDB)   Can be NOT NULL or NULL
+SET NULL             Sets child FK to NULL             MUST BE NULL!
+SET DEFAULT          Sets child FK to default (Not     InnoDB rejects with error
+                     supported by MySQL InnoDB)
+--------------------------------------------------------------------------------
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Mentor Assignment Schema (SET NULL)
+-- If an instructor leaves the college, students lose their mentor (set to NULL),
+-- but the student records are NEVER deleted!
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    mentor_id INT NULL, -- Must be nullable for SET NULL
+    CONSTRAINT fk_students_mentor FOREIGN KEY (mentor_id)
+        REFERENCES instructors(instructor_id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata Customer Invoice Protection Schema (RESTRICT)
+-- Invoices cannot be deleted if a customer profile deletion is attempted.
+CREATE TABLE customer_invoices (
+    invoice_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    total_amount DECIMAL(12, 2) NOT NULL,
+    CONSTRAINT fk_invoices_customer FOREIGN KEY (customer_id)
+        REFERENCES customers(customer_id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Using `SET NULL` on a `NOT NULL` Column:
+   - Defining `student_id INT NOT NULL` with `ON DELETE SET NULL` fails at runtime with Error 1005 / Error 1452.
+2. Assuming `NO ACTION` Defers Checks in MySQL:
+   - Unlike PostgreSQL or Oracle, MySQL InnoDB executes `NO ACTION` immediately as `RESTRICT`.
+3. Attempting to use `SET DEFAULT` in InnoDB:
+   - MySQL parser accepts `SET DEFAULT` syntactically, but the InnoDB engine rejects it with an error.
+
+
+5. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use `RESTRICT` for critical financial, tax, and ledger records to prevent data loss.
+[x] Ensure Foreign Key columns are declared nullable (`INT NULL`) before using `SET NULL`.
+[x] Use `SET NULL` for optional associations (e.g. mentors, managers, room assignments).
+[x] Always combine with `ON UPDATE CASCADE` so primary key updates propagate cleanly.
+[x] Remember that MySQL InnoDB treats `NO ACTION` as identical to `RESTRICT`.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

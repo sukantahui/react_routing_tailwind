@@ -1,0 +1,109 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 11: Union Types and Categories (Shared Subclasses with Multiple Superclasses)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A UNION TYPE / CATEGORY IN EER MODELING?
+--------------------------------------------------------------------------------
+In standard specialization, a subclass inherits from a SINGLE superclass (or multiple superclasses
+where the subclass instance is the INTERSECTION of both parent types, e.g. Teaching_Assistant = Student ∩ Instructor).
+
+However, in many real-world enterprise scenarios, an entity set must represent a collection of objects
+that can belong to DIFFERENT entity sets with DIFFERENT keys and DIFFERENT attribute structures:
+• Example: A `Vehicle_Owner` can be a `Person`, a `Company`, or a `Bank` (Vehicle_Owner = Person ∪ Company ∪ Bank).
+• This is a UNION TYPE (or CATEGORY) in EER modeling!
+
+CORE DEFINITION:
+• A Category (Union Type) is a subclass that represents a mathematical UNION of two or more distinct Superclasses.
+• Notation in EER: Circle containing the letter 'u' (for Union), connecting multiple distinct superclasses
+  to the single Category subclass.
+
+
+2. TOTAL VS PARTIAL CATEGORIES
+--------------------------------------------------------------------------------
+A. TOTAL CATEGORY (MANDATORY UNION):
+   - Every instance of the participating superclasses MUST belong to the category.
+   - Notation in EER: DOUBLE LINE connecting superclasses to the 'u' circle.
+
+B. PARTIAL CATEGORY (OPTIONAL UNION):
+   - Only a subset of instances from the participating superclasses belong to the category.
+     (e.g. not all Persons own vehicles, not all Companies own vehicles).
+   - Notation in EER: SINGLE LINE connecting superclasses to the 'u' circle.
+
+
+3. RELATIONAL SCHEMA MAPPING ALGORITHMS FOR CATEGORIES
+--------------------------------------------------------------------------------
+Because the participating superclasses have completely different primary keys (e.g. `person_id` vs `company_id`),
+a Category CANNOT simply inherit a single superclass PK.
+
+THE TWO STANDARD RELATIONAL MAPPING PATTERNS:
+
+PATTERN 1: SURROGATE KEY MAPPING (RECOMMENDED ENTERPRISE PATTERN)
+• Create a dedicated `owners` table with a new Surrogate Primary Key `owner_id INT AUTO_INCREMENT`.
+• In `persons` and `companies`, add a nullable foreign key `owner_id` pointing to `owners`.
+• In `vehicles`, the foreign key simply points to `owners(owner_id)`.
+
+PATTERN 2: POLYMORPHIC DISCRIMINATOR + TYPE CODE MAPPING
+• In `vehicles`, store two columns: `owner_id INT` and `owner_type ENUM('Person', 'Company', 'Bank')`.
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Vehicle Registration Category
+-- Unified Category Table (Surrogate Master)
+CREATE TABLE vehicle_owners (
+    owner_id INT AUTO_INCREMENT PRIMARY KEY,
+    owner_type ENUM('Person', 'Company') NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- Superclass 1: persons
+CREATE TABLE persons (
+    person_id INT AUTO_INCREMENT PRIMARY KEY,
+    owner_id INT NOT NULL UNIQUE, -- 1:1 Link to Owner Category
+    full_name VARCHAR(100) NOT NULL,
+    aadhaar_no CHAR(12) NOT NULL UNIQUE,
+    CONSTRAINT fk_person_owner FOREIGN KEY (owner_id) REFERENCES vehicle_owners(owner_id)
+) ENGINE=InnoDB;
+
+-- Superclass 2: companies
+CREATE TABLE companies (
+    company_id INT AUTO_INCREMENT PRIMARY KEY,
+    owner_id INT NOT NULL UNIQUE, -- 1:1 Link to Owner Category
+    company_name VARCHAR(100) NOT NULL,
+    gstin CHAR(15) NOT NULL UNIQUE,
+    CONSTRAINT fk_comp_owner FOREIGN KEY (owner_id) REFERENCES vehicle_owners(owner_id)
+) ENGINE=InnoDB;
+
+-- Registered Vehicles referencing Category
+CREATE TABLE vehicles (
+    vehicle_reg_no VARCHAR(20) PRIMARY KEY,
+    owner_id INT NOT NULL, -- Points to Category Master
+    vehicle_model VARCHAR(50) NOT NULL,
+    CONSTRAINT fk_veh_owner FOREIGN KEY (owner_id) REFERENCES vehicle_owners(owner_id)
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Confusing Union Types with Standard Multiple Inheritance:
+   - Multiple inheritance = INTERSECTION (must be both); Category = UNION (is one or the other).
+2. Forgetting Surrogate Category Key:
+   - Trying to join disparate string GSTINs and integer Person IDs into a single foreign key column directly.
+3. Lack of Cascading Cleanup:
+   - Deleting a company or person without cleaning up their surrogate `owner_id` record.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use Category ('u') circles when an entity relates to a UNION of disparate entity types.
+[x] Implement the Surrogate Category Master Table pattern for clean relational foreign key enforcement.
+[x] Add `UNIQUE` constraints on `owner_id` in participating superclass tables for 1:1 category linking.
+[x] Use standard `INNER JOIN` queries through the surrogate category table for vehicle ownership searches.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

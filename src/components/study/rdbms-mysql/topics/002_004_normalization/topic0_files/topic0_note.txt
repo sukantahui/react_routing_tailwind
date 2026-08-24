@@ -1,0 +1,102 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 0: The Purpose of Normalization: Eliminating Redundancy and Anomalies
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS DATABASE NORMALIZATION?
+--------------------------------------------------------------------------------
+Database Normalization is the formal mathematical and structural process of 
+organizing attributes and relations in a relational schema to minimize data 
+redundancy, optimize storage efficiency, and completely eliminate data modification 
+anomalies (Insertion, Update, and Deletion anomalies) without loss of information.
+
+Invented by Edgar F. Codd (1970) as part of his seminal relational model, 
+normalization uses functional dependencies as the rigorous mathematical basis 
+for decomposing unnormalized, wide tables into smaller, well-structured relations.
+
+Key Objectives of Normalization:
+1. Eliminate Redundant Data: Avoid storing the exact same data value in multiple rows.
+2. Eliminate Data Anomalies: Prevent insertion failures, update inconsistencies, and accidental deletions.
+3. Guarantee Lossless Join: Ensure decomposed tables can be rejoined without generating spurious tuples ($R = R_1 \bowtie R_2$).
+4. Preserve Functional Dependencies: Ensure all integrity constraints can be enforced locally within individual relations.
+5. Provide Schema Flexibility: Allow database evolution without requiring widespread schema modifications.
+
+
+2. THE THREE CARDINAL DATABASE MODIFICATION ANOMALIES
+--------------------------------------------------------------------------------
+Consider an unnormalized table:
+`Student_Enrollment_Universal(student_id, student_name, city, course_id, course_title, instructor, course_fee)`
+
+ANOMALY 1: INSERTION ANOMALY
+• Problem: You cannot insert a newly created course (e.g. 'Cloud DevOps' taught by 'Sukanta Hui' with fee ₹6,000) 
+  unless at least one student has enrolled in it, because `student_id` is part of the primary key and cannot be NULL (Entity Integrity violation).
+• Consequence: Business entities cannot exist independently.
+
+ANOMALY 2: UPDATE / MODIFICATION ANOMALY
+• Problem: If course 'MySQL Masterclass' fee changes from ₹4,500 to ₹5,000, and 500 students in Barrackpore are 
+  enrolled in it, all 500 records must be updated simultaneously. If even one record is missed or updated during a 
+  system crash, the database enters an inconsistent state where the same course has multiple conflicting fees.
+• Consequence: Inconsistent, corrupted data and lack of a single source of truth.
+
+ANOMALY 3: DELETION ANOMALY
+• Problem: If 'Susmita Ghosh' is the ONLY student enrolled in 'React Architect', deleting Susmita's student 
+  record accidentally deletes the entire course record, losing its title, fee, and instructor information forever.
+• Consequence: Unintended, irreversible loss of critical business data.
+
+
+3. THE NORMAL FORMS PROGRESSION LADDER
+--------------------------------------------------------------------------------
+Normalization progresses through distinct stages called Normal Forms (NF):
+
+1. Unnormalized Form (UNF): Tables containing repeating groups, multi-valued cells, or non-atomic data.
+2. First Normal Form (1NF): Every cell contains exactly one atomic (indivisible) value. No repeating groups.
+3. Second Normal Form (2NF): In 1NF + NO Partial Dependencies (every non-prime attribute must be fully functionally dependent on the ENTIRE primary key).
+4. Third Normal Form (3NF): In 2NF + NO Transitive Dependencies (non-prime attributes cannot depend on other non-prime attributes).
+5. Boyce-Codd Normal Form (BCNF): A stricter version of 3NF where EVERY determinant must be a super key ($X \rightarrow Y \implies X$ is a super key).
+6. Fourth Normal Form (4NF): Eliminates Multi-Valued Dependencies (MVDs: $X \twoheadrightarrow Y$).
+7. Fifth Normal Form (5NF / PJNF): Eliminates Project-Join Dependencies.
+8. Domain-Key Normal Form (DKNF): Theoretical holy grail where all constraints are logical consequences of domain and key constraints.
+
+
+4. THE DECOMPOSITION PARADIGM & TRADE-OFFS
+--------------------------------------------------------------------------------
+Normalization decomposes 1 large table into multiple normalized tables connected via Foreign Keys:
+• `Students(student_id, full_name, city)`
+• `Courses(course_id, course_title, instructor, course_fee)`
+• `Enrollments(student_id, course_id, enrollment_date, grade)`
+
+Trade-Off Analysis:
+• Normalized (3NF/BCNF):
+  [+] Zero redundant storage.
+  [+] Zero insertion, update, or deletion anomalies.
+  [+] High write (INSERT/UPDATE/DELETE) throughput and data integrity.
+  [-] Complex multi-table JOINs required for reporting queries.
+• Denormalized (OLAP / Data Warehousing):
+  [+] Ultra-fast read queries with zero joins.
+  [-] Storage redundancy and potential update inconsistencies.
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Over-normalizing high-read analytical reporting databases (causing join bottlenecks).
+2. Decomposing relations into lossy joins (causing spurious rows when rejoined).
+3. Ignoring functional dependency preservation during decomposition.
+4. Assuming 1NF is sufficient for production OLTP applications.
+
+
+6. SUMMARY CHECKLIST FOR DATABASE NORMALIZATION
+--------------------------------------------------------------------------------
+[x] Normalization organizes relational data to eliminate redundancy and modification anomalies.
+[x] Insertion Anomaly: Inability to store entity data without dependent child data.
+[x] Update Anomaly: Inconsistency caused by updating duplicated values in multiple rows.
+[x] Deletion Anomaly: Unintended data loss when deleting child records.
+[x] Functional dependencies ($X \rightarrow Y$) are the mathematical foundation of normalization.
+[x] Progression: UNF ➔ 1NF ➔ 2NF ➔ 3NF ➔ BCNF ➔ 4NF ➔ 5NF.
+[x] Decompositions must satisfy Lossless Join ($R = R_1 \bowtie R_2$) and Dependency Preservation.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

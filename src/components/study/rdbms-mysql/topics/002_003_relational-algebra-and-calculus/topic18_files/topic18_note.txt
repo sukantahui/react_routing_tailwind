@@ -1,0 +1,75 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 18: Domain Relational Calculus (DRC) & Codd's Reduction Theorem
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS DOMAIN RELATIONAL CALCULUS (DRC)?
+--------------------------------------------------------------------------------
+While Tuple Relational Calculus (TRC) binds variables to ENTIRE TUPLES, Domain Relational
+Calculus (DRC) uses DOMAIN VARIABLES that range over INDIVIDUAL ATTRIBUTE VALUES (domains).
+
+MATHEMATICAL SYNTAX:
+$$\{ \langle x_1, x_2, \dots, x_n \rangle \mid P(x_1, x_2, \dots, x_n) \}$$
+where:
+• $x_1, \dots, x_n$ are DOMAIN VARIABLES representing individual column values.
+• $P(x_1, \dots, x_n)$ is a first-order logic formula whose atoms specify table membership:
+  $$\langle x_1, x_2, x_3, x_4 \rangle \in \text{Students}$$
+• Example Query ("Find names and cities of students with fee > ₹4000"):
+  $$\{ \langle n, c \rangle \mid \exists i, f (\langle i, n, c, f \rangle \in \text{Students} \land f > 4000) \}$$
+
+
+2. HISTORICAL SIGNIFICANCE: QUERY-BY-EXAMPLE (QBE)
+--------------------------------------------------------------------------------
+DRC served as the formal mathematical foundation for IBM's visual Query-By-Example (QBE) language
+invented by Moshé Zloof in 1977. In QBE, users write domain variables (`P._N`, `P._C`) directly
+into 2D visual relational grid tables!
+
+
+3. CODD'S REDUCTION THEOREM & RELATIONAL COMPLETENESS
+--------------------------------------------------------------------------------
+In 1972, Dr. Edgar F. Codd published his landmark theorem:
+
+CODD'S REDUCTION THEOREM:
+"Relational Algebra, Safe Tuple Relational Calculus, and Safe Domain Relational Calculus
+all possess EXACTLY EQUAL expressive power."
+
+RELATIONAL COMPLETENESS:
+A commercial query language is defined to be "RELATIONALLY COMPLETE" if and only if it can
+express ANY query that can be formulated in safe Relational Algebra (or Safe TRC / Safe DRC).
+Both SQL and QBE are relationally complete languages.
+
+
+4. REAL-WORLD DRC CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Barrackpore Student Filter
+-- DRC: $\{ \langle n, f \rangle \mid \exists i (\langle i, n, \text{'Barrackpore'}, f \rangle \in \text{Students}) \}$
+SELECT full_name, admission_fee FROM students WHERE city = 'Barrackpore';
+
+CASE 2: Course Enrollment Existential Join
+-- Query: "Find student name and course title for all active enrollments"
+-- DRC: $\{ \langle n, t \rangle \mid \exists s, c, g (\langle s, n, \_, \_ \rangle \in \text{Students} \land \langle s, c, g \rangle \in \text{Enrollments} \land \langle c, t, \_ \rangle \in \text{Courses}) \}$
+SELECT s.full_name, c.course_title
+FROM students s JOIN enrollments e ON s.student_id = e.student_id JOIN courses c ON e.course_id = c.course_id;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Positional Alignment Errors in DRC:
+   - In DRC, variables must strictly match the positional order of columns in the schema.
+2. Unsafe Free Variables:
+   - Free variables must appear in at least one positive relation membership atom.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use domain variables for column values: $\{ \langle x, y \rangle \mid P(x, y) \}$.
+[x] Use existential quantifiers for non-projected relation attributes.
+[x] Remember that DRC is the foundation of Query-By-Example (QBE).
+[x] Understand Codd's Theorem: RA $\equiv$ Safe TRC $\equiv$ Safe DRC (Relational Completeness).
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

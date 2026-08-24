@@ -1,0 +1,113 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 2: FOREIGN KEY Constraint (Defining Relationships between Tables)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A FOREIGN KEY CONSTRAINT?
+--------------------------------------------------------------------------------
+A `FOREIGN KEY` is a column (or combination of columns) in a child table whose values must match
+the `PRIMARY KEY` or `UNIQUE` key of a parent table. It forms the relational bond connecting
+entities in an RDBMS.
+
+PURPOSE:
+• Enforces Referential Integrity across tables.
+• Prevents invalid or orphaned data from entering the child table.
+• Mechanizes referential cascade behavior during updates and deletions.
+
+
+2. SYNTAX & CREATION OF FOREIGN KEYS
+--------------------------------------------------------------------------------
+A. INLINE COLUMN DEFINITION:
+   CREATE TABLE student_admissions (
+       admission_id INT AUTO_INCREMENT PRIMARY KEY,
+       student_id INT NOT NULL,
+       FOREIGN KEY (student_id) REFERENCES students(student_id)
+   );
+
+B. TABLE-LEVEL NAMED CONSTRAINT DEFINITION (RECOMMENDED):
+   CREATE TABLE student_admissions (
+       admission_id INT AUTO_INCREMENT,
+       student_id INT NOT NULL,
+       admission_date DATE NOT NULL,
+       paid_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00,
+       CONSTRAINT pk_admissions PRIMARY KEY (admission_id),
+       CONSTRAINT fk_admissions_student FOREIGN KEY (student_id)
+           REFERENCES students(student_id)
+           ON DELETE RESTRICT
+           ON UPDATE CASCADE
+   ) ENGINE=InnoDB;
+
+
+3. PREREQUISITES FOR FOREIGN KEYS IN MYSQL INNODB
+--------------------------------------------------------------------------------
+1. Storage Engine Compatibility:
+   Both parent and child tables MUST use the `InnoDB` storage engine.
+2. Data Type & Precision Compatibility:
+   The child foreign key column and parent primary key column MUST have identical data types
+   (e.g. `INT UNSIGNED` to `INT UNSIGNED`). Mismatched types cause Error 3780 or Error 1215.
+3. Index Support:
+   InnoDB requires an index on foreign key columns. If no index exists on the child column,
+   MySQL automatically creates an index.
+
+
+4. REFERENTIAL ACTIONS (CASCADE, RESTRICT, SET NULL, NO ACTION)
+--------------------------------------------------------------------------------
+• `ON DELETE RESTRICT` (Default): Prevents deletion of the parent row if any child rows exist.
+• `ON DELETE CASCADE`: Deletes all matching child rows automatically when parent is deleted.
+• `ON DELETE SET NULL`: Sets child foreign key columns to NULL when parent is deleted.
+• `ON UPDATE CASCADE`: Automatically updates foreign key values in child rows when parent PK changes.
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore College Student Fee Payments Relationship
+CREATE TABLE student_payments (
+    payment_id INT AUTO_INCREMENT,
+    student_id INT NOT NULL,
+    amount_paid DECIMAL(10, 2) NOT NULL,
+    payment_mode ENUM('UPI', 'NetBanking', 'Cash', 'Card') NOT NULL,
+    payment_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT pk_payments PRIMARY KEY (payment_id),
+    CONSTRAINT fk_payments_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Order Details Relationship
+CREATE TABLE order_line_items (
+    line_id INT AUTO_INCREMENT,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    qty INT NOT NULL DEFAULT 1,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT pk_line_items PRIMARY KEY (line_id),
+    CONSTRAINT fk_line_order FOREIGN KEY (order_id) REFERENCES customer_orders(order_id) ON DELETE CASCADE,
+    CONSTRAINT fk_line_product FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Type and Sign Mismatch (Error 3780):
+   - Child defined as `INT` (signed) referencing parent defined as `INT UNSIGNED`.
+2. Circular Foreign Key Dependencies:
+   - Table A references Table B, and Table B references Table A. Must create tables first, then add constraints.
+3. Blind Use of `ON DELETE CASCADE`:
+   - Accidentally wiping out valuable financial ledger histories when an account is deleted.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Explicitly name every foreign key constraint (`CONSTRAINT fk_child_parent ...`).
+[x] Ensure data types, signs, and character sets match between parent and child columns.
+[x] Use `RESTRICT` for financial and audit data; use `CASCADE` only for tightly bound dependent child records.
+[x] Create supporting indexes on all foreign key columns.
+[x] Verify InnoDB engine is active on both tables.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

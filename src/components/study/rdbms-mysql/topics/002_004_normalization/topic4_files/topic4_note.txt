@@ -1,0 +1,99 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 4: Full Functional Dependency vs Partial Dependency
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A FULL FUNCTIONAL DEPENDENCY (FFD)?
+--------------------------------------------------------------------------------
+In a relational schema R, a functional dependency $X \rightarrow Y$ is a 
+Full Functional Dependency (FFD) if removal of any attribute A from determinant X 
+causes the dependency to no longer hold:
+
+      For all A ∈ X, (X - {A}) does NOT functionally determine Y.
+
+In simple terms: Y is dependent on the ENTIRETY of composite set X, and NOT on 
+any subset or isolated part of X.
+
+Example of Full Functional Dependency:
+Consider an enrollment grading schema:
+`Enrollment(student_id, course_id, final_grade)`
+Composite Primary Key: `(student_id, course_id)`
+• `(student_id, course_id) → final_grade`
+  - Does `student_id → final_grade` hold? NO (A student takes multiple courses and gets different grades).
+  - Does `course_id → final_grade` hold? NO (A course has multiple students with different grades).
+  - Therefore, `final_grade` is FULLY functionally dependent on `(student_id, course_id)`.
+
+
+2. WHAT IS A PARTIAL DEPENDENCY?
+--------------------------------------------------------------------------------
+A functional dependency $X \rightarrow Y$ is a Partial Dependency if Y is dependent 
+on a PROPER SUBSET of composite determinant X:
+
+      There exists some attribute A ∈ X such that (X - {A}) → Y holds.
+
+Partial dependencies occur EXCLUSIVELY when the primary key or determinant is 
+COMPOSITE (made of 2 or more attributes).
+
+Example of Partial Dependency:
+Consider unnormalized table:
+`Student_Course_Enrollment(student_id, course_id, student_name, student_city, course_title, course_fee, final_grade)`
+Composite Primary Key: `(student_id, course_id)`
+
+1. Partial Dependency 1: `student_id → student_name, student_city`
+   - `student_name` depends solely on `student_id`, which is a proper subset of `(student_id, course_id)`.
+2. Partial Dependency 2: `course_id → course_title, course_fee`
+   - `course_title` depends solely on `course_id`, which is a proper subset of `(student_id, course_id)`.
+3. Full Dependency: `(student_id, course_id) → final_grade`
+
+
+3. THE RELATIONSHIP BETWEEN PARTIAL DEPENDENCIES AND 2NF
+--------------------------------------------------------------------------------
+Definition of Second Normal Form (2NF):
+A relation schema R is in 2NF if and only if:
+1. It is in First Normal Form (1NF).
+2. NO non-prime attribute is partially dependent on any candidate key of R.
+   (Every non-prime attribute must be FULLY functionally dependent on every candidate key).
+
+If a table has a single-attribute primary key (e.g. `student_id`), it is AUTOMATICALLY in 2NF 
+because no proper subset of a 1-attribute key exists!
+
+
+4. HOW 2NF DECOMPOSITION ELIMINATES PARTIAL DEPENDENCIES
+--------------------------------------------------------------------------------
+To eliminate partial dependencies, decompose the relation by splitting each partial dependency 
+into its own dedicated relation with the partial determinant as its primary key:
+
+Original Table (Violates 2NF due to partial dependencies):
+`Student_Course_Enrollment(student_id, course_id, student_name, student_city, course_title, course_fee, final_grade)`
+
+Decomposed 2NF Schema:
+1. `Students(student_id [PK], student_name, student_city)`
+   - Full Dependency: `student_id → student_name, student_city`
+2. `Courses(course_id [PK], course_title, course_fee)`
+   - Full Dependency: `course_id → course_title, course_fee`
+3. `Enrollments(student_id [FK], course_id [FK], final_grade)`
+   - PK: `(student_id, course_id)`
+   - Full Dependency: `(student_id, course_id) → final_grade`
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Looking for partial dependencies in single-column primary key tables:
+   Partial dependencies can ONLY exist when the candidate key is composite.
+2. Forgetting to retain foreign keys in the bridge/junction table during 2NF decomposition.
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Full Functional Dependency: Y depends on the ENTIRE composite determinant X, not any subset.
+[x] Partial Dependency: Y depends on a proper subset of composite determinant X.
+[x] Partial dependencies occur ONLY with composite candidate keys.
+[x] Second Normal Form (2NF) strictly eliminates all partial dependencies.
+[x] Decompose partial dependencies into dedicated tables where the subset becomes the new Primary Key.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

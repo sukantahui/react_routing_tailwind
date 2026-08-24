@@ -1,0 +1,103 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_001 - Table Relationships & Referential Actions
+TOPIC 2: One-to-Many (1:N) Relationship: Primary Key to Foreign Key Mapping
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A ONE-TO-MANY (1:N) RELATIONSHIP?
+--------------------------------------------------------------------------------
+The One-to-Many (1:N) relationship is the most prevalent relationship type in relational database
+architecture. A single parent record in Table A is associated with zero, one, or many child records
+in Table B, while each record in Table B references at most ONE parent record in Table A.
+
+THE GOLDEN RULE OF 1:N FOREIGN KEY PLACEMENT:
+• The Foreign Key MUST ALWAYS be placed in the table on the "MANY" (child) side!
+• Attempting to place foreign keys on the "ONE" (parent) side violates First Normal Form (1NF)
+  because a single cell cannot store multiple comma-separated child IDs.
+
+
+2. RELATIONAL SCHEMA DESIGN & MAPPING
+--------------------------------------------------------------------------------
+-- PARENT TABLE (The 'ONE' Side)
+CREATE TABLE departments (
+    dept_id INT AUTO_INCREMENT PRIMARY KEY,
+    dept_name VARCHAR(50) NOT NULL,
+    location VARCHAR(50) NOT NULL DEFAULT 'Barrackpore'
+) ENGINE=InnoDB;
+
+-- CHILD TABLE (The 'MANY' Side)
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    admission_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00,
+    dept_id INT NOT NULL, -- The Foreign Key resides on the MANY side!
+    CONSTRAINT fk_students_department FOREIGN KEY (dept_id)
+        REFERENCES departments(dept_id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+
+3. QUERYING 1:N RELATIONSHIPS (JOINS & AGGREGATIONS)
+--------------------------------------------------------------------------------
+A. FETCHING STUDENTS WITH THEIR DEPARTMENT (INNER JOIN):
+   SELECT s.student_id, s.first_name, d.dept_name
+   FROM students s
+   INNER JOIN departments d ON s.dept_id = d.dept_id;
+
+B. COUNTING STUDENTS PER DEPARTMENT (LEFT JOIN + GROUP BY):
+   SELECT d.dept_name, COUNT(s.student_id) AS total_enrolled
+   FROM departments d
+   LEFT JOIN students s ON d.dept_id = s.dept_id
+   GROUP BY d.dept_id, d.dept_name;
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Tuition Payment History
+-- 1 Student has Many Payment Receipts
+CREATE TABLE student_payments (
+    payment_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    amount_paid DECIMAL(10, 2) NOT NULL,
+    payment_mode ENUM('UPI', 'Cash', 'Card', 'NetBanking') NOT NULL DEFAULT 'UPI',
+    paid_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_payments_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Customer Orders & Order Items
+-- 1 Customer has Many Orders; 1 Order has Many Line Items
+CREATE TABLE customer_orders (
+    order_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    order_total DECIMAL(12, 2) NOT NULL,
+    order_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_orders_customer FOREIGN KEY (customer_id)
+        REFERENCES customers(customer_id) ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Placing Comma-Separated IDs in the Parent Table:
+   - Storing `students: "101,102,103"` in `departments` violates 1NF, breaks indexing, and prevents JOIN optimizations.
+2. Forgetting Indexes on Foreign Key Columns:
+   - Always index foreign key columns (InnoDB creates this automatically) to ensure high-speed JOIN and cascading delete operations.
+3. Using `COUNT(*)` with `LEFT JOIN`:
+   - `COUNT(*)` counts empty NULL rows as 1! Always use `COUNT(child_table.id)` when aggregating with `LEFT JOIN`.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Always place the Foreign Key on the "MANY" (child) side.
+[x] Use `NOT NULL` on the foreign key if parent assignment is mandatory.
+[x] Index all Foreign Key columns to prevent full table scans during JOINs and cascades.
+[x] Use `LEFT JOIN` and `COUNT(child.id)` when reporting parents that may have 0 children.
+[x] Name the foreign key explicitly (`fk_child_parent`) for clear error logging.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

@@ -1,0 +1,139 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 5: ALTER TABLE (ADD, MODIFY, CHANGE, DROP Column, RENAME)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THE ALTER TABLE STATEMENT?
+--------------------------------------------------------------------------------
+In relational database lifecycle management, requirements evolve constantly. The `ALTER TABLE`
+statement is the DDL command used to modify the structure of an existing table without losing its data.
+
+Key modifications performed with ALTER TABLE:
+• Adding new columns (`ADD`)
+• Modifying column data types or constraints (`MODIFY`)
+• Renaming and redefining columns simultaneously (`CHANGE`)
+• Renaming columns directly in MySQL 8.0 (`RENAME COLUMN`)
+• Removing unused columns (`DROP COLUMN`)
+• Renaming the entire table (`RENAME TO`)
+• Adding and dropping constraints (`ADD CONSTRAINT`, `DROP CONSTRAINT`, `DROP FOREIGN KEY`)
+
+
+2. THE 5 CORE COLUMN OPERATIONS EXPLAINED
+--------------------------------------------------------------------------------
+A. ADDING A COLUMN:
+   ALTER TABLE table_name
+   ADD [COLUMN] column_name data_type [constraints] [FIRST | AFTER existing_column];
+
+   Example:
+   -- Add phone number after last_name
+   ALTER TABLE students
+   ADD phone_no CHAR(10) NOT NULL AFTER last_name;
+
+   -- Add priority at the very beginning of the table
+   ALTER TABLE students
+   ADD priority_level TINYINT NOT NULL DEFAULT 1 FIRST;
+
+B. MODIFYING A COLUMN (CHANGE TYPE / ATTRIBUTES WITHOUT RENAMING):
+   ALTER TABLE table_name
+   MODIFY [COLUMN] column_name new_data_type [new_constraints] [FIRST | AFTER existing_column];
+
+   Example:
+   -- Expand email length from 50 to 100 characters
+   ALTER TABLE students
+   MODIFY email VARCHAR(100) NOT NULL;
+
+C. CHANGING A COLUMN (RENAME + CHANGE TYPE SIMULTANEOUSLY):
+   ALTER TABLE table_name
+   CHANGE [COLUMN] old_column_name new_column_name new_data_type [new_constraints];
+
+   Example:
+   -- Rename mobile to phone_number and change type to CHAR(10)
+   ALTER TABLE students
+   CHANGE mobile phone_number CHAR(10) NOT NULL;
+
+D. RENAMING A COLUMN (MYSQL 8.0+ CLEAN SYNTAX):
+   ALTER TABLE table_name
+   RENAME COLUMN old_column_name TO new_column_name;
+
+   Example:
+   ALTER TABLE students
+   RENAME COLUMN roll_no TO registration_no;
+
+E. DROPPING A COLUMN (IRREVERSIBLE DATA REMOVAL):
+   ALTER TABLE table_name
+   DROP COLUMN column_name;
+
+   Example:
+   ALTER TABLE students
+   DROP COLUMN temporary_token;
+
+
+3. RENAMING TABLES & BATCHING ALTERATIONS
+--------------------------------------------------------------------------------
+A. RENAMING ENTIRE TABLES:
+   ALTER TABLE old_table_name RENAME TO new_table_name;
+   -- or standalone statement:
+   RENAME TABLE students TO college_students;
+
+B. BATCHING MULTIPLE ALTERATIONS IN A SINGLE STATEMENT:
+   Instead of running multiple disk-heavy ALTER TABLE queries, batch them with commas:
+   ALTER TABLE students
+       ADD date_of_admission DATE NOT NULL,
+       MODIFY admission_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00,
+       DROP COLUMN temporary_flag;
+
+
+4. ONLINE DDL MECHANICS IN INNODB (ALGORITHM & LOCK OPTIONS)
+--------------------------------------------------------------------------------
+In modern high-traffic applications, altering a table with 10 million rows cannot lock out users.
+MySQL InnoDB supports Online DDL:
+• `ALGORITHM = INPLACE`: Modifies metadata or rebuilds index in place without creating a full temporary copy.
+• `ALGORITHM = INSTANT` (MySQL 8.0+): Alters table in metadata only in &lt;1 millisecond (e.g. adding a column at the end).
+• `LOCK = NONE`: Allows concurrent SELECT, INSERT, UPDATE, and DELETE operations while the alter runs.
+
+Example:
+ALTER TABLE customer_orders
+ADD is_gift TINYINT(1) NOT NULL DEFAULT 0,
+ALGORITHM = INSTANT;
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Upgrading Barrackpore College Student Database
+-- Adding Aadhaar number and updating fees for GST compliance
+ALTER TABLE students
+    ADD aadhaar_no CHAR(12) UNIQUE NULL AFTER email,
+    MODIFY admission_fee DECIMAL(10, 2) NOT NULL DEFAULT 18500.00;
+
+CASE 2: Debangshu Refactoring Kolkata E-Commerce Orders
+-- Rename legacy column and add shipping tracking code
+ALTER TABLE customer_orders
+    RENAME COLUMN order_date TO created_at,
+    ADD tracking_id VARCHAR(50) NULL AFTER order_number;
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Shrinking Data Types with Existing Data:
+   - Modifying `VARCHAR(100)` to `VARCHAR(20)` will fail in strict SQL mode or truncate names exceeding 20 chars!
+2. Dropping a Column Referenced in Foreign Keys, Views, or Stored Procedures:
+   - Causes dependent queries, views, and foreign key checks to break immediately.
+3. Forgetting Full Type Specification in `CHANGE COLUMN`:
+   - `CHANGE col_a col_b;` is a syntax error; you MUST restate the full data type: `CHANGE col_a col_b VARCHAR(50) NOT NULL;`.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use `MODIFY` when altering data types or nullability of a column without renaming it.
+[x] Use `RENAME COLUMN` (MySQL 8.0+) for clean column renaming.
+[x] Batch multiple column additions and modifications into a single `ALTER TABLE` statement.
+[x] Leverage `ALGORITHM = INSTANT` for sub-second zero-downtime column additions in MySQL 8.0.
+[x] Never shrink column data types in production without verifying maximum string length first.
+[x] Always take a backup before dropping columns from production tables.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

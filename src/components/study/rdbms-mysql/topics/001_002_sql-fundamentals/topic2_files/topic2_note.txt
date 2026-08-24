@@ -1,0 +1,120 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 2: SHOW DATABASES and USE Database Commands
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. INSPECTING DATABASES WITH SHOW DATABASES
+--------------------------------------------------------------------------------
+The `SHOW DATABASES` statement is an administrative discovery command used to list all
+database schemas available on the connected MySQL server instance that the current
+user has privileges to view.
+
+A. BASIC SYNTAX:
+   SHOW DATABASES;
+   SHOW SCHEMAS; -- Exact synonym
+
+B. FILTERING WITH PATTERN MATCHING (LIKE CLAUSE):
+   -- Find all databases starting with 'barrackpore_'
+   SHOW DATABASES LIKE 'barrackpore_%';
+
+   -- Find all databases containing 'college'
+   SHOW DATABASES LIKE '%college%';
+
+C. FILTERING WITH CONDITIONAL EXPRESSIONS (WHERE CLAUSE):
+   SHOW DATABASES WHERE `Database` NOT IN ('information_schema', 'mysql', 'performance_schema', 'sys');
+
+
+2. UNDERSTANDING PERMISSION-BASED VISIBILITY
+--------------------------------------------------------------------------------
+• Standard root/admin users see ALL databases on the server.
+• Restricted users only see databases for which they hold explicit privileges, plus `information_schema`.
+• If user 'mamata'@'localhost' has privileges only on `barrackpore_pharmacy_db`, executing `SHOW DATABASES;`
+  will ONLY display `information_schema` and `barrackpore_pharmacy_db`. Other databases remain hidden for security.
+
+
+3. SELECTING THE ACTIVE DATABASE WITH THE USE STATEMENT
+--------------------------------------------------------------------------------
+Before executing queries against tables, MySQL needs to know which database namespace
+you are targeting. The `USE` statement sets the active default database for the current connection session.
+
+A. SYNTAX:
+   USE database_name;
+
+B. WHAT USE DOES INTERNALLY:
+1. Sets the connection session variable to the chosen database name.
+2. Allows you to write "unqualified" table names (e.g. `SELECT * FROM students;`) instead of
+   "fully qualified" names (`SELECT * FROM barrackpore_college_db.students;`).
+3. The database context remains active until you issue another `USE` command or disconnect.
+
+
+4. VERIFYING THE CURRENTLY ACTIVE DATABASE
+--------------------------------------------------------------------------------
+To check which database is currently active in your connection session:
+   SELECT DATABASE();
+   -- Returns 'barrackpore_college_db' or NULL if no database has been selected yet.
+
+To check the server host and active user:
+   SELECT CURRENT_USER(), @@hostname, DATABASE();
+
+
+5. QUALIFIED vs UNQUALIFIED IDENTIFIERS
+--------------------------------------------------------------------------------
+• UNQUALIFIED: `SELECT * FROM students;`
+  -> MySQL searches for `students` inside the currently selected default database.
+  -> Fails with Error 1046: "No database selected" if no `USE` command has been run.
+
+• FULLY QUALIFIED: `SELECT * FROM kolkata_retail_db.products;`
+  -> MySQL explicitly queries `products` in `kolkata_retail_db` regardless of which database is active.
+  -> Enables cross-database querying and joins on the same server instance!
+
+
+6. REAL-WORLD CASE STUDIES & SCRIPT PATTERNS
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Multi-Tenant Pharmacy Initialization (Barrackpore)
+-- Discover existing client branches
+SHOW DATABASES LIKE 'pharmacy_%';
+
+-- Switch context to Barrackpore branch
+USE pharmacy_barrackpore_branch;
+SELECT DATABASE(); -- Confirms active session context
+
+CASE 2: Debangshu's Cross-Database Financial Query (Kolkata & Jadavpur)
+-- Active database is Kolkata fintech ledger
+USE kolkata_fintech_ledger;
+
+-- Cross-querying customer profile from Jadavpur user registry
+SELECT
+    k.transaction_id,
+    k.amount_inr,
+    j.customer_name,
+    j.phone_no
+FROM kolkata_fintech_ledger.transactions k
+JOIN jadavpur_user_registry.customers j ON k.customer_id = j.customer_id;
+
+
+7. COMMON PITFALLS & BEGINNER MISTAKES
+--------------------------------------------------------------------------------
+1. Error 1046 (3D000): No database selected
+   - Occurs when running `CREATE TABLE`, `SELECT`, or `INSERT` without first issuing `USE db_name;`.
+2. Assuming `USE` persists across different terminal windows or HTTP requests:
+   - `USE` only affects the current active TCP session connection. A new script or web request starts with NULL default database.
+3. Case Sensitivity on Linux servers:
+   - `USE CollegeDB;` will fail if the directory was created as `collegedb` on Linux.
+4. Attempting `USE` on a database where the user has no permissions:
+   - Throws Error 1044: "Access denied for user to database".
+
+
+8. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Always place `USE db_name;` immediately after `CREATE DATABASE` in migration scripts.
+[x] Run `SELECT DATABASE();` when debugging scripts to verify active schema context.
+[x] Use fully qualified names (`db.table`) when writing cross-database joins.
+[x] Use `SHOW DATABASES LIKE 'prefix_%'` to filter large multi-tenant database clusters.
+[x] Specify database name in application connection pool URLs instead of issuing separate `USE` calls.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

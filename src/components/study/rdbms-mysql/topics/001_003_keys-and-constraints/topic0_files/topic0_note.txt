@@ -1,0 +1,100 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 0: Understanding Data Integrity (Entity, Domain, Referential & User-Defined)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS DATA INTEGRITY IN RELATIONAL DATABASES?
+--------------------------------------------------------------------------------
+Data Integrity refers to the overall accuracy, completeness, consistency, and reliability of data
+stored across the relational database lifecycle. Unlike flat file systems where corrupted or
+invalid entries can be written silently, an RDBMS enforces mathematical constraint rules at the
+engine level.
+
+THE 4 PILLARS OF RELATIONAL DATA INTEGRITY:
+1. Entity Integrity: Ensures every record in a table is uniquely identifiable (No duplicate or NULL primary keys).
+2. Domain Integrity: Ensures every column contains valid, permissible data types, formats, and ranges (NOT NULL, CHECK, ENUM).
+3. Referential Integrity: Ensures relationships between tables remain consistent and valid (Foreign Keys).
+4. User-Defined (Enterprise) Integrity: Custom business validation rules that do not fall strictly into the first three categories (Triggers, Stored Procedures).
+
+
+2. THE 4 INTEGRITY TIERS DETAILED
+--------------------------------------------------------------------------------
+A. ENTITY INTEGRITY (PRIMARY KEY & UNIQUE):
+   • Enforces that every row represents a distinct entity in the real world.
+   • Mechanized via: `PRIMARY KEY` and `UNIQUE` constraints with clustered/secondary B-Tree indexes.
+   • Rule: A Primary Key column cannot contain `NULL` and cannot contain duplicate values.
+
+B. DOMAIN INTEGRITY (DATA TYPES, NOT NULL, CHECK, DEFAULT):
+   • Enforces column-level boundary constraints and acceptable value domains.
+   • Mechanized via:
+     - Data Types (`INT`, `DECIMAL(10, 2)`, `VARCHAR(100)`, `DATE`)
+     - `NOT NULL` (Mandatory field presence)
+     - `DEFAULT` (Automatic fallback values)
+     - `CHECK` constraints (e.g. `CHECK (admission_fee >= 10000.00)`)
+     - `ENUM` lists (e.g. `ENUM('enrolled', 'withdrawn', 'graduated')`)
+
+C. REFERENTIAL INTEGRITY (FOREIGN KEYS & REFERENTIAL ACTIONS):
+   • Enforces that a foreign key value in a child table must match an existing primary key value in the parent table, or be NULL.
+   • Mechanized via: `FOREIGN KEY (parent_id) REFERENCES parent_table(id)`.
+   • Prevents orphan records (e.g. course enrollments for students that do not exist).
+   • Governed by Referential Actions: `CASCADE`, `RESTRICT`, `SET NULL`, `NO ACTION`.
+
+D. USER-DEFINED INTEGRITY (BUSINESS WORKFLOW RULES):
+   • Complex cross-table or multi-entity business constraints.
+   • Mechanized via: MySQL Triggers, Stored Procedures, and Application Layer validation.
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore College Admissions Integrity Architecture
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT,
+    roll_no VARCHAR(20) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    admission_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00,
+    city ENUM('Barrackpore', 'Kolkata', 'Ichapur', 'Jadavpur') NOT NULL,
+    -- Constraints
+    CONSTRAINT pk_students PRIMARY KEY (student_id),
+    CONSTRAINT uq_student_roll UNIQUE (roll_no),
+    CONSTRAINT chk_min_fee CHECK (admission_fee >= 10000.00)
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Order Referential Integrity
+CREATE TABLE customer_orders (
+    order_id INT AUTO_INCREMENT,
+    customer_id INT NOT NULL,
+    order_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    -- Referential Integrity Linkage
+    CONSTRAINT pk_orders PRIMARY KEY (order_id),
+    CONSTRAINT fk_orders_customer FOREIGN KEY (customer_id)
+        REFERENCES customers(customer_id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Relying on Application-Only Validation:
+   - If validation exists only in JavaScript/PHP/Python, direct database scripts or migrations can insert corrupt data.
+2. Disabling Foreign Key Checks in Production:
+   - Running `SET foreign_key_checks = 0;` and forgetting to re-enable it leaves orphaned records.
+3. Ignoring Strict SQL Mode (`STRICT_TRANS_TABLES`):
+   - Non-strict mode silently truncates data rather than throwing constraint errors.
+
+
+5. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Enforce Entity Integrity on every table using an explicit `PRIMARY KEY`.
+[x] Enforce Domain Integrity using `NOT NULL`, `CHECK`, and appropriate column data types.
+[x] Enforce Referential Integrity using `FOREIGN KEY` constraints with explicit `ON DELETE` rules.
+[x] Name all constraints explicitly (`CONSTRAINT fk_name ...`) for maintainability.
+[x] Keep `STRICT_TRANS_TABLES` active in all environments.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

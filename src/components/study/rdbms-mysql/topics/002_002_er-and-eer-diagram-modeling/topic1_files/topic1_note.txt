@@ -1,0 +1,98 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 1: Entities, Entity Sets & Types of Attributes
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. ENTITIES & ENTITY SETS
+--------------------------------------------------------------------------------
+• Entity: A distinct real-world object or concept with physical existence (e.g. Student, Car)
+  or conceptual existence (e.g. Course, Bank Account).
+• Entity Set: A collection (or set) of all entities of the same type sharing common properties
+  (e.g. all students registered at Coder & AccoTax Barrackpore).
+
+
+2. THE COMPREHENSIVE TAXONOMY OF ATTRIBUTES
+--------------------------------------------------------------------------------
+Attributes are properties or characteristics that describe entities. In ER modeling, attributes
+are classified along four orthogonal dimensions:
+
+A. SIMPLE (ATOMIC) VS COMPOSITE ATTRIBUTES:
+   • Simple (Atomic): Cannot be divided into smaller sub-components (e.g. `roll_no`, `salary`).
+   • Composite: Formed by combining multiple sub-components that have independent meaning
+     (e.g. `full_name` consisting of `first_name`, `middle_name`, `last_name`; or `address` consisting
+     of `street`, `city`, `state`, `pincode`).
+   • ER Notation: Oval connected to entity; sub-attributes branch out from the main attribute oval.
+   • Relational Mapping: Flatten into atomic columns (`first_name`, `last_name`, `city`, `pincode`).
+
+B. SINGLE-VALUED VS MULTI-VALUED ATTRIBUTES:
+   • Single-Valued: An entity instance has exactly ONE value for that attribute (e.g. `date_of_birth`, `aadhaar_no`).
+   • Multi-Valued: An entity instance can have MULTIPLE values simultaneously (e.g. `phone_numbers`, `email_addresses`, `degrees`).
+   • ER Notation: DOUBLE OVAL (nested oval).
+   • Relational Mapping: CANNOT be stored as a comma-separated list (violates 1NF)!
+     Must be decomposed into a dedicated child table with a foreign key referencing the parent!
+
+C. STORED VS DERIVED ATTRIBUTES:
+   • Stored: Persistently saved in the database storage engine (e.g. `date_of_birth`).
+   • Derived: Calculated dynamically on-the-fly from other stored attributes or system functions
+     (e.g. `age` derived from `CURRENT_DATE - date_of_birth`, or `total_bill` derived from `SUM(quantity * unit_price)`).
+   • ER Notation: DASHED OVAL.
+   • Relational Mapping: Computed in SQL `SELECT` queries or generated using MySQL 8.0 `GENERATED ALWAYS AS (...) VIRTUAL` columns!
+
+D. KEY ATTRIBUTES (IDENTIFIERS):
+   • Uniquely identifies each individual entity in an entity set (e.g. `student_id`).
+   • ER Notation: Oval with UNDERLINED text name.
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Profile Entity Model
+• Stored Attributes: `student_id` (PK), `first_name`, `last_name`, `dob` (Stored), `admission_fee`.
+• Derived Attribute: `current_age` (Derived from `dob` via Virtual Generated Column).
+• Multi-valued Attribute: `contact_numbers` (Decomposed into child table `student_contacts`).
+
+MYSQL 8.0 PRODUCTION SCHEMA:
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    dob DATE NOT NULL,
+    -- Derived Virtual Column in MySQL 8.0
+    current_age INT GENERATED ALWAYS AS (TIMESTAMPDIFF(YEAR, dob, CURDATE())) VIRTUAL,
+    admission_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00
+) ENGINE=InnoDB;
+
+-- Decomposed Multi-valued Table
+CREATE TABLE student_contacts (
+    student_id INT NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    contact_type ENUM('Mobile', 'Home', 'Guardian') NOT NULL DEFAULT 'Mobile',
+    PRIMARY KEY (student_id, phone_number),
+    CONSTRAINT fk_contacts_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Storing Derived Attributes Statically:
+   - Storing `age INT` directly in a table means it becomes obsolete on the student's next birthday! Always store `dob` and derive `age`.
+2. Storing Multi-Valued Attributes as Comma-Separated Strings:
+   - Storing `phones = '9830012345,9830054321'` violates 1NF, breaks B-Tree indexing, and prevents regex phone searches.
+3. Over-Compositing Simple Attributes:
+   - Breaking phone numbers into country code, area code, subscriber code when unnecessary for business queries.
+
+
+5. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Identify Composite attributes and flatten them into atomic columns during logical mapping.
+[x] Isolate Multi-valued attributes (double ovals) and map them into dedicated child tables.
+[x] Store base attributes (`dob`) and use MySQL Generated Columns (`VIRTUAL`) for derived attributes.
+[x] Underline Key attributes in ER diagrams to clearly mark entity identifiers.
+[x] Avoid storing multi-valued arrays in comma-separated strings.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

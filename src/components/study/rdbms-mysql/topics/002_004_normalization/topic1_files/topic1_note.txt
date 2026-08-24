@@ -1,0 +1,87 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 1: Database Anomalies: Insertion, Update, and Deletion Anomalies
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE DATABASE ANOMALIES?
+--------------------------------------------------------------------------------
+A Database Anomaly is a structural flaw or operational failure in a relational 
+database schema that causes data corruption, inconsistency, or unintended data loss 
+during routine CRUD (Create, Read, Update, Delete) operations.
+
+Anomalies occur exclusively in unnormalized or poorly designed tables where 
+multiple distinct business entities (e.g. Students, Courses, Departments, Instructors) 
+are mashed into a single wide relation containing redundant data and mismatched functional dependencies.
+
+The 3 Cardinal Anomaly Classes:
+1. Insertion Anomaly (Inability to add valid standalone data).
+2. Update / Modification Anomaly (Inconsistent data due to partial updates of duplicate values).
+3. Deletion Anomaly (Unintended, irreversible loss of independent information when removing child records).
+
+
+2. BENCHMARK UNNORMALIZED RELATION FOR ANOMALY ANALYSIS
+--------------------------------------------------------------------------------
+Consider the unnormalized flat relation:
+`Student_Course_Emp(student_id, student_name, city, course_id, course_title, instructor_id, instructor_name, instructor_room, course_fee)`
+
+Primary Key: `(student_id, course_id)`
+
+Sample Tuples:
+1. `(#101, 'Mamata Hui', 'Barrackpore', 'C101', 'MySQL Master', 'INS01', 'Sukanta Hui', 'Lab-A', 4500.00)`
+2. `(#102, 'Mahima Sharma', 'Kolkata', 'C101', 'MySQL Master', 'INS01', 'Sukanta Hui', 'Lab-A', 4500.00)`
+3. `(#103, 'Abhronila Das', 'Barrackpore', 'C102', 'React Architect', 'INS02', 'Pravin Roy', 'Lab-B', 5500.00)`
+4. `(#104, 'Susmita Ghosh', 'Ichapur', 'C103', 'Cloud DevOps', 'INS03', 'Alok Sen', 'Lab-C', 6000.00)`
+
+
+3. IN-DEPTH ANATOMY OF THE 3 ANOMALIES
+--------------------------------------------------------------------------------
+
+ANOMALY 1: INSERTION ANOMALY
+• Case 1: You hire a new instructor 'Debangshu Roy' for 'Lab-D' who has not been assigned a course or students yet.
+  - SQL: `INSERT INTO Student_Course_Emp (instructor_id, instructor_name, ...) VALUES ('INS04', 'Debangshu Roy', ...);`
+  - Failure: `student_id` and `course_id` are primary keys and cannot be NULL (Entity Integrity violation).
+• Case 2: You create a brand new course 'AI Masterclass' before any student registers.
+  - Failure: Cannot insert because `student_id` is NULL.
+
+ANOMALY 2: UPDATE ANOMALY
+• Case 1: Instructor 'Sukanta Hui' moves from 'Lab-A' to 'Lab-X'.
+  - Problem: 'Sukanta Hui' appears in 500 rows across Barrackpore.
+  - Failure: If an update statement updates 499 rows and misses 1, or is aborted midway, the database holds two conflicting room numbers for the same instructor.
+  - SQL: `UPDATE Student_Course_Emp SET instructor_room = 'Lab-X' WHERE instructor_id = 'INS01';` (High disk I/O, risk of desynchronization).
+
+ANOMALY 3: DELETION ANOMALY
+• Case: 'Susmita Ghosh' (#104) is the ONLY student enrolled in 'Cloud DevOps' (C103). She cancels her admission.
+  - SQL: `DELETE FROM Student_Course_Emp WHERE student_id = '#104';`
+  - Catastrophe: Deleting Susmita's row also permanently deletes all knowledge of the 'Cloud DevOps' course, its fee, instructor 'Alok Sen', and 'Lab-C'.
+
+
+4. THE MATHEMATICAL CURE: 3NF RELATIONAL DECOMPOSITION
+--------------------------------------------------------------------------------
+By decomposing `Student_Course_Emp` into 4 independent, normalized relations:
+
+1. `Students(student_id [PK], student_name, city)`
+2. `Instructors(instructor_id [PK], instructor_name, instructor_room)`
+3. `Courses(course_id [PK], course_title, course_fee, instructor_id [FK])`
+4. `Enrollments(student_id [FK], course_id [FK], enrollment_date, grade)`
+   - PK: `(student_id, course_id)`
+
+Benefits of Decomposition:
+• Insertion: New instructors and courses can be added to their respective tables anytime with 0 students.
+• Update: Instructor room update modifies EXACTLY ONE row in `Instructors`.
+• Deletion: Deleting an enrollment row in `Enrollments` leaves `Students`, `Courses`, and `Instructors` 100% intact.
+
+
+5. SUMMARY CHECKLIST FOR DATABASE ANOMALIES
+--------------------------------------------------------------------------------
+[x] Anomalies arise from mixing multiple entities with conflicting functional dependencies in 1 table.
+[x] Insertion Anomaly: Cannot insert standalone parent data due to composite PK NOT NULL constraints.
+[x] Update Anomaly: Multiple redundant copies lead to desynchronization and data inconsistency.
+[x] Deletion Anomaly: Deleting child records accidentally destroys unrelated master catalog data.
+[x] 3NF/BCNF Decomposition completely cures all 3 modification anomalies.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

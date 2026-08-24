@@ -1,0 +1,129 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_005 - Mastering SQL Joins & Multi-Table Queries
+TOPIC 8: Non-Equi Joins (Joining on Ranges, >, <, BETWEEN)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A NON-EQUI JOIN?
+--------------------------------------------------------------------------------
+A `Non-Equi Join` is any SQL join operation where the `ON` predicate uses comparison operators 
+OTHER THAN exact equality (`=`). 
+
+Supported Comparison Operators in Non-Equi Joins:
+• Range Evaluation: `BETWEEN min_val AND max_val`
+• Inequality / Magnitude: `<`, `<=`, `>`, `>=`
+• Non-Equality: `!=` or `<>`
+• Pattern Matching / Expressions: `LIKE`, `INSTR()`, `DATEDIFF()`
+
+Mathematical Definition:
+Given relations $R_1$ and $R_2$ and a non-equality condition $\theta \in \{<, \le, >, \ge, \text{BETWEEN}\}$, 
+the Theta Join is:
+      $R_1 \bowtie_\theta R_2 = \sigma_\theta(R_1 \times R_2)$
+
+
+2. CORE REAL-WORLD NON-EQUI JOIN USE CASES
+--------------------------------------------------------------------------------
+
+USE CASE 1: Grade Boundaries & Score Classification
+• Problem: Map student test scores (0–100) to letter grades (A, B, C, D) without storing hardcoded ranges in application code.
+• Table 1: `student_exams(student_id, student_name, score)`
+• Table 2: `grade_scales(grade_letter, min_score, max_score, remark)`
+```sql
+SELECT 
+    s.student_name,
+    s.score,
+    g.grade_letter,
+    g.remark
+FROM student_exams s
+INNER JOIN grade_scales g 
+    ON s.score BETWEEN g.min_score AND g.max_score;
+```
+
+USE CASE 2: Tax Slabs & Financial Salary Brackets
+• Problem: Determine tax percentage based on employee annual salary slabs in Indian Rupee (₹).
+• Table 1: `employees(emp_id, emp_name, annual_salary)`
+• Table 2: `tax_slabs(slab_id, min_salary, max_salary, tax_rate_pct)`
+```sql
+SELECT 
+    e.emp_name,
+    e.annual_salary,
+    t.slab_id,
+    t.tax_rate_pct,
+    ROUND(e.annual_salary * (t.tax_rate_pct / 100), 2) AS estimated_tax
+FROM employees e
+INNER JOIN tax_slabs t 
+    ON e.annual_salary >= t.min_salary 
+   AND (e.annual_salary < t.max_salary OR t.max_salary IS NULL);
+```
+
+USE CASE 3: Effective-Date / Historical Price Mapping
+• Problem: Match an order with the product catalog price that was ACTIVE on the order date.
+```sql
+SELECT 
+    o.order_id,
+    o.order_date,
+    p.price
+FROM orders o
+INNER JOIN product_price_history p 
+    ON o.product_id = p.product_id 
+   AND o.order_date BETWEEN p.valid_from AND p.valid_to;
+```
+
+
+3. THE BENCHMARK ACADEMY GRADING EXAMPLE
+--------------------------------------------------------------------------------
+Table: `student_exams`
+| student_id | student_name  | exam_score |
+| ---------- | ------------- | ---------- |
+| 101        | Mamata Hui    | 92         |
+| 102        | Debangshu Roy | 84         |
+| 103        | Susmita Sen   | 71         |
+| 104        | Mahima Shaw   | 58         |
+
+Table: `grade_scales`
+| grade_letter | min_score | max_score | remark            |
+| ------------ | --------- | --------- | ----------------- |
+| A+           | 90        | 100       | Outstanding       |
+| A            | 80        | 89        | Excellent         |
+| B            | 70        | 79        | Very Good         |
+| C            | 50        | 69        | Pass              |
+
+Result:
+• Mamata Hui (92) ➔ A+ (Outstanding)
+• Debangshu Roy (84) ➔ A (Excellent)
+• Susmita Sen (71) ➔ B (Very Good)
+• Mahima Shaw (58) ➔ C (Pass)
+
+
+4. PERFORMANCE & INDEXING CONSIDERATIONS
+--------------------------------------------------------------------------------
+⚠️ The Indexing Challenge:
+• B-Tree indexes excel at exact equality (`=`). Range conditions (`BETWEEN`, `>`, `<`) cannot 
+  perform $O(1)$ single-point lookups; they perform index range scans or block nested-loop joins.
+• For high-throughput queries, use composite B-Tree indexes on `(min_score, max_score)` or 
+  ensure the driving table is filtered selectively.
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Overlapping Ranges:
+   If `grade_scales` has Grade A (80–90) and Grade B (70–80), a score of 80 matches BOTH rows, 
+   producing duplicate rows! Always use non-overlapping boundaries (`80–89` and `70–79`).
+2. Inclusive vs Exclusive Bounds:
+   `BETWEEN` is inclusive (`min <= val AND val <= max`). If your range requires exclusive upper bounds, 
+   use `>= min AND < max`.
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Non-Equi Joins use comparison operators (`BETWEEN`, `<`, `>`, `<=`, `>=`).
+[x] Perfect for grade mapping, tax slabs, discount tiers, and date-range price history.
+[x] `BETWEEN` is inclusive of both endpoint values.
+[x] Guard against overlapping range boundaries to avoid accidental duplicate rows.
+[x] Use composite indexes on range boundary columns to optimize range scan performance.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

@@ -1,0 +1,85 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 14: Lossless Join Decomposition and Dependency Preservation Verification
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. THE TWO CRITICAL PROPERTIES OF RELATIONAL DECOMPOSITION
+--------------------------------------------------------------------------------
+When decomposing a relation schema $R$ into a set of smaller relations $D = \{R_1, R_2, \dots, R_k\}$, 
+the decomposition must be formally evaluated against two distinct mathematical criteria:
+
+1. Lossless Join Property (Non-Additive Join Property) - MANDATORY:
+   Guarantees that joining the decomposed tables via Natural Join reconstructs the 
+   EXACT original table with ZERO loss of information and ZERO spurious (phantom) rows:
+   $\pi_{R_1}(r) \bowtie \pi_{R_2}(r) \bowtie \dots \bowtie \pi_{R_k}(r) = r$
+
+2. Dependency Preservation Property - DESIRABLE:
+   Guarantees that ALL original functional dependencies in set F can be enforced 
+   directly within individual decomposed tables WITHOUT requiring expensive multi-table 
+   SQL JOIN operations during INSERT or UPDATE:
+   $(F_1 \cup F_2 \cup \dots \cup F_k)^+ = F^+$
+
+
+2. TESTING FOR LOSSLESS JOIN (HEATH'S THEOREM FOR BINARY DECOMPOSITION)
+--------------------------------------------------------------------------------
+Theorem (Heath's Lossless Join Theorem):
+A binary decomposition of relation schema $R$ into $R_1$ and $R_2$ is LOSSLESS with respect 
+to a set of functional dependencies F if and only if the common attribute set $(R_1 \cap R_2)$ 
+is a SUPER KEY of at least ONE of the decomposed relations:
+
+      $(R_1 \cap R_2) \rightarrow R_1 \in F^+$   OR   $(R_1 \cap R_2) \rightarrow R_2 \in F^+$
+
+Step-by-Step Test Procedure:
+1. Find the intersection attributes: $C = R_1 \cap R_2$.
+2. Compute the attribute closure of the intersection: $C^+$.
+3. Check:
+   - Does $C^+$ contain all attributes of $R_1$ ($R_1 \subseteq C^+$)? ➔ LOSSLESS!
+   - Does $C^+$ contain all attributes of $R_2$ ($R_2 \subseteq C^+$)? ➔ LOSSLESS!
+   - If neither holds ➔ LOSSY DECOMPOSITION ❌ (Spurious tuples will be generated).
+
+
+3. TESTING FOR DEPENDENCY PRESERVATION
+--------------------------------------------------------------------------------
+Step-by-Step Verification Procedure:
+1. For each decomposed relation $R_i$, compute the projected functional dependencies $F_i = \pi_{R_i}(F)$.
+2. Form the combined dependency set $F' = F_1 \cup F_2 \cup \dots \cup F_k$.
+3. For every original functional dependency $X \rightarrow Y \in F$:
+   - Check if $X \rightarrow Y$ can be derived from $F'$ (i.e. is $Y \subseteq X_{F'}^+$?).
+4. If every original FD is preserved in $F'$, the decomposition is DEPENDENCY PRESERVING.
+5. If any FD cannot be enforced within an individual table, it is LOST across the join boundary.
+
+
+4. THE MATRIX OF NORMAL FORM GUARANTEES
+--------------------------------------------------------------------------------
++--------------------+----------------------+---------------------------+
+| Normal Form        | Lossless Join        | Dependency Preservation   |
++--------------------+----------------------+---------------------------+
+| 1NF, 2NF, 3NF      | Always Guaranteed    | Always Guaranteed         |
+| BCNF               | Always Guaranteed    | NOT Always Guaranteed     |
+| 4NF, 5NF           | Always Guaranteed    | N/A (MVD/JD focus)        |
++--------------------+----------------------+---------------------------+
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Confusing Lossless with "No data loss on delete":
+   "Lossless" refers strictly to lossless JOIN reconstruction, NOT data deletion.
+2. Decomposing tables on non-key overlapping columns:
+   Splitting $R(A, B, C)$ with $A \rightarrow B$ into $R_1(A, B)$ and $R_2(B, C)$ is LOSSY 
+   because common column B is not a super key of either table!
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Lossless Join is mandatory: $R_1 \bowtie R_2 = R$ with zero spurious tuples.
+[x] Heath's Rule: $(R_1 \cap R_2)$ must be a Super Key of $R_1$ or $R_2$.
+[x] Dependency Preservation: $(F_1 \cup \dots \cup F_k)^+ = F^+$ (all FDs enforceable locally).
+[x] 3NF synthesis guarantees BOTH Lossless Join and Dependency Preservation.
+[x] BCNF guarantees Lossless Join, but may sacrifice Dependency Preservation.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

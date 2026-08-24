@@ -1,0 +1,74 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 14: Constructing and Evaluating Relational Algebra Expression Trees (Query Trees)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A RELATIONAL ALGEBRA QUERY TREE?
+--------------------------------------------------------------------------------
+A Query Tree (also called an Expression Tree or Operator Tree) is a rooted, ordered tree
+data structure that represents a relational algebra expression. It is the internal intermediate
+representation used by RDBMS query parsers and optimizers to execute queries.
+
+TREE STRUCTURE ANATOMY:
+• LEAF NODES (Leaves): Represent base input relations or tables stored on disk (e.g. `Students`, `Courses`).
+• INTERNAL NODES: Represent relational algebra operations ($\sigma, \pi, \bowtie, \times, \cup, -$).
+  - Unary operators ($\sigma, \pi, \rho$) have EXACTLY ONE child.
+  - Binary operators ($\bowtie, \times, \cup, -, \div$) have EXACTLY TWO children (Left and Right operands).
+• ROOT NODE: Represents the final query result returned to the user.
+
+
+2. BOTTOM-UP EVALUATION PIPELINE
+--------------------------------------------------------------------------------
+Execution proceeds in a STRICT BOTTOM-UP order:
+1. Base tables are scanned from the leaf nodes.
+2. Data flows up through internal nodes where operations are applied sequentially.
+3. Intermediate relations flow into parent nodes until the root operation produces the final result.
+
+
+3. CANONICAL VS OPTIMIZED QUERY TREES
+--------------------------------------------------------------------------------
+1. CANONICAL (UNOPTIMIZED) QUERY TREE:
+   - Generated directly by parsing a SQL query without optimization.
+   - Typically features a massive Cartesian Product ($\times$) at the bottom, followed by a high-level
+     Selection ($\sigma$) and a top-level Projection ($\pi$).
+   - Extremely slow because intermediate relations balloon to $O(|R| \times |S|)$ rows!
+
+2. HEURISTICALLY OPTIMIZED QUERY TREE:
+   - Pushes Selections ($\sigma$) down to the leaf nodes immediately after table scans.
+   - Converts Cartesian Products and Selections into indexed Equijoins ($\bowtie$).
+   - Pushes Projections ($\pi$) down to discard unneeded attributes early.
+   - Result: 90-99% reduction in intermediate disk I/O and RAM usage!
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+QUERY: "Find names of Barrackpore students who enrolled in 'MySQL Masterclass' paying > ₹4000"
+
+CANONICAL EXPRESSION:
+$$\pi_{\text{full\_name}}(\sigma_{\text{city} = \text{'Barrackpore'} \land \text{course\_title} = \text{'MySQL'} \land \text{fee} > 4000}(\text{Students} \times \text{Enrollments} \times \text{Courses}))$$
+
+OPTIMIZED EXPRESSION (PUSHED DOWN):
+$$\pi_{\text{full\_name}}((\sigma_{\text{city} = \text{'Barrackpore'}}(\text{Students})) \bowtie (\text{Enrollments} \bowtie \sigma_{\text{course\_title} = \text{'MySQL'} \land \text{fee} > 4000}(\text{Courses})))$$
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Projecting away Join Keys Too Early:
+   - If you push down $\pi_{\text{name}}$ before the join, the join key `student_id` is lost, causing the join to fail!
+2. Evaluating Massive Cartesian Products:
+   - Evaluating $R \times S$ before filtering produces severe memory exhaustion.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Represent base relations as Leaf nodes, operations as Internal nodes, and result as Root.
+[x] Trace evaluation in strict Bottom-Up order.
+[x] Push Selections ($\sigma$) down as close to the leaf nodes as possible.
+[x] Retain necessary join key attributes when pushing Projections ($\pi$) down.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

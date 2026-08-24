@@ -1,0 +1,96 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 6: DEFAULT Constraint (Automatic Fallback Values & Expression Defaults)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A DEFAULT CONSTRAINT?
+--------------------------------------------------------------------------------
+The `DEFAULT` constraint specifies an automatic fallback value that MySQL inserts into a column
+whenever an `INSERT` statement omits that column or explicitly passes the `DEFAULT` keyword.
+
+PURPOSE:
+• Prevents unintended NULL entries without requiring client applications to populate every attribute.
+• Streamlines database API contracts: new optional columns can be added to existing tables without breaking legacy code.
+• Automates system timestamps (`CURRENT_TIMESTAMP`) and state machines (`'active'`, `'pending'`).
+
+
+2. STATIC VS DYNAMIC EXPRESSION DEFAULTS IN MYSQL 8.0
+--------------------------------------------------------------------------------
+A. STATIC LITERAL DEFAULTS:
+   CREATE TABLE students (
+       student_id INT AUTO_INCREMENT PRIMARY KEY,
+       admission_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00,
+       city VARCHAR(50) NOT NULL DEFAULT 'Barrackpore',
+       status ENUM('active', 'inactive') NOT NULL DEFAULT 'active'
+   );
+
+B. DYNAMIC EXPRESSION DEFAULTS (MYSQL 8.0.13+):
+   MySQL 8.0 allows arbitrary deterministic expressions wrapped in parentheses as defaults:
+   CREATE TABLE student_orders (
+       order_id INT AUTO_INCREMENT PRIMARY KEY,
+       created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+       updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+       order_uuid VARCHAR(36) NOT NULL DEFAULT (UUID()),
+       expiry_date DATE NOT NULL DEFAULT (CURRENT_DATE + INTERVAL 30 DAY)
+   );
+
+
+3. EXPLICIT NULL VS OMITTED COLUMN BEHAVIOR
+--------------------------------------------------------------------------------
+1. OMITTED COLUMN:
+   - `INSERT INTO students (first_name) VALUES ('Mamata');`
+   - Result: `admission_fee` automatically receives ₹15,000.00.
+2. EXPLICIT `DEFAULT` KEYWORD:
+   - `INSERT INTO students (first_name, admission_fee) VALUES ('Mamata', DEFAULT);`
+   - Result: `admission_fee` receives ₹15,000.00.
+3. EXPLICIT `NULL`:
+   - `INSERT INTO students (first_name, admission_fee) VALUES ('Mamata', NULL);`
+   - Result: If the column is `NOT NULL`, MySQL REJECTS the query with Error 1048. Default is NOT applied!
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Admission Fallbacks
+CREATE TABLE student_enrollments (
+    enrollment_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_name VARCHAR(50) NOT NULL,
+    city VARCHAR(50) NOT NULL DEFAULT 'Barrackpore',
+    standard_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00,
+    is_active TINYINT(1) NOT NULL DEFAULT 1,
+    registered_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Order Lifecycles
+CREATE TABLE orders (
+    order_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    order_status ENUM('PLACED', 'PAID', 'DISPATCHED', 'DELIVERED') NOT NULL DEFAULT 'PLACED',
+    order_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    delivery_estimate DATE NOT NULL DEFAULT (CURRENT_DATE + INTERVAL 3 DAY)
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Passing Explicit NULL Expecting DEFAULT:
+   - If a frontend sends `null` for a missing form field, MySQL rejects it instead of falling back to default.
+2. Modifying Defaults on Existing Tables:
+   - `ALTER TABLE tbl ALTER COLUMN col SET DEFAULT ...` only affects FUTURE inserts; existing rows retain old values.
+3. Using Non-Deterministic Functions in Defaults:
+   - Random functions that cannot be serialized are restricted; MySQL 8.0 allows `(UUID())` and mathematical expressions.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Provide sensible default values for status flags, counters, and institutional standards.
+[x] Use `DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP` for automatic audit tracking.
+[x] Use MySQL 8.0 expression defaults `DEFAULT (expression)` for dynamic dates and UUIDs.
+[x] Modify defaults using lightweight metadata alters: `ALTER TABLE tbl ALTER COLUMN col SET DEFAULT val`.
+[x] Pair `DEFAULT` with `NOT NULL` to ensure 100% data completeness.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

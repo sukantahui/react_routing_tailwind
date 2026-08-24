@@ -1,0 +1,101 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 4: UNIQUE Constraint (Single & Multi-Column Distinctness)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A UNIQUE CONSTRAINT?
+--------------------------------------------------------------------------------
+A `UNIQUE` constraint guarantees that all values in a column (or combination of columns)
+are distinct across all records in the table.
+
+PRIMARY VS UNIQUE CONSTRAINT:
+• PRIMARY KEY: Exactly ONE per table, strictly prohibits NULL values, forms the physical clustered index.
+• UNIQUE CONSTRAINT: Multiple allowed per table, PERMITS NULL values in standard SQL & MySQL InnoDB,
+  implemented as a Secondary B-Tree index.
+
+
+2. NULL HANDLING IN UNIQUE CONSTRAINTS
+--------------------------------------------------------------------------------
+In MySQL InnoDB (and standard SQL), `NULL != NULL`.
+Therefore, a single-column `UNIQUE` constraint permits MULTIPLE rows with `NULL` values without
+violating uniqueness!
+Example:
+If `email VARCHAR(100) UNIQUE` is nullable, 5 different students can have `email = NULL`.
+To forbid multiple NULLs while enforcing uniqueness, combine `UNIQUE NOT NULL`.
+
+
+3. SINGLE-COLUMN VS COMPOSITE UNIQUE CONSTRAINTS
+--------------------------------------------------------------------------------
+A. SINGLE-COLUMN UNIQUE:
+   CREATE TABLE students (
+       student_id INT AUTO_INCREMENT PRIMARY KEY,
+       roll_no VARCHAR(20) NOT NULL,
+       email VARCHAR(100) NOT NULL,
+       CONSTRAINT uq_student_roll UNIQUE (roll_no),
+       CONSTRAINT uq_student_email UNIQUE (email)
+   );
+
+B. COMPOSITE (MULTI-COLUMN) UNIQUE:
+   Guarantees that the *combination* of two or more columns is distinct across the table.
+   CREATE TABLE student_phone_directory (
+       directory_id INT AUTO_INCREMENT PRIMARY KEY,
+       student_id INT NOT NULL,
+       phone_type ENUM('Primary', 'Alternate', 'Parent') NOT NULL,
+       phone_number VARCHAR(15) NOT NULL,
+       -- A student can have only ONE number per phone_type
+       CONSTRAINT uq_student_phone_type UNIQUE (student_id, phone_type)
+   );
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore College Unique Student Identifiers
+CREATE TABLE student_identities (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    roll_no VARCHAR(20) NOT NULL,
+    aadhaar_no CHAR(12) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone_no VARCHAR(10) NOT NULL,
+    -- Independent Unique Constraints
+    CONSTRAINT uq_roll UNIQUE (roll_no),
+    CONSTRAINT uq_aadhaar UNIQUE (aadhaar_no),
+    CONSTRAINT uq_email UNIQUE (email),
+    CONSTRAINT uq_phone UNIQUE (phone_no)
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Product SKU & Slug Uniqueness
+CREATE TABLE products (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    sku_code VARCHAR(30) NOT NULL,
+    slug VARCHAR(120) NOT NULL,
+    product_name VARCHAR(150) NOT NULL,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT uq_product_sku UNIQUE (sku_code),
+    CONSTRAINT uq_product_slug UNIQUE (slug)
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Overlooking the NULL Exception:
+   - Forgetting `NOT NULL` on a unique column, allowing accidental duplicate NULL entries.
+2. Dropping Unique Constraints Incorrectly:
+   - In MySQL, dropping a unique constraint requires `ALTER TABLE tbl DROP INDEX index_name;`.
+3. Error 1062 Collision Handling:
+   - Inserting duplicate unique keys aborts transactions unless handled with `INSERT IGNORE` or `ON DUPLICATE KEY UPDATE`.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Combine `UNIQUE` with `NOT NULL` for mandatory business identifiers (e.g. Email, PAN, Aadhaar).
+[x] Use Composite Unique constraints to enforce relationship business rules.
+[x] Explicitly name every unique constraint (`CONSTRAINT uq_tablename_col UNIQUE (...)`).
+[x] Use `INSERT ... ON DUPLICATE KEY UPDATE` to gracefully handle unique collisions.
+[x] Leverage unique secondary indexes for fast O(log N) point queries.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

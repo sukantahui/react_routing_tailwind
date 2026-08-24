@@ -1,0 +1,112 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_005 - Mastering SQL Joins & Multi-Table Queries
+TOPIC 7: Multi-Table Joins: Connecting 3, 4, or More Tables in a Single Query
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A MULTI-TABLE JOIN?
+--------------------------------------------------------------------------------
+In normalized production databases (3NF/BCNF), business entities and transactional data 
+are separated across multiple specialized tables. A `Multi-Table Join` is a relational query 
+that connects three, four, five, or more tables sequentially in a single SQL statement.
+
+Execution Logic:
+MySQL processes multi-table joins as a sequence of pairwise binary joins:
+1. Table 1 joins with Table 2 to form Intermediate Result $I_1$.
+2. Intermediate Result $I_1$ joins with Table 3 to form Intermediate Result $I_2$.
+3. Intermediate Result $I_2$ joins with Table 4 to produce the Final Result Set.
+
+
+2. THE 4-TABLE E-COMMERCE & ACADEMY BENCHMARK ARCHITECTURE
+--------------------------------------------------------------------------------
+Consider the standard enterprise order analytics pipeline:
+`Customers` ➔ `Orders` ➔ `Order_Items` ➔ `Products` ➔ `Categories`
+
+```sql
+-- 5-Table Enterprise Analytics Query:
+SELECT 
+    c.customer_name,
+    c.city,
+    o.order_id,
+    o.order_date,
+    p.product_name,
+    cat.category_name,
+    oi.quantity,
+    oi.unit_price,
+    (oi.quantity * oi.unit_price) AS line_item_total
+FROM customers c
+INNER JOIN orders o ON c.customer_id = o.customer_id
+INNER JOIN order_items oi ON o.order_id = oi.order_id
+INNER JOIN products p ON oi.product_id = p.product_id
+INNER JOIN categories cat ON p.category_id = cat.category_id
+WHERE c.city = 'Barrackpore'
+ORDER BY o.order_date DESC;
+```
+
+
+3. THE ACADEMY MULTI-TABLE PIPELINE EXAMPLE
+--------------------------------------------------------------------------------
+Pipeline:
+`Students` ➔ `Enrollments` ➔ `Courses` ➔ `Instructors`
+
+```sql
+SELECT 
+    s.student_id,
+    s.student_name,
+    c.course_title,
+    i.instructor_name,
+    e.enrollment_date,
+    c.course_fee
+FROM students s
+INNER JOIN enrollments e ON s.student_id = e.student_id
+INNER JOIN courses c ON e.course_id = c.course_id
+INNER JOIN instructors i ON c.instructor_id = i.instructor_id
+WHERE s.city = 'Kolkata';
+```
+
+
+4. MIXING INNER JOIN AND LEFT JOIN IN MULTI-TABLE QUERIES
+--------------------------------------------------------------------------------
+⚠️ THE PRECEDENCE AND FILTERING TRAP:
+When mixing `INNER JOIN` and `LEFT JOIN` in a multi-table query, the sequence of joins matters tremendously!
+
+```sql
+-- ❌ BAD: The INNER JOIN on table C cancels out the LEFT JOIN on table B!
+SELECT s.student_name, e.enrollment_date, p.amount
+FROM students s
+LEFT JOIN enrollments e ON s.student_id = e.student_id
+INNER JOIN payments p ON e.enrollment_id = p.enrollment_id; 
+-- Discards students without enrollments because p.enrollment_id cannot match NULL!
+
+-- ✅ GOOD: Consistent LEFT JOINs preserve all students
+SELECT s.student_name, e.enrollment_date, p.amount
+FROM students s
+LEFT JOIN enrollments e ON s.student_id = e.student_id
+LEFT JOIN payments p ON e.enrollment_id = p.enrollment_id;
+```
+
+
+5. PERFORMANCE OPTIMIZATION STRATEGIES
+--------------------------------------------------------------------------------
+1. Join Tree & Optimizer Search Depth:
+   The MySQL query optimizer evaluates permutations to find the optimal join order.
+   Ensure foreign key join columns have composite or single-column B-Tree indexes.
+2. Filter Early:
+   Place highly selective `WHERE` conditions to prune intermediate row sets before joining wide catalog tables.
+3. Eliminate Unnecessary Joins:
+   If you only need `customer_id` and `order_id`, do NOT join the `customers` table!
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Multi-table joins chain pairwise binary joins ($A \bowtie B \bowtie C \bowtie D$).
+[x] Always qualify column names with table aliases (`s.name`, `c.title`, `i.name`).
+[x] Mixing `INNER JOIN` after a `LEFT JOIN` accidentally filters out outer NULL rows.
+[x] Always index every foreign key column involved in multi-table join paths.
+[x] Use `EXPLAIN` to verify that the query optimizer picks the expected driving table and index lookups.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

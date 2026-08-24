@@ -1,0 +1,106 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 11: Boyce-Codd Normal Form (BCNF): Strict Candidate Key Determinants
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS BOYCE-CODD NORMAL FORM (BCNF)?
+--------------------------------------------------------------------------------
+Boyce-Codd Normal Form (BCNF), also known as 3.5NF, was formulated by Raymond F. Boyce 
+and Edgar F. Codd in 1974 to address anomalies that can still occur in 3NF relations 
+with multiple overlapping composite candidate keys.
+
+Formal Definition of BCNF:
+A relation schema R is in Boyce-Codd Normal Form (BCNF) if and only if:
+For EVERY non-trivial functional dependency $X \rightarrow Y$ holding on R:
+      X MUST BE A SUPER KEY OF R.
+
+Plain English Meaning:
+In BCNF, there is NO "Prime Attribute" exception (unlike 3NF). 
+EVERY SINGLE DETERMINANT in the relation MUST BE A CANDIDATE KEY (or super key).
+If an attribute determines anything, it must be capable of uniquely determining the ENTIRE row!
+
+
+2. 3NF VS BCNF: THE CRITICAL DIFFERENCE
+--------------------------------------------------------------------------------
+Let $X \rightarrow A$ be a non-trivial functional dependency:
+• 3NF allows: Either X is a Super Key OR A is a Prime Attribute.
+• BCNF requires: X MUST be a Super Key (No exceptions allowed).
+
+Hierarchy:
+All BCNF relations are in 3NF ($BCNF \subset 3NF \subset 2NF \subset 1NF$).
+However, a relation in 3NF is NOT necessarily in BCNF if overlapping candidate keys exist.
+
+
+3. BENCHMARK EXAMPLE: THE CLASSIC 3NF BUT NOT BCNF RELATION
+--------------------------------------------------------------------------------
+Consider a college tutoring management relation:
+`Student_Advisor(student_id, major, advisor_name)`
+
+Business Domain Rules:
+1. Each student can have multiple majors, but only ONE advisor per major:
+   `(student_id, major) → advisor_name`
+2. Each advisor specializes in exactly ONE major:
+   `advisor_name → major`
+3. A student can have multiple advisors (one for each major).
+
+Key Analysis:
+• Candidate Keys:
+  - Key 1: `(student_id, major)`  (since $(student\_id, major)^+ = \{student\_id, major, advisor\_name\}$)
+  - Key 2: `(student_id, advisor_name)`  (since $(student\_id, advisor\_name)^+ = \{student\_id, advisor\_name, major\}$)
+• Prime Attributes: `{student_id, major, advisor_name}` (ALL attributes are prime!)
+• Non-Prime Attributes: $\emptyset$ (Empty set!)
+
+Is this table in 3NF?
+• Check FD 1: `(student_id, major) → advisor_name`:
+  - LHS is Candidate Key 1 ➔ PASSES 3NF.
+• Check FD 2: `advisor_name → major`:
+  - Is `advisor_name` a Super Key? NO!
+  - Is `major` a Prime Attribute? YES (member of Candidate Key 1).
+  - Condition 2 of 3NF is satisfied ➔ PASSES 3NF!
+
+Is this table in BCNF?
+• Check FD 2: `advisor_name → major`:
+  - Is `advisor_name` a Super Key? NO!
+  - In BCNF, there is no prime attribute exception!
+  - ❌ VIOLATES BCNF!
+
+Anomalies in this 3NF (non-BCNF) table:
+1. Redundancy / Update Anomaly: If 'Dr. Pravin Sen' advises 50 students in 'Computer Science', 
+   his major ('Computer Science') is repeated 50 times. Updating his major in some rows causes inconsistency.
+2. Insertion Anomaly: Cannot hire a new advisor for 'Robotics' until at least one student is assigned to them.
+3. Deletion Anomaly: If the only student advised by 'Dr. Sen' drops out, we lose the fact that 'Dr. Sen' advises 'Computer Science'.
+
+
+4. THE BCNF DECOMPOSITION ALGORITHM
+--------------------------------------------------------------------------------
+To decompose a relation R violating BCNF with FD $X \rightarrow Y$ (where X is not a super key):
+1. Split R into two relations:
+   - $R_1 = X \cup Y$ with $X$ as the Primary Key.
+   - $R_2 = R - Y$ (or $(R - Y) \cup X$).
+2. Check if $R_1$ and $R_2$ are in BCNF; recursively decompose if necessary.
+
+Decomposing `Student_Advisor`:
+1. $R_1(\underline{advisor\_name}, major)$ with PK = `advisor_name`.
+2. $R_2(\underline{student\_id, advisor\_name})$ with PK = `(student_id, advisor_name)`.
+
+Trade-off of BCNF: The Dependency Preservation Dilemma
+• $R_1$ enforces `advisor_name → major`.
+• $R_2$ enforces student-advisor pairing.
+• BUT original FD `(student_id, major) → advisor_name` cannot be checked within a single table without an expensive cross-table JOIN!
+• Hence, BCNF is strictly Lossless, but may NOT preserve all functional dependencies.
+
+
+5. SUMMARY CHECKLIST FOR BCNF
+--------------------------------------------------------------------------------
+[x] BCNF Rule: For every non-trivial $X \rightarrow Y$, X MUST be a Super Key.
+[x] BCNF has zero exceptions for prime attributes.
+[x] Resolves anomalies caused by overlapping composite candidate keys.
+[x] All BCNF tables are automatically in 3NF, 2NF, and 1NF.
+[x] BCNF always guarantees Lossless Join, but may NOT preserve all functional dependencies.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

@@ -1,0 +1,83 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 13: ER-to-Relational Mapping Algorithm: Mapping Regular (Strong) Entities
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. STEP 1 OF THE 7-STEP ER-TO-RELATIONAL MAPPING ALGORITHM
+--------------------------------------------------------------------------------
+The formal 7-step ER-to-Relational Mapping Algorithm translates a conceptual ER schema
+into a set of normalized relational tables (Relations). Step 1 focuses exclusively on
+MAPPING REGULAR (STRONG) ENTITY TYPES.
+
+FORMAL RULE FOR STEP 1:
+• For each regular (strong) entity type $E$ in the conceptual ER schema:
+  1) Create a relation (table) $R$ that includes all SIMPLE attributes of $E$.
+  2) For COMPOSITE attributes: include only their simple component attributes (flattening).
+  3) Choose one of the candidate keys of $E$ as the PRIMARY KEY of $R$.
+  4) If the chosen key is composite, the set of simple attributes forming it will be the composite PK.
+  5) Multi-valued attributes and derived attributes are EXCLUDED in Step 1 (handled in later steps).
+
+
+2. ATTRIBUTE TRANSFORMATION MATRIX (CONCEPTUAL ➔ RELATIONAL)
+--------------------------------------------------------------------------------
+CONCEPTUAL ER ATTRIBUTE TYPE        RELATIONAL TRANSFORMATION RULE
+--------------------------------------------------------------------------------
+1. Simple / Atomic Attribute        Mapped directly to a column in table $R$.
+2. Composite Attribute              Flattened: decomposed into simple sub-columns.
+                                    e.g., `Address(street, city, pincode)` ➔
+                                    `street VARCHAR`, `city VARCHAR`, `pincode CHAR(6)`.
+3. Single-Valued Stored             Mapped directly to a column.
+4. Multi-Valued Attribute           EXCLUDED in Step 1 (mapped to a dedicated table in Step 6).
+5. Derived Attribute                EXCLUDED from physical table storage (calculated dynamically
+                                    in SQL queries or generated virtual columns).
+--------------------------------------------------------------------------------
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Academy Student Entity Mapping
+• Conceptual Entity:
+  `Student(student_id [Key], Name(first_name, last_name), Address(street, locality, pincode), dob, age [Derived], {phone_numbers} [Multi-valued])`
+
+• Step 1 Relational Table Transformation (MySQL InnoDB):
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    -- Flattened Composite Attribute 'Name'
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    -- Flattened Composite Attribute 'Address'
+    street VARCHAR(100) NOT NULL,
+    locality VARCHAR(50) NOT NULL DEFAULT 'Barrackpore',
+    pincode CHAR(6) NOT NULL,
+    -- Stored Date of Birth
+    dob DATE NOT NULL,
+    -- Virtual Generated Column for Derived Attribute 'age'
+    age INT GENERATED ALWAYS AS (TIMESTAMPDIFF(YEAR, dob, CURRENT_DATE)) VIRTUAL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Storing Composite Attributes as a Single Unformatted String:
+   - Storing "12 Ghoshpara Rd, Barrackpore, 700120" in a single `address` column violates 1NF atomicity and prevents indexing by city or pincode.
+2. Storing Multi-valued Attributes as Comma-Separated Strings:
+   - Violates 1NF; impossible to index or enforce uniqueness per phone number.
+3. Storing Stale Derived Values:
+   - Hardcoding an integer `age` column causes data corruption over time as the student ages; use MySQL virtual generated columns instead.
+
+
+5. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Create a dedicated relation $R$ for every regular strong entity in the ER model.
+[x] Flatten composite attributes into atomic, individually typed columns.
+[x] Select the most compact, unique candidate key as the Primary Key.
+[x] Leave multi-valued attributes for dedicated bridge tables.
+[x] Implement derived attributes as MySQL `VIRTUAL GENERATED` columns or SQL views.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

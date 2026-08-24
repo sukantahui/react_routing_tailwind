@@ -1,0 +1,100 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 2: Entity Identifiers, Primary Keys, Candidate Keys & Partial Keys
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE ENTITY IDENTIFIERS?
+--------------------------------------------------------------------------------
+In Entity-Relationship modeling, an Entity Identifier (or Key) is an attribute or set of attributes
+whose values uniquely distinguish each individual entity within an entity set.
+
+THE KEY HIERARCHY:
+1. Superkey:
+   - Any set of one or more attributes that uniquely identifies an entity instance.
+   - Example: `{student_id}`, `{student_id, full_name}`, `{email}`, `{aadhaar_no, phone}`.
+2. Candidate Key:
+   - A Minimal Superkey (a superkey with no redundant/extraneous attributes).
+   - Example: In students table, both `{student_id}`, `{aadhaar_no}`, and `{email}` are candidate keys.
+3. Primary Key (PK):
+   - The specific Candidate Key chosen by the database architect as the official entity identifier.
+   - Notation in Peter Chen ER: Oval with SOLID UNDERLINED text name.
+4. Alternate / Secondary Key:
+   - Any Candidate Key that was NOT selected as the Primary Key (enforced in MySQL with `UNIQUE NOT NULL`).
+5. Partial Key (Discriminator):
+   - An attribute that uniquely distinguishes weak entities belonging to the SAME parent entity,
+     but CANNOT distinguish entities globally across the entire database.
+   - Notation in Peter Chen ER: Oval with DASHED UNDERLINE text name.
+
+
+2. SURROGATE KEYS VS NATURAL KEYS
+--------------------------------------------------------------------------------
+A. NATURAL KEYS:
+   - Real-world business attributes with unique properties (e.g. `aadhaar_no`, `pan_number`, `vehicle_reg_no`).
+   - Advantage: Carries intrinsic business meaning; avoids artificial surrogate column.
+   - Disadvantage: Wide string byte footprints, subject to government format changes.
+
+B. SURROGATE KEYS:
+   - Artificial, system-generated integer identifiers (e.g. `student_id INT AUTO_INCREMENT`).
+   - Advantage: Compact 4-byte or 8-byte integers; lightning-fast B-Tree joins; completely immune to business changes.
+   - Best Practice: Use a Surrogate Primary Key + `UNIQUE` constraints on Natural Candidate Keys.
+
+
+3. PARTIAL KEYS & WEAK ENTITY DISCRIMINATORS
+--------------------------------------------------------------------------------
+A Weak Entity cannot be uniquely identified by its own attributes alone. It requires:
+1. An Identifying Relationship to an Owner Strong Entity.
+2. A Partial Key (Discriminator) to distinguish child instances under that parent owner.
+
+EXAMPLE: Student Dependents (Family Members)
+• Strong Entity: `students(student_id [PK])`
+• Weak Entity: `student_dependents(dependent_name [Partial Key])`
+• Relational Primary Key: Composite `(student_id, dependent_name)`
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Registration Key Architecture
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY, -- Surrogate Primary Key
+    aadhaar_no CHAR(12) NOT NULL,              -- Natural Candidate Key 1
+    email_address VARCHAR(100) NOT NULL,       -- Natural Candidate Key 2
+    full_name VARCHAR(100) NOT NULL,
+    CONSTRAINT uq_student_aadhaar UNIQUE (aadhaar_no),
+    CONSTRAINT uq_student_email UNIQUE (email_address)
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata Weak Entity Dependent Schema
+CREATE TABLE student_dependents (
+    student_id INT NOT NULL,               -- Foreign Key to Owner Strong Entity
+    dependent_name VARCHAR(50) NOT NULL,   -- Partial Key (Discriminator)
+    relationship_type VARCHAR(20) NOT NULL,
+    PRIMARY KEY (student_id, dependent_name), -- Composite Primary Key
+    CONSTRAINT fk_dep_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Using Mutable Natural Keys as Primary Keys:
+   - Using email addresses as primary keys causes massive cascaded update locks when a student changes their email.
+2. Forgetting Partial Key Nullability:
+   - Partial keys must be `NOT NULL` because they participate in the child's Composite Primary Key.
+3. Overlooking Alternate Key Constraints:
+   - Forgetting to put `UNIQUE` on natural keys (like Aadhaar) allows duplicate identity records to enter the database.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use a compact Surrogate Key (`INT AUTO_INCREMENT`) as the Primary Key for high-speed joins.
+[x] Add `UNIQUE` constraints on all alternate natural candidate keys (e.g. Aadhaar, Email).
+[x] Identify Weak Entities and underline Partial Keys with a Dashed Underline in ER diagrams.
+[x] Map Weak Entity Identifiers into Composite Primary Keys `(owner_id, partial_key)` in MySQL.
+[x] Ensure all primary and candidate key columns are declared `NOT NULL`.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

@@ -1,0 +1,87 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 9: Second Normal Form (2NF): Eliminating Partial Dependencies
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS SECOND NORMAL FORM (2NF)?
+--------------------------------------------------------------------------------
+Second Normal Form (2NF) was introduced by Dr. Edgar F. Codd in 1971 to address 
+data redundancy and update anomalies in relations with composite candidate keys.
+
+Formal Definition of 2NF:
+A relation schema R is in Second Normal Form (2NF) if and only if:
+1. It is in First Normal Form (1NF).
+2. NO non-prime attribute in R is partially dependent on any candidate key of R.
+   (Every non-prime attribute must be FULLY functionally dependent on EVERY candidate key).
+
+Mathematical Rule:
+For every non-trivial functional dependency $X \rightarrow A$ where A is a non-prime attribute:
+- X must NOT be a proper subset of any candidate key of R.
+
+Key Theorem:
+If a relation in 1NF has ONLY single-attribute candidate keys (no composite keys), 
+it is AUTOMATICALLY in 2NF!
+
+
+2. THE CLASSIC 2NF VIOLATION (UNNORMALIZED 1NF ENROLLMENT TABLE)
+--------------------------------------------------------------------------------
+Consider a college enrollment relation in 1NF:
+`Student_Course_Grade(student_id, course_id, student_name, student_city, course_title, course_fee, final_grade)`
+
+Candidate / Primary Key: `(student_id, course_id)` (Composite Key)
+• Prime Attributes: `{student_id, course_id}`
+• Non-Prime Attributes: `{student_name, student_city, course_title, course_fee, final_grade}`
+
+Functional Dependencies:
+1. `student_id → {student_name, student_city}` ❌ (PARTIAL DEPENDENCY on subset `student_id`)
+2. `course_id → {course_title, course_fee}` ❌ (PARTIAL DEPENDENCY on subset `course_id`)
+3. `(student_id, course_id) → final_grade` ✓ (FULL FUNCTIONAL DEPENDENCY)
+
+Why this table causes severe production anomalies:
+• Update Anomaly: If 'MySQL Master' fee changes from ₹4,500 to ₹5,000, we must update 
+  hundreds of student enrollment rows.
+• Insertion Anomaly: Cannot register a new course unless at least one student enrolls in it.
+• Deletion Anomaly: If student #104 drops out of 'Cloud DevOps', the course and its fee details 
+  are permanently wiped out if no other student is enrolled.
+
+
+3. THE 2NF DECOMPOSITION PROCEDURE
+--------------------------------------------------------------------------------
+To eliminate partial dependencies, apply the 2NF Decomposition Algorithm:
+1. Identify all partial dependencies $X_{sub} \rightarrow Y$ where $X_{sub}$ is a proper subset of a composite candidate key.
+2. For each partial dependency, create a dedicated relation $R_i(X_{sub}, Y)$ where $X_{sub}$ becomes the Primary Key.
+3. Remove the partially dependent attributes Y from the original relation.
+4. Keep the remaining full functional dependencies in a bridge/junction table with the original composite key.
+
+Resulting 2NF Schema:
+1. `Students(student_id [PK], student_name, student_city)`
+   - FD: `student_id → student_name, student_city` (Full FD)
+2. `Courses(course_id [PK], course_title, course_fee)`
+   - FD: `course_id → course_title, course_fee` (Full FD)
+3. `Enrollments(student_id [FK], course_id [FK], final_grade)`
+   - PK: `(student_id, course_id)`
+   - FD: `(student_id, course_id) → final_grade` (Full FD)
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Decomposing tables without defining Foreign Key constraints:
+   Always connect the junction table to the parent entity tables using Foreign Keys.
+2. Searching for 2NF violations in tables with single-column primary keys:
+   A single-attribute primary key table cannot have partial dependencies.
+
+
+5. SUMMARY CHECKLIST FOR 2NF
+--------------------------------------------------------------------------------
+[x] 2NF requires 1NF compliance + zero partial dependencies on candidate keys.
+[x] Partial Dependency: Non-prime attribute determined by a proper subset of a composite key.
+[x] Single-attribute primary key tables in 1NF are automatically in 2NF.
+[x] Decompose partial dependencies into dedicated parent tables where the subset becomes PK.
+[x] Retain foreign keys in junction/association tables to maintain relational integrity.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

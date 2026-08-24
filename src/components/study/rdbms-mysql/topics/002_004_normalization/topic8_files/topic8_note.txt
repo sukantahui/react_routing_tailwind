@@ -1,0 +1,90 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 8: First Normal Form (1NF): Atomic Values and Eliminating Repeating Groups
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS FIRST NORMAL FORM (1NF)?
+--------------------------------------------------------------------------------
+First Normal Form (1NF) is the foundational baseline of relational database theory 
+established by Dr. Edgar F. Codd in 1970.
+
+Formal Definition of 1NF:
+A relation schema R is in First Normal Form (1NF) if and only if:
+1. Every attribute domain contains ONLY ATOMIC (indivisible) values.
+2. The value of any attribute in a tuple is a single value from the domain of that attribute.
+3. No repeating groups, nested tables, arrays, or comma-separated multivalued lists exist.
+4. Each column contains values of a single consistent data type.
+5. All rows are distinct (guaranteed by a Primary Key).
+
+
+2. THE FOUR CLASSIC VIOLATIONS OF 1NF
+--------------------------------------------------------------------------------
+
+VIOLATION 1: Multi-Valued Attributes (Comma-Separated Values)
+• Example: `phone_numbers = "9830112233, 9830445566, 9830778899"`
+• Why it violates 1NF: The column holds a list/array rather than a single atomic scalar.
+• Production Dangers:
+  - Impossible to index individual phone numbers efficiently.
+  - Querying requires slow `LIKE '%9830112233%'` full-table scans.
+  - Sorting and aggregation are broken.
+
+VIOLATION 2: Repeating Groups (Flattened Columns)
+• Example: `phone_1, phone_2, phone_3, course_1, course_2, course_3`
+• Why it violates 1NF: Arbitrary column limits waste storage with NULLs and fail 
+  when a student takes 4 courses.
+• Production Dangers: Adding a 4th course requires an `ALTER TABLE` DDL schema migration!
+
+VIOLATION 3: Composite Non-Atomic Values
+• Example: `full_address = "Flat 4B, 12 S.N. Banerjee Road, Barrackpore, Kolkata - 700120"`
+• Why it violates 1NF: The field combines street, city, state, and pin code into one string, 
+  preventing clean filtering by city or sorting by postal code.
+
+VIOLATION 4: Lack of a Primary Key (Duplicate Tuples)
+• A relation with duplicate identical rows violates relational set theory and 1NF.
+
+
+3. THE 1NF NORMALIZATION STRATEGY
+--------------------------------------------------------------------------------
+To convert an unnormalized table (0NF / UNF) into 1NF:
+
+Step 1: Atomic Column Decomposition
+Split composite fields into independent atomic columns:
+- `full_name` ➔ `first_name`, `last_name`
+- `full_address` ➔ `street_address`, `city`, `state`, `postal_code`
+
+Step 2: Relational Table Extraction (Handling Repeating Groups / Multivalued Attributes)
+Move multivalued lists / repeating groups into a dedicated child table linked by a Foreign Key:
+
+Unnormalized Student Roster:
+`Students_UNF(student_id, student_name, phone_numbers, courses_enrolled)`
+
+Decomposed 1NF Schema:
+1. `Students(student_id [PK], student_name, city)`
+2. `Student_Phones(phone_id [PK], student_id [FK], phone_number)`
+3. `Student_Courses(student_id [FK], course_id [FK], enrolled_date, PK = (student_id, course_id))`
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Using JSON data types for core relational entities:
+   While MySQL supports `JSON`, storing relational references inside JSON columns breaks 
+   referential integrity and foreign keys.
+2. Creating `phone_1`, `phone_2`, `phone_3` columns to "avoid child tables":
+   Creates sparse NULL-filled tables and requires complex `COALESCE` queries.
+
+
+5. SUMMARY CHECKLIST FOR 1NF
+--------------------------------------------------------------------------------
+[x] All column values must be atomic (indivisible scalar values).
+[x] Eliminate comma-separated lists and multi-valued arrays.
+[x] Eliminate repeating group columns (e.g. `col_1, col_2, col_3`).
+[x] Separate composite attributes into distinct atomic columns.
+[x] Ensure every table has a defined Primary Key with unique rows.
+[x] Move multi-valued relationships into dedicated child/junction tables.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

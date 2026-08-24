@@ -1,0 +1,102 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 13: Dropping Constraints and Foreign Key Dependencies
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHY AND WHEN ARE CONSTRAINTS DROPPED?
+--------------------------------------------------------------------------------
+Constraints are removed or temporarily disabled during:
+• Schema Refactoring & Migrations (relaxing obsolete rules or changing key structures).
+• High-Speed Bulk Data Ingestion / ETL (temporarily disabling foreign keys to speed up loading).
+• Table Deletion / Drop Sequences (dropping child FKs before dropping parent tables).
+
+
+2. SYNTAX FOR DROPPING EACH CONSTRAINT TYPE IN MYSQL
+--------------------------------------------------------------------------------
+A. DROPPING A PRIMARY KEY:
+   ALTER TABLE students DROP PRIMARY KEY;
+   (Note: If the primary key is AUTO_INCREMENT, you must first modify the column to remove AUTO_INCREMENT
+    before dropping the primary key!).
+
+B. DROPPING A FOREIGN KEY:
+   ALTER TABLE student_payments DROP FOREIGN KEY fk_payments_students;
+   (Note: Dropping the foreign key does NOT drop the underlying secondary index; to drop the index as well:
+    `ALTER TABLE student_payments DROP INDEX fk_payments_students;`).
+
+C. DROPPING A UNIQUE CONSTRAINT:
+   ALTER TABLE students DROP INDEX uq_students_email;
+   (Unique constraints are implemented as secondary indexes in MySQL).
+
+D. DROPPING A CHECK CONSTRAINT:
+   ALTER TABLE students DROP CHECK chk_students_fee_floor;
+   (or `DROP CONSTRAINT chk_students_fee_floor;` in MySQL 8.0).
+
+E. DROPPING A NOT NULL CONSTRAINT (RELAXING TO NULLABLE):
+   ALTER TABLE students MODIFY first_name VARCHAR(50) NULL;
+
+
+3. MANAGING FOREIGN KEY DEPENDENCIES & TABLE DROPS
+--------------------------------------------------------------------------------
+1. The Dependency Graph:
+   - You CANNOT drop a parent table (`DROP TABLE students;`) while a child table (`student_payments`)
+     maintains an active foreign key referencing it. Attempting this throws Error 3730.
+2. Correct Drop Order:
+   - Step 1: Drop child table(s) first (`DROP TABLE student_payments;`), OR drop child foreign keys.
+   - Step 2: Drop parent table (`DROP TABLE students;`).
+3. Administrative Override:
+   - For emergency database teardowns or test suite resets:
+     SET FOREIGN_KEY_CHECKS = 0;
+     DROP TABLE students;
+     DROP TABLE student_payments;
+     SET FOREIGN_KEY_CHECKS = 1;
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Primary Key Migration Workflow
+-- Problem: Need to convert student_id from INT to UUID
+-- Step 1: Remove AUTO_INCREMENT from column
+ALTER TABLE students MODIFY student_id INT NOT NULL;
+
+-- Step 2: Drop existing Primary Key
+ALTER TABLE students DROP PRIMARY KEY;
+
+-- Step 3: Add new UUID column and new Primary Key
+ALTER TABLE students ADD COLUMN student_uuid CHAR(36) NOT NULL FIRST,
+ADD CONSTRAINT pk_students PRIMARY KEY (student_uuid);
+
+CASE 2: Debangshu's Kolkata High-Speed ETL Bulk Load
+-- Step 1: Disable runtime foreign key verification
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Step 2: High-speed bulk load
+LOAD DATA INFILE '/var/lib/mysql-files/orders_batch.csv' INTO TABLE orders;
+
+-- Step 3: Re-enable foreign key enforcement
+SET FOREIGN_KEY_CHECKS = 1;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Dropping FK Leaves Index Behind:
+   - `DROP FOREIGN KEY fk_name` leaves the supporting index in place.
+2. Dropping AUTO_INCREMENT Primary Key:
+   - Trying to run `DROP PRIMARY KEY` while the column is `AUTO_INCREMENT` fails with Error 1075.
+3. Leaving `FOREIGN_KEY_CHECKS = 0` Active:
+   - If not re-enabled, corrupt orphaned records can be inserted unnoticed.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use explicit constraint names to make `DROP` commands deterministic.
+[x] Remove `AUTO_INCREMENT` before dropping a Primary Key.
+[x] Drop child foreign keys or child tables before dropping parent master tables.
+[x] Drop redundant supporting indexes after dropping foreign keys if no longer needed.
+[x] Always reset `SET FOREIGN_KEY_CHECKS = 1` immediately after administrative ETL tasks.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

@@ -1,0 +1,81 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_001 - Table Relationships & Referential Actions
+TOPIC 9: Visualizing Table Relationships in MySQL Workbench EER Modeler
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THE MYSQL WORKBENCH EER MODELER?
+--------------------------------------------------------------------------------
+The Enhanced Entity-Relationship (EER) Modeler in MySQL Workbench is a powerful visual design tool
+that enables database developers, architects, and students to visually design schemas, inspect table
+relationships, reverse-engineer live databases, and forward-engineer visual models into production SQL DDL.
+
+KEY CAPABILITIES:
+1. Reverse Engineering:
+   - Connects to an existing MySQL database instance (e.g. `college_db`) and automatically generates
+     a complete visual EER diagram with all tables, keys, foreign keys, and indexes.
+2. Forward Engineering:
+   - Generates executable `CREATE TABLE`, `ALTER TABLE`, and constraint DDL scripts directly from
+     a visual diagram.
+3. Schema Synchronization:
+   - Compares a visual model against a live production database and generates differential migration scripts.
+
+
+2. WORKBENCH RELATIONSHIP TOOLS & NOTATION
+--------------------------------------------------------------------------------
+MySQL Workbench provides dedicated toolbar buttons for creating relationships:
+
+A. 1:1 Non-Identifying Relationship (Dashed Line with 1 on both ends):
+   - Foreign key in child table can be NULL or NOT NULL; child is not identified by parent PK.
+B. 1:n Non-Identifying Relationship (Dashed Line with Crow's Foot on child):
+   - Standard One-to-Many foreign key link (e.g. `departments` 1:n `students`).
+C. 1:n Identifying Relationship (Solid Line with Crow's Foot on child):
+   - The parent's Primary Key becomes part of the child's Composite Primary Key (e.g. `orders` 1:n `order_items`).
+D. n:m Many-to-Many Relationship Tool:
+   - Workbench automatically generates an intermediate junction table with composite foreign keys!
+
+
+3. STEP-BY-STEP REVERSE ENGINEERING WORKFLOW
+--------------------------------------------------------------------------------
+Step 1: Open MySQL Workbench and connect to your local MySQL server (localhost:3306).
+Step 2: Navigate to top menu: `Database` -> `Reverse Engineer...` (Ctrl + R).
+Step 3: Select your connection profile and click `Next`.
+Step 4: Select the target database schema (e.g. `college_db`) and click `Next`.
+Step 5: Select table objects to import and click `Execute`.
+Step 6: MySQL Workbench automatically generates an interactive EER Diagram canvas!
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore College EER Model Reverse Engineering
+-- Reverse engineered schema containing 4 connected tables:
+-- departments (1) ───< (n) students (1) ───< (n) tuition_receipts
+-- courses (1) ───< (n) student_courses (n) >─── (1) students
+
+CASE 2: Debangshu's Kolkata E-Commerce Forward Engineering Migration
+-- Visual design of customers, orders, order_items, and products exported to `schema.sql`.
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Confusing Identifying (Solid) vs Non-Identifying (Dashed) Lines:
+   - Using the Solid line tool mistakenly promotes parent foreign keys into the child's primary key!
+2. Overlapping Relationship Lines:
+   - Auto-generated layouts often overlap lines; use Workbench's `Arrange` -> `Autolayout` or manually drag tables.
+3. Engine Mismatch:
+   - Ensure the diagram's default storage engine is set to `InnoDB`; MyISAM does not enforce foreign keys.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use Reverse Engineering (`Ctrl + R`) to visually audit existing production databases.
+[x] Use Non-Identifying (Dashed) 1:n links for standard master-detail tables.
+[x] Use Identifying (Solid) 1:n links when the parent key is part of child's Composite PK.
+[x] Export EER diagrams as high-resolution PNG or PDF for architectural documentation.
+[x] Use Forward Engineering to review generated DDL before deploying to staging servers.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

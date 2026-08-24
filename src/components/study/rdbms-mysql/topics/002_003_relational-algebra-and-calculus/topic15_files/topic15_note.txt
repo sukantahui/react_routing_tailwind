@@ -1,0 +1,79 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 15: Relational Algebra Equivalence Rules for Heuristic Query Optimization
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE RELATIONAL ALGEBRA EQUIVALENCE RULES?
+--------------------------------------------------------------------------------
+Two relational algebra expressions $E_1$ and $E_2$ are EQUIVALENT ($E_1 \equiv E_2$) if and only if
+for EVERY valid database instance, $E_1$ and $E_2$ produce the EXACT SAME set of output tuples.
+Query optimizers apply these equivalence rules systematically to transform high-cost execution plans
+into low-cost, high-speed execution plans.
+
+THE 8 MASTER EQUIVALENCE RULES:
+1. CASCADE OF SELECTION (Splitting Conjunctive Predicates):
+   $$\sigma_{c_1 \land c_2 \land \dots \land c_n}(R) \equiv \sigma_{c_1}(\sigma_{c_2}(\dots (\sigma_{c_n}(R))\dots))$$
+2. COMMUTATIVITY OF SELECTION:
+   $$\sigma_{c_1}(\sigma_{c_2}(R)) \equiv \sigma_{c_2}(\sigma_{c_1}(R))$$
+3. CASCADE OF PROJECTION (Subsumption):
+   $$\pi_{L_1}(\pi_{L_2}(\dots(\pi_{L_n}(R))\dots)) \equiv \pi_{L_1}(R) \quad (\text{if } L_1 \subseteq L_2 \subseteq \dots \subseteq L_n)$$
+4. COMMUTATIVITY OF JOIN & CARTESIAN PRODUCT:
+   $$R \bowtie S \equiv S \bowtie R \quad \text{and} \quad R \times S \equiv S \times R$$
+5. ASSOCIATIVITY OF JOIN & CARTESIAN PRODUCT:
+   $$(R \bowtie S) \bowtie T \equiv R \bowtie (S \bowtie T)$$
+6. PUSHING SELECTIONS DOWN THROUGH JOINS (Selection Distribution):
+   - If predicate $c_1$ involves ONLY attributes of relation $R$:
+     $$\sigma_{c_1}(R \bowtie S) \equiv (\sigma_{c_1}(R)) \bowtie S$$
+   - If predicate $c$ is $c_1 \land c_2$ where $c_1 \subseteq \text{Attrs}(R)$ and $c_2 \subseteq \text{Attrs}(S)$:
+     $$\sigma_{c_1 \land c_2}(R \bowtie S) \equiv (\sigma_{c_1}(R)) \bowtie (\sigma_{c_2}(S))$$
+7. PUSHING PROJECTIONS DOWN THROUGH JOINS:
+   - If $L = L_1 \cup L_2$ and $J$ are the join key attributes:
+     $$\pi_L(R \bowtie_J S) \equiv \pi_L(\pi_{L_1 \cup J}(R) \bowtie_J \pi_{L_2 \cup J}(S))$$
+8. COMMUTATIVITY OF SELECTION WITH SET OPERATIONS:
+   $$\sigma_c(R \cup S) \equiv \sigma_c(R) \cup \sigma_c(S)$$
+   $$\sigma_c(R \cap S) \equiv \sigma_c(R) \cap \sigma_c(S)$$
+   $$\sigma_c(R - S) \equiv \sigma_c(R) - \sigma_c(S)$$
+
+
+2. THE HEURISTIC OPTIMIZATION ALGORITHM (THE 5 STEPS)
+--------------------------------------------------------------------------------
+STEP 1: Split all conjunctive Selection predicates into individual cascades ($\sigma_{c_1}(\dots)$).
+STEP 2: Push each Selection condition down the query tree as far as possible towards leaf tables.
+STEP 3: Reorder the leaf nodes so the relations with the most restrictive selections are evaluated first.
+STEP 4: Combine Cartesian products followed by selection into Equijoins ($\sigma_\theta(R \times S) \rightarrow R \bowtie_\theta S$).
+STEP 5: Push Projections down to eliminate unneeded non-join attributes immediately after table scans.
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Pushing Selection Down in Student Enrollment Query
+-- FLAWED UNOPTIMIZED PLAN:
+-- $\sigma_{\text{city='Barrackpore'} \land \text{grade='A+'}}(\text{Students} \bowtie \text{Enrollments})$
+-- OPTIMIZED PLAN (Pushing selections to respective base tables):
+-- $(\sigma_{\text{city='Barrackpore'}}(\text{Students})) \bowtie (\sigma_{\text{grade='A+'}}(\text{Enrollments}))$
+SELECT s.full_name, e.course_id
+FROM (SELECT * FROM students WHERE city = 'Barrackpore') s
+JOIN (SELECT * FROM enrollments WHERE grade = 'A+') e ON s.student_id = e.student_id;
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Dropping Join Keys during Projection Pushdown:
+   - Always retain the join key attributes ($J$) in intermediate child projections.
+2. Pushing Disjunctive (`OR`) Predicates Across Joins:
+   - $\sigma_{c_R \lor c_S}(R \bowtie S)$ CANNOT be pushed down directly because a tuple matching $c_R$ requires joining with all rows of $S$.
+
+
+5. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use Cascade of Selection to break compound `AND` filters into atomic units.
+[x] Push atomic selections down to the lowest possible base table scan nodes.
+[x] Combine Cartesian Products and Selection filters into Equijoins.
+[x] Push Projections down while preserving all required join keys.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

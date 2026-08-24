@@ -1,0 +1,78 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 11: Extended Relational Algebra: Generalized Projection (Arithmetic & Scalars)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS GENERALIZED PROJECTION (π_{F_1, F_2, ..., F_n})?
+--------------------------------------------------------------------------------
+In classical relational algebra, standard Projection ($\pi$) can only extract existing,
+unmodified attributes from a relation.
+Generalized Projection extends the classical operator by allowing arithmetic expressions,
+string functions, date calculations, and scalar transformations in the projection list.
+
+MATHEMATICAL NOTATION:
+$$\pi_{F_1, F_2, \dots, F_n}(R)$$
+where each $F_i$ is either:
+1. An existing attribute name: $A_i$
+2. An expression involving arithmetic operators, constants, and attributes:
+   - Arithmetic: $\text{salary} \times 1.10 \rightarrow \text{new\_salary}$
+   - Discount Calculation: $\text{fee} - \text{discount} \rightarrow \text{net\_payable}$
+   - String Concatenation: $\text{CONCAT}(\text{first\_name}, \text{' '}, \text{last\_name}) \rightarrow \text{full\_name}$
+   - Date Calculation: $\text{DATEDIFF}(\text{CURRENT\_DATE}, \text{dob}) / 365.25 \rightarrow \text{age}$
+
+
+2. WHY EXTENDED RELATIONAL ALGEBRA IS NECESSARY
+--------------------------------------------------------------------------------
+1. REAL-WORLD BUSINESS COMPUTATIONS:
+   - Databases must calculate taxes (GST ₹), net salaries, invoice totals, and discounted fees.
+2. BRIDGING THEORY AND SQL:
+   - SQL `SELECT price * quantity AS total_amount, UPPER(city) AS city_upper FROM ...` is the direct
+     realization of Generalized Projection.
+3. PRESERVING RELATIONAL CLOSURE:
+   - The result of Generalized Projection is still a valid relation (a set of tuples with a defined header).
+
+
+3. SQL EQUIVALENCE: COMPUTED COLUMNS & EXPRESSIONS IN `SELECT`
+--------------------------------------------------------------------------------
+• Classical Projection: `SELECT full_name, admission_fee FROM students;`
+• Generalized Projection: `SELECT full_name, admission_fee * 1.18 AS fee_with_gst, admission_fee - 500 AS discounted_fee FROM students;`
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Fee with 18% GST and Early Bird Discount
+-- Relational Algebra:
+-- $\pi_{\text{student\_id, full\_name, fee, fee} \times 0.18 \rightarrow \text{gst, fee} \times 1.18 \rightarrow \text{total\_fee}}(\text{Students})$
+SELECT student_id, full_name, admission_fee,
+       ROUND(admission_fee * 0.18, 2) AS gst_amount,
+       ROUND(admission_fee * 1.18, 2) AS total_fee_with_gst
+FROM students;
+
+CASE 2: Debangshu's Student Age Calculation
+-- Relational Algebra:
+-- $\pi_{\text{full\_name, TIMESTAMPDIFF(YEAR, dob, CURRENT\_DATE)} \rightarrow \text{age}}(\text{Students})$
+SELECT full_name, dob, TIMESTAMPDIFF(YEAR, dob, CURDATE()) AS age_in_years
+FROM students;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Division by Zero in Expressions:
+   - Expressions like `total_marks / subjects_count` yield `NULL` in MySQL if count is 0. Use `NULLIF()`.
+2. Unaliased Expressions in Subqueries:
+   - Always assign explicit aliases (`AS alias_name`) so derived columns have clean identifier names.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use Generalized Projection $\pi_{F_1, \dots, F_n}(R)$ for arithmetic, discounts, taxes, and scalars.
+[x] Assign explicit aliases (`AS new_name`) for all computed expressions in SQL.
+[x] Guard against division by zero using `NULLIF(denominator, 0)`.
+[x] Use deterministic scalar functions (`ROUND`, `CONCAT`, `UPPER`) to ensure consistent data types.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

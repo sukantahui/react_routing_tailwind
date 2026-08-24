@@ -1,0 +1,103 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 9: Filtering Records using the WHERE Clause
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THE WHERE CLAUSE?
+--------------------------------------------------------------------------------
+The `WHERE` clause is the fundamental filtering predicate in SQL DML/DQL statements
+(`SELECT`, `UPDATE`, `DELETE`). It evaluates a Boolean condition (TRUE, FALSE, or UNKNOWN)
+for every candidate row:
+• Rows that evaluate to `TRUE` are included in the result set or affected by the write command.
+• Rows that evaluate to `FALSE` or `UNKNOWN` (NULL evaluation) are strictly discarded.
+
+A. BASIC SYNTAX:
+   SELECT column_1, column_2
+   FROM table_name
+   WHERE filter_condition;
+
+B. INNODB EXECUTION & INDEX LOOKUPS (SARGABILITY):
+• If the filtered column is indexed, MySQL uses a B-Tree index range scan (O(log N) fast lookup).
+• If unindexed, MySQL performs a full table scan, reading every page from disk.
+• A search condition is *Sargable* (Search Argument Able) if it allows MySQL to utilize B-Tree indexes directly.
+  Wrapping indexed columns in functions (e.g. `WHERE YEAR(admission_date) = 2026`) breaks sargability!
+
+
+2. OPERATORS SUPPORTED IN THE WHERE CLAUSE
+--------------------------------------------------------------------------------
+A. COMPARISON OPERATORS:
+   `=` (Equal), `!=` or `<>` (Not equal), `<` (Less than), `>` (Greater than), `<=` (Less or equal), `>=` (Greater or equal).
+
+B. LOGICAL OPERATORS:
+   `AND` (Both conditions TRUE), `OR` (Either condition TRUE), `NOT` (Negates condition).
+
+C. RANGE & MEMBERSHIP OPERATORS:
+   • `BETWEEN val1 AND val2`: Inclusive range check.
+   • `IN (val1, val2, ...)`: Matches any value in a discrete set.
+   • `NOT IN (...)`: Excludes matching values.
+
+D. PATTERN MATCHING & NULL HANDLING:
+   • `LIKE 'pattern%'`: Wildcard matching (`%` = 0 or more chars, `_` = exactly 1 char).
+   • `IS NULL` / `IS NOT NULL`: Three-valued logic safe NULL verification.
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Filtering High-Fee Active Students in Barrackpore College
+SELECT
+    roll_no,
+    CONCAT(first_name, ' ', last_name) AS student_name,
+    admission_fee AS "Fee (₹)",
+    city
+FROM students
+WHERE is_active = 1
+  AND admission_fee >= 18000.00
+  AND city = 'Barrackpore';
+
+CASE 2: Debangshu Finding Pending High-Value E-Commerce Orders in Kolkata
+SELECT
+    order_number,
+    customer_id,
+    total_amount AS "Order Amount (₹)",
+    order_status
+FROM customer_orders
+WHERE order_status = 'pending'
+  AND total_amount >= 50000.00;
+
+
+4. CRITICAL SARGABILITY RULES (KEEPING QUERIES FAST)
+--------------------------------------------------------------------------------
+• ❌ NON-SARGABLE (Full Table Scan):
+  `WHERE UPPER(email) = 'MAMATA@GMAIL.COM'`
+  `WHERE YEAR(created_at) = 2026`
+
+• ✅ SARGABLE (Fast B-Tree Index Range Scan):
+  `WHERE email = 'mamata@gmail.com'` (Leverages collation insensitivity)
+  `WHERE created_at >= '2026-01-01 00:00:00' AND created_at < '2027-01-01 00:00:00'`
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Using `=` or `!=` to Check for NULL:
+   - `WHERE phone_no = NULL` or `WHERE phone_no != NULL` always returns empty set! (Must use `IS NULL` / `IS NOT NULL`).
+2. Accidental Unfiltered UPDATE or DELETE:
+   - Omitting the `WHERE` clause in `UPDATE` or `DELETE` modifies/deletes ALL records in the entire table!
+3. AND / OR Precedence Confusion:
+   - `AND` has higher operator precedence than `OR`. Always use parentheses `()` to enforce intended boolean logic:
+     `WHERE city = 'Barrackpore' AND (fee >= 15000 OR is_enrolled = 1);`
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Always index columns frequently used in `WHERE` filtering conditions.
+[x] Write sargable expressions; avoid wrapping indexed columns in functions.
+[x] Always use parentheses `( ... )` when combining `AND` and `OR` conditions.
+[x] Enable MySQL Safe Updates (`sql_safe_updates = 1`) to prevent accidental unfiltered `UPDATE`/`DELETE`.
+[x] Use `EXPLAIN SELECT ...` to verify whether your `WHERE` condition utilizes an index.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

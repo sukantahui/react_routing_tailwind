@@ -1,0 +1,75 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 2: Projection Operator (π) & Duplicate Elimination Mechanics
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. THE PROJECTION OPERATOR (π) DEFINITION & SEMANTICS
+--------------------------------------------------------------------------------
+The Projection operator (denoted by the lowercase Greek letter Pi, $\pi$) is a UNARY
+relational algebra operator that performs VERTICAL SLICING on a relation.
+It selects a specified subset of attributes $A_1, A_2, \dots, A_k$ and removes all other columns.
+
+MATHEMATICAL NOTATION:
+$$\pi_{A_1, A_2, \dots, A_k}(R) = \{ t[A_1, A_2, \dots, A_k] \mid t \in R \}$$
+
+KEY MATHEMATICAL PROPERTIES:
+1. UNARY OPERATOR: Takes ONE relation as input and returns ONE relation as output.
+2. DEGREE REDUCTION: $\text{Degree}(\pi_{A_1, \dots, A_k}(R)) = k \le \text{Degree}(R)$ (the output relation has exactly $k$ attributes).
+3. AUTOMATIC DUPLICATE ELIMINATION: In pure Relational Algebra, relations are mathematical sets.
+   Projecting out candidate key columns collapses identical rows into unique tuples ($|\pi_L(R)| \le |R|$).
+4. IDEMPOTENT (Subset Projection): $\pi_{L_1}(\pi_{L_2}(R)) \equiv \pi_{L_1}(R)$ where $L_1 \subseteq L_2$.
+5. NON-COMMUTATIVE with different lists (only nested projections with sub-lists apply).
+
+
+2. RELATIONAL ALGEBRA SETS VS SQL MULTISETS (BAGS)
+--------------------------------------------------------------------------------
+• Pure Relational Algebra: $\pi_{\text{city}}(\text{Students})$ ALWAYS returns unique cities (Automatic deduplication).
+• Standard SQL: `SELECT city FROM students` preserves DUPLICATES (Bag semantics).
+  To enforce pure relational algebra projection in SQL, you MUST use `SELECT DISTINCT`:
+  `SELECT DISTINCT city FROM students;`
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Academy City Directory
+-- Relational Algebra: $\pi_{\text{city}}(\text{Students})$
+-- SQL Implementation:
+SELECT DISTINCT city FROM students;
+
+CASE 2: Debangshu's Kolkata Course Title Catalog
+-- Relational Algebra: $\pi_{\text{course\_title, fee}}(\text{Courses})$
+-- SQL Implementation:
+SELECT DISTINCT course_title, fee FROM courses;
+
+
+4. PROJECTION PUSH-DOWN OPTIMIZATION
+--------------------------------------------------------------------------------
+In query optimization, the "Push Projections Down" heuristic eliminates unused attributes
+early in the query tree to minimize the byte width of intermediate tuples in memory:
+$$\pi_L(R \bowtie S) \equiv \pi_L(\pi_{L_R}(R) \bowtie \pi_{L_S}(S))$$
+where $L_R$ and $L_S$ retain only the attributes in $L$ plus the join key columns!
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Forgetting SQL `DISTINCT`:
+   - `SELECT column` preserves duplicates; pure relational projection requires `DISTINCT`.
+2. Omitting Join Keys during Early Projection:
+   - Pushing projection down too aggressively and eliminating the join foreign key attribute breaks subsequent joins!
+3. Projecting Empty List:
+   - Projecting $\pi_\emptyset(R)$ produces a nullary relation with degree 0.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use $\pi_L(R)$ for vertical attribute extraction.
+[x] Remember that pure relational projection automatically removes duplicate tuples.
+[x] Use `SELECT DISTINCT` in SQL when implementing pure relational algebra projections.
+[x] Push projections down in query execution trees to reduce tuple byte-width in RAM.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

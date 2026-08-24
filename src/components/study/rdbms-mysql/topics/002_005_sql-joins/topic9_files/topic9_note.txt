@@ -1,0 +1,88 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_005 - Mastering SQL Joins & Multi-Table Queries
+TOPIC 9: USING Clause vs ON Clause for Identical Column Names
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THE "USING" CLAUSE?
+--------------------------------------------------------------------------------
+The `USING` clause is an ANSI SQL-92 shorthand syntax used in join operations when 
+the join columns in BOTH tables share the exact same column name and data type.
+
+Syntax Comparison:
+```sql
+-- Standard ON Syntax:
+SELECT * FROM students s INNER JOIN enrollments e ON s.student_id = e.student_id;
+
+-- Shorthand USING Syntax:
+SELECT * FROM students INNER JOIN enrollments USING (student_id);
+```
+
+
+2. KEY DIFFERENCES: "USING" VS "ON"
+--------------------------------------------------------------------------------
++-------------------------------+-----------------------------------+-----------------------------------+
+| Feature                       | ON Clause                         | USING Clause                      |
++-------------------------------+-----------------------------------+-----------------------------------+
+| Column Names                  | Can have different names          | MUST have the exact same name     |
+|                               | (e.g. `s.id = e.student_id`)      | in both tables                    |
++-------------------------------+-----------------------------------+-----------------------------------+
+| Multi-Column Composite Keys   | Supported via `AND`               | Supported as comma-separated list |
+|                               | (`ON a.id=b.id AND a.yr=b.yr`)    | (`USING (batch_id, semester)`)    |
++-------------------------------+-----------------------------------+-----------------------------------+
+| Comparison Operators          | Any operator (`=, <, >, BETWEEN`) | ONLY strict equality (`=`)        |
++-------------------------------+-----------------------------------+-----------------------------------+
+| Output Duplication in SELECT* | Keeps BOTH columns in output      | COALESCES join column into ONE    |
+|                               | (`s.student_id` & `e.student_id`) | single unified column             |
++-------------------------------+-----------------------------------+-----------------------------------+
+| Column Qualification Needed?  | YES (Must write `s.student_id`)   | NO (Write `student_id` directly)  |
++-------------------------------+-----------------------------------+-----------------------------------+
+
+
+3. THE DEDUPLICATION BENEFIT OF `USING` IN `SELECT *`
+--------------------------------------------------------------------------------
+When executing `SELECT *`:
+• With `ON s.student_id = e.student_id`:
+  The result set contains TWO columns: `student_id` and `student_id` (causes ambiguity in front-end libraries).
+• With `USING (student_id)`:
+  MySQL automatically coalesces the two join columns into ONE single unified `student_id` column at the front!
+
+
+4. MULTI-COLUMN COMPOSITE KEYS WITH `USING`
+--------------------------------------------------------------------------------
+If two tables share composite keys:
+```sql
+-- Multi-column join with USING:
+SELECT *
+FROM student_grades
+INNER JOIN batch_schedules USING (batch_id, semester_id);
+```
+This is 100% equivalent to:
+`ON student_grades.batch_id = batch_schedules.batch_id AND student_grades.semester_id = batch_schedules.semester_id`.
+
+
+5. WHEN TO USE "ON" VS "USING"
+--------------------------------------------------------------------------------
+1. Use `USING` when:
+   • Both tables share identical column names (e.g. `customer_id`, `product_id`).
+   • You want clean, concise syntax without redundant table aliases.
+   • You want single-column coalescing in `SELECT *` queries.
+2. Use `ON` when:
+   • Column names differ (e.g. `departments.id = employees.dept_id`).
+   • Non-equi conditions are needed (`BETWEEN`, `>`, `<`).
+   • Complex expressions or transformations are evaluated (`ON UPPER(a.code) = b.code`).
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] `USING (col)` is shorthand for `ON a.col = b.col` when column names match.
+[x] Column names inside `USING (col1, col2)` must be enclosed in parentheses.
+[x] `USING` automatically coalesces duplicate join columns into a single unified column in `SELECT *`.
+[x] You do NOT need to qualify the join column with a table alias when using `USING`.
+[x] Use `ON` whenever column names differ or non-equi comparisons are required.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

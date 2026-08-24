@@ -1,0 +1,93 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_001 - Table Relationships & Referential Actions
+TOPIC 0: Understanding Relationship Cardinality & Modality (Optionality)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS RELATIONSHIP CARDINALITY & MODALITY?
+--------------------------------------------------------------------------------
+In relational database design, associations between entities are defined by two fundamental
+structural dimensions:
+
+A. CARDINALITY (Maximum Multiplicity):
+   • The MAXIMUM number of instances of Entity B that can be associated with a single instance of Entity A.
+   • Types:
+     1. One-to-One (1:1): e.g. A student has at most 1 student passport.
+     2. One-to-Many (1:N): e.g. A department has many students; a student belongs to 1 department.
+     3. Many-to-Many (M:N): e.g. A student enrolls in many courses; a course contains many students.
+
+B. MODALITY / OPTIONALITY (Minimum Multiplicity):
+   • The MINIMUM number of instances of Entity B that MUST be associated with an instance of Entity A.
+   • Types:
+     1. Mandatory (Modality = 1, Total Participation): Every student MUST belong to a department.
+        (Enforced via `NOT NULL` on foreign key).
+     2. Optional (Modality = 0, Partial Participation): A student MAY or MAY NOT have a locker assigned.
+        (Enforced by allowing `NULL` on foreign key).
+
+
+2. NOTATIONAL COMPARISON (CROW'S FOOT VS CHEN)
+--------------------------------------------------------------------------------
+SYMBOL              CROW'S FOOT NOTATION         PETER CHEN NOTATION
+--------------------------------------------------------------------------------
+Exactly One (1..1)  Two vertical bars (||)       (1, 1) constraint pair
+Zero or One (0..1)  Circle and bar (O|)          (0, 1) constraint pair
+Zero or Many (0..N) Circle and Crow's foot (O<)  (0, N) constraint pair
+One or Many (1..N)  Bar and Crow's foot (|<)     (1, N) constraint pair
+--------------------------------------------------------------------------------
+
+
+3. TRANSLATING CARDINALITY & MODALITY INTO RELATIONAL DDL
+--------------------------------------------------------------------------------
+1. Optional One-to-Many (0..N):
+   CREATE TABLE students (
+       student_id INT AUTO_INCREMENT PRIMARY KEY,
+       name VARCHAR(50) NOT NULL,
+       dept_id INT NULL, -- NULL allows optional participation (Modality = 0)
+       CONSTRAINT fk_students_dept FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+   );
+
+2. Mandatory One-to-Many (1..N):
+   CREATE TABLE students (
+       student_id INT AUTO_INCREMENT PRIMARY KEY,
+       name VARCHAR(50) NOT NULL,
+       dept_id INT NOT NULL, -- NOT NULL enforces mandatory participation (Modality = 1)
+       CONSTRAINT fk_students_dept FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+   );
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore College Department-Student Association
+• Department to Student: 1..N (One department has 1 or more students).
+• Student to Department: 1..1 (Every student MUST belong to exactly 1 department).
+• Result: Foreign key `dept_id INT NOT NULL` placed in `students` table.
+
+CASE 2: Debangshu's Kolkata E-Commerce Customer-Locker Allocation
+• Customer to Locker: 0..1 (A customer may optionally rent at most 1 locker).
+• Locker to Customer: 0..1 (A locker may be vacant or rented to 1 customer).
+• Result: Unique nullable foreign key `customer_id INT NULL UNIQUE` placed in `lockers` table.
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Confusing Cardinality with Modality:
+   - Cardinality answers "How many at most?"; Modality answers "Is it mandatory or optional?".
+2. Placing Foreign Keys on the Wrong Side of 1:N:
+   - Placing `student_id` in `departments` violates 1NF because a department has multiple students. Always place the Foreign Key on the "Many" side!
+3. Forgetting `UNIQUE` on 1:1 Foreign Keys:
+   - Without `UNIQUE`, a 1:1 relationship silently degrades into a 1:N relationship.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Place the Foreign Key on the "MANY" side in 1:N relationships.
+[x] Add `NOT NULL` to foreign keys to enforce Mandatory modality (1..N).
+[x] Allow `NULL` on foreign keys to model Optional modality (0..N).
+[x] Add `UNIQUE` constraint to foreign key columns for One-to-One (1:1) modeling.
+[x] Verify min/max business constraints before writing relational DDL.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

@@ -1,0 +1,95 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 2: Understanding Functional Dependencies (X → Y)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A FUNCTIONAL DEPENDENCY (FD)?
+--------------------------------------------------------------------------------
+A Functional Dependency (denoted as X → Y, read as "X functionally determines Y" 
+or "Y is functionally dependent on X") is a formal mathematical constraint 
+between two sets of attributes X (the Determinant) and Y (the Dependent) in a 
+relational schema R.
+
+Formal Mathematical Definition:
+Let R be a relation schema, and let X ⊆ R and Y ⊆ R be subsets of attributes of R.
+A functional dependency X → Y holds on relation state r(R) if and only if for any 
+pair of tuples t1 and t2 in r(R):
+
+      If t1[X] = t2[X], then t1[Y] = t2[Y]
+
+Plain English Meaning:
+Whenever two rows have the exact same value in attribute set X, they MUST have the 
+exact same value in attribute set Y. 
+In other words, the value of X uniquely and unambiguously determines the value of Y.
+
+
+2. TERMINOLOGY & CORE NOTATION
+--------------------------------------------------------------------------------
+• Determinant (X): The left-hand side attribute(s) that determines the values of Y.
+• Dependent (Y): The right-hand side attribute(s) whose values are determined by X.
+• Single-Attribute Determinant: e.g. student_id → student_name
+• Composite Determinant: e.g. (student_id, course_id) → grade
+• Multi-Attribute Dependent: e.g. student_id → {student_name, email, city}
+• Semantic Integrity Constraint: Functional dependencies are business domain rules 
+  derived from real-world semantics, NOT accidental snapshot patterns in sample data.
+
+
+3. THE BENCHMARK RELATION EXAMPLE (ACADEMY SCHEMA)
+--------------------------------------------------------------------------------
+Consider relation `Students_Courses_Roster`:
+Schema: (student_id, student_name, student_email, course_id, course_title, instructor, course_fee, grade)
+
+Valid Functional Dependencies in this schema:
+1. `student_id → student_name, student_email`
+   (Each student ID belongs to exactly one student name and email).
+2. `student_email → student_id`
+   (Assuming emails are unique across students).
+3. `course_id → course_title, instructor, course_fee`
+   (Each course ID determines its title, instructor, and tuition fee).
+4. `(student_id, course_id) → grade`
+   (A specific student in a specific course earns exactly one final grade).
+
+Invalid (Violated) Dependencies:
+• `student_name → student_id` ❌ (Multiple students in Barrackpore can share the same name 'Debangshu Roy').
+• `course_title → student_id` ❌ (A course title has hundreds of enrolled students).
+• `city → student_id` ❌ (A city contains thousands of students).
+
+
+4. HOW FUNCTIONAL DEPENDENCIES GOVERN KEYS & NORMALIZATION
+--------------------------------------------------------------------------------
+1. Super Key: If X → R (meaning attribute set X functionally determines ALL attributes in relation R), 
+   then X is a Super Key of R.
+2. Candidate Key: If X is a minimal super key (meaning no proper subset of X determines R), 
+   then X is a Candidate Key of R.
+3. Normalization Basis:
+   - 1NF: Eliminates repeating groups (atomic values).
+   - 2NF: Eliminates Partial Dependencies (non-key attributes dependent on a subset of a composite candidate key).
+   - 3NF: Eliminates Transitive Dependencies (non-key attributes dependent on other non-key attributes).
+   - BCNF: Ensures every determinant X is a super key.
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Confusing Accidental Data Uniqueness with Semantic Functional Dependencies:
+   Just because column A happens to have distinct values in 5 sample rows does NOT make A → B a true FD.
+2. Treating X → Y as Symmetrical:
+   X → Y does NOT imply Y → X. (e.g. `student_id → city` does NOT mean `city → student_id`).
+3. Forgetting Composite Determinants:
+   Exam scores require both `student_id` AND `exam_id` to determine `marks_obtained`.
+
+
+6. SUMMARY CHECKLIST FOR FUNCTIONAL DEPENDENCIES
+--------------------------------------------------------------------------------
+[x] Functional Dependency X → Y means t1[X] = t2[X] implies t1[Y] = t2[Y].
+[x] X is called the Determinant; Y is called the Dependent.
+[x] FDs represent business rules and semantic invariants, not temporary table snapshots.
+[x] If X determines all attributes in R (X → R), X is a Super Key.
+[x] Minimal super keys are Candidate Keys.
+[x] FDs provide the rigorous mathematical foundation for 2NF, 3NF, and BCNF normalization.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

@@ -1,0 +1,102 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_001 - Table Relationships & Referential Actions
+TOPIC 1: One-to-One (1:1) Relationship: Schema Design & Use Cases
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A ONE-TO-ONE (1:1) RELATIONSHIP?
+--------------------------------------------------------------------------------
+A One-to-One (1:1) relationship occurs when an entity instance in Table A is associated with
+at most ONE instance in Table B, and vice-versa.
+
+WHY SPLIT DATA INTO TWO 1:1 TABLES INSTEAD OF ONE LARGE TABLE?
+1. Vertical Partitioning for Performance:
+   - Storing frequently queried lightweight columns (e.g. `student_id`, `name`) separately from
+     rarely accessed heavy columns (e.g. `bio`, `profile_photo_blob`, `resume_pdf`).
+2. Security & Access Control:
+   - Isolating sensitive data (e.g. `salary`, `aadhaar_card_number`, `password_hash`) in a restricted table
+     with separate MySQL user permissions.
+3. Managing Sparsely Populated Optional Attributes:
+   - If only 2% of students hold hostel lockers, keeping `hostel_lockers` in a separate 1:1 table
+     avoids 98% NULL columns in the main `students` table.
+
+
+2. RELATIONAL IMPLEMENTATION STRATEGIES FOR 1:1
+--------------------------------------------------------------------------------
+A. STRATEGY 1: FOREIGN KEY WITH UNIQUE CONSTRAINT (MOST COMMON)
+   Place a Foreign Key in Table B pointing to Table A's Primary Key, and enforce a `UNIQUE`
+   constraint on that Foreign Key column.
+
+   CREATE TABLE students (
+       student_id INT AUTO_INCREMENT PRIMARY KEY,
+       first_name VARCHAR(50) NOT NULL,
+       city VARCHAR(50) NOT NULL DEFAULT 'Barrackpore'
+   ) ENGINE=InnoDB;
+
+   CREATE TABLE student_passports (
+       passport_id INT AUTO_INCREMENT PRIMARY KEY,
+       passport_no VARCHAR(20) NOT NULL UNIQUE,
+       student_id INT NOT NULL UNIQUE, -- UNIQUE makes this 1:1!
+       CONSTRAINT fk_passports_student FOREIGN KEY (student_id)
+           REFERENCES students(student_id) ON DELETE CASCADE
+   ) ENGINE=InnoDB;
+
+B. STRATEGY 2: SHARED PRIMARY KEY (IDENTIFYING 1:1)
+   Table B does NOT have an independent auto-increment ID. Instead, Table B's Primary Key
+   IS ALSO its Foreign Key pointing to Table A.
+
+   CREATE TABLE student_profiles (
+       student_id INT PRIMARY KEY, -- PK and FK in the same column!
+       biography TEXT,
+       linkedin_url VARCHAR(255),
+       CONSTRAINT fk_profile_student FOREIGN KEY (student_id)
+           REFERENCES students(student_id) ON DELETE CASCADE
+   ) ENGINE=InnoDB;
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Confidential Identity Isolation
+CREATE TABLE student_kyc (
+    student_id INT PRIMARY KEY,
+    aadhaar_hash CHAR(64) NOT NULL UNIQUE,
+    pan_number VARCHAR(10) NULL UNIQUE,
+    verified_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_kyc_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Merchant Tax Profiles
+CREATE TABLE merchant_tax_info (
+    merchant_id INT PRIMARY KEY,
+    gstin VARCHAR(15) NOT NULL UNIQUE,
+    bank_account_no VARCHAR(20) NOT NULL,
+    ifsc_code VARCHAR(11) NOT NULL,
+    CONSTRAINT fk_tax_merchant FOREIGN KEY (merchant_id)
+        REFERENCES merchants(merchant_id) ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Forgetting `UNIQUE` on the Foreign Key:
+   - Without `UNIQUE`, multiple passport rows could reference the same student (degrading to 1:N).
+2. Choosing the Wrong Side for Foreign Key Placement:
+   - In Optional-to-Mandatory 1:1, always place the Foreign Key in the OPTIONAL table to prevent NULLs in the mandatory table.
+3. Unnecessary Table Fragmentation:
+   - Splitting standard 5-column entities into two 1:1 tables adds unnecessary JOIN overhead without performance gains.
+
+
+5. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use 1:1 relationships for vertical partitioning, security isolation, or sparse optional attributes.
+[x] Enforce 1:1 using `UNIQUE` on the foreign key or Shared Primary Keys.
+[x] In Shared Primary Key design, the primary key column is also the foreign key.
+[x] Place the Foreign Key in the optional table to prevent NULL-filled columns.
+[x] Use `ON DELETE CASCADE` when the child record cannot logically exist without the parent.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

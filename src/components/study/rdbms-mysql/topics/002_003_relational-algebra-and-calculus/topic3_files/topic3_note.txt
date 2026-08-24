@@ -1,0 +1,85 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 3: Rename Operator (ρ) for Relations and Attributes
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. THE RENAME OPERATOR (ρ) DEFINITION & SYNTAX
+--------------------------------------------------------------------------------
+The Rename operator (denoted by the lowercase Greek letter Rho, $\rho$) is a UNARY
+relational algebra operator that renames an intermediate relation, its individual attributes,
+or both simultaneously. It does not alter tuples or schema data types; it only renames identifiers.
+
+THREE FORMS OF MATHEMATICAL NOTATION:
+1. RENAME RELATION ONLY:
+   $$\rho_S(R)$$
+   Renames relation $R$ to new name $S$. Attribute names remain unchanged.
+
+2. RENAME RELATION AND ALL ATTRIBUTES:
+   $$\rho_{S(B_1, B_2, \dots, B_n)}(R)$$
+   Renames relation $R$ to $S$, and simultaneously renames its $n$ attributes to $B_1, B_2, \dots, B_n$.
+
+3. RENAME INDIVIDUAL ATTRIBUTES (Positional or Explicit):
+   $$\rho_{A/B}(R) \quad \text{or} \quad \rho_{(B_1, \dots, B_n)}(R)$$
+   Renames attribute $B$ to $A$ in relation $R$.
+
+
+2. WHY IS RENAMING CRITICAL IN RELATIONAL ALGEBRA?
+--------------------------------------------------------------------------------
+1. SELF-JOINS & RECURSIVE RELATIONSHIPS:
+   - When joining a relation with itself (e.g. Employee with Manager), column name collisions occur.
+   - Example: $\text{Employees} \bowtie_{\text{manager\_id} = \text{emp\_id}} \rho_{\text{Managers}}(\text{Employees})$
+2. DISAMBIGUATION IN CARTESIAN PRODUCTS:
+   - When computing $R \times R$, renaming creates distinct column qualifiers: $\rho_{E_1}(E) \times \rho_{E_2}(E)$.
+3. UNION COMPATIBILITY ENFORCEMENT:
+   - Aligns attribute names for Set Union ($\cup$), Intersection ($\cap$), and Difference ($-$).
+4. NAMING INTERMEDIATE RESULTS:
+   - Assigns meaningful names to temporary relational algebra query sub-expressions.
+
+
+3. SQL EQUIVALENCE: TABLE & COLUMN ALIASES (`AS`)
+--------------------------------------------------------------------------------
+• In SQL, the Rename operator is implemented via the `AS` keyword:
+  `SELECT e.full_name AS employee_name, m.full_name AS manager_name`
+  `FROM employees AS e JOIN employees AS m ON e.manager_id = m.emp_id;`
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Academy Employee & Mentor Self-Join
+-- Relational Algebra:
+-- $\pi_{\text{emp.name, mentor.name}}(\text{Students} \bowtie_{\text{mentor\_id} = \text{mentor.id}} \rho_{\text{Mentor(mentor.id, mentor.name)}}(\text{Students}))$
+-- SQL Equivalent:
+SELECT s.full_name AS student_name, m.full_name AS mentor_name
+FROM students s
+JOIN students m ON s.mentor_id = m.student_id;
+
+CASE 2: Debangshu's Kolkata Peer Student Pairs
+-- Relational Algebra:
+-- $\pi_{S_1.\text{name}, S_2.\text{name}}(\sigma_{S_1.\text{city} = S_2.\text{city} \land S_1.\text{id} < S_2.\text{id}}(\rho_{S_1}(\text{Students}) \times \rho_{S_2}(\text{Students})))$
+-- SQL Equivalent:
+SELECT s1.full_name AS student_1, s2.full_name AS student_2, s1.city
+FROM students s1
+JOIN students s2 ON s1.city = s2.city AND s1.student_id < s2.student_id;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Mismatched Attribute Arity:
+   - If relation $R$ has 4 columns and you write $\rho_{S(A, B, C)}(R)$ with only 3 names, the expression is mathematically invalid!
+2. Duplicate Column Names after Cross Product:
+   - Performing $R \times R$ without renaming causes ambiguous column references in SQL and relational algebra.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use $\rho_S(R)$ to rename relations and disambiguate self-joins.
+[x] Use $\rho_{S(B_1, \dots, B_n)}(R)$ to rename all attributes in positional order.
+[x] Always use table aliases (`AS`) in SQL when joining a table to itself.
+[x] Use meaningful alias prefixes (e.g. `s1`, `s2` or `emp`, `mgr`) for schema clarity.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

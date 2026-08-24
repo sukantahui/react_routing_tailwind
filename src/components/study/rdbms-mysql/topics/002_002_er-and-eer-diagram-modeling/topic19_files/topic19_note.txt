@@ -1,0 +1,114 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 19: Real-World Case Study: Hospital & Pharmacy Management System
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. SYSTEM OVERVIEW & BUSINESS REQUIREMENTS
+--------------------------------------------------------------------------------
+The Multi-Specialty Hospital & In-House Pharmacy Management System (serving medical
+facilities across Kolkata and Barrackpore) requires a robust, 3NF-normalized enterprise schema.
+
+CORE SYSTEM ENTITIES:
+1. `Hospital_Branches`: `(branch_id [PK], branch_name, location_city)`
+2. `Doctors`: `(doctor_id [PK], branch_id [FK], full_name, specialization, license_no [UNIQUE])`
+3. `Patients`: `(patient_id [PK], aadhaar_no [UNIQUE], full_name, dob, blood_group, phone)`
+4. `Inpatient_Admissions`: `(admission_id [PK], patient_id [FK], bed_number, admitted_at, discharged_at)`
+5. `Appointments`: `(appointment_id [PK], doctor_id [FK], patient_id [FK], scheduled_at, consultation_fee, status)`
+6. `Pharmacy_Medicines`: `(medicine_id [PK], brand_name, generic_name, unit_price, stock_quantity)`
+7. `Prescriptions`: `(prescription_id [PK], appointment_id [FK], issued_at, notes)`
+8. `Prescription_Items`: `(prescription_id [PK, FK], medicine_id [PK, FK], dosage, duration_days, quantity_dispensed)`
+
+
+2. COMPLETE RELATIONAL SCHEMA IMPLEMENTATION (MYSQL INNODB)
+--------------------------------------------------------------------------------
+CREATE TABLE hospital_branches (
+    branch_id INT AUTO_INCREMENT PRIMARY KEY,
+    branch_name VARCHAR(100) NOT NULL,
+    city VARCHAR(50) NOT NULL DEFAULT 'Kolkata'
+) ENGINE=InnoDB;
+
+CREATE TABLE doctors (
+    doctor_id INT AUTO_INCREMENT PRIMARY KEY,
+    branch_id INT NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    specialization VARCHAR(50) NOT NULL,
+    license_no VARCHAR(30) NOT NULL UNIQUE,
+    CONSTRAINT fk_doc_branch FOREIGN KEY (branch_id)
+        REFERENCES hospital_branches(branch_id) ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+CREATE TABLE patients (
+    patient_id INT AUTO_INCREMENT PRIMARY KEY,
+    aadhaar_no CHAR(12) NOT NULL UNIQUE,
+    full_name VARCHAR(100) NOT NULL,
+    dob DATE NOT NULL,
+    blood_group ENUM('A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-') NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    CONSTRAINT chk_aadhaar CHECK (aadhaar_no REGEXP '^[0-9]{12}$')
+) ENGINE=InnoDB;
+
+CREATE TABLE appointments (
+    appointment_id INT AUTO_INCREMENT PRIMARY KEY,
+    doctor_id INT NOT NULL,
+    patient_id INT NOT NULL,
+    scheduled_at DATETIME NOT NULL,
+    consultation_fee DECIMAL(10, 2) NOT NULL DEFAULT 800.00,
+    status ENUM('Scheduled', 'Completed', 'Cancelled') NOT NULL DEFAULT 'Scheduled',
+    CONSTRAINT fk_appt_doc FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id),
+    CONSTRAINT fk_appt_pat FOREIGN KEY (patient_id) REFERENCES patients(patient_id)
+) ENGINE=InnoDB;
+
+CREATE TABLE prescriptions (
+    prescription_id INT AUTO_INCREMENT PRIMARY KEY,
+    appointment_id INT NOT NULL UNIQUE, -- 1:1 Link to completed appointment
+    issued_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    clinical_notes TEXT NULL,
+    CONSTRAINT fk_presc_appt FOREIGN KEY (appointment_id)
+        REFERENCES appointments(appointment_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE pharmacy_medicines (
+    medicine_id INT AUTO_INCREMENT PRIMARY KEY,
+    brand_name VARCHAR(100) NOT NULL,
+    generic_name VARCHAR(100) NOT NULL,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    stock_quantity INT NOT NULL DEFAULT 0,
+    CONSTRAINT chk_stock CHECK (stock_quantity >= 0)
+) ENGINE=InnoDB;
+
+CREATE TABLE prescription_items (
+    prescription_id INT NOT NULL,
+    medicine_id INT NOT NULL,
+    dosage VARCHAR(100) NOT NULL,
+    quantity_dispensed INT NOT NULL DEFAULT 1,
+    PRIMARY KEY (prescription_id, medicine_id),
+    CONSTRAINT fk_item_presc FOREIGN KEY (prescription_id)
+        REFERENCES prescriptions(prescription_id) ON DELETE CASCADE,
+    CONSTRAINT fk_item_med FOREIGN KEY (medicine_id)
+        REFERENCES pharmacy_medicines(medicine_id)
+) ENGINE=InnoDB;
+
+
+3. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Overwriting Pharmacy Inventory:
+   - Forgetting atomic transactions during medicine dispensing can cause negative stock counts.
+2. Missing 1:1 Link between Appointment and Prescription:
+   - Omitting `UNIQUE` on `prescriptions(appointment_id)` allows multiple prescriptions for the same visit.
+3. Orphaned Prescription Items:
+   - Forgetting `ON DELETE CASCADE` on `prescription_items` leaves orphan lines when a prescription is dropped.
+
+
+4. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use 12-digit Aadhaar unique candidate keys for Indian patient identification.
+[x] Enforce 1:1 uniqueness between completed appointments and clinical prescriptions.
+[x] Use composite PK `(prescription_id, medicine_id)` for line-item dispensing.
+[x] Enforce `stock_quantity >= 0` with database CHECK constraints.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

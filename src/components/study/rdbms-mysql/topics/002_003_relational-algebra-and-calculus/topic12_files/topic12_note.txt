@@ -1,0 +1,84 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 12: Extended Relational Algebra: Aggregate Functions & Grouping Operator (𝒢)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. THE GROUPING & AGGREGATE OPERATOR (𝒢 OR $\gamma$)
+--------------------------------------------------------------------------------
+Classical relational algebra processes one tuple at a time. The Grouping operator (denoted by
+the calligraphic $\mathcal{G}$ or Greek letter Gamma, $\gamma$) extends relational algebra to
+partition a relation into groups of tuples and compute aggregate summary statistics per group.
+
+MATHEMATICAL NOTATION:
+$${}_{G_1, G_2, \dots, G_k} \mathcal{G}_{F_1(A_1), F_2(A_2), \dots, F_m(A_m)}(R)$$
+where:
+• $G_1, \dots, G_k$ are the GROUPING ATTRIBUTES (equivalent to SQL `GROUP BY`).
+• $F_i$ is an AGGREGATE FUNCTION ($\text{COUNT}, \text{SUM}, \text{AVG}, \text{MIN}, \text{MAX}$).
+• $A_i$ is the attribute on which the aggregate function is evaluated.
+
+SPECIAL CASE - GLOBAL AGGREGATION (NO GROUPING ATTRIBUTES):
+$$\mathcal{G}_{\text{COUNT}(*), \text{AVG}(\text{fee})}(R)$$
+Computes a single scalar aggregate row over the entire relation $R$.
+
+
+2. THE 5 CORE AGGREGATE FUNCTIONS & NULL HANDLING
+--------------------------------------------------------------------------------
+1. $\text{COUNT}(A)$ vs $\text{COUNT}(*)$:
+   - $\text{COUNT}(*)$ counts all rows including rows with NULLs.
+   - $\text{COUNT}(A)$ counts non-NULL values of attribute $A$.
+   - $\text{COUNT}(\text{DISTINCT } A)$ counts unique non-NULL values.
+2. $\text{SUM}(A)$: Sum of all non-NULL numeric values. (Returns `NULL` if table is empty or all values NULL).
+3. $\text{AVG}(A)$: Arithmetic mean ($\text{SUM}(A) / \text{COUNT}(A)$), ignoring NULLs.
+4. $\text{MIN}(A)$: Minimum non-NULL value (works on numbers, strings, and dates).
+5. $\text{MAX}(A)$: Maximum non-NULL value.
+
+
+3. SQL EQUIVALENCE: `GROUP BY` & `HAVING`
+--------------------------------------------------------------------------------
+• Grouping Operator:
+  `SELECT city, COUNT(*) AS student_count, AVG(admission_fee) AS avg_fee`
+  `FROM students GROUP BY city;`
+• Filtering on Aggregates (Selection over Grouping):
+  $$\sigma_{\text{avg\_fee} > 4000}({}_{\text{city}} \mathcal{G}_{\text{AVG}(\text{admission\_fee}) \rightarrow \text{avg\_fee}}(\text{Students}))$$
+  SQL: `HAVING avg_fee > 4000` (Applied AFTER grouping).
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's City-Wise Revenue Summary
+-- Relational Algebra:
+-- ${}_{\text{city}} \mathcal{G}_{\text{COUNT}(*) \rightarrow \text{total\_students}, \text{SUM(fee)} \rightarrow \text{total\_revenue}, \text{AVG(fee)} \rightarrow \text{avg\_fee}}(\text{Students})$
+SELECT city, COUNT(*) AS total_students, SUM(admission_fee) AS total_revenue, AVG(admission_fee) AS avg_fee
+FROM students
+GROUP BY city;
+
+CASE 2: Debangshu's Top Course Enrollment Filter (HAVING)
+-- Relational Algebra:
+-- $\sigma_{\text{enroll\_count} \ge 2}({}_{\text{course\_id}} \mathcal{G}_{\text{COUNT}(*) \rightarrow \text{enroll\_count}}(\text{Enrollments}))$
+SELECT course_id, COUNT(*) AS enroll_count
+FROM enrollments
+GROUP BY course_id
+HAVING COUNT(*) >= 2;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Non-Aggregated Columns in `SELECT` (MySQL `ONLY_FULL_GROUP_BY` Mode):
+   - Selecting an unaggregated column that is NOT in the `GROUP BY` list throws Error 1055.
+2. Confusing `WHERE` with `HAVING`:
+   - `WHERE` filters raw tuples BEFORE grouping; `HAVING` filters aggregated groups AFTER grouping.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use Grouping operator ${}_{\text{groups}} \mathcal{G}_{\text{aggregates}}(R)$ to partition and aggregate.
+[x] Remember that all aggregate functions except $\text{COUNT}(*)$ automatically ignore NULLs.
+[x] Apply `WHERE` for row filters before grouping, and `HAVING` for aggregate threshold filters.
+[x] Always follow `ONLY_FULL_GROUP_BY` standards in SQL for deterministic queries.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

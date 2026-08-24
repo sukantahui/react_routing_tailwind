@@ -1,0 +1,86 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 10: Third Normal Form (3NF): Eliminating Transitive Dependencies
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THIRD NORMAL FORM (3NF)?
+--------------------------------------------------------------------------------
+Third Normal Form (3NF) was formulated by Dr. Edgar F. Codd in 1971 to eliminate 
+transitive dependencies between non-prime attributes in relational schemas.
+
+Formal Definition of 3NF:
+A relation schema R is in Third Normal Form (3NF) if and only if:
+1. It is in Second Normal Form (2NF).
+2. NO non-prime attribute in R is transitively dependent on any candidate key of R.
+
+Disjunctive Condition Definition (Mathematical Test):
+A relation schema R is in 3NF if for EVERY non-trivial functional dependency $X \rightarrow A$ 
+holding on R, AT LEAST ONE of the following conditions is satisfied:
+• Condition 1: X is a Super Key of R (X is a candidate key or superset of a candidate key).
+• Condition 2: A is a Prime Attribute of R (A is a member of at least one candidate key of R).
+
+The Famous Normalization Mantra:
+"Every non-key attribute must provide a fact about the key (1NF), the whole key (2NF), 
+and nothing but the key (3NF), so help me Codd!"
+
+
+2. THE CLASSIC 3NF VIOLATION (STUDENT DEPARTMENT HIERARCHY)
+--------------------------------------------------------------------------------
+Consider a student admission table in 2NF:
+`Students_Department(student_id, student_name, department_id, department_name, department_head, building_block)`
+
+Primary Key: `student_id` (Single-column PK ➔ Automatically 2NF)
+• Prime Attributes: `{student_id}`
+• Non-Prime Attributes: `{student_name, department_id, department_name, department_head, building_block}`
+
+Functional Dependencies:
+1. `student_id → {student_name, department_id}` (Condition 1 satisfied: student_id is Super Key).
+2. `department_id → {department_name, department_head, building_block}` ❌
+   - Is `department_id` a Super Key? NO (Multiple students belong to department 'D01').
+   - Is `department_head` a Prime Attribute? NO (It is not part of any candidate key).
+   - Both 3NF conditions FAIL! This is a severe Transitive Dependency:
+     `student_id → department_id ➔ department_head`
+
+Production Modification Anomalies:
+• Update Anomaly: If CS department head changes, all 500 student rows must be updated.
+• Insertion Anomaly: Cannot insert a newly created department without an enrolled student.
+• Deletion Anomaly: Deleting the last student in a department permanently erases department details.
+
+
+3. THE 3NF DECOMPOSITION PROCEDURE
+--------------------------------------------------------------------------------
+To convert a 2NF relation into 3NF:
+1. Identify each violating dependency $X \rightarrow Y$ where X is not a super key and Y is non-prime.
+2. Create a dedicated relation $R_1(X, Y)$ with X as the Primary Key.
+3. In the original relation, remove Y and retain X as a Foreign Key referencing $R_1$.
+
+Resulting 3NF Decomposed Schema:
+1. `Departments(department_id [PK], department_name, department_head, building_block)`
+   - Super Key Determinant: `department_id` is PK (Condition 1 satisfied).
+2. `Students(student_id [PK], student_name, department_id [FK])`
+   - Super Key Determinant: `student_id` is PK (Condition 1 satisfied).
+   - Foreign Key: `department_id` references `Departments(department_id)`.
+
+
+4. GUARANTEES OF 3NF SYNTHESIS
+--------------------------------------------------------------------------------
+1. Lossless Join: Rejoining tables using `NATURAL JOIN` or `INNER JOIN` on `department_id` 
+   reconstructs the exact original tuples without producing spurious data.
+2. Dependency Preservation: All original functional dependencies can be enforced within 
+   individual tables without requiring cross-table joins during `INSERT`/`UPDATE`.
+
+
+5. SUMMARY CHECKLIST FOR 3NF
+--------------------------------------------------------------------------------
+[x] 3NF requires 2NF compliance + zero transitive dependencies between non-prime attributes.
+[x] 3NF Rule: For every non-trivial $X \rightarrow A$, either X is a Super Key OR A is a Prime Attribute.
+[x] Non-key columns must NEVER determine other non-key columns.
+[x] Decompose by promoting the non-key determinant into a Primary Key in its own dedicated table.
+[x] 3NF mathematically guarantees BOTH Lossless Join and Dependency Preservation.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

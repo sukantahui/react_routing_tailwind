@@ -1,0 +1,88 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 6: DROP TABLE vs TRUNCATE TABLE Mechanics
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. OVERVIEW: THE THREE WAYS TO REMOVE DATA IN MYSQL
+--------------------------------------------------------------------------------
+In relational database systems, there are three distinct commands for deleting data:
+1. `DELETE FROM table_name;` (DML: Row-by-row transactional deletion with undo logs)
+2. `TRUNCATE TABLE table_name;` (DDL: Fast bulk wipe that resets auto-increment and re-creates empty tablespace)
+3. `DROP TABLE table_name;` (DDL: Complete removal of both data AND table schema structure)
+
+
+2. THE TRUNCATE TABLE STATEMENT (FAST BULK DATA RESET)
+--------------------------------------------------------------------------------
+A. SYNTAX:
+   TRUNCATE [TABLE] table_name;
+
+B. WHAT TRUNCATE DOES INTERNALLY:
+1. It is classified as DDL (Data Definition Language).
+2. It deallocates all data and index pages in the table's `.ibd` tablespace file, effectively creating a fresh empty table.
+3. Resets the `AUTO_INCREMENT` sequence counter back to `1` (or the initial starting value).
+4. Does NOT fire row-level `ON DELETE` triggers!
+5. Cannot be rolled back in a standard transaction (implicit commit occurs before and after execution).
+6. Faster than `DELETE` by orders of magnitude on large tables (10M rows wipe in 0.05 seconds vs minutes).
+
+
+3. THE DROP TABLE STATEMENT (TOTAL STRUCTURAL DESTRUCTION)
+--------------------------------------------------------------------------------
+A. SYNTAX:
+   DROP [TEMPORARY] TABLE [IF EXISTS] table_name [, table_name2 ...];
+
+B. WHAT DROP TABLE DOES INTERNALLY:
+1. Deletes all records, indexes, constraints, triggers, and the table schema definition itself from the MySQL data dictionary.
+2. Unlinks the physical `.ibd` tablespace file from the operating system disk.
+3. Table ceases to exist completely; future queries return Error 1146: "Table doesn't exist".
+4. Supports dropping multiple tables in a single comma-separated command: `DROP TABLE t1, t2, t3;`.
+
+
+4. CRITICAL COMPARISON MATRIX: DROP vs TRUNCATE vs DELETE
+--------------------------------------------------------------------------------
+Feature               | DROP TABLE             | TRUNCATE TABLE        | DELETE FROM
+------------------------------------------------------------------------------------------------
+SQL Classification    | DDL                    | DDL                   | DML
+Schema Structure      | Destroyed (Removed)    | Preserved (Empty)     | Preserved (Empty)
+AUTO_INCREMENT        | Destroyed              | Resets to 1           | Retains current counter
+Row Triggers Fire?    | No                     | No                    | YES (for every row)
+WHERE Clause Allowed? | No                     | No                    | YES (conditional delete)
+Transaction Rollback  | No (Implicit commit)   | No (Implicit commit)  | YES (can ROLLBACK)
+Speed (10M Rows)      | Instant (<0.1s)        | Instant (<0.05s)      | Slow (Seconds/Minutes)
+Foreign Key Handling  | Blocked if referenced  | Blocked if parent FK  | Deletes cascade or fails
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Resetting Weekly Staging Enrollment Data in Barrackpore
+-- Fast reset for weekly test suite: Keeps table schema, wipes data, resets ID counter
+TRUNCATE TABLE staging_student_enrollments;
+
+CASE 2: Debangshu Deprecating Legacy Temporary Table in Kolkata E-Commerce
+-- Removing obsolete table completely from production schema
+DROP TABLE IF EXISTS legacy_order_archive_2024;
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Attempting `TRUNCATE` on a Table Referenced by an Active Foreign Key:
+   - MySQL blocks truncate with Error 1701: "Cannot truncate a table referenced in a foreign key constraint".
+   - Workaround for staging ETL: `SET FOREIGN_KEY_CHECKS = 0; TRUNCATE TABLE tbl; SET FOREIGN_KEY_CHECKS = 1;`.
+2. Assuming `TRUNCATE` will fire audit triggers:
+   - If you have an `AFTER DELETE` audit trigger, `TRUNCATE` bypasses it completely!
+3. Forgetting `IF EXISTS` when dropping tables in automation scripts.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use `TRUNCATE TABLE` when you want to quickly empty a table and reset `AUTO_INCREMENT` to 1.
+[x] Use `DROP TABLE IF EXISTS` when permanently decommissioning obsolete tables.
+[x] Use `DELETE FROM ... WHERE` when you need conditional deletion or transaction rollback safety.
+[x] Always check foreign key dependencies before executing TRUNCATE or DROP in production.
+[x] Remember that DDL statements (`TRUNCATE`, `DROP`) trigger an implicit transaction commit.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

@@ -1,0 +1,91 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 9: Configuring and Resetting AUTO_INCREMENT Starting Values
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHY CONFIGURE AUTO_INCREMENT STARTING VALUES?
+--------------------------------------------------------------------------------
+By default, an `AUTO_INCREMENT` column starts numbering from 1.
+However, enterprise schemas often require custom starting points:
+• Legacy System Numbering (e.g. starting student IDs at 1001, invoice numbers at 50000).
+• Preventing Public Guessing of Initial Volume (starting user IDs at 100000 instead of 1).
+• Resetting Staging and Test Databases back to 1.
+
+
+2. SETTING INITIAL STARTING VALUES DURING TABLE CREATION
+--------------------------------------------------------------------------------
+Syntax:
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    admission_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00
+) ENGINE=InnoDB AUTO_INCREMENT = 1001;
+
+The very first row inserted into this table will receive `student_id = 1001`.
+
+
+3. RESETTING AUTO_INCREMENT ON EXISTING TABLES
+--------------------------------------------------------------------------------
+A. ADVANCING OR RESETTING FORWARD:
+   ALTER TABLE students AUTO_INCREMENT = 5000;
+   (Prerequisite: 5000 MUST be greater than `MAX(student_id)` currently in the table).
+
+B. RESETTING BACK TO 1:
+   1. Using `TRUNCATE TABLE` (Recommended for empty/test tables):
+      TRUNCATE TABLE students;
+      (Deletes all rows and automatically resets counter to 1).
+   2. After `DELETE FROM table`:
+      DELETE FROM students;
+      ALTER TABLE students AUTO_INCREMENT = 1;
+
+
+4. THE RULE OF MONOTONIC PROGRESSION
+--------------------------------------------------------------------------------
+In MySQL InnoDB:
+• You CANNOT reset `AUTO_INCREMENT` to a value *less than or equal to* the current maximum existing ID in the table.
+• If `MAX(student_id)` is 150, executing `ALTER TABLE students AUTO_INCREMENT = 50;` is SILENTLY IGNORED by InnoDB without errors.
+• The counter remains at 151.
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore College Custom Registration Range
+CREATE TABLE college_registrations (
+    registration_no INT AUTO_INCREMENT PRIMARY KEY,
+    student_name VARCHAR(50) NOT NULL,
+    city VARCHAR(50) NOT NULL DEFAULT 'Barrackpore',
+    registration_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00
+) ENGINE=InnoDB AUTO_INCREMENT = 2026001;
+
+CASE 2: Debangshu's Kolkata E-Commerce Invoice Numbering
+CREATE TABLE customer_invoices (
+    invoice_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    total_amount DECIMAL(12, 2) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT = 500001;
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Attempting to Reset Below MAX(id):
+   - `ALTER TABLE tbl AUTO_INCREMENT = 1` on a populated table does nothing; MySQL will not overwrite existing rows.
+2. DELETE vs TRUNCATE Counter Differences:
+   - `DELETE FROM tbl;` keeps the counter at max+1; `TRUNCATE TABLE tbl;` resets to 1.
+3. Server Restart Persistence in Older MySQL Versions:
+   - In legacy MySQL 5.7, server restarts recalculated counter from `MAX(id)+1`; in MySQL 8.0, counters are stored in the redo log and data dictionary.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use `AUTO_INCREMENT = seed` in DDL for standardized institutional IDs.
+[x] Use `TRUNCATE TABLE` to quickly wipe and reset test environments back to 1.
+[x] Remember that `ALTER TABLE tbl AUTO_INCREMENT = val` cannot set the counter below `MAX(id)`.
+[x] Inspect current counter positions via `information_schema.TABLES`.
+[x] Keep `BIGINT UNSIGNED` for tables with custom high starting seeds (e.g. 1,000,000+).
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

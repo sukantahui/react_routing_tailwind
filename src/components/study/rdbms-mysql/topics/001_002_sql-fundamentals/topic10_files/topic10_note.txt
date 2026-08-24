@@ -1,0 +1,97 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 10: Comparison Operators (=, !=, <>, <, >, <=, >=, and <=>)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE COMPARISON OPERATORS IN SQL?
+--------------------------------------------------------------------------------
+Comparison operators evaluate relational expressions by comparing two values (operands)
+and returning a boolean result (`TRUE`, `FALSE`, or `UNKNOWN`). They form the foundational building
+blocks of filtering logic in `WHERE`, `HAVING`, and `ON` clauses.
+
+CORE COMPARISON OPERATORS LIST:
+• `=` (Equal to): Returns TRUE if both operands have identical values.
+• `!=` or `<>` (Not equal to): Returns TRUE if operands have different values. (`<>` is standard ANSI SQL).
+• `<` (Less than): Returns TRUE if left operand is strictly less than right operand.
+• `>` (Greater than): Returns TRUE if left operand is strictly greater than right operand.
+• `<=` (Less than or equal to): Returns TRUE if left operand is less than or equal.
+• `>=` (Greater than or equal to): Returns TRUE if left operand is greater than or equal.
+• `<=>` (NULL-Safe Equal to): MySQL specific operator that safely compares operands including NULLs.
+  - Returns `1` (TRUE) if both operands are NULL!
+  - Returns `0` (FALSE) if one operand is NULL and the other is not.
+
+
+2. DATA TYPE COMPARISON RULES IN MYSQL
+--------------------------------------------------------------------------------
+A. NUMERIC COMPARISONS:
+   Compared mathematically based on numeric value: `15000.00 > 12000.00` -> TRUE.
+
+B. STRING & TEXT COMPARISONS:
+   Compared lexicographically based on the active Collation:
+   • Under `utf8mb4_0900_ai_ci` (case-insensitive): `'Mamata' = 'mamata'` -> TRUE.
+   • Under `utf8mb4_bin` (binary byte comparison): `'Mamata' = 'mamata'` -> FALSE.
+
+C. DATE & TIME COMPARISONS:
+   Compared chronologically: `'2026-08-24' > '2026-01-01'` -> TRUE.
+
+
+3. THE NULL-SAFE EQUAL OPERATOR (`<=>`) EXPLAINED
+--------------------------------------------------------------------------------
+In standard SQL, comparing with NULL using `=` produces `UNKNOWN`:
+• `NULL = NULL` -> `UNKNOWN`
+• `100 = NULL` -> `UNKNOWN`
+
+With MySQL's NULL-Safe Equal Operator `<=>`:
+• `NULL <=> NULL` -> `TRUE` (1)
+• `100 <=> NULL` -> `FALSE` (0)
+• `100 <=> 100` -> `TRUE` (1)
+
+This is exceptionally useful when comparing nullable columns across joined tables without writing lengthy `(a = b OR (a IS NULL AND b IS NULL))` expressions.
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Finding Non-Standard Fee Enrollments in Barrackpore College
+SELECT
+    roll_no,
+    first_name,
+    admission_fee AS "Tuition (₹)"
+FROM students
+WHERE admission_fee <> 15000.00; -- Find students whose fee differs from standard ₹15,000
+
+CASE 2: Debangshu Finding Low Stock Medicines in Kolkata Pharmacy
+SELECT
+    medicine_name,
+    stock_quantity,
+    unit_price AS "Price (₹)"
+FROM medicines
+WHERE stock_quantity <= 20; -- Inventory alert threshold
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Using `<>` with Nullable Columns:
+   - `WHERE city <> 'Kolkata'` will SILENTLY OMIT all rows where `city` is NULL!
+   - Fix: `WHERE city <> 'Kolkata' OR city IS NULL` (or use `<=>`).
+2. Alphabetical String Sorting of Numbers Stored as VARCHAR:
+   - If `age` is VARCHAR, `'100' < '20'` evaluates to TRUE because '1' comes before '2' alphabetically!
+   - Fix: Always store numbers in proper numeric types (`INT`, `DECIMAL`).
+3. Comparing Dates as Plain Unquoted Numbers:
+   - `WHERE created_at > 2026-08-24` evaluates as mathematical subtraction `2026 minus 8 minus 24 = 1994`!
+   - Fix: Always wrap date/time literals in single quotes: `'2026-08-24'`.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use `<>` for ANSI standard SQL compatibility (equivalent to `!=`).
+[x] Use `<=>` when comparing nullable columns in join conditions.
+[x] Always enclose string and date literals in single quotes (`'2026-08-24'`).
+[x] Remember that `<>` and `!=` exclude NULL rows automatically.
+[x] Ensure data types match on both sides of comparison operators to avoid sargability-breaking implicit casting.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

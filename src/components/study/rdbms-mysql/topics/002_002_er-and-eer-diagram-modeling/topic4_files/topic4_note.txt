@@ -1,0 +1,100 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 4: Relationship Types, Degrees (Unary, Binary, Ternary) & Role Names
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A RELATIONSHIP DEGREE?
+--------------------------------------------------------------------------------
+The Degree of a Relationship is the NUMBER OF PARTICIPATING ENTITY SETS in that relationship.
+
+A. UNARY (RECURSIVE / DEGREE 1) RELATIONSHIP:
+   • Connects an entity set to ITSELF.
+   • Requires explicit Role Names to distinguish participating roles.
+   • Example: `Employee` participates as 'Manager' (Supervisor) and 'Subordinate' (Reportee).
+   • Relational Mapping: Self-referencing table with `manager_id INT NULL`.
+
+B. BINARY (DEGREE 2) RELATIONSHIP:
+   • Connects TWO distinct entity sets.
+   • By far the most common relationship type in relational modeling (90%+ of all relationships).
+   • Example: `Student` ───< Enrolls_In >─── `Course`.
+   • Relational Mapping: 1:1, 1:N (Foreign Key on Many side), or M:N (Junction Table).
+
+C. TERNARY (DEGREE 3) RELATIONSHIP:
+   • Connects THREE distinct entity sets simultaneously in a single atomic business event.
+   • Example: `Doctor` prescribes `Medication` to `Patient` on a specific `Date`.
+   • Relational Mapping: Dedicated 3-way Bridge Table with Composite Primary Key `(doctor_id, patient_id, medication_id)`.
+
+D. N-ARY (DEGREE N) RELATIONSHIP:
+   • Connects N entity sets simultaneously.
+   • Generally decomposed into binary relationships or an associative entity for practical implementation.
+
+
+2. ROLE NAMES IN RELATIONSHIPS
+--------------------------------------------------------------------------------
+• A Role Name indicates the specific function that an entity plays in a relationship.
+• Role names are MANDATORY in Unary (Recursive) relationships where the same entity set
+  participates more than once with different responsibilities (e.g. `supervisor` vs `supervisee`,
+  `husband` vs `wife`, `course` vs `prerequisite_course`).
+
+
+3. TERNARY RELATIONSHIPS VS THREE BINARY RELATIONSHIPS
+--------------------------------------------------------------------------------
+A Ternary relationship is NOT equivalent to three separate Binary relationships!
+• Three Binaries state:
+  1) Doctor treats Patient.
+  2) Doctor prescribes Medication.
+  3) Patient takes Medication.
+  (This CANNOT prove which doctor prescribed which medication to which patient!).
+• A Ternary Relationship captures the exact 3-way intersection event atomically:
+  (Dr. Sukanta Hui prescribed Paracetamol to Mamata Hui).
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Staff Management (Unary Recursive Degree 1)
+CREATE TABLE employees (
+    emp_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    manager_id INT NULL, -- Role: Supervisee points to Supervisor
+    CONSTRAINT fk_emp_mgr FOREIGN KEY (manager_id)
+        REFERENCES employees(emp_id) ON DELETE SET NULL
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata Multi-Specialty Clinic Prescription (Ternary Degree 3)
+CREATE TABLE doctor_patient_prescriptions (
+    doctor_id INT NOT NULL,
+    patient_id INT NOT NULL,
+    medication_id INT NOT NULL,
+    prescribed_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    dosage_instructions VARCHAR(100) NOT NULL,
+    PRIMARY KEY (doctor_id, patient_id, medication_id),
+    CONSTRAINT fk_presc_doc FOREIGN KEY (doctor_id) REFERENCES doctors(doc_id),
+    CONSTRAINT fk_presc_pat FOREIGN KEY (patient_id) REFERENCES patients(pat_id),
+    CONSTRAINT fk_presc_med FOREIGN KEY (medication_id) REFERENCES medications(med_id)
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Confusing 3 Binaries with 1 Ternary:
+   - Failing to recognize ternary relationships causes loss of multi-way association context.
+2. Missing Role Names on Recursive Links:
+   - Omitting role names on unary relationships makes ER diagrams ambiguous.
+3. Over-Engineering to 4-ary/5-ary:
+   - Higher-degree relationships (n > 3) are difficult to index; promote them to Associative Entities.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Label explicit Role Names on all Unary (Recursive) relationships.
+[x] Use Ternary relationships when an event requires the simultaneous intersection of 3 entities.
+[x] Map Ternary relationships into a 3-way bridge table with a Composite Primary Key.
+[x] Understand that 3 separate binary relationships do NOT equal 1 ternary relationship.
+[x] Index all foreign keys in ternary tables to ensure high-speed multi-dimensional queries.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

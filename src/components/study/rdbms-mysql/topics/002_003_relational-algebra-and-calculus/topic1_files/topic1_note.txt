@@ -1,0 +1,86 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 1: Selection Operator (σ) with Complex Predicates
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. THE SELECTION OPERATOR (σ) DEFINITION & SEMANTICS
+--------------------------------------------------------------------------------
+The Selection operator (denoted by the lowercase Greek letter Sigma, $\sigma$) is a UNARY
+relational algebra operator that performs HORIZONTAL FILTERING on a relation.
+It selects tuples (rows) that satisfy a specified boolean selection condition (predicate) $p$.
+
+MATHEMATICAL NOTATION:
+$$\sigma_p(R) = \{ t \mid t \in R \land p(t) \}$$
+
+KEY MATHEMATICAL PROPERTIES:
+1. UNARY OPERATOR: Takes exactly ONE relation as input and produces ONE relation as output.
+2. DEGREE PRESERVATION: $\text{Degree}(\sigma_p(R)) = \text{Degree}(R)$ (the attribute schema and column count remain unchanged).
+3. CARDINALITY BOUNDS: $0 \le |\sigma_p(R)| \le |R|$ (selectivity factor $s \in [0, 1]$).
+4. COMMUTATIVE PROPERTY: $\sigma_{p_1}(\sigma_{p_2}(R)) \equiv \sigma_{p_2}(\sigma_{p_1}(R)) \equiv \sigma_{p_1 \land p_2}(R)$.
+5. IDEMPOTENT (with same condition): $\sigma_p(\sigma_p(R)) \equiv \sigma_p(R)$.
+
+
+2. COMPLEX BOOLEAN PREDICATES IN SELECTION
+--------------------------------------------------------------------------------
+The selection predicate $p$ is a boolean expression composed of:
+1. COMPARISON OPERATORS: $=, \neq, <, \le, >, \ge$
+2. LOGICAL CONNECTIVES: $\land$ (AND), $\lor$ (OR), $\neg$ (NOT)
+3. ATTRIBUTE-TO-CONSTANT comparisons: $\text{city} = 'Barrackpore'$
+4. ATTRIBUTE-TO-ATTRIBUTE comparisons: $\text{current\_salary} > \text{starting\_salary}$
+
+PRECEDENCE OF LOGICAL CONNECTIVES:
+1. NOT ($\neg$) highest precedence
+2. AND ($\land$) middle precedence
+3. OR ($\lor$) lowest precedence
+Use parentheses to explicitly control evaluation order: $\sigma_{(\text{city} = 'Barrackpore' \lor \text{city} = 'Kolkata') \land \text{fee} > 5000}(\text{Students})$.
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Discount Eligibility Filter
+-- Relational Algebra:
+-- $\sigma_{\text{city} = 'Barrackpore' \land \text{admission\_fee} \ge 4000}(\text{Students})$
+-- SQL Equivalent:
+SELECT * FROM students
+WHERE city = 'Barrackpore' AND admission_fee >= 4000;
+
+CASE 2: Debangshu's Multi-City Active Student Selection
+-- Relational Algebra:
+-- $\sigma_{(\text{city} = 'Kolkata' \lor \text{city} = 'Ichapur') \land \text{status} = 'Active'}(\text{Students})$
+-- SQL Equivalent:
+SELECT * FROM students
+WHERE (city = 'Kolkata' OR city = 'Ichapur') AND status = 'Active';
+
+
+4. SELECTION PUSH-DOWN OPTIMIZATION
+--------------------------------------------------------------------------------
+In query optimization, the "Push Selections Down" heuristic moves selection operators
+as close as possible to the base relation leaves in a query tree.
+Why? Because filtering rows EARLY drastically reduces the intermediate result set sizes
+before expensive Cartesian products ($\times$) or Joins ($\bowtie$) are evaluated!
+$$\sigma_p(R \bowtie S) \equiv \sigma_p(R) \bowtie S \quad (\text{if predicate } p \text{ references only attributes of } R)$$
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Confusing Selection ($\sigma$) with SQL `SELECT`:
+   - Selection ($\sigma$) filters ROWS (equivalent to SQL `WHERE`); SQL `SELECT` specifies COLUMNS (equivalent to Projection $\pi$).
+2. Missing Parentheses in Complex AND/OR Predicates:
+   - `city = 'A' OR city = 'B' AND fee > 5000` evaluates `AND` first due to operator precedence.
+3. Three-Valued Logic with NULLs:
+   - If a predicate evaluates to `UNKNOWN` on a NULL attribute, the tuple is DISCARDED by $\sigma$.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use $\sigma_p(R)$ to represent horizontal filtering by predicate $p$.
+[x] Remember that Selection never changes the number of columns (Degree remains identical).
+[x] Apply the Commutative Rule: cascade multiple selections or combine with $\land$.
+[x] Always push selections down in relational algebra query trees for maximum query speed.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

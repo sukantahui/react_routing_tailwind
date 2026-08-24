@@ -1,0 +1,110 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 7: Attribute Closure (X+) Algorithm and Finding Candidate Keys
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS ATTRIBUTE CLOSURE (X+)?
+--------------------------------------------------------------------------------
+Given a relation schema R, a set of functional dependencies F, and a subset of 
+attributes X ⊆ R, the Attribute Closure of X (denoted as $X^+$ or $X_F^+$) is the 
+complete set of all attributes in R that are functionally determined by X under F:
+
+      $X^+ = \{ A \in R \mid X \rightarrow A \text{ is in } F^+ \}$
+
+In simple terms: $X^+$ represents everything you can determine or "reach" if you 
+are given the values of attribute set X.
+
+
+2. THE STEP-BY-STEP ATTRIBUTE CLOSURE ALGORITHM
+--------------------------------------------------------------------------------
+Input: 
+- Relation schema R
+- Set of functional dependencies F
+- Attribute subset X
+
+Algorithm:
+1. Initialization:
+   Set $X^+ = X$ (By Reflexivity, X determines itself).
+2. Iterative Expansion:
+   Repeat the following until $X^+$ stops changing (Fixpoint reached):
+   - For each functional dependency $LHS \rightarrow RHS$ in F:
+     * If $LHS \subseteq X^+$ (the left-hand side is completely inside our current closure):
+     * Set $X^+ = X^+ \cup RHS$ (Add all RHS attributes to the closure).
+3. Termination:
+   Return $X^+$.
+
+Complexity: Runs in linear / polynomial time $O(|F| \cdot |R|)$.
+
+
+3. HOW TO FIND CANDIDATE KEYS USING ATTRIBUTE CLOSURES
+--------------------------------------------------------------------------------
+Definitions:
+1. Super Key: An attribute set K is a Super Key if $K^+ = R$ (its closure contains ALL attributes in relation R).
+2. Candidate Key: An attribute set K is a Candidate Key if:
+   a) $K^+ = R$ (K is a super key), AND
+   b) No proper subset $K' \subset K$ satisfies $(K')^+ = R$ (K is minimal).
+
+Candidate Key Discovery Algorithm:
+1. Categorize Attributes into 4 Classes based on their presence in FD set F:
+   - Class 1 (L): Attributes appearing ONLY on the Left-hand side of FDs.
+     * RULE: Must be present in EVERY candidate key!
+   - Class 2 (R): Attributes appearing ONLY on the Right-hand side of FDs.
+     * RULE: Can NEVER be part of any candidate key!
+   - Class 3 (LR): Attributes appearing on BOTH Left and Right sides.
+     * RULE: May or may not be part of candidate keys.
+   - Class 4 (N): Attributes appearing on NEITHER side of FDs.
+     * RULE: Must be present in EVERY candidate key!
+2. Initial Core Key Candidate:
+   Form core attribute set $Core = L \cup N$.
+3. Check Core Closure:
+   - Compute $(Core)^+$.
+   - If $(Core)^+ = R$, then $Core$ is the UNIQUE candidate key!
+   - If $(Core)^+ \neq R$, systematically combine $Core$ with single attributes from $LR$, then pairs from $LR$, computing closures until all minimal keys are found.
+
+
+4. WORKED BENCHMARK EXAMPLES
+--------------------------------------------------------------------------------
+
+EXAMPLE 1: Single Candidate Key
+Relation R(A, B, C, D, E)
+FDs: { A → B, B → C, C → D, D → E }
+- L = {A}, R = {E}, LR = {B, C, D}, N = ∅
+- Core = {A}
+- $A^+ = \{A\} \rightarrow \{A, B\} \rightarrow \{A, B, C\} \rightarrow \{A, B, C, D\} \rightarrow \{A, B, C, D, E\} = R$
+- Candidate Key = {A}
+
+EXAMPLE 2: Multiple Overlapping Candidate Keys
+Relation R(A, B, C, D)
+FDs: { AB → C, C → D, D → A }
+- L = {B}, R = ∅, LR = {A, C, D}, N = ∅
+- Core = {B}. Compute $B^+ = \{B\} \neq R$.
+- Test 2-attribute combinations with Core {B}:
+  * $(AB)^+ = \{A, B, C, D\} = R$ ➔ Candidate Key 1: {A, B}
+  * $(CB)^+ = \{B, C, D, A\} = R$ ➔ Candidate Key 2: {B, C}
+  * $(DB)^+ = \{B, D, A, C\} = R$ ➔ Candidate Key 3: {B, D}
+- Candidate Keys: {A, B}, {B, C}, {B, D}
+- Prime Attributes: {A, B, C, D} (All attributes are prime!)
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Forgetting to test minimality (assuming every super key is a candidate key).
+2. Missing Class N attributes (isolated columns with no FDs must belong to every key).
+3. Stopping after finding 1 candidate key when multiple candidate keys exist.
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Attribute Closure $X^+$ is the set of all attributes determined by X under FD set F.
+[x] Computed iteratively by adding RHS whenever LHS is a subset of the current closure.
+[x] An attribute set K is a Super Key if $K^+ = R$.
+[x] A minimal super key is a Candidate Key.
+[x] Attributes only on LHS (L) and neither side (N) MUST belong to every candidate key.
+[x] Attributes only on RHS (R) can NEVER belong to any candidate key.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

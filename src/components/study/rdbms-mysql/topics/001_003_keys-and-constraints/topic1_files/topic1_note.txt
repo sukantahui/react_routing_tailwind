@@ -1,0 +1,113 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 1: PRIMARY KEY Constraint (Single-Column and Composite Primary Keys)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A PRIMARY KEY CONSTRAINT?
+--------------------------------------------------------------------------------
+A `PRIMARY KEY` is a relational constraint that uniquely identifies every tuple (row) in a table.
+In MySQL InnoDB, the Primary Key is physically synonymous with the **Clustered Index**:
+• Table data rows are physically organized and stored on disk in the exact sorted order of the Primary Key B+Tree.
+• A table can have EXACTLY ONE Primary Key.
+• Primary Key columns implicitly and strictly enforce `NOT NULL` and `UNIQUE`.
+
+
+2. SINGLE-COLUMN PRIMARY KEYS
+--------------------------------------------------------------------------------
+A single attribute serves as the unique identifier for the entire record.
+
+A. INLINE COLUMN DEFINITION:
+   CREATE TABLE students (
+       student_id INT AUTO_INCREMENT PRIMARY KEY,
+       first_name VARCHAR(50) NOT NULL
+   );
+
+B. TABLE-LEVEL NAMED CONSTRAINT DEFINITION:
+   CREATE TABLE students (
+       student_id INT AUTO_INCREMENT,
+       first_name VARCHAR(50) NOT NULL,
+       CONSTRAINT pk_students PRIMARY KEY (student_id)
+   );
+
+
+3. COMPOSITE (MULTI-COLUMN) PRIMARY KEYS
+--------------------------------------------------------------------------------
+A Composite Primary Key consists of two or more columns combined together to guarantee uniqueness.
+Individually, column values can repeat, but the *combination* of all columns in the composite key
+must be strictly unique.
+
+PRIMARY USE CASES:
+1. Many-to-Many Bridge / Junction Tables (e.g. `course_enrollments`).
+2. Multi-tenant partitioning (`tenant_id`, `user_id`).
+3. Temporal event logs (`device_id`, `reading_timestamp`).
+
+EXAMPLE JUNCTION TABLE:
+CREATE TABLE course_enrollments (
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    enrollment_date DATE NOT NULL,
+    -- Composite Primary Key
+    CONSTRAINT pk_enrollments PRIMARY KEY (student_id, course_id),
+    CONSTRAINT fk_enr_student FOREIGN KEY (student_id) REFERENCES students(student_id),
+    CONSTRAINT fk_enr_course FOREIGN KEY (course_id) REFERENCES courses(course_id)
+) ENGINE=InnoDB;
+
+
+4. SURROGATE KEYS VS NATURAL KEYS
+--------------------------------------------------------------------------------
+A. NATURAL KEYS:
+   Attributes with real-world business meaning (e.g. PAN Card No, Aadhaar No, Passport No).
+   - Drawbacks: Real-world keys can change, are often wide strings, and increase secondary index size.
+
+B. SURROGATE KEYS (RECOMMENDED IN 95% OF DESIGNS):
+   Artificial system-generated sequence numbers (`INT AUTO_INCREMENT` or `BIGINT`).
+   - Benefits: Compact 4 or 8 byte integers, immutable, maximum B+Tree insert performance.
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore College Student & Course Junction Table
+CREATE TABLE student_course_registrations (
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    semester INT NOT NULL DEFAULT 1,
+    registration_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00,
+    CONSTRAINT pk_registrations PRIMARY KEY (student_id, course_id)
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Order Items Line Item Key
+CREATE TABLE order_items (
+    order_id INT NOT NULL,
+    item_sequence_no INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT pk_order_items PRIMARY KEY (order_id, item_sequence_no)
+) ENGINE=InnoDB;
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Using Random UUID Strings as Clustered Primary Keys:
+   - Random UUIDs (`CHAR(36)`) cause catastrophic B+Tree page splits and fragmentation on insert.
+   - Use sequential integers or ordered binary UUIDs (`UUID_TO_BIN(..., 1)`).
+2. Changing Primary Key Values:
+   - Primary keys should be strictly immutable. Updating a PK forces expensive row relocation.
+3. Defining Multiple Single-Column PRIMARY KEYs:
+   - Writing `student_id INT PRIMARY KEY, email VARCHAR(50) PRIMARY KEY` throws syntax Error 1068.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Every table must have an explicit `PRIMARY KEY`.
+[x] Prefer compact unsigned integers (`INT UNSIGNED AUTO_INCREMENT` or `BIGINT`) for surrogate keys.
+[x] Use composite primary keys in Many-to-Many junction tables to eliminate duplicates.
+[x] Name primary key constraints explicitly (`CONSTRAINT pk_tablename PRIMARY KEY (...)`).
+[x] Ensure primary key values are never mutated once assigned.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

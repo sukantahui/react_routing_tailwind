@@ -1,0 +1,100 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 12: Range Filtering with BETWEEN ... AND
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THE BETWEEN ... AND OPERATOR?
+--------------------------------------------------------------------------------
+The `BETWEEN ... AND` operator in SQL tests whether an expression falls within a specified
+inclusive range. It is syntactically clean shorthand for compound `>=` and `<=` conditions.
+
+A. BASIC SYNTAX:
+   SELECT column_1, column_2
+   FROM table_name
+   WHERE test_expression BETWEEN min_value AND max_value;
+
+B. INCLUSIVE NATURE OF BETWEEN:
+   `expr BETWEEN min_val AND max_val` is logically identical to:
+   `expr >= min_val AND expr <= max_val`
+   Both boundary values (`min_value` and `max_value`) ARE INCLUDED in the matched result set!
+
+C. NEGATION WITH NOT BETWEEN:
+   `expr NOT BETWEEN min_val AND max_val` is logically identical to:
+   `expr < min_val OR expr > max_val`
+
+
+2. DATA TYPE BEHAVIORS WITH BETWEEN
+--------------------------------------------------------------------------------
+A. NUMERIC RANGES:
+   -- Find students paying between ₹15,000 and ₹18,500
+   SELECT * FROM students
+   WHERE admission_fee BETWEEN 15000.00 AND 18500.00;
+
+B. DATE & TIME RANGES:
+   -- Find students born between 2002 and 2005
+   SELECT * FROM students
+   WHERE date_of_birth BETWEEN '2002-01-01' AND '2005-12-31';
+
+C. STRING & ALPHABETICAL RANGES:
+   `WHERE first_name BETWEEN 'A' AND 'M'`
+   - Includes names starting with 'A' up through names matching 'M' alone, but EXCLUDES 'Mamata'
+     because 'Mamata' is alphabetically greater than 'M'!
+   - Best practice for string ranges: use prefix wildcards or open upper bounds.
+
+
+3. THE DATETIME TRAP WITH BETWEEN
+--------------------------------------------------------------------------------
+A major beginner pitfall occurs when using `BETWEEN` on `DATETIME` columns with date literals:
+`WHERE order_date BETWEEN '2026-08-01' AND '2026-08-31'`
+• '2026-08-31' is implicitly converted to '2026-08-31 00:00:00'.
+• Any order placed on August 31st at 09:30 AM is SILENTLY EXCLUDED!
+
+RECOMMENDED SARGABLE SOLUTION FOR DATETIME:
+`WHERE order_date >= '2026-08-01 00:00:00' AND order_date < '2026-09-01 00:00:00';`
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Generating Mid-Tier Course Fee Roster in Barrackpore
+SELECT
+    roll_no,
+    CONCAT(first_name, ' ', last_name) AS student_name,
+    admission_fee AS "Tuition (₹)"
+FROM students
+WHERE admission_fee BETWEEN 15000.00 AND 20000.00
+ORDER BY admission_fee ASC;
+
+CASE 2: Debangshu Finding Q3 E-Commerce Orders in Kolkata
+SELECT
+    order_number,
+    customer_id,
+    total_amount AS "Amount (₹)",
+    order_date
+FROM customer_orders
+WHERE order_date >= '2026-07-01 00:00:00'
+  AND order_date < '2026-10-01 00:00:00';
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Reversing Minimum and Maximum Boundary Values:
+   - `WHERE fee BETWEEN 20000 AND 15000` evaluates to `fee >= 20000 AND fee <= 15000` -> Always returns 0 rows!
+   - Minimum value MUST always precede the maximum value.
+2. The DATETIME 00:00:00 Boundary Exclusion Trap.
+3. Alphabetical string range clipping.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use `BETWEEN` for clean, readable inclusive numeric ranges.
+[x] Always ensure `min_value <= max_value` in the `BETWEEN` clause.
+[x] For `DATETIME` columns, use open intervals (`>= start AND < next_month`) rather than `BETWEEN`.
+[x] Index columns used in range filters to enable fast B-Tree range scans (type: `range` in EXPLAIN).
+[x] Use `NOT BETWEEN` when filtering outliers outside acceptable operational tolerances.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

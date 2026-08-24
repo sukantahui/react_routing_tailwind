@@ -1,0 +1,96 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_001 - Table Relationships & Referential Actions
+TOPIC 6: Referential Actions: ON DELETE CASCADE and ON UPDATE CASCADE
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE CASCADING REFERENTIAL ACTIONS?
+--------------------------------------------------------------------------------
+Cascading referential actions automate parent-child synchronization. When a parent record's
+Primary Key is deleted or updated, MySQL automatically propagates that change down to all matching
+child records referencing that key.
+
+A. ON DELETE CASCADE:
+   • When a parent record is deleted (`DELETE FROM parent WHERE id = 101`), the InnoDB storage engine
+     AUTOMATICALLY and ATOMICALLY deletes all child rows where `parent_id = 101`.
+   • Best used for existential / composite relationships (e.g. Orders -> Order Items, Students -> Receipts).
+
+B. ON UPDATE CASCADE:
+   • When a parent record's Primary Key value is modified (`UPDATE parent SET id = 500 WHERE id = 101`),
+     MySQL automatically updates all matching child foreign keys from 101 to 500.
+   • Ensures foreign key links never break due to primary key re-numbering.
+
+
+2. RELATIONAL SYNTAX & INNODB ENGINE MECHANICS
+--------------------------------------------------------------------------------
+CREATE TABLE student_payments (
+    payment_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    paid_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_payments_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+HOW INNODB PROCESSES CASCADES:
+• Execution is ATOMIC: The parent deletion and all child deletions occur within the same transaction.
+• If any child deletion fails (e.g. due to a downstream trigger or lock conflict), the entire transaction rolls back!
+• MySQL InnoDB executes cascading actions directly in the storage engine, bypassing SQL parser overhead.
+
+
+3. MULTI-TIER CASCADING CHAINS (LEVEL 1 -> LEVEL 2 -> LEVEL 3)
+--------------------------------------------------------------------------------
+Cascade operations can propagate across multiple tiers:
+Department (Parent) ───[CASCADE]───> Student (Child) ───[CASCADE]───> Payment (Grandchild)
+Deleting Department #1 automatically wipes out all its students, AND all their respective payments!
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Registration & Document Cleanup
+CREATE TABLE student_documents (
+    document_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    document_type ENUM('Aadhaar', 'Marksheet', 'Photo', 'Certificate') NOT NULL,
+    file_path VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_docs_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Order & Line Item Atomicity
+CREATE TABLE order_items (
+    order_id BIGINT UNSIGNED NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    PRIMARY KEY (order_id, product_id),
+    CONSTRAINT fk_items_order FOREIGN KEY (order_id)
+        REFERENCES orders(order_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Unintended Mass Data Loss:
+   - Deleting a parent category accidentally obliterates thousands of subcategories and products.
+2. Long Lock Contention Spikes:
+   - Cascading across hundreds of thousands of child rows acquires row locks, potentially causing transaction lock timeouts for concurrent web requests.
+3. Triggers Bypassed in Older Engines:
+   - Note: In MySQL, foreign key cascading actions do NOT activate AFTER DELETE triggers on child tables.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use `ON DELETE CASCADE` for tight existential parent-child entities (e.g. Orders -> Order Items).
+[x] Always combine with `ON UPDATE CASCADE` to keep primary key mutations synchronized.
+[x] Avoid massive multi-tier cascades on high-traffic tables with millions of rows (batch delete in application code instead).
+[x] Ensure foreign key columns in child tables are indexed to speed up cascade lookups.
+[x] Never use `ON DELETE CASCADE` when child data has legal, accounting, or audit retention requirements (use `RESTRICT` instead).
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

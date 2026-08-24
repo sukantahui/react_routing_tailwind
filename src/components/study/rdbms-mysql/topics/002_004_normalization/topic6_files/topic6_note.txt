@@ -1,0 +1,90 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_004 - Functional Dependencies & Database Normalization (1NF to BCNF)
+TOPIC 6: Armstrong's Axioms (Reflexivity, Augmentation, Transitivity, Decomposition, Union, Pseudotransitivity)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE ARMSTRONG'S AXIOMS?
+--------------------------------------------------------------------------------
+Armstrong's Axioms are a set of formal inference rules formulated by William W. Armstrong 
+in 1974 used to logically infer all functional dependencies that are logically implied 
+by a given set of functional dependencies F (denoted as F+ / closure of F).
+
+Soundness and Completeness Properties:
+1. Soundness: Every functional dependency inferred using Armstrong's Axioms is 
+   mathematically guaranteed to be TRUE in all relations satisfying F (no false inferences).
+2. Completeness: Armstrong's Axioms can infer EVERY functional dependency that logically 
+   follows from F (no valid inference is missed).
+
+
+2. THE THREE PRIMARY (FUNDAMENTAL) AXIOMS
+--------------------------------------------------------------------------------
+
+RULE 1: AXIOM OF REFLEXIVITY (Subset Rule)
+• Formula: If Y ⊆ X, then X → Y
+• Explanation: If attribute set Y is a subset of X, then X functionally determines Y.
+• Example: `{student_id, student_name} → student_id` (Trivial dependency).
+
+RULE 2: AXIOM OF AUGMENTATION (Enrichment Rule)
+• Formula: If X → Y, then XZ → YZ for any attribute set Z
+• Explanation: Adding the same set of attributes Z to both the determinant and the dependent preserves the dependency.
+• Example: If `student_id → student_name`, then `{student_id, course_id} → {student_name, course_id}`.
+
+RULE 3: AXIOM OF TRANSITIVITY (Chaining Rule)
+• Formula: If X → Y and Y → Z, then X → Z
+• Explanation: If X determines Y, and Y determines Z, then X transitively determines Z.
+• Example: If `student_id → department_id` and `department_id → department_head`, then `student_id → department_head`.
+
+
+3. THE SECONDARY (DERIVED) INFERENCE RULES
+--------------------------------------------------------------------------------
+These rules can be rigorously proven using the 3 primary axioms:
+
+RULE 4: DECOMPOSITION / PROJECTIVITY RULE
+• Formula: If X → YZ, then X → Y and X → Z
+• Proof: Since Y ⊆ YZ, YZ → Y (Reflexivity). Given X → YZ and YZ → Y, X → Y (Transitivity).
+• Example: `student_id → {name, city}` implies `student_id → name` and `student_id → city`.
+
+RULE 5: UNION / ADDITIVE RULE
+• Formula: If X → Y and X → Z, then X → YZ
+• Proof: From X → Y, XX → XY ➔ X → XY (Augmentation). From X → Z, XY → YZ (Augmentation). 
+  By Transitivity on X → XY and XY → YZ, we get X → YZ.
+• Example: `course_id → title` and `course_id → fee` implies `course_id → {title, fee}`.
+
+RULE 6: PSEUDOTRANSITIVITY RULE
+• Formula: If X → Y and WY → Z, then WX → Z
+• Proof: From X → Y, WX → WY (Augmentation). Given WY → Z, by Transitivity on WX → WY and WY → Z, WX → Z.
+• Example: If `student_id → roll_no` and `{roll_no, exam_id} → marks`, then `{student_id, exam_id} → marks`.
+
+
+4. APPLICATIONS OF ARMSTRONG'S AXIOMS IN DATABASE DESIGN
+--------------------------------------------------------------------------------
+1. Computing Attribute Closures (X+): Finding all attributes determined by X.
+2. Candidate Key Discovery: Finding all minimal sets of attributes whose closure equals the entire relation schema R.
+3. Minimal Cover (Canonical Cover) Synthesis: Simplifying redundant functional dependency sets into minimal canonical form.
+4. Equivalence Testing between two sets of functional dependencies (F ≡ G).
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Attempting to split Left-Hand Side determinants:
+   XY → Z does NOT mean X → Z and Y → Z! (e.g. `{student_id, course_id} → grade` cannot be split).
+2. Assuming Augmentation works without adding to BOTH sides:
+   If X → Y, then XZ → Y holds, but XZ → Y is derived via Augmentation (XZ → YZ) + Decomposition (YZ → Y).
+
+
+6. SUMMARY CHECKLIST FOR ARMSTRONG'S AXIOMS
+--------------------------------------------------------------------------------
+[x] Armstrong's Axioms are Sound (produce only true FDs) and Complete (produce all true FDs).
+[x] Primary Axiom 1: Reflexivity (If Y ⊆ X, then X → Y).
+[x] Primary Axiom 2: Augmentation (If X → Y, then XZ → YZ).
+[x] Primary Axiom 3: Transitivity (If X → Y and Y → Z, then X → Z).
+[x] Derived Rule 1: Decomposition (If X → YZ, then X → Y and X → Z).
+[x] Derived Rule 2: Union (If X → Y and X → Z, then X → YZ).
+[x] Derived Rule 3: Pseudotransitivity (If X → Y and WY → Z, then WX → Z).
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

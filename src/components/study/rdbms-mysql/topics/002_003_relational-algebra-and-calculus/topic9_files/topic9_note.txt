@@ -1,0 +1,96 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 9: Semijoin (⋉) and Antijoin (▷) Operators for Existence and Non-Existence
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. SEMIJOIN (⋉) DEFINITION & MATHEMATICAL SEMANTICS
+--------------------------------------------------------------------------------
+The Semijoin (denoted by the left bowtie symbol, $\ltimes$) is a binary relational operator
+that returns all tuples from relation $R$ for which there exists at least one matching tuple
+in relation $S$ on the join condition.
+
+MATHEMATICAL DEFINITIONS:
+$$R \ltimes_\theta S = \pi_{\text{Attrs}(R)}(R \bowtie_\theta S)$$
+$$R \ltimes S = \pi_{\text{Attrs}(R)}(R \bowtie S)$$
+
+KEY MATHEMATICAL PROPERTIES OF SEMIJOIN:
+1. DEGREE (ARITY) PRESERVATION:
+   $$\text{Degree}(R \ltimes S) = \text{Degree}(R)$$
+   (Attributes of $S$ are completely discarded from the output schema).
+2. CARDINALITY PRESERVATION & DEDUPLICATION:
+   $$0 \le |R \ltimes S| \le |R|$$
+   (Unlike standard Join, duplicate matching tuples in $S$ NEVER multiply rows in $R$!).
+3. NON-COMMUTATIVE:
+   $$R \ltimes S \not\equiv S \ltimes R$$
+4. SQL EQUIVALENCE:
+   - `WHERE EXISTS (SELECT 1 FROM S WHERE R.id = S.id)`
+   - `WHERE R.id IN (SELECT S.id FROM S)`
+
+
+2. ANTIJOIN (▷ OR $\bar{\ltimes}$) DEFINITION & MATHEMATICAL SEMANTICS
+--------------------------------------------------------------------------------
+The Antijoin (denoted by the triangle or negated semijoin symbol, $\triangleright$) is the
+relational complement of Semijoin. It returns all tuples from relation $R$ for which NO matching
+tuple exists in relation $S$.
+
+MATHEMATICAL DEFINITION:
+$$R \triangleright_\theta S = R - (R \ltimes_\theta S)$$
+
+KEY MATHEMATICAL PROPERTIES OF ANTIJOIN:
+1. DEGREE (ARITY) PRESERVATION:
+   $$\text{Degree}(R \triangleright S) = \text{Degree}(R)$$
+2. CARDINALITY BOUNDS:
+   $$0 \le |R \triangleright S| \le |R|$$
+3. PARTITION THEOREM:
+   $$(R \ltimes S) \cup (R \triangleright S) \equiv R \quad \text{and} \quad (R \ltimes S) \cap (R \triangleright S) \equiv \emptyset$$
+   (Semijoin and Antijoin form an exact disjoint partition of relation $R$!).
+4. SQL EQUIVALENCE:
+   - `WHERE NOT EXISTS (SELECT 1 FROM S WHERE R.id = S.id)`
+   - `WHERE R.id NOT IN (SELECT S.id FROM S WHERE S.id IS NOT NULL)`
+   - `LEFT JOIN S ON R.id = S.id WHERE S.id IS NULL`
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Enrolled Students (Semijoin - Existence Check)
+-- Relational Algebra: $\text{Students} \ltimes \text{Enrollments}$
+SELECT s.*
+FROM students s
+WHERE EXISTS (SELECT 1 FROM enrollments e WHERE e.student_id = s.student_id);
+
+CASE 2: Unenrolled / Inactive Students (Antijoin - Non-Existence Check)
+-- Relational Algebra: $\text{Students} \triangleright \text{Enrollments}$
+SELECT s.*
+FROM students s
+LEFT JOIN enrollments e ON s.student_id = e.student_id
+WHERE e.student_id IS NULL;
+
+
+4. THE NOT IN NULL TRAP (WHY NOT EXISTS IS SAFER IN SQL)
+--------------------------------------------------------------------------------
+• If subquery `SELECT student_id FROM enrollments` contains even a single `NULL` value:
+  `WHERE student_id NOT IN (SELECT student_id FROM enrollments)` evaluates to UNKNOWN for all rows!
+  The entire query returns 0 rows!
+• Solution: Always use `WHERE NOT EXISTS` or ensure `NOT IN (SELECT col WHERE col IS NOT NULL)`.
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Using `INNER JOIN` instead of Semijoin when only checking existence:
+   - Causes accidental row multiplication when a student has 5 enrollments.
+2. The `NOT IN` NULL Trap in SQL Antijoins.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use Semijoin ($R \ltimes S$) to test existence without multiplying rows of $R$.
+[x] Use Antijoin ($R \triangleright S$) to find non-matching records (missing references).
+[x] Use `NOT EXISTS` or Left Anti-Join to avoid the SQL `NOT IN` NULL trap.
+[x] Remember that $(R \ltimes S) \cup (R \triangleright S) \equiv R$.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

@@ -1,0 +1,107 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 14: Step-by-Step Mapping: Weak Entities, 1:1 Relationships & 1:N Relationships
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. STEPS 2, 3, AND 4 OF THE ER-TO-RELATIONAL MAPPING ALGORITHM
+--------------------------------------------------------------------------------
+After mapping regular strong entities (Step 1), the algorithm tackles:
+• Step 2: Weak Entity Types & Identifying Relationships.
+• Step 3: Binary 1:1 Relationship Types (3 Alternative Mapping Strategies).
+• Step 4: Binary 1:N Relationship Types (Foreign Key Approach).
+
+
+2. STEP 2: MAPPING WEAK ENTITY TYPES
+--------------------------------------------------------------------------------
+RULE FOR STEP 2:
+• For each Weak Entity Type $W$ with Owner Entity Type $E$:
+  1) Create a relation $R_W$ containing all simple attributes of $W$.
+  2) Include the PRIMARY KEY of $E$ as a FOREIGN KEY attribute in $R_W$.
+  3) The PRIMARY KEY of $R_W$ is the COMPOSITE KEY:
+     $PK(R_W) = \{ PK(E), \text{Partial Key (Discriminator) of } W \}$.
+  4) Add `ON DELETE CASCADE` so deleting the owner automatically removes its weak entities.
+
+
+3. STEP 3: MAPPING BINARY 1:1 RELATIONSHIP TYPES
+--------------------------------------------------------------------------------
+There are THREE distinct relational strategies to map a 1:1 relationship $R$ between $S$ and $T$:
+
+STRATEGY 3A: FOREIGN KEY APPROACH (MOST COMMON)
+• Choose one relation (preferably the one with TOTAL participation) and embed the Primary Key
+  of the other relation as a `UNIQUE` Foreign Key.
+• Example: `departments` table embeds `manager_emp_id INT UNIQUE` pointing to `employees`.
+
+STRATEGY 3B: MERGED RELATION APPROACH (TOTAL PARTICIPATION ON BOTH SIDES)
+• If BOTH entities have Total (Mandatory) participation in the 1:1 relationship, merge both
+  entities and the relationship into a SINGLE unified relational table.
+
+STRATEGY 3C: CROSS-REFERENCE / RELATIONSHIP RELATION APPROACH
+• Create a dedicated 2-column table `rel_table(PK_S, PK_T UNIQUE)`; useful if both sides are
+  partial and rarely linked, avoiding NULL columns.
+
+
+4. STEP 4: MAPPING BINARY 1:N RELATIONSHIP TYPES
+--------------------------------------------------------------------------------
+RULE FOR STEP 4 (FOREIGN KEY APPROACH):
+• For each binary 1:N relationship $R$ between $S$ (the 1-side) and $T$ (the N-side):
+  1) Identify $T$ (the N-side / Many-side relation).
+  2) Embed the Primary Key of $S$ (the 1-side) as a FOREIGN KEY column in $T$.
+  3) Include any simple relationship attributes of $R$ directly as columns in $T$.
+• Example: In `Department(1) ──< Employs >── (N) Employee`, embed `dept_id INT` into `employees`.
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Step 2 Weak Entity (Mamata's Barrackpore Academy Student Dependents)
+CREATE TABLE student_dependents (
+    student_id INT NOT NULL, -- Owner PK as FK
+    dependent_name VARCHAR(50) NOT NULL, -- Partial Key
+    relationship VARCHAR(30) NOT NULL,
+    PRIMARY KEY (student_id, dependent_name),
+    CONSTRAINT fk_dep_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CASE 2: Step 3 1:1 Relationship (Faculty Manages Department)
+CREATE TABLE departments (
+    dept_id INT AUTO_INCREMENT PRIMARY KEY,
+    dept_name VARCHAR(100) NOT NULL,
+    head_faculty_id INT NOT NULL UNIQUE, -- Embedded 1:1 Unique FK (Strategy 3A)
+    assigned_date DATE NOT NULL,
+    CONSTRAINT fk_dept_head FOREIGN KEY (head_faculty_id)
+        REFERENCES faculty(faculty_id)
+) ENGINE=InnoDB;
+
+CASE 3: Step 4 1:N Relationship (Department Employs Faculty)
+CREATE TABLE faculty (
+    faculty_id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    dept_id INT NOT NULL, -- Embedded 1-side FK in N-side table
+    CONSTRAINT fk_faculty_dept FOREIGN KEY (dept_id)
+        REFERENCES departments(dept_id)
+) ENGINE=InnoDB;
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Forgetting `UNIQUE` Constraint on 1:1 Foreign Keys:
+   - Omitting `UNIQUE` turns a 1:1 relationship into a 1:N relationship!
+2. Embedding Foreign Key in the 1-Side for 1:N Relationships:
+   - Trying to embed employee IDs inside the Department table violates 1NF.
+3. Standalone Surrogate PKs on Weak Entities:
+   - Defining `dependent_id AUTO_INCREMENT PRIMARY KEY` without composite owner linkage breaks identifying semantics.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Weak entity PK = Composite of `{Owner_PK, Partial_Key}` with `ON DELETE CASCADE`.
+[x] 1:1 Relationship: Embed foreign key in the table with Total participation and mark it `UNIQUE`.
+[x] 1:N Relationship: Embed the 1-side PK as a foreign key in the N-side (child) table.
+[x] Place relationship attributes directly inside the N-side table for 1:N associations.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

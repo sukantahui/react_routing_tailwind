@@ -1,0 +1,106 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_001 - Table Relationships & Referential Actions
+TOPIC 4: Composite Primary Keys in Junction Tables
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A COMPOSITE PRIMARY KEY IN A JUNCTION TABLE?
+--------------------------------------------------------------------------------
+A Composite Primary Key is a Primary Key composed of two or more columns combined together to
+uniquely identify each record in a table. In Many-to-Many junction tables, the Composite Primary Key
+almost always consists of the Foreign Keys referencing the two parent entities:
+`PRIMARY KEY (student_id, course_id)`.
+
+KEY ADVANTAGES:
+1. Engine-Level Duplicate Prevention:
+   - Eliminates duplicate pairings (e.g. Student #101 cannot be enrolled in Course #1 twice).
+2. Clustered Storage Efficiency:
+   - In MySQL InnoDB, the junction table rows are physically clustered and sorted by `(student_id, course_id)`.
+   - All courses for Student #101 are stored in adjacent memory locations on the same disk page!
+3. Eliminates Redundant Surrogate IDs:
+   - No wasted 4-byte or 8-byte `id AUTO_INCREMENT` column and no secondary index overhead.
+
+
+2. THE B-TREE LEFTMOST PREFIX RULE & THE REVERSE INDEX
+--------------------------------------------------------------------------------
+When a table has `PRIMARY KEY (student_id, course_id)`:
+• The InnoDB B-Tree index is sorted first by `student_id`, then by `course_id`.
+• Fast Lookup: `WHERE student_id = 101` (Uses leftmost prefix of PK index).
+• Fast Lookup: `WHERE student_id = 101 AND course_id = 2` (Uses full PK index).
+• SLOW Full Table Scan: `WHERE course_id = 2` (Cannot use leftmost prefix!).
+
+THE ESSENTIAL REVERSE INDEX:
+To make lookups by the second column lightning fast, you MUST create a secondary reverse index:
+CREATE INDEX idx_reverse_course_student ON student_courses (course_id, student_id);
+
+
+3. COMPOSITE PK VS SURROGATE ID + UNIQUE CONSTRAINT
+--------------------------------------------------------------------------------
+PATTERN A: Pure Composite Primary Key (Preferred for standard junction links):
+CREATE TABLE student_courses (
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    grade CHAR(2) NOT NULL DEFAULT 'A',
+    PRIMARY KEY (student_id, course_id),
+    CONSTRAINT fk_sc_student FOREIGN KEY (student_id) REFERENCES students(student_id),
+    CONSTRAINT fk_sc_course FOREIGN KEY (course_id) REFERENCES courses(course_id)
+) ENGINE=InnoDB;
+
+PATTERN B: Surrogate ID + Composite UNIQUE (Preferred if child tables reference this junction):
+CREATE TABLE student_courses (
+    enrollment_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    grade CHAR(2) NOT NULL DEFAULT 'A',
+    UNIQUE KEY uq_student_course (student_id, course_id),
+    CONSTRAINT fk_sc_student FOREIGN KEY (student_id) REFERENCES students(student_id),
+    CONSTRAINT fk_sc_course FOREIGN KEY (course_id) REFERENCES courses(course_id)
+) ENGINE=InnoDB;
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Skill Matrix
+CREATE TABLE student_skills (
+    student_id INT NOT NULL,
+    skill_code VARCHAR(20) NOT NULL,
+    proficiency_level ENUM('Beginner', 'Intermediate', 'Expert') NOT NULL DEFAULT 'Intermediate',
+    certified_at DATE NOT NULL DEFAULT (CURRENT_DATE),
+    PRIMARY KEY (student_id, skill_code),
+    INDEX idx_skill_lookup (skill_code, student_id)
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Shopping Cart Items
+CREATE TABLE cart_items (
+    cart_id BIGINT UNSIGNED NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    added_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (cart_id, product_id),
+    INDEX idx_product_in_carts (product_id, cart_id)
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Omitting the Reverse Index:
+   - Querying "Show all students in React course" does a full table scan without `INDEX (course_id, student_id)`.
+2. Wrong Column Order in Composite PK:
+   - Put the most frequently filtered column first in the composite PK.
+3. Too Many Columns in Composite PK:
+   - Avoid composite keys with 4+ columns; index trees become bloated and secondary lookups slow down.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use `PRIMARY KEY (parent_a_id, parent_b_id)` for pure junction tables.
+[x] Always add a reverse index on `(parent_b_id, parent_a_id)`.
+[x] Put the most selectively queried ID as the leading column in the composite key.
+[x] Switch to Surrogate ID + UNIQUE if other tables need to foreign-key reference this junction.
+[x] Store temporal payload attributes (e.g. `added_at`, `proficiency`) in the junction table.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

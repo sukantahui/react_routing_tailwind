@@ -1,0 +1,110 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 8: SELECT Syntax, Column Aliasing (AS), and DISTINCT Keyword
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THE SELECT STATEMENT?
+--------------------------------------------------------------------------------
+The `SELECT` statement is the cornerstone of SQL DQL (Data Query Language). It retrieves
+data tuples from one or more tables, calculates derived expressions, formats output projections,
+and filters records according to business logic.
+
+A. BASIC SYNTAX:
+   SELECT [DISTINCT] column_1, column_2, expression AS alias_name
+   FROM table_name;
+
+B. WHY SELECT * IS AN ANTI-PATTERN IN PRODUCTION:
+• Wastes network bandwidth and RAM transferring unused columns (like large `TEXT` or `BLOB` fields).
+• Defeats InnoDB Covering Indexes (forces full-row secondary-to-clustered index lookups).
+• Breaks frontend code if table columns are added, removed, or reordered.
+• Always explicitly project needed columns: `SELECT student_id, first_name, email FROM students;`.
+
+
+2. COLUMN ALIASING WITH THE AS KEYWORD
+--------------------------------------------------------------------------------
+Column aliases assign temporary, descriptive labels to projected columns in the result set:
+• Improves readability for computed expressions (e.g. `CONCAT(first_name, ' ', last_name) AS full_name`).
+• Maps database identifiers to camelCase API response models (e.g. `admission_fee AS admissionFee`).
+• Disambiguates duplicate column names in multi-table joins.
+
+SYNTAX & EXAMPLES:
+SELECT
+    student_id AS id,
+    CONCAT(first_name, ' ', last_name) AS full_name,
+    admission_fee AS `Course Fee (₹)`
+FROM students;
+
+Note: The `AS` keyword is optional in SQL, but writing it explicitly is recommended for code clarity.
+
+
+3. ELIMINATING DUPLICATES WITH THE DISTINCT KEYWORD
+--------------------------------------------------------------------------------
+The `DISTINCT` keyword removes duplicate rows from the query result set, returning only unique values.
+
+A. SINGLE-COLUMN DISTINCT:
+   -- Get list of unique cities where students reside
+   SELECT DISTINCT city FROM students;
+
+B. MULTI-COLUMN (COMPOSITE) DISTINCT:
+   When multiple columns are specified, DISTINCT applies to the COMBINATION of all columns:
+   SELECT DISTINCT department, course_name FROM courses;
+   -- Returns unique department + course combinations.
+
+C. COUNTING UNIQUE VALUES WITH COUNT(DISTINCT):
+   -- Count total unique active cities
+   SELECT COUNT(DISTINCT city) AS total_unique_cities FROM students;
+
+
+4. EVALUATING CONSTANT EXPRESSIONS & FUNCTIONS
+--------------------------------------------------------------------------------
+In MySQL, `SELECT` can be executed without a `FROM` clause to evaluate expressions:
+• Mathematical calculations: `SELECT 15000 * 1.18 AS fee_with_gst;` -- ₹17,700.00
+• Built-in functions: `SELECT VERSION(), CURRENT_DATE(), DATABASE();`
+• String manipulations: `SELECT UPPER('Barrackpore') AS city_upper;`
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Generating Student Billing Roster in Barrackpore College
+SELECT
+    roll_no AS "Registration Number",
+    CONCAT(first_name, ' ', last_name) AS "Student Name",
+    email AS "Contact Email",
+    admission_fee AS "Tuition (₹)",
+    ROUND(admission_fee * 0.18, 2) AS "GST Tax (18%)",
+    ROUND(admission_fee * 1.18, 2) AS "Total Due (₹)"
+FROM students;
+
+CASE 2: Debangshu Finding Unique Product Categories in Kolkata E-Commerce
+SELECT DISTINCT
+    category_name AS "Product Category",
+    brand_name AS "Brand"
+FROM products
+ORDER BY category_name, brand_name;
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Using Column Aliases in the `WHERE` Clause:
+   - `SELECT admission_fee * 1.18 AS total_fee FROM students WHERE total_fee > 20000;` FAILS!
+   - Why? SQL logical processing order executes `WHERE` BEFORE `SELECT`. Use `HAVING` or repeat the expression in `WHERE`.
+2. Assuming `DISTINCT` Applies to Only the First Column:
+   - `SELECT DISTINCT col1, col2` applies to `(col1, col2)` combined, NOT `col1` alone.
+3. Overusing `DISTINCT` to Mask Bad Joins:
+   - If a JOIN produces unexpected duplicate rows, fix the Cartesian join condition rather than slapping `DISTINCT` on top.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Never use `SELECT *` in backend production code; explicitly name required columns.
+[x] Use explicit `AS alias_name` to improve query self-documentation and API mapping.
+[x] Use `DISTINCT` to eliminate redundant duplicate rows in categorical lookups.
+[x] Use `COUNT(DISTINCT col)` to accurately count unique entities.
+[x] Remember SQL execution order: `FROM` -> `WHERE` -> `GROUP BY` -> `HAVING` -> `SELECT` -> `DISTINCT` -> `ORDER BY` -> `LIMIT`.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

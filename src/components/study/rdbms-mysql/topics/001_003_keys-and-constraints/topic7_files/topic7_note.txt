@@ -1,0 +1,103 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 7: CHECK Constraint (Enforcing Business Rules & Value Ranges)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A CHECK CONSTRAINT?
+--------------------------------------------------------------------------------
+A `CHECK` constraint enforces customized domain validation and business boundary rules on column
+values. When an `INSERT` or `UPDATE` statement is executed, MySQL evaluates the Boolean expression
+defined in the CHECK constraint:
+• If the expression evaluates to `TRUE` (or `UNKNOWN` due to NULLs), the row is committed.
+• If the expression evaluates to `FALSE`, MySQL rejects the operation with Error 3819 (HY000).
+
+CRITICAL MYSQL VERSION NOTE:
+• In older MySQL 5.7 and earlier: CHECK constraints were parsed syntactically for SQL compatibility
+  but SILENTLY IGNORED at runtime.
+• In MySQL 8.0.16+: CHECK constraints are FULLY ENFORCED by the storage engine.
+
+
+2. SINGLE-COLUMN VS MULTI-COLUMN CHECK CONSTRAINTS
+--------------------------------------------------------------------------------
+A. SINGLE-COLUMN CHECK:
+   Validates rules restricted to a single attribute:
+   CREATE TABLE students (
+       student_id INT AUTO_INCREMENT PRIMARY KEY,
+       admission_fee DECIMAL(10, 2) NOT NULL,
+       age INT NOT NULL,
+       CONSTRAINT chk_min_fee CHECK (admission_fee >= 10000.00),
+       CONSTRAINT chk_valid_age CHECK (age >= 16 AND age <= 65)
+   );
+
+B. MULTI-COLUMN (ROW-LEVEL) CHECK:
+   Validates logical relationships between two or more columns in the same row:
+   CREATE TABLE student_leaves (
+       leave_id INT AUTO_INCREMENT PRIMARY KEY,
+       start_date DATE NOT NULL,
+       end_date DATE NOT NULL,
+       discount_code VARCHAR(20),
+       discount_percent DECIMAL(5, 2) NOT NULL DEFAULT 0.00,
+       -- Rule 1: End date must be on or after start date
+       CONSTRAINT chk_date_sequence CHECK (end_date >= start_date),
+       -- Rule 2: Discount percent must be between 0% and 50%
+       CONSTRAINT chk_discount_range CHECK (discount_percent BETWEEN 0.00 AND 50.00)
+   );
+
+
+3. NULL EVALUATION IN CHECK CONSTRAINTS
+--------------------------------------------------------------------------------
+In SQL three-valued logic, if any operand in a CHECK expression is `NULL`, the expression
+evaluates to `UNKNOWN`.
+In SQL standards and MySQL, an `UNKNOWN` check condition is treated as SATISFIED (not violated)!
+Therefore, a CHECK constraint alone will NOT prevent NULL values unless combined with `NOT NULL`.
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Admission Validation Schema
+CREATE TABLE student_admissions (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    admission_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00,
+    gpa DECIMAL(3, 2) NOT NULL DEFAULT 3.50,
+    -- Domain Business Constraints
+    CONSTRAINT chk_non_empty_name CHECK (TRIM(first_name) != ''),
+    CONSTRAINT chk_fee_floor CHECK (admission_fee >= 10000.00),
+    CONSTRAINT chk_gpa_range CHECK (gpa >= 0.00 AND gpa <= 4.00)
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Order Discount & Total Rules
+CREATE TABLE orders (
+    order_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    subtotal DECIMAL(10, 2) NOT NULL,
+    discount_amount DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    final_total DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT chk_discount_valid CHECK (discount_amount >= 0.00 AND discount_amount <= subtotal),
+    CONSTRAINT chk_final_math CHECK (final_total = (subtotal - discount_amount))
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Assuming CHECK Enforces NOT NULL:
+   - `CHECK (fee >= 10000)` allows NULL because `NULL >= 10000` evaluates to UNKNOWN.
+2. Cross-Table or Subquery References:
+   - CHECK constraints CANNOT reference columns in other tables or contain subqueries. Use Triggers for cross-table rules.
+3. Using Non-Deterministic Functions (`NOW()`, `RAND()`):
+   - Prohibited in CHECK constraints to ensure consistent row validation over time.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Name every CHECK constraint explicitly (`CONSTRAINT chk_tablename_rule ...`).
+[x] Pair `CHECK` with `NOT NULL` to prevent NULL bypasses.
+[x] Use CHECK for numeric bounds (`BETWEEN 0 AND 100`) and date sequence verification (`end >= start`).
+[x] Use `CHECK (TRIM(col) != '')` on mandatory text columns to prevent blank whitespace entries.
+[x] Verify MySQL version is 8.0.16+ for active runtime engine enforcement.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

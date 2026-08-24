@@ -1,0 +1,91 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 19: Complex Relational Algebra Worked Examples & Step-by-Step Exercise Solutions
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. MODULE CAPSTONE: THE RELATIONAL ALGEBRA SOLVER WORKBENCH
+--------------------------------------------------------------------------------
+This topic synthesizes all concepts across Module 002_003: Core Operators ($\sigma, \pi, \rho, \cup, \cap, -, \times$),
+Joins ($\bowtie_\theta, \bowtie, \mathbin{\unicode{x27D5}}, \mathbin{\unicode{x27D6}}, \mathbin{\unicode{x27D7}}, \ltimes, \triangleright$),
+Universal Division ($\div$), Extended Operators ($\pi_F, {}_G \mathcal{G}_F$), Query Tree Optimization, and Calculus.
+
+DATABASE BENCHMARK SCHEMA:
+• `Students(student_id, full_name, city, admission_fee)`
+• `Courses(course_id, course_title, fee, instructor)`
+• `Enrollments(student_id, course_id, grade, enrollment_date)`
+• `Core_Courses(course_id)`
+
+
+2. THE 5 CAPSTONE WORKED EXERCISES & SOLUTIONS
+--------------------------------------------------------------------------------
+EXERCISE 1: High-Value Student Roster with GST Calculation
+-- Question: Find names of Barrackpore students with admission fee > ₹4000 and calculate 18% GST.
+-- Relational Algebra:
+   $$\pi_{\text{full\_name, admission\_fee}, \text{admission\_fee} \times 1.18 \rightarrow \text{fee\_with\_gst}}(\sigma_{\text{city='Barrackpore'} \land \text{admission\_fee} > 4000}(\text{Students}))$$
+-- SQL:
+   SELECT full_name, admission_fee, ROUND(admission_fee * 1.18, 2) AS fee_with_gst
+   FROM students
+   WHERE city = 'Barrackpore' AND admission_fee > 4000;
+
+EXERCISE 2: Left Anti-Join for Inactive / Unenrolled Students
+-- Question: Find students who have NEVER enrolled in any course.
+-- Relational Algebra:
+   $$\text{Students} \triangleright \text{Enrollments} \equiv \text{Students} - (\text{Students} \ltimes \text{Enrollments})$$
+-- SQL:
+   SELECT s.* FROM students s
+   LEFT JOIN enrollments e ON s.student_id = e.student_id
+   WHERE e.student_id IS NULL;
+
+EXERCISE 3: Relational Division for Universal Core Completers
+-- Question: Find students who have completed ALL courses listed in `Core_Courses`.
+-- Relational Algebra:
+   $$\pi_{\text{student\_id, course\_id}}(\text{Enrollments}) \div \text{Core\_Courses}$$
+-- SQL:
+   SELECT s.student_id, s.full_name
+   FROM enrollments e JOIN students s ON e.student_id = s.student_id
+   WHERE e.course_id IN (SELECT course_id FROM core_courses)
+   GROUP BY s.student_id, s.full_name
+   HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);
+
+EXERCISE 4: City-Wise Revenue Breakdown with HAVING Filter
+-- Question: Find cities with at least 2 enrolled students and average fee >= ₹4500.
+-- Relational Algebra:
+   $$\sigma_{\text{cnt} \ge 2 \land \text{avg} \ge 4500}({}_{\text{city}} \mathcal{G}_{\text{COUNT}(*) \rightarrow \text{cnt}, \text{AVG(fee)} \rightarrow \text{avg}}(\text{Students}))$$
+-- SQL:
+   SELECT city, COUNT(*) AS student_count, AVG(admission_fee) AS avg_fee
+   FROM students
+   GROUP BY city
+   HAVING COUNT(*) >= 2 AND AVG(admission_fee) >= 4500;
+
+EXERCISE 5: 360° Academic Audit (Full Outer Join Emulation)
+-- Question: Produce a complete roster showing all students and courses, including unmatched rows.
+-- Relational Algebra: $\text{Students} \mathbin{\unicode{x27D7}} \text{Courses}$
+-- SQL:
+   SELECT s.student_id, s.full_name, c.course_id, c.course_title
+   FROM students s LEFT JOIN enrollments e ON s.student_id = e.student_id LEFT JOIN courses c ON e.course_id = c.course_id
+   UNION
+   SELECT s.student_id, s.full_name, c.course_id, c.course_title
+   FROM students s RIGHT JOIN enrollments e ON s.student_id = e.student_id RIGHT JOIN courses c ON e.course_id = c.course_id;
+
+
+3. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Forgetting to project out extra columns before Relational Division ($\div$).
+2. Using `UNION ALL` instead of `UNION` in Full Outer Join emulations.
+3. Filtering right-table attributes in `WHERE` instead of `ON` during Left Outer Joins.
+
+
+4. MASTER CHECKLIST & MODULE CONCLUSION
+--------------------------------------------------------------------------------
+[x] Master the 5 fundamental operators: $\sigma, \pi, \rho, \cup, -$.
+[x] Master the derivative operators: $\bowtie, \times, \cap, \div, \ltimes, \triangleright, \mathbin{\unicode{x27D5}}, \mathbin{\unicode{x27D6}}, \mathbin{\unicode{x27D7}}$.
+[x] Master the extended operators: $\pi_F, {}_G \mathcal{G}_F$.
+[x] Master Heuristic Query Tree Optimization (pushing $\sigma$ and $\pi$ down).
+[x] Master TRC, DRC, and Codd's Reduction Theorem.
+
+================================================================================
+END OF STUDY NOTE · MODULE 002_003 COMPLETE · Coder & AccoTax · Barrackpore
+================================================================================

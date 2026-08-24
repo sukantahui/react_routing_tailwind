@@ -1,0 +1,107 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_005 - Mastering SQL Joins & Multi-Table Queries
+TOPIC 5: SELF JOIN: Querying Hierarchical Data within a Single Table
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A SELF JOIN?
+--------------------------------------------------------------------------------
+A `SELF JOIN` is a regular SQL join operation in which a table is joined to ITSELF.
+In relational databases, there is no special `SELF JOIN` keyword. Instead, a self join 
+is constructed by referencing the same physical table twice in the `FROM` clause 
+using two distinct table aliases (e.g. `FROM employees e JOIN employees m`).
+
+Core Purpose:
+Self Joins are designed to query unary (recursive) relationships and hierarchical structures 
+where a row in a table references another row in the same table via a recursive foreign key.
+
+
+2. COMMON REAL-WORLD HIERARCHICAL USE CASES
+--------------------------------------------------------------------------------
+1. Organizational Employee-Manager Hierarchy:
+   • Table: `employees(emp_id, emp_name, manager_id)`
+   • `manager_id` is a foreign key referencing `emp_id` in the same table.
+2. Category / Sub-Category Navigation Trees:
+   • Table: `categories(category_id, category_name, parent_category_id)`
+3. Course Prerequisites:
+   • Table: `courses(course_id, course_title, prerequisite_course_id)`
+4. Peer Comparison & Same-City Colleague Matching:
+   • Finding pairs of students who live in the same city.
+
+
+3. THE BENCHMARK ACADEMY & TECH TEAM EXAMPLE
+--------------------------------------------------------------------------------
+Table: `tech_staff`
+| staff_id | staff_name     | role             | manager_id |
+| -------- | -------------- | ---------------- | ---------- |
+| S101     | Sukanta Hui    | Founder & Director| NULL       |
+| S102     | Mamata Hui     | Lead Instructor  | S101       |
+| S103     | Debangshu Roy  | DB Architect     | S101       |
+| S104     | Abhronila Das  | Junior Developer | S103       |
+| S105     | Susmita Sen    | React Developer  | S102       |
+
+Query 1: Inner Self Join (Excludes the Top Boss with manager_id = NULL):
+```sql
+SELECT 
+    e.staff_name AS employee_name,
+    e.role AS employee_role,
+    m.staff_name AS reports_to_manager
+FROM tech_staff e
+INNER JOIN tech_staff m ON e.manager_id = m.staff_id;
+```
+
+Query 2: Left Self Join (Preserves Top Director Sukanta Hui):
+```sql
+SELECT 
+    e.staff_name AS employee_name,
+    e.role AS employee_role,
+    COALESCE(m.staff_name, 'Top Leadership / Executive') AS reports_to_manager
+FROM tech_staff e
+LEFT JOIN tech_staff m ON e.manager_id = m.staff_id;
+```
+
+
+4. PEER COMPARISONS & COMBINATIONS USING SELF JOIN
+--------------------------------------------------------------------------------
+Self Joins are also used to compare rows within the same table without hierarchies:
+
+```sql
+-- Finding distinct pairs of students who live in the same city:
+SELECT 
+    s1.student_name AS student_1,
+    s2.student_name AS student_2,
+    s1.city
+FROM students s1
+INNER JOIN students s2 
+    ON s1.city = s2.city 
+   AND s1.student_id < s2.student_id; -- Prevents self-pairing & duplicate (A,B)/(B,A) pairs!
+```
+Why `s1.student_id < s2.student_id`:
+• `s1.id != s2.id` eliminates self-matches (Mamata matched with Mamata), but produces duplicate reverse pairs (Mamata & Debangshu + Debangshu & Mamata).
+• `s1.id < s2.id` eliminates BOTH self-matches and reverse duplicate pairings!
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Forgetting Table Aliases:
+   MySQL will throw `ERROR 1066 (42000): Not unique table/alias` if you write `FROM employees JOIN employees`.
+2. Using INNER JOIN for Root Nodes:
+   The CEO / Director (where `manager_id IS NULL`) will vanish unless you use `LEFT JOIN`.
+3. Deep Hierarchy Recursion:
+   Self joins work best for 1-level or 2-level parent-child lookups. For arbitrary N-level 
+   hierarchical trees, use MySQL 8.0 Recursive Common Table Expressions (`WITH RECURSIVE`).
+
+
+6. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Self Join joins a table to itself using two distinct table aliases (`e` and `m`).
+[x] Models unary / recursive relationships (Employee-Manager, Categories, Prerequisites).
+[x] Use `LEFT JOIN` on self joins to preserve root leadership rows (`manager_id IS NULL`).
+[x] Use `a.id < b.id` for peer comparison queries to eliminate mirror duplicates.
+[x] For multi-level tree traversal across unlimited depths, pair self joins with CTEs (`WITH RECURSIVE`).
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore, West Bengal
+================================================================================

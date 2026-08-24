@@ -1,0 +1,90 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 3: Strong Entity Sets vs Weak Entity Sets & Identifying Relationships
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. STRONG (REGULAR) ENTITY SETS VS WEAK ENTITY SETS
+--------------------------------------------------------------------------------
+A. STRONG ENTITY SET:
+   • Possesses its own independent Primary Key formed exclusively from its own attributes.
+   • Has existence independence: instances can exist in the database without being tied to another entity.
+   • Notation in Peter Chen ER: Single Rectangle (`[STUDENT]`).
+
+B. WEAK ENTITY SET:
+   • Does NOT have sufficient attributes to form its own primary key independently.
+   • Has existence dependency: an instance cannot exist without its owner (identifying) parent entity.
+   • Identified by combining its Partial Key (Discriminator) with the Primary Key of its Owner Entity.
+   • Notation in Peter Chen ER: DOUBLE RECTANGLE (`[[DEPENDENT]]`).
+
+
+2. IDENTIFYING RELATIONSHIP TYPES
+--------------------------------------------------------------------------------
+• An Identifying Relationship is the specific relationship that connects a Weak Entity Set
+  to its Owner Strong Entity Set.
+• Notation in Peter Chen ER: DOUBLE DIAMOND (`<< Has_Dependent >>`).
+• Structural Rule: Participation of the Weak Entity in the Identifying Relationship MUST BE TOTAL (Mandatory)!
+  Every weak entity instance MUST belong to an owner. (Drawn with a DOUBLE LINE between weak entity and double diamond).
+
+
+3. RELATIONAL SCHEMA MAPPING ALGORITHM FOR WEAK ENTITIES
+--------------------------------------------------------------------------------
+STEP 1: Create a table for the weak entity.
+STEP 2: Include all simple attributes (and flattened composite sub-attributes) of the weak entity.
+STEP 3: Include the Primary Key of the Owner Strong Entity as a Foreign Key column.
+STEP 4: Declare the Primary Key of the Weak Entity table as the COMPOSITE of:
+        `(Owner_PK, Weak_Entity_Partial_Key)`.
+STEP 5: Add a Foreign Key constraint with `ON DELETE CASCADE` so deleting the owner automatically wipes its dependent weak entities.
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Family Dependents
+-- Strong Owner Entity
+CREATE TABLE students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    city VARCHAR(50) NOT NULL DEFAULT 'Barrackpore'
+) ENGINE=InnoDB;
+
+-- Weak Entity (Double Rectangle in ER, Double Diamond Relationship)
+CREATE TABLE student_dependents (
+    student_id INT NOT NULL,               -- Foreign Key from Owner
+    dependent_name VARCHAR(50) NOT NULL,   -- Partial Key Discriminator
+    relationship_type VARCHAR(20) NOT NULL,
+    age INT NOT NULL,
+    PRIMARY KEY (student_id, dependent_name), -- Composite Primary Key
+    CONSTRAINT fk_dep_student FOREIGN KEY (student_id)
+        REFERENCES students(student_id)
+        ON DELETE CASCADE -- Owner deleted ➔ Dependents purged!
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata Multi-Building Campus Rooms
+-- Strong: buildings(building_code)
+-- Weak: building_rooms(building_code, room_number)
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Forgetting Partial Key Nullability:
+   - Partial keys must be `NOT NULL` because they participate in the Composite Primary Key.
+2. Using `SET NULL` on Weak Entity Foreign Keys:
+   - Setting owner FK to NULL destroys weak entity identity; weak entities MUST use `ON DELETE CASCADE`.
+3. Drawing Single Diamonds for Identifying Links:
+   - Always use Double Diamonds (`<< >>`) to connect weak entities in Peter Chen notation.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Represent Weak Entities with a Double Rectangle (`[[ ]]`) in Peter Chen notation.
+[x] Represent Identifying Relationships with a Double Diamond (`<< >>`).
+[x] Connect the Weak Entity to the Identifying Relationship with a Double Line (Total Participation).
+[x] Map Weak Entities to Composite Primary Keys `(owner_id, partial_key)`.
+[x] Configure `ON DELETE CASCADE` on weak entity foreign keys for clean automated lifecycle management.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

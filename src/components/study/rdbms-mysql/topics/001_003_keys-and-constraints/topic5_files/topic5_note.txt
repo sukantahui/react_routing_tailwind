@@ -1,0 +1,90 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_003 - Keys, Constraints & Data Integrity
+TOPIC 5: NOT NULL Constraint (Enforcing Mandatory Field Values)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THE NOT NULL CONSTRAINT?
+--------------------------------------------------------------------------------
+The `NOT NULL` constraint enforces that a column must always hold a concrete, non-missing value
+for every row in the table. An attempt to insert or update a row with `NULL` into a `NOT NULL`
+column is rejected by MySQL InnoDB with Error 1048.
+
+WHY NOT NULL MATTERS IN RDBMS:
+• Guarantees data completeness for mandatory business attributes (names, amounts, dates).
+• Optimizes storage engine memory: InnoDB stores compact null bitmaps rather than allocating nullable overhead.
+• Eliminates three-valued logic (`TRUE`, `FALSE`, `UNKNOWN`) bugs in SQL comparison predicates.
+
+
+2. SYNTAX & CREATION OF NOT NULL COLUMNS
+--------------------------------------------------------------------------------
+A. INLINE DEFINITION IN CREATE TABLE:
+   CREATE TABLE students (
+       student_id INT AUTO_INCREMENT PRIMARY KEY,
+       first_name VARCHAR(50) NOT NULL,
+       last_name VARCHAR(50) NOT NULL,
+       admission_fee DECIMAL(10, 2) NOT NULL,
+       email VARCHAR(100) NOT NULL UNIQUE
+   );
+
+B. ADDING NOT NULL TO EXISTING COLUMNS WITH ALTER TABLE:
+   ALTER TABLE students MODIFY first_name VARCHAR(50) NOT NULL;
+   (Prerequisite: All existing rows in the column must have non-null values before executing).
+
+
+3. NULL VS EMPTY STRING ('') VS ZERO (0)
+--------------------------------------------------------------------------------
+• `NULL`: Represents the absence of a value (missing, unknown, or inapplicable).
+• `''` (Empty String): A concrete, valid string of length 0. Passes `NOT NULL` constraints!
+• `0`: A concrete numerical value. Passes `NOT NULL` constraints!
+
+WARNING:
+Inserting an empty string `''` into a `VARCHAR(50) NOT NULL` column will SUCCEED.
+To block empty whitespace strings, combine `NOT NULL` with a `CHECK (TRIM(col) != '')` constraint!
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student Enrollment Mandatory Fields
+CREATE TABLE student_admissions (
+    admission_id INT AUTO_INCREMENT PRIMARY KEY,
+    roll_no VARCHAR(20) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    admission_date DATE NOT NULL,
+    admission_fee DECIMAL(10, 2) NOT NULL DEFAULT 15000.00,
+    CONSTRAINT chk_first_name CHECK (TRIM(first_name) != '')
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata E-Commerce Financial Transaction Ledger
+CREATE TABLE financial_transactions (
+    txn_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    account_id INT NOT NULL,
+    amount DECIMAL(12, 2) NOT NULL,
+    txn_type ENUM('DEBIT', 'CREDIT') NOT NULL,
+    txn_timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Assuming `NOT NULL` Blocks Empty Strings `''`:
+   - Empty strings are not NULL. Use `CHECK (LENGTH(TRIM(name)) > 0)` to enforce meaningful text.
+2. Adding `NOT NULL` to Legacy Tables Containing NULLs:
+   - Fails with Error 1138 unless NULLs are populated with default values first.
+3. Non-Strict SQL Mode Coercion:
+   - In older legacy non-strict modes, inserting NULL into NOT NULL silently coerced to 0 or ''. Strict mode (`STRICT_TRANS_TABLES`) throws fatal errors.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Default to making columns `NOT NULL` unless there is an explicit business requirement for nullability.
+[x] Combine `NOT NULL` with `CHECK (TRIM(col) != '')` on text fields to prevent blank entries.
+[x] Provide `DEFAULT` values when declaring `NOT NULL` columns on high-volume tables.
+[x] Populate legacy NULL values before executing `ALTER TABLE MODIFY col NOT NULL`.
+[x] Keep `STRICT_TRANS_TABLES` enabled in MySQL configuration.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

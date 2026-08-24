@@ -1,0 +1,112 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_001 - Table Relationships & Referential Actions
+TOPIC 5: Self-Referencing Relationships (Hierarchies & Recursive Trees)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A SELF-REFERENCING (RECURSIVE) RELATIONSHIP?
+--------------------------------------------------------------------------------
+A Self-Referencing (or Recursive) relationship occurs when a Foreign Key in a table points
+directly to the Primary Key of the VERY SAME TABLE.
+
+COMMON USE CASES:
+1. Organizational Management Hierarchies:
+   - An employee reports to another employee (their manager).
+2. Category / Subcategory Trees:
+   - An e-commerce category (e.g. 'Laptops') has a parent category ('Electronics').
+3. Multi-Tier Comments & Threaded Discussion Forums:
+   - A reply comment points to a parent comment in the same table.
+
+
+2. RELATIONAL SCHEMA DESIGN & NULLABILITY RULES
+--------------------------------------------------------------------------------
+THE ROOT NULLABILITY RULE:
+The self-referencing foreign key column (`manager_id` or `parent_id`) MUST BE NULLABLE (`INT NULL`)!
+Why? Because the top-level root node of the tree (e.g. the CEO or top root category) has NO manager/parent.
+Making it `NOT NULL` creates an impossible deadlock where no initial root record can ever be inserted!
+
+SCHEMA PATTERN:
+CREATE TABLE employees (
+    emp_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    job_title VARCHAR(50) NOT NULL,
+    manager_id INT NULL, -- NULL indicates top-level executive (CEO)
+    salary DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT fk_emp_manager FOREIGN KEY (manager_id)
+        REFERENCES employees(emp_id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+
+3. QUERYING SELF-REFERENCING TABLES
+--------------------------------------------------------------------------------
+A. SINGLE-LEVEL PARENT-CHILD (SELF-JOIN):
+   SELECT
+       e.first_name AS employee_name,
+       e.job_title,
+       COALESCE(m.first_name, '--- (Top Executive / CEO)') AS manager_name
+   FROM employees e
+   LEFT JOIN employees m ON e.manager_id = m.emp_id;
+
+B. RECURSIVE HIERARCHICAL TREE TRAVERSAL (MySQL 8.0 WITH RECURSIVE CTE):
+   WITH RECURSIVE OrgHierarchy AS (
+       -- Anchor Member: Root CEO
+       SELECT emp_id, first_name, job_title, manager_id, 1 AS depth_level
+       FROM employees
+       WHERE manager_id IS NULL
+
+       UNION ALL
+
+       -- Recursive Member: Direct and Indirect Subordinates
+       SELECT e.emp_id, e.first_name, e.job_title, e.manager_id, o.depth_level + 1
+       FROM employees e
+       INNER JOIN OrgHierarchy o ON e.manager_id = o.emp_id
+   )
+   SELECT * FROM OrgHierarchy ORDER BY depth_level, manager_id;
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore AccoTax Staff Organizational Structure
+-- Level 1: Sukanta Hui (Director / CEO - manager_id = NULL)
+-- Level 2: Mamata Hui (Lead Consultant - manager_id = 1)
+-- Level 3: Susmita Ghosh (Tax Analyst - manager_id = 2)
+INSERT INTO employees (first_name, job_title, manager_id, salary) VALUES
+('Sukanta Hui', 'Director & Founder', NULL, 85000.00),
+('Mamata Hui', 'Lead Consultant', 1, 65000.00),
+('Susmita Ghosh', 'Tax Analyst', 2, 45000.00);
+
+CASE 2: Debangshu's Kolkata E-Commerce Nested Category Tree
+CREATE TABLE categories (
+    category_id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(50) NOT NULL,
+    parent_category_id INT NULL,
+    CONSTRAINT fk_cat_parent FOREIGN KEY (parent_category_id)
+        REFERENCES categories(category_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Making the Foreign Key `NOT NULL`:
+   - Makes inserting the initial root record impossible.
+2. Cyclic Graph Deadlocks (Loops):
+   - A reports to B, B reports to C, and C reports to A (infinite loop). Validate with triggers or CTE cycle detection.
+3. Using `INNER JOIN` Instead of `LEFT JOIN`:
+   - `INNER JOIN` silently filters out the CEO (root node) because `manager_id IS NULL` fails inner join matches!
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Define self-referencing foreign keys as `INT NULL` to accommodate tree roots.
+[x] Use `LEFT JOIN` on self-joins so root records are never accidentally filtered out.
+[x] Leverage MySQL 8.0 `WITH RECURSIVE` Common Table Expressions for deep tree traversals.
+[x] Use `ON DELETE SET NULL` for management hierarchies (subordinates get unassigned, not deleted).
+[x] Use `ON DELETE CASCADE` for strict composite category trees (dropping a parent drops subcategories).
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

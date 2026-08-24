@@ -1,0 +1,89 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_002 - Entity-Relationship (ER) & Extended ER (EER) Modeling
+TOPIC 5: Structural Constraints: Cardinality Ratios & Participation Constraints
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE STRUCTURAL CONSTRAINTS ON RELATIONSHIPS?
+--------------------------------------------------------------------------------
+Structural Constraints limit the possible combinations of entities that can participate
+in a relationship set. Together, they define the exact business rules governing entity associations.
+
+THE TWO FOUNDATIONAL STRUCTURAL CONSTRAINTS:
+1. CARDINALITY RATIO (MULTIPLICITY):
+   - Specifies the MAXIMUM number of relationship instances that an entity can participate in.
+   - Types: 1:1 (One-to-One), 1:N (One-to-Many), M:N (Many-to-Many).
+
+2. PARTICIPATION CONSTRAINT (MODALITY / OPTIONALITY):
+   - Specifies the MINIMUM number of relationship instances that an entity MUST participate in.
+   - Types:
+     • Total (Mandatory) Participation (Min = 1): Every entity instance MUST participate in the relationship.
+       Notation in Peter Chen: DOUBLE LINE connecting Entity rectangle to Relationship diamond.
+     • Partial (Optional) Participation (Min = 0): An entity instance can exist WITHOUT participating in the relationship.
+       Notation in Peter Chen: SINGLE LINE connecting Entity rectangle to Relationship diamond.
+
+
+2. THE FOUR COMBINATIONS OF CARDINALITY & PARTICIPATION
+--------------------------------------------------------------------------------
+A. 1:1 WITH TOTAL PARTICIPATION ON BOTH SIDES:
+   - Example: `Citizen` (Total) ───< Has_Aadhaar >─── (Total) `Aadhaar_Card`.
+   - Relational Mapping: Merge into a single table, or two tables with `UNIQUE NOT NULL` Foreign Key on either side.
+
+B. 1:1 WITH TOTAL ON ONE SIDE, PARTIAL ON THE OTHER:
+   - Example: `Department` (Total) ───< Managed_By >─── (Partial) `Faculty`.
+   - Relational Mapping: Put Foreign Key with `NOT NULL` in the TOTAL side table (`departments.manager_id NOT NULL UNIQUE`).
+
+C. 1:N WITH MANDATORY PARENT OR CHILD:
+   - Example: `Student` (Partial) ───< Generates >─── (Total) `Fee_Receipt`.
+   - Relational Mapping: Put Foreign Key in child table with `NOT NULL` (`fee_receipts.student_id NOT NULL`).
+
+D. M:N (MANY-TO-MANY):
+   - Example: `Student` (Partial) ───< Enrolls_In >─── (Partial) `Course`.
+   - Relational Mapping: Always requires a separate Bridge / Junction table!
+
+
+3. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Student & Aadhaar Card (1:1 Total/Total)
+CREATE TABLE student_aadhaar_profiles (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    aadhaar_number CHAR(12) NOT NULL UNIQUE, -- 1:1 Enforced via UNIQUE
+    aadhaar_linked_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CASE 2: Debangshu's Kolkata College Department Head (1:1 Partial/Total)
+-- Faculty is Partial (not all faculty are HODs)
+-- Department is Total (every department MUST have an HOD)
+CREATE TABLE departments (
+    dept_id INT AUTO_INCREMENT PRIMARY KEY,
+    dept_name VARCHAR(50) NOT NULL,
+    hod_faculty_id INT NOT NULL UNIQUE, -- Total: NOT NULL; 1:1: UNIQUE
+    CONSTRAINT fk_dept_hod FOREIGN KEY (hod_faculty_id)
+        REFERENCES faculty(faculty_id)
+) ENGINE=InnoDB;
+
+
+4. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Confusing Cardinality (Max) with Participation (Min):
+   - Cardinality answers "How many maximum?" (1 vs N); Participation answers "Can it be zero?" (Total vs Partial).
+2. Placing Foreign Key on the Partial Side of 1:1:
+   - Placing `dept_id` in `faculty` creates thousands of `NULL` values because only 1% of faculty are HODs.
+3. Forgetting `NOT NULL` on Mandatory Foreign Keys:
+   - Total participation on the Many side requires `NOT NULL` on the foreign key column.
+
+
+5. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Use Double Lines in ER diagrams to represent Total (Mandatory) Participation.
+[x] Use Single Lines in ER diagrams to represent Partial (Optional) Participation.
+[x] For 1:1 relationships, place the Foreign Key in the table with TOTAL participation.
+[x] Add `UNIQUE` constraint to foreign key columns for 1:1 relationships.
+[x] Enforce Total participation at the physical level using `NOT NULL` on foreign key columns.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

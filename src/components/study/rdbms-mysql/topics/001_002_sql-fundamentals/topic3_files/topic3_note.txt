@@ -1,0 +1,124 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 3: CREATE TABLE Syntax and Table Structure
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A TABLE IN A RELATIONAL DATABASE?
+--------------------------------------------------------------------------------
+A table (formally called a *Relation* in relational theory) is the foundational two-dimensional
+data storage structure in MySQL. It is organized into:
+• Columns (Attributes / Fields): Vertical definitions specifying column names, data types, lengths, and constraints.
+• Rows (Tuples / Records): Horizontal instances representing individual entity records.
+
+In MySQL InnoDB storage engine, each table is physically stored in a dedicated `.ibd` tablespace file
+(when `innodb_file_per_table` is enabled) consisting of a clustered B+ Tree index.
+
+
+2. THE COMPLETE CREATE TABLE SYNTAX
+--------------------------------------------------------------------------------
+CREATE TABLE [IF NOT EXISTS] [database_name.]table_name (
+    column_name_1 data_type [column_attributes] [column_constraints],
+    column_name_2 data_type [column_attributes] [column_constraints],
+    ...
+    [table_constraints]
+) [table_options];
+
+KEY COLUMN ATTRIBUTES & CONSTRAINTS:
+• `NOT NULL`: Enforces that the column cannot store NULL (mandatory data).
+• `DEFAULT default_value`: Supplies a fallback value if omitted during INSERT.
+• `AUTO_INCREMENT`: Automatically generates a sequential integer for each new row (only on indexed/primary columns).
+• `PRIMARY KEY`: Uniquely identifies each row (combines UNIQUE + NOT NULL).
+• `UNIQUE`: Prevents duplicate values across all rows in that column.
+• `CHECK (condition)`: Validates that column values satisfy boolean expressions (e.g. `salary >= 10000`).
+• `COMMENT 'description'`: Documents column purpose in data dictionary metadata.
+
+KEY TABLE OPTIONS:
+• `ENGINE = InnoDB`: Pluggable storage engine (InnoDB is the transactional ACID standard).
+• `AUTO_INCREMENT = 1001`: Sets initial starting counter value for auto-increment.
+• `DEFAULT CHARSET = utf8mb4`: Enforces 4-byte UTF-8 encoding.
+• `COLLATE = utf8mb4_0900_ai_ci`: Specifies collation rules.
+• `COMMENT = '...'`: Table-level documentation string.
+
+
+3. CREATING TABLES WITH GENERATED (COMPUTED) COLUMNS
+--------------------------------------------------------------------------------
+MySQL 5.7+ and 8.0 support Generated Columns calculated automatically from other columns:
+• `VIRTUAL`: Computed on the fly when read; consumes NO disk space.
+• `STORED`: Computed and written to disk whenever a row is inserted/updated; can be indexed directly.
+
+Example:
+CREATE TABLE order_items (
+    item_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    unit_price DECIMAL(10, 2) NOT NULL,
+    quantity SMALLINT UNSIGNED NOT NULL,
+    total_amount DECIMAL(10, 2) AS (unit_price * quantity) STORED
+);
+
+
+4. CLONING TABLE STRUCTURES: CREATE TABLE ... LIKE
+--------------------------------------------------------------------------------
+To create an exact empty clone of an existing table (including all column types, indexes, and constraints):
+   CREATE TABLE students_archive LIKE students;
+
+To create a table and populate it with query results (does NOT copy indexes/constraints):
+   CREATE TABLE honor_students AS
+   SELECT student_id, first_name, gpa FROM students WHERE gpa >= 3.8;
+
+
+5. REAL-WORLD PRODUCTION SCHEMA EXAMPLES
+--------------------------------------------------------------------------------
+CASE 1: Barrackpore College Student Admission Table (Mamata & Abhronila)
+CREATE TABLE IF NOT EXISTS students (
+    student_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    roll_no VARCHAR(20) UNIQUE NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone_no CHAR(10) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    admission_fee DECIMAL(8, 2) NOT NULL DEFAULT 15000.00, -- ₹15,000.00
+    is_active TINYINT(1) NOT NULL DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CASE 2: Kolkata Retail E-Commerce Orders Table (Susmita & Debangshu)
+CREATE TABLE IF NOT EXISTS customer_orders (
+    order_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    order_number CHAR(16) UNIQUE NOT NULL,
+    customer_id INT UNSIGNED NOT NULL,
+    subtotal DECIMAL(10, 2) NOT NULL,
+    tax_amount DECIMAL(8, 2) NOT NULL DEFAULT 0.00,
+    total_amount DECIMAL(10, 2) AS (subtotal + tax_amount) STORED,
+    order_status ENUM('placed', 'processing', 'shipped', 'delivered', 'cancelled') NOT NULL DEFAULT 'placed',
+    shipping_address VARCHAR(255) NOT NULL,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+
+6. COMMON PITFALLS & BEGINNER MISTAKES
+--------------------------------------------------------------------------------
+1. Multiple AUTO_INCREMENT Columns in a Single Table:
+   - MySQL strictly permits ONLY ONE `AUTO_INCREMENT` column per table, and it MUST be defined as a primary key or index.
+2. Forgetting `IF NOT EXISTS`:
+   - Repeated script executions fail with Error 1050: "Table 'students' already exists".
+3. Overusing NULLable Columns:
+   - Columns should be `NOT NULL` by default unless NULL has a distinct business meaning (e.g. `shipped_at` date for unfulfilled orders).
+4. Commas after the Final Column Definition:
+   - Placing a trailing comma before the closing parenthesis `)` causes Error 1064 syntax error.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Always define an explicit `PRIMARY KEY` (preferably `INT UNSIGNED AUTO_INCREMENT` or `BIGINT`).
+[x] Use `NOT NULL` on all mandatory business columns with sensible `DEFAULT` values.
+[x] Use `IF NOT EXISTS` for idempotent schema creation scripts.
+[x] Use `DECIMAL` for all currency amounts (₹) instead of `FLOAT`.
+[x] Standardize on `ENGINE = InnoDB` and `DEFAULT CHARSET = utf8mb4`.
+[x] Add meaningful column `COMMENT` strings to document complex business logic.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

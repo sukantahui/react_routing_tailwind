@@ -1,0 +1,93 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 001_002 - SQL Fundamentals & CRUD Operations
+TOPIC 15: Handling NULL Values with IS NULL, IS NOT NULL, COALESCE, and IFNULL
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS NULL IN SQL?
+--------------------------------------------------------------------------------
+`NULL` in relational databases represents a missing, unknown, or inapplicable value.
+It is NOT zero (`0`), NOT false (`0`), and NOT an empty string (`''`).
+
+KEY CONCEPTS OF NULL IN MYSQL:
+• `NULL = NULL` is UNKNOWN (not TRUE!).
+• `NULL != NULL` is UNKNOWN (not TRUE!).
+• Because of Three-Valued Logic (3VL), standard comparison operators (`=`, `!=`, `<`, `>`)
+  CANNOT be used to check for NULL.
+
+
+2. THE IS NULL AND IS NOT NULL OPERATORS
+--------------------------------------------------------------------------------
+A. TESTING FOR MISSING DATA (IS NULL):
+   SELECT * FROM students
+   WHERE phone_no IS NULL;
+
+B. TESTING FOR POPULATED DATA (IS NOT NULL):
+   SELECT * FROM students
+   WHERE phone_no IS NOT NULL;
+
+
+3. NULL HANDLING FUNCTIONS (COALESCE, IFNULL, NULLIF)
+--------------------------------------------------------------------------------
+A. IFNULL(expr1, expr2) (MySQL Specific):
+   Returns `expr2` if `expr1` is NULL, otherwise returns `expr1`.
+   `SELECT first_name, IFNULL(phone_no, 'Not Provided') AS contact_phone FROM students;`
+
+B. COALESCE(val1, val2, val3, ...) (ANSI Standard):
+   Returns the FIRST non-null expression from the argument list.
+   `SELECT first_name, COALESCE(mobile_no, landline_no, guardian_phone, 'No Contact') FROM students;`
+
+C. NULLIF(expr1, expr2):
+   Returns `NULL` if `expr1 = expr2`, otherwise returns `expr1`. Useful to prevent division-by-zero!
+   `SELECT revenue / NULLIF(units_sold, 0) AS avg_unit_price FROM sales;`
+
+
+4. NULL AGGREGATE FUNCTIONS BEHAVIOR
+--------------------------------------------------------------------------------
+• Aggregate functions (`SUM`, `AVG`, `MIN`, `MAX`, `COUNT(col)`) IGNORE NULL values.
+• `COUNT(*)` counts ALL rows including NULLs; `COUNT(col)` counts only non-null values.
+• If all rows in a group are NULL, `SUM(col)` and `AVG(col)` return `NULL` (not 0!). Use `COALESCE(SUM(col), 0)`.
+
+
+5. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata Finding Incomplete Student Admission Profiles in Barrackpore
+SELECT
+    roll_no,
+    CONCAT(first_name, ' ', last_name) AS student_name,
+    COALESCE(email, '⚠️ Missing Email') AS student_email,
+    COALESCE(phone_no, '⚠️ Missing Phone') AS student_phone
+FROM students
+WHERE email IS NULL OR phone_no IS NULL;
+
+CASE 2: Debangshu Finding Unshipped Customer Orders in Kolkata
+SELECT
+    order_number,
+    customer_id,
+    total_amount AS "Amount (₹)",
+    IFNULL(tracking_number, 'Pending Dispatch') AS tracking_info
+FROM customer_orders
+WHERE shipped_date IS NULL;
+
+
+6. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Writing `WHERE col = NULL` (Always returns 0 rows).
+2. The `NOT IN` with `NULL` Failure Trap.
+3. Forgetting that `NULL + 10` evaluates to `NULL` (Arithmetic with NULL propagates NULL).
+4. Division by Zero without `NULLIF()`.
+
+
+7. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Always use `IS NULL` / `IS NOT NULL` to test for missing values.
+[x] Use `COALESCE(...)` for cross-database portable fallback values.
+[x] Wrap arithmetic aggregations in `COALESCE(SUM(fee), 0)` to guarantee numeric outputs.
+[x] Use `NULLIF(denominator, 0)` to gracefully prevent division-by-zero errors.
+[x] Remember that MySQL B-Tree indexes CAN index NULL values (placed first in ASC order).
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

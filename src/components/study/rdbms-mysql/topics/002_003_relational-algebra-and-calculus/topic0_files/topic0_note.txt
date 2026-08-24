@@ -1,0 +1,90 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 0: Introduction to Formal Relational Query Languages & Relational Completeness
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT ARE FORMAL RELATIONAL QUERY LANGUAGES?
+--------------------------------------------------------------------------------
+A Relational Query Language is a formal language in which a user requests information
+from a database. Developed by Dr. Edgar F. Codd (1970) at IBM, formal query languages provide
+the mathematical foundation for SQL and modern relational query optimizers.
+
+CATEGORIES OF FORMAL RELATIONAL QUERY LANGUAGES:
+1. PROCEDURAL (OPERATIONAL) LANGUAGES:
+   - Example: RELATIONAL ALGEBRA.
+   - The user instructs the database WHAT data to retrieve AND HOW (the step-by-step sequence of operations) to retrieve it.
+   - Highly operational; maps directly to physical database execution plans and expression trees.
+
+2. NON-PROCEDURAL (DECLARATIVE) LANGUAGES:
+   - Examples: TUPLE RELATIONAL CALCULUS (TRC) & DOMAIN RELATIONAL CALCULUS (DRC).
+   - The user describes WHAT data is desired without specifying the procedural algorithms or access paths to obtain it.
+   - Declarative foundation upon which commercial SQL (`SELECT ... FROM ... WHERE`) is built.
+
+
+2. RELATIONAL COMPLETENESS & CODD'S THEOREM
+--------------------------------------------------------------------------------
+• DEFINITION OF RELATIONAL COMPLETENESS:
+  A database query language is called "Relationally Complete" if it can express any query
+  that can be expressed in the core formal Relational Calculus (or equivalently, basic Relational Algebra).
+
+• CODD'S REDUCTION THEOREM:
+  Dr. E. F. Codd proved that basic Relational Algebra has the EXACT SAME expressive power as
+  safe Tuple Relational Calculus and safe Domain Relational Calculus:
+  $$\text{Relational Algebra} \equiv \text{Safe TRC} \equiv \text{Safe DRC}$$
+  Any language (such as SQL) that implements all fundamental operators of Relational Algebra
+  is declared relationally complete.
+
+
+3. THE 5 FUNDAMENTAL RELATIONAL ALGEBRA OPERATORS
+--------------------------------------------------------------------------------
+Every relational query can be formulated using combinations of five core primitive operators:
+1. Selection ($\sigma$): Unary operator filtering tuples (horizontal slicing).
+2. Projection ($\pi$): Unary operator selecting specific attributes (vertical slicing & duplicate elimination).
+3. Cartesian Product ($\times$): Binary operator computing all pairwise tuple combinations.
+4. Set Union ($\cup$): Binary operator combining tuples from two union-compatible relations.
+5. Set Difference ($- / \setminus$): Binary operator returning tuples in relation 1 but not in relation 2.
+
+DERIVED OPERATORS (Expressed as combinations of the basic 5):
+• Set Intersection ($\cap$): $R \cap S = R - (R - S)$
+• Theta Join ($\bowtie_\theta$): $R \bowtie_\theta S = \sigma_\theta(R \times S)$
+• Natural Join ($\bowtie$): Equijoin on matching attribute names followed by projecting away duplicates.
+• Division ($\div$): Expresses universal quantification ("for all" queries).
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Mamata's Barrackpore Academy Student Selection
+-- Relational Algebra: $\sigma_{\text{city} = 'Barrackpore'}(\text{Students})$
+-- SQL Implementation:
+SELECT * FROM students WHERE city = 'Barrackpore';
+
+CASE 2: Debangshu's Kolkata Course Enrollment Projection
+-- Relational Algebra: $\pi_{\text{student\_name, course\_title}}(\text{Students} \bowtie \text{Enrollments} \bowtie \text{Courses})$
+-- SQL Implementation:
+SELECT s.full_name, c.course_title
+FROM students s
+JOIN enrollments e ON s.student_id = e.student_id
+JOIN courses c ON e.course_id = c.course_id;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Confusing Procedural vs Declarative:
+   - Relational Algebra specifies the evaluation plan (how); SQL specifies the target predicate (what).
+2. Unsafe Calculus Expressions:
+   - Formulas with infinite result sets (e.g. $\{t \mid \neg \text{Student}(t)\}$) violate relational safety.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Understand the duality: Relational Algebra (Procedural) vs Relational Calculus (Declarative).
+[x] Master the 5 fundamental operators: $\sigma, \pi, \times, \cup, -$.
+[x] Recognize that SQL optimizers translate declarative SQL into relational algebra query trees.
+[x] Use Codd's Theorem as the benchmark for relational completeness.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================

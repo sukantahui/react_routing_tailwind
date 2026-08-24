@@ -1,0 +1,94 @@
+================================================================================
+RDBMS & MySQL MASTER CLASS - STUDY NOTES
+MODULE: 002_003 - Relational Algebra, Query Trees & Relational Calculus
+TOPIC 4: Set Theory Operations: Union (∪), Intersection (∩) & Difference (−)
+INSTRUCTOR: Sukanta Hui | Founder, Coder & AccoTax
+LOCATION: Barrackpore, West Bengal, India
+================================================================================
+
+1. SET THEORY IN RELATIONAL ALGEBRA
+--------------------------------------------------------------------------------
+Because relations are mathematically defined as sets of tuples, standard set-theoretic
+operations apply directly to relations. To execute Union ($\cup$), Intersection ($\cap$), or
+Difference ($-$), the participating relations MUST be UNION-COMPATIBLE (Type-Compatible).
+
+DEFINITION OF UNION COMPATIBILITY:
+Two relations $R(A_1, A_2, \dots, A_n)$ and $S(B_1, B_2, \dots, B_m)$ are Union-Compatible if:
+1. SAME DEGREE: $n = m$ (same number of attributes).
+2. COMPATIBLE DOMAINS: $\text{dom}(A_i) = \text{dom}(B_i)$ for all $1 \le i \le n$.
+
+
+2. THE 3 SET OPERATIONS DEFINITION & MATHEMATICAL PROPERTIES
+--------------------------------------------------------------------------------
+1. SET UNION ($R \cup S$):
+   - Definition: Tuples in $R$, in $S$, or in BOTH ($R \cup S = \{ t \mid t \in R \lor t \in S \}$).
+   - Commutative: $R \cup S \equiv S \cup R$
+   - Associative: $(R \cup S) \cup T \equiv R \cup (S \cup T)$
+   - Cardinality Bounds: $\max(|R|, |S|) \le |R \cup S| \le |R| + |S|$
+   - SQL: `SELECT ... UNION SELECT ...` (Automatic Deduplication) vs `UNION ALL` (Preserves Duplicates).
+
+2. SET INTERSECTION ($R \cap S$):
+   - Definition: Tuples present in BOTH $R$ and $S$ ($R \cap S = \{ t \mid t \in R \land t \in S \}$).
+   - Derived Operator: $R \cap S \equiv R - (R - S) \equiv S - (S - R) \equiv R \bowtie S$ (when union-compatible).
+   - Commutative: $R \cap S \equiv S \cap R$
+   - Cardinality Bounds: $0 \le |R \cap S| \le \min(|R|, |S|)$
+   - SQL: `INTERSECT` (supported in MySQL 8.0.31+) or `INNER JOIN` / `EXISTS`.
+
+3. SET DIFFERENCE ($R - S$ or $R \setminus S$):
+   - Definition: Tuples present in $R$ but NOT in $S$ ($R - S = \{ t \mid t \in R \land t \notin S \}$).
+   - NON-COMMUTATIVE: $R - S \not\equiv S - R$!
+   - Cardinality Bounds: $0 \le |R - S| \le |R|$
+   - SQL: `EXCEPT` (supported in MySQL 8.0.31+) or `LEFT JOIN ... WHERE S.key IS NULL` or `NOT EXISTS`.
+
+
+3. COMPARISON MATRIX
+--------------------------------------------------------------------------------
+OPERATION       NOTATION        COMMUTATIVE?   MAX CARDINALITY         SQL KEYWORD
+--------------------------------------------------------------------------------
+Union           $R \cup S$      YES            $|R| + |S|$             UNION
+Intersection    $R \cap S$      YES            $\min(|R|, |S|)$        INTERSECT
+Difference      $R - S$         NO             $|R|$                   EXCEPT / NOT IN
+--------------------------------------------------------------------------------
+
+
+4. REAL-WORLD CASE STUDIES (BARRACKPORE & KOLKATA)
+--------------------------------------------------------------------------------
+CASE 1: Combined Roster (Union)
+-- Relational Algebra: $\text{Online\_Students} \cup \text{Offline\_Students}$
+SELECT student_name, phone FROM online_students
+UNION
+SELECT student_name, phone FROM offline_students;
+
+CASE 2: Dual-Enrolled Students (Intersection)
+-- Relational Algebra: $\pi_{\text{student\_id}}(\text{MySQL\_Class}) \cap \pi_{\text{student\_id}}(\text{React\_Class})$
+SELECT student_id FROM enrollments WHERE course_id = 'MYSQL'
+INTERSECT
+SELECT student_id FROM enrollments WHERE course_id = 'REACT';
+
+CASE 3: Unpaid / Defaulter Students (Set Difference)
+-- Relational Algebra: $\pi_{\text{student\_id}}(\text{All\_Students}) - \pi_{\text{student\_id}}(\text{Fee\_Receipts})$
+SELECT student_id FROM students
+EXCEPT
+SELECT student_id FROM fee_receipts;
+
+
+5. COMMON PITFALLS & DANGER ZONES
+--------------------------------------------------------------------------------
+1. Assuming Set Difference is Commutative:
+   - $R - S$ is NOT the same as $S - R$!
+2. Performing Set Operations on Incompatible Relations:
+   - Attempting to union a 3-column table with a 2-column table fails type compatibility.
+3. Using `UNION` instead of `UNION ALL` when Duplicates are Desired:
+   - `UNION` incurs an expensive sorting/deduplication step; use `UNION ALL` if deduplication is not needed.
+
+
+6. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[x] Verify Union Compatibility (same degree and domain order) before applying $\cup, \cap, -$.
+[x] Use Set Difference ($R - S$) to model "NOT IN" / relative complement queries.
+[x] Remember that $R - S \not\equiv S - R$.
+[x] Use `UNION ALL` for fast concatenation when duplicates do not violate business logic.
+
+================================================================================
+END OF STUDY NOTE · Coder & AccoTax · Barrackpore
+================================================================================
