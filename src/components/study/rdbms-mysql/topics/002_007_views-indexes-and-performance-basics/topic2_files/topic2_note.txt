@@ -1,0 +1,102 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 2: Querying Views as Virtual Tables
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. QUERYING VIEWS AS SEAMLESS RELATIONAL TABLES
+--------------------------------------------------------------------------------
+Once a view is created, client applications and reporting tools interact with it 
+using standard SQL syntax identical to physical base tables:
+- `SELECT` column projections
+- `WHERE` row filtering
+- `ORDER BY` sorting
+- `GROUP BY` and `HAVING` aggregation
+- `LIMIT` pagination
+- `JOIN` operations with other base tables or views
+
+Example:
+    SELECT 
+        student_name,
+        course_name,
+        tuition_fee_inr
+    FROM view_academy_active_students
+    WHERE campus_location = 'Barrackpore'
+    ORDER BY tuition_fee_inr DESC
+    LIMIT 10;
+
+2. THE QUERY OPTIMIZER & PREDICATE PUSHDOWN (VIEW MERGING)
+--------------------------------------------------------------------------------
+When you query a view, MySQL does not execute the view in isolation and then 
+filter the results. Instead, the Query Optimizer performs **View Merging**:
+1. Merges the outer `WHERE` condition with the view's internal `WHERE` condition 
+   using logical `AND`.
+2. Pushes the filter down directly to the underlying physical table scans 
+   (Predicate Pushdown).
+3. If an index exists on the base table for the filtered column (e.g. `idx_campus`), 
+   MySQL performs an index seek rather than a full table scan.
+
+Mathematical Equivalence:
+    SELECT * FROM (SELECT id, name, city FROM students WHERE is_active = 1) AS v
+    WHERE v.city = 'Barrackpore';
+    
+    -- Optimizer merges into:
+    SELECT id, name, city FROM students
+    WHERE is_active = 1 AND city = 'Barrackpore';
+
+3. JOINING VIEWS WITH BASE TABLES & OTHER VIEWS
+--------------------------------------------------------------------------------
+Views can be seamlessly joined with physical tables or other virtual views:
+    SELECT 
+        v.student_name,
+        v.course_name,
+        p.transaction_id,
+        p.amount_inr,
+        p.payment_date
+    FROM view_active_students v
+    JOIN fee_payments p ON v.student_id = p.student_id
+    WHERE p.payment_status = 'SUCCESS';
+
+4. ALGORITHM = MERGE VS TEMPTABLE PERFORMANCE
+--------------------------------------------------------------------------------
+1. MERGE (Optimal):
+   - Query is merged into a single execution plan.
+   - Pushes down WHERE clauses and utilizes base table B-Tree indexes.
+   - Zero memory footprint.
+
+2. TEMPTABLE (Materialized in RAM/Disk):
+   - Triggered when view contains `GROUP BY`, `DISTINCT`, `UNION`, or aggregate functions.
+   - MySQL executes the view's query, populates an internal temporary table in memory, 
+     and then executes the outer query on that temporary table.
+   - Outer `WHERE` filters cannot be pushed down to the base table during initial scan.
+
+5. PRODUCTION EXAMPLES (ACADEMY & BILLING)
+--------------------------------------------------------------------------------
+Example 1: Paginated Search on Sanitized View
+    SELECT 
+        student_id,
+        full_name,
+        masked_phone,
+        course_stream
+    FROM view_student_public_directory
+    WHERE centre_city = 'Kolkata' 
+      AND course_stream LIKE '%React%'
+    ORDER BY full_name ASC
+    LIMIT 20 OFFSET 0;
+
+Example 2: Multi-View Analytical Join
+    SELECT 
+        enr.campus_location,
+        enr.stream_name,
+        COUNT(enr.student_id) AS enrolled_count,
+        SUM(pay.net_collected_inr) AS branch_turnover_inr
+    FROM view_active_enrollments enr
+    JOIN view_cleared_payments pay ON enr.enrollment_id = pay.enrollment_id
+    GROUP BY enr.campus_location, enr.stream_name;
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Query views just like normal tables, but keep in mind whether the view uses MERGE or TEMPTABLE.
+2. Build composite B-Tree indexes on the underlying base tables matching outer query filter patterns.
+3. Avoid adding redundant sorting (`ORDER BY`) inside view definitions if calling queries apply their own sort.
+4. Keep join paths through views shallow to ensure optimal optimizer execution plans.

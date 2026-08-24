@@ -1,0 +1,43 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 5: Control Flow Statements: CASE ... WHEN ... THEN ... ELSE ... END CASE
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. PROCEDURAL CASE STATEMENT SYNTAX
+--------------------------------------------------------------------------------
+1. Simple CASE (Equality Matching on Single Variable):
+    CASE variable_name
+        WHEN value_1 THEN
+            -- Statements for value_1
+        WHEN value_2 THEN
+            -- Statements for value_2
+        ELSE
+            -- Default fallback statements
+    END CASE;
+
+2. Searched CASE (Complex Boolean Predicates):
+    CASE
+        WHEN score >= 90 THEN
+            -- Statements
+        WHEN score >= 75 THEN
+            -- Statements
+        ELSE
+            -- Fallback
+    END CASE;
+
+2. PROCEDURAL CASE STATEMENT VS DECLARATIVE CASE EXPRESSION
+--------------------------------------------------------------------------------
+1. Procedural `CASE ... END CASE;` Statement:
+   - Used inside stored routines; terminates with `END CASE;`.
+   - Executes multi-statement procedural blocks.
+
+2. Declarative `CASE ... END` Expression:
+   - Used inside `SELECT` queries; terminates with `END` (no `CASE`).
+   - Evaluates to a single scalar value.
+
+3. THE FATAL "CASE NOT FOUND" ERROR 1339
+--------------------------------------------------------------------------------
+In procedural SQL: If NO condition matches and NO `ELSE` branch is provided, 
+MySQL throws `Error 1339 (20000): Case not found for CASE statement`!
+Always include an `ELSE` clause to prevent runtime routine crashes.

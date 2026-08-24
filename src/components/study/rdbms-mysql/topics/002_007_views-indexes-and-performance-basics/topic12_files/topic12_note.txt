@@ -1,0 +1,76 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 12: UNIQUE Indexes and FULLTEXT Indexes Overview
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. UNIQUE INDEXES (INTEGRITY + SPEED)
+--------------------------------------------------------------------------------
+A UNIQUE Index is a B+Tree index that enforces the uniqueness of data values while 
+delivering optimal $O(\log N)$ search speed.
+
+Key Characteristics:
+- Duplicate Prevention: Throws Error 1062 (`Duplicate entry '...' for key '...'`) 
+  whenever an `INSERT` or `UPDATE` attempts to duplicate existing values.
+- Multi-Row Lookups: Guarantees at most 1 matching row, enabling the optimizer 
+  to use `type: const` or `type: eq_ref` in query execution plans.
+- Handling NULLs: Multiple `NULL` values are permitted in unique columns because 
+  SQL standard defines `NULL != NULL`.
+
+Syntax:
+    CREATE UNIQUE INDEX idx_uq_student_email ON students (email_address);
+    -- Or composite unique:
+    CREATE UNIQUE INDEX idx_uq_enrollment ON enrollments (student_id, course_id);
+
+2. FULLTEXT INDEXES (INVERTED INDEX TEXT SEARCH)
+--------------------------------------------------------------------------------
+A FULLTEXT Index is a specialized **Inverted Index** designed for natural language 
+search across large `VARCHAR` and `TEXT` columns.
+
+Why `LIKE '%keyword%'` Fails:
+- A query with `WHERE description LIKE '%React%'` CANNOT use B-Trees.
+- Forces a 100% Full Table Scan, taking seconds on thousands of text documents.
+
+How Inverted Indexes Work:
+1. Tokenization: Text is broken into individual words (tokens).
+2. Stopword Removal: Common words ('the', 'is', 'at') are filtered out.
+3. Inverted List: A word dictionary maps each token to a list of matching `(Document_ID, Position)` pairs.
+
+3. FULLTEXT SEARCH MODES IN MYSQL
+--------------------------------------------------------------------------------
+1. Natural Language Mode (Default):
+    SELECT course_title, course_syllabus,
+           MATCH(course_title, course_syllabus) AGAINST('React Redux Microservices' IN NATURAL LANGUAGE MODE) AS relevance_score
+    FROM courses
+    WHERE MATCH(course_title, course_syllabus) AGAINST('React Redux Microservices' IN NATURAL LANGUAGE MODE);
+
+2. Boolean Mode (Advanced Operators):
+    -- '+' = Must contain, '-' = Must NOT contain, '*' = Wildcard prefix
+    SELECT * FROM courses
+    WHERE MATCH(course_title, course_syllabus) 
+          AGAINST('+React +Hooks -Angular*' IN BOOLEAN MODE);
+
+4. INDEX COMPARISON MATRIX
+--------------------------------------------------------------------------------
+Feature                 Standard B-Tree Index      UNIQUE B-Tree Index        FULLTEXT Index
+--------------------------------------------------------------------------------
+Underlying Structure    Balanced B+Tree            Balanced B+Tree            Inverted Word Index
+Duplicate Values        Allowed                    PROHIBITED (Error 1062)    Allowed
+Search Complexity       $O(\log N)$                $O(\log N)$ (Max 1 row)    $O(1)$ token lookup
+Best For                Equality, Ranges, Sorting  Emails, Aadhaar, Codes     Articles, Syllabi, Blogs
+Search Syntax           `col = val`, `BETWEEN`     `col = val`                `MATCH() AGAINST()`
+
+5. PRODUCTION EXAMPLES (ACADEMY AUDIT)
+--------------------------------------------------------------------------------
+Example 1: Enforcing Unique Aadhaar Identity
+    CREATE UNIQUE INDEX idx_uq_aadhaar ON students (aadhaar_number);
+
+Example 2: Academy Course Syllabus Fulltext Search
+    CREATE FULLTEXT INDEX idx_ft_syllabus ON courses (course_title, course_syllabus);
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Use UNIQUE indexes for business identity keys (Email, Phone, Registration, Aadhaar).
+2. Use FULLTEXT indexes for multi-word document search instead of slow `LIKE '%...%'`.
+3. Keep `innodb_ft_min_token_size` (default 3) in mind when searching short words.
+4. Leverage Boolean Mode operators (`+`, `-`, `*`) for precise keyword querying.

@@ -1,0 +1,47 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 2: Creating Stored Procedures: Syntax, Parameters (IN, OUT, INOUT)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. STORED PROCEDURE DDL SYNTAX
+--------------------------------------------------------------------------------
+    DELIMITER //
+    CREATE PROCEDURE procedure_name (
+        [IN | OUT | INOUT] param_name data_type,
+        ...
+    )
+    [COMMENT 'description']
+    [LANGUAGE SQL]
+    [DETERMINISTIC | NOT DETERMINISTIC]
+    [CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA]
+    [SQL SECURITY { DEFINER | INVOKER }]
+    BEGIN
+        -- Procedural SQL Statements (DECLARE, SET, SELECT, INSERT, UPDATE, IF, LOOP)
+    END //
+    DELIMITER ;
+
+2. THE THREE PARAMETER MODES
+--------------------------------------------------------------------------------
+1. IN (Input Parameter - Default):
+   - Passes data into the procedure from caller.
+   - Read-only inside the procedure (caller's original value is protected).
+   - Example: `IN p_dept_id INT`
+
+2. OUT (Output Parameter):
+   - Passes data back from the procedure to the caller.
+   - Initialized to `NULL` upon entry; procedure assigns values using `SET` or `SELECT INTO`.
+   - Caller receives output in session variable: `CALL sp_calc(@result); SELECT @result;`
+   - Example: `OUT p_total_students INT`
+
+3. INOUT (Bidirectional Parameter):
+   - Initialized with a value by caller, read and modified inside procedure, and returned back.
+   - Must be passed as a session variable: `SET @fee = 10000; CALL sp_apply_discount(@fee);`
+   - Example: `INOUT p_fee_balance DECIMAL(10,2)`
+
+3. INVOCATION BLUEPRINT
+--------------------------------------------------------------------------------
+    -- Calling with IN, OUT, INOUT parameters:
+    SET @student_fee = 25000.00;
+    CALL sp_enroll_student('Mamata Hui', 1, @out_student_id, @student_fee);
+    SELECT @out_student_id AS new_id, @student_fee AS discounted_fee;

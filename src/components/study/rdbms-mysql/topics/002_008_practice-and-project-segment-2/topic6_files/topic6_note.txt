@@ -1,0 +1,50 @@
+================================================================================
+RDBMS MySQL Course - Module 002_008: Real-world Schema Design Projects & Query Challenges
+Topic 6: Segment 2 Practical Assessment & Scenario-based Exam
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. SEGMENT 2 CAPSTONE EXAM OVERVIEW
+--------------------------------------------------------------------------------
+This comprehensive practical examination evaluates complete competency across 
+all Segment 2 core pillars:
+- 3NF Relational Schema Design & Business Rule Translation
+- Complex Multi-Table SQL Analytical Query Writing
+- High-Performance Query Profiling with EXPLAIN ANALYZE
+- Concurrency Control, Transactional Locking, and Price-Drift Protection
+
+2. EXAM STRUCTURE & SCORING RUBRIC (TOTAL: 100 MARKS)
+--------------------------------------------------------------------------------
+Section A: Schema Architecture & Normalization Defense (25 Marks)
+- Decompose flawed schemas into 3NF.
+- Establish correct Primary, Unique, and Foreign Key constraints.
+- Implement appropriate ON DELETE CASCADE vs RESTRICT policies.
+
+Section B: Complex Analytical Query Synthesis (30 Marks)
+- Write multi-table queries synthesizing JOINs, GROUP BY, and HAVING.
+- Implement window functions (DENSE_RANK, LAG, LEAD, SUM OVER).
+- Build Common Table Expressions (CTEs) and hierarchical WITH ROLLUP reports.
+
+Section C: Performance Diagnostics & Index Optimization (25 Marks)
+- Interpret tabular and tree EXPLAIN ANALYZE outputs.
+- Identify non-SARGable WHERE predicates and implicit type conversions.
+- Design composite covering indexes adhering to (Equality, Range, Sort).
+
+Section D: Concurrency & Transaction Integrity (20 Marks)
+- Write ACID transactions with SELECT ... FOR UPDATE pessimistic row locks.
+- Prevent price-drift anomalies by capturing historical unit price snapshots.
+- Mitigate race conditions on limited inventory / appointment slots.
+
+3. PRACTICAL SCENARIO-BASED EXAM QUESTIONS
+--------------------------------------------------------------------------------
+Question 1 (Schema): Design a 3NF schema for an Online Course Platform with 
+instructors, courses, modules, student subscriptions, and certificate issuances.
+
+Question 2 (SQL): Write a query calculating the 3-month moving average revenue per 
+branch, comparing current month revenue against previous month using LAG().
+
+Question 3 (Performance): Refactor `WHERE DATE_FORMAT(order_date, '%Y') = '2026'` 
+and design the optimal covering index to eliminate `Using filesort`.
+
+Question 4 (Concurrency): Write a stored procedure or transaction to handle book 
+checkout with inventory decrements, ensuring zero double-allocations.

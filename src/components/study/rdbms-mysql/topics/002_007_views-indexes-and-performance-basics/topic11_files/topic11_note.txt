@@ -1,0 +1,75 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 11: The Leftmost Prefix Rule for Composite Indexes
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS THE LEFTMOST PREFIX RULE?
+--------------------------------------------------------------------------------
+The Leftmost Prefix Rule (or Leading Column Rule) dictates that a composite index 
+built on multiple columns `(col1, col2, col3, ..., colN)` can only be used to 
+accelerate queries that filter on a contiguous prefix of columns starting from `col1`.
+
+Given a Composite Index:
+    CREATE INDEX idx_student_cohort 
+    ON students (centre_city, course_stream, admission_status);
+
+Valid Leftmost Prefixes (B-Tree Seek Enabled):
+✓ `WHERE centre_city = 'Barrackpore'` (Uses 1st column: `centre_city`)
+✓ `WHERE centre_city = 'Barrackpore' AND course_stream = 'React'` (Uses 1st & 2nd columns)
+✓ `WHERE centre_city = 'Barrackpore' AND course_stream = 'React' AND admission_status = 'ACTIVE'` (Uses all 3 columns)
+
+Invalid Prefixes (B-Tree Seek CANNOT be used):
+❌ `WHERE course_stream = 'React'` (Missing 1st leading column `centre_city` -> Full Table Scan!)
+❌ `WHERE admission_status = 'ACTIVE'` (Missing leading columns -> Full Table Scan!)
+❌ `WHERE course_stream = 'React' AND admission_status = 'ACTIVE'` (Missing leading column `centre_city`)
+⚠️ `WHERE centre_city = 'Barrackpore' AND admission_status = 'ACTIVE'` (Uses only `centre_city` for seek; `admission_status` filtered via ICP)
+
+2. THE TELEPHONE DIRECTORY LOGIC
+--------------------------------------------------------------------------------
+Consider a phone book sorted by `(LastName, FirstName, City)`:
+- Can you find all "Hui, Mamata, Barrackpore"? YES (Uses full prefix).
+- Can you find all "Hui, Mamata"? YES (Uses first two columns).
+- Can you find all "Hui"? YES (Uses leading column).
+- Can you find all people named "Mamata" living in "Barrackpore"? NO! You cannot jump 
+  to first names because they are scattered across thousands of different last names.
+
+3. INSPECTING INDEX UTILIZATION VIA `key_len`
+--------------------------------------------------------------------------------
+In `EXPLAIN SELECT ...`, the `key_len` column indicates the exact number of bytes 
+of the index being utilized for the B-Tree seek:
+
+Assume `centre_city` is `VARCHAR(50) utf8mb4` (50 * 4 + 2 length bytes + 1 null byte = 203 bytes):
+- Query using `(centre_city)`: `key_len = 203`
+- Query using `(centre_city, course_stream)`: `key_len = 406` (Uses both columns!)
+- Query using `(course_stream)`: `key_len = NULL` (Index not used!)
+
+4. MYSQL 8.0+ INDEX SKIP SCAN OPTIMIZATION
+--------------------------------------------------------------------------------
+In MySQL 8.0+, if a query skips the leading column `A` in `(A, B)`:
+    SELECT * FROM students WHERE course_stream = 'React Fullstack';
+
+If column `A` (`centre_city`) has very low cardinality (e.g. only 3 values: 'Barrackpore', 
+'Kolkata', 'Ichapur'), MySQL can perform an **Index Skip Scan**:
+- It iterates through each distinct value of `A` and performs a mini B-Tree seek for `B = 'React'`.
+- `EXPLAIN Extra`: `Using index for skip scan`.
+
+5. PRODUCTION EXAMPLES (ACADEMY AUDIT)
+--------------------------------------------------------------------------------
+Example 1: Leftmost Prefix Query Matrix
+    -- Index: (centre_city, course_stream, enrollment_year)
+
+    -- Case 1: Full Prefix (3 columns used):
+    SELECT * FROM student_registry 
+    WHERE centre_city = 'Barrackpore' AND course_stream = 'Java' AND enrollment_year = 2026;
+
+    -- Case 2: Partial Prefix (1 column used for seek):
+    SELECT * FROM student_registry 
+    WHERE centre_city = 'Barrackpore' AND enrollment_year = 2026;
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Design composite indexes based on your most frequent query filter combinations.
+2. Put the most commonly filtered column at the very front (leftmost position).
+3. Always inspect `key_len` in `EXPLAIN` to confirm how much of the composite index was used.
+4. Do not create separate single indexes on columns that already form the leftmost prefix of composite indexes.

@@ -1,0 +1,51 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 14: Advanced Data Analytics Practical Query Workshop
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. MODULE 003_002 CAPSTONE SYNTHESIS
+--------------------------------------------------------------------------------
+This hands-on workshop synthesizes all core concepts from Module 003_002:
+- Window Framing: Physical `ROWS` vs Logical `RANGE`.
+- Ranking & Offsets: `DENSE_RANK()`, `ROW_NUMBER()`, `LAG()`, `LEAD()`.
+- Boundary & Distribution: `FIRST_VALUE()`, `PERCENT_RANK()`, `CUME_DIST()`.
+- Time-Series & Sequences: Moving Averages, Running Totals, PoP Growth, Gaps & Islands.
+- Matrix Operations: Conditional Aggregation Pivoting, Sparse Grid Imputation.
+
+2. WORKSHOP CHALLENGE 1: THE 360° ACADEMIC PERFORMANCE SCORECARD
+--------------------------------------------------------------------------------
+Combines department ranking, academy percentile ranking, valedictorian gap, 
+and trailing moving averages into a single high-performance analytical query:
+
+    WITH AcademicMetrics AS (
+        SELECT 
+            s.student_id,
+            CONCAT(s.first_name, ' ', s.last_name) AS student_name,
+            d.dept_name,
+            s.exam_score_pct,
+            -- 1. Department Rank:
+            DENSE_RANK() OVER w_dept AS dept_rank,
+            -- 2. Academy Percentile:
+            ROUND(PERCENT_RANK() OVER w_global * 100.0, 1) AS academy_percentile,
+            -- 3. Valedictorian Gap:
+            ROUND(FIRST_VALUE(s.exam_score_pct) OVER (
+                PARTITION BY s.dept_id ORDER BY s.exam_score_pct DESC
+            ) - s.exam_score_pct, 2) AS gap_to_topper,
+            -- 4. Trailing 3-Quiz Moving Average:
+            ROUND(AVG(s.exam_score_pct) OVER (
+                PARTITION BY s.student_id ORDER BY s.created_at ROWS 2 PRECEDING
+            ), 2) AS trailing_3quiz_avg
+        FROM students s
+        JOIN departments d ON s.dept_id = d.dept_id
+        WINDOW 
+            w_dept AS (PARTITION BY s.dept_id ORDER BY s.exam_score_pct DESC),
+            w_global AS (ORDER BY s.exam_score_pct ASC)
+    )
+    SELECT * FROM AcademicMetrics ORDER BY dept_name, dept_rank;
+
+3. ARCHITECTURAL SUMMARY & INDEX STRATEGY
+--------------------------------------------------------------------------------
+Support multi-partition window queries with composite covering indexes on 
+`(partition_col, sort_col, covering_metrics)` to achieve sub-millisecond 
+linear query evaluation across millions of records.

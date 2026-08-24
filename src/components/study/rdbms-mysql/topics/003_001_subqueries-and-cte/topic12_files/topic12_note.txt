@@ -1,0 +1,58 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 12: Recursive CTEs for Generating Sequences, Number Series, and Date Ranges
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. DYNAMIC SEQUENCE GENERATION VS TALLY TABLES
+--------------------------------------------------------------------------------
+In legacy database architectures, developers created permanent physical "Numbers Tables" 
+(Tally Tables) or Date Dimension tables just to generate numbers and dates for gaps analysis.
+
+With MySQL 8.0+ Recursive CTEs, any continuous sequence, date range, or interval stream 
+can be generated dynamically on-the-fly in query memory with ZERO physical storage!
+
+2. CORE GENERATION PATTERNS
+--------------------------------------------------------------------------------
+Pattern 1: Daily Date Range Generator (Time-Series Grid)
+    WITH RECURSIVE DateGrid AS (
+        SELECT DATE('2026-09-01') AS cal_date
+        UNION ALL
+        SELECT DATE_ADD(cal_date, INTERVAL 1 DAY)
+        FROM DateGrid
+        WHERE cal_date < '2026-09-30'
+    )
+    SELECT * FROM DateGrid;
+
+Pattern 2: Filling Time-Series Gaps (Zero-Filling Missing Days)
+    SELECT d.cal_date, COALESCE(SUM(p.amount_paid_inr), 0.00) AS daily_collection
+    FROM DateGrid d
+    LEFT JOIN fee_payments p ON d.cal_date = DATE(p.payment_date)
+    GROUP BY d.cal_date
+    ORDER BY d.cal_date;
+
+Pattern 3: Recursive String Splitting (CSV Tokenization to Rows)
+    WITH RECURSIVE StringSplitter AS (
+        SELECT 
+            student_id,
+            SUBSTRING_INDEX(hobbies_csv, ',', 1) AS hobby,
+            SUBSTRING(hobbies_csv, LENGTH(SUBSTRING_INDEX(hobbies_csv, ',', 1)) + 2) AS remaining_str
+        FROM student_profiles
+        UNION ALL
+        SELECT 
+            student_id,
+            SUBSTRING_INDEX(remaining_str, ',', 1),
+            SUBSTRING(remaining_str, LENGTH(SUBSTRING_INDEX(remaining_str, ',', 1)) + 2)
+        FROM StringSplitter
+        WHERE remaining_str <> ''
+    )
+    SELECT student_id, TRIM(hobby) AS hobby FROM StringSplitter;
+
+Pattern 4: Recursive Loan Amortization Schedule (EMI & Declining Balance)
+    Calculates monthly declining principal, interest accrued, and ending loan balances.
+
+3. SIZING RECURSION DEPTH FOR LONG SERIES
+--------------------------------------------------------------------------------
+Generating 10 years of daily calendar dates requires 3,652 iterations.
+Since the default depth limit is 1,000, adjust the depth at query level:
+    SELECT /*+ SET_VAR(cte_max_recursion_depth = 5000) */ * FROM DateGrid;

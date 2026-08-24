@@ -1,0 +1,51 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 1: The OVER Clause: Defining Partitions (PARTITION BY) and Order (ORDER BY)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. ANATOMY OF THE OVER CLAUSE
+--------------------------------------------------------------------------------
+The `OVER()` clause defines the precise window of rows across which a window function 
+operates. It consists of three optional elements:
+    FUNCTION() OVER (
+        [PARTITION BY partition_column_1, partition_column_2]
+        [ORDER BY sort_column_1 [ASC|DESC], sort_column_2]
+        [window_frame_clause]
+    )
+
+2. PARTITION BY VS ORDER BY MECHANICS
+--------------------------------------------------------------------------------
+1. PARTITION BY:
+   - Divides the query result set into independent subsets / partitions.
+   - The window calculation resets completely at the boundary of each new partition!
+   - If omitted, the entire result set is treated as a single global partition.
+
+2. ORDER BY inside OVER():
+   - Determines the logical sequence in which rows are processed within each partition.
+   - Crucial Side Effect: Adding `ORDER BY` automatically changes the default window 
+     frame from the whole partition to a running cumulative frame (`UNBOUNDED PRECEDING 
+     TO CURRENT ROW`)!
+
+3. THE RUNNING FRAME DEFAULT TRAP
+--------------------------------------------------------------------------------
+- `SUM(fee) OVER (PARTITION BY dept_id)` 
+  -> Computes the STATIC TOTAL fee for the department on every row.
+- `SUM(fee) OVER (PARTITION BY dept_id ORDER BY payment_date)` 
+  -> Computes the CUMULATIVE RUNNING TOTAL fee up to the current row!
+
+4. NAMED WINDOW SPECIFICATIONS (DRY CLEANLINESS)
+--------------------------------------------------------------------------------
+To avoid repeating complex window definitions across multiple functions in the SELECT list, 
+use the `WINDOW` clause:
+    SELECT 
+        student_id,
+        first_name,
+        exam_score_pct,
+        RANK() OVER w AS dept_rank,
+        DENSE_RANK() OVER w AS dept_dense_rank,
+        AVG(exam_score_pct) OVER w_static AS dept_avg_score
+    FROM students
+    WINDOW 
+        w AS (PARTITION BY dept_id ORDER BY exam_score_pct DESC),
+        w_static AS (PARTITION BY dept_id);

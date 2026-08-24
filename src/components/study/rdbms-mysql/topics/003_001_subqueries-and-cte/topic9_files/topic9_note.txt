@@ -1,0 +1,63 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 9: Writing Multiple and Chained Non-Recursive CTEs for Clean Modular SQL
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. MULTIPLE & CHAINED CTES SYNTAX ARCHITECTURE
+--------------------------------------------------------------------------------
+In MySQL 8.0+, a single `WITH` clause can declare multiple comma-separated CTEs. 
+Furthermore, CTEs can be CHAINED, meaning subsequent CTE blocks can reference 
+and build upon previously defined CTE blocks in the same statement.
+
+Syntax Blueprint:
+    WITH 
+    RawStudentData AS (
+        SELECT student_id, first_name, last_name, dept_id, exam_score_pct 
+        FROM students 
+        WHERE status = 'ACTIVE'
+    ),
+    DeptAggregates AS (
+        -- References RawStudentData (Chained Dependency!):
+        SELECT 
+            dept_id, 
+            COUNT(student_id) AS dept_students,
+            ROUND(AVG(exam_score_pct), 2) AS dept_avg_score
+        FROM RawStudentData
+        GROUP BY dept_id
+    ),
+    EnrichedStudents AS (
+        -- Joins RawStudentData with DeptAggregates (Chained Synthesis!):
+        SELECT 
+            r.student_id,
+            r.first_name,
+            r.last_name,
+            d.dept_avg_score,
+            (r.exam_score_pct - d.dept_avg_score) AS variance_from_dept
+        FROM RawStudentData r
+        JOIN DeptAggregates d ON r.dept_id = d.dept_id
+    )
+    -- Final Presentation:
+    SELECT * 
+    FROM EnrichedStudents 
+    WHERE variance_from_dept > 0
+    ORDER BY variance_from_dept DESC;
+
+2. THE FORWARD REFERENCE RULE & SCOPING CONSTRAINTS
+--------------------------------------------------------------------------------
+1. Forward Reference Rule:
+   - A CTE can reference ANY preceding CTE declared before it in the `WITH` list.
+   - A CTE CANNOT reference a CTE declared after it (No backward references!).
+
+2. Single `WITH` Keyword:
+   - The `WITH` keyword is written only ONCE at the start. Subsequent CTEs are 
+     separated strictly with commas (`,`).
+
+3. ISOLATED ETL PIPELINE PATTERN IN PURE SQL
+--------------------------------------------------------------------------------
+Chained CTEs enable full multi-stage ETL (Extract, Transform, Load/Format) workflows 
+within a single declarative SQL query:
+- Stage 1: Data Ingestion & Cleansing (Filter deleted/invalid rows).
+- Stage 2: Entity Aggregation (Calculate department/category totals).
+- Stage 3: Feature Engineering & Ranks (Add window functions and variances).
+- Stage 4: Executive Formatting & Threshold Filtering.

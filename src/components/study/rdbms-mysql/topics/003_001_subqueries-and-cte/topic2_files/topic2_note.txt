@@ -1,0 +1,56 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 2: Multiple-Row Subqueries using IN, NOT IN, ANY/SOME, and ALL Operators
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A MULTIPLE-ROW SUBQUERY?
+--------------------------------------------------------------------------------
+A Multiple-Row Subquery (Column Subquery) is an inner query that returns multiple 
+rows of a single column (an Nx1 list of scalar values).
+
+Because it returns a set of values rather than a single atomic scalar, standard 
+comparison operators (`=`, `>`, `<`) cannot be used alone. Instead, they must be 
+paired with multi-row set operators:
+    IN       (True if value matches ANY element in the subquery list)
+    NOT IN   (True if value does NOT match ANY element in the subquery list)
+    ANY/SOME (True if condition is satisfied for AT LEAST ONE element)
+    ALL      (True if condition is satisfied for ALL elements in the set)
+
+2. DEEP-DIVE: ANY / SOME OPERATORS
+--------------------------------------------------------------------------------
+- `= ANY (subquery)`  : Exactly equivalent to `IN (subquery)`.
+- `> ANY (subquery)`  : Greater than the MINIMUM value in the subquery result set.
+- `< ANY (subquery)`  : Less than the MAXIMUM value in the subquery result set.
+- `>= ANY (subquery)` : Greater than or equal to the MINIMUM value.
+- `<= ANY (subquery)` : Less than or equal to the MAXIMUM value.
+
+3. DEEP-DIVE: ALL OPERATOR
+--------------------------------------------------------------------------------
+- `<> ALL (subquery)` : Exactly equivalent to `NOT IN (subquery)`.
+- `> ALL (subquery)`  : Greater than the MAXIMUM value in the subquery result set.
+- `< ALL (subquery)`  : Less than the MINIMUM value in the subquery result set.
+- `>= ALL (subquery)` : Greater than or equal to the MAXIMUM value.
+- `<= ALL (subquery)` : Less than or equal to the MINIMUM value.
+
+4. THE DEADLY "NOT IN WITH NULL" TRAP
+--------------------------------------------------------------------------------
+The SQL Three-Valued Logic Hazard:
+If the subquery in a `NOT IN` clause returns even a SINGLE `NULL` row:
+    `5 NOT IN (1, 2, NULL)`
+    Evaluates to: `(5 != 1) AND (5 != 2) AND (5 != NULL)`
+    Evaluates to: `TRUE AND TRUE AND UNKNOWN` -> `UNKNOWN` (False).
+
+Result: The entire outer query silently returns ZERO rows (Empty Set)!
+
+Defensive Fixes:
+1. Always filter out NULLs in the inner query:
+   `WHERE col NOT IN (SELECT sub_col FROM table WHERE sub_col IS NOT NULL);`
+2. Or rewrite using `NOT EXISTS`, which is completely immune to NULL poisoning!
+
+5. OPTIMIZER SEMI-JOIN TRANSFORMATIONS IN MYSQL 8.0+
+--------------------------------------------------------------------------------
+MySQL transforms `WHERE col IN (SELECT ...)` into high-performance semi-joins:
+- Materialization (Lookup Hash Table)
+- FirstMatch (Short-circuit scanning)
+- LooseScan (Index deduplication)

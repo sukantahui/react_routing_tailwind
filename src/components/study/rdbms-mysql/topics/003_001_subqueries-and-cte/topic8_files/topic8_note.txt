@@ -1,0 +1,49 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 8: Introduction to Common Table Expressions (CTE) using WITH Clause
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A COMMON TABLE EXPRESSION (CTE)?
+--------------------------------------------------------------------------------
+A Common Table Expression (CTE) is a temporary named result set defined at the 
+start of a SQL statement using the `WITH` clause (introduced in MySQL 8.0).
+
+Unlike permanent database Views or session-scoped Temporary Tables, a CTE exists 
+ONLY for the duration of the single query statement in which it is declared.
+
+Syntax Blueprint:
+    WITH cte_name AS (
+        SELECT column_list 
+        FROM source_table 
+        WHERE condition
+    )
+    SELECT * 
+    FROM cte_name;
+
+2. WHY CTES TRANSFORM SQL ENGINEERING
+--------------------------------------------------------------------------------
+1. Linear Readability:
+   - Eliminates messy "inside-out" nesting of derived tables in the `FROM` clause.
+   - SQL queries read linearly from top to bottom (Step 1 -> Step 2 -> Final Report).
+
+2. Reusability within a Single Statement:
+   - A CTE can be referenced MULTIPLE times in the same outer query (e.g. self-joining 
+     against the CTE or referencing it in a UNION), whereas a derived table must be 
+     copy-pasted and re-evaluated.
+
+3. Compatibility across DML:
+   - Can precede `SELECT`, `INSERT INTO ... SELECT`, `UPDATE ... JOIN`, and `DELETE ... JOIN`.
+
+3. OPTIMIZER MECHANICS: MATERIALIZATION VS INLINING
+--------------------------------------------------------------------------------
+In MySQL 8.0, the query optimizer processes CTEs in one of two ways:
+1. Inlined / Merged (Default for simple CTEs):
+   - Merges the CTE definition directly into the outer query block, eliminating temporary tables.
+2. Materialized:
+   - Evaluates the CTE once, caches the result in an in-memory temporary table, and reads from RAM.
+   - Triggered automatically if the CTE is referenced multiple times or contains `DISTINCT`, `GROUP BY`, `LIMIT`, or `UNION`.
+
+Optimizer Hints:
+- `/*+ MERGE(cte_name) */` : Forces the optimizer to merge the CTE.
+- `/*+ NO_MERGE(cte_name) */` : Forces the optimizer to materialize the CTE in RAM.

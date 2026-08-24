@@ -1,0 +1,87 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 9: Clustered Index (Primary Key) vs Secondary (Non-Clustered) Indexes
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. CLUSTERED INDEX (THE TABLE IS THE INDEX)
+--------------------------------------------------------------------------------
+In MySQL InnoDB, every table is stored as an **Index-Organized Table (IOT)**.
+The Clustered Index defines the physical sorting order of the table rows on disk.
+
+Key Characteristics:
+- Exactly **ONE** clustered index per table.
+- The Leaf Pages (Level 0) contain the **complete physical row data** (all columns).
+- Created automatically on the table's `PRIMARY KEY`.
+- If no Primary Key is defined, InnoDB uses the first non-null `UNIQUE` key.
+- If no Unique key exists, InnoDB creates an internal 6-byte synthetic `GEN_CLUST_INDEX` row ID.
+
+2. SECONDARY (NON-CLUSTERED) INDEXES
+--------------------------------------------------------------------------------
+A Secondary Index is an independent, auxiliary B+Tree structure built on non-primary columns 
+(e.g. `email`, `phone_number`, `centre_city`).
+
+Key Characteristics:
+- A table can have **multiple** secondary indexes.
+- The Leaf Pages store the indexed column key **AND** the corresponding **Primary Key value** 
+  (the lookup bookmark).
+- Leaf pages do NOT store the remaining unindexed table columns.
+
+3. THE DOUBLE LOOKUP (BOOKMARK / KEY LOOKUP)
+--------------------------------------------------------------------------------
+When a query searches via a secondary index and requests non-indexed columns:
+    SELECT student_name, centre_city, tuition_fee_inr 
+    FROM students 
+    WHERE email = 'mamata.hui@example.com';
+
+Two-Step Traversal:
+1. Seek 1 (Secondary Index):
+   - MySQL traverses `idx_email` B-Tree to find the leaf containing `'mamata.hui@example.com'`.
+   - Retrieves the associated Primary Key: `student_id = 101`.
+2. Seek 2 (Clustered Index - Bookmark Lookup):
+   - MySQL takes `student_id = 101` and traverses the Clustered Index B-Tree to fetch the 
+     full row columns (`student_name`, `centre_city`, `tuition_fee_inr`).
+
+4. COVERING INDEXES: BYPASSING THE SECOND LOOKUP
+--------------------------------------------------------------------------------
+If all columns requested in the `SELECT` list exist within the secondary index leaf node:
+    SELECT student_id, email FROM students WHERE email = 'mamata.hui@example.com';
+
+MySQL returns data directly from the secondary index leaf node without performing Seek 2.
+- EXPLAIN Extra: `Using index`
+- Cuts disk I/O and query latency in half!
+
+5. CLUSTERED INDEX VS SECONDARY INDEX COMPARISON
+--------------------------------------------------------------------------------
+Dimension                 Clustered Index                  Secondary Index
+--------------------------------------------------------------------------------
+Quantity per Table        Exactly 1                        Multiple (up to 64 in InnoDB)
+Leaf Page Payload         Full physical row (All columns)  Indexed Column + Primary Key
+Determines Disk Order?    YES                              NO (Auxiliary structure)
+Primary Key Lookup        Direct 1-step seek               Requires 2-step double lookup
+Created On                PRIMARY KEY                      CREATE INDEX ... ON table(col)
+
+6. THE "PRIMARY KEY BLOAT" ARCHITECTURAL RULE
+--------------------------------------------------------------------------------
+Because EVERY secondary index leaf node stores a copy of the table's Primary Key:
+- If your Primary Key is a wide string (e.g. `VARCHAR(100)` UUID), ALL secondary 
+  indexes will duplicate that 100-byte string in every single leaf entry!
+- Rule: Keep Primary Keys **narrow** (e.g. 4-byte `INT` or 8-byte `BIGINT`), static, 
+  and sequential to prevent index bloat across all secondary indexes.
+
+7. PRODUCTION EXAMPLES (ACADEMY SEARCH)
+--------------------------------------------------------------------------------
+Example 1: Direct Clustered Index Point Lookup (1 Hop)
+    SELECT * FROM students WHERE student_id = 101;
+    -- Type: const, Key: PRIMARY, 1-Step direct clustered read.
+
+Example 2: Secondary Index Double Lookup
+    SELECT student_name, fee_amount_inr FROM students WHERE phone_number = '9830098214';
+    -- Step 1: idx_phone -> finds student_id 101
+    -- Step 2: PRIMARY B-Tree -> fetches name and fee.
+
+8. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always define an explicit, compact `PRIMARY KEY` (e.g. `INT` or `BIGINT AUTO_INCREMENT`).
+2. Design Covering Indexes for high-frequency queries to eliminate Bookmark Lookups.
+3. Keep secondary indexes narrow to maximize page fan-out and conserve Buffer Pool memory.

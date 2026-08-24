@@ -1,0 +1,56 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 4: Correlated Subqueries: Row-by-Row Execution and Dependency on Outer Query
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A CORRELATED SUBQUERY?
+--------------------------------------------------------------------------------
+A Correlated Subquery (also known as a Synchronized Subquery or Dependent Subquery) 
+is an inner query that references one or more column attributes belonging to the 
+OUTER query's current row context.
+
+Because of this outer dependency, the inner query cannot be evaluated independently 
+as a standalone query. Instead, it is conceptually executed once for EVERY row 
+processed by the outer query.
+
+Syntax Blueprint:
+    SELECT outer_cols 
+    FROM outer_table o
+    WHERE o.metric_col > (
+        SELECT AVG(i.metric_col) 
+        FROM inner_table i 
+        WHERE i.group_id = o.group_id -- The Correlation Link!
+    );
+
+2. EXECUTION LIFECYCLE & NESTED LOOP BEHAVIOR
+--------------------------------------------------------------------------------
+Step 1: The outer query fetches a candidate row (e.g. Student #1 in Department #1).
+Step 2: The outer column values (`o.group_id = 1`) are passed into the inner query.
+Step 3: The inner query evaluates `SELECT AVG(...) WHERE group_id = 1` and returns a scalar value.
+Step 4: The outer query compares the candidate row's score against this specific department average.
+Step 5: The outer query advances to the next row and repeats Steps 1–4 for all $N$ rows.
+
+Time Complexity:
+- Without Indexes: $O(N \times M)$ full table scans.
+- With Index on `(group_id, metric_col)`: $O(N \times \log M)$ index seeks.
+
+3. CLASSIC CORRELATED PATTERNS
+--------------------------------------------------------------------------------
+Pattern 1: Above-Group-Average Filter
+    Find students who scored above their OWN department's average score:
+    `WHERE s.score > (SELECT AVG(i.score) FROM students i WHERE i.dept_id = s.dept_id)`
+
+Pattern 2: Top N Records Per Category (Pre-MySQL 8.0 Pattern)
+    Find students who have fewer than N peers scoring higher in the same department:
+    `WHERE (SELECT COUNT(*) FROM students i WHERE i.dept_id = s.dept_id AND i.score > s.score) < 2`
+
+Pattern 3: Correlated Existence Checks
+    Find branches that have active enrollments:
+    `WHERE EXISTS (SELECT 1 FROM enrollments e WHERE e.branch_id = b.branch_id)`
+
+4. REFACTORING CORRELATED SUBQUERIES FOR HIGH PERFORMANCE
+--------------------------------------------------------------------------------
+In modern MySQL 8.0+, correlated subqueries are frequently refactored into:
+1. Window Functions: `AVG(score) OVER (PARTITION BY dept_id)` (Single pass, zero loops!).
+2. JOIN with Pre-aggregated Derived Tables / CTEs.

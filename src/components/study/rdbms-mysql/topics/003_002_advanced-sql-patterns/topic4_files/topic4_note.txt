@@ -1,0 +1,60 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 4: Boundary Value Functions: FIRST_VALUE(), LAST_VALUE(), and NTH_VALUE()
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE BOUNDARY VALUE FUNCTIONS?
+--------------------------------------------------------------------------------
+Boundary value functions extract specific positional values within an ordered 
+window partition:
+- `FIRST_VALUE(expr)`: Returns the value from the 1st row of the window frame.
+- `LAST_VALUE(expr)`: Returns the value from the last row of the window frame.
+- `NTH_VALUE(expr, N)`: Returns the value from the N-th row of the window frame.
+
+2. THE INFAMOUS LAST_VALUE() DEFAULT FRAME TRAP
+--------------------------------------------------------------------------------
+Hazard:
+When `ORDER BY` is specified inside `OVER()`, MySQL applies the default running frame:
+    `RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`
+
+Under this default frame:
+- The "Last Row" of the frame is the CURRENT ROW itself!
+- Calling `LAST_VALUE(score)` simply returns the current row's own score, which is 
+  almost never what the developer intended!
+
+The Mandatory Fix:
+To make `LAST_VALUE()` evaluate across the entire partition, you MUST explicitly specify:
+    `ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING`
+
+3. SYNTAX BLUEPRINTS
+--------------------------------------------------------------------------------
+1. Department Valedictorian Benchmark (FIRST_VALUE):
+    SELECT 
+        student_id,
+        first_name,
+        exam_score_pct,
+        FIRST_VALUE(first_name) OVER (PARTITION BY dept_id ORDER BY exam_score_pct DESC) AS dept_valedictorian,
+        FIRST_VALUE(exam_score_pct) OVER (PARTITION BY dept_id ORDER BY exam_score_pct DESC) AS top_score,
+        (FIRST_VALUE(exam_score_pct) OVER (PARTITION BY dept_id ORDER BY exam_score_pct DESC) - exam_score_pct) AS gap_from_top
+    FROM students;
+
+2. True Last Value (Expanded Frame):
+    SELECT 
+        student_id,
+        LAST_VALUE(exam_score_pct) OVER (
+            PARTITION BY dept_id 
+            ORDER BY exam_score_pct DESC 
+            ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+        ) AS dept_lowest_score
+    FROM students;
+
+3. Second Highest Benchmark (NTH_VALUE):
+    SELECT 
+        student_id,
+        NTH_VALUE(exam_score_pct, 2) OVER (
+            PARTITION BY dept_id 
+            ORDER BY exam_score_pct DESC 
+            ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+        ) AS runner_up_score
+    FROM students;

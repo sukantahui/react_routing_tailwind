@@ -1,0 +1,37 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 13: Advanced Subquery and CTE Practical Lab Exercises
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. MODULE 003_001 CAPSTONE LAB OVERVIEW
+--------------------------------------------------------------------------------
+This capstone practical lab consolidates the comprehensive toolkit of advanced 
+subquery and CTE patterns learned across Topics 0 through 12.
+
+2. THE FOUR CAPSTONE CHALLENGES
+--------------------------------------------------------------------------------
+Challenge 1: The Executive Dean's Merit Scholarship Pipeline
+- Architecture: 4-stage chained CTE combining raw filtering, department-level 
+  pre-aggregations, `DENSE_RANK()` window ranking, and scholarship tier assignment.
+
+Challenge 2: Universal Prerequisite Dependency Resolution
+- Architecture: Recursive Bottom-Up CTE resolving arbitrary multi-tier course 
+  prerequisite trees in real-time.
+
+Challenge 3: Continuous 30-Day Revenue & Attendance Gap Audit
+- Architecture: Recursive Date Grid generator + `LEFT JOIN` zero-fill + Anti-Join 
+  identifying unrecorded student attendance dates.
+
+Challenge 4: Correlated Defaulter Account Settlement & Purge
+- Architecture: Multi-table `UPDATE ... JOIN` flagging defaulters based on correlated 
+  payment totals, followed by safe `DELETE` using `NOT EXISTS`.
+
+3. CODE REFACTORING BENCHMARKS
+--------------------------------------------------------------------------------
+Pattern                 Legacy Anti-Pattern                     Modern High-Performance Refactor
+---------------------   ------------------------------------    ------------------------------------
+Top-N Per Department    Correlated COUNT(*) subquery            CTE + DENSE_RANK() OVER (PARTITION BY)
+Attendance Gap Audit    Cartesian Cross Join with static table  Recursive Date Grid + LEFT JOIN
+Billing Report          3-table JOIN causing 12x row explosion  Chained Pre-Aggregated CTEs
+Prerequisite Check      Nested stored procedure while-loops     WITH RECURSIVE Hierarchy CTE

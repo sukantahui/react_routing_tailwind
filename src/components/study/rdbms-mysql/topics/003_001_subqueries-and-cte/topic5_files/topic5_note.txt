@@ -1,0 +1,53 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 5: EXISTS and NOT EXISTS Operators: Mechanics and Performance Benefits
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE EXISTS AND NOT EXISTS?
+--------------------------------------------------------------------------------
+`EXISTS` is a boolean relational operator that tests whether a correlated subquery 
+returns at least ONE row.
+
+Core Syntax:
+    SELECT outer_cols 
+    FROM outer_table o
+    WHERE EXISTS (
+        SELECT 1 
+        FROM inner_table i 
+        WHERE i.fk = o.pk
+    );
+
+- Returns TRUE if the subquery returns 1 or more rows.
+- Returns FALSE if the subquery returns 0 rows (Empty Set).
+- `NOT EXISTS` inverts this logic: Returns TRUE only when 0 rows match.
+
+2. THE SHORT-CIRCUITING PERFORMANCE ADVANTAGE
+--------------------------------------------------------------------------------
+Unlike `COUNT(*) > 0` which scans all matching rows to calculate an exact count, 
+`EXISTS` halts scanning as soon as the very FIRST matching record is found in 
+the B-Tree index (Short-Circuit Evaluation).
+
+The `SELECT 1` vs `SELECT *` Convention:
+In an `EXISTS` subquery, MySQL completely ignores the `SELECT` projection list. 
+`SELECT 1`, `SELECT *`, or `SELECT 'X'` are identical in performance and execution plans.
+
+3. EXISTS VS IN: WHEN TO USE WHICH?
+--------------------------------------------------------------------------------
+1. Use `EXISTS` when:
+   - The outer table is large, and the inner table has a fast index on the foreign key.
+   - You want immediate short-circuiting on the first match.
+
+2. Use `IN` when:
+   - The subquery returns a small, static set of distinct values that can be materialized 
+     into an in-memory hash table.
+
+3. Always Use `NOT EXISTS` over `NOT IN` when:
+   - The inner dataset may contain `NULL` values. `NOT EXISTS` evaluates boolean existence 
+     and is 100% immune to SQL three-valued logic NULL poisoning!
+
+4. RELATIONAL DIVISION: UNIVERSAL QUANTIFICATION
+--------------------------------------------------------------------------------
+To find entities that match ALL items in a set (e.g. Students who enrolled in ALL 
+courses in the curriculum), SQL uses a Double-Nested `NOT EXISTS`:
+"Find students for whom there exists NO core course that they have NOT enrolled in."

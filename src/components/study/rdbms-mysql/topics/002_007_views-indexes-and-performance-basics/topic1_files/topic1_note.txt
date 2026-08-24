@@ -1,0 +1,128 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 1: CREATE VIEW, ALTER VIEW, and DROP VIEW Syntax
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. SQL DDL SYNTAX FOR DATABASE VIEWS
+--------------------------------------------------------------------------------
+Database views are created, modified, and removed using SQL Data Definition 
+Language (DDL) statements.
+
+1. CREATE VIEW Syntax:
+    CREATE [OR REPLACE] 
+        [ALGORITHM = {UNDEFINED | MERGE | TEMPTABLE}]
+        [DEFINER = { user | CURRENT_USER }]
+        [SQL SECURITY { DEFINER | INVOKER }]
+        VIEW view_name [(column_list)]
+        AS select_statement
+        [WITH [CASCADED | LOCAL] CHECK OPTION];
+
+2. Explicit Column Naming in View Header:
+   You can provide explicit alias names in parentheses immediately after `view_name`:
+    CREATE VIEW view_student_contacts (id, student_full_name, contact_number)
+    AS
+    SELECT student_id, CONCAT(first_name, ' ', last_name), phone_number
+    FROM student_master;
+
+   Rule: If `(column_list)` is provided, the number of names in the list MUST exactly 
+   match the number of columns returned by the `SELECT` query.
+
+3. CREATE OR REPLACE VIEW:
+   - If the view does not exist, it is created.
+   - If the view already exists, its definition is silently replaced.
+   - Ideal for idempotent migration and deployment scripts.
+
+2. MODIFYING VIEWS: ALTER VIEW VS CREATE OR REPLACE VIEW
+--------------------------------------------------------------------------------
+1. ALTER VIEW Statement:
+    ALTER VIEW view_name [(column_list)]
+    AS select_statement;
+
+   - Requires the view to already exist; otherwise, it throws Error 1146 (Table doesn't exist).
+   - Preserves existing database user privileges granted on the view.
+
+2. Comparison:
+   - `CREATE OR REPLACE VIEW`: Works whether the view exists or not.
+   - `ALTER VIEW`: Fails if view does not exist, preventing accidental creation.
+   - Both statements preserve existing user permissions granted on the view.
+
+3. REMOVING VIEWS: DROP VIEW SYNTAX
+--------------------------------------------------------------------------------
+1. DROP VIEW Statement:
+    DROP VIEW [IF EXISTS] view_name [, view_name2, ...] [RESTRICT | CASCADE];
+
+   - `IF EXISTS`: Suppresses Error 1051 if the view does not exist.
+   - Multiple views can be deleted in a single statement:
+     `DROP VIEW IF EXISTS view_v1, view_v2, view_v3;`
+   - `RESTRICT` and `CASCADE`: Accepted by MySQL parser for SQL standard compatibility, 
+     but currently ignored by MySQL storage engines.
+
+4. INSPECTING VIEW METADATA
+--------------------------------------------------------------------------------
+1. View SQL Definition:
+    SHOW CREATE VIEW view_name;
+
+2. List all Views in Current Database:
+    SHOW FULL TABLES WHERE Table_type = 'VIEW';
+
+3. Querying Information Schema:
+    SELECT 
+        TABLE_NAME AS view_name,
+        VIEW_DEFINITION,
+        IS_UPDATABLE,
+        CHECK_OPTION,
+        SECURITY_TYPE
+    FROM information_schema.VIEWS
+    WHERE TABLE_SCHEMA = 'academy_db';
+
+5. PRODUCTION EXAMPLES (ACADEMY & BILLING)
+--------------------------------------------------------------------------------
+Example 1: Safe Multi-Column Academy Enrollment View
+    CREATE OR REPLACE VIEW view_active_enrollments (
+        enroll_id,
+        candidate_name,
+        stream_name,
+        branch_location,
+        fee_paid_inr
+    )
+    AS
+    SELECT 
+        en.enrollment_id,
+        s.student_name,
+        c.course_title,
+        s.centre_city,
+        en.fee_amount_inr
+    FROM enrollments en
+    JOIN students s ON en.student_id = s.student_id
+    JOIN courses c ON en.course_id = c.course_id
+    WHERE en.status = 'ACTIVE';
+
+Example 2: Altering View to Add Performance Metrics
+    ALTER VIEW view_active_enrollments (
+        enroll_id,
+        candidate_name,
+        stream_name,
+        branch_location,
+        fee_paid_inr,
+        current_grade_pct
+    )
+    AS
+    SELECT 
+        en.enrollment_id,
+        s.student_name,
+        c.course_title,
+        s.centre_city,
+        en.fee_amount_inr,
+        COALESCE(en.marks_pct, 0.00)
+    FROM enrollments en
+    JOIN students s ON en.student_id = s.student_id
+    JOIN courses c ON en.course_id = c.course_id
+    WHERE en.status = 'ACTIVE';
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always use `CREATE OR REPLACE VIEW` in database migration scripts for idempotency.
+2. Use explicit `(column_list)` headers when column expressions have complex formulas.
+3. Use `DROP VIEW IF EXISTS` during teardown to avoid deployment failure crashes.
+4. Verify view creation using `SHOW CREATE VIEW` or `information_schema.VIEWS`.

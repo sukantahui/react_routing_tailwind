@@ -1,0 +1,46 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 13: Handling Missing Data and Sparse Matrix Filling
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS SPARSE MATRIX FILLING & MISSING DATA IMPUTATION?
+--------------------------------------------------------------------------------
+In relational databases, days without transactions or students who skipped exams 
+simply do not exist as rows in the table. This creates sparse matrices, causing 
+time-series charts to break and moving averages to miscalculate intervals.
+
+2. THE CARTESIAN PRODUCT + LEFT JOIN BLUEPRINT
+--------------------------------------------------------------------------------
+To guarantee a dense, complete matrix:
+1. Generate Date Grid: Create continuous dates via Recursive CTE.
+2. Cross Join Entities: Create Cartesian coordinate grid `(Entities CROSS JOIN DateGrid)`.
+3. Left Join Sparse Data: Attach actual transactions and wrap with `COALESCE(val, 0)`.
+
+Syntax Blueprint:
+    WITH RECURSIVE DateGrid AS (
+        SELECT DATE('2026-06-01') AS calendar_date
+        UNION ALL
+        SELECT DATE_ADD(calendar_date, INTERVAL 1 DAY)
+        FROM DateGrid
+        WHERE calendar_date < '2026-06-07'
+    ),
+    EntityGrid AS (
+        SELECT s.student_id, d.calendar_date
+        FROM students s
+        CROSS JOIN DateGrid d
+    )
+    SELECT 
+        g.student_id,
+        g.calendar_date,
+        COALESCE(p.amount_paid_inr, 0.00) AS daily_fee_paid,
+        CASE WHEN p.amount_paid_inr IS NULL THEN '🟡 Imputed Zero' ELSE '🟢 Actual Log' END AS data_origin
+    FROM EntityGrid g
+    LEFT JOIN fee_payments p 
+        ON g.student_id = p.student_id AND g.calendar_date = p.payment_date
+    ORDER BY g.student_id, g.calendar_date ASC;
+
+3. FORWARD-FILLING LAST KNOWN NON-NULL VALUE
+--------------------------------------------------------------------------------
+Fill missing values using last known status by combining `COUNT(val)` grouping 
+with `MAX(val)` over partition frames.

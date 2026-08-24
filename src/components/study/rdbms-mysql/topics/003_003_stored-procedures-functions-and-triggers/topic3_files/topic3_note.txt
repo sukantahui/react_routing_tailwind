@@ -1,0 +1,41 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 3: Declaring Local Variables, Types, and Variable Assignment (SET, SELECT INTO)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE THREE VARIABLE SCOPES IN MYSQL
+--------------------------------------------------------------------------------
+1. Local Variables (`v_var`):
+   - Declared with `DECLARE` inside a `BEGIN ... END` block.
+   - Strictly block-scoped; destroyed when the routine block terminates.
+   - Example: `DECLARE v_student_gpa DECIMAL(3,2) DEFAULT 0.00;`
+
+2. User Session Variables (`@var`):
+   - Loosely typed, session-scoped (exist across multiple queries in the connection).
+   - Example: `SET @total_revenue = 50000;`
+
+3. Global / System Variables (`@@var`):
+   - Server-wide or session-wide configuration settings.
+   - Example: `@@autocommit`, `@@time_zone`.
+
+2. THE DECLARE PLACEMENT MANDATE
+--------------------------------------------------------------------------------
+In MySQL, ALL `DECLARE` statements MUST appear at the VERY TOP of the `BEGIN ... END` 
+block, before any executable code (`SET`, `IF`, `SELECT`, `INSERT`). Placing a `DECLARE` 
+after an executable statement throws `Error 1064 (Syntax Error)`.
+
+3. VARIABLE ASSIGNMENT: SET VS SELECT ... INTO
+--------------------------------------------------------------------------------
+1. SET Statement:
+   - Used for direct scalar math and expression assignment.
+   - Example: `SET v_final_fee = (v_base_fee * 1.18) - v_discount;`
+
+2. SELECT ... INTO Statement:
+   - Populates one or more variables from a database query.
+   - Example: `SELECT exam_score_pct, dept_id INTO v_score, v_dept FROM students WHERE student_id = p_id;`
+
+CRITICAL RULES OF SELECT ... INTO:
+- EXACTLY 1 ROW: The query must return exactly 1 physical row.
+- Zero rows returned -> Throws `Error 1329 (02000): No data - zero rows fetched`.
+- Multiple rows returned -> Throws `Error 1172 (42000): Result consisted of more than one row`.

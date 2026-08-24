@@ -1,0 +1,38 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 3: Value & Offset Functions: LAG() and LEAD() for Time-Series Comparisons
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE VALUE OFFSET FUNCTIONS?
+--------------------------------------------------------------------------------
+Value offset functions allow querying column values from a preceding row (`LAG()`) 
+or a succeeding row (`LEAD()`) relative to the current row within a partition, 
+completely eliminating the need for expensive self-joins.
+
+2. SYNTAX ANATOMY & DEFAULT VALUE FALLBACKS
+--------------------------------------------------------------------------------
+Syntax Blueprint:
+    LAG(column_expression, [offset_integer, [default_fallback_value]]) 
+        OVER ( [PARTITION BY ...] ORDER BY ... )
+
+    LEAD(column_expression, [offset_integer, [default_fallback_value]]) 
+        OVER ( [PARTITION BY ...] ORDER BY ... )
+
+Parameters:
+1. `offset_integer` (Optional, Default = 1): Number of rows backward (LAG) or forward (LEAD).
+2. `default_fallback_value` (Optional, Default = NULL): Returned when the offset 
+   points outside partition boundaries (e.g. Row 1 has no previous row).
+
+3. CORE TIME-SERIES ANALYTIC PATTERNS
+--------------------------------------------------------------------------------
+1. Month-over-Month (MoM) Growth:
+   - Comparing current revenue against prior month:
+     `ROUND(((curr_rev - LAG(curr_rev, 1) OVER w) / LAG(curr_rev, 1) OVER w) * 100.0, 2)`
+
+2. Calculating Consecutive Event Gaps:
+   - Measuring days between consecutive student exam attempts:
+     `DATEDIFF(exam_date, LAG(exam_date, 1) OVER (PARTITION BY student_id ORDER BY exam_date))`
+
+3. Semester Improvement / Decline Trajectory:
+   - `(current_score - LAG(current_score, 1, current_score) OVER w)`

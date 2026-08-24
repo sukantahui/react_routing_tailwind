@@ -1,0 +1,48 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 2: Ranking Functions: ROW_NUMBER(), RANK(), DENSE_RANK(), and NTILE()
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE FOUR ESSENTIAL RANKING FUNCTIONS
+--------------------------------------------------------------------------------
+MySQL 8.0 provides four dedicated ranking functions. Each handles tied values 
+differently:
+
+Function        Tie Behavior        Subsequent Rank Sequence    Gaps in Rank?
+------------    -----------------   -------------------------   -------------
+ROW_NUMBER()    Strictly Unique     1, 2, 3, 4, 5, 6            NO (Zero Ties)
+RANK()          Tied get same       1, 2, 2, 4, 5, 6            YES (Skips N)
+DENSE_RANK()    Tied get same       1, 2, 2, 3, 4, 5            NO (No Gaps)
+NTILE(n)        Bucketed into N     1, 1, 2, 2, 3, 3            Bucket Groups
+
+2. ARCHITECTURAL DECISION MATRIX
+--------------------------------------------------------------------------------
+1. ROW_NUMBER()
+   - Use for deterministic row deduplication and UI table pagination.
+   - Example: `WHERE row_num BETWEEN 11 AND 20`.
+
+2. RANK()
+   - Use for competitive sports/Olympic rankings where ties skip subsequent positions.
+   - Example: Two runners tied for 2nd place means nobody gets 3rd place; next is 4th.
+
+3. DENSE_RANK()
+   - Use for academic honors and salary compensation benchmarks where tiers must be consecutive.
+   - Example: Finding Top 3 salary levels: `WHERE dense_rnk <= 3`.
+
+4. NTILE(n)
+   - Use for statistical distribution, RFM customer segmentation, and percentile quartiles.
+   - Example: Dividing students into 4 performance quartiles: `NTILE(4)`.
+
+3. SYNTAX BLUEPRINT
+--------------------------------------------------------------------------------
+    SELECT 
+        student_id,
+        first_name,
+        dept_id,
+        exam_score_pct,
+        ROW_NUMBER() OVER (PARTITION BY dept_id ORDER BY exam_score_pct DESC) AS row_num,
+        RANK()       OVER (PARTITION BY dept_id ORDER BY exam_score_pct DESC) AS std_rank,
+        DENSE_RANK() OVER (PARTITION BY dept_id ORDER BY exam_score_pct DESC) AS dense_rank,
+        NTILE(4)     OVER (PARTITION BY dept_id ORDER BY exam_score_pct DESC) AS score_quartile
+    FROM students;

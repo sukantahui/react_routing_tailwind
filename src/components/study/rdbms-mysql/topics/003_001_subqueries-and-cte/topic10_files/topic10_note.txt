@@ -1,0 +1,58 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 10: Recursive CTEs: Anchor Member, Recursive Member, and Termination Condition
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A RECURSIVE CTE?
+--------------------------------------------------------------------------------
+A Recursive Common Table Expression (declared with `WITH RECURSIVE`) is an iterative 
+query structure that repeatedly references its own intermediate output to compute 
+hierarchies, graph networks, sequences, or mathematical progressions.
+
+Syntax Blueprint:
+    WITH RECURSIVE NumberSeries AS (
+        -- 1. Anchor Member (Base Case / Iteration 0):
+        SELECT 1 AS n
+        
+        UNION ALL
+        
+        -- 2. Recursive Member (Iterative Transformation):
+        SELECT n + 1 
+        FROM NumberSeries 
+        -- 3. Termination Condition (Halting Predicate):
+        WHERE n < 10
+    )
+    SELECT n FROM NumberSeries;
+
+2. THE THREE ESSENTIAL ANATOMICAL PILLARS
+--------------------------------------------------------------------------------
+Pillar 1: The Anchor Member (Base Case)
+- A non-recursive `SELECT` statement that executes exactly ONCE during Iteration 0.
+- Establishes the seed/starting dataset and determines the output column types and lengths.
+
+Pillar 2: The UNION ALL Operator
+- Joins the Anchor Member with the Recursive Member. `UNION ALL` is strongly preferred 
+  because `UNION` adds expensive deduplication overhead on each iteration.
+
+Pillar 3: The Recursive Member & Termination Condition
+- The query block that references the CTE name.
+- It is evaluated iteratively on the rows produced by the PREVIOUS iteration only.
+- The `WHERE` clause acts as the Termination Condition; when it evaluates to FALSE 
+  (returns 0 rows), recursion gracefully terminates!
+
+3. RECURSION ENGINE MECHANICS: THE WORKING TABLE
+--------------------------------------------------------------------------------
+1. Iteration 0: Engine runs Anchor Member -> writes [ 1 ] into Working Table and Final Accumulator.
+2. Iteration 1: Engine runs Recursive Member on Working Table -> writes [ 2 ] into Working Table & Accumulator.
+3. Iteration k: Repeats until `n < 10` returns an EMPTY SET.
+4. Final: Engine reads the complete result from the Accumulator table.
+
+4. INFINITE LOOP PROTECTION & SYSTEM VARIABLES
+--------------------------------------------------------------------------------
+Hazard: Missing or flawed termination conditions cause runaway infinite loops!
+Protection Mechanisms:
+1. `cte_max_recursion_depth`: MySQL limit (default 1000). If exceeded, throws Error 3636.
+   - Adjust: `SET SESSION cte_max_recursion_depth = 5000;`
+   - Optimizer Hint: `SELECT /*+ SET_VAR(cte_max_recursion_depth = 5000) */ * FROM cte;`
+2. `max_execution_time`: Limits overall query runtime in milliseconds.

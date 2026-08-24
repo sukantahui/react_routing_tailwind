@@ -1,0 +1,40 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 3: Subqueries in SELECT, FROM (Derived Tables), and WHERE Clauses
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. CLAUSE-BY-CLAUSE SUBQUERY ANATOMY
+--------------------------------------------------------------------------------
+Subqueries can be placed in distinct clauses of a SQL statement, each serving a 
+specific architectural role in the query execution pipeline:
+
+1. Subqueries in `SELECT` Projection List:
+   - Must evaluate to a single SCALAR value (1x1) for each candidate row.
+   - Purpose: Attaches dynamic computed metrics or child entity aggregates directly 
+     to the projected output columns.
+   - Syntax: `SELECT s.name, (SELECT COUNT(*) FROM enrollments e WHERE e.student_id = s.student_id) AS enrolled_courses FROM students s;`
+
+2. Subqueries in `FROM` Clause (Derived Tables / Inline Views):
+   - Returns a multi-row, multi-column virtual table ($N \times M$).
+   - Purpose: Performs intermediate filtering or pre-aggregation before joining to outer tables.
+   - Mandatory Rule: In MySQL, EVERY derived table in the FROM clause MUST have an explicit alias!
+   - Syntax: `SELECT dt.branch_name, dt.avg_score FROM (SELECT branch_id, AVG(score) AS avg_score FROM students GROUP BY branch_id) AS dt;`
+
+3. Subqueries in `WHERE` Clause:
+   - Evaluates to a scalar value or value set to filter individual rows BEFORE grouping.
+   - Used with scalar operators (`=, >, <`) or set operators (`IN, ANY, ALL`).
+   - Syntax: `SELECT * FROM students WHERE exam_score > (SELECT AVG(exam_score) FROM students);`
+
+4. Subqueries in `HAVING` Clause:
+   - Filters aggregated groups AFTER `GROUP BY` execution.
+   - Evaluates group metrics against global or cross-group benchmarks.
+   - Syntax: `SELECT dept_id, AVG(exam_score) FROM students GROUP BY dept_id HAVING AVG(exam_score) > (SELECT AVG(exam_score) FROM students);`
+
+2. PERFORMANCE COMPARISON & OPTIMIZATION RULES
+--------------------------------------------------------------------------------
+1. Avoid `SELECT` list correlated subqueries on wide tables ($N > 10,000$ rows) because 
+   they execute $N$ separate query lookups; rewrite as a `LEFT JOIN` with `GROUP BY`.
+2. MySQL 8.0+ optimizes derived tables using Derived Table Merging and Condition Pushdown, 
+   pushing outer WHERE predicates directly into the inner derived query!
+3. Always name derived table column expressions explicitly to avoid ambiguous column errors in outer queries.

@@ -1,0 +1,124 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 5: Managing View Security: SQL SECURITY DEFINER vs INVOKER
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE SQL SECURITY CONTEXT IN DATABASE VIEWS
+--------------------------------------------------------------------------------
+When a user queries a view, MySQL must check access privileges on the underlying 
+base tables. The `SQL SECURITY` clause specifies whose permissions are evaluated 
+during view execution:
+
+    CREATE [OR REPLACE]
+        [DEFINER = { user | CURRENT_USER }]
+        [SQL SECURITY { DEFINER | INVOKER }]
+        VIEW view_name AS select_statement;
+
+There are two security evaluation modes:
+1. `SQL SECURITY DEFINER` (Default)
+2. `SQL SECURITY INVOKER`
+
+2. SQL SECURITY DEFINER (PRIVILEGE ELEVATION & DATA FIREWALL)
+--------------------------------------------------------------------------------
+How it Works:
+- The view executes with the database privileges of the user who defined the view 
+  (the `DEFINER`, e.g. `admin@localhost`).
+- The user calling the view (e.g. `clerk_user`) needs permission ONLY on the view 
+  itself (`GRANT SELECT ON db.view_name TO 'clerk_user'`).
+- `clerk_user` does NOT need permission on the underlying physical base tables.
+
+Primary Enterprise Use Case:
+- Data Masking and Restricted Access.
+- Public web portals and front-desk staff can query sanitized reporting views without 
+  giving them direct access to sensitive raw tables (such as salary ledgers or Aadhaar data).
+
+Syntax:
+    CREATE DEFINER = 'admin'@'localhost'
+    SQL SECURITY DEFINER
+    VIEW view_sanitized_student_directory AS
+    SELECT student_id, first_name, last_name, centre_city, masked_phone
+    FROM student_master;
+
+3. SQL SECURITY INVOKER (CALLER-BOUND PRIVILEGES)
+--------------------------------------------------------------------------------
+How it Works:
+- The view executes with the database privileges of the user currently executing 
+  the query (the `INVOKER`).
+- If the calling user does NOT have `SELECT` privileges on the underlying base tables, 
+  the query fails with MySQL Error 1142: `SELECT command denied to user 'clerk'@'host' for table 'student_master'`.
+
+Primary Enterprise Use Case:
+- Query Shortcuts and Code Reusability among users who already possess base table permissions.
+- Prevents accidental privilege escalation where an unprivileged user accesses 
+  data through an unintended view.
+
+Syntax:
+    CREATE SQL SECURITY INVOKER
+    VIEW view_internal_developer_shortcut AS
+    SELECT * FROM complex_internal_data;
+
+4. DEFINER VS INVOKER COMPARISON MATRIX
+--------------------------------------------------------------------------------
+Feature                   SQL SECURITY DEFINER              SQL SECURITY INVOKER
+--------------------------------------------------------------------------------
+Default Behavior          YES (MySQL default)               NO (Must be explicit)
+Base Table Permissions    Checked against View Creator      Checked against Current Caller
+Caller Table Grants       Zero base grants required         Caller MUST have base grants
+Data Masking Firewall     Ideal (True security firewall)    Unusable for masking
+Privilege Elevation Risk  High if DEFINER has SUPER/ALL     Zero risk of escalation
+Security Audit Target     Must verify DEFINER account       Audits individual users
+
+5. AUDITING AND MANAGING VIEW SECURITY IN PRODUCTION
+--------------------------------------------------------------------------------
+1. Inspecting Security Modes in Information Schema:
+    SELECT 
+        TABLE_SCHEMA AS db_name,
+        TABLE_NAME AS view_name,
+        DEFINER,
+        SECURITY_TYPE
+    FROM information_schema.VIEWS
+    WHERE TABLE_SCHEMA = 'academy_db';
+
+2. Orphaned DEFINER Problem:
+   - If the user account specified as DEFINER (e.g. `retired_admin@localhost`) is dropped 
+     or deleted, any subsequent queries against that DEFINER view fail with Error 1449: 
+     `The user specified as a definer ('retired_admin'@'localhost') does not exist`.
+   - Fix: Alter the view to reassign DEFINER to an active system account.
+
+6. PRODUCTION EXAMPLES (ACADEMY & AUDIT)
+--------------------------------------------------------------------------------
+Example 1: Public Academy Admission View (DEFINER Mode)
+    CREATE OR REPLACE 
+    DEFINER = 'dba_admin'@'localhost'
+    SQL SECURITY DEFINER
+    VIEW view_public_admissions_roster AS
+    SELECT 
+        student_id,
+        CONCAT(first_name, ' ', last_name) AS student_name,
+        course_stream,
+        centre_city
+    FROM student_master
+    WHERE admission_status = 'CONFIRMED';
+
+    -- Grant access strictly to web portal service user:
+    GRANT SELECT ON academy_db.view_public_admissions_roster TO 'portal_user'@'%';
+
+Example 2: Financial Audit View (INVOKER Mode)
+    CREATE OR REPLACE 
+    SQL SECURITY INVOKER
+    VIEW view_audit_ledger_reconciliation AS
+    SELECT 
+        ledger_id,
+        account_code,
+        transaction_amount_inr,
+        audit_timestamp
+    FROM financial_ledger;
+
+7. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Use `SQL SECURITY DEFINER` when creating data masking firewalls for unprivileged apps.
+2. Use `SQL SECURITY INVOKER` for convenience query shortcuts within trusted teams.
+3. Never use personal developer accounts as DEFINERs; use dedicated system service accounts 
+   (e.g. `app_view_definer@localhost`) to avoid Error 1449 when personnel change.
+4. Regularly audit `information_schema.VIEWS` to inspect DEFINER accounts.

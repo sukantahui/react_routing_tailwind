@@ -1,0 +1,68 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 6: Calculating Running Totals and Cumulative Sums
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE CUMULATIVE SUMS AND RUNNING TOTALS?
+--------------------------------------------------------------------------------
+A running total progressively accumulates the sum of a numeric metric from the 
+start of a partition up to the current row, preserving individual transactional 
+identities while calculating running balances.
+
+2. RUNNING TOTAL BLUEPRINTS
+--------------------------------------------------------------------------------
+1. Global Lifetime Running Total:
+    SELECT 
+        payment_date,
+        amount_paid_inr,
+        SUM(amount_paid_inr) OVER (
+            ORDER BY payment_date, payment_id 
+            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+        ) AS global_running_revenue
+    FROM fee_payments;
+
+2. Partitioned Student Fee Ledger Balance:
+    SELECT 
+        student_id,
+        payment_date,
+        amount_paid_inr,
+        -- Running Total Paid:
+        SUM(amount_paid_inr) OVER (
+            PARTITION BY student_id 
+            ORDER BY payment_date 
+            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+        ) AS total_paid_so_far,
+        -- Remaining Outstanding Balance:
+        (total_course_fee - SUM(amount_paid_inr) OVER (
+            PARTITION BY student_id 
+            ORDER BY payment_date 
+            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+        )) AS outstanding_balance
+    FROM student_installments;
+
+3. Year-to-Date (YTD) Resetting Running Total:
+    SELECT 
+        payment_date,
+        amount_paid_inr,
+        SUM(amount_paid_inr) OVER (
+            PARTITION BY YEAR(payment_date) 
+            ORDER BY payment_date 
+            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+        ) AS ytd_running_total
+    FROM fee_payments;
+
+3. PARETO 80/20 CUMULATIVE PERCENTAGE ANALYSIS
+--------------------------------------------------------------------------------
+    WITH CourseRevenue AS (
+        SELECT 
+            course_name,
+            SUM(amount_paid_inr) AS course_rev
+        FROM enrollments
+        GROUP BY course_name
+    )
+    SELECT 
+        course_name,
+        course_rev,
+        ROUND((SUM(course_rev) OVER (ORDER BY course_rev DESC) / SUM(course_rev) OVER ()) * 100.0, 2) AS cumulative_rev_pct
+    FROM CourseRevenue;

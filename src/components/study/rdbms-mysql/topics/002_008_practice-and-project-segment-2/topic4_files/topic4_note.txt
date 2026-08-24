@@ -1,0 +1,90 @@
+================================================================================
+RDBMS MySQL Course - Module 002_008: Real-world Schema Design Projects & Query Challenges
+Topic 4: Complex SQL Query Writing Challenges (Joins + Aggregation + Functions)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. OVERVIEW: THE COMPLEX QUERY TOOLKIT
+--------------------------------------------------------------------------------
+Writing production-grade SQL requires synthesizing multiple relational tools:
+1. Multi-Table Relational JOINs (4+ normalized tables).
+2. Advanced Aggregation with `GROUP BY`, `HAVING`, and `WITH ROLLUP`.
+3. Analytic Window Functions (`DENSE_RANK()`, `ROW_NUMBER()`, `LAG()`, `LEAD()`).
+4. Scalar Expression Functions (`CASE WHEN`, `COALESCE()`, `GROUP_CONCAT()`, `TIMESTAMPDIFF()`).
+
+2. CHALLENGE 1: STUDENT ACADEMIC RANKING & FEE CLEARANCE MATRIX
+--------------------------------------------------------------------------------
+Task: Rank students within each academic department by their average exam score, 
+compute total fee paid vs total course fee, and assign scholarship eligibility:
+
+    SELECT 
+        d.dept_name,
+        s.student_id,
+        CONCAT(s.first_name, ' ', s.last_name) AS student_name,
+        ROUND(AVG(e.exam_score_pct), 2) AS avg_exam_score,
+        DENSE_RANK() OVER (
+            PARTITION BY d.dept_id 
+            ORDER BY AVG(e.exam_score_pct) DESC
+        ) AS rank_in_dept,
+        SUM(p.amount_paid_inr) AS total_fee_paid_inr,
+        CASE 
+            WHEN AVG(e.exam_score_pct) >= 90.00 THEN 'Gold Scholarship (50% Waiver)'
+            WHEN AVG(e.exam_score_pct) >= 80.00 THEN 'Silver Scholarship (25% Waiver)'
+            ELSE 'Standard Tuition'
+        END AS scholarship_status
+    FROM students s
+    JOIN departments d ON s.dept_id = d.dept_id
+    JOIN enrollments e ON s.student_id = e.student_id
+    LEFT JOIN fee_payments p ON e.enrollment_id = p.enrollment_id
+    GROUP BY d.dept_id, d.dept_name, s.student_id, s.first_name, s.last_name
+    HAVING avg_exam_score >= 60.00
+    ORDER BY d.dept_name ASC, rank_in_dept ASC;
+
+3. CHALLENGE 2: MONTH-OVER-MONTH REVENUE GROWTH USING LAG()
+--------------------------------------------------------------------------------
+Task: Calculate monthly tuition revenue per branch, compute the previous month's 
+revenue using `LAG()`, and calculate the MoM growth percentage:
+
+    WITH MonthlyRevenue AS (
+        SELECT 
+            b.branch_name,
+            DATE_FORMAT(p.payment_date, '%Y-%m') AS payment_month,
+            SUM(p.amount_paid_inr) AS current_month_revenue_inr
+        FROM fee_payments p
+        JOIN enrollments e ON p.enrollment_id = e.enrollment_id
+        JOIN students s ON e.student_id = s.student_id
+        JOIN branches b ON s.branch_id = b.branch_id
+        GROUP BY b.branch_id, b.branch_name, DATE_FORMAT(p.payment_date, '%Y-%m')
+    )
+    SELECT 
+        branch_name,
+        payment_month,
+        current_month_revenue_inr,
+        LAG(current_month_revenue_inr, 1, 0.00) OVER (
+            PARTITION BY branch_name 
+            ORDER BY payment_month ASC
+        ) AS previous_month_revenue_inr,
+        ROUND(
+            ((current_month_revenue_inr - LAG(current_month_revenue_inr, 1, current_month_revenue_inr) OVER (
+                PARTITION BY branch_name ORDER BY payment_month ASC
+            )) / LAG(current_month_revenue_inr, 1, current_month_revenue_inr) OVER (
+                PARTITION BY branch_name ORDER BY payment_month ASC
+            )) * 100.0, 2
+        ) AS mom_growth_pct
+    FROM MonthlyRevenue;
+
+4. CHALLENGE 3: HIERARCHICAL REVENUE REPORT WITH ROLLUP
+--------------------------------------------------------------------------------
+Task: Generate a multi-level sales report with sub-totals and a grand total:
+
+    SELECT 
+        COALESCE(b.branch_name, '=== ALL BRANCHES (GRAND TOTAL) ===') AS branch_name,
+        COALESCE(c.course_name, '--- Branch Subtotal ---') AS course_name,
+        COUNT(e.enrollment_id) AS total_enrolled,
+        SUM(p.amount_paid_inr) AS total_revenue_inr
+    FROM branches b
+    JOIN students s ON b.branch_id = s.branch_id
+    JOIN enrollments e ON s.student_id = e.student_id
+    JOIN courses c ON e.course_code = c.course_code
+    JOIN fee_payments p ON e.enrollment_id = p.enrollment_id
+    GROUP BY b.branch_name, c.course_name WITH ROLLUP;

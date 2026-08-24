@@ -1,0 +1,62 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 11: Using Recursive CTEs for Hierarchical Data (Org Charts, Category Trees, BOM)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. HIERARCHICAL DATA MODELING (ADJACENCY LIST)
+--------------------------------------------------------------------------------
+In relational schemas, trees and graphs are commonly modeled using the Adjacency List pattern:
+    CREATE TABLE employees (
+        emp_id INT PRIMARY KEY,
+        emp_name VARCHAR(100) NOT NULL,
+        manager_id INT NULL REFERENCES employees(emp_id) -- Self-referencing FK!
+    );
+
+Before MySQL 8.0, querying arbitrarily deep hierarchies required nested procedural loops 
+or complex closure tables. With `WITH RECURSIVE`, hierarchical traversal is achieved in 
+a single declarative query!
+
+2. TOP-DOWN HIERARCHICAL TRAVERSAL (ROOT TO LEAF)
+--------------------------------------------------------------------------------
+Find all direct and indirect subordinates under the Academy Director (Root):
+    WITH RECURSIVE OrgChart AS (
+        -- Anchor Member: Root node (where manager_id IS NULL):
+        SELECT 
+            emp_id, 
+            emp_name, 
+            manager_id, 
+            1 AS hierarchy_level,
+            CAST(emp_name AS CHAR(500)) AS breadcrumb_path
+        FROM employees
+        WHERE manager_id IS NULL
+        
+        UNION ALL
+        
+        -- Recursive Member: Join subordinates to their managers:
+        SELECT 
+            e.emp_id, 
+            e.emp_name, 
+            e.manager_id, 
+            o.hierarchy_level + 1,
+            CONCAT(o.breadcrumb_path, ' -> ', e.emp_name)
+        FROM employees e
+        JOIN OrgChart o ON e.manager_id = o.emp_id
+    )
+    SELECT * FROM OrgChart ORDER BY hierarchy_level, emp_name;
+
+3. BOTTOM-UP TRAVERSAL (LEAF TO ROOT / BREADCRUMBS)
+--------------------------------------------------------------------------------
+To find the complete management chain above a specific employee:
+- Anchor Member: Starts with the target employee (e.g. `emp_id = 104`).
+- Recursive Member: Joins `manager_id` upward until `manager_id IS NULL`.
+
+4. BILL OF MATERIALS (BOM) & CYCLE DETECTION
+--------------------------------------------------------------------------------
+1. Multi-Tier Parts Explosion:
+   - Calculating total component quantities by multiplying unit requirements down the tree:
+     `total_qty = p.total_qty * c.quantity_per_assembly`.
+
+2. Cycle Detection on Corrupted Trees:
+   - If bad data introduces circular references ($A \to B \to A$), track the visited path:
+     `WHERE o.path NOT LIKE CONCAT('%[', e.emp_id, ']%')`.

@@ -1,0 +1,115 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 0: What is a Database View? Benefits of Abstraction and Security
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A DATABASE VIEW?
+--------------------------------------------------------------------------------
+A Database View is a virtual table whose contents are defined by a stored SELECT query.
+Unlike a base table:
+- A view does NOT store physical data rows on disk.
+- It contains no independent data pages.
+- Instead, it stores the SQL query definition in the database data dictionary.
+- Whenever a user queries a view (`SELECT * FROM view_name`), the RDBMS query optimizer 
+  merges the view's underlying query with the user's outer query and retrieves the 
+  fresh data dynamically from the underlying base tables.
+
+In Relational Algebra terms, a view is a named, persisted relational expression:
+    View = \pi_{attributes}(\sigma_{conditions}(BaseTable_1 \bowtie BaseTable_2))
+
+2. PRIMARY BENEFITS OF DATABASE VIEWS
+--------------------------------------------------------------------------------
+1. Security & Column-Level Access Control (Data Masking):
+   - Restrict access to sensitive columns (such as passwords, credit card numbers, 
+     salary, Aadhaar numbers, or student phone numbers).
+   - Non-privileged users are granted SELECT permissions on the View rather than 
+     the underlying base table.
+
+2. Row-Level Security (Row Filtering):
+   - Restrict users to see only records relevant to their branch, department, or region.
+   - Example: A Barrackpore center coordinator can only view students enrolled in Barrackpore.
+
+3. Query Simplification & Code Reusability:
+   - Encapsulate complex 5-table JOINs, aggregations, and business formulas into 
+     a clean, single virtual relation.
+   - Frontend developers simply write `SELECT * FROM active_student_summary` instead of 
+     repeating 40 lines of relational join logic.
+
+4. Logical Data Independence (Schema Abstraction):
+   - If base table schemas change (e.g. splitting `students` into `student_profiles` 
+     and `student_contacts`), existing client applications do not break if a view 
+     with the original column names is maintained.
+
+5. Consistent Business Metric Calculations:
+   - Standardize calculations like `net_revenue = gross_revenue - tax - discount` in 
+     one view definition so all reporting tools compute KPIs identically.
+
+3. BASE TABLE VS VIRTUAL VIEW VS MATERIALIZED VIEW
+--------------------------------------------------------------------------------
+Feature               Base Table          Virtual View (Standard)   Materialized View
+--------------------------------------------------------------------------------
+Data Storage          Stores raw bytes    Stores query metadata     Stores computed cache
+Disk Space            High                Zero (metadata only)      High
+Data Freshness        Real-time (Current) Real-time (Always fresh)  Stale until refreshed
+Query Overhead        Direct scan/seek    Re-executes inner query   Direct read from cache
+DML (INSERT/UPDATE)   Direct write        Restricted conditions     Modified via refresh
+
+*Note: MySQL does not support native Materialized Views out-of-the-box, but they can 
+be emulated using cache tables and triggers/event schedulers.
+
+4. PRODUCTION ARCHITECTURAL EXAMPLES
+--------------------------------------------------------------------------------
+Example 1: Public Academy Student Directory (Data Masking View)
+    CREATE VIEW view_student_public_directory AS
+    SELECT 
+        student_id,
+        CONCAT(first_name, ' ', last_name) AS full_name,
+        course_stream,
+        centre_city,
+        admission_status,
+        -- Masking contact info: Showing only last 4 digits of phone:
+        CONCAT('XXXXXX', RIGHT(phone_number, 4)) AS masked_phone
+    FROM student_master
+    WHERE is_deleted = 0;
+
+Example 2: Regional Center Branch Isolation (Row-Level Security View)
+    CREATE VIEW view_barrackpore_active_batches AS
+    SELECT 
+        enrollment_id,
+        student_name,
+        batch_timing,
+        fee_paid_inr
+    FROM student_enrollments
+    WHERE centre_city = 'Barrackpore' 
+      AND enrollment_status = 'ACTIVE';
+
+Example 3: Executive Course Revenue Summary (Pre-Aggregated Reporting View)
+    CREATE VIEW view_executive_course_kpis AS
+    SELECT 
+        course_stream,
+        COUNT(student_id) AS total_enrolled_students,
+        SUM(fee_amount_inr) AS gross_tuition_inr,
+        ROUND(AVG(marks_pct), 2) AS average_cohort_score
+    FROM student_enrollments
+    GROUP BY course_stream;
+
+5. COMMON PITFALLS & PERFORMANCE CONSIDERATIONS
+--------------------------------------------------------------------------------
+1. Views are NOT Performance Accelerators:
+   - A standard view does not cache query results. Running `SELECT * FROM my_view` 
+     takes the exact same time (or slightly more) as running the underlying query.
+2. View on View Nesting (View Stacking):
+   - Nesting views 4 or 5 levels deep makes query plans unpredictable, prevents 
+     index pushdown, and severely degrades relational engine throughput.
+3. Hidden Cost of Unused Joins:
+   - Querying a view containing 6 table joins when only columns from 1 table are needed 
+     forces the database to evaluate unnecessary tables unless the optimizer can eliminate them.
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Use views primarily for security masking, row isolation, and query modularity.
+2. Grant database user privileges (`GRANT SELECT ON database.view_name TO 'user'`) on views 
+   instead of raw base tables.
+3. Ensure underlying base tables have appropriate B-Tree indexes on join and filter columns.
+4. Avoid deep view nesting hierarchies; keep view definitions clean and flat.

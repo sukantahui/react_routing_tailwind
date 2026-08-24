@@ -154,8 +154,8 @@ export default function Topic4() {
                   Takes exactly <strong className="text-white">one hashable item</strong> and inserts it as a single member into the set.
                 </p>
                 <div className="text-xs font-mono bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-slate-400 space-y-1">
-                  <div><span className="text-emerald-400">✓</span> <code className="text-emerald-300">s.add("Python")</code> -> {"{'Python'}"}</div>
-                  <div><span className="text-emerald-400">✓</span> <code className="text-emerald-300">s.add((1, 2))</code> -> {"{(1, 2)}"}</div>
+                  <div><span className="text-emerald-400">✓</span> <code className="text-emerald-300">s.add("Python")</code> → {"{'Python'}"}</div>
+                  <div><span className="text-emerald-400">✓</span> <code className="text-emerald-300">s.add((1, 2))</code> → {"{(1, 2)}"}</div>
                 </div>
               </div>
 
@@ -173,8 +173,8 @@ export default function Topic4() {
                   Takes <strong className="text-white">one or more iterables</strong>, unpacks every child item, and inserts them all into the set.
                 </p>
                 <div className="text-xs font-mono bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-slate-400 space-y-1">
-                  <div><span className="text-sky-400">✓</span> <code className="text-sky-300">s.update([10, 20])</code> -> {"{10, 20}"}</div>
-                  <div><span className="text-sky-400">✓</span> <code className="text-sky-300">s.update(tuple1, list2)</code> -> Multi-source!</div>
+                  <div><span className="text-sky-400">✓</span> <code className="text-sky-300">s.update([10, 20])</code> → {"{10, 20}"}</div>
+                  <div><span className="text-sky-400">✓</span> <code className="text-sky-300">s.update(tuple1, list2)</code> → Multi-source!</div>
                 </div>
               </div>
             </div>

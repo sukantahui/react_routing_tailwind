@@ -1,0 +1,45 @@
+================================================================================
+RDBMS MySQL Course - Module 002_008: Real-world Schema Design Projects & Query Challenges
+Topic 5: Debugging Slow Queries and Identifying Missing Indexes
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE PERFORMANCE TUNING WORKFLOW
+--------------------------------------------------------------------------------
+High-performance database optimization follows a disciplined 4-step diagnostic protocol:
+1. Capture: Enable MySQL Slow Query Log (`slow_query_log = 1`, `long_query_time = 0.5`).
+2. Profile: Run `EXPLAIN ANALYZE` to inspect actual execution time and iterator loops.
+3. Diagnose: Audit access types (`ALL` vs `ref` vs `eq_ref`) and `Extra` flags.
+4. Optimize: Add composite covering indexes or refactor non-SARGable WHERE predicates.
+
+2. DECODING EXPLAIN ACCESS TYPES (FROM WORST TO BEST)
+--------------------------------------------------------------------------------
+1. `ALL` (Full Table Scan) - $O(N)$ reads all 16KB disk pages in the table. Worst.
+2. `index` (Full Index Scan) - Scans all leaf pages of a secondary B-Tree.
+3. `range` (Index Range Scan) - Seeks B-Tree start point and scans bounded leaf nodes (`BETWEEN`, `>`, `<`).
+4. `ref` (Non-Unique Index Seek) - Directly locates matching duplicate key rows.
+5. `eq_ref` (Unique / PK Join Lookup) - Reads exactly 1 row per outer row in a join.
+6. `const` / `system` - Single point seek on a Primary Key or UNIQUE key. Instant.
+
+3. THE THREE DEADLY QUERY ANTI-PATTERNS & SOLUTIONS
+--------------------------------------------------------------------------------
+Anti-Pattern 1: Non-SARGable Expressions
+- Problem: `WHERE YEAR(order_date) = 2026;` (Wraps column in a function, blinding the B-Tree).
+- Solution: `WHERE order_date >= '2026-01-01' AND order_date < '2027-01-01';` (Enables B-Tree Range Seek).
+
+Anti-Pattern 2: Missing Covering Index on Filter + Sort
+- Problem: `SELECT * FROM orders WHERE customer_id = 101 ORDER BY order_date DESC;`
+  `EXPLAIN` shows `type: ALL` and `Extra: Using filesort` (sorts in RAM buffer).
+- Solution: `CREATE INDEX idx_cust_date ON orders (customer_id, order_date DESC);`
+  `EXPLAIN` now shows `type: ref` and eliminates `Using filesort` entirely.
+
+Anti-Pattern 3: Implicit Type Conversion Trap
+- Problem: `WHERE phone_number = 9830098214;` on `VARCHAR(15)` column.
+  MySQL converts every row's string to integer, forcing a Full Table Scan!
+- Solution: `WHERE phone_number = '9830098214';` (Allows direct string B-Tree seek).
+
+4. EXPLAIN FORMAT=TREE & EXPLAIN ANALYZE
+--------------------------------------------------------------------------------
+`EXPLAIN ANALYZE` (MySQL 8.0+) executes the query and prints actual execution metrics:
+- `actual time=0.042..0.089 rows=4 loops=1`
+- Reveals actual vs estimated row counts and identifying slow disk table spillovers.

@@ -1,0 +1,42 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 8: Distribution & Percentile Functions: CUME_DIST() and PERCENT_RANK()
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE DISTRIBUTION & PERCENTILE FUNCTIONS?
+--------------------------------------------------------------------------------
+Distribution functions compute statistical relative position and cumulative 
+percentiles across a sorted partition on a scale from 0.0 to 1.0.
+
+2. MATHEMATICAL FORMULAS & COMPARISON
+--------------------------------------------------------------------------------
+1. CUME_DIST() (Cumulative Distribution):
+   - Formula: $\text{CUME\_DIST}() = \frac{\text{Number of rows with value } \le \text{ current row value}}{\text{Total Rows in Partition}}$
+   - Range: $(0.0, 1.0]$ (Always strictly greater than 0; top row is 1.0).
+   - Meaning: "What percentage of students scored at or below this student?"
+
+2. PERCENT_RANK() (Relative Rank Percentage):
+   - Formula: $\text{PERCENT\_RANK}() = \frac{\text{RANK}() - 1}{\text{Total Rows in Partition} - 1}$
+   - Range: $[0.0, 1.0]$ (First row is always 0.0000; top row is 1.0000).
+   - Meaning: "What percentage of peers does this student outperform?"
+
+3. SYNTAX BLUEPRINT & TOP PERCENTILE FILTERING
+--------------------------------------------------------------------------------
+    WITH ExamPercentiles AS (
+        SELECT 
+            student_id,
+            first_name,
+            dept_id,
+            exam_score_pct,
+            -- CUME_DIST (Fraction <= Current):
+            ROUND(CUME_DIST() OVER (PARTITION BY dept_id ORDER BY exam_score_pct ASC), 4) AS cumulative_dist,
+            -- PERCENT_RANK (Relative Rank %):
+            ROUND(PERCENT_RANK() OVER (PARTITION BY dept_id ORDER BY exam_score_pct ASC), 4) AS percentile_rank
+        FROM students
+    )
+    -- Filter Top 10 Percentile Students (Top 10%):
+    SELECT * 
+    FROM ExamPercentiles
+    WHERE percentile_rank >= 0.9000
+    ORDER BY dept_id, exam_score_pct DESC;

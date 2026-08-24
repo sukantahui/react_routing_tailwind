@@ -1,0 +1,67 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 6: Correlated UPDATE and Correlated DELETE Statements
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. CORRELATED DML OPERATIONS OVERVIEW
+--------------------------------------------------------------------------------
+Correlated subqueries are frequently used in `UPDATE` and `DELETE` statements to 
+perform dynamic data modifications driven by related child tables or peer benchmarks.
+
+2. CORRELATED UPDATE PATTERNS
+--------------------------------------------------------------------------------
+Pattern 1: Updating Values in the SET Clause:
+    UPDATE students s
+    SET s.total_fees_paid_inr = (
+        SELECT COALESCE(SUM(p.amount_paid_inr), 0.00)
+        FROM enrollments e
+        JOIN fee_payments p ON e.enrollment_id = p.enrollment_id
+        WHERE e.student_id = s.student_id
+    );
+
+Pattern 2: Conditional Update in the WHERE Clause:
+    UPDATE students s
+    SET s.performance_badge = 'Gold Medalist'
+    WHERE s.exam_score_pct = (
+        SELECT MAX(i.exam_score_pct) 
+        FROM students_archive i 
+        WHERE i.dept_id = s.dept_id
+    );
+
+3. CORRELATED DELETE WITH NOT EXISTS (ORPHAN PURGING)
+--------------------------------------------------------------------------------
+Safely purging orphan records that have no valid active parent or child references:
+    DELETE FROM student_drafts d
+    WHERE NOT EXISTS (
+        SELECT 1 
+        FROM students s 
+        WHERE s.student_id = d.student_id
+    );
+
+4. THE FAMOUS MYSQL ERROR 1093 AND ITS SOLUTIONS
+--------------------------------------------------------------------------------
+The Problem:
+MySQL throws `Error 1093 (HY000): You can't specify target table 's' for update in FROM clause` 
+when you try to modify a table while directly selecting from that exact same table in a subquery!
+
+Example of Bad Query:
+    DELETE FROM students 
+    WHERE exam_score_pct < (SELECT AVG(exam_score_pct) FROM students); -- 💥 Error 1093!
+
+Solution 1: The Derived Table Wrapper (Materialization Bypass)
+    DELETE FROM students 
+    WHERE exam_score_pct < (
+        SELECT avg_score FROM (
+            SELECT AVG(exam_score_pct) AS avg_score FROM students
+        ) AS tmp
+    );
+
+Solution 2: Multi-Table UPDATE/DELETE with JOIN (Modern Best Practice)
+    UPDATE students s
+    JOIN (
+        SELECT dept_id, AVG(exam_score_pct) AS dept_avg 
+        FROM students 
+        GROUP BY dept_id
+    ) AS dt ON s.dept_id = dt.dept_id
+    SET s.dept_benchmark = dt.dept_avg;

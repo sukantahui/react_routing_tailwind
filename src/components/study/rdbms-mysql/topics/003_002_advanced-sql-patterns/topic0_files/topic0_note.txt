@@ -1,0 +1,53 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 0: Introduction to Window (Analytic) Functions vs Aggregate Functions
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE WINDOW (ANALYTIC) FUNCTIONS?
+--------------------------------------------------------------------------------
+Introduced in MySQL 8.0, Window Functions perform calculations across a defined 
+subset ("window") of table rows related to the current row, WITHOUT collapsing 
+the rows into a single summary row.
+
+2. THE FUNDAMENTAL ARCHITECTURAL PARADIGM SHIFT
+--------------------------------------------------------------------------------
+Standard GROUP BY Aggregation:
+- Collapses $N$ input rows into 1 summary row per group.
+- Destroys individual row identity, preventing individual row attributes from 
+  being projected without losing granular detail.
+
+Window Function Aggregation (`OVER()`):
+- Preserves all $N$ original input rows in the result set.
+- Calculates group aggregates and projects them alongside each individual row.
+- Allows comparing an individual student's score against their department's average 
+  on the exact same row!
+
+Syntax Blueprint:
+    SELECT 
+        student_id,
+        first_name,
+        dept_id,
+        exam_score_pct,
+        -- Window Function:
+        AVG(exam_score_pct) OVER (PARTITION BY dept_id) AS dept_avg_score,
+        (exam_score_pct - AVG(exam_score_pct) OVER (PARTITION BY dept_id)) AS diff_from_dept
+    FROM students;
+
+3. QUERY EXECUTION ORDER & RESTRICTIONS
+--------------------------------------------------------------------------------
+Phase Evaluation Order in SQL:
+1. FROM / JOIN
+2. WHERE (Row-level filtering)
+3. GROUP BY (Aggregation)
+4. HAVING (Group-level filtering)
+5. WINDOW FUNCTIONS (Evaluated HERE!)
+6. SELECT (Projection)
+7. DISTINCT
+8. ORDER BY (Final sorting)
+9. LIMIT / OFFSET
+
+Crucial Rule:
+Because Window Functions evaluate at Step 5, they CANNOT appear directly in 
+`WHERE` or `HAVING` clauses. To filter by a window metric (e.g. `dept_rank <= 3`), 
+wrap the query inside a CTE or Derived Table!

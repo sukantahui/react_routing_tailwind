@@ -1,0 +1,46 @@
+================================================================================
+RDBMS MySQL Course - Module 002_008: Real-world Schema Design Projects & Query Challenges
+Topic 7: Solution Walkthrough and Best Practice Architectural Tips
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. SEGMENT 2 CAPSTONE ARCHITECTURAL BLUEPRINT
+--------------------------------------------------------------------------------
+This final topic consolidates all key architectural patterns, query solutions, 
+and database engineering best practices mastered across Segment 2.
+
+2. THE SENIOR ARCHITECT'S FOUR PILLARS
+--------------------------------------------------------------------------------
+Pillar 1: 3NF Relational Schema Design
+- Separate abstract title/entity metadata from physical item instances (e.g. books vs book_items).
+- Resolve Many-to-Many relationships using explicit junction tables with composite primary keys.
+- Eliminate transitive non-key dependencies into dedicated lookup tables.
+
+Pillar 2: Complex Analytical SQL Synthesis
+- Use Common Table Expressions (CTEs) to make multi-stage transformations readable and maintainable.
+- Use `DENSE_RANK()` for contiguous ranking and `LAG()`/`LEAD()` for period-over-period trend analysis.
+- Use `GROUP BY ... WITH ROLLUP` and `COALESCE()` for hierarchical subtotal reporting.
+
+Pillar 3: High-Performance Query Optimization
+- Sequence composite index columns strictly by the formula: `(Equality, Range, Sort)`.
+- Always write SARGable WHERE clauses (avoid wrapping columns in functions like `YEAR()` or `DATE()`).
+- Design Covering Indexes (`Using index`) to completely eliminate clustered index data page lookups.
+
+Pillar 4: Concurrency & Transactional Data Integrity
+- Use `SELECT ... FOR UPDATE` row locks inside transactions to prevent double-booking race conditions.
+- Always capture immutable unit price snapshots on order lines and consultation invoices.
+- Set `ON DELETE RESTRICT` on core ledger and financial history tables to prevent accidental data loss.
+
+3. DOMAIN ARCHITECTURE COMPARISON
+--------------------------------------------------------------------------------
+Domain 1: University Library System
+- Key Pattern: Abstract title metadata (`books`) separated from physical barcode copies (`book_items`).
+- Circulation: Dynamic overdue fine calculation with `DATEDIFF(CURRENT_DATE, due_date) * 5.00`.
+
+Domain 2: Multi-Branch Hospital System
+- Key Pattern: Centralized Universal Health ID (`UHID`) unified across branch shift rotation schedules.
+- Concurrency: Slot token locking with `SELECT ... FOR UPDATE` during peak morning OPD checkouts.
+
+Domain 3: Enterprise Retail & Supply Chain
+- Key Pattern: Multi-warehouse stock tracking with `UNIQUE (warehouse_id, product_id)`.
+- Integrity: Freezing `unit_price_at_sale_inr` snapshot on `order_items` to prevent catalog price drift.

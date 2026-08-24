@@ -1,0 +1,90 @@
+================================================================================
+RDBMS MySQL Course - Module 002_008: Real-world Schema Design Projects & Query Challenges
+Topic 3: End-to-End Normalization Exercise: From Unnormalized Spreadsheet to 3NF
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE SPREADSHEET DISASTER: UNNORMALIZED FORM (UNF)
+--------------------------------------------------------------------------------
+A vocational training institute in Barrackpore maintains a single, chaotic Excel 
+spreadsheet recording student admissions, multi-course enrollments, teachers, 
+classroom allocations, and fee receipts:
+
+Raw Columns:
+[Student_ID, Student_Name, Phone_Numbers (Multi-value), Branch_City, Branch_Pincode, 
+ Course_Codes (Multi-value), Course_Names, Instructor_ID, Instructor_Name, 
+ Instructor_Phone, Room_No, Receipt_No, Payment_Date, Amount_Paid_INR, Exam_Score_Pct]
+
+Spreadsheet Anomalies:
+1. Insertion Anomaly: Cannot add a new Course or Instructor until a student enrolls.
+2. Update Anomaly: If Instructor Susmita changes her phone number, 500 rows must be updated.
+3. Deletion Anomaly: If student Debangshu cancels his enrollment, all record of the 
+   Course and Classroom is permanently deleted!
+
+2. STEP 1: CONVERTING UNF TO 1NF (FIRST NORMAL FORM)
+--------------------------------------------------------------------------------
+Rules of 1NF:
+- Eliminate repeating groups (no multi-valued comma-separated cells).
+- Ensure atomic scalar values in every column.
+- Define a candidate / composite primary key.
+
+Actions Taken:
+- Split `Phone_Numbers` and `Course_Codes` into individual rows.
+- Define Composite Primary Key: `(Student_ID, Course_Code, Receipt_No)`.
+
+3. STEP 2: CONVERTING 1NF TO 2NF (SECOND NORMAL FORM)
+--------------------------------------------------------------------------------
+Rules of 2NF:
+- Must be in 1NF.
+- Eliminate **Partial Functional Dependencies** (no non-key attribute can depend 
+  on only part of the composite primary key).
+
+Identified Partial Dependencies:
+- `Student_ID -> Student_Name, Branch_City, Branch_Pincode` (Depends on part of PK!)
+- `Course_Code -> Course_Name, Instructor_ID, Instructor_Name, Room_No` (Depends on part of PK!)
+- `Receipt_No -> Payment_Date, Amount_Paid_INR` (Depends on part of PK!)
+
+Decomposition into 4 Tables:
+1. `students` (`student_id PK`, `student_name`, `branch_city`, `branch_pincode`)
+2. `courses` (`course_code PK`, `course_name`, `instructor_id`, `instructor_name`, `instructor_phone`, `room_no`)
+3. `enrollments` (`student_id FK`, `course_code FK`, `exam_score_pct`, PRIMARY KEY (`student_id`, `course_code`))
+4. `fee_payments` (`receipt_no PK`, `student_id FK`, `course_code FK`, `payment_date`, `amount_paid_inr`)
+
+4. STEP 3: CONVERTING 2NF TO 3NF (THIRD NORMAL FORM)
+--------------------------------------------------------------------------------
+Rules of 3NF:
+- Must be in 2NF.
+- Eliminate **Transitive Dependencies** (no non-key attribute can depend on another 
+  non-key attribute: $X \to Y \to Z$).
+
+Identified Transitive Dependencies:
+- In `students`: `student_id -> branch_city -> branch_pincode` (Transitive!)
+- In `courses`: `course_code -> instructor_id -> instructor_name, instructor_phone` (Transitive!)
+
+Decomposition into 6 Clean 3NF Tables:
+1. `branches` (`branch_id PK`, `branch_city`, `branch_pincode`)
+2. `students` (`student_id PK`, `student_name`, `branch_id FK`)
+3. `instructors` (`instructor_id PK`, `instructor_name`, `instructor_phone`)
+4. `courses` (`course_code PK`, `course_name`, `instructor_id FK`, `room_no`)
+5. `enrollments` (`enrollment_id PK`, `student_id FK`, `course_code FK`, `exam_score_pct`)
+6. `fee_payments` (`receipt_no PK`, `enrollment_id FK`, `payment_date`, `amount_paid_inr`)
+
+5. DATA MIGRATION SQL (ETL FROM RAW SPREADSHEET TO 3NF)
+--------------------------------------------------------------------------------
+    -- Migrate unique instructors:
+    INSERT INTO instructors (instructor_id, instructor_name, instructor_phone)
+    SELECT DISTINCT instructor_id, instructor_name, instructor_phone 
+    FROM raw_spreadsheet_staging 
+    WHERE instructor_id IS NOT NULL;
+
+    -- Migrate unique courses:
+    INSERT INTO courses (course_code, course_name, instructor_id, room_no)
+    SELECT DISTINCT course_code, course_name, instructor_id, room_no
+    FROM raw_spreadsheet_staging;
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. 1NF = Atomic values + Primary Key defined.
+2. 2NF = Remove Partial Dependencies on Composite Primary Keys.
+3. 3NF = Remove Transitive Dependencies between non-key columns.
+4. Always test the 3NF schema against insertion, update, and deletion anomalies.

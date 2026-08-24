@@ -1,0 +1,118 @@
+================================================================================
+RDBMS MySQL Course - Module 002_008: Real-world Schema Design Projects & Query Challenges
+Topic 2: Design Project 3: Retail Inventory, Supplier & Order Processing DB
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. PROJECT OVERVIEW: RETAIL SUPPLY CHAIN & INVENTORY NETWORK
+--------------------------------------------------------------------------------
+The Enterprise Retail & Supply Chain database manages procurement from suppliers, 
+multi-warehouse stock inventory, customer orders, and automated low-stock reorders 
+across distribution centers in Barrackpore, Kolkata, and Ichapur.
+
+2. 3NF NORMALIZED RELATIONAL SCHEMA SPECIFICATION
+--------------------------------------------------------------------------------
+1. `suppliers`
+   - `supplier_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `company_name` VARCHAR(150) NOT NULL
+   - `gstin_number` VARCHAR(15) NOT NULL UNIQUE
+   - `contact_name` VARCHAR(100) NOT NULL
+   - `email` VARCHAR(100) NOT NULL UNIQUE
+   - `city` VARCHAR(50) NOT NULL
+
+2. `warehouses`
+   - `warehouse_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `warehouse_name` VARCHAR(100) NOT NULL
+   - `city` VARCHAR(50) NOT NULL
+
+3. `categories` (Hierarchical Category Tree)
+   - `category_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `category_name` VARCHAR(100) NOT NULL
+   - `parent_category_id` INT NULL (FK -> categories)
+
+4. `products` (Catalog Master)
+   - `product_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `sku_code` VARCHAR(30) NOT NULL UNIQUE
+   - `product_name` VARCHAR(255) NOT NULL
+   - `category_id` INT NOT NULL (FK -> categories)
+   - `cost_price_inr` DECIMAL(10,2) NOT NULL
+   - `selling_price_inr` DECIMAL(10,2) NOT NULL
+   - `min_reorder_level` INT NOT NULL DEFAULT 10
+
+5. `warehouse_inventory` (Multi-Warehouse Stock Ledger)
+   - `inventory_id` BIGINT AUTO_INCREMENT PRIMARY KEY
+   - `warehouse_id` INT NOT NULL (FK -> warehouses)
+   - `product_id` INT NOT NULL (FK -> products)
+   - `quantity_on_hand` INT NOT NULL DEFAULT 0
+   - `quantity_reserved` INT NOT NULL DEFAULT 0
+   - UNIQUE KEY `uq_warehouse_product` (`warehouse_id`, `product_id`)
+
+6. `customers`
+   - `customer_id` BIGINT AUTO_INCREMENT PRIMARY KEY
+   - `customer_code` VARCHAR(20) NOT NULL UNIQUE
+   - `first_name` VARCHAR(50) NOT NULL
+   - `last_name` VARCHAR(50) NOT NULL
+   - `email` VARCHAR(100) NOT NULL UNIQUE
+   - `phone` VARCHAR(15) NOT NULL UNIQUE
+   - `loyalty_points` INT DEFAULT 0
+
+7. `customer_orders` (Order Header)
+   - `order_id` BIGINT AUTO_INCREMENT PRIMARY KEY
+   - `order_number` VARCHAR(30) NOT NULL UNIQUE
+   - `customer_id` BIGINT NOT NULL (FK -> customers)
+   - `order_date` DATETIME NOT NULL
+   - `order_status` ENUM('PENDING', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELLED') DEFAULT 'PENDING'
+   - `gross_total_inr` DECIMAL(12,2) NOT NULL
+   - `discount_inr` DECIMAL(10,2) DEFAULT 0.00
+   - `net_total_inr` DECIMAL(12,2) NOT NULL
+
+8. `order_items` (Order Lines - 1NF Itemized Details)
+   - `order_item_id` BIGINT AUTO_INCREMENT PRIMARY KEY
+   - `order_id` BIGINT NOT NULL (FK -> customer_orders)
+   - `product_id` INT NOT NULL (FK -> products)
+   - `quantity` INT NOT NULL
+   - `unit_price_at_sale_inr` DECIMAL(10,2) NOT NULL (Price Snapshot!)
+   - `subtotal_inr` DECIMAL(12,2) NOT NULL
+
+3. ESSENTIAL PRODUCTION SQL QUERIES
+--------------------------------------------------------------------------------
+Query 1: Automated Low-Stock Reorder Triggers across Warehouses
+    SELECT 
+        w.warehouse_name,
+        w.city,
+        p.sku_code,
+        p.product_name,
+        inv.quantity_on_hand,
+        p.min_reorder_level,
+        (p.min_reorder_level - inv.quantity_on_hand) AS shortage_units,
+        p.cost_price_inr
+    FROM warehouse_inventory inv
+    JOIN warehouses w ON inv.warehouse_id = w.warehouse_id
+    JOIN products p ON inv.product_id = p.product_id
+    WHERE inv.quantity_on_hand <= p.min_reorder_level
+    ORDER BY shortage_units DESC;
+
+Query 2: Product & Category Gross Profit Margin Analysis
+    SELECT 
+        c.category_name,
+        p.sku_code,
+        p.product_name,
+        SUM(oi.quantity) AS total_units_sold,
+        SUM(oi.subtotal_inr) AS gross_revenue_inr,
+        SUM(oi.quantity * p.cost_price_inr) AS cost_of_goods_sold_inr,
+        (SUM(oi.subtotal_inr) - SUM(oi.quantity * p.cost_price_inr)) AS gross_profit_inr,
+        ROUND(((SUM(oi.subtotal_inr) - SUM(oi.quantity * p.cost_price_inr)) / SUM(oi.subtotal_inr)) * 100.0, 2) AS profit_margin_pct
+    FROM order_items oi
+    JOIN customer_orders o ON oi.order_id = o.order_id
+    JOIN products p ON oi.product_id = p.product_id
+    JOIN categories c ON p.category_id = c.category_id
+    WHERE o.order_status IN ('DELIVERED', 'SHIPPED')
+    GROUP BY c.category_name, p.product_id, p.sku_code, p.product_name
+    ORDER BY gross_profit_inr DESC;
+
+4. CONCURRENCY & STOCK RESERVATION STRATEGY
+--------------------------------------------------------------------------------
+During checkout:
+1. Lock row with `SELECT quantity_on_hand, quantity_reserved FROM warehouse_inventory WHERE warehouse_id = 1 AND product_id = 45 FOR UPDATE;`
+2. If `(quantity_on_hand - quantity_reserved) >= requested_qty`, update `quantity_reserved = quantity_reserved + requested_qty`.
+3. Commit transaction.

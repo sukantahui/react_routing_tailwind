@@ -1,0 +1,124 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 3: Updatable Views: Conditions and WITH CHECK OPTION Clause
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS AN UPDATABLE VIEW?
+--------------------------------------------------------------------------------
+An Updatable View is a virtual table through which you can perform DML write 
+operations (`INSERT`, `UPDATE`, and `DELETE`) that are directly and unambiguously 
+propagated to the underlying physical base table.
+
+For a view to be updatable, there must be a deterministic **1-to-1 relationship** 
+between each row in the view and a unique physical row in the underlying base table.
+
+2. STRICT RULES FOR UPDATABLE VIEWS IN MYSQL
+--------------------------------------------------------------------------------
+A view is NOT updatable if its SELECT query contains ANY of the following:
+1. Aggregate functions: `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`, etc.
+2. The `DISTINCT` keyword.
+3. A `GROUP BY` clause.
+4. A `HAVING` clause.
+5. A `UNION` or `UNION ALL` clause.
+6. Subqueries in the `SELECT` column list.
+7. Non-deterministic scalar functions (`NOW()`, `RAND()`, `UUID()`).
+8. `ALGORITHM = TEMPTABLE`.
+9. Multi-table joins where an INSERT/UPDATE attempts to modify columns across 
+   more than one base table in a single statement.
+
+Check Updatability in Information Schema:
+    SELECT TABLE_NAME, IS_UPDATABLE 
+    FROM information_schema.VIEWS 
+    WHERE TABLE_SCHEMA = 'academy_db';
+
+3. THE "GHOST ROW" PHENOMENON (WHY WE NEED WITH CHECK OPTION)
+--------------------------------------------------------------------------------
+Suppose we create a view restricted to Barrackpore campus students:
+    CREATE VIEW view_barrackpore_students AS
+    SELECT student_id, student_name, centre_city, fee_amount_inr
+    FROM students
+    WHERE centre_city = 'Barrackpore';
+
+Now suppose an admin updates a student through the view:
+    UPDATE view_barrackpore_students
+    SET centre_city = 'Kolkata'
+    WHERE student_id = 101;
+
+What Happens WITHOUT `WITH CHECK OPTION`:
+- The update succeeds in the base table!
+- Student 101's city is changed to 'Kolkata'.
+- However, Student 101 immediately **disappears** from `view_barrackpore_students` 
+  because the row no longer satisfies `WHERE centre_city = 'Barrackpore'`.
+- This is known as the "Ghost Row / Vanishing Tuple" problem.
+
+4. THE WITH CHECK OPTION CLAUSE
+--------------------------------------------------------------------------------
+The `WITH CHECK OPTION` clause prevents `INSERT` or `UPDATE` operations from 
+modifying rows in a way that causes them to violate the view's `WHERE` filter.
+
+Syntax:
+    CREATE VIEW view_barrackpore_students AS
+    SELECT student_id, student_name, centre_city, fee_amount_inr
+    FROM students
+    WHERE centre_city = 'Barrackpore'
+    WITH CHECK OPTION;
+
+Outcome WITH `WITH CHECK OPTION`:
+    UPDATE view_barrackpore_students
+    SET centre_city = 'Kolkata'
+    WHERE student_id = 101;
+    
+    --> Fails with MySQL Error 1369 (HY000): 
+        CHECK OPTION failed 'academy_db.view_barrackpore_students'
+
+5. CASCADED VS LOCAL CHECK OPTION
+--------------------------------------------------------------------------------
+When views are nested (View B is built on top of View A):
+
+1. `WITH CASCADED CHECK OPTION` (Default):
+   - Evaluates the WHERE conditions of View B **AND** all underlying parent views (View A).
+   - If any condition in the ancestry chain is violated, the DML write is rejected.
+
+2. `WITH LOCAL CHECK OPTION`:
+   - Evaluates ONLY the WHERE condition of the current view (View B).
+   - It checks underlying views only if those underlying views also explicitly 
+     defined a CHECK OPTION.
+
+6. PRODUCTION EXAMPLES (ACADEMY & HR)
+--------------------------------------------------------------------------------
+Example 1: Strict Branch Admission View
+    CREATE OR REPLACE VIEW view_barrackpore_admissions AS
+    SELECT 
+        student_id,
+        first_name,
+        last_name,
+        course_stream,
+        centre_city,
+        admission_status
+    FROM student_master
+    WHERE centre_city = 'Barrackpore' 
+      AND admission_status = 'ACTIVE'
+    WITH CASCADED CHECK OPTION;
+
+    -- Inserting a Kolkata student through this view is automatically blocked!
+
+Example 2: Minimum Wage Compliance View
+    CREATE OR REPLACE VIEW view_fair_wage_payroll AS
+    SELECT 
+        employee_id,
+        full_name,
+        department,
+        hourly_rate_inr
+    FROM employee_payroll
+    WHERE hourly_rate_inr >= 250.00
+    WITH CHECK OPTION;
+
+    -- Updating hourly rate to ₹200.00 is rejected with Error 1369.
+
+7. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always append `WITH CHECK OPTION` on row-filtered views intended for DML operations.
+2. Verify view updatability using `information_schema.VIEWS.IS_UPDATABLE`.
+3. Keep updatable views tied 1-to-1 to a single base table whenever possible.
+4. Ensure primary keys and non-null base table columns without defaults are included in the view.

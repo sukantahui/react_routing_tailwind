@@ -257,10 +257,10 @@ export default function Topic7() {
                 {/* Explanation Card */}
                 <rect x="30" y="145" width="790" height="170" rx="8" fill="#090d16" stroke="#0ea5e9" strokeWidth="1.5" />
                 <text x="50" y="175" fill="#38bdf8" fontSize="13" fontWeight="bold">Step-by-Step Iterator Execution:</text>
-                <text x="50" y="205" fill="#cbd5e1" fontSize="12">1. <code className="font-mono text-emerald-300">iter(my_set)</code> initializes internal bucket offset pointer at 0.</text>
-                <text x="50" y="230" fill="#cbd5e1" fontSize="12">2. <code className="font-mono text-emerald-300">next()</code> skips bucket 0 (empty) -> finds "Barrackpore" at bucket 1 -> yields item.</text>
-                <text x="50" y="255" fill="#cbd5e1" fontSize="12">3. Subsequent <code className="font-mono text-emerald-300">next()</code> calls skip empty slots until all items are yielded.</text>
-                <text x="50" y="280" fill="#34d399" fontSize="12" fontWeight="bold">4. End of table reached -> Raises StopIteration cleanly to terminate loop!</text>
+                <text x="50" y="205" fill="#cbd5e1" fontSize="12">1. iter(my_set) initializes internal bucket offset pointer at 0.</text>
+                <text x="50" y="230" fill="#cbd5e1" fontSize="12">2. next() skips bucket 0 (empty) → finds "Barrackpore" at bucket 1 → yields item.</text>
+                <text x="50" y="255" fill="#cbd5e1" fontSize="12">3. Subsequent next() calls skip empty slots until all items are yielded.</text>
+                <text x="50" y="280" fill="#34d399" fontSize="12" fontWeight="bold">4. End of table reached → Raises StopIteration cleanly to terminate loop!</text>
               </svg>
             ) : (
               <svg viewBox="0 0 850 320" className="w-full h-auto min-w-[650px] font-sans">

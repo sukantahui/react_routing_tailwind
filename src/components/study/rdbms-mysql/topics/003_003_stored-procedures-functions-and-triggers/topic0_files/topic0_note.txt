@@ -1,0 +1,42 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 0: Introduction to Procedural SQL and Server-Side Programming
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. DECLARATIVE SQL VS PROCEDURAL SQL
+--------------------------------------------------------------------------------
+- Declarative SQL (Set-Based): Describes *WHAT* data you need (`SELECT`, `JOIN`, `GROUP BY`). 
+  The MySQL Query Optimizer decides the execution algorithm.
+- Procedural SQL (Server-Side Logic): Describes *HOW* step-by-step operations execute 
+  using sequential statements, local variables, conditional branching (`IF/CASE`), 
+  iteration loops (`WHILE/REPEAT/LOOP`), and error handling (`DECLARE HANDLER`).
+
+2. WHY USE SERVER-SIDE PROGRAMMING IN MYSQL?
+--------------------------------------------------------------------------------
+1. Drastic Network Round-Trip Reduction:
+   Executing 10 queries from an application server (e.g. Node.js or Python) requires 
+   10 round-trip network hops. A Stored Procedure executes all 10 operations locally 
+   on the database server within a single network call.
+
+2. Centralized Business Rule Consistency:
+   Encapsulating critical financial transactions (e.g. tuition fee receipt generation, 
+   GST tax calculation, discount validation) inside database routines guarantees 
+   consistent execution across Web, Mobile, and Desktop clients.
+
+3. Enhanced Security & Least-Privilege Access:
+   Database administrators can grant users `EXECUTE ON PROCEDURE` permissions without 
+   granting direct `SELECT`, `UPDATE`, or `DELETE` access to sensitive underlying tables.
+
+4. Plan Caching & Performance:
+   Stored procedures are parsed and validated on first creation, with query plans cached 
+   in the MySQL Procedure Cache for fast subsequent executions.
+
+3. MYSQL PROCEDURAL ECOSYSTEM COMPONENTS
+--------------------------------------------------------------------------------
+1. Stored Procedures: Invoked via `CALL proc_name(args)`. Can return multiple result sets, 
+   accept `IN`, `OUT`, and `INOUT` parameters, and perform multi-table DML transactions.
+2. User-Defined Stored Functions: Invoked inside expressions `SELECT func(x)`. Return a 
+   single scalar value and cannot perform transactions.
+3. Database Triggers: Automatically fired in response to `INSERT`, `UPDATE`, or `DELETE`.
+4. Event Scheduler: Cron-like background tasks running periodic maintenance.

@@ -1,0 +1,56 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 7: Calculating Moving Averages and Rolling Aggregations
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE MOVING AVERAGES (ROLLING AGGREGATIONS)?
+--------------------------------------------------------------------------------
+A moving average smooths short-term fluctuations, seasonal noise, and daily 
+volatility by calculating the mean across a sliding window of preceding or 
+centered rows.
+
+2. TRAILING VS CENTERED WINDOW BLUEPRINTS
+--------------------------------------------------------------------------------
+1. Trailing 7-Day / 7-Row Moving Average (Real-Time Ops):
+    SELECT 
+        payment_date,
+        amount_paid_inr,
+        ROUND(AVG(amount_paid_inr) OVER (
+            ORDER BY payment_date 
+            ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+        ), 2) AS trailing_7day_avg_revenue
+    FROM daily_revenue;
+
+2. Centered 5-Row Smoothing Window (Retrospective Historical Analysis):
+    SELECT 
+        exam_date,
+        score,
+        ROUND(AVG(score) OVER (
+            ORDER BY exam_date 
+            ROWS BETWEEN 2 PRECEDING AND 2 FOLLOWING
+        ), 2) AS centered_smoothed_score
+    FROM student_scores;
+
+3. STATISTICAL ROLLING VOLATILITY BANDS (MEAN +/- 2 STDDEV)
+--------------------------------------------------------------------------------
+    SELECT 
+        payment_date,
+        amount_paid_inr,
+        -- Rolling 30-Day Mean:
+        ROUND(AVG(amount_paid_inr) OVER w, 2) AS rolling_mean,
+        -- Rolling 30-Day Volatility (Standard Deviation):
+        ROUND(STDDEV_SAMP(amount_paid_inr) OVER w, 2) AS rolling_stddev,
+        -- Statistical Upper Band (Mean + 2 Sigma):
+        ROUND(AVG(amount_paid_inr) OVER w + (2 * STDDEV_SAMP(amount_paid_inr) OVER w), 2) AS upper_band
+    FROM fee_payments
+    WINDOW w AS (ORDER BY payment_date ROWS BETWEEN 29 PRECEDING AND CURRENT ROW);
+
+4. EDGE BOUNDARY SAMPLE SIZE HANDLING
+--------------------------------------------------------------------------------
+At rows 1 through $N-1$, the sliding frame contains fewer than $N$ rows. Use 
+`COUNT(*) OVER w` to check if a full window sample size has been accumulated:
+    CASE 
+        WHEN COUNT(*) OVER w >= 7 THEN 'Full 7-Day Window'
+        ELSE 'Incomplete Edge Frame'
+    END AS window_maturity

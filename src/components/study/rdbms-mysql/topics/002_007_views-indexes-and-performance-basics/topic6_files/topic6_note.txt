@@ -1,0 +1,106 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 6: Materialized Views Concept (and MySQL Cache Table Emulation)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A MATERIALIZED VIEW?
+--------------------------------------------------------------------------------
+A Materialized View is a database object that physically stores the precomputed 
+results of a query on disk, much like a table, and can be indexed with B-Trees.
+
+Comparison with Standard Virtual Views:
+- Standard Virtual View: Re-executes its underlying query on every single read. 
+  Consumes CPU/IO during reads, but data is 100% real-time fresh.
+- Materialized View: Stores precomputed query results in physical disk pages. 
+  Reads are instant (sub-millisecond), but data remains stale until explicitly refreshed.
+
+2. MATERIALIZED VIEWS IN MYSQL
+--------------------------------------------------------------------------------
+Standard MySQL Community Server does NOT feature a native `CREATE MATERIALIZED VIEW` 
+statement (unlike Oracle, PostgreSQL, or Snowflake).
+
+However, senior database architects emulate materialized views in MySQL using 
+three production-proven design patterns:
+1. Pattern A: Scheduled Full Refresh via MySQL Event Scheduler
+2. Pattern B: Real-Time Incremental Maintenance via Database Triggers
+3. Pattern C: Zero-Downtime Atomic Table Swapping (`RENAME TABLE`)
+
+3. PATTERN A: SCHEDULED REFRESH VIA EVENT SCHEDULER
+--------------------------------------------------------------------------------
+Step 1: Create the physical cache summary table:
+    CREATE TABLE mv_academy_monthly_kpis (
+        branch_city VARCHAR(50),
+        course_stream VARCHAR(100),
+        active_student_count INT,
+        gross_revenue_inr DECIMAL(12,2),
+        avg_score_pct DECIMAL(5,2),
+        last_refreshed_at TIMESTAMP,
+        PRIMARY KEY (branch_city, course_stream)
+    );
+
+Step 2: Automate recurring hourly refresh via MySQL Event:
+    CREATE EVENT evt_refresh_academy_kpis
+    ON SCHEDULE EVERY 1 HOUR
+    DO
+    BEGIN
+        TRUNCATE TABLE mv_academy_monthly_kpis;
+        INSERT INTO mv_academy_monthly_kpis
+        SELECT 
+            s.centre_city,
+            c.course_title,
+            COUNT(DISTINCT en.student_id),
+            COALESCE(SUM(p.amount_inr), 0.00),
+            ROUND(AVG(sc.exam_score_pct), 2),
+            NOW()
+        FROM students s
+        JOIN enrollments en ON s.student_id = en.student_id
+        JOIN courses c ON en.course_id = c.course_id
+        LEFT JOIN fee_payments p ON en.enrollment_id = p.enrollment_id AND p.status = 'SUCCESS'
+        LEFT JOIN student_exam_scores sc ON en.enrollment_id = sc.enrollment_id
+        GROUP BY s.centre_city, c.course_title;
+    END;
+
+4. PATTERN C: ZERO-DOWNTIME ATOMIC TABLE SWAPPING
+--------------------------------------------------------------------------------
+To prevent read queries from failing while a cache table is being refreshed:
+1. Build the fresh data in a temporary staging table: `mv_kpis_staging`
+2. Atomically swap tables in a single DDL statement:
+    RENAME TABLE 
+        mv_academy_kpis TO mv_academy_kpis_old,
+        mv_kpis_staging TO mv_academy_kpis;
+3. Drop the old table: `DROP TABLE mv_academy_kpis_old;`
+
+Reads continue uninterrupted without zero-row blips during truncation!
+
+5. VIRTUAL VS EMULATED MATERIALIZED VIEW COMPARISON
+--------------------------------------------------------------------------------
+Dimension                 Standard Virtual View          Emulated Materialized View
+--------------------------------------------------------------------------------
+Disk Storage              0 bytes (Metadata only)        Stores full row pages
+Index Support             No direct indexes              Full B-Tree index support
+Query Read Speed          Slow on heavy 5-table joins    Sub-millisecond (Direct seek)
+Data Freshness            Real-time live                 Periodic (Stale between updates)
+Write DML Overhead        Zero                           Triggers / Scheduled jobs
+Ideal Use Case            Operational, PII data masking  Heavy analytical BI dashboards
+
+6. PRODUCTION EXAMPLES (ACADEMY & E-COMMERCE)
+--------------------------------------------------------------------------------
+Example: Executive Fast-Dashboard Access Layer
+    -- Create a virtual view pointing to the physical materialized cache table:
+    CREATE OR REPLACE VIEW view_executive_fast_dashboard AS
+    SELECT 
+        branch_city,
+        course_stream,
+        active_student_count,
+        gross_revenue_inr,
+        avg_score_pct,
+        last_refreshed_at
+    FROM mv_academy_monthly_kpis;
+
+7. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Use standard virtual views for transactional data and security masking.
+2. Use emulated materialized views for expensive multi-million-row aggregations.
+3. Always index the primary key and filter columns on the materialized cache table.
+4. Use atomic `RENAME TABLE` swapping to eliminate read-downtime during batch refreshes.

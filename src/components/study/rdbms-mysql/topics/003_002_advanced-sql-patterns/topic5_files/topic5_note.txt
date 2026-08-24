@@ -1,0 +1,45 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 5: Window Frame Specification: ROWS BETWEEN and RANGE BETWEEN
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A WINDOW FRAME?
+--------------------------------------------------------------------------------
+A Window Frame defines the precise sliding or expanding subset of rows within a 
+partition that are included in the calculation for the current row.
+
+2. ROWS VS RANGE: THE FUNDAMENTAL DIFFERENCE
+--------------------------------------------------------------------------------
+1. ROWS (Physical Row Offsets):
+   - Operates strictly on physical row counts ($1, 2, 3 \dots$).
+   - Treats every row independently regardless of whether values in `ORDER BY` are tied.
+   - Example: `ROWS BETWEEN 2 PRECEDING AND CURRENT ROW` encompasses exactly 3 physical rows.
+
+2. RANGE (Logical Value-Based Intervals):
+   - Operates on logical values / intervals.
+   - Treats rows with duplicate `ORDER BY` values as "peers", including all tied rows together.
+   - Supports date/time intervals in MySQL 8.0:
+     `RANGE BETWEEN INTERVAL 7 DAY PRECEDING AND CURRENT ROW`
+
+3. FRAME BOUNDARY KEYWORDS
+--------------------------------------------------------------------------------
+- `UNBOUNDED PRECEDING`: First row of the partition.
+- `n PRECEDING`: $n$ physical rows or value units before current row.
+- `CURRENT ROW`: The row currently being evaluated.
+- `n FOLLOWING`: $n$ physical rows or value units after current row.
+- `UNBOUNDED FOLLOWING`: Last row of the partition.
+
+4. COMMON WINDOW FRAME PATTERNS
+--------------------------------------------------------------------------------
+1. Cumulative Running Total:
+   `ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`
+
+2. Trailing 3-Row Moving Window:
+   `ROWS BETWEEN 2 PRECEDING AND CURRENT ROW`
+
+3. Centered 3-Row Smoothing Window (Previous + Current + Next):
+   `ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING`
+
+4. Entire Partition (Full Scope):
+   `ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING`

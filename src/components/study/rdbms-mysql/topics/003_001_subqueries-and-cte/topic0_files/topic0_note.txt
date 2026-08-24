@@ -1,0 +1,60 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 0: Subqueries Concept and Execution Phases
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A SUBQUERY?
+--------------------------------------------------------------------------------
+A Subquery (also known as an Inner Query, Nested Query, or Sub-SELECT) is a SQL 
+query embedded inside another enclosing SQL statement (the Outer Query or Parent Query).
+
+Syntax Architecture:
+    SELECT column_list 
+    FROM outer_table 
+    WHERE filter_column OPERATOR (
+        SELECT sub_column 
+        FROM inner_table 
+        WHERE sub_condition
+    );
+
+2. SUBQUERY CLASSIFICATION BY OUTPUT DIMENSIONALITY
+--------------------------------------------------------------------------------
+1. Scalar Subquery:
+   - Returns exactly ONE row and ONE column (a single atomic value, 1x1).
+   - Can be used anywhere a scalar literal or column expression is permitted.
+   - Example: `SELECT * FROM students WHERE exam_score > (SELECT AVG(exam_score) FROM students);`
+
+2. Column Subquery (Multi-Row Single Column):
+   - Returns multiple rows of a SINGLE column (Nx1 list of values).
+   - Used with multi-row operators: `IN`, `NOT IN`, `ANY`, `ALL`.
+   - Example: `SELECT * FROM students WHERE branch_id IN (SELECT branch_id FROM branches WHERE city = 'Kolkata');`
+
+3. Row Subquery (Single-Row Multi-Column):
+   - Returns a single tuple of multiple columns (1xM).
+   - Used with tuple comparisons: `(colA, colB) = (SELECT valA, valB ...)`.
+
+4. Table Subquery (Derived Table / Inline View):
+   - Returns multiple rows and multiple columns (NxM).
+   - Used inside the `FROM` clause; in MySQL, derived tables MUST have an explicit alias!
+   - Example: `SELECT dt.avg_score FROM (SELECT branch_id, AVG(exam_score) AS avg_score FROM students GROUP BY branch_id) AS dt;`
+
+3. EXECUTION PHASES: NON-CORRELATED VS CORRELATED
+--------------------------------------------------------------------------------
+Phase 1: Non-Correlated (Independent) Subquery Execution:
+- The inner query is completely self-contained; it has no references to outer columns.
+- Execution: Evaluated exactly ONCE by the MySQL optimizer before the outer query runs.
+- The inner result is stored in memory (or temporary table) and passed as a constant / list 
+  to the outer query execution engine ($O(N + M)$).
+
+Phase 2: Correlated (Dependent) Subquery Execution:
+- The inner query references one or more columns from the outer query's current row.
+- Execution: Evaluated iteratively once for EVERY candidate row processed by the outer query 
+  ($O(N \times M)$ unless transformed into a semi-join).
+
+4. OPTIMIZER MECHANICS & QUERY TRANSFORMATION IN MYSQL 8.0+
+--------------------------------------------------------------------------------
+Modern MySQL query optimizers do not always execute subqueries literally as written:
+1. Subquery Unnesting: Rewrites subqueries into efficient `INNER JOIN` or `LEFT JOIN` operations.
+2. Semi-Join Materialization: Converts `WHERE col IN (SELECT ...)` into temporary lookup tables.
+3. FirstMatch / LooseScan: Short-circuits inner scans upon finding the first matching key.

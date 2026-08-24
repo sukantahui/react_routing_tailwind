@@ -1,0 +1,56 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 1: Single-Row Subqueries with Comparison Operators
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A SINGLE-ROW SUBQUERY?
+--------------------------------------------------------------------------------
+A Single-Row Subquery (Scalar Subquery) is an inner query that returns exactly 
+ONE row and ONE column (a single atomic value, 1x1).
+
+Because it produces a single scalar value, it can be compared directly using 
+standard scalar comparison operators:
+    =   (Equal to)
+    <>  or != (Not equal to)
+    >   (Greater than)
+    >=  (Greater than or equal to)
+    <   (Less than)
+    <=  (Less than or equal to)
+
+2. CORE USE CASES & SYNTAX EXAMPLES
+--------------------------------------------------------------------------------
+Use Case 1: Filtering Above or Below Aggregate Benchmarks
+    SELECT student_id, first_name, last_name, exam_score_pct 
+    FROM students 
+    WHERE exam_score_pct > (
+        SELECT AVG(exam_score_pct) FROM students
+    );
+
+Use Case 2: Matching the Extreme Record (MAX or MIN)
+    SELECT student_id, first_name, last_name, exam_score_pct 
+    FROM students 
+    WHERE exam_score_pct = (
+        SELECT MAX(exam_score_pct) FROM students
+    );
+
+Use Case 3: Same-Category Entity Lookup (Referencing another student's attribute)
+    SELECT student_id, first_name, last_name, dept_id 
+    FROM students 
+    WHERE dept_id = (
+        SELECT dept_id FROM students WHERE first_name = 'Mamata' LIMIT 1
+    );
+
+3. CRITICAL RUNTIME HAZARDS & DEFENSIVE CODING
+--------------------------------------------------------------------------------
+Hazard 1: Error 1242 (Subquery returns more than 1 row)
+- Occurs when the inner query matches multiple rows while using a scalar comparison operator (`=`, `>`, `<`).
+- Example of bad query: `WHERE dept_id = (SELECT dept_id FROM students WHERE city = 'Kolkata');`
+  If 20 students live in Kolkata, MySQL aborts with Error 1242!
+- Defense: Use `IN` for multi-row sets, or append `LIMIT 1` / aggregate function (`MAX`, `MIN`) 
+  when a single value is expected.
+
+Hazard 2: NULL / Empty Set Output
+- If the subquery finds zero matching rows, it evaluates to `NULL`.
+- In SQL three-valued logic, `col = NULL` evaluates to `UNKNOWN`, resulting in zero matched rows.
+- Defense: Use `COALESCE((SELECT ...), default_val)` to provide fallback defaults.

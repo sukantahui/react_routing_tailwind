@@ -1,0 +1,87 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 7: Introduction to Database Indexing and Search Cost Reductions
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE SEARCH PROBLEM: FULL TABLE SCAN ($O(N)$)
+--------------------------------------------------------------------------------
+In an unindexed database table, records are stored in data pages in the order they 
+were inserted (or clustered by primary key).
+
+When a query searches for a non-indexed column:
+    SELECT * FROM students WHERE phone_number = '9830012345';
+
+The database engine must read every single 16KB data page from disk from the 
+first row to the last row. This is a **Full Table Scan** (Table Scan):
+- Time Complexity: $O(N)$ (Linear Search)
+- For 10,000,000 rows (approx. 200,000 disk pages), this requires reading ~3.2 GB 
+  of data from disk, taking 4 to 15 seconds.
+
+2. WHAT IS A DATABASE INDEX? ($O(\log N)$)
+--------------------------------------------------------------------------------
+A Database Index is a separate, highly organized auxiliary data structure (typically 
+a balanced B+Tree) that maps indexed column values to the physical locations (or 
+primary keys) of the corresponding rows.
+
+- Time Complexity: $O(\log N)$ (Logarithmic Search)
+- For 10,000,000 rows, a B-Tree index lookup requires reading only **3 to 4 pages** 
+  (Root -> Intermediate Branch -> Leaf Page -> Clustered Record).
+- Execution Time: Less than **1 millisecond**!
+
+3. INNODB DISK I/O AND 16KB PAGE ARCHITECTURE
+--------------------------------------------------------------------------------
+MySQL InnoDB organizes all storage in **16KB Pages**:
+1. Page Reading: The disk controller reads entire 16KB pages into the InnoDB Buffer Pool.
+2. Unindexed Search: A query searching for 1 student must load 200,000 pages into memory.
+3. Indexed Search: The B-Tree index traverses 3 hierarchical pages to pinpoint the exact 
+   row, reducing disk I/O by over **99.99%**.
+
+4. THE "INDEX TAX" (COSTS OF INDEXING)
+--------------------------------------------------------------------------------
+Indexes are not free. Every index imposes architectural costs:
+1. Write Amplification:
+   - Every `INSERT`, `UPDATE`, and `DELETE` must modify the base clustered table 
+     **AND** update every single secondary index.
+   - 1 table with 6 indexes requires 7 distinct write/tree balance operations per insert.
+2. Disk Storage Overhead:
+   - Secondary index trees consume physical disk storage, sometimes exceeding 
+     the size of the raw table data itself.
+3. Buffer Pool Contention:
+   - Secondary index pages compete with raw table pages for space in the 
+     InnoDB Buffer Pool memory.
+
+5. WHEN TO INDEX VS WHEN NOT TO INDEX
+--------------------------------------------------------------------------------
+INDEX THIS (Good Candidates):
+✓ Columns frequently appearing in `WHERE`, `JOIN ON`, and `ORDER BY` clauses.
+✓ Columns with **High Cardinality** (thousands of distinct unique values, like 
+  email, phone, student_id, order_number).
+✓ Foreign key columns to prevent full scans during join operations.
+
+DO NOT INDEX (Poor Candidates):
+❌ Tables with only a few hundred rows (a full table scan in RAM is faster).
+❌ Columns with **Low Cardinality** (e.g. `gender` with 2 values, `is_active` with 0/1).
+❌ Columns in write-heavy, append-only logging tables where reads are rare.
+❌ Columns that are never queried in WHERE or JOIN predicates.
+
+6. PRODUCTION EXAMPLES (ACADEMY SEARCH)
+--------------------------------------------------------------------------------
+Example 1: Unindexed vs Indexed Academy Student Search
+    -- Unindexed Search (Scans all 1,000,000 student records):
+    SELECT * FROM student_registry WHERE student_aadhaar = '890123456789';
+    -- Latency: 2,400 ms (Type: ALL, Rows Examined: 1,000,000)
+
+    -- Creating Index:
+    CREATE INDEX idx_student_aadhaar ON student_registry (student_aadhaar);
+
+    -- Indexed Search (Pinpoints record via B-Tree):
+    SELECT * FROM student_registry WHERE student_aadhaar = '890123456789';
+    -- Latency: 0.6 ms (Type: ref/const, Rows Examined: 1)
+
+7. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Index columns with high selectivity and cardinality.
+2. Balance read acceleration against write amplification overhead.
+3. Always verify index usage using `EXPLAIN SELECT ...`.
+4. Avoid redundant indexes (e.g. having both `(a)` and `(a, b)` where `(a)` is redundant).

@@ -1,0 +1,47 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 1: The DELIMITER Keyword: Why and How to Change Command Terminators
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE SEMICOLON COLLISION PROBLEM
+--------------------------------------------------------------------------------
+By default, the MySQL CLI client and GUI tools interpret the semicolon (`;`) as 
+the statement delimiter to send a completed SQL command to the server.
+
+Inside a Stored Procedure or Trigger body (`BEGIN ... END`), individual procedural 
+statements (variable declarations, SET assignments, SELECTs, IF branches) MUST each 
+end with a semicolon.
+
+Without changing the delimiter, the client sees the very first internal semicolon, 
+prematurely cuts the statement in half, and sends an incomplete fragment to the 
+server, throwing `Error 1064 (42000): You have an error in your SQL syntax`.
+
+2. THE DELIMITER COMMAND BLUEPRINT
+--------------------------------------------------------------------------------
+The `DELIMITER` command instructs the client to change its statement terminator 
+to a custom string (typically `//` or `$$`) until explicitly reset:
+
+    -- Step 1: Change client delimiter to //
+    DELIMITER //
+
+    -- Step 2: Write stored routine containing internal semicolons:
+    CREATE PROCEDURE sp_register_student(
+        IN p_name VARCHAR(100),
+        IN p_dept_id INT
+    )
+    BEGIN
+        DECLARE v_exists INT;              -- Internal semicolon #1
+        SET v_exists = 0;                  -- Internal semicolon #2
+        INSERT INTO students (first_name, dept_id) VALUES (p_name, p_dept_id); -- Semicolon #3
+    END //                                 -- Client submits full routine on //
+
+    -- Step 3: Always reset delimiter back to standard semicolon:
+    DELIMITER ;
+
+3. CLIENT-SIDE VS SERVER-SIDE COMMAND NATURE
+--------------------------------------------------------------------------------
+`DELIMITER` is a client-side command interpreted by the `mysql` CLI client and 
+GUI query tools. It is NEVER sent to the MySQL server engine. Programmatic driver 
+connectors (JDBC, PyMySQL, mysql2 in Node.js) do not use `DELIMITER` because they 
+pass SQL strings directly to the server API.

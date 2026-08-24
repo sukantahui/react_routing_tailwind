@@ -1,0 +1,116 @@
+================================================================================
+RDBMS MySQL Course - Module 002_008: Real-world Schema Design Projects & Query Challenges
+Topic 0: Design Project 1: University Library Management System (Schema + Queries)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. PROJECT OVERVIEW: UNIVERSITY CENTRAL LIBRARY SYSTEM
+--------------------------------------------------------------------------------
+The University Central Library System (serving campuses across Barrackpore and 
+Kolkata) manages cataloging, physical inventory copy tracking, student & faculty 
+memberships, book issuance/returns, and overdue fine collection.
+
+2. 3NF NORMALIZED RELATIONAL SCHEMA SPECIFICATION
+--------------------------------------------------------------------------------
+1. `members` (Students, Faculty, Researchers)
+   - `member_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `member_code` VARCHAR(20) NOT NULL UNIQUE
+   - `first_name` VARCHAR(50) NOT NULL
+   - `last_name` VARCHAR(50) NOT NULL
+   - `email` VARCHAR(100) NOT NULL UNIQUE
+   - `phone` VARCHAR(15) NOT NULL UNIQUE
+   - `member_type` ENUM('STUDENT', 'FACULTY', 'RESEARCHER') DEFAULT 'STUDENT'
+   - `max_books_allowed` TINYINT DEFAULT 3
+   - `status` ENUM('ACTIVE', 'SUSPENDED', 'EXPIRED') DEFAULT 'ACTIVE'
+   - `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+2. `publishers`
+   - `publisher_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `publisher_name` VARCHAR(150) NOT NULL
+   - `city` VARCHAR(50) NOT NULL
+
+3. `authors`
+   - `author_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `author_name` VARCHAR(100) NOT NULL
+
+4. `books` (Title / ISBN Metadata Level)
+   - `book_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `isbn_13` VARCHAR(17) NOT NULL UNIQUE
+   - `title` VARCHAR(255) NOT NULL
+   - `publisher_id` INT NOT NULL (FK -> publishers)
+   - `category` VARCHAR(50) NOT NULL
+   - `edition_year` SMALLINT NOT NULL
+   - `total_copies` INT DEFAULT 0
+   - `available_copies` INT DEFAULT 0
+
+5. `book_authors` (Many-to-Many Bridge Table)
+   - `book_id` INT NOT NULL (FK -> books)
+   - `author_id` INT NOT NULL (FK -> authors)
+   - PRIMARY KEY (`book_id`, `author_id`)
+
+6. `book_items` (Physical Copy / Barcode Tracking Level)
+   - `barcode_id` VARCHAR(30) PRIMARY KEY
+   - `book_id` INT NOT NULL (FK -> books)
+   - `shelf_location` VARCHAR(30) NOT NULL
+   - `item_status` ENUM('AVAILABLE', 'LOANED', 'LOST', 'DAMAGED') DEFAULT 'AVAILABLE'
+   - `acquisition_date` DATE NOT NULL
+
+7. `loans` (Circulation Ledger)
+   - `loan_id` BIGINT AUTO_INCREMENT PRIMARY KEY
+   - `barcode_id` VARCHAR(30) NOT NULL (FK -> book_items)
+   - `member_id` INT NOT NULL (FK -> members)
+   - `issue_date` DATE NOT NULL
+   - `due_date` DATE NOT NULL
+   - `return_date` DATE NULL
+   - `loan_status` ENUM('ISSUED', 'RETURNED', 'OVERDUE') DEFAULT 'ISSUED'
+
+8. `fines` (Penalty Ledger)
+   - `fine_id` BIGINT AUTO_INCREMENT PRIMARY KEY
+   - `loan_id` BIGINT NOT NULL UNIQUE (FK -> loans)
+   - `overdue_days` INT NOT NULL
+   - `fine_amount_inr` DECIMAL(8,2) NOT NULL
+   - `payment_status` ENUM('UNPAID', 'PAID', 'WAIVED') DEFAULT 'UNPAID'
+   - `paid_at` TIMESTAMP NULL
+
+3. ESSENTIAL PRODUCTION SQL QUERIES
+--------------------------------------------------------------------------------
+Query 1: Live Overdue Loan Tracking & Dynamic Fine Calculation (₹5/day overdue)
+    SELECT 
+        l.loan_id,
+        m.member_code,
+        CONCAT(m.first_name, ' ', m.last_name) AS member_name,
+        b.title AS book_title,
+        bi.barcode_id,
+        l.issue_date,
+        l.due_date,
+        DATEDIFF(CURRENT_DATE, l.due_date) AS overdue_days,
+        (DATEDIFF(CURRENT_DATE, l.due_date) * 5.00) AS pending_fine_inr
+    FROM loans l
+    JOIN members m ON l.member_id = m.member_id
+    JOIN book_items bi ON l.barcode_id = bi.barcode_id
+    JOIN books b ON bi.book_id = b.book_id
+    WHERE l.return_date IS NULL AND l.due_date < CURRENT_DATE
+    ORDER BY overdue_days DESC;
+
+Query 2: Book Catalog Search with Consolidated Multi-Author Aggregation
+    SELECT 
+        b.book_id,
+        b.isbn_13,
+        b.title,
+        b.category,
+        p.publisher_name,
+        GROUP_CONCAT(a.author_name ORDER BY a.author_name SEPARATOR ', ') AS author_list,
+        b.available_copies,
+        b.total_copies
+    FROM books b
+    JOIN publishers p ON b.publisher_id = p.publisher_id
+    JOIN book_authors ba ON b.book_id = ba.book_id
+    JOIN authors a ON ba.author_id = a.author_id
+    GROUP BY b.book_id, b.isbn_13, b.title, b.category, p.publisher_name, b.available_copies, b.total_copies;
+
+4. PERFORMANCE INDEXING STRATEGY
+--------------------------------------------------------------------------------
+1. `CREATE INDEX idx_loans_member_status ON loans (member_id, loan_status);`
+2. `CREATE INDEX idx_loans_due_date ON loans (due_date, return_date);`
+3. `CREATE INDEX idx_book_items_status ON book_items (book_id, item_status);`
+4. `CREATE FULLTEXT INDEX idx_ft_book_search ON books (title, category);`

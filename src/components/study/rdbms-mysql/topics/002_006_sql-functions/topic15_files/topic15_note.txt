@@ -1,0 +1,117 @@
+================================================================================
+RDBMS MySQL Course - Module 002_006: Built-in Functions, Grouping & Aggregations
+Topic 15: Handling NULLs in Aggregations and GROUP BY
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. INTRODUCTION: THREE-VALUED LOGIC (3VL) & NULL SEMANTICS
+--------------------------------------------------------------------------------
+In SQL databases, `NULL` represents missing, unknown, or inapplicable information.
+It is NOT equal to zero (0), nor is it an empty string ('').
+SQL operates on Three-Valued Logic:
+- TRUE
+- FALSE
+- UNKNOWN (the result of comparing any value with NULL using `=` or `<>`)
+
+Because of this unique nature, relational engines apply specific rules when 
+aggregating data or grouping rows that contain NULLs.
+
+2. NULL BEHAVIOR IN AGGREGATE FUNCTIONS
+--------------------------------------------------------------------------------
+1. COUNT(*) vs COUNT(column_name):
+   - `COUNT(*)` counts total physical rows in the partition, regardless of whether 
+     individual column values are NULL.
+   - `COUNT(column_name)` counts ONLY rows where `column_name` is non-NULL.
+   - `COUNT(DISTINCT column_name)` counts distinct non-NULL values.
+
+2. SUM(), AVG(), MIN(), MAX():
+   - All standard mathematical aggregates automatically IGNORE (skip) NULL values.
+   - `SUM(fee)` calculates the sum of all known fees.
+   - `AVG(marks)` calculates: (Sum of non-NULL marks) / (Count of non-NULL marks).
+
+3. All-NULL Partitions:
+   - If an entire group contains ONLY NULL values:
+     * `SUM(col)` returns `NULL`
+     * `AVG(col)` returns `NULL`
+     * `MIN(col)` returns `NULL`
+     * `MAX(col)` returns `NULL`
+     * `COUNT(col)` returns `0`
+     * `COUNT(*)` returns the number of rows in the group
+
+3. THE CRITICAL "AVERAGE DISTORTION" PITFALL
+--------------------------------------------------------------------------------
+Consider 4 students:
+- Mamata: 100 marks
+- Susmita: 80 marks
+- Abhronila: 60 marks
+- Debangshu: NULL (Absent for the exam)
+
+Query A: `SELECT AVG(marks) FROM students;`
+  - Formula: (100 + 80 + 60) / 3 = 80.00%
+  - Treats Debangshu as excluded from the denominator.
+
+Query B: `SELECT AVG(COALESCE(marks, 0)) FROM students;`
+  - Formula: (100 + 80 + 60 + 0) / 4 = 60.00%
+  - Treats Debangshu as receiving 0 marks.
+
+Business Rule:
+- Use `AVG(col)` when calculating the mean among students who actually took the test.
+- Use `AVG(COALESCE(col, 0))` when calculating the institutional cohort average where 
+  absence is penalized as 0.
+
+4. NULL HANDLING IN THE GROUP BY CLAUSE
+--------------------------------------------------------------------------------
+In SQL standard relational theory:
+- While `NULL = NULL` is UNKNOWN in predicate comparisons, for the specific purposes 
+  of `GROUP BY`, all NULL values are considered mutually equal.
+- All rows containing `NULL` in the grouping column are gathered into a single 
+  shared `[NULL]` group bucket.
+
+Multi-Column Grouping with NULLs:
+- If grouping by `GROUP BY centre_city, course_stream`, rows with:
+  * ('Barrackpore', NULL) form one distinct group.
+  * (NULL, 'React') form another distinct group.
+  * (NULL, NULL) form a third distinct group.
+
+5. DEFENSIVE NULL TRANSFORMATION FUNCTIONS
+--------------------------------------------------------------------------------
+1. `COALESCE(col1, col2, ..., default_value)`
+   Returns the first non-NULL expression in the list.
+
+2. `IFNULL(col, default_value)`
+   Two-argument shorthand for COALESCE().
+
+3. `NULLIF(expr1, expr2)`
+   Returns NULL if expr1 = expr2; otherwise returns expr1.
+   Essential for preventing division by zero: `amount / NULLIF(total_units, 0)`.
+
+6. PRODUCTION CODE EXAMPLES
+--------------------------------------------------------------------------------
+Example 1: Robust Student Financial Summary
+    SELECT 
+        COALESCE(centre_city, 'Unassigned Campus') AS campus,
+        COUNT(*) AS total_registered,
+        COUNT(fee_amount_inr) AS fee_paying_students,
+        COUNT(*) - COUNT(fee_amount_inr) AS scholarship_exempt_students,
+        COALESCE(SUM(fee_amount_inr), 0.00) AS total_collected_inr,
+        COALESCE(AVG(fee_amount_inr), 0.00) AS avg_fee_per_paying_student,
+        ROUND(AVG(COALESCE(fee_amount_inr, 0.00)), 2) AS cohort_wide_avg_fee_inr
+    FROM student_admissions
+    GROUP BY centre_city;
+
+Example 2: Division-by-Zero Defense with NULLIF
+    SELECT 
+        centre_city,
+        SUM(fee_collected_inr) AS total_fees,
+        COUNT(student_id) AS total_students,
+        ROUND(SUM(fee_collected_inr) / NULLIF(COUNT(student_id), 0), 2) AS revenue_per_student
+    FROM campus_stats
+    GROUP BY centre_city;
+
+7. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Distinguish between `COUNT(*)` (counts all rows) and `COUNT(col)` (counts non-null values).
+2. Never compare NULLs using `=` or `<>`; always use `IS NULL` or `IS NOT NULL`.
+3. Be conscious of whether absent metrics should be excluded from `AVG()` or treated as `0` with `COALESCE()`.
+4. Wrap aggregate sums in `COALESCE(SUM(col), 0)` to guarantee non-null numeric outputs for downstream APIs.
+5. Use `NULLIF(denominator, 0)` to protect queries from mathematical division by zero crashes.

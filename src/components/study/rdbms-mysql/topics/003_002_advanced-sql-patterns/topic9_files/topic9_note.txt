@@ -1,0 +1,51 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 9: Finding Top N Records Per Category / Department without Correlated Subqueries
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE CLASSIC TOP-N PER CATEGORY RELATIONAL CHALLENGE
+--------------------------------------------------------------------------------
+Extracting the top $N$ entities (highest scores, highest salaries, latest logs) 
+within EACH category/group is one of the most frequent enterprise SQL queries.
+
+Legacy Pre-MySQL 8.0 Approaches (Anti-Patterns):
+- Correlated Subquery counts: $O(N^2)$ quadratic nested table scans.
+- Session Variables (`@rn := ...`): Brittle, undefined execution order, deprecated in MySQL 8.0.
+- In-Memory Self-Joins: Duplicate row buffers and massive memory pressure.
+
+2. THE MODERN ANSI SQL WINDOW CTE PATTERN
+--------------------------------------------------------------------------------
+The standard, high-performance design pattern in MySQL 8.0+:
+    WITH RankedEntities AS (
+        SELECT 
+            student_id,
+            first_name,
+            dept_id,
+            exam_score_pct,
+            -- Choose DENSE_RANK() for tiers or ROW_NUMBER() for exact counts:
+            DENSE_RANK() OVER (
+                PARTITION BY dept_id 
+                ORDER BY exam_score_pct DESC, student_id ASC
+            ) AS dept_rank
+        FROM students
+    )
+    SELECT * 
+    FROM RankedEntities
+    WHERE dept_rank <= 2
+    ORDER BY dept_id, dept_rank;
+
+3. TIE-BREAKING & DENSE_RANK VS ROW_NUMBER DECISION
+--------------------------------------------------------------------------------
+1. `DENSE_RANK() <= N`:
+   - Returns Top $N$ distinct score tiers.
+   - If two students tie for 2nd place, BOTH are included (3 rows returned).
+
+2. `ROW_NUMBER() <= N`:
+   - Guarantees EXACTLY $N$ physical rows per category.
+   - Requires deterministic secondary tie-breaker in `ORDER BY`.
+
+4. INDEX TUNING
+--------------------------------------------------------------------------------
+Create a composite index on `(category_col, score_col DESC)` to allow MySQL to 
+stream rows directly in pre-sorted partition order with ZERO temporary disk sorting!

@@ -1,0 +1,114 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 4: Complex Views with Joins, Grouping, and Derived Columns
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A COMPLEX DATABASE VIEW?
+--------------------------------------------------------------------------------
+A Complex View is a virtual relation that goes beyond simple single-table projection 
+by incorporating:
+- Multi-table relational joins (`INNER JOIN`, `LEFT JOIN`, `FULL OUTER` emulations).
+- Aggregate calculations (`COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`).
+- Data categorization via `GROUP BY` and `HAVING` filters.
+- Complex calculated expressions, string manipulations, and conditional logic (`CASE`, `COALESCE`).
+- Subqueries and Common Table Expressions (CTEs) within the view definition.
+
+2. ANATOMY OF A MULTI-TABLE JOIN VIEW
+--------------------------------------------------------------------------------
+Complex views encapsulate normalized relational schemas into clean, de-normalized 
+reporting dimensions.
+
+Example: Academy Master Academic Dimension View
+    CREATE OR REPLACE VIEW view_academy_student_master_kpis AS
+    SELECT 
+        s.student_id,
+        CONCAT(s.first_name, ' ', s.last_name) AS student_full_name,
+        c.course_title AS enrolled_stream,
+        b.batch_code,
+        s.centre_city AS branch_location,
+        en.enrollment_date,
+        -- Derived column: Total paid vs due
+        COALESCE(SUM(p.amount_inr), 0.00) AS total_fee_collected_inr,
+        (en.course_fee_inr - COALESCE(SUM(p.amount_inr), 0.00)) AS outstanding_balance_inr,
+        -- Conditional Status
+        CASE 
+            WHEN (en.course_fee_inr - COALESCE(SUM(p.amount_inr), 0.00)) <= 0 THEN 'FULLY CLEARED'
+            WHEN COALESCE(SUM(p.amount_inr), 0.00) > 0 THEN 'PARTIALLY PAID'
+            ELSE 'UNPAID DUES'
+        END AS payment_clearance_status,
+        -- Academic Performance Aggregate
+        ROUND(AVG(sc.exam_score_pct), 2) AS cumulative_gpa_pct
+    FROM students s
+    JOIN enrollments en ON s.student_id = en.student_id
+    JOIN courses c ON en.course_id = c.course_id
+    JOIN batches b ON en.batch_id = b.batch_id
+    LEFT JOIN fee_payments p ON en.enrollment_id = p.enrollment_id AND p.status = 'SUCCESS'
+    LEFT JOIN student_exam_scores sc ON en.enrollment_id = sc.enrollment_id
+    GROUP BY 
+        s.student_id, 
+        s.first_name, 
+        s.last_name, 
+        c.course_title, 
+        b.batch_code, 
+        s.centre_city, 
+        en.enrollment_date, 
+        en.course_fee_inr;
+
+3. ALGORITHM = TEMPTABLE & EXECUTION TRADE-OFFS
+--------------------------------------------------------------------------------
+Because complex views include `GROUP BY` and aggregations, MySQL automatically 
+switches the evaluation algorithm from `MERGE` to `TEMPTABLE`:
+1. MySQL evaluates the view query in its entirety and populates an internal 
+   in-memory (or on-disk) temporary table.
+2. The outer query executes against this temporary table.
+3. Consequence: Outer WHERE clauses on calculated columns (e.g. `WHERE cumulative_gpa_pct >= 90`) 
+   cannot be pushed down to the initial base table scans.
+
+4. CTEs AND SUBQUERIES INSIDE VIEW DEFINITIONS
+--------------------------------------------------------------------------------
+In MySQL 8.0+, you can structure complex views using Common Table Expressions (CTEs) 
+for readability and modularity:
+    CREATE OR REPLACE VIEW view_branch_monthly_growth AS
+    WITH MonthlyBranchRevenue AS (
+        SELECT 
+            s.centre_city,
+            DATE_FORMAT(p.payment_date, '%Y-%m') AS revenue_month,
+            SUM(p.amount_inr) AS monthly_turnover_inr
+        FROM fee_payments p
+        JOIN enrollments en ON p.enrollment_id = en.enrollment_id
+        JOIN students s ON en.student_id = s.student_id
+        WHERE p.status = 'SUCCESS'
+        GROUP BY s.centre_city, DATE_FORMAT(p.payment_date, '%Y-%m')
+    )
+    SELECT 
+        centre_city,
+        revenue_month,
+        monthly_turnover_inr,
+        -- Calculating MoM difference using LAG window function
+        monthly_turnover_inr - LAG(monthly_turnover_inr, 1, 0.00) 
+            OVER (PARTITION BY centre_city ORDER BY revenue_month) AS mom_growth_inr
+    FROM MonthlyBranchRevenue;
+
+5. PRODUCTION EXAMPLES (ACADEMY, HEALTHCARE, E-COMMERCE)
+--------------------------------------------------------------------------------
+Example 1: Course Stream Profitability & Cohort Retention
+    CREATE OR REPLACE VIEW view_course_stream_kpis AS
+    SELECT 
+        c.course_title,
+        COUNT(DISTINCT en.student_id) AS total_enrolled_candidates,
+        SUM(en.course_fee_inr) AS projected_revenue_inr,
+        SUM(p.amount_inr) AS actual_collected_inr,
+        ROUND((SUM(p.amount_inr) / NULLIF(SUM(en.course_fee_inr), 0)) * 100, 2) AS recovery_ratio_pct
+    FROM courses c
+    LEFT JOIN enrollments en ON c.course_id = en.course_id
+    LEFT JOIN fee_payments p ON en.enrollment_id = p.enrollment_id AND p.status = 'SUCCESS'
+    GROUP BY c.course_id, c.course_title;
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Guard divisions in derived columns against zero using `NULLIF(denominator, 0)`.
+2. Wrap nullable join sums in `COALESCE(SUM(col), 0.00)` to prevent NULL propagation.
+3. In `GROUP BY` views, ensure all non-aggregated SELECT columns are strictly listed 
+   in the GROUP BY clause to comply with `ONLY_FULL_GROUP_BY` SQL mode.
+4. Keep the number of joined tables lean to minimize temporary table memory consumption.

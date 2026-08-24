@@ -1,0 +1,46 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 11: Solving Gaps and Islands Problems in Time-Series and Transaction Logs
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT ARE GAPS AND ISLANDS PROBLEMS?
+--------------------------------------------------------------------------------
+- Islands: Uninterrupted sequences or continuous streaks of data (e.g. consecutive 
+  days of student attendance or uninterrupted login streaks).
+- Gaps: Missing intervals, absent periods, or discontinuities between streaks.
+
+2. METHOD 1: THE MATHEMATICAL DATE-ROW_NUMBER DIFFERENCE METHOD
+--------------------------------------------------------------------------------
+The fundamental mathematical principle:
+When calendar dates advance by 1 day and `ROW_NUMBER()` advances by 1, subtracting 
+the row number from the date yields an IDENTICAL constant anchor date for all rows 
+within the same continuous island streak!
+
+    WITH NumberedDays AS (
+        SELECT 
+            student_id,
+            attendance_date,
+            ROW_NUMBER() OVER (PARTITION BY student_id ORDER BY attendance_date ASC) AS rn,
+            -- The Magic Constant Island Anchor:
+            DATE_SUB(attendance_date, INTERVAL ROW_NUMBER() OVER (
+                PARTITION BY student_id ORDER BY attendance_date ASC
+            ) DAY) AS island_anchor_date
+        FROM student_daily_attendance
+        WHERE is_present = 1
+    )
+    SELECT 
+        student_id,
+        island_anchor_date,
+        MIN(attendance_date) AS streak_start_date,
+        MAX(attendance_date) AS streak_end_date,
+        COUNT(*) AS continuous_streak_days
+    FROM NumberedDays
+    GROUP BY student_id, island_anchor_date
+    ORDER BY student_id, continuous_streak_days DESC;
+
+3. METHOD 2: THE RUNNING FLAG METHOD (LAG + RUNNING SUM)
+--------------------------------------------------------------------------------
+1. Flag breaks: `CASE WHEN DATEDIFF(curr_date, LAG(curr_date) OVER w) > 1 THEN 1 ELSE 0 END AS is_new_island`
+2. Running Island ID: `SUM(is_new_island) OVER (ORDER BY date) AS island_id`
+3. Group by `island_id` to aggregate streak start, end, and duration.

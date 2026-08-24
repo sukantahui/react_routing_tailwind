@@ -1,0 +1,78 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 10: Single-Column Indexes vs Composite (Multi-Column) Indexes
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. SINGLE-COLUMN INDEXES
+--------------------------------------------------------------------------------
+A Single-Column Index is a B+Tree index built on exactly one column:
+    CREATE INDEX idx_centre_city ON students (centre_city);
+
+Characteristics:
+- Efficient for queries filtering or sorting solely on that single column.
+- If a query filters on multiple columns (`WHERE centre_city = 'Barrackpore' AND course_stream = 'React'`), 
+  MySQL can only use one single-column index at a time (or attempt a costly Index Merge).
+
+2. COMPOSITE (MULTI-COLUMN) INDEXES
+--------------------------------------------------------------------------------
+A Composite (Compound / Multi-Column) Index is a single B+Tree structure that indexes 
+up to 16 columns in a defined sequence:
+    CREATE INDEX idx_city_stream_status 
+    ON students (centre_city, course_stream, admission_status);
+
+Lexicographical Sorting Order:
+- Keys are sorted strictly by `centre_city` first.
+- For identical cities, keys are sub-sorted by `course_stream`.
+- For identical cities and streams, keys are sub-sorted by `admission_status`.
+- (And implicitly, identical rows are sub-sorted by the Primary Key).
+
+3. COMPOSITE INDEX VS MULTIPLE SINGLE-COLUMN INDEXES (INDEX MERGE)
+--------------------------------------------------------------------------------
+Scenario: Query filters on `WHERE centre_city = 'Barrackpore' AND course_stream = 'React'`
+
+Approach A: Two Separate Single-Column Indexes: `idx_city` + `idx_stream`
+- MySQL performs **Index Merge (Intersection)**:
+  1. Reads `idx_city` to get list of PKs for Barrackpore.
+  2. Reads `idx_stream` to get list of PKs for React.
+  3. Computes the mathematical intersection of both PK lists in RAM.
+  4. Performs bookmark lookups on the intersection.
+- Cost: 2 separate B-Tree scans + RAM intersection overhead.
+
+Approach B: One Composite Index: `idx_city_stream (centre_city, course_stream)`
+- MySQL performs a single B-Tree seek directly to `('Barrackpore', 'React')`.
+- Cost: 1 single B-Tree traversal in 0.4 ms (Zero Index Merge overhead!).
+
+4. COLUMN ORDERING PRINCIPLES FOR COMPOSITE INDEXES
+--------------------------------------------------------------------------------
+The order of columns in a composite index definition is critical:
+1. Equality Filter Columns First:
+   Columns filtered with `=` should appear at the beginning of the index.
+2. High Selectivity / Cardinality Columns:
+   Columns that eliminate the most rows should generally precede less selective columns.
+3. Range and Sorting Columns at the End:
+   Columns evaluated with range operators (`>`, `<`, `BETWEEN`, `LIKE 'prefix%'`) or 
+   `ORDER BY` should follow equality columns.
+
+5. PRODUCTION EXAMPLES (ACADEMY MULTI-FILTER SEARCH)
+--------------------------------------------------------------------------------
+Example 1: Optimal Multi-Filter Academy Search
+    -- Query:
+    SELECT student_id, student_name, tuition_fee_inr
+    FROM students
+    WHERE centre_city = 'Barrackpore' 
+      AND course_stream = 'React Fullstack'
+      AND admission_status = 'ACTIVE'
+    ORDER BY enrollment_date DESC;
+
+    -- Optimal Composite Index:
+    CREATE INDEX idx_academy_search 
+    ON students (centre_city, course_stream, admission_status, enrollment_date);
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Replace multiple single-column indexes on the same table with one targeted composite index.
+2. Structure composite columns as: `(Equality_Cols, Range_Col, Sort_Col, Projected_Cols)`.
+3. Check `EXPLAIN` to verify that `key` uses the composite index rather than `Using intersect`.
+4. Avoid creating redundant single-column indexes if the column is already the leading column 
+   in an existing composite index.

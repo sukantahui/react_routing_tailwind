@@ -1,0 +1,34 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 4: Control Flow Statements: IF ... THEN ... ELSEIF ... ELSE ... END IF
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. PROCEDURAL IF STATEMENT SYNTAX
+--------------------------------------------------------------------------------
+The procedural `IF` statement controls execution flow based on boolean conditions:
+
+    IF condition_1 THEN
+        -- Statements executed when condition_1 is TRUE
+    ELSEIF condition_2 THEN
+        -- Statements executed when condition_2 is TRUE
+    ELSEIF condition_3 THEN
+        -- Statements executed when condition_3 is TRUE
+    ELSE
+        -- Statements executed when ALL previous conditions are FALSE or NULL
+    END IF;
+
+2. PROCEDURAL IF STATEMENT VS TERNARY IF() FUNCTION
+--------------------------------------------------------------------------------
+1. Procedural `IF ... THEN ... END IF` Statement:
+   - A multi-line procedural block used inside Stored Procedures, Functions, and Triggers.
+   - Controls execution of independent SQL statements (INSERT, UPDATE, SET, CALL).
+
+2. Declarative `IF(condition, true_val, false_val)` Function:
+   - A scalar inline function used directly in `SELECT` queries (e.g. `SELECT IF(score >= 40, 'PASS', 'FAIL')`).
+
+3. SHORT-CIRCUIT & NULL EVALUATION RULES
+--------------------------------------------------------------------------------
+- MySQL evaluates conditions top-to-bottom and short-circuits on the FIRST matching TRUE condition.
+- If a condition evaluates to `NULL` (unknown), it is treated as FALSE and falls through to the next `ELSEIF` or `ELSE` branch.
+- Always include an `ELSE` branch to handle fallback edge cases.

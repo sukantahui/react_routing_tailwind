@@ -1,0 +1,94 @@
+================================================================================
+RDBMS MySQL Course - Module 002_007: Views, Basic Indexing & Query Profiling
+Topic 13: Creating, Dropping, and Inspecting Indexes (SHOW INDEX FROM ...)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. COMPLETE INDEX DDL SYNTAX REFERENCE
+--------------------------------------------------------------------------------
+Creating Indexes:
+    -- Standard B-Tree Secondary Index:
+    CREATE INDEX idx_student_city ON students (centre_city);
+
+    -- Composite Multi-Column Index:
+    CREATE INDEX idx_city_stream ON students (centre_city, course_stream);
+
+    -- Unique Index:
+    CREATE UNIQUE INDEX idx_uq_email ON students (email_address);
+
+    -- Fulltext Index:
+    CREATE FULLTEXT INDEX idx_ft_syllabus ON courses (course_syllabus);
+
+    -- Adding via ALTER TABLE:
+    ALTER TABLE students ADD INDEX idx_phone (phone_number);
+    ALTER TABLE students ADD PRIMARY KEY (student_id);
+
+Dropping Indexes:
+    DROP INDEX idx_student_city ON students;
+    ALTER TABLE students DROP INDEX idx_phone;
+    ALTER TABLE students DROP PRIMARY KEY;
+
+2. DEEP-DIVE INTO `SHOW INDEX FROM table_name`
+--------------------------------------------------------------------------------
+Command: `SHOW INDEX FROM students;` (or `SHOW KEYS FROM students;`)
+
+Column-by-Column Meaning:
+1. `Table`: Name of the table.
+2. `Non_unique`: 0 if the index cannot contain duplicates (PRIMARY/UNIQUE), 1 if duplicates allowed.
+3. `Key_name`: Name of the index ('PRIMARY' for PK, or custom index name).
+4. `Seq_in_index`: Column sequence number in composite index (1, 2, 3...).
+5. `Column_name`: Name of the indexed column.
+6. `Collation`: 'A' (Ascending), 'D' (Descending in MySQL 8.0+), or NULL (Fulltext).
+7. `Cardinality`: Estimated count of unique values in the index (updated via ANALYZE TABLE).
+8. `Sub_part`: Index prefix character limit (e.g. 20 for `VARCHAR(255)` prefix index).
+9. `Null`: 'YES' if column allows NULL, '' (empty) if NOT NULL.
+10. `Index_type`: Storage method ('BTREE', 'FULLTEXT', 'HASH').
+11. `Visible`: 'YES' or 'NO' (MySQL 8.0 Invisible Indexes feature).
+
+3. ADVANCED INDEX MANAGEMENT IN MYSQL 8.0+
+--------------------------------------------------------------------------------
+1. Invisible Indexes (Zero-Risk Index Decommissioning):
+   - Make an index invisible to test if queries slow down before dropping it:
+     `ALTER TABLE students ALTER INDEX idx_old INVISIBLE;`
+   - Re-enable if queries degrade:
+     `ALTER TABLE students ALTER INDEX idx_old VISIBLE;`
+
+2. Prefix Indexes (Wide String Compression):
+   - Index only the first N characters of wide strings:
+     `CREATE INDEX idx_address_prefix ON students (residential_address(30));`
+
+3. Functional / Expression Indexes:
+   - Index the output of an expression:
+     `CREATE INDEX idx_lower_email ON students ((LOWER(email_address)));`
+
+4. SYSTEM AUDITING VIA `information_schema.STATISTICS`
+--------------------------------------------------------------------------------
+Query all indexes across all databases:
+    SELECT 
+        TABLE_SCHEMA,
+        TABLE_NAME,
+        INDEX_NAME,
+        NON_UNIQUE,
+        COLUMN_NAME,
+        SEQ_IN_INDEX,
+        CARDINALITY,
+        INDEX_TYPE,
+        IS_VISIBLE
+    FROM information_schema.STATISTICS
+    WHERE TABLE_SCHEMA = 'acco_tax_academy_db'
+    ORDER BY TABLE_NAME, INDEX_NAME, SEQ_IN_INDEX;
+
+5. PRODUCTION EXAMPLES (ACADEMY AUDIT)
+--------------------------------------------------------------------------------
+Example 1: Inspecting Academy Student Indexes
+    SHOW INDEX FROM student_master;
+
+Example 2: Refreshing Outdated Index Statistics
+    ANALYZE TABLE student_master;
+
+6. SUMMARY OF BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Regularly inspect table indexes using `SHOW INDEX FROM table_name;`.
+2. Run `ANALYZE TABLE` on large tables to update outdated cardinality estimates.
+3. Use Invisible Indexes in MySQL 8.0+ to safely test index removals before dropping.
+4. Use prefix indexing on long `VARCHAR`/`TEXT` columns to save B-Tree storage.

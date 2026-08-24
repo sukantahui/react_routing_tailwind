@@ -1,0 +1,49 @@
+================================================================================
+RDBMS MySQL Course - Module 003_001: Subqueries, Correlated Queries & CTEs
+Topic 7: Subquery vs JOIN: Performance, Optimization, and Readability Comparison
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE SUBQUERY VS JOIN ARCHITECTURAL LANDSCAPE
+--------------------------------------------------------------------------------
+Both Subqueries and JOINs are fundamental techniques for retrieving and analyzing 
+data distributed across multiple relational tables. Choosing the right pattern 
+directly impacts query latency, memory consumption, and maintainability.
+
+2. WHEN SUBQUERIES WIN OVER JOINS
+--------------------------------------------------------------------------------
+1. Avoiding Row Multiplication (Semi-Joins):
+   - Joining a parent table (e.g. `students`) to a child table with multiple duplicates 
+     (e.g. `enrollments`) duplicates parent rows, requiring an expensive `DISTINCT` sort.
+   - `WHERE student_id IN (SELECT student_id FROM enrollments)` acts as a Semi-Join, 
+     matching parent rows without duplicating them.
+
+2. Isolated Pre-Aggregation:
+   - Calculating an aggregate before joining prevents massive Cartesian expansion:
+     `SELECT d.name, dt.avg_score FROM departments d JOIN (SELECT dept_id, AVG(score) AS avg_score FROM students GROUP BY dept_id) AS dt ...`
+
+3. Universal Quantification & Set Non-Membership:
+   - `NOT EXISTS` provides a clean, NULL-immune anti-join without requiring `LEFT JOIN` outer null checks.
+
+3. WHEN JOINS WIN OVER SUBQUERIES
+--------------------------------------------------------------------------------
+1. Multiple Projected Columns from Child Tables:
+   - If the outer query needs columns from both tables (e.g. `student_name` and `course_title`), 
+     an `INNER JOIN` or `LEFT JOIN` is mandatory.
+
+2. Eliminating Correlated Row-by-Row Loops:
+   - Correlated subqueries in the `SELECT` list evaluate $N$ times; a single `LEFT JOIN` 
+     with `GROUP BY` processes the dataset in a single linear pass.
+
+3. Optimizer Join Order Flexibility:
+   - Explicit `JOIN`s give the MySQL query optimizer full freedom to rearrange join orders 
+     based on index selectivity and table statistics.
+
+4. THE COMPARATIVE ARCHITECTURAL MATRIX
+--------------------------------------------------------------------------------
+Operation           Subquery Pattern                        JOIN Equivalent
+-----------------   ------------------------------------    ------------------------------------
+Inclusion Check     WHERE id IN (SELECT id FROM child)      INNER JOIN (May duplicate rows)
+Exclusion Check     WHERE NOT EXISTS (SELECT 1 FROM child)  LEFT JOIN ... WHERE right.id IS NULL
+Calculated Metric   SELECT (SELECT COUNT(*) FROM child)     LEFT JOIN child GROUP BY parent.id
+Pre-Aggregation     WHERE score > (SELECT AVG(score) ...)   JOIN (SELECT AVG(score) ...) AS dt

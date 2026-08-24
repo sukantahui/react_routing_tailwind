@@ -1,0 +1,120 @@
+================================================================================
+RDBMS MySQL Course - Module 002_008: Real-world Schema Design Projects & Query Challenges
+Topic 1: Design Project 2: Multi-Branch Hospital & Patient Appointment DB
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. PROJECT OVERVIEW: MULTI-BRANCH HEALTHCARE NETWORK
+--------------------------------------------------------------------------------
+The Multi-Branch Healthcare Network database manages outpatient appointments, 
+doctor branch shift rotations, universal patient health records (UHID), 
+electronic prescriptions, and inpatient bed occupancy across branches in 
+Barrackpore, Kolkata, and Ichapur.
+
+2. 3NF NORMALIZED RELATIONAL SCHEMA SPECIFICATION
+--------------------------------------------------------------------------------
+1. `hospital_branches`
+   - `branch_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `branch_name` VARCHAR(100) NOT NULL
+   - `city` VARCHAR(50) NOT NULL
+   - `total_beds` INT NOT NULL DEFAULT 50
+
+2. `departments`
+   - `dept_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `dept_name` VARCHAR(100) NOT NULL UNIQUE
+
+3. `doctors`
+   - `doctor_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `registration_number` VARCHAR(30) NOT NULL UNIQUE
+   - `first_name` VARCHAR(50) NOT NULL
+   - `last_name` VARCHAR(50) NOT NULL
+   - `specialization` VARCHAR(100) NOT NULL
+   - `dept_id` INT NOT NULL (FK -> departments)
+   - `consultation_fee_inr` DECIMAL(8,2) NOT NULL
+
+4. `doctor_branch_schedules` (Doctor Multi-Branch Rotation Roster)
+   - `schedule_id` INT AUTO_INCREMENT PRIMARY KEY
+   - `doctor_id` INT NOT NULL (FK -> doctors)
+   - `branch_id` INT NOT NULL (FK -> hospital_branches)
+   - `day_of_week` ENUM('MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN') NOT NULL
+   - `start_time` TIME NOT NULL
+   - `end_time` TIME NOT NULL
+   - `max_patients_per_slot` TINYINT DEFAULT 20
+   - UNIQUE KEY `uq_doctor_shift` (`doctor_id`, `day_of_week`, `start_time`)
+
+5. `patients` (Universal Master Patient Index)
+   - `patient_id` BIGINT AUTO_INCREMENT PRIMARY KEY
+   - `uhid` VARCHAR(25) NOT NULL UNIQUE (Universal Health ID)
+   - `first_name` VARCHAR(50) NOT NULL
+   - `last_name` VARCHAR(50) NOT NULL
+   - `blood_group` ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-') NOT NULL
+   - `dob` DATE NOT NULL
+   - `phone_number` VARCHAR(15) NOT NULL UNIQUE
+   - `aadhaar_number` VARCHAR(14) NOT NULL UNIQUE
+
+6. `appointments` (OPD Booking Ledger)
+   - `appointment_id` BIGINT AUTO_INCREMENT PRIMARY KEY
+   - `patient_id` BIGINT NOT NULL (FK -> patients)
+   - `doctor_id` INT NOT NULL (FK -> doctors)
+   - `branch_id` INT NOT NULL (FK -> hospital_branches)
+   - `appointment_date` DATE NOT NULL
+   - `time_slot` TIME NOT NULL
+   - `token_number` TINYINT NOT NULL
+   - `status` ENUM('BOOKED', 'COMPLETED', 'CANCELLED', 'NO_SHOW') DEFAULT 'BOOKED'
+   - UNIQUE KEY `uq_doctor_slot_token` (`doctor_id`, `branch_id`, `appointment_date`, `time_slot`, `token_number`)
+
+7. `prescriptions` & `prescription_medications`
+   - `prescriptions`: `prescription_id PK`, `appointment_id FK UNIQUE`, `diagnosis`, `prescribed_at`
+   - `prescription_medications`: `med_id PK`, `prescription_id FK`, `medicine_name`, `dosage`, `duration_days`
+
+8. `inpatient_admissions` (Bed Occupancy & IPD Billing)
+   - `admission_id` BIGINT AUTO_INCREMENT PRIMARY KEY
+   - `patient_id` BIGINT NOT NULL (FK -> patients)
+   - `branch_id` INT NOT NULL (FK -> hospital_branches)
+   - `bed_number` VARCHAR(20) NOT NULL
+   - `admission_date` DATETIME NOT NULL
+   - `discharge_date` DATETIME NULL
+   - `total_bill_inr` DECIMAL(10,2) DEFAULT 0.00
+   - `payment_status` ENUM('UNPAID', 'PAID', 'INSURANCE_CLAIM') DEFAULT 'UNPAID'
+
+3. ESSENTIAL PRODUCTION SQL QUERIES
+--------------------------------------------------------------------------------
+Query 1: Branch Bed Occupancy Rate Metric
+    SELECT 
+        b.branch_name,
+        b.city,
+        b.total_beds,
+        COUNT(a.admission_id) AS occupied_beds,
+        ROUND((COUNT(a.admission_id) / b.total_beds) * 100.0, 2) AS occupancy_rate_pct
+    FROM hospital_branches b
+    LEFT JOIN inpatient_admissions a ON b.branch_id = a.branch_id AND a.discharge_date IS NULL
+    GROUP BY b.branch_id, b.branch_name, b.city, b.total_beds;
+
+Query 2: Patient 360-Degree Clinical History Timeline
+    SELECT 
+        p.uhid,
+        CONCAT(p.first_name, ' ', p.last_name) AS patient_name,
+        p.blood_group,
+        app.appointment_date,
+        hb.branch_name,
+        CONCAT('Dr. ', d.first_name, ' ', d.last_name) AS doctor_name,
+        d.specialization,
+        pr.diagnosis,
+        GROUP_CONCAT(pm.medicine_name SEPARATOR ', ') AS prescribed_medications
+    FROM patients p
+    JOIN appointments app ON p.patient_id = app.patient_id
+    JOIN doctors d ON app.doctor_id = d.doctor_id
+    JOIN hospital_branches hb ON app.branch_id = hb.branch_id
+    LEFT JOIN prescriptions pr ON app.appointment_id = pr.appointment_id
+    LEFT JOIN prescription_medications pm ON pr.prescription_id = pm.prescription_id
+    WHERE p.patient_id = 101
+    GROUP BY p.uhid, p.first_name, p.last_name, p.blood_group, app.appointment_date, 
+             hb.branch_name, d.first_name, d.last_name, d.specialization, pr.diagnosis
+    ORDER BY app.appointment_date DESC;
+
+4. PERFORMANCE & CONCURRENCY STRATEGY
+--------------------------------------------------------------------------------
+1. Prevent Slot Overbooking: Enforce Composite UNIQUE constraint on `(doctor_id, branch_id, appointment_date, time_slot, token_number)`.
+2. Concurrency Booking: Use `SELECT ... FOR UPDATE` inside transactions when checking token capacity.
+3. Indexing: `CREATE INDEX idx_app_date_status ON appointments (appointment_date, status);`
+4. Indexing: `CREATE INDEX idx_patient_lookup ON patients (phone_number, aadhaar_number);`

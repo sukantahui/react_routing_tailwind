@@ -1,0 +1,41 @@
+================================================================================
+RDBMS MySQL Course - Module 003_002: Window Functions & Analytics
+Topic 12: Conditional Aggregations and Pivoting Data (Crosstab Queries)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS PIVOTING & CROSSTAB ANALYSIS?
+--------------------------------------------------------------------------------
+Pivoting transforms row-level entity transactions into column-oriented matrix 
+spreadsheets, rotating unique categorical row values into dedicated columns.
+
+2. THE CONDITIONAL AGGREGATION PIVOT PATTERN
+--------------------------------------------------------------------------------
+Because MySQL does not include a dedicated `PIVOT` keyword, conditional aggregation 
+with `CASE` inside aggregate functions (`SUM`, `MAX`, `COUNT`, `AVG`) is the 
+universal standard:
+
+Syntax Blueprint:
+    SELECT 
+        s.student_id,
+        CONCAT(s.first_name, ' ', s.last_name) AS student_name,
+        -- Subject 1 Column:
+        MAX(CASE WHEN sub.subject_code = 'CS101' THEN m.exam_score_pct END) AS cs_score,
+        -- Subject 2 Column:
+        MAX(CASE WHEN sub.subject_code = 'IT102' THEN m.exam_score_pct END) AS it_score,
+        -- Subject 3 Column:
+        MAX(CASE WHEN sub.subject_code = 'WD103' THEN m.exam_score_pct END) AS web_design_score,
+        -- Row Total Average:
+        ROUND(AVG(m.exam_score_pct), 2) AS overall_average_score
+    FROM students s
+    LEFT JOIN exam_marks m ON s.student_id = m.student_id
+    LEFT JOIN subjects sub ON m.subject_id = sub.subject_id
+    GROUP BY s.student_id, s.first_name, s.last_name;
+
+3. UNPIVOTING COLUMNS BACK TO NORMALIZED ROWS (UNION ALL)
+--------------------------------------------------------------------------------
+    SELECT student_id, 'CS101' AS subject_code, cs_score AS score FROM wide_grades_table
+    UNION ALL
+    SELECT student_id, 'IT102' AS subject_code, it_score AS score FROM wide_grades_table
+    UNION ALL
+    SELECT student_id, 'WD103' AS subject_code, web_design_score AS score FROM wide_grades_table;
