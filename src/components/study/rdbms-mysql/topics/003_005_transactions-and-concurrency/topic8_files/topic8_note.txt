@@ -1,0 +1,26 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 8: Setting & Verifying Isolation Levels in MySQL (transaction_isolation)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE THREE SCOPES FOR SETTING ISOLATION LEVELS
+--------------------------------------------------------------------------------
+1. GLOBAL SCOPE:
+   - Command: `SET GLOBAL TRANSACTION ISOLATION LEVEL <level>;`
+   - Applies to all NEW client connections established after execution.
+
+2. SESSION SCOPE:
+   - Command: `SET SESSION TRANSACTION ISOLATION LEVEL <level>;`
+   - Applies to all subsequent transactions in the current client connection.
+
+3. NEXT-TRANSACTION SCOPE:
+   - Command: `SET TRANSACTION ISOLATION LEVEL <level>;`
+   - Applies strictly to the SINGLE NEXT transaction; reverts afterward.
+
+2. VERIFYING ISOLATION LEVELS
+--------------------------------------------------------------------------------
+- Session check: `SELECT @@transaction_isolation;`
+- Global check: `SELECT @@GLOBAL.transaction_isolation;`
+- Startup config: `transaction-isolation = READ-COMMITTED` in `my.cnf` under `[mysqld]`.
+- Rule: Cannot alter isolation level while a transaction is in progress (Error 1568).

@@ -1,0 +1,28 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 3: Autocommit Mode in MySQL: Checking, Disabling, and Best Practices
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS AUTOCOMMIT MODE?
+--------------------------------------------------------------------------------
+- `autocommit = 1` (ON, Default):
+  Every single standalone DML statement (`INSERT`, `UPDATE`, `DELETE`) is executed 
+  as an independent single-statement transaction and committed immediately.
+
+- `autocommit = 0` (OFF):
+  Transactions start implicitly on the first DML statement and remain open until 
+  you explicitly execute `COMMIT;` or `ROLLBACK;`.
+
+2. CHECKING AND TOGGLING AUTOCOMMIT
+--------------------------------------------------------------------------------
+- Check: `SELECT @@autocommit;` (1 = ON, 0 = OFF)
+- Session toggle: `SET autocommit = 0;` or `SET autocommit = 1;`
+- Global toggle: `SET GLOBAL autocommit = 0;`
+
+3. BEST PRACTICES & PERFORMANCE
+--------------------------------------------------------------------------------
+- Bulk Inserts: 1,000 single-statement autocommits force 1,000 disk fsyncs (slow). 
+  Wrapping in a single `START TRANSACTION ... COMMIT` requires only 1 fsync (300x faster).
+- Enterprise Rule: Keep `autocommit = 1` globally, and open explicit `START TRANSACTION` 
+  blocks when grouping multi-step operations.

@@ -1,0 +1,23 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 12: Pessimistic Locking with SELECT ... FOR UPDATE and SELECT ... FOR SHARE
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. PESSIMISTIC LOCKING PHILOSOPHY
+--------------------------------------------------------------------------------
+Pessimistic locking assumes conflict is imminent. It explicitly locks rows during 
+the initial `SELECT` to guarantee that no other transaction can modify or read them 
+before the current transaction completes.
+
+2. SYNTAX & LOCK MODES IN MYSQL 8.0
+--------------------------------------------------------------------------------
+- Exclusive Lock: `SELECT ... FOR UPDATE [NOWAIT | SKIP LOCKED] [OF table_name];`
+- Shared Lock: `SELECT ... FOR SHARE [NOWAIT | SKIP LOCKED] [OF table_name];`
+- Legacy Shared: `SELECT ... LOCK IN SHARE MODE;`
+
+3. NON-BLOCKING MODIFIERS
+--------------------------------------------------------------------------------
+- `NOWAIT`: Fails immediately with Error 3572 if a row is locked (no waiting).
+- `SKIP LOCKED`: Skips locked rows and returns available rows immediately (ideal for queues).
+- `OF table`: Locks only specific tables in multi-table `JOIN` queries.

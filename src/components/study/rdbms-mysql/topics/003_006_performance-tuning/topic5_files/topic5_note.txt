@@ -1,0 +1,26 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 5: Interpreting Extra Column Flags: Using index, Using where, Using temporary, Using filesort
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. CRITICAL EXTRA COLUMN FLAGS
+--------------------------------------------------------------------------------
+1. `Using index` (COVERING INDEX):
+   All requested columns are satisfied directly from B+Tree index leaf nodes.
+   ZERO base table lookups! The fastest possible read pattern.
+
+2. `Using where`:
+   A WHERE filter is applied by the MySQL Server layer after rows are fetched.
+
+3. `Using index condition` (ICP):
+   The storage engine filters rows during index traversal before reading table rows.
+
+4. `Using filesort`:
+   An explicit sort pass in memory (`sort_buffer_size`) or on disk.
+
+5. `Using temporary`:
+   An internal temporary table is created (in memory or disk) for GROUP BY / DISTINCT.
+
+6. `Using join buffer (Hash Join)`:
+   Outer rows are buffered in `join_buffer_size` to perform join probes.

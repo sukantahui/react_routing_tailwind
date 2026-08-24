@@ -1,0 +1,24 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 4: SAVEPOINT and ROLLBACK TO SAVEPOINT: Partial Rollbacks
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A SAVEPOINT?
+--------------------------------------------------------------------------------
+A `SAVEPOINT` is a named marker established within an active transaction that allows 
+partial rollback. It enables an application to undo specific failing operations while 
+preserving all prior successful operations in the same transaction.
+
+2. SAVEPOINT SYNTAX & COMMANDS
+--------------------------------------------------------------------------------
+- Set bookmark: `SAVEPOINT sp_name;`
+- Partial rollback: `ROLLBACK TO [SAVEPOINT] sp_name;`
+- Delete marker: `RELEASE SAVEPOINT sp_name;`
+
+3. KEY SAVEPOINT RULES
+--------------------------------------------------------------------------------
+- Rolling back to a savepoint keeps the transaction ACTIVE; you must still issue 
+  `COMMIT;` or `ROLLBACK;` to finish.
+- Rolling back to `sp1` destroys all subsequent savepoints created after `sp1`.
+- Locks acquired after the savepoint are released when rolling back to that savepoint.

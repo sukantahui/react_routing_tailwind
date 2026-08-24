@@ -1,0 +1,32 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 0: MySQL Query Execution Lifecycle: Parser, Preprocessor, Optimizer, Storage Engine
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE 6-STAGE QUERY EXECUTION LIFECYCLE
+--------------------------------------------------------------------------------
+1. CONNECTION & AUTHENTICATION:
+   Client connects via TCP/IP or Unix Socket. Validated against `mysql.user`.
+   Assigned a dedicated thread from the thread cache.
+
+2. QUERY CACHE:
+   Deprecated in MySQL 5.7 and completely REMOVED in MySQL 8.0 due to global 
+   mutex lock contention and invalidation bottlenecks on concurrent writes.
+
+3. LEXICAL PARSER:
+   Tokenizes the raw SQL string and verifies grammar/syntax. Builds a Parse Tree.
+   Throws syntax error (e.g. Error 1064) if keywords are misspelled.
+
+4. PREPROCESSOR:
+   Performs semantic verification: checks table/column existence, resolves aliases,
+   and verifies user access permissions.
+
+5. COST-BASED OPTIMIZER (CBO):
+   Evaluates multiple execution paths, evaluates index selectivity via histogram/
+   statistics (`mysql.innodb_index_stats`), calculates CPU & I/O costs, and 
+   chooses the lowest-cost execution plan.
+
+6. EXECUTION ENGINE & STORAGE ENGINE API:
+   Interacts with InnoDB via the Handler API (`ha_innodb`), retrieves pages from
+   Buffer Pool or Disk, applies WHERE filters, and streams results to client.

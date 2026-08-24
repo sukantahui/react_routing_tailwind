@@ -1,0 +1,24 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 14: Deadlocks: Detection, Wait-For Graphs, and Resolution Strategies
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A DEADLOCK?
+--------------------------------------------------------------------------------
+A deadlock occurs when two or more transactions hold locks that the others need, 
+forming a circular wait dependency where none can proceed without intervention.
+
+2. INNODB DEADLOCK DETECTION & VICTIM SELECTION
+--------------------------------------------------------------------------------
+- Deadlock Detector: Checks the wait-for graph automatically (`innodb_deadlock_detect = ON`).
+- Victim Selection: Rolls back the transaction that modified the fewest rows (smallest undo volume).
+- Throws: Error `1213 (40001): Deadlock found when trying to get lock; try restarting transaction`.
+- Inspect: `SHOW ENGINE INNODB STATUS;` (under `LATEST DETECTED DEADLOCK`).
+
+3. PREVENTION & RESOLUTION STRATEGIES
+--------------------------------------------------------------------------------
+1. Consistent Lock Ordering: Always lock multiple rows in ascending primary key order.
+2. Keep transactions short and avoid long think-times.
+3. Use `READ COMMITTED` with `binlog_format = ROW` to eliminate gap lock deadlocks.
+4. Always catch Error 1213 in application retry loops with exponential backoff and jitter.

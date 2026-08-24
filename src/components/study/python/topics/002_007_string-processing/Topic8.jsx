@@ -447,7 +447,7 @@ export default function Topic8() {
                   <rect x="0" y="0" width="810" height="110" rx="8" fill="#090d16" stroke="#334155" />
                   <text x="20" y="30" fill="#34d399" fontSize="13" fontWeight="bold">Positional Groups Breakdown:</text>
                   <text x="20" y="60" fill="#cbd5e1" fontSize="13">• <tspan fill="#38bdf8" fontWeight="bold">m.group(1)</tspan> = "2026" (Year) &nbsp;&nbsp;|&nbsp;&nbsp; • <tspan fill="#38bdf8" fontWeight="bold">m.group(2)</tspan> = "08" (Month) &nbsp;&nbsp;|&nbsp;&nbsp; • <tspan fill="#38bdf8" fontWeight="bold">m.group(3)</tspan> = "24" (Day)</text>
-                  <text x="20" y="90" fill="#94a3b8" fontSize="12">If named groups are used: <tspan fill="#f59e0b" fontStyle="italic">m.groupdict() -> &#123;'year': '2026', 'month': '08', 'day': '24'&#125;</tspan></text>
+                  <text x="20" y="90" fill="#94a3b8" fontSize="12">If named groups are used: <tspan fill="#f59e0b" fontStyle="italic">m.groupdict() &rarr; &#123;'year': '2026', 'month': '08', 'day': '24'&#125;</tspan></text>
                 </g>
               </svg>
             ) : (

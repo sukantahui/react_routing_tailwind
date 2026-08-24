@@ -1,0 +1,45 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 10: Nested Cursors and Managing Multiple Active Result Sets
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE NESTED CURSOR HANDLER COLLISION PROBLEM
+--------------------------------------------------------------------------------
+If both an outer cursor (Departments) and an inner cursor (Students) share the same 
+`NOT FOUND` handler in the same block, when the inner cursor reaches EOF on the 
+first department, its `NOT FOUND` handler sets `v_done = TRUE`. This prematurely 
+kills the outer department loop after just one department!
+
+2. THE NESTED BLOCK ARCHITECTURE SOLUTION
+--------------------------------------------------------------------------------
+Enclose the inner cursor loop in its own nested `BEGIN ... END` block with its own 
+dedicated variables, cursor declaration, and scoped `NOT FOUND` handler:
+
+    -- Outer Block
+    DECLARE cur_dept CURSOR FOR SELECT dept_id FROM departments;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_outer_done = TRUE;
+
+    OPEN cur_dept;
+    dept_loop: LOOP
+        FETCH cur_dept INTO v_dept_id;
+        IF v_outer_done THEN LEAVE dept_loop; END IF;
+
+        -- Inner Block (Isolated Scope):
+        BEGIN
+            DECLARE v_inner_done BOOLEAN DEFAULT FALSE;
+            DECLARE cur_stu CURSOR FOR 
+                SELECT student_id FROM students WHERE dept_id = v_dept_id;
+            DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_inner_done = TRUE;
+
+            OPEN cur_stu;
+            stu_loop: LOOP
+                FETCH cur_stu INTO v_student_id;
+                IF v_inner_done THEN LEAVE stu_loop; END IF;
+                -- Process student...
+            END LOOP stu_loop;
+            CLOSE cur_stu;
+        END; -- End of Inner Block (Resets inner scope)
+
+    END LOOP dept_loop;
+    CLOSE cur_dept;

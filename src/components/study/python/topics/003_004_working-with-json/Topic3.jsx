@@ -312,7 +312,7 @@ export default function Topic3() {
                   <text x="20" y="30" fill="#99f6e4" fontSize="12" fontWeight="bold">1. `json.loads(s)`: String / Bytes</text>
                   
                   <text x="20" y="60" fill="#ecfdf5" fontSize="9 font-mono">doc = json.loads(api_response_str)</text>
-                  <text x="20" y="80" fill="#34d399" fontSize="9 font-mono">doc = json.loads(b'{"key": "val"}')</text>
+                  <text x="20" y="80" fill="#34d399" fontSize="9 font-mono">{"doc = json.loads(b'{\"key\": \"val\"}')"}</text>
 
                   <rect x="20" y="110" width="340" height="105" rx="4" fill="#022c22" stroke="#059669" />
                   <text x="30" y="135" fill="#34d399" fontSize="9 font-bold">In-Memory Parsing:</text>

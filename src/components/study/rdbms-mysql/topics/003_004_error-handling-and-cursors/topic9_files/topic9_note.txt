@@ -1,0 +1,29 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 9: Iterating Cursors with LOOP and NOT FOUND Handler Termination
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE CANONICAL LOOP ITERATION PATTERN
+--------------------------------------------------------------------------------
+    DECLARE v_done BOOLEAN DEFAULT FALSE;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_done = TRUE;
+
+    OPEN cur;
+    read_loop: LOOP
+        FETCH cur INTO v_id, v_name;
+        
+        -- MANDATORY: Check guard IMMEDIATELY after FETCH:
+        IF v_done THEN
+            LEAVE read_loop;
+        END IF;
+
+        -- Process valid row here...
+    END LOOP read_loop;
+    CLOSE cur;
+
+2. THE "PHANTOM LAST ROW" BUG
+--------------------------------------------------------------------------------
+If you place `IF v_done THEN LEAVE read_loop; END IF;` at the end of the loop, 
+the final failed `FETCH` will still execute the loop body once more, re-processing 
+the last valid row a second time (e.g. charging tuition twice!).

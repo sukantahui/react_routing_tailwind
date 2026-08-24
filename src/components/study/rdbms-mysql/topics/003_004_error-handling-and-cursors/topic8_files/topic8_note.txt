@@ -1,0 +1,32 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 8: Cursor Lifecycle: DECLARE CURSOR, OPEN, FETCH INTO, and CLOSE
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE 4 PHASES OF THE CURSOR LIFECYCLE
+--------------------------------------------------------------------------------
+1. DECLARE CURSOR:
+   - Associates a named cursor with a `SELECT` statement.
+   - Syntax: `DECLARE cursor_name CURSOR FOR select_statement;`
+   - Must appear AFTER variable declarations and BEFORE handler declarations.
+
+2. OPEN:
+   - Executes the query, materializes the result set, and positions the pointer 
+     before the first row.
+   - Syntax: `OPEN cursor_name;`
+
+3. FETCH INTO:
+   - Advances the pointer to the next row and copies column values into target variables.
+   - Syntax: `FETCH cursor_name INTO var1, var2, ...;`
+   - Triggers `NOT FOUND` when no more rows exist.
+
+4. CLOSE:
+   - Releases cursor memory and temporary resources.
+   - Syntax: `CLOSE cursor_name;`
+
+2. CURSOR ERROR CODES
+--------------------------------------------------------------------------------
+- Error 1325 (ER_SP_CURSOR_ALREADY_OPEN): Cursor is already open.
+- Error 1326 (ER_SP_CURSOR_NOT_OPEN): Cursor is not open.
+- Error 1329 (ER_SP_FETCH_NO_DATA / SQLSTATE '02000'): No data to FETCH (NOT FOUND).

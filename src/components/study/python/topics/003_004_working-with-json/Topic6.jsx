@@ -389,7 +389,7 @@ export default function Topic6() {
                   <rect x="0" y="0" width="380" height="240" rx="8" fill="#134e4a" stroke="#14b8a6" />
                   <text x="20" y="30" fill="#99f6e4" fontSize="12" fontWeight="bold">1. Standard Library `urllib.request`</text>
                   
-                  <text x="20" y="58" fill="#ecfdf5" fontSize="8 font-mono">req = urllib.request.Request(url, headers={...})</text>
+                  <text x="20" y="58" fill="#ecfdf5" fontSize="8 font-mono">{"req = urllib.request.Request(url, headers={...})"}</text>
                   <text x="20" y="75" fill="#34d399" fontSize="8 font-mono">with urllib.request.urlopen(req, timeout=5) as res:</text>
                   <text x="35" y="92" fill="#34d399" fontSize="8 font-mono">data = json.load(res)</text>
 
@@ -405,7 +405,7 @@ export default function Topic6() {
                   <rect x="0" y="0" width="380" height="240" rx="8" fill="#083344" stroke="#06b6d4" />
                   <text x="20" y="30" fill="#a5f3fc" fontSize="12" fontWeight="bold">2. Third-Party `requests`</text>
 
-                  <text x="20" y="58" fill="#ecfdf5" fontSize="8 font-mono">res = requests.get(url, params={...}, timeout=5)</text>
+                  <text x="20" y="58" fill="#ecfdf5" fontSize="8 font-mono">{"res = requests.get(url, params={...}, timeout=5)"}</text>
                   <text x="20" y="75" fill="#38bdf8" fontSize="8 font-mono">res.raise_for_status()</text>
                   <text x="20" y="92" fill="#38bdf8" fontSize="8 font-mono">data = res.json()</text>
 
@@ -696,7 +696,7 @@ export default function Topic6() {
                   <td className="py-3 px-4 font-mono text-cyan-300 font-semibold">JSON POST Body</td>
                   <td className="py-3 px-4 font-mono text-slate-200">`Request(url, data=bytes)`</td>
                   <td className="py-3 px-4 text-emerald-400 font-mono">`requests.post(url, json=dict)`</td>
-                  <td className="py-3 px-4">`json={...}` sets headers &amp; serializes automatically</td>
+                  <td className="py-3 px-4">{"`json={...}`"} sets headers &amp; serializes automatically</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40">
                   <td className="py-3 px-4 font-mono text-purple-300 font-semibold">JSON Parsing</td>

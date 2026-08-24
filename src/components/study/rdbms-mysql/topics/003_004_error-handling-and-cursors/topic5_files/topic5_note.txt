@@ -1,0 +1,28 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 5: Raising Custom Exceptions with SIGNAL Statement
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS THE SIGNAL STATEMENT?
+--------------------------------------------------------------------------------
+`SIGNAL` is the SQL equivalent of `throw new Exception()` in Java/JavaScript. 
+It allows stored procedures, functions, and triggers to raise explicit, 
+customized application-level errors when business invariants are violated.
+
+2. SIGNAL STATEMENT SYNTAX
+--------------------------------------------------------------------------------
+    SIGNAL SQLSTATE [VALUE] '45000'
+    SET MESSAGE_TEXT = 'Detailed business rejection explanation',
+        MYSQL_ERRNO  = 50001,
+        SCHEMA_NAME  = 'barrackpore_db',
+        TABLE_NAME   = 'enrollments',
+        COLUMN_NAME  = 'course_id';
+
+3. RULES FOR SIGNAL SQLSTATE CODES
+--------------------------------------------------------------------------------
+1. Class '45' (specifically '45000') is the official standard ANSI SQL code 
+   reserved for user-defined custom exceptions.
+2. `SIGNAL` cannot use SQLSTATE Class '00' (Success) - throws Error 1645.
+3. Raising `SIGNAL` inside a trigger immediately aborts the triggering DML 
+   statement and rolls back all uncommitted row changes.

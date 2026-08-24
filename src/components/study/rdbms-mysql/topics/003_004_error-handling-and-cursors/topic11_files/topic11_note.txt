@@ -1,0 +1,24 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 11: Cursor Performance Implications vs Set-Based SQL Query Alternatives
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHY CURSORS SUFFER MASSIVE PERFORMANCE PENALTIES
+--------------------------------------------------------------------------------
+1. Context Switching Overhead:
+   - Each `FETCH` transitions execution back and forth between the SQL storage engine 
+     and the procedural virtual machine interpreter.
+2. Result Set Materialization:
+   - Large cursor result sets create disk-based internal temporary tables, causing 
+     heavy I/O bottlenecking.
+3. Lack of Engine Vectorization & Optimization:
+   - Set-based SQL leverages InnoDB buffer pool pages and multi-threaded scanning; 
+     cursors force single-threaded row-by-row evaluation.
+
+2. REFACTORING PATTERNS TO ELIMINATE CURSORS
+--------------------------------------------------------------------------------
+- Running Totals: Replace cursor accumulators with `SUM(col) OVER (ORDER BY col)`.
+- Hierarchical Joins: Replace nested cursors with `UPDATE ... JOIN` or `JSON_ARRAYAGG()`.
+- Conditional Math: Replace cursor loops with single-query `CASE ... WHEN` expressions.
+- Ranking: Replace cursor top-N loops with `ROW_NUMBER() OVER (PARTITION BY ...)`.

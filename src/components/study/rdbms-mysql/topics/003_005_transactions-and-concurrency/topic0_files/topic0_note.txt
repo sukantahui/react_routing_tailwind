@@ -1,0 +1,26 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 0: Understanding Database Transactions & Real-World Motivation
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A DATABASE TRANSACTION?
+--------------------------------------------------------------------------------
+A transaction is a logical unit of work (LUW) comprising one or more SQL statements 
+that must execute completely as an indivisible unit ("All-or-Nothing") or not at all.
+
+2. THE REAL-WORLD MOTIVATION (BANKING / FINANCIAL TRANSFER)
+--------------------------------------------------------------------------------
+Consider transferring ₹5,000 from Mamata's account to Susmita's account:
+1. Deduct ₹5,000 from Mamata (UPDATE accounts SET balance = balance - 5000 WHERE id = 101)
+2. Add ₹5,000 to Susmita (UPDATE accounts SET balance = balance + 5000 WHERE id = 102)
+
+If a system crash, network partition, or power failure occurs between Step 1 and Step 2:
+- Without Transactions: Mamata loses ₹5,000, Susmita receives nothing (money vanishes!).
+- With Transactions: The entire unit rolls back; Mamata's ₹5,000 is safely restored.
+
+3. TRANSACTION BOUNDARIES IN MYSQL
+--------------------------------------------------------------------------------
+- START TRANSACTION: Begins the explicit transactional boundary.
+- COMMIT: Permanently writes all modifications to the InnoDB redo log and tablespace.
+- ROLLBACK: Discards all uncommitted modifications, restoring the pre-transaction state.

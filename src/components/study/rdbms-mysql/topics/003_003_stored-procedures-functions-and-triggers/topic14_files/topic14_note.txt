@@ -1,0 +1,33 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 14: Managing Procedures, Functions, and Triggers (SHOW, ALTER, DROP)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. METADATA INSPECTION COMMANDS
+--------------------------------------------------------------------------------
+- Procedures: `SHOW PROCEDURE STATUS WHERE Db = DATABASE();`
+- Functions: `SHOW FUNCTION STATUS WHERE Db = DATABASE();`
+- Triggers: `SHOW TRIGGERS [FROM database_name];`
+- Inspect DDL: `SHOW CREATE { PROCEDURE | FUNCTION | TRIGGER } name;`
+- Query Data Dictionary:
+    SELECT ROUTINE_NAME, ROUTINE_TYPE, DEFINER, SECURITY_TYPE 
+    FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA = DATABASE();
+
+2. ALTERATION RULES & CONSTRAINTS
+--------------------------------------------------------------------------------
+`ALTER PROCEDURE` and `ALTER FUNCTION` CAN ONLY alter metadata:
+- Modify comment: `ALTER PROCEDURE proc_name COMMENT 'Updated description';`
+- Modify security: `ALTER PROCEDURE proc_name SQL SECURITY INVOKER;`
+- CANNOT alter routine body or parameters! Must `DROP` and `CREATE`.
+- Triggers have NO `ALTER TRIGGER` statement; must `DROP TRIGGER` and re-create.
+
+3. IDEMPOTENT DEPLOYMENT SCRIPT PATTERN
+--------------------------------------------------------------------------------
+    DROP PROCEDURE IF EXISTS sp_calculate_tuition;
+    DELIMITER //
+    CREATE PROCEDURE sp_calculate_tuition(...)
+    BEGIN
+        ...
+    END //
+    DELIMITER ;

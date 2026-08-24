@@ -1,0 +1,27 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 3: Interpreting Key EXPLAIN Output Columns: select_type, table, type, key_len, filtered, Extra
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE 12 COLUMNS OF TRADITIONAL EXPLAIN
+--------------------------------------------------------------------------------
+1. `id`: Execution sequential query block ID.
+2. `select_type`: `SIMPLE`, `PRIMARY`, `SUBQUERY`, `DERIVED`, `UNION`, `MATERIALIZED`.
+3. `table`: Target table name or derived table alias (`<derived2>`).
+4. `partitions`: Partition names accessed (checks partition pruning).
+5. `type`: Access method (`const`, `eq_ref`, `ref`, `range`, `index`, `ALL`).
+6. `possible_keys`: Candidate indexes evaluated by optimizer.
+7. `key`: Actual index chosen by optimizer (`NULL` = full table scan).
+8. `key_len`: Length of the chosen index key in bytes (verifies composite key usage).
+9. `ref`: Constant or column compared against the index key.
+10. `rows`: Estimated number of rows examined per table scan.
+11. `filtered`: Estimated % of rows passing remaining WHERE conditions.
+12. `Extra`: Critical optimizer flags (`Using index`, `Using filesort`, `Using temporary`).
+
+2. KEY_LEN BYTE MATHEMATICS (utf8mb4)
+--------------------------------------------------------------------------------
+- `INT NOT NULL`: 4 bytes.
+- `INT NULL`: 5 bytes (4 + 1 null byte).
+- `VARCHAR(30) NOT NULL (utf8mb4)`: 30 * 4 + 2 length bytes = 122 bytes.
+- `VARCHAR(30) NULL (utf8mb4)`: 30 * 4 + 2 length + 1 null byte = 123 bytes.

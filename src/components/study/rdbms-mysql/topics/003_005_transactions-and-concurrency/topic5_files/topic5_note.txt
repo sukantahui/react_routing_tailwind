@@ -1,0 +1,26 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 5: Concurrency Anomalies: Dirty Read, Non-Repeatable Read, Phantom Read, Lost Updates
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE FOUR CLASSIC CONCURRENCY ANOMALIES
+--------------------------------------------------------------------------------
+1. DIRTY READ:
+   - Reading data modified by an uncommitted transaction that is later rolled back.
+   - Prevented by: READ COMMITTED, REPEATABLE READ, SERIALIZABLE.
+
+2. NON-REPEATABLE READ (Fuzzy Read):
+   - Re-reading the same row within a transaction returns different column values 
+     because another transaction updated and committed changes in between.
+   - Prevented by: REPEATABLE READ, SERIALIZABLE.
+
+3. PHANTOM READ:
+   - Re-executing a range query returns newly inserted rows ("phantoms") committed 
+     by another transaction.
+   - Prevented by: REPEATABLE READ (via InnoDB Next-Key Locks), SERIALIZABLE.
+
+4. LOST UPDATE:
+   - Two concurrent transactions overwrite the same record based on stale reads, 
+     silently erasing one transaction's modifications.
+   - Prevented by: Pessimistic Locking (`SELECT ... FOR UPDATE`) or Optimistic Versioning.

@@ -374,12 +374,12 @@ print(f"Winner: {best_a:.6f}s vs Slower: {best_b:.6f}s")`;
               </svg>
             ) : (
               <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#c084fc" fontSize="14" fontWeight="bold">BYTECODE DISASSEMBLY: `{}` LITERAL VS `dict()` CONSTRUCTOR</text>
+                <text x="30" y="30" fill="#c084fc" fontSize="14" fontWeight="bold">BYTECODE DISASSEMBLY: {"`{}`"} LITERAL VS `dict()` CONSTRUCTOR</text>
 
                 {/* Left: Literal */}
                 <g transform="translate(30, 50)">
                   <rect x="0" y="0" width="380" height="240" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="30" fill="#a7f3d0" fontSize="12" fontWeight="bold">`{'a': 1}` Literal [FAST OPCODES]</text>
+                  <text x="20" y="30" fill="#a7f3d0" fontSize="12" fontWeight="bold">{"`{'a': 1}`"} Literal [FAST OPCODES]</text>
                   
                   <text x="20" y="65" fill="#34d399" fontSize="8 font-mono">1. LOAD_CONST 1 ('a')</text>
                   <text x="20" y="85" fill="#34d399" fontSize="8 font-mono">2. LOAD_CONST 2 (1)</text>

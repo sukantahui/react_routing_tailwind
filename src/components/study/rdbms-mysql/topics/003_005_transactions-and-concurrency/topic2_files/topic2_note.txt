@@ -1,0 +1,23 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 2: Transaction Control Commands: START TRANSACTION, COMMIT, and ROLLBACK
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE TRANSACTION CONTROL LANGUAGE (TCL) COMMANDS
+--------------------------------------------------------------------------------
+1. START TRANSACTION [options]:
+   - Begins a transaction boundary and suspends autocommit.
+   - Options:
+     * `READ ONLY`: Prohibits table modifications, optimizing memory read paths.
+     * `READ WRITE`: Default mode, allows DML mutations.
+     * `WITH CONSISTENT SNAPSHOT`: Takes an immediate MVCC snapshot at start.
+
+2. COMMIT [AND CHAIN | RELEASE]:
+   - Writes staged changes permanently to the redo log and tablespace.
+   - `COMMIT AND CHAIN`: Commits current work and immediately starts a new transaction.
+   - `COMMIT RELEASE`: Commits and terminates the client connection.
+
+3. ROLLBACK [AND CHAIN | RELEASE]:
+   - Undoes all staged changes using undo logs, restoring the pre-transaction state.
+   - `ROLLBACK AND CHAIN`: Rolls back and starts a new transaction immediately.

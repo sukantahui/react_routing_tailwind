@@ -1,0 +1,21 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 7: ANSI SQL Isolation Levels: REPEATABLE READ & SERIALIZABLE
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. REPEATABLE READ (Level 2 - MySQL Server Default)
+--------------------------------------------------------------------------------
+- Mechanics: The first `SELECT` statement establishes a single, immutable MVCC snapshot.
+  All subsequent `SELECT` statements in that transaction read from that exact snapshot.
+- Eliminates: Dirty Reads and Non-Repeatable Reads.
+- Phantom Read Elimination: InnoDB uniquely eliminates phantom reads in REPEATABLE READ 
+  via Undo Log snapshots for consistent reads and Next-Key Locks for locking reads.
+- DML Current Read: `UPDATE` and `DELETE` operate on current physical data, not snapshots.
+
+2. SERIALIZABLE (Level 3)
+--------------------------------------------------------------------------------
+- Mechanics: Implicitly converts all plain `SELECT` statements into `SELECT ... FOR SHARE`.
+- Eliminates: All concurrency anomalies (Dirty, Non-Repeatable, Phantoms, Write Skew).
+- Trade-off: Severe lock contention, highest latency, and frequent deadlocks.
+- Use Case: Critical audit balancing where zero tolerance exists for concurrency drift.

@@ -383,7 +383,7 @@ export default function Topic6() {
                   <rect x="0" y="0" width="390" height="240" rx="8" fill="#1e1b4b" stroke="#8b5cf6" />
                   <text x="20" y="30" fill="#c4b5fd" fontSize="13" fontWeight="bold">Prefer Absolute For: Applications</text>
                   <text x="20" y="65" fill="#cbd5e1" fontSize="12 font-mono">• Web backends (FastAPI, Django, Flask)</text>
-                  <text x="20" y="95" fill="#cbd5e1" fontSize="12 font-mono">• Cross-domain imports (app.auth -> app.billing)</text>
+                  <text x="20" y="95" fill="#cbd5e1" fontSize="12 font-mono">• Cross-domain imports (app.auth &rarr; app.billing)</text>
                   <text x="20" y="125" fill="#cbd5e1" fontSize="12 font-mono">• Long distances (avoids ....dot madness)</text>
                   <text x="20" y="155" fill="#cbd5e1" fontSize="12 font-mono">• Global grep-searchability across team</text>
 

@@ -796,7 +796,7 @@ export default function Topic0() {
                 <span>❌</span> Trap 1: Single Quotes in JSON
               </div>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Writing <code className="text-rose-300 font-mono">"{'name': 'Sourav'}"</code> causes <code className="text-rose-300 font-mono">JSONDecodeError: Expecting property name enclosed in double quotes</code>.
+                Writing <code className="text-rose-300 font-mono">{"\"{'name': 'Sourav'}\""}</code> causes <code className="text-rose-300 font-mono">JSONDecodeError: Expecting property name enclosed in double quotes</code>.
               </p>
               <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
                 <span className="text-emerald-400 font-bold">Rule:</span> JSON keys and strings MUST use double quotes <code className="text-emerald-300 font-mono">"..."</code>.

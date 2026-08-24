@@ -645,7 +645,7 @@ export default function Topic12() {
                 <span>❌</span> Trap 1: Non-Integer Return from `__len__`
               </div>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Returning floats, booleans, or negative numbers from <code className="text-rose-300 font-mono">__len__</code> crashes Python with <code className="text-rose-300 font-mono">TypeError: '__len__' must return >= 0 integer</code>.
+                Returning floats, booleans, or negative numbers from <code className="text-rose-300 font-mono">__len__</code> crashes Python with <code className="text-rose-300 font-mono">TypeError: '__len__' must return &gt;= 0 integer</code>.
               </p>
               <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
                 <span className="text-emerald-400 font-bold">Rule:</span> Always return <code className="text-emerald-300">int &gt;= 0</code>.

@@ -1,0 +1,40 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 4: Graceful Failure, Automatic Rollback, and Error Logging in Stored Procedures
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. GRACEFUL FAILURE & AUTOMATIC ROLLBACK
+--------------------------------------------------------------------------------
+In mission-critical stored routines, whenever a multi-statement transaction encounters 
+a runtime error, it must:
+1. Halt immediately using an `EXIT HANDLER FOR SQLEXCEPTION`.
+2. Execute an explicit `ROLLBACK;` to guarantee ACID atomicity.
+3. Extract diagnostic metadata using `GET DIAGNOSTICS`.
+4. Persist error telemetry to an audit table (`procedure_error_audit_log`).
+5. Return clean, descriptive status codes to the calling application.
+
+2. CAPTURING DIAGNOSTICS WITH GET DIAGNOSTICS
+--------------------------------------------------------------------------------
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        GET DIAGNOSTICS CONDITION 1
+            v_sqlstate = RETURNED_SQLSTATE,
+            v_errno    = MYSQL_ERRNO,
+            v_msg      = MESSAGE_TEXT;
+            
+        ROLLBACK;
+        
+        INSERT INTO procedure_error_audit_log (
+            procedure_name, sqlstate_code, mysql_errno, error_message, logged_at
+        ) VALUES (
+            'sp_transfer_funds', v_sqlstate, v_errno, v_msg, NOW()
+        );
+        
+        SET p_status = 'ERROR_TX_ROLLED_BACK';
+    END;
+
+3. ERROR LOG PERSISTENCE PATTERNS
+--------------------------------------------------------------------------------
+Executing `ROLLBACK;` BEFORE inserting into the `procedure_error_audit_log` ensures 
+that the error log record is NOT discarded by the rollback!

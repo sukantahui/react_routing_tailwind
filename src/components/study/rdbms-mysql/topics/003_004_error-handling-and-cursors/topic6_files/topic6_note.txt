@@ -1,0 +1,30 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 6: Propagating and Modifying Exceptions using RESIGNAL Statement
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS THE RESIGNAL STATEMENT?
+--------------------------------------------------------------------------------
+`RESIGNAL` is used INSIDE an active handler to re-throw or modify an existing 
+caught exception. It enables the "Log-and-Rethrow" pattern: recording error 
+telemetry in the database while still alerting the calling application.
+
+2. THREE RESIGNAL USAGE MODES
+--------------------------------------------------------------------------------
+1. Bare RESIGNAL (Pass-Through):
+   - Re-throws the original error with all original attributes untouched:
+     `RESIGNAL;`
+
+2. Modifying RESIGNAL (Decorating):
+   - Keeps the original SQLSTATE but modifies specific attributes:
+     `RESIGNAL SET MESSAGE_TEXT = 'Prefix: Additional context added.';`
+
+3. Transforming RESIGNAL (Replacing):
+   - Replaces the SQLSTATE and message with a new custom domain error:
+     `RESIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Sanitized domain error';`
+
+3. CRITICAL RULES FOR RESIGNAL
+--------------------------------------------------------------------------------
+- `RESIGNAL` can ONLY be executed inside an active handler (`DECLARE ... HANDLER`).
+- Executing `RESIGNAL` outside a handler causes Error 1645.

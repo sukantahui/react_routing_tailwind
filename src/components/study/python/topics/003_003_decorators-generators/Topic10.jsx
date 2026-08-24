@@ -197,7 +197,7 @@ export default function Topic10() {
               {/* List Comprehension */}
               <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800 shadow-lg">
                 <div className="text-slate-200 font-bold text-sm mb-1">📦 List Comprehension `[...]`</div>
-                <code className="text-xs font-mono text-cyan-300 block mb-1">list_data = [x**2 for x in seq if x > 0]</code>
+                <code className="text-xs font-mono text-cyan-300 block mb-1">{"list_data = [x**2 for x in seq if x > 0]"}</code>
                 <p className="text-[11px] text-slate-400">
                   Builds and populates the entire list in memory upfront. Consumes <code className="text-slate-300 font-mono">O(N)</code> RAM.
                 </p>
@@ -206,7 +206,7 @@ export default function Topic10() {
               {/* Generator Expression */}
               <div className="p-4 rounded-xl bg-teal-950/40 border border-teal-800/60 shadow-lg">
                 <div className="text-teal-400 font-bold text-sm mb-1">⚡ Generator Expression `(...)`</div>
-                <code className="text-xs font-mono text-teal-300 block mb-1">gen_data = (x**2 for x in seq if x > 0)</code>
+                <code className="text-xs font-mono text-teal-300 block mb-1">{"gen_data = (x**2 for x in seq if x > 0)"}</code>
                 <p className="text-[11px] text-slate-300">
                   Constructs a lazy generator iterator object. Consumes <code className="text-teal-300 font-mono">O(1)</code> constant memory (~112 bytes).
                 </p>
@@ -629,13 +629,13 @@ export default function Topic10() {
                 </tr>
                 <tr className="hover:bg-slate-800/40">
                   <td className="py-3 px-4 font-mono text-purple-300 font-semibold">Set Comprehension</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">`{x for x in seq}`</td>
+                  <td className="py-3 px-4 font-mono text-slate-200">{"`{x for x in seq}`"}</td>
                   <td className="py-3 px-4 text-slate-300">`set`</td>
                   <td className="py-3 px-4 text-rose-300">O(U) Unique elements</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40">
                   <td className="py-3 px-4 font-mono text-amber-300 font-semibold">Dict Comprehension</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">`{k: v for k, v in seq}`</td>
+                  <td className="py-3 px-4 font-mono text-slate-200">{"`{k: v for k, v in seq}`"}</td>
                   <td className="py-3 px-4 text-slate-300">`dict`</td>
                   <td className="py-3 px-4 text-rose-300">O(K) Key-Value pairs</td>
                 </tr>

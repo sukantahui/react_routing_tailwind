@@ -267,11 +267,7 @@ export default function Topic2() {
               </svg>
             ) : (
               <svg viewBox="0 0 850 320" className="w-full h-auto min-w-[650px] font-sans">
-<<<<<<< HEAD
-                <text x="30" y="35" fill="#f8fafc" fontSize="15" fontWeight="bold">Understanding {"{1, 1.0, True, 1 + 0j}"} Collapse</text>
-=======
                 <text x="30" y="35" fill="#f8fafc" fontSize="15" fontWeight="bold">Understanding {'{1, 1.0, True, 1 + 0j}'} Collapse</text>
->>>>>>> 99045aa378b0966f0c865db30802735198bb3f1b
 
                 {/* Item Cards */}
                 <rect x="30" y="65" width="160" height="70" rx="8" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />

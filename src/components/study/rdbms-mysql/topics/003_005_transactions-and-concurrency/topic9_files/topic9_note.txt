@@ -1,0 +1,29 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 9: Locking Mechanics: Shared Locks (S-Locks) vs Exclusive Locks (X-Locks)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE TWO FUNDAMENTAL LOCK MODES
+--------------------------------------------------------------------------------
+1. SHARED LOCK (S-Lock / Read Lock):
+   - Permits multiple transactions to read the row concurrently.
+   - Syntax: `SELECT ... FOR SHARE` (or `LOCK IN SHARE MODE`).
+   - Blocks: Any transaction requesting an Exclusive Lock (X-Lock).
+
+2. EXCLUSIVE LOCK (X-Lock / Write Lock):
+   - Permits only ONE transaction to modify or exclusively lock the row.
+   - Syntax: `INSERT`, `UPDATE`, `DELETE`, or `SELECT ... FOR UPDATE`.
+   - Blocks: ALL other transactions requesting either S-Locks or X-Locks.
+
+2. LOCK COMPATIBILITY MATRIX
+--------------------------------------------------------------------------------
+   Requested Lock Mode ->  |   Shared (S)   |   Exclusive (X)
+   ------------------------+----------------+------------------
+   Held Lock: Shared (S)   |   COMPATIBLE   |   CONFLICT (Wait)
+   Held Lock: Exclusive (X)|   CONFLICT(Wait)|  CONFLICT (Wait)
+
+3. LOCK CONVERSION HAZARD
+--------------------------------------------------------------------------------
+When two sessions both hold S-Locks on the same row and both attempt to upgrade 
+to an X-Lock (via UPDATE), they form an immediate cyclic dependency -> DEADLOCK!

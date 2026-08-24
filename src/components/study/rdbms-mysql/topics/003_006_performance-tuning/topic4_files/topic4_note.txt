@@ -1,0 +1,18 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 4: Understanding Access Types (type): const, eq_ref, ref, range, index, ALL
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE ACCESS TYPE HIERARCHY (BEST TO WORST)
+--------------------------------------------------------------------------------
+1. `system`: 1-row system table.
+2. `const`: Primary Key or Unique NOT NULL exact constant match (`WHERE id = 101`).
+3. `eq_ref`: 1 row retrieved per outer row in a join using Primary Key/Unique key.
+4. `ref`: Non-unique index lookup (returns multiple matching rows).
+5. `fulltext`: Full-text index search with `MATCH ... AGAINST`.
+6. `ref_or_null`: `ref` scan that also searches for `NULL` index entries.
+7. `index_merge`: Merges two or more indexes using Union/Intersection.
+8. `range`: Index range scan using `>`, `<`, `BETWEEN`, `IN()`.
+9. `index`: Full Index Scan (scans entire B+Tree leaf chain).
+10. `ALL`: Full Table Scan (scans all data pages on disk).

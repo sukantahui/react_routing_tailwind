@@ -1,0 +1,21 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 6: ANSI SQL Transaction Isolation Levels: READ UNCOMMITTED & READ COMMITTED
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. READ UNCOMMITTED (Level 0)
+--------------------------------------------------------------------------------
+- Mechanics: Readers observe uncommitted modifications (Dirty Reads allowed).
+- Implementation: Does not use MVCC snapshots; reads current memory state directly.
+- Use Case: Approximate metrics (e.g. video view count approximations).
+- Prohibited: Financial transactions, banking, e-commerce checkouts.
+
+2. READ COMMITTED (Level 1)
+--------------------------------------------------------------------------------
+- Mechanics: Eliminates Dirty Reads. Every individual `SELECT` creates a FRESH 
+  MVCC point-in-time snapshot of the database at statement execution time.
+- Implementation: Reconstructs committed rows from Undo Logs.
+- Locking: Uses Record Locks; disables Gap Locks (except foreign key checks).
+- Anomaly Profile: Eliminates Dirty Reads; permits Non-Repeatable & Phantom Reads.
+- Use Case: Default in Oracle/PostgreSQL; high-concurrency OLTP with low lock contention.

@@ -1,0 +1,33 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 2: The DECLARE HANDLER Statement: CONTINUE vs EXIT Handlers
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. DECLARE HANDLER SYNTAX
+--------------------------------------------------------------------------------
+    DECLARE { CONTINUE | EXIT } HANDLER 
+    FOR condition_value [, condition_value] ...
+    handler_statement;
+
+2. CONTINUE VS EXIT HANDLERS
+--------------------------------------------------------------------------------
+1. CONTINUE Handler:
+   - When the specified condition occurs, MySQL executes the handler statement 
+     and then RESUMES execution at the next SQL statement in the block.
+   - Primary Use Cases:
+     * Setting loop termination flags (`NOT FOUND`).
+     * Setting warning / error flags during bulk batch operations.
+     * Best-effort non-blocking updates.
+
+2. EXIT Handler:
+   - When the specified condition occurs, MySQL executes the handler statement 
+     and then IMMEDIATELY TERMINATES execution of the current `BEGIN ... END` block.
+   - Primary Use Cases:
+     * Fatal errors requiring immediate transaction `ROLLBACK`.
+     * Clean early exit on validation or constraint failures.
+
+3. NESTED BLOCK SCOPING
+--------------------------------------------------------------------------------
+An `EXIT HANDLER` in an inner `BEGIN ... END` block exits ONLY the inner block, 
+allowing the outer parent procedure to continue executing normally.

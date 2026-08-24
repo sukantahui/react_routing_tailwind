@@ -1,0 +1,23 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 13: Optimistic Concurrency Control using Version / Timestamp Columns
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. OPTIMISTIC CONCURRENCY CONTROL (OCC)
+--------------------------------------------------------------------------------
+OCC assumes conflicts are rare. It avoids locking rows during the read phase and 
+detects concurrent modifications at update time using a `version` or `updated_at` column.
+
+2. THE VERSION COLUMN PATTERN
+--------------------------------------------------------------------------------
+1. Read: `SELECT id, data, version FROM table WHERE id = 101;` (e.g. version = 1)
+2. Update: 
+   `UPDATE table SET data = 'new_val', version = version + 1 WHERE id = 101 AND version = 1;`
+3. Verification:
+   Check `ROW_COUNT()`. If `1`, succeeded. If `0`, conflict detected (stale update).
+
+3. WHEN TO USE OCC VS PESSIMISTIC LOCKING
+--------------------------------------------------------------------------------
+- Use OCC: Long user think-times (editing web forms), low contention, microservices.
+- Use Pessimistic: High contention, short transactions, financial double-spend guards.

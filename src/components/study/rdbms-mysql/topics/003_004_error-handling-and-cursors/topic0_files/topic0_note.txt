@@ -1,0 +1,33 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 0: Exception Handling Architecture in MySQL Stored Routines
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS EXCEPTION HANDLING IN STORED PROCEDURES?
+--------------------------------------------------------------------------------
+Exception handling is the mechanism by which stored procedures and triggers trap, 
+intercept, and recover from runtime errors (e.g., duplicate keys, foreign key 
+violations, division by zero) without crashing or corrupting database transactions.
+
+2. THE MYSQL EXCEPTION PROCESSING PIPELINE
+--------------------------------------------------------------------------------
+1. Statement Error: A SQL statement encounters a fatal condition during execution.
+2. Diagnostics Area: MySQL pushes error details (Condition #, SQLSTATE, MYSQL_ERRNO, 
+   MESSAGE_TEXT) onto the Diagnostics Stack.
+3. Handler Lookup: MySQL matches the error against declared handlers in the current 
+   `BEGIN ... END` block.
+4. Recovery Action: The handler executes recovery logic (e.g., setting flag variables, 
+   rolling back transactions, logging errors to an audit table).
+5. Execution Resumption / Exit:
+   - CONTINUE Handler: Resumes execution at the next statement following the error.
+   - EXIT Handler: Terminates execution of the current `BEGIN ... END` block immediately.
+
+3. HANDLER DECLARATION SYNTAX & PLACEMENT
+--------------------------------------------------------------------------------
+Order of Declarations inside `BEGIN ... END`:
+1. Variable declarations (`DECLARE v_id INT;`)
+2. Condition declarations (`DECLARE custom_cond CONDITION FOR ...;`)
+3. Cursor declarations (`DECLARE cur_students CURSOR FOR ...;`)
+4. Handler declarations (`DECLARE CONTINUE | EXIT HANDLER FOR ...;`)
+5. Executable procedural statements (`SET`, `SELECT`, `INSERT`, `IF`, etc.)

@@ -1,0 +1,24 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 1: Generating Execution Plans using EXPLAIN, EXPLAIN FORMAT=JSON, and EXPLAIN FORMAT=TREE
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. EXPLAIN OUTPUT FORMATS IN MYSQL 8.0
+--------------------------------------------------------------------------------
+1. TRADITIONAL TABULAR FORMAT:
+   `EXPLAIN SELECT ...;`
+   Produces the classic 12-column tabular view (id, select_type, table, type, key, rows, Extra).
+
+2. JSON FORMAT:
+   `EXPLAIN FORMAT=JSON SELECT ...;`
+   Exposes granular optimizer cost metrics: `query_cost`, `eval_cost`, `read_cost`, `prefix_cost`, 
+   and attached WHERE conditions.
+
+3. TREE FORMAT (MySQL 8.0.16+):
+   `EXPLAIN FORMAT=TREE SELECT ...;`
+   Visualizes the Volcano Iterator Execution Model as a hierarchical nested tree, 
+   showing exact parent-child data flow and join execution order.
+
+4. QUERY REWRITE INSPECTION:
+   `EXPLAIN SELECT ...;` followed by `SHOW WARNINGS;` displays the normalized, rewritten SQL.

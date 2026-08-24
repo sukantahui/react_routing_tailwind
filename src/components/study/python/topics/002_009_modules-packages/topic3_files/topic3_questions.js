@@ -120,7 +120,7 @@ const questions = [
     explanation: "For example, a billing module can define FeeValidationError(Exception) for invalid payments.",
     hint: "Create custom subclasses of Exception: class MyError(Exception): pass.",
     level: "basic",
-    codeExample: "class InvalidFeeError(Exception):\n    """Raised when fee is negative."""\n    pass"
+    codeExample: "class InvalidFeeError(Exception):\n    \"\"\"Raised when fee is negative.\"\"\"\n    pass"
   },
   {
     question: "What is the difference between a module and a script in Python?",

@@ -1,0 +1,28 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 7: Introduction to Database Cursors: When & Why Row-by-Row Processing is Needed
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A DATABASE CURSOR?
+--------------------------------------------------------------------------------
+A cursor is a procedural pointer to a record in an active query result set. 
+While SQL is fundamentally a set-based declarative language, cursors provide 
+row-by-row (iterative) access when complex procedural logic is required.
+
+2. THREE CORE PROPERTIES OF MYSQL CURSORS
+--------------------------------------------------------------------------------
+1. Read-Only: 
+   - A cursor cannot update or delete rows directly through the cursor pointer.
+2. Non-Scrollable: 
+   - Rows can only be fetched sequentially in a forward direction (no moving backwards).
+3. Asensitive: 
+   - The cursor may use a temporary snapshot; underlying table changes during iteration 
+     might not be reflected.
+
+3. VALID USE CASES FOR CURSORS
+--------------------------------------------------------------------------------
+- Dynamic DDL and metadata maintenance across multiple tables.
+- Cascading procedural calculations with complex conditional state.
+- Chunked batch processing with periodic commits to prevent long-held locks.
+- Triggering external workflow actions per row.

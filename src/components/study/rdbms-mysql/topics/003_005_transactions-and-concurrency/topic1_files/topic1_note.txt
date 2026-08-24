@@ -1,0 +1,26 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 1: The ACID Properties Deep Dive: Atomicity, Consistency, Isolation, Durability
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE FOUR ACID PILLARS
+--------------------------------------------------------------------------------
+1. ATOMICITY (All-or-Nothing):
+   - Every transaction is indivisible. If any statement fails, the entire transaction 
+     is rolled back.
+   - Guaranteed by: InnoDB Undo Logs.
+
+2. CONSISTENCY (Invariants Preserved):
+   - A transaction transitions the database from one valid state to another valid state, 
+     satisfying all integrity constraints (PK, FK, CHECK) and business invariants.
+   - Guaranteed by: RDBMS Constraints + Application Logic.
+
+3. ISOLATION (Independent Execution):
+   - Concurrent transactions execute without interfering with one another or seeing 
+     uncommitted dirty state.
+   - Guaranteed by: InnoDB Multi-Version Concurrency Control (MVCC) + Row Locks.
+
+4. DURABILITY (Crash Survival):
+   - Once a transaction is committed, its modifications survive crashes and power outages.
+   - Guaranteed by: InnoDB Redo Logs (Write-Ahead Logging / WAL) + Doublewrite Buffer.

@@ -737,7 +737,7 @@ export default function Topic1() {
             {/* Trap 4 */}
             <div className="p-6 rounded-xl bg-cyan-950/30 border border-cyan-800/60 shadow-lg space-y-3">
               <div className="flex items-center gap-2 text-cyan-400 font-bold text-base">
-                <span>❌</span> Trap 4: Deep Cognitive Complexity (> 2 Clauses)
+                <span>❌</span> Trap 4: Deep Cognitive Complexity (&gt; 2 Clauses)
               </div>
               <p className="text-sm text-slate-300 leading-relaxed">
                 Writing 3 or 4 nested loops in a single comprehension expression creates unreadable, unmaintainable code that violates the Zen of Python.

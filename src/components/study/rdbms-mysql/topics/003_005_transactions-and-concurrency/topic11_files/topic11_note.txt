@@ -1,0 +1,22 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 11: InnoDB Locking Details: Record Locks, Gap Locks, and Next-Key Locks
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. INNODB ROW LOCK TYPES
+--------------------------------------------------------------------------------
+1. RECORD LOCK (`LOCK_REC_NOT_GAP`):
+   - Locks a specific B+Tree index record.
+   - Applied on unique/primary key exact matches (`WHERE id = 101`).
+
+2. GAP LOCK (`LOCK_GAP`):
+   - Locks the empty gap between index records (e.g. `(10, 20)`).
+   - Sole purpose: Prevents other transactions from inserting into the gap.
+
+3. NEXT-KEY LOCK (`LOCK_ORDINARY`):
+   - Record Lock + Gap Lock on preceding gap: `(previous, current]`.
+   - Default algorithm for range scans and non-unique index searches.
+
+4. INSERT INTENTION LOCK:
+   - A gap lock set before `INSERT`. Allows concurrent non-colliding inserts.

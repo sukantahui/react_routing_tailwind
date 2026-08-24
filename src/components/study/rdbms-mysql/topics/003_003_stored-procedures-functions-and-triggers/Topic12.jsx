@@ -553,7 +553,7 @@ VALUES (NEW.faculty_id, OLD.monthly_salary_inr, NEW.monthly_salary_inr, v_hike_i
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>✓</span> Always Compare with NULL-Safe `<=>`
+                <span>✓</span> Always Compare with NULL-Safe {"`<=>`"}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
                 Using <code className="text-emerald-400 font-mono">IF NOT (OLD.col &lt;=&gt; NEW.col)</code> prevents comparison bugs when columns transition to or from `NULL`.

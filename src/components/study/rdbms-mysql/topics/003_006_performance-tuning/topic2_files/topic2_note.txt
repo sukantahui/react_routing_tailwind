@@ -1,0 +1,26 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 2: Using EXPLAIN ANALYZE for Real Execution Metrics (Execution Time, Row Counts, Loops)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS EXPLAIN ANALYZE? (MySQL 8.0.18+)
+--------------------------------------------------------------------------------
+`EXPLAIN ANALYZE` actually executes the query, instrumenting every iterator node 
+in the execution tree to record actual elapsed time, actual row counts, and loop counts.
+
+2. ANATOMY OF AN EXPLAIN ANALYZE METRIC NODE
+--------------------------------------------------------------------------------
+`-> Index lookup on s using idx_city  (cost=1.20 rows=10) (actual time=0.045..0.120 rows=12 loops=1)`
+
+- `(cost=1.20 rows=10)`: OPTIMIZER ESTIMATES (Cost points and estimated rows).
+- `(actual time=0.045..0.120)`: 
+  - `0.045ms`: Time to read the FIRST row (Time-to-first-byte / startup time).
+  - `0.120ms`: Time to read ALL rows for a single loop iteration.
+- `rows=12`: AVERAGE rows returned per loop iteration.
+- `loops=1`: Total number of times this iterator was executed.
+
+3. TOTAL ROW & TIME CALCULATIONS
+--------------------------------------------------------------------------------
+- Total Rows Returned by Node = `rows * loops`
+- Total Time Spent in Node = `actual time (end) * loops`

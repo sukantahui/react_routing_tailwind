@@ -1,0 +1,22 @@
+================================================================================
+RDBMS MySQL Course - Module 003_005: Transactions, ACID Properties & Locking
+Topic 10: Lock Granularity: Table-Level Locks vs Row-Level Locks in InnoDB
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. LOCK GRANULARITY CONCEPTS
+--------------------------------------------------------------------------------
+- TABLE-LEVEL LOCKING:
+  Locks the entire table. Minimal memory overhead, but eliminates concurrency 
+  (1 writer blocks all other readers and writers). Used by MyISAM and `LOCK TABLES`.
+
+- ROW-LEVEL LOCKING (InnoDB Standard):
+  Locks individual records. Maximizes concurrent multi-user throughput. 
+  CRITICAL: InnoDB row locks are implemented on **INDEX RECORDS**, not heap rows!
+
+2. INTENTION LOCKS (IS / IX)
+--------------------------------------------------------------------------------
+Table-level intention locks coordinate between row locks and table-level locks:
+- `IS` (Intention Shared): Indicates intent to acquire S-locks on rows.
+- `IX` (Intention Exclusive): Indicates intent to acquire X-locks on rows.
+Allows `ALTER TABLE` to check if any rows are locked in O(1) time without scanning.

@@ -677,7 +677,7 @@ export default function Topic4() {
                 </tr>
                 <tr className="hover:bg-slate-800/40">
                   <td className="py-3 px-4 font-mono text-rose-300 font-semibold">Custom Domain Class</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">`{"__type__": "Class", ...}`</td>
+                  <td className="py-3 px-4 font-mono text-slate-200">{"`{\"__type__\": \"Class\", ...}`"}</td>
                   <td className="py-3 px-4 text-cyan-300 font-mono">`Student(**dct)`</td>
                   <td className="py-3 px-4">Restores all methods &amp; behaviors</td>
                 </tr>

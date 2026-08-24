@@ -1,0 +1,41 @@
+================================================================================
+RDBMS MySQL Course - Module 003_003: Stored Procedures, Functions & Triggers
+Topic 15: MySQL Event Scheduler: Database Jobs & Automated Maintenance
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS THE EVENT SCHEDULER?
+--------------------------------------------------------------------------------
+The MySQL Event Scheduler is a built-in background thread that executes scheduled 
+database tasks (one-time or recurring) according to a time-based cadence.
+
+2. ENABLING THE EVENT SCHEDULER
+--------------------------------------------------------------------------------
+    SET GLOBAL event_scheduler = ON;
+    SHOW VARIABLES LIKE 'event_scheduler';
+
+3. EVENT SCHEDULING SYNTAX
+--------------------------------------------------------------------------------
+1. One-Time Event:
+    CREATE EVENT evt_one_time_clean
+    ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 HOUR
+    ON COMPLETION PRESERVE
+    DO
+        DELETE FROM temp_registration_drafts WHERE created_at < NOW() - INTERVAL 1 DAY;
+
+2. Recurring Maintenance Event:
+    CREATE EVENT evt_nightly_token_purge
+    ON SCHEDULE EVERY 1 DAY
+    STARTS '2026-09-01 03:00:00'
+    ON COMPLETION PRESERVE
+    ENABLE
+    DO
+        DELETE FROM user_sessions WHERE expires_at < NOW();
+
+4. MANAGING EVENTS
+--------------------------------------------------------------------------------
+- List Events: `SHOW EVENTS;`
+- View DDL: `SHOW CREATE EVENT event_name;`
+- Pause Event: `ALTER EVENT event_name DISABLE;`
+- Resume Event: `ALTER EVENT event_name ENABLE;`
+- Delete Event: `DROP EVENT IF EXISTS event_name;`

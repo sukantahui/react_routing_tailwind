@@ -1,0 +1,29 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 3: Handling SQLEXCEPTION, SQLWARNING, and NOT FOUND Conditions
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE THREE CANONICAL CONDITION KEYWORDS
+--------------------------------------------------------------------------------
+1. SQLEXCEPTION:
+   - Matches any SQLSTATE code that does NOT begin with '00' (Success), 
+     '01' (Warning), or '02' (Not Found).
+   - Traps all fatal runtime SQL errors (e.g. Duplicate Key 1062, FK Failure 1452, 
+     Table Missing 1146).
+
+2. SQLWARNING:
+   - Matches any SQLSTATE code that begins with '01'.
+   - Traps warning conditions (e.g. data truncation, null values in aggregates).
+
+3. NOT FOUND:
+   - Matches any SQLSTATE code that begins with '02'.
+   - Traps cursor end-of-data conditions (`FETCH` on exhausted cursor) and 
+     `SELECT ... INTO` queries returning 0 rows.
+
+2. HANDLER PRECEDENCE RULES
+--------------------------------------------------------------------------------
+1. Specific MySQL Error Number (e.g., `FOR 1062`) -> HIGHEST PRECEDENCE
+2. Specific SQLSTATE string (e.g., `FOR SQLSTATE '23000'`)
+3. Named Condition (e.g., `FOR custom_cond`)
+4. Generic Condition Keyword (`FOR SQLEXCEPTION`, `SQLWARNING`, `NOT FOUND`) -> LOWEST

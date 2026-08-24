@@ -1,0 +1,26 @@
+================================================================================
+RDBMS MySQL Course - Module 003_004: Error Handling, Handlers & Cursor Iterations
+Topic 1: Understanding MySQL Error Codes & Standard ANSI SQLSTATE Values
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. MYSQL ERROR NUMBER VS ANSI SQLSTATE
+--------------------------------------------------------------------------------
+1. MySQL Error Number:
+   - Vendor-specific integer (e.g. `1062` Duplicate Key, `1452` Foreign Key failure).
+   - Direct: `DECLARE EXIT HANDLER FOR 1062 BEGIN ... END;`
+
+2. ANSI SQLSTATE Code:
+   - 5-character alphanumeric standard string (2-char Class + 3-char Subclass).
+   - Portable: `DECLARE EXIT HANDLER FOR SQLSTATE '23000' BEGIN ... END;`
+
+2. SQLSTATE CLASS CODE TAXONOMY
+--------------------------------------------------------------------------------
+- Class '00': Successful Completion ('00000')
+- Class '01': Warning ('01000')
+- Class '02': No Data / NOT FOUND ('02000')
+- Class '22': Data Exception ('22012' Division by Zero, '22001' Data Truncation)
+- Class '23': Integrity Constraint Violation ('23000' Duplicate / FK / NOT NULL)
+- Class '40': Transaction Rollback / Deadlock ('40001' Serialization Failure)
+- Class '42': Syntax / Access Rule Violation ('42S02' Table Not Found)
+- Class '45': Custom User Exception ('45000' via SIGNAL)
