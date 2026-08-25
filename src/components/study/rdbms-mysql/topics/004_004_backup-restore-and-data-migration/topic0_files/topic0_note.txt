@@ -1,0 +1,58 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 0: Backup Strategies – Recovery Time Objective (RTO) & Recovery Point Objective (RPO)
+================================================================================
+
+1. CORE DISASTER RECOVERY METRICS: RTO & RPO
+--------------------------------------------------------------------------------
+A. Recovery Point Objective (RPO):
+   - Definition: The maximum acceptable amount of data loss measured in time elapsed
+     since the last recoverable state.
+   - Example: If a database crashes at 2:00 PM and backups are taken daily at midnight
+     without binary logs, RPO is 14 hours (all transactions between 00:00 and 14:00 are lost).
+   - Zero-RPO Target: Achieved by combining nightly full backups with continuous
+     binary log (binlog) archiving and semi-synchronous replication.
+
+B. Recovery Time Objective (RTO):
+   - Definition: The maximum acceptable duration of system downtime required to
+     restore database operations and bring services back online.
+   - Example: If restoring a 2TB logical SQL dump takes 8 hours, the RTO is 8 hours.
+   - Low-RTO Strategies: Physical hot backups (Percona XtraBackup) restore in minutes
+     compared to hours for logical SQL file parsing.
+
+2. HIGH AVAILABILITY (HA) VS DISASTER RECOVERY (DR)
+--------------------------------------------------------------------------------
+- High Availability (HA): Replicas, group replication, and automatic failover
+  clusters protect against hardware/server crashes.
+- Disaster Recovery (DR): Point-in-time backups and immutable archives protect
+  against data corruption, ransomware, accidental `DROP DATABASE`, and human error.
+  * Note: HA is NOT a substitute for backups! If a developer accidentally executes
+    `DROP TABLE orders;`, replication replicates the DROP instantly to all HA nodes!
+
+3. THE 3-2-1 BACKUP RULE FOR ENTERPRISE DATABASES
+--------------------------------------------------------------------------------
+1. 3 Copies of Data: 1 Production database + 2 independent backup copies.
+2. 2 Different Media: e.g. Local NVMe backup storage + Cloud Object Storage (S3/GCS).
+3. 1 Offsite & Immutable: Geographically separated cloud region with Object Lock / WORM
+   (Write Once, Read Many) to prevent ransomware tampering.
+
+4. BACKUP TIERS & RETENTION ARCHITECTURE
+--------------------------------------------------------------------------------
+- Tier 1 (Continuous): Binary Logs streamed in real-time -> RPO < 1 second.
+- Tier 2 (Daily): Incremental physical or logical backups -> RTO < 30 minutes.
+- Tier 3 (Weekly): Full base backup snapshots -> Retained for 30 days.
+- Tier 4 (Monthly / Annual): Archived compliance snapshots -> Retained for 7 years (Glacier/Coldline).
+
+5. TESTING BACKUP RESTORABILITY (THE GOLDEN RULE)
+--------------------------------------------------------------------------------
+"An untested backup is not a backup—it is merely a wish."
+- Automate nightly restore verification in an isolated sandbox environment.
+- Validate checksums, execute `CHECK TABLE`, and run automated smoke tests.
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Establish explicit SLA agreements defining RTO and RPO for each business application.
+2. Pair nightly full backups with continuous binary log replication for near-zero RPO.
+3. Use physical hot backups for multi-hundred gigabyte databases to minimize RTO.
+4. Enforce immutable offsite backups with separate IAM access credentials.
+================================================================================

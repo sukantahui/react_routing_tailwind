@@ -1,0 +1,82 @@
+================================================================================
+MYSQL 8.0 DATABASE SECURITY & PRIVILEGE MANAGEMENT
+TOPIC 5: Granular Privilege Levels – Global, Database, Table, Column & Routine
+================================================================================
+
+1. THE 5-TIER PRIVILEGE HIERARCHY IN MYSQL
+--------------------------------------------------------------------------------
+MySQL enforces authorization through a hierarchical 5-tier permission tree:
+
+Level 1: GLOBAL PRIVILEGES (*.*)
+  - Applies server-wide to all databases, tables, and routines.
+  - Stored in: `mysql.user`
+  - Examples: `RELOAD`, `SHUTDOWN`, `PROCESS`, `SUPER`, `SYSTEM_VARIABLES_ADMIN`, `REPLICATION SLAVE`.
+  - DDL: `GRANT SELECT, INSERT ON *.* TO 'global_admin'@'%';`
+
+Level 2: DATABASE PRIVILEGES (db_name.*)
+  - Applies to all tables, views, and routines inside a specific database.
+  - Stored in: `mysql.db`
+  - Examples: `CREATE`, `DROP`, `ALTER`, `INDEX`, `LOCK TABLES`, `SELECT`, `INSERT`.
+  - DDL: `GRANT SELECT, INSERT, UPDATE ON kolkata_retail.* TO 'store_mgr'@'%';`
+
+Level 3: TABLE PRIVILEGES (db_name.table_name)
+  - Applies to all columns and rows of a specific individual table or view.
+  - Stored in: `mysql.tables_priv`
+  - Examples: `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE VIEW`, `TRIGGER`.
+  - DDL: `GRANT SELECT, INSERT ON kolkata_retail.orders TO 'order_entry'@'%';`
+
+Level 4: COLUMN PRIVILEGES (db_name.table_name (col1, col2))
+  - Grants read/write access to specific named columns within a table.
+  - Stored in: `mysql.columns_priv`
+  - Applicable to: `SELECT`, `INSERT`, `UPDATE`, `REFERENCES`.
+  - DDL: `GRANT SELECT (order_id, customer_id, order_status), UPDATE (order_status) ON kolkata_retail.orders TO 'support_rep'@'%';`
+  - Note: DELETE and TRIGGER cannot be granted at the column level!
+
+Level 5: ROUTINE / STORED PROGRAM PRIVILEGES (PROCEDURE / FUNCTION)
+  - Grants rights to execute or alter stored procedures and functions.
+  - Stored in: `mysql.procs_priv`
+  - Applicable to: `EXECUTE`, `ALTER ROUTINE`, `GRANT OPTION`.
+  - DDL: `GRANT EXECUTE ON PROCEDURE kolkata_retail.sp_calculate_tax TO 'billing_app'@'%';`
+
+2. AUTHORIZATION EVALUATION ORDER (UPWARD BREADTH SEEK)
+--------------------------------------------------------------------------------
+When a client executes a query like `SELECT salary FROM hr_db.employees;`,
+MySQL evaluates privileges in a top-down cascading sequence:
+  1. Checks `mysql.user` (Global Level): If the user has `SELECT ON *.*`, access is granted immediately.
+  2. Checks `mysql.db` (Database Level): If the user has `SELECT ON hr_db.*`, access is granted.
+  3. Checks `mysql.tables_priv` (Table Level): If user has `SELECT ON hr_db.employees`, access is granted.
+  4. Checks `mysql.columns_priv` (Column Level): Checks if `salary` is in the user's permitted column list.
+  5. If none match -> Access Denied (ERROR 1142 / ERROR 1044).
+
+3. STATIC VS DYNAMIC PRIVILEGES IN MYSQL 8.0
+--------------------------------------------------------------------------------
+- Static Privileges: Built-in core permissions compiled into the MySQL engine.
+  * Examples: `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE`, `DROP`, `GRANT OPTION`.
+- Dynamic Privileges: Flexible privileges registered at runtime by plugins or components.
+  * Examples: `SYSTEM_VARIABLES_ADMIN`, `BACKUP_ADMIN`, `BINLOG_ADMIN`, `REPLICATION_SLAVE_ADMIN`, `SESSION_VARIABLES_ADMIN`.
+  * Allows replacing the overly dangerous `SUPER` privilege with fine-grained operational rights.
+
+4. INSPECTING GRANULAR PRIVILEGES
+--------------------------------------------------------------------------------
+-- 1. Inspect effective privileges for the current session:
+SHOW GRANTS;
+
+-- 2. Inspect privileges for a target account:
+SHOW GRANTS FOR 'support_rep'@'10.0.%.%';
+
+-- 3. Query system tables directly:
+SELECT User, Host, Table_name, Table_priv, Column_priv 
+FROM mysql.tables_priv 
+WHERE User = 'support_rep';
+
+SELECT User, Host, Table_name, Column_name, Column_priv 
+FROM mysql.columns_priv 
+WHERE User = 'support_rep';
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Never grant `*.*` (Global) to application microservice accounts.
+2. Use Table-level and Database-level grants as the primary security baseline.
+3. Use Column-level grants or SQL Views to restrict access to sensitive PII/financial columns.
+4. Replace `SUPER` with specific MySQL 8.0 Dynamic Privileges (e.g. `SYSTEM_VARIABLES_ADMIN`).
+================================================================================

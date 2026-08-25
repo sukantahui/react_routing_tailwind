@@ -1,0 +1,61 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 10: Monitoring Replication Status – SHOW REPLICA STATUS & Telemetry
+================================================================================
+
+1. THE SHOW REPLICA STATUS TELEMETRY MANIFEST
+--------------------------------------------------------------------------------
+Executing `SHOW REPLICA STATUS\G` on a replica outputs over 40 telemetry variables.
+
+Top 8 Critical Variables:
+Column Name                   Target Value    Operational Meaning
+--------------------------------------------------------------------------------
+`Replica_IO_Running`          Yes             I/O Receiver thread connected & streaming.
+`Replica_SQL_Running`         Yes             SQL Applier thread executing in InnoDB.
+`Seconds_Behind_Source`       0               Replication lag in seconds (<5s acceptable).
+`Last_IO_Errno`               0               Zero network transport / authentication errors.
+`Last_SQL_Errno`              0               Zero SQL execution / constraint conflicts.
+`Auto_Position`               1               GTID auto-positioning protocol active.
+`Retrieved_Gtid_Set`          uuid:1-100      GTIDs downloaded into local Relay Logs.
+`Executed_Gtid_Set`           uuid:1-100      GTIDs committed to local InnoDB tables.
+
+2. TRIAGING REPLICATION ERRORS: I/O VS SQL THREAD
+--------------------------------------------------------------------------------
+Scenario 1: `Replica_IO_Running: No` / `Connecting`
+- Root Cause: Network firewall, bad credentials, or purged binlog on primary.
+- Inspection: Check `Last_IO_Error` (e.g. `ERROR 1045 Access denied` or `ERROR 1236`).
+
+Scenario 2: `Replica_SQL_Running: No`
+- Root Cause: SQL execution failure on replica (e.g. `ERROR 1062 Duplicate entry` or `ERROR 1146 Table doesn't exist`).
+- Inspection: Check `Last_SQL_Error` to identify the failing table and query.
+
+3. MODERN MONITORING VIA PERFORMANCE SCHEMA TABLES
+--------------------------------------------------------------------------------
+-- 1. I/O Connection Status:
+SELECT CHANNEL_NAME, SERVICE_STATE, LAST_ERROR_NUMBER, LAST_ERROR_MESSAGE 
+FROM performance_schema.replication_connection_status;
+
+-- 2. SQL Applier Status & Lag:
+SELECT CHANNEL_NAME, SERVICE_STATE, REMAINING_DELAY, LAST_ERROR_MESSAGE 
+FROM performance_schema.replication_applier_status_by_coordinator;
+
+-- 3. MTS Worker Activity:
+SELECT WORKER_ID, THREAD_ID, SERVICE_STATE, LAST_SEEN_TRANSACTION 
+FROM performance_schema.replication_applier_status_by_worker;
+
+4. ENTERPRISE PROMETHEUS METRICS FOR REPLICATION
+--------------------------------------------------------------------------------
+Metric Name                                       Healthy Target
+--------------------------------------------------------------------------------
+`mysql_slave_status_slave_io_running`             1
+`mysql_slave_status_slave_sql_running`            1
+`mysql_slave_status_seconds_behind_master`        < 5
+`mysql_slave_status_last_sql_errno`               0
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Automate alerts for `Replica_IO_Running != 'Yes'` or `Replica_SQL_Running != 'Yes'`.
+2. Monitor the gap between `Retrieved_Gtid_Set` and `Executed_Gtid_Set`.
+3. Track sub-millisecond precision lag using `pt-heartbeat`.
+4. Standardize on MySQL 8.0 `SHOW REPLICA STATUS` terminology over legacy `SHOW SLAVE STATUS`.
+================================================================================

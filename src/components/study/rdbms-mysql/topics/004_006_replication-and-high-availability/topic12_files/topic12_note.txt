@@ -1,0 +1,63 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 12: MySQL InnoDB Cluster – Group Replication, Router & AdminAPI
+================================================================================
+
+1. THE THREE PILLARS OF MYSQL INNODB CLUSTER
+--------------------------------------------------------------------------------
+MySQL InnoDB Cluster combines three native Oracle technologies into a unified HA solution:
+1. **MySQL Shell AdminAPI**: High-level declarative management interface (JS/Python).
+2. **MySQL Group Replication (MGR)**: Paxos-based distributed consensus clustering.
+3. **MySQL Router**: Transparent connection routing (Port 6446 RW / Port 6447 RO).
+
+  [Client Web Application]
+            │
+            ├──(Port 6446: Writes)──> [MySQL Router] ──> [Primary Node]
+            └──(Port 6447: Reads)───> [MySQL Router] ──> [Secondary Nodes]
+                                             ▲
+                                             │ (Metadata Auto-Discovery)
+                                  [InnoDB Cluster Metadata]
+
+2. DEPLOYMENT RUNBOOK VIA MYSQL SHELL ADMINAPI
+--------------------------------------------------------------------------------
+-- Step 1: Connect to Node 1 in MySQL Shell (JavaScript mode):
+mysqlsh --user admin --host 192.168.1.10
+
+-- Step 2: Configure Prerequisites on all nodes:
+dba.configureInstance('admin@192.168.1.10:3306');
+dba.configureInstance('admin@192.168.1.20:3306');
+dba.configureInstance('admin@192.168.1.30:3306');
+
+-- Step 3: Create the Cluster:
+var cluster = dba.createCluster('kolkataProductionCluster');
+
+-- Step 4: Add Node 2 and Node 3 using Clone Plugin:
+cluster.addInstance('admin@192.168.1.20:3306', {recoveryMethod: 'clone'});
+cluster.addInstance('admin@192.168.1.30:3306', {recoveryMethod: 'clone'});
+
+-- Step 5: Verify Cluster Topology:
+cluster.status();
+
+3. BOOTSTRAPPING MYSQL ROUTER
+--------------------------------------------------------------------------------
+# On Application Servers:
+mysqlrouter --bootstrap admin@192.168.1.10:3306 --user=mysqlrouter --directory /etc/mysqlrouter
+systemctl start mysqlrouter
+
+4. CLUSTER OPERATIONS & MAINTENANCE
+--------------------------------------------------------------------------------
+Command                                Operational Function
+--------------------------------------------------------------------------------
+`cluster.status()`                     Displays full topology and member states.
+`cluster.setPrimaryInstance(node)`     Performs controlled primary role switchover.
+`cluster.rejoinInstance(node)`         Reintegrates a recovered node into the cluster.
+`cluster.rescan()`                     Detects external configuration drift.
+`cluster.dissolve()`                   Safely unbinds the cluster metadata.
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Deploy MySQL Router colocated on application servers via localhost sockets.
+2. Use `recoveryMethod: 'clone'` for fast, automated state provisioning.
+3. Manage all cluster modifications strictly through MySQL Shell AdminAPI.
+4. Verify cluster health status shows `status: "OK"` across all nodes.
+================================================================================

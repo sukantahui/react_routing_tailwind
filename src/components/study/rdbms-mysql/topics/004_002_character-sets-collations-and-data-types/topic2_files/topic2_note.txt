@@ -1,0 +1,32 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 2: Why utf8mb4_0900_ai_ci is the Recommended Default in MySQL 8.0+
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT DOES utf8mb4_0900_ai_ci STAND FOR?
+--------------------------------------------------------------------------------
+Breaking down the anatomy of MySQL 8.0's flagship default collation:
+- `utf8mb4`: Full 4-byte UTF-8 encoding (100% Unicode standard).
+- `0900`: Based on the **Unicode Collation Algorithm (UCA) 9.0.0** standard.
+- `_ai`: **Accent Insensitive** (treats `'café' = 'cafe'`).
+- `_ci`: **Case Insensitive** (treats `'admin' = 'ADMIN'`).
+
+2. WHY utf8mb4_0900_ai_ci SUPERSEDES OLDER COLLATIONS
+--------------------------------------------------------------------------------
+1. vs `utf8mb4_general_ci` (Legacy / Naive):
+   - `general_ci` used crude shortcuts (treating German `ß` as simple `s` instead of `ss`).
+   - `0900_ai_ci` provides linguistically accurate sorting across global languages.
+
+2. vs `utf8mb4_unicode_ci` (Unicode 5.2.0):
+   - `unicode_ci` was accurate but slow.
+   - `0900_ai_ci` uses advanced weight compression and CPU optimizations, executing
+     up to 2x faster than `utf8mb4_unicode_ci`.
+
+3. NO-PAD SEMANTICS (CRITICAL CHANGE IN MYSQL 8.0)
+--------------------------------------------------------------------------------
+- Legacy collations used `PAD SPACE` (ignoring trailing whitespace in comparisons:
+  `'admin' = 'admin '` was TRUE).
+- `utf8mb4_0900_*` collations use **NO-PAD** (trailing whitespace is significant:
+  `'admin' = 'admin '` is FALSE!).
+- This prevents subtle security vulnerabilities in username matching.

@@ -53,16 +53,16 @@ const Topic2 = () => {
       rawLeak: "s3://ichapur-patient-backups-2026/patient_records_dump.csv\n[Mahima_ICU_Patient_ID: 10482, Aadhaar: 9812-4412-8812, Diagnosis: Critical Cardiac]"
     },
     lsass_dump: {
-      title: "4. Credential Dumping via Mimikatz (LSASS.exe)",
+      title: "4. Credential Dumping Attack (LSASS.exe)",
       location: "Kolkata Financial District",
       engineer: "Mamata",
-      vector: "Malware executing sekurlsa::logonpasswords against LSASS memory space.",
+      vector: "Malicious process attempting memory inspection against LSASS memory space.",
       targetData: "Domain Admin Kerberos Hashes & Plaintext Banking Credentials",
       counterControl: "Windows Defender Credential Guard & RunAsPPL Virtualization",
       isDefended: credentialGuardActive,
       unprotectedLoss: "₹1,20,00,000 in unauthorized financial fund diversion",
       dpdpExposure: "₹5,00,00,000",
-      rawLeak: "mimikatz # sekurlsa::logonpasswords\nDomain: KOLKATA-BANK | User: Mamata_Admin\nNTLM: 8846f7eaee8fb117ad06bdd830b7586c (Cracked: BankPass2026!)"
+      rawLeak: "[SECURITY AUDIT LOG] Unauthorized LSASS Memory Access Probe Detected\nTarget Domain: KOLKATA-BANK | Account: Mamata_Admin\nStatus: Intercepted by Credential Guard"
     }
   };
 
@@ -148,7 +148,7 @@ const Topic2 = () => {
               <p className="text-xs text-slate-300 leading-relaxed">
                 Dumping LSASS.exe process memory via Mimikatz to extract plaintext credentials, NTLM hashes, and Kerberos golden tickets.
               </p>
-              <span className="text-[10px] text-rose-400 font-semibold uppercase">Vector: sekurlsa / Cold Boot</span>
+              <span className="text-[10px] text-rose-400 font-semibold uppercase">Vector: LSASS Memory Dump / Cold Boot</span>
             </div>
           </div>
         </div>

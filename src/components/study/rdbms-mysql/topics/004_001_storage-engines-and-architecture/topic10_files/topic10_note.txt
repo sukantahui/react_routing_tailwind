@@ -1,0 +1,36 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 10: Table Maintenance Commands: OPTIMIZE TABLE, CHECK TABLE, ANALYZE TABLE, REPAIR TABLE
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE FOUR CORE TABLE MAINTENANCE COMMANDS
+--------------------------------------------------------------------------------
+MySQL provides four administrative commands to maintain database health, index
+statistics, and physical storage efficiency:
+
+1. ANALYZE TABLE table_name:
+   - Purpose: Updates index cardinality statistics in `mysql.innodb_index_stats`.
+   - Impact: Crucial for the Cost-Based Optimizer (CBO) to choose optimal indexes
+     and join orders. Does NOT rebuild tables; runs fast sampling.
+
+2. CHECK TABLE table_name [options]:
+   - Purpose: Validates structural integrity of B+ trees, page checksums, and
+     row counts.
+   - Options: `QUICK`, `FAST`, `CHANGED`, `EXTENDED`, `FOR UPGRADE`.
+
+3. OPTIMIZE TABLE table_name:
+   - Purpose: Reclaims deleted space (`data_free`), defragments B+ tree pages,
+     and shrinks physical `.ibd` files on disk via an Online Table Rebuild.
+
+4. REPAIR TABLE table_name:
+   - Purpose: Rebuilds corrupted index files for legacy MyISAM/ARCHIVE tables.
+   - Note for InnoDB: InnoDB does not support REPAIR TABLE; MySQL automatically
+     maps it to `ALTER TABLE ... ENGINE=InnoDB` or instructs running `OPTIMIZE TABLE`.
+
+2. AUTOMATION WITH MYSQLCHECK
+--------------------------------------------------------------------------------
+- Automated CLI maintenance utility:
+  * `mysqlcheck -u root -p --analyze --databases db_name`
+  * `mysqlcheck -u root -p --check --all-databases`
+  * `mysqlcheck -u root -p --optimize --databases db_name`

@@ -1,24 +1,23 @@
 const questions = [
   {
     question: "What is the primary objective of 'Phase 3: Gaining Access' in the ethical hacking and penetration testing methodology?",
-    shortAnswer: "To actively exploit identified vulnerabilities in software, network protocols, or human behavior to deploy shellcode and establish an initial interactive foothold on the target system.",
-    explanation: "While Phase 1 (Reconnaissance) and Phase 2 (Scanning) are non-destructive information gathering, Phase 3 (Gaining Access / Exploitation) actively weaponizes that intelligence. The tester executes exploit code to achieve remote command execution, bypass authentication, or obtain an interactive shell session.",
+    shortAnswer: "To safely validate identified vulnerabilities and demonstrate their security impact within an authorized testing environment.",
+    explanation: "Phase 3 validates whether identified vulnerabilities can be exploited within an authorized environment. Professional testers use controlled, non-destructive evidence to demonstrate risk and guide remediation.",
     hint: "Think about turning the key in the unlocked lock to step inside the room.",
     level: "basic",
-    codeExample: `// Phase 3 Exploitation Objective:
-// Vulnerability Identified -> Exploit Triggered -> Shellcode Executed -> Interactive Foothold Established!`
+    codeExample: `// Phase 3 Validation Objective:
+// Vulnerability Identified -> Safe Test Performed -> Evidence Collected -> Remediation Recommended`
   },
   {
     question: "What are the core technical differences between a 'Vulnerability', an 'Exploit', and a 'Payload'?",
-    shortAnswer: "A Vulnerability is the underlying flaw; an Exploit is the code that triggers the flaw; a Payload is the shellcode or command executed once the exploit succeeds.",
     explanation: "Understanding the distinction is vital: 1. Vulnerability: A buffer overflow flaw in an SMB daemon (e.g. MS17-010); 2. Exploit: The Python or Metasploit script sending malformed packets to overflow the buffer; 3. Payload: The Meterpreter reverse shell that connects back to the tester's laptop.",
     hint: "The Vulnerability is the hole; the Exploit is the drill; the Payload is the spy listening device placed inside.",
     level: "basic",
     codeExample: `// Attack Anatomy Matrix:
 const attackTriad = {
-  vulnerability: "MS17-010 (EternalBlue SMBv1 Buffer Overflow)",
-  exploit: "exploit/windows/smb/ms17_010_eternalblue",
-  payload: "windows/x64/meterpreter/reverse_tcp"
+    vulnerability: "MS17-010 (EternalBlue SMBv1 Buffer Overflow)",
+    exploit: "[EXPLOIT TRIGGER OMITTED]",
+    payload: "[PAYLOAD EXECUTION OMITTED]"
 };`
   },
   {
@@ -39,15 +38,12 @@ const attackTriad = {
     explanation: "Traditional network firewalls and secure email gateways inspect attachments traversing the wire. In HTML Smuggling, the email contains a simple HTML file with obfuscated JavaScript. When the user opens the HTML, JavaScript constructs a binary Blob in browser memory and triggers an automatic browser download (`window.URL.createObjectURL`), delivering the payload without it ever traveling across the wire as a recognizable `.exe` or `.iso` file.",
     hint: "Assembling the puzzle pieces inside the recipient's bedroom rather than shipping a completed suspicious box.",
     level: "expert",
-    codeExample: `// Simplified HTML Smuggling JavaScript:
-const rawBytes = atob("TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAA..."); // Base64 payload
-const byteNumbers = new Uint8Array(rawBytes.length);
-for (let i = 0; i < rawBytes.length; i++) byteNumbers[i] = rawBytes.charCodeAt(i);
-const blob = new Blob([byteNumbers], {type: "application/octet-stream"});
-const link = document.createElement("a");
-link.href = window.URL.createObjectURL(blob);
-link.download = "Invoice.iso";
-link.click(); // Auto-downloads from browser RAM!`
+    codeExample: `// HTML Smuggling — Conceptual Demonstration:
+      // A browser can assemble a file-like object locally.
+      // Operational payload bytes and automatic-download code are omitted.
+      //
+      // Defensive focus:
+      // Browser Isolation + Attachment Inspection + EDR + Script Monitoring`
   },
   {
     question: "What is 'EternalBlue' (MS17-010 / CVE-2017-0143) and why is it one of the most destructive Remote Service Exploits in history?",
@@ -77,8 +73,13 @@ link.click(); // Auto-downloads from browser RAM!`
     hint: "Staged downloads the rest of the spy tools in small pieces; Stageless carries the entire toolbag at once.",
     level: "moderate",
     codeExample: `// Metasploit Payload Syntax Distinction:
-// Staged   : windows/x64/meterpreter/reverse_tcp  (Slash after meterpreter = Staged)
-// Stageless: windows/x64/meterpreter_reverse_tcp (Underscore = Single monolithic binary)`
+      // Staged:
+      // A small initial component is followed by a separately delivered stage.
+      //
+      // Stageless:
+      // Required components are packaged together.
+      //
+      // Operational payload identifiers are intentionally omitted.`
   },
   {
     question: "Under the Indian Information Technology Act 2000 Section 66, what constitutes the criminal offense of hacking during Phase 3?",
@@ -104,7 +105,7 @@ link.click(); // Auto-downloads from browser RAM!`
     question: "Synthesize the golden rules of Phase 3 (Gaining Access) for computer science and cybersecurity scholars in West Bengal.",
     shortAnswer: "Always obtain a signed Rules of Engagement contract; execute non-destructive proof-of-concepts; favor outbound Reverse TCP shells; understand memory protections (ASLR/DEP); and adhere to Section 66 of the IT Act.",
     explanation: "Phase 3 transforms theoretical vulnerability knowledge into verified security risk analysis. By demonstrating how exploits bypass firewalls and how memory protections mitigate attacks, ethical penetration testers help organizations harden infrastructure, deploy Web Application Firewalls, and achieve true cyber resilience.",
-    hint: "Signed authorization + Safe proof-of-concept + Reverse shells + Understanding ASLR/DEP + Legal compliance.",
+    hint: "Signed authorization + Safe proof-of-concept + Connection-direction concepts + Understanding ASLR/DEP + Legal compliance.",
     level: "moderate",
     codeExample: `// The Ethical Exploitation Creed:
 // 1. Signed Authorization (RoE) FIRST

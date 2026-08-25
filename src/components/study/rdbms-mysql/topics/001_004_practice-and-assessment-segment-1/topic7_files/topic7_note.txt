@@ -1,0 +1,33 @@
+================================================================================
+RDBMS MySQL Course - Module 001_004: Practice Labs, MCQs & Segment Assessment
+Topic 7: Segment 1 Final Exam & Knowledge Check
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. SEGMENT 1 FINAL EXAM STRUCTURE & OBJECTIVES
+--------------------------------------------------------------------------------
+This final capstone assessment rigorously evaluates student mastery across all
+Segment 1 foundational topics: Relational Theory, MySQL Architecture, DDL/DML,
+Key Constraints, Error Debugging, and SQL Best Practices.
+
+2. EXAMINATION DOMAIN BREAKDOWN
+--------------------------------------------------------------------------------
+1. Domain A: Relational Theory & Keys (25% Weightage)
+   - Superkeys, Candidate Keys, Primary Keys, Alternate Keys, Foreign Keys.
+   - Entity Integrity and Referential Integrity rules.
+
+2. Domain B: DDL Schema Creation & Alterations (25% Weightage)
+   - CREATE TABLE, ALTER TABLE (ADD, MODIFY, RENAME, DROP), TRUNCATE vs DROP.
+   - Data types (INT, DECIMAL, VARCHAR, DATE, ENUM).
+
+3. Domain C: Data Integrity & Constraints (25% Weightage)
+   - NOT NULL, UNIQUE, CHECK, DEFAULT, AUTO_INCREMENT, ON DELETE CASCADE/RESTRICT.
+
+4. Domain D: DML Querying, Slicing & Diagnostics (25% Weightage)
+   - WHERE, IN, BETWEEN, LIKE, IS NULL, ORDER BY, LIMIT/OFFSET, Error debugging.
+
+3. ADVANCEMENT CRITERIA FOR SEGMENT 2
+--------------------------------------------------------------------------------
+Students achieving 80%+ on this assessment possess the required foundation to
+excel in Segment 2: Extended ER (EER) Modeling, Formal Relational Algebra, and
+1NF to BCNF Normalization.

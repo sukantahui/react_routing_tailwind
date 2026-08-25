@@ -1,0 +1,64 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 0: Why and When to Partition Tables in Large-Scale Databases (VLDB)
+================================================================================
+
+1. THE VERY LARGE DATABASE (VLDB) SCALING CHALLENGE
+--------------------------------------------------------------------------------
+As relational tables grow beyond 50 million to 1 billion rows (100GB+ in size),
+traditional monolithic B-Tree indexing faces severe operational bottlenecks:
+
+Problem                      Mechanism & Performance Penalty
+--------------------------------------------------------------------------------
+1. B-Tree Index Depth        Index tree height increases from 3 to 5+ levels, multiplying
+                             the number of memory page lookups for every point query.
+
+2. Buffer Pool Thrashing     Active working set exceeds `innodb_buffer_pool_size`, forcing
+                             frequent disk I/O page evictions and random NVMe read stalls.
+
+3. Maintenance Nightmare     Index rebuilds, table optimizations (`OPTIMIZE TABLE`), and
+                             large-scale batch deletes generate massive undo/redo overhead.
+
+4. Data Archival Lag         Deleting 10 million old records via `DELETE` locks rows, creates
+                             massive undo logs, fragments tablespaces, and takes hours.
+
+2. HOW TABLE PARTITIONING SOLVES VLDB PROBLEMS
+--------------------------------------------------------------------------------
+Table Partitioning divides a single logical table into multiple smaller physical
+storage chunks (partitions) managed seamlessly by the MySQL storage engine.
+
+Key Architectural Benefits:
+1. **Partition Pruning**: The MySQL query optimizer inspects query `WHERE` clauses and
+   scans ONLY the relevant physical partitions, skipping 95%+ of the table data!
+2. **Instant Lifecycle Purging (DROP PARTITION)**: Dropping a historical partition
+   (`ALTER TABLE orders DROP PARTITION p_2023;`) deletes 50 million rows in 5ms by
+   unlinking the physical `.ibd` file on disk with ZERO undo logging or table locking.
+3. **Optimized Memory Working Set**: Queries access smaller, compact partition B-Trees
+   that fit entirely inside the InnoDB buffer pool RAM.
+
+3. WHEN TO PARTITION VS WHEN NOT TO PARTITION
+--------------------------------------------------------------------------------
+Rule               When to Partition                    When NOT to Partition
+--------------------------------------------------------------------------------
+Table Size         Tables > 10GB or > 20M rows.        Small tables (< 5M rows) where
+                                                       standard B-Tree indexes suffice.
+
+Query Predicates   High-volume queries filter on        Queries frequently query fields
+                   the partition key (e.g. `order_date`). without specifying partition key.
+
+Lifecycle Needs    Regular purging/archiving of         Transactional data with no clear
+                   time-series historical data.         archival or time-based boundary.
+
+4. PRODUCTION DANGER: THE SCATTER-GATHER PENALTY
+--------------------------------------------------------------------------------
+If a query does NOT include the partition key in its `WHERE` clause, MySQL must
+perform a **Scatter-Gather** scan across ALL physical partitions, which can be
+SLOWER than a single well-indexed monolithic table!
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Choose a high-cardinality, frequently filtered column (e.g. `created_at`) as partition key.
+2. Verify partition pruning on every query using `EXPLAIN SELECT ...`.
+3. Use `ALTER TABLE ... DROP PARTITION` for instant archival instead of `DELETE`.
+4. Ensure primary keys and unique keys include the partition column.
+================================================================================

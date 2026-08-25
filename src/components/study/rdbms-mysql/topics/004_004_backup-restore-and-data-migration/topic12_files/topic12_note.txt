@@ -1,0 +1,58 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 12: Hands-on Disaster Recovery Simulation – Recovering Accidental DROP DATABASE
+================================================================================
+
+1. DISASTER SCENARIO DEFINITION
+--------------------------------------------------------------------------------
+At 15:45:22 on Tuesday, a rogue deployment script accidentally executed:
+  DROP DATABASE kolkata_retail;
+Impact: Total deletion of 500,000 customer accounts, ₹100 Crores in active orders,
+and complete retail storefront outage.
+
+2. THE 6-STEP PRODUCTION DISASTER RECOVERY RUNBOOK
+--------------------------------------------------------------------------------
+Step 1: Emergency Incident Triage & Isolation (T + 2 Mins)
+  - Display maintenance banner on application frontends.
+  - Preserve active binary log by forcing log rotation:
+    mysqladmin -u root -p flush-binary-logs
+
+Step 2: Retrieve Base Backup & Binlog Archives (T + 5 Mins)
+  - Fetch Sunday midnight full base backup (`base_sunday.xbstream.zst`).
+  - Collect all binary log files from Sunday checkpoint up to the current rotated log
+    (`binlog.000100` through `binlog.000105`).
+
+Step 3: Provision Isolated Recovery Staging Host (T + 10 Mins)
+  - Unpack and prepare physical base backup:
+    zstd -dc base_sunday.xbstream.zst | xbstream -x -C /backups/restore_stage/
+    xtrabackup --prepare --target-dir=/backups/restore_stage/
+    xtrabackup --copy-back --target-dir=/backups/restore_stage/
+    chown -R mysql:mysql /var/lib/mysql
+    systemctl start mysqld
+
+Step 4: Pinpoint the Exact Pre-Disaster Coordinate (T + 14 Mins)
+  - Locate the starting byte offset of `DROP DATABASE`:
+    mysqlbinlog --base64-output=DECODE-ROWS -v binlog.000105 | \\
+      grep -n -C 5 -i "DROP DATABASE \`kolkata_retail\`"
+  - Identified: `# at 849201` is the byte offset immediately before the DROP begins!
+
+Step 5: Execute Point-in-Time Binary Log Replay (T + 20 Mins)
+  - Replay all transactions from Sunday base coordinate up to position 849201:
+    mysqlbinlog --start-position=1582 --disable-log-bin \\
+      binlog.000100 binlog.000101 binlog.000102 binlog.000103 binlog.000104 \\
+      --stop-position=849201 binlog.000105 | mysql -u root -p
+
+Step 6: Data Integrity Verification & Production Cutover (T + 26 Mins)
+  - Verify row counts: `SELECT COUNT(*) FROM kolkata_retail.orders;`
+  - Re-enable application traffic and update database proxy/DNS:
+    Route53 / ProxySQL switch to restored primary host.
+  - Total Recovery Time (RTO): 26 Minutes.
+  - Data Loss (RPO): 0 Seconds (Zero transactions lost!).
+
+3. ENTERPRISE POST-MORTEM & PREVENTATIVE SAFEGUARDS
+--------------------------------------------------------------------------------
+1. Revoke global `DROP` privilege from all standard application database users.
+2. Mandate ProxySQL query firewall rules to reject `DROP DATABASE` statements in production.
+3. Configure `binlog_expire_logs_seconds = 604800` (7 days retention).
+4. Conduct automated disaster recovery dry-runs quarterly.
+================================================================================

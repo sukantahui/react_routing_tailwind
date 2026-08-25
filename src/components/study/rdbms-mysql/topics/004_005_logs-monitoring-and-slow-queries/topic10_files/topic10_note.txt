@@ -1,0 +1,67 @@
+================================================================================
+MYSQL 8.0 SERVER LOGS, MONITORING & PERFORMANCE SCHEMA
+TOPIC 10: Key Telemetry Metrics – Threads, Questions, Uptime & Buffer Pool I/O
+================================================================================
+
+1. THE SIX CORE TELEMETRY METRICS
+--------------------------------------------------------------------------------
+Every monitoring platform (Prometheus, Datadog, PMM, Grafana) bases its primary
+alerting and health dashboards on six cornerstone status variables:
+
+1. `Threads_connected`:
+   - Meaning: Count of open client TCP/IP and socket connections.
+   - Alert Threshold: >80% of `max_connections`.
+
+2. `Threads_running`:
+   - Meaning: Number of threads actively executing SQL on CPU cores right now.
+   - Alert Threshold: >2x Physical CPU Core count (signals thread starvation).
+
+3. `Questions`:
+   - Meaning: Cumulative count of client SQL statements received.
+   - Purpose: Baseline metric for calculating application Queries Per Second (QPS).
+
+4. `Uptime`:
+   - Meaning: Continuous server running duration in seconds.
+   - Purpose: Normalization denominator for lifetime rate calculations.
+
+5. `Innodb_buffer_pool_read_requests`:
+   - Meaning: Total logical 16KB page requests made to the buffer pool in RAM.
+
+6. `Innodb_buffer_pool_reads`:
+   - Meaning: Physical 16KB page reads from disk storage due to buffer pool cache miss.
+   - Purpose: Direct indicator of physical disk I/O pressure and memory adequacy.
+
+2. CORRELATED STORAGE & HANDLER METRICS
+--------------------------------------------------------------------------------
+Metric                          Diagnostic Meaning
+--------------------------------------------------------------------------------
+`Innodb_buffer_pool_pages_dirty` Memory pages modified in RAM awaiting flush to disk.
+`Innodb_buffer_pool_pages_free`  Unallocated pages available in the buffer pool.
+`Handler_read_key`               Row reads via indexed lookups (Healthy OLTP).
+`Handler_read_rnd_next`          Sequential row reads during full table scans (Unhealthy).
+`Innodb_os_log_fsyncs`           Physical disk flushes of the redo log journal.
+
+3. ESSENTIAL SQL TELEMETRY QUERY
+--------------------------------------------------------------------------------
+SELECT 
+  VARIABLE_NAME, 
+  VARIABLE_VALUE 
+FROM performance_schema.global_status 
+WHERE VARIABLE_NAME IN (
+  'Uptime', 
+  'Threads_connected', 
+  'Threads_running', 
+  'Questions', 
+  'Innodb_buffer_pool_read_requests', 
+  'Innodb_buffer_pool_reads',
+  'Innodb_buffer_pool_pages_dirty',
+  'Innodb_buffer_pool_pages_free'
+);
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Maintain Buffer Pool Hit Ratio above 99.0% on OLTP workloads.
+2. Alert when `Threads_running` exceeds physical CPU cores for >30 seconds.
+3. Track `Handler_read_rnd_next` rate to detect unindexed table scan loops.
+4. Scale `innodb_buffer_pool_size` when `Innodb_buffer_pool_reads` rate remains high.
+================================================================================

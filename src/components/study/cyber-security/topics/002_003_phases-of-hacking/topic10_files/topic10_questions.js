@@ -36,7 +36,7 @@ Recon (Passed) -> Weaponize (Passed) -> Delivery ──[ BLOCKED BY EMAIL FILTER
     codeExample: `// TTP Hierarchy Example:
 Tactic:    TA0006 (Credential Access - The "Why")
 Technique: T1003.001 (OS Credential Dumping: LSASS Memory - The "How")
-Procedure: Mimikatz "sekurlsa::logonpasswords" executed by APT29 (The Exact Implementation)`
+Procedure: LSASS Memory Dump command executed by APT29 (The Exact Implementation)`
   },
   {
     question: "How many Enterprise Tactics currently comprise the MITRE ATT&CK Enterprise Matrix, and what are the initial and final tactics?",
@@ -122,7 +122,7 @@ Stolen Cloud API Key -> Directly calls 'Initial Access' + 'Collection' + 'Exfilt
   {
     question: "What is 'Sigma' (Generic Signature Format), and how does it map SIEM detection rules directly to MITRE ATT&CK technique IDs?",
     shortAnswer: "An open, vendor-neutral YAML rule format for describing log events that can be automatically compiled into Splunk, Elastic, QRadar, or Sentinel query languages, tagged with MITRE ATT&CK IDs.",
-    explanation: "Sigma allows detection engineers to write a detection rule once in YAML. A Sigma rule specifies the log source (e.g. Windows Process Creation) and detection conditions (e.g. `CommandLine contains 'sekurlsa'`), and tags it with `tags: attack.credential_access, attack.t1003.001`. Using `sigmac`, the rule converts into Splunk SPL, Elastic KQL, or Microsoft KQL with zero manual rewriting.",
+    explanation: "Sigma allows detection engineers to write a detection rule once in YAML. A Sigma rule specifies the log source (e.g. Windows Process Creation) and detection conditions (e.g. `CommandLine contains 'lsass_dump'`), and tags it with `tags: attack.credential_access, attack.t1003.001`. Using `sigmac`, the rule converts into Splunk SPL, Elastic KQL, or Microsoft KQL with zero manual rewriting.",
     hint: "Think of an international translator that takes one universal security rule and translates it into all SIEM languages automatically.",
     level: "basic",
     codeExample: `// Sigma Detection Rule for T1003.001 (YAML):

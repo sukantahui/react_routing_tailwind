@@ -66,13 +66,13 @@ From: "ICICI Bank Security Alert" <support-alert948@free-mailer.xyz>
       categoryBadge: "bg-cyan-950 text-cyan-300 border-cyan-800",
       rfcStandard: "HTML <a> Anchor Element",
       exploitationVector:
-        "The visible text reads `https://www.kolkata-fintech.in/login`, but the HTML `href` attribute directs the browser to `https://c2.evil-harvester.in/login.php`.",
+        "The visible text reads `https://www.kolkata-fintech.in/login`, but the HTML `href` attribute directs the browser to `https://attacker-c2.net/login.php`.",
       vulnerabilityImpact:
         "Users read the trusted URL in the body text and click without hovering over the link to verify the true destination URL in the status bar.",
       telemetryIndicator: "Click-through events where destination IP does not match domain in anchor text",
       resilientDefense: "Time-of-Click URL rewriting (SafeLinks) and user awareness training on URL hovering.",
       codeSnippet: `<!-- Anchor Text Mismatch -->
-<a href="https://c2.evil-harvester.in/auth/login.php">
+<a href="https://attacker-c2.net/auth/login.php">
   https://www.kolkata-fintech.in/secure/login
 </a>`
     },
@@ -90,7 +90,7 @@ From: "ICICI Bank Security Alert" <support-alert948@free-mailer.xyz>
       resilientDefense: "Web filtering proxies blocking newly registered domains (NRDs < 30 days old).",
       codeSnippet: `// Subdomain Masking Breakdown:
 // [Subdomain Prefix: login.microsoft.com].[Root Domain: evil-host].[TLD: in]
-// Authoritative Host: evil-host.in (Attacker's Server!)`
+// Authoritative Host: attacker-host.net (Attacker's Server!)`
     },
     html_smuggling_blobs: {
       key: "html_smuggling_blobs",

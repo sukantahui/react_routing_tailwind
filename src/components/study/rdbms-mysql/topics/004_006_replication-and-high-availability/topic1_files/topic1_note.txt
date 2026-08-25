@@ -1,0 +1,62 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 1: Replication Internals – Binary Log, I/O Thread, Relay Log & SQL Thread
+================================================================================
+
+1. THE THREE THREADS OF MYSQL REPLICATION
+--------------------------------------------------------------------------------
+MySQL Source-Replica replication operates across a 3-thread asynchronous pipeline:
+
+1. Binlog Dump Thread (Runs on Source):
+   - Created when a replica connects. Reads events from the Source's Binary Log
+     and streams them across the TCP connection to the replica.
+
+2. Replication Receiver Thread / I/O Thread (Runs on Replica):
+   - Connects to the Source, requests binlog streams, and writes incoming events
+     sequentially to local disk files called Relay Logs.
+
+3. Replication Applier Thread / SQL Thread (Runs on Replica):
+   - Reads events from the local Relay Logs and executes them on the replica's
+     local InnoDB storage engine to keep data in sync.
+
+2. REPLICATION PIPELINE ARCHITECTURE FLOW
+--------------------------------------------------------------------------------
+[Client App]
+     │ (Write SQL)
+     ▼
+[Source: Primary] ──(Write)──> [Binary Log]
+                                     │
+                        (Binlog Dump Thread)
+                                     │ (TCP Network Stream)
+                                     ▼
+[Replica: Receiver I/O Thread] ──(Write)──> [Relay Log]
+                                                 │
+                                        (SQL Applier Thread)
+                                                 │ (Execute)
+                                                 ▼
+                                        [Replica: Storage Engine]
+
+3. RELAY LOGS & METADATA REPOSITORIES
+--------------------------------------------------------------------------------
+- Relay Logs (`hostname-relay-bin.000001`): Intermediate log files on the replica.
+- `relay_log_purge = 1`: Automatically deletes relay logs after the SQL thread executes them.
+- Crash-Safe Metadata Repositories in MySQL 8.0:
+  - `mysql.slave_master_info`: Stores Source host, port, user, and binlog coordinates.
+  - `mysql.slave_relay_log_info`: Stores current relay log execution position.
+
+4. INSPECTING REPLICATION THREAD STATUS
+--------------------------------------------------------------------------------
+-- Check status on Replica:
+SHOW REPLICA STATUS\G
+-- Key Thread Indicators:
+-- Replica_IO_Running: Yes  (Receiver thread is connected and streaming)
+-- Replica_SQL_Running: Yes (Applier thread is actively executing events)
+-- Seconds_Behind_Source: 0  (Replica is fully caught up with Source)
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Set `relay_log_recovery = ON` on replicas to prevent relay log corruption after crashes.
+2. Store replication metadata in InnoDB tables (`relay_log_info_repository = TABLE`).
+3. Monitor both `Replica_IO_Running` and `Replica_SQL_Running` for "Yes" status.
+4. Track `Seconds_Behind_Source` with automated alerting on lag > 10 seconds.
+================================================================================

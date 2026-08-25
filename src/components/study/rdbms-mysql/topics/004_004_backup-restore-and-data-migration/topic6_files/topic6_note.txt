@@ -1,0 +1,67 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 6: Physical Hot Backups – Percona XtraBackup & MySQL Enterprise Backup
+================================================================================
+
+1. THE ARCHITECTURE OF PHYSICAL HOT BACKUPS
+--------------------------------------------------------------------------------
+Physical hot backups bypass the SQL layer completely, copying raw 16KB binary data
+pages (`.ibd`), system tablespaces, undo logs, and redo logs directly from disk.
+
+Why Physical Backups Deliver Ultra-Low RTO:
+- Restoring a 5TB database using logical SQL dumps takes 12+ hours.
+- Restoring a 5TB database using physical hot backups takes 15 minutes (limited only
+  by raw disk I/O transfer speed, with zero SQL parsing or B-tree index rebuilding).
+
+2. PERCONA XTRABACKUP (PXB) 3-PHASE LIFECYCLE
+--------------------------------------------------------------------------------
+Phase 1: Online Non-Blocking Backup (`--backup`):
+  - Step 1: PXB starts a background thread that continuously reads and records
+    InnoDB Redo Log changes in memory/disk (`xtrabackup_logfile`).
+  - Step 2: Main worker threads copy physical `.ibd` tablespace files concurrently.
+  - Step 3: PXB records the final Log Sequence Number (LSN) and backup coordinates.
+  - Result: 100% online backup with ZERO write blocking on InnoDB tables!
+
+Phase 2: Preparing the Backup (`--prepare`):
+  - The raw copied `.ibd` files are in an in-flight, crash-inconsistent state because
+    pages were modified during the copy.
+  - Running `--prepare` applies the recorded redo log changes to all data pages
+    (performing InnoDB crash recovery) and rolls back uncommitted transactions.
+  - Result: The backup directory becomes 100% consistent and ready for boot.
+
+Phase 3: Restoring / Copying Back (`--copy-back` or `--move-back`):
+  - Copies the prepared data files back into an empty MySQL data directory (`/var/lib/mysql`).
+  - Set permissions: `chown -R mysql:mysql /var/lib/mysql`.
+  - Start MySQL daemon: `systemctl start mysqld`.
+
+3. INCREMENTAL PHYSICAL BACKUPS & LSN TRACKING
+--------------------------------------------------------------------------------
+XtraBackup tracks page changes via Log Sequence Numbers (LSN) in 16KB page headers:
+
+A. Full Base Backup:
+   xtrabackup --backup --target-dir=/backups/base --parallel=8
+
+B. Incremental Backup (Captures only pages modified since base):
+   xtrabackup --backup --target-dir=/backups/inc1 \\
+     --incremental-basedir=/backups/base --parallel=8
+
+C. Incremental Preparation Sequence:
+   -- 1. Apply redo log to base (DO NOT roll back uncommitted transactions yet):
+   xtrabackup --prepare --apply-log-only --target-dir=/backups/base
+
+   -- 2. Apply incremental delta to base:
+   xtrabackup --prepare --target-dir=/backups/base --incremental-dir=/backups/inc1
+
+4. ADVANCED PHYSICAL BACKUP CAPABILITIES
+--------------------------------------------------------------------------------
+- Multi-Threaded Parallelism: `--parallel=8` (copies across 8 CPU threads).
+- Streaming & Zstandard Compression: `--stream=xbstream | zstd -T8 > base.xbstream.zst`
+- Encryption at Rest: `--encrypt=AES256 --encrypt-key-file=/etc/mysql/backup.key`
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Mandate Percona XtraBackup or MEB for databases larger than 100GB.
+2. Always prepare backups (`--prepare`) in automated CI/CD pipelines to verify restorability.
+3. Use `--apply-log-only` on all intermediate incremental steps, omitting it only on the final step.
+4. Ensure target MySQL data directory is completely empty before running `--copy-back`.
+================================================================================

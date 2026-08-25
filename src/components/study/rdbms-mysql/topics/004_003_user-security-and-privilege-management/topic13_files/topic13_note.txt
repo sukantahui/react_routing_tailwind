@@ -1,0 +1,82 @@
+================================================================================
+MYSQL 8.0 DATABASE SECURITY & PRIVILEGE MANAGEMENT
+TOPIC 13: Database Auditing – Connection Logging, Audit Plugins & Monitoring
+================================================================================
+
+1. THE ROLE OF AUDITING IN DATABASE GOVERNANCE
+--------------------------------------------------------------------------------
+Database Auditing provides an immutable chronological ledger of all database
+activity. It guarantees:
+- Non-Repudiation: Proves which account executed a specific query at an exact microsecond.
+- Forensics & Incident Response: Reconstructs security breaches and unauthorized data access.
+- Compliance: Satisfies regulatory mandates including PCI-DSS, SOC 2, HIPAA, and ISO 27001.
+
+2. NATIVE MYSQL LOGGING MECHANISMS
+--------------------------------------------------------------------------------
+A. General Query Log:
+   -- Logs every client connection, disconnection, and SQL statement received:
+   SET GLOBAL general_log = ON;
+   SET GLOBAL general_log_file = '/var/log/mysql/general.log';
+   SET GLOBAL log_output = 'FILE'; -- or 'TABLE' (writes to mysql.general_log)
+   * Note: Produces high disk I/O overhead; recommended for temporary debugging only.
+
+B. Slow Query Log:
+   -- Captures long-running queries and unindexed table scans:
+   SET GLOBAL slow_query_log = ON;
+   SET GLOBAL long_query_time = 1.0; -- in seconds
+   SET GLOBAL log_queries_not_using_indexes = ON;
+
+C. Enhanced Error Logging & Connection Auditing (MySQL 8.0 Component Architecture):
+   -- Configures JSON-formatted error and connection logs:
+   SET PERSIST log_error_services = 'log_filter_internal; log_sink_internal; log_sink_json';
+   SET PERSIST log_error_verbosity = 3; -- 1: Errors only, 2: Errors + Warnings, 3: Full Info
+
+3. ENTERPRISE AUDIT LOG PLUGINS & COMPONENTS
+--------------------------------------------------------------------------------
+Audit plugins intercept database events at the engine layer, producing structured
+logs (JSON/XML) for SIEM (Splunk, Elastic, Datadog) ingestion.
+
+A. Installing MySQL Enterprise Audit Plugin:
+   INSTALL PLUGIN audit_log SONAME 'audit_log.so';
+   -- Or via Component (MySQL 8.0.30+):
+   INSTALL COMPONENT 'file://component_audit_log';
+
+B. Core System Variables:
+   - `audit_log_policy`: Log event filter ('ALL', 'LOGINS', 'QUERIES', 'NONE').
+   - `audit_log_format`: Log structure ('JSON', 'XML', 'NEW_XML', 'OLD_XML').
+   - `audit_log_strategy`: I/O strategy ('ASYNCHRONOUS', 'PERFORMANCE', 'SEMI_SYNCHRONOUS', 'SYNCHRONOUS').
+   - `audit_log_rotate_on_size`: Automatic log file rotation threshold (e.g. 50MB).
+
+4. GRANULAR RULE-BASED AUDIT FILTERING (MYSQL 8.0)
+--------------------------------------------------------------------------------
+To prevent log bloat, MySQL 8.0 provides rule-based JSON filtering:
+
+A. Define a Filter (Log only DDL commands and user logins):
+   SELECT audit_log_filter_set_filter('ddl_and_logins', '{
+     "filter": {
+       "class": [
+         { "name": "connection" },
+         { "name": "general", "event": { "name": "status", "data": { "query": { "prefix": ["CREATE", "ALTER", "DROP", "GRANT", "REVOKE"] } } } }
+       ]
+     }
+   }');
+
+B. Assign Filter to Users:
+   SELECT audit_log_filter_set_user('app_user@%', 'ddl_and_logins');
+
+5. FORENSIC INCIDENT RESPONSE & SIEM INTEGRATION
+--------------------------------------------------------------------------------
+Audit records capture:
+- `timestamp`: UTC event timestamp with microsecond accuracy.
+- `connection_id`: Unique thread ID matching active sessions.
+- `user` / `host` / `os_user`: Full client identity and origin IP.
+- `status_code`: 0 for success, non-zero error code for blocked injections.
+- `sqltext`: Exact SQL statement submitted.
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Stream JSON audit logs asynchronously to an external SIEM to prevent log tampering.
+2. Use audit filtering to ignore high-frequency read queries from trusted batch jobs.
+3. Configure `log_error_services = 'log_filter_internal; log_sink_json'` for containerized observability.
+4. Rotate and compress audit files automatically to prevent storage exhaustion.
+================================================================================

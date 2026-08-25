@@ -72,7 +72,7 @@ const questions = [
     explanation: "Mitigated by enabling Windows Defender Credential Guard (LSA virtualization) and RunAsPPL.",
     hint: "Extracting plaintext credentials and Kerberos hashes directly from LSASS memory.",
     level: "expert",
-    codeExample: "mimikatz # privilege::debug\nmimikatz # sekurlsa::logonpasswords"
+    codeExample: "// LSA Protection Audit Example:\nGet-Process lsass | Select-Object Name, Id, PriorityClass"
   },
   {
     question: "How do Misconfigured Public Cloud Storage Buckets (e.g. AWS S3 / Azure Blobs) lead to massive data breaches?",

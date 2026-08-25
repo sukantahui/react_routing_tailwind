@@ -1,0 +1,58 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 3: mysqldump Flags for Consistent Backups – In-Depth Analysis
+================================================================================
+
+1. THE GOLD STANDARD PRODUCTION BACKUP COMMAND
+--------------------------------------------------------------------------------
+mysqldump -u backup_admin -p \\
+  --single-transaction \\
+  --quick \\
+  --routines \\
+  --triggers \\
+  --events \\
+  --source-data=2 \\
+  --hex-blob \\
+  --default-character-set=utf8mb4 \\
+  --max-allowed-packet=128M \\
+  --databases kolkata_ecommerce kolkata_finance | zstd -T4 -3 > backup.sql.zst
+
+2. DEEP-DIVE INTO CRITICAL FLAGS
+--------------------------------------------------------------------------------
+A. `--single-transaction`:
+   - Mechanism: Executes `START TRANSACTION WITH CONSISTENT SNAPSHOT` under `REPEATABLE READ`.
+   - Effect: Guarantees a point-in-time snapshot of all InnoDB tables without locking writers.
+   - Requirement: All production tables must use InnoDB. Avoid DDL changes during dump.
+
+B. `--quick` (`-q`):
+   - Mechanism: Uses `mysql_use_result()` instead of `mysql_store_result()`.
+   - Effect: Streams rows one row at a time from server to client, keeping client RAM
+     usage constant (< 10MB) regardless of table size (even on 500GB tables).
+
+C. `--routines` (`-R`) & `--events` (`-E`):
+   - By default, `mysqldump` does NOT export stored procedures, functions, or scheduled events.
+   - Omitting these flags loses critical business logic and scheduled cron jobs.
+
+D. `--source-data` (formerly `--master-data` in MySQL 5.7):
+   - Values:
+     * `=1`: Generates active executable `CHANGE REPLICATION SOURCE TO SOURCE_LOG_FILE=..., SOURCE_LOG_POS=...;`
+     * `=2`: Generates commented-out coordinate `# CHANGE REPLICATION SOURCE ...;` (Standard for backups).
+   - Mechanism: Briefly acquires `FLUSH TABLES WITH READ LOCK` at the start to record exact
+     binlog coordinates, then releases the lock immediately once the snapshot starts.
+
+E. `--hex-blob`:
+   - Dumps `BLOB`, `VARBINARY`, and encrypted column bytes as hexadecimal strings (`0x...`).
+   - Prevents null bytes and control characters from corrupting text streams during restore.
+
+F. `--set-gtid-purged`:
+   - `AUTO` (default): Emits `SET @@GLOBAL.gtid_purged` if GTID is enabled on source.
+   - `OFF`: Omits GTID statements (mandatory when restoring a single table/DB to an active cluster).
+   - `ON`: Explicitly enforces GTID set initialization on a clean instance.
+
+3. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Never omit `--single-transaction` on production InnoDB instances.
+2. Always pair `--quick` with `--single-transaction` to prevent OOM memory crashes.
+3. Explicitly verify that `--routines --triggers --events` are included in backup scripts.
+4. Use `--source-data=2` to record coordinates for Point-in-Time Recovery (PITR).
+================================================================================

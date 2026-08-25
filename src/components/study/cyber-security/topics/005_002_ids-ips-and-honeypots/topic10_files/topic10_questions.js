@@ -74,7 +74,7 @@ const questions = [
     hint: "Translating hacker actions into standardized industry threat codes like MITRE ATT&CK.",
     level: "Moderate",
     codeExample: `// MITRE ATT&CK Mapping:
-// Command: mimikatz.exe "sekurlsa::logonpasswords" ➔ Mapped to MITRE ATT&CK T1003.001 (LSASS Memory)`
+// Action: Unauthorized LSASS memory inspection probe ➔ Mapped to MITRE ATT&CK T1003.001 (LSASS Memory)`
   },
   {
     id: 8,

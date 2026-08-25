@@ -1,0 +1,62 @@
+================================================================================
+MYSQL 8.0 SERVER LOGS, MONITORING & PERFORMANCE SCHEMA
+TOPIC 8: Key sys Views – Statement Analysis, Unused Indexes, Locks & Memory
+================================================================================
+
+1. DEEP DIVE: THE FOUR CORNERSTONE SYS VIEWS
+--------------------------------------------------------------------------------
+The `sys` schema provides over 50 diagnostic views, but four views form the
+indispensable daily toolkit for high-performance MySQL database administrators:
+
+1. `sys.statement_analysis`:
+   - Comprehensive query workload performance ranking.
+   - Key Metrics: `exec_count`, `total_latency`, `avg_latency`, `rows_examined_avg`,
+     `tmp_disk_tables`, `sort_merge_passes`.
+   - Usage: Identifying top CPU and disk I/O consumers across the cluster.
+
+2. `sys.schema_unused_indexes`:
+   - Lists table indexes that have received ZERO read lookups since server boot.
+   - Usage: Safe index pruning to eliminate write amplification and reclaim RAM.
+   - Production Rule: Only evaluate on instances running for at least 30-90 days.
+
+3. `sys.schema_table_lock_waits`:
+   - Inspects table-level and metadata lock contention.
+   - Auto-generates `sql_kill_blocking_query` and `sql_kill_blocking_connection` commands!
+   - Usage: Instantly killing blocking sessions during DDL/DML lock jams.
+
+4. `sys.memory_global_by_current_bytes`:
+   - Breaks down global RAM consumption across all internal MySQL subsystems.
+   - Key Metrics: `current_alloc`, `high_alloc`, `current_count`.
+   - Usage: Diagnosing Out-Of-Memory (OOM) risks and buffer allocations.
+
+2. ESSENTIAL SQL RECIPES FOR PRODUCTION TRIAGE
+--------------------------------------------------------------------------------
+-- 1. Top 5 Worst Statement Latencies:
+SELECT query, exec_count, total_latency, avg_latency, rows_examined_avg 
+FROM sys.statement_analysis 
+ORDER BY total_latency DESC LIMIT 5;
+
+-- 2. Find All Zero-Lookup Unused Indexes:
+SELECT object_schema, object_name, index_name 
+FROM sys.schema_unused_indexes 
+WHERE object_schema NOT IN ('mysql', 'sys', 'performance_schema');
+
+-- 3. Find and Kill Blocking Lock Sessions:
+SELECT 
+  waiting_account, waiting_query, 
+  blocking_account, blocking_query, 
+  sql_kill_blocking_connection 
+FROM sys.schema_table_lock_waits;
+
+-- 4. Top 10 Subsystems by Current Memory Usage:
+SELECT event_name, current_alloc, high_alloc 
+FROM sys.memory_global_by_current_bytes 
+LIMIT 10;
+
+3. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Run `sys.statement_analysis` weekly to catch newly deployed slow queries.
+2. Cross-reference `sys.schema_unused_indexes` against annual/quarterly reporting cycles.
+3. Use the auto-generated `sql_kill_blocking_connection` string during emergency stalls.
+4. Monitor `sys.memory_global_by_current_bytes` to prevent Linux kernel OOM kills.
+================================================================================

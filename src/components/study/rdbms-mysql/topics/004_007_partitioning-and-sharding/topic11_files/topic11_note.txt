@@ -1,0 +1,52 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 11: Sharding Challenges – Distributed Transactions, Joins & Global IDs
+================================================================================
+
+1. THE THREE CORE CHALLENGES OF HORIZONTAL SHARDING
+--------------------------------------------------------------------------------
+Challenge            Core Problem                         Industry Solutions
+--------------------------------------------------------------------------------
+**Distributed        Single-node ACID does not work       1. Distributed 2PC (XA)
+Transactions**       across autonomous MySQL nodes.       2. **Saga Pattern** + Compensations
+                                                          3. **Transactional Outbox Pattern**
+
+**Cross-Shard        `JOIN` statements cannot join        1. **Global / Broadcast Tables**
+Joins**              tables on different server nodes.    2. **ER Table Group Co-Sharding**
+                                                          3. Application-level multi-get joins
+
+**Global Unique      Local `AUTO_INCREMENT` causes        1. **Twitter Snowflake / ULID** (64-bit)
+Primary IDs**        duplicate ID collisions across nodes.2. **UUIDv7** (Time-Ordered 128-bit)
+                                                          3. Node Auto-Increment Strides
+
+2. DISTRIBUTED 2PC (XA) VS SAGA PATTERN
+--------------------------------------------------------------------------------
+Feature              Distributed 2PC (XA)                 Saga Pattern
+--------------------------------------------------------------------------------
+Consistency Model    Strict Immediate Consistency         Eventual Consistency
+Lock Duration        Long (Held across network hops)      Short (Local ACID on each shard)
+Throughput           Low (~100–500 txns/sec)              High (>50,000 txns/sec)
+Failure Handling     Coordinator Rollback                 Compensating Transactions
+
+3. TWITTER SNOWFLAKE ID BIT STRUCTURE (64-BIT INTEGER)
+--------------------------------------------------------------------------------
++--------------------+--------------------------------+-----------------+---------------+
+| 1 Bit (Unused: 0)  | 41 Bits (Timestamp in ms)      | 10 Bits (Node)  | 12 Bits (Seq) |
++--------------------+--------------------------------+-----------------+---------------+
+- **41 Bits Timestamp**: 69 years of millisecond precision from custom epoch.
+- **10 Bits Node ID**: Supports up to 1,024 independent shard / worker servers.
+- **12 Bits Sequence**: Generates up to 4,096 unique IDs per millisecond per node (4.09M/sec).
+
+4. CROSS-SHARD JOIN MITIGATION STRATEGIES
+--------------------------------------------------------------------------------
+1. **Co-Sharding (ER Groups)**: Co-locate `customers` and `orders` on the same shard key.
+2. **Global Tables**: Replicate `currencies` and `branches` to 100% of shard nodes.
+3. **Application Stitching**: Fetch user orders from Shard A, then batch query items on Shard B.
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Replace distributed 2PC with asynchronous Sagas and the Transactional Outbox.
+2. Use 64-bit Snowflake IDs or 128-bit UUIDv7 for clustered B-Tree insert efficiency.
+3. Co-locate parent-child entities via ER Table Groups to eliminate 90%+ of cross-shard joins.
+4. Separate OLAP reporting joins to downstream analytical data lakes (ClickHouse/Snowflake).
+================================================================================

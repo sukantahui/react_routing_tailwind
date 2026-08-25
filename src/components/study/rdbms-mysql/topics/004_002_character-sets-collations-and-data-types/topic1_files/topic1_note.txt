@@ -1,0 +1,42 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 1: Understanding Collations: _ci (Case Insensitive), _cs (Case Sensitive), _bin (Binary)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS A COLLATION?
+--------------------------------------------------------------------------------
+While a Character Set defines how characters are encoded into bytes, a **Collation**
+defines the algorithmic rules for **comparing and sorting** characters.
+
+Every character set has one or more associated collations.
+
+2. COLLATION NAMING CONVENTIONS & SUFFIXES
+--------------------------------------------------------------------------------
+MySQL collation names follow a standard convention:
+`<character_set>_<language/version>_<sensitivity_flags>`
+
+Key Suffixes:
+1. `_ci` (Case Insensitive):
+   - Treats uppercase and lowercase letters as equal: `'Admin' = 'admin'`.
+   - Used for general user-facing text, search bars, and human-friendly portals.
+
+2. `_cs` (Case Sensitive):
+   - Treats uppercase and lowercase as distinct: `'Admin' != 'admin'`.
+
+3. `_bin` (Binary):
+   - Compares raw byte-for-byte numerical values.
+   - Fastest possible collation because no language sorting tables are needed.
+   - Case-sensitive and accent-sensitive by nature.
+
+4. `_ai` / `_as` (Accent Insensitive vs Accent Sensitive):
+   - `_ai`: Treats accented characters as equal (`'résumé' = 'resume'`).
+   - `_as`: Distinguishes accented characters (`'résumé' != 'resume'`).
+
+3. IMPACT ON UNIQUE CONSTRAINTS & SECURITY
+--------------------------------------------------------------------------------
+- If a column has a `UNIQUE` index with a `_ci` collation:
+  Inserting `'Mamata'` and `'MAMATA'` will throw a duplicate key error (Error 1062)!
+- If passwords or case-sensitive API tokens are stored in `_ci` columns,
+  authentication can be bypassed if equality checks are performed via plain SQL.
+- Always use `_bin` or `BINARY` data types for passwords, tokens, and hashes!

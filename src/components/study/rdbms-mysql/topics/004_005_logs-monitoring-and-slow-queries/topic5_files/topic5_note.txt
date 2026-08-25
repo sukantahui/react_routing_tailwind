@@ -1,0 +1,65 @@
+================================================================================
+MYSQL 8.0 SERVER LOGS, MONITORING & PERFORMANCE SCHEMA
+TOPIC 5: Analyzing Slow Queries using the mysqldumpslow Utility
+================================================================================
+
+1. WHAT IS MYSQLDUMPSLOW?
+--------------------------------------------------------------------------------
+`mysqldumpslow` is a bundled CLI utility that parses the MySQL Slow Query Log,
+abstracts concrete literal numbers (`N`) and strings (`'S'`), and aggregates
+thousands of log entries into concise, actionable query digests sorted by total
+latency, average execution time, lock wait duration, or call frequency.
+
+2. COMMAND SYNTAX & CORE FLAGS
+--------------------------------------------------------------------------------
+Command Structure:
+mysqldumpslow [OPTIONS] /path/to/slow_query.log
+
+A. Sorting Flags (-s [sort_type]):
+   - `-s t`  : Sort by TOTAL cumulative execution time (Recommended priority).
+   - `-s at` : Sort by AVERAGE execution time per query execution.
+   - `-s l`  : Sort by TOTAL lock wait time.
+   - `-s al` : Sort by AVERAGE lock wait time.
+   - `-s r`  : Sort by TOTAL rows examined / sent.
+   - `-s ar` : Sort by AVERAGE rows examined / sent.
+   - `-s c`  : Sort by query execution COUNT (frequency).
+
+B. Limiting & Filtering Flags:
+   - `-t N`  : Display only Top N query digests (e.g. `-t 10`).
+   - `-g reg`: Filter queries matching regular expression (e.g. `-g 'orders'`).
+   - `-a`    : Do not abstract numbers to N and strings to 'S'.
+   - `-r`    : Reverse sort order (ascending).
+
+3. ESSENTIAL PRODUCTION COMMAND RECIPES
+--------------------------------------------------------------------------------
+1. Find Top 10 Heaviest Queries by Total Cumulative Server Impact:
+   mysqldumpslow -s t -t 10 /var/log/mysql/slow_query.log
+
+2. Find Top 10 Slowest Single Queries by Average Latency:
+   mysqldumpslow -s at -t 10 /var/log/mysql/slow_query.log
+
+3. Find Top 10 Most Frequent Slow Queries (Count):
+   mysqldumpslow -s c -t 10 /var/log/mysql/slow_query.log
+
+4. Find Top 5 Slow Queries specifically touching the 'orders' table:
+   mysqldumpslow -s t -t 5 -g "orders" /var/log/mysql/slow_query.log
+
+4. ANATOMY OF MYSQLDUMPSLOW OUTPUT
+--------------------------------------------------------------------------------
+Count: 1540  Time=2.50s (3850s)  Lock=0.00s (0s)  Rows=12.0 (18480), app_user[app_user]@localhost
+  SELECT * FROM kolkata_retail.orders 
+  WHERE status = 'S' AND total_amount > N 
+  ORDER BY order_date DESC LIMIT N;
+
+- `Count: 1540`        : Query ran 1,540 times.
+- `Time=2.50s (3850s)` : Average 2.50s per execution; 3,850s total server CPU time consumed.
+- `Rows=12.0 (18480)`  : Average 12 rows sent; 18,480 total rows returned.
+- `'S' & N`            : Abstracted string literals and integer parameters.
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Focus optimization effort on Top 5 queries by Total Time (`-s t`), as optimizing
+   these yields the largest overall server load reduction.
+2. Automate a daily midnight cron job generating Top 10 slow query summaries.
+3. Compare digests before and after adding indexes to verify latency reduction.
+================================================================================

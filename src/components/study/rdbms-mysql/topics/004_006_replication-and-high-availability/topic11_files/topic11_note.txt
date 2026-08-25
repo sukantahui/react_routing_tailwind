@@ -1,0 +1,65 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 11: MySQL Group Replication – Paxos-Based Synchronous Consensus
+================================================================================
+
+1. WHAT IS MYSQL GROUP REPLICATION (MGR)?
+--------------------------------------------------------------------------------
+Group Replication is a high-availability, fault-tolerant replication plugin for MySQL 8.0
+built on a Paxos-variant distributed consensus protocol (Group Communication System / GCS).
+
+Key Properties:
+- Synchronous Coordination: Total Order Broadcast ensures all nodes see transactions in identical order.
+- Zero Data Loss (RPO = 0): Transactions are certified by a majority quorum before committing.
+- Quorum & Fault Tolerance: Formula $N = 2F + 1$ (3 nodes tolerate 1 node failure; 5 nodes tolerate 2).
+
+2. THE TRANSACTION CERTIFICATION LIFECYCLE
+--------------------------------------------------------------------------------
+1. Transaction executes locally on Node A in memory.
+2. At commit time, Node A extracts its Write Set (XXHASH64 row hashes) and broadcasts it via Paxos.
+3. Total Order Broadcast delivers write sets to all nodes in the exact same sequence.
+4. Certification Phase: Every node checks if the write set conflicts with any in-flight transaction.
+   - If no conflict: Transaction is certified and commits.
+   - If conflict detected: First-Committer-Wins; subsequent conflicting transactions ROLLBACK.
+
+3. SINGLE-PRIMARY VS MULTI-PRIMARY OPERATING MODES
+--------------------------------------------------------------------------------
+Mode                  Characteristics                    Best Use Case
+--------------------------------------------------------------------------------
+Single-Primary        1 Primary node accepts writes;      Recommended standard; zero
+(Default)             Secondaries are `super_read_only`.  certification rollbacks; automatic
+                      Auto-elects primary on failure.     primary failover.
+
+Multi-Primary         All nodes accept writes             Geographically distributed writes;
+                      simultaneously; automated           requires strict application-level
+                      distributed conflict resolution.    write partition management.
+
+4. PRODUCTION CONFIGURATION (my.cnf)
+--------------------------------------------------------------------------------
+[mysqld]
+# 1. Group Replication Prerequisites:
+server_id = 1
+gtid_mode = ON
+enforce_gtid_consistency = ON
+binlog_format = ROW
+log_replica_updates = ON
+master_info_repository = TABLE
+relay_log_info_repository = TABLE
+transaction_write_set_extraction = XXHASH64
+
+# 2. Group Replication Parameters:
+plugin-load-add = group_replication.so
+group_replication_group_name = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+group_replication_start_on_boot = OFF
+group_replication_local_address = "192.168.1.10:33061"
+group_replication_group_seeds = "192.168.1.10:33061,192.168.1.20:33061,192.168.1.30:33061"
+group_replication_single_primary_mode = ON
+group_replication_enforce_update_everywhere_checks = OFF
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Deploy odd number of nodes (minimum 3 nodes for quorum).
+2. Standardize on Single-Primary mode for zero-rollback write safety.
+3. Monitor cluster health via `performance_schema.replication_group_members`.
+4. Enforce dedicated private network interfaces for Paxos communication (port 33061).
+================================================================================

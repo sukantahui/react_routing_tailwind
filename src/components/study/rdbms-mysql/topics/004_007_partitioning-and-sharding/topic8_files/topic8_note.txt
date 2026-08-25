@@ -1,0 +1,59 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 8: Managing Partitions – ADD, DROP, TRUNCATE, REORGANIZE & Maintenance
+================================================================================
+
+1. THE PARTITION MANAGEMENT COMMAND TOOLKIT
+--------------------------------------------------------------------------------
+Command                   Operational Purpose & Impact
+--------------------------------------------------------------------------------
+`ADD PARTITION`           Appends new upper boundaries to `RANGE`, new discrete
+                          categories to `LIST`, or increases `HASH/KEY` bucket counts.
+
+`DROP PARTITION`          Unlinks physical `.ibd` file directly from the filesystem
+                          in <5ms with ZERO undo logs, row locks, or table fragmentation.
+
+`TRUNCATE PARTITION`      Empties all rows inside a partition instantly while preserving
+                          the partition definition and schema boundaries in metadata.
+
+`REORGANIZE PARTITION`    Splits an existing partition (e.g. splitting `p_future`) or
+                          merges multiple historical partitions into one without data loss.
+
+`EXCHANGE PARTITION`      Swaps tablespace pointers between a partition and a standalone
+                          table in <10ms for instant ETL ingestion or archival.
+
+`OPTIMIZE PARTITION`      Rebuilds and defragments a single partition `.ibd` file online,
+                          reclaiming unused free disk space (`DATA_FREE`).
+
+`ANALYZE PARTITION`       Updates index statistics and cardinality for a single partition.
+
+`CHECK PARTITION`         Verifies page checksums and index integrity for a single partition.
+
+2. ENTERPRISE SLIDING-WINDOW ROLLING ARCHIVE RUNBOOK
+--------------------------------------------------------------------------------
+-- Step 1: Drop Oldest Historical Partition (Under 5ms):
+ALTER TABLE financial_ledger DROP PARTITION p2022_01;
+
+-- Step 2: Add Upcoming Forward Month Online:
+ALTER TABLE financial_ledger REORGANIZE PARTITION p_future INTO (
+  PARTITION p2026_09 VALUES LESS THAN ('2026-10-01'),
+  PARTITION p_future VALUES LESS THAN MAXVALUE
+);
+
+-- Step 3: Defragment High-Churn Current Partition:
+ALTER TABLE financial_ledger OPTIMIZE PARTITION p2026_08;
+
+3. METADATA LOCKS (MDL) & PRODUCTION SAFETY
+--------------------------------------------------------------------------------
+1. `ALTER TABLE` partition DDL requires a brief exclusive **Metadata Lock (`MDL`)**.
+2. If a slow analytical query is running, the DDL will wait in queue, causing subsequent
+   client queries to back up.
+3. Always set `lock_wait_timeout = 5` and run partition maintenance during off-peak hours.
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Replace bulk `DELETE` scripts with automated sliding-window `DROP PARTITION` cron jobs.
+2. Always keep a `MAXVALUE` partition and use `REORGANIZE PARTITION` for additions.
+3. Run `ANALYZE PARTITION` after large bulk inserts to refresh optimizer statistics.
+4. Monitor partition sizes and fragmentation via `information_schema.PARTITIONS`.
+================================================================================

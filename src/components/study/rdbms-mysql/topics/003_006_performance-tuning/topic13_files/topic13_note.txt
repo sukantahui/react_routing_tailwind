@@ -1,0 +1,46 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 13: Profiling Query Execution with Performance Schema and SHOW PROFILE
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. SHOW PROFILE (DEPRECATED) VS PERFORMANCE SCHEMA
+--------------------------------------------------------------------------------
+- SHOW PROFILE: Legacy, simple tool (`SET profiling = 1; SHOW PROFILES; SHOW PROFILE FOR QUERY 1;`).
+  Deprecated in MySQL 5.6+ and removed in modern MySQL versions.
+- Performance Schema (P_S): Modern, non-blocking, multi-threaded instrumentation
+  engine measuring statements, execution stages, lock waits, memory, and disk I/O.
+
+2. ENABLING STATEMENT & STAGE INSTRUMENTATION
+--------------------------------------------------------------------------------
+UPDATE performance_schema.setup_instruments 
+SET ENABLED = 'YES', TIMED = 'YES' 
+WHERE NAME LIKE 'stage/%' OR NAME LIKE 'statement/%';
+
+UPDATE performance_schema.setup_consumers 
+SET ENABLED = 'YES' 
+WHERE NAME LIKE '%stages%' OR NAME LIKE '%statements%';
+
+3. QUERYING THE SYS SCHEMA FOR INSTANT DIAGNOSTICS
+--------------------------------------------------------------------------------
+1. Statements with Full Table Scans:
+   SELECT * FROM sys.statements_with_full_table_scans LIMIT 5;
+
+2. Statements with High Runtimes (P95 Outliers):
+   SELECT * FROM sys.statements_with_runtimes_in_95th_percentile;
+
+3. Statements Creating Disk Temporary Tables:
+   SELECT * FROM sys.statements_with_temp_tables;
+
+4. Profiling Execution Stages of Last Query:
+   SELECT event_name, format_pico_time(timer_wait) AS duration 
+   FROM performance_schema.events_stages_history_long 
+   WHERE nesting_event_id = @last_statement_id 
+   ORDER BY timer_start ASC;
+
+4. KEY QUERY STAGES TO WATCH
+--------------------------------------------------------------------------------
+- `stage/sql/Sending data`: Fetching, filtering, and streaming rows (high time indicates table scan).
+- `stage/sql/Creating sort index`: Memory/disk sorting operation (`Using filesort`).
+- `stage/sql/Creating tmp table`: In-memory or on-disk temporary table materialization.
+- `stage/sql/Opening tables`: Table cache or metadata lock contention.

@@ -1,0 +1,39 @@
+================================================================================
+RDBMS MySQL Course - Module 004_003: User Security, Roles, Privileges & Encryption
+Topic 1: User Account Management: CREATE USER, ALTER USER, DROP USER, RENAME USER
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. USER ACCOUNT CREATION (CREATE USER)
+--------------------------------------------------------------------------------
+Syntax:
+CREATE USER [IF NOT EXISTS] 'username'@'host'
+  IDENTIFIED [WITH auth_plugin] BY 'password'
+  [REQUIRE {NONE | SSL | X509}]
+  [WITH resource_options]
+  [PASSWORD EXPIRE [INTERVAL N DAY | NEVER | DEFAULT]]
+  [ACCOUNT {LOCK | UNLOCK}];
+
+Example:
+CREATE USER 'mamata'@'192.168.1.%'
+  IDENTIFIED BY 'Secure#Pass2026'
+  REQUIRE SSL
+  WITH MAX_USER_CONNECTIONS 10
+  PASSWORD EXPIRE INTERVAL 90 DAY;
+
+2. MODIFYING USER ACCOUNTS (ALTER USER)
+--------------------------------------------------------------------------------
+1. Change Password:
+   `ALTER USER 'mamata'@'192.168.1.%' IDENTIFIED BY 'New#Password2026';`
+2. Lock / Unlock Account:
+   `ALTER USER 'mamata'@'192.168.1.%' ACCOUNT LOCK;`
+   `ALTER USER 'mamata'@'192.168.1.%' ACCOUNT UNLOCK;`
+3. Force Password Change on Next Login:
+   `ALTER USER 'mamata'@'192.168.1.%' PASSWORD EXPIRE;`
+
+3. RENAMING & DROPPING ACCOUNTS
+--------------------------------------------------------------------------------
+1. Rename Account:
+   `RENAME USER 'old_user'@'localhost' TO 'new_user'@'localhost';`
+2. Drop Account (and automatically revoke all its privileges):
+   `DROP USER 'unneeded_user'@'192.168.1.%';`

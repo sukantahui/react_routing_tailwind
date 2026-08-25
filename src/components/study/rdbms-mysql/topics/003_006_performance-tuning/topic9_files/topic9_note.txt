@@ -1,0 +1,39 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 9: Query Refactoring: Eliminating SELECT *, Subquery Bottlenecks, and Inefficient OR Clauses
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE "SELECT *" PERFORMANCE TRAP
+--------------------------------------------------------------------------------
+1. Memory & Network Overhead: Transfers unnecessary wide text, JSON, and blob payloads.
+2. Destroys Covering Indexes: Forces clustered index bookmark lookups for unindexed columns.
+3. Sort Buffer Spills: Wide row widths cause `sort_buffer_size` overflow to disk files.
+4. Schema Fragility: Adding new columns silently degrades query performance.
+
+2. SUBQUERY BOTTLENECKS VS JOIN / CTE REFACTORING
+--------------------------------------------------------------------------------
+1. Correlated Subqueries in SELECT List:
+   ❌ Bad:  SELECT s.name, (SELECT COUNT(*) FROM exams e WHERE e.student_id = s.id) ...
+   ⚡ Good: SELECT s.name, COALESCE(e.exam_count, 0) FROM students s
+            LEFT JOIN (SELECT student_id, COUNT(*) AS exam_count FROM exams GROUP BY student_id) e ...
+
+2. IN (Subquery) vs EXISTS / INNER JOIN:
+   ❌ Bad:  SELECT * FROM students WHERE id IN (SELECT student_id FROM fees WHERE status = 'Paid')
+   ⚡ Good: SELECT s.* FROM students s JOIN fees f ON s.id = f.student_id WHERE f.status = 'Paid'
+
+3. REFACTORING INEFFICIENT "OR" CLAUSES
+--------------------------------------------------------------------------------
+When a query contains `WHERE col_a = ? OR col_b = ?`:
+- If `col_a` and `col_b` are on separate indexes, MySQL attempts `index_merge` or falls back to `ALL`.
+- Refactoring into `UNION ALL` allows each branch to independently use its respective index:
+    SELECT * FROM students WHERE city = 'Barrackpore'
+    UNION ALL
+    SELECT * FROM students WHERE department_id = 4 AND city != 'Barrackpore';
+
+4. SUMMARY REFACTORING CHECKLIST
+--------------------------------------------------------------------------------
+- Explicitly list required columns in SELECT.
+- Convert row-by-row correlated subqueries to set-based JOINs.
+- Split multi-column OR conditions into index-seeking UNION ALL branches.
+- Use `EXISTS` over `IN` for semi-join existence checks.

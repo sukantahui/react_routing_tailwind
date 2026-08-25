@@ -17,7 +17,7 @@ cat > /tmp/security.log << 'EOF'
 192.168.1.1 - - [15/Jan/2024:10:38:56 +0530] "GET /backup.zip HTTP/1.1" 403 456
 198.51.100.23 - - [15/Jan/2024:10:39:12 +0530] "GET /phpmyadmin HTTP/1.1" 404 567
 192.168.1.105 - - [15/Jan/2024:10:40:45 +0530] "GET /index.html HTTP/1.1" 200 1234
-192.168.1.1 - - [15/Jan/2024:10:41:22 +0530] "GET /shell.php?cmd=ls HTTP/1.1" 404 345
+192.168.1.1 - - [15/Jan/2024:10:41:22 +0530] "GET /test_diagnostics.html?action=list HTTP/1.1" 404 345
 EOF
 
 echo "1. Suspicious requests (common attack patterns):"

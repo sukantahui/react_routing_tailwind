@@ -1,0 +1,69 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 2: mysqldump In-Depth – Dumping Entire Instances, Databases & Tables
+================================================================================
+
+1. WHAT IS MYSQLDUMP?
+--------------------------------------------------------------------------------
+`mysqldump` is the standard client utility for performing logical backups of MySQL
+databases. It produces a stream of SQL statements (`DROP TABLE`, `CREATE TABLE`,
+`INSERT INTO`) that can recreate original database objects and row data.
+
+2. THE SCOPES OF MYSQLDUMP
+--------------------------------------------------------------------------------
+A. Scope 1: Entire Server Instance (`--all-databases` or `-A`):
+   -- Dumps all databases including system schemas:
+   mysqldump -u root -p --all-databases \\
+     --single-transaction --quick --routines --triggers --events \\
+     --source-data=2 > /backups/all_databases.sql
+
+B. Scope 2: Multiple Specific Databases (`--databases` or `-B`):
+   -- Includes 'CREATE DATABASE IF NOT EXISTS' and 'USE <dbname>' in dump:
+   mysqldump -u root -p --databases kolkata_ecommerce kolkata_finance \\
+     --single-transaction --quick --routines --triggers > /backups/selected_dbs.sql
+
+C. Scope 3: Single Database:
+   -- Dumps one database (does NOT include CREATE DATABASE or USE statements):
+   mysqldump -u root -p --single-transaction --quick \\
+     kolkata_ecommerce > /backups/ecommerce.sql
+
+D. Scope 4: Specific Tables:
+   -- Dumps only specified tables within a database:
+   mysqldump -u root -p --single-transaction \\
+     kolkata_ecommerce orders order_items customers > /backups/core_tables.sql
+
+E. Scope 5: Excluding Tables (`--ignore-table`):
+   -- Ignores transient or high-volume log tables:
+   mysqldump -u root -p --single-transaction kolkata_ecommerce \\
+     --ignore-table=kolkata_ecommerce.transient_sessions \\
+     --ignore-table=kolkata_ecommerce.raw_clickstream > /backups/clean_dump.sql
+
+3. STRUCTURE-ONLY VS DATA-ONLY DUMPS
+--------------------------------------------------------------------------------
+A. Schema DDL Only (`--no-data` or `-d`):
+   -- Extracts CREATE TABLE, VIEW, TRIGGER, and PROCEDURE definitions without rows:
+   mysqldump -u root -p --no-data --routines --triggers kolkata_ecommerce > schema_only.sql
+
+B. Data Records Only (`--no-create-info` or `-t`):
+   -- Extracts INSERT statements without DROP TABLE or CREATE TABLE DDL:
+   mysqldump -u root -p --no-create-info kolkata_ecommerce > data_only.sql
+
+4. FILTERED / SUBSET ROW DUMPING (`--where`)
+--------------------------------------------------------------------------------
+-- Dump only rows matching a specific SQL WHERE clause:
+mysqldump -u root -p --single-transaction kolkata_ecommerce orders \\
+  --where="created_at >= '2026-01-01 00:00:00' AND status = 'COMPLETED'" > q1_orders.sql
+
+5. STREAMING COMPRESSION PIPELINE
+--------------------------------------------------------------------------------
+-- Pipe directly into modern multi-threaded compressors (zstd / pigz):
+mysqldump -u root -p --single-transaction --quick --routines --triggers \\
+  kolkata_ecommerce | zstd -T4 -3 > /backups/ecommerce_$(date +%F).sql.zst
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always include `--single-transaction --quick` to avoid locking writes and memory OOMs.
+2. Use `--databases` when dumping multiple schemas so `CREATE DATABASE` and `USE` statements are included.
+3. Exclude heavy temporary session/cache tables with `--ignore-table` to reduce backup size.
+4. Verify dump exit status (`$? == 0`) before uploading or archiving files.
+================================================================================

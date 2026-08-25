@@ -1,0 +1,56 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 12: Production Case Studies – Multi-Tenant SaaS & Hybrid VLDB Architecture
+================================================================================
+
+1. THE MULTI-TENANT SAAS SHARDING BLUEPRINT
+--------------------------------------------------------------------------------
+Architecture Tier    Implementation Details
+--------------------------------------------------------------------------------
+Routing Strategy     **Directory-Based Hybrid Sharding** (Redis Lookup + Consistent Hash)
+Whale Tenant Tier    **Dedicated Single-Tenant Shard Clusters** for VIP enterprise accounts
+Pooled Tenant Tier   **Shared Multi-Tenant Shards** for thousands of standard business accounts
+Join Elimination     **ER Table Group Co-Sharding** (All tables co-sharded on `tenant_uuid`)
+Global Reference     **Broadcast Tables** (Currencies, Countries replicated on all shards)
+
+2. THE HYBRID PARTITIONED-SHARDED VLDB ARCHITECTURE
+--------------------------------------------------------------------------------
+                  [Application Tier / Microservices]
+                                  │
+                                  ▼
+                [Distributed Sharding Proxy (Vitess / Router)]
+                ┌─────────────────┼─────────────────┐
+                ▼ (Consistent)    ▼ (Consistent)    ▼ (Consistent)
+         [Shard Node 0]    [Shard Node 1]    [Shard Node 2] ... [Shard Node 15]
+         (Dedicated Server) (Dedicated Server) (Dedicated Server)
+                │                 │                 │
+                ▼                 ▼                 ▼
+          ┌─────────────┐   ┌─────────────┐   ┌─────────────┐
+          │ Table RANGE │   │ Table RANGE │   │ Table RANGE │
+          │ Partitioning│   │ Partitioning│   │ Partitioning│
+          │ (12 Months) │   │ (12 Months) │   │ (12 Months) │
+          └─────────────┘   └─────────────┘   └─────────────┘
+
+- **Horizontal Scale-Out**: 16 Independent MySQL Nodes scale write IOPS to >100,000/sec.
+- **Local Lifecycle Purge**: Each shard node drops historical months in <5ms via `DROP PARTITION`.
+
+3. ENTERPRISE OPERATIONAL RUNBOOK (BACKUP & DR)
+--------------------------------------------------------------------------------
+-- 1. Per-Shard Parallel Physical Backups (Percona XtraBackup):
+# Runs concurrently across all 16 shards without blocking writes:
+xtrabackup --backup --target-dir=/backups/shard01_$(date +%F)
+
+-- 2. Rolling Sliding Window Cron on Every Shard Node:
+ALTER TABLE financial_ledger DROP PARTITION p2023_08;
+ALTER TABLE financial_ledger REORGANIZE PARTITION p_future INTO (
+  PARTITION p2026_09 VALUES LESS THAN ('2026-10-01'),
+  PARTITION p_future  VALUES LESS THAN MAXVALUE
+);
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Pair Horizontal Sharding across nodes with Table Partitioning inside each node.
+2. Isolate VIP enterprise whale tenants to dedicated database clusters.
+3. Deploy 3-node MySQL InnoDB Clusters behind every individual logical shard.
+4. Stream shard binlogs to ClickHouse or Snowflake for global cross-shard OLAP.
+================================================================================

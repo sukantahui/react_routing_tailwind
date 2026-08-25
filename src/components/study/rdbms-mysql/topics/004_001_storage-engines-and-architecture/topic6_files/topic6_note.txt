@@ -1,0 +1,43 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 6: InnoDB Undo Log and MVCC (Multi-Version Concurrency Control) for Non-Blocking Reads
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. MVCC (MULTI-VERSION CONCURRENCY CONTROL) CORE PRINCIPLE
+--------------------------------------------------------------------------------
+MVCC allows multiple transactions to read and write the same data concurrently
+without locking each other: "Readers never block Writers, and Writers never
+block Readers."
+
+2. INNODB HIDDEN ROW COLUMNS & THE VERSION CHAIN
+--------------------------------------------------------------------------------
+Every clustered index row in InnoDB contains three invisible system columns:
+1. `DB_TRX_ID` (6 bytes): Transaction ID of the last transaction that modified the row.
+2. `DB_ROLL_PTR` (7 bytes): Roll Pointer referencing the row's previous version
+   in the Undo Log.
+3. `DB_ROW_ID` (6 bytes): Monotonically increasing surrogate key if no Primary Key exists.
+
+When a row is updated:
+- The current row in the clustered index is updated in place.
+- The previous row state is copied to the Undo Log.
+- `DB_ROLL_PTR` links the current row to the undo record, forming a linked list
+  called the **Version Chain**.
+
+3. READ VIEWS & ISOLATION LEVELS
+--------------------------------------------------------------------------------
+- When a transaction executes a consistent read (`SELECT`), InnoDB constructs a `Read View`:
+  * `m_ids`: List of active (uncommitted) transaction IDs at Read View creation.
+  * `min_trx_id`: Lowest active transaction ID.
+  * `max_trx_id`: Next transaction ID to be allocated.
+
+- READ COMMITTED: Creates a brand new Read View on EVERY SELECT statement.
+- REPEATABLE READ (Default): Creates a single Read View on the FIRST SELECT statement
+  and reuses it throughout the transaction, guaranteeing a consistent snapshot.
+
+4. PURGE THREAD & UNDO RECLAMATION
+--------------------------------------------------------------------------------
+- Background Purge Threads traverse undo tablespaces and delete historical versions
+  once they are no longer visible to ANY active Read View.
+- Long-running transactions hold open Read Views, preventing purge and causing
+  Undo Tablespace bloat.

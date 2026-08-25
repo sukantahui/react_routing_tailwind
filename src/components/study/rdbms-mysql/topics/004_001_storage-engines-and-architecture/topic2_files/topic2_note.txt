@@ -1,0 +1,32 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 2: InnoDB Architecture Overview: In-Memory Structures vs On-Disk Structures
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. INNODB ARCHITECTURAL BLUEPRINT
+--------------------------------------------------------------------------------
+InnoDB is structured into two complementary domains: In-Memory Structures that
+accelerate read/write operations at RAM speeds, and On-Disk Structures that
+guarantee persistence, crash safety, and durability.
+
+1. In-Memory Structures:
+   - Buffer Pool: Caches 16KB data and index pages in RAM (uses midpoint LRU).
+   - Change Buffer: Caches non-unique secondary index modifications to reduce random I/O.
+   - Adaptive Hash Index (AHI): Automatically builds in-memory hash indexes for hot B+ tree pages.
+   - Log Buffer: Caches redo log records before flushing to disk WAL log files.
+
+2. On-Disk Structures:
+   - System Tablespace (`ibdata1`): Contains InnoDB data dictionary and doublewrite storage.
+   - File-Per-Table Tablespaces (`.ibd`): Stores data pages and indexes for individual tables.
+   - General & Temporary Tablespaces: User-defined shared and ephemeral query tablespaces.
+   - Undo Tablespaces: Stores undo logs for MVCC snapshot reads and rollback segments.
+   - Redo Log (WAL): Sequential circular log files (`#ib_redo*` / `ib_logfile*`) for crash recovery.
+   - Doublewrite Buffer: Prevents torn pages on disk during partial page writes.
+
+2. ASYNCHRONOUS FLUSHING & CHECKPOINTING
+--------------------------------------------------------------------------------
+- Reads hit the Buffer Pool; if a page is missing, it is loaded into RAM from disk.
+- Writes modify pages in RAM (making them "dirty pages") and log sequential redo records.
+- Page Cleaner background threads asynchronously flush dirty pages to disk tablespaces
+  using fuzzy checkpoints, decoupling disk write latency from query transaction commits.

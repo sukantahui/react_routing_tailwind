@@ -84,14 +84,14 @@ const Topic6 = () => {
       eipValue: "0x0012FF88 -> 0x0012FFA8 (Shellcode)",
       espValue: "0x0012FFA8",
       ebpValue: "0x41414141",
-      cpuStatus: "SUCCESS: CPU executes NOP sled (\x90) and triggers msfvenom Reverse Shell!",
+      cpuStatus: "SUCCESS: CPU executes NOP instructions and jumps into diagnostic test payload!",
       stackState: [
-        { label: "Injected Shellcode (msfvenom)", hex: "0xDB 0xC0 0xD9 0x74...", color: "border-emerald-500 bg-emerald-950 text-emerald-200 font-bold" },
+        { label: "Injected Test Payload", hex: "0x90 0x90 0xCC 0xCC...", color: "border-emerald-500 bg-emerald-950 text-emerald-200 font-bold" },
         { label: "NOP Sled (32 x 0x90)", hex: "0x90 0x90 0x90 0x90...", color: "border-amber-500 bg-amber-950 text-amber-200 font-bold" },
         { label: "Return Address (Saved EIP)", hex: "0x625011AF (JMP ESP)", color: "border-cyan-500 bg-cyan-950 text-cyan-200" },
         { label: "Overflow Padding", hex: "0x41414141 ('A' * 2006)", color: "border-gray-800 bg-gray-900 text-gray-400" }
       ],
-      description: "The CPU slides down the NOP sled runway (\x90\x90...) and begins executing the reverse TCP shellcode in RAM, connecting back to the attacker's listener on port 443 with full SYSTEM privileges!"
+      description: "The CPU slides down the NOP sled runway and executes the injected test instructions in memory space."
     }
   ];
 
@@ -217,10 +217,10 @@ const Topic6 = () => {
       dilemma:
         "Teaching university students how to step through x86 assembly, calculate EIP overwrite offsets, and strip bad characters in a safe virtual lab.",
       resolution:
-        "The team built a hands-on laboratory with Immunity Debugger and Mona.py, guiding 140+ students through finding `JMP ESP` instructions, stripping bad characters, and generating msfvenom reverse shells.",
+        "The team built a hands-on laboratory with Immunity Debugger and Mona.py, guiding 140+ students through finding `JMP ESP` instructions, stripping bad characters, and analyzing payload buffers.",
       metrics: {
         studentsTrained: "140+ BCA Cyber Students",
-        toolsMastered: "Immunity Debugger, Mona.py, msfvenom",
+        toolsMastered: "Immunity Debugger, Mona.py, GDB",
         exploitPoCsDeveloped: "4 Working x86 Exploit Scripts",
         compliance: "NCIIPC Educational Security Charter"
       }

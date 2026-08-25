@@ -76,8 +76,8 @@ const Topic13 = () => {
       rootVulnerability: "Twilio relied on phishable SMS/App MFA; Cloudflare enforced mandatory physical FIDO2 keys.",
       resilientDefense: "FIDO2 WebAuthn cryptographic origin binding mathematically prevented the phishing domain from capturing signatures.",
       codeSnippet: `// FIDO2 Hardware Token WebAuthn Origin Binding:
-// User Browser URL       : https://cloudflare-okta.evil-phish.in (Attacker Proxy)
-// FIDO2 YubiKey Challenge: Computes SHA-256 hash of origin "cloudflare-okta.evil-phish.in"
+// User Browser URL       : https://cloudflare-okta.attacker-phish.net (Attacker Proxy)
+// FIDO2 YubiKey Challenge: Computes SHA-256 hash of origin "cloudflare-okta.attacker-phish.net"
 // Key Expected Domain    : "cloudflare.okta.com"
 // Result                 : Cryptographic Signature REFUSED ➔ Attack 100% BLOCKED!`
     },

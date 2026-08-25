@@ -1,0 +1,84 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 1: Backup Classification – Logical vs Physical, Cold vs Warm vs Hot, Full vs Incremental
+================================================================================
+
+1. DIMENSION 1: LOGICAL VS PHYSICAL BACKUPS
+--------------------------------------------------------------------------------
+A. Logical Backups (mysqldump, mysqlpump, mydumper):
+   - Definition: Extracts database schema and data as plain text SQL statements
+     (`CREATE TABLE`, `INSERT INTO`) or CSV files.
+   - Advantages:
+     * Human-readable and editable (can fix a bad schema before restore).
+     * Highly portable across MySQL versions (e.g. migrating 5.7 to 8.0), different OSs
+       (Linux to Windows), and cloud database engines (RDS / Cloud SQL).
+     * Granular restoration (can restore a single table or database easily).
+   - Disadvantages:
+     * Slow restore on large datasets (> 100GB): The database engine must parse SQL
+       text, compile queries, and rebuild all secondary B-tree indexes from scratch.
+
+B. Physical Backups (Percona XtraBackup, MySQL Enterprise Backup, Cold Copies):
+   - Definition: Directly copies the raw binary database files (`.ibd`, data dictionary,
+     undo tablespaces, and redo log files) at the filesystem block level.
+   - Advantages:
+     * Ultra-fast backup and restoration: Speed is limited only by physical disk I/O.
+     * Zero SQL query parsing or index rebuilding overhead on restore.
+     * Essential for multi-hundred gigabyte and multi-terabyte production databases.
+   - Disadvantages:
+     * Hardware & version bound: Must restore to identical MySQL minor versions and OS.
+     * Binary format cannot be inspected or edited with a text editor.
+
+2. DIMENSION 2: COLD VS WARM VS HOT BACKUPS
+--------------------------------------------------------------------------------
+A. Cold Backups (Offline):
+   - Taken while the MySQL server daemon is completely shut down (`systemctl stop mysqld`).
+   - Advantage: Guarantees 100% crash-consistent files without locking queries.
+   - Disadvantage: Requires complete application downtime.
+
+B. Warm Backups (Read-Only):
+   - Taken while the server is running, but explicit read locks block all writes:
+     `FLUSH TABLES WITH READ LOCK;`
+   - Advantage: Client reads (`SELECT`) continue operating.
+   - Disadvantage: All write transactions (`INSERT`, `UPDATE`, `DELETE`) stall in queues.
+
+C. Hot Backups (Online Non-Blocking):
+   - Taken while the database is fully online and active with concurrent reads AND writes.
+   - Mechanism:
+     * Logical: Uses InnoDB Multi-Version Concurrency Control (MVCC) snapshots via
+       `mysqldump --single-transaction`.
+     * Physical: Percona XtraBackup copies `.ibd` files while continuously streaming
+       active InnoDB redo logs in the background, then applies the redo logs (`--prepare`)
+       to achieve transaction consistency.
+
+3. DIMENSION 3: FULL VS INCREMENTAL VS DIFFERENTIAL BACKUPS
+--------------------------------------------------------------------------------
+A. Full Backup:
+   - Contains 100% of the database data at a specific snapshot point.
+   - Serves as the mandatory anchor baseline for all incremental strategies.
+
+B. Incremental Backup (LSN-Based or Binlog-Based):
+   - Backs up only the data modified since the previous backup (Full or Incremental).
+   - In XtraBackup, compares the Log Sequence Number (LSN) of each 16KB page, copying
+     only pages whose LSN is greater than the previous backup checkpoint.
+   - Restore sequence: Full Base + Incr 1 + Incr 2 + Incr 3...
+
+C. Differential Backup:
+   - Backs up all data modified since the last Full baseline backup.
+   - Restore sequence: Full Base + Latest Differential.
+
+4. SELECTION DECISION MATRIX
+--------------------------------------------------------------------------------
+Database Size       Target SLA (RTO)    Recommended Tool
+--------------------------------------------------------------------------------
+< 20 GB             < 30 minutes        mysqldump --single-transaction
+20 GB - 100 GB      < 1 hour            mydumper / myloader (Parallel logical)
+> 100 GB - Multi-TB < 15 minutes        Percona XtraBackup (Physical Hot Backup)
+Cross-Cloud Move    Portability         Logical SQL Dump / CSV Outfile
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Never use Cold backups on production customer-facing databases.
+2. For databases under 50GB, use `mysqldump --single-transaction --quick`.
+3. For databases over 100GB, mandate physical hot backups with Percona XtraBackup.
+4. Always verify that backup files include all required triggers, routines, and events.
+================================================================================

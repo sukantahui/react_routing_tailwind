@@ -1,0 +1,61 @@
+================================================================================
+MYSQL 8.0 SERVER LOGS, MONITORING & PERFORMANCE SCHEMA
+TOPIC 12: Monitoring Tooling Ecosystem – Prometheus, Grafana & Percona PMM
+================================================================================
+
+1. THE MODERN MYSQL OBSERVABILITY ECOSYSTEM
+--------------------------------------------------------------------------------
+Enterprise production environments monitor MySQL clusters using specialized
+time-series collectors, visual dashboarding engines, and deep query profiling platforms:
+
+1. Prometheus `mysqld_exporter`:
+   - Role: Lightweight Go daemon that connects to MySQL via dedicated monitoring user.
+   - Mechanism: Scrapes `SHOW GLOBAL STATUS`, `performance_schema`, and `sys.x$` views.
+   - Endpoint: Exposes standard metrics on HTTP port `9104` (e.g. `http://localhost:9104/metrics`).
+   - Key Flags: `--collect.info_schema.innodb_metrics`, `--collect.perf_schema.eventsstatements`.
+
+2. Grafana Dashboards:
+   - Role: Visual time-series graphing and automated alerting engine.
+   - Visualizes: QPS throughput, Replication Lag gauge, Buffer Pool Hit Ratio,
+     Threads_running vs CPU cores, Disk I/O latency, Memory breakdown.
+   - Community Dashboards: Percona MySQL Overview (ID: 7362), MySQL Exporter Quickstart (ID: 14057).
+
+3. Percona Monitoring and Management (PMM):
+   - Role: Complete open-source database observability platform for MySQL.
+   - Key Features:
+     - Query Analytics (QAN): Deep-dive query profiling, 95th-percentile latency charts,
+       execution histograms, and EXPLAIN plan visualizer.
+     - Advisors: Automated checks for security misconfigurations and index optimization.
+   - Architecture: PMM Server (Docker container) + PMM Client on database nodes.
+
+2. PROMETHEUS MYSQLD_EXPORTER SETUP RUNBOOK
+--------------------------------------------------------------------------------
+-- 1. Create dedicated least-privilege monitoring account in MySQL:
+CREATE USER 'exporter'@'127.0.0.1' IDENTIFIED BY 'ExporterSecurePass#2026' 
+  WITH MAX_USER_CONNECTIONS 5;
+GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'127.0.0.1';
+GRANT SELECT ON performance_schema.* TO 'exporter'@'127.0.0.1';
+GRANT SELECT ON sys.* TO 'exporter'@'127.0.0.1';
+
+-- 2. Run mysqld_exporter systemd service:
+-- ExecStart=/usr/local/bin/mysqld_exporter \
+--   --config.my-cnf=/etc/.mysqld_exporter.cnf \
+--   --collect.info_schema.innodb_metrics \
+--   --collect.perf_schema.eventsstatements
+
+3. PERCONA PMM CLIENT DEPLOYMENT
+--------------------------------------------------------------------------------
+# Connect PMM Client to PMM Server:
+pmm-admin config --server-insecure-tls --server-url=https://admin:pass@pmm.bank.com
+
+# Add MySQL service with Performance Schema query analytics:
+pmm-admin add mysql --username=pmm_user --password=PmmPass#2026 \
+  --query-source=perfschema --service-name=kolkata-core-master
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Restrict monitoring user connections using `WITH MAX_USER_CONNECTIONS 5`.
+2. Point Prometheus scrapers to `sys.x$` raw numeric views.
+3. Configure PMM Query Analytics (QAN) using `--query-source=perfschema` for zero disk I/O.
+4. Set up multi-channel PagerDuty and Slack alerts for Replication Lag and Threads_running.
+================================================================================

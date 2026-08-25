@@ -1,0 +1,34 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 5: InnoDB Redo Log (WAL - Write-Ahead Logging) and Crash Recovery Mechanics
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WRITE-AHEAD LOGGING (WAL) & REDO LOG OVERVIEW
+--------------------------------------------------------------------------------
+The Redo Log is a circular, sequential on-disk transaction log that records
+physical changes made to 16KB data pages.
+
+The WAL (Write-Ahead Logging) Principle:
+- Before any dirty page in the Buffer Pool is written to random disk sectors,
+  the transaction's physical change records must be written to the sequential Redo Log.
+- Appending sequentially to the Redo Log is orders of magnitude faster than
+  performing random 16KB disk page writes across various tablespaces.
+
+2. LOG SEQUENCE NUMBER (LSN) & CHECKPOINTING
+--------------------------------------------------------------------------------
+- LSN is a 64-bit integer tracking total redo log bytes written.
+- Checkpoint LSN: The point up to which all modified dirty pages have been
+  successfully flushed and written to disk tablespaces.
+- Checkpoint Age = Current LSN - Checkpoint LSN.
+- When Checkpoint Age approaches 75-80% of total Redo Log capacity, InnoDB triggers
+  synchronous flush throttling to prevent log ring overflow.
+
+3. INNODB CRASH RECOVERY WORKFLOW (3-STEP PIPELINE)
+--------------------------------------------------------------------------------
+When MySQL restarts after an unexpected crash or power cut:
+1. Doublewrite Verification: Validates page integrity and restores torn pages.
+2. Redo Log Roll-Forward: Replays all committed changes from the Last Checkpoint LSN
+   forward to the end of the redo log, bringing Buffer Pool pages up to date.
+3. Undo Log Roll-Back: Reverts all uncommitted in-flight transactions active at
+   the time of the crash using undo records.

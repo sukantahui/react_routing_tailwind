@@ -91,8 +91,8 @@ def generate_dga_domain(date_str, index):
       telemetryIndicator: "DNS responses containing 5-10 distinct global IP addresses with TTLs of 60 seconds or less",
       resilientDefense: "Passive DNS historical tracking and blocking authoritative name servers exhibiting abnormal flux rates.",
       codeSnippet: `// Fast-Flux DNS Record Query (TTL = 60s):
-// Minute 01: c2.evil.in ➔ 185.220.101.5, 103.25.10.8, 198.51.100.4
-// Minute 02: c2.evil.in ➔ 45.33.32.156, 172.56.21.90, 82.102.23.4
+// Minute 01: attacker-c2.net ➔ 185.220.101.5, 103.25.10.8, 198.51.100.4
+// Minute 02: attacker-c2.net ➔ 45.33.32.156, 172.56.21.90, 82.102.23.4
 // Result: Static firewall IP blocking is completely rendered useless!`
     },
     multivector_concurrency_floods: {
@@ -125,7 +125,7 @@ def generate_dga_domain(date_str, index):
       telemetryIndicator: "Standardized attack packet payloads matching known open-source booter attack scripts",
       resilientDefense: "Law enforcement booter infrastructure takedowns and upstream threat intelligence blocklists.",
       codeSnippet: `// Booter / Stresser API Attack Request:
-POST https://stresser-c2.evil-hub.in/api/v1/attack
+POST https://stresser-attacker-c2.net/api/v1/attack
 {
     "target": "103.25.10.50", "port": 443, "duration_seconds": 3600,
     "method": "CLOUDFLARE_BYPASS_UAM", "threads": 500

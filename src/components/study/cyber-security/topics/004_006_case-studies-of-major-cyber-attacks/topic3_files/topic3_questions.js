@@ -139,10 +139,9 @@ const backupBucketPolicy = {
     explanation: "When an administrator logs into a Windows computer, Windows caches the credentials in the LSASS process memory. Attackers with administrative or SYSTEM privileges invoke `MiniDumpWriteDump` against `lsass.exe` to parse and dump passwords in cleartext.",
     hint: "Dumping cached passwords and NTLM hashes from the `lsass.exe` system process.",
     level: "Expert",
-    codeExample: `// Mimikatz LSASS Dump Command Sequence:
-// privilege::debug
-// sekurlsa::logonpasswords
-// Extracts cleartext passwords, NTLM hashes, and Kerberos tickets from memory!`
+    codeExample: `// LSASS Protection Verification (PowerShell):
+Get-Process lsass | Select-Object -Property Name, Id, Path
+// Windows Defender Credential Guard isolates LSASS memory in a virtualized container!`
   },
   {
     id: 11,
@@ -230,11 +229,9 @@ async function requestAdminAccess(targetServer, reason) {
     explanation: "Windows Volume Shadow Copies allow administrators to restore modified or deleted files to previous snapshot states. WIPALL executed silent command-line utilities to purge all local restore points and shadow volumes before overwriting the Master Boot Record.",
     hint: "Executing vssadmin commands to silently delete all local shadow copies and restore points.",
     level: "Moderate",
-    codeExample: `// WIPALL Anti-Recovery Command Sequence:
-// cmd.exe /c vssadmin.exe Delete Shadows /All /Quiet
-// cmd.exe /c wbadmin.exe delete catalog -quiet
-// cmd.exe /c bcdedit /set {default} recoveryenabled No
-// cmd.exe /c bcdedit /set {default} bootstatuspolicy ignoreallfailures`
+    codeExample: `// Anti-Recovery Command Concept:
+// Attackers script system utility invocations to purge shadow volumes and disable recovery flags.
+// Defended by: EDR blocking unauthorized command-line invocations of shadow copy management.`
   },
   {
     id: 17,

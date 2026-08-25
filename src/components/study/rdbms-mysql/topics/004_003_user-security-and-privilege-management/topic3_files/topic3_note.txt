@@ -1,0 +1,101 @@
+================================================================================
+MYSQL 8.0 DATABASE SECURITY & PRIVILEGE MANAGEMENT
+TOPIC 3: Authentication Plugins – caching_sha2_password vs mysql_native_password
+================================================================================
+
+1. OVERVIEW & HISTORICAL EVOLUTION OF MYSQL AUTHENTICATION
+--------------------------------------------------------------------------------
+Authentication plugins determine how MySQL Server verifies a client's password
+and encrypts authentication tokens over the network connection.
+
+Evolution across MySQL versions:
+- MySQL 3.23 / 4.0: `mysql_old_password`
+  * 16-byte hashes, vulnerable to rainbow tables and brute-force attacks. Removed in MySQL 5.7.
+- MySQL 4.1 to 5.7: `mysql_native_password`
+  * Double SHA-1 hashing algorithm: `SHA1(password ^ SHA1(SHA1(password) + scramble))`.
+  * Vulnerable to SHA-1 collision vulnerabilities and off-line GPU cracking.
+  * Deprecated in MySQL 8.0 and disabled/removed by default in MySQL 8.4 LTS.
+- MySQL 5.6 / 5.7: `sha256_password`
+  * Strong 256-bit SHA-2 hashing with salted iterations.
+  * Slow authentication handshake (requires RSA public key exchange or SSL/TLS).
+- MySQL 8.0+: `caching_sha2_password` (DEFAULT since MySQL 8.0.4)
+  * Combines military-grade SHA-256 cryptographic hashing with an in-memory server-side password hash cache.
+  * Delivers sub-millisecond fast-path re-authentication while maintaining zero plaintext credential transmission.
+
+2. CRYPTOGRAPHIC HANDSHAKE COMPARISON
+--------------------------------------------------------------------------------
+A. mysql_native_password Handshake:
+   1. Client initiates TCP connection.
+   2. Server generates a 20-byte random scramble nonce and sends it to the client.
+   3. Client computes: `Token = SHA1(Password) XOR SHA1(Scramble + SHA1(SHA1(Password)))`.
+   4. Client sends Token to Server.
+   5. Server computes: `Expected = SHA1(Password_Hash) XOR Token` and verifies if `SHA1(Expected) == Password_Hash`.
+   * Security Weakness: Double SHA-1 hashing has significant mathematical weakness. With modern GPU clusters, billions of SHA-1 combinations can be hashed per second.
+
+B. caching_sha2_password Handshake:
+   1. Fast-Path Handshake (Cached Credential):
+      - When a user connects and has previously authenticated, the server retains the client's SHA-256 digest in its in-memory authentication cache.
+      - Client sends scramble-based SHA-256 token.
+      - Server matches directly against memory cache and accepts connection in under 0.5 ms without disk or RSA overhead.
+   2. Full Handshake (Cache Miss / First Connection):
+      - If user is not in server cache or server restarted:
+      - Over TLS/SSL: Client transmits password directly encrypted inside TLS tunnel.
+      - Over Non-TLS: Server sends its RSA Public Key (`rsa_public_key` / `caching_sha2_password_private_key_path`). Client encrypts password with RSA public key and sends ciphertext to server.
+      - Server decrypts using its private key, validates, and adds entry to in-memory SHA-2 cache.
+
+3. CONFIGURING AUTHENTICATION PLUGINS IN MYSQL 8.0
+--------------------------------------------------------------------------------
+A. Global Default Plugin Configuration (my.cnf / my.ini):
+   [mysqld]
+   default_authentication_plugin=caching_sha2_password
+
+B. Creating Accounts with Specific Plugins:
+   -- Modern Secure Account (Default):
+   CREATE USER 'mamata_app'@'192.168.1.%'
+     IDENTIFIED WITH caching_sha2_password BY 'StrongP@ssw0rd#2026';
+
+   -- Legacy Account for Older Connectors (PHP 5.x, Node mysql driver v1):
+   CREATE USER 'legacy_client'@'10.0.0.%'
+     IDENTIFIED WITH mysql_native_password BY 'LegacyAppP@ss2026';
+
+C. Converting Existing User Accounts:
+   ALTER USER 'debangshu_dev'@'localhost'
+     IDENTIFIED WITH caching_sha2_password BY 'NewUpdatedP@ssw0rd!2026';
+
+D. Inspecting Active Authentication Plugins:
+   SELECT user, host, plugin, authentication_string, password_last_changed
+   FROM mysql.user
+   WHERE user IN ('mamata_app', 'legacy_client', 'debangshu_dev');
+
+4. CLIENT DRIVER COMPATIBILITY MATRIX
+--------------------------------------------------------------------------------
+| Client / Driver           | caching_sha2_password Support | Recommended Action                   |
+|---------------------------|-------------------------------|--------------------------------------|
+| MySQL Connector/J 8.0+    | Fully Supported               | Use caching_sha2_password            |
+| MySQL Connector/Python 8+ | Fully Supported               | Use caching_sha2_password            |
+| Node mysql2 (v2.0+)       | Fully Supported               | Use caching_sha2_password            |
+| Node mysql (legacy v1.x)  | NOT Supported (Error 2054)    | Upgrade to `mysql2` or legacy plugin |
+| PHP 7.4+ (mysqli/pdo_mysql)| Fully Supported (libmysqlclient)| Use caching_sha2_password          |
+| PHP 7.0 - 7.2 (php-mysqlnd)| Partial / Requires SSL or RSA | Upgrade PHP runtime or use legacy    |
+| Python PyMySQL            | Supported with `cryptography` | `pip install cryptography`           |
+| DBeaver / DataGrip        | Fully Supported               | Built-in RSA key exchange            |
+
+5. RESOLVING COMMON AUTHENTICATION ERRORS
+--------------------------------------------------------------------------------
+Error 1: "Authentication plugin 'caching_sha2_password' cannot be loaded"
+  - Cause: Legacy client connector that does not recognize SHA-256 handshake.
+  - Fix: Upgrade client connector library (e.g. `npm i mysql2` or upgrade JDBC jar) or alter user to `mysql_native_password`.
+
+Error 2: "RSA public key not available from server" (Error 1251)
+  - Cause: Non-SSL connection attempting full SHA-256 handshake without client having access to server's RSA public key.
+  - Fix 1: Enable TLS/SSL connection (`useSSL=true` / `ssl-mode=REQUIRED`).
+  - Fix 2: Allow client to request RSA public key from server (`allowPublicKeyRetrieval=true` in JDBC URL or `--get-server-public-key` in CLI).
+  - Fix 3: Supply RSA public key file path directly to client connector (`serverRsaPublicKeyFile=/path/to/public_key.pem`).
+
+6. PRODUCTION BEST PRACTICES & SECURITY RECOMMENDATIONS
+--------------------------------------------------------------------------------
+1. Standardize on `caching_sha2_password` across all production microservices.
+2. Pair `caching_sha2_password` with enforced TLS 1.3 encryption (`REQUIRE SSL`).
+3. Set `allowPublicKeyRetrieval=true` ONLY during initial bootstrap or within secure private VPC networks, never across public untrusted Internet.
+4. Prepare for MySQL 8.4+ LTS and MySQL 9.0 by auditing and eliminating all legacy `mysql_native_password` users.
+================================================================================

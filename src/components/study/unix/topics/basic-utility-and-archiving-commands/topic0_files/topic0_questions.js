@@ -229,7 +229,7 @@ const questions = [
     explanation: "Because `cal` outputs plain text, you can execute it from any language, capture stdout, and present it inside `<pre>` tags. Disable highlighting (`-h`) to avoid escape codes.",
     hint: "Sanitize output for web (no ANSI codes).",
     level: "expert",
-    codeExample: "<?php echo '<pre>' . shell_exec('cal -h') . '</pre>'; ?>"
+    codeExample: "# Python example:\nimport subprocess\noutput = subprocess.run(['cal', '-h'], capture_output=True, text=True).stdout\nprint(output)"
   },
   {
     question: "What is the difference between `cal` and `gcal` (GNU calendar)?",

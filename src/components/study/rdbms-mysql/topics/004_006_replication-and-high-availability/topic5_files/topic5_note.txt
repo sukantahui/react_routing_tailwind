@@ -1,0 +1,52 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 5: Replication Filters – binlog-do-db, replicate-do-db & Wildcard Rules
+================================================================================
+
+1. SOURCE-SIDE VS REPLICA-SIDE FILTERING ARCHITECTURE
+--------------------------------------------------------------------------------
+Level           Options                         Evaluation Point       Pros & Cons
+--------------------------------------------------------------------------------
+Source-Side     `binlog_do_db`                  Evaluated *before*     Saves Source disk/network,
+(Primary)       `binlog_ignore_db`              writing to binlog.     but filters ALL downstream replicas;
+                                                                       risks dropping cross-DB queries.
+
+Replica-Side    `replicate_do_db`               Evaluated by the SQL   Selective filtering per replica;
+(Replica)       `replicate_ignore_db`           thread when reading    allows other replicas to receive full
+                `replicate_wild_do_table`       local Relay Logs.      data. Recommended for reporting nodes.
+                `replicate_wild_ignore_table`
+
+2. CRITICAL CAVEAT: CROSS-DATABASE QUERY FILTERING
+--------------------------------------------------------------------------------
+In Statement-based logging (`binlog_format = STATEMENT`), database filters evaluate
+only the currently selected database (`USE database_name`):
+-- If binlog_do_db = sales:
+USE inventory;
+UPDATE sales.orders SET status = 'Shipped' WHERE id = 101;
+-- 💥 DANGER: In STATEMENT format, this query is DROPPED because current DB is inventory!
+-- ✅ SOLUTION: Always use `binlog_format = ROW` to evaluate exact modified tables.
+
+3. DYNAMIC REPLICATION FILTERING IN MYSQL 8.0
+--------------------------------------------------------------------------------
+MySQL 8.0 allows modifying replication filters dynamically without restarting the server:
+STOP REPLICA SQL_THREAD;
+
+CHANGE REPLICATION FILTER 
+  REPLICATE_DO_DB = (kolkata_retail, barrackpore_store),
+  REPLICATE_WILD_IGNORE_TABLE = ('kolkata_retail.audit_%', '%.temp_%');
+
+START REPLICA SQL_THREAD;
+
+4. DATABASE REWRITING ON REPLICAS (replicate-rewrite-db)
+--------------------------------------------------------------------------------
+Allows replicating data from a primary database into a differently named database on replica:
+-- [mysqld] on Replica:
+replicate-rewrite-db = 'prod_db->reporting_db'
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Avoid `binlog_do_db` on the Source; prefer `replicate_wild_do_table` on replicas.
+2. Always use `binlog_format = ROW` to ensure safe, table-level rule evaluation.
+3. Use dynamic `CHANGE REPLICATION FILTER` commands to avoid replica downtime.
+4. Verify active filters using `SHOW REPLICA STATUS\G` (Replicate_Do_DB, Replicate_Wild_Ignore_Table).
+================================================================================

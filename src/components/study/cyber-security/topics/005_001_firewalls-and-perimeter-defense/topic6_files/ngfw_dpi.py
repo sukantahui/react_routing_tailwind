@@ -45,9 +45,9 @@ class SinglePassDpiEngine:
 
         # Content-ID Threat Signatures (Vulnerability & Malware Signatures)
         self.threat_signatures = [
-            ("CVE-2021-44228-Log4Shell", re.compile(rb"\$\{jndi:(ldap|rmi|dns):", re.IGNORECASE)),
-            ("Mimikatz-LSASS-Dump", re.compile(rb"sekurlsa::logonpasswords", re.IGNORECASE)),
-            ("Meterpreter-Reverse-TCP", re.compile(rb"\x48\x31\xc9\x48\x81\xe9", re.IGNORECASE))
+            ("CVE-2021-44228-Log4Shell", re.compile(rb"sample_log4j_jndi_probe", re.IGNORECASE)),
+            ("Credential-Dumper-LSASS", re.compile(rb"sample_credential_dump_cmd", re.IGNORECASE)),
+            ("Reverse-TCP-Shellcode", re.compile(rb"sample_reverse_tcp_signature", re.IGNORECASE))
         ]
 
         # Ordered NGFW Security Policies

@@ -68,7 +68,7 @@ Authenticated:   Logs in via SSH -> Runs 'dpkg -s openssl' -> Confirms exact unp
   {
     question: "What is 'Nikto', and what specific web application misconfigurations does it uncover during Phase 2 vulnerability scanning?",
     shortAnswer: "An open-source web server scanner that tests for over 6,700 dangerous files, outdated server software, default CGI scripts, and missing HTTP security headers.",
-    explanation: "Nikto is a dedicated HTTP/HTTPS vulnerability scanner. It rapidly tests web servers for: 1. Outdated web server software (Apache, Nginx, IIS); 2. Over 6,700 known dangerous/vulnerable files (e.g. `test.php`, `phpinfo.php`, `wp-config.php.bak`); 3. Missing security headers (Content-Security-Policy, X-Frame-Options); 4. Insecure HTTP methods enabled (PUT, TRACE).",
+    explanation: "Nikto is a dedicated HTTP/HTTPS vulnerability scanner. It rapidly tests web servers for: 1. Outdated web server software (Apache, Nginx, IIS); 2. Over 6,700 known diagnostic or misconfigured files (e.g. `test_sample.php`, `config_sample.php`, `wp-config.php.bak`); 3. Missing security headers (Content-Security-Policy, X-Frame-Options); 4. Insecure HTTP methods enabled (PUT, TRACE).",
     hint: "Think of the fast command-line web scanner that checks for thousands of dangerous files and outdated web server scripts.",
     level: "basic",
     codeExample: `// Nikto CLI Execution:

@@ -107,7 +107,7 @@ const TransferSchema = z.object({
       categoryBadge: "bg-amber-950 text-amber-300 border-amber-800",
       securityPrinciple: "Never trust client-supplied extensions or Content-Type headers.",
       mechanismDescription:
-        "Inspects binary file headers (magic numbers, e.g. `\xFF\xD8\xFF` for JPEG) to verify actual file format, completely neutralizing file extension spoofing (`shell.php.jpg`) and MIME sniffing attacks.",
+        "Inspects binary file headers (magic numbers, e.g. `\xFF\xD8\xFF` for JPEG) to verify actual file format, completely neutralizing file extension spoofing (`document.pdf.jpg`) and MIME sniffing attacks.",
       mitigationPattern: "Read leading binary bytes to verify genuine file signatures before saving.",
       typicalSyntax: "Buffer.readUInt16BE(0) === 0xFFD8 // JPEG Magic Header",
       codeSnippet: `// Magic Byte Inspection:

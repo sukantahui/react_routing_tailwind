@@ -1,0 +1,71 @@
+================================================================================
+MYSQL 8.0 BACKUP, POINT-IN-TIME RECOVERY & DATA MIGRATION
+TOPIC 7: Point-in-Time Recovery (PITR) – Full Backup + Binary Log Replay
+================================================================================
+
+1. WHAT IS POINT-IN-TIME RECOVERY (PITR)?
+--------------------------------------------------------------------------------
+Point-in-Time Recovery (PITR) is the process of restoring a database to the exact
+microsecond or transaction coordinate immediately preceding a failure, data corruption,
+or destructive user error (such as an accidental `DROP TABLE` or bad `UPDATE`).
+
+2. THE TWO-STEP PITR ARCHITECTURE
+--------------------------------------------------------------------------------
+Step 1: Baseline Restoration
+  - Restore the most recent Full Base Backup (physical or logical) captured prior
+    to the incident (e.g. Last night's midnight backup at 00:00:00).
+  - Obtain the starting binary log coordinate from:
+    * `xtrabackup_binlog_info` (for physical backups), OR
+    * `# CHANGE REPLICATION SOURCE ... SOURCE_LOG_POS` (for mysqldump `--source-data=2`).
+
+Step 2: Binary Log Roll-Forward
+  - Use `mysqlbinlog` to extract, filter, and replay all committed transactions
+    recorded between the baseline backup position and the target recovery point.
+
+3. THE MYSQLBINLOG COMMAND SUITE
+--------------------------------------------------------------------------------
+A. Time-Based Roll-Forward:
+   -- Replay all transactions up to 1 second before the disaster occurred at 14:30:00:
+   mysqlbinlog --start-datetime="2026-08-25 00:00:00" \\
+               --stop-datetime="2026-08-25 14:29:59" \\
+               --disable-log-bin \\
+               /var/log/mysql/binlog.000045 /var/log/mysql/binlog.000046 | mysql -u root -p
+
+B. Position-Based Exact Precision (Recommended):
+   -- Positions provide 100% microsecond precision without timezone ambiguities:
+   mysqlbinlog --start-position=1582 \\
+               --stop-position=928410 \\
+               --disable-log-bin \\
+               /var/log/mysql/binlog.000045 | mysql -u root -p
+
+4. SURGICALLY SKIPPING A DESTRUCTIVE TRANSACTION
+--------------------------------------------------------------------------------
+Scenario: At position 928410, an accidental `DROP TABLE orders;` occurred at 14:30:00.
+
+Workflow:
+1. Replay Segment 1 (From Base Checkpoint up to pre-DROP position 928410):
+   mysqlbinlog --start-position=1582 --stop-position=928410 binlog.000045 | mysql -u root -p
+
+2. Skip the DROP statement (which ends at position 928650).
+
+3. Replay Segment 2 (From post-DROP position 928650 to the end of the log):
+   mysqlbinlog --start-position=928650 binlog.000045 binlog.000046 | mysql -u root -p
+
+Result: All valid transactions before AND after the incident are preserved, while
+the destructive DROP is completely excised!
+
+5. WHY --DISABLE-LOG-BIN (-D) IS CRITICAL DURING REPLAY
+--------------------------------------------------------------------------------
+- `--disable-log-bin` outputs `SET @@session.sql_log_bin=0;` at the top of the SQL stream.
+- Prevents replaying transactions from creating duplicate binary logs on the recovery
+  server, avoiding disk bloat and replication loops.
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Replay multiple binary log files in a SINGLE `mysqlbinlog` command to preserve
+   temporary table contexts and cross-file transactions.
+2. Use position-based recovery (`--start-position` / `--stop-position`) rather than
+   timestamps for mission-critical precision.
+3. Keep binary logs on a separate physical storage volume or stream to cloud S3 in real time.
+4. Test PITR runbooks in sandbox environments quarterly.
+================================================================================

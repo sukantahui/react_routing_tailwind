@@ -1,0 +1,35 @@
+================================================================================
+RDBMS MySQL Course - Module 004_003: User Security, Roles, Privileges & Encryption
+Topic 0: MySQL Security Architecture and Privilege System Overview
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE TWO-STAGE ACCESS CONTROL SYSTEM
+--------------------------------------------------------------------------------
+Every client interaction with MySQL undergoes a strict two-stage verification:
+
+1. STAGE 1: CONNECTION VERIFICATION (Authentication):
+   - "Can you connect to the server?"
+   - Evaluates: Username, Client Host (IP/hostname), and Password/Plugin.
+   - Checked against: `mysql.user` table.
+
+2. STAGE 2: REQUEST VERIFICATION (Authorization):
+   - "Can you execute this specific SQL statement on this specific object?"
+   - Evaluates: SQL command (SELECT, INSERT, DROP) and Target Object (db.table.column).
+   - Checked against: Privilege grant tables (`mysql.user`, `mysql.db`, `mysql.tables_priv`, etc.).
+
+2. THE 5-TIER PRIVILEGE HIERARCHY
+--------------------------------------------------------------------------------
+Level 1: Global Privileges      -> Applies to all databases (*.*)         -> `mysql.user`
+Level 2: Database Privileges    -> Applies to a database (db.*)          -> `mysql.db`
+Level 3: Table Privileges       -> Applies to a table (db.tbl)           -> `mysql.tables_priv`
+Level 4: Column Privileges      -> Applies to specific columns           -> `mysql.columns_priv`
+Level 5: Routine Privileges     -> Applies to Stored Procedures/Funcs    -> `mysql.procs_priv`
+
+3. IN-MEMORY GRANT TABLE CACHING & THE FLUSH PRIVILEGES MYTH
+--------------------------------------------------------------------------------
+- MySQL caches all privilege tables in memory for sub-microsecond ACL lookups.
+- DDL statements (`CREATE USER`, `GRANT`, `REVOKE`, `ALTER USER`) update both the disk
+  tables AND the in-memory cache ATOMICALLY.
+- `FLUSH PRIVILEGES` is ONLY needed if you modify grant tables directly with `INSERT`/`UPDATE`
+  (which is a deprecated security anti-pattern).

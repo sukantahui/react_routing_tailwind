@@ -1,0 +1,70 @@
+================================================================================
+MYSQL 8.0 SERVER LOGS, MONITORING & PERFORMANCE SCHEMA
+TOPIC 1: The Error Log – Configuration, Rotation, Diagnostic Messages & JSON Sinks
+================================================================================
+
+1. WHAT IS THE MYSQL ERROR LOG?
+--------------------------------------------------------------------------------
+The Error Log is the most critical diagnostic log file in MySQL. It records:
+- Server startup and shutdown sequences.
+- InnoDB buffer pool initialization and crash recovery roll-forwards.
+- Critical engine errors, corrupted page checksum warnings, and hardware I/O faults.
+- Aborted client connections, authentication failures, and network timeouts.
+- Replication I/O and SQL thread failures.
+
+2. CONFIGURATION & LOG VERBOSITY IN MYSQL 8.0
+--------------------------------------------------------------------------------
+A. File Location:
+   [mysqld]
+   log_error = /var/log/mysql/error.log
+
+B. Error Verbosity Levels (`log_error_verbosity`):
+   - 1 = Errors only (Suppresses warnings and notes).
+   - 2 = Errors + Warnings (Recommended for production: captures replication & connection alerts).
+   - 3 = Errors + Warnings + Notes (Verbose connection notices; useful in staging).
+
+   -- Configure dynamically:
+   SET PERSIST log_error_verbosity = 2;
+
+3. COMPONENT-BASED LOGGING & JSON SINKS (`log_error_services`)
+--------------------------------------------------------------------------------
+MySQL 8.0 introduces a modular error logging architecture:
+- Traditional Text Sink: `log_filter_internal; log_sink_internal`
+- Structured JSON Sink (for ELK, Datadog, Grafana Loki):
+  INSTALL COMPONENT 'file://component_log_sink_json';
+  SET PERSIST log_error_services = 'log_filter_internal; log_sink_json';
+
+- Output in JSON format (`/var/log/mysql/error.log.json`):
+  {
+    "prio": "ERROR",
+    "err_code": 11906,
+    "subsystem": "InnoDB",
+    "msg": "Database page corruption on disk in tablespace 45",
+    "time": "2026-08-25T15:00:00.123456Z"
+  }
+
+4. ERROR LOG SUPPRESSION & LOG ROTATION
+--------------------------------------------------------------------------------
+A. Suppressing Harmless Repetitive Warnings:
+   -- Suppress specific error codes from cluttering error logs:
+   SET PERSIST log_error_suppression_list = 'MY-010055,MY-010008';
+
+B. Log Rotation via Linux logrotate:
+   /var/log/mysql/error.log {
+     daily
+     rotate 30
+     compress
+     missingok
+     notifempty
+     postrotate
+       mysqladmin -u root -pSecurePass flush-logs error
+     endscript
+   }
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Set `log_error_verbosity = 2` to capture warnings without disk bloat.
+2. Adopt JSON logging (`log_sink_json`) for automated SIEM / cloud alerting.
+3. Configure automated daily log rotation to prevent multi-gigabyte log files.
+4. Set up real-time alerting for `[ERROR]` and `[CRITICAL]` error signatures.
+================================================================================

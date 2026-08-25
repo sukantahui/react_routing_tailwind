@@ -1,0 +1,65 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 2: Partition Pruning – Optimizer Mechanics, Pruning Rules & EXPLAIN
+================================================================================
+
+1. WHAT IS PARTITION PRUNING?
+--------------------------------------------------------------------------------
+Partition Pruning is the optimizer process of analyzing query `WHERE` predicates
+to determine which physical partitions can possibly contain matching rows, completely
+excluding (pruning) non-matching partitions from the query execution plan.
+
+Impact:
+- Reduces disk I/O by 80% to 99%+.
+- Keeps active index B-Trees cached inside the InnoDB buffer pool RAM.
+- Decreases CPU time by avoiding multi-partition merge sorts.
+
+2. STATIC VS DYNAMIC PARTITION PRUNING
+--------------------------------------------------------------------------------
+Type                 Evaluation Timing             Mechanism & Example
+--------------------------------------------------------------------------------
+Static Pruning       Query Optimization Phase      Evaluated against constant literals:
+                     (Pre-Execution)               `WHERE order_date >= '2025-01-01'`
+
+Dynamic Pruning      Query Execution Phase         Evaluated at runtime for subquery results,
+                     (Per-Row Execution)           JOIN predicates, and Prepared Statements:
+                                                   `WHERE order_date = (SELECT max_date FROM ...)`
+
+3. SUPPORTED PREDICATES & FUNCTIONS THAT ENABLE PRUNING
+--------------------------------------------------------------------------------
+Operators: `=`, `<`, `>`, `<=`, `>=`, `<>`, `BETWEEN`, `IN (...)`, `IS NULL`
+
+Supported Functions for RANGE / LIST Pruning:
+- `YEAR()`, `TO_DAYS()`, `TO_SECONDS()`, `DAYOFYEAR()`, `QUARTER()`, `MONTH()`, `HOUR()`
+- `UNIX_TIMESTAMP()` (on `TIMESTAMP` partition columns)
+
+4. COMMON ANTI-PATTERNS THAT BREAK PRUNING
+--------------------------------------------------------------------------------
+1. Function Wrapping on Columns:
+   `WHERE DATE_FORMAT(order_date, '%Y-%m') = '2025-05'` ──> ❌ Breaks Pruning (Scans All!)
+   `WHERE order_date BETWEEN '2025-05-01' AND '2025-05-31'` ──> ✅ Enables Pruning (p2025 only!)
+
+2. Implicit Type Conversion:
+   Filtering string literals on integer partition keys prevents mathematical range evaluation.
+
+3. Cross-Partition JOIN Omissions:
+   Failing to include the partition key in `ON` join predicates forces full cross-partition joins.
+
+5. VERIFYING PRUNING WITH EXPLAIN
+--------------------------------------------------------------------------------
+```sql
+-- 1. Standard EXPLAIN:
+EXPLAIN SELECT * FROM orders WHERE order_date = '2025-06-15';
+-- Check 'partitions' column -> Should show ONLY 'p2025'.
+
+-- 2. JSON Format EXPLAIN:
+EXPLAIN FORMAT=JSON SELECT * FROM orders WHERE order_date = '2025-06-15';
+```
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Always write range conditions using standard `<` and `>=` bounds rather than complex functions.
+2. Verify pruning on all reporting queries via `EXPLAIN FORMAT=TREE`.
+3. Include partition columns in compound join conditions (`JOIN ON a.id = b.id AND a.date = b.date`).
+4. Ensure timezone stability on `TIMESTAMP` columns to maintain deterministic partition routing.
+================================================================================

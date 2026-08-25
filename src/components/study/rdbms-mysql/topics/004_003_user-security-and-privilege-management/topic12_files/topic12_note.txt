@@ -1,0 +1,88 @@
+================================================================================
+MYSQL 8.0 DATABASE SECURITY & PRIVILEGE MANAGEMENT
+TOPIC 12: Securing Data at Rest – InnoDB Transparent Data Encryption (TDE) & Keyrings
+================================================================================
+
+1. WHAT IS TRANSPARENT DATA ENCRYPTION (TDE)?
+--------------------------------------------------------------------------------
+Transparent Data Encryption (TDE) protects "Data at Rest"—ensuring that physical
+database files on disk (`.ibd`), redo logs, undo logs, and binary logs cannot be
+read if raw storage drives, cloud EBS snapshots, or physical backups are stolen.
+
+Why it is "Transparent":
+- Operating at the InnoDB storage engine tier, pages are decrypted into RAM (InnoDB
+  Buffer Pool) when read from disk, and encrypted using AES-256 before being written
+  back to storage.
+- Applications, SQL queries, and ORM models interact with data normally without
+  code modifications.
+
+2. THE TWO-TIER KEY ARCHITECTURE
+--------------------------------------------------------------------------------
+MySQL TDE implements a secure two-tier cryptographic key hierarchy:
+
+Tier 1: Master Encryption Key (MEK)
+  - Stored outside the database server in a Keyring component or HSM/Vault.
+  - Used solely to encrypt and decrypt the Tablespace Keys.
+
+Tier 2: Tablespace Encryption Key (DEK - Data Encryption Key)
+  - Stored in the header of each individual tablespace file (`.ibd`), encrypted by the MEK.
+  - Used to encrypt individual 16KB data pages on disk via AES-256-CBC or AES-256-ECB.
+
+Master Key Rotation (Instantaneous & Zero Downtime):
+  - To rotate the Master Key, MySQL generates a new MEK in the keyring and re-encrypts
+    only the small tablespace keys in the headers:
+    ALTER INSTANCE ROTATE INNODB MASTER KEY;
+  - Zero re-encryption of data pages is needed, enabling instantaneous key rotation
+    even across multi-terabyte databases!
+
+3. MYSQL 8.0 KEYRING ARCHITECTURE
+--------------------------------------------------------------------------------
+Keyrings securely store and manage master keys:
+
+A. Keyring Components (MySQL 8.0.24+ Standard):
+   - `component_keyring_file`: Local secure file storage.
+   - `component_keyring_kmip`: KMIP-compliant Hardware Security Modules (HSMs).
+   - `component_keyring_aws`: AWS Key Management Service (AWS KMS).
+   - `keyring_hashicorp`: HashiCorp Vault key storage.
+
+B. Configuring Keyring Component:
+   -- Installed via manifest and configuration file:
+   INSTALL COMPONENT 'file://component_keyring_file';
+
+   -- Verify active keyring:
+   SELECT * FROM performance_schema.keyring_component_status;
+
+4. ENABLING TDE ACROSS TABLESPACES & LOGS
+--------------------------------------------------------------------------------
+A. File-Per-Table Encryption:
+   CREATE TABLE kolkata_finance.ledgers (
+     ledger_id INT PRIMARY KEY AUTO_INCREMENT,
+     account_num VARCHAR(30),
+     balance DECIMAL(15,2)
+   ) ENCRYPTION = 'Y';
+
+   -- Encrypt existing unencrypted table:
+   ALTER TABLE kolkata_finance.ledgers ENCRYPTION = 'Y';
+
+B. Redo Log & Undo Log Encryption:
+   SET GLOBAL innodb_redo_log_encrypt = ON;
+   SET GLOBAL innodb_undo_log_encrypt = ON;
+
+C. System-Wide Default Encryption:
+   SET PERSIST default_table_encryption = ON;
+   SET PERSIST table_encryption_privilege_check = ON;
+
+5. INSPECTING & AUDITING ENCRYPTED TABLESPACES
+--------------------------------------------------------------------------------
+-- Check encryption status across all tablespaces:
+SELECT SPACE, NAME, SPACE_TYPE, ENCRYPTION 
+FROM information_schema.INNODB_TABLESPACES 
+WHERE ENCRYPTION = 'Y';
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Pair TDE (at rest) with TLS (in transit) for complete end-to-end security.
+2. Enable Redo and Undo log encryption (`innodb_redo_log_encrypt = ON`).
+3. Store Keyring data or Vault credentials on a separate network volume or HSM.
+4. Schedule regular automated master key rotations using `ALTER INSTANCE ROTATE INNODB MASTER KEY`.
+================================================================================

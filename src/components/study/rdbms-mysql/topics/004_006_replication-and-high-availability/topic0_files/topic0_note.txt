@@ -1,0 +1,50 @@
+================================================================================
+MYSQL 8.0 REPLICATION, HIGH AVAILABILITY & FAILOVER TOPOLOGIES
+TOPIC 0: High Availability (HA) & Horizontal Scalability Concepts in Database Engineering
+================================================================================
+
+1. HIGH AVAILABILITY (HA) & THE "NINES" OF AVAILABILITY
+--------------------------------------------------------------------------------
+High Availability (HA) refers to an architectural design that ensures a database system
+remains operational and accessible with minimal unplanned downtime over a given period:
+
+Availability Level    Downtime per Year    Downtime per Month    Classification
+--------------------------------------------------------------------------------
+99.0%  (2 Nines)      3.65 days            7.31 hours            Basic
+99.9%  (3 Nines)      8.76 hours           43.8 minutes          Standard Business
+99.99% (4 Nines)      52.56 minutes        4.38 minutes          Enterprise High Availability
+99.999% (5 Nines)     5.26 minutes         25.9 seconds          Mission-Critical / Telco / Tier-1 Bank
+
+2. VERTICAL SCALING (SCALE-UP) VS HORIZONTAL SCALING (SCALE-OUT)
+--------------------------------------------------------------------------------
+Architecture    Mechanism                       Advantages               Limitations
+--------------------------------------------------------------------------------
+Scale-Up        Upgrading CPU cores, RAM,       Zero application code    Hardware ceiling, high cost,
+(Vertical)      NVMe SSDs on a single node.     changes, simple ACID.    single point of failure (SPOF).
+
+Scale-Out       Adding read replicas, replica   High throughput, no      Replication lag, eventual
+(Horizontal)    clusters, or database shards.   hardware ceiling, HA.    consistency, complex routing.
+
+3. DISASTER RECOVERY METRICS: RPO & RTO
+--------------------------------------------------------------------------------
+1. RPO (Recovery Point Objective):
+   - The maximum acceptable age of data that can be lost when an unexpected disaster strikes.
+   - RPO = 0 means ZERO data loss tolerance (requires synchronous or lossless semi-sync replication).
+
+2. RTO (Recovery Time Objective):
+   - The maximum acceptable duration of time allowed to restore database availability after an outage.
+   - RTO < 30 seconds requires automated failover clustering (e.g. MySQL InnoDB Cluster / Orchestrator).
+
+4. CAP THEOREM & PACELC IN MYSQL REPLICATION
+--------------------------------------------------------------------------------
+- In the event of a network partition (P):
+  - Asynchronous Replication chooses Availability (A) over strict Consistency (C) -> RPO > 0.
+  - Lossless Semi-Synchronous Replication and MySQL Group Replication prioritize Consistency (C) -> RPO = 0.
+
+5. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Eliminate all Single Points of Failure (SPOFs) by pairing primary databases with standby replicas.
+2. Define explicit RPO and RTO SLAs before choosing replication topologies.
+3. Use Read-Replicas to offload read-heavy reporting queries from the transactional primary.
+4. Enforce automated health checks and split-brain fencing on all HA clusters.
+================================================================================

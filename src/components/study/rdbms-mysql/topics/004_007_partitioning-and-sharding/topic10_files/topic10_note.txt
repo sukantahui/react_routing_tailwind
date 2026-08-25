@@ -1,0 +1,57 @@
+================================================================================
+MYSQL 8.0 TABLE PARTITIONING & HORIZONTAL SHARDING STRATEGIES
+TOPIC 10: Sharding Algorithms – Hash-Based, Range, List & Consistent Hashing
+================================================================================
+
+1. THE FOUR CORE SHARDING ALGORITHMS
+--------------------------------------------------------------------------------
+Algorithm            Mathematical Formula / Routing       Pros & Cons
+--------------------------------------------------------------------------------
+**Modulo Hash**      $\text{Node} = \text{hash}(K) \pmod N$ + Perfectly uniform row distribution.
+                                                          - Adding 1 node moves ~100% of all data!
+
+**Consistent Hash**  Hash Ring $[0, 2^{32}-1]$ with       + Adding 1 node moves only $1/N$ data!
+                     Virtual Nodes ($V_1, V_2, \dots$)    + Prevents cascading cache/DB evictions.
+                                                          - Requires hash ring library in router.
+
+**Range-Based**      $K \in [Min_i, Max_i] \to Node_i$    + Prunes multi-shard range queries.
+                                                          - Severe Write Hot Spot on newest node!
+
+**List / Directory** $K \in \{List_i\} \to Node_i$ or     + Strict legal data residency compliance.
+                     Redis Dynamic Key Mapping            - High risk of data skew across regions.
+
+2. CONSISTENT HASHING WITH VIRTUAL NODES (HASH RING)
+--------------------------------------------------------------------------------
+                  [0]
+              .--------.
+          Node 0(v1)  Node 1(v1)
+        /                          \
+   Node 2(v1)                    Node 0(v2)
+  |                                         |
+   Node 1(v2)                    Node 2(v2)
+        \                          /
+          Node 0(v3)  Node 1(v3)
+              '--------'
+               [2^32 - 1]
+
+- **Virtual Nodes**: Each physical MySQL node is mapped to 100–500 virtual points
+  on the ring, ensuring perfectly balanced statistical distribution.
+- **Node Addition**: When Node 3 joins, it only takes a fraction of virtual ranges
+  from neighboring nodes, eliminating cluster-wide reorganization locks.
+
+3. PRODUCTION RESHARDING RUNBOOK
+--------------------------------------------------------------------------------
+-- Step 1: Deploy new MySQL Shard nodes (e.g. Shard 4 through Shard 7).
+-- Step 2: Establish online CDC replication (Debezium/Vitess vreplication) to stream
+   historical and real-time binlogs to new shard nodes.
+-- Step 3: Verify data parity using checksum tools (`pt-table-checksum`).
+-- Step 4: Atomically update router configuration to shift read/write traffic.
+-- Step 5: Decommission old decommissioned partitions/shards.
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Standardize on **Consistent Hashing with Virtual Nodes** for scalable clusters.
+2. Avoid naive Range-Based sharding for high-write append-only datasets.
+3. Use List/Directory sharding when regulatory compliance dictates physical storage location.
+4. Set virtual node counts between 128 and 512 per physical server node.
+================================================================================

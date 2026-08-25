@@ -1,0 +1,67 @@
+================================================================================
+MYSQL 8.0 SERVER LOGS, MONITORING & PERFORMANCE SCHEMA
+TOPIC 11: Calculating Critical Health Indicators – Formulas, Ratios & SLAs
+================================================================================
+
+1. THE FIVE MISSION-CRITICAL DERIVED HEALTH FORMULAS
+--------------------------------------------------------------------------------
+Database administrators must calculate derived ratios to evaluate server capacity,
+memory adequacy, and query health:
+
+1. InnoDB Buffer Pool Hit Ratio:
+   Formula: (1 - (Innodb_buffer_pool_reads / Innodb_buffer_pool_read_requests)) * 100%
+   - Target: >99.0% (Gold Standard: >99.9%)
+   - Action if <95%: Increase innodb_buffer_pool_size or optimize table scans.
+
+2. Connection Pool Saturation Percentage:
+   Formula: (Threads_connected / max_connections) * 100%
+   - Target: <80%
+   - Action if >80%: Scale application connection pooling, adjust wait_timeout.
+
+3. Real-Time Queries Per Second (QPS):
+   Formula: (Questions_t2 - Questions_t1) / (t2 - t1)
+   - Baseline for application traffic demand and capacity planning.
+
+4. Transactions Per Second (TPS):
+   Formula: ((Com_commit_t2 + Com_rollback_t2) - (Com_commit_t1 + Com_rollback_t1)) / (t2 - t1)
+   - Measures transactional write throughput across all client sessions.
+
+5. Index Utilization Efficiency Ratio:
+   Formula: (Handler_read_key / (Handler_read_key + Handler_read_rnd_next)) * 100%
+   - Target: >95.0%
+   - Action if <90%: Add composite indexes on frequent WHERE predicates.
+
+6. Temporary Disk Table Spill Ratio:
+   Formula: (Created_tmp_disk_tables / Created_tmp_tables) * 100%
+   - Target: <10.0%
+   - Action if >25%: Increase tmp_table_size / max_heap_table_size.
+
+2. QUERY CACHE REMOVAL IN MYSQL 8.0
+--------------------------------------------------------------------------------
+- The legacy Query Cache was completely removed in MySQL 8.0 due to severe global
+  mutex locking contention on multicore CPUs.
+- Modern Architecture: Replaced by InnoDB buffer pool efficiency, server-side
+  thread caching, and application-level Redis / Memcached caching.
+
+3. ALL-IN-ONE SQL HEALTH DERIVATION QUERY
+--------------------------------------------------------------------------------
+SELECT 
+  'Health Scorecard' AS category,
+  ROUND((1 - (r.VARIABLE_VALUE / req.VARIABLE_VALUE)) * 100, 3) AS buffer_pool_hit_pct,
+  ROUND((c.VARIABLE_VALUE / m.VARIABLE_VALUE) * 100, 2) AS connection_saturation_pct,
+  ROUND((d.VARIABLE_VALUE / (t.VARIABLE_VALUE + 0.001)) * 100, 2) AS tmp_disk_spill_pct
+FROM performance_schema.global_status r
+JOIN performance_schema.global_status req ON req.VARIABLE_NAME = 'Innodb_buffer_pool_read_requests'
+JOIN performance_schema.global_status c ON c.VARIABLE_NAME = 'Threads_connected'
+JOIN performance_schema.global_variables m ON m.VARIABLE_NAME = 'max_connections'
+JOIN performance_schema.global_status d ON d.VARIABLE_NAME = 'Created_tmp_disk_tables'
+JOIN performance_schema.global_status t ON t.VARIABLE_NAME = 'Created_tmp_tables'
+WHERE r.VARIABLE_NAME = 'Innodb_buffer_pool_reads';
+
+4. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Maintain Buffer Pool Hit Ratio >99.0% on OLTP instances.
+2. Alert on Connection Saturation crossing 80% threshold.
+3. Keep Temporary Disk Spill Ratio under 10%.
+4. Ensure Index Utilization Ratio remains above 95%.
+================================================================================

@@ -30,8 +30,8 @@ const questions = [
     hint: "Physical hardware keys that mathematically refuse to sign credentials for fake lookalike websites.",
     level: "expert",
     codeExample: `// FIDO2 Hardware Token WebAuthn Origin Binding:
-// User Browser URL       : https://cloudflare-okta.evil-phish.in (Attacker Proxy)
-// FIDO2 YubiKey Challenge: Computes SHA-256 hash of origin "cloudflare-okta.evil-phish.in"
+// User Browser URL       : https://cloudflare-okta.attacker-phish.net (Attacker Proxy)
+// FIDO2 YubiKey Challenge: Computes SHA-256 hash of origin "cloudflare-okta.attacker-phish.net"
 // Key Expected Domain    : "cloudflare.okta.com"
 // Result                 : Cryptographic Signature REFUSED ➔ Attack 100% BLOCKED!`
   },

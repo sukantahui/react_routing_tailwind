@@ -1,0 +1,34 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 12: Introduction to Spatial Data Types: POINT, LINESTRING, POLYGON, and GIS Functions (ST_Distance, ST_Contains)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. SPATIAL DATA TYPES & WELL-KNOWN TEXT (WKT)
+--------------------------------------------------------------------------------
+Spatial types represent geometric and geographic shapes following OpenGIS standards:
+1. `POINT(longitude latitude)`: GPS coordinates (e.g. 'POINT(88.3639 22.5726)').
+2. `LINESTRING(p1, p2, ...)`: Roads, delivery routes, railway tracks.
+3. `POLYGON((p1, p2, p3, p1))`: Closed boundaries, delivery zones, city geofences.
+
+2. SPATIAL REFERENCE SYSTEMS (SRID) IN MYSQL 8.0
+--------------------------------------------------------------------------------
+- SRID 0: Flat Cartesian plane (Euclidean $x, y$).
+- SRID 4326: WGS 84 (GPS World Geodetic System on Earth's ellipsoid).
+Defining columns with `SRID 4326` enables real-world distance calculations in METERS:
+`location POINT NOT NULL SRID 4326`
+
+3. SPATIAL INDEXING WITH R-TREES
+--------------------------------------------------------------------------------
+- Traditional B+ trees index 1-dimensional sorted keys.
+- **R-Trees (SPATIAL INDEX)** index 2-dimensional bounding boxes (MBR - Minimum Bounding Rectangle).
+- Enables $O(\log N)$ proximity searches (e.g. finding restaurants within 5 km).
+- Requirement: Column must be `NOT NULL` and have a defined SRID in MySQL 8.0.
+
+4. ESSENTIAL GIS FUNCTIONS
+--------------------------------------------------------------------------------
+1. `ST_GeomFromText('POINT(88.3639 22.5726)', 4326)`: Parses WKT into spatial binary.
+2. `ST_Distance(geom1, geom2)`: Calculates geodesic distance (in meters for SRID 4326).
+3. `ST_Contains(polygon, point)`: Tests if a point lies inside a delivery geofence.
+4. `ST_Within(point, polygon)`: Tests if a location is within a boundary.
+5. `ST_AsGeoJSON(geom)`: Exports geometry to GeoJSON for Leaflet / Mapbox.

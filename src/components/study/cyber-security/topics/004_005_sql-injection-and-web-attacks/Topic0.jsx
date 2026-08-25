@@ -315,7 +315,7 @@ import base64
 
 def vulnerable_load_user(untrusted_cookie):
     # CRITICAL VULNERABILITY: Insecure Deserialization!
-    # Attackers inject malicious gadget chains (e.g. os.system('rm -rf /')) executed upon load!
+    # Attackers inject malicious gadget chains (e.g. trigger_unauthorized_action()) executed upon load!
     user_object = pickle.loads(base64.b64decode(untrusted_cookie))
     return user_object
 

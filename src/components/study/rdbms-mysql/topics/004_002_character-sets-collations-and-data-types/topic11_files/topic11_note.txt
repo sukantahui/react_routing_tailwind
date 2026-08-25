@@ -1,0 +1,37 @@
+================================================================================
+RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
+Topic 11: Indexing JSON Data using Generated Columns and Multi-Valued Indexes in MySQL 8.0+
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. THE JSON ARRAY INDEXING CHALLENGE
+--------------------------------------------------------------------------------
+While Generated Columns index scalar JSON values (e.g. `$.city`), they cannot
+index JSON arrays where a single document contains multiple tags or skills.
+
+Traditional B+ trees enforce 1 row = 1 index record. A JSON array requires
+1 row = N index records!
+
+2. MULTI-VALUED INDEXES IN MYSQL 8.0.17+
+--------------------------------------------------------------------------------
+MySQL 8.0.17 introduced **Multi-Valued Indexes**, which index JSON arrays directly:
+
+Syntax:
+`CREATE INDEX idx_skills ON candidates ((CAST(profile->'$.skills' AS CHAR(30) ARRAY)));`
+
+Supported Type Arrays:
+- `CHAR(N) ARRAY` / `VARCHAR(N) ARRAY`
+- `UNSIGNED ARRAY` / `SIGNED ARRAY`
+- `DECIMAL(M, D) ARRAY`
+- `DATE ARRAY` / `DATETIME ARRAY`
+
+3. QUERIES SUPPORTED BY MULTI-VALUED INDEXES
+--------------------------------------------------------------------------------
+1. `MEMBER OF()`:
+   `WHERE 'React' MEMBER OF (profile->'$.skills')`
+2. `JSON_CONTAINS()`:
+   `WHERE JSON_CONTAINS(profile->'$.skills', '["MySQL", "React"]')`
+3. `JSON_OVERLAPS()`:
+   `WHERE JSON_OVERLAPS(profile->'$.skills', '["React", "Python"]')`
+
+All three operators execute fast B+ tree index range seeks on JSON arrays!

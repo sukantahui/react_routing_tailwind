@@ -1,0 +1,90 @@
+================================================================================
+MYSQL 8.0 DATABASE SECURITY & PRIVILEGE MANAGEMENT
+TOPIC 7: Verifying Permissions with SHOW GRANTS & Inspecting Data Dictionary
+================================================================================
+
+1. THE SHOW GRANTS COMMAND & SYNTAX OPTIONS
+--------------------------------------------------------------------------------
+`SHOW GRANTS` displays the canonical SQL `GRANT` statements that reflect the
+active effective permissions assigned to a user account or role.
+
+A. Basic Variations:
+   -- Inspect grants for the currently connected session:
+   SHOW GRANTS;
+   SHOW GRANTS FOR CURRENT_USER();
+   SHOW GRANTS FOR CURRENT_USER;
+
+   -- Inspect grants for a specific named user:
+   SHOW GRANTS FOR 'support_rep'@'10.0.%.%';
+
+   -- Inspect grants enabled via an active role:
+   SHOW GRANTS FOR 'mamata_app'@'%' USING 'finance_role';
+
+B. Required Privileges to Run SHOW GRANTS:
+   - Any user can run `SHOW GRANTS` or `SHOW GRANTS FOR CURRENT_USER()` to inspect their own permissions.
+   - To view grants for OTHER users, the connecting account must possess the global
+     `SELECT` privilege on the `mysql` schema or the `SYSTEM_USER` dynamic privilege.
+
+2. SYSTEM TABLES IN THE MYSQL DATA DICTIONARY
+--------------------------------------------------------------------------------
+MySQL records authorization metadata across specialized data dictionary tables:
+
+1. `mysql.user` (Global Scope & Account Attributes):
+   - Stores account definitions: `Host`, `User`, `plugin`, `authentication_string`.
+   - Security constraints: `password_expired`, `password_last_changed`, `account_locked`.
+   - Resource quotas: `max_questions`, `max_updates`, `max_connections`, `max_user_connections`.
+   - Global static privilege columns (Y/N): `Select_priv`, `Insert_priv`, `Super_priv`, etc.
+
+2. `mysql.db` (Database Scope):
+   - Stores database-level grants: `Host`, `Db`, `User`.
+   - Privilege columns: `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, etc.
+
+3. `mysql.tables_priv` (Table Scope):
+   - Stores table-level grants: `Host`, `Db`, `User`, `Table_name`, `Grantor`, `Timestamp`.
+   - Set column: `Table_priv` (e.g. 'Select,Insert,Update'), `Column_priv` (e.g. 'Select,Update').
+
+4. `mysql.columns_priv` (Column Scope):
+   - Stores column-level grants: `Host`, `Db`, `User`, `Table_name`, `Column_name`, `Timestamp`.
+   - Set column: `Column_priv` (e.g. 'Select,Update').
+
+5. `mysql.procs_priv` (Routine Scope):
+   - Stores stored procedure and function grants: `Host`, `Db`, `User`, `Routine_name`, `Routine_type`.
+   - Set column: `Proc_priv` (e.g. 'Execute,Alter Routine').
+
+6. `mysql.global_grants` (Dynamic Privileges in MySQL 8.0):
+   - Stores dynamic privilege assignments: `USER`, `HOST`, `PRIVILEGE`, `WITH_GRANT_OPTION`.
+
+7. `mysql.default_roles` & `mysql.role_edges` (RBAC in MySQL 8.0):
+   - Stores role relationships, inheritance trees, and default activated roles.
+
+3. EFFECTIVE PERMISSIONS VS STORED ROLES (USING CLAUSE)
+--------------------------------------------------------------------------------
+When a user is assigned a role (e.g. `finance_read`), the role is not always
+active by default in their session.
+- `SHOW GRANTS FOR 'user'@'host'` shows direct grants and assigned roles.
+- `SHOW GRANTS FOR 'user'@'host' USING 'role_name'` shows the combined effective
+  privileges when the specified role is activated.
+
+4. AUTOMATED PRIVILEGE AUDITING QUERIES
+--------------------------------------------------------------------------------
+-- 1. Find all accounts with Global Super/Admin access:
+SELECT User, Host, plugin, account_locked 
+FROM mysql.user 
+WHERE Super_priv = 'Y' OR Reload_priv = 'Y' OR Shutdown_priv = 'Y';
+
+-- 2. Audit Dynamic Privileges server-wide:
+SELECT USER, HOST, PRIVILEGE 
+FROM mysql.global_grants 
+ORDER BY PRIVILEGE, USER;
+
+-- 3. Audit all Column-level grants:
+SELECT Host, User, Db, Table_name, Column_name, Column_priv 
+FROM mysql.columns_priv;
+
+5. PRODUCTION SECURITY BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Automate periodic audits comparing `SHOW GRANTS` against intended security matrices.
+2. Never grant `SELECT` on `mysql.*` to application service accounts.
+3. Verify that `mysql.user` has 0 application accounts with `Super_priv = 'Y'`.
+4. Use `information_schema.USER_PRIVILEGES` and `SCHEMA_PRIVILEGES` for ANSI-compliant queries.
+================================================================================

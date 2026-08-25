@@ -1,0 +1,46 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 11: Identifying and Eliminating N+1 Query Anti-Patterns
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS THE N+1 QUERY ANTI-PATTERN?
+--------------------------------------------------------------------------------
+The N+1 problem occurs when an application executes 1 initial query to fetch
+a list of $N$ parent records, and then iterates in a programming loop to
+execute $N$ individual child queries (1 for each parent row).
+
+Total Queries Executed = 1 + N
+Example: Fetching 200 courses triggers 1 + 200 = 201 separate database round-trips!
+
+2. ROOT CAUSES IN APPLICATION CODE
+--------------------------------------------------------------------------------
+- Object-Relational Mappers (ORMs): Hibernate, Prisma, TypeORM, Sequelize, Django ORM.
+- Lazy Loading Defaults: Accessing relationship properties inside a loop
+  (e.g., `course.getStudents()` or `student.fees`).
+- Microservice / REST API serial loops.
+
+3. THE 3 PROVEN REFACTORING SOLUTIONS
+--------------------------------------------------------------------------------
+1. Strategy 1: Eager Loading with JOIN (1 Single Query):
+   SELECT c.course_id, c.course_name, s.student_id, s.name 
+   FROM courses c 
+   LEFT JOIN enrollments e ON c.course_id = e.course_id
+   LEFT JOIN students s ON e.student_id = s.student_id;
+
+2. Strategy 2: Batch IN (...) Loading (2 Queries Total):
+   Query 1: SELECT * FROM courses WHERE department_id = 1; (Gets IDs 1..50)
+   Query 2: SELECT * FROM enrollments WHERE course_id IN (1, 2, 3, ... 50);
+
+3. Strategy 3: MySQL 8.0 JSON Aggregation (1 Query Nested Payload):
+   SELECT c.course_id, c.course_name,
+          JSON_ARRAYAGG(JSON_OBJECT('id', s.student_id, 'name', s.name)) AS students
+   FROM courses c
+   LEFT JOIN enrollments e ON c.course_id = e.course_id
+   LEFT JOIN students s ON e.student_id = s.student_id
+   GROUP BY c.course_id;
+
+4. PERFORMANCE COMPARISON (100 Parents)
+--------------------------------------------------------------------------------
+- N+1 Queries: 101 round-trips · ~250.0 ms · Connection pool saturation.
+- Eager Join:  1 round-trip    · ~2.1 ms   · 120x Speedup!

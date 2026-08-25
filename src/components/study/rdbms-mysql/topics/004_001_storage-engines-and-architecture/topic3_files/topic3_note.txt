@@ -1,0 +1,40 @@
+================================================================================
+RDBMS MySQL Course - Module 004_001: MySQL Architecture & Storage Engines Deep Dive
+Topic 3: InnoDB In-Memory Components: Buffer Pool, Change Buffer, Adaptive Hash Index, Log Buffer
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. BUFFER POOL & MIDPOINT INSERTION LRU
+--------------------------------------------------------------------------------
+The Buffer Pool caches 16KB data and index pages in RAM.
+
+LRU List Architecture:
+- Divided into two sublists:
+  1. Young Sublist (5/8ths or ~63% of list): Contains frequently accessed "hot" pages.
+  2. Old Sublist (3/8ths or ~37% of list): Contains cold pages subject to eviction.
+- Midpoint Insertion: New pages read from disk are inserted at the head of the
+  Old Sublist (the 3/8ths midpoint mark), NOT at the top of the LRU.
+- Promotion Rule: If a page in the old sublist is accessed again after
+  `innodb_old_blocks_time` (default: 1000ms), it is promoted to the Young sublist.
+  This protects hot cached data from being evicted by large full-table scans.
+
+2. CHANGE BUFFER INTERNALS
+--------------------------------------------------------------------------------
+- Caches modifications (inserts, updates, deletes) to non-unique secondary indexes
+  whose target pages are NOT in the Buffer Pool.
+- Avoids random disk reads. When the target index page is later loaded into the
+  Buffer Pool by a query, the cached changes are merged into the page in RAM.
+
+3. ADAPTIVE HASH INDEX (AHI)
+--------------------------------------------------------------------------------
+- InnoDB automatically constructs an in-memory hash table on index prefixes for
+  frequently accessed B+ tree pages.
+- Converts $O(\log N)$ B+ tree index root-to-leaf traversals into $O(1)$ direct lookups.
+
+4. LOG BUFFER & COMMIT POLICIES
+--------------------------------------------------------------------------------
+- Stages redo log records in RAM before writing to `#ib_redo*` files on disk.
+- `innodb_flush_log_at_trx_commit`:
+  * Value 1 (Default): Flushed to disk on every commit (100% ACID Durability).
+  * Value 2: Written to OS page cache on commit; flushed to disk once per second.
+  * Value 0: Written and flushed to disk once per second (Highest speed, 1s data loss risk).

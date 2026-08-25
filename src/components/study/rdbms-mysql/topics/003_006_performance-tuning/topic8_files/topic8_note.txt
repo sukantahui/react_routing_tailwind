@@ -1,0 +1,50 @@
+================================================================================
+RDBMS MySQL Course - Module 003_006: Query Execution Plans & Performance Tuning
+Topic 8: Sargable Queries: Avoiding Function Wrapping on Indexed Columns in WHERE Clauses
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
+================================================================================
+
+1. WHAT IS SARGABILITY?
+--------------------------------------------------------------------------------
+SARGable stands for "Search Argument ABLE". A predicate in a WHERE or JOIN ON
+clause is sargable if the database optimizer can use an existing index to
+directly seek and locate matching rows via B+Tree binary search (probe),
+rather than evaluating an expression on every single row in the table.
+
+2. NON-SARGABLE PATTERNS VS SARGABLE REFACTORING
+--------------------------------------------------------------------------------
+1. DATE / TIME FUNCTION WRAPPING:
+   ❌ Non-Sargable: WHERE YEAR(registration_date) = 2026
+   ✅ Sargable:     WHERE registration_date >= '2026-01-01' AND registration_date < '2027-01-01'
+
+2. ARITHMETIC ON INDEXED COLUMNS:
+   ❌ Non-Sargable: WHERE balance_fee + 500 > 10000
+   ✅ Sargable:     WHERE balance_fee > 10000 - 500
+
+3. STRING MANIPULATION & CASE WRAPPING:
+   ❌ Non-Sargable: WHERE SUBSTRING(student_code, 1, 3) = 'BKP'
+   ✅ Sargable:     WHERE student_code LIKE 'BKP%'
+
+4. IMPLICIT TYPE CONVERSION:
+   ❌ Non-Sargable: WHERE phone_number = 9830012345  (Column is VARCHAR)
+   ✅ Sargable:     WHERE phone_number = '9830012345'
+
+5. LEADING WILDCARDS:
+   ❌ Non-Sargable: WHERE name LIKE '%Mitra'
+   ✅ Sargable:     WHERE name LIKE 'Mitra%'  (or MySQL FULLTEXT index)
+
+6. NULL-COALESCING FUNCTIONS:
+   ❌ Non-Sargable: WHERE IFNULL(scholarship_amount, 0) > 5000
+   ✅ Sargable:     WHERE scholarship_amount > 5000
+
+3. FUNCTIONAL INDEXES IN MYSQL 8.0+
+--------------------------------------------------------------------------------
+If modifying application SQL is impossible, MySQL 8.0 allows indexing expressions:
+    CREATE INDEX idx_reg_year ON students ((YEAR(registration_date)));
+This allows queries with `WHERE YEAR(registration_date) = 2026` to use the index!
+
+4. SARGABILITY PERFORMANCE IMPACT
+--------------------------------------------------------------------------------
+- Non-Sargable: Table Scan (ALL), O(N) CPU evaluation, Buffer Pool thrashing.
+- Sargable:     Index Range Scan (range) or Point Lookup (ref/const), O(log N + K),
+                sub-millisecond execution.

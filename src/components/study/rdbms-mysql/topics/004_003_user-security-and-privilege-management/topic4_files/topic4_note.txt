@@ -1,0 +1,112 @@
+================================================================================
+MYSQL 8.0 DATABASE SECURITY & PRIVILEGE MANAGEMENT
+TOPIC 4: Password Validation, Expiration, Dual Passwords & Account Locking
+================================================================================
+
+1. PASSWORD VALIDATION POLICIES (validate_password COMPONENT)
+--------------------------------------------------------------------------------
+In MySQL 8.0, password validation is handled by the `validate_password` server
+component (replacing the legacy plugin architecture).
+
+A. Installing & Verifying the Component:
+   INSTALL COMPONENT 'file://component_validate_password';
+   -- To verify active status:
+   SELECT * FROM performance_schema.components WHERE component_name = 'component_validate_password';
+
+B. Policy Levels (validate_password.policy):
+   - LOW (0): Enforces only `validate_password.length` (minimum character length).
+   - MEDIUM (1 - DEFAULT): Enforces length, at least 1 digit, 1 lowercase letter,
+     1 uppercase letter, 1 special character, and rejection of dictionary words.
+   - STRONG (2): All MEDIUM rules + strict verification against an external dictionary file.
+
+C. Key System Variables:
+   - `validate_password.length` (default 8)
+   - `validate_password.number_count` (default 1)
+   - `validate_password.mixed_case_count` (default 1)
+   - `validate_password.special_char_count` (default 1)
+   - `validate_password.check_user_name` (default ON) -> Rejects password if it matches the username.
+   - `validate_password.dictionary_file` (path to wordlist file for STRONG policy)
+
+2. PASSWORD EXPIRATION & LIFETIME POLICIES
+--------------------------------------------------------------------------------
+Password expiration enforces periodic rotation of database credentials.
+
+A. Global Default Expiration:
+   -- In my.cnf / my.ini:
+   [mysqld]
+   default_password_lifetime = 90  -- Passwords expire every 90 days (0 = never expire)
+
+B. Granular Per-User Expiration:
+   -- Expire every 60 days:
+   ALTER USER 'susmita_ops'@'10.0.%.%' PASSWORD EXPIRE INTERVAL 60 DAY;
+
+   -- Never expire (ideal for unattended service daemons):
+   ALTER USER 'app_batch_service'@'10.0.%.%' PASSWORD EXPIRE NEVER;
+
+   -- Revert to global server default:
+   ALTER USER 'debangshu_dev'@'localhost' PASSWORD EXPIRE DEFAULT;
+
+   -- Force immediate expiration on next login (forces user to change password):
+   ALTER USER 'temp_contractor'@'%' PASSWORD EXPIRE;
+
+3. PASSWORD REUSE CONTROLS (HISTORY & INTERVAL)
+--------------------------------------------------------------------------------
+Prevents users from cycling back to previously used passwords.
+
+A. Configuration Variables:
+   - `password_history`: Number of previous passwords remembered.
+   - `password_reuse_interval`: Minimum number of days before a password can be reused.
+
+B. SQL Syntax:
+   -- User cannot reuse any of their last 6 passwords:
+   ALTER USER 'mamata_admin'@'%' PASSWORD HISTORY 6;
+
+   -- User cannot reuse a password used within the last 365 days:
+   ALTER USER 'mamata_admin'@'%' PASSWORD REUSE INTERVAL 365 DAY;
+
+4. DUAL PASSWORDS: ZERO-DOWNTIME MICROSERVICE ROTATION
+--------------------------------------------------------------------------------
+MySQL 8.0 introduces Dual Passwords, allowing an account to have a Primary and a
+Secondary password simultaneously. This completely eliminates microservice
+downtime during fleet-wide credential rotation.
+
+A. Microservice Rotation Workflow:
+   Step 1: Assign a new Primary password while retaining the current password as Secondary:
+   ALTER USER 'kolkata_api'@'10.10.%.%'
+     IDENTIFIED BY 'NewSecurePass#2026'
+     RETAIN CURRENT PASSWORD;
+
+   Step 2: Perform rolling deployment across microservice instances (Kubernetes pods),
+   updating application configuration files with 'NewSecurePass#2026'.
+   * Pods running old configs connect via Secondary password.
+   * Pods running updated configs connect via Primary password.
+
+   Step 3: Once all instances are updated, discard the Secondary password:
+   ALTER USER 'kolkata_api'@'10.10.%.%' DISCARD OLD PASSWORD;
+
+5. ACCOUNT LOCKING & FAILED LOGIN RATE LIMITING
+--------------------------------------------------------------------------------
+A. Administrative Account Locking:
+   -- Manually lock an account (prevents any new connections):
+   ALTER USER 'former_employee'@'%' ACCOUNT LOCK;
+
+   -- Unlock an account:
+   ALTER USER 'former_employee'@'%' ACCOUNT UNLOCK;
+
+B. Automatic Account Locking on Failed Login Attempts:
+   MySQL 8.0 allows setting automated lockouts when consecutive wrong passwords are submitted:
+   ALTER USER 'portal_user'@'%'
+     FAILED_LOGIN_ATTEMPTS 3
+     PASSWORD_LOCK_TIME 1 DAY;
+
+   -- Lock permanently until administrator manually unlocks:
+   ALTER USER 'privileged_user'@'%'
+     FAILED_LOGIN_ATTEMPTS 5
+     PASSWORD_LOCK_TIME UNBOUNDED;
+
+6. MANDATORY CURRENT PASSWORD VERIFICATION
+--------------------------------------------------------------------------------
+Prevents session hijackers or malicious scripts from changing a user's password
+without knowing the current password:
+ALTER USER 'finance_user'@'%' PASSWORD REQUIRE CURRENT;
+================================================================================

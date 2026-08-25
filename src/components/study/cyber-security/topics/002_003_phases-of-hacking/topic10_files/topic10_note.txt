@@ -45,7 +45,7 @@ Two dominant frameworks govern modern enterprise defense:
 +--------------------+-------------------------+--------------------+------------------------------------------------+
 | 3. SUB-TECHNIQUE   | Specific OS Method      | "WHICH METHOD?"    | T1003.001: LSASS Memory Dumping                |
 +--------------------+-------------------------+--------------------+------------------------------------------------+
-| 4. PROCEDURE       | Tool Implementation     | "WHAT TOOL?"       | Mimikatz `sekurlsa::logonpasswords` by APT29   |
+| 4. PROCEDURE       | Tool Implementation     | "WHAT TOOL?"       | LSASS Memory Dump Command by APT29             |
 +--------------------+-------------------------+--------------------+------------------------------------------------+
 
 [THE 14 MITRE ATT&CK ENTERPRISE TACTICS]

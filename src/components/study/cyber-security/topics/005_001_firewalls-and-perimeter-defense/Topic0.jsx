@@ -160,7 +160,7 @@ const Topic0 = () => {
       src: "198.51.100.77:59100",
       dst: "192.168.1.55:443",
       protocol: "TCP (HTTPS)",
-      payload: "Encrypted payload triggering: powershell.exe -enc JABzAHIA... (Mimikatz dump)",
+      payload: "Encrypted payload triggering: [simulated_obfuscated_script_execution]",
       expectedResult: edrEnabled ? "BLOCKED at Layer 4 (Host EDR)" : "EXPLOITED (EDR Disabled!)",
       layerPassed: edrEnabled ? "Dropped by EDR Agent" : "COMPROMISED",
       actionDesc: edrEnabled
