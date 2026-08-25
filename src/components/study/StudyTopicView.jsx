@@ -49,10 +49,6 @@ import MathSymbolDictionary from "../../common/MathSymbolDictionary";
 import ScreenAnnotator from "../../common/ScreenAnnotator";
 import StudyWhiteboard from "../../common/StudyWhiteboard";
 
-// Import tldraw
-import { Tldraw } from "@tldraw/tldraw";
-import "@tldraw/tldraw/tldraw.css";
-
 // ------------------------------------------------------------------------
 // DYNAMIC IMPORT FOR TOPIC FILES
 // ------------------------------------------------------------------------

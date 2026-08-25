@@ -578,7 +578,7 @@ SELECT JSON_EXTRACT(@plan_json, '$.query_block.cost_info.query_cost') INTO @tota
                 </div>
                 <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
                   <span className="text-emerald-400 font-bold block mb-1">“Think about live query inspection...”</span>
-                  Use `EXPLAIN FOR CONNECTION <thread_id>` to inspect the execution plan of a long-running query active in another connection!
+                  Use `EXPLAIN FOR CONNECTION &lt;thread_id&gt;` to inspect the execution plan of a long-running query active in another connection!
                 </div>
               </div>
             </div>

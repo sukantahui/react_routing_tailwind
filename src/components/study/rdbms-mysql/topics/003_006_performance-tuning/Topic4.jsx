@@ -180,7 +180,7 @@ EXPLAIN SELECT * FROM student_records WHERE city = 'Barrackpore' OR age = 22;
             <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
               <span className="font-mono text-cyan-400 font-bold text-xs uppercase">Good Tier</span>
               <h3 className="font-bold text-white">ref &amp; range</h3>
-              <p className="text-slate-300 text-xs">Non-unique index lookups and bounded interval scans (`BETWEEN`, `>`, `<`, `IN()`).</p>
+              <p className="text-slate-300 text-xs">Non-unique index lookups and bounded interval scans (`BETWEEN`, `&gt;`, `&lt;`, `IN()`).</p>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
