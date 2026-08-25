@@ -515,7 +515,7 @@ const Topic8 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\text{Students} \\bowtie \\text{Enrollments}$"}
+                {"Relational Algebra: $\Students \\bowtie \Enrollments$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT * FROM students
@@ -532,7 +532,7 @@ JOIN enrollments USING (student_id);`}
                 <span className="text-xs text-slate-500 font-mono">Kolkata University</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{full_name, course_title, fee}}(\\text{Students} \\bowtie \\text{Enrollments} \\bowtie \\text{Courses})$"}
+                {"Relational Algebra: $\\pi_{\full_name, course_title, fee}(\Students \\bowtie \Enrollments \\bowtie \Courses)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.full_name, c.course_title, c.fee

@@ -1,687 +1,380 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Shared Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python Code Examples (Imported with ?raw)
-import moduleAnatomy from "./topic3_files/custom_module_anatomy.py?raw";
-import exportControl from "./topic3_files/export_control_with_all.py?raw";
-import multiModule from "./topic3_files/multi_module_import_demo.py?raw";
-import feeManagerModule from "./topic3_files/student_fee_management_module.py?raw";
-
-// Plain Text Note for Printing/Downloading
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic3_files/topic3_questions";
 import noteText from "./topic3_files/topic3_note.txt?raw";
 
-// FAQ Questions
-import questions from "./topic3_files/topic3_questions";
-
 /**
- * Topic3: Creating and structuring custom user-defined modules
- * Module: 002_009_modules-packages
- * Segment: 2 (Practical Python for Real-World Development)
+ * Topic3 – Creating and structuring custom user-defined modules
+ * Module: 002_009_modules-packages (Modules, Packages & Python Standard Library)
+ * Track: Python from Basic to Pro
  *
- * Premium Dark Theme Default with Rich Micro-Animations & Full Interactivity.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic3() {
+const Topic3 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
-  const [activeInteractiveTab, setActiveInteractiveTab] = useState("pep8layout");
-
-  // Interactive Custom Module Architect State
-  const [includeCalc, setIncludeCalc] = useState(true);
-  const [includeReceipt, setIncludeReceipt] = useState(true);
-  const [includePrivate, setIncludePrivate] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
-  const getExportList = () => {
-    const exports = [];
-    if (includeCalc) exports.push('"calculate_fee"');
-    if (includeReceipt) exports.push('"generate_receipt"');
-    if (includePrivate) exports.push('"_private_db_sync"');
-    return exports;
-  };
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-teal-500/30 selection:text-teal-200">
-      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+    <>
       <style>{`
-        .section-hidden {
-          transform: translateY(18px);
-          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .section-visible {
+        .reveal-section {
           transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        @keyframes pulseGlowTeal {
-          0%, 100% { filter: drop-shadow(0 0 4px rgba(20, 184, 166, 0.4)); }
-          50% { filter: drop-shadow(0 0 10px rgba(20, 184, 166, 0.8)); }
-        }
-        .animate-glow-teal {
-          animation: pulseGlowTeal 3s infinite ease-in-out;
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
 
-      {/* ==================================================================== */}
-      {/* HEADER SECTION */}
-      {/* ==================================================================== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
-      >
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs sm:text-sm font-mono font-semibold bg-teal-950/80 text-teal-300 px-3 py-1 rounded-full border border-teal-800/80 shadow-sm shadow-teal-950/50">
-            Segment 2 • Module 002_009
-          </span>
-          <span className="text-xs sm:text-sm font-mono bg-cyan-950/80 text-cyan-300 px-3 py-1 rounded-full border border-cyan-800/80 shadow-sm shadow-cyan-950/50">
-            Topic 3
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-slate-400">
-            Modules, Packages &amp; Python Standard Library
-          </span>
-        </div>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 009 · Topic 3</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Creating and structuring custom user-defined modules
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Learn to structure large codebases with modules, packages, the standard library, and virtual environments.
+          </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          Creating &amp; Structuring Custom User-Defined Modules
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
-          Design clean, reusable, production-ready Python modules: canonical PEP 8 layouts, public API whitelisting with <code className="text-teal-300 font-mono">__all__</code>, private symbol encapsulation with leading underscores (<code className="text-purple-300 font-mono">_helper</code>), layered separation of concerns, and self-testing module execution guards.
-        </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
 
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            📐 Canonical PEP 8 Module Layout
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🛡️ Public Whitelisting with __all__
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🔒 Private Helper Encapsulation (_name)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🏗️ Decoupled Multi-Module Architecture
-          </span>
-        </div>
-      </header>
-
-      {/* ==================================================================== */}
-      {/* MAIN CONTENT WRAPPER */}
-      {/* ==================================================================== */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 1: THE ANATOMY OF A CUSTOM MODULE */}
-        {/* ------------------------------------------------------------------ */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🧱</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              1. The Anatomy of an Enterprise Python Custom Module
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Creating and structuring custom user-defined modules
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
-            <p>
-              A Python module is more than just code inside a <code className="text-teal-400 font-mono">.py</code> file. Professional modules follow a standardized architectural structure that maximizes readability, safety, and reusability:
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6 not-prose">
-              {/* Card 1 */}
-              <div className="p-4 rounded-xl bg-teal-950/40 border border-teal-800/60 shadow-lg shadow-teal-950/30">
-                <div className="flex items-center gap-2 text-teal-400 font-bold text-base mb-1">
-                  <span>1️⃣</span> Module Metadata &amp; Docs
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Creating and structuring custom user-defined modules</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
                 </div>
-                <p className="text-xs text-slate-300">
-                  Comprehensive docstring at line 1 (<code className="text-teal-300">__doc__</code>), version, and author metadata.
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
                 </p>
               </div>
-
-              {/* Card 2 */}
-              <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-800/60 shadow-lg shadow-cyan-950/30">
-                <div className="flex items-center gap-2 text-cyan-400 font-bold text-base mb-1">
-                  <span>2️⃣</span> Public Whitelist (__all__)
-                </div>
-                <p className="text-xs text-slate-300">
-                  Defines the explicit public contract for consumers using <code className="text-cyan-300">__all__ = [...]</code>.
-                </p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-800/60 shadow-lg shadow-purple-950/30">
-                <div className="flex items-center gap-2 text-purple-400 font-bold text-base mb-1">
-                  <span>3️⃣</span> Main Guard Self-Tests
-                </div>
-                <p className="text-xs text-slate-300">
-                  Provides standalone test and demo execution via <code className="text-purple-300">if __name__ == '__main__':</code>.
-                </p>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
             </div>
 
-            <div className="bg-slate-950/70 p-5 rounded-xl border-l-4 border-teal-500 border border-slate-800/80">
-              <h3 className="text-white font-bold text-base mb-1">
-                The Consenting Adults Encapsulation Principle
-              </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Python does not have <code className="text-rose-400 font-mono">private</code> keywords like Java or C++. Instead, Python uses the leading underscore convention (<code className="text-teal-300 font-mono">_internal_helper</code>). It signals: <em>"This is an implementation detail subject to change — do not call this directly outside the module."</em>
-              </p>
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 2: INTERACTIVE VISUAL ARCHITECTURE (SVG TABS) */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">📐</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                2. Visualizing Module Structure &amp; Export Control
-              </h2>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Creating and structuring custom user-defined modules
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
             </div>
 
-            {/* Interactive Toggle for Diagram Perspectives */}
-            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
-              <button
-                onClick={() => setActiveInteractiveTab("pep8layout")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "pep8layout"
-                    ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Canonical PEP 8 Layout
-              </button>
-              <button
-                onClick={() => setActiveInteractiveTab("allwhitelist")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "allwhitelist"
-                    ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                __all__ Whitelist Filter
-              </button>
-              <button
-                onClick={() => setActiveInteractiveTab("layered")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "layered"
-                    ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Layered Architecture
-              </button>
-            </div>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Examining standard module layouts, public export filtering, and multi-file separation of concerns:
-          </p>
-
-          {/* SVG Diagram Container */}
-          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
-            {activeInteractiveTab === "pep8layout" ? (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#2dd4bf" fontSize="14" fontWeight="bold">CANONICAL PEP 8 MODULE LAYOUT (Top-to-Bottom Order)</text>
-
-                {/* 6 Layer Blocks */}
-                <g transform="translate(30, 50)">
-                  <rect x="0" y="0" width="810" height="35" rx="6" fill="#134e4a" stroke="#14b8a6" />
-                  <text x="20" y="22" fill="#99f6e4" fontSize="12" fontWeight="bold">1. Module Docstring ("""...""") &amp; Semantic Versioning</text>
-
-                  <rect x="0" y="45" width="810" height="35" rx="6" fill="#1e293b" stroke="#38bdf8" />
-                  <text x="20" y="67" fill="#bae6fd" fontSize="12" fontWeight="bold">2. Grouped Imports (Standard Library → Third-Party → Local Modules)</text>
-
-                  <rect x="0" y="90" width="810" height="35" rx="6" fill="#083344" stroke="#06b6d4" />
-                  <text x="20" y="112" fill="#a5f3fc" fontSize="12" fontWeight="bold">3. Public Export Whitelist: __all__ = ["ClassA", "function_b"]</text>
-
-                  <rect x="0" y="135" width="810" height="35" rx="6" fill="#1e1b4b" stroke="#818cf8" />
-                  <text x="20" y="157" fill="#c7d2fe" fontSize="12" fontWeight="bold">4. Module Constants (UPPERCASE_WITH_UNDERSCORES)</text>
-
-                  <rect x="0" y="180" width="810" height="45" rx="6" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="202" fill="#a7f3d0" fontSize="12" fontWeight="bold">5. Classes, Public Functions &amp; Private Internal Helpers (_helper)</text>
-
-                  <rect x="0" y="235" width="810" height="35" rx="6" fill="#312e81" stroke="#6366f1" />
-                  <text x="20" y="257" fill="#e0e7ff" fontSize="12" fontWeight="bold">6. Execution Guard: if __name__ == '__main__': (Self-Testing / CLI Entry)</text>
-                </g>
-              </svg>
-            ) : activeInteractiveTab === "allwhitelist" ? (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#38bdf8" fontSize="14" fontWeight="bold">HOW __all__ CONTROLS WILDCARD IMPORTS (from module import *)</text>
-
-                {/* Module symbols source */}
-                <g transform="translate(30, 50)">
-                  <rect x="0" y="0" width="380" height="240" rx="8" fill="#1e293b" stroke="#475569" />
-                  <text x="20" y="30" fill="#f8fafc" fontSize="13" fontWeight="bold">Module Source: fee_manager.py</text>
-                  <text x="20" y="60" fill="#34d399" fontSize="12 font-mono">def calculate_fee(): ...</text>
-                  <text x="20" y="85" fill="#34d399" fontSize="12 font-mono">def generate_receipt(): ...</text>
-                  <text x="20" y="110" fill="#f43f5e" fontSize="12 font-mono">def _internal_db_sync(): ...</text>
-                  <text x="20" y="135" fill="#94a3b8" fontSize="12 font-mono">def helper_unlisted(): ...</text>
-                  <text x="20" y="170" fill="#38bdf8" fontSize="12 font-mono">__all__ = ['calculate_fee', 'generate_receipt']</text>
-                </g>
-
-                {/* Consumer result */}
-                <g transform="translate(450, 50)">
-                  <rect x="0" y="0" width="390" height="240" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="30" fill="#a7f3d0" fontSize="13" fontWeight="bold">Consumer: from fee_manager import *</text>
-                  <text x="20" y="70" fill="#ecfdf5" fontSize="12">✓ <tspan fill="#34d399" fontWeight="bold">calculate_fee</tspan> is imported into namespace</text>
-                  <text x="20" y="100" fill="#ecfdf5" fontSize="12">✓ <tspan fill="#34d399" fontWeight="bold">generate_receipt</tspan> is imported into namespace</text>
-                  <text x="20" y="140" fill="#fca5a5" fontSize="12">✗ <tspan fill="#f43f5e">_internal_db_sync</tspan> is HIDDEN (Excluded)</text>
-                  <text x="20" y="170" fill="#fca5a5" fontSize="12">✗ <tspan fill="#f43f5e">helper_unlisted</tspan> is HIDDEN (Not in __all__)</text>
-                </g>
-              </svg>
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#c084fc" fontSize="14" fontWeight="bold">MULTI-MODULE LAYERED SEPARATION OF CONCERNS</text>
-
-                {/* 3 Layered Boxes */}
-                <g transform="translate(30, 50)">
-                  {/* Layer 1 */}
-                  <rect x="0" y="0" width="250" height="240" rx="8" fill="#1e1b4b" stroke="#8b5cf6" />
-                  <text x="20" y="30" fill="#c4b5fd" fontSize="13" fontWeight="bold">1. Config Layer (config.py)</text>
-                  <text x="20" y="60" fill="#cbd5e1" fontSize="11">• Constants &amp; Rates</text>
-                  <text x="20" y="80" fill="#cbd5e1" fontSize="11">• Environment Variables</text>
-                  <text x="20" y="100" fill="#cbd5e1" fontSize="11">• No business logic!</text>
-                  <rect x="20" y="180" width="210" height="40" rx="4" fill="#090d16" stroke="#475569" />
-                  <text x="30" y="205" fill="#34d399" fontSize="11 font-mono">GST_RATE = 0.18</text>
-
-                  {/* Layer 2 */}
-                  <rect x="280" y="0" width="250" height="240" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="300" y="30" fill="#a7f3d0" fontSize="13" fontWeight="bold">2. Logic Layer (logic.py)</text>
-                  <text x="300" y="60" fill="#ecfdf5" fontSize="11">• Pure calculation functions</text>
-                  <text x="300" y="80" fill="#ecfdf5" fontSize="11">• Algorithms &amp; Validation</text>
-                  <text x="300" y="100" fill="#ecfdf5" fontSize="11">• Zero print() calls</text>
-                  <rect x="300" y="180" width="210" height="40" rx="4" fill="#090d16" stroke="#475569" />
-                  <text x="310" y="205" fill="#34d399" fontSize="11 font-mono">def calculate_tax(): ...</text>
-
-                  {/* Layer 3 */}
-                  <rect x="560" y="0" width="250" height="240" rx="8" fill="#083344" stroke="#06b6d4" />
-                  <text x="580" y="30" fill="#a5f3fc" fontSize="13" fontWeight="bold">3. Formatter Layer (ui.py)</text>
-                  <text x="580" y="60" fill="#ecfdf5" fontSize="11">• ASCII Receipt formatting</text>
-                  <text x="580" y="80" fill="#ecfdf5" fontSize="11">• HTML/JSON Exporters</text>
-                  <text x="580" y="100" fill="#ecfdf5" fontSize="11">• CLI output rendering</text>
-                  <rect x="580" y="180" width="210" height="40" rx="4" fill="#090d16" stroke="#475569" />
-                  <text x="590" y="205" fill="#34d399" fontSize="11 font-mono">def print_receipt(): ...</text>
-                </g>
-              </svg>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
             )}
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 3: INTERACTIVE CUSTOM MODULE ARCHITECT */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🛠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              3. Interactive Custom Module Architect &amp; Whitelist Simulator
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base leading-relaxed">
-            Toggle which functions are included in the module's public <code className="text-teal-400 font-mono">__all__</code> export whitelist and inspect live generated code:
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-950 p-6 rounded-xl border border-slate-800 mb-8">
-            {/* Left Controls */}
-            <div className="space-y-4">
-              <span className="text-xs font-mono uppercase tracking-wider text-teal-400 block font-bold">
-                Configure Public API Whitelist (__all__)
-              </span>
-
-              <div className="space-y-3">
-                <label className="flex items-center gap-3 p-3 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer hover:border-slate-700">
-                  <input
-                    type="checkbox"
-                    checked={includeCalc}
-                    onChange={(e) => setIncludeCalc(e.target.checked)}
-                    className="rounded border-slate-700 text-teal-500 focus:ring-0"
-                  />
-                  <div>
-                    <code className="text-xs font-mono text-emerald-300 font-bold block">calculate_fee</code>
-                    <span className="text-[11px] text-slate-400">Public business logic function</span>
-                  </div>
-                </label>
-
-                <label className="flex items-center gap-3 p-3 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer hover:border-slate-700">
-                  <input
-                    type="checkbox"
-                    checked={includeReceipt}
-                    onChange={(e) => setIncludeReceipt(e.target.checked)}
-                    className="rounded border-slate-700 text-teal-500 focus:ring-0"
-                  />
-                  <div>
-                    <code className="text-xs font-mono text-emerald-300 font-bold block">generate_receipt</code>
-                    <span className="text-[11px] text-slate-400">Public receipt formatting helper</span>
-                  </div>
-                </label>
-
-                <label className="flex items-center gap-3 p-3 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer hover:border-slate-700">
-                  <input
-                    type="checkbox"
-                    checked={includePrivate}
-                    onChange={(e) => setIncludePrivate(e.target.checked)}
-                    className="rounded border-slate-700 text-teal-500 focus:ring-0"
-                  />
-                  <div>
-                    <code className="text-xs font-mono text-rose-400 font-bold block">_private_db_sync</code>
-                    <span className="text-[11px] text-slate-400">Internal helper (Anti-pattern to export in __all__)</span>
-                  </div>
-                </label>
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
               </div>
-
-              <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 text-xs font-mono text-slate-300">
-                <span className="text-teal-400 font-bold block mb-1">Active __all__ Whitelist:</span>
-                <code>__all__ = [{getExportList().join(", ")}]</code>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
               </div>
             </div>
 
-            {/* Right Generated Python Module */}
-            <div className="space-y-2 flex flex-col justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block">
-                Generated Custom Module (fee_manager.py)
-              </span>
-              <pre className="p-4 bg-slate-900 rounded-lg border border-slate-800 text-teal-300 font-mono text-xs overflow-x-auto whitespace-pre-wrap flex-1 max-h-72">
-{`"""Fee Manager Module for Coder & AccoTax."""
-
-import sys
-import datetime as dt
-
-__all__ = [${getExportList().join(", ")}]
-
-GST_RATE: float = 0.18
-
-def calculate_fee(base: float) -> float:
-    return base * (1 + GST_RATE)
-
-def generate_receipt(student: str, fee: float) -> str:
-    return f"Receipt: {student} -> INR {fee:,.2f}"
-
-def _private_db_sync() -> None:
-    pass
-
-if __name__ == "__main__":
-    print("Self-testing fee_manager module...")
-`}
-              </pre>
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 4: MASTER CUSTOM MODULE DESIGN MATRIX */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📊</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              4. Master Custom Module Design Guidelines Matrix
-            </h2>
-          </div>
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300 border-collapse">
-              <thead>
-                <tr className="border-b border-slate-700 text-slate-200 bg-slate-950/60">
-                  <th className="py-3.5 px-4 font-bold">Element</th>
-                  <th className="py-3.5 px-4 font-bold">Naming / Syntax Convention</th>
-                  <th className="py-3.5 px-4 font-bold">PEP 8 Placement</th>
-                  <th className="py-3.5 px-4 font-bold">Purpose &amp; Best Practice</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800">
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-teal-300 font-semibold">Module Docstring</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">"""Module summary."""</td>
-                  <td className="py-3 px-4">Line 1 of file</td>
-                  <td className="py-3 px-4">Explains module purpose, author, version, and license</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-cyan-300 font-semibold">Import Section</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">import stdlib; import 3rd; from . import</td>
-                  <td className="py-3 px-4">After docstring</td>
-                  <td className="py-3 px-4">Grouped into 3 distinct blocks separated by blank lines</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-blue-300 font-semibold">Public Whitelist</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">__all__ = ["func1", "ClassA"]</td>
-                  <td className="py-3 px-4">After imports</td>
-                  <td className="py-3 px-4">Restricts symbols exported on wildcard imports</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-purple-300 font-semibold">Constants</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">GST_RATE, MAX_RETRIES</td>
-                  <td className="py-3 px-4">After __all__</td>
-                  <td className="py-3 px-4">Configuration constants in uppercase with underscores</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-emerald-300 font-semibold">Private Helpers</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">_validate_amount(x)</td>
-                  <td className="py-3 px-4">Alongside public logic</td>
-                  <td className="py-3 px-4">Leading underscore signals internal implementation details</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-amber-300 font-semibold">Execution Guard</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">if __name__ == '__main__':</td>
-                  <td className="py-3 px-4">Bottom of file</td>
-                  <td className="py-3 px-4">Self-testing code that runs only when executed directly</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 5: LIVE PYTHON CODE LAB */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">💻</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              5. Interactive Code Lab: Production Scripts
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Explore 4 production-grade Python scripts demonstrating canonical module layout, __all__ export control, multi-module separation of concerns, and student fee managers:
-          </p>
-
-          <PythonFileLoader
-            files={[
-              {
-                filename: "custom_module_anatomy.py",
-                code: moduleAnatomy,
-                description: "Canonical PEP-8 module structure: docstrings, __all__ whitelist, constants, private helpers, and self-testing guard.",
-              },
-              {
-                filename: "export_control_with_all.py",
-                code: exportControl,
-                description: "How __all__ restricts wildcard exports and encapsulates private internal functions.",
-              },
-              {
-                filename: "multi_module_import_demo.py",
-                code: multiModule,
-                description: "Layered multi-module architecture: config layer, business logic layer, and presentation orchestration.",
-              },
-              {
-                filename: "student_fee_management_module.py",
-                code: feeManagerModule,
-                description: "Production student fee calculation and ASCII receipt generator module with type annotations.",
-              },
-            ]}
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Creating and structuring custom user-defined modules FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
           />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 6: COMMON TRAPS & EDGE CASES */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              6. Common Traps, Anti-Patterns &amp; Edge Cases
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Trap 1 */}
-            <div className="p-6 rounded-xl bg-rose-950/30 border border-rose-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-rose-400 font-bold text-base">
-                <span>❌</span> Trap 1: Executable Code Outside Functions
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Writing <code className="text-rose-300 font-mono">print()</code> or database queries at the top level of a module causes them to execute immediately whenever another file imports it!
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Wrap demo executions inside <code className="text-emerald-300">if __name__ == '__main__':</code>
-              </div>
-            </div>
-
-            {/* Trap 2 */}
-            <div className="p-6 rounded-xl bg-amber-950/30 border border-amber-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-amber-400 font-bold text-base">
-                <span>❌</span> Trap 2: Typo in `__all__` Identifier Strings
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                If you misspell a function name in <code className="text-amber-300 font-mono">__all__ = ["calc_feee"]</code>, Python crashes with <code className="text-rose-400 font-mono">AttributeError</code> when imported with wildcard!
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Tip:</span> Ensure strings in <code className="text-emerald-300">__all__</code> match actual function and class names exactly.
-              </div>
-            </div>
-
-            {/* Trap 3 */}
-            <div className="p-6 rounded-xl bg-purple-950/30 border border-purple-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-purple-400 font-bold text-base">
-                <span>❌</span> Trap 3: Heavy I/O at Module Top Level
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Opening heavy files or connecting to network sockets at the module level slows down test suites and crashes scripts if the resource is temporarily offline.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Use lazy initialization functions or factories.
-              </div>
-            </div>
-
-            {/* Trap 4 */}
-            <div className="p-6 rounded-xl bg-cyan-950/30 border border-cyan-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-cyan-400 font-bold text-base">
-                <span>❌</span> Trap 4: Mutating Shared Module-Level Variables
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Modifying a module variable from another file creates hidden coupling and unpredictable concurrency bugs across your application.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Pass state explicitly via function arguments or object instances.
-              </div>
-            </div>
-          </div>
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Creating and structuring custom user-defined modules"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic3_note.txt"
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 7: FAQ & INTERVIEW REVIEW QUESTIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">❓</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              7. Master Review &amp; Interview Questions (25 FAQs)
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Comprehensive question-and-answer repository covering custom module architecture, __all__ whitelisting, private helper conventions, and multi-module design:
-          </p>
-
-          <FAQTemplate questions={questions} />
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 8: STUDY NOTES, PRINTABLE HANDOUT & TEACHER BIO */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📄</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              8. Study Notes, Printable Handout &amp; Teacher Profile
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Download or print the complete reference sheet with PEP 8 module layouts, __all__ rules, and layered architecture diagrams:
-          </p>
-
-          <div className="mb-10">
-            <PlainTextPrint
-              content={noteText}
-              filename="python_topic3_custom_user_defined_modules_notes.txt"
-              title="Print Topic 3 Study Notes"
-            />
-          </div>
-
-          {/* Teacher Bio Card */}
-          <Teacher />
-        </section>
-
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 3 · Creating and structuring custom user-defined modules · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Topic3;

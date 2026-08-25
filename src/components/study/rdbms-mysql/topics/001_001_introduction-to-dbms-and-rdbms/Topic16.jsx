@@ -4,6 +4,8 @@ import clsx from "clsx";
 // ─── Common Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import noteText from "./topic16_files/topic16_note.txt?raw";
 import questions from "./topic16_files/topic16_questions";
 
 /**
@@ -828,6 +830,23 @@ const Topic16 = () => {
             showExpandAll
             showSearch
             showProgress
+          />
+        </section>
+
+        
+        {/* ─── Plain Text Printable Study Note ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section mb-10"
+          style={{ animationDelay: "1250ms" }}
+        >
+          <PlainTextPrint
+            content={noteText}
+            title="Rows (Tuples) and Columns (Attributes)"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Plain Text Note"
+            downloadFileName="topic16_note.txt"
           />
         </section>
 

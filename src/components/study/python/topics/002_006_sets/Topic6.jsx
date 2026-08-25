@@ -1,494 +1,380 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Shared Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python Code Examples (Imported with ?raw)
-import membershipIn from "./topic6_files/membership_in_operator.py?raw";
-import notInDemo from "./topic6_files/not_in_operator_demo.py?raw";
-import benchmarkDemo from "./topic6_files/membership_complexity_benchmark.py?raw";
-import accessGuard from "./topic6_files/access_guard_real_world.py?raw";
-
-// Plain Text Note for Printing/Downloading
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic6_files/topic6_questions";
 import noteText from "./topic6_files/topic6_note.txt?raw";
 
-// FAQ Questions
-import questions from "./topic6_files/topic6_questions";
-
 /**
- * Topic6: Membership Testing Using 'in' and 'not in'
- * Module: 002_006_sets
- * Segment: 2 (Practical Python for Real-World Development)
+ * Topic6 – Membership testing using in
+ * Module: 002_006_sets (Sets & Set Operations)
+ * Track: Python from Basic to Pro
  *
- * Comprehensive exploration of O(1) set membership testing, __contains__ protocol,
- * benchmarking 1,000,000-item collections, Boolean quirks (True in {1}),
- * and preventing the O(N^2) set re-creation anti-pattern in loops.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic6() {
+const Topic6 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
-  const [activeTab, setActiveTab] = useState("speed");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-emerald-500/30 selection:text-emerald-200">
-      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+    <>
       <style>{`
-        .section-hidden {
-          transform: translateY(18px);
-          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .section-visible {
+        .reveal-section.is-visible {
           transform: translateY(0);
         }
       `}</style>
 
-      {/* ==================================================================== */}
-      {/* HEADER SECTION */}
-      {/* ==================================================================== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
-      >
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs sm:text-sm font-mono font-semibold bg-emerald-950/80 text-emerald-300 px-3 py-1 rounded-full border border-emerald-800/80 shadow-sm shadow-emerald-950/50">
-            Segment 2 • Module 002_006
-          </span>
-          <span className="text-xs sm:text-sm font-mono bg-sky-950/80 text-sky-300 px-3 py-1 rounded-full border border-sky-800/80 shadow-sm shadow-sky-950/50">
-            Topic 6
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-slate-400">
-            High-Velocity Querying
-          </span>
-        </div>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 006 · Topic 6</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Membership testing using in
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master distinct element collections, set theory operations, and high-performance membership checks.
+          </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          Membership Testing: <code className="text-emerald-400 font-mono">in</code> & <code className="text-sky-400 font-mono">not in</code>
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
-          Harnessing instantaneous <span className="text-emerald-400 font-semibold">O(1)</span> hash-powered membership queries, eliminating slow linear scans, and building high-throughput authorization gateways.
-        </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
 
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ⚡ 10,000x Faster than List Scan
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🔍 __contains__ Dunder Protocol
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🛑 Avoid O(N²) Loop Trap
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🛡️ Firewall & Whitelist Guards
-          </span>
-        </div>
-      </header>
-
-      {/* ==================================================================== */}
-      {/* MAIN CONTENT WRAPPER */}
-      {/* ==================================================================== */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 1: THE POWER OF O(1) MEMBERSHIP */}
-        {/* ------------------------------------------------------------------ */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚡</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              1. The Superpower of Set Membership Testing
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Membership testing using in
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
-            <p>
-              In computer science, membership testing answers the fundamental question: <em className="text-white">"Is entity X present in dataset S?"</em>. The speed at which your program answers this question defines application scalability:
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-6 not-prose">
-              {/* List Search */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-amber-800/60 shadow-lg shadow-amber-950/30 transition-all duration-300 hover:border-amber-500">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2 text-amber-400 font-bold text-lg">
-                    <span>📜</span> List Search: O(N)
-                  </div>
-                  <span className="text-xs font-mono bg-amber-950 text-amber-300 px-2 py-0.5 rounded border border-amber-800">
-                    Linear Scan
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-2">
-                  Python starts at index 0 and inspects every element sequentially until it finds a match or exhausts the list.
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Membership testing using in</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
                 </p>
-                <div className="text-xs font-mono text-slate-400">
-                  Across 1,000,000 items: Takes up to <strong className="text-rose-400">1,000,000 pointer checks</strong> (~15ms).
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
                 </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
               </div>
-
-              {/* Set Search */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-emerald-800/60 shadow-lg shadow-emerald-950/30 transition-all duration-300 hover:border-emerald-500">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2 text-emerald-400 font-bold text-lg">
-                    <span>⚡</span> Set Search: O(1)
-                  </div>
-                  <span className="text-xs font-mono bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800">
-                    Constant Time
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-2">
-                  Python computes <code className="font-mono text-emerald-300">hash(target)</code> and jumps directly to the pre-calculated bucket.
-                </p>
-                <div className="text-xs font-mono text-slate-400">
-                  Across 1,000,000 items: Takes exactly <strong className="text-emerald-400">1 direct hash jump</strong> (&lt;0.0001ms).
-                </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
             </div>
 
-            <div className="bg-slate-950/70 p-5 rounded-xl border-l-4 border-emerald-500 border border-slate-800/80">
-              <h3 className="text-white font-bold text-base mb-2">
-                Under the Hood: The <code className="font-mono text-emerald-400">__contains__</code> Protocol
-              </h3>
-              <p className="text-sm sm:text-base text-slate-300">
-                When you write <code className="text-emerald-300 font-mono">if candidate in certified_set:</code>, Python translates it directly to <code className="text-emerald-300 font-mono">certified_set.__contains__(candidate)</code>, executing in blazing fast C-level speed.
-              </p>
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 2: INTERACTIVE SVG BENCHMARK VISUALIZER */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">📊</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                2. Visualizing Lookup Complexity & The Loop Anti-Pattern
-              </h2>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Membership testing using in
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
             </div>
 
-            {/* Toggle Tabs */}
-            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
-              <button
-                onClick={() => setActiveTab("speed")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "speed"
-                    ? "bg-emerald-900/50 text-emerald-300 border border-emerald-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                1 Million Item Benchmark
-              </button>
-              <button
-                onClick={() => setActiveTab("antipattern")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "antipattern"
-                    ? "bg-amber-900/50 text-amber-300 border border-amber-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                The O(N²) Loop Trap
-              </button>
-            </div>
-          </div>
-
-          {/* SVG Diagram Canvas */}
-          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
-            {activeTab === "speed" ? (
-              <svg viewBox="0 0 850 320" className="w-full h-auto min-w-[650px] font-sans">
-                <text x="30" y="35" fill="#f8fafc" fontSize="15" fontWeight="bold">Searching for Item 999,999 in a 1,000,000 Element Collection</text>
-
-                {/* List Lookup */}
-                <rect x="30" y="65" width="380" height="220" rx="10" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
-                <text x="50" y="95" fill="#fbbf24" fontSize="15" fontWeight="bold">List Search: 999,999 in my_list</text>
-
-                <rect x="50" y="115" width="340" height="40" rx="6" fill="#451a03" stroke="#f59e0b" />
-                <text x="65" y="140" fill="#fde68a" fontSize="13" fontWeight="bold">Time: ~15.2400 ms (1,000,000 checks)</text>
-
-                <text x="50" y="185" fill="#cbd5e1" fontSize="12">• Inspects index 0, 1, 2, 3... up to 999,999.</text>
-                <text x="50" y="210" fill="#cbd5e1" fontSize="12">• High CPU usage and pointer iteration overhead.</text>
-                <text x="50" y="235" fill="#fca5a5" fontSize="12" fontWeight="bold">❌ Slow O(N) linear scan!</text>
-
-                {/* Set Lookup */}
-                <rect x="440" y="65" width="380" height="220" rx="10" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
-                <text x="460" y="95" fill="#34d399" fontSize="15" fontWeight="bold">Set Search: 999,999 in my_set</text>
-
-                <rect x="460" y="115" width="340" height="40" rx="6" fill="#064e3b" stroke="#10b981" />
-                <text x="475" y="140" fill="#a7f3d0" fontSize="13" fontWeight="bold">Time: ~0.0004 ms (1 direct jump)</text>
-
-                <text x="460" y="185" fill="#cbd5e1" fontSize="12">• hash(999999) jumps directly to bucket address.</text>
-                <text x="460" y="210" fill="#cbd5e1" fontSize="12">• Zero memory traversal across other 999,999 items.</text>
-                <text x="460" y="235" fill="#34d399" fontSize="12" fontWeight="bold">⚡ ~38,000x FASTER than List!</text>
-              </svg>
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <svg viewBox="0 0 850 320" className="w-full h-auto min-w-[650px] font-sans">
-                <text x="30" y="35" fill="#f8fafc" fontSize="15" fontWeight="bold">The Catastrophic O(N²) Loop Anti-Pattern</text>
-
-                {/* Left: Anti-Pattern */}
-                <rect x="30" y="65" width="380" height="220" rx="10" fill="#1e293b" stroke="#ef4444" strokeWidth="2" />
-                <text x="50" y="95" fill="#fca5a5" fontSize="14" fontWeight="bold">THE ANTI-PATTERN: Inside Loop</text>
-
-                <rect x="50" y="115" width="340" height="45" rx="6" fill="#450a0a" stroke="#ef4444" />
-                <text x="60" y="142" fill="#fecaca" fontSize="11" fontWeight="mono">for x in data: if x in set(big_list):</text>
-
-                <text x="50" y="185" fill="#cbd5e1" fontSize="12">• Re-builds 1,000,000-item set on EVERY iteration!</text>
-                <text x="50" y="210" fill="#cbd5e1" fontSize="12">• 10,000 iterations = 10,000,000,000 operations.</text>
-                <text x="50" y="235" fill="#fca5a5" fontSize="12" fontWeight="bold">💥 Catastrophic O(N²) quadratic freeze!</text>
-
-                {/* Right: Best Practice */}
-                <rect x="440" y="65" width="380" height="220" rx="10" fill="#1e293b" stroke="#10b981" strokeWidth="2" />
-                <text x="460" y="95" fill="#34d399" fontSize="14" fontWeight="bold">THE PYTHONIC PATTERN: Hoist Set</text>
-
-                <rect x="460" y="115" width="340" height="45" rx="6" fill="#064e3b" stroke="#10b981" />
-                <text x="470" y="142" fill="#a7f3d0" fontSize="11" fontWeight="mono">fast_set = set(big_list) # ONCE outside</text>
-
-                <text x="460" y="185" fill="#cbd5e1" fontSize="12">• Set is built exactly once outside the loop O(N).</text>
-                <text x="460" y="210" fill="#cbd5e1" fontSize="12">• Each loop check executes in O(1) constant time.</text>
-                <text x="460" y="235" fill="#34d399" fontSize="12" fontWeight="bold">✓ Blazing fast O(N) linear completion!</text>
-              </svg>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
             )}
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 3: CODE LABS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 space-y-8"
-        >
-          <div className="flex items-center gap-3">
-            <span className="text-3xl">💻</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              3. Interactive Python Code Labs
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab A: Positive & Negative Membership with 'in' and 'not in'
-              </h3>
-              <PythonFileLoader
-                fileModule={membershipIn}
-                title="membership_in_operator.py"
-                highlightLines={[6, 14, 19, 24]}
-              />
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab B: Security Blocklist Filtering with 'not in'
-              </h3>
-              <PythonFileLoader
-                fileModule={notInDemo}
-                title="not_in_operator_demo.py"
-                highlightLines={[6, 13]}
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab C: Million-Item Benchmark: O(1) Set vs O(N) List Lookup
-              </h3>
-              <PythonFileLoader
-                fileModule={benchmarkDemo}
-                title="membership_complexity_benchmark.py"
-                highlightLines={[7, 14, 19, 28]}
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab D: Real-World Authorization Gateway & Tuition Fee Audit in ₹
-              </h3>
-              <PythonFileLoader
-                fileModule={accessGuard}
-                title="access_guard_real_world.py"
-                highlightLines={[6, 15, 22]}
-              />
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 4: REAL-WORLD APPLICATIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🏛️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              4. Real-World Applications in West Bengal Industry
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🎓</span> 1. Cloud Lab Access Verification
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
               </div>
-              <p className="text-sm text-slate-300">
-                When Susmita, Mamata, and Debangshu log in to the Advanced Python Cloud Lab in <strong>Barrackpore</strong>, membership check <code className="font-mono text-emerald-400">if student_id in premium_students</code> validates tuition payment (<strong className="text-emerald-300">₹4,500</strong>) in under 1 microsecond.
-              </p>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-sky-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🛡️</span> 2. High-Velocity API Firewalls
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
               </div>
-              <p className="text-sm text-slate-300">
-                Payment gateways serving <strong>Kolkata</strong> fintech platforms evaluate incoming requests against banned IP sets <code className="font-mono text-sky-400">if client_ip not in banned_ips</code>, shielding backend servers from DDoS attacks at zero latency.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-purple-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🕷️</span> 3. Web Scraper Deduplication
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
               </div>
-              <p className="text-sm text-slate-300">
-                Data engineering pipelines crawling product prices verify <code className="font-mono text-purple-400">if url not in visited_urls</code> before dispatching HTTP requests, avoiding duplicate network bandwidth consumption.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-amber-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">📖</span> 4. Real-Time Spell Checkers
-              </div>
-              <p className="text-sm text-slate-300">
-                Document editing engines in <strong>Jadavpur</strong> load 250,000 vocabulary words into a set, validating typed words in <span className="font-semibold text-emerald-400">O(1)</span> time without stuttering user keystrokes.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 5: COMMON PITFALLS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              5. Pitfalls & Tricky Gotchas with Membership Testing
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 1: Set Re-Creation in Loops
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Writing <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">if x in set(big_list):</code> inside a loop destroys performance to O(N²). Construct the set <strong className="text-white">once outside</strong> the loop!
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 2: Searching with Unhashable Target
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Writing <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">[1, 2] in my_set</code> raises <code className="text-rose-400 font-bold">TypeError: unhashable type: 'list'</code>. Target search keys must be immutable.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 3: Case-Sensitivity Assumptions
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">'kolkata' in {'{Kolkata}'}</code> is <code className="text-rose-400 font-bold">False</code>. String hashing is strictly case-sensitive.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 4: Float Precision Glitches
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">0.1 + 0.2 in {'{0.3}'}</code> returns <code className="text-rose-400 font-bold">False</code> due to binary float representation (0.30000000000000004).
-              </p>
-            </div>
-          </div>
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Membership testing using in FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 6: PRINTABLE STUDY NOTE */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Topic 6: Membership Testing Study Guide"
+            title="Membership testing using in"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Printable Study Note"
-            downloadFileName="topic6_membership_testing_in_note.txt"
+            downloadButtonText="Download Note"
+            downloadFileName="topic6_note.txt"
           />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 7: FAQS (30 COMPREHENSIVE QUESTIONS) */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
-          <FAQTemplate
-            title="Topic 6 • Membership Testing (in / not in): Master Viva & Review Questions"
-            questions={questions}
-          />
-        </section>
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 8: TEACHER'S NOTE */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
-            note="Teacher's Golden Speed Rule: If your code ever searches for items inside a collection more than once, NEVER use a list! Convert that collection to a set once, and enjoy instantaneous O(1) lookups that can make your code up to 38,000x faster. When Susmita, Abhronila, and Debangshu build authorization systems in Barrackpore, sets are your superhighway!"
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
           />
         </section>
 
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 6 · Membership testing using in · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Topic6;

@@ -1,564 +1,380 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Shared Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python Code Examples (Imported with ?raw)
-import vennOverview from "./topic9_files/venn_diagram_overview.py?raw";
-import methodsVsOperators from "./topic9_files/methods_vs_operators_rules.py?raw";
-import multiChaining from "./topic9_files/multi_set_chaining.py?raw";
-import communityStats from "./topic9_files/community_membership_stats.py?raw";
-
-// Plain Text Note for Printing/Downloading
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic9_files/topic9_questions";
 import noteText from "./topic9_files/topic9_note.txt?raw";
 
-// FAQ Questions
-import questions from "./topic9_files/topic9_questions";
-
 /**
- * Topic9: Mathematical Set Operations Overview
- * Module: 002_006_sets
- * Segment: 2 (Practical Python for Real-World Development)
+ * Topic9 – Mathematical set operations
+ * Module: 002_006_sets (Sets & Set Operations)
+ * Track: Python from Basic to Pro
  *
- * Comprehensive foundation to set algebra in Python: Union (|),
- * Intersection (&), Difference (-), Symmetric Difference (^),
- * strict operator type rules vs polymorphic methods, and in-place mutating variants.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic9() {
+const Topic9 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
-  const [activeTab, setActiveTab] = useState("union");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-emerald-500/30 selection:text-emerald-200">
-      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+    <>
       <style>{`
-        .section-hidden {
-          transform: translateY(18px);
-          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .section-visible {
+        .reveal-section.is-visible {
           transform: translateY(0);
         }
       `}</style>
 
-      {/* ==================================================================== */}
-      {/* HEADER SECTION */}
-      {/* ==================================================================== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
-      >
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs sm:text-sm font-mono font-semibold bg-emerald-950/80 text-emerald-300 px-3 py-1 rounded-full border border-emerald-800/80 shadow-sm shadow-emerald-950/50">
-            Segment 2 • Module 002_006
-          </span>
-          <span className="text-xs sm:text-sm font-mono bg-sky-950/80 text-sky-300 px-3 py-1 rounded-full border border-sky-800/80 shadow-sm shadow-sky-950/50">
-            Topic 9
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-slate-400">
-            Set Algebra & Venn Logic
-          </span>
-        </div>
-
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          Mathematical Set Operations Overview
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
-          Mastering discrete mathematics set algebra in Python: Union (<code className="text-emerald-400 font-mono">|</code>), Intersection (<code className="text-sky-400 font-mono">&amp;</code>), Difference (<code className="text-rose-400 font-mono">-</code>), and Symmetric Difference (<code className="text-purple-400 font-mono">^</code>).
-        </p>
-
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ∪ Union (|)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ∩ Intersection (&amp;)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ∖ Difference (-)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            Δ Symmetric Difference (^)
-          </span>
-        </div>
-      </header>
-
-      {/* ==================================================================== */}
-      {/* MAIN CONTENT WRAPPER */}
-      {/* ==================================================================== */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 1: THE 4 PILLARS OF SET ALGEBRA */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📐</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              1. The 4 Fundamental Mathematical Operations
-            </h2>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 006 · Topic 9</span>
           </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Mathematical set operations
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master distinct element collections, set theory operations, and high-performance membership checks.
+          </p>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
-            <p>
-              Python sets directly implement standard mathematical set theory. Every operation can be executed either with a <strong className="text-emerald-400">concise algebraic operator</strong> or a <strong className="text-sky-400">flexible built-in method</strong>:
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 not-prose">
-              {/* Card 1: Union */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-emerald-800/60 shadow-lg shadow-emerald-950/30 transition-all duration-300 hover:border-emerald-500">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-emerald-400 font-bold text-lg">
-                    <span>∪</span> Union: A | B
-                  </div>
-                  <span className="text-xs font-mono bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800">
-                    A.union(B)
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-2">
-                  Combines all elements from both sets. Eliminates duplicates automatically.
-                </p>
-                <div className="text-xs font-mono text-emerald-300 bg-slate-900 p-2 rounded">
-                  {'{1, 2} | {2, 3}'} -&gt; {'{1, 2, 3}'}
-                </div>
-              </div>
-
-              {/* Card 2: Intersection */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-sky-800/60 shadow-lg shadow-sky-950/30 transition-all duration-300 hover:border-sky-500">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-sky-400 font-bold text-lg">
-                    <span>∩</span> Intersection: A &amp; B
-                  </div>
-                  <span className="text-xs font-mono bg-sky-950 text-sky-300 px-2 py-0.5 rounded border border-sky-800">
-                    A.intersection(B)
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-2">
-                  Extracts only the common elements present in BOTH sets simultaneously.
-                </p>
-                <div className="text-xs font-mono text-sky-300 bg-slate-900 p-2 rounded">
-                  {'{1, 2} & {2, 3}'} -&gt; {'{2}'}
-                </div>
-              </div>
-
-              {/* Card 3: Difference */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-rose-800/60 shadow-lg shadow-rose-950/30 transition-all duration-300 hover:border-rose-500">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-rose-400 font-bold text-lg">
-                    <span>∖</span> Difference: A - B
-                  </div>
-                  <span className="text-xs font-mono bg-rose-950 text-rose-300 px-2 py-0.5 rounded border border-rose-800">
-                    A.difference(B)
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-2">
-                  Subtracts all elements of B from A (Relative Complement).
-                </p>
-                <div className="text-xs font-mono text-rose-300 bg-slate-900 p-2 rounded">
-                  {'{1, 2, 3} - {2, 3}'} -&gt; {'{1}'}
-                </div>
-              </div>
-
-              {/* Card 4: Symmetric Difference */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-purple-800/60 shadow-lg shadow-purple-950/30 transition-all duration-300 hover:border-purple-500">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-purple-400 font-bold text-lg">
-                    <span>Δ</span> Sym Diff: A ^ B
-                  </div>
-                  <span className="text-xs font-mono bg-purple-950 text-purple-300 px-2 py-0.5 rounded border border-purple-800">
-                    A.sym_diff(B)
-                  </span>
-                </div>
-                <p className="text-sm text-slate-300 mb-2">
-                  Retains elements present in either A or B, but NOT in both!
-                </p>
-                <div className="text-xs font-mono text-purple-300 bg-slate-900 p-2 rounded">
-                  {'{1, 2} ^ {2, 3}'} -&gt; {'{1, 3}'}
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-slate-950/70 p-5 rounded-xl border-l-4 border-amber-500 border border-slate-800/80">
-              <h3 className="text-white font-bold text-base mb-2">
-                ⚖️ Operators vs Methods: The Universal Typing Rule
-              </h3>
-              <p className="text-sm sm:text-base text-slate-300">
-                <strong className="text-white">Operators (<code className="text-amber-300 font-mono">|, &amp;, -, ^</code>)</strong> strictly enforce type matching and require both operands to be set instances. <strong className="text-white">Methods (<code className="text-sky-300 font-mono">.union(), .intersection()</code>)</strong> are polymorphic and accept any iterable (lists, tuples, ranges, generators).
-              </p>
-            </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
           </div>
-        </section>
+        </header>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 2: INTERACTIVE SVG VENN DIAGRAM VISUALIZER */}
-        {/* ------------------------------------------------------------------ */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">📊</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                2. Interactive Venn Diagram Explorer
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Mathematical set operations
               </h2>
-            </div>
-
-            {/* Toggle Tabs */}
-            <div className="flex flex-wrap bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold gap-1">
-              <button
-                onClick={() => setActiveTab("union")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "union"
-                    ? "bg-emerald-900/50 text-emerald-300 border border-emerald-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Union (A | B)
-              </button>
-              <button
-                onClick={() => setActiveTab("intersection")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "intersection"
-                    ? "bg-sky-900/50 text-sky-300 border border-sky-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Intersection (A &amp; B)
-              </button>
-              <button
-                onClick={() => setActiveTab("difference")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "difference"
-                    ? "bg-rose-900/50 text-rose-300 border border-rose-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Difference (A - B)
-              </button>
-              <button
-                onClick={() => setActiveTab("symdiff")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "symdiff"
-                    ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Sym Diff (A ^ B)
-              </button>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
             </div>
           </div>
 
-          {/* SVG Diagram Canvas */}
-          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
-            <svg viewBox="0 0 850 320" className="w-full h-auto min-w-[650px] font-sans">
-              <text x="30" y="30" fill="#f8fafc" fontSize="15" fontWeight="bold">
-                Cohort A: Python Pro (Barrackpore) vs Cohort B: Cloud Architecture (Kolkata)
-              </text>
-
-              {/* Set Circles */}
-              {/* Circle A */}
-              <circle
-                cx="340"
-                cy="160"
-                r="110"
-                fill={
-                  activeTab === "union" || activeTab === "difference" || activeTab === "symdiff"
-                    ? (activeTab === "difference" ? "#e11d4833" : (activeTab === "symdiff" ? "#9333ea33" : "#05966933"))
-                    : "#1e293b55"
-                }
-                stroke={activeTab === "difference" ? "#f43f5e" : (activeTab === "symdiff" ? "#a855f7" : "#10b981")}
-                strokeWidth="2.5"
-              />
-
-              {/* Circle B */}
-              <circle
-                cx="510"
-                cy="160"
-                r="110"
-                fill={
-                  activeTab === "union" || activeTab === "symdiff"
-                    ? (activeTab === "symdiff" ? "#9333ea33" : "#05966933")
-                    : "#1e293b55"
-                }
-                stroke={activeTab === "symdiff" ? "#a855f7" : "#0ea5e9"}
-                strokeWidth="2.5"
-              />
-
-              {/* Intersection Highlight when active */}
-              {activeTab === "intersection" && (
-                <ellipse cx="425" cy="160" rx="45" ry="80" fill="#0284c788" stroke="#38bdf8" strokeWidth="2" />
-              )}
-
-              {/* Labels inside Circle A only */}
-              <text x="270" y="145" fill="#f8fafc" fontSize="12" fontWeight="bold">Susmita</text>
-              <text x="260" y="175" fill="#94a3b8" fontSize="11">(Only Python)</text>
-
-              {/* Labels inside Intersection */}
-              <text x="400" y="140" fill="#f8fafc" fontSize="12" fontWeight="bold">Mamata</text>
-              <text x="390" y="165" fill="#f8fafc" fontSize="12" fontWeight="bold">Debangshu</text>
-              <text x="395" y="190" fill="#f8fafc" fontSize="12" fontWeight="bold">Abhronila</text>
-
-              {/* Labels inside Circle B only */}
-              <text x="560" y="145" fill="#f8fafc" fontSize="12" fontWeight="bold">Rohan</text>
-              <text x="555" y="175" fill="#94a3b8" fontSize="11">(Only Cloud)</text>
-
-              {/* Circle Titles */}
-              <text x="260" y="70" fill="#34d399" fontSize="13" fontWeight="bold">Set A (Python Pro)</text>
-              <text x="520" y="70" fill="#38bdf8" fontSize="13" fontWeight="bold">Set B (Cloud Architecture)</text>
-
-              {/* Dynamic Result Box at bottom */}
-              <rect x="30" y="275" width="790" height="35" rx="6" fill="#0f172a" stroke="#334155" />
-              <text x="50" y="297" fill="#38bdf8" fontSize="12" fontWeight="bold">
-                {activeTab === "union" && "Union (A | B) Result: 5 Unique Students -> {'Susmita', 'Debangshu', 'Mamata', 'Abhronila', 'Rohan'}"}
-                {activeTab === "intersection" && "Intersection (A & B) Result: 3 Dual-Enrolled Students -> {'Mamata', 'Debangshu', 'Abhronila'}"}
-                {activeTab === "difference" && "Difference (A - B) Result: 1 Student in Python only -> {'Susmita'}"}
-                {activeTab === "symdiff" && "Symmetric Diff (A ^ B) Result: 2 Students in exactly 1 course -> {'Susmita', 'Rohan'}"}
-              </text>
-            </svg>
-          </div>
-        </section>
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 3: CODE LABS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 space-y-8"
-        >
-          <div className="flex items-center gap-3">
-            <span className="text-3xl">💻</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              3. Interactive Python Code Labs
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab A: The 4 Core Operations in Action
-              </h3>
-              <PythonFileLoader
-                fileModule={vennOverview}
-                title="venn_diagram_overview.py"
-                highlightLines={[6, 14, 18, 22, 26]}
-              />
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Mathematical set operations</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab B: Methods (.union) vs Operators (|) Type Enforcement
-              </h3>
-              <PythonFileLoader
-                fileModule={methodsVsOperators}
-                title="methods_vs_operators_rules.py"
-                highlightLines={[6, 13, 19]}
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab C: Multi-Set Chaining Across Multiple Center Cohorts
-              </h3>
-              <PythonFileLoader
-                fileModule={multiChaining}
-                title="multi_set_chaining.py"
-                highlightLines={[6, 12, 16, 20]}
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Lab D: Real-World Student Community Overlap & Revenue in ₹
-              </h3>
-              <PythonFileLoader
-                fileModule={communityStats}
-                title="community_membership_stats.py"
-                highlightLines={[6, 14, 21]}
-              />
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 4: REAL-WORLD APPLICATIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🏛️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              4. Real-World Applications in West Bengal Industry
-            </h2>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Mathematical set operations
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">💰</span> 1. Course Enrollment Overlap & Fee Audit
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
               </div>
-              <p className="text-sm text-slate-300">
-                Coaching institutes in <strong>Barrackpore</strong> calculate aggregate revenue by separating dual-enrolled students (<code className="font-mono text-emerald-400">A &amp; B</code>) from single-course students (<code className="font-mono text-emerald-400">A ^ B</code>) in Indian Rupees (<strong className="text-emerald-300">₹4,500 + ₹6,500</strong>).
-              </p>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-sky-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">👥</span> 2. Multi-Branch Lead Deduplication
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
               </div>
-              <p className="text-sm text-slate-300">
-                Marketing teams in <strong>Kolkata</strong> and <strong>Ichapur</strong> merge customer lead lists using <code className="font-mono text-sky-400">leads_all = leads_wb | leads_online</code>, avoiding duplicate email campaigns.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-purple-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🔐</span> 3. RBAC Effective Permission Resolution
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
               </div>
-              <p className="text-sm text-slate-300">
-                Security middlewares resolve user access by evaluating <code className="font-mono text-purple-400">effective_perms = (role_perms | user_perms) - revoked_perms</code> in instant O(1) steps per check.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-amber-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🔍</span> 4. Missing JSON Schema Field Detection
-              </div>
-              <p className="text-sm text-slate-300">
-                REST API input validators detect missing mandatory payload parameters using <code className="font-mono text-amber-400">missing = required_fields - set(payload.keys())</code> in <strong>Jadavpur</strong> microservices.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 5: COMMON PITFALLS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              5. Pitfalls & Tricky Gotchas in Set Algebra
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 1: Passing Lists to Operators
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
               </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Writing <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">my_set | [1, 2]</code> fails with <code className="text-rose-400 font-bold">TypeError</code>. Use <code className="font-mono text-emerald-400">my_set.union([1, 2])</code> or convert with <code className="font-mono text-emerald-400">set([1, 2])</code>!
-              </p>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 2: Confusing A - B with B - A
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
               </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Set difference is <strong className="text-rose-400">non-commutative</strong>! <code className="font-mono">{'{1, 2} - {2, 3}'}</code> gives <code className="font-mono">{'{1}'}</code>, while <code className="font-mono">{'{2, 3} - {1, 2}'}</code> gives <code className="font-mono">{'{3}'}</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 3: Multi-Args in sym_diff()
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
               </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">s.sym_diff(s1, s2)</code> raises <code className="text-rose-400 font-bold">TypeError</code> (takes 1 arg only). Chain with operators: <code className="font-mono text-emerald-400">s ^ s1 ^ s2</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 4: Operator Precedence Surprise
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                <code className="font-mono">&amp;</code> binds tighter than <code className="font-mono">|</code> and <code className="font-mono">^</code>. Always use parentheses <code className="font-mono text-emerald-400">(A | B) &amp; C</code> to guarantee intended logic!
-              </p>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 6: PRINTABLE STUDY NOTE */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Mathematical set operations FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
+        </section>
+
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Topic 9: Mathematical Set Operations Overview Study Guide"
+            title="Mathematical set operations"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Printable Study Note"
-            downloadFileName="topic9_mathematical_set_operations_note.txt"
+            downloadButtonText="Download Note"
+            downloadFileName="topic9_note.txt"
           />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 7: FAQS (30 COMPREHENSIVE QUESTIONS) */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
-          <FAQTemplate
-            title="Topic 9 • Mathematical Set Operations: Master Viva & Review Questions"
-            questions={questions}
-          />
-        </section>
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 8: TEACHER'S NOTE */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
-            note="Teacher's Algebraic Rule: Mathematical set operations turn complex data filtering queries into single-line masterpieces. Remember: when you write operators like A | B or A & B, Python enforces that both sides are sets. When you use methods like A.union(B), Python is happy to unpack any list, tuple, or database stream you throw at it. Keep your types aligned, and set algebra will do the heavy lifting for you!"
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
           />
         </section>
 
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 9 · Mathematical set operations · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Topic9;

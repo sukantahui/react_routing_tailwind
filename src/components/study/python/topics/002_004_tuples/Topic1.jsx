@@ -1,211 +1,380 @@
-// src/components/study/python/tuples/Topic1.jsx
+import React, { useState, useEffect, useRef } from "react";
+import clsx from "clsx";
 
-import React, { Component } from "react";
-import EditablePythonCodeBlock from "../../../../../common/EditablePythonCodeBlock";
+// ─── Common Framework Imports ──────────────────────────────────────────
+import Teacher from "../../../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic1_files/topic1_questions";
+import noteText from "./topic1_files/topic1_note.txt?raw";
 
-const fadeIn = "animate-[fadeIn_0.8s_ease-out]";
+/**
+ * Topic1 – Creating tuples (with and without parentheses)
+ * Module: 002_004_tuples (Tuples & Immutability)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
+ */
+const Topic1 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
 
-export default class Topic1 extends Component {
-  render() {
-    return (
-      <div className={`space-y-14 ${fadeIn}`}>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-        {/* ================= HEADER ================= */}
-        <header className="space-y-3">
-          <h2 className="text-2xl font-semibold text-sky-300 tracking-wide">
-            Creating Tuples in Python
-          </h2>
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
 
-          <p className="text-slate-300 text-sm leading-relaxed">
-            In Python, tuples can be created in <strong>multiple ways</strong>.
-            Understanding these forms is crucial because
-            <strong>syntax mistakes are very common in exams and interviews</strong>.
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
+  return (
+    <>
+      <style>{`
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          transform: translateY(0);
+        }
+      `}</style>
+
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 004 · Topic 1</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Creating tuples (with and without parentheses)
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Learn immutable sequences, variable unpacking, and efficient read-only data management.
           </p>
 
-          <p className="text-slate-400 text-sm">
-            In this topic, we will learn every valid way to create tuples and
-            understand <strong>why Python behaves the way it does</strong>.
-          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
         </header>
 
-        {/* ================= BASIC CREATION ================= */}
-        <section className="space-y-4">
-          <h3 className="text-xl font-semibold text-emerald-300">
-            1️⃣ Creating Tuples Using Parentheses
-          </h3>
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Creating tuples (with and without parentheses)
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
+          </div>
 
-          <EditablePythonCodeBlock
-            title="Tuple with Parentheses"
-            initialCode={`t = (10, 20, 30)
-print(t)
-print(type(t))`}
-          />
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Creating tuples (with and without parentheses)</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
 
-          <p className="text-slate-300 text-sm">
-            This is the most readable and commonly used form.
-          </p>
-
-          <p className="text-slate-400 text-xs">
-            ✔ Recommended for beginners and teaching code.
-          </p>
-        </section>
-
-        {/* ================= WITHOUT PARENTHESES ================= */}
-        <section className="space-y-4">
-          <h3 className="text-xl font-semibold text-emerald-300">
-            2️⃣ Creating Tuples Without Parentheses (Tuple Packing)
-          </h3>
-
-          <EditablePythonCodeBlock
-            title="Tuple Packing"
-            initialCode={`t = 10, 20, 30
-print(t)
-print(type(t))`}
-          />
-
-          <p className="text-slate-300 text-sm">
-            Python automatically packs comma-separated values into a tuple.
-          </p>
-
-          <div className="bg-indigo-900/20 border border-indigo-700 rounded-lg p-3">
-            <p className="text-indigo-300 text-sm font-semibold">
-              👨‍🏫 Teacher Insight
-            </p>
-            <p className="text-indigo-200 text-xs">
-              Parentheses are optional, but <strong>commas are mandatory</strong>.
-              This is one of the most misunderstood tuple rules.
-            </p>
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ================= SINGLE ELEMENT ================= */}
-        <section className="space-y-4">
-          <h3 className="text-xl font-semibold text-amber-300">
-            3️⃣ Single-Element Tuple (The Trailing Comma Rule)
-          </h3>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Creating tuples (with and without parentheses)
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
 
-          <EditablePythonCodeBlock
-            title="Single Element Trap"
-            initialCode={`a = (5)
-b = (5,)
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
 
-print(a, type(a))
-print(b, type(b))`}
-          />
-
-          <p className="text-slate-300 text-sm">
-            A single value inside parentheses is <strong>not</strong> a tuple.
-          </p>
-
-          <div className="bg-amber-900/20 border border-amber-700 rounded-lg p-3">
-            <p className="text-amber-300 text-sm font-semibold">
-              ⚠ Exam Alert
-            </p>
-            <p className="text-amber-200 text-xs">
-              <code>(5)</code> → int  
-              <br />
-              <code>(5,)</code> → tuple
-            </p>
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
           </div>
         </section>
 
-        {/* ================= EMPTY TUPLE ================= */}
-        <section className="space-y-4">
-          <h3 className="text-xl font-semibold text-emerald-300">
-            4️⃣ Creating an Empty Tuple
-          </h3>
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
 
-          <EditablePythonCodeBlock
-            title="Empty Tuple"
-            initialCode={`t = ()
-print(t)
-print(type(t))`}
-          />
-
-          <p className="text-slate-300 text-sm">
-            An empty tuple must use parentheses.
-          </p>
-
-          <p className="text-slate-400 text-xs">
-            ❌ There is no alternative syntax for empty tuple creation.
-          </p>
-        </section>
-
-        {/* ================= TUPLE FROM ITERABLE ================= */}
-        <section className="space-y-4">
-          <h3 className="text-xl font-semibold text-sky-300">
-            5️⃣ Creating Tuples Using tuple() Constructor
-          </h3>
-
-          <EditablePythonCodeBlock
-            title="tuple() Constructor"
-            initialCode={`t1 = tuple([1, 2, 3])
-t2 = tuple("ABC")
-
-print(t1)
-print(t2)`}
-          />
-
-          <p className="text-slate-300 text-sm">
-            The <code>tuple()</code> constructor converts any iterable into a tuple.
-          </p>
-
-          <div className="bg-sky-900/20 border border-sky-700 rounded-lg p-3">
-            <p className="text-sky-300 text-sm font-semibold">
-              Hidden Detail
-            </p>
-            <p className="text-sky-200 text-xs">
-              Strings are iterables, so each character becomes an element.
-            </p>
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ================= NESTED TUPLES ================= */}
-        <section className="space-y-4">
-          <h3 className="text-xl font-semibold text-emerald-300">
-            6️⃣ Creating Nested Tuples
-          </h3>
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
 
-          <EditablePythonCodeBlock
-            title="Nested Tuple"
-            initialCode={`t = (1, (2, 3), (4, 5))
-print(t)
-print(t[1])`}
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Creating tuples (with and without parentheses) FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
           />
-
-          <p className="text-slate-300 text-sm">
-            Tuples can contain other tuples, forming structured data.
-          </p>
         </section>
 
-        {/* ================= COMMON ERRORS ================= */}
-        <section className="space-y-4 border border-rose-700 rounded-xl p-4 bg-rose-900/20">
-          <h3 className="text-rose-300 font-semibold">
-            ❌ Common Tuple Creation Mistakes
-          </h3>
-
-          <ul className="list-disc list-inside text-rose-200 text-sm space-y-1">
-            <li>Forgetting trailing comma in single-element tuple</li>
-            <li>Thinking parentheses create tuples</li>
-            <li>Confusing tuple() with dict()</li>
-            <li>Assuming empty tuple can be created without ()</li>
-          </ul>
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Creating tuples (with and without parentheses)"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic1_note.txt"
+          />
         </section>
 
-        {/* ================= SUMMARY ================= */}
-        <footer className="bg-slate-900/70 border border-slate-700 rounded-xl p-4">
-          <p className="text-slate-200 text-sm font-semibold mb-1">
-            ✅ Topic1 Summary
-          </p>
-          <ul className="list-disc list-inside text-slate-400 text-xs space-y-1">
-            <li>Tuples can be created with or without parentheses</li>
-            <li>Commas define tuples, not brackets</li>
-            <li>Single-element tuples require a trailing comma</li>
-            <li>tuple() converts iterables into tuples</li>
-          </ul>
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
+
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 1 · Creating tuples (with and without parentheses) · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
         </footer>
-
       </div>
-    );
-  }
-}
+    </>
+  );
+};
+
+export default Topic1;

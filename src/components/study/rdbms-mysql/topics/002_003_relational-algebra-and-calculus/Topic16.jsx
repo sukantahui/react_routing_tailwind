@@ -471,7 +471,7 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);`,
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{full_name, course_title, fee} \\times 1.18 \\rightarrow \\text{total}}(\\sigma_{\\text{city='Barrackpore'}}(\\text{Students} \\bowtie \\text{Enrollments} \\bowtie \\text{Courses}))$"}
+                {"Relational Algebra: $\\pi_{\full_name, course_title, fee \\times 1.18 \\rightarrow \total}(\\sigma_{\city='Barrackpore'}(\Students \\bowtie \Enrollments \\bowtie \Courses))$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.full_name, c.course_title, ROUND(c.fee * 1.18, 2) AS total_fee
@@ -491,7 +491,7 @@ WHERE s.city = 'Barrackpore';`}
                 <span className="text-xs text-slate-500 font-mono">Kolkata University</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{student_id, full_name}}(\\text{Enrollments}) \\div \\text{Core_Courses}$"}
+                {"Relational Algebra: $\\pi_{\student_id, full_name}(\Enrollments) \\div \Core_Courses$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.student_id, s.full_name

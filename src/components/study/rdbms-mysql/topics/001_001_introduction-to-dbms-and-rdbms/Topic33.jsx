@@ -4,6 +4,8 @@ import clsx from "clsx";
 // ─── Common Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import noteText from "./topic33_files/topic33_note.txt?raw";
 import questions from "./topic33_files/topic33_questions";
 
 /**
@@ -1103,6 +1105,23 @@ conn = pymysql.connect(
             showExpandAll
             showSearch
             showProgress
+          />
+        </section>
+
+        
+        {/* ─── Plain Text Printable Study Note ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section mb-10"
+          style={{ animationDelay: "1250ms" }}
+        >
+          <PlainTextPrint
+            content={noteText}
+            title="Connecting to MySQL Server"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Plain Text Note"
+            downloadFileName="topic33_note.txt"
           />
         </section>
 

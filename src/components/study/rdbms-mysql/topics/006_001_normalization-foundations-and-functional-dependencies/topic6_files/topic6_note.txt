@@ -1,0 +1,87 @@
+================================================================================
+RDBMS & MYSQL MASTERCLASS: DATABASE NORMALIZATION
+MODULE: NORMALIZATION FOUNDATIONS, DATA ANOMALIES & FUNCTIONAL DEPENDENCIES
+TOPIC 6: TRIVIAL, NON-TRIVIAL, AND COMPLETELY NON-TRIVIAL FUNCTIONAL DEPENDENCIES WITH COUNTER-EXAMPLES
+================================================================================
+
+1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
+--------------------------------------------------------------------------------
+This topic provides an exhaustive theoretical and practical deep-dive into:
+"Trivial, Non-Trivial, and Completely Non-Trivial Functional Dependencies with Counter-Examples".
+In relational database engineering, understanding the mechanics of data redundancy,
+functional dependencies (X -> Y), and modification anomalies is the primary prerequisite
+for architecting fault-tolerant OLTP database systems.
+
+2. FORMAL RELATIONAL DEFINITION & MATHEMATICAL FOUNDATIONS
+--------------------------------------------------------------------------------
+A functional dependency is a formal constraint between two sets of attributes X and Y
+in a relation schema R, denoted as:
+    X -> Y  ("X functionally determines Y" or "Y is functionally dependent on X")
+
+Mathematical Definition:
+For any valid legal relation state r(R), for all pairs of tuples t1, t2 in r(R):
+    If t1[X] = t2[X], then t1[Y] MUST equal t2[Y].
+
+Properties & Axioms (Armstrong's Inference Rules):
+1. Reflexivity: If Y is a subset of X, then X -> Y (Trivial dependency).
+2. Augmentation: If X -> Y, then XZ -> YZ for any attribute set Z.
+3. Transitivity: If X -> Y and Y -> Z, then X -> Z.
+4. Union: If X -> Y and X -> Z, then X -> YZ.
+5. Decomposition: If X -> YZ, then X -> Y and X -> Z.
+6. Pseudotransitivity: If X -> Y and WY -> Z, then WX -> Z.
+
+3. REAL-WORLD DATA ANOMALIES & BEFORE-VS-AFTER TABLES
+--------------------------------------------------------------------------------
+UNNORMALIZED FLAT TABLE (Student_Enrollment_Universal):
++------------+---------------+--------------+-----------+-------------------+-------------+------------+
+| student_id | student_name  | city         | course_id | course_title      | instructor  | fee_inr    |
++------------+---------------+--------------+-----------+-------------------+-------------+------------+
+| #101       | Mamata Hui    | Barrackpore  | C101      | MySQL Master      | Sukanta Hui | 4500.00    |
+| #102       | Mahima Sharma | Kolkata      | C102      | React 19 Architect| Sukanta Hui | 5500.00    |
+| #103       | Abhronila Das | Barrackpore  | C101      | MySQL Master      | Sukanta Hui | 4500.00    |
+| #104       | Susmita Ghosh | Ichapur      | C103      | Cloud DevOps      | Debangshu R | 6000.00    |
++------------+---------------+--------------+-----------+-------------------+-------------+------------+
+
+THE THREE MAJOR ANOMALIES:
+1. INSERTION ANOMALY:
+   Cannot insert a newly created course (e.g., 'C105: Java Spring Boot') until at
+   least one student enrolls, because student_id is part of the primary key and
+   cannot be NULL (Entity Integrity violation).
+
+2. DELETION ANOMALY:
+   If student #104 (Susmita Ghosh) withdraws from 'Cloud DevOps', deleting her row
+   permanently deletes all knowledge of course C103, its fee, and instructor.
+
+3. UPDATE / MODIFICATION ANOMALY:
+   If the fee for 'MySQL Master' changes from ₹4,500 to ₹5,000, we must update
+   thousands of student rows. Missing a single row due to a crash leaves the
+   database in an inconsistent, contradictory state.
+
+NORMALIZED RELATIONAL DECOMPOSITION:
+- Table 1: students (student_id [PK], student_name, city)
+- Table 2: courses (course_id [PK], course_title, instructor, fee_inr)
+- Table 3: enrollments (enrollment_id [PK], student_id [FK], course_id [FK], enrolled_date)
+
+4. SENIOR ARCHITECTURAL PITFALLS & BEST PRACTICES
+--------------------------------------------------------------------------------
+- PITFALL: Confusing candidate keys with superkeys; superkeys may contain redundant
+  attributes that allow invalid functional dependencies to masquerade as valid keys.
+- PITFALL: Writing application-level validation loops instead of defining foreign keys
+  and unique constraints at the database engine level.
+- BEST PRACTICE: Compute the Attribute Closure (X+) for all determinant candidate
+  sets to verify that no non-key attribute partially determines non-prime columns.
+- BEST PRACTICE: Enforce ON DELETE RESTRICT on transactional ledger entities to prevent
+  accidental cascading deletion of historical billing data.
+
+5. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+"In my 25+ years of software training in Barrackpore and Kolkata, I have seen
+countless junior developers suffer from desynchronized data because they treated
+a relational database like an Excel spreadsheet. Normalization is not about making
+more tables—it is about establishing single sources of truth for every business fact.
+When every fact lives in exactly one place, update anomalies become mathematically
+impossible!"
+
+================================================================================
+END OF STUDY NOTE - TOPIC 6
+================================================================================

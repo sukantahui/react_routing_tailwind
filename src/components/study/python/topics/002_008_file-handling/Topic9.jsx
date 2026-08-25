@@ -1,30 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python code examples
-import rplusMode from "./topic9_files/rplus_mode.py?raw";
-import wplusMode from "./topic9_files/wplus_mode.py?raw";
-import aplusMode from "./topic9_files/aplus_mode.py?raw";
-import modeComparison from "./topic9_files/mode_comparison.py?raw";
-import inplaceEditing from "./topic9_files/inplace_editing.py?raw";
-
-// FAQ data
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic9_files/topic9_questions";
+import noteText from "./topic9_files/topic9_note.txt?raw";
 
 /**
- * Topic9: Read & Write Modes (r+, w+, a+)
+ * Topic9 – Iterating Over Files Line by Line for Memory Efficiency
+ * Module: 002_008_file-handling (File Handling & Persistence (Text, CSV & JSON))
+ * Track: Python from Basic to Pro
  *
- * This component explains the three read+write modes:
- * - 'r+': Read and write without truncating (file must exist)
- * - 'w+': Read and write with truncation (creates/overwrites)
- * - 'a+': Read and append (creates if missing, writes at end)
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
 const Topic9 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
 
   useEffect(() => {
@@ -32,753 +27,353 @@ const Topic9 = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 p-6 md:p-8 lg:p-12 font-sans leading-relaxed">
-      {/* ====== PAGE HEADER ====== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-gray-200 dark:border-gray-800"
-      >
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-sm font-mono bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full">
-            Topic 9
-          </span>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            Core
-          </span>
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
-          Read & Write Modes (r+, w+, a+)
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 mt-3 max-w-3xl">
-          Combining reading and writing in a single mode — powerful, but with
-          important nuances.
-        </p>
-        <div className="flex flex-wrap gap-3 mt-4">
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            📖✍️ r+
-          </span>
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            ✍️📖 w+
-          </span>
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            📖➕ a+
-          </span>
-        </div>
-      </header>
+    <>
+      <style>{`
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          transform: translateY(0);
+        }
+      `}</style>
 
-      <div className="max-w-5xl mx-auto space-y-16">
-        {/* ====== SECTION 1: OVERVIEW ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📋</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              The Read+Write Modes
-            </h2>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 008 · Topic 9</span>
           </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              The basic modes ('r', 'w', 'a') are either read‑only or write‑only.
-              But sometimes you need to <strong>both read and write</strong> to
-              the same file. That's where the <strong>read+write modes</strong> come in:
-            </p>
-            <ul>
-              <li>
-                <strong className="text-gray-900 dark:text-white">'r+'</strong> —
-                Read and write, file must exist, no truncation.
-              </li>
-              <li>
-                <strong className="text-gray-900 dark:text-white">'w+'</strong> —
-                Read and write, creates/overwrites, truncates.
-              </li>
-              <li>
-                <strong className="text-gray-900 dark:text-white">'a+'</strong> —
-                Read and append, creates if missing, writes at end.
-              </li>
-            </ul>
-            <div className="bg-blue-50 dark:bg-blue-950/20 border-l-4 border-blue-500 p-4 rounded-r-xl">
-              <p className="text-blue-700 dark:text-blue-300 font-medium">
-                💡 Key Insight:
-              </p>
-              <p className="text-blue-600 dark:text-blue-400 text-sm">
-                Adding '+' to a mode adds the opposite capability. So 'r+' is
-                'r' + write, 'w+' is 'w' + read, and 'a+' is 'a' + read.
-              </p>
-            </div>
-          </div>
-
-          {/* SVG: Mode Comparison */}
-          <div className="mt-8 bg-gray-50 dark:bg-gray-900/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-700">
-            <div className="flex justify-center">
-              <svg viewBox="0 0 700 140" className="w-full max-w-3xl h-auto">
-                <text x="350" y="25" textAnchor="middle" fill="#6B7280" fontSize="14">Read+Write Modes at a Glance</text>
-
-                <rect x="30" y="45" width="190" height="55" rx="8" fill="#3B82F6" fillOpacity="0.15" stroke="#3B82F6" strokeWidth="2" />
-                <text x="125" y="70" textAnchor="middle" fill="#60A5FA" fontSize="18" fontWeight="600">'r+'</text>
-                <text x="125" y="90" textAnchor="middle" fill="#93C5FD" fontSize="12">Read + Write (no truncate)</text>
-
-                <rect x="250" y="45" width="190" height="55" rx="8" fill="#EF4444" fillOpacity="0.15" stroke="#EF4444" strokeWidth="2" />
-                <text x="345" y="70" textAnchor="middle" fill="#F87171" fontSize="18" fontWeight="600">'w+'</text>
-                <text x="345" y="90" textAnchor="middle" fill="#FCA5A5" fontSize="12">Write + Read (truncate)</text>
-
-                <rect x="470" y="45" width="190" height="55" rx="8" fill="#10B981" fillOpacity="0.15" stroke="#10B981" strokeWidth="2" />
-                <text x="565" y="70" textAnchor="middle" fill="#34D399" fontSize="18" fontWeight="600">'a+'</text>
-                <text x="565" y="90" textAnchor="middle" fill="#6EE7B7" fontSize="12">Append + Read (end)</text>
-
-                <text x="125" y="125" textAnchor="middle" fill="#6B7280" fontSize="11">File must exist</text>
-                <text x="345" y="125" textAnchor="middle" fill="#6B7280" fontSize="11">Creates/overwrites</text>
-                <text x="565" y="125" textAnchor="middle" fill="#6B7280" fontSize="11">Creates/appends</text>
-              </svg>
-            </div>
-            <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-3">
-              Each mode combines reading and writing with different behaviors.
-            </p>
-          </div>
-        </section>
-
-        {/* ====== SECTION 2: r+ MODE ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-100"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📖✍️</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Mode 'r+' — Read & Write (No Truncate)
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              <strong className="text-gray-900 dark:text-white">Purpose:</strong> To
-              read from and write to an <em>existing</em> file without
-              truncating it.
-            </p>
-            <ul>
-              <li><strong>File must exist:</strong> Raises FileNotFoundError if missing.</li>
-              <li><strong>No truncation:</strong> Existing content is preserved.</li>
-              <li><strong>Position:</strong> File pointer starts at the beginning (0).</li>
-              <li><strong>Reading and writing:</strong> You can both read and write.</li>
-              <li><strong>Typical use:</strong> In‑place editing, updating specific parts of a file.</li>
-            </ul>
-            <div className="bg-yellow-50 dark:bg-yellow-950/20 border-l-4 border-yellow-500 p-4 rounded-r-xl">
-              <p className="text-yellow-700 dark:text-yellow-300 font-medium">
-                ⚠️ Important:
-              </p>
-              <p className="text-yellow-600 dark:text-yellow-400 text-sm">
-                With 'r+', writes <em>overwrite</em> existing content at the
-                current pointer position. They do <strong>not</strong> insert or
-                append. Use <code>seek()</code> to control where you write.
-              </p>
-            </div>
-          </div>
-          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-200 dark:border-gray-800 mt-4">
-            <code className="text-sm text-gray-800 dark:text-gray-200">
-              with open('data.txt', 'r+', encoding='utf-8') as f:<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;content = f.read()  # read existing data<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;f.seek(0)  # go back to start<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;f.write('New header\n')  # overwrite at start
-            </code>
-          </div>
-        </section>
-
-        {/* ====== SECTION 3: w+ MODE ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-200"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">✍️📖</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Mode 'w+' — Read & Write (Truncate)
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              <strong className="text-gray-900 dark:text-white">Purpose:</strong> To
-              create a new file or <em>overwrite</em> an existing one, while
-              still being able to read from it.
-            </p>
-            <ul>
-              <li><strong>Creates if missing:</strong> If the file doesn't exist, it's created.</li>
-              <li><strong>Truncates (overwrites):</strong> Existing content is erased.</li>
-              <li><strong>Position:</strong> File pointer starts at the beginning (0).</li>
-              <li><strong>Reading and writing:</strong> You can read after writing.</li>
-              <li><strong>Typical use:</strong> Creating a file and then verifying or reading it back.</li>
-            </ul>
-            <div className="bg-red-50 dark:bg-red-950/20 border-l-4 border-red-500 p-4 rounded-r-xl">
-              <p className="text-red-700 dark:text-red-300 font-medium">
-                ⚠️ Caution:
-              </p>
-              <p className="text-red-600 dark:text-red-400 text-sm">
-                Like 'w', 'w+' <strong>destroys existing data</strong>. Use it
-                only when you want to start fresh. If you need to preserve
-                content, use 'r+' instead.
-              </p>
-            </div>
-          </div>
-          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-200 dark:border-gray-800 mt-4">
-            <code className="text-sm text-gray-800 dark:text-gray-200">
-              with open('output.txt', 'w+', encoding='utf-8') as f:<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;f.write('Hello World!\n')<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;f.seek(0)  # go to start<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;content = f.read()  # read what we wrote
-            </code>
-          </div>
-        </section>
-
-        {/* ====== SECTION 4: a+ MODE ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📖➕</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Mode 'a+' — Read & Append
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              <strong className="text-gray-900 dark:text-white">Purpose:</strong> To
-              read the file and <em>append</em> new data at the end.
-            </p>
-            <ul>
-              <li><strong>Creates if missing:</strong> If the file doesn't exist, it's created.</li>
-              <li><strong>No truncation:</strong> Existing content is preserved.</li>
-              <li><strong>Position:</strong> Writes always happen at the end. Reads start at the beginning.</li>
-              <li><strong>Reading and appending:</strong> You can read the entire file and then append.</li>
-              <li><strong>Typical use:</strong> Log files that need to be read and appended to.</li>
-            </ul>
-            <div className="bg-green-50 dark:bg-green-950/20 border-l-4 border-green-500 p-4 rounded-r-xl">
-              <p className="text-green-700 dark:text-green-300 font-medium">
-                ✅ Note:
-              </p>
-              <p className="text-green-600 dark:text-green-400 text-sm">
-                When using 'a+', <strong>every write goes to the end</strong>,
-                regardless of the current pointer position. You can read from
-                anywhere, but writes are always appended.
-              </p>
-            </div>
-          </div>
-          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 border border-gray-200 dark:border-gray-800 mt-4">
-            <code className="text-sm text-gray-800 dark:text-gray-200">
-              with open('log.txt', 'a+', encoding='utf-8') as f:<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;content = f.read()  # read existing log<br />
-              &nbsp;&nbsp;&nbsp;&nbsp;f.write('New log entry\n')  # appended at end
-            </code>
-          </div>
-        </section>
-
-        {/* ====== SECTION 5: COMPARISON TABLE ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">⚖️</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Mode Comparison
-            </h2>
-          </div>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg">
-            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
-              <thead className="bg-gray-100 dark:bg-gray-800/50">
-                <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Mode</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Read?</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Write?</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">File must exist?</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Creates if missing?</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Truncates?</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">Write position</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white dark:bg-gray-900/50 divide-y divide-gray-200 dark:divide-gray-800 text-gray-700 dark:text-gray-300">
-                <tr>
-                  <td className="px-6 py-4 font-mono text-sm font-bold">'r+'</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">Pointer position</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 font-mono text-sm font-bold">'w+'</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">Start</td>
-                </tr>
-                <tr>
-                  <td className="px-6 py-4 font-mono text-sm font-bold">'a+'</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">✅</td>
-                  <td className="px-6 py-4">❌</td>
-                  <td className="px-6 py-4">End (always)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
-            Choose the mode that matches your read/write needs and file‑creation requirements.
-          </p>
-        </section>
-
-        {/* ====== SECTION 6: REAL-WORLD SCENARIOS ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🌍</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Real-World Scenarios
-            </h2>
-          </div>
-          <div className="space-y-4">
-            <div className="bg-blue-50 dark:bg-blue-950/30 rounded-xl p-6 border border-blue-200 dark:border-blue-800/50 transition-all duration-300 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">✏️</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Editing a Configuration File ('r+')
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    A system administrator in Barrackpore needs to update a
-                    configuration file <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">config.ini</code>.
-                    Using 'r+', they can read the current settings, modify the
-                    relevant line, and write back the changes without losing
-                    other settings.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-purple-50 dark:bg-purple-950/30 rounded-xl p-6 border border-purple-200 dark:border-purple-800/50 transition-all duration-300 hover:shadow-lg hover:border-purple-300 dark:hover:border-purple-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">📝</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Generating a Report ('w+')
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    The school in Naihati generates a report, writes it to a
-                    file, and then reads it back to verify before sending to the
-                    principal. 'w+' allows both operations with a single file
-                    handle.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-green-50 dark:bg-green-950/30 rounded-xl p-6 border border-green-200 dark:border-green-800/50 transition-all duration-300 hover:shadow-lg hover:border-green-300 dark:hover:border-green-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">📋</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Audit Log with Review ('a+')
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    A web application in Shyamnagar uses 'a+' for its log file.
-                    It appends new events and can read the entire log for
-                    monitoring or reporting without opening the file separately.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ====== SECTION 7: PYTHON CODE EXAMPLES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🐍</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Python in Action
-            </h2>
-          </div>
-          <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
-            The following examples demonstrate each read+write mode in practical
-            scenarios.
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Iterating Over Files Line by Line for Memory Efficiency
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master file I/O operations, context managers, structured CSV and JSON data persistence.
           </p>
 
-          <div className="space-y-6">
-            <PythonFileLoader
-              fileModule={rplusMode}
-              title="r+ Mode – In-Place Editing"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={wplusMode}
-              title="w+ Mode – Create & Read Back"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={aplusMode}
-              title="a+ Mode – Append & Read"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={modeComparison}
-              title="Mode Comparison – Side by Side"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={inplaceEditing}
-              title="Advanced: In-Place File Editing"
-              highlightLines={[]}
-            />
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
           </div>
-        </section>
+        </header>
 
-        {/* ====== SECTION 8: TIPS & TRICKS ====== */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">💡</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Tips & Tricks
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Iterating Over Files Line by Line for Memory Efficiency
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              {
-                title: "Use 'r+' for in‑place updates",
-                desc: "Read, seek, write — perfect for editing configs and small files.",
-              },
-              {
-                title: "Remember: 'w+' truncates",
-                desc: "It erases everything; use it when you want a fresh file.",
-              },
-              {
-                title: "In 'a+', writes always go to the end",
-                desc: "Even if you `seek()` elsewhere, writes are appended.",
-              },
-              {
-                title: "Combine with `seek()` and `tell()`",
-                desc: "Use them to navigate precisely in read+write modes.",
-              },
-              {
-                title: "Use `truncate()` to shrink files",
-                desc: "After modifying with 'r+', you may need to truncate if you wrote less.",
-              },
-              {
-                title: "Prefer 'r+' for safety",
-                desc: "It won't destroy data; you always control what gets overwritten.",
-              },
-            ].map((tip, idx) => (
-              <div
-                key={idx}
-                className="bg-amber-50 dark:bg-amber-950/20 rounded-xl p-5 border border-amber-200 dark:border-amber-800/50 transition-all duration-300 hover:shadow-lg hover:border-amber-300 dark:hover:border-amber-600 hover:-translate-y-1"
-              >
-                <h4 className="font-semibold text-gray-900 dark:text-white flex items-start gap-2">
-                  <span className="text-amber-500">✦</span> {tip.title}
-                </h4>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
-                  {tip.desc}
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Iterating Over Files Line by Line for Memory Efficiency</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
                 </p>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ====== SECTION 9: COMMON MISTAKES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Common Mistakes
-            </h2>
-          </div>
-          <div className="space-y-3">
-            {[
-              {
-                mistake: "Using 'r+' on a non-existent file",
-                fix: "Check existence or use 'w+' if you want to create.",
-              },
-              {
-                mistake: "Forgetting to `seek()` before overwriting with 'r+'",
-                fix: "The pointer may be at the end after reading; use `seek(0)` to go back.",
-              },
-              {
-                mistake: "Assuming 'w+' preserves existing content",
-                fix: "It truncates; use 'r+' for preservation.",
-              },
-              {
-                mistake: "Trying to read after writing with 'a+' without `seek()`",
-                fix: "After writing in 'a+', the pointer is at the end; use `seek(0)` to read.",
-              },
-              {
-                mistake: "Not truncating after writing less data with 'r+'",
-                fix: "If you overwrite with shorter content, call `truncate()` to remove extra bytes.",
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-red-50 dark:bg-red-950/20 rounded-xl p-5 border border-red-200 dark:border-red-800/50 transition-all duration-300 hover:shadow-lg hover:border-red-300 dark:hover:border-red-600"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✗</span>
-                  <div>
-                    <p className="text-gray-800 dark:text-gray-200 font-medium">
-                      {item.mistake}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      ✓ {item.fix}
-                    </p>
-                  </div>
-                </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
-            ))}
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ====== SECTION 10: BEST PRACTICES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">✅</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Best Practices
-            </h2>
-          </div>
-          <div className="bg-emerald-50 dark:bg-emerald-950/20 rounded-xl p-6 border border-emerald-200 dark:border-emerald-800/50 transition-all duration-300 hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-600">
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Choose 'r+' for safe in‑place updates:
-                  </strong>{" "}
-                  It preserves existing data and gives full control.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Use 'w+' when you need a fresh file and want to read it back:
-                  </strong>{" "}
-                  Perfect for generating reports or outputs.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Use 'a+' for logs that need review:
-                  </strong>{" "}
-                  Append new events and read the full history.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Always use `with` for automatic closure:
-                  </strong>{" "}
-                  Regardless of mode, context managers are safer.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Test with small files first:
-                  </strong>{" "}
-                  Read+write modes can be tricky; test on dummy data.
-                </span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        {/* ====== SECTION 11: MINI CHECKLIST ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📋</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Mini Checklist
-            </h2>
-          </div>
-          <div className="bg-indigo-50 dark:bg-indigo-950/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-800/50 transition-all duration-300 hover:shadow-lg hover:border-indigo-300 dark:hover:border-indigo-600">
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              By the end of this topic, you should understand:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                "What 'r+' does and when to use it",
-                "What 'w+' does and when to use it",
-                "What 'a+' does and when to use it",
-                "The difference between truncating and non‑truncating modes",
-                "How write position works in each mode",
-                "Common pitfalls and how to avoid them",
-                "Best practices for read+write file operations",
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900/50 px-4 py-2 rounded-lg"
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Iterating Over Files Line by Line for Memory Efficiency
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
                 >
-                  <span className="text-indigo-400">☐</span>
-                  <span className="text-sm">{item}</span>
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
                 </div>
-              ))}
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* ====== SECTION 12: HINT SECTION ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🤔</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Think About…
-            </h2>
-          </div>
-          <div className="bg-yellow-50 dark:bg-yellow-950/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-800/50 transition-all duration-300 hover:shadow-lg hover:border-yellow-300 dark:hover:border-yellow-600">
-            <div className="space-y-4 text-gray-700 dark:text-gray-300">
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Observe carefully:
-                  </strong>{" "}
-                  In 'r+' mode, after reading the entire file, where is the
-                  pointer? What happens if you write immediately after reading?
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Try changing this:
-                  </strong>{" "}
-                  Use 'a+' to append a line, then read the file without
-                  `seek(0)`. What do you get?
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Think about:
-                  </strong>{" "}
-                  A program needs to update a score in a file. Should it use
-                  'r+' or 'w+'? Why?
-                </p>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
               </div>
             </div>
           </div>
         </section>
 
-        {/* ====== SECTION 13: FAQ ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Read & Write Modes – FAQs"
+            title="Iterating Over Files Line by Line for Memory Efficiency FAQs"
             questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
           />
         </section>
 
-        {/* ====== SECTION 14: TEACHER'S NOTE ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Iterating Over Files Line by Line for Memory Efficiency"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic9_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
             note={
-              "Read+write modes are powerful but often misunderstood. The key " +
-              "is the pointer position and truncation behavior. Use the analogy " +
-              "of a document: 'r+' is like editing with a pen (overwriting), " +
-              "'w+' is like starting a new page, and 'a+' is like adding notes " +
-              "at the bottom. Emphasize that 'a+' always writes at the end — " +
-              "this is a common source of bugs. Have students experiment with " +
-              "each mode and observe the pointer position using `tell()`."
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
             }
           />
         </section>
 
-        {/* ====== FOOTER ====== */}
-        <footer className="pt-8 mt-8 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>
-            Topic 9: Read & Write Modes (r+, w+, a+) · Built with ❤️ for classroom learning
-          </p>
-          <p className="mt-1">Next: Topic 10 — Binary File Modes (rb, wb, ab, rb+, wb+, ab+)</p>
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 9 · Iterating Over Files Line by Line for Memory Efficiency · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
         </footer>
       </div>
-
-      {/* ====== INLINE STYLES FOR REVEAL ANIMATIONS ====== */}
-      <style>{`
-        .section-hidden {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
-        .section-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .section-hidden {
-            opacity: 1;
-            transform: none;
-          }
-          .section-hidden * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-      `}</style>
-    </div>
+    </>
   );
 };
 

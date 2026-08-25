@@ -1,216 +1,379 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import clsx from "clsx";
+
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic3_files/topic3_questions";
+import noteText from "./topic3_files/topic3_note.txt?raw";
 
-// Import Python files
-import singleTurtle from "./topic3_files/single_turtle.py?raw";
-import multipleTurtles from "./topic3_files/multiple_turtles.py?raw";
-import turtleState from "./topic3_files/turtle_state.py?raw";
-
-const keyframes = `
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes softGlow {
-  0%,100% { box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-  50% { box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-}
-`;
-
+/**
+ * Topic3 – Turtle object creation and lifecycle
+ * Module: 005_001_turtle-foundation (Module 1 – Turtle Foundations & First Drawings)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
+ */
 const Topic3 = () => {
-  const prototypes = [
-    { name: "Turtle()", returnType: "Turtle object", purpose: "Creates a new turtle instance.", usage: "t = turtle.Turtle()" },
-    { name: "Screen()", returnType: "Screen object", purpose: "Creates (or returns) the screen instance.", usage: "screen = turtle.Screen()" },
-    { name: "clone()", returnType: "Turtle object", purpose: "Creates an identical copy of the turtle.", usage: "t2 = t.clone()" },
-    { name: "isvisible()", returnType: "bool", purpose: "Returns True if turtle is visible.", usage: "if t.isvisible(): t.hideturtle()" },
-    { name: "turtles()", returnType: "list", purpose: "Returns list of all turtle objects on screen.", usage: "print(turtle.turtles())" },
-    { name: "bye()", returnType: "None", purpose: "Closes the turtle graphics window.", usage: "turtle.bye()" }
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-      <style>{keyframes}</style>
+    <>
+      <style>{`
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          transform: translateY(0);
+        }
+      `}</style>
 
-      <div className="max-w-6xl mx-auto space-y-12">
-        {/* Hero */}
-        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Turtle Object Creation & Lifecycle
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 3</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Turtle object creation and lifecycle
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Creating turtles, understanding their state, cloning, and managing multiple objects
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Start visual programming with turtle graphics, screen coordinates, pen controls, and geometric shapes.
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">🐢 Object Creation</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">🔄 Lifecycle & State</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">👥 Multiple Turtles</span>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
           </div>
-        </div>
+        </header>
 
-        {/* SVG: Turtle object lifecycle */}
-        <div className="flex justify-center animate-[fadeInUp_0.6s_ease-out_0.1s]">
-          <div className="bg-gray-800/40 rounded-2xl p-4 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-            <svg width="500" height="280" viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[500px] h-auto">
-              <rect x="20" y="20" width="460" height="240" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" rx="10" />
-              {/* Lifecycle stages */}
-              <circle cx="80" cy="80" r="30" fill="#1e293b" stroke="#2dd4bf" strokeWidth="2" />
-              <text x="80" y="85" fill="#2dd4bf" fontSize="10" textAnchor="middle">CREATE</text>
-              <text x="80" y="100" fill="#94a3b8" fontSize="8" textAnchor="middle">Turtle()</text>
-
-              <circle cx="250" cy="80" r="30" fill="#1e293b" stroke="#facc15" strokeWidth="2" />
-              <text x="250" y="85" fill="#facc15" fontSize="10" textAnchor="middle">ACTIVE</text>
-              <text x="250" y="100" fill="#94a3b8" fontSize="8" textAnchor="middle">drawing, moving</text>
-
-              <circle cx="420" cy="80" r="30" fill="#1e293b" stroke="#f97316" strokeWidth="2" />
-              <text x="420" y="85" fill="#f97316" fontSize="10" textAnchor="middle">CLONE /</text>
-              <text x="420" y="100" fill="#f97316" fontSize="10" textAnchor="middle">DELETE</text>
-
-              {/* Arrows */}
-              <line x1="110" y1="80" x2="218" y2="80" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arrowLife)" />
-              <line x1="280" y1="80" x2="388" y2="80" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arrowLife)" />
-              <defs>
-                <marker id="arrowLife" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
-                  <polygon points="0 0, 8 4, 0 8" fill="#94a3b8" />
-                </marker>
-              </defs>
-
-              {/* Additional info: multiple turtles */}
-              <text x="80" y="160" fill="#cbd5e1" fontSize="12">One or many turtles?</text>
-              <g transform="translate(80,180)">
-                <circle cx="0" cy="0" r="10" fill="#14b8a6" />
-                <circle cx="25" cy="-5" r="10" fill="#8b5cf6" />
-                <circle cx="15" cy="25" r="10" fill="#f43f5e" />
-                <text x="-10" y="-15" fill="#94a3b8" fontSize="8">t1, t2, t3...</text>
-              </g>
-            </svg>
-            <p className="text-center text-sm text-gray-400 mt-2">Turtle object lifecycle: creation → active state → cloning / deletion</p>
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Turtle object creation and lifecycle
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Explanation */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.2s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🐢 Creating & Managing Turtle Objects</h2>
-          <div className="bg-gray-800/30 rounded-xl p-5 space-y-3">
-            <p className="leading-relaxed">In Python's turtle module, each turtle is an <strong>object</strong> created from the <code>Turtle</code> class. You can create one or many turtles, each with its own position, heading, pen state, and color. Understanding the lifecycle means knowing how to create, use, duplicate, and destroy turtles.</p>
-            <div className="grid md:grid-cols-2 gap-4">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
               <div>
-                <h3 className="text-xl font-semibold text-emerald-300">Creation Methods</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li><code className="bg-gray-700 px-1">t = turtle.Turtle()</code> – most common.</li>
-                  <li><code className="bg-gray-700 px-1">t = turtle.Turtle(shape="turtle")</code> – specify shape.</li>
-                  <li><code className="bg-gray-700 px-1">t2 = t.clone()</code> – exact copy (position, heading, color).</li>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Turtle object creation and lifecycle</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
                 </ul>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-cyan-300">Lifecycle Stages</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li><strong>Creation:</strong> Memory allocated, defaults set.</li>
-                  <li><strong>Active use:</strong> Drawing, moving, changing state.</li>
-                  <li><strong>Cloning:</strong> Creating independent copies.</li>
-                  <li><strong>Deletion:</strong> Let go out of scope or <code>del t</code>.</li>
-                  <li><strong>Program end:</strong> Window closes, all turtles gone.</li>
-                </ul>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
               </div>
             </div>
           </div>
         </section>
 
-        {/* Python Code Examples */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.3s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">💻 Code Examples</h2>
-          <PythonFileLoader fileModule={singleTurtle} title="single_turtle.py" highlightLines={[3,5,6]} />
-          <PythonFileLoader fileModule={multipleTurtles} title="multiple_turtles.py" highlightLines={[6,7,8,13,14,15]} />
-          <PythonFileLoader fileModule={turtleState} title="turtle_state.py" highlightLines={[4,5,6,7]} />
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Turtle object creation and lifecycle
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
         </section>
 
-        {/* Prototype Table */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.4s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🔧 Turtle Object Methods & Functions</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-gray-800/30 rounded-xl text-sm">
-              <thead className="bg-gray-700/60">
-                <tr><th className="px-4 py-2 text-left">Function/Method</th><th>Return</th><th>Purpose</th><th>Example</th></tr>
-              </thead>
-              <tbody>
-                {prototypes.map((p, idx) => (
-                  <tr key={idx} className="border-t border-gray-700 hover:bg-gray-700/30 transition">
-                    <td className="px-4 py-2 font-mono text-emerald-300">{p.name}</td>
-                    <td className="px-4 py-2 text-center">{p.returnType}</td>
-                    <td className="px-4 py-2">{p.purpose}</td>
-                    <td className="px-4 py-2 font-mono text-xs">{p.usage}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Common Pitfalls & Best Practices */}
-        <div className="grid lg:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.5s]">
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-amber-300">⚠️ Common Pitfalls</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li><strong>Forgetting to create a turtle:</strong> Calling <code>forward()</code> on module? Use <code>t.forward()</code> after creation.</li>
-              <li><strong>Sharing turtle objects accidentally:</strong> If you assign <code>t2 = t</code>, both refer to same object; changes affect both. Use <code>clone()</code> for a true copy.</li>
-              <li><strong>Not storing Screen reference:</strong> Losing access to screen methods after creation can be confusing.</li>
-              <li><strong>Leaving turtles running:</strong> If you create many turtles, they continue to exist even if not used, potentially slowing performance.</li>
-            </ul>
-          </div>
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-green-300">✅ Best Practices</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li>Always give turtles descriptive names: <code>painter, drawer, tim, tess</code>.</li>
-              <li>Create screen first: <code>screen = turtle.Screen()</code>, then turtles.</li>
-              <li>Use <code>clone()</code> when you need independent copies with same state.</li>
-              <li>To delete a turtle, let it go out of scope or use <code>del t</code> after closing window.</li>
-              <li>Limit number of turtles to avoid performance issues (more than 100 may slow down).</li>
-            </ul>
-          </div>
-        </div>
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
 
-        {/* Checklist */}
-        <div className="bg-gray-800/50 rounded-xl p-5 border border-emerald-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
-          <h3 className="text-xl font-semibold">📝 Student Checklist</h3>
-          <div className="grid sm:grid-cols-2 gap-2 mt-2">
-            {[
-              "I can create a turtle using `t = turtle.Turtle()`",
-              "I understand that each turtle is a separate object with its own state",
-              "I can create multiple turtles and control them independently",
-              "I know the difference between assignment (`t2 = t`) and cloning (`t2 = t.clone()`)",
-              "I understand the turtle lifecycle: creation → active → deletion",
-              "I can list all turtles using `turtle.turtles()`"
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2"><span className="text-emerald-400">✓</span><span className="text-gray-200">{item}</span></div>
-            ))}
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* Hints & Expert Mindset */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <div className="bg-indigo-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">💡 Hints to Explore</h3>
-            <p>👉 <strong>Think about:</strong> What happens if you create two turtles and call <code>t1.forward(100)</code> then <code>t2.left(90)</code>?</p>
-            <p>👉 <strong>Observe:</strong> Use <code>id(t)</code> to see that two variables assigned the same turtle point to the same object.</p>
-            <p>👉 <strong>Try changing:</strong> Create three turtles with different colors and make them draw a collaborative pattern.</p>
-          </div>
-          <div className="bg-purple-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">🚀 Expert Mindset</h3>
-            <p>In advanced turtle graphics, you might have dozens of turtles representing particles, players, or enemies. Managing object references and cloning allows for complex simulations. Think in terms of object-oriented design: each turtle is an entity with its own behavior.</p>
-          </div>
-        </div>
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Turtle object creation and lifecycle FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
+        </section>
 
-        {/* FAQs and Teacher Note */}
-        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
-          <FAQTemplate title="Turtle Object Creation & Lifecycle FAQs" questions={questions} />
-        </div>
-        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
-          <Teacher note="This is a great moment to introduce object-oriented concepts: each turtle is an instance of the Turtle class. Have students create two turtles, name them after themselves and a friend (e.g., swadeep_turtle and tuhina_turtle), and have them race. This makes the abstract idea of 'objects' tangible. Emphasize that `clone()` creates a separate turtle, not a reference." />
-        </div>
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Turtle object creation and lifecycle"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic3_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
+
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 3 · Turtle object creation and lifecycle · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
 };
 

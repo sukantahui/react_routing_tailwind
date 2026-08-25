@@ -1,772 +1,380 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Shared Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python Code Examples (Imported with ?raw)
-import raisingFundamentals from "./topic7_files/raising_exceptions_fundamentals.py?raw";
-import reRaisingExceptions from "./topic7_files/re_raising_active_exceptions.py?raw";
-import failFastGuards from "./topic7_files/conditional_validation_guards.py?raw";
-import walletGuard from "./topic7_files/student_banking_withdrawal_guard.py?raw";
-
-// Plain Text Note for Printing/Downloading
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic7_files/topic7_questions";
 import noteText from "./topic7_files/topic7_note.txt?raw";
 
-// FAQ Questions
-import questions from "./topic7_files/topic7_questions";
-
 /**
- * Topic7: Raising exceptions intentionally using raise keyword
- * Module: 003_002_basic-exception-handling
- * Segment: 3 (Advanced Python Programming)
+ * Topic7 – Raising exceptions intentionally using raise keyword
+ * Module: 003_002_basic-exception-handling (Robust Exception Handling & Defensive Coding)
+ * Track: Python from Basic to Pro
  *
- * Premium Dark Theme Default with Rich Micro-Animations & Full Interactivity.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic7() {
+const Topic7 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
-  const [activeInteractiveTab, setActiveInteractiveTab] = useState("pipeline");
-
-  // Interactive Student Wallet Guard Simulator State
-  const [balance, setBalance] = useState(10000);
-  const [withdrawInput, setWithdrawInput] = useState(2500);
-  const [isFrozen, setIsFrozen] = useState(false);
-  const [operationLog, setOperationLog] = useState({
-    type: "SUCCESS",
-    msg: "Wallet initialized with INR 10,000.00. Ready for guarded transactions.",
-  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
-  const handleWithdrawal = () => {
-    const amt = Number(withdrawInput);
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
 
-    if (isFrozen) {
-      setOperationLog({
-        type: "ERROR_PERMISSION",
-        msg: "PermissionError: Wallet for Debanjan Roy is FROZEN by administration!",
-      });
-      return;
-    }
-
-    if (isNaN(amt)) {
-      setOperationLog({
-        type: "ERROR_TYPE",
-        msg: "TypeError: Withdrawal amount must be a numeric value!",
-      });
-      return;
-    }
-
-    if (amt <= 0) {
-      setOperationLog({
-        type: "ERROR_VALUE",
-        msg: `ValueError: Withdrawal amount must be strictly positive: INR ${amt.toFixed(2)}`,
-      });
-      return;
-    }
-
-    if (amt > 5000) {
-      setOperationLog({
-        type: "ERROR_VALUE",
-        msg: `ValueError: Withdrawal of INR ${amt.toLocaleString()} exceeds single transaction limit of INR 5,000.00!`,
-      });
-      return;
-    }
-
-    if (amt > balance) {
-      setOperationLog({
-        type: "ERROR_VALUE",
-        msg: `ValueError: Insufficient Funds: Requested INR ${amt.toLocaleString()}, Available: INR ${balance.toLocaleString()}!`,
-      });
-      return;
-    }
-
-    // Success: Deduct balance
-    const newBal = balance - amt;
-    setBalance(newBal);
-    setOperationLog({
-      type: "SUCCESS",
-      msg: `[WITHDRAWAL SUCCESS] Disbursed -INR ${amt.toLocaleString()} | Remaining Balance: INR ${newBal.toLocaleString()}`,
-    });
-  };
-
-  const handleReset = () => {
-    setBalance(10000);
-    setIsFrozen(false);
-    setOperationLog({
-      type: "SUCCESS",
-      msg: "Wallet balance reset to INR 10,000.00.",
-    });
-  };
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-teal-500/30 selection:text-teal-200">
-      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+    <>
       <style>{`
-        .section-hidden {
-          transform: translateY(18px);
-          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .section-visible {
+        .reveal-section {
           transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        @keyframes pulseGlowTeal {
-          0%, 100% { filter: drop-shadow(0 0 4px rgba(20, 184, 166, 0.4)); }
-          50% { filter: drop-shadow(0 0 10px rgba(20, 184, 166, 0.8)); }
-        }
-        .animate-glow-teal {
-          animation: pulseGlowTeal 3s infinite ease-in-out;
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
 
-      {/* ==================================================================== */}
-      {/* HEADER SECTION */}
-      {/* ==================================================================== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
-      >
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs sm:text-sm font-mono font-semibold bg-teal-950/80 text-teal-300 px-3 py-1 rounded-full border border-teal-800/80 shadow-sm shadow-teal-950/50">
-            Segment 3 • Module 003_002
-          </span>
-          <span className="text-xs sm:text-sm font-mono bg-cyan-950/80 text-cyan-300 px-3 py-1 rounded-full border border-cyan-800/80 shadow-sm shadow-cyan-950/50">
-            Topic 7
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-slate-400">
-            Robust Exception Handling &amp; Defensive Coding
-          </span>
-        </div>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 002 · Topic 7</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Raising exceptions intentionally using raise keyword
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master exception handling, custom exception architectures, and write crash-proof production code.
+          </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          Raising Exceptions Intentionally with <code className="text-teal-400 font-mono">raise</code>
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
-          Master proactive error signaling and fail-fast programming: triggering exceptions with <code className="text-teal-300 font-mono">raise</code>, why raising exceptions beats returning error codes, re-raising active errors with bare <code className="text-cyan-300 font-mono">raise</code>, and enforcing domain invariants.
-        </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
 
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🚨 Triggering Exceptions with raise
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ⚡ Fail-Fast vs Error Code Hazards
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🔄 Bare raise Re-Raising &amp; Traceback Preservation
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🛡️ Financial Invariant Guards
-          </span>
-        </div>
-      </header>
-
-      {/* ==================================================================== */}
-      {/* MAIN CONTENT WRAPPER */}
-      {/* ==================================================================== */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 1: THE RAISE STATEMENT */}
-        {/* ------------------------------------------------------------------ */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              1. The `raise` Statement: Proactive Error Triggering
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Raising exceptions intentionally using raise keyword
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
-            <p>
-              In Python, you do not need to wait for a crash to occur. The <code className="text-teal-300 font-mono">raise</code> statement allows you to proactively halt execution and report invalid states before they corrupt downstream data:
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6 not-prose">
-              {/* Pillar 1 */}
-              <div className="p-4 rounded-xl bg-teal-950/40 border border-teal-800/60 shadow-lg">
-                <div className="text-teal-400 font-bold text-base mb-1">1️⃣ Inline Exception Raise</div>
-                <code className="text-xs font-mono text-teal-300 block mb-1">raise ValueError("Bad Arg")</code>
-                <p className="text-[11px] text-slate-300">
-                  Instantiates and throws a standard exception with a descriptive error message.
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Raising exceptions intentionally using raise keyword</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
                 </p>
               </div>
-
-              {/* Pillar 2 */}
-              <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-800/60 shadow-lg">
-                <div className="text-cyan-400 font-bold text-base mb-1">2️⃣ Bare raise Re-Raise</div>
-                <code className="text-xs font-mono text-cyan-300 block mb-1">except Error: log(); raise</code>
-                <p className="text-[11px] text-slate-300">
-                  Re-throws the currently active exception inside an except block without losing its original traceback.
-                </p>
-              </div>
-
-              {/* Pillar 3 */}
-              <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-800/60 shadow-lg">
-                <div className="text-purple-400 font-bold text-base mb-1">3️⃣ Fail-Fast Principle</div>
-                <code className="text-xs font-mono text-purple-300 block mb-1">if x &lt; 0: raise ValueError</code>
-                <p className="text-[11px] text-slate-300">
-                  Validates function inputs immediately, preventing silent data corruption from return codes.
-                </p>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
             </div>
 
-            <div className="bg-slate-950/70 p-5 rounded-xl border-l-4 border-rose-500 border border-slate-800/80">
-              <h3 className="text-white font-bold text-base mb-1">
-                The Return Code Trap: Why `return -1` Fails
-              </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Returning <code className="text-rose-400 font-mono">return -1</code> or <code className="text-rose-400 font-mono">return None</code> requires every caller to remember to check for errors. If a caller forgets, the <code className="text-rose-400 font-mono">-1</code> is silently added to accounts or database ledgers, causing catastrophic data corruption. Raising an exception <em>cannot be ignored</em>!
-              </p>
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 2: INTERACTIVE VISUAL ARCHITECTURE (SVG TABS) */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">📐</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                2. Visualizing Exception Propagation &amp; Bare `raise`
-              </h2>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Raising exceptions intentionally using raise keyword
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
             </div>
 
-            {/* Interactive Toggle for Diagram Perspectives */}
-            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
-              <button
-                onClick={() => setActiveInteractiveTab("pipeline")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "pipeline"
-                    ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                raise Propagation Flow
-              </button>
-              <button
-                onClick={() => setActiveInteractiveTab("reraise")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "reraise"
-                    ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Bare raise Logging Pattern
-              </button>
-              <button
-                onClick={() => setActiveInteractiveTab("failfast")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "failfast"
-                    ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Fail-Fast vs Return Codes
-              </button>
-            </div>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Examining call stack unwinding, traceback preservation, and defensive validation guards:
-          </p>
-
-          {/* SVG Diagram Container */}
-          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
-            {activeInteractiveTab === "pipeline" ? (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#2dd4bf" fontSize="14" fontWeight="bold">THE `raise` STATEMENT CALL STACK UNWINDING FLOW</text>
-
-                {/* 3 Call Stack Layers */}
-                <g transform="translate(30, 50)">
-                  {/* Layer 1: Caller */}
-                  <rect x="0" y="0" width="250" height="240" rx="8" fill="#1e1b4b" stroke="#8b5cf6" />
-                  <text x="15" y="30" fill="#c4b5fd" fontSize="12" fontWeight="bold">1. Main Application Service</text>
-                  <text x="15" y="60" fill="#ecfdf5" fontSize="9 font-mono">try:</text>
-                  <text x="30" y="80" fill="#38bdf8" fontSize="9 font-mono">enroll_student(age=10)</text>
-                  <text x="15" y="110" fill="#ecfdf5" fontSize="9 font-mono">except ValueError as err:</text>
-                  <text x="30" y="130" fill="#34d399" fontSize="9 font-mono">handle_alert(err)</text>
-                  
-                  <rect x="15" y="160" width="220" height="60" rx="4" fill="#090d16" stroke="#6d28d9" />
-                  <text x="25" y="185" fill="#a7f3d0" fontSize="9 font-bold">Catches Propagated Error:</text>
-                  <text x="25" y="205" fill="#ecfdf5" fontSize="8 font-mono">Prompts user to re-enter age!</text>
-
-                  {/* Arrow 1 */}
-                  <text x="265" y="125" fill="#38bdf8" fontSize="22" fontWeight="bold">←</text>
-
-                  {/* Layer 2: Domain Function */}
-                  <rect x="295" y="0" width="250" height="240" rx="8" fill="#083344" stroke="#06b6d4" />
-                  <text x="310" y="30" fill="#a5f3fc" fontSize="12" fontWeight="bold">2. enroll_student() Function</text>
-                  <text x="310" y="60" fill="#ecfdf5" fontSize="9 font-mono">def enroll_student(age):</text>
-                  <text x="325" y="85" fill="#fda4af" fontSize="9 font-mono">if age &lt; 14:</text>
-                  <text x="340" y="110" fill="#f43f5e" fontSize="9 font-mono font-bold">raise ValueError("Age &lt; 14")</text>
-
-                  <rect x="310" y="150" width="220" height="70" rx="4" fill="#090d16" stroke="#0284c7" />
-                  <text x="320" y="175" fill="#fca5a5" fontSize="9 font-bold">Execution Halted Immediately:</text>
-                  <text x="320" y="195" fill="#cbd5e1" fontSize="8">Unwinds stack to main caller</text>
-
-                  {/* Arrow 2 */}
-                  <text x="560" y="125" fill="#38bdf8" fontSize="22" fontWeight="bold">←</text>
-
-                  {/* Layer 3: Validation Engine */}
-                  <rect x="590" y="0" width="230" height="240" rx="8" fill="#134e4a" stroke="#14b8a6" />
-                  <text x="605" y="30" fill="#99f6e4" fontSize="12" fontWeight="bold">3. Invariant Boundary</text>
-                  <text x="605" y="60" fill="#cbd5e1" fontSize="9">• Validates age 14-80</text>
-                  <text x="605" y="80" fill="#cbd5e1" fontSize="9">• Validates non-negative fee</text>
-                  <text x="605" y="100" fill="#cbd5e1" fontSize="9">• Validates student name</text>
-
-                  <rect x="605" y="140" width="200" height="80" rx="4" fill="#022c22" stroke="#059669" />
-                  <text x="615" y="165" fill="#34d399" fontSize="10 font-bold">✓ Fail-Fast Guarantee:</text>
-                  <text x="615" y="185" fill="#ecfdf5" fontSize="8 font-mono">Corrupt data never touches</text>
-                  <text x="615" y="200" fill="#ecfdf5" fontSize="8 font-mono">the institutional database!</text>
-                </g>
-              </svg>
-            ) : activeInteractiveTab === "reraise" ? (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#38bdf8" fontSize="14" fontWeight="bold">BARE `raise` LOGGING &amp; ROLLBACK PATTERN</text>
-
-                {/* Left: Middleware block */}
-                <g transform="translate(30, 50)">
-                  <rect x="0" y="0" width="400" height="240" rx="8" fill="#1e1b4b" stroke="#8b5cf6" />
-                  <text x="20" y="30" fill="#c4b5fd" fontSize="12" fontWeight="bold">Database Middleware Handler</text>
-                  
-                  <text x="20" y="60" fill="#ecfdf5" fontSize="9 font-mono">try:</text>
-                  <text x="40" y="80" fill="#cbd5e1" fontSize="9 font-mono">execute_db_transaction(amount)</text>
-                  <text x="20" y="105" fill="#ecfdf5" fontSize="9 font-mono">except PermissionError as err:</text>
-                  <text x="40" y="125" fill="#38bdf8" fontSize="9 font-mono">1. audit_log_error(err)  # Forensic Log</text>
-                  <text x="40" y="145" fill="#38bdf8" fontSize="9 font-mono">2. rollback_db_state()   # Clean state</text>
-                  <text x="40" y="170" fill="#34d399" fontSize="10 font-mono font-bold">3. raise                 # BARE RAISE!</text>
-
-                  <rect x="20" y="195" width="360" height="30" rx="4" fill="#090d16" stroke="#6d28d9" />
-                  <text x="30" y="215" fill="#a7f3d0" fontSize="8 font-mono">Preserves line number of original error in execute_db()!</text>
-                </g>
-
-                {/* Arrow */}
-                <g transform="translate(445, 140)">
-                  <text x="10" y="20" fill="#38bdf8" fontSize="26" fontWeight="bold">→</text>
-                </g>
-
-                {/* Right: Caller */}
-                <g transform="translate(490, 50)">
-                  <rect x="0" y="0" width="360" height="240" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="30" fill="#a7f3d0" fontSize="12" fontWeight="bold">Top-Level Web / API Gateway</text>
-                  
-                  <rect x="20" y="60" width="320" height="85" rx="4" fill="#022c22" stroke="#059669" />
-                  <text x="30" y="85" fill="#34d399" fontSize="10 font-bold">Catches Re-Raised Exception:</text>
-                  <text x="30" y="105" fill="#ecfdf5" fontSize="9 font-mono">Returns HTTP 403 Forbidden</text>
-                  <text x="30" y="125" fill="#ecfdf5" fontSize="9 font-mono">to mobile application client!</text>
-
-                  <text x="20" y="175" fill="#cbd5e1" fontSize="9">• Clean architectural separation</text>
-                  <text x="20" y="195" fill="#cbd5e1" fontSize="9">• Zero error masking or swallow bugs</text>
-                </g>
-              </svg>
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#c084fc" fontSize="14" fontWeight="bold">FAIL-FAST EXCEPTIONS VS RETURNING ERROR CODES</text>
-
-                {/* Left: Flawed */}
-                <g transform="translate(30, 50)">
-                  <rect x="0" y="0" width="380" height="240" rx="8" fill="#4c0519" stroke="#f43f5e" />
-                  <text x="20" y="30" fill="#fda4af" fontSize="12" fontWeight="bold">❌ Flawed Return Code Approach</text>
-                  <text x="20" y="60" fill="#fca5a5" fontSize="9 font-mono">def calc_tax(salary):</text>
-                  <text x="40" y="80" fill="#fca5a5" fontSize="9 font-mono">if salary &lt; 0: return -1.0  # ERROR CODE</text>
-                  
-                  <rect x="20" y="115" width="340" height="100" rx="4" fill="#881337" stroke="#e11d48" />
-                  <text x="30" y="140" fill="#ffe4e6" fontSize="10 font-bold">Silent Disaster:</text>
-                  <text x="30" y="160" fill="#ecfdf5" fontSize="8 font-mono">Caller forgets to check for -1:</text>
-                  <text x="30" y="180" fill="#ecfdf5" fontSize="8 font-mono">total_tax += calc_tax(-50000)  # Adds -1 to ledger!</text>
-                  <text x="30" y="200" fill="#fda4af" fontSize="8 font-mono">Corrupts financial accounting silently!</text>
-                </g>
-
-                {/* Right: Pythonic */}
-                <g transform="translate(460, 50)">
-                  <rect x="0" y="0" width="380" height="240" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="30" fill="#a7f3d0" fontSize="12" fontWeight="bold">✓ Pythonic Fail-Fast Exception</text>
-                  <text x="20" y="60" fill="#ecfdf5" fontSize="9 font-mono">def calc_tax(salary):</text>
-                  <text x="40" y="80" fill="#34d399" fontSize="9 font-mono">if salary &lt; 0: raise ValueError("Negative!")</text>
-
-                  <rect x="20" y="115" width="340" height="100" rx="4" fill="#022c22" stroke="#059669" />
-                  <text x="30" y="140" fill="#a7f3d0" fontSize="10 font-bold">Guaranteed Safety:</text>
-                  <text x="30" y="160" fill="#ecfdf5" fontSize="8 font-mono">Execution halts at the exact line of bug.</text>
-                  <text x="30" y="180" fill="#ecfdf5" fontSize="8 font-mono">Invalid negative value can NEVER enter ledger!</text>
-                  <text x="30" y="200" fill="#34d399" fontSize="8 font-mono">Immediate feedback in logs and tracebacks.</text>
-                </g>
-              </svg>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
             )}
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 3: INTERACTIVE STUDENT WALLET PLAYGROUND */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🎮</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              3. Interactive Student Digital Wallet &amp; `raise` Guard Playground
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base leading-relaxed">
-            Test institutional financial transaction guards protected by <code className="text-teal-300 font-mono">raise</code> statements:
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-950 p-6 rounded-xl border border-slate-800">
-            {/* Wallet Controls */}
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono uppercase tracking-wider text-teal-400 font-bold">
-                  Student Financial Account
-                </span>
-                <button
-                  onClick={handleReset}
-                  className="text-[11px] font-mono text-slate-400 hover:text-white underline"
-                >
-                  Reset Balance
-                </button>
-              </div>
-
-              {/* Balance Card */}
-              <div className="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between">
-                <div>
-                  <div className="text-xs text-slate-400 font-mono">Debanjan Roy (STU-882)</div>
-                  <div className="text-xl font-bold text-teal-300 font-mono mt-0.5">
-                    INR {balance.toLocaleString("en-IN", { minimumFractionDigits: 2 })}
-                  </div>
-                </div>
-                <span className={clsx("text-xs font-mono px-2 py-1 rounded border", isFrozen ? "bg-rose-950 text-rose-300 border-rose-700" : "bg-emerald-950 text-emerald-300 border-emerald-700")}>
-                  {isFrozen ? "FROZEN" : "ACTIVE"}
-                </span>
-              </div>
-
-              {/* Amount Input */}
-              <div className="space-y-1">
-                <label className="text-xs font-mono text-slate-400 block">
-                  Withdrawal Amount (Max Single Limit: INR 5,000.00):
-                </label>
-                <input
-                  type="number"
-                  value={withdrawInput}
-                  onChange={(e) => setWithdrawInput(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-sm font-mono text-white focus:border-teal-500 focus:outline-none"
-                  placeholder="Enter amount..."
-                />
-              </div>
-
-              {/* Freeze Toggle */}
-              <label className="p-3 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-between text-xs font-mono cursor-pointer hover:border-slate-700">
-                <span className="text-slate-300">Administrative Account Freeze</span>
-                <input
-                  type="checkbox"
-                  checked={isFrozen}
-                  onChange={(e) => setIsFrozen(e.target.checked)}
-                  className="accent-rose-500 w-4 h-4"
-                />
-              </label>
-
-              {/* Action Button */}
-              <button
-                onClick={handleWithdrawal}
-                className="w-full py-2.5 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-lg text-xs font-mono transition-all shadow-lg shadow-teal-950/50"
-              >
-                Execute Guarded Withdrawal (withdraw())
-              </button>
-            </div>
-
-            {/* Live Invariant Trace Output */}
-            <div className="space-y-3 flex flex-col justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block font-bold">
-                Live Defensive Invariant Audit Trace
-              </span>
-
-              <div className={clsx(
-                "p-4 rounded-xl border flex-1 space-y-2.5 text-xs font-mono",
-                operationLog.type === "SUCCESS" ? "bg-slate-900 border-slate-800" : "bg-rose-950/40 border-rose-800"
-              )}>
-                <div className="text-slate-400">
-                  Transaction Status:{" "}
-                  <span className={clsx("font-bold", operationLog.type === "SUCCESS" ? "text-emerald-400" : "text-rose-400")}>
-                    {operationLog.type === "SUCCESS" ? "✓ APPROVED (200 OK)" : "❌ BLOCKED BY `raise`"}
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
                   </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
                 </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
 
-                <div className="pt-2 border-t border-slate-800">
-                  <span className="text-slate-400 block mb-1">Execution Feedback:</span>
-                  <div className={clsx("p-3 rounded-lg border leading-relaxed", operationLog.type === "SUCCESS" ? "bg-emerald-950/40 border-emerald-800 text-emerald-300" : "bg-slate-950 border-rose-900 text-rose-300")}>
-                    {operationLog.msg}
-                  </div>
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
                 </div>
-
-                <div className="pt-2 border-t border-slate-800 text-[10px] text-slate-500">
-                  Invariants enforced: Non-zero positive, single limit INR 5k, balance check, authorization status.
-                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
               </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 4: MASTER RAISE REFERENCE MATRIX */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📊</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              4. Master `raise` Scenarios Reference Matrix
-            </h2>
-          </div>
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300 border-collapse">
-              <thead>
-                <tr className="border-b border-slate-700 text-slate-200 bg-slate-950/60">
-                  <th className="py-3.5 px-4 font-bold">Scenario / Syntax</th>
-                  <th className="py-3.5 px-4 font-bold">Python Code Pattern</th>
-                  <th className="py-3.5 px-4 font-bold">Traceback Behavior</th>
-                  <th className="py-3.5 px-4 font-bold">Recommended Use Case</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800">
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-teal-300 font-semibold">New Exception</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">raise ValueError("msg")</td>
-                  <td className="py-3 px-4">Creates new traceback at current line</td>
-                  <td className="py-3 px-4">Input validation, boundary guards, domain checks</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-cyan-300 font-semibold">Bare Re-Raise</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">except Exception: log(); raise</td>
-                  <td className="py-3 px-4 text-emerald-400 font-bold">Preserves original line numbers</td>
-                  <td className="py-3 px-4">Logging, rollback, and middleware auditing</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-purple-300 font-semibold">Permission Guard</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">raise PermissionError("Frozen")</td>
-                  <td className="py-3 px-4">Halts unauthorized user actions</td>
-                  <td className="py-3 px-4">RBAC access control, frozen wallets, expired tokens</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-amber-300 font-semibold">Abstract Stub</td>
-                  <td className="py-3 px-4 font-mono text-slate-200">raise NotImplementedError()</td>
-                  <td className="py-3 px-4">Signals missing child implementation</td>
-                  <td className="py-3 px-4">Unimplemented base class methods</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 5: LIVE PYTHON CODE LAB */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">💻</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              5. Interactive Code Lab: Production Scripts
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Explore 4 production-grade Python scripts demonstrating the `raise` keyword, bare re-raising, fail-fast guards, and student wallet invariant engines:
-          </p>
-
-          <PythonFileLoader
-            files={[
-              {
-                filename: "raising_exceptions_fundamentals.py",
-                code: raisingFundamentals,
-                description: "Raising exceptions intentionally with raise, input validation, and descriptive error messages.",
-              },
-              {
-                filename: "re_raising_active_exceptions.py",
-                code: reRaisingExceptions,
-                description: "Bare raise re-raising, preserving original tracebacks, and the log-cleanup-reraise pattern.",
-              },
-              {
-                filename: "conditional_validation_guards.py",
-                code: failFastGuards,
-                description: "Fail-Fast exceptions vs silent error return codes and Indian PAN validation guards.",
-              },
-              {
-                filename: "student_banking_withdrawal_guard.py",
-                code: walletGuard,
-                description: "Enterprise Student Campus Wallet with strict invariant guards and atomic transactions.",
-              },
-            ]}
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Raising exceptions intentionally using raise keyword FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
           />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 6: COMMON TRAPS & EDGE CASES */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              6. Common Traps, Anti-Patterns &amp; Edge Cases
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Trap 1 */}
-            <div className="p-6 rounded-xl bg-rose-950/30 border border-rose-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-rose-400 font-bold text-base">
-                <span>❌</span> Trap 1: Bare `raise` Outside Except Block
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Calling bare <code className="text-rose-300 font-mono">raise</code> when no exception is active raises <code className="text-rose-300 font-mono">RuntimeError: No active exception to reraise</code>.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Rule:</span> Only use bare <code className="text-emerald-300">raise</code> inside <code className="text-emerald-300">except</code> blocks.
-              </div>
-            </div>
-
-            {/* Trap 2 */}
-            <div className="p-6 rounded-xl bg-amber-950/30 border border-amber-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-amber-400 font-bold text-base">
-                <span>❌</span> Trap 2: Raising Non-Exception Types
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Writing <code className="text-amber-300 font-mono">raise "Invalid Password"</code> in Python 3 causes <code className="text-amber-300 font-mono">TypeError: exceptions must derive from BaseException</code>.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Rule:</span> Always instantiate exception classes: <code className="text-emerald-300">raise ValueError("msg")</code>.
-              </div>
-            </div>
-
-            {/* Trap 3 */}
-            <div className="p-6 rounded-xl bg-purple-950/30 border border-purple-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-purple-400 font-bold text-base">
-                <span>❌</span> Trap 3: Generic Unhelpful Error Messages
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Writing <code className="text-purple-300 font-mono">raise ValueError("Error")</code> makes debugging in production logs impossible.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Include specific values: <code className="text-emerald-300">raise ValueError(f"Expected age &gt;= 14, got {age}")</code>.
-              </div>
-            </div>
-
-            {/* Trap 4 */}
-            <div className="p-6 rounded-xl bg-cyan-950/30 border border-cyan-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-cyan-400 font-bold text-base">
-                <span>❌</span> Trap 4: Silent Exception Swallowing
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Catching an exception and executing <code className="text-cyan-300 font-mono">except Exception: pass</code> silently masks severe crashes and database corruptions.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Rule:</span> Always handle, log, or re-raise with <code className="text-emerald-300">raise</code>.
-              </div>
-            </div>
-          </div>
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Raising exceptions intentionally using raise keyword"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic7_note.txt"
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 7: FAQ & INTERVIEW REVIEW QUESTIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">❓</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              7. Master Review &amp; Interview Questions (25 FAQs)
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Comprehensive question-and-answer repository covering the `raise` keyword, bare re-raising, fail-fast guards, and defensive coding:
-          </p>
-
-          <FAQTemplate questions={questions} />
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 8: STUDY NOTES, PRINTABLE HANDOUT & TEACHER BIO */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📄</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              8. Study Notes, Printable Handout &amp; Teacher Profile
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Download or print the complete reference sheet with raise recipes, fail-fast validation templates, and wallet guard patterns:
-          </p>
-
-          <div className="mb-10">
-            <PlainTextPrint
-              content={noteText}
-              filename="python_topic7_raising_exceptions_notes.txt"
-              title="Print Topic 7 Study Notes"
-            />
-          </div>
-
-          {/* Teacher Bio Card */}
-          <Teacher />
-        </section>
-
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 7 · Raising exceptions intentionally using raise keyword · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Topic7;

@@ -227,7 +227,7 @@ const Topic7 = () => {
                   True Positive Rate (TPR)
                 </span>
                 <div className="text-2xl font-bold font-mono text-white">{accuracyMetrics.tpr}%</div>
-                <p className="text-[11px] text-slate-400">$\text{TPR} = 100\% - \text{FRR}$ (Genuine Acceptance Rate).</p>
+                <p className="text-[11px] text-slate-400">$TPR = 100\% - FRR$ (Genuine Acceptance Rate).</p>
               </div>
             </div>
 
@@ -303,7 +303,7 @@ const Topic7 = () => {
               {/* EER Intersection Marker at 0.50 */}
               <g transform="translate(280, 135)">
                 <circle cx="0" cy="0" r="4" fill="#fbbf24" />
-                <text x="10" y="4" fill="#fbbf24" fontSize="10" fontWeight="bold">EER Crossover ($\text{FAR}=\text{FRR}$)</text>
+                <text x="10" y="4" fill="#fbbf24" fontSize="10" fontWeight="bold">EER Crossover ($FAR=FRR$)</text>
               </g>
             </svg>
 
@@ -504,7 +504,7 @@ const Topic7 = () => {
               <ul className="space-y-1.5 list-disc list-inside text-slate-400">
                 <li>FAR = Type II Error (Imposter accepted / Total Imposter attempts).</li>
                 <li>FRR = Type I Error (Genuine user rejected / Total Genuine attempts).</li>
-                <li>EER (CER) is the crossover point where $\text{FAR} = \text{FRR}$.</li>
+                <li>EER (CER) is the crossover point where $FAR = FRR$.</li>
                 <li>Higher threshold $\theta$ decreases FAR (more secure) but increases FRR.</li>
                 <li>DET curves plot FRR vs FAR on probit logarithmic scales.</li>
               </ul>

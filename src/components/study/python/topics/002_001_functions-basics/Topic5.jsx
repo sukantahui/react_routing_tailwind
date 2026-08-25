@@ -1,278 +1,380 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
+
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic5_files/topic5_questions";
-
-// Python example files (place in topic5_files/)
-import defaultBasic from "./topic5_files/default_basic.py?raw";
-import defaultMultiple from "./topic5_files/default_multiple.py?raw";
-import defaultMutable from "./topic5_files/default_mutable.py?raw";
-import defaultRealWorld from "./topic5_files/default_realworld.py?raw";
+import noteText from "./topic5_files/topic5_note.txt?raw";
 
 /**
- * Topic 5: Default Parameter Values and Their Usage
- * 
- * This component explains:
- * - What are default parameter values? (assigning a default in function definition)
- * - How to define them: `def func(param=default_value)`
- * - Why use default values: optional parameters, backward compatibility
- * - Rules: required parameters first, then defaults
- * - Important: Default values are evaluated once at definition time
- * - Mutable default values trap (lists, dicts)
- * - Best practices for using defaults safely
+ * Topic5 – Default Parameter Values and their usage
+ * Module: 002_001_functions-basics (Functions & Modular Logic)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic5() {
+const Topic5 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-8 space-y-12 bg-gray-900 text-gray-100">
-      {/* ========== SECTION 1: THEORY & EXPLANATION ========== */}
-      <section className="space-y-6 reveal-fade-up">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          🎯 Default Parameter Values and Their Usage
-        </h1>
-        <div className="prose prose-invert max-w-none space-y-4">
-          <p className="text-lg leading-relaxed">
-            A <strong className="text-blue-300">default parameter value</strong> is a value assigned to a parameter 
-            in the function <strong>definition</strong>. If the caller does not provide an argument for that parameter, 
-            the default value is used.
-          </p>
-          <div className="bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
-            <p className="font-mono text-sm">
-              <span className="text-yellow-300">def greet(name, greeting="Hello"):</span><br />
-              &nbsp;&nbsp;&nbsp;&nbsp;{`print(f"{greeting}, {name}!")`}<br /><br />
-              <span className="text-green-300">greet("Swadeep")</span>              → "Hello, Swadeep!"<br />
-              <span className="text-green-300">greet("Tuhina", "Namaste")</span>    → "Namaste, Tuhina!"
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 2: PROTOTYPE / SIGNATURE ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.1s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          📝 Function Signature with Defaults
-        </h2>
-        <div className="bg-gray-800 rounded-xl p-5 border border-gray-700">
-          <pre className="text-sm font-mono text-emerald-300 overflow-x-auto">
-{`def function_name(required_param, default_param="default_value", another_default=42):
-    """required_param MUST be provided; default_param is optional"""
-    # function body
-    pass`}
-          </pre>
-          <ul className="mt-4 space-y-2 text-gray-300 list-disc list-inside">
-            <li><strong>Return type:</strong> Any type (depends on function). Default values do not change return type.</li>
-            <li><strong>Purpose:</strong> Make functions flexible by allowing optional arguments.</li>
-            <li><strong>When & why:</strong> When you want a sensible default behaviour that can be overridden (e.g., logging level, timeout, page size).</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ========== SECTION 3: KEY RULES AND BEHAVIOR ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.2s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-yellow-500 pl-4">
-          ⚙️ Rules for Default Parameters
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <div className="text-yellow-300 text-xl mb-2">1️⃣ Order rule</div>
-            <p className="text-gray-300">All required (non‑default) parameters must come <strong>before</strong> any default parameters.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">✅ def f(a, b=1)<br/>❌ def f(a=1, b)</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
-            <div className="text-purple-300 text-xl mb-2">2️⃣ Evaluation time</div>
-            <p className="text-gray-300">Default values are evaluated <strong>only once</strong> when the function is defined, not each call.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">import datetime<br/>def log(msg, when=datetime.now()): # fixed time!</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300">
-            <div className="text-green-300 text-xl mb-2">3️⃣ Override ability</div>
-            <p className="text-gray-300">You can override a default by passing an argument (positional or keyword).</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">def multiply(x, y=2): return x*y<br/>multiply(5)    → 10<br/>multiply(5, 3) → 15</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-red-500/10 transition-all duration-300">
-            <div className="text-red-300 text-xl mb-2">4️⃣ Mutable defaults danger</div>
-            <p className="text-gray-300">Using mutable objects (list, dict) as defaults can cause unexpected sharing across calls.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">def add_item(item, lst=[]): # dangerous!<br/>    lst.append(item)<br/>    return lst</pre>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 4: CODE EXAMPLES ========== */}
-      <section className="space-y-8 reveal-fade-up" style={{ animationDelay: "0.3s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          💻 Live Python Examples
-        </h2>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">1️⃣ Basic Default Parameters (default_basic.py)</h3>
-          <PythonFileLoader fileModule={defaultBasic} title="default_basic.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Shows simple default values: greeting message, role, and discount percentage.</p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">2️⃣ Multiple Defaults (default_multiple.py)</h3>
-          <PythonFileLoader fileModule={defaultMultiple} title="default_multiple.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Demonstrates functions with several default parameters and how to override specific ones.</p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-red-300">3️⃣ Mutable Default Trap (default_mutable.py)</h3>
-          <PythonFileLoader fileModule={defaultMutable} title="default_mutable.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">⚠️ Classic gotcha: default list/dict persists across calls. Includes safe pattern using <code>None</code>.</p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">4️⃣ Real‑World Example (default_realworld.py)</h3>
-          <PythonFileLoader fileModule={defaultRealWorld} title="default_realworld.py" highlightLines={[]} />
-          <p className="text-gray-400 text-sm">Simulates an API client with configurable timeout, retries, and logging.</p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 5: TIPS & TRICKS ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.4s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          💡 <span>Tips & Tricks (Professional Level)</span>
-        </h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-300 bg-gray-800/50 p-5 rounded-xl">
-          <li><strong className="text-purple-300">Use <code>None</code> as a sentinel</strong> for mutable defaults: <code>def add_item(item, basket=None): if basket is None: basket = []</code>.</li>
-          <li><strong className="text-purple-300">Default values can be any expression</strong> (function calls, attributes) but remember they evaluate at definition time.</li>
-          <li><strong className="text-purple-300">Use keyword arguments when calling</strong> to skip some defaults while overriding others: <code>func(required, override2=value)</code>.</li>
-          <li><strong className="text-purple-300">Leverage defaults for backward compatibility</strong> – adding a new parameter with a default won't break existing code.</li>
-          <li><strong className="text-purple-300">Document default values clearly</strong> in the docstring so users know what to expect.</li>
-        </ul>
-      </section>
-
-      {/* ========== SECTION 6: COMMON PITFALLS ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.5s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ⚠️ <span>Common Pitfalls</span>
-        </h2>
-        <div className="space-y-3">
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Mutable default arguments (list/dict)</p>
-            <p className="text-gray-300">The same list is reused across calls, leading to surprising accumulation. Use <code>None</code> and create a new mutable inside.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Defaults that depend on other parameters</p>
-            <p className="text-gray-300"><code>def f(a, b=a)</code> – not allowed because <code>a</code> doesn't exist in scope yet.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Forgetting that defaults are evaluated once</p>
-            <p className="text-gray-300">Using <code>datetime.now()</code> as default gives the definition time, not the call time. Use <code>None</code> and set inside.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Overriding defaults with positional arguments incorrectly</p>
-            <p className="text-gray-300">If you want to skip a default, you must use keyword arguments for later parameters.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 7: BEST PRACTICES ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.6s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ✅ <span>Best Practices</span>
-        </h2>
-        <div className="bg-emerald-900/20 border border-emerald-700 rounded-xl p-5">
-          <ul className="list-disc list-inside space-y-2 text-gray-200">
-            <li>Place required parameters first, optional (default) parameters after.</li>
-            <li>Avoid mutable default values; use <code>None</code> and create the mutable inside the function.</li>
-            <li>Choose default values that are sensible and safe (e.g., empty strings, 0, False, None).</li>
-            <li>Document default values in the docstring: <code>"""... :param retry: number of retries (default 3)"""</code>.</li>
-            <li>Use keyword arguments when calling functions with many defaults to avoid confusion.</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ========== SECTION 8: MINI CHECKLIST ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.7s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          📋 <span>Mini Checklist</span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Defaults go after required params</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Defaults evaluated at definition time</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Mutable defaults = 🚨 use None instead</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Override defaults with positional/keyword args</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Useful for optional parameters</div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg"><span className="text-green-400">✔️</span> Document default values clearly</div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 9: HINT SECTION ========== */}
-      <section className="space-y-3 reveal-fade-up" style={{ animationDelay: "0.8s" }}>
-        <h2 className="text-2xl font-semibold text-amber-300">🧠 Think About...</h2>
-        <div className="bg-amber-900/20 border border-amber-700 rounded-xl p-5 italic text-gray-200">
-          <p>🔍 <strong>Observe carefully:</strong> In <code>default_mutable.py</code>, why does the list keep growing across calls? How does using <code>None</code> fix it?</p>
-          <p className="mt-2">🔍 <strong>Try changing this:</strong> Change a default value to <code>datetime.now()</code> and call the function multiple times. Does the timestamp change?</p>
-          <p className="mt-2">🔍 <strong>Think about:</strong> When would you want a default value that is a function call? (e.g., caching, connection pools).</p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 10: FAQ ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "0.85s" }}>
-        <FAQTemplate title="Default Parameter Values FAQs" questions={questions} />
-      </section>
-
-      {/* ========== SECTION 11: TEACHER'S NOTE ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "0.9s" }}>
-        <Teacher note={
-          "The mutable default trap is one of Python's most famous 'gotchas'. 🧑‍🏫 " +
-          "Show students that the default value is stored in the function object's `__defaults__` attribute. " +
-          "Demonstrate with `func.__defaults__` before and after calls. " +
-          "Use the analogy of a shared whiteboard vs a fresh sheet of paper. " +
-          "Encourage them to always use `None` for any default that might be mutated. " +
-          "Also point out that this behavior is by design (performance, closure semantics) but surprising to newcomers."
-        } />
-      </section>
-
-      {/* ========== SVG ILLUSTRATION ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "1s" }}>
-        <div className="bg-gray-800/50 rounded-xl p-6 flex justify-center">
-          <svg width="520" height="220" viewBox="0 0 520 220" className="max-w-full h-auto">
-            <rect x="30" y="20" width="200" height="80" fill="#1e3a8a" stroke="#3b82f6" strokeWidth="2" rx="8">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
-            </rect>
-            <text x="130" y="50" fill="white" fontSize="13" textAnchor="middle" fontFamily="monospace">def connect(timeout=5):</text>
-            <text x="130" y="70" fill="#94a3b8" fontSize="12" textAnchor="middle">{`print(f"Timeout: {timeout}")`}</text>
-            <text x="130" y="90" fill="#fbbf24" fontSize="11" textAnchor="middle">default value = 5</text>
-
-            <line x1="230" y1="60" x2="280" y2="60" stroke="#a78bfa" strokeWidth="2" markerEnd="url(#arrowPurple)" />
-            <text x="255" y="50" fill="#c4b5fd" fontSize="11">call</text>
-
-            <rect x="290" y="20" width="200" height="80" fill="#065a46" stroke="#34d399" strokeWidth="2" rx="8">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" begin="0.5s" repeatCount="indefinite" />
-            </rect>
-            <text x="390" y="45" fill="white" fontSize="13" textAnchor="middle" fontFamily="monospace">connect()</text>
-            <text x="390" y="65" fill="#94a3b8" fontSize="12" textAnchor="middle">uses default 5</text>
-            <text x="390" y="85" fill="white" fontSize="13" textAnchor="middle" fontFamily="monospace">connect(10)</text>
-            <text x="390" y="105" fill="#fbbf24" fontSize="11" textAnchor="middle">overrides to 10</text>
-
-            <rect x="30" y="130" width="460" height="60" fill="#1f2937" stroke="#ef4444" strokeWidth="1.5" rx="6" strokeDasharray="4,4">
-              <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" />
-            </rect>
-            <text x="260" y="155" fill="#fca5a5" fontSize="12" textAnchor="middle">⚠️ Mutable default: def add(item, basket=[])</text>
-            <text x="260" y="175" fill="#9ca3af" fontSize="11" textAnchor="middle">→ same list reused across calls → unexpected accumulation</text>
-
-            <defs><marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#a78bfa" /></marker></defs>
-          </svg>
-        </div>
-        <p className="text-center text-sm text-gray-400 mt-2">Default values (blue) are used when no argument is provided; can be overridden (green). Avoid mutable defaults (red).</p>
-      </section>
-
+    <>
       <style>{`
-        @keyframes fadeUp {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .reveal-fade-up {
-          animation: fadeUp 0.6s ease-out forwards;
-          opacity: 0;
-          animation-fill-mode: forwards;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .reveal-fade-up { animation: none; opacity: 1; }
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
-    </div>
+
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 5</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Default Parameter Values and their usage
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Create reusable, clean, and modular building blocks using Python functions.
+          </p>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
+
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Default Parameter Values and their usage
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Default Parameter Values and their usage</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Default Parameter Values and their usage
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Default Parameter Values and their usage FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
+        </section>
+
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Default Parameter Values and their usage"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic5_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
+
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 5 · Default Parameter Values and their usage · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
+      </div>
+    </>
   );
-}
+};
+
+export default Topic5;

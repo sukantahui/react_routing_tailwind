@@ -511,7 +511,7 @@ CREATE TABLE blog_posts (
                 <span>⚠️</span> Pitfall 1: Blindly using VARCHAR(255) Everywhere
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Defining every column as `VARCHAR(255)` forces MySQL to reserve $255 \times 4 = 1,020\text{ bytes}$ per row in RAM during in-memory query sorting.
+                Defining every column as `VARCHAR(255)` forces MySQL to reserve $255 \times 4 = 1,020 bytes$ per row in RAM during in-memory query sorting.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
                 Rule: Size VARCHAR columns realistically based on domain constraints.

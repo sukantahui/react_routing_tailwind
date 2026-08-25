@@ -1,0 +1,45 @@
+================================================================================
+RDBMS & MYSQL MASTERCLASS: DATABASE NORMALIZATION
+MODULE: FIFTH NORMAL FORM (5NF / PJNF) – JOIN DEPENDENCIES & CYCLIC CONSTRAINTS
+TOPIC 9: REAL-WORLD SCENARIO: DOCTOR-HOSPITAL-INSURANCE NETWORK AUTHORIZATION TRIPLET
+================================================================================
+
+1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
+--------------------------------------------------------------------------------
+This topic provides an exhaustive theoretical and practical deep-dive into:
+"Real-World Scenario: Doctor-Hospital-Insurance Network Authorization Triplet".
+Module: Fifth Normal Form (5NF / PJNF) – Join Dependencies & Cyclic Constraints (006_007_fifth-normal-form-5nf-pjnf)
+Level: Advanced | Estimated Study Time: 4 Hours
+
+2. THEORETICAL FOUNDATION & MATRICES
+--------------------------------------------------------------------------------
+- Core Concept: Relational normalization ensures that data dependencies are modeled
+  strictly according to business invariants, preventing update, deletion, and insertion anomalies.
+- Formal Rule: 1. Join Dependencies (*[R1, R2, R3]) and 3-Way Cyclic Constraints
+- Decomposition Strategy: Split into 3 binary tables: SP(supplier, part), PJ(part, project), and SJ(supplier, project).
+
+3. BEFORE-VS-AFTER SCHEMA TRANSFORMATION
+--------------------------------------------------------------------------------
+UNNORMALIZED / NON-COMPLIANT STATE:
+In Supplier-Part-Project (SPJ), a supplier S supplies part P to project J only if S supplies P, P is used in J, and S supplies J.
+Root Cause: This 3-way cyclic constraint cannot be decomposed into two binary tables without loss of constraint, but CAN be decomposed into 3 tables.
+
+NORMALIZED STATE:
+Zero spurious tuples upon 3-way natural join; complete integrity preserved.
+
+4. SENIOR ARCHITECTURAL PITFALLS & BEST PRACTICES
+--------------------------------------------------------------------------------
+- PITFALL: Only a 3-way natural join of (SP ⨝ PJ ⨝ SJ) faithfully reconstructs the original SPJ relation.
+- BEST PRACTICE: Zero spurious tuples upon 3-way natural join; complete integrity preserved.
+- ACID INVARIANT: Always declare explicit foreign keys with ON DELETE RESTRICT to protect transactional ledgers.
+
+5. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+"In software architecture, bad database design cannot be fixed with faster hardware
+or clever application code. Normalization provides the mathematical guarantee that
+your system maintains internal consistency under high concurrent load. Master these
+normal form principles from first principles!"
+
+================================================================================
+END OF STUDY NOTE - TOPIC 9
+================================================================================

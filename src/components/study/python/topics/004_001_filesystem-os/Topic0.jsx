@@ -1,748 +1,380 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Shared Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python Code Examples (Imported with ?raw)
-import envProcessCode from "./topic0_files/os_environment_and_process_management.py?raw";
-import cwdQueriesCode from "./topic0_files/os_working_directory_and_path_queries.py?raw";
-import crudPermsCode from "./topic0_files/os_filesystem_crud_and_permissions.py?raw";
-import systemAuditorCode from "./topic0_files/institutional_system_environment_and_audit_inspector.py?raw";
-
-// Plain Text Note for Printing/Downloading
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic0_files/topic0_questions";
 import noteText from "./topic0_files/topic0_note.txt?raw";
 
-// FAQ Questions
-import questions from "./topic0_files/topic0_questions";
-
 /**
- * Topic0: os module: environment variables, cwd, file system queries
- * Module: 004_001_filesystem-os
- * Segment: 4 (Python Pro Level & Ecosystem Mastery)
+ * Topic0 – os module: environment variables, cwd, file system queries
+ * Module: 004_001_filesystem-os (Advanced File Operations, OS & Subprocess Automation)
+ * Track: Python from Basic to Pro
  *
- * Premium Dark Theme Default with Rich Micro-Animations & Full Interactivity.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic0() {
+const Topic0 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
-  const [activeInteractiveTab, setActiveInteractiveTab] = useState("kernelBoundary");
-
-  // Interactive Laboratory State
-  const [envMode, setEnvMode] = useState("production");
-  const [vaultPath, setVaultPath] = useState("accotax_storage_vault/system_logs");
-  const [actionType, setActionType] = useState("INVENTORY_ENV"); // INVENTORY_ENV | QUERY_STAT | TEST_MAKEDIRS | TEST_PERMS
-
-  const serverPid = 48120;
-  const cpuCores = 8;
-  const osKernel = "Windows NT (os.name='nt')";
-  const cwd = "E:\\react_routing_tailwind";
-
-  let terminalOutput = "";
-  let generatedPythonCode = "";
-
-  if (actionType === "INVENTORY_ENV") {
-    generatedPythonCode = `# Inspect environment variables safely:
-env_mode = os.getenv("ACCOTAX_ENV", "development")
-db_url = os.getenv("ACCOTAX_DATABASE_URL", "postgresql://localhost:5432")
-api_key = os.getenv("ACCOTAX_API_KEY", "DEMO_KEY")
-masked_key = api_key[:4] + "****"`;
-
-    terminalOutput = `[OS_AUDIT] INVENTORYING ENVIRONMENT VARIABLES:
-* ACCOTAX_ENV          = "${envMode}"
-* ACCOTAX_DATABASE_URL = "postgresql://db.accotax.internal:5432/main"
-* ACCOTAX_API_KEY      = "DEMO****" (Masked for Security)
-* ACCOTAX_PORT         = "8080"
-[STATUS] 100% Mandatory Environment Variables Verified.`;
-  } else if (actionType === "QUERY_STAT") {
-    generatedPythonCode = `# Low-level filesystem query with os.stat():
-file_path = "${vaultPath}/heartbeat.log"
-if os.path.exists(file_path) and os.path.isfile(file_path):
-    stat_info = os.stat(file_path)
-    file_size = stat_info.st_size
-    mod_time = datetime.fromtimestamp(stat_info.st_mtime)`;
-
-    terminalOutput = `[OS_AUDIT] QUERYING FILESYSTEM METADATA:
-* Target Path  : ${vaultPath}/heartbeat.log
-* os.path.exists() : True
-* os.path.isfile() : True
-* os.stat().st_size: 1,420 bytes
-* os.stat().st_mode: 0o100666 (Regular File rw-rw-rw-)
-* Modified Time: 2026-08-24 23:45:00`;
-  } else if (actionType === "TEST_MAKEDIRS") {
-    generatedPythonCode = `# Safe idempotent recursive directory creation:
-vault_dir = "${vaultPath}"
-os.makedirs(vault_dir, exist_ok=True)
-print("Created hierarchy:", os.path.isdir(vault_dir))`;
-
-    terminalOutput = `[OS_AUDIT] RECURSIVE DIRECTORY CREATION:
-* Executing: os.makedirs("${vaultPath}", exist_ok=True)
-* Created nested path: '${vaultPath}'
-* Is Directory: True
-* Idempotency Check: Succeeded without FileExistsError.`;
-  } else {
-    // TEST_PERMS
-    generatedPythonCode = `# Verify OS file permissions:
-is_readable = os.access("${vaultPath}", os.R_OK)
-is_writable = os.access("${vaultPath}", os.W_OK)
-is_executable = os.access("${vaultPath}", os.X_OK)`;
-
-    terminalOutput = `[OS_AUDIT] TESTING OS PERMISSION BITS:
-* Target: '${vaultPath}'
-* Read Permission (os.R_OK)    : True [GRANTED]
-* Write Permission (os.W_OK)   : True [GRANTED]
-* Execute Permission (os.X_OK) : False [DENIED]
-[STATUS] Node storage directory is fully writable.`;
-  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-teal-500/30 selection:text-teal-200">
-      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+    <>
       <style>{`
-        .section-hidden {
-          transform: translateY(18px);
-          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .section-visible {
+        .reveal-section {
           transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        @keyframes pulseGlowTeal {
-          0%, 100% { filter: drop-shadow(0 0 4px rgba(20, 184, 166, 0.4)); }
-          50% { filter: drop-shadow(0 0 10px rgba(20, 184, 166, 0.8)); }
-        }
-        .animate-glow-teal {
-          animation: pulseGlowTeal 3s infinite ease-in-out;
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
 
-      {/* ==================================================================== */}
-      {/* HEADER SECTION */}
-      {/* ==================================================================== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
-      >
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs sm:text-sm font-mono font-semibold bg-teal-950/80 text-teal-300 px-3 py-1 rounded-full border border-teal-800/80 shadow-sm shadow-teal-950/50">
-            Segment 4 • Module 004_001
-          </span>
-          <span className="text-xs sm:text-sm font-mono bg-cyan-950/80 text-cyan-300 px-3 py-1 rounded-full border border-cyan-800/80 shadow-sm shadow-cyan-950/50">
-            Topic 0
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-slate-400">
-            Advanced File Operations, OS &amp; Subprocess Automation
-          </span>
-        </div>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 0</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            os module: environment variables, cwd, file system queries
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Learn to write real-world automation scripts, system utilities, and CLI tools using OS, pathlib, and subprocess.
+          </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          OS Module: <span className="text-teal-400">Environment, CWD &amp; Filesystem Queries</span>
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
-          Master Python's core operating system interface: defensive environment variable access with <code className="text-teal-300 font-mono">os.getenv()</code>, process runtime metadata, working directory management, recursive directory creation (<code className="text-cyan-300 font-mono">os.makedirs(exist_ok=True)</code>), atomic file replacement (<code className="text-purple-300 font-mono">os.replace</code>), and kernel permission bits (<code className="text-amber-300 font-mono">os.access</code>).
-        </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
 
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🔐 `os.getenv` Fallbacks
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            📂 `os.makedirs(exist_ok=True)`
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ⚡ Atomic `os.replace`
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🛡️ `os.access` Permission Bits
-          </span>
-        </div>
-      </header>
-
-      {/* ==================================================================== */}
-      {/* MAIN CONTENT WRAPPER */}
-      {/* ==================================================================== */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 1: OS MODULE FOUNDATIONS */}
-        {/* ------------------------------------------------------------------ */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚙️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              1. The Operating System Interface Architecture
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: os module: environment variables, cwd, file system queries
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
-            <p>
-              The <code className="text-teal-300 font-mono">os</code> module serves as the primary bridge between the Python runtime and the host operating system kernel:
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6 not-prose">
-              {/* Pillar 1 */}
-              <div className="p-4 rounded-xl bg-teal-950/40 border border-teal-800/60 shadow-lg">
-                <div className="text-teal-400 font-bold text-sm mb-1">1️⃣ Environment &amp; Process</div>
-                <code className="text-xs font-mono text-teal-300 block mb-1">os.getenv(), os.getpid()</code>
-                <p className="text-[11px] text-slate-300">
-                  Reads configuration secrets, detects process IDs, CPU count, and kernel platform.
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">os module: environment variables, cwd, file system queries</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
                 </p>
               </div>
-
-              {/* Pillar 2 */}
-              <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-800/60 shadow-lg">
-                <div className="text-cyan-400 font-bold text-sm mb-1">2️⃣ CWD &amp; Metadata</div>
-                <code className="text-xs font-mono text-cyan-300 block mb-1">os.getcwd(), os.stat()</code>
-                <p className="text-[11px] text-slate-300">
-                  Inspects working directories, file size, timestamps, and inode metadata.
-                </p>
-              </div>
-
-              {/* Pillar 3 */}
-              <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-800/60 shadow-lg">
-                <div className="text-purple-400 font-bold text-sm mb-1">3️⃣ Tree CRUD &amp; Permissions</div>
-                <code className="text-xs font-mono text-purple-300 block mb-1">os.makedirs(), os.replace()</code>
-                <p className="text-[11px] text-slate-300">
-                  Atomic file renaming, recursive directory trees, and OS access permission testing.
-                </p>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
             </div>
 
-            <div className="bg-slate-950/70 p-5 rounded-xl border-l-4 border-teal-500 border border-slate-800/80">
-              <h3 className="text-white font-bold text-base mb-1">
-                The KeyError Danger of Direct `os.environ` Indexing
-              </h3>
-              <p className="text-sm text-slate-300 leading-relaxed font-mono">
-                Calling <code className="text-rose-400 font-mono">os.environ["SECRET_TOKEN"]</code> raises an unhandled <code className="text-rose-400 font-mono">KeyError</code> if the variable is not set. In production services, always use <code className="text-teal-300 font-mono">os.getenv("SECRET_TOKEN", fallback)</code> to provide safe, reliable fallbacks!
-              </p>
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 2: INTERACTIVE VISUAL ARCHITECTURE (SVG TABS) */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">📐</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                2. Visualizing OS Process Boundaries, Stat Structs &amp; Directories
-              </h2>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: os module: environment variables, cwd, file system queries
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
             </div>
 
-            {/* Interactive Toggle for Diagram Perspectives */}
-            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
-              <button
-                onClick={() => setActiveInteractiveTab("kernelBoundary")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "kernelBoundary"
-                    ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Kernel &amp; Process Boundary
-              </button>
-              <button
-                onClick={() => setActiveInteractiveTab("statStruct")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "statStruct"
-                    ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                `os.stat()` Metadata
-              </button>
-              <button
-                onClick={() => setActiveInteractiveTab("treeCreation")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "treeCreation"
-                    ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                `os.makedirs` Safety
-              </button>
-            </div>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Examining kernel process boundaries, low-level filesystem inode structs, and recursive directory creation trees:
-          </p>
-
-          {/* SVG Diagram Container */}
-          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
-            {activeInteractiveTab === "kernelBoundary" ? (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#2dd4bf" fontSize="14" fontWeight="bold">OS KERNEL &amp; PROCESS ENVIRONMENT BOUNDARY</text>
-
-                {/* Left: Parent Shell */}
-                <g transform="translate(30, 50)">
-                  <rect x="0" y="0" width="380" height="240" rx="8" fill="#1e1b4b" stroke="#8b5cf6" />
-                  <text x="20" y="30" fill="#c4b5fd" fontSize="12" fontWeight="bold">Parent Operating System Shell</text>
-                  
-                  <text x="20" y="65" fill="#c084fc" fontSize="8 font-mono">System Env: PATH, HOME, USERNAME</text>
-                  <text x="20" y="85" fill="#cbd5e1" fontSize="8 font-mono">Spawns Python Subprocess (fork / CreateProcess)</text>
-
-                  <rect x="20" y="125" width="340" height="90" rx="4" fill="#090d16" stroke="#6d28d9" />
-                  <text x="30" y="150" fill="#c4b5fd" fontSize="9 font-bold">Process Isolation Invariant:</text>
-                  <text x="30" y="170" fill="#cbd5e1" fontSize="8">Parent shell environment is immutable to child modifications.</text>
-                  <text x="30" y="185" fill="#cbd5e1" fontSize="8">`os.environ['X'] = 1` does NOT change parent terminal!</text>
-                </g>
-
-                {/* Right: Python Process */}
-                <g transform="translate(470, 50)">
-                  <rect x="0" y="0" width="380" height="240" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="30" fill="#a7f3d0" fontSize="12" fontWeight="bold">Python Process (`PID = 48120`)</text>
-
-                  <text x="20" y="65" fill="#34d399" fontSize="8 font-mono">1. `os.environ` inherits snapshot copy</text>
-                  <text x="20" y="85" fill="#34d399" fontSize="8 font-mono">2. `os.getcwd()` references launch folder</text>
-                  <text x="20" y="105" fill="#34d399" fontSize="8 font-mono">3. `os.cpu_count()` queries hardware cores</text>
-
-                  <rect x="20" y="125" width="340" height="90" rx="4" fill="#022c22" stroke="#059669" />
-                  <text x="30" y="150" fill="#34d399" fontSize="9 font-bold">Safe Ingestion:</text>
-                  <text x="30" y="170" fill="#cbd5e1" fontSize="8">`os.getenv('DATABASE_URL', fallback)` protects process</text>
-                  <text x="30" y="185" fill="#cbd5e1" fontSize="8">from crashing on missing cloud environment variables.</text>
-                </g>
-              </svg>
-            ) : activeInteractiveTab === "statStruct" ? (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#38bdf8" fontSize="14" fontWeight="bold">LOW-LEVEL `os.stat(path)` INODE &amp; METADATA STRUCT</text>
-
-                {/* Stat Box */}
-                <g transform="translate(30, 50)">
-                  <rect x="0" y="0" width="820" height="240" rx="8" fill="#083344" stroke="#06b6d4" />
-                  <text x="20" y="30" fill="#a5f3fc" fontSize="12" fontWeight="bold">`os.stat("accotax_ledger.csv")` -&gt; os.stat_result</text>
-
-                  <g transform="translate(20, 50)">
-                    {/* Stat Item 1 */}
-                    <rect x="0" y="0" width="245" height="155" rx="6" fill="#090d16" stroke="#0284c7" />
-                    <text x="15" y="30" fill="#38bdf8" fontSize="10 font-bold">1. File Size &amp; Inode</text>
-                    <text x="15" y="60" fill="#cbd5e1" fontSize="8 font-mono">st_size  : 1,420 bytes</text>
-                    <text x="15" y="80" fill="#cbd5e1" fontSize="8 font-mono">st_ino   : 9283719482</text>
-                    <text x="15" y="100" fill="#34d399" fontSize="8 font-mono">`os.path.getsize(path)`</text>
-
-                    {/* Stat Item 2 */}
-                    <rect x="265" y="0" width="245" height="155" rx="6" fill="#090d16" stroke="#0284c7" />
-                    <text x="280" y="30" fill="#38bdf8" fontSize="10 font-bold">2. Timestamps</text>
-                    <text x="280" y="60" fill="#cbd5e1" fontSize="8 font-mono">st_mtime : 1771891200</text>
-                    <text x="280" y="80" fill="#cbd5e1" fontSize="8 font-mono">st_ctime : 1771890000</text>
-                    <text x="280" y="100" fill="#34d399" fontSize="8 font-mono">`datetime.fromtimestamp()`</text>
-
-                    {/* Stat Item 3 */}
-                    <rect x="530" y="0" width="245" height="155" rx="6" fill="#090d16" stroke="#0284c7" />
-                    <text x="545" y="30" fill="#38bdf8" fontSize="10 font-bold">3. Permissions &amp; Mode</text>
-                    <text x="545" y="60" fill="#cbd5e1" fontSize="8 font-mono">st_mode  : 0o100644</text>
-                    <text x="545" y="80" fill="#cbd5e1" fontSize="8 font-mono">os.R_OK  : True</text>
-                    <text x="545" y="100" fill="#34d399" fontSize="8 font-mono">`os.access(path, W_OK)`</text>
-                  </g>
-                </g>
-              </svg>
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#c084fc" fontSize="14" fontWeight="bold">RECURSIVE DIRECTORY CREATION: `os.mkdir()` VS `os.makedirs(exist_ok=True)`</text>
-
-                {/* Left: mkdir */}
-                <g transform="translate(30, 50)">
-                  <rect x="0" y="0" width="380" height="240" rx="8" fill="#4c0519" stroke="#f43f5e" />
-                  <text x="20" y="30" fill="#fda4af" fontSize="12" fontWeight="bold">`os.mkdir("logs/2026/q1")` [BRITTLE]</text>
-                  
-                  <text x="20" y="65" fill="#fca5a5" fontSize="8 font-mono">1. If 'logs' folder does NOT exist -&gt; FileNotFoundError!</text>
-                  <text x="20" y="85" fill="#fca5a5" fontSize="8 font-mono">2. If 'q1' folder ALREADY exists -&gt; FileExistsError!</text>
-                  <text x="20" y="105" fill="#f43f5e" fontSize="8 font-mono font-bold">Requires manual try-except boilerplate</text>
-
-                  <rect x="20" y="130" width="340" height="85" rx="4" fill="#090d16" stroke="#e11d48" />
-                  <text x="30" y="155" fill="#fda4af" fontSize="9 font-bold">Fragile &amp; Non-Idempotent:</text>
-                  <text x="30" y="175" fill="#cbd5e1" fontSize="8">Fails on multi-level paths or pre-existing folders.</text>
-                </g>
-
-                {/* Right: makedirs */}
-                <g transform="translate(470, 50)">
-                  <rect x="0" y="0" width="380" height="240" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="30" fill="#a7f3d0" fontSize="12" fontWeight="bold">`os.makedirs("logs/2026/q1", exist_ok=True)` [IDEMPOTENT]</text>
-
-                  <text x="20" y="65" fill="#34d399" fontSize="8 font-mono">1. Recursively creates 'logs', '2026', and 'q1'</text>
-                  <text x="20" y="85" fill="#34d399" fontSize="8 font-mono">2. `exist_ok=True` suppresses FileExistsError</text>
-                  <text x="20" y="105" fill="#34d399" fontSize="8 font-mono font-bold">3. 100% Thread-Safe &amp; Idempotent</text>
-
-                  <rect x="20" y="130" width="340" height="85" rx="4" fill="#022c22" stroke="#059669" />
-                  <text x="30" y="155" fill="#34d399" fontSize="9 font-bold">Production Standard:</text>
-                  <text x="30" y="175" fill="#cbd5e1" fontSize="8">Guarantees directory tree exists with a single call.</text>
-                </g>
-              </svg>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
             )}
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 3: INTERACTIVE OS LABORATORY */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🎮</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              3. Interactive OS Environment &amp; Filesystem Laboratory
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base leading-relaxed">
-            Configure server environment modes, select OS query actions, inspect process metadata, and observe live terminal execution telemetry:
-          </p>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 bg-slate-950 p-6 rounded-xl border border-slate-800">
-            {/* Controls */}
-            <div className="space-y-4">
-              {/* Action Selector */}
-              <div className="space-y-1.5">
-                <span className="text-xs font-mono uppercase tracking-wider text-teal-400 font-bold">
-                  1. Select OS Action Trigger:
-                </span>
-                <div className="grid grid-cols-2 gap-1.5 bg-slate-900 p-1.5 rounded-lg border border-slate-800 text-xs font-mono">
-                  {[
-                    { id: "INVENTORY_ENV", label: "1. Inventory Env Vars" },
-                    { id: "QUERY_STAT", label: "2. Query os.stat()" },
-                    { id: "TEST_MAKEDIRS", label: "3. os.makedirs Tree" },
-                    { id: "TEST_PERMS", label: "4. Test os.access()" },
-                  ].map((a) => (
-                    <button
-                      key={a.id}
-                      onClick={() => setActionType(a.id)}
-                      className={clsx(
-                        "py-1.5 rounded transition-all",
-                        actionType === a.id
-                          ? "bg-teal-900/60 text-teal-300 font-bold border border-teal-700/80"
-                          : "text-slate-400 hover:text-white"
-                      )}
-                    >
-                      {a.label}
-                    </button>
-                  ))}
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
                 </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
               </div>
-
-              {/* Environment Mode Selector */}
-              <div className="space-y-1.5 pt-1">
-                <span className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">
-                  2. ACCOTAX_ENV Variable:
-                </span>
-                <div className="flex bg-slate-900 p-1.5 rounded-lg border border-slate-800 text-xs font-mono">
-                  {["production", "staging", "development"].map((mode) => (
-                    <button
-                      key={mode}
-                      onClick={() => setEnvMode(mode)}
-                      className={clsx(
-                        "flex-1 py-1 rounded transition-all capitalize",
-                        envMode === mode
-                          ? "bg-cyan-900/60 text-cyan-300 font-bold border border-cyan-700/80"
-                          : "text-slate-400 hover:text-white"
-                      )}
-                    >
-                      {mode}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Process Runtime Metadata Badge */}
-              <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 text-xs font-mono space-y-1">
-                <div className="text-slate-400 text-[10px] uppercase font-bold">Host Process Metadata:</div>
-                <div className="flex justify-between text-slate-300 text-[11px]">
-                  <span>PID: <strong className="text-teal-300">{serverPid}</strong></span>
-                  <span>Kernel: <strong className="text-cyan-300">{osKernel}</strong></span>
-                  <span>CPUs: <strong className="text-purple-300">{cpuCores} Cores</strong></span>
-                </div>
-                <div className="text-[10px] text-slate-400 truncate pt-0.5">
-                  CWD: {cwd}
-                </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
               </div>
             </div>
 
-            {/* Code Generator & Terminal Inspector */}
-            <div className="space-y-4 flex flex-col justify-between">
-              {/* Python Code Display */}
-              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs space-y-1">
-                <div className="text-slate-400 font-bold uppercase tracking-wider text-[10px]">
-                  Generated Python os Execution Code:
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
                 </div>
-                <pre className="text-teal-300 text-[11px] leading-relaxed break-all font-mono overflow-x-auto">
-                  {generatedPythonCode}
-                </pre>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
               </div>
-
-              {/* Live Terminal Output Inspector */}
-              <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 flex-1 overflow-y-auto max-h-[160px] font-mono text-xs space-y-1">
-                <div className="flex justify-between text-[10px] font-bold uppercase text-slate-400">
-                  <span>OS Terminal Telemetry Stream:</span>
-                  <span className="text-emerald-400">Exit Code 0</span>
-                </div>
-                <pre className="text-slate-200 text-[11px] leading-relaxed font-mono whitespace-pre-wrap">
-                  {terminalOutput}
-                </pre>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
               </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 4: MASTER OS MODULE MATRIX */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📊</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              4. Master `os` Module Function Reference Matrix
-            </h2>
-          </div>
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300 border-collapse">
-              <thead>
-                <tr className="border-b border-slate-700 text-slate-200 bg-slate-950/60">
-                  <th className="py-3.5 px-4 font-bold">Function Signature</th>
-                  <th className="py-3.5 px-4 font-bold">Category</th>
-                  <th className="py-3.5 px-4 font-bold">Error Behavior</th>
-                  <th className="py-3.5 px-4 font-bold">Primary Use Case</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800">
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-teal-300 font-semibold">`os.getenv(k, def)`</td>
-                  <td className="py-3 px-4 text-slate-200">Environment</td>
-                  <td className="py-3 px-4 text-emerald-400">Safe (Returns `def`)</td>
-                  <td className="py-3 px-4">Production secret &amp; DB URL ingestion</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-cyan-300 font-semibold">`os.makedirs(p, exist_ok=True)`</td>
-                  <td className="py-3 px-4 text-slate-200">Directory CRUD</td>
-                  <td className="py-3 px-4 text-emerald-400">Safe (Idempotent)</td>
-                  <td className="py-3 px-4">Creating nested log/storage trees</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-purple-300 font-semibold">`os.replace(src, dst)`</td>
-                  <td className="py-3 px-4 text-slate-200">File Operation</td>
-                  <td className="py-3 px-4 text-purple-300">Atomic Overwrite</td>
-                  <td className="py-3 px-4">Cross-platform atomic file swapping</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-amber-300 font-semibold">`os.access(p, mode)`</td>
-                  <td className="py-3 px-4 text-slate-200">Permissions</td>
-                  <td className="py-3 px-4 text-emerald-400">Returns `bool`</td>
-                  <td className="py-3 px-4">Testing read/write OS permissions</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 5: LIVE PYTHON CODE LAB */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">💻</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              5. Interactive Code Lab: Production Scripts
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Explore 4 production-grade Python scripts demonstrating environment variable management, path queries, directory CRUD, and institutional server auditors:
-          </p>
-
-          <PythonFileLoader
-            files={[
-              {
-                filename: "os_environment_and_process_management.py",
-                code: envProcessCode,
-                description: "Environment variables, getenv fallbacks, and process introspection.",
-              },
-              {
-                filename: "os_working_directory_and_path_queries.py",
-                code: cwdQueriesCode,
-                description: "getcwd, path queries, and stat metadata.",
-              },
-              {
-                filename: "os_filesystem_crud_and_permissions.py",
-                code: crudPermsCode,
-                description: "os.makedirs(exist_ok=True), os.replace, and os.access.",
-              },
-              {
-                filename: "institutional_system_environment_and_audit_inspector.py",
-                code: systemAuditorCode,
-                description: "Server environment audit, process metadata, and filesystem permission inspection.",
-              },
-            ]}
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="os module: environment variables, cwd, file system queries FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
           />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 6: COMMON TRAPS & EDGE CASES */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              6. Common Traps, Anti-Patterns &amp; Edge Cases
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Trap 1 */}
-            <div className="p-6 rounded-xl bg-rose-950/30 border border-rose-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-rose-400 font-bold text-base">
-                <span>❌</span> Trap 1: Direct Indexing `os.environ['KEY']`
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Direct indexing raises a fatal <code className="text-rose-300 font-mono">KeyError</code> if the variable is missing from the host environment.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Rule:</span> Always use <code className="text-emerald-300">os.getenv('KEY', fallback)</code>.
-              </div>
-            </div>
-
-            {/* Trap 2 */}
-            <div className="p-6 rounded-xl bg-amber-950/30 border border-amber-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-amber-400 font-bold text-base">
-                <span>❌</span> Trap 2: Mutating CWD with `os.chdir()`
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                CWD is process-global; modifying it via <code className="text-amber-300 font-mono">os.chdir()</code> changes the directory for all concurrent threads!
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Use absolute paths (<code className="text-emerald-300">os.path.abspath</code> or <code className="text-emerald-300">pathlib.Path</code>).
-              </div>
-            </div>
-
-            {/* Trap 3 */}
-            <div className="p-6 rounded-xl bg-purple-950/30 border border-purple-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-purple-400 font-bold text-base">
-                <span>❌</span> Trap 3: Omission of `exist_ok=True`
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Calling <code className="text-purple-300 font-mono">os.makedirs(path)</code> without <code className="text-purple-300 font-mono">exist_ok=True</code> crashes with <code className="text-slate-300">FileExistsError</code> when run multiple times.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Always specify <code className="text-emerald-300">exist_ok=True</code>.
-              </div>
-            </div>
-
-            {/* Trap 4 */}
-            <div className="p-6 rounded-xl bg-cyan-950/30 border border-cyan-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-cyan-400 font-bold text-base">
-                <span>❌</span> Trap 4: Hardcoding OS Path Separators
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Writing <code className="text-cyan-300 font-mono">path = "folder\\sub\\file.txt"</code> breaks portability on Linux/macOS.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Use <code className="text-emerald-300">os.path.join()</code> or <code className="text-emerald-300">pathlib.Path</code>.
-              </div>
-            </div>
-          </div>
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="os module: environment variables, cwd, file system queries"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic0_note.txt"
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 7: FAQ & INTERVIEW REVIEW QUESTIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">❓</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              7. Master Review &amp; Interview Questions (25 FAQs)
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Comprehensive question-and-answer repository covering os module, environment variables, working directory, stat structs, and filesystem permissions:
-          </p>
-
-          <FAQTemplate questions={questions} />
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 8: STUDY NOTES, PRINTABLE HANDOUT & TEACHER BIO */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📄</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              8. Study Notes, Printable Handout &amp; Teacher Profile
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Download or print the complete reference sheet with os module recipes, environment variable patterns, and filesystem query templates:
-          </p>
-
-          <div className="mb-10">
-            <PlainTextPrint
-              content={noteText}
-              filename="python_topic0_os_module_and_environment_notes.txt"
-              title="Print Topic 0 Study Notes"
-            />
-          </div>
-
-          {/* Teacher Bio Card */}
-          <Teacher />
-        </section>
-
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 0 · os module: environment variables, cwd, file system queries · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Topic0;

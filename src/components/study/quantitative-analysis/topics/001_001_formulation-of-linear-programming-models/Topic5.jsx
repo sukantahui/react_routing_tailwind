@@ -249,7 +249,7 @@ const Topic5 = () => {
             },
             {
               domain: "🚚 Transportation",
-              var: "x_{ij} = units shipped from i to j",
+              var: "x_ij = units shipped from i to j",
               reason: "Cannot ship negative quantities. You can't send -10 units.",
             },
             {

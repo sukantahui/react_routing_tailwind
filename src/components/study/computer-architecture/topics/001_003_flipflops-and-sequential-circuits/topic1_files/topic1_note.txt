@@ -1,0 +1,69 @@
+================================================================================
+COMPUTER ARCHITECTURE & DIGITAL LOGIC MASTERCLASS
+MODULE: 001_003_FLIPFLOPS-AND-SEQUENTIAL-CIRCUITS
+TOPIC 1: SR LATCH (BASIC BUILDING BLOCK): NOR & NAND IMPLEMENTATION,
+         TRUTH TABLES, INVALID STATE FORENSICS & SWITCH DEBOUNCING
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. EXECUTIVE OVERVIEW & HARDWARE PURPOSE
+--------------------------------------------------------------------------------
+The Set-Reset (SR) Latch is the most fundamental bistable multivibrator circuit in
+digital electronics. Unlike combinational circuits where outputs depend solely on
+instantaneous inputs, an SR Latch utilizes positive feedback cross-coupling to create
+internal 1-bit binary memory (retaining state even after input stimuli are removed).
+
+2. NOR-BASED SR LATCH (ACTIVE-HIGH INPUTS)
+--------------------------------------------------------------------------------
+Architecture:
+  - Constructed using TWO 2-input NOR gates cross-coupled in feedback.
+  - Top Gate (NOR 1): Inputs = R (Reset) and Q_bar. Output = Q = ~(R + Q_bar)
+  - Bottom Gate (NOR 2): Inputs = S (Set) and Q. Output = Q_bar = ~(S + Q)
+
+Truth Table (Active-High):
+  S   R  |  Q(t+1)   Q_bar(t+1) | State Description
+  0   0  |   Q(t)     Q_bar(t)  | Memory Hold (Quiescent State)
+  0   1  |    0          1      | Reset State (Forces Q = 0)
+  1   0  |    1          0      | Set State (Forces Q = 1)
+  1   1  |    0          0      | FORBIDDEN / INVALID STATE (Q = Q_bar = 0)
+
+3. NAND-BASED S_BAR-R_BAR LATCH (ACTIVE-LOW INPUTS)
+--------------------------------------------------------------------------------
+Architecture:
+  - Constructed using TWO 2-input NAND gates cross-coupled in feedback.
+  - Top Gate (NAND 1): Inputs = S_bar (Active-Low Set) and Q_bar. Output = Q = ~(S_bar . Q_bar)
+  - Bottom Gate (NAND 2): Inputs = R_bar (Active-Low Reset) and Q. Output = Q_bar = ~(R_bar . Q)
+
+Truth Table (Active-Low):
+  S_bar R_bar | Q(t+1)  Q_bar(t+1) | State Description
+    1     1   |  Q(t)    Q_bar(t)  | Memory Hold (Quiescent State)
+    1     0   |   0         1      | Reset State (Forces Q = 0)
+    0     1   |   1         0      | Set State (Forces Q = 1)
+    0     0   |   1         1      | FORBIDDEN / INVALID STATE (Q = Q_bar = 1)
+
+4. THE INVALID STATE & METASTABLE RACE CONDITION
+--------------------------------------------------------------------------------
+In both NOR and NAND latches, applying the invalid input combination forces both outputs
+to identical logic levels (violating the complementary law Q != Q_bar).
+When the inputs transition simultaneously back to the Hold state:
+- Both gates enter a race condition to invert each other.
+- Microscopic differences in silicon propagation delay (t_pd) cause output ringing
+  (metastability) before settling randomly into either 0 or 1.
+
+5. REAL-WORLD APPLICATION: MECHANICAL SWITCH DEBOUNCING
+--------------------------------------------------------------------------------
+When a mechanical push-button or SPDT switch is pressed, physical contact bounce creates
+5 to 50 electrical voltage oscillations over 5 to 20 milliseconds.
+Connecting an SPDT switch between the S and R pins of a cross-coupled latch creates a
+hardware debouncer: the latch snaps to state on the FIRST contact touch and remains
+immune to subsequent contact bounces until the switch moves to the opposite pole.
+
+6. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+"Memory in silicon begins with feedback. The SR Latch is the seed from which all digital
+registers, SRAM cells, and CPU datapaths grow. Always remember: NOR latches are Active-HIGH,
+NAND latches are Active-LOW, and never let both active signals fire together!"
+
+================================================================================
+END OF STUDY NOTE - TOPIC 1
+================================================================================

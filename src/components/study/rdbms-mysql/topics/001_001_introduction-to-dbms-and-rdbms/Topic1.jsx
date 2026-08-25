@@ -4,6 +4,8 @@ import clsx from "clsx";
 // ─── Common Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import noteText from "./topic1_files/topic1_note.txt?raw";
 import questions from "./topic1_files/topic1_questions";
 
 /**
@@ -957,6 +959,23 @@ const Topic1 = () => {
             showExpandAll
             showSearch
             showProgress
+          />
+        </section>
+
+        
+        {/* ─── Plain Text Printable Study Note ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section mb-10"
+          style={{ animationDelay: "1250ms" }}
+        >
+          <PlainTextPrint
+            content={noteText}
+            title="Understanding Data Processing"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Plain Text Note"
+            downloadFileName="topic1_note.txt"
           />
         </section>
 

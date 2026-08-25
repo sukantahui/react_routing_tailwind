@@ -4,6 +4,8 @@ import clsx from "clsx";
 // ─── Common Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import noteText from "./topic35_files/topic35_note.txt?raw";
 import questions from "./topic35_files/topic35_questions";
 
 /**
@@ -996,6 +998,23 @@ const Topic35 = () => {
             showExpandAll
             showSearch
             showProgress
+          />
+        </section>
+
+        
+        {/* ─── Plain Text Printable Study Note ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section mb-10"
+          style={{ animationDelay: "1250ms" }}
+        >
+          <PlainTextPrint
+            content={noteText}
+            title="Exploring MySQL Workbench Interface"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Plain Text Note"
+            downloadFileName="topic35_note.txt"
           />
         </section>
 

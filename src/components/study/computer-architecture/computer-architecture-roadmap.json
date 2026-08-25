@@ -1,15 +1,15 @@
 {
   "trackId": "computer-architecture-expert",
   "trackTitle": "Computer Architecture – From Core Systems to Performance Engineering",
-  "description": "A complete expert-level learning path covering digital logic, CPU design, memory systems, pipelining, parallelism and real-world performance engineering.",
+  "description": "A comprehensive expert-level curriculum covering digital logic, CPU datapath & control, high-performance arithmetic, RISC pipelining, superscalar execution, memory hierarchy, cache coherence, GPUs, and hardware security.",
   "institute": {
     "name": "Coder & AccoTax",
     "website": "https://www.codernaccotax.co.in",
     "author": "Sukanta Hui",
     "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
-    "trackType": "Computer Architecture Expert Roadmap",
-    "version": "1.0.0",
-    "lastUpdated": "2026-01-12"
+    "trackType": "Computer Architecture Professional Masterclass",
+    "version": "2.0.0",
+    "lastUpdated": "2026-02-26"
   },
   "folder": "computer-architecture",
   "subject": "Computer Architecture",
@@ -22,21 +22,25 @@
   },
   "segments": [
     {
-      "segmentId": "foundation",
-      "title": "Segment 1 – Digital Foundations",
-      "level": "Beginner",
-      "summary": "Build strong fundamentals of digital systems and number representations.",
+      "segmentId": "digital-foundations",
+      "title": "Segment 1 – Digital Foundations & Sequential Logic Systems",
+      "level": "Beginner to Intermediate",
+      "summary": "Build strong silicon-level fundamentals from binary number systems and Boolean logic gates to synchronous counters, shift registers, and finite state machines.",
       "modules": [
         {
           "moduleId": "num-systems",
-          "slug": "number-systems-and-codes",
+          "slug": "001_001_number-systems-and-codes",
           "title": "Number Systems & Binary Codes",
           "level": "Beginner",
-          "estimatedHours": 5,
+          "estimatedHours": 6,
           "tags": [
             "binary",
-            "hex",
-            "complements"
+            "hexadecimal",
+            "octal",
+            "2s-complement",
+            "gray-code",
+            "bcd",
+            "floating-point"
           ],
           "topics": [
             "Decimal, Binary, Octal, Hexadecimal conversions",
@@ -57,56 +61,55 @@
             "Practice your Skill here"
           ],
           "learningOutcomes": [
-            "Convert between number systems",
-            "Perform binary arithmetic confidently"
+            "Convert numbers between any arbitrary radices",
+            "Implement fixed-width 2's complement arithmetic and detect hardware overflow"
           ],
           "prerequisites": [],
           "difficulty": "Easy",
           "difficultyIndex": 2,
-          "summary": "Understand how computers represent numbers and characters.",
+          "summary": "Understand how computers represent numbers and characters at the hardware level.",
           "miniProjects": [
-            "Practice: Binary Calculator"
+            "Design 8-Bit Binary Radix & 2's Complement Converter"
           ],
           "exercises": {
-            "mcq": 18,
-            "coding": 6,
+            "mcq": 30,
+            "coding": 10,
             "projects": 1
           },
           "assessment": {
             "type": "Quiz + Practice",
-            "passScore": 70
+            "passScore": 75
           },
           "useCases": [
-            "Low-level debugging",
-            "Memory representation"
+            "Microcontroller register programming",
+            "Memory address calculations"
           ],
           "careerSkills": [
-            "Digital logic basics"
+            "Digital logic fundamentals",
+            "Low-level bit manipulation"
           ],
           "commonMistakes": [
-            "Sign bit confusion",
-            "Wrong complement usage"
+            "Inverting remainder read direction",
+            "Sign-extension mistakes"
           ],
           "references": [
-            "Morris Mano – Digital Logic"
-          ],
-          "teachingTips": [
-            "Use paper conversion drills"
-          ],
-          "preReading": [],
-          "previousModule": null,
-          "nextModule": "logic-gates",
-          "badge": "Binary Master Badge"
+            "Morris Mano – Digital Logic & Computer Design"
+          ]
         },
         {
           "moduleId": "logic-gates",
-          "slug": "logic-gates-and-circuits",
+          "slug": "001_002_logic-gates-and-circuits",
           "title": "Logic Gates & Combinational Circuits",
           "level": "Beginner",
-          "estimatedHours": 6,
+          "estimatedHours": 10,
           "tags": [
-            "gates",
-            "kmap"
+            "logic-gates",
+            "boolean-algebra",
+            "k-map",
+            "adders",
+            "multiplexers",
+            "decoders",
+            "parity"
           ],
           "topics": [
             "Basic gates AND, OR, NOT, NAND, NOR, XOR",
@@ -150,68 +153,63 @@
             "9-bit parity generator/checker (IC 74180)"
           ],
           "learningOutcomes": [
-            "Design simple combinational circuits",
-            "Minimize logic using K-maps"
+            "Minimize Boolean expressions using Karnaugh maps",
+            "Design combinational building blocks (adders, multiplexers, decoders, parity checkers)"
           ],
           "prerequisites": [
-            "num-systems"
+            "001_001_number-systems-and-codes"
           ],
           "difficulty": "Medium",
           "difficultyIndex": 4,
-          "summary": "Learn how hardware logic is constructed.",
+          "summary": "Master the design and synthesis of combinational logic blocks from discrete gates to MSI chips.",
           "miniProjects": [
-            "Design 4-bit adder"
+            "Design 4-Bit Arithmetic Combinational Unit"
           ],
           "exercises": {
-            "mcq": 20,
-            "coding": 5,
-            "projects": 1
+            "mcq": 40,
+            "coding": 12,
+            "projects": 2
           },
           "assessment": {
-            "type": "Quiz",
-            "passScore": 70
+            "type": "Quiz + Circuit Design",
+            "passScore": 75
           },
           "useCases": [
-            "CPU arithmetic units"
+            "ALU arithmetic logic",
+            "Bus routing & address decoding"
           ],
           "careerSkills": [
-            "Circuit reasoning"
+            "Combinational circuit synthesis",
+            "Hardware timing analysis"
           ],
           "commonMistakes": [
-            "Wrong Karnaugh grouping"
+            "Static hazards in K-Maps",
+            "Ignoring enable line polarities"
           ],
           "references": [
-            "Digital Design – Mano"
-          ],
-          "teachingTips": [
-            "Use colored K-map blocks"
-          ],
-          "preReading": [
-            "num-systems"
-          ],
-          "previousModule": "num-systems",
-          "nextModule": "flipflops-sequential",
-          "badge": "Logic Builder Badge"
+            "Morris Mano – Digital Design",
+            "Roth & Kinney – Fundamentals of Logic Design"
+          ]
         },
         {
           "moduleId": "flipflops-sequential",
-          "slug": "flipflops-and-sequential-circuits",
+          "slug": "001_003_flipflops-and-sequential-circuits",
           "title": "Flip‑Flops & Sequential Circuits",
           "level": "Intermediate",
-          "estimatedHours": 8,
+          "estimatedHours": 12,
           "tags": [
-            "flipflops",
             "latches",
+            "flip-flops",
             "registers",
             "counters",
-            "FSM"
+            "finite-state-machines"
           ],
           "topics": [
             "Introduction to Sequential Circuits: Difference between combinational vs sequential logic, memory concept, feedback mechanism",
             "SR Latch (Basic Building Block): NOR and NAND implementation, truth table, invalid state, real-world behavior analysis",
             "Gated SR Latch: Enable/clock control, level-sensitive behavior, timing diagram explanation",
             "D Latch: Elimination of invalid state, data transparency concept, practical usage in buffering and storage",
-            "Clock Triggering in Flip-Flops: Concept of clock signal, level triggering vs edge triggering (positive and negative edge)", 
+            "Clock Triggering in Flip-Flops: Concept of clock signal, level triggering vs edge triggering (positive and negative edge)",
             "Pulse triggering, timing diagrams, real-world significance in synchronization",
             "Level-Sensitive vs Edge-Triggered Devices: Positive edge, negative edge, timing diagram comparison, why edge triggering is important",
             "Clocked SR Flip-Flop: Internal structure, working with clock pulse, race condition and invalid state problem",
@@ -243,266 +241,995 @@
             "Exam-Oriented Problem Solving: Previous ISC/CBSE style numerical + design questions with shortcuts"
           ],
           "learningOutcomes": [
-            "Differentiate between latches and flip‑flops",
-            "Design and analyze all common flip‑flop types",
-            "Build registers and counters from flip‑flops",
-            "Model simple sequential systems with FSMs"
+            "Design synchronous counters and shift registers using excitation tables",
+            "Synthesize Mealy and Moore finite state machines with state minimization"
           ],
           "prerequisites": [
-            "logic-gates"
+            "001_002_logic-gates-and-circuits"
           ],
           "difficulty": "Medium",
           "difficultyIndex": 5,
-          "summary": "Master the building blocks of memory and sequential logic in digital systems.",
+          "summary": "Master the sequential building blocks of digital memory, timing control, and state machine control units.",
           "miniProjects": [
-            "Build a 4‑bit synchronous counter with display",
-            "Design a 3‑bit shift register using D flip‑flops"
+            "Design Modulo-12 Synchronous Counter with Sequence Detector"
           ],
           "exercises": {
-            "mcq": 25,
-            "coding": 8,
+            "mcq": 40,
+            "coding": 12,
             "projects": 2
           },
           "assessment": {
-            "type": "Quiz + Design Assignment",
+            "type": "Quiz + FSM Design",
             "passScore": 75
           },
           "useCases": [
-            "CPU register files",
-            "Memory address counters",
-            "Control unit state machines"
+            "CPU instruction sequencer",
+            "DMA address counter"
           ],
           "careerSkills": [
-            "Sequential logic design",
-            "FSM implementation"
+            "Sequential hardware design",
+            "FSM synthesis"
           ],
           "commonMistakes": [
-            "Confusing latches with flip‑flops",
-            "Incorrect excitation table application",
-            "Race conditions in asynchronous counters"
+            "Setup and hold time violations",
+            "Metastability in asynchronous clock domains"
           ],
           "references": [
             "Morris Mano – Digital Logic",
             "Roth & Kinney – Fundamentals of Logic Design"
-          ],
-          "teachingTips": [
-            "Use timing diagrams to explain edge triggering",
-            "Simulate counters in Logisim or similar tool"
-          ],
-          "preReading": [
-            "logic-gates"
-          ],
-          "previousModule": "logic-gates",
-          "nextModule": "cpu-basics",
-          "badge": "Sequential Master Badge"
+          ]
         }
       ]
     },
     {
-      "segmentId": "core-cpu",
-      "title": "Segment 2 – CPU Organization & Instruction Cycle",
+      "segmentId": "cpu-datapath-and-control",
+      "title": "Segment 2 – CPU Organization, Datapath & Computer Arithmetic",
       "level": "Intermediate",
-      "summary": "Understand how the processor executes instructions.",
+      "summary": "Dive into the inner mechanics of the Central Processing Unit: register transfer language, instruction set architecture, high-performance arithmetic algorithms, and control unit design.",
       "modules": [
         {
-          "moduleId": "cpu-basics",
-          "slug": "cpu-organization",
-          "title": "CPU Organization & Registers",
+          "moduleId": "cpu-registers-rtl",
+          "slug": "002_001_cpu-architecture-registers-and-rtl",
+          "title": "CPU Architecture, Register Files & RTL",
           "level": "Intermediate",
-          "estimatedHours": 6,
+          "estimatedHours": 8,
           "tags": [
             "cpu",
-            "registers"
+            "registers",
+            "rtl",
+            "datapath",
+            "bus-architecture"
           ],
           "topics": [
-            "CPU components: ALU, CU, Registers",
-            "Register Transfer Language",
-            "Instruction cycle: Fetch, Decode, Execute",
-            "Instruction formats and opcodes",
-            "Addressing modes"
+            "Von Neumann vs Harvard Architecture Models",
+            "CPU Major Functional Units: Datapath, Control Unit, ALU & Memory Interface",
+            "CPU Register Hierarchy: PC, MAR, MDR, IR, AC, SP, Flags & GPRs",
+            "Register Transfer Language (RTL): Notation, Syntax and Timing",
+            "Common Bus System Design using Multiplexers and 3-State Bus Buffers",
+            "Memory Transfer Operations: Read (MDR <- M[MAR]) and Write (M[MAR] <- MDR)",
+            "Arithmetic Micro-operations: Addition, Subtraction, Increment, Decrement",
+            "Logic Micro-operations: AND, OR, XOR, NOT and Bitwise Masking",
+            "Shift Micro-operations: Logical, Arithmetic (Sign-Preserving), and Circular Rotations",
+            "Accumulator-based vs Stack-based vs General-Register Datapath Organizations"
           ],
           "learningOutcomes": [
-            "Explain CPU working step-by-step",
-            "Differentiate instruction formats"
+            "Trace micro-operations across internal CPU register transfers",
+            "Design multiplexer-based and tri-state common bus datapaths"
           ],
           "prerequisites": [
-            "flipflops-sequential"
+            "001_003_flipflops-and-sequential-circuits"
           ],
           "difficulty": "Medium",
           "difficultyIndex": 6,
-          "summary": "Discover how instructions move inside CPU.",
+          "summary": "Understand internal processor bus structures, register file organizations, and register transfer micro-operations.",
           "miniProjects": [
-            "Trace execution of sample instructions"
+            "Design 8-Bit Bus-Connected Register Datapath"
           ],
           "exercises": {
-            "mcq": 20,
-            "coding": 6,
-            "projects": 1
-          },
-          "assessment": {
-            "type": "Quiz",
-            "passScore": 75
-          },
-          "useCases": [
-            "Assembly understanding"
-          ],
-          "careerSkills": [
-            "Processor flow analysis"
-          ],
-          "commonMistakes": [
-            "Confusing opcode & operand"
-          ],
-          "references": [
-            "William Stallings – Computer Architecture"
-          ],
-          "teachingTips": [
-            "Draw datapath diagrams"
-          ],
-          "preReading": [
-            "flipflops-sequential"
-          ],
-          "previousModule": "flipflops-sequential",
-          "nextModule": "pipelining",
-          "badge": "CPU Explorer Badge"
-        }
-      ]
-    },
-    {
-      "segmentId": "advanced",
-      "title": "Segment 3 – Pipelining, Memory & I/O",
-      "level": "Advanced",
-      "summary": "Dive into performance-critical components of systems.",
-      "modules": [
-        {
-          "moduleId": "pipelining",
-          "slug": "pipelining-and-hazards",
-          "title": "Pipelining & Hazard Handling",
-          "level": "Advanced",
-          "estimatedHours": 7,
-          "tags": [
-            "pipeline",
-            "hazards"
-          ],
-          "topics": [
-            "Pipeline stages",
-            "Structural, data & control hazards",
-            "Forwarding and stalling",
-            "Branch prediction",
-            "RISC pipeline models"
-          ],
-          "learningOutcomes": [
-            "Explain pipeline behavior",
-            "Resolve pipeline hazards"
-          ],
-          "prerequisites": [
-            "cpu-basics"
-          ],
-          "difficulty": "Advanced",
-          "difficultyIndex": 8,
-          "summary": "Learn how modern CPUs execute multiple instructions in parallel.",
-          "miniProjects": [
-            "Pipeline hazard analyzer"
-          ],
-          "exercises": {
-            "mcq": 22,
+            "mcq": 30,
             "coding": 8,
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz + Assignment",
-            "passScore": 80
+            "type": "Quiz + Datapath Trace",
+            "passScore": 75
           },
           "useCases": [
-            "Processor optimization"
+            "Processor micro-architecture design",
+            "Assembly language debugging"
           ],
           "careerSkills": [
-            "Performance engineering"
+            "Datapath design",
+            "RTL specification"
           ],
           "commonMistakes": [
-            "Ignoring branch penalties"
+            "Arithmetic shift right sign loss",
+            "Bus contention from multiple enabled tri-state drivers"
           ],
           "references": [
-            "Hennessy & Patterson"
-          ],
-          "teachingTips": [
-            "Use cycle-by-cycle tables"
-          ],
-          "preReading": [
-            "cpu-basics"
-          ],
-          "previousModule": "cpu-basics",
-          "nextModule": null,
-          "badge": "Pipeline Pro Badge"
-        }
-      ]
-    },
-    {
-      "segmentId": "ultra-expert",
-      "title": "Segment 4 – Multiprocessors & Performance Engineering",
-      "level": "Ultra Expert",
-      "summary": "Master modern computing systems & optimization strategies.",
-      "modules": [
+            "Morris Mano – Computer System Architecture",
+            "William Stallings – Computer Organization"
+          ]
+        },
         {
-          "moduleId": "parallelism",
-          "slug": "parallel-architectures",
-          "title": "Parallel Processing & Multiprocessors",
-          "level": "Ultra Expert",
+          "moduleId": "isa-addressing-modes",
+          "slug": "002_002_isa-instruction-formats-and-addressing-modes",
+          "title": "Instruction Set Architecture (ISA) & Addressing Modes",
+          "level": "Intermediate",
           "estimatedHours": 8,
           "tags": [
-            "parallel",
-            "multicore"
+            "isa",
+            "opcodes",
+            "addressing-modes",
+            "risc",
+            "cisc"
           ],
           "topics": [
-            "SISD, SIMD, MISD, MIMD",
-            "Multicore architectures",
-            "Cache coherence",
-            "Amdahl’s law",
-            "Performance benchmarking"
+            "Instruction Set Architecture (ISA) as the Hardware-Software Contract",
+            "Instruction Formats: Opcode, Mode, and Address Fields",
+            "0-Address, 1-Address, 2-Address, and 3-Address Instruction Formats",
+            "Stack-based (Zero-Address) Polish Notation Evaluation",
+            "Immediate and Direct (Absolute) Addressing Modes",
+            "Indirect Addressing Mode and Pointer Dereferencing",
+            "Register Direct and Register Indirect Addressing Modes",
+            "Displacement Addressing: Relative, Base-Register, and Indexed Modes",
+            "Auto-Increment and Auto-Decrement Stack Addressing Modes",
+            "RISC vs CISC Architectural Philosophies: Load/Store vs Complex Orthogonal ISAs",
+            "Instruction Cycle: Complete Micro-operation Breakdown of Fetch, Decode, and Execute",
+            "Handling Hardware Interrupts during the Instruction Cycle"
           ],
           "learningOutcomes": [
-            "Design and analyze parallel systems",
-            "Apply performance formulas"
+            "Evaluate effective memory addresses across all standard addressing modes",
+            "Compare RISC and CISC instruction encoding efficiencies"
           ],
           "prerequisites": [
-            "pipelining"
+            "002_001_cpu-architecture-registers-and-rtl"
           ],
-          "difficulty": "Ultra Expert",
-          "difficultyIndex": 10,
-          "summary": "Become capable of reasoning about high-performance computing systems.",
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Master machine instruction formats, effective address calculations, and the execution cycle.",
           "miniProjects": [
-            "Parallel speedup calculator"
+            "Build an Instruction Decoder and Effective Address Calculator"
           ],
           "exercises": {
-            "mcq": 24,
+            "mcq": 30,
             "coding": 10,
             "projects": 1
           },
           "assessment": {
-            "type": "Capstone",
+            "type": "Quiz + ISA Encoding",
+            "passScore": 75
+          },
+          "useCases": [
+            "Compiler code generation",
+            "Embedded firmware optimization"
+          ],
+          "careerSkills": [
+            "Assembly programming",
+            "ISA evaluation"
+          ],
+          "commonMistakes": [
+            "Confusing memory indirect with register indirect",
+            "Overlooking PC-relative branch offsets"
+          ],
+          "references": [
+            "Hennessy & Patterson – Computer Organization and Design",
+            "Morris Mano – Computer System Architecture"
+          ]
+        },
+        {
+          "moduleId": "alu-computer-arithmetic",
+          "slug": "002_003_alu-design-and-computer-arithmetic-algorithms",
+          "title": "ALU Design & Computer Arithmetic Algorithms",
+          "level": "Intermediate",
+          "estimatedHours": 10,
+          "tags": [
+            "alu",
+            "booths-algorithm",
+            "division",
+            "floating-point",
+            "ieee-754"
+          ],
+          "topics": [
+            "ALU Functional Architecture: Arithmetic Extender, Logic Shifter, and Status Flags",
+            "High-Speed Addition: Carry-Lookahead Adders (CLA) vs Ripple-Carry Adders",
+            "Unsigned Binary Multiplication: Shift-and-Add Hardware Multiplier",
+            "Booth’s Signed Multiplication Algorithm (Positive & Negative Multipliers)",
+            "Bit-Pair Recoding (Modified Booth's Multiplication) for High-Speed ALUs",
+            "Restoring Division Algorithm for Unsigned Integers",
+            "Non-Restoring Division Algorithm for High-Throughput Hardware",
+            "Fast Division Techniques: SRT Division and Newton-Raphson Reciprocal Approximation",
+            "Floating-Point Representation: Sign, Biased Exponent, and Normalized Mantissa",
+            "IEEE-754 Standard: 32-Bit Single Precision and 64-Bit Double Precision Formats",
+            "Special IEEE-754 Values: Subnormal Numbers, Positive/Negative Infs, and NaNs",
+            "Floating-Point Addition, Subtraction, Multiplication, and Normalization Procedures"
+          ],
+          "learningOutcomes": [
+            "Trace Booth's multiplication and non-restoring division step-by-step",
+            "Encode and perform arithmetic on IEEE-754 single and double precision floating-point numbers"
+          ],
+          "prerequisites": [
+            "002_001_cpu-architecture-registers-and-rtl"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 7,
+          "summary": "Master silicon arithmetic logic unit design, Booth's multiplication, division algorithms, and IEEE-754 floating-point standards.",
+          "miniProjects": [
+            "Implement Booth's Multiplier and IEEE-754 Arithmetic Engine"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 12,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Quiz + Algorithm Trace",
+            "passScore": 80
+          },
+          "useCases": [
+            "DSP processor design",
+            "Scientific computing acceleration"
+          ],
+          "careerSkills": [
+            "Computer arithmetic algorithms",
+            "Floating-point precision tuning"
+          ],
+          "commonMistakes": [
+            "Exponent bias subtraction errors in IEEE-754",
+            "Arithmetic shift right sign-bit corruption in Booth's algorithm"
+          ],
+          "references": [
+            "Israel Koren – Computer Arithmetic Algorithms",
+            "William Stallings – Computer Organization"
+          ]
+        },
+        {
+          "moduleId": "control-unit-design",
+          "slug": "002_004_control-unit-design-hardwired-and-microprogrammed",
+          "title": "Control Unit Design (Hardwired & Microprogrammed)",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "control-unit",
+            "hardwired-cu",
+            "microprogramming",
+            "control-memory",
+            "micro-instructions"
+          ],
+          "topics": [
+            "Role of the Control Unit (CU): Generating Control Signals for Datapath Execution",
+            "Hardwired Control Unit Architecture: State Table, Sequence Counter, and Decoder Matrix",
+            "Delay-Element and Sequence-Register Methods for Hardwired CU Synthesis",
+            "Microprogrammed Control Unit Architecture: Control Memory (ROM), Control Address Register (CAR)",
+            "Micro-instructions, Micro-operations, and Control Word Generation",
+            "Horizontal vs Vertical Micro-programming: Bit Efficiency vs Decoding Latency",
+            "Micro-instruction Address Sequencing: Branching, Mapping, and Subroutine Calls",
+            "Control Memory Address Mapping via Opcode Translation Tables",
+            "Nanoprogramming: Two-Level Control Memory Optimization for High-Density Systems",
+            "Comparison: Hardwired Speed (RISC) vs Microprogrammed Flexibility (CISC)",
+            "Design of a Complete Microprogrammed Control Unit for a Basic Computer"
+          ],
+          "learningOutcomes": [
+            "Synthesize a hardwired state-machine control unit from timing diagrams",
+            "Write micro-code routines and map opcode decoding in microprogrammed control units"
+          ],
+          "prerequisites": [
+            "002_001_cpu-architecture-registers-and-rtl"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 7,
+          "summary": "Understand how instructions are decoded into physical hardware control signals using hardwired logic and microprogrammed control memory.",
+          "miniProjects": [
+            "Design Micro-instruction Sequencer and Control ROM"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Control Word Design",
+            "passScore": 75
+          },
+          "useCases": [
+            "Processor control unit design",
+            "Microcode firmware updates"
+          ],
+          "careerSkills": [
+            "Microprogramming",
+            "Hardware sequencing"
+          ],
+          "commonMistakes": [
+            "Confusing control address register with program counter",
+            "Control memory branch delay oversights"
+          ],
+          "references": [
+            "Morris Mano – Computer System Architecture",
+            "William Stallings – Computer Organization"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "pipelining-and-ilp",
+      "title": "Segment 3 – Pipelining, Hazards & Instruction-Level Parallelism",
+      "level": "Advanced",
+      "summary": "Explore high-throughput processor architectures: instruction pipelining, hazard resolution, branch prediction, and superscalar out-of-order execution.",
+      "modules": [
+        {
+          "moduleId": "risc-pipelining",
+          "slug": "003_001_5-stage-risc-pipelining-and-hazard-resolution",
+          "title": "5-Stage RISC Pipelining & Hazard Resolution",
+          "level": "Advanced",
+          "estimatedHours": 10,
+          "tags": [
+            "pipelining",
+            "risc",
+            "data-hazards",
+            "forwarding",
+            "stalls"
+          ],
+          "topics": [
+            "Concept of Pipelining: Overlapped Execution and Assembly Line Analogy",
+            "Classical 5-Stage RISC Pipeline: IF, ID, EX, MEM, and WB",
+            "Pipeline Register Latches: IF/ID, ID/EX, EX/MEM, and MEM/WB",
+            "Pipeline Performance Metrics: Speedup, Throughput, Latency, and CPI Ideal vs Actual",
+            "Structural Hazards: Resource Conflicts and Harvard Memory Solution",
+            "Data Hazards: Read-After-Write (RAW), Write-After-Read (WAR), and Write-After-Write (WAW)",
+            "Resolving Data Hazards: Hardware Stalling (Pipeline Interlocks and Bubbles)",
+            "Data Forwarding (Bypassing): EX-to-EX and MEM-to-EX Forwarding Paths",
+            "Load-Use Data Hazard: The Unavoidable 1-Cycle Stall and Software Instruction Rescheduling",
+            "Control Hazards: Branch Penalty and Instruction Pipeline Flushes",
+            "Multi-Cycle Operations in Pipelined Datapaths (Floating-Point Pipelining)",
+            "Pipeline Timing Diagrams: Space-Time Charts and Cycle-by-Cycle Execution Traces"
+          ],
+          "learningOutcomes": [
+            "Draw cycle-by-cycle space-time charts for pipelined instruction sequences",
+            "Design hardware data forwarding paths and hazard detection units"
+          ],
+          "prerequisites": [
+            "002_002_isa-instruction-formats-and-addressing-modes"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master the 5-stage RISC pipeline, pipeline register transfers, and hardware data hazard forwarding mechanisms.",
+          "miniProjects": [
+            "Build a 5-Stage RISC Pipeline Simulator with Data Forwarding"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 10,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Quiz + Pipeline Trace",
+            "passScore": 80
+          },
+          "useCases": [
+            "Processor pipeline optimization",
+            "Compiler instruction scheduling"
+          ],
+          "careerSkills": [
+            "Pipeline performance tuning",
+            "Hardware hazard mitigation"
+          ],
+          "commonMistakes": [
+            "Overlooking load-use mandatory stalls",
+            "Incorrect forwarding condition comparisons in RTL"
+          ],
+          "references": [
+            "Hennessy & Patterson – Computer Architecture: A Quantitative Approach"
+          ]
+        },
+        {
+          "moduleId": "branch-prediction",
+          "slug": "003_002_advanced-branch-prediction-and-control-hazards",
+          "title": "Advanced Branch Prediction & Control Hazards",
+          "level": "Advanced",
+          "estimatedHours": 8,
+          "tags": [
+            "branch-prediction",
+            "btb",
+            "saturating-counters",
+            "speculative-execution"
+          ],
+          "topics": [
+            "The Cost of Control Hazards: Branch Frequency and Deep Pipeline Flushing Penalties",
+            "Static Branch Prediction: Always Taken, Always Not-Taken, and Backward-Taken Forward-Not-Taken (BTFN)",
+            "Delayed Branching: Branch Delay Slots and Compiler Scheduling",
+            "Dynamic Branch Prediction: 1-Bit vs 2-Bit Saturating Up/Down Counters",
+            "Branch History Table (BHT) and Branch Pattern History Registers (BHR)",
+            "Correlating (Two-Level Adaptive) Branch Predictors (GAg, GAp, PAg, PAp)",
+            "Gshare and Tournament (Hybrid) Branch Predictors in Modern Microprocessors",
+            "Branch Target Buffer (BTB): Caching Target Addresses for Zero-Bubble Branching",
+            "Return Address Stack (RAS) for Procedure Call and Return Prediction",
+            "Speculative Execution: Executing Instructions Past Unresolved Branches",
+            "Branch Misprediction Recovery: State Rollback and Pipeline Invalidation"
+          ],
+          "learningOutcomes": [
+            "Evaluate 2-bit saturating counter state machines and Gshare predictors",
+            "Quantify the performance impact of Branch Target Buffers and branch misprediction penalties"
+          ],
+          "prerequisites": [
+            "003_001_5-stage-risc-pipelining-and-hazard-resolution"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Understand static and dynamic branch prediction algorithms, saturating counters, BTBs, and speculative execution recovery.",
+          "miniProjects": [
+            "Implement a Gshare Dynamic Branch Predictor Simulator"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Predictor Simulation",
+            "passScore": 80
+          },
+          "useCases": [
+            "High-frequency branch optimization",
+            "Compiler branch weighting"
+          ],
+          "careerSkills": [
+            "Branch prediction design",
+            "Speculative execution analysis"
+          ],
+          "commonMistakes": [
+            "Aliasing in Branch History Tables",
+            "Ignoring Return Address Stack overflows"
+          ],
+          "references": [
+            "Hennessy & Patterson – Computer Architecture",
+            "Shen & Lipasti – Modern Processor Design"
+          ]
+        },
+        {
+          "moduleId": "superscalar-ooo",
+          "slug": "003_003_superscalar-microarchitecture-and-out-of-order-execution",
+          "title": "Superscalar Micro-Architecture & Out-of-Order Execution",
+          "level": "Advanced",
+          "estimatedHours": 10,
+          "tags": [
+            "superscalar",
+            "out-of-order",
+            "tomasulo",
+            "register-renaming",
+            "rob"
+          ],
+          "topics": [
+            "Limits of In-Order Pipelining: The IPC <= 1 Barrier and Superscalar Execution",
+            "Superscalar Multi-Issue Datapaths: Fetching, Decoding, and Dispatching N Instructions/Cycle",
+            "Dynamic Scheduling: Separating In-Order Dispatch from Out-of-Order Execution",
+            "Tomasulo’s Algorithm: Tag-based Dynamic Scheduling and Common Data Bus (CDB)",
+            "Reservation Stations: Distributed Buffers and Operand Ready Sniffing",
+            "Register Renaming (Register Alias Table - RAT) to Eliminate WAR and WAW False Dependencies",
+            "Reorder Buffer (ROB): Guaranteeing Precise Exceptions via In-Order Retirement/Commit",
+            "Load/Store Queues (LSQ): Handling Memory Disambiguation and Out-of-Order Memory Access",
+            "Speculative Superscalar Execution: Branch Resolution and ROB Flushing",
+            "Very Long Instruction Word (VLIW) Architectures: Static Compiler Instruction Packing",
+            "Comparing Superscalar (Dynamic) vs VLIW (Static) Hardware Complexities",
+            "Modern x86-64 / ARM Micro-architectures: Macro-Op Fusion and Micro-Op Caching"
+          ],
+          "learningOutcomes": [
+            "Trace instruction flow through Tomasulo reservation stations and Reorder Buffers",
+            "Explain how register renaming eliminates false name dependencies (WAR/WAW)"
+          ],
+          "prerequisites": [
+            "003_001_5-stage-risc-pipelining-and-hazard-resolution"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 9,
+          "summary": "Master modern superscalar out-of-order CPU design, Tomasulo's algorithm, register renaming, and Reorder Buffer in-order commit.",
+          "miniProjects": [
+            "Trace Tomasulo Algorithm with Reorder Buffer across 10 Instructions"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 10,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Quiz + Out-of-Order Trace",
             "passScore": 85
           },
           "useCases": [
-            "HPC systems",
-            "Cloud servers"
+            "Server CPU core design",
+            "High-performance software optimization"
           ],
           "careerSkills": [
-            "System optimization"
+            "Out-of-order execution reasoning",
+            "Micro-architectural tuning"
           ],
           "commonMistakes": [
-            "Overestimating parallel speedup"
+            "Confusing architectural registers with physical register files",
+            "Assuming ROB allows out-of-order commits"
           ],
           "references": [
-            "Hennessy & Patterson"
+            "Hennessy & Patterson – Computer Architecture",
+            "Shen & Lipasti – Modern Processor Design"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "memory-and-io-systems",
+      "title": "Segment 4 – Memory Hierarchy, Caching & I/O Organization",
+      "level": "Advanced",
+      "summary": "Bridge the processor-memory performance gap with multi-level caching, virtual memory page translation, and high-speed DMA I/O subsystems.",
+      "modules": [
+        {
+          "moduleId": "cache-memory",
+          "slug": "004_001_memory-hierarchy-and-cache-memory-design",
+          "title": "Memory Hierarchy & Cache Memory Design",
+          "level": "Advanced",
+          "estimatedHours": 10,
+          "tags": [
+            "memory-hierarchy",
+            "cache",
+            "direct-mapped",
+            "set-associative",
+            "lru",
+            "cache-misses"
           ],
-          "teachingTips": [
-            "Use real CPU benchmark charts"
+          "topics": [
+            "The Memory Wall Problem: CPU Processing Speed vs DRAM Access Latency",
+            "The Principle of Locality: Temporal Locality and Spatial Locality in Software Execution",
+            "Multi-Level Memory Hierarchy: Registers, L1/L2/L3 SRAM Caches, Main DRAM, and NVMe SSDs",
+            "Cache Organization: Tag, Index, and Block Offset Bit Partitioning",
+            "Direct-Mapped Cache: Working, Tag Matching, and Conflict Thrashing",
+            "Fully Associative Cache: Parallel Tag Comparators and Zero Conflict Misses",
+            "N-Way Set-Associative Cache: Balancing Speed, Hit Rate, and Hardware Complexity",
+            "Cache Replacement Policies: Least Recently Used (LRU), Pseudo-LRU, FIFO, and Random",
+            "Cache Write Policies: Write-Through vs Write-Back, Write-Allocate vs No-Write-Allocate",
+            "The 3Cs Model of Cache Misses: Compulsory (Cold), Capacity, and Conflict Misses",
+            "Average Memory Access Time (AMAT) Formula: Hit_Time + (Miss_Rate * Miss_Penalty)",
+            "Advanced Cache Optimizations: Non-Blocking Caches, Multi-Banked Caches, and Hardware Prefetching"
           ],
-          "preReading": [
-            "pipelining"
+          "learningOutcomes": [
+            "Calculate tag, index, and offset bit-widths for any cache configuration",
+            "Compute Average Memory Access Time (AMAT) and diagnose 3Cs cache miss bottlenecks"
           ],
-          "previousModule": "pipelining",
-          "nextModule": null,
-          "badge": "Architecture Grandmaster Badge"
+          "prerequisites": [
+            "002_001_cpu-architecture-registers-and-rtl"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master cache memory mapping architectures (Direct, Fully, and Set-Associative), replacement policies, and AMAT latency formulas.",
+          "miniProjects": [
+            "Build an N-Way Set-Associative Cache Simulator with LRU Replacement"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 10,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Quiz + Cache Mapping",
+            "passScore": 80
+          },
+          "useCases": [
+            "Cache-conscious data structure design",
+            "Embedded memory subsystem tuning"
+          ],
+          "careerSkills": [
+            "Cache optimization",
+            "Memory latency profiling"
+          ],
+          "commonMistakes": [
+            "Incorrect bit allocation between tag and index",
+            "Forgetting write-back dirty bit penalties"
+          ],
+          "references": [
+            "Hennessy & Patterson – Computer Architecture",
+            "William Stallings – Computer Organization"
+          ]
+        },
+        {
+          "moduleId": "virtual-memory",
+          "slug": "004_002_virtual-memory-paging-and-tlb-architecture",
+          "title": "Virtual Memory, Paging & TLB Architecture",
+          "level": "Advanced",
+          "estimatedHours": 8,
+          "tags": [
+            "virtual-memory",
+            "paging",
+            "tlb",
+            "page-fault",
+            "mmu"
+          ],
+          "topics": [
+            "Motivation for Virtual Memory: Memory Protection, Process Isolation, and Overcoming Physical RAM Limits",
+            "Virtual Address to Physical Address Translation: Virtual Page Numbers (VPN) and Page Offsets",
+            "Single-Level Page Tables: Page Table Entries (PTE), Valid/Invalid, Dirty, and Protection Bits",
+            "Multi-Level Hierarchical Paging (Two-Level, 4-Level x86-64 Paging) to Conserve RAM",
+            "Inverted Page Tables and Hashed Page Tables for 64-Bit Address Spaces",
+            "Memory Management Unit (MMU) Hardware Architecture and Page Walk Mechanism",
+            "Translation Lookaside Buffer (TLB): High-Speed Fully-Associative Cache for Page Translations",
+            "TLB Hit, TLB Miss, and Hardware vs Software TLB Refill Handlers",
+            "Page Fault Handling: OS Trap, Disk Fetch, Frame Allocation, and Page Table Update",
+            "Page Replacement Algorithms: Optimal (OPT), Least Recently Used (LRU), Clock (Second-Chance), and FIFO",
+            "Belady’s Anomaly in FIFO Page Replacement and Thrashing Phenomenon"
+          ],
+          "learningOutcomes": [
+            "Trace multi-level virtual-to-physical address translation through MMU and TLB",
+            "Evaluate page replacement algorithms and analyze page fault overheads"
+          ],
+          "prerequisites": [
+            "004_001_memory-hierarchy-and-cache-memory-design"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Understand virtual memory architectures, multi-level page tables, TLB caches, and page fault handling mechanisms.",
+          "miniProjects": [
+            "Implement a Virtual Memory MMU and TLB Translation Simulator"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Address Translation",
+            "passScore": 80
+          },
+          "useCases": [
+            "OS kernel memory management",
+            "Large-memory application tuning"
+          ],
+          "careerSkills": [
+            "Virtual memory engineering",
+            "TLB miss optimization"
+          ],
+          "commonMistakes": [
+            "Belady's anomaly misconceptions",
+            "Ignoring TLB shootdown overhead in multi-core systems"
+          ],
+          "references": [
+            "Silberschatz & Galvin – Operating System Concepts",
+            "Hennessy & Patterson – Computer Architecture"
+          ]
+        },
+        {
+          "moduleId": "io-systems-dma",
+          "slug": "004_003_input-output-organization-interrupts-and-dma",
+          "title": "Input/Output Systems, Interrupts & DMA",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "io-systems",
+            "interrupts",
+            "dma",
+            "daisy-chain",
+            "device-controllers"
+          ],
+          "topics": [
+            "Input/Output Organization: Peripheral Devices, Device Controllers, and I/O Ports",
+            "Memory-Mapped I/O vs Isolated (Port-Mapped / I/O Instructions) Addressing",
+            "Programmed I/O (Polling / Busy-Waiting) and CPU Utilization Penalties",
+            "Interrupt-Driven I/O: Interrupt Request Lines (INTR), Acknowledge (INTA), and Interrupt Vectors",
+            "Priority Interrupt Handling: Software Polling vs Hardware Daisy-Chaining Priority Networks",
+            "Parallel Priority Interrupt Controller (8259 PIC Architecture) and Interrupt Masking",
+            "Direct Memory Access (DMA): Eliminating CPU Overhead during Bulk Data Transfers",
+            "DMA Controller Internal Architecture: Address Register, Word Count Register, and Control Logic",
+            "DMA Transfer Modes: Burst Mode, Cycle-Stealing Mode, and Transparent (Hidden) DMA",
+            "Bus Arbitration in DMA Systems: Centralized (Bus Arbiter) vs Distributed Daisy-Chaining",
+            "I/O Processors (Channel Architecture): Selector Channels and Multiplexer Channels"
+          ],
+          "learningOutcomes": [
+            "Contrast Programmed I/O, Interrupt-Driven I/O, and Direct Memory Access (DMA)",
+            "Design hardware priority interrupt daisy-chain networks and trace DMA bus arbitration"
+          ],
+          "prerequisites": [
+            "002_001_cpu-architecture-registers-and-rtl"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Master I/O interfacing, interrupt vectoring, hardware daisy-chain priority networks, and DMA controller operations.",
+          "miniProjects": [
+            "Simulate DMA Controller Cycle-Stealing and Burst Transfers"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + I/O Timing",
+            "passScore": 75
+          },
+          "useCases": [
+            "High-speed device driver development",
+            "Embedded peripheral interfacing"
+          ],
+          "careerSkills": [
+            "I/O subsystem design",
+            "DMA channel configuration"
+          ],
+          "commonMistakes": [
+            "Cycle-stealing bus starvation",
+            "Memory coherence bugs between DMA and CPU cache"
+          ],
+          "references": [
+            "Morris Mano – Computer System Architecture",
+            "William Stallings – Computer Organization"
+          ]
+        },
+        {
+          "moduleId": "system-buses-interconnects",
+          "slug": "004_004_system-interconnects-and-high-speed-buses",
+          "title": "System Interconnects & High-Speed Buses",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "buses",
+            "pcie",
+            "nvme",
+            "usb",
+            "sata",
+            "arbitration"
+          ],
+          "topics": [
+            "System Bus Fundamentals: Address Bus, Data Bus, Control Bus, and Bus Clocking",
+            "Synchronous vs Asynchronous Bus Protocols: Handshaking Timing Protocols",
+            "Bus Width, Clock Frequency, and Theoretical Bandwidth Calculations",
+            "Bus Arbitration: Centralized Arbiter, Daisy-Chaining, and Decentralized Distributed Arbitration",
+            "Legacy Parallel Buses: PCI, ISA, and Parallel ATA Bottlenecks (Clock Skew Limits)",
+            "Modern Point-to-Point Serial Interconnects: PCI Express (PCIe) Architecture",
+            "PCIe Protocol Layers: Physical (Lanes x1 to x16), Data Link, and Transaction Layers",
+            "Universal Serial Bus (USB) Architecture: Host Controller, Packets, and USB4 Protocols",
+            "High-Speed Storage Interfaces: SATA vs NVMe (Non-Volatile Memory Express over PCIe)",
+            "Inter-Chip Interconnects: Intel Ultra Path Interconnect (UPI) and AMD Infinity Fabric",
+            "System-on-Chip (SoC) On-Chip Interconnects: ARM AMBA (AXI, AHB, APB) Bus Standards"
+          ],
+          "learningOutcomes": [
+            "Calculate maximum throughput across synchronous and asynchronous bus topologies",
+            "Explain the architectural advantages of packetized point-to-point serial buses (PCIe) over shared parallel buses"
+          ],
+          "prerequisites": [
+            "004_003_input-output-organization-interrupts-and-dma"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 7,
+          "summary": "Understand modern high-speed system interconnects, PCIe lane topologies, NVMe storage stacks, and ARM AMBA on-chip buses.",
+          "miniProjects": [
+            "Calculate Bus Bandwidth and Protocol Overhead Comparison"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Bus Protocol Analysis",
+            "passScore": 75
+          },
+          "useCases": [
+            "High-speed server motherboard design",
+            "PCIe accelerator integration"
+          ],
+          "careerSkills": [
+            "Bus protocol analysis",
+            "System bandwidth budgeting"
+          ],
+          "commonMistakes": [
+            "Confusing full-duplex PCIe lane speeds with parallel bus clock rates",
+            "Ignoring protocol packet overhead in bandwidth math"
+          ],
+          "references": [
+            "William Stallings – Computer Organization",
+            "Hennessy & Patterson – Computer Architecture"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "parallelism-and-multicores",
+      "title": "Segment 5 – Multi-Core Processors, Parallelism & Hardware Security",
+      "level": "Ultra Expert",
+      "summary": "Master multi-core SMP systems, cache coherence protocols (MESI/MOESI), vector & GPU architectures, and micro-architectural security vulnerabilities.",
+      "modules": [
+        {
+          "moduleId": "multiprocessors-cache-coherence",
+          "slug": "005_001_multiprocessors-interconnects-and-cache-coherence",
+          "title": "Multiprocessors, Interconnects & Cache Coherence",
+          "level": "Ultra Expert",
+          "estimatedHours": 10,
+          "tags": [
+            "multiprocessors",
+            "smp",
+            "numa",
+            "cache-coherence",
+            "mesi",
+            "moesi"
+          ],
+          "topics": [
+            "Flynn’s Taxonomy: SISD, SIMD, MISD, and MIMD Architectures",
+            "Symmetric Multiprocessors (SMP): Uniform Memory Access (UMA) Architecture",
+            "Distributed Shared Memory: Non-Uniform Memory Access (NUMA) Architecture",
+            "Interconnection Network Topologies: Crossbar Switch, 2D Mesh, Torus, and Hypercube",
+            "The Cache Coherence Problem: Multiple Private Caches Sharing Main Memory",
+            "Snooping-Based Coherence Protocols: Bus Watching and Invalidation vs Update Schemes",
+            "The Classic MESI Protocol: Modified, Exclusive, Shared, and Invalid State Machine",
+            "The MOESI Protocol: Adding the Owned (O) State to Avoid Memory Write-Backs",
+            "Directory-Based Cache Coherence for Highly Scalable Many-Core / NUMA Clusters",
+            "Memory Consistency Models: Strict Consistency, Sequential Consistency, and Relaxed / Weak Ordering",
+            "Hardware Synchronization Primitives: Atomic Test-and-Set, Compare-and-Swap (CAS), and Load-Linked / Store-Conditional (LL/SC)",
+            "False Sharing in Multi-Threaded Software and Micro-architectural Padding Solutions"
+          ],
+          "learningOutcomes": [
+            "Trace state transitions in MESI and MOESI cache coherence finite state machines",
+            "Diagnose false sharing and memory consistency bugs in multi-threaded programs"
+          ],
+          "prerequisites": [
+            "004_001_memory-hierarchy-and-cache-memory-design"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 10,
+          "summary": "Master multi-core SMP/NUMA architectures, MESI/MOESI cache coherence protocols, and hardware memory consistency models.",
+          "miniProjects": [
+            "Implement a MESI 4-State Cache Coherence Simulator across 4 CPU Cores"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 10,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Capstone Assignment",
+            "passScore": 85
+          },
+          "useCases": [
+            "Cloud database server tuning",
+            "Multi-threaded high-frequency trading engines"
+          ],
+          "careerSkills": [
+            "Cache coherence tuning",
+            "Multi-core synchronization"
+          ],
+          "commonMistakes": [
+            "False sharing across thread cache lines",
+            "Assuming atomic operations prevent memory reordering without memory barriers"
+          ],
+          "references": [
+            "Hennessy & Patterson – Computer Architecture: A Quantitative Approach",
+            "Culler & Singh – Parallel Computer Architecture"
+          ]
+        },
+        {
+          "moduleId": "vector-simd-gpu",
+          "slug": "005_002_vector-processing-simd-and-gpu-streaming-architectures",
+          "title": "Vector Processing, SIMD & GPU Streaming Architectures",
+          "level": "Ultra Expert",
+          "estimatedHours": 10,
+          "tags": [
+            "simd",
+            "vector-processors",
+            "gpu",
+            "cuda",
+            "simt",
+            "tensor-cores"
+          ],
+          "topics": [
+            "Data-Level Parallelism: Vector Processors vs Array Processors",
+            "Vector Register Architecture: Vector Length (VL), Stride, and Mask Registers",
+            "Vector Chaining: Pipeline Overlapping between Vector Multipliers and Adders",
+            "SIMD Instruction Set Extensions in CPUs: Intel MMX, SSE, AVX-512, and ARM Neon",
+            "CPU SIMD Vectorization vs GPU Single Instruction Multiple Threads (SIMT)",
+            "GPU Streaming Multiprocessor (SM) Micro-Architecture: Warp Schedulers and Execution Units",
+            "CUDA Thread Hierarchy: Grids, Blocks, Threads, and Warp Execution (32 Threads)",
+            "Warp Divergence and Branch Penalties in GPU Shader Cores",
+            "GPU Memory Hierarchy: Global Memory, Shared (Scratchpad) Memory, Constant Memory, and Registers",
+            "Memory Coalescing: Aligning Global Memory Accesses for Maximum GPU DRAM Bandwidth",
+            "Specialized Matrix Accelerators: Google TPU Systolic Arrays and NVIDIA Tensor Cores"
+          ],
+          "learningOutcomes": [
+            "Write SIMD-vectorized loops and eliminate warp divergence in GPU kernel code",
+            "Design systolic arrays and calculate peak theoretical TFLOPS for matrix multiplication engines"
+          ],
+          "prerequisites": [
+            "005_001_multiprocessors-interconnects-and-cache-coherence"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 10,
+          "summary": "Understand CPU SIMD vectorization (AVX-512), GPU SIMT architectures (CUDA/NVIDIA SMs), warp scheduling, and AI systolic arrays.",
+          "miniProjects": [
+            "SIMD AVX-512 Matrix Multiplier vs GPU CUDA Kernel Benchmark"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 10,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Quiz + GPU Kernel Optimization",
+            "passScore": 85
+          },
+          "useCases": [
+            "AI & deep learning model training",
+            "Graphics rendering engines"
+          ],
+          "careerSkills": [
+            "GPU architecture optimization",
+            "SIMD vectorization"
+          ],
+          "commonMistakes": [
+            "Uncoalesced global memory reads on GPUs",
+            "Warp divergence inside conditional if-else statements"
+          ],
+          "references": [
+            "Hennessy & Patterson – Computer Architecture",
+            "Kirk & Hwu – Programming Massively Parallel Processors"
+          ]
+        },
+        {
+          "moduleId": "benchmarking-security-capstone",
+          "slug": "005_003_amdahls-law-microarchitectural-security-and-benchmarking",
+          "title": "Amdahl's Law, Hardware Security & Benchmarking Capstone",
+          "level": "Ultra Expert",
+          "estimatedHours": 12,
+          "tags": [
+            "amdahls-law",
+            "benchmarking",
+            "speculative-execution-attacks",
+            "spectre",
+            "meltdown",
+            "roofline-model"
+          ],
+          "topics": [
+            "Amdahl’s Law: Formulating Speedup Bounds for Parallel Processors",
+            "Gustafson’s Law (Scaled Speedup): Why Massive Parallelism Scales in Real Big-Data Workloads",
+            "The Roofline Model: Arithmetic Intensity vs Memory Bandwidth Operational Ceilings",
+            "CPU Performance Benchmarks: SPEC CPU2017, CoreMark, Dhrystone, and Linpack",
+            "Hardware Performance Monitoring Units (PMUs): Counting Cycles, Instructions, Cache Misses, and Stalls",
+            "Top-Down Micro-architecture Analysis (TMA): Retiring, Bad Speculation, Frontend Bound, and Backend Bound",
+            "Micro-Architectural Side-Channel Attacks: Cache Timing Attacks (Prime+Probe, Flush+Reload)",
+            "Transient Execution Vulnerabilities: Meltdown (Out-of-Order Kernel Memory Leak)",
+            "Spectre Attacks (Variant 1 Bounds Check Bypass & Variant 2 Branch Target Injection)",
+            "Hardware and Microcode Mitigations: Kernel Page Table Isolation (KPTI), Retpolines, and IBRS",
+            "Future Trends in Computer Architecture: Quantum Computing, Neuromorphic Chips, and Chiplet Packaging (3D Stacking)",
+            "Capstone Comprehensive Architectural Design: Synthesizing a High-Performance, Secure Microprocessor"
+          ],
+          "learningOutcomes": [
+            "Apply the Roofline Model to diagnose memory-bound vs compute-bound workloads",
+            "Explain micro-architectural vulnerabilities (Meltdown, Spectre) and design side-channel mitigations"
+          ],
+          "prerequisites": [
+            "005_001_multiprocessors-interconnects-and-cache-coherence",
+            "005_002_vector-processing-simd-and-gpu-streaming-architectures"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 10,
+          "summary": "Master performance bounds (Amdahl's Law, Roofline Model), PMU profiling, micro-architectural security (Spectre/Meltdown), and future architectures.",
+          "miniProjects": [
+            "Roofline Model Benchmark and Spectre Micro-Architectural Exploit Analysis"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 12,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Capstone Comprehensive Defense",
+            "passScore": 90
+          },
+          "useCases": [
+            "Security-critical system architecture",
+            "Datacenter server performance engineering"
+          ],
+          "careerSkills": [
+            "Hardware security engineering",
+            "Performance bottleneck forensics"
+          ],
+          "commonMistakes": [
+            "Ignoring arithmetic intensity in memory-bound algorithms",
+            "Assuming cryptographic algorithms are safe from cache timing leakage"
+          ],
+          "references": [
+            "Hennessy & Patterson – Computer Architecture",
+            "Paul Kocher et al. – Spectre Attacks: Exploiting Speculative Execution"
+          ]
         }
       ]
     }

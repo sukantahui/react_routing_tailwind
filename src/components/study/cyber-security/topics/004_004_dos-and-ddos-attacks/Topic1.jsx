@@ -32,16 +32,20 @@ const Topic1 = () => {
       category: "IOT CONSUMER DEVICE EXPLOITATION",
       categoryBadge: "bg-rose-950 text-rose-300 border-rose-800",
       c2Architecture: "Centralized C2 with Telnet Scanning Engine",
-      exploitationVector:
-        "The malware scans IPv4 on Telnet ports 23/2323, brute-forcing 62 hardcoded factory default credential pairs (`admin:admin`, `root:xc3511`) on cameras and DVRs, assembling 400,000 bots in 48 hours.",
+     exploitationVector:
+        "Mirai-style malware historically propagated by targeting vulnerable IoT devices with exposed remote-access services and weak or default credentials. Compromised cameras, DVRs, and routers could be enrolled into a botnet and coordinated for large-scale DDoS activity. Operational scanning and credential details are omitted.",
       vulnerabilityImpact:
         "Historic 1+ Tbps volumetric DDoS floods capable of bringing down major DNS providers (Dyn 2016) and national telecommunications networks.",
-      telemetryIndicator: "Surge in outbound TCP SYN scanning on ports 23/2323 originating from unmanaged IoT devices",
+      telemetryIndicator:
+        "Unusual outbound connection-scanning activity from unmanaged IoT devices targeting remote-access services",
       resilientDefense: "Disabling default passwords, enforcing network segmentation for IoT hardware, and deploying BGP Anycast scrubbing.",
-      codeSnippet: `// Mirai Default Credential Table (C Source Snippet):
-char *usernames[] = {"root", "admin", "user", "guest"};
-char *passwords[] = {"xc3511", "vizxv", "admin", "123456", "default", "password"};
-// Scanned Telnet port 23 across all IPv4 ➔ Infected 400,000 IoT devices in 48 hours!`
+      codeSnippet: `// Mirai Botnet — Safe Conceptual Flow:
+      // 1. Identify vulnerable IoT devices
+      // 2. Detect weak or default security configurations
+      // 3. Compromise vulnerable devices
+      // 4. Enroll compromised devices into a botnet
+      // 5. Coordinate defensive analysis and simulation
+      // Credential lists, scanning logic, and attack procedures are omitted.`
     },
     p2p_kademlia_dht_topology: {
       key: "p2p_kademlia_dht_topology",

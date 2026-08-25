@@ -443,8 +443,8 @@ const Topic1 = () => {
             <div className="flex flex-col space-y-2.5">
               {[
                 {
-                  trap: 'Plotting a_{i1} on the Left Axis (q₁=0) Instead of a_{i2}',
-                  fix: 'At q₁=0, Player B plays pure B₂. The left axis payout is a_{i2}; the right axis (q₁=1) is a_{i1}.',
+                  trap: 'Plotting a_i1 on the Left Axis (q₁=0) Instead of a_i2',
+                  fix: 'At q₁=0, Player B plays pure B₂. The left axis payout is a_i2; the right axis (q₁=1) is a_i1.',
                 },
                 {
                   trap: 'Constructing the Lower Envelope Instead of the Upper Envelope for mx2 Games',
@@ -517,7 +517,7 @@ const Topic1 = () => {
             <div className="flex flex-col space-y-2">
               {[
                 'Understood mx2 matrix structure and parameterization (q₁, 1−q₁)',
-                'Computed linear expected payout equations E(A_i, q) = (a_{i1} − a_{i2})q₁ + a_{i2}',
+                'Computed linear expected payout equations E(A_i, q) = (a_i1 − a_i2)q₁ + a_i2',
                 'Plotted line endpoints on left (q₁=0) and right (q₁=1) vertical axes',
                 'Constructed the Upper Envelope representing Player B worst-case liability ceiling',
                 'Reported all game values and payouts in Indian Rupees (₹)',

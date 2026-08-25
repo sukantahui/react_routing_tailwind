@@ -1,0 +1,138 @@
+================================================================================
+RDBMS & MYSQL 8.0 ENTERPRISE CAPSTONE PROJECT ROADMAP
+TOPIC 1: DOMAIN OPTIONS: MULTI-VENDOR E-COMMERCE, CORE BANKING, ENTERPRISE ERP & HOSPITAL MANAGEMENT
+================================================================================
+
+1. EXECUTIVE OVERVIEW & ARCHITECTURAL OBJECTIVES
+--------------------------------------------------------------------------------
+In-depth breakdown of four enterprise domain architectures, functional requirements, entity boundaries, and transaction workflows.
+
+Key Engineering Pillars:
+1. E-Commerce: Cart reservation, vendor commissions, multi-tier orders, and payment tracking.
+2. Banking Ledger: Immutable double-entry debits/credits, strict ACID isolation, and audit trails.
+3. Supply Chain: Multi-level BOM, supplier purchase orders, and warehouse inventory control.
+4. Healthcare: Patient medical history, bed occupancy, doctor rosters, and pharmacy dispensing.
+
+2. CORE CONCEPTS & IMPLEMENTATION RUNBOOKS
+--------------------------------------------------------------------------------
+[1. E-COMMERCE]
+Features vendor payouts, product variants, inventory locks, multi-item order fulfillment, and refund processing.
+
+SQL Implementation:
+-- 🛒 MULTI-VENDOR E-COMMERCE CORE ENTITIES:
+-- users, vendors, products, categories, product_variants,
+-- orders, order_items, payments, shipments, reviews, coupons.
+CREATE TABLE order_items (
+  order_item_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  order_id BIGINT NOT NULL,
+  vendor_id INT NOT NULL,
+  product_variant_id BIGINT NOT NULL,
+  quantity INT NOT NULL CHECK (quantity > 0),
+  unit_price DECIMAL(10,2) NOT NULL,
+  vendor_commission DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
+  FOREIGN KEY (vendor_id) REFERENCES vendors(vendor_id)
+);
+
+Takeaways:
+- Supports multiple independent sellers with dedicated commissions.
+- Tracks inventory reservations with transactional rollbacks on timeout.
+- Calculates order totals, tax breakdowns, and coupon discounts.
+
+--------------------------------------------------------------------------------
+[2. BANKING LEDGER]
+Enforces immutable double-entry bookkeeping where every debit has an equal credit, supporting high-concurrency transfers and audit compliance.
+
+SQL Implementation:
+-- 🏦 DOUBLE-ENTRY BANKING LEDGER SCHEMA:
+-- customers, accounts, branches, transactions, journal_entries,
+-- cards, loans, repayments, audit_logs.
+CREATE TABLE journal_entries (
+  entry_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  transaction_id BIGINT NOT NULL,
+  account_id BIGINT NOT NULL,
+  entry_type ENUM('DEBIT', 'CREDIT') NOT NULL,
+  amount DECIMAL(15,2) NOT NULL CHECK (amount > 0),
+  balance_after DECIMAL(15,2) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id)
+);
+
+Takeaways:
+- Every financial movement creates equal DEBIT and CREDIT journal records.
+- Uses SELECT ... FOR UPDATE to serialize account balance updates.
+- Maintains complete auditability with append-only transaction ledgers.
+
+--------------------------------------------------------------------------------
+[3. ENTERPRISE ERP]
+Manages multi-warehouse inventory, hierarchical Bill of Materials (BOM), purchase order workflows, and manufacturing batch tracking.
+
+SQL Implementation:
+-- 🏭 ENTERPRISE ERP & WAREHOUSE INVENTORY:
+-- suppliers, raw_materials, purchase_orders, bill_of_materials (BOM),
+-- production_batches, finished_goods, warehouses, inventory_stock.
+CREATE TABLE bill_of_materials (
+  bom_id INT AUTO_INCREMENT PRIMARY KEY,
+  product_id INT NOT NULL,
+  raw_material_id INT NOT NULL,
+  required_quantity DECIMAL(10,4) NOT NULL,
+  unit_of_measure VARCHAR(20) NOT NULL,
+  FOREIGN KEY (product_id) REFERENCES products(product_id),
+  FOREIGN KEY (raw_material_id) REFERENCES raw_materials(material_id)
+);
+
+Takeaways:
+- Recursive Bill of Materials (BOM) hierarchy for sub-assemblies.
+- Tracks raw material purchase orders against vendor delivery lead times.
+- Monitors multi-warehouse reorder thresholds to prevent stockouts.
+
+--------------------------------------------------------------------------------
+[4. HOSPITAL SYSTEMS]
+Integrates doctor scheduling, inpatient ward admissions, electronic health records (EHR), pharmacy batch dispensing, and multi-tier medical billing.
+
+SQL Implementation:
+-- 🏥 HOSPITAL & CLINICAL RECORD MANAGEMENT:
+-- patients, doctors, departments, appointments, admissions,
+-- medical_records, prescriptions, prescription_items, pharmacy_medicines, bills.
+CREATE TABLE prescriptions (
+  prescription_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  appointment_id BIGINT NOT NULL,
+  doctor_id INT NOT NULL,
+  patient_id BIGINT NOT NULL,
+  diagnosis TEXT NOT NULL,
+  prescribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (appointment_id) REFERENCES appointments(appointment_id)
+);
+
+Takeaways:
+- Prevents double-booking doctor slots via unique constraints on schedules.
+- Tracks inpatient bed allocations and daily ward charges.
+- Maintains pharmacy medicine batch expiry dates and FIFO dispensing.
+
+
+3. REAL-WORLD BENGAL ENGINEERING SCENARIOS
+--------------------------------------------------------------------------------
+* Case 1: Mahima & Susmita – Multi-Specialty Hospital in Jadavpur
+  Mahima and Susmita designed a 22-table hospital schema for a facility in Jadavpur managing 800 beds and ₹3 Crores in monthly patient care. They modeled patient admissions, doctor appointment rosters, pharmacy batch expiry tracking, and consolidated discharge billing.
+
+* Case 2: Debangshu & Mamata – ERP Supply Chain in Ichapur Foundry
+  In Ichapur, Debangshu and Mamata built an industrial supply chain database tracking 4,500 steel components. Using recursive CTEs across Bill of Materials (BOM) tables and automated purchase order triggers, their system reduced raw material reorder delays by 60%.
+
+
+4. SENIOR PITFALLS & PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+Pitfalls to Avoid:
+- Pitfall 1: Over-Simplifying Domain Realities: Treating an e-commerce order as a single flat row without separate order_items or payment attempts fails basic normalization. (Rule: Model real-world 1:N and M:N relationships using dedicated child and junction tables.)
+- Pitfall 2: Neglecting Financial Rounding: Calculating vendor commissions or GST taxes using floating-point types leads to balance mismatches in audit reports. (Rule: Use DECIMAL with explicit scale (e.g. DECIMAL(12,2)) for all financial calculations.)
+
+Production Best Practices:
+- Best Practice 1: Select a Domain Matching Career Goals: Pick banking for fintech aspirations, e-commerce for consumer tech, ERP for enterprise software, or healthcare for data systems. (Aligns your capstone project directly with target job interview scenarios.)
+- Best Practice 2: Define Explicit Business Rules: Document all business constraints (e.g. maximum appointments per doctor slot, minimum account balance) before writing DDL. (Ensures business rules are enforced via CHECK constraints and triggers.)
+
+5. TEACHER'S MASTER ADVICE - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+Choose your capstone domain carefully! E-Commerce gives you rich opportunities for inventory locks and vendor analytics; Banking tests your transaction isolation and double-entry rigor; ERP showcases complex recursive BOM hierarchies; and Hospital management exercises multi-module entity relationships. Pick one domain and commit to modeling it with enterprise-level depth!
+
+================================================================================
+END OF STUDY NOTE - TOPIC 1
+================================================================================

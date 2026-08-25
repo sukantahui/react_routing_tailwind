@@ -1,231 +1,379 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import clsx from "clsx";
+
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic15_files/topic15_questions";
+import noteText from "./topic15_files/topic15_note.txt?raw";
 
-// Import Python files
-import sequentialFlow from "./topic15_files/sequential_flow.py?raw";
-import commandOrder from "./topic15_files/command_order.py?raw";
-import flowControl from "./topic15_files/flow_control.py?raw";
-
-const keyframes = `
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes softGlow {
-  0%,100% { box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-  50% { box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-}
-`;
-
+/**
+ * Topic15 – Understanding drawing flow and sequence of commands
+ * Module: 005_001_turtle-foundation (Module 1 – Turtle Foundations & First Drawings)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
+ */
 const Topic15 = () => {
-  const prototypes = [
-    { name: "turtle.done()", returnType: "None", purpose: "Starts event loop; keeps window open.", usage: "turtle.done()" },
-    { name: "turtle.bye()", returnType: "None", purpose: "Closes the turtle graphics window.", usage: "turtle.bye()" },
-    { name: "turtle.exitonclick()", returnType: "None", purpose: "Waits for mouse click before closing.", usage: "turtle.exitonclick()" },
-    { name: "time.sleep(seconds)", returnType: "None", purpose: "Pauses execution (not turtle, but useful for flow).", usage: "time.sleep(1)" },
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-      <style>{keyframes}</style>
+    <>
+      <style>{`
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          transform: translateY(0);
+        }
+      `}</style>
 
-      <div className="max-w-6xl mx-auto space-y-12">
-        {/* Hero */}
-        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Drawing Flow & Sequence of Commands
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 15</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Understanding drawing flow and sequence of commands
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            How turtle executes commands in order, one after another – the foundation of procedural drawing
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Start visual programming with turtle graphics, screen coordinates, pen controls, and geometric shapes.
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">📜 Sequential Execution</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">⏱️ Timing & Delays</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">🔄 Loops & Functions</span>
-          </div>
-        </div>
 
-        {/* SVG Illustration: flow diagram of command sequence */}
-        <div className="flex justify-center animate-[fadeInUp_0.6s_ease-out_0.1s]">
-          <div className="bg-gray-800/40 rounded-2xl p-4 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-            <svg width="500" height="320" viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[500px] h-auto">
-              <rect x="20" y="20" width="460" height="280" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" rx="10" />
-              
-              {/* Flow boxes */}
-              <rect x="60" y="50" width="100" height="35" fill="#1e293b" stroke="#2dd4bf" strokeWidth="1.5" rx="5" />
-              <text x="110" y="72" fill="#2dd4bf" fontSize="10" textAnchor="middle">forward(100)</text>
-              
-              <rect x="60" y="110" width="100" height="35" fill="#1e293b" stroke="#f97316" strokeWidth="1.5" rx="5" />
-              <text x="110" y="132" fill="#f97316" fontSize="10" textAnchor="middle">left(90)</text>
-              
-              <rect x="60" y="170" width="100" height="35" fill="#1e293b" stroke="#f43f5e" strokeWidth="1.5" rx="5" />
-              <text x="110" y="192" fill="#f43f5e" fontSize="10" textAnchor="middle">forward(50)</text>
-              
-              <rect x="60" y="230" width="100" height="35" fill="#1e293b" stroke="#8b5cf6" strokeWidth="1.5" rx="5" />
-              <text x="110" y="252" fill="#8b5cf6" fontSize="10" textAnchor="middle">pendown()</text>
-              
-              {/* Arrows */}
-              <line x1="110" y1="85" x2="110" y2="108" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arrowFlow)" />
-              <line x1="110" y1="145" x2="110" y2="168" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arrowFlow)" />
-              <line x1="110" y1="205" x2="110" y2="228" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arrowFlow)" />
-              
-              <defs>
-                <marker id="arrowFlow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                  <polygon points="0 0, 6 3, 0 6" fill="#94a3b8" />
-                </marker>
-              </defs>
-              
-              {/* Right side explanation */}
-              <text x="220" y="70" fill="#facc15" fontSize="12" fontWeight="bold">Execution Order</text>
-              <text x="220" y="95" fill="#cbd5e1" fontSize="10">Commands run top → bottom</text>
-              <text x="220" y="120" fill="#cbd5e1" fontSize="10">Each completes before next starts</text>
-              <text x="220" y="145" fill="#cbd5e1" fontSize="10">Turtle state changes each step</text>
-              
-              {/* Delayed execution hint */}
-              <rect x="220" y="180" width="220" height="80" fill="#1e293b" rx="6" stroke="#facc15" strokeWidth="1" />
-              <text x="330" y="200" fill="#facc15" fontSize="11" textAnchor="middle">time.sleep(1) pauses</text>
-              <text x="330" y="220" fill="#cbd5e1" fontSize="10" textAnchor="middle">Can insert delays to</text>
-              <text x="330" y="235" fill="#cbd5e1" fontSize="10" textAnchor="middle">watch step‑by‑step</text>
-            </svg>
-            <p className="text-center text-sm text-gray-400 mt-2">Commands are executed sequentially; each line finishes before the next begins</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
           </div>
-        </div>
+        </header>
 
-        {/* Explanation */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.2s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">📜 The Flow of Execution</h2>
-          <div className="bg-gray-800/30 rounded-xl p-5 space-y-3">
-            <p className="leading-relaxed">Turtle graphics executes commands in the order they appear in your code – from top to bottom, one after another. This is called <strong>sequential execution</strong>. Each command completes its action (e.g., moving the turtle, changing color, waiting) before the next command begins. Understanding this flow is essential for predicting what your program will draw.</p>
-            <div className="grid md:grid-cols-2 gap-4">
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Understanding drawing flow and sequence of commands
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
               <div>
-                <h3 className="text-xl font-semibold text-emerald-300">Key Concepts</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Code runs line by line.</li>
-                  <li>Turtle state (position, heading, pen) changes gradually.</li>
-                  <li>Loops repeat a block of commands.</li>
-                  <li>Functions group commands for reuse.</li>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Understanding drawing flow and sequence of commands</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
                 </ul>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-cyan-300">Flow Control Tools</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li><code>if/else</code>: conditional execution.</li>
-                  <li><code>for/while</code>: repetition.</li>
-                  <li><code>time.sleep()</code>: pause between commands.</li>
-                  <li><code>turtle.ontimer()</code>: scheduled execution.</li>
-                </ul>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
               </div>
             </div>
           </div>
         </section>
 
-        {/* Real‑world analogy */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.3s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">📖 Sequential Reading vs Drawing</h2>
-          <div className="bg-gray-800/30 rounded-xl p-5">
-            <p className="leading-relaxed">Think of a recipe: you read the steps in order, and you complete each step before moving to the next. "Mix flour, then add eggs, then stir." Similarly, turtle reads your commands one by one: "Move 100 steps, then turn left, then change color." Changing the order of commands can produce completely different drawings – just like reversing steps in a recipe ruins the dish.</p>
-            <div className="mt-3 p-3 bg-gray-800/50 rounded-lg">
-              <p className="text-sm"><strong>Example with students:</strong> Swadeep writes `forward(100); right(90); forward(100)`. Tuhina writes `right(90); forward(100); forward(100)`. Both produce different paths – one is an L‑shape, the other is a straight line downwards. Order matters!</p>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Understanding drawing flow and sequence of commands
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Python Code Examples */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.4s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">💻 Code Examples</h2>
-          <PythonFileLoader fileModule={sequentialFlow} title="sequential_flow.py" highlightLines={[6,7,8,9,10,11]} />
-          <PythonFileLoader fileModule={commandOrder} title="command_order.py" highlightLines={[6,7,8,9,10]} />
-          <PythonFileLoader fileModule={flowControl} title="flow_control.py" highlightLines={[11,12,13,14,15,16,17]} />
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
         </section>
 
-        {/* Prototype Table */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🔧 Flow‑Related Functions</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-gray-800/30 rounded-xl text-sm">
-              <thead className="bg-gray-700/60">
-                <tr><th className="px-4 py-2 text-left">Function/Method</th><th>Return</th><th>Purpose</th><th>Example</th></tr>
-              </thead>
-              <tbody>
-                {prototypes.map((p, idx) => (
-                  <tr key={idx} className="border-t border-gray-700 hover:bg-gray-700/30 transition">
-                    <td className="px-4 py-2 font-mono text-emerald-300">{p.name}</td>
-                    <td className="px-4 py-2 text-center">{p.returnType}</td>
-                    <td className="px-4 py-2">{p.purpose}</td>
-                    <td className="px-4 py-2 font-mono text-xs">{p.usage}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Understanding drawing flow and sequence of commands FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
         </section>
 
-        {/* Common Pitfalls & Best Practices */}
-        <div className="grid lg:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.6s]">
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-amber-300">⚠️ Common Pitfalls</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li><strong>Assuming commands are executed in parallel:</strong> They are not; each finishes before next starts.</li>
-              <li><strong>Forgetting that order changes output:</strong> `forward(100); left(90)` vs `left(90); forward(100)` are different.</li>
-              <li><strong>Putting `turtle.done()` too early:</strong> If placed before drawing commands, nothing appears.</li>
-              <li><strong>Using long `time.sleep()` delays:</strong> Makes the program unresponsive; use `ontimer` for animations.</li>
-            </ul>
-          </div>
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-green-300">✅ Best Practices</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li>Read your code aloud in order to simulate execution.</li>
-              <li>Use functions to group related commands and improve readability.</li>
-              <li>Insert `print()` statements to trace execution order.</li>
-              <li>Use `turtle.tracer(0)` and `update()` for complex animations, but understand that commands still execute sequentially.</li>
-              <li>Test small segments before combining.</li>
-            </ul>
-          </div>
-        </div>
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Understanding drawing flow and sequence of commands"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic15_note.txt"
+          />
+        </section>
 
-        {/* Checklist */}
-        <div className="bg-gray-800/50 rounded-xl p-5 border border-emerald-500/30 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <h3 className="text-xl font-semibold">📝 Student Checklist</h3>
-          <div className="grid sm:grid-cols-2 gap-2 mt-2">
-            {[
-              "I understand that commands run one after another, top to bottom",
-              "I can predict the drawing outcome of a simple sequence of commands",
-              "I know that changing command order changes the result",
-              "I can use loops to repeat blocks of commands",
-              "I can use functions to organize my drawing flow",
-              "I understand that `turtle.done()` must be at the end to keep the window open"
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2"><span className="text-emerald-400">✓</span><span className="text-gray-200">{item}</span></div>
-            ))}
-          </div>
-        </div>
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
 
-        {/* Hints & Expert Mindset */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.8s]">
-          <div className="bg-indigo-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">💡 Hints to Explore</h3>
-            <p>👉 <strong>Think about:</strong> What would happen if you swapped the order of `right(90)` and `forward(100)` in a square loop?</p>
-            <p>👉 <strong>Observe:</strong> Add `print(t.pos())` after each movement – see the turtle's coordinates change step by step.</p>
-            <p>👉 <strong>Try changing:</strong> Insert `time.sleep(0.5)` between commands to slow down the animation and watch the flow.</p>
-          </div>
-          <div className="bg-purple-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">🚀 Expert Mindset</h3>
-            <p>In real‑time systems and game engines, understanding the order of execution is critical: update physics, then render graphics, then handle input. Turtle's sequential model is a simplified version. Mastering it helps you transition to event‑driven programming (e.g., `ontimer`, `onclick`), where commands are still executed sequentially but triggered by events.</p>
-          </div>
-        </div>
-
-        {/* FAQs and Teacher Note */}
-        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
-          <FAQTemplate title="Drawing Flow & Sequence FAQs" questions={questions} />
-        </div>
-        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
-          <Teacher note="This is a meta‑topic that ties everything together. Use a whiteboard simulation: write a short program and have students act as the CPU, executing each command and updating the turtle on a grid. Emphasize that the computer doesn't skip or reorder commands without loops/conditionals. Activities: 'debug the sequence' – provide a broken program where commands are out of order, and have students fix it. This builds systematic thinking." />
-        </div>
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 15 · Understanding drawing flow and sequence of commands · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
 };
 

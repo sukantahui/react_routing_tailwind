@@ -1,248 +1,379 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import clsx from "clsx";
+
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic0_files/topic0_questions";
+import noteText from "./topic0_files/topic0_note.txt?raw";
 
-// Import Python files from topic0_files folder
-import squareDrawingCode from "./topic0_files/square_demo.py?raw";
-import colorfulPatternCode from "./topic0_files/colorful_star.py?raw";
-
-// Inline keyframes for animations (motion-safe, no external libs)
-const keyframes = `
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes softGlow {
-  0%, 100% { box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.05); }
-  50% { box-shadow: 0 8px 25px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.1); }
-}
-
-@keyframes gentlePulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.01); }
-}
-`;
-
+/**
+ * Topic0 – Introduction to Turtle Graphics: history, educational purpose, and real-world relevance
+ * Module: 005_001_turtle-foundation (Module 1 – Turtle Foundations & First Drawings)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
+ */
 const Topic0 = () => {
-  // Command prototypes (Python Turtle)
-  const prototypes = [
-    { name: "forward(distance)", returnType: "None", purpose: "Moves turtle forward by given units.", usage: "t.forward(100)" },
-    { name: "backward(distance)", returnType: "None", purpose: "Moves turtle backward by given units.", usage: "t.backward(50)" },
-    { name: "right(angle)", returnType: "None", purpose: "Rotates turtle clockwise by angle degrees.", usage: "t.right(90)" },
-    { name: "left(angle)", returnType: "None", purpose: "Rotates turtle counter-clockwise by angle degrees.", usage: "t.left(45)" },
-    { name: "penup()", returnType: "None", purpose: "Lifts pen to stop drawing.", usage: "t.penup()" },
-    { name: "pendown()", returnType: "None", purpose: "Lowers pen to start drawing.", usage: "t.pendown()" },
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-      <style>{keyframes}</style>
+    <>
+      <style>{`
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          transform: translateY(0);
+        }
+      `}</style>
 
-      <div className="max-w-6xl mx-auto space-y-12">
-        {/* Hero Section */}
-        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out] motion-safe:animate-[fadeInUp_0.5s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Turtle Graphics
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 0</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Introduction to Turtle Graphics: history, educational purpose, and real-world relevance
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Where programming meets art, geometry, and computational thinking
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Start visual programming with turtle graphics, screen coordinates, pen controls, and geometric shapes.
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">🐢 LOGO Language</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">📐 Educational Tool</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">🤖 Robotics Foundation</span>
-          </div>
-        </div>
 
-        {/* SVG Illustration: Turtle at origin with compass */}
-        <div className="flex justify-center animate-[fadeInUp_0.6s_ease-out_0.1s] motion-safe:animate-[fadeInUp_0.6s_ease-out_0.1s]">
-          <div className="bg-gray-800/40 rounded-2xl p-4 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-            <svg width="280" height="240" viewBox="0 0 280 240" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[280px] h-auto">
-              <rect x="20" y="20" width="240" height="200" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" rx="8" />
-              <line x1="140" y1="30" x2="140" y2="210" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4" />
-              <line x1="30" y1="120" x2="250" y2="120" stroke="#94a3b8" strokeWidth="1" strokeDasharray="4" />
-              <circle cx="140" cy="120" r="4" fill="#f97316" />
-              <text x="145" y="115" fill="#facc15" fontSize="10">(0,0)</text>
-              <g transform="translate(140,120)">
-                <circle r="16" fill="#2dd4bf" fillOpacity="0.7" stroke="#14b8a6" strokeWidth="2" />
-                <polygon points="20,0 10,-5 10,5" fill="#14b8a6" />
-                <circle r="4" fill="#0f172a" />
-              </g>
-              <text x="225" y="35" fill="#cbd5e1" fontSize="12">N (90°)</text>
-              <text x="40" y="35" fill="#cbd5e1" fontSize="12">W (180°)</text>
-              <text x="235" y="130" fill="#cbd5e1" fontSize="12">E (0°/360°)</text>
-              <text x="135" y="225" fill="#cbd5e1" fontSize="12">S (270°)</text>
-              <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite" />
-            </svg>
-            <p className="text-center text-sm text-gray-400 mt-2">Turtle at origin (0,0) with compass directions</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
           </div>
-        </div>
+        </header>
 
-        {/* History Section */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.2s] motion-safe:animate-[fadeInUp_0.6s_ease-out_0.2s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">📜 History & Origins</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-800/40 rounded-xl p-5 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300">
-              <h3 className="text-xl font-medium text-emerald-300">Seymour Papert & LOGO (1967)</h3>
-              <p className="mt-2 leading-relaxed">Developed at MIT, Turtle Graphics was born from <strong>constructionist learning theory</strong> – children learn best by creating tangible projects. The physical "turtle" robot moved on floors, later replaced by screen cursors.</p>
-              <p className="mt-2 text-gray-400 text-sm">🏫 Inspired by Piaget's work, Papert envisioned programming as a <em>thinking tool</em> for all ages.</p>
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
             </div>
-            <div className="bg-gray-800/40 rounded-xl p-5 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300">
-              <h3 className="text-xl font-medium text-emerald-300">Evolution to Modern Languages</h3>
-              <p className="mt-2 leading-relaxed">From physical robots → Apple II LOGO → Python's <code className="bg-gray-700 px-1 rounded">turtle</code> module (standard library) → Block-based coding (Scratch). Today, turtle graphics teach millions of students programming fundamentals.</p>
-              <p className="mt-2 text-gray-400 text-sm">🐍 Python's turtle module is widely used in schools of <strong>Barrackpore, Shyamnagar, Ichapur</strong> and beyond!</p>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Introduction to Turtle Graphics: history, educational purpose, and real-world relevance
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
             </div>
           </div>
-        </section>
 
-        {/* Educational Purpose */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.3s] motion-safe:animate-[fadeInUp_0.6s_ease-out_0.3s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🎓 Educational Purpose</h2>
-          <div className="bg-gray-800/30 rounded-xl p-5">
-            <p className="leading-relaxed">Turtle Graphics bridges <strong>abstract concepts</strong> (angles, coordinates, loops) with <strong>visual feedback</strong>. Students like <strong>Swadeep, Tuhina, Abhronila, Debangshu</strong> can see the immediate result of their code – turning mathematics into art.</p>
-            <ul className="list-disc pl-5 mt-3 space-y-1 text-gray-300">
-              <li><span className="font-semibold text-emerald-300">Geometry:</span> Visualize angles, polygons, circles, symmetry.</li>
-              <li><span className="font-semibold text-emerald-300">Programming logic:</span> Loops, functions, conditionals, state.</li>
-              <li><span className="font-semibold text-emerald-300">Problem decomposition:</span> Break complex drawings into steps.</li>
-              <li><span className="font-semibold text-emerald-300">Debugging mindset:</span> Predict → test → observe → correct.</li>
-            </ul>
-          </div>
-        </section>
-
-        {/* Real-world Relevance */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.4s] motion-safe:animate-[fadeInUp_0.6s_ease-out_0.4s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🌍 Real-world Relevance</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { title: "Robotics & Autonomous Vehicles", desc: "Sensors, movement commands, path planning – similar to turtle's forward/rotate logic used in Roomba and robotic arms." },
-              { title: "Computational Thinking", desc: "Industry problem-solving: breaking tasks into steps, iterative refinement, simulation." },
-              { title: "Game Development & Graphics", desc: "Sprite movement, collision detection, 2D coordinate systems." },
-              { title: "Logo-inspired Languages", desc: "Uber's 'LV' visualization, CAD software, educational apps." },
-              { title: "STEM Pedagogy", desc: "Used globally from primary schools to university CS0 courses." },
-              { title: "Pen Plotter Art", desc: "Artists use Python turtle to generate generative art and control plotters." },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-gray-800/40 rounded-xl p-4 hover:scale-[1.02] transition-all duration-300 hover:shadow-md">
-                <h3 className="text-xl font-medium text-cyan-300">{item.title}</h3>
-                <p className="mt-1 text-gray-300 text-sm leading-relaxed">{item.desc}</p>
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Introduction to Turtle Graphics: history, educational purpose, and real-world relevance</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Python Code Demos */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s] motion-safe:animate-[fadeInUp_0.6s_ease-out_0.5s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">💻 Python Turtle in Action</h2>
-          <div className="space-y-6">
-            <PythonFileLoader fileModule={squareDrawingCode} title="square_demo.py" highlightLines={[4,5,6]} />
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-gray-800/30 rounded-xl p-4">
-                <h3 className="text-lg font-semibold">🔍 Think About...</h3>
-                <p className="mt-1 text-gray-300">What happens if you change <code>right(90)</code> to <code>right(120)</code>? How would you draw a pentagon?</p>
-              </div>
-              <div className="bg-gray-800/30 rounded-xl p-4">
-                <h3 className="text-lg font-semibold">✨ Professional Tip</h3>
-                <p className="mt-1 text-gray-300">Use <code className="bg-gray-700 px-1 rounded">t.speed(0)</code> for instant drawing and <code className="bg-gray-700 px-1 rounded">turtle.tracer(0)</code> + <code className="bg-gray-700 px-1 rounded">turtle.update()</code> for complex animations.</p>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
             </div>
-            <PythonFileLoader fileModule={colorfulPatternCode} title="colorful_star.py" highlightLines={[6,7,8]} />
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Prototype Table */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.6s] motion-safe:animate-[fadeInUp_0.6s_ease-out_0.6s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🔧 Essential Turtle Commands (Prototypes)</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-gray-800/30 rounded-xl text-sm">
-              <thead className="bg-gray-700/60">
-                <tr><th className="px-4 py-2 text-left">Command</th><th>Return</th><th>Purpose</th><th>Example</th></tr>
-              </thead>
-              <tbody>
-                {prototypes.map((p, idx) => (
-                  <tr key={idx} className="border-t border-gray-700 hover:bg-gray-700/30 transition">
-                    <td className="px-4 py-2 font-mono text-emerald-300">{p.name}</td>
-                    <td className="px-4 py-2 text-center">{p.returnType}</td>
-                    <td className="px-4 py-2">{p.purpose}</td>
-                    <td className="px-4 py-2 font-mono text-xs">{p.usage}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Introduction to Turtle Graphics: history, educational purpose, and real-world relevance
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
           </div>
-          <p className="text-gray-400 text-sm italic">Note: All methods return <code>None</code> and modify turtle state (position, heading, pen).</p>
         </section>
 
-        {/* Common Pitfalls & Best Practices */}
-        <div className="grid lg:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s] motion-safe:animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-amber-300">⚠️ Common Pitfalls</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2 text-gray-300">
-              <li><strong>Forgetting <code>turtle.done()</code></strong> – Window closes immediately.</li>
-              <li><strong>Mixed units</strong>: degrees vs radians (default degrees).</li>
-              <li><strong>Overwriting turtle reference</strong> causing unexpected state.</li>
-              <li><strong>Misconception:</strong> "setheading(0)" points East, not North.</li>
-            </ul>
-          </div>
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-green-300">✅ Best Practices</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2 text-gray-300">
-              <li>Always import <code>from turtle import Turtle</code> for clarity.</li>
-              <li>Use <code>turtle.Screen()</code> to configure canvas.</li>
-              <li>Name turtle objects descriptively: <code>painter</code>, <code>artist</code>.</li>
-              <li>Wrap code in <code>if __name__ == "__main__":</code>.</li>
-              <li>Use <code>speed()</code> and <code>pensize()</code> for control.</li>
-            </ul>
-          </div>
-        </div>
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
 
-        {/* Checklist */}
-        <div className="bg-gray-800/50 rounded-xl p-5 border border-emerald-500/30 animate-[fadeInUp_0.6s_ease-out_0.8s] motion-safe:animate-[fadeInUp_0.6s_ease-out_0.8s]">
-          <h3 className="text-xl font-semibold">📝 Student Checklist</h3>
-          <div className="grid sm:grid-cols-2 gap-2 mt-2">
-            {[
-              "I know Turtle Graphics originated from LOGO & Papert",
-              "I can explain educational benefits (geometry, loops, planning)",
-              "I have seen Python turtle code and understand forward/right",
-              "I understand the Cartesian origin (0,0) at center",
-              "I know real-world applications: robotics, game dev, plotters",
-              "I can differentiate between `penup()` and `pendown()`"
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2"><span className="text-emerald-400">✓</span><span className="text-gray-200">{item}</span></div>
-            ))}
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* Hints & Expert Mindset */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.9s] motion-safe:animate-[fadeInUp_0.6s_ease-out_0.9s]">
-          <div className="bg-indigo-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">💡 Hints to Explore</h3>
-            <p className="mt-1">👉 <strong>Think about:</strong> How would you use a loop to draw an 8-point star?</p>
-            <p className="mt-1">👉 <strong>Observe:</strong> What happens to the drawing when you modify the angle inside the loop?</p>
-            <p className="mt-1">👉 <strong>Try changing:</strong> The starting heading before drawing a square.</p>
-          </div>
-          <div className="bg-purple-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">🚀 Expert Mindset</h3>
-            <p className="mt-1">Professionals often use turtle for prototyping graphics algorithms or teaching code flow. Think of <strong>state (position, heading)</strong> as key concept – similar to game characters.</p>
-          </div>
-        </div>
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
 
-        {/* FAQs and Teacher Note */}
-        <div className="animate-[fadeInUp_0.6s_ease-out_1s] motion-safe:animate-[fadeInUp_0.6s_ease-out_1s]">
-          <FAQTemplate title="Turtle Graphics Introduction FAQs" questions={questions} />
-        </div>
-        <div className="animate-[fadeInUp_0.6s_ease-out_1.1s] motion-safe:animate-[fadeInUp_0.6s_ease-out_1.1s]">
-          <Teacher note="🐢 Seymour Papert envisioned children as 'builders of their own knowledge'. Turtle Graphics isn't just about drawing – it's about debugging, algorithmic thinking, and building intuition for geometry. Encourage students to predict movement before running code, and always experiment with small changes. Show that even complex designs are made from simple steps." />
-        </div>
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Introduction to Turtle Graphics: history, educational purpose, and real-world relevance FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
+        </section>
+
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Introduction to Turtle Graphics: history, educational purpose, and real-world relevance"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic0_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
+
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 0 · Introduction to Turtle Graphics: history, educational purpose, and real-world relevance · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
 };
 

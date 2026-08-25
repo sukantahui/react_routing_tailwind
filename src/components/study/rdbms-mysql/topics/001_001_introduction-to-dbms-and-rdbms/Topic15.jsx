@@ -4,6 +4,8 @@ import clsx from "clsx";
 // ─── Common Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import noteText from "./topic15_files/topic15_note.txt?raw";
 import questions from "./topic15_files/topic15_questions";
 
 /**
@@ -875,6 +877,23 @@ const Topic15 = () => {
             showExpandAll
             showSearch
             showProgress
+          />
+        </section>
+
+        
+        {/* ─── Plain Text Printable Study Note ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section mb-10"
+          style={{ animationDelay: "1250ms" }}
+        >
+          <PlainTextPrint
+            content={noteText}
+            title="Concept of Tables (Relations)"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Plain Text Note"
+            downloadFileName="topic15_note.txt"
           />
         </section>
 

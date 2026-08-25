@@ -6,14 +6,15 @@ const questions = [
     hint: "An illegal taxi service where instead of ordering a ride, anyone with a credit card can order a 500 Gbps cyber bombardment.",
     level: "basic",
     codeExample: `// Booter / Stresser Service Web API Query:
-POST https://api.dark-stresser.cc/v2/launch
+// Simulated DDoS-for-Hire API request
+POST [AUTHORIZED-LAB-ENDPOINT]/simulation
 Headers: { "Authorization": "Bearer TOKEN_ABC123" }
 Body: {
-    "target": "103.25.10.50",
-    "port": 443,
-    "duration_seconds": 300,
-    "method": "DNS_AMP_EDNS0",
-    "concurrency": 2
+    "event": "DDoS simulation",
+    "target": "[LAB Target]",
+    "attackMethod": "[SIMULATED METHOD]",
+    "status": "SIMULATED",
+    "purpose": "Defensive detection training"
 }`
   },
   {
@@ -152,20 +153,16 @@ Body: {
 // - Accepts non-KYC cryptocurrency (Monero / Bitcoin via mixers)`
   },
   {
-    question: "What is 'Layer 7 Cloudflare / Akamai Bypass' Methods advertised by Premium Booter Services?",
-    shortAnswer: "Automated scripts that scrape proxy IP addresses, use headless browser automation (Puppeteer) to solve JavaScript proof-of-work challenges, and distribute requests through rotating residential proxies to bypass cloud WAF defenses.",
-    explanation: "Basic booters send simple HTTP GET requests that Cloudflare blocks instantly. Premium booter tiers advertise 'CF-Bypass'. These backends use automated Chromium browser farms running on cloud servers to solve the Cloudflare 5-second challenge, capture the valid `cf_clearance` cookie and User-Agent header, and distribute them to thousands of bot nodes to flood origin endpoints directly.",
-    hint: "A criminal hiring professional actors with fake IDs to walk through the security checkpoint and open the back door.",
-    level: "expert",
-    codeExample: `// CF-Bypass Script Logic in Premium Booter:
-const puppeteer = require('puppeteer-extra');
-// 1. Solve Cloudflare JS Challenge headless in 3.5 seconds
-const page = await browser.newPage();
-await page.goto(targetUrl);
-const cookies = await page.cookies();
-const clearanceCookie = cookies.find(c => c.name === 'cf_clearance');
-// 2. Dispatches clearance cookie to 50,000 residential proxies to flood origin!`
-  },
+  question: "What Layer 7 Cloud WAF Evasion Techniques May Premium Booter Services Advertise?",
+  shortAnswer: "Premium services may claim to evade cloud WAF protections by making automated traffic resemble legitimate browser sessions. From a defensive perspective, these claims can be addressed through behavioral analysis, rate limiting, origin protection, and session monitoring.",
+  explanation: "Premium DDoS services may advertise techniques intended to make automated traffic resemble legitimate browser activity and evade cloud WAF protections. Defenders can counter these techniques using behavioral bot detection, request-pattern analysis, rate limiting, origin protection, and session anomaly detection. Specific bypass implementations, browser automation, credential or cookie harvesting, and traffic-distribution procedures are omitted.",
+  hint: "Think of an attacker trying to make automated traffic look like legitimate visitors while defenders analyze behavior rather than relying only on simple request signatures.",
+  level: "expert",
+  codeExample: `// Defensive Bot-Management Concept
+// Analyze session timing, browser characteristics,
+// request patterns, and traffic anomalies.
+// Specific WAF-bypass and cookie-harvesting procedures are omitted.`
+},
   {
     question: "Under the Indian IT Act Section 66, what constitutes the criminal penalty for using DDoS-for-hire platforms against corporate websites?",
     shortAnswer: "Dishonestly or fraudulently disrupting or diminishing the utility of computer systems carries imprisonment up to 3 years and fines up to ₹5 Lakhs.",
@@ -184,11 +181,11 @@ const clearanceCookie = cookies.find(c => c.name === 'cf_clearance');
     level: "expert",
     codeExample: `// Amplification Honeypot Telemetry Log:
 {
-    "timestamp": "2026-08-23T10:14:02Z",
-    "booter_scanner_ip": "194.26.29.112",
-    "spoofed_target_victim_ip": "103.25.10.50",
-    "query_type": "DNS_ANY_EDNS0",
-    "action": "DROPPED_AND_LOGGED_TO_CERT_IN"
+    "timestamp": "[LAB TIMESTAMP]",
+    "source_identifier": "[ANONYMIZED SOURCE]",
+    "target_identifier": "[ANONYMIZED TARGET]",
+    "query_type": "SIMULATED_DNS_QUERY",
+    "action": "DROPPED_AND_LOGGED"
 }`
   },
   {
@@ -209,11 +206,10 @@ const clearanceCookie = cookies.find(c => c.name === 'cf_clearance');
     explanation: "If an enterprise in Kolkata puts `fintech.in` behind Cloudflare, attackers cannot hit the origin directly through the domain. However, booter tools use tools like SecurityTrails and Shodan to find the old IP or inspect outgoing mail server headers (`Received: from 103.25.10.50`). Once found, the booter targets `103.25.10.50` directly on port 443, overwhelming the origin server's 1 Gbps link without touching Cloudflare.",
     hint: "Finding someone's unlisted home address from an old phone book to bypass the security guard at their office building.",
     level: "moderate",
-    codeExample: `// Origin IP Leakage Mitigation (iptables on Origin Server):
-# Block ALL ingress traffic on port 80/443 EXCEPT from Cloudflare official IP ranges:
-iptables -A INPUT -p tcp -m multiport --dports 80,443 -s 173.245.48.0/20 -j ACCEPT
-iptables -A INPUT -p tcp -m multiport --dports 80,443 -s 103.21.244.0/22 -j ACCEPT
-iptables -A INPUT -p tcp -m multiport --dports 80,443 -j DROP # Drops direct booter floods!`
+    codeExample: `// Origin IP Leakage Mitigation — Conceptual
+// Allow application traffic only from the approved CDN/security layer.
+// Deny direct Internet traffic to the protected origin.
+// Exact firewall rules and provider-specific IP ranges are omitted.`
   },
   {
     question: "Under the Indian Penal Code Section 427, what constitutes 'Mischief' via Booter DDoS Floods?",
@@ -231,11 +227,10 @@ iptables -A INPUT -p tcp -m multiport --dports 80,443 -j DROP # Drops direct boo
     explanation: "Many script kiddies assume booter services protect their privacy. When police seize booter servers, they find unencrypted MySQL databases: `users` (usernames, hashed passwords, registration IPs, emails), `payments` (crypto TXIDs, PayPal accounts), and `attack_logs` (User ID 452 launched 300s attack against IP `103.25.10.50`). This provides irrefutable digital evidence for arrest warrants.",
     hint: "A raided underground gambling den where police find the ledger with every player's name and exact bets.",
     level: "expert",
-    codeExample: `// Forensic Evidence Table from Seized Booter MySQL Database:
-SELECT users.username, users.email, users.reg_ip, attack_logs.target_ip, attack_logs.duration_sec 
-FROM attack_logs 
-JOIN users ON attack_logs.user_id = users.id 
-WHERE attack_logs.target_ip = '103.25.10.50';`
+    codeExample: `// Safe Forensic Review
+// Correlate anonymized account identifiers,
+// timestamps, alert metadata, and preserved evidence.
+// Direct extraction of user records is omitted.`
   },
   {
     question: "What is 'TCP SYN-ACK Reflection' in Commercial Booter Vector Portfolios?",
@@ -288,28 +283,32 @@ WHERE attack_logs.target_ip = '103.25.10.50';`
 // Penalty: Imprisonment for a term up to 7 Years, and shall also be liable to Fine`
   },
   {
-    question: "What is 'Mirai Botnet Source Code Leak (2016)' and its Impact on Commercial Booter Proliferation?",
-    shortAnswer: "The public release of Mirai's source code by 'Anna-Senpai' in October 2016 allowed hundreds of amateur threat actors to build their own IoT botnets and launch commercial booter operations with zero software development expertise.",
-    explanation: "Prior to 2016, building high-capacity botnets required advanced exploit development skills. When the Mirai source code was released on HackForums, anyone could compile the C code, scan the internet for telnet devices with default passwords (`admin:admin`), and assemble a 50,000-node botnet. This triggered an explosion of commercial booter sites offering 100+ Gbps floods for under ₹1,000.",
-    hint: "Someone posting the complete manufacturing blueprints for military assault rifles on a public billboard.",
-    level: "moderate",
-    codeExample: `// Mirai Telnet Scanner Loop (Mirai C Source):
-// Hardcoded Default Credentials:
-// "root:xc3511", "admin:admin", "root:vizxv", "root:admin", "root:888888"
-// Scans random IPv4 addresses on TCP port 23/2323 ➔ Spreads exponentially!`
-  },
+  question: "What was the Mirai Botnet Source Code Leak (2016), and what impact did it have on the proliferation of IoT botnets?",
+  shortAnswer: "The public release of Mirai's source code lowered the barrier for other threat actors to study and reproduce IoT botnet techniques, contributing to the growth of subsequent botnet variants and DDoS-for-hire activity.",
+  explanation: "After the Mirai source code became publicly available in 2016, other threat actors could study its architecture and adapt its concepts for their own campaigns. This contributed to the proliferation of IoT botnets and commercialized DDoS activity. The original credential lists, internet-wide scanning procedures, compilation instructions, and botnet deployment steps are omitted.",
+  hint: "Think of a previously closed technical design becoming publicly available and enabling many others to study and reproduce its general approach.",
+  level: "moderate",
+  codeExample: `// Safe Mirai Research Concept:
+// Public source-code leaks can accelerate the spread of malware variants.
+// Defenders should study leaked code to identify:
+// - propagation characteristics
+// - command-and-control indicators
+// - persistence behavior
+// - network telemetry
+//
+// Credential lists, scanning logic, and deployment procedures are omitted.`
+},
   {
     question: "What is 'Automated Booter API Integration' (WHMCS / Blesta Billing Plugins)?",
     shortAnswer: "Integrating booter attack dispatchers into automated e-commerce web hosting billing platforms, allowing buyers to automatically register, pay with crypto, and instantly receive API tokens to launch DDoS attacks.",
     explanation: "To operate like legitimate SaaS businesses, booter operators installed WHMCS or Blesta billing software with custom attack dispatcher plugins. A buyer registers, pays via automated cryptocurrency processors (CoinPayments), and receives an instant API key. The API key connects to the booter backend, allowing automated attack execution without any manual operator intervention.",
     hint: "An automated vending machine that dispenses cyber weapons 24/7 whenever a cryptocurrency coin is inserted.",
     level: "expert",
-    codeExample: `// WHMCS Booter Dispatcher Module Hook:
-add_hook('InvoicePaid', 1, function($vars) {
-    $userId = $vars['userId'];
-    $apiToken = generate_booter_token($userId);
-    grant_concurrency_slots($userId, slots=3, max_time=1200);
-});`
+    codeExample: `// Automated Service Integration — Safe Concept
+// Payment event → Account verification → Service entitlement
+// → Defensive simulation record.
+//
+// Attack-token generation and attack-dispatch logic are omitted.`
   },
   {
     question: "Synthesize the mathematical formulation of the DDoS-as-a-Service Economic Cost Asymmetry Ratio (A_economic), Attacker Capital Expenditure (C_attacker), Defender Mitigation & Downtime Cost (C_defender), and Expected Attacker ROI (ROI_attacker).",

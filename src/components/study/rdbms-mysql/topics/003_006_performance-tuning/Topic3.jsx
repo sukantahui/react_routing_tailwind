@@ -75,7 +75,7 @@ WHERE s.city = 'Barrackpore' AND s.age > 20;
         { queryCase: "Table e (exam_scores)", keyChosen: "idx_sid", keyLenOutput: "4 bytes", columnsUsed: "5 Per Student", compositeEfficiency: "filtered = 100.00%", status: "500 Total Inner Probes ✅" },
       ],
       explanation:
-        "The `filtered` percentage estimates how many rows survive non-index `WHERE` filters. Multiplying $\\text{rows} \\times (\\text{filtered} / 100)$ calculates the exact intermediate row volume fed into downstream join iterators.",
+        "The `filtered` percentage estimates how many rows survive non-index `WHERE` filters. Multiplying $\rows \\times (\filtered / 100)$ calculates the exact intermediate row volume fed into downstream join iterators.",
     },
     select_type_dependent_subquery: {
       title: "3. select_type Danger: DEPENDENT SUBQUERY vs DERIVED",
@@ -586,7 +586,7 @@ ALTER TABLE student_records ADD INDEX idx_id_center_roll (student_id, exam_cente
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">03.</span>
-                  <span><code className="text-cyan-300 font-mono">filtered %</code>: Downstream rows = $\text{rows} \times (\text{filtered}/100)$.</span>
+                  <span><code className="text-cyan-300 font-mono">filtered %</code>: Downstream rows = $rows \times (filtered/100)$.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">04.</span>

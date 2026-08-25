@@ -1,888 +1,380 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Shared Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python Code Examples (Imported with ?raw)
-import matchObjects from "./topic8_files/matching_methods_and_match_objects.py?raw";
-import findallIter from "./topic8_files/findall_finditer_and_groups.py?raw";
-import subFunctions from "./topic8_files/sub_subn_and_replacement_functions.py?raw";
-import logRedactor from "./topic8_files/log_parser_and_pii_redactor.py?raw";
-
-// Plain Text Note for Printing/Downloading
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic8_files/topic8_questions";
 import noteText from "./topic8_files/topic8_note.txt?raw";
 
-// FAQ Questions
-import questions from "./topic8_files/topic8_questions";
-
 /**
- * Topic8: Pattern matching: search(), match(), findall(), sub()
- * Module: 002_007_string-processing
- * Segment: 2 (Practical Python for Real-World Development)
+ * Topic8 – Pattern matching: search(), match(), findall(), sub()
+ * Module: 002_007_string-processing (String Processing & Pattern Handling)
+ * Track: Python from Basic to Pro
  *
- * Premium Dark Theme Default with Rich Micro-Animations & Full Interactivity.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic8() {
+const Topic8 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
-  const [activeInteractiveTab, setActiveInteractiveTab] = useState("trio");
-
-  // Interactive Simulator State
-  const [selectedOperation, setSelectedOperation] = useState("sub"); // search, match, findall, sub
-  const [sampleText, setSampleText] = useState("Susmita Mukherjee: 2026-08-24, Rahul Roy: 2026-08-15");
-  const [patternInput, setPatternInput] = useState("(\\d{4})-(\\d{2})-(\\d{2})");
-  const [replaceInput, setReplaceInput] = useState("$3-$2-$1"); // In JS $1, in Python \1
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
-  // Helper to execute operations live in JS
-  const evaluateOperation = () => {
-    try {
-      if (selectedOperation === "sub") {
-        const regex = new RegExp(patternInput, "g");
-        const replaced = sampleText.replace(regex, replaceInput);
-        const pyRepl = replaceInput.replace(/\$(\d+)/g, "\\$1");
-        return {
-          valid: true,
-          outputType: "substituted_string",
-          result: replaced,
-          pyCode: `import re\npattern = r"${patternInput}"\nresult = re.sub(pattern, r"${pyRepl}", text)\nprint(result)`,
-        };
-      } else if (selectedOperation === "match") {
-        const regex = new RegExp(`^${patternInput}`);
-        const m = regex.exec(sampleText);
-        if (m) {
-          return {
-            valid: true,
-            outputType: "match_object",
-            fullMatch: m[0],
-            groups: m.slice(1),
-            span: `(0, ${m[0].length})`,
-            pyCode: `import re\nm = re.match(r"${patternInput}", text)\nif m:\n    print(m.group(), m.groups())`,
-          };
-        } else {
-          return {
-            valid: true,
-            outputType: "none",
-            result: "None (Pattern did not match at start index 0)",
-            pyCode: `import re\nm = re.match(r"${patternInput}", text)  # Returns None`,
-          };
-        }
-      } else if (selectedOperation === "search") {
-        const regex = new RegExp(patternInput);
-        const m = regex.exec(sampleText);
-        if (m) {
-          return {
-            valid: true,
-            outputType: "match_object",
-            fullMatch: m[0],
-            groups: m.slice(1),
-            span: `(${m.index}, ${m.index + m[0].length})`,
-            pyCode: `import re\nm = re.search(r"${patternInput}", text)\nif m:\n    print(f"Match: {m.group()} at {m.span()}")`,
-          };
-        } else {
-          return {
-            valid: true,
-            outputType: "none",
-            result: "None (Pattern not found anywhere in string)",
-            pyCode: `import re\nm = re.search(r"${patternInput}", text)  # Returns None`,
-          };
-        }
-      } else if (selectedOperation === "findall") {
-        const regex = new RegExp(patternInput, "g");
-        const matches = [];
-        let m;
-        while ((m = regex.exec(sampleText)) !== null) {
-          if (m.length > 2) {
-            matches.push(m.slice(1));
-          } else if (m.length === 2) {
-            matches.push(m[1]);
-          } else {
-            matches.push(m[0]);
-          }
-          if (m.index === regex.lastIndex) regex.lastIndex++;
-        }
-        return {
-          valid: true,
-          outputType: "findall_list",
-          matches,
-          count: matches.length,
-          pyCode: `import re\nmatches = re.findall(r"${patternInput}", text)\nprint(matches)`,
-        };
-      }
-    } catch (err) {
-      return {
-        valid: false,
-        error: err.message,
-      };
-    }
-  };
-
-  const opResult = evaluateOperation();
-
-  // Preset operations
-  const opPresets = [
-    {
-      label: "Date Swapper (sub)",
-      op: "sub",
-      text: "Exam 1: 2026-08-24, Exam 2: 2026-09-15",
-      pattern: "(\\d{4})-(\\d{2})-(\\d{2})",
-      repl: "$3-$2-$1",
-    },
-    {
-      label: "Find Names & Marks (findall)",
-      op: "findall",
-      text: "Susmita: 96.5%, Rahul: 88.0%, Priya: 92.5%",
-      pattern: "([A-Za-z]+):\\s*(\\d+\\.\\d+)%",
-      repl: "",
-    },
-    {
-      label: "Search Invoice (search)",
-      op: "search",
-      text: "Transaction receipt for INV-000942 completed.",
-      pattern: "INV-(\\d+)",
-      repl: "",
-    },
-    {
-      label: "Match Start Token (match)",
-      op: "match",
-      text: "PY-9402: Susmita Mukherjee enrolled.",
-      pattern: "PY-\\d+",
-      repl: "",
-    },
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-teal-500/30 selection:text-teal-200">
-      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+    <>
       <style>{`
-        .section-hidden {
-          transform: translateY(18px);
-          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .section-visible {
+        .reveal-section {
           transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        @keyframes pulseGlowTeal {
-          0%, 100% { filter: drop-shadow(0 0 4px rgba(20, 184, 166, 0.4)); }
-          50% { filter: drop-shadow(0 0 10px rgba(20, 184, 166, 0.8)); }
-        }
-        .animate-glow-teal {
-          animation: pulseGlowTeal 3s infinite ease-in-out;
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
 
-      {/* ==================================================================== */}
-      {/* HEADER SECTION */}
-      {/* ==================================================================== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
-      >
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs sm:text-sm font-mono font-semibold bg-teal-950/80 text-teal-300 px-3 py-1 rounded-full border border-teal-800/80 shadow-sm shadow-teal-950/50">
-            Segment 2 • Module 002_007
-          </span>
-          <span className="text-xs sm:text-sm font-mono bg-emerald-950/80 text-emerald-300 px-3 py-1 rounded-full border border-emerald-800/80 shadow-sm shadow-emerald-950/50">
-            Topic 8
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-slate-400">
-            String Processing &amp; Pattern Handling
-          </span>
-        </div>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 007 · Topic 8</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Pattern matching: search(), match(), findall(), sub()
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master textual manipulation, string methods, f-strings, and pattern matching.
+          </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          Pattern Matching &amp; Substitution with <code className="text-teal-400 font-mono">search()</code>, <code className="text-emerald-400 font-mono">match()</code>, <code className="text-cyan-400 font-mono">findall()</code> &amp; <code className="text-rose-400 font-mono">sub()</code>
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
-          Master Python's core regex operations: the matching trio (<code className="text-teal-300 font-mono">search</code> vs <code className="text-teal-300 font-mono">match</code> vs <code className="text-teal-300 font-mono">fullmatch</code>), <code className="text-purple-400 font-mono">Match</code> object coordinates (<code className="text-purple-300 font-mono">.group()</code>, <code className="text-purple-300 font-mono">.span()</code>), group extraction rules with <code className="text-cyan-400 font-mono">findall()</code>, streaming with <code className="text-cyan-400 font-mono">finditer()</code>, and backreference substitution with <code className="text-rose-400 font-mono">re.sub()</code>.
-        </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
 
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🎯 search() vs match() vs fullmatch()
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            📦 Match Object (.group, .groups, .groupdict, .span)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🔄 sub() Backreferences (\1, \2, \g&lt;name&gt;)
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🛡️ Web Log Parsing &amp; PII Data Redaction
-          </span>
-        </div>
-      </header>
-
-      {/* ==================================================================== */}
-      {/* MAIN CONTENT WRAPPER */}
-      {/* ==================================================================== */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 1: THE CORE OPERATIONS MATRIX */}
-        {/* ------------------------------------------------------------------ */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚙️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              1. The 4 Fundamental Regex Operations in Python
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Pattern matching: search(), match(), findall(), sub()
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
-            <p>
-              The Python <code className="text-teal-400 font-mono">re</code> module provides 4 specialized functions tailored for discovering, extracting, streaming, and transforming structured text:
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-6 not-prose">
-              {/* Op 1 */}
-              <div className="p-4 rounded-xl bg-teal-950/40 border border-teal-800/60 shadow-lg shadow-teal-950/30 transition-all duration-300 hover:scale-[1.01] hover:border-teal-500">
-                <div className="flex items-center gap-2 text-teal-400 font-bold text-base mb-2">
-                  <span>🔎</span> re.search()
-                </div>
-                <p className="text-xs text-slate-300 mb-2">
-                  Scans anywhere in the string to find the <strong>FIRST</strong> matching location.
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Pattern matching: search(), match(), findall(), sub()</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
                 </p>
-                <span className="text-[11px] text-teal-400/80 font-mono">Returns: Match or None</span>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
               </div>
-
-              {/* Op 2 */}
-              <div className="p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/60 shadow-lg shadow-emerald-950/30 transition-all duration-300 hover:scale-[1.01] hover:border-emerald-500">
-                <div className="flex items-center gap-2 text-emerald-400 font-bold text-base mb-2">
-                  <span>📍</span> re.match()
-                </div>
-                <p className="text-xs text-slate-300 mb-2">
-                  Checks for a match strictly at the <strong>BEGINNING (index 0)</strong> of the string.
-                </p>
-                <span className="text-[11px] text-emerald-400/80 font-mono">Returns: Match or None</span>
-              </div>
-
-              {/* Op 3 */}
-              <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-800/60 shadow-lg shadow-cyan-950/30 transition-all duration-300 hover:scale-[1.01] hover:border-cyan-500">
-                <div className="flex items-center gap-2 text-cyan-400 font-bold text-base mb-2">
-                  <span>📑</span> re.findall()
-                </div>
-                <p className="text-xs text-slate-300 mb-2">
-                  Finds <strong>ALL</strong> non-overlapping matches across the entire text.
-                </p>
-                <span className="text-[11px] text-cyan-400/80 font-mono">Returns: list of str/tuples</span>
-              </div>
-
-              {/* Op 4 */}
-              <div className="p-4 rounded-xl bg-rose-950/40 border border-rose-800/60 shadow-lg shadow-rose-950/30 transition-all duration-300 hover:scale-[1.01] hover:border-rose-500">
-                <div className="flex items-center gap-2 text-rose-400 font-bold text-base mb-2">
-                  <span>🔄</span> re.sub()
-                </div>
-                <p className="text-xs text-slate-300 mb-2">
-                  Replaces matches using templates, <strong>backreferences (\1)</strong>, or callable callbacks.
-                </p>
-                <span className="text-[11px] text-rose-400/80 font-mono">Returns: new str</span>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
             </div>
 
-            <div className="bg-slate-950/70 p-5 rounded-xl border-l-4 border-teal-500 border border-slate-800/80">
-              <h3 className="text-white font-bold text-base mb-2">
-                The AttributeError Trap on Failed Searches
-              </h3>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                When a pattern is not found, <code className="text-teal-300 font-mono">re.search()</code> and <code className="text-emerald-300 font-mono">re.match()</code> return <code className="text-rose-400 font-mono">None</code>. Calling <code className="text-rose-400 font-mono">re.search(pat, s).group()</code> directly will crash with <code className="text-rose-300 font-mono">AttributeError: 'NoneType' object has no attribute 'group'</code>.
-              </p>
-              <p className="text-sm sm:text-base text-emerald-300 font-semibold mt-1">
-                ✓ Best Practice: Use Python 3.8+ walrus operator: <code className="text-emerald-400 font-mono">if (m := re.search(pat, s)): print(m.group())</code>.
-              </p>
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 2: INTERACTIVE VISUAL ARCHITECTURE (SVG TABS) */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">🔍</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                2. Visualizing Matching Mechanics &amp; Substitution
-              </h2>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Pattern matching: search(), match(), findall(), sub()
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
             </div>
 
-            {/* Interactive Toggle for Diagram Perspectives */}
-            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
-              <button
-                onClick={() => setActiveInteractiveTab("trio")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "trio"
-                    ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                match vs search vs fullmatch
-              </button>
-              <button
-                onClick={() => setActiveInteractiveTab("anatomy")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "anatomy"
-                    ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Match Object Anatomy
-              </button>
-              <button
-                onClick={() => setActiveInteractiveTab("subengine")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeInteractiveTab === "subengine"
-                    ? "bg-rose-900/50 text-rose-300 border border-rose-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                re.sub() Backreferences
-              </button>
-            </div>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Examining start constraints, coordinate extraction, and backreference replacement pipelines:
-          </p>
-
-          {/* SVG Diagram Container */}
-          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
-            {activeInteractiveTab === "trio" ? (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#2dd4bf" fontSize="14" fontWeight="bold">MATCHING TRIO COMPARISON: Target = "Student: 9402 from Barrackpore"</text>
-
-                {/* Operation 1: match */}
-                <g transform="translate(30, 50)">
-                  <rect x="0" y="0" width="810" height="75" rx="8" fill="#1e293b" stroke="#0d9488" />
-                  <text x="20" y="28" fill="#2dd4bf" fontSize="13" fontWeight="bold">1. re.match(r"\d+", text)  [Index 0 Only]</text>
-                  <text x="20" y="55" fill="#fca5a5" fontSize="12">
-                    Evaluates at index 0 ('S') → <tspan fill="#f43f5e" fontWeight="bold">Returns None</tspan> (Fails immediately because text starts with letters).
-                  </text>
-                </g>
-
-                {/* Operation 2: search */}
-                <g transform="translate(30, 140)">
-                  <rect x="0" y="0" width="810" height="75" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="28" fill="#a7f3d0" fontSize="13" fontWeight="bold">2. re.search(r"\d+", text) [Scans Entire String]</text>
-                  <text x="20" y="55" fill="#ecfdf5" fontSize="12">
-                    Scans left-to-right → <tspan fill="#34d399" fontWeight="bold">Returns Match Object</tspan>: match='9402', span=(9, 13).
-                  </text>
-                </g>
-
-                {/* Operation 3: fullmatch */}
-                <g transform="translate(30, 230)">
-                  <rect x="0" y="0" width="810" height="75" rx="8" fill="#1e1b4b" stroke="#6366f1" />
-                  <text x="20" y="28" fill="#c7d2fe" fontSize="13" fontWeight="bold">3. re.fullmatch(r"\d+", text) [Entire String Must Match]</text>
-                  <text x="20" y="55" fill="#fca5a5" fontSize="12">
-                    Full text contains letters and spaces → <tspan fill="#f43f5e" fontWeight="bold">Returns None</tspan> (Would match only if text == "9402").
-                  </text>
-                </g>
-              </svg>
-            ) : activeInteractiveTab === "anatomy" ? (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#c084fc" fontSize="14" fontWeight="bold">THE Match OBJECT ANATOMY: m = re.search(r"(\d{4})-(\d{2})-(\d{2})", "2026-08-24")</text>
-
-                {/* Match Object Properties */}
-                <g transform="translate(30, 50)">
-                  {/* group(0) */}
-                  <rect x="0" y="0" width="255" height="110" rx="8" fill="#1e1b4b" stroke="#8b5cf6" />
-                  <text x="20" y="30" fill="#c4b5fd" fontSize="13" fontWeight="bold">m.group() / m.group(0)</text>
-                  <text x="20" y="55" fill="#ecfdf5" fontSize="16" fontWeight="bold">"2026-08-24"</text>
-                  <text x="20" y="90" fill="#94a3b8" fontSize="11">Entire matched sequence</text>
-
-                  {/* groups() */}
-                  <rect x="275" y="0" width="255" height="110" rx="8" fill="#1e1b4b" stroke="#8b5cf6" />
-                  <text x="295" y="30" fill="#c4b5fd" fontSize="13" fontWeight="bold">m.groups() (Tuple)</text>
-                  <text x="295" y="55" fill="#a7f3d0" fontSize="15" fontWeight="bold">('2026', '08', '24')</text>
-                  <text x="295" y="90" fill="#94a3b8" fontSize="11">Tuple of all captured subgroups</text>
-
-                  {/* span() */}
-                  <rect x="550" y="0" width="260" height="110" rx="8" fill="#1e1b4b" stroke="#8b5cf6" />
-                  <text x="570" y="30" fill="#c4b5fd" fontSize="13" fontWeight="bold">m.span() Coordinates</text>
-                  <text x="570" y="55" fill="#38bdf8" fontSize="16" fontWeight="bold">(0, 10)</text>
-                  <text x="570" y="90" fill="#94a3b8" fontSize="11">start()=0, end()=10 in text</text>
-                </g>
-
-                {/* Positional Subgroups */}
-                <g transform="translate(30, 180)">
-                  <rect x="0" y="0" width="810" height="110" rx="8" fill="#090d16" stroke="#334155" />
-                  <text x="20" y="30" fill="#34d399" fontSize="13" fontWeight="bold">Positional Groups Breakdown:</text>
-                  <text x="20" y="60" fill="#cbd5e1" fontSize="13">• <tspan fill="#38bdf8" fontWeight="bold">m.group(1)</tspan> = "2026" (Year) &nbsp;&nbsp;|&nbsp;&nbsp; • <tspan fill="#38bdf8" fontWeight="bold">m.group(2)</tspan> = "08" (Month) &nbsp;&nbsp;|&nbsp;&nbsp; • <tspan fill="#38bdf8" fontWeight="bold">m.group(3)</tspan> = "24" (Day)</text>
-                  <text x="20" y="90" fill="#94a3b8" fontSize="12">If named groups are used: <tspan fill="#f59e0b" fontStyle="italic">m.groupdict() &rarr; &#123;'year': '2026', 'month': '08', 'day': '24'&#125;</tspan></text>
-                </g>
-              </svg>
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <svg viewBox="0 0 880 340" className="w-full h-auto min-w-[700px] font-sans">
-                <text x="30" y="30" fill="#fb7185" fontSize="14" fontWeight="bold">re.sub() BACKREFERENCE ENGINE &amp; DYNAMIC CALLBACK</text>
-
-                {/* Backreference Swapping */}
-                <g transform="translate(30, 50)">
-                  <rect x="0" y="0" width="810" height="110" rx="8" fill="#4c0519" stroke="#f43f5e" />
-                  <text x="20" y="28" fill="#fda4af" fontSize="13" fontWeight="bold">A. Date Format Swapper with Backreferences: r"\3-\2-\1"</text>
-                  <text x="20" y="55" fill="#f8fafc" fontSize="13">
-                    re.sub(r"(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)", r"\3-\2-\1", "2026-08-24")
-                  </text>
-                  <text x="20" y="85" fill="#a7f3d0" fontSize="14" fontWeight="bold">
-                    → Output: "24-08-2026" (Swaps Day \3 to front, Year \1 to end)
-                  </text>
-                </g>
-
-                {/* Callable Replacement Function */}
-                <g transform="translate(30, 180)">
-                  <rect x="0" y="0" width="810" height="110" rx="8" fill="#064e3b" stroke="#10b981" />
-                  <text x="20" y="28" fill="#a7f3d0" fontSize="13" fontWeight="bold">B. Dynamic Callback Function in re.sub()</text>
-                  <text x="20" y="55" fill="#f8fafc" fontSize="12">
-                    re.sub(r"\$(\d+)", lambda m: f"INR &#123;float(m.group(1))*83.5:,.2f&#125;", "Price: $50")
-                  </text>
-                  <text x="20" y="85" fill="#ecfdf5" fontSize="14" fontWeight="bold">
-                    → Output: "Price: INR 4,175.00" (Executes custom Python math on every match!)
-                  </text>
-                </g>
-              </svg>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
             )}
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 3: INTERACTIVE REGEX OPERATION SIMULATOR */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🎮</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              3. Interactive Regex Operation Simulator
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base leading-relaxed">
-            Select an operation, enter your pattern with capture groups, and preview live match objects or backreference substitutions:
-          </p>
-
-          {/* Operation Presets */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
-            {opPresets.map((preset) => (
-              <button
-                key={preset.label}
-                onClick={() => {
-                  setSelectedOperation(preset.op);
-                  setSampleText(preset.text);
-                  setPatternInput(preset.pattern);
-                  if (preset.repl) setReplaceInput(preset.repl);
-                }}
-                className={clsx(
-                  "p-2.5 rounded-xl text-left border transition-all text-xs",
-                  selectedOperation === preset.op && patternInput === preset.pattern
-                    ? "bg-teal-950 border-teal-500 text-teal-200 shadow-md shadow-teal-950"
-                    : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700"
-                )}
-              >
-                <div className="font-mono font-bold text-teal-300">{preset.label}</div>
-                <div className="text-[11px] text-slate-400 line-clamp-1">{preset.pattern}</div>
-              </button>
-            ))}
-          </div>
-
-          {/* Operation Selector Buttons */}
-          <div className="flex gap-2 mb-6">
-            {[
-              { id: "search", label: "re.search()" },
-              { id: "match", label: "re.match()" },
-              { id: "findall", label: "re.findall()" },
-              { id: "sub", label: "re.sub()" },
-            ].map((op) => (
-              <button
-                key={op.id}
-                onClick={() => setSelectedOperation(op.id)}
-                className={clsx(
-                  "flex-1 py-2 rounded-xl text-xs sm:text-sm font-mono font-bold border transition-all",
-                  selectedOperation === op.id
-                    ? "bg-teal-950 border-teal-500 text-teal-300 shadow-md shadow-teal-950"
-                    : "bg-slate-950 border-slate-800 text-slate-400 hover:text-white"
-                )}
-              >
-                {op.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            {/* Left Controls */}
-            <div className="space-y-4 bg-slate-950 p-5 rounded-xl border border-slate-800">
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
               <div>
-                <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">
-                  Target Sample String
-                </label>
-                <textarea
-                  value={sampleText}
-                  onChange={(e) => setSampleText(e.target.value)}
-                  rows={3}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-slate-100 font-mono text-xs focus:outline-none focus:border-teal-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">
-                  Regex Pattern String (with capture groups)
-                </label>
-                <input
-                  type="text"
-                  value={patternInput}
-                  onChange={(e) => setPatternInput(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-teal-300 font-mono text-sm focus:outline-none focus:border-teal-500"
-                />
-              </div>
-
-              {selectedOperation === "sub" && (
-                <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">
-                    Replacement Template (Use $1, $2 or \1, \2 for groups)
-                  </label>
-                  <input
-                    type="text"
-                    value={replaceInput}
-                    onChange={(e) => setReplaceInput(e.target.value)}
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-rose-300 font-mono text-sm focus:outline-none focus:border-rose-500"
-                  />
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
                 </div>
-              )}
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
 
-            {/* Right Output */}
-            <div className="space-y-4 flex flex-col justify-between">
-              <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
-                <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block">
-                  Generated Python Code
-                </span>
-                <pre className="p-3 bg-slate-900 rounded-lg border border-slate-800 text-teal-300 font-mono text-xs overflow-x-auto whitespace-pre-wrap">
-                  {opResult.pyCode}
-                </pre>
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
               </div>
-
-              <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
-                <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block">
-                  Evaluated Result
-                </span>
-                {opResult.valid ? (
-                  opResult.outputType === "match_object" ? (
-                    <div className="space-y-1.5 text-xs font-mono">
-                      <div className="text-emerald-300 font-bold">
-                        Match Found: "{opResult.fullMatch}" at span {opResult.span}
-                      </div>
-                      <div className="text-slate-300">
-                        Subgroups: {JSON.stringify(opResult.groups)}
-                      </div>
-                    </div>
-                  ) : opResult.outputType === "findall_list" ? (
-                    <div className="space-y-1 text-xs font-mono">
-                      <div className="text-emerald-300 font-bold">Total Matches: {opResult.count}</div>
-                      <div className="text-slate-200 bg-slate-900 p-2 rounded max-h-24 overflow-y-auto">
-                        {JSON.stringify(opResult.matches, null, 2)}
-                      </div>
-                    </div>
-                  ) : opResult.outputType === "substituted_string" ? (
-                    <pre className="p-3 bg-slate-900 rounded border border-slate-800 text-emerald-300 font-mono text-xs whitespace-pre-wrap font-bold">
-                      {opResult.result}
-                    </pre>
-                  ) : (
-                    <div className="text-xs font-mono text-rose-400 italic">
-                      {opResult.result}
-                    </div>
-                  )
-                ) : (
-                  <div className="text-xs font-mono text-rose-400">{opResult.error}</div>
-                )}
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
               </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 4: MASTER METHOD COMPARISON TABLE */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📊</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              4. Master Regex Methods Comparison Matrix
-            </h2>
-          </div>
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300 border-collapse">
-              <thead>
-                <tr className="border-b border-slate-700 text-slate-200 bg-slate-950/60">
-                  <th className="py-3.5 px-4 font-bold">Method</th>
-                  <th className="py-3.5 px-4 font-bold">Search Scope</th>
-                  <th className="py-3.5 px-4 font-bold">Return Type on Match</th>
-                  <th className="py-3.5 px-4 font-bold">Return on Failure</th>
-                  <th className="py-3.5 px-4 font-bold">Ideal Use Case</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800">
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-teal-300 font-semibold">re.search(pat, s)</td>
-                  <td className="py-3 px-4">Scans anywhere in string</td>
-                  <td className="py-3 px-4 font-mono text-emerald-400">Match Object</td>
-                  <td className="py-3 px-4 font-mono text-slate-400">None</td>
-                  <td className="py-3 px-4">Finding the first occurrence of an embedded pattern</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-teal-300 font-semibold">re.match(pat, s)</td>
-                  <td className="py-3 px-4">Index 0 (Start of string only)</td>
-                  <td className="py-3 px-4 font-mono text-emerald-400">Match Object</td>
-                  <td className="py-3 px-4 font-mono text-slate-400">None</td>
-                  <td className="py-3 px-4">Validating line start tokens or command prefixes</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-teal-300 font-semibold">re.fullmatch(pat, s)</td>
-                  <td className="py-3 px-4">Entire string from start to end</td>
-                  <td className="py-3 px-4 font-mono text-emerald-400">Match Object</td>
-                  <td className="py-3 px-4 font-mono text-slate-400">None</td>
-                  <td className="py-3 px-4">Strict form validation (PAN, PIN, Mobile numbers)</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-cyan-300 font-semibold">re.findall(pat, s)</td>
-                  <td className="py-3 px-4">Entire string for all matches</td>
-                  <td className="py-3 px-4 font-mono text-emerald-400">list of str or tuples</td>
-                  <td className="py-3 px-4 font-mono text-slate-400">[] (Empty list)</td>
-                  <td className="py-3 px-4">Extracting all occurrences into a Python list</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-cyan-300 font-semibold">re.finditer(pat, s)</td>
-                  <td className="py-3 px-4">Entire string (Lazy stream)</td>
-                  <td className="py-3 px-4 font-mono text-emerald-400">callable_iterator</td>
-                  <td className="py-3 px-4 font-mono text-slate-400">Empty iterator</td>
-                  <td className="py-3 px-4">Streaming Match objects over huge log files with zero RAM waste</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-rose-300 font-semibold">re.sub(pat, repl, s)</td>
-                  <td className="py-3 px-4">Entire string substitution</td>
-                  <td className="py-3 px-4 font-mono text-emerald-400">str (Modified string)</td>
-                  <td className="py-3 px-4 font-mono text-slate-400">Original string</td>
-                  <td className="py-3 px-4">Pattern replacements, date reformatting, PII redaction</td>
-                </tr>
-                <tr className="hover:bg-slate-800/40">
-                  <td className="py-3 px-4 font-mono text-rose-300 font-semibold">re.split(pat, s)</td>
-                  <td className="py-3 px-4">Splits by pattern delimiters</td>
-                  <td className="py-3 px-4 font-mono text-emerald-400">list of str</td>
-                  <td className="py-3 px-4 font-mono text-slate-400">[s]</td>
-                  <td className="py-3 px-4">Splitting text across multiple irregular separators</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 5: LIVE PYTHON CODE LAB */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">💻</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              5. Interactive Code Lab: Production Scripts
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Explore 4 production-grade Python scripts demonstrating search/match/fullmatch, findall group rules, finditer streaming, sub backreferences, and server log PII redactors:
-          </p>
-
-          <PythonFileLoader
-            files={[
-              {
-                filename: "matching_methods_and_match_objects.py",
-                code: matchObjects,
-                description: "re.search vs re.match vs re.fullmatch, positional groups (.group(1)), named groups, and span coordinates.",
-              },
-              {
-                filename: "findall_finditer_and_groups.py",
-                code: findallIter,
-                description: "findall() return rules (0/1/2+ groups), finditer lazy streaming, and re.split with capturing delimiters.",
-              },
-              {
-                filename: "sub_subn_and_replacement_functions.py",
-                code: subFunctions,
-                description: "re.sub with backreferences (\\1, \\2), dynamic callback replacement functions, and re.subn substitution counters.",
-              },
-              {
-                filename: "log_parser_and_pii_redactor.py",
-                code: logRedactor,
-                description: "Industrial web server access log parser and privacy PII data redactor for mobile, PAN, and emails.",
-              },
-            ]}
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Pattern matching: search(), match(), findall(), sub() FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
           />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 6: COMMON TRAPS & EDGE CASES */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              6. Common Traps, Anti-Patterns &amp; Edge Cases
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Trap 1 */}
-            <div className="p-6 rounded-xl bg-rose-950/30 border border-rose-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-rose-400 font-bold text-base">
-                <span>❌</span> Trap 1: Calling `.group()` Without Checking `None`
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Writing <code className="text-rose-300 font-mono">val = re.search(pat, s).group(1)</code> crashes with <code className="text-rose-300 font-mono">AttributeError: 'NoneType' object has no attribute 'group'</code> whenever the search fails.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Write <code className="text-emerald-300">if (m := re.search(pat, s)): val = m.group(1)</code>
-              </div>
-            </div>
-
-            {/* Trap 2 */}
-            <div className="p-6 rounded-xl bg-amber-950/30 border border-amber-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-amber-400 font-bold text-base">
-                <span>❌</span> Trap 2: Using `re.match()` Expecting Full-Text Search
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                <code className="text-amber-300 font-mono">re.match(r"\d+", "Invoice 101")</code> returns <code className="text-amber-300 font-mono">None</code> because <code className="text-amber-300 font-mono">match()</code> only looks at index 0 ('I').
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Use <code className="text-emerald-300">re.search(r"\d+", text)</code> for general substring searches!
-              </div>
-            </div>
-
-            {/* Trap 3 */}
-            <div className="p-6 rounded-xl bg-purple-950/30 border border-purple-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-purple-400 font-bold text-base">
-                <span>❌</span> Trap 3: `re.findall()` Tuple Surprise
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Adding parentheses to a pattern in <code className="text-purple-300 font-mono">re.findall(r"(\w+)-(\d+)", s)</code> changes the return type from a list of strings to a <strong>list of tuples</strong>.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Tip:</span> Use non-capturing groups <code className="text-emerald-300">(?:...)</code> if you want full string matches!
-              </div>
-            </div>
-
-            {/* Trap 4 */}
-            <div className="p-6 rounded-xl bg-cyan-950/30 border border-cyan-800/60 shadow-lg space-y-3">
-              <div className="flex items-center gap-2 text-cyan-400 font-bold text-base">
-                <span>❌</span> Trap 4: Backreference Escaping in `re.sub()`
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Writing <code className="text-cyan-300 font-mono">re.sub(pat, "\1", s)</code> without raw string prefix treats <code className="text-cyan-300 font-mono">"\1"</code> as ASCII character <code className="text-slate-400 font-mono">\x01</code> instead of group 1.
-              </p>
-              <div className="text-xs font-mono bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-slate-400">
-                <span className="text-emerald-400 font-bold">Fix:</span> Always use raw strings for replacement templates: <code className="text-emerald-300">r"\1"</code> or <code className="text-emerald-300">r"\g&lt;1&gt;"</code>
-              </div>
-            </div>
-          </div>
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Pattern matching: search(), match(), findall(), sub()"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic8_note.txt"
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 7: FAQ & INTERVIEW REVIEW QUESTIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">❓</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              7. Master Review &amp; Interview Questions (25 FAQs)
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Comprehensive question-and-answer repository covering match objects, group extraction rules, finditer streaming, and dynamic re.sub callbacks:
-          </p>
-
-          <FAQTemplate questions={questions} />
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 8: STUDY NOTES, PRINTABLE HANDOUT & TEACHER BIO */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">📄</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              8. Study Notes, Printable Handout &amp; Teacher Profile
-            </h2>
-          </div>
-
-          <p className="text-slate-300 mb-6 text-base">
-            Download or print the complete reference sheet with matching trio comparisons, Match object cheat sheets, and log redactor pipelines:
-          </p>
-
-          <div className="mb-10">
-            <PlainTextPrint
-              content={noteText}
-              filename="python_topic8_pattern_matching_notes.txt"
-              title="Print Topic 8 Study Notes"
-            />
-          </div>
-
-          {/* Teacher Bio Card */}
-          <Teacher />
-        </section>
-
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 8 · Pattern matching: search(), match(), findall(), sub() · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Topic8;

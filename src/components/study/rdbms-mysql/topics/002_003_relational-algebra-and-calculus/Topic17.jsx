@@ -634,7 +634,7 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);`}
               "In my classes in Barrackpore, I remind students: while Relational Algebra tells the engine HOW to find data, " +
               "TRC tells the engine WHAT data you want using pure mathematical logic: $\\{ t \\mid P(t) \\}$. " +
               "Always pay close attention to Safety: an expression is only valid if every variable is strictly bounded " +
-              "to a database relation ($t \\in \\text{Students}$). " +
+              "to a database relation ($t \\in \Students$). " +
               "And when dealing with 'For All' queries, remember De Morgan's Quantifier Duality: " +
               "$\\forall u P(u) \\equiv \\neg \\exists u \\neg P(u)$, which translates seamlessly into SQL's double `NOT EXISTS` pattern!"
             }

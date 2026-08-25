@@ -213,7 +213,7 @@ const Topic5 = () => {
                 </span>
               </div>
               <p className="text-xs text-slate-300">
-                Both relations must have the <strong>EXACT SAME NUMBER OF ATTRIBUTES</strong>: {"$\\text{Degree}(R) = \\text{Degree}(S) \\iff n = m$"}.
+                Both relations must have the <strong>EXACT SAME NUMBER OF ATTRIBUTES</strong>: {"$\Degree(R) = \Degree(S) \\iff n = m$"}.
               </p>
               <div className="p-2 rounded bg-slate-900 text-[11px] text-amber-300 font-mono">
                 Violation ➔ MySQL Error 1222: Different number of columns.
@@ -229,7 +229,7 @@ const Topic5 = () => {
                 </span>
               </div>
               <p className="text-xs text-slate-300">
-                For every column position $i$, the domain of $A_i$ must be compatible with $B_i$: {"$\\text{dom}(A_i) \\cong \\text{dom}(B_i)$"}.
+                For every column position $i$, the domain of $A_i$ must be compatible with $B_i$: {"$\dom(A_i) \\cong \dom(B_i)$"}.
               </p>
               <div className="p-2 rounded bg-slate-900 text-[11px] text-cyan-300 font-mono">
                 Column names can differ; only data types and positional order matter.

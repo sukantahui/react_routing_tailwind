@@ -1,221 +1,379 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import clsx from "clsx";
+
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic5_files/topic5_questions";
+import noteText from "./topic5_files/topic5_note.txt?raw";
 
-// Import Python files
-import forwardBackward from "./topic5_files/forward_backward.py?raw";
-import precisionDrawing from "./topic5_files/precision_drawing.py?raw";
-import distanceControl from "./topic5_files/distance_control.py?raw";
-
-const keyframes = `
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes softGlow {
-  0%,100% { box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-  50% { box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-}
-`;
-
+/**
+ * Topic5 – Movement fundamentals: forward(), backward(), distance control and precision
+ * Module: 005_001_turtle-foundation (Module 1 – Turtle Foundations & First Drawings)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
+ */
 const Topic5 = () => {
-  const prototypes = [
-    { name: "forward(distance) / fd(distance)", returnType: "None", purpose: "Moves turtle forward by given units.", usage: "t.forward(100)" },
-    { name: "backward(distance) / bk(distance) / back(distance)", returnType: "None", purpose: "Moves turtle backward (opposite of heading).", usage: "t.backward(50)" },
-    { name: "distance(x, y)", returnType: "float", purpose: "Returns distance from turtle to point (x,y).", usage: "dist = t.distance(100,0)" },
-    { name: "towards(x, y)", returnType: "float", purpose: "Returns angle to turn toward (x,y).", usage: "angle = t.towards(100,0)" },
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-      <style>{keyframes}</style>
+    <>
+      <style>{`
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          transform: translateY(0);
+        }
+      `}</style>
 
-      <div className="max-w-6xl mx-auto space-y-12">
-        {/* Hero */}
-        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Movement Fundamentals
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 5</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Movement fundamentals: forward(), backward(), distance control and precision
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            forward(), backward(), distance control, and precision
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Start visual programming with turtle graphics, screen coordinates, pen controls, and geometric shapes.
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">⬆️ forward() / fd()</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">⬇️ backward() / bk()</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">📏 Distance & Precision</span>
-          </div>
-        </div>
 
-        {/* SVG Illustration: Forward and backward movement */}
-        <div className="flex justify-center animate-[fadeInUp_0.6s_ease-out_0.1s]">
-          <div className="bg-gray-800/40 rounded-2xl p-4 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-            <svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[500px] h-auto">
-              <rect x="20" y="20" width="460" height="260" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" rx="10" />
-              
-              {/* Starting point */}
-              <circle cx="150" cy="150" r="5" fill="#f97316" />
-              <text x="140" y="140" fill="#f97316" fontSize="10">Start</text>
-              
-              {/* Forward arrow and label */}
-              <line x1="150" y1="150" x2="300" y2="150" stroke="#2dd4bf" strokeWidth="3" markerEnd="url(#arrowFwd)" />
-              <text x="210" y="140" fill="#2dd4bf" fontSize="12">forward(150)</text>
-              <circle cx="300" cy="150" r="5" fill="#2dd4bf" />
-              <text x="305" y="145" fill="#2dd4bf" fontSize="10">Point A</text>
-              
-              {/* Backward arrow */}
-              <line x1="300" y1="150" x2="180" y2="150" stroke="#f97316" strokeWidth="3" strokeDasharray="6,4" markerEnd="url(#arrowBack)" />
-              <text x="220" y="170" fill="#f97316" fontSize="12">backward(120)</text>
-              <circle cx="180" cy="150" r="5" fill="#f97316" />
-              
-              {/* Turtle icons */}
-              <g transform="translate(150,150)">
-                <circle r="12" fill="#14b8a6" fillOpacity="0.5" stroke="#14b8a6" strokeWidth="1.5" />
-                <polygon points="15,0 6,-4 6,4" fill="#14b8a6" />
-              </g>
-              <g transform="translate(300,150)">
-                <circle r="12" fill="#2dd4bf" fillOpacity="0.5" stroke="#2dd4bf" strokeWidth="1.5" />
-                <polygon points="15,0 6,-4 6,4" fill="#2dd4bf" />
-              </g>
-              
-              <defs>
-                <marker id="arrowFwd" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-                  <polygon points="0 0, 10 5, 0 10" fill="#2dd4bf" />
-                </marker>
-                <marker id="arrowBack" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-                  <polygon points="10 0, 0 5, 10 10" fill="#f97316" />
-                </marker>
-              </defs>
-              
-              {/* Note about precision */}
-              <text x="50" y="240" fill="#94a3b8" fontSize="11">Distance units are pixels (screen-dependent)</text>
-              <text x="50" y="260" fill="#94a3b8" fontSize="11">Precision: floating point (e.g., forward(37.5))</text>
-            </svg>
-            <p className="text-center text-sm text-gray-400 mt-2">forward() moves in heading direction; backward() moves opposite</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
           </div>
-        </div>
+        </header>
 
-        {/* Explanation */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.2s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">📏 Movement Basics</h2>
-          <div className="bg-gray-800/30 rounded-xl p-5 space-y-3">
-            <p className="leading-relaxed"><code>forward(distance)</code> and <code>backward(distance)</code> are the primary commands to move the turtle. Movement is <strong>relative</strong> to the turtle's current heading. Distance units are typically pixels, but can be treated as abstract units. Precision matters: using integers vs floats, and understanding cumulative errors.</p>
-            <div className="grid md:grid-cols-2 gap-4">
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Movement fundamentals: forward(), backward(), distance control and precision
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
               <div>
-                <h3 className="text-xl font-semibold text-emerald-300">Key Concepts</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li><code>forward(n)</code> – moves n units in heading direction.</li>
-                  <li><code>backward(n)</code> – moves n units opposite heading.</li>
-                  <li>Movement does not change heading.</li>
-                  <li>Distance is measured from current position.</li>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Movement fundamentals: forward(), backward(), distance control and precision</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
                 </ul>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-cyan-300">Precision Matters</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Floats allowed: <code>forward(50.75)</code>.</li>
-                  <li>Cumulative floating-point errors can affect complex drawings.</li>
-                  <li>Use integer distances for exact symmetric patterns.</li>
-                </ul>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
               </div>
             </div>
           </div>
         </section>
 
-        {/* Python Code Examples */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.3s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">💻 Code Examples</h2>
-          <PythonFileLoader fileModule={forwardBackward} title="forward_backward.py" highlightLines={[6,7,8,9]} />
-          <PythonFileLoader fileModule={precisionDrawing} title="precision_drawing.py" highlightLines={[6,7,12,13]} />
-          <PythonFileLoader fileModule={distanceControl} title="distance_control.py" highlightLines={[6,7,8,9,10,11]} />
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Movement fundamentals: forward(), backward(), distance control and precision
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
         </section>
 
-        {/* Prototype Table */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.4s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🔧 Movement Method Prototypes</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-gray-800/30 rounded-xl text-sm">
-              <thead className="bg-gray-700/60">
-                <tr><th className="px-4 py-2 text-left">Method</th><th>Return</th><th>Purpose</th><th>Example</th></tr>
-              </thead>
-              <tbody>
-                {prototypes.map((p, idx) => (
-                  <tr key={idx} className="border-t border-gray-700 hover:bg-gray-700/30 transition">
-                    <td className="px-4 py-2 font-mono text-emerald-300">{p.name}</td>
-                    <td className="px-4 py-2 text-center">{p.returnType}</td>
-                    <td className="px-4 py-2">{p.purpose}</td>
-                    <td className="px-4 py-2 font-mono text-xs">{p.usage}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Common Pitfalls & Best Practices */}
-        <div className="grid lg:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.5s]">
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-amber-300">⚠️ Common Pitfalls</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li><strong>Assuming backward reverses heading:</strong> It doesn't; heading remains unchanged.</li>
-              <li><strong>Using extremely large distances:</strong> Can cause turtle to go off-screen or cause performance issues.</li>
-              <li><strong>Floating-point drift:</strong> Repeated fractional moves can accumulate error; use integers when possible.</li>
-              <li><strong>Negative distances:</strong> <code>forward(-50)</code> works but is confusing; use <code>backward(50)</code> instead.</li>
-            </ul>
-          </div>
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-green-300">✅ Best Practices</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li>Use positive distances for clarity.</li>
-              <li>Store repeated distances in variables: <code>step = 50</code>.</li>
-              <li>For precise loops, calculate total distance to avoid drift.</li>
-              <li>Use <code>t.distance()</code> to check if turtle reached a target.</li>
-              <li>Combine <code>forward()</code> with <code>pendown()/penup()</code> for patterns.</li>
-            </ul>
-          </div>
-        </div>
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
 
-        {/* Checklist */}
-        <div className="bg-gray-800/50 rounded-xl p-5 border border-emerald-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
-          <h3 className="text-xl font-semibold">📝 Student Checklist</h3>
-          <div className="grid sm:grid-cols-2 gap-2 mt-2">
-            {[
-              "I can move the turtle forward using `forward()` or `fd()`",
-              "I can move the turtle backward using `backward()` or `bk()`",
-              "I understand that forward/backward are relative to current heading",
-              "I can use integer and floating-point distances",
-              "I know how to calculate distance to a point using `t.distance()`",
-              "I avoid negative distances for readability"
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2"><span className="text-emerald-400">✓</span><span className="text-gray-200">{item}</span></div>
-            ))}
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* Hints & Expert Mindset */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <div className="bg-indigo-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">💡 Hints to Explore</h3>
-            <p>👉 <strong>Think about:</strong> Why does <code>backward(100)</code> not change the heading?</p>
-            <p>👉 <strong>Observe:</strong> What happens if you call <code>forward(50.5)</code> then <code>forward(49.5)</code> – does the turtle land exactly at 100?</p>
-            <p>👉 <strong>Try changing:</strong> Use a loop to move forward increasing distances and notice the pattern.</p>
-          </div>
-          <div className="bg-purple-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">🚀 Expert Mindset</h3>
-            <p>Professional graphics and robotics rely on precise distance control. Think of the turtle as a robot: you need to account for cumulative error. Use <code>distance()</code> for validation and implement feedback loops (move until within tolerance). This is the foundation of autonomous navigation.</p>
-          </div>
-        </div>
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Movement fundamentals: forward(), backward(), distance control and precision FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
+        </section>
 
-        {/* FAQs and Teacher Note */}
-        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
-          <FAQTemplate title="Movement Fundamentals FAQs" questions={questions} />
-        </div>
-        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
-          <Teacher note="Students often think backward turns the turtle. Have them draw a line forward, then backward, and observe that the turtle ends up at start but still facing the same direction. Use a race analogy: 'running backward doesn't change which way you face.' Emphasize that distance units are abstract – good time to introduce variables: `side = 100`." />
-        </div>
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Movement fundamentals: forward(), backward(), distance control and precision"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic5_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
+
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 5 · Movement fundamentals: forward(), backward(), distance control and precision · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
 };
 

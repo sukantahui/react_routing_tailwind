@@ -464,7 +464,7 @@ const Topic10 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{student_id, full_name}}(\\text{Enrollments}) \\div \\pi_{\\text{course_id}}(\\text{Core_Courses})$"}
+                {"Relational Algebra: $\\pi_{\student_id, full_name}(\Enrollments) \\div \\pi_{\course_id}(\Core_Courses)$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.student_id, s.full_name
@@ -485,7 +485,7 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);`}
                 <span className="text-xs text-slate-500 font-mono">Kolkata Banking</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\\text{customer_id, branch_id}}(\\text{Accounts}) \\div \\pi_{\\text{branch_id}}(\\sigma_{\\text{city} = 'Kolkata'}(\\text{Branches}))$"}
+                {"Relational Algebra: $\\pi_{\customer_id, branch_id}(\Accounts) \\div \\pi_{\branch_id}(\\sigma_{\city = 'Kolkata'}(\Branches))$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT customer_id

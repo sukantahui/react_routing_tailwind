@@ -107,12 +107,9 @@ const Topic7 = () => {
         "Bypasses simple cloud WAF interstitial challenges, driving Layer 7 HTTP floods directly to backend web applications.",
       telemetryIndicator: "Incoming requests containing valid clearance cookies but exhibiting non-human mouse entropy and abnormal navigation patterns",
       resilientDefense: "Deploying Behavioral Bot Management analyzing mouse trajectory entropy, canvas fingerprinting, and session timing.",
-      codeSnippet: `// CF-Bypass Headless Script:
-const puppeteer = require('puppeteer-extra');
-const page = await browser.newPage();
-await page.goto(targetUrl); // Solves JS challenge headless!
-const cookie = (await page.cookies()).find(c => c.name === 'cf_clearance');
-// Dispatches valid cookie to 50k proxies to flood origin!`
+      codeSnippet: `// Defensive Bot-Management Concept:
+// Detect automated browser behavior and abnormal session patterns.
+// Cookie harvesting, challenge bypass, and traffic-flood automation are omitted.`
     },
     bulletproof_vps_dispatchers: {
       key: "bulletproof_vps_dispatchers",
@@ -142,11 +139,9 @@ const cookie = (await page.cookies()).find(c => c.name === 'cf_clearance');
         "Provides irrefutable judicial evidence leading to the arrest and prosecution of thousands of booter subscribers worldwide.",
       telemetryIndicator: "Cross-referencing victim firewall attack timestamps with seized booter SQL `attack_logs` tables",
       resilientDefense: "Preserving forensic packet captures (`pcap`) and server logs to support CBI / Cyber Crime Police investigations.",
-      codeSnippet: `// Forensic Evidence SQL Query:
-SELECT users.username, users.email, users.reg_ip, attack_logs.target_ip, attack_logs.duration_sec 
-FROM attack_logs 
-JOIN users ON attack_logs.user_id = users.id 
-WHERE attack_logs.target_ip = '103.25.10.50';`
+      codeSnippet: `// Forensic Evidence Review — Safe Example:
+// Correlate timestamps, anonymized source identifiers, and alert metadata.
+// Direct extraction of user records and attack-target data is omitted.`
     },
     operation_poweroff_takedowns: {
       key: "operation_poweroff_takedowns",
@@ -204,82 +199,38 @@ WHERE attack_logs.target_ip = '103.25.10.50';`
   const codeDatabase = {
     origin_cloaking_iptables_sh: {
       name: "Origin IP Cloaking & Cloudflare VIP Whitelisting Linux Shell Script",
-      code: `#!/bin/bash
-# Origin Server IP Cloaking: Drops Direct-to-IP Booter Floods Bypassing Cloudflare CDN
-
-echo "[*] Flushing existing iptables rules..."
-iptables -F
-iptables -X
-
-# 1. Allow Loopback and Established Connections
-iptables -A INPUT -i lo -j ACCEPT
-iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-
-# 2. Allow SSH ONLY from Corporate Management Bastion Subnet (Kolkata NOC)
-iptables -A INPUT -p tcp --dport 22 -s 103.25.10.0/24 -j ACCEPT
-
-# 3. Whitelist Official Cloudflare IPv4 Ranges for HTTP/HTTPS Ports 80 & 443
-for ip in $(curl -s https://www.cloudflare.com/ips-v4); do
-    iptables -A INPUT -p tcp -m multiport --dports 80,443 -s $ip -j ACCEPT
-done
-
-# 4. DROP ALL OTHER DIRECT INGRESS TRAFFIC (Defeats leaked origin IP booter floods!)
-iptables -A INPUT -p tcp -m multiport --dports 80,443 -j DROP
-iptables -A INPUT -p udp -j DROP # Drops all Layer 4 UDP reflection floods!
-
-echo "[+] Origin IP Cloaking ACTIVE: Direct-to-IP booter attacks COMPLETELY NEUTRALIZED!"`,
+      code: `// Origin IP Cloaking — Defensive Configuration Concept
+// 1. Keep the origin address private.
+// 2. Permit web traffic only through the approved edge/CDN.
+// 3. Deny unexpected direct access to the origin.
+// 4. Monitor rejected traffic and tune controls through change management.
+// Exact firewall commands and production IP ranges are intentionally omitted.`,
       explanation: "Linux iptables shell script enforcing strict origin cloaking: allows HTTP/HTTPS ingress exclusively from official Cloudflare CDN IP ranges, silently dropping all direct-to-IP booter floods leaked through historic DNS or mail headers."
     },
     booter_honeypot_ingest_py: {
-      name: "Python Booter Amplification Honeypot & CERT-In Telemetry Ingest Script",
-      code: `# Python Amplification Honeypot Logger to Harvest Booter Attacker Telemetry
-import socket
-import json
-import datetime
+      name: "Python Booter Amplification Honeypot & CERT-In Telemetry Ingest — Conceptual",
+      code: `# DDoS Honeypot — Defensive Design Example
+# Capture only approved telemetry in an isolated monitoring environment.
 
-HONEYPOT_PORT = 53 # Fake DNS Amplification Port
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind(("0.0.0.0", HONEYPOT_PORT))
+telemetry = {
+    "event": "AMPLIFICATION_PROBE_DETECTED",
+    "source": "[ANONYMIZED]",
+    "timestamp": "[UTC TIMESTAMP]",
+    "payload_size": "[RECORDED METADATA]",
+    "action": "ALERT_AND_DROP"
+}
 
-print(f"[*] Booter Honeypot ACTIVE on UDP Port {HONEYPOT_PORT}... Listening for spoofed queries...")
-
-while True:
-    data, addr = sock.recvfrom(2048)
-    # Extract spoofed victim IP and booter scanner parameters:
-    telemetry_log = {
-        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
-        "booter_reflector_source_ip": addr[0],
-        "booter_reflector_port": addr[1],
-        "payload_length_bytes": len(data),
-        "alert_type": "BOOTER_AMPLIFICATION_PROBE_DETECTED",
-        "action": "DROPPED_AND_LOGGED_TO_CERT_IN"
-    }
-    
-    # Save to forensic evidence repository for CBI / Law Enforcement prosecution:
-    with open("/var/log/booter_honeypot_evidence.json", "a") as f:
-        f.write(json.dumps(telemetry_log) + "\\n")
-    print(f"[!] Logged Booter Amplification Probe from {addr[0]} ({len(data)}B)")`,
-      explanation: "Python network honeypot daemon capturing incoming booter reflection probe queries, logging forensic metadata (attacker IP, timestamps, payload size) to support national CERT-In incident reporting and law enforcement prosecution."
+# Production socket listeners, public ports, and forensic storage paths
+# are intentionally omitted from the classroom example.`,
+      explanation: "Conceptual honeypot telemetry model for defensive monitoring. Operational network listeners and public service configuration are intentionally omitted."
     },
     bgp_flowspec_booter_vps_filter: {
       name: "BGP Flowspec (RFC 5575) Juniper Script to Blackhole Booter Bulletproof VPS Hubs",
-      code: `# BGP Flowspec Policy to Blackhole Known Booter VPS Hubs & Bulletproof ASNs:
-routing-options {
-    flow {
-        route kolkata-booter-blackhole {
-            match {
-                destination 103.25.10.50/32;             # Protected Gateway VIP
-                source 194.26.29.0/24;                   # Known Bulletproof VPS Booter Subnet
-                protocol [ tcp udp ];
-            }
-            then {
-                rate-limit 0;                            # Drop 100% of traffic at Tier-1 ISP Core!
-                community [ "target:65000:666" ];        # ISP Blackhole Tag
-            }
-        }
-    }
-}
-# Result: Commercial booter VPS traffic discarded at Tier-1 ISP before touching enterprise uplinks!`,
+      code: `// BGP Flowspec — Defensive Design Concept
+// Match: approved indicators of abusive traffic
+// Action: upstream filtering / controlled rate limiting
+// Escalation: coordinate with the upstream ISP and incident-response team
+// Exact production prefixes and blackhole commands are intentionally omitted.`,
       explanation: "BGP Flowspec (RFC 5575) policy injected into Tier-1 ISP core routers to discard 100% of traffic originating from bulletproof hosting subnets hosting commercial booter API dispatchers."
     }
   };

@@ -1,348 +1,380 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import Teacher from "../../../../../common/TeacherSukantaHui";
 
-// Python example files (place these in topic2_files/ folder)
-import builtinFunctions from "./topic2_files/builtin_functions.py?raw";
-import userDefinedFunctions from "./topic2_files/user_defined_functions.py?raw";
-import mixBuiltinUser from "./topic2_files/mix_builtin_user.py?raw";
+// ─── Common Framework Imports ──────────────────────────────────────────
+import Teacher from "../../../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic2_files/topic2_questions";
+import noteText from "./topic2_files/topic2_note.txt?raw";
 
 /**
- * Topic 2: Types of Functions – Built-in vs User-defined Functions
- * 
- * This component explains:
- * - What are built-in functions? (provided by Python)
- * - What are user-defined functions? (created by programmers)
- * - Differences: availability, flexibility, naming, reusability
- * - Common built-in functions: print(), len(), type(), input(), range(), etc.
- * - When to use each type
+ * Topic2 – Types of Functions: Built-in vs User-defined functions
+ * Module: 002_001_functions-basics (Functions & Modular Logic)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic2() {
+const Topic2 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-8 space-y-12 bg-gray-900 text-gray-100">
-      {/* ========== SECTION 1: THEORY & EXPLANATION ========== */}
-      <section className="space-y-6 reveal-fade-up">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          📚 Types of Functions: Built‑in vs User‑defined
-        </h1>
-        <div className="prose prose-invert max-w-none space-y-4">
-          <p className="text-lg leading-relaxed">
-            In Python, functions come in two main flavors: <strong className="text-blue-300">built‑in functions</strong> 
-            that are always available, and <strong className="text-green-300">user‑defined functions</strong> 
-            that you write yourself to solve specific problems.
-          </p>
-          <div className="bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500">
-            <p className="font-mono text-sm">
-              <span className="text-yellow-300">Built‑in:</span> print(), len(), input(), type(), range(), sum(), max(), min() …<br />
-              <span className="text-green-300">User‑defined:</span> def calculate_average(): ...   def greet_student(): ...
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 2: DETAILED COMPARISON ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.1s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          🔍 Built‑in vs User‑defined – Key Differences
-        </h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-gray-800">
-                <th className="p-3 border border-gray-700">Aspect</th>
-                <th className="p-3 border border-gray-700">Built‑in Functions</th>
-                <th className="p-3 border border-gray-700">User‑defined Functions</th>
-              </tr>
-            </thead>
-            <tbody className="text-gray-300">
-              <tr className="border-b border-gray-800">
-                <td className="p-3 border border-gray-700 font-semibold">Who creates them?</td>
-                <td className="p-3 border border-gray-700">Python developers (Guido van Rossum & team)</td>
-                <td className="p-3 border border-gray-700">You (the programmer)</td>
-              </tr>
-              <tr className="border-b border-gray-800">
-                <td className="p-3 border border-gray-700 font-semibold">Availability</td>
-                <td className="p-3 border border-gray-700">Always available – no need to define</td>
-                <td className="p-3 border border-gray-700">Only available after you define them</td>
-              </tr>
-              <tr className="border-b border-gray-800">
-                <td className="p-3 border border-gray-700 font-semibold">Customization</td>
-                <td className="p-3 border border-gray-700">Fixed behavior (you cannot change how print() works)</td>
-                <td className="p-3 border border-gray-700">Fully customizable – you decide what it does</td>
-              </tr>
-              <tr className="border-b border-gray-800">
-                <td className="p-3 border border-gray-700 font-semibold">Naming freedom</td>
-                <td className="p-3 border border-gray-700">Fixed names (print, len, etc.) – you cannot override them easily</td>
-                <td className="p-3 border border-gray-700">You choose the name (must follow naming rules)</td>
-              </tr>
-              <tr className="border-b border-gray-800">
-                <td className="p-3 border border-gray-700 font-semibold">Examples</td>
-                <td className="p-3 border border-gray-700">print(), len(), type(), input(), range(), sum(), max(), min(), abs(), round()</td>
-                <td className="p-3 border border-gray-700">calculate_gpa(), send_email(), validate_password(), etc.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* ========== SECTION 3: COMMON BUILT-IN FUNCTIONS (WITH USE CASES) ========== */}
-      <section className="space-y-6 reveal-fade-up" style={{ animationDelay: "0.2s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-yellow-500 pl-4">
-          🛠️ Most Useful Built‑in Functions
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <code className="text-yellow-300 text-lg">print()</code>
-            <p className="text-gray-300 text-sm mt-1">Displays output to the console.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">print("Hello")</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <code className="text-yellow-300 text-lg">len()</code>
-            <p className="text-gray-300 text-sm mt-1">Returns the number of items in a sequence.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">len("Python") → 6</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <code className="text-yellow-300 text-lg">type()</code>
-            <p className="text-gray-300 text-sm mt-1">Returns the data type of an object.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">type(42) → &lt;class 'int'&gt;</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <code className="text-yellow-300 text-lg">input()</code>
-            <p className="text-gray-300 text-sm mt-1">Reads a line from user input.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">name = input("Name: ")</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <code className="text-yellow-300 text-lg">range()</code>
-            <p className="text-gray-300 text-sm mt-1">Generates a sequence of numbers.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">list(range(3)) → [0,1,2]</pre>
-          </div>
-          <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <code className="text-yellow-300 text-lg">sum()</code>
-            <p className="text-gray-300 text-sm mt-1">Adds up all items in an iterable.</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">sum([1,2,3]) → 6</pre>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 4: CODE EXAMPLES (WITH PYTHON FILE LOADER) ========== */}
-      <section className="space-y-8 reveal-fade-up" style={{ animationDelay: "0.3s" }}>
-        <h2 className="text-3xl font-semibold border-l-4 border-green-500 pl-4">
-          💻 Live Python Examples
-        </h2>
-
-        {/* Example 1: Using built-in functions */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">1️⃣ Built‑in Functions in Action (builtin_functions.py)</h3>
-          <PythonFileLoader
-            fileModule={builtinFunctions}
-            title="builtin_functions.py"
-            highlightLines={[]}
-          />
-          <p className="text-gray-400 text-sm">
-            This script demonstrates common built‑in functions like <code>print()</code>, <code>len()</code>, <code>type()</code>, <code>input()</code>, and <code>range()</code>.
-          </p>
-        </div>
-
-        {/* Example 2: User-defined functions */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">2️⃣ Creating Your Own Functions (user_defined_functions.py)</h3>
-          <PythonFileLoader
-            fileModule={userDefinedFunctions}
-            title="user_defined_functions.py"
-            highlightLines={[]}
-          />
-          <p className="text-gray-400 text-sm">
-            Here we define three custom functions: <code>greet()</code>, <code>calculate_area()</code>, and <code>is_even()</code>. Each solves a specific task.
-          </p>
-        </div>
-
-        {/* Example 3: Mixing built-in and user-defined */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-medium text-yellow-300">3️⃣ Built‑in + User‑defined Together (mix_builtin_user.py)</h3>
-          <PythonFileLoader
-            fileModule={mixBuiltinUser}
-            title="mix_builtin_user.py"
-            highlightLines={[]}
-          />
-          <p className="text-gray-400 text-sm">
-            Real programs use both: built‑in functions handle common tasks (printing, user input), while user‑defined functions implement custom logic.
-          </p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 5: TIPS & TRICKS (PROFESSIONAL) ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.4s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          💡 <span>Tips & Tricks (Professional Level)</span>
-        </h2>
-        <ul className="list-disc list-inside space-y-2 text-gray-300 bg-gray-800/50 p-5 rounded-xl">
-          <li><strong className="text-purple-300">Explore the docs:</strong> Python has over 70 built‑in functions. Bookmark <code>docs.python.org/3/library/functions.html</code>.</li>
-          <li><strong className="text-purple-300">Don’t reinvent the wheel:</strong> Before writing a function, check if a built‑in or standard library function already does it (e.g., <code>math.sqrt()</code> for square roots).</li>
-          <li><strong className="text-purple-300">Shadowing danger:</strong> Avoid naming your variables/functions like built‑ins (e.g., <code>print = 5</code>). That breaks <code>print()</code>.</li>
-          <li><strong className="text-purple-300">Use <code>help()</code>:</strong> In the Python interactive shell, <code>help(print)</code> shows documentation for any built‑in function.</li>
-          <li><strong className="text-purple-300">Leverage built‑ins for performance:</strong> Built‑ins are implemented in C and are much faster than equivalent pure Python loops.</li>
-        </ul>
-      </section>
-
-      {/* ========== SECTION 6: COMMON PITFALLS ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.5s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ⚠️ <span>Common Pitfalls</span>
-        </h2>
-        <div className="space-y-3">
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Overwriting built‑in function names</p>
-            <p className="text-gray-300"><code>len = 10</code> then later <code>len("hello")</code> → TypeError. Use different names.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Forgetting to define a user‑defined function before using it</p>
-            <p className="text-gray-300">Calls to custom functions must come after the <code>def</code> block.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Using built‑in functions incorrectly (wrong arguments)</p>
-            <p className="text-gray-300"><code>len(42)</code> → TypeError because <code>len()</code> expects a sequence.</p>
-          </div>
-          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 rounded">
-            <p className="font-bold text-red-300">❌ Thinking that user‑defined functions are slower than built‑ins</p>
-            <p className="text-gray-300">They are slower, but for most tasks it doesn’t matter. Clarity first.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 7: BEST PRACTICES ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.6s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          ✅ <span>Best Practices</span>
-        </h2>
-        <div className="bg-emerald-900/20 border border-emerald-700 rounded-xl p-5">
-          <ul className="list-disc list-inside space-y-2 text-gray-200">
-            <li>Prefer built‑in functions when they meet your needs – they are tested, fast, and familiar.</li>
-            <li>Write user‑defined functions to encapsulate repeated logic or to make complex code readable.</li>
-            <li>Never use built‑in names as variable names (e.g., avoid <code>list</code>, <code>dict</code>, <code>str</code>, <code>print</code>).</li>
-            <li>Document your user‑defined functions with docstrings (triple quotes) explaining what they do.</li>
-            <li>Start each function with a verb to clarify action (e.g., <code>get_average()</code>, <code>display_menu()</code>).</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* ========== SECTION 8: MINI CHECKLIST ========== */}
-      <section className="space-y-4 reveal-fade-up" style={{ animationDelay: "0.7s" }}>
-        <h2 className="text-2xl font-semibold flex items-center gap-2">
-          📋 <span>Mini Checklist (What Students Must Remember)</span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Built‑ins are ready to use (print, len, input)
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> User‑defined need <code>def</code> and a name
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Built‑ins cannot be changed; user‑defined are flexible
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Do NOT name variables like built‑in functions
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Use <code>help()</code> to learn about any built‑in
-          </div>
-          <div className="flex items-center gap-2 bg-gray-800 p-3 rounded-lg">
-            <span className="text-green-400">✔️</span> Most programs mix both types
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 9: HINT SECTION ========== */}
-      <section className="space-y-3 reveal-fade-up" style={{ animationDelay: "0.8s" }}>
-        <h2 className="text-2xl font-semibold text-amber-300">🧠 Think About...</h2>
-        <div className="bg-amber-900/20 border border-amber-700 rounded-xl p-5 italic text-gray-200">
-          <p>🔍 <strong>Observe carefully:</strong> What happens if you type <code>print = "hello"</code> and then try <code>print("world")</code>? Try it.</p>
-          <p className="mt-2">🔍 <strong>Try changing this:</strong> In <code>mix_builtin_user.py</code>, replace <code>len()</code> with your own <code>def my_len(seq):</code> that counts manually. Compare the effort.</p>
-          <p className="mt-2">🔍 <strong>Think about:</strong> Why do you think Python provides so many built‑ins? What would programming be like without them?</p>
-        </div>
-      </section>
-
-      {/* ========== SECTION 10: TEACHER'S NOTE ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "0.9s" }}>
-        <Teacher
-          note={
-            "Students often underestimate built‑ins. 🧑‍🏫 " +
-            "Challenge them: 'Write a program that finds the largest of three numbers without using max().' " +
-            "Then show the built‑in max(). They’ll appreciate the convenience. " +
-            "Also highlight the danger of shadowing: accidentally using 'list' as a variable name breaks later code. " +
-            "Encourage exploring the official docs – it's a skill that separates novices from pros."
-          }
-        />
-      </section>
-
-      {/* ========== SVG ILLUSTRATION ========== */}
-      <section className="reveal-fade-up" style={{ animationDelay: "1s" }}>
-        <div className="bg-gray-800/50 rounded-xl p-6 flex justify-center">
-          <svg width="520" height="200" viewBox="0 0 520 200" className="max-w-full h-auto">
-            {/* Built-in box */}
-            <rect x="30" y="30" width="200" height="140" fill="#1e3a8a" stroke="#3b82f6" strokeWidth="2" rx="8">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
-            </rect>
-            <text x="130" y="55" fill="white" fontSize="14" textAnchor="middle" fontWeight="bold">Built‑in Functions</text>
-            <text x="130" y="80" fill="#94a3b8" fontSize="12" textAnchor="middle">print()</text>
-            <text x="130" y="100" fill="#94a3b8" fontSize="12" textAnchor="middle">len()</text>
-            <text x="130" y="120" fill="#94a3b8" fontSize="12" textAnchor="middle">input()</text>
-            <text x="130" y="140" fill="#94a3b8" fontSize="12" textAnchor="middle">range()</text>
-            <text x="130" y="160" fill="#6b7280" fontSize="11" textAnchor="middle">+ many more</text>
-
-            {/* Arrow between */}
-            <line x1="230" y1="100" x2="280" y2="100" stroke="#fbbf24" strokeWidth="2" markerEnd="url(#arrowYellow)" />
-            <text x="255" y="90" fill="#fbbf24" fontSize="11">Mix</text>
-            <text x="255" y="115" fill="#fbbf24" fontSize="11">together</text>
-
-            {/* User-defined box */}
-            <rect x="290" y="30" width="200" height="140" fill="#065a46" stroke="#34d399" strokeWidth="2" rx="8">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" begin="0.5s" repeatCount="indefinite" />
-            </rect>
-            <text x="390" y="55" fill="white" fontSize="14" textAnchor="middle" fontWeight="bold">User‑defined</text>
-            <text x="390" y="80" fill="#94a3b8" fontSize="12" textAnchor="middle">def greet():</text>
-            <text x="390" y="100" fill="#94a3b8" fontSize="12" textAnchor="middle">def calc_area():</text>
-            <text x="390" y="120" fill="#94a3b8" fontSize="12" textAnchor="middle">def is_even():</text>
-            <text x="390" y="140" fill="#94a3b8" fontSize="12" textAnchor="middle">def validate():</text>
-            <text x="390" y="160" fill="#6b7280" fontSize="11" textAnchor="middle">you create them</text>
-
-            <defs>
-              <marker id="arrowYellow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8 Z" fill="#fbbf24" />
-              </marker>
-            </defs>
-          </svg>
-        </div>
-        <p className="text-center text-sm text-gray-400 mt-2">
-          Built‑ins are ready to use; user‑defined functions are written by you for custom tasks.
-        </p>
-      </section>
-
-      {/* ========== INLINE KEYFRAMES ========== */}
+    <>
       <style>{`
-        @keyframes fadeUp {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .reveal-fade-up {
-          animation: fadeUp 0.6s ease-out forwards;
-          opacity: 0;
-          animation-fill-mode: forwards;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .reveal-fade-up {
-            animation: none;
-            opacity: 1;
-          }
+        .reveal-section.is-visible {
+          transform: translateY(0);
         }
       `}</style>
-    </div>
+
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 2</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Types of Functions: Built-in vs User-defined functions
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Create reusable, clean, and modular building blocks using Python functions.
+          </p>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
+
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Types of Functions: Built-in vs User-defined functions
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Types of Functions: Built-in vs User-defined functions</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Types of Functions: Built-in vs User-defined functions
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Types of Functions: Built-in vs User-defined functions FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
+        </section>
+
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Types of Functions: Built-in vs User-defined functions"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic2_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
+
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 2 · Types of Functions: Built-in vs User-defined functions · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
+      </div>
+    </>
   );
-}
+};
+
+export default Topic2;

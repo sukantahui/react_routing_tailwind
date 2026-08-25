@@ -1,0 +1,53 @@
+================================================================================
+COMPUTER ARCHITECTURE MASTERCLASS - TOPIC 0: INTRODUCTION TO SEQUENTIAL CIRCUITS
+COMBINATIONAL VS SEQUENTIAL LOGIC, MEMORY CONCEPT & FEEDBACK MECHANISMS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. COMBINATIONAL VS SEQUENTIAL CIRCUITS: FUNDAMENTAL DISTINCTION
+--------------------------------------------------------------------------------
+A. Combinational Circuits:
+   - Outputs at any instant depend SOLELY on present inputs at that instant.
+   - Equation: Output Y = f(Present Inputs X).
+   - No memory elements, no feedback paths, no clock synchronization needed.
+   - Examples: Half/Full Adders, Decoders, Multiplexers, Encoders, ALUs.
+
+B. Sequential Circuits:
+   - Outputs depend on BOTH present inputs AND the past history (Present State) of the system.
+   - Equation: Output Y = f(Inputs X, Present State Q)
+               Next State Q(t+1) = g(Inputs X, Present State Q)
+   - Contains Memory Elements (Flip-Flops / Latches) with positive feedback loops.
+   - Examples: Registers, Counters, Memory Units, CPU Finite State Machines (FSM).
+
+2. THE FEEDBACK MECHANISM & BIRTH OF SILICON MEMORY
+--------------------------------------------------------------------------------
+- In pure combinational logic, signals travel strictly in one direction (Input -> Output).
+- By routing an inverting output back to an input in a closed circular loop, the circuit
+  develops positive feedback, locking itself into one of two stable equilibrium states (0 or 1).
+- This bistable multivibrator action creates 1-bit static RAM (SRAM) storage.
+
+3. SYNCHRONOUS VS ASYNCHRONOUS SEQUENTIAL SYSTEMS
+--------------------------------------------------------------------------------
+A. Synchronous Sequential Circuits:
+   - State transitions occur simultaneously across all storage elements, synchronized
+     by a periodic master Clock (CLK) signal.
+   - Highly reliable, predictable, immune to race conditions and glitching.
+
+B. Asynchronous Sequential Circuits:
+   - State changes occur immediately whenever inputs change without waiting for a clock.
+   - Faster in theoretical switching but susceptible to timing hazards and race conditions.
+
+4. COMPARISON MATRIX:
+  Feature               Combinational Circuits         Sequential Circuits
+  --------------------  -----------------------------  -----------------------------
+  Output Dependency     Present inputs only            Present inputs + Past state
+  Memory Storage        No memory elements             Flip-Flops / Latches (Memory)
+  Feedback Path         None (strictly feedforward)    Closed-loop positive feedback
+  Clock Signal          Not required                   Required in synchronous types
+  Design Complexity     Simpler (K-Maps, Truth Tables) Complex (State Diagrams, FSMs)
+  Speed                 Faster (pure gate delays)      Clock-period bounded
+  Examples              Adders, MUX, Decoders          Registers, Counters, CPU FSMs
+
+================================================================================
+END OF STUDY NOTE - TOPIC 0
+================================================================================

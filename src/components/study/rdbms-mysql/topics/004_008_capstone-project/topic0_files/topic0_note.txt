@@ -1,0 +1,115 @@
+================================================================================
+RDBMS & MYSQL 8.0 ENTERPRISE CAPSTONE PROJECT ROADMAP
+TOPIC 0: CAPSTONE PROJECT GUIDELINES, SCOPE, AND INDUSTRY-STANDARD REQUIREMENTS
+================================================================================
+
+1. EXECUTIVE OVERVIEW & ARCHITECTURAL OBJECTIVES
+--------------------------------------------------------------------------------
+Understanding production database engineering standards, milestone deliverables, schema integrity requirements, and performance expectations for the enterprise capstone.
+
+Key Engineering Pillars:
+1. Rigor & Integrity: Strict domain, entity, and referential integrity constraints enforced at database layer.
+2. 100k+ Volume: Realistic seed data testing index performance under high query load.
+3. Automation: Server-side stored procedures, audit triggers, and scheduled recurring events.
+4. Production Security: Granular RBAC roles, SSL/TLS, and automated disaster recovery runbooks.
+
+2. CORE CONCEPTS & IMPLEMENTATION RUNBOOKS
+--------------------------------------------------------------------------------
+[1. ENGINEERING STANDARDS]
+Production capstone databases must follow industry-grade conventions including strict data types, UTF8MB4 charset, audit triggers, and explicit naming conventions.
+
+SQL Implementation:
+-- 🏢 ENTERPRISE DATABASE STANDARDS IN MYSQL 8.0:
+-- 1. Explicit strict schema definitions (NO generic VARCHAR(255) for all fields).
+-- 2. UTF8MB4 charset with utf8mb4_0900_ai_ci collation across all tables.
+-- 3. Explicit Foreign Key constraints with well-planned referential actions (CASCADE/RESTRICT).
+-- 4. Mandatory audit timestamps (created_at, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP).
+-- 5. Strict index strategy (every FK indexed, composite indexes aligned with leftmost prefix).
+
+Takeaways:
+- Follow consistent snake_case naming for all tables, columns, indexes, and constraints.
+- Every table must have an explicit Primary Key with indexed foreign dependencies.
+- All monetary and ledger values must use DECIMAL(15,2) or DECIMAL(18,4), never FLOAT.
+
+--------------------------------------------------------------------------------
+[2. EIGHT MILESTONES]
+The capstone project progresses systematically through eight structured phases mirroring enterprise software development lifecycles.
+
+SQL Implementation:
+-- 📋 8-PHASE CAPSTONE LIFECYCLE:
+-- Phase 1: Requirements Gathering & Crow's Foot EER Diagram (15+ Entities)
+-- Phase 2: Formal Normalization to 3NF/BCNF & Relational Schema Mapping
+-- Phase 3: Production DDL Scripts with Constraints & Foreign Keys
+-- Phase 4: Mock Data Generation (100,000+ Realistic Seed Records)
+-- Phase 5: 15 Analytical Queries (Window Functions, CTEs, ROLLUP)
+-- Phase 6: Procedural Automation (3 Stored Procedures, 3 Triggers, 1 Event)
+-- Phase 7: EXPLAIN Profiling, Covering Indexes & Query Optimization
+-- Phase 8: RBAC Security Matrix, mysqldump & Point-in-Time Recovery Runbook
+
+Takeaways:
+- Progress from conceptual modeling to physical DDL and data generation.
+- Implement analytical reports and automated server-side procedures.
+- Benchmark query latency and enforce database security.
+
+--------------------------------------------------------------------------------
+[3. EVALUATION RUBRIC]
+Projects are graded on relational architectural rigor, SQL query efficiency, server-side procedural logic, and viva defense.
+
+SQL Implementation:
+-- 📊 CAPSTONE EVALUATION WEIGHTAGE:
+-- Schema Architecture & Normalization (3NF/BCNF):  25%
+-- Complex Analytical SQL & Query Optimization:     20%
+-- Stored Procedures, Triggers & Automation:        20%
+-- Security, Roles, Backup & Disaster Recovery:     15%
+-- Documentation, ER Diagrams & Viva Defense:       20%
+-- Total Score:                                     100%
+
+Takeaways:
+- Demonstrate 3NF normalization proofs with attribute closures.
+- Provide before-and-after EXPLAIN cost improvements for optimized queries.
+- Defend relational constraints and security policies during viva voce.
+
+--------------------------------------------------------------------------------
+[4. DISQUALIFYING FLAWS]
+Common pitfalls such as CSV columns, lack of indexes, and unconstrained nullability disqualify enterprise database submissions.
+
+SQL Implementation:
+-- ⚠️ DISQUALIFYING ANTI-PATTERNS:
+-- 1. Unnormalized repeating groups or multi-valued CSV columns (1NF violation).
+-- 2. Storing plain-text passwords without SHA-256/bcrypt hashing.
+-- 3. Storing currency as FLOAT or DOUBLE causing floating-point rounding errors.
+-- 4. Missing foreign key indexes causing full table lock scans during joins.
+-- 5. Using SELECT * in production reporting procedures without explicit columns.
+
+Takeaways:
+- Never store multiple values in a single delimited string column.
+- Always define explicit precision on currency and percentage columns.
+- Ensure every foreign key column is supported by an index.
+
+
+3. REAL-WORLD BENGAL ENGINEERING SCENARIOS
+--------------------------------------------------------------------------------
+* Case 1: Mamata & Susmita – Multi-Vendor Retail Portal in Barrackpore
+  Mamata and Susmita built a multi-vendor retail database handling ₹1.5 Crores in monthly transactions across Barrackpore and Ichapur. By enforcing 3NF normalization, foreign key cascade actions, and indexing composite order dates, their schema achieved sub-3ms checkout latencies under 150,000 order records.
+
+* Case 2: Abhronila & Debangshu – Core Banking & Ledger in Kolkata
+  In Kolkata, Abhronila and Debangshu architected a double-entry banking ledger tracking ₹50 Crores in deposits across 12 bank branches. They implemented pessimistic row locking (SELECT ... FOR UPDATE), automated audit logging triggers, and point-in-time recovery runbooks preventing financial discrepancies.
+
+
+4. SENIOR PITFALLS & PRODUCTION BEST PRACTICES
+--------------------------------------------------------------------------------
+Pitfalls to Avoid:
+- Pitfall 1: Insufficient Seed Data: Testing queries against 20 rows hides query execution bottlenecks. Always seed 100,000+ realistic records to validate B-Tree indexes and EXPLAIN plans. (Rule: Generate realistic multi-thousand row datasets for accurate performance benchmarking.)
+- Pitfall 2: Storing Unhashed Credentials: Saving application user passwords in plain text violates data security standards and results in project failure. (Rule: Store only cryptographically salted and hashed passwords (e.g., CHAR(60)).)
+
+Production Best Practices:
+- Best Practice 1: Comprehensive Documentation: Maintain a complete repository containing EER diagrams, DDL scripts, seed scripts, query runbooks, and disaster recovery guides. (Ensures seamless auditability, team handover, and viva defense.)
+- Best Practice 2: Version-Controlled Migrations: Number and sequence all DDL schema scripts (e.g. V1__init_schema.sql, V2__indexes.sql) for reproducible database deployments. (Prevents environment drift between development and production.)
+
+5. TEACHER'S MASTER ADVICE - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+Welcome to the Capstone Project! This is where all your hard work across relational theory, SQL querying, procedural routines, and performance tuning comes together. Approach your capstone like an enterprise Principal Database Architect. Choose a domain that excites you, normalize your schema to 3NF, write clean DDL with robust foreign keys, seed 100,000+ records, and optimize your queries with EXPLAIN. Make your project something you will proudly showcase in technical interviews!
+
+================================================================================
+END OF STUDY NOTE - TOPIC 0
+================================================================================

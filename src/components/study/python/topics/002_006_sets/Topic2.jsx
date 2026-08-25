@@ -1,507 +1,380 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Shared Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python Code Examples (Imported with ?raw)
-import uniquenessDemo from "./topic2_files/uniqueness_in_action.py?raw";
-import hashEquality from "./topic2_files/hash_equality_identity.py?raw";
-import voterDeduplication from "./topic2_files/voter_deduplication.py?raw";
-import customClassHashing from "./topic2_files/custom_class_hashing.py?raw";
-
-// Plain Text Note for Printing/Downloading
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import questions from "./topic2_files/topic2_questions";
 import noteText from "./topic2_files/topic2_note.txt?raw";
 
-// FAQ Questions
-import questions from "./topic2_files/topic2_questions";
-
 /**
- * Topic2: Unique Nature of Sets in Python
- * Module: 002_006_sets
- * Segment: 2 (Practical Python for Real-World Development)
+ * Topic2 – Unique nature of sets
+ * Module: 002_006_sets (Sets & Set Operations)
+ * Track: Python from Basic to Pro
  *
- * Deep dive into the mathematical and algorithmic mechanisms behind
- * Python set uniqueness, hash invariants, equivalence rules, and custom class deduplication.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
-export default function Topic2() {
+const Topic2 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
-  const [activeTab, setActiveTab] = useState("decision");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 antialiased font-sans p-4 sm:p-6 md:p-10 pb-28 selection:bg-emerald-500/30 selection:text-emerald-200">
-      {/* Scoped Keyframes for Lightweight Zero-Config Micro-Animations */}
+    <>
       <style>{`
-        .section-hidden {
-          transform: translateY(18px);
-          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
         }
-        .section-visible {
+        .reveal-section.is-visible {
           transform: translateY(0);
         }
       `}</style>
 
-      {/* ==================================================================== */}
-      {/* HEADER SECTION */}
-      {/* ==================================================================== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-slate-800/80"
-      >
-        <div className="flex flex-wrap items-center gap-3 mb-3">
-          <span className="text-xs sm:text-sm font-mono font-semibold bg-emerald-950/80 text-emerald-300 px-3 py-1 rounded-full border border-emerald-800/80 shadow-sm shadow-emerald-950/50">
-            Segment 2 • Module 002_006
-          </span>
-          <span className="text-xs sm:text-sm font-mono bg-sky-950/80 text-sky-300 px-3 py-1 rounded-full border border-sky-800/80 shadow-sm shadow-sky-950/50">
-            Topic 2
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-slate-400">
-            Data Structure Invariants
-          </span>
-        </div>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 006 · Topic 2</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Unique nature of sets
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master distinct element collections, set theory operations, and high-performance membership checks.
+          </p>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          The Unique Nature of Sets
-        </h1>
-        <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
-          Mastering the <span className="text-emerald-400 font-semibold">Two-Step Uniqueness Engine</span>, hash invariants, numerical equivalence (why <code className="text-sky-400 font-mono">1 == True</code>), and custom class deduplication.
-        </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
+          </div>
+        </header>
 
-        <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            ⚖️ Two-Step Equality Engine
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🔢 1 == 1.0 == True Equivalence
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🏷️ __eq__ and __hash__ Invariant
-          </span>
-          <span className="text-xs sm:text-sm bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-lg text-slate-300 font-medium">
-            🛡️ Case-Sensitivity Rules
-          </span>
-        </div>
-      </header>
-
-      {/* ==================================================================== */}
-      {/* MAIN CONTENT WRAPPER */}
-      {/* ==================================================================== */}
-      <div className="max-w-5xl mx-auto space-y-16">
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 1: THE TWO-STEP DUPLICATE DETECTION ENGINE */}
-        {/* ------------------------------------------------------------------ */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚙️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              1. The Two-Step Duplicate Detection Engine
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Unique nature of sets
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
-            <p>
-              How does Python know if an incoming object is a duplicate of something already in the set? It does <strong className="text-white">NOT</strong> do a slow linear scan of all existing elements. Instead, it executes an ultra-fast <strong className="text-emerald-400">Two-Step Verification Protocol</strong>:
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-6 not-prose">
-              {/* Step 1 */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-emerald-800/60 shadow-lg shadow-emerald-950/30 transition-all duration-300 hover:border-emerald-500">
-                <div className="flex items-center gap-2 text-emerald-400 font-bold text-lg mb-2">
-                  <span>1️⃣</span> Step 1: Hash Address Lookup
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Unique nature of sets</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
                 </div>
-                <p className="text-sm text-slate-300">
-                  Python computes <code className="font-mono text-emerald-300">hash(new_item)</code>. It immediately jumps directly to that specific hash bucket. If the bucket is empty, the item is inserted as a new unique element.
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
                 </p>
               </div>
-
-              {/* Step 2 */}
-              <div className="p-5 rounded-xl bg-slate-950/70 border border-sky-800/60 shadow-lg shadow-sky-950/30 transition-all duration-300 hover:border-sky-500">
-                <div className="flex items-center gap-2 text-sky-400 font-bold text-lg mb-2">
-                  <span>2️⃣</span> Step 2: Exact Equality Check
-                </div>
-                <p className="text-sm text-slate-300">
-                  If the bucket is already occupied (same hash), Python checks <code className="font-mono text-sky-300">new_item == existing_item</code>. If equality returns <strong className="text-white">True</strong>, it's a confirmed duplicate and discarded!
-                </p>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
             </div>
 
-            <div className="bg-slate-950/70 p-5 rounded-xl border-l-4 border-emerald-500 border border-slate-800/80">
-              <h3 className="text-white font-bold text-base mb-2">
-                The Golden Hash Invariant Contract:
-              </h3>
-              <p className="text-sm sm:text-base text-slate-300">
-                If two objects compare equal (<code className="text-emerald-400 font-mono">a == b</code>), then their hash codes <strong className="text-white">MUST</strong> be identical (<code className="text-emerald-400 font-mono">hash(a) == hash(b)</code>). If a developer violates this rule in custom classes, sets will fail to detect duplicates!
-              </p>
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 2: INTERACTIVE SVG DECISION FLOW */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">🔀</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                2. Visualizing Duplicate Evaluation Protocol
-              </h2>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Unique nature of sets
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
             </div>
 
-            {/* Toggle Tabs */}
-            <div className="flex bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
-              <button
-                onClick={() => setActiveTab("decision")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "decision"
-                    ? "bg-emerald-900/50 text-emerald-300 border border-emerald-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                Decision Logic Flowchart
-              </button>
-              <button
-                onClick={() => setActiveTab("equiv")}
-                className={clsx(
-                  "px-3 py-1.5 rounded-lg transition-all",
-                  activeTab === "equiv"
-                    ? "bg-sky-900/50 text-sky-300 border border-sky-700/60 shadow-sm"
-                    : "text-slate-400 hover:text-white"
-                )}
-              >
-                1 vs 1.0 vs True Equivalence
-              </button>
-            </div>
-          </div>
-
-          {/* SVG Diagram Canvas */}
-          <div className="bg-slate-950 rounded-xl p-4 sm:p-6 overflow-x-auto border border-slate-800/90 shadow-2xl">
-            {activeTab === "decision" ? (
-              <svg viewBox="0 0 850 360" className="w-full h-auto min-w-[650px] font-sans">
-                {/* Step 1: Input Object */}
-                <rect x="30" y="50" width="180" height="60" rx="10" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
-                <text x="50" y="78" fill="#f8fafc" fontSize="13" fontWeight="bold">Incoming Item: x</text>
-                <text x="50" y="98" fill="#94a3b8" fontSize="11">e.g. "Susmita"</text>
-
-                <path d="M 210 80 L 280 80" stroke="#38bdf8" strokeWidth="2" fill="none" />
-
-                {/* Step 2: Compute Hash */}
-                <rect x="280" y="45" width="220" height="70" rx="10" fill="#0f172a" stroke="#10b981" strokeWidth="2" />
-                <text x="300" y="73" fill="#34d399" fontSize="13" fontWeight="bold">Step 1: Compute hash(x)</text>
-                <text x="300" y="95" fill="#94a3b8" fontSize="11">Find Target Bucket in Table</text>
-
-                <path d="M 500 80 L 570 80" stroke="#10b981" strokeWidth="2" fill="none" />
-
-                {/* Step 3: Bucket check */}
-                <rect x="570" y="40" width="250" height="80" rx="10" fill="#1e293b" stroke="#f59e0b" strokeWidth="2" />
-                <text x="590" y="70" fill="#fbbf24" fontSize="13" fontWeight="bold">Is Bucket Occupied?</text>
-                <text x="590" y="95" fill="#94a3b8" fontSize="11">Check hash collision / match</text>
-
-                {/* Branch: NO -> Store as Unique */}
-                <path d="M 695 120 L 695 180" stroke="#10b981" strokeWidth="2" fill="none" />
-                <text x="705" y="150" fill="#10b981" fontSize="11" fontWeight="bold">NO (Empty)</text>
-
-                <rect x="590" y="180" width="220" height="50" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
-                <text x="610" y="210" fill="#a7f3d0" fontSize="12" fontWeight="bold">✓ Store as New Element</text>
-
-                {/* Branch: YES -> Equality Check */}
-                <path d="M 570 80 L 390 180" stroke="#f59e0b" strokeWidth="2" fill="none" />
-                <text x="440" y="135" fill="#fbbf24" fontSize="11" fontWeight="bold">YES (Occupied)</text>
-
-                <rect x="260" y="180" width="260" height="70" rx="10" fill="#1e293b" stroke="#a855f7" strokeWidth="2" />
-                <text x="280" y="208" fill="#c084fc" fontSize="13" fontWeight="bold">Step 2: Check (x == existing)</text>
-                <text x="280" y="230" fill="#94a3b8" fontSize="11">Exact value verification</text>
-
-                {/* True -> Duplicate discarded */}
-                <path d="M 260 215 L 140 215" stroke="#ef4444" strokeWidth="2" fill="none" />
-                <text x="175" y="205" fill="#ef4444" fontSize="11" fontWeight="bold">TRUE</text>
-
-                <rect x="30" y="190" width="180" height="50" rx="8" fill="#450a0a" stroke="#ef4444" strokeWidth="1.5" />
-                <text x="45" y="220" fill="#fca5a5" fontSize="12" fontWeight="bold">⚡ DUPLICATE! (Discard)</text>
-
-                {/* False -> Collision probe */}
-                <path d="M 390 250 L 390 300" stroke="#38bdf8" strokeWidth="2" fill="none" />
-                <text x="400" y="280" fill="#38bdf8" fontSize="11" fontWeight="bold">FALSE</text>
-
-                <rect x="260" y="300" width="260" height="45" rx="8" fill="#0c4a6e" stroke="#38bdf8" strokeWidth="1.5" />
-                <text x="280" y="328" fill="#bae6fd" fontSize="12" fontWeight="bold">Collision Probe → Next Bucket</text>
-              </svg>
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <svg viewBox="0 0 850 320" className="w-full h-auto min-w-[650px] font-sans">
-                <text x="30" y="35" fill="#f8fafc" fontSize="15" fontWeight="bold">Understanding {'{1, 1.0, True, 1 + 0j}'} Collapse</text>
-
-                {/* Item Cards */}
-                <rect x="30" y="65" width="160" height="70" rx="8" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
-                <text x="45" y="95" fill="#34d399" fontSize="14" fontWeight="bold">Integer: 1</text>
-                <text x="45" y="118" fill="#94a3b8" fontSize="11">hash(1) = 1</text>
-
-                <rect x="220" y="65" width="160" height="70" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
-                <text x="235" y="95" fill="#38bdf8" fontSize="14" fontWeight="bold">Float: 1.0</text>
-                <text x="235" y="118" fill="#94a3b8" fontSize="11">hash(1.0) = 1</text>
-
-                <rect x="410" y="65" width="160" height="70" rx="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
-                <text x="425" y="95" fill="#fbbf24" fontSize="14" fontWeight="bold">Boolean: True</text>
-                <text x="425" y="118" fill="#94a3b8" fontSize="11">hash(True) = 1</text>
-
-                <rect x="600" y="65" width="180" height="70" rx="8" fill="#1e293b" stroke="#a855f7" strokeWidth="1.5" />
-                <text x="615" y="95" fill="#c084fc" fontSize="14" fontWeight="bold">Complex: 1+0j</text>
-                <text x="615" y="118" fill="#94a3b8" fontSize="11">hash(1+0j) = 1</text>
-
-                {/* Convergence Arrow */}
-                <path d="M 110 135 L 425 200" stroke="#10b981" strokeWidth="1.5" fill="none" />
-                <path d="M 300 135 L 425 200" stroke="#38bdf8" strokeWidth="1.5" fill="none" />
-                <path d="M 490 135 L 425 200" stroke="#f59e0b" strokeWidth="1.5" fill="none" />
-                <path d="M 690 135 L 425 200" stroke="#a855f7" strokeWidth="1.5" fill="none" />
-
-                {/* Final Target Bucket */}
-                <rect x="230" y="200" width="390" height="80" rx="12" fill="#064e3b" stroke="#10b981" strokeWidth="2" />
-                <text x="250" y="235" fill="#a7f3d0" fontSize="14" fontWeight="bold">Same Hash (1) + All Compare Equal (==)</text>
-                <text x="250" y="260" fill="#ffffff" fontSize="13">→ Set stores only 1 element: {'{1}'} (Length: 1)</text>
-              </svg>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
             )}
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 3: CODE DEMONSTRATIONS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 space-y-8"
-        >
-          <div className="flex items-center gap-3">
-            <span className="text-3xl">💻</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              3. Practical Python Uniqueness Demos
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Demo A: Uniqueness in Action & Numeric Collapses
-              </h3>
-              <PythonFileLoader
-                fileModule={uniquenessDemo}
-                title="uniqueness_in_action.py"
-                highlightLines={[6, 11, 15, 20]}
-              />
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Demo B: The Two-Step Hash vs Equality Verification
-              </h3>
-              <PythonFileLoader
-                fileModule={hashEquality}
-                title="hash_equality_identity.py"
-                highlightLines={[7, 13, 20]}
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Demo C: Real-World Voter Registry Deduplication & Election Grant in ₹
-              </h3>
-              <PythonFileLoader
-                fileModule={voterDeduplication}
-                title="voter_deduplication.py"
-                highlightLines={[16, 20, 25]}
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Demo D: Custom Class Uniqueness with __eq__ and __hash__
-              </h3>
-              <PythonFileLoader
-                fileModule={customClassHashing}
-                title="custom_class_hashing.py"
-                highlightLines={[11, 17, 27]}
-              />
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 4: REAL-WORLD SCENARIOS IN WEST BENGAL */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">🏛️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              4. Real-World Case Studies in Industry
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🗳️</span> 1. Civic Polling Station Verification
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
               </div>
-              <p className="text-sm text-slate-300">
-                When Debangshu and Susmita process 12,000 raw voter logs across <strong>Barrackpore</strong> polling booths, sets eliminate accidental double-submissions, ensuring an accurate logistics allocation of <strong className="text-emerald-300">₹150 per verified voter</strong>.
-              </p>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-sky-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">💳</span> 2. Double-Click Payment Idempotency
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
               </div>
-              <p className="text-sm text-slate-300">
-                Payment gateways store processed transaction idempotency keys in a set. When a customer clicks "Pay ₹4,500" twice in 200 milliseconds, the set rejects the second transaction in <span className="font-semibold text-emerald-400">O(1)</span> time.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-purple-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">📈</span> 3. Unique Visitor Analytics (DAU)
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
               </div>
-              <p className="text-sm text-slate-300">
-                Web server telemetry records client IP addresses in a memory set. At midnight, calling <code className="font-mono text-purple-400">len(unique_ips)</code> gives the exact Daily Active Users metric with zero double-counting.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-amber-500">
-              <div className="flex items-center gap-2 font-bold text-white text-base mb-2">
-                <span className="text-xl">🏥</span> 4. Hospital Patient Registration
-              </div>
-              <p className="text-sm text-slate-300">
-                Hospital portals in <strong>Kolkata</strong> and <strong>Jadavpur</strong> wrap medical records into custom classes with <code className="font-mono text-amber-400">__hash__</code> keyed on National Health IDs, preventing duplicate patient profile generation.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 5: COMMON PITFALLS */}
-        {/* ------------------------------------------------------------------ */}
-        <section
-          ref={addToRefs}
-          className="section-hidden bg-slate-900/80 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-950/40 border border-slate-800/80 backdrop-blur-sm transition-all duration-300 hover:border-slate-700/80"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              5. Pitfalls & Tricky Uniqueness Edge Cases
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 1: Assuming True != 1 in Sets
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Writing <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">{"{1, True}"}</code> yields only <code className="font-mono text-emerald-400">{"{1}"}</code> because <code className="font-mono">True == 1</code> and both share the same hash code (1).
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 2: Mutating Objects After Insertion
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                If an object's attribute changes after being added to a set, its hash changes, stranding it in the wrong bucket and permanently breaking lookup checks!
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 3: Case-Sensitivity Assumptions
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                <code className="bg-rose-900/40 px-1 py-0.5 rounded font-mono text-rose-200">{"{'Kolkata', 'kolkata'}"}</code> has length 2. Strings are case-sensitive; normalize with <code className="font-mono text-emerald-400">.casefold()</code> if case-insensitivity is needed.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-rose-950/30 border border-rose-900/60">
-              <div className="font-bold text-rose-400 mb-1">
-                ❌ Pitfall 4: Implementing __eq__ without __hash__
-              </div>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Overriding <code className="font-mono text-slate-200">__eq__</code> without defining <code className="font-mono text-slate-200">__hash__</code> sets hash to None, preventing your custom objects from being stored in sets.
-              </p>
-            </div>
-          </div>
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Unique nature of sets FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 6: PRINTABLE STUDY NOTE */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Topic 2: Unique Nature of Sets Study Guide"
+            title="Unique nature of sets"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Printable Study Note"
-            downloadFileName="topic2_unique_nature_of_sets_note.txt"
+            downloadButtonText="Download Note"
+            downloadFileName="topic2_note.txt"
           />
         </section>
 
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 7: FAQS (30 COMPREHENSIVE QUESTIONS) */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
-          <FAQTemplate
-            title="Topic 2 • Unique Nature of Sets: Master Viva & Review Questions"
-            questions={questions}
-          />
-        </section>
-
-        {/* ------------------------------------------------------------------ */}
-        {/* SECTION 8: TEACHER'S NOTE */}
-        {/* ------------------------------------------------------------------ */}
-        <section ref={addToRefs} className="section-hidden">
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
-            note="Teacher's Wisdom: Uniqueness in Python sets is not magic—it's pure mathematical discipline. Always remember: hash code lands you in the bucket, but value equality (==) settles the duplicate verdict. When Susmita, Mamata, and Debangshu design custom classes in Barrackpore, always tie __eq__ and __hash__ to immutable identifiers!"
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
           />
         </section>
 
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 2 · Unique nature of sets · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default Topic2;

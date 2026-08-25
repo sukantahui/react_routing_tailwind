@@ -1,0 +1,24 @@
+================================================================================
+COMPUTER ARCHITECTURE MASTERCLASS - TOPIC 3: D LATCH (NAND-BASED)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE D LATCH DESIGN PURPOSE
+--------------------------------------------------------------------------------
+The Data (D) Latch completely eliminates the forbidden invalid state of the SR latch by
+routing the Data input D through an inverter to the Reset input. Thus, S and R can NEVER
+be identical (S = D, R = D_bar).
+
+2. 4-NAND GATE + INVERTER TOPOLOGY
+--------------------------------------------------------------------------------
+  - Top Steering Gate (NAND 1): Inputs = D and EN. Output S' = ~(D . EN)
+  - Inverter on D: Produces D_bar = ~D
+  - Bottom Steering Gate (NAND 2): Inputs = D_bar and EN. Output R' = ~(D_bar . EN)
+  - Cross-Coupled Storage Gates (NAND 3 & 4): Latch binary state.
+
+3. TRUTH TABLE:
+  EN   D  |  Q(t+1)  Q_bar(t+1) | State Description
+   0   X  |   Q(t)    Q_bar(t)  | Latch Locked (Memory Hold)
+   1   0  |    0         1      | Reset (Q follows D = 0) - Transparent
+   1   1  |    1         0      | Set (Q follows D = 1) - Transparent
+================================================================================

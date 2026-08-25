@@ -187,6 +187,179 @@ CREATE TABLE student_phones (
           </div>
         </div>
 
+        {/* ─── SECTION 0: Master Teacher Explains 1NF (Classroom Breakdown) ── */}
+        <section
+          ref={addRef}
+          className="reveal-section mb-12 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20 transition-all duration-300 hover:border-teal-500/50"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Masterclass: What is First Normal Form (1NF)?
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding 1NF easily, efficiently, and intuitively from first principles
+              </p>
+            </div>
+          </div>
+
+          {/* Core Concept & Blackboard Analogy */}
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>⚛️</span> The "Atomicity" Concept in Plain Words
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In physics, an <strong className="text-teal-300">atom</strong> is something that cannot be divided further. In database design, <strong className="text-cyan-300">First Normal Form (1NF)</strong> means:
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  "Every single cell in every column must hold exactly ONE single (atomic) value. No lists, no arrays, no commas!"
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  If a student has 3 phone numbers or 2 email addresses, you <strong>must not</strong> pack them together as <code className="text-rose-300 font-mono">'983011, 983022'</code> inside a single box.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                💡 <strong>Teacher's Tip:</strong> <em>"If you need a comma to separate data inside one table cell, you are breaking 1NF!"</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> The Classroom Admission Form Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an admission desk at Barrackpore where students fill out paper forms:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Bad Design (0NF):</strong> Writing 3 hobbies in one tiny box: <code className="text-amber-300 font-mono">"Cricket, Guitar, Coding"</code>. If the computer tries to search for guitarists, it fails because it cannot index individual words inside sentences!
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Good Design (1NF):</strong> Give each hobby its own clean row or separate child table. Now SQL can search, filter, and index each hobby in <strong>0.001 milliseconds</strong>!
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Benefit:</strong> Fast B-Tree indexes, clean SQL queries, and zero string manipulation bugs.
+              </div>
+            </div>
+          </div>
+
+          {/* The 4 Strict Rules of 1NF */}
+          <div className="mt-8">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">
+              The 4 Golden Rules of 1NF (The Teacher's Checklist)
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-500/40 transition">
+                <div className="text-2xl mb-2">1️⃣</div>
+                <h4 className="text-xs font-bold text-teal-300 uppercase mb-1">Atomic Values</h4>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Every column contains only scalar, indivisible values. No lists, CSVs, or multi-item strings.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-500/40 transition">
+                <div className="text-2xl mb-2">2️⃣</div>
+                <h4 className="text-xs font-bold text-cyan-300 uppercase mb-1">No Repeating Groups</h4>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Never create columns like <code className="text-slate-300 font-mono">phone1, phone2, phone3</code>. Use rows instead.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-500/40 transition">
+                <div className="text-2xl mb-2">3️⃣</div>
+                <h4 className="text-xs font-bold text-indigo-300 uppercase mb-1">Mandatory Primary Key</h4>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Every row must be uniquely identifiable. No duplicate, identical clone rows are allowed.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-500/40 transition">
+                <div className="text-2xl mb-2">4️⃣</div>
+                <h4 className="text-xs font-bold text-amber-300 uppercase mb-1">Single Data Type</h4>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  All entries in any column must belong to the exact same domain/datatype (e.g. all INT or all DATE).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Teacher's Live Blackboard: Before vs After Transformation */}
+          <div className="mt-8 p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-teal-300 flex items-center gap-2">
+              <span>📋</span> Teacher's Blackboard: Before 1NF (0NF) vs After 1NF Normalization
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Bad 0NF Table */}
+              <div className="p-4 rounded-lg bg-rose-950/20 border border-rose-900/40">
+                <span className="text-xs font-bold font-mono text-rose-400 block mb-2">❌ 0NF (Unnormalized - CSV Lists)</span>
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-rose-900/40 text-slate-400">
+                      <th className="pb-2">id</th>
+                      <th className="pb-2">name</th>
+                      <th className="pb-2">courses (Multi-valued)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-300 divide-y divide-rose-950/40">
+                    <tr>
+                      <td className="py-2 text-teal-400">#101</td>
+                      <td className="py-2">Mamata Hui</td>
+                      <td className="py-2 text-rose-300 font-bold">'MySQL, React, Node'</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2 text-teal-400">#102</td>
+                      <td className="py-2">Mahima S.</td>
+                      <td className="py-2 text-rose-300 font-bold">'Python, Django'</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <span className="text-[11px] text-rose-300 block mt-2">⚠️ Cannot index individual courses; WHERE course = 'React' fails!</span>
+              </div>
+
+              {/* Good 1NF Table */}
+              <div className="p-4 rounded-lg bg-emerald-950/20 border border-emerald-900/40">
+                <span className="text-xs font-bold font-mono text-emerald-400 block mb-2">✅ 1NF (Normalized - Atomic Rows)</span>
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-emerald-900/40 text-slate-400">
+                      <th className="pb-2">student_id (PK)</th>
+                      <th className="pb-2">course_name (PK)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-300 divide-y divide-emerald-950/40">
+                    <tr>
+                      <td className="py-1 text-teal-400">#101</td>
+                      <td className="py-1 text-emerald-300">MySQL</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1 text-teal-400">#101</td>
+                      <td className="py-1 text-emerald-300">React</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1 text-teal-400">#101</td>
+                      <td className="py-1 text-emerald-300">Node</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1 text-teal-400">#102</td>
+                      <td className="py-1 text-emerald-300">Python</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <span className="text-[11px] text-emerald-300 block mt-2">✓ Fast B-Tree lookups: <code className="font-mono">WHERE course_name = 'React'</code> uses index!</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ─── SECTION 1: 1NF Core Rules & Anti-Patterns ─────────── */}
         <section
           ref={addRef}

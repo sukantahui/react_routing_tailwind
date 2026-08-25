@@ -1,0 +1,41 @@
+================================================================================
+RDBMS & MYSQL COURSE: INTRODUCTION TO DBMS & RDBMS
+TOPIC 35: EXPLORING MYSQL WORKBENCH INTERFACE
+================================================================================
+
+1. CONCEPTUAL FOUNDATION & OBJECTIVES
+--------------------------------------------------------------------------------
+This topic introduces essential core database fundamentals:
+Topic Name: Exploring MySQL Workbench Interface
+Module: 001_001_introduction-to-dbms-and-rdbms
+Level: Beginner to Intermediate
+
+2. KEY THEORETICAL PRINCIPLES
+--------------------------------------------------------------------------------
+1. Data Integrity & Persistence:
+   Relational databases guarantee structured storage, minimal redundancy,
+   and deterministic querying via ANSI SQL.
+
+2. Relational Modeling & Constraints:
+   Entity identity, domain validation, and referential constraints (Primary Keys,
+   Foreign Keys, Unique checks) protect data against modification anomalies.
+
+3. Real-World Applications:
+   Modern software architectures—from retail billing systems in Barrackpore to
+   core banking ledgers in Kolkata—rely on these principles for ACID reliability.
+
+3. SENIOR PITFALLS & BEST PRACTICES
+--------------------------------------------------------------------------------
+- Avoid treating unstructured files as databases for concurrent multi-user workloads.
+- Always enforce domain constraints at the database level rather than application memory.
+- Choose explicit data types and avoid storing delimited strings in scalar columns.
+
+4. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+Mastering fundamentals gives you the confidence to architect large enterprise systems.
+Observe the data flows around you, distinguish between raw data and meaningful information,
+and uphold strict relational design standards!
+
+================================================================================
+END OF STUDY NOTE - TOPIC 35
+================================================================================

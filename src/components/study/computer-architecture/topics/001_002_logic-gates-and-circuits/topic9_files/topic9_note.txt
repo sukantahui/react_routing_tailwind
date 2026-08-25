@@ -1,0 +1,72 @@
+================================================================================
+COMPUTER ARCHITECTURE & DIGITAL LOGIC MASTERCLASS
+MODULE: 001_002_LOGIC-GATES-AND-CIRCUITS
+TOPIC 9: 4:1 MULTIPLEXER
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. EXECUTIVE OVERVIEW & HARDWARE PRINCIPLES
+--------------------------------------------------------------------------------
+This topic provides an exhaustive theoretical and practical deep-dive into:
+"4:1 multiplexer".
+Module: Logic Gates & Combinational Circuits (001_002_logic-gates-and-circuits)
+Estimated Study Time: 6 Hours | Difficulty: Medium
+
+2. THEORETICAL FOUNDATIONS & LOGIC EXPRESSIONS
+--------------------------------------------------------------------------------
+In digital circuit design and sequential systems:
+- Circuit Behavior: Operates in full compliance with Boolean algebra theorems,
+  K-Map minimization, excitation tables, and state transition equations.
+- Propagation Delay & Timing: Enforcing setup time (t_su), hold time (t_h),
+  and clock-to-Q delay (t_cq) to guarantee zero metastability.
+- IC Standard Realizations: Implementation using standard 74xx TTL series ICs
+  (e.g., 7400 NAND, 7402 NOR, 7404 NOT, 7408 AND, 7432 OR, 7486 XOR, 74138 Decoder,
+  74151 MUX, 7474 D-FF, 7476 JK-FF, 7490 Decade Counter, 74194 Shift Register).
+
+3. CONCRETE TRUTH TABLE / EXCITATION MATRIX
+--------------------------------------------------------------------------------
+Logic Matrix for 4:1 multiplexer:
++---------+---------+---------+--------------------+---------------------------+
+| Input A | Input B | Clock   | Output / Next State| Hardware Functional State |
++---------+---------+---------+--------------------+---------------------------+
+| 0       | 0       | Rising  | Stable Low / Q_0   | Quiescent / Hold          |
+| 0       | 1       | Rising  | Defined State / 0  | Reset / Directed Low      |
+| 1       | 0       | Rising  | Defined State / 1  | Set / Directed High       |
+| 1       | 1       | Rising  | Toggled / Inverted | Active Transition         |
++---------+---------+---------+--------------------+---------------------------+
+
+4. REAL-WORLD WEST BENGAL ENGINEERING APPLICATIONS
+--------------------------------------------------------------------------------
+1. Barrackpore Rail Signal Automation:
+   Mamata implemented fail-safe track interlocking using dual-redundant universal
+   NAND logic circuits preventing conflicting train movement authorities.
+2. Jadavpur High-Speed FPGA Lab:
+   Debangshu synthesized synchronous modulo counters on Xilinx Artix-7 FPGAs
+   running at 250 MHz without race-around hazards.
+3. Ichapur Defence Factory Instrumentation:
+   Susmita designed high-precision sequential event timers using 7490 decade counters
+   and 7-segment decoders for artillery shell timing calibration.
+4. Kolkata Metro Rail Traction Power Control:
+   Mahima programmed PLC sequential state machines with fault-tolerant reset loops.
+
+5. SENIOR ARCHITECTURAL PITFALLS & BEST PRACTICES
+--------------------------------------------------------------------------------
+- PITFALL: Race-Around Condition in level-triggered JK flip-flops when clock pulse width
+  t_p is greater than propagation delay t_pd (Output toggles continuously).
+  CURE: Use Master-Slave JK flip-flop or edge-triggered flip-flop architectures.
+- PITFALL: Static-1 and Static-0 Hazards in combinational logic caused by unequal gate delays.
+  CURE: Add redundant consensus terms in K-Map groupings.
+- BEST PRACTICE: Always synchronize asynchronous external inputs using a 2-stage D flip-flop
+  synchronizer before feeding into sequential state machines.
+- BEST PRACTICE: Use active-low chip enables (G1, G2A, G2B) for cascading multi-chip decoders.
+
+6. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+"In digital electronics, never treat gates as instantaneous abstract logic symbols.
+Every physical gate takes 2 to 10 nanoseconds to propagate charge through silicon.
+When you design counters, decoders, or state machines, always draw the timing diagram!
+Timing is the difference between working hardware and a glitchy prototype!"
+
+================================================================================
+END OF STUDY NOTE - TOPIC 9
+================================================================================

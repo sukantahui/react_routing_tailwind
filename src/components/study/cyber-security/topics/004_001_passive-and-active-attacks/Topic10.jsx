@@ -32,7 +32,7 @@ const Topic10 = () => {
       categoryBadge: "bg-emerald-950 text-emerald-300 border-emerald-800",
       targetLayer: "Layer 7 / Cryptographic Transport (TLS 1.3)",
       protectionMechanism:
-        "Computes a 128-bit Galois Authentication Tag (GHASH) over both ciphertext and headers. If an in-line attacker flips even 1 bit in transit, tag verification fails ($P_{detect} = 1 - 2^{-128}$), dropping the packet instantly.",
+        "Computes a 128-bit Galois Authentication Tag (GHASH) over both ciphertext and headers. If an in-line attacker flips even 1 bit in transit, tag verification fails ($P_detect = 1 - 2^{-128}$), dropping the packet instantly.",
       activeThreatStopped: "In-Flight Message Tampering, Bit-Flipping Malleability, and Payload Rewriting.",
       keyMetric: "Detection Probability: 99.9999999999999999999999999999999999999% (1 - 2^-128)",
       configSnippet: `// Node.js AEAD Integrity Check:

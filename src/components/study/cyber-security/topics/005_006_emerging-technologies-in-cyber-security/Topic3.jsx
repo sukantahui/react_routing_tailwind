@@ -312,7 +312,7 @@ const Topic3 = () => {
               </div>
 
               <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 font-mono text-[11px] text-cyan-300 space-y-1">
-                <div>{"$x_{adv} = x + \\epsilon \\cdot \\text{sign}(\\nabla_x L(\\theta, x, y))$"}</div>
+                <div>{"$x_adv = x + \\epsilon \\cdot \sign(\\nabla_x L(\\theta, x, y))$"}</div>
                 <div className="text-[10px] text-slate-400">Adds imperceptible byte noise in the direction of the loss gradient.</div>
               </div>
             </div>

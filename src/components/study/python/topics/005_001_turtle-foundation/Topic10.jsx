@@ -1,216 +1,379 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import clsx from "clsx";
+
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic10_files/topic10_questions";
+import noteText from "./topic10_files/topic10_note.txt?raw";
 
-// Import Python files
-import singleLine from "./topic10_files/single_line.py?raw";
-import connectedPath from "./topic10_files/connected_path.py?raw";
-import polyline from "./topic10_files/polyline.py?raw";
-
-const keyframes = `
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes softGlow {
-  0%,100% { box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-  50% { box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-}
-`;
-
+/**
+ * Topic10 – Drawing straight lines and connected paths
+ * Module: 005_001_turtle-foundation (Module 1 – Turtle Foundations & First Drawings)
+ * Track: Python from Basic to Pro
+ *
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
+ */
 const Topic10 = () => {
-  const prototypes = [
-    { name: "forward(distance)", returnType: "None", purpose: "Draws a straight line forward (relative).", usage: "t.forward(100)" },
-    { name: "backward(distance)", returnType: "None", purpose: "Draws a straight line backward (relative).", usage: "t.backward(50)" },
-    { name: "goto(x, y)", returnType: "None", purpose: "Draws a straight line to absolute (x,y).", usage: "t.goto(100, 50)" },
-    { name: "setx(x)", returnType: "None", purpose: "Draws a horizontal line to x (absolute).", usage: "t.setx(200)" },
-    { name: "sety(y)", returnType: "None", purpose: "Draws a vertical line to y (absolute).", usage: "t.sety(150)" },
-    { name: "distance(x, y)", returnType: "float", purpose: "Returns length of straight line to point.", usage: "length = t.distance(100,0)" },
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-      <style>{keyframes}</style>
+    <>
+      <style>{`
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          transform: translateY(0);
+        }
+      `}</style>
 
-      <div className="max-w-6xl mx-auto space-y-12">
-        {/* Hero */}
-        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            Drawing Straight Lines & Connected Paths
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 001 · Topic 10</span>
+          </div>
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Drawing straight lines and connected paths
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            The foundation of all turtle graphics: line segments and continuous paths
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Start visual programming with turtle graphics, screen coordinates, pen controls, and geometric shapes.
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">📏 Single Lines</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">🔗 Connected Paths</span>
-            <span className="px-4 py-2 bg-gray-800 rounded-full text-sm">🖌️ Polyline & Open Shapes</span>
-          </div>
-        </div>
 
-        {/* SVG Illustration: Single line vs connected path */}
-        <div className="flex justify-center animate-[fadeInUp_0.6s_ease-out_0.1s]">
-          <div className="bg-gray-800/40 rounded-2xl p-4 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-            <svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-[500px] h-auto">
-              <rect x="20" y="20" width="460" height="260" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" rx="10" />
-              
-              {/* Single line example */}
-              <text x="120" y="50" fill="#2dd4bf" fontSize="14" fontWeight="bold">Single Line</text>
-              <line x1="60" y1="80" x2="200" y2="80" stroke="#f97316" strokeWidth="3" />
-              <circle cx="60" cy="80" r="5" fill="#14b8a6" />
-              <circle cx="200" cy="80" r="5" fill="#facc15" />
-              <text x="60" y="70" fill="#94a3b8" fontSize="10">Start</text>
-              <text x="200" y="70" fill="#facc15" fontSize="10">End</text>
-              <text x="120" y="100" fill="#f97316" fontSize="10">forward(140) or goto(140,80)</text>
-              
-              {/* Connected path example */}
-              <text x="350" y="50" fill="#2dd4bf" fontSize="14" fontWeight="bold">Connected Path</text>
-              <polyline points="280,80 320,140 380,120 420,180" fill="none" stroke="#f43f5e" strokeWidth="3" strokeLinejoin="round" />
-              <circle cx="280" cy="80" r="5" fill="#14b8a6" />
-              <circle cx="420" cy="180" r="5" fill="#facc15" />
-              <text x="270" y="95" fill="#94a3b8" fontSize="9">Start</text>
-              <text x="425" y="195" fill="#facc15" fontSize="9">End</text>
-              
-              {/* Dashed line showing continuous movement */}
-              <path d="M 280 80 L 320 140 L 380 120 L 420 180" fill="none" stroke="#f43f5e" strokeWidth="1.5" strokeDasharray="4,3" />
-              <text x="300" y="230" fill="#94a3b8" fontSize="11">Connected: each segment starts where previous ended</text>
-            </svg>
-            <p className="text-center text-sm text-gray-400 mt-2">A single straight line (left) vs a connected path (right) made of multiple segments</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
           </div>
-        </div>
+        </header>
 
-        {/* Explanation */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.2s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">📏 Drawing Lines</h2>
-          <div className="bg-gray-800/30 rounded-xl p-5 space-y-3">
-            <p className="leading-relaxed"><strong>Straight lines</strong> are the simplest drawing primitive. Use <code>forward()</code>, <code>backward()</code>, <code>goto()</code>, <code>setx()</code>, or <code>sety()</code>. <strong>Connected paths</strong> (or polylines) are sequences of lines where each starts at the end of the previous one. Most drawings – from squares to complex fractals – are built from connected paths.</p>
-            <div className="grid md:grid-cols-2 gap-4">
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Drawing straight lines and connected paths
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
               <div>
-                <h3 className="text-xl font-semibold text-emerald-300">Single Line</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>From point A to point B.</li>
-                  <li>Can be drawn with one command.</li>
-                  <li>Example: <code>t.forward(100)</code></li>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Drawing straight lines and connected paths</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
                 </ul>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-cyan-300">Connected Path (Polyline)</h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Multiple segments, end‑to‑end.</li>
-                  <li>Pen stays down between segments.</li>
-                  <li>Example: <code>forward(50); right(90); forward(30)</code></li>
-                </ul>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
               </div>
             </div>
           </div>
         </section>
 
-        {/* Real‑world connection */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.3s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🌍 Where Lines & Paths Appear</h2>
-          <div className="bg-gray-800/30 rounded-xl p-5">
-            <p className="leading-relaxed">Any vector graphic – from a child's drawing of a house to a car's CAD model – is a collection of connected paths. Even fonts (TrueType) outline characters as polylines and curves. In robotics, a path plan is a series of straight line segments. Mastering line drawing is the first step toward creating any shape.</p>
-            <div className="mt-3 p-3 bg-gray-800/50 rounded-lg">
-              <p className="text-sm"><strong>Example:</strong> Students in Barrackpore use turtle graphics to draw the outline of their school building – walls, windows, doors – all connected straight lines.</p>
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Drawing straight lines and connected paths
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Python Code Examples */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.4s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">💻 Code Examples</h2>
-          <PythonFileLoader fileModule={singleLine} title="single_line.py" highlightLines={[6,7,8]} />
-          <PythonFileLoader fileModule={connectedPath} title="connected_path.py" highlightLines={[6,7,8,9,10]} />
-          <PythonFileLoader fileModule={polyline} title="polyline.py" highlightLines={[8,9,10,11,12,13]} />
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
         </section>
 
-        {/* Prototype Table */}
-        <section className="space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
-          <h2 className="text-3xl font-semibold border-l-4 border-emerald-500 pl-4">🔧 Line‑Drawing Methods</h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-gray-800/30 rounded-xl text-sm">
-              <thead className="bg-gray-700/60">
-                <tr><th className="px-4 py-2 text-left">Method</th><th>Return</th><th>Draws</th><th>Example</th></tr>
-              </thead>
-              <tbody>
-                {prototypes.map((p, idx) => (
-                  <tr key={idx} className="border-t border-gray-700 hover:bg-gray-700/30 transition">
-                    <td className="px-4 py-2 font-mono text-emerald-300">{p.name}</td>
-                    <td className="px-4 py-2 text-center">{p.returnType}</td>
-                    <td className="px-4 py-2">{p.purpose.replace("Draws", "")}</td>
-                    <td className="px-4 py-2 font-mono text-xs">{p.usage}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <FAQTemplate
+            title="Drawing straight lines and connected paths FAQs"
+            questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
+          />
         </section>
 
-        {/* Common Pitfalls & Best Practices */}
-        <div className="grid lg:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.6s]">
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-amber-300">⚠️ Common Pitfalls</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li><strong>Lifting pen accidentally:</strong> Breaks the connected path into separate segments.</li>
-              <li><strong>Forgetting to turn:</strong> All segments in same direction → straight line only.</li>
-              <li><strong>Using <code>goto()</code> without pen up:</strong> Creates unintended diagonal lines when you meant to jump.</li>
-              <li><strong>Not closing a shape:</strong> Ending point not equal to start → open path.</li>
-            </ul>
-          </div>
-          <div className="bg-gray-800/40 rounded-xl p-5">
-            <h3 className="text-2xl font-semibold text-green-300">✅ Best Practices</h3>
-            <ul className="list-disc pl-5 space-y-2 mt-2">
-              <li>Keep pen down for continuous paths; lift only to reposition.</li>
-              <li>Use loops for repeated segments (e.g., polygons).</li>
-              <li>Plan your path on paper before coding.</li>
-              <li>For complex shapes, define a list of points and iterate.</li>
-              <li>Use <code>t.pos()</code> to verify connection points during debugging.</li>
-            </ul>
-          </div>
-        </div>
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Drawing straight lines and connected paths"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic10_note.txt"
+          />
+        </section>
 
-        {/* Checklist */}
-        <div className="bg-gray-800/50 rounded-xl p-5 border border-emerald-500/30 animate-[fadeInUp_0.6s_ease-out_0.7s]">
-          <h3 className="text-xl font-semibold">📝 Student Checklist</h3>
-          <div className="grid sm:grid-cols-2 gap-2 mt-2">
-            {[
-              "I can draw a single straight line using forward() or goto()",
-              "I can create a connected path of multiple line segments",
-              "I understand that the pen must stay down to keep lines connected",
-              "I can draw a polyline (open shape) like a zig‑zag or letter 'L'",
-              "I can measure the length of a line with distance()",
-              "I know how to close a path by returning to the start"
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2"><span className="text-emerald-400">✓</span><span className="text-gray-200">{item}</span></div>
-            ))}
-          </div>
-        </div>
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <Teacher
+            note={
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
+            }
+          />
+        </section>
 
-        {/* Hints & Expert Mindset */}
-        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.8s]">
-          <div className="bg-indigo-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">💡 Hints to Explore</h3>
-            <p>👉 <strong>Think about:</strong> How many connected segments are needed to draw a square? A triangle?</p>
-            <p>👉 <strong>Observe:</strong> What happens if you forget to lower the pen after a reposition? The path breaks.</p>
-            <p>👉 <strong>Try changing:</strong> Draw a zig‑zag line using a loop and alternating left/right turns.</p>
-          </div>
-          <div className="bg-purple-900/20 rounded-xl p-4">
-            <h3 className="text-lg font-semibold">🚀 Expert Mindset</h3>
-            <p>In CAD software, every polyline is stored as a sequence of points. You can think of your turtle program as generating such a sequence. Advanced path planning (e.g., for a robot vacuum) involves breaking a curved path into many tiny straight line segments – the same principle used by turtle's `circle()` command internally.</p>
-          </div>
-        </div>
-
-        {/* FAQs and Teacher Note */}
-        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
-          <FAQTemplate title="Straight Lines & Connected Paths FAQs" questions={questions} />
-        </div>
-        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
-          <Teacher note="Emphasize that every drawing, no matter how complex, is built from connected straight lines (only a few curves like circles exist). Have students physically trace a path on paper, then translate it into forward/left/right commands. Show that 'connected' means the pen never lifts – you can create a beautiful outline of a bird using only connected line segments." />
-        </div>
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 10 · Drawing straight lines and connected paths · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
+        </footer>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,29 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
-// Common Components
-import PythonFileLoader from "../../../../../common/PythonFileLoader";
-import FAQTemplate from "../../../../../common/FAQTemplate";
+// ─── Common Framework Imports ──────────────────────────────────────────
 import Teacher from "../../../../../common/TeacherSukantaHui";
-
-// Python code examples
-import getCWD from "./topic5_files/get_cwd.py?raw";
-import changeCWD from "./topic5_files/change_cwd.py?raw";
-import scriptLocation from "./topic5_files/script_location.py?raw";
-import relativePathIssue from "./topic5_files/relative_path_issue.py?raw";
-import pathlibCWD from "./topic5_files/pathlib_cwd.py?raw";
-
-// FAQ data
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic5_files/topic5_questions";
+import noteText from "./topic5_files/topic5_note.txt?raw";
 
 /**
- * Topic5: Current Working Directory
+ * Topic5 – Opening Files with open() and File Modes (r, w, a, x, r+, w+, a+)
+ * Module: 002_008_file-handling (File Handling & Persistence (Text, CSV & JSON))
+ * Track: Python from Basic to Pro
  *
- * This component explains the concept of the current working directory (CWD),
- * how to get and change it, and the importance of understanding it for file
- * operations.
+ * @component
+ * @returns {JSX.Element} Interactive tutorial component with concept simulator,
+ *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
  */
 const Topic5 = () => {
+  const [activeTab, setActiveTab] = useState("concept");
+  const [filterThreshold, setFilterThreshold] = useState(70000);
   const sectionRefs = useRef([]);
 
   useEffect(() => {
@@ -31,693 +27,353 @@ const Topic5 = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
+            entry.target.classList.add("is-visible");
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
+      { threshold: 0.1 }
     );
 
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
+    sectionRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
-  const addToRefs = (el) => {
+  const addRef = (el) => {
     if (el && !sectionRefs.current.includes(el)) {
       sectionRefs.current.push(el);
     }
   };
 
+  const sampleEmployees = [
+    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
+    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
+    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
+    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  ];
+
+  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200 p-6 md:p-8 lg:p-12 font-sans leading-relaxed">
-      {/* ====== PAGE HEADER ====== */}
-      <header
-        ref={addToRefs}
-        className="section-hidden max-w-5xl mx-auto mb-12 pb-8 border-b border-gray-200 dark:border-gray-800"
-      >
-        <div className="flex items-center gap-3 mb-3">
-          <span className="text-sm font-mono bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full">
-            Topic 5
-          </span>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-            Fundamentals
-          </span>
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
-          Current Working Directory
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 mt-3 max-w-3xl">
-          Understanding where your program is "standing" in the file system —
-          and how it affects file paths.
-        </p>
-        <div className="flex flex-wrap gap-3 mt-4">
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            📂 CWD
-          </span>
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            🔄 os.getcwd()
-          </span>
-          <span className="text-sm bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-gray-600 dark:text-gray-400">
-            📍 os.chdir()
-          </span>
-        </div>
-      </header>
+    <>
+      <style>{`
+        .reveal-section {
+          transform: translateY(0);
+          transition: transform 0.4s ease-out;
+        }
+        .reveal-section.is-visible {
+          transform: translateY(0);
+        }
+      `}</style>
 
-      <div className="max-w-5xl mx-auto space-y-16">
-        {/* ====== SECTION 1: WHAT IS CWD ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📍</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              What is the Current Working Directory?
-            </h2>
+      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+        
+        {/* ─── 1. Header Section ──────────────────────────────── */}
+        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
+            <span>🐍</span>
+            <span>Python Masterclass · Module 008 · Topic 5</span>
           </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              The <strong className="text-gray-900 dark:text-white">current working directory</strong>{" "}
-              (CWD) is the directory in which a process (like your Python
-              script) is operating. When you use a <strong>relative path</strong>,
-              it is resolved relative to the CWD.
-            </p>
-            <p>
-              Think of it as your "current position" in the file system tree. If
-              you're in <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">/home/swadeep/projects</code>,
-              then <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">data.csv</code> refers to{" "}
-              <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">/home/swadeep/projects/data.csv</code>.
-            </p>
-            <div className="bg-blue-50 dark:bg-blue-950/20 border-l-4 border-blue-500 p-4 rounded-r-xl">
-              <p className="text-blue-700 dark:text-blue-300 font-medium">
-                💡 Key Insight:
-              </p>
-              <p className="text-blue-600 dark:text-blue-400 text-sm">
-                The CWD is <em>not</em> necessarily the same as the directory
-                containing your script. This is a common source of confusion.
-              </p>
-            </div>
-          </div>
-
-          {/* SVG: CWD in File System */}
-          <div className="mt-8 bg-gray-50 dark:bg-gray-900/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-700">
-            <div className="flex justify-center">
-              <svg viewBox="0 0 700 180" className="w-full max-w-3xl h-auto">
-                <text x="350" y="25" textAnchor="middle" fill="#6B7280" fontSize="14">File System with CWD</text>
-                {/* Root */}
-                <rect x="300" y="40" width="100" height="30" rx="4" fill="#3B82F6" fillOpacity="0.2" stroke="#3B82F6" strokeWidth="1.5" />
-                <text x="350" y="60" textAnchor="middle" fill="#60A5FA" fontSize="14" fontFamily="monospace">/ (root)</text>
-
-                <line x1="350" y1="70" x2="200" y2="100" stroke="#9CA3AF" strokeWidth="1.5" />
-                <line x1="350" y1="70" x2="500" y2="100" stroke="#9CA3AF" strokeWidth="1.5" />
-
-                <rect x="150" y="100" width="100" height="30" rx="4" fill="#10B981" fillOpacity="0.2" stroke="#10B981" strokeWidth="1.5" />
-                <text x="200" y="120" textAnchor="middle" fill="#34D399" fontSize="13" fontFamily="monospace">home/</text>
-
-                <rect x="450" y="100" width="100" height="30" rx="4" fill="#F59E0B" fillOpacity="0.2" stroke="#F59E0B" strokeWidth="1.5" />
-                <text x="500" y="120" textAnchor="middle" fill="#FBBF24" fontSize="13" fontFamily="monospace">var/</text>
-
-                <line x1="200" y1="130" x2="150" y2="155" stroke="#9CA3AF" strokeWidth="1.5" />
-                <line x1="200" y1="130" x2="250" y2="155" stroke="#9CA3AF" strokeWidth="1.5" />
-
-                <rect x="100" y="155" width="100" height="25" rx="4" fill="#8B5CF6" fillOpacity="0.2" stroke="#8B5CF6" strokeWidth="1.5" />
-                <text x="150" y="172" textAnchor="middle" fill="#A78BFA" fontSize="12" fontFamily="monospace">user/</text>
-
-                {/* Highlight CWD */}
-                <rect x="200" y="155" width="100" height="25" rx="4" fill="#EF4444" fillOpacity="0.3" stroke="#EF4444" strokeWidth="2" strokeDasharray="4 3">
-                  <animate attributeName="stroke-dashoffset" from="0" to="14" dur="2s" repeatCount="indefinite" />
-                </rect>
-                <text x="250" y="172" textAnchor="middle" fill="#F87171" fontSize="12" fontFamily="monospace">projects/</text>
-
-                <text x="250" y="195" textAnchor="middle" fill="#EF4444" fontSize="14" fontWeight="bold">← CWD</text>
-                <text x="380" y="172" fill="#6B7280" fontSize="12">Relative path "data.csv" → /home/user/projects/data.csv</text>
-              </svg>
-            </div>
-            <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-3">
-              The CWD is your current position in the file system. Relative
-              paths are resolved from here.
-            </p>
-          </div>
-        </section>
-
-        {/* ====== SECTION 2: GETTING THE CWD ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-100"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🔍</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Getting the CWD in Python
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              There are two primary ways to get the CWD in Python:
-            </p>
-            <ul>
-              <li>
-                <strong>Using <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">os.getcwd()</code></strong> —
-                returns the current working directory as a string.
-              </li>
-              <li>
-                <strong>Using <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">pathlib.Path.cwd()</code></strong> —
-                returns a <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">Path</code> object representing the CWD.
-              </li>
-            </ul>
-            <p>
-              Both methods give you the absolute path of the directory from
-              which your Python process was started.
-            </p>
-          </div>
-          <div className="bg-yellow-50 dark:bg-yellow-950/20 rounded-xl p-4 border border-yellow-200 dark:border-yellow-800/50 mt-4">
-            <p className="text-yellow-700 dark:text-yellow-300 text-sm">
-              💡 <strong>Tip:</strong> Print the CWD early in your script to
-              verify where you are. It's a great debugging practice.
-            </p>
-          </div>
-        </section>
-
-        {/* ====== SECTION 3: CHANGING THE CWD ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-200"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🔄</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Changing the CWD
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              You can change the CWD using <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">os.chdir(path)</code>.
-              This changes the working directory for the entire Python process.
-            </p>
-            <p>
-              Changing the CWD can be useful when:
-            </p>
-            <ul>
-              <li>You want to simplify relative paths for a group of files.</li>
-              <li>You're working with a legacy codebase that expects a specific CWD.</li>
-              <li>You're processing files in a different location temporarily.</li>
-            </ul>
-            <div className="bg-red-50 dark:bg-red-950/20 border-l-4 border-red-500 p-4 rounded-r-xl">
-              <p className="text-red-700 dark:text-red-300 font-medium">
-                ⚠️ Caution:
-              </p>
-              <p className="text-red-600 dark:text-red-400 text-sm">
-                Changing the CWD affects <em>all</em> file operations in your
-                script. Use it sparingly and consider restoring the original CWD
-                when done.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ====== SECTION 4: CWD vs SCRIPT LOCATION ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🎯</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              CWD vs Script Location
-            </h2>
-          </div>
-          <div className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-            <p>
-              The most common confusion for beginners is assuming the CWD is the
-              same as the script's directory. They are often different.
-            </p>
-            <ul>
-              <li>
-                <strong>CWD:</strong> Where the process was started (e.g., the
-                terminal's current directory).
-              </li>
-              <li>
-                <strong>Script location:</strong> Where the script file itself
-                resides (given by <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">__file__</code>).
-              </li>
-            </ul>
-            <p>
-              For example, if you run <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">python /home/user/script.py</code> from
-              <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">/tmp</code>, the CWD is <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">/tmp</code>,
-              but the script is in <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">/home/user</code>.
-            </p>
-            <div className="bg-blue-50 dark:bg-blue-950/20 border-l-4 border-blue-500 p-4 rounded-r-xl">
-              <p className="text-blue-700 dark:text-blue-300 font-medium">
-                📌 Professional Practice:
-              </p>
-              <p className="text-blue-600 dark:text-blue-400 text-sm">
-                To build paths relative to the script, use{" "}
-                <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">os.path.dirname(__file__)</code>.
-                Do not rely on the CWD for your script's location.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ====== SECTION 5: REAL-WORLD SCENARIOS ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🌍</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Real-World Scenarios
-            </h2>
-          </div>
-          <div className="space-y-4">
-            <div className="bg-blue-50 dark:bg-blue-950/30 rounded-xl p-6 border border-blue-200 dark:border-blue-800/50 transition-all duration-300 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">🏫</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    School Management System in Naihati
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    The school's admin runs a script from
-                    <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">/opt/school/bin</code> to generate reports.
-                    The script uses relative paths like <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">../data/students.csv</code>.
-                    However, if someone runs the script from <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">/home/admin</code>,
-                    the relative path breaks. The solution is to compute paths
-                    relative to <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">__file__</code>.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-purple-50 dark:bg-purple-950/30 rounded-xl p-6 border border-purple-200 dark:border-purple-800/50 transition-all duration-300 hover:shadow-lg hover:border-purple-300 dark:hover:border-purple-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">💻</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Data Analysis Script in Shyamnagar
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    A data scientist in Shyamnagar has a script that processes
-                    CSV files. She often changes the CWD to the data directory
-                    using <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">os.chdir('/data/projects')</code> to simplify
-                    file references. This is a common pattern in batch processing.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-green-50 dark:bg-green-950/30 rounded-xl p-6 border border-green-200 dark:border-green-800/50 transition-all duration-300 hover:shadow-lg hover:border-green-300 dark:hover:border-green-600">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl">📱</span>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Web Application Configuration
-                  </h4>
-                  <p className="text-gray-700 dark:text-gray-300 mt-1">
-                    A web app in Barrackpore loads its config from
-                    <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">config/settings.ini</code>.
-                    The app is started from different directories during
-                    development and production. The code uses{" "}
-                    <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">__file__</code> to build the path,
-                    ensuring it always finds the config regardless of the CWD.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ====== SECTION 6: PYTHON CODE EXAMPLES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🐍</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Python in Action
-            </h2>
-          </div>
-          <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
-            The following examples demonstrate how to get, change, and use the
-            CWD effectively.
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Opening Files with open() and File Modes (r, w, a, x, r+, w+, a+)
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Master file I/O operations, context managers, structured CSV and JSON data persistence.
           </p>
 
-          <div className="space-y-6">
-            <PythonFileLoader
-              fileModule={getCWD}
-              title="Getting the CWD with os and pathlib"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={changeCWD}
-              title="Changing the CWD"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={scriptLocation}
-              title="Finding Script Location vs CWD"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={relativePathIssue}
-              title="Relative Path Pitfall with CWD"
-              highlightLines={[]}
-            />
-            <PythonFileLoader
-              fileModule={pathlibCWD}
-              title="Modern pathlib CWD Methods"
-              highlightLines={[]}
-            />
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
+              ⚡ Pythonic Architecture
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
+              🧮 Clean Code &amp; Idioms
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
+              🔄 Robust Error Handling
+            </span>
+            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
+              💾 Production Scalability
+            </span>
           </div>
-        </section>
+        </header>
 
-        {/* ====== SECTION 7: TIPS & TRICKS ====== */}
+        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
         <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">💡</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Tips & Tricks
-            </h2>
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              👨‍🏫
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                Teacher's Concept Breakdown: Opening Files with open() and File Modes (r, w, a, x, r+, w+, a+)
+              </h2>
+              <p className="text-xs text-slate-400">
+                Understanding Python mechanics and design patterns from first principles
+              </p>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              {
-                title: "Print CWD at the start of scripts",
-                desc: "A simple `print(os.getcwd())` can save hours of debugging path issues.",
-              },
-              {
-                title: "Use `os.chdir()` with caution",
-                desc: "Prefer using absolute paths or `__file__`-based paths over changing CWD.",
-              },
-              {
-                title: "Restore original CWD after changes",
-                desc: "Save the original CWD with `old_cwd = os.getcwd()` and restore it later.",
-              },
-              {
-                title: "Use `with` context for temporary CWD changes",
-                desc: "Create a context manager that changes and restores the CWD automatically.",
-              },
-              {
-                title: "Prefer `pathlib.Path` for CWD",
-                desc: "`Path.cwd()` gives you a Path object with all its useful methods.",
-              },
-              {
-                title: "Be aware of symlinks and CWD",
-                desc: "If you `chdir` into a symlink, the CWD will follow the symlink.",
-              },
-            ].map((tip, idx) => (
-              <div
-                key={idx}
-                className="bg-amber-50 dark:bg-amber-950/20 rounded-xl p-5 border border-amber-200 dark:border-amber-800/50 transition-all duration-300 hover:shadow-lg hover:border-amber-300 dark:hover:border-amber-600 hover:-translate-y-1"
-              >
-                <h4 className="font-semibold text-gray-900 dark:text-white flex items-start gap-2">
-                  <span className="text-amber-500">✦</span> {tip.title}
-                </h4>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
-                  {tip.desc}
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
+                  <span>💡</span> Architectural Insight
+                </span>
+                <p className="text-sm text-slate-200 leading-relaxed font-medium">
+                  In modern software engineering, <strong className="text-teal-300">Opening Files with open() and File Modes (r, w, a, x, r+, w+, a+)</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
+                </p>
+                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
+                  Readable Syntax · Deterministic Execution · Fast Prototyping
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
                 </p>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ====== SECTION 8: COMMON MISTAKES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">⚠️</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Common Mistakes
-            </h2>
-          </div>
-          <div className="space-y-3">
-            {[
-              {
-                mistake: "Assuming CWD is the script's directory",
-                fix: "Use `os.path.dirname(__file__)` for script‑relative paths.",
-              },
-              {
-                mistake: "Changing CWD and not restoring it",
-                fix: "Save the original CWD and restore it after operations.",
-              },
-              {
-                mistake: "Using relative paths without knowing CWD",
-                fix: "Always print or log the CWD when debugging file operations.",
-              },
-              {
-                mistake: "Forgetting that `os.chdir()` is global",
-                fix: "Be aware that it affects the entire process, including imported modules.",
-              },
-              {
-                mistake: "Not handling PermissionError when changing CWD",
-                fix: "Wrap `os.chdir()` in a try‑except block.",
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-red-50 dark:bg-red-950/20 rounded-xl p-5 border border-red-200 dark:border-red-800/50 transition-all duration-300 hover:shadow-lg hover:border-red-300 dark:hover:border-red-600"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-red-500 text-lg">✗</span>
-                  <div>
-                    <p className="text-gray-800 dark:text-gray-200 font-medium">
-                      {item.mistake}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      ✓ {item.fix}
-                    </p>
-                  </div>
-                </div>
+              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
+                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
               </div>
-            ))}
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
+                  <span>🏫</span> Real-World Engineering Analogy
+                </span>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Imagine an automated logistics dispatch office in Barrackpore:
+                </p>
+                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
+                  <li>
+                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
+                  </li>
+                  <li>
+                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
+                  </li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
+                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ====== SECTION 9: BEST PRACTICES ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">✅</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Best Practices
-            </h2>
-          </div>
-          <div className="bg-emerald-50 dark:bg-emerald-950/20 rounded-xl p-6 border border-emerald-200 dark:border-emerald-800/50 transition-all duration-300 hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-600">
-            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Use `__file__` for script‑relative paths:
-                  </strong>{" "}
-                  This makes your code robust regardless of the CWD.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Avoid changing CWD unless necessary:
-                  </strong>{" "}
-                  It can cause side effects and confusion.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Prefer `pathlib.Path` for path operations:
-                  </strong>{" "}
-                  It's cleaner and less error‑prone.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Document CWD assumptions:
-                  </strong>{" "}
-                  If your script relies on a specific CWD, make it explicit.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-emerald-500 text-lg">✓</span>
-                <span>
-                  <strong className="text-gray-900 dark:text-white">
-                    Use context managers for temporary CWD changes:
-                  </strong>{" "}
-                  They ensure restoration even if an exception occurs.
-                </span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        {/* ====== SECTION 10: MINI CHECKLIST ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📋</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Mini Checklist
-            </h2>
-          </div>
-          <div className="bg-indigo-50 dark:bg-indigo-950/20 rounded-xl p-6 border border-indigo-200 dark:border-indigo-800/50 transition-all duration-300 hover:shadow-lg hover:border-indigo-300 dark:hover:border-indigo-600">
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              By the end of this topic, you should understand:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                "What the current working directory is",
-                "How to get the CWD with `os.getcwd()` and `Path.cwd()`",
-                "How to change the CWD with `os.chdir()`",
-                "The difference between CWD and script location (`__file__`)",
-                "Why relative paths depend on the CWD",
-                "Common pitfalls and how to avoid them",
-                "Best practices for writing robust path code",
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900/50 px-4 py-2 rounded-lg"
+        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Opening Files with open() and File Modes (r, w, a, x, r+, w+, a+)
+          </h2>
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
+                <button
+                  onClick={() => setActiveTab("concept")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
                 >
-                  <span className="text-indigo-400">☐</span>
-                  <span className="text-sm">{item}</span>
+                  Structured View
+                </button>
+                <button
+                  onClick={() => setActiveTab("json")}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
+                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
+                  )}
+                >
+                  Raw Dictionary JSON
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  Filter Minimum Salary (₹):
+                </label>
+                <select
+                  value={filterThreshold}
+                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
+                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
+                >
+                  <option value={60000}>₹60,000+ (All 4 Records)</option>
+                  <option value={75000}>₹75,000+ (3 Records)</option>
+                  <option value={85000}>₹85,000+ (2 Records)</option>
+                  <option value={90000}>₹90,000+ (Top Earner)</option>
+                </select>
+              </div>
+            </div>
+
+            {activeTab === "concept" ? (
+              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr className="border-b border-slate-800 text-slate-400">
+                      <th className="pb-2">ID</th>
+                      <th className="pb-2">Employee</th>
+                      <th className="pb-2">Location</th>
+                      <th className="pb-2">Salary</th>
+                      <th className="pb-2">Performance</th>
+                      <th className="pb-2">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
+                    {filteredList.map((emp) => (
+                      <tr key={emp.id} className="hover:bg-slate-900/40">
+                        <td className="py-2.5 text-slate-500">{emp.id}</td>
+                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
+                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
+                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
+                        <td className="py-2.5">
+                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
+                            ⭐ {emp.score}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
+                  {JSON.stringify(filteredList, null, 2)}
+                </pre>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
+                    BARRACKPORE ENTERPRISE
+                  </span>
+                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
                 </div>
-              ))}
+                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
+                </p>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
+                100% Automated Financial Auditing
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* ====== SECTION 11: HINT SECTION ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">🤔</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Think About…
-            </h2>
-          </div>
-          <div className="bg-yellow-50 dark:bg-yellow-950/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-800/50 transition-all duration-300 hover:shadow-lg hover:border-yellow-300 dark:hover:border-yellow-600">
-            <div className="space-y-4 text-gray-700 dark:text-gray-300">
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Observe carefully:
-                  </strong>{" "}
-                  When you run a Python script from VS Code's integrated
-                  terminal, what is the CWD? Is it the project root or the
-                  script's folder?
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
+                    JADAVPUR ROBOTICS
+                  </span>
+                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                </div>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Try changing this:
-                  </strong>{" "}
-                  Write a script that prints its CWD and its own location. Run
-                  it from different directories (e.g., from the parent directory
-                  using `python subfolder/script.py`). What do you observe?
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-yellow-500 text-lg">💭</span>
-                <p>
-                  <strong className="text-gray-900 dark:text-white">
-                    Think about:
-                  </strong>{" "}
-                  A project in Ichapur has a script that reads a config file
-                  from <code className="bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded text-sm">../config.ini</code>.
-                  Why does it fail when run from a cron job that starts in the
-                  user's home directory? How would you fix it?
-                </p>
+              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
+                Sub-Millisecond Telemetry Ingestion
               </div>
             </div>
           </div>
         </section>
 
-        {/* ====== SECTION 12: FAQ ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
+        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
+              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
+                <span>⚠️</span> Common Beginner Pitfalls
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
+                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
+                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
+              </div>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
+              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
+                <span>✓</span> Production Best Practices
+              </h3>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
+                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
+              </div>
+              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
+                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Current Working Directory – FAQs"
+            title="Opening Files with open() and File Modes (r, w, a, x, r+, w+, a+) FAQs"
             questions={questions}
+            subtitle="Test your comprehension with 30 deep-dive questions"
+            showPrint
+            showExpandAll
+            showSearch
+            showProgress
           />
         </section>
 
-        {/* ====== SECTION 13: TEACHER'S NOTE ====== */}
-        <section
-          ref={addToRefs}
-          className="section-hidden transition-all duration-700 ease-out delay-300"
-        >
+        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <PlainTextPrint
+            content={noteText}
+            title="Opening Files with open() and File Modes (r, w, a, x, r+, w+, a+)"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Note"
+            downloadFileName="topic5_note.txt"
+          />
+        </section>
+
+        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
             note={
-              "This is a critical concept that often trips up beginners. " +
-              "Use live demonstrations: run a script from different directories " +
-              "and show how the CWD affects file access. Emphasize the distinction " +
-              "between CWD and script location. Teach the `__file__` trick early — " +
-              "it's a simple pattern that avoids many bugs. Also, introduce `pathlib` " +
-              "as the modern way, as it encourages thinking in Path objects rather " +
-              "than strings."
+              "In software development, simplicity is the ultimate sophistication. " +
+              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
             }
           />
         </section>
 
-        {/* ====== FOOTER ====== */}
-        <footer className="pt-8 mt-8 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>
-            Topic 5: Current Working Directory · Built with ❤️ for classroom
-            learning
-          </p>
-          <p className="mt-1">Next: Topic 6 — Opening Files with open()</p>
+        {/* ─── 9. Footer ──────────────────────────────────────── */}
+        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
+          <span>
+            Topic 5 · Opening Files with open() and File Modes (r, w, a, x, r+, w+, a+) · Python Masterclass · Coder &amp; AccoTax Barrackpore
+          </span>
         </footer>
       </div>
-
-      {/* ====== INLINE STYLES FOR REVEAL ANIMATIONS ====== */}
-      <style>{`
-        .section-hidden {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
-        .section-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .section-hidden {
-            opacity: 1;
-            transform: none;
-          }
-          .section-hidden * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-      `}</style>
-    </div>
+    </>
   );
 };
 
