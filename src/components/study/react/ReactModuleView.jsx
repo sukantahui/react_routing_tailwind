@@ -220,7 +220,7 @@ export default function ReactModuleView() {
               text-slate-200 placeholder-slate-500
               focus:ring-2 focus:ring-sky-500
             "
-          /&gt;
+          />
 
           <div className="space-y-3">
             {topics
@@ -239,8 +239,8 @@ export default function ReactModuleView() {
                       ? "bg-emerald-900/20 border-emerald-500 text-emerald-200"
                       : "bg-slate-900/80 border-slate-700 hover:border-sky-500"
                       } ${isLast ? "ring-2 ring-sky-500/40" : ""}`}
-                  &gt;
-                    <button onClick={() => toggleTopicComplete(idx)}&gt;
+                  >
+                    <button onClick={() => toggleTopicComplete(idx)}>
                       {done ? (
                         <CheckCircle2 size={20} className="text-emerald-400" />
                       ) : (
@@ -252,7 +252,7 @@ export default function ReactModuleView() {
                       to={`/${roadmapData.folder}/topic/${mod.slug}/${idx}`}
                       onClick={() => handleTopicClick(idx)}
                       className="flex-1 flex justify-between"
-                    &gt;
+                    >
                       <span>
                         <span className="text-sky-400 mr-1">{idx + 1}.</span>
                         {topic}

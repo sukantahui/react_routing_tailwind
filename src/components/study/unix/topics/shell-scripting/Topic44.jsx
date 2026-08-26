@@ -119,7 +119,7 @@ import random
 ticket = random.randint(1, 100)
 echo "Your ticket number is @(ticket)"
 
-if ticket &gt; 70:
+if ticket > 70:
     print("🎉 You win a prize!")
 elif ticket > 30:
     print("😐 Better luck next time")

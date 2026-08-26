@@ -308,7 +308,7 @@ WHERE MATCH(course_title, course_syllabus)
                   {/* Flow Arrow 1 */}
                   <path d="M 250 90 L 280 90" stroke="#38bdf8" strokeWidth="2" />
 
-                  {/* Yes &rarr; Error 1062 */}
+                  {/* Yes -> Error 1062 */}
                   <g>
                     <rect x="540" y="20" width="280" height="65" rx="6" fill="#450a0a" stroke="#ef4444" strokeWidth="1.5" />
                     <text x="680" y="42" fill="#fca5a5" fontSize="10" fontWeight="bold" textAnchor="middle">YES → Reject with ERROR 1062</text>
@@ -316,7 +316,7 @@ WHERE MATCH(course_title, course_syllabus)
                   </g>
                   <path d="M 430 65 L 540 50" stroke="#ef4444" strokeWidth="2" />
 
-                  {/* No &rarr; Insert OK */}
+                  {/* No -> Insert OK */}
                   <g>
                     <rect x="540" y="95" width="280" height="65" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
                     <text x="680" y="120" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">NO → Write Row to Leaf Node</text>
@@ -354,7 +354,7 @@ WHERE MATCH(course_title, course_syllabus)
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

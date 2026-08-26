@@ -32,7 +32,7 @@ const Topic14 = () => {
     { q: "What is `intptr_t` and `uintptr_t`?", a: "Integer types capable of holding a pointer value. Useful for pointer arithmetic or debugging, but avoid unless necessary." },
     { q: "Does casting a pointer change the address stored?", a: "No, the numeric address remains the same. Only the compiler's interpretation of what lies at that address changes." },
     { q: "What is the difference between implicit and explicit casting for void*?", a: "Assigning any object pointer to `void*` is implicit (automatic). Casting back from `void*` to a typed pointer requires explicit cast in C++ but is implicit in C (though explicit is clearer)." },
-    { q: "How do you cast a void pointer to a pointer to a struct?", a: "`struct MyStruct *ptr = (struct MyStruct*)voidPtr;` Then access members: `ptr &rarr; member`." },
+    { q: "How do you cast a void pointer to a pointer to a struct?", a: "`struct MyStruct *ptr = (struct MyStruct*)voidPtr;` Then access members: `ptr->member`." },
     { q: "What is the `restrict` keyword and how does it interact with casting?", a: "`restrict` promises no aliasing. Casting can break that promise if not careful. Use with caution." },
   ];
 

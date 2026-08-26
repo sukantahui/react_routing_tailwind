@@ -49,7 +49,7 @@ const Topic13 = () => {
 // Usage in another component:
 function App() {
   return (
-    <PrimaryButton onClick={() => alert('Clicked!')}&gt;
+    <PrimaryButton onClick={() => alert('Clicked!')}>
       Save Changes
     </PrimaryButton>
   )
@@ -66,7 +66,7 @@ function App() {
       <div className="mt-2 space-y-1">
         <p>Grade: <span className="font-semibold">{grade}</span></p>
         <p>Attendance: 
-          <span className={\`ml-2 px-2 py-1 rounded \${attendance > 75 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}\`}&gt;
+          <span className={\`ml-2 px-2 py-1 rounded \${attendance > 75 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}\`}>
             {attendance}%
           </span>
         </p>
@@ -548,7 +548,7 @@ function AccordionItem({ title, children, isOpen, onToggle }) {
                     ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
                     : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                 )}
-              &gt;
+              >
                 <span className="mr-2">{section.icon}</span>
                 {section.label}
               </button>
@@ -680,7 +680,7 @@ function AccordionItem({ title, children, isOpen, onToggle }) {
                           ? "bg-green-600 text-white scale-110"
                           : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                       )}
-                    &gt;
+                    >
                       {index + 1}
                     </button>
                   ))}
@@ -891,7 +891,7 @@ function StudentGradeCard({ student, initialGrade = 'A' }) {
               key={g}
               onClick={() => handleGradeChange(g)}
               className={\`px-3 py-1 rounded \${grade === g ? 'bg-blue-600 text-white' : 'bg-gray-200'}\`}
-            &gt;
+            >
               {g}
             </button>
           ))}
@@ -1937,7 +1937,7 @@ class PrimaryButton extends BaseButton {
                       "Overly complex logic (should be split)?",
                       "Tight coupling to specific parent?",
                       "Magic numbers/strings (use constants)?",
-                      "Large files (&gt;150 lines consider splitting)?",
+                      "Large files (>150 lines consider splitting)?",
                       "Mixing presentation and business logic?",
                       "Direct DOM manipulation (use React state)?",
                       "Prop drilling (consider Context API)?"
@@ -2005,7 +2005,7 @@ class PrimaryButton extends BaseButton {
         <ul>
           {students.map(student => (
             <li key={student.id}>
-              <button onClick={() => setSelectedStudent(student)}&gt;
+              <button onClick={() => setSelectedStudent(student)}>
                 {student.name}
               </button>
             </li>
@@ -2077,7 +2077,7 @@ function StudentList({ students, onSelect, loading }) {
           key={student.id}
           student={student}
           onClick={() => onSelect(student.id)}
-        /&gt;
+        />
       ))}
     </Card>
   )

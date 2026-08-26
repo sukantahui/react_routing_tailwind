@@ -137,7 +137,7 @@ export default class Topic1 extends Component {
                 {/* ================= EXPLANATION ================= */}
                 <div className="text-slate-300 text-sm space-y-2">
                     <p>• Initialization sets <code>i = 1</code></p>
-                    <p>• Condition <code>i <= 3</code> is checked before each run</p>
+                    <p>• Condition <code>i &lt;= 3</code> is checked before each run</p>
                     <p>• Loop body prints the value of <code>i</code></p>
                     <p>• Update increases <code>i</code> by 1</p>
                 </div>

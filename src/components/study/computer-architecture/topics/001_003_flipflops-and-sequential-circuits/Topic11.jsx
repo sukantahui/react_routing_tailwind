@@ -72,7 +72,7 @@ const Topic11 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            &gt;
+            >
               1. 4-NAND Gate Schematic
             </button>
             <button
@@ -83,7 +83,7 @@ const Topic11 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            &gt;
+            >
               2. Logic Symbol
             </button>
             <button
@@ -94,7 +94,7 @@ const Topic11 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            &gt;
+            >
               3. Frequency Divider (f/2) Waveforms
             </button>
           </div>
@@ -239,7 +239,7 @@ const Topic11 = () => {
                   "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                   tInput ? "bg-teal-900/80 border-teal-400 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-500"
                 )}
-              &gt;
+              >
                 T (Toggle Control): {tInput ? "1 (TOGGLE ON CLK)" : "0 (HOLD)"}
               </button>
               <button

@@ -325,7 +325,7 @@ const Topic10 = () => {
                               fill="#1f2937"
                               className="transition-all duration-300"
                               onMouseEnter={() => setActiveVariable("NR")}
-                            /&gt;
+                            />
                             <text x="10" y="20" fill="white" fontSize="12" dy=".3em">
                               {recordNum === 1 && "Swadeep,85,92,78,Math"}
                               {recordNum === 2 && "Tuhina,92,88,95,Science"}
@@ -334,7 +334,7 @@ const Topic10 = () => {
                             </text>
                             
                             {/* NR Indicator */}
-                            <g transform="translate(340, 0)" onMouseEnter={() => setActiveVariable("NR")}&gt;
+                            <g transform="translate(340, 0)" onMouseEnter={() => setActiveVariable("NR")}>
                               <rect x="0" y="0" width="20" height="30" fill="#3b82f6" rx="4" />
                               <text x="10" y="15" textAnchor="middle" fill="white" fontSize="10" dy=".3em">NR</text>
                               <text x="10" y="25" textAnchor="middle" fill="white" fontSize="8" dy=".3em">{recordNum}</text>
@@ -359,7 +359,7 @@ const Topic10 = () => {
                       </g>
                       
                       {/* Field Separator Visualization */}
-                      <g transform="translate(0, 200)" onMouseEnter={() => setActiveVariable("FS")}&gt;
+                      <g transform="translate(0, 200)" onMouseEnter={() => setActiveVariable("FS")}>
                         <text x="0" y="0" fill="#9ca3af" fontSize="12" fontWeight="bold">Field Separator (FS):</text>
                         
                         <g transform="translate(0, 20)">
@@ -409,7 +409,7 @@ const Topic10 = () => {
                       </g>
                       
                       {/* Field Variables Visualization */}
-                      <g transform="translate(0, 280)" onMouseEnter={() => setActiveVariable("$N")}&gt;
+                      <g transform="translate(0, 280)" onMouseEnter={() => setActiveVariable("$N")}>
                         <text x="0" y="0" fill="#9ca3af" fontSize="12" fontWeight="bold">Field Variables ($1, $2...):</text>
                         
                         <g transform="translate(0, 20)">
@@ -434,7 +434,7 @@ const Topic10 = () => {
                           ))}
                           
                           {/* NF Indicator */}
-                          <g transform="translate(350, 0)" onMouseEnter={() => setActiveVariable("NF")}&gt;
+                          <g transform="translate(350, 0)" onMouseEnter={() => setActiveVariable("NF")}>
                             <rect x="0" y="0" width="30" height="30" fill="#8b5cf6" rx="4" />
                             <text x="15" y="10" textAnchor="middle" fill="white" fontSize="10" dy=".3em">NF</text>
                             <text x="15" y="22" textAnchor="middle" fill="white" fontSize="10" dy=".3em">5</text>
@@ -452,7 +452,7 @@ const Topic10 = () => {
                         <polygon points="140,20 130,15 130,25" fill="#10b981" />
                         
                         {/* Output with OFS */}
-                        <g transform="translate(150, 0)" onMouseEnter={() => setActiveVariable("OFS")}&gt;
+                        <g transform="translate(150, 0)" onMouseEnter={() => setActiveVariable("OFS")}>
                           <rect x="0" y="0" width="230" height="40" rx="8" fill="#7c3aed" />
                           <text x="115" y="20" textAnchor="middle" fill="white" fontSize="12" dy=".3em">
                             Swadeep | 85 | 92 | 78 | Math
@@ -464,7 +464,7 @@ const Topic10 = () => {
                       </g>
                       
                       {/* $0 Visualization */}
-                      <g transform="translate(0, 400)" onMouseEnter={() => setActiveVariable("$0")}&gt;
+                      <g transform="translate(0, 400)" onMouseEnter={() => setActiveVariable("$0")}>
                         <text x="0" y="0" fill="#9ca3af" fontSize="12" fontWeight="bold">$0 (Entire Record):</text>
                         
                         <g transform="translate(0, 20)">
@@ -552,10 +552,10 @@ awk -F',' 'NF == 5 {
                     <h4 className="font-semibold mb-2 text-sm text-gray-500 dark:text-gray-400">Using NR for Header/Footer:</h4>
                     <pre className="bg-blue-900/30 text-blue-100 p-3 rounded-lg overflow-x-auto text-xs">
 {`# Skip header (first line)
-awk -F',' 'NR &gt; 1 {print $1, $2}'
+awk -F',' 'NR > 1 {print $1, $2}'
 
 # Process only first 10 records
-awk 'NR &le; 10 {print NR ": " $0}'
+awk 'NR <= 10 {print NR ": " $0}'
 
 # Process every other record (odd lines)
 awk 'NR % 2 == 1 {print "Odd line " NR ": " $1}'`}
@@ -758,7 +758,7 @@ BEGIN {
     # Validate using NF
     if (NF != expected_fields) {
         printf "ERROR [Line %d]: Expected %d fields, got %d\\n", 
-               NR, expected_fields, NF &gt;> "/dev/stderr"
+               NR, expected_fields, NF >> "/dev/stderr"
         error_count++
         next  # Skip to next record
     }
@@ -769,7 +769,7 @@ BEGIN {
     name = $1
     
     # Track statistics
-    if (grade &ge; 90) A_count++
+    if (grade >= 90) A_count++
     else if (grade >= 80) B_count++
     
     valid_count++

@@ -273,7 +273,7 @@ const Topic10 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span className="font-bold">{level.title.split(". ")[1]}</span>
                   <span className="text-[10px] text-cyan-400 font-mono">Level #{level.title.split(".")[0]}</span>
                 </button>
@@ -332,7 +332,7 @@ const Topic10 = () => {
                 checked={dnssecEnabledOnResolver}
                 onChange={(e) => setDnssecEnabledOnResolver(e.target.checked)}
                 className="rounded bg-slate-900 border-slate-700 text-cyan-500 focus:ring-0"
-              /&gt;
+              />
               <span className="text-slate-300 font-semibold">Enable DNSSEC Validation on Resolver</span>
             </label>
           </div>
@@ -409,7 +409,7 @@ const Topic10 = () => {
                     ? "bg-rose-950 border-rose-600 text-rose-300 shadow-md shadow-rose-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 NSEC (Cleartext - Vulnerable to Walking)
               </button>
               <button
@@ -420,7 +420,7 @@ const Topic10 = () => {
                     ? "bg-emerald-950 border-emerald-600 text-emerald-300 shadow-md shadow-emerald-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 NSEC3 (Salted Hash - Anti-Walking)
               </button>
             </div>
@@ -489,7 +489,7 @@ const Topic10 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span className="font-bold">{drill.title}</span>
                   <span className="text-[10px] text-cyan-400">{drill.engineers}</span>
                 </button>

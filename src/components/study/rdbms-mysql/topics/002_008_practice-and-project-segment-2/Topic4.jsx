@@ -36,7 +36,7 @@ SELECT
     ) AS rank_in_dept,
     SUM(p.amount_paid_inr) AS total_fee_paid_inr,
     CASE 
-        WHEN AVG(e.exam_score_pct) &ge; 90.00 THEN 'Gold Merit (50% Fee Waiver)'
+        WHEN AVG(e.exam_score_pct) >= 90.00 THEN 'Gold Merit (50% Fee Waiver)'
         WHEN AVG(e.exam_score_pct) >= 80.00 THEN 'Silver Merit (25% Fee Waiver)'
         ELSE 'Standard Tuition'
     END AS scholarship_status
@@ -380,7 +380,7 @@ GROUP BY b.branch_name, c.course_name WITH ROLLUP;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -505,7 +505,7 @@ GROUP BY b.branch_name, c.course_name WITH ROLLUP;`,
     JOIN enrollments e ON s.student_id = e.student_id
     GROUP BY s.student_id, s.branch_id
 )
-SELECT * FROM RankedStudents WHERE rank_in_branch &le; 2;`}
+SELECT * FROM RankedStudents WHERE rank_in_branch <= 2;`}
               </pre>
             </div>
           </div>
@@ -528,7 +528,7 @@ SELECT * FROM RankedStudents WHERE rank_in_branch &le; 2;`}
                 <span>❌</span> Using Window Functions in WHERE
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Writing <code className="text-rose-300 font-mono">WHERE DENSE_RANK() OVER (...) <= 3</code> throws a syntax error because <code className="text-rose-300 font-mono">WHERE</code> executes before window functions!
+                Writing <code className="text-rose-300 font-mono">WHERE DENSE_RANK() OVER (...) &lt;= 3</code> throws a syntax error because <code className="text-rose-300 font-mono">WHERE</code> executes before window functions!
               </p>
               <div className="text-xs text-slate-400">
                 Fix: Wrap the window function in a Common Table Expression (CTE) and filter in the outer query.

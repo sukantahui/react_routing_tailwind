@@ -67,7 +67,7 @@ const Topic6 = () => {
       step: 4,
       title: "4. JMP ESP Trampoline Redirection",
       eipValue: "0x625011AF (JMP ESP in essfunc.dll)",
-      espValue: "0x0012FF88 &rarr; Points to Payload",
+      espValue: "0x0012FF88 -> Points to Payload",
       ebpValue: "0x41414141",
       cpuStatus: "CPU executes JMP ESP instruction, jumping directly to stack pointer in RAM!",
       stackState: [
@@ -81,7 +81,7 @@ const Topic6 = () => {
     {
       step: 5,
       title: "5. NOP Sled Slide & Shellcode Execution",
-      eipValue: "0x0012FF88 -&gt; 0x0012FFA8 (Shellcode)",
+      eipValue: "0x0012FF88 -> 0x0012FFA8 (Shellcode)",
       espValue: "0x0012FFA8",
       ebpValue: "0x41414141",
       cpuStatus: "SUCCESS: CPU executes NOP instructions and jumps into diagnostic test payload!",
@@ -274,7 +274,7 @@ const Topic6 = () => {
                     ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                     : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                 )}
-              &gt;
+              >
                 <div className="font-bold text-xs">Step {bStep.step}</div>
                 <div className="text-[10px] text-gray-400 truncate mt-0.5">{bStep.title.split(": ")[1] || bStep.title.split(". ")[1]}</div>
               </button>
@@ -356,7 +356,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{h.name.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5 font-mono">{h.modeId}</div>
                 </button>
@@ -539,7 +539,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

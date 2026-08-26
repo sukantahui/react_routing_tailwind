@@ -127,7 +127,7 @@ const Topic4 = () => {
       flags: "RST=1 (Seq: 99999999)",
       conntrackAction: "🛡️ DROPPED (Window Validation Failed)",
       memoryAllocated: "Session Maintained",
-      analysis: "Sequence number outside valid sliding window (`RCV.NXT &le; Seq <= RCV.NXT + Window`); injection attack neutralized."
+      analysis: "Sequence number outside valid sliding window (`RCV.NXT <= Seq <= RCV.NXT + Window`); injection attack neutralized."
     }
   };
 
@@ -140,7 +140,7 @@ const Topic4 = () => {
     const avgChainLength = (maxConntrackEntries / hashBuckets).toFixed(1);
 
     // SYN flood duration to fill state table without SYN cookies (seconds)
-    const secondsToFillTable = synFloodRateKpps &gt; 0 ? (maxConntrackEntries / (synFloodRateKpps * 1000)).toFixed(2) : "0";
+    const secondsToFillTable = synFloodRateKpps > 0 ? (maxConntrackEntries / (synFloodRateKpps * 1000)).toFixed(2) : "0";
 
     // 5-Year Hardware & License TCO (INR ₹ Lakhs)
     const applianceCostLakhs = (12.0 + (maxConntrackEntries / 500000) * 1.5).toFixed(2);
@@ -334,7 +334,7 @@ const Topic4 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {rec.title}
               </button>
             ))}
@@ -403,7 +403,7 @@ const Topic4 = () => {
                 value={selectedPacketStep}
                 onChange={(e) => setSelectedPacketStep(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(packetStepScenarios).map((s) => (
                   <option key={s.id} value={s.id}>
                     {s.stepName}
@@ -422,7 +422,7 @@ const Topic4 = () => {
                     ? "bg-purple-950/80 text-purple-300 border-purple-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              &gt;
+              >
                 {ftpAlgEnabled ? "✔ FTP ALG Active (Dynamic RELATED Pinholes)" : "❌ FTP ALG Disabled"}
               </button>
             </div>
@@ -517,7 +517,7 @@ const Topic4 = () => {
                 value={maxConntrackEntries}
                 onChange={(e) => setMaxConntrackEntries(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -533,7 +533,7 @@ const Topic4 = () => {
                 value={hashBuckets}
                 onChange={(e) => setHashBuckets(Number(e.target.value))}
                 className="w-full accent-indigo-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -549,7 +549,7 @@ const Topic4 = () => {
                 value={synFloodRateKpps}
                 onChange={(e) => setSynFloodRateKpps(Number(e.target.value))}
                 className="w-full accent-rose-400 cursor-pointer"
-              /&gt;
+              />
             </div>
           </div>
 
@@ -603,7 +603,7 @@ const Topic4 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

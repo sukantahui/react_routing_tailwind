@@ -318,7 +318,7 @@ const Topic11 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {p.title}
               </button>
             ))}
@@ -380,7 +380,7 @@ const Topic11 = () => {
                 value={selectedProbeKey}
                 onChange={(e) => setSelectedProbeKey(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(penTestProbes).map((p) => (
                   <option key={p.id} value={p.id}>
                     {p.label}
@@ -399,7 +399,7 @@ const Topic11 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-rose-950/80 text-rose-300 border-rose-800"
                 )}
-              &gt;
+              >
                 {statefulEngineActive ? "✔ Stateful SPI Engine Active" : "❌ Stateless Filter Only (Flawed)"}
               </button>
             </div>
@@ -414,7 +414,7 @@ const Topic11 = () => {
                     ? "bg-purple-950/80 text-purple-300 border-purple-800"
                     : "bg-amber-950/80 text-amber-300 border-amber-800"
                 )}
-              &gt;
+              >
                 {fragmentReassemblyActive ? "✔ Virtual Reassembly Active" : "❌ Reassembly Off (Evasion Risk)"}
               </button>
             </div>
@@ -502,7 +502,7 @@ const Topic11 = () => {
                 value={eventsPerSecond}
                 onChange={(e) => setEventsPerSecond(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -518,7 +518,7 @@ const Topic11 = () => {
                 value={bytesPerEvent}
                 onChange={(e) => setBytesPerEvent(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -534,7 +534,7 @@ const Topic11 = () => {
                     ? "bg-emerald-950 text-emerald-300 border-emerald-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              &gt;
+              >
                 {wormStorageEnabled ? "✔ WORM Immutable Storage Enforced" : "Standard Disk (No WORM)"}
               </button>
             </div>
@@ -590,7 +590,7 @@ const Topic11 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

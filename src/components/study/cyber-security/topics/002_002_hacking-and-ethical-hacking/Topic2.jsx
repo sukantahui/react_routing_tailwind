@@ -227,7 +227,7 @@ const Topic2 = () => {
                   value={targetScopeType}
                   onChange={(e) => setTargetScopeType(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-gray-200 text-xs focus:outline-none focus:border-indigo-500"
-                &gt;
+                >
                   <option value="web_api">Designated Web Applications &amp; REST APIs</option>
                   <option value="external_only">External Perimeter IP Subnets Only</option>
                   <option value="full_network">Full Enterprise Internal Active Directory &amp; LAN</option>
@@ -241,7 +241,7 @@ const Topic2 = () => {
                   value={testingTimeWindow}
                   onChange={(e) => setTestingTimeWindow(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-gray-200 text-xs focus:outline-none focus:border-indigo-500"
-                &gt;
+                >
                   <option value="off_peak">Off-Peak Night Window: 01:00 AM - 05:00 AM IST (Safest)</option>
                   <option value="business_hours">Business Hours: 09:00 AM - 06:00 PM IST (Monitored)</option>
                   <option value="continuous_24_7">Continuous 24/7 Red Team Window (High Realism)</option>
@@ -255,7 +255,7 @@ const Topic2 = () => {
                   value={clientAuthorizationLevel}
                   onChange={(e) => setClientAuthorizationLevel(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-gray-200 text-xs focus:outline-none focus:border-indigo-500"
-                &gt;
+                >
                   <option value="ciso">CISO / Chief Information Security Officer (Valid Safe Harbor)</option>
                   <option value="it_manager">Department IT Manager (Insufficient Legal Authority)</option>
                   <option value="junior_admin">Junior Systems Administrator (Completely Invalid)</option>
@@ -271,7 +271,7 @@ const Topic2 = () => {
                     checked={allowDosTesting}
                     onChange={(e) => setAllowDosTesting(e.target.checked)}
                     className="rounded bg-gray-800 border-gray-700 text-indigo-600 focus:ring-0"
-                  /&gt;
+                  />
                   <span className="text-gray-300">Permit Denial of Service (DoS) Stress Testing</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -280,7 +280,7 @@ const Topic2 = () => {
                     checked={allowSocialEngineering}
                     onChange={(e) => setAllowSocialEngineering(e.target.checked)}
                     className="rounded bg-gray-800 border-gray-700 text-indigo-600 focus:ring-0"
-                  /&gt;
+                  />
                   <span className="text-gray-300">Permit Human Social Engineering / Phishing</span>
                 </label>
               </div>
@@ -315,7 +315,7 @@ const Topic2 = () => {
                 <h4 className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
                   Legal Compliance &amp; Operational Risk Advisory
                 </h4>
-                {contractEvaluation.riskFlags.length &gt; 0 ? (
+                {contractEvaluation.riskFlags.length > 0 ? (
                   <div className="space-y-1.5">
                     {contractEvaluation.riskFlags.map((flag, idx) => (
                       <div key={idx} className="p-3 bg-gray-900/90 rounded-lg border border-rose-900/40 text-xs text-rose-300 flex items-start gap-2">
@@ -368,7 +368,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-sm text-gray-200">{law.name.split(":")[0]}</div>
                   <div className="text-[11px] text-gray-400 mt-1 truncate">{law.statute}</div>
                 </button>
@@ -582,7 +582,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

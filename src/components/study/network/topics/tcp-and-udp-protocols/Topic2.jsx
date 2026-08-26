@@ -35,7 +35,7 @@ const Topic2 = () => {
           onClick={() => setDarkMode(!darkMode)}
           className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-md dark:bg-gray-700 dark:text-gray-200 bg-gray-200 text-gray-800"
           aria-label="Toggle dark mode"
-        &gt;
+        >
           {darkMode ? '☀️ Light mode' : '🌙 Dark mode'}
         </button>
       </div>

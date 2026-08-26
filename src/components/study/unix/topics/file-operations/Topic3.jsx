@@ -693,7 +693,7 @@ mv logfile.log.1 logfile.log.2`}</code>
                       <div>
                         <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-1">Create Undo-able Moves</h4>
                         <p className="text-gray-600 dark:text-gray-400">
-                          Use: <code>{'mv -b file1 file2'}</code> creates <code>file2~</code> backup. Or use: <code>{'mv file1 file2 && echo "mv file2 file1" &gt; undo.sh'}</code>
+                          Use: <code>{'mv -b file1 file2'}</code> creates <code>file2~</code> backup. Or use: <code>{'mv file1 file2 && echo "mv file2 file1" > undo.sh'}</code>
                         </p>
                       </div>
                     </div>

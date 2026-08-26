@@ -47,7 +47,7 @@ FROM student_fees;`,
       sqlQuery: `SELECT 
     student_name,
     marks_obtained,
-    IF(marks_obtained &ge; 40, 'PASSED', 'FAILED') AS exam_result,
+    IF(marks_obtained >= 40, 'PASSED', 'FAILED') AS exam_result,
     IF(marks_obtained >= 75, 'Distinction', IF(marks_obtained >= 40, 'First Class', 'Need Improvement')) AS grade_tier
 FROM semester_evaluations;`,
       resultRows: [
@@ -178,7 +178,7 @@ FROM student_admissions;`,
               </p>
               <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 font-mono text-xs text-slate-300 space-y-1">
                 <div><span className="text-slate-500">-- Binary branch:</span></div>
-                <div><span className="text-cyan-400">SELECT IF</span>(fee_balance <= 0, <span className="text-emerald-400">'CLEARED'</span>, <span className="text-rose-400">'PENDING'</span>);</div>
+                <div><span className="text-cyan-400">SELECT IF</span>(fee_balance &lt;= 0, <span className="text-emerald-400">'CLEARED'</span>, <span className="text-rose-400">'PENDING'</span>);</div>
                 <div><span className="text-slate-500">-- Output: 'CLEARED' or 'PENDING'</span></div>
               </div>
             </div>
@@ -213,7 +213,7 @@ FROM student_admissions;`,
               <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 font-mono text-xs text-slate-300 space-y-1">
                 <div><span className="text-slate-500">-- Safe division without crashes:</span></div>
                 <div><span className="text-amber-400">SELECT</span> 100 / <span className="text-amber-400">NULLIF</span>(total_students, 0);</div>
-                <div><span className="text-slate-500">-- If total_students=0 => 100 / NULL => NULL (Safe)</span></div>
+                <div><span className="text-slate-500">-- If total_students=0 =&gt; 100 / NULL =&gt; NULL (Safe)</span></div>
               </div>
             </div>
 
@@ -350,7 +350,7 @@ FROM student_admissions;`,
                 {/* Flow steps */}
                 <rect x="25" y="60" width="200" height="40" rx="8" fill="#1e293b" stroke="#334155" />
                 <text x="125" y="85" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">
-                  Evaluate (score >= 40)
+                  Evaluate (score &gt;= 40)
                 </text>
 
                 {/* Diamond/decision simulation */}
@@ -466,7 +466,7 @@ FROM student_admissions;`,
                         ? "bg-cyan-950/80 border-cyan-500 text-cyan-200 shadow-lg shadow-cyan-950/50"
                         : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                     )}
-                  &gt;
+                  >
                     <div className="font-semibold">{item.title}</div>
                   </button>
                 );
@@ -615,7 +615,7 @@ FROM student_admissions;`,
     total_tuition_fee,
     IFNULL(scholarship_amount, 0) AS safe_scholarship,
     (total_tuition_fee - IFNULL(scholarship_amount, 0)) AS net_payable_inr,
-    IF((total_tuition_fee - IFNULL(scholarship_amount, 0) - paid_amount) &le; 0, 
+    IF((total_tuition_fee - IFNULL(scholarship_amount, 0) - paid_amount) <= 0, 
        'FEE_CLEARED', 'PAYMENT_PENDING') AS clearance_status
 FROM student_ledger;`}</pre>
               </div>

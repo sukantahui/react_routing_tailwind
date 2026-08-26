@@ -297,7 +297,7 @@ FROM customer_cards;`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. CONCAT_WS &amp; Badges
               </button>
 
@@ -309,7 +309,7 @@ FROM customer_cards;`,
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. NULL Poison Trap ⚠️
               </button>
 
@@ -321,7 +321,7 @@ FROM customer_cards;`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. UTF-8 Byte vs Char
               </button>
 
@@ -333,7 +333,7 @@ FROM customer_cards;`,
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Negative Substring
               </button>
             </div>
@@ -468,7 +468,7 @@ SELECT
     CHAR_LENGTH(product_title_bengali) AS visible_char_length,
     LENGTH(product_title_bengali) AS raw_byte_storage_size,
     CASE 
-        WHEN CHAR_LENGTH(product_title_bengali) &gt; 50 THEN 'REJECT (Exceeds 50 chars)'
+        WHEN CHAR_LENGTH(product_title_bengali) > 50 THEN 'REJECT (Exceeds 50 chars)'
         ELSE 'APPROVED'
     END AS validation_status
 FROM product_translations;`}

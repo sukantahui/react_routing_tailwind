@@ -32,7 +32,7 @@ export default function Topic4() {
   { name: "Kaustav", marks: 55 }
 ];
 
-const topper = students.find(s => s.marks &gt; 90);
+const topper = students.find(s => s.marks > 90);
 
 console.log(topper);`}
           language="javascript"
@@ -59,7 +59,7 @@ const activeStudent = users.find(
 
 console.log(activeStudent);`}
           language="javascript"
-        /&gt;
+        />
       </section>
 
       {/* 3. find() inside nested objects */}
@@ -85,7 +85,7 @@ const dept = departments.find(d => d.students.includes("Kaustav"));
 
 console.log(dept);`}
           language="javascript"
-        /&gt;
+        />
       </section>
 
       {/* 4. findIndex(): Get index instead of object */}
@@ -105,7 +105,7 @@ const index = tasks.findIndex(t => t.done === true);
 
 console.log(index); // 2`}
           language="javascript"
-        /&gt;
+        />
       </section>
 
       {/* 5. Updating objects using findIndex */}
@@ -129,7 +129,7 @@ if (idx !== -1) {
 
 console.log(products);`}
           language="javascript"
-        /&gt;
+        />
       </section>
 
       {/* 6. Removing objects using findIndex */}
@@ -155,7 +155,7 @@ if (removeIndex !== -1) {
 
 console.log(cart);`}
           language="javascript"
-        /&gt;
+        />
       </section>
 
       {/* 7. Real API Simulation */}
@@ -177,7 +177,7 @@ const user = apiUsers.find(u => u.id === userId);
 
 console.log(user);`}
           language="javascript"
-        /&gt;
+        />
       </section>
 
       {/* TEACHER NOTE*/}

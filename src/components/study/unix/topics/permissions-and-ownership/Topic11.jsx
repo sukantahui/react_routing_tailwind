@@ -400,7 +400,7 @@ export default class Topic11 extends React.Component {
                           ? 'bg-blue-600 text-white'
                           : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
                       )}
-                    &gt;
+                    >
                       {type === 'basic' && 'Basic'}
                       {type === 'shared' && 'Shared'}
                       {type === 'secure' && 'Secure'}
@@ -421,7 +421,7 @@ export default class Topic11 extends React.Component {
                         ? 'bg-green-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
                     )}
-                  &gt;
+                  >
                     <span className="mr-2">📄</span> Files
                   </button>
                   <button
@@ -432,7 +432,7 @@ export default class Topic11 extends React.Component {
                         ? 'bg-blue-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
                     )}
-                  &gt;
+                  >
                     <span className="mr-2">📁</span> Directories
                   </button>
                 </div>

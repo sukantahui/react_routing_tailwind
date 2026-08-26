@@ -280,7 +280,7 @@ const Topic9 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{drill.name.split(". ")[1]?.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{drill.name.split(". ")[0]}</div>
                 </button>
@@ -333,13 +333,13 @@ const Topic9 = () => {
               <button
                 onClick={() => setDrillActionResult("reported")}
                 className="px-4 py-2.5 rounded-xl bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-800 font-bold text-xs transition-all duration-300 flex items-center gap-2"
-              &gt;
+              >
                 <span>🛡️</span> Click "Report Phishing" Button (To SOC in &lt; 30s)
               </button>
               <button
                 onClick={() => setDrillActionResult("clicked")}
                 className="px-4 py-2.5 rounded-xl bg-rose-950/70 hover:bg-rose-900 text-rose-300 border border-rose-800 font-bold text-xs transition-all duration-300 flex items-center gap-2"
-              &gt;
+              >
                 <span>⚠️</span> Click Link / Download Attachment (Test JIT Training)
               </button>
             </div>
@@ -394,7 +394,7 @@ const Topic9 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">Level {lvl.level}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{lvl.name.split(": ")[1]?.split(" (")[0]}</div>
                 </button>
@@ -603,7 +603,7 @@ const Topic9 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

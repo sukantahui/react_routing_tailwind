@@ -405,7 +405,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                     <button
                         onClick={() => toggleSolution(1)}
                         className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
-                    &gt;
+                    >
                         {showSolutions[1] ? "Hide Solution" : "Show Solution"}
                     </button>
                     {showSolutions[1] && (
@@ -497,7 +497,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                     <button
                         onClick={() => toggleSolution(2)}
                         className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
-                    &gt;
+                    >
                         {showSolutions[2] ? "Hide Solution" : "Show Solution"}
                     </button>
                     {showSolutions[2] && (
@@ -581,7 +581,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                     <button
                         onClick={() => toggleSolution(3)}
                         className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
-                    &gt;
+                    >
                         {showSolutions[3] ? "Hide Solution" : "Show Solution"}
                     </button>
                     {showSolutions[3] && (
@@ -644,7 +644,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                     <button
                         onClick={() => toggleSolution(4)}
                         className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
-                    &gt;
+                    >
                         {showSolutions[4] ? "Hide Solution" : "Show Solution"}
                     </button>
                     {showSolutions[4] && (
@@ -707,7 +707,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                     <button
                         onClick={() => toggleSolution(5)}
                         className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
-                    &gt;
+                    >
                         {showSolutions[5] ? "Hide Solution" : "Show Solution"}
                     </button>
                     {showSolutions[5] && (
@@ -770,7 +770,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                     <button
                         onClick={() => toggleSolution(6)}
                         className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
-                    &gt;
+                    >
                         {showSolutions[6] ? "Hide Solution" : "Show Solution"}
                     </button>
                     {showSolutions[6] && (
@@ -841,7 +841,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                     <button
                         onClick={() => toggleSolution(7)}
                         className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
-                    &gt;
+                    >
                         {showSolutions[7] ? "Hide Solution" : "Show Solution"}
                     </button>
                     {showSolutions[7] && (
@@ -899,7 +899,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                     <button
                         onClick={() => toggleSolution(8)}
                         className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
-                    &gt;
+                    >
                         {showSolutions[8] ? "Hide Solution" : "Show Solution"}
                     </button>
                     {showSolutions[8] && (
@@ -958,7 +958,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                     <button
                         onClick={() => toggleSolution(9)}
                         className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
-                    &gt;
+                    >
                         {showSolutions[9] ? "Hide Solution" : "Show Solution"}
                     </button>
                     {showSolutions[9] && (
@@ -1021,7 +1021,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                     <button
                         onClick={() => toggleSolution(10)}
                         className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 text-sm font-medium"
-                    &gt;
+                    >
                         {showSolutions[10] ? "Hide Solution" : "Show Solution"}
                     </button>
                     {showSolutions[10] && (

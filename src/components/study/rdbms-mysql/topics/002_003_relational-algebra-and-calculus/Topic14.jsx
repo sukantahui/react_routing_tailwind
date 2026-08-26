@@ -61,19 +61,21 @@ const Topic14 = () => {
   const canonicalMath = "π_{full_name, course_title}(σ_{city='Barrackpore' ∧ fee>4000 ∧ S.id=E.sid ∧ E.cid=C.id}(Students × Enrollments × Courses))";
   const optimizedMath = "π_{full_name, course_title}((σ_{city='Barrackpore'}(Students) ⨝_{id=sid} Enrollments) ⨝_{cid=id} σ_{fee>4000}(Courses))";
 
-  const canonicalExplain = ` &rarr; Project: full_name, course_title  (cost=5250000.00 rows=2)
+  const canonicalExplain = `-> Project: full_name, course_title  (cost=5250000.00 rows=2)
    -> Filter: (Students.city = 'Barrackpore' AND Courses.fee > 4000 AND Students.id = Enrollments.sid AND Enrollments.cid = Courses.id)
       -> Cartesian product (cost=5000000.00 rows=50,000,000)  <-- MEMORY DISASTER!
-         -> Table scan on Courses (rows=100) &rarr; Cartesian product (rows=500,000)
-            -&gt; Table scan on Enrollments (rows=5,000)
+         -> Table scan on Courses (rows=100)
+         -> Cartesian product (rows=500,000)
+            -> Table scan on Enrollments (rows=5,000)
             -> Table scan on Students (rows=100)`;
 
   const optimizedExplain = `-> Project: full_name, course_title  (cost=12.40 rows=2)
    -> Nested loop inner join  (cost=10.20 rows=2)
       -> Nested loop inner join  (cost=6.10 rows=4)
          -> Filter: (Students.city = 'Barrackpore')  (cost=2.00 rows=5)  <-- PUSHED DOWN!
-            -> Index range scan on Students using idx_city (rows=5) &rarr; Index lookup on Enrollments using idx_sid (sid=Students.id) (rows=4)
-      -&gt; Index lookup on Courses using PRIMARY (id=Enrollments.cid), filter: (Courses.fee > 4000) (rows=1)  <-- PUSHED DOWN!`;
+            -> Index range scan on Students using idx_city (rows=5)
+         -> Index lookup on Enrollments using idx_sid (sid=Students.id) (rows=4)
+      -> Index lookup on Courses using PRIMARY (id=Enrollments.cid), filter: (Courses.fee > 4000) (rows=1)  <-- PUSHED DOWN!`;
 
   return (
     <>
@@ -232,7 +234,7 @@ const Topic14 = () => {
                 <text x="80" y="100" fill="#38bdf8" textAnchor="middle" fontSize="8">σ_{`{city='Barrackpore'}`}</text>
 
                 <rect x="180" y="86" width="120" height="20" rx="4" fill="#1e293b" stroke="#38bdf8" />
-                <text x="240" y="100" fill="#38bdf8" textAnchor="middle" fontSize="8">σ_{`{fee &gt; 4000}`}</text>
+                <text x="240" y="100" fill="#38bdf8" textAnchor="middle" fontSize="8">σ_{`{fee > 4000}`}</text>
 
                 {/* Leaves */}
                 <text x="80" y="128" fill="#10b981" fontSize="9">Students (5 rows)</text>
@@ -275,7 +277,7 @@ const Topic14 = () => {
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Canonical Query Tree (Unoptimized Cartesian Pipeline)
               </button>
 
@@ -290,7 +292,7 @@ const Topic14 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Heuristically Optimized Tree (Selection &amp; Join Pushdown)
               </button>
             </div>
@@ -391,14 +393,14 @@ const Topic14 = () => {
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Optimized Tree: $\\pi_{\name, title}((\\sigma_{\city='Barrackpore'}(\Students) \\bowtie \Enrollments) \\bowtie \\sigma_{\fee&gt;4000}(\Courses))$"}
+                {"Optimized Tree: $\\pi_{\name, title}((\\sigma_{\city='Barrackpore'}(\Students) \\bowtie \Enrollments) \\bowtie \\sigma_{\fee>4000}(\Courses))$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.full_name, c.course_title
 FROM students s
 JOIN enrollments e ON s.student_id = e.student_id
 JOIN courses c ON e.course_id = c.course_id
-WHERE s.city = 'Barrackpore' AND c.fee &gt; 4000;`}
+WHERE s.city = 'Barrackpore' AND c.fee > 4000;`}
               </pre>
             </div>
 

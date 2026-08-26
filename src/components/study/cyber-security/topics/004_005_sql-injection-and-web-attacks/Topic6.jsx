@@ -125,7 +125,7 @@ const Topic6 = () => {
       categoryBadge: "bg-emerald-950 text-emerald-300 border-emerald-800",
       targetImpact: "Erasing security audit logs to blind SOC investigators.",
       vulnerabilityMechanism:
-        "Executing `DELETE FROM audit_logs WHERE created_at &ge; ...` via SQLi, destroying all forensic digital footprints before disconnecting.",
+        "Executing `DELETE FROM audit_logs WHERE created_at >= ...` via SQLi, destroying all forensic digital footprints before disconnecting.",
       mitigationPattern: "Stream security logs in real time to immutable, remote write-once SIEM clusters.",
       typicalPayload: "'; DELETE FROM audit_events WHERE ip_address = '103.25.10.1';--",
       codeSnippet: `// Forensic Log Deletion:
@@ -638,7 +638,7 @@ FLUSH PRIVILEGES;`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   IMPACT
                 </span>
@@ -736,7 +736,7 @@ FLUSH PRIVILEGES;`,
                           ? "bg-rose-950 border-rose-500 text-rose-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    &gt;
+                    >
                       {ph.label}
                     </button>
                   ))}
@@ -756,7 +756,7 @@ FLUSH PRIVILEGES;`,
                           ? "bg-purple-950 border-purple-500 text-purple-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    &gt;
+                    >
                       {eng}
                     </button>
                   ))}
@@ -780,7 +780,7 @@ FLUSH PRIVILEGES;`,
                           ? "bg-cyan-950 border-cyan-500 text-cyan-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    &gt;
+                    >
                       {p.label}
                     </button>
                   ))}
@@ -797,7 +797,7 @@ FLUSH PRIVILEGES;`,
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300 shadow-md shadow-emerald-950/50"
                       : "bg-gray-950 border-gray-800 text-gray-400"
                   )}
-                &gt;
+                >
                   {leastPrivilegeActive ? "✔ LEAST PRIVILEGE SANDBOX ACTIVE" : "UNRESTRICTED DATABASE PRIVILEGES"}
                 </button>
               </div>
@@ -869,7 +869,7 @@ FLUSH PRIVILEGES;`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -918,7 +918,7 @@ FLUSH PRIVILEGES;`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

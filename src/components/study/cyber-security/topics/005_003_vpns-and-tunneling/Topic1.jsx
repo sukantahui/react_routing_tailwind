@@ -108,7 +108,7 @@ const Topic1 = () => {
         status: "SECURED",
         verdict: "🛡️ 100% SECURE: Encapsulated & Encrypted with AES-256-GCM!",
         badgeColor: "bg-emerald-950 text-emerald-300 border-emerald-700",
-        adversaryView: `[ENCRYPTED ESP TUNNEL] Public Header: 203.0.113.88 &rarr; 198.51.100.1 | Encrypted Payload: 7F4A99B812C450E72B33880F1A29D4E6...`,
+        adversaryView: `[ENCRYPTED ESP TUNNEL] Public Header: 203.0.113.88 -> 198.51.100.1 | Encrypted Payload: 7F4A99B812C450E72B33880F1A29D4E6...`,
         stolenData: "[UNREADABLE ENCRYPTED CIPHERTEXT (0% Plaintext Stolen)]",
         explanation: "The VPN encapsulated the transmission inside an encrypted IPsec ESP tunnel. The eavesdropper captured only indecipherable mathematical ciphertext."
       };
@@ -307,7 +307,7 @@ const Topic1 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {t.title}
               </button>
             ))}
@@ -372,7 +372,7 @@ const Topic1 = () => {
                 value={selectedTransmissionType}
                 onChange={(e) => setSelectedTransmissionType(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(transmissionTypes).map((t) => (
                   <option key={t.id} value={t.id}>
                     {t.label}
@@ -391,7 +391,7 @@ const Topic1 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800 shadow-md shadow-emerald-500/10"
                     : "bg-rose-950/80 text-rose-300 border-rose-800 shadow-md shadow-rose-500/10"
                 )}
-              &gt;
+              >
                 {vpnTunnelActive ? "✔ VPN Tunnel ACTIVE (AES-256-GCM Encrypted)" : "❌ NO VPN (Cleartext Transmission on Public Wi-Fi!)"}
               </button>
             </div>
@@ -485,7 +485,7 @@ const Topic1 = () => {
                 value={branchOfficesCount}
                 onChange={(e) => setBranchOfficesCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -501,7 +501,7 @@ const Topic1 = () => {
                 value={mplsMonthlyPerBranchThousands}
                 onChange={(e) => setMplsMonthlyPerBranchThousands(Number(e.target.value))}
                 className="w-full accent-rose-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -517,7 +517,7 @@ const Topic1 = () => {
                 value={broadbandMonthlyPerBranchThousands}
                 onChange={(e) => setBroadbandMonthlyPerBranchThousands(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              /&gt;
+              />
             </div>
           </div>
 
@@ -571,7 +571,7 @@ const Topic1 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

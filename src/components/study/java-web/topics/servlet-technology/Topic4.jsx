@@ -53,7 +53,7 @@ const Topic4 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-blue-400 flex items-center gap-2">
             <span>🔐</span> Why do we need sessions?
           </h2>
@@ -74,7 +74,7 @@ const Topic4 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-blue-400">🛠️ Three Session Tracking Techniques</h2>
           <div className="mt-6 flex flex-wrap justify-center gap-8">
             <svg viewBox="0 0 200 160" className="w-48 h-auto">
@@ -108,7 +108,7 @@ const Topic4 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-blue-400">🍪 Cookies – Client‑Side State</h2>
           <p className="mt-3 text-gray-300">
             A cookie is a small piece of data sent from the server to the client, stored by the browser, and sent back with every subsequent request. Servlets use <code>javax.servlet.http.Cookie</code> class.
@@ -141,7 +141,7 @@ const Topic4 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-blue-400">📦 HttpSession – Server‑Side Session</h2>
           <p className="mt-3 text-gray-300">
             The container creates a unique <code>HttpSession</code> object for each user. It maintains a session ID (usually via a cookie named <code>JSESSIONID</code>) and can store any Java objects as attributes.
@@ -176,7 +176,7 @@ const Topic4 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-blue-400">🔗 URL Rewriting – When Cookies Are Disabled</h2>
           <p className="mt-3 text-gray-300">
             Some users disable cookies. URL rewriting appends the session ID to every URL as a query parameter (<code>;jsessionid=...</code>). Servlets provide the <code>encodeURL()</code> and <code>encodeRedirectURL()</code> methods to automatically add the session ID if cookies are not supported.
@@ -199,7 +199,7 @@ const Topic4 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-blue-400">📊 Comparison of Session Management Techniques</h2>
           <div className="overflow-x-auto mt-4">
             <table className="min-w-full text-sm text-left text-gray-300">
@@ -232,7 +232,7 @@ const Topic4 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-blue-400">⚠️ Common Pitfalls (Beginners)</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Not calling <code>getSession()</code> before using session</strong> – results in <code>NullPointerException</code>.</li>
@@ -248,7 +248,7 @@ const Topic4 = () => {
         <section
           ref={(el) => (sectionRefs.current[7] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-blue-400">✅ Best Practices (Industry)</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Use HttpSession for user‑specific data</strong> (shopping cart, logged‑in user ID).</li>
@@ -265,7 +265,7 @@ const Topic4 = () => {
         <section
           ref={(el) => (sectionRefs.current[8] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-blue-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -291,7 +291,7 @@ const Topic4 = () => {
         <section
           ref={(el) => (sectionRefs.current[9] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-blue-500/30"
-        &gt;
+        >
           <h2 className="text-xl font-semibold text-blue-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> Open your browser dev tools → Application → Cookies. See JSESSIONID after visiting a servlet that calls <code>getSession()</code>.</li>

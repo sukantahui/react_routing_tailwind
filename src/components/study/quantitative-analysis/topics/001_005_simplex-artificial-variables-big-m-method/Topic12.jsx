@@ -137,7 +137,7 @@ const Topic12 = () => {
           { name: 'Artificial Variable', formula: 'a₁x + a₂y + a = b (a ≥ 0)' },
           { name: 'Big-M Penalty (Min)', formula: 'Min Z = c₁x + c₂y + M a' },
           { name: 'Big-M Penalty (Max)', formula: 'Max Z = c₁x + c₂y - M a' },
-          { name: 'Feasibility Check', formula: 'If a &gt; 0 at optimal → infeasible' }
+          { name: 'Feasibility Check', formula: 'If a > 0 at optimal → infeasible' }
         ]
       },
       {
@@ -184,7 +184,7 @@ const Topic12 = () => {
                   ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-indigo-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -208,7 +208,7 @@ const Topic12 = () => {
                       "bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]",
                       selectedProblem === problem.id - 1 ? "border-2 border-indigo-500" : ""
                     )}
-                  &gt;
+                  >
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200 text-sm">
                         {problem.title}
@@ -264,7 +264,7 @@ const Topic12 = () => {
                         if (showSolution) setShowSolution(false);
                       }}
                       className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-all duration-300"
-                    &gt;
+                    >
                       {showHint ? 'Hide Hint' : 'Show Hint'}
                     </button>
                     <button
@@ -273,7 +273,7 @@ const Topic12 = () => {
                         if (showHint) setShowHint(false);
                       }}
                       className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all duration-300"
-                    &gt;
+                    >
                       {showSolution ? 'Hide Solution' : 'Show Solution'}
                     </button>
                   </div>
@@ -331,7 +331,7 @@ const Topic12 = () => {
                         setShowHint(false);
                       }}
                       className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
-                    &gt;
+                    >
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200">
                         {problem.title}
                       </h4>

@@ -119,7 +119,7 @@ const Topic2 = () => {
                       ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/25"
                       : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
                   }`}
-                &gt;
+                >
                   {mode === "hex" ? "Hex Codes" : mode === "rgb255" ? "colormode(255)" : "colormode(1.0)"}
                 </button>
               ))}
@@ -137,7 +137,7 @@ const Topic2 = () => {
                     ? "bg-slate-900 border-sky-400 ring-2 ring-sky-400/20"
                     : "bg-gray-900/60 border-slate-800 hover:border-slate-700"
                 }`}
-              &gt;
+              >
                 <div className="w-full h-8 rounded-lg mb-2 shadow-inner" style={{ backgroundColor: swatch.hex }} />
                 <div className="font-bold text-xs text-slate-200">{swatch.name}</div>
                 <div className="font-mono text-[10px] text-slate-400 truncate">

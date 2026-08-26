@@ -35,7 +35,7 @@ const Topic2 = () => {
       leakageSource: "Unique sequence of HTML, CSS, JavaScript, and image asset download burst sizes.",
       detectabilityScore: 6, // Stealthy passive analysis
       mathematicalModel: "Dynamic Time Warping (DTW) & k-Nearest Neighbors (k-NN) classification on packet vectors.",
-      realWorldPayload: "Inbound Vector: [+512B, +1420B, -512B, +1420B, +1420B, -1024B, ...] &rarr; Match: 94.2% Bank Portal",
+      realWorldPayload: "Inbound Vector: [+512B, +1420B, -512B, +1420B, +1420B, -1024B, ...] -> Match: 94.2% Bank Portal",
       mechanism:
         "Every webpage contains a unique combination of images and code files. Even when encrypted inside a VPN or Tor tunnel, downloading `portal.bank-kolkata.in` creates a distinct signature of packet size waterfalls.",
       mitigation: "Tor 514-byte cell padding, Fixed-size packet morphing, and randomized dummy HTTP/2 asset fetching.",
@@ -70,7 +70,7 @@ Host *
       leakageSource: "Variable Bitrate (VBR) audio codecs emit larger packets during complex speech phonemes.",
       detectabilityScore: 12,
       mathematicalModel: "Mel-Frequency Cepstral Coefficients (MFCC) acoustic matching on packet length profiles.",
-      realWorldPayload: "Phoneme 'Aaaa' -&gt; 180B | Phoneme 'Shhh' -> 220B | Silence Gap -> 20B (Spoken phrase reconstructed)",
+      realWorldPayload: "Phoneme 'Aaaa' -> 180B | Phoneme 'Shhh' -> 220B | Silence Gap -> 20B (Spoken phrase reconstructed)",
       mechanism:
         "VBR codecs (Opus/Speex) save bandwidth by compressing silence and expanding complex spoken sounds. Because SRTP encryption does not alter packet lengths, eavesdroppers can reconstruct spoken phrases.",
       mitigation: "Enforcing Constant Bitrate (CBR) audio modes in WebRTC, Asterisk, and SIP gateway configurations.",
@@ -497,7 +497,7 @@ def get_entropy(data):
                     ? "bg-cyan-950/80 border-cyan-500 shadow-lg shadow-cyan-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-cyan-950 text-cyan-300 border-cyan-800 self-start">
                   METADATA
                 </span>
@@ -527,7 +527,7 @@ def get_entropy(data):
                     "text-sm font-extrabold",
                     activeVector.detectabilityScore > 50
                       ? "text-emerald-400"
-                      : activeVector.detectabilityScore &gt; 20
+                      : activeVector.detectabilityScore > 20
                       ? "text-amber-400"
                       : "text-rose-400"
                   )}
@@ -614,7 +614,7 @@ def get_entropy(data):
                   value={realDataRateMbps}
                   onChange={(e) => setRealDataRateMbps(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1.5">
@@ -630,7 +630,7 @@ def get_entropy(data):
                   value={peakBurstMbps}
                   onChange={(e) => setPeakBurstMbps(parseFloat(e.target.value))}
                   className="w-full accent-amber-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="pt-2">
@@ -642,7 +642,7 @@ def get_entropy(data):
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                       : "bg-rose-950 border-rose-500 text-rose-300"
                   )}
-                &gt;
+                >
                   {isPaddingEnabled ? "✔ CBR Traffic Padding ACTIVE" : "✖ CBR Traffic Padding DISABLED"}
                 </button>
               </div>
@@ -714,7 +714,7 @@ def get_entropy(data):
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -763,7 +763,7 @@ def get_entropy(data):
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

@@ -98,7 +98,7 @@ buttons.forEach(btn => {
     console.log("Delete pressed for:", e.target.dataset.id);
   }
 });`}
-          /&gt;
+          />
 
           <p className="text-emerald-400 text-sm">
             Meaning → Even if items are added later, the same parent listener handles everything.
@@ -173,7 +173,7 @@ list.addEventListener("click", (e) => {
     alert("Viewing card details...");
   }
 });`}
-          /&gt;
+          />
         </section>
 
         {/* ============================================================

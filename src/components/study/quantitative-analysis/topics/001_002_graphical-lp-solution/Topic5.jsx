@@ -29,7 +29,7 @@ const Topic5 = () => {
         { label: "x - 2y ≤ 6", a: 1, b: -2, c: 6, type: "inequality", sign: "≤", lineType: "solid" },
         { label: "3x + y ≥ 9", a: 3, b: 1, c: 9, type: "inequality", sign: "≥", lineType: "solid" },
         { label: "x + 2y < 8", a: 1, b: 2, c: 8, type: "inequality", sign: "<", lineType: "dashed" },
-        { label: "2x - y > 4", a: 2, b: -1, c: 4, type: "inequality", sign: "&gt;", lineType: "dashed" },
+        { label: "2x - y > 4", a: 2, b: -1, c: 4, type: "inequality", sign: ">", lineType: "dashed" },
         { label: "x = 3", a: 1, b: 0, c: 3, type: "vertical", lineType: "solid" },
         { label: "y = -2", a: 0, b: 1, c: -2, type: "horizontal", lineType: "solid" },
     ];
@@ -53,7 +53,7 @@ const Topic5 = () => {
         
         if (b !== 0 && a !== 0) {
             // Sloped line
-            for (let x = -5; x &le; 5; x += 0.1) {
+            for (let x = -5; x <= 5; x += 0.1) {
                 const y = (c - a * x) / b;
                 if (y >= -5 && y <= 5) {
                     points.push(toPixel(x, y));
@@ -62,7 +62,7 @@ const Topic5 = () => {
         } else if (a !== 0 && b === 0) {
             // Vertical line: x = c/a
             const xVal = c / a;
-            if (xVal >= -5 && xVal &le; 5) {
+            if (xVal >= -5 && xVal <= 5) {
                 const px = 200 + xVal * 40;
                 points.push({ px, py: 20 });
                 points.push({ px, py: 380 });
@@ -151,7 +151,7 @@ const Topic5 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📐</span>
                         What is a Constraint Line?
@@ -196,7 +196,7 @@ const Topic5 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">✏️</span>
                         Step-by-Step: Plotting a Constraint Line
@@ -246,7 +246,7 @@ const Topic5 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🖱️</span>
                         Practice: Plot These Constraints
@@ -266,7 +266,7 @@ const Topic5 = () => {
                                         ? "bg-indigo-600 text-white border-indigo-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            &gt;
+                            >
                                 {showIntercepts ? "Hide Intercepts" : "Show Intercepts"}
                             </button>
                             <button
@@ -277,7 +277,7 @@ const Topic5 = () => {
                                         ? "bg-purple-600 text-white border-purple-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            &gt;
+                            >
                                 {showLineType ? "Hide Line Info" : "Show Line Info"}
                             </button>
                         </div>
@@ -294,7 +294,7 @@ const Topic5 = () => {
                                             ? "bg-cyan-600 dark:bg-cyan-500 text-white border-cyan-600 dark:border-cyan-500 shadow-md"
                                             : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-cyan-400 dark:hover:border-cyan-500"
                                     )}
-                                &gt;
+                                >
                                     {con.label}
                                 </button>
                             ))}
@@ -328,7 +328,7 @@ const Topic5 = () => {
                                     <g key={`t5-tick-${v}`}>
                                         <line x1={v} y1="195" x2={v} y2="205" stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
                                         <line x1="195" y1={v} x2="205" y2={v} stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
-                                        {v &ge; 40 && v &le; 360 && (
+                                        {v >= 40 && v <= 360 && (
                                             <>
                                                 <text x={v - 4} y="218" fontSize="11" fill="#475569" className="dark:fill-slate-500">{v === 200 ? 0 : (v - 200) / 40}</text>
                                                 <text x="178" y={v + 5} fontSize="11" fill="#475569" className="dark:fill-slate-500">{v === 200 ? 0 : (200 - v) / 40}</text>
@@ -338,18 +338,18 @@ const Topic5 = () => {
                                 ))}
 
                                 {/* Draw the constraint line */}
-                                {linePoints.length &gt; 1 && (
+                                {linePoints.length > 1 && (
                                     <polyline
                                         points={linePoints.map(p => `${p.px},${p.py}`).join(' ')}
                                         fill="none"
                                         stroke="#0ea5e9"
                                         strokeWidth="3"
                                         strokeDasharray={isSolid ? "none" : "8,6"}
-                                    /&gt;
+                                    />
                                 )}
 
                                 {/* Highlight intercepts if enabled */}
-                                {showIntercepts && xInt !== null && xInt &ge; -5 && xInt &le; 5 && (
+                                {showIntercepts && xInt !== null && xInt >= -5 && xInt <= 5 && (
                                     <g>
                                         <circle cx={200 + xInt * 40} cy={200} r="7" fill="#f97316" stroke="#fff" strokeWidth="2">
                                             <animate attributeName="r" values="7;9;7" dur="1.5s" repeatCount="indefinite" />
@@ -359,7 +359,7 @@ const Topic5 = () => {
                                         </text>
                                     </g>
                                 )}
-                                {showIntercepts && yInt !== null && yInt &ge; -5 && yInt &le; 5 && (
+                                {showIntercepts && yInt !== null && yInt >= -5 && yInt <= 5 && (
                                     <g>
                                         <circle cx={200} cy={200 - yInt * 40} r="7" fill="#f59e0b" stroke="#fff" strokeWidth="2">
                                             <animate attributeName="r" values="7;9;7" dur="1.5s" begin="0.5s" repeatCount="indefinite" />
@@ -420,7 +420,7 @@ const Topic5 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">⚠️</span>
                         Special Cases
@@ -468,7 +468,7 @@ const Topic5 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🌍</span>
                         Real-World Examples
@@ -518,7 +518,7 @@ const Topic5 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -572,7 +572,7 @@ const Topic5 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[6]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

@@ -309,7 +309,7 @@ const Topic31 = () => {
                 <button
                   onClick={() => setShowLifecycleComparison(!showLifecycleComparison)}
                   className="px-4 py-2 bg-yellow-100 hover:bg-yellow-200 dark:bg-yellow-900/30 dark:hover:bg-yellow-900/50 text-yellow-700 dark:text-yellow-300 rounded-lg transition-colors duration-300"
-                &gt;
+                >
                   {showLifecycleComparison ? 'Hide' : 'Show'} Comparison
                 </button>
               </div>
@@ -541,7 +541,7 @@ useEffect(() => {
                     {
                       name: 'useEffect with []',
                       description: 'Runs once on mount, cleanup on unmount',
-                      status: renderCount &gt; 0 ? 'Active (mounted)' : 'Inactive',
+                      status: renderCount > 0 ? 'Active (mounted)' : 'Inactive',
                       color: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300'
                     },
                     {

@@ -144,7 +144,7 @@ const Topic0 = () => {
                     ? 'bg-blue-600 text-white border-blue-500 shadow-md shadow-blue-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              &gt;
+              >
                 {item.label}
               </button>
             ))}
@@ -156,7 +156,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 font-bold text-sm">
@@ -200,7 +200,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-dom">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-800 pb-4 gap-2">
               <div className="flex items-center space-x-3">
@@ -228,8 +228,8 @@ const Topic0 = () => {
                     <th className="p-2 text-left">A \ B</th>
                     <th className="p-2 text-sky-400">B₁</th>
                     <th className="p-2 text-sky-400">B₂</th>
-                    <th className={clsx('p-2', reductionStep >= 2 ? 'line-through text-rose-500 bg-rose-950/20' : 'text-sky-400')}&gt;
-                      B₃ {reductionStep &ge; 2 ? '(Eliminated)' : ''}
+                    <th className={clsx('p-2', reductionStep >= 2 ? 'line-through text-rose-500 bg-rose-950/20' : 'text-sky-400')}>
+                      B₃ {reductionStep >= 2 ? '(Eliminated)' : ''}
                     </th>
                   </tr>
                 </thead>
@@ -238,17 +238,17 @@ const Topic0 = () => {
                     <td className="p-2 text-left font-bold text-rose-300">A₁</td>
                     <td className="p-2">₹{initialMatrix[0][0]}k</td>
                     <td className="p-2">₹{initialMatrix[0][1]}k</td>
-                    <td className={clsx('p-2', reductionStep >= 2 ? 'line-through text-slate-600' : '')}&gt;₹{initialMatrix[0][2]}k</td>
+                    <td className={clsx('p-2', reductionStep >= 2 ? 'line-through text-slate-600' : '')}>₹{initialMatrix[0][2]}k</td>
                   </tr>
                   <tr className="bg-emerald-950/20">
                     <td className="p-2 text-left font-bold text-emerald-400">A₂ (Dominating Row)</td>
                     <td className="p-2 font-bold text-emerald-300">₹{initialMatrix[1][0]}k</td>
                     <td className="p-2 font-bold text-emerald-300">₹{initialMatrix[1][1]}k</td>
-                    <td className={clsx('p-2 font-bold', reductionStep >= 2 ? 'line-through text-slate-600' : 'text-emerald-300')}&gt;₹{initialMatrix[1][2]}k</td>
+                    <td className={clsx('p-2 font-bold', reductionStep >= 2 ? 'line-through text-slate-600' : 'text-emerald-300')}>₹{initialMatrix[1][2]}k</td>
                   </tr>
-                  <tr className={clsx(reductionStep >= 1 ? 'line-through text-rose-500 bg-rose-950/30' : '')}&gt;
+                  <tr className={clsx(reductionStep >= 1 ? 'line-through text-rose-500 bg-rose-950/30' : '')}>
                     <td className="p-2 text-left font-bold text-rose-400">
-                      A₃ {reductionStep &ge; 1 ? '(Eliminated)' : '(Dominated by A₂)'}
+                      A₃ {reductionStep >= 1 ? '(Eliminated)' : '(Dominated by A₂)'}
                     </td>
                     <td className="p-2">₹{initialMatrix[2][0]}k</td>
                     <td className="p-2">₹{initialMatrix[2][1]}k</td>
@@ -261,7 +261,7 @@ const Topic0 = () => {
             {/* Explanation & Stepper Controls */}
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col space-y-2 text-xs sm:text-sm">
               <span className="text-amber-400 font-bold text-sm">
-                {reductionStep === 0 && 'Initial State: Compare Row A₂ and Row A₃ (35&gt;15, 45>25, 50>30). Row A₃ is strictly dominated!'}
+                {reductionStep === 0 && 'Initial State: Compare Row A₂ and Row A₃ (35>15, 45>25, 50>30). Row A₃ is strictly dominated!'}
                 {reductionStep === 1 && 'Step 1 Complete: Row A₃ is deleted. In the 2x3 matrix, compare Col B₁ and Col B₃ (20<40, 35<50). Col B₃ is strictly dominated!'}
                 {reductionStep === 2 && 'Step 2 Complete: Col B₃ is deleted. Matrix is now reduced to a compact 2x2 game!'}
               </span>
@@ -306,7 +306,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -340,7 +340,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -393,7 +393,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -415,7 +415,7 @@ const Topic0 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                &gt;
+                >
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -442,7 +442,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -482,7 +482,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -516,7 +516,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

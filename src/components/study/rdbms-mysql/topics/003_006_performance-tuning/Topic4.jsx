@@ -52,7 +52,7 @@ JOIN departments d ON s.department_id = d.department_id;
 EXPLAIN SELECT * FROM student_records WHERE city = 'Barrackpore';
 -- 📊 type = 'ref' | key = 'idx_city' | rows = 120 (Seeks B+Tree and reads 120 rows)
 
--- Case 2: RANGE (Bounded range comparison using BETWEEN / IN / &gt; / <):
+-- Case 2: RANGE (Bounded range comparison using BETWEEN / IN / > / <):
 EXPLAIN SELECT * FROM student_records WHERE enrollment_year BETWEEN 2024 AND 2026;
 -- 📊 type = 'range' | key = 'idx_year' | rows = 350 (Traverses bounded leaf chain!)`,
       resultRows: [
@@ -385,7 +385,7 @@ EXPLAIN SELECT * FROM student_records WHERE city = 'Barrackpore' OR age = 22;
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -506,7 +506,7 @@ EXPLAIN SELECT * FROM student_records WHERE city = 'Barrackpore' OR age = 22;
 {`-- The Performance Tuning Fix:
 ALTER TABLE students ADD INDEX idx_city_category (city, category);
 
--- Upgrades execution from index_merge &rarr; ref!
+-- Upgrades execution from index_merge -> ref!
 EXPLAIN SELECT * FROM students WHERE city = 'Barrackpore' AND category = 'General';`}
               </pre>
             </div>

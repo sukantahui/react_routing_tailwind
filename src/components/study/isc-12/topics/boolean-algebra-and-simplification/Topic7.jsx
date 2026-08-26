@@ -126,7 +126,7 @@ const Topic7 = () => {
                           ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                           : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                       )}
-                    &gt;
+                    >
                       {involutionVar}
                     </button>
                   </div>
@@ -167,7 +167,7 @@ const Topic7 = () => {
               <button
                 onClick={() => setShowSteps(!showSteps)}
                 className="w-full py-2 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 rounded-lg font-medium transition-all duration-300 hover:bg-indigo-200 dark:hover:bg-indigo-900/60"
-              &gt;
+              >
                 {showSteps ? "Hide" : "Show"} Step-by-Step Logic
               </button>
               

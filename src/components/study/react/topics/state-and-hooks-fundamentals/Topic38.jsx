@@ -52,7 +52,7 @@ const Topic38 = () => {
 
   // Example 3: Conditional fetching
   useEffect(() => {
-    if (fetchStrategy === 'conditional' && postId && postId > 0 && postId &le; 100) {
+    if (fetchStrategy === 'conditional' && postId && postId > 0 && postId <= 100) {
       console.log(`🟢 useEffect: Fetching post ${postId}`);
       fetchSinglePost(postId);
     }
@@ -461,7 +461,7 @@ const Topic38 = () => {
                     ? "bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400"
                     : "bg-purple-500 hover:bg-purple-600 text-white hover:scale-[1.02]"
                 )}
-              &gt;
+              >
                 {loading.users ? '⏳ Loading User...' : '👤 Fetch User Posts'}
               </button>
               
@@ -496,7 +496,7 @@ const Topic38 = () => {
                           ? "bg-blue-500 text-white"
                           : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                       )}
-                    &gt;
+                    >
                       {id}
                     </button>
                   ))}
@@ -515,7 +515,7 @@ const Topic38 = () => {
                   onChange={(e) => setPostId(Number(e.target.value))}
                   className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                   placeholder="Enter post ID (1-100)"
-                /&gt;
+                />
               </div>
               
               <div>
@@ -526,7 +526,7 @@ const Topic38 = () => {
                   value={fetchStrategy}
                   onChange={(e) => setFetchStrategy(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-                &gt;
+                >
                   <option value="onMount">On Component Mount</option>
                   <option value="onDependency">On Dependency Change</option>
                   <option value="conditional">Conditional Fetching</option>
@@ -682,7 +682,7 @@ const Topic38 = () => {
                 <button
                   onClick={() => setError(null)}
                   className="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition-colors duration-300"
-                &gt;
+                >
                   Dismiss
                 </button>
               </div>

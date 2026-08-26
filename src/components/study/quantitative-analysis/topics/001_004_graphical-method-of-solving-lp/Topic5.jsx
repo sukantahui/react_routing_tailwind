@@ -130,7 +130,7 @@ const Topic5 = () => {
                       ? "bg-green-600 text-white"
                       : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                   )}
-                &gt;
+                >
                   Maximize
                 </button>
                 <button
@@ -141,7 +141,7 @@ const Topic5 = () => {
                       ? "bg-red-600 text-white"
                       : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                   )}
-                &gt;
+                >
                   Minimize
                 </button>
               </div>
@@ -161,7 +161,7 @@ const Topic5 = () => {
                   value={c1}
                   onChange={(e) => setC1(Number(e.target.value))}
                   className="w-full"
-                /&gt;
+                />
                 <span className="text-sm text-gray-600 dark:text-gray-400">{c1}</span>
               </div>
               <div>
@@ -173,7 +173,7 @@ const Topic5 = () => {
                   value={c2}
                   onChange={(e) => setC2(Number(e.target.value))}
                   className="w-full"
-                /&gt;
+                />
                 <span className="text-sm text-gray-600 dark:text-gray-400">{c2}</span>
               </div>
             </div>
@@ -255,7 +255,7 @@ const Topic5 = () => {
                   ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-indigo-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -450,7 +450,7 @@ const Topic5 = () => {
                       <button
                         onClick={() => toggleExample(example.id)}
                         className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all duration-300"
-                      &gt;
+                      >
                         {showExample[example.id] ? 'Hide Detailed Steps' : 'Show Detailed Steps'}
                       </button>
                     </div>
@@ -491,13 +491,13 @@ const Topic5 = () => {
                         <button
                           onClick={() => setShowSolution(showSolution === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800/30 transition-all duration-300"
-                        &gt;
+                        >
                           {showSolution === problem.id ? 'Hide Solution' : 'Check Solution'}
                         </button>
                         <button
                           onClick={() => setShowHint(showHint === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
-                        &gt;
+                        >
                           {showHint === problem.id ? 'Hide Hint' : 'Show Hint'}
                         </button>
                       </div>

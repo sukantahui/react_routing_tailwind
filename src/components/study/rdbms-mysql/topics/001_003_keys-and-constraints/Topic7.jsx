@@ -70,7 +70,7 @@ const Topic7 = () => {
     const feeNum = Number(feeInput);
     const gpaNum = Number(gpaInput);
 
-    // Rule 1: Fee Floor &ge; 10000
+    // Rule 1: Fee Floor >= 10000
     if (feeNum < 10000) {
       setOutcomeStatus("error");
       setEngineFeedback(
@@ -90,7 +90,7 @@ const Topic7 = () => {
       return;
     }
 
-    // Rule 3: Date Sequence (endDate &ge; startDate)
+    // Rule 3: Date Sequence (endDate >= startDate)
     if (new Date(endDate) < new Date(startDate)) {
       setOutcomeStatus("error");
       setEngineFeedback(
@@ -125,7 +125,7 @@ const Topic7 = () => {
     setEngineFeedback("Simulator reset to initial state.");
   };
 
-  const generatedDDL = `CREATE TABLE student_admissions (\n    student_id INT AUTO_INCREMENT PRIMARY KEY,\n    student_name VARCHAR(50) NOT NULL,\n    admission_fee DECIMAL(10, 2) NOT NULL,\n    gpa DECIMAL(3, 2) NOT NULL,\n    start_date DATE NOT NULL,\n    end_date DATE NOT NULL,\n    -- Business CHECK Constraints\n    CONSTRAINT chk_fee_floor CHECK (admission_fee &ge; 10000.00),\n    CONSTRAINT chk_gpa_range CHECK (gpa >= 0.00 AND gpa &le; 4.00),\n    CONSTRAINT chk_date_sequence CHECK (end_date >= start_date)\n) ENGINE=InnoDB;`;
+  const generatedDDL = `CREATE TABLE student_admissions (\n    student_id INT AUTO_INCREMENT PRIMARY KEY,\n    student_name VARCHAR(50) NOT NULL,\n    admission_fee DECIMAL(10, 2) NOT NULL,\n    gpa DECIMAL(3, 2) NOT NULL,\n    start_date DATE NOT NULL,\n    end_date DATE NOT NULL,\n    -- Business CHECK Constraints\n    CONSTRAINT chk_fee_floor CHECK (admission_fee >= 10000.00),\n    CONSTRAINT chk_gpa_range CHECK (gpa >= 0.00 AND gpa <= 4.00),\n    CONSTRAINT chk_date_sequence CHECK (end_date >= start_date)\n) ENGINE=InnoDB;`;
 
   const generatedSQL = `INSERT INTO student_admissions (\n    student_name, admission_fee, gpa, start_date, end_date\n) VALUES (\n    'Susmita Ghosh', ${feeInput}.00, ${gpaInput}, '${startDate}', '${endDate}'\n);`;
 
@@ -219,7 +219,7 @@ const Topic7 = () => {
                 Restricts numerical ranges, discounts, GPA scales, and minimum fees.
               </p>
               <pre className="rounded bg-slate-900 p-2 font-mono text-[11px] text-teal-300 border border-slate-800">
-                CONSTRAINT chk_min_fee CHECK (admission_fee >= 10000.00)
+                CONSTRAINT chk_min_fee CHECK (admission_fee &gt;= 10000.00)
               </pre>
             </div>
 
@@ -232,7 +232,7 @@ const Topic7 = () => {
                 Validates relationships between 2+ columns in the same row (e.g. date sequences).
               </p>
               <pre className="rounded bg-slate-900 p-2 font-mono text-[11px] text-cyan-300 border border-slate-800">
-                CONSTRAINT chk_dates CHECK (end_date >= start_date)
+                CONSTRAINT chk_dates CHECK (end_date &gt;= start_date)
               </pre>
             </div>
           </div>
@@ -285,7 +285,7 @@ const Topic7 = () => {
                 Interactive CHECK Constraint Sandbox
               </h2>
               <p className="text-xs text-slate-400">
-                Experiment with fee minimums (>= ₹10k), GPA boundaries [0.0 - 4.0], and chronological date order
+                Experiment with fee minimums (&gt;= ₹10k), GPA boundaries [0.0 - 4.0], and chronological date order
               </p>
             </div>
           </div>
@@ -304,7 +304,7 @@ const Topic7 = () => {
                     onChange={(e) => setFeeInput(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
                     placeholder="Min ₹10,000"
-                  /&gt;
+                  />
                 </div>
 
                 <div>
@@ -318,7 +318,7 @@ const Topic7 = () => {
                     onChange={(e) => setGpaInput(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
                     placeholder="0.00 to 4.00"
-                  /&gt;
+                  />
                 </div>
               </div>
 
@@ -332,7 +332,7 @@ const Topic7 = () => {
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  /&gt;
+                  />
                 </div>
 
                 <div>
@@ -344,7 +344,7 @@ const Topic7 = () => {
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  /&gt;
+                  />
                 </div>
               </div>
 
@@ -462,8 +462,8 @@ const Topic7 = () => {
     gpa DECIMAL(3, 2) NOT NULL DEFAULT 3.50,
     -- Domain Business Constraints
     CONSTRAINT chk_non_empty_name CHECK (TRIM(first_name) != ''),
-    CONSTRAINT chk_fee_floor CHECK (admission_fee &ge; 10000.00),
-    CONSTRAINT chk_gpa_range CHECK (gpa >= 0.00 AND gpa &le; 4.00)
+    CONSTRAINT chk_fee_floor CHECK (admission_fee >= 10000.00),
+    CONSTRAINT chk_gpa_range CHECK (gpa >= 0.00 AND gpa <= 4.00)
 ) ENGINE=InnoDB;`}
               </pre>
             </div>
@@ -485,7 +485,7 @@ const Topic7 = () => {
     subtotal DECIMAL(10, 2) NOT NULL,
     discount_amount DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     final_total DECIMAL(10, 2) NOT NULL,
-    CONSTRAINT chk_discount_valid CHECK (discount_amount &ge; 0.00 AND discount_amount &le; subtotal),
+    CONSTRAINT chk_discount_valid CHECK (discount_amount >= 0.00 AND discount_amount <= subtotal),
     CONSTRAINT chk_final_math CHECK (final_total = (subtotal - discount_amount))
 ) ENGINE=InnoDB;`}
               </pre>
@@ -522,7 +522,7 @@ const Topic7 = () => {
                 <div>
                   <strong className="text-white">1. Assuming CHECK Enforces NOT NULL:</strong>
                   <p className="text-slate-400 mt-0.5">
-                    <code>CHECK (fee >= 10000)</code> allows NULL because <code>NULL >= 10000</code> evaluates to UNKNOWN (pass).
+                    <code>CHECK (fee &gt;= 10000)</code> allows NULL because <code>NULL &gt;= 10000</code> evaluates to UNKNOWN (pass).
                   </p>
                 </div>
                 <div>
@@ -629,7 +629,7 @@ const Topic7 = () => {
               "and text formatting (`TRIM(name) != ''`). When your database enforces these rules at the engine level, no buggy application " +
               "code or careless ETL script can ever corrupt your business data."
             }
-          /&gt;
+          />
         </section>
 
         {/* ─── Footer ───────────────────────────────────────────── */}

@@ -78,7 +78,7 @@ interface TenGigabitEthernet1/0/1
       detectabilityScore: 25,
       mechanism:
         "The OS instructs the NIC to accept all Ethernet frames regardless of whether the destination MAC matches the host. The libpcap engine passes all cleartext payloads into memory for analysis.",
-      packetTrace: "Ethernet II, Src: 00:1a:2b:3c:4d:5e, Dst: 00:5f:4e:3d:2c:1b -> IPv4 &rarr; TCP -&gt; HTTP Payload",
+      packetTrace: "Ethernet II, Src: 00:1a:2b:3c:4d:5e, Dst: 00:5f:4e:3d:2c:1b -> IPv4 -> TCP -> HTTP Payload",
       mitigation: "Dynamic ARP Inspection (DAI), IEEE 802.1X Port Authentication, and switch port isolation (Private VLANs).",
       configCode: `// Linux Command to Enable Promiscuous Sniffing:
 sudo ip link set dev eth0 promisc on
@@ -175,7 +175,7 @@ server {
       mitigation: "Continuous Optical Power Metering (OPM), Armored conduits, and Layer 2 MACsec encryption.",
       configCode: `// Optical Splitter Calculation:
 // Split Ratio: 70/30 (Live Path Loss: -1.8 dB; Monitor Path Loss: -5.8 dB)
-// Transmit Power: 0 dBm &rarr; Received Power: -1.8 dBm (Verify with OPM)`
+// Transmit Power: 0 dBm -> Received Power: -1.8 dBm (Verify with OPM)`
     }
   };
 
@@ -192,7 +192,7 @@ server {
       normalTotalLoss: normalTotalLoss.toFixed(2),
       totalLossWithTap: totalLossWithTap.toFixed(2),
       timeDelayMicroseconds: timeDelayMicroseconds.toFixed(2),
-      isDetectedByOpm: tapLossDb &ge; 0.25 ? "YES (Exceeds 0.25 dB threshold)" : "MARGINAL (<0.25 dB variance)",
+      isDetectedByOpm: tapLossDb >= 0.25 ? "YES (Exceeds 0.25 dB threshold)" : "MARGINAL (<0.25 dB variance)",
       otdrResolutionStatus: "EXACT PINPOINT (Located at " + tapPositionKm + " km ± 0.5m)"
     };
   }, [fiberLengthKm, tapPositionKm, tapLossDb]);
@@ -201,7 +201,7 @@ server {
   const bpfDatabase = {
     http_auth: {
       name: "HTTP Cleartext Passwords & Auth",
-      bpfCode: `tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12:2]&0xf0)>&gt;2)) != 0) and (tcp[((tcp[12:2]&0xf0)>>2):4] = 0x504f5354 or tcp[((tcp[12:2]&0xf0)>>2):4] = 0x474554)`,
+      bpfCode: `tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12:2]&0xf0)>>2)) != 0) and (tcp[((tcp[12:2]&0xf0)>>2):4] = 0x504f5354 or tcp[((tcp[12:2]&0xf0)>>2):4] = 0x474554)`,
       description: "Filters all HTTP GET and POST requests to capture cleartext passwords, session cookies, and API tokens."
     },
     telnet_ftp: {
@@ -579,7 +579,7 @@ server {
                     ? "bg-cyan-950/80 border-cyan-500 shadow-lg shadow-cyan-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span
                   className={clsx(
                     "text-[8.5px] font-bold px-1.5 py-0.5 rounded border self-start",
@@ -619,7 +619,7 @@ server {
                     "text-sm font-extrabold",
                     activeTap.detectabilityScore > 50
                       ? "text-emerald-400"
-                      : activeTap.detectabilityScore &gt; 20
+                      : activeTap.detectabilityScore > 20
                       ? "text-amber-400"
                       : "text-rose-400"
                   )}
@@ -706,7 +706,7 @@ server {
                   value={fiberLengthKm}
                   onChange={(e) => setFiberLengthKm(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1.5">
@@ -738,7 +738,7 @@ server {
                   value={tapLossDb}
                   onChange={(e) => setTapLossDb(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                /&gt;
+                />
               </div>
             </div>
 
@@ -810,7 +810,7 @@ server {
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -859,7 +859,7 @@ server {
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

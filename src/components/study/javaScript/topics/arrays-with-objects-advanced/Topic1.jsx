@@ -39,7 +39,7 @@ const names = students.map(s => s.name);
 
 console.log(names);`}
           language="javascript"
-        /&gt;
+        />
 
         <EditableCodeBlock
           initialCode={`const products = [
@@ -53,7 +53,7 @@ const labels = products.map(p => \`\${p.title} — Rs. \${p.price}\`);
 
 console.log(labels);`}
           language="javascript"
-        /&gt;
+        />
       </section>
 
       {/* SECTION: filter() with objects */}
@@ -75,11 +75,11 @@ console.log(labels);`}
   { name: "Pranjali", marks: 92 }
 ];
 
-const passed = students.filter(s => s.marks &ge; 40);
+const passed = students.filter(s => s.marks >= 40);
 
 console.log(passed);`}
           language="javascript"
-        /&gt;
+        />
 
         <EditableCodeBlock
           initialCode={`const products = [
@@ -89,7 +89,7 @@ console.log(passed);`}
 ];
 
 // Filter items above Rs. 1000
-const premium = products.filter(p => p.price &gt; 1000);
+const premium = products.filter(p => p.price > 1000);
 
 console.log(premium);`}
           language="javascript"
@@ -119,7 +119,7 @@ const total = students.reduce((sum, s) => sum + s.marks, 0);
 
 console.log("Total:", total);`}
           language="javascript"
-        /&gt;
+        />
 
         <EditableCodeBlock
           initialCode={`const cart = [
@@ -135,7 +135,7 @@ const bill = cart.reduce((amount, item) => {
 
 console.log("Total Bill:", bill);`}
           language="javascript"
-        /&gt;
+        />
       </section>
 
       {/* SECTION: find() & sort() */}
@@ -151,7 +151,7 @@ console.log("Total Bill:", bill);`}
   { name: "Mounita", marks: 72 }
 ];
 
-const topper = students.find(s => s.marks &gt; 90);
+const topper = students.find(s => s.marks > 90);
 
 console.log(topper);`}
           language="javascript"
@@ -169,7 +169,7 @@ products.sort((a, b) => a.price - b.price);
 
 console.log(products);`}
           language="javascript"
-        /&gt;
+        />
       </section>
 
       {/* TEACHER NOTE */}

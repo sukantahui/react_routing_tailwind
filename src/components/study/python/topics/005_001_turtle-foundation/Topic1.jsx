@@ -239,7 +239,7 @@ export default function Topic1() {
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 4 Cartesian Quadrants
               </button>
               <button
@@ -250,7 +250,7 @@ export default function Topic1() {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Distance &amp; Vector Trigonometry
               </button>
               <button
@@ -261,7 +261,7 @@ export default function Topic1() {
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Screen Bounds &amp; Clipping Limits
               </button>
             </div>
@@ -422,7 +422,7 @@ export default function Topic1() {
                       ? "bg-teal-950/80 border-teal-500 text-teal-200 shadow-md shadow-teal-950/50"
                       : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white"
                   )}
-                &gt;
+                >
                   {pt.name}
                 </button>
               ))}
@@ -626,7 +626,7 @@ export default function Topic1() {
                 Moving to (1000, 1000) does not raise an exception; it silently draws on the virtual canvas outside the visible viewport.
               </p>
               <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
-                # FIX: Check abs(x) <= width/2 and abs(y) <= height/2
+                # FIX: Check abs(x) &lt;= width/2 and abs(y) &lt;= height/2
               </pre>
             </div>
 

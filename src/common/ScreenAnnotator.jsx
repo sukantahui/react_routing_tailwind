@@ -180,7 +180,7 @@ export default function ScreenAnnotator({
   }, [storageKey]);
 
   const handleUndo = useCallback(() => {
-    if (historyIndexRef.current &gt; 0) {
+    if (historyIndexRef.current > 0) {
       restoreState(historyIndexRef.current - 1);
       showToast("↩️ Undone");
     }
@@ -205,7 +205,7 @@ export default function ScreenAnnotator({
     const width = container.scrollWidth || container.clientWidth || window.innerWidth;
     const height = container.scrollHeight || container.clientHeight || window.innerHeight;
 
-    if (width &le; 0 || height <= 0) return;
+    if (width <= 0 || height <= 0) return;
 
     const dpr = window.devicePixelRatio || 1;
     canvas.width = width * dpr;
@@ -778,7 +778,7 @@ export default function ScreenAnnotator({
             <button
               onClick={() => setTextInput({ active: false, x: 0, y: 0, text: "", fontSize: 16 })}
               className="p-1 text-slate-400 hover:text-white"
-            &gt;
+            >
               ✕
             </button>
           </div>
@@ -803,7 +803,7 @@ export default function ScreenAnnotator({
               onClick={() => setIsDockMinimized(false)}
               className="p-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 ml-1 cursor-pointer"
               title="Expand Toolbar"
-            &gt;
+            >
               <Maximize2 size={13} />
             </button>
           </div>
@@ -835,7 +835,7 @@ export default function ScreenAnnotator({
                     : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
                 )}
                 title="Ballpoint Pen (P)"
-              &gt;
+              >
                 <Pen size={15} />
               </button>
 
@@ -848,7 +848,7 @@ export default function ScreenAnnotator({
                     : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
                 )}
                 title="Translucent Highlighter (H)"
-              &gt;
+              >
                 <Highlighter size={15} />
               </button>
 
@@ -861,7 +861,7 @@ export default function ScreenAnnotator({
                     : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
                 )}
                 title="Laser Pointer (L)"
-              &gt;
+              >
                 <Zap size={15} />
               </button>
 
@@ -874,7 +874,7 @@ export default function ScreenAnnotator({
                     : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
                 )}
                 title="Text Typing Tool (T)"
-              &gt;
+              >
                 <Type size={15} />
               </button>
 
@@ -887,7 +887,7 @@ export default function ScreenAnnotator({
                     : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
                 )}
                 title="Arrow Pointer (A)"
-              &gt;
+              >
                 <ArrowUpRight size={15} />
               </button>
 
@@ -900,7 +900,7 @@ export default function ScreenAnnotator({
                     : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
                 )}
                 title="Rectangle Box (R)"
-              &gt;
+              >
                 <Square size={15} />
               </button>
 
@@ -913,7 +913,7 @@ export default function ScreenAnnotator({
                     : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
                 )}
                 title="Circle / Ring (C)"
-              &gt;
+              >
                 <CircleIcon size={15} />
               </button>
 
@@ -926,7 +926,7 @@ export default function ScreenAnnotator({
                     : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
                 )}
                 title="Straight Underline"
-              &gt;
+              >
                 <Minus size={15} />
               </button>
 
@@ -939,7 +939,7 @@ export default function ScreenAnnotator({
                     : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
                 )}
                 title="Callout Stamp Badge"
-              &gt;
+              >
                 <Tag size={15} />
               </button>
 
@@ -952,7 +952,7 @@ export default function ScreenAnnotator({
                     : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
                 )}
                 title="Eraser (E)"
-              &gt;
+              >
                 <Eraser size={15} />
               </button>
             </div>
@@ -967,7 +967,7 @@ export default function ScreenAnnotator({
                     ? "bg-indigo-950 border-indigo-500 text-indigo-200"
                     : "bg-slate-950 border-slate-800 text-slate-400"
                 )}
-              &gt;
+              >
                 {fillShape ? "Filled" : "Outline"}
               </button>
             )}
@@ -985,7 +985,7 @@ export default function ScreenAnnotator({
                         ? "bg-slate-800 text-white font-bold border border-slate-700"
                         : "text-slate-400 hover:text-slate-200"
                     )}
-                  &gt;
+                  >
                     <s.icon size={13} />
                     <span className="hidden lg:inline">{s.label}</span>
                   </button>
@@ -1010,7 +1010,7 @@ export default function ScreenAnnotator({
                       : "hover:scale-110 opacity-80 hover:opacity-100"
                   )}
                   title={p.label}
-                /&gt;
+                />
               ))}
 
               {/* Custom Color Wheel */}
@@ -1024,7 +1024,7 @@ export default function ScreenAnnotator({
                   }}
                   className="absolute -inset-2 w-8 h-8 cursor-pointer opacity-0"
                   title="Custom RGB Color"
-                /&gt;
+                />
                 <div
                   className="w-full h-full"
                   style={{ backgroundColor: color }}
@@ -1044,7 +1044,7 @@ export default function ScreenAnnotator({
                       ? "bg-slate-800 text-purple-300 font-bold border border-slate-700"
                       : "text-slate-500 hover:text-slate-300"
                   )}
-                &gt;
+                >
                   {s.label}
                 </button>
               ))}
@@ -1103,7 +1103,7 @@ export default function ScreenAnnotator({
                 onClick={() => setIsVisible(!isVisible)}
                 className="p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition cursor-pointer"
                 title={isVisible ? "Hide Annotations" : "Show Annotations"}
-              &gt;
+              >
                 {isVisible ? <Eye size={15} /> : <EyeOff size={15} className="text-amber-400" />}
               </button>
 
@@ -1122,7 +1122,7 @@ export default function ScreenAnnotator({
                 onClick={() => setIsDockMinimized(true)}
                 className="p-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition cursor-pointer"
                 title="Minimize toolbar"
-              &gt;
+              >
                 <Minimize2 size={14} />
               </button>
 

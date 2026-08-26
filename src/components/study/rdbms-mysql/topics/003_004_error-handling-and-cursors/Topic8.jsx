@@ -172,7 +172,7 @@ END //
 
 DELIMITER ;`,
       resultRows: [
-        { phase: "Cycle 1 (Dept 1)", state: "OPEN &rarr; FETCH -&gt; CLOSE", pointerPos: "Dept 1 Rows", memoryState: "Deallocated on CLOSE", actionExecuted: "Processed Dept 1 Students", status: "Cycle 1 Complete ✅" },
+        { phase: "Cycle 1 (Dept 1)", state: "OPEN -> FETCH -> CLOSE", pointerPos: "Dept 1 Rows", memoryState: "Deallocated on CLOSE", actionExecuted: "Processed Dept 1 Students", status: "Cycle 1 Complete ✅" },
         { phase: "Cycle 2 (Dept 2)", state: "OPEN -> FETCH -> CLOSE", pointerPos: "Dept 2 Rows", memoryState: "Fresh Result Set", actionExecuted: "Processed Dept 2 Students", status: "Cycle 2 Complete ✅" },
       ],
       explanation:
@@ -459,7 +459,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

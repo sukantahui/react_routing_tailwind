@@ -26,7 +26,7 @@ const Topic0 = () => {
       badgeColor: "emerald",
       sqlQuery: `-- Finding students scoring ABOVE the academy-wide average exam score:
 -- Phase 1 (Inner Query): Computes AVG(exam_score_pct) = 84.50% ONCE.
--- Phase 2 (Outer Query): Evaluates 'WHERE exam_score_pct &gt; 84.50' across students table.
+-- Phase 2 (Outer Query): Evaluates 'WHERE exam_score_pct > 84.50' across students table.
 
 SELECT 
     s.student_id,
@@ -52,7 +52,7 @@ ORDER BY s.exam_score_pct DESC;`,
       badge: "Column List (Nx1)",
       badgeColor: "cyan",
       sqlQuery: `-- Finding all students enrolled in branches located in 'Barrackpore':
--- Phase 1 (Inner Query): Evaluates 'SELECT branch_id FROM branches WHERE city = 'Barrackpore' &rarr; [1, 4].
+-- Phase 1 (Inner Query): Evaluates 'SELECT branch_id FROM branches WHERE city = 'Barrackpore' -> [1, 4].
 -- Phase 2 (Outer Query): Evaluates 'WHERE branch_id IN (1, 4)'.
 
 SELECT 
@@ -243,7 +243,7 @@ ORDER BY total_active_courses DESC;`,
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
             <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
               <span className="text-emerald-400 font-bold block text-sm">1. Scalar (1x1)</span>
-              <p className="text-slate-400 font-sans">Single value. Used with =, &gt;, &lt;, >=, <=.</p>
+              <p className="text-slate-400 font-sans">Single value. Used with =, &gt;, &lt;, &gt;=, &lt;=.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
               <span className="text-cyan-400 font-bold block text-sm">2. Column (Nx1)</span>
@@ -377,7 +377,7 @@ ORDER BY total_active_courses DESC;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

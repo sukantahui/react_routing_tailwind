@@ -133,7 +133,7 @@ const Topic13 = () => {
   };
 
   const removeHighQuantityItems = () => {
-    setCartItems(prev => prev.filter(item => item.quantity &le; 3));
+    setCartItems(prev => prev.filter(item => item.quantity <= 3));
     addHistoryEntry('Remove high quantity items', 'filter()', 'Removed items with quantity > 3');
   };
 
@@ -626,7 +626,7 @@ const Topic13 = () => {
                             ? "bg-red-100 hover:bg-red-200 text-red-700 dark:bg-red-900/30 dark:hover:bg-red-900/50 dark:text-red-300"
                             : "bg-green-100 hover:bg-green-200 text-green-700 dark:bg-green-900/30 dark:hover:bg-green-900/50 dark:text-green-300"
                         )}
-                      &gt;
+                      >
                         {student.present ? 'Mark Absent' : 'Mark Present'}
                       </button>
                     </div>
@@ -707,7 +707,7 @@ const Topic13 = () => {
                       placeholder="Enter student name"
                       className="flex-1 p-2 border border-gray-300 dark:border-gray-600 rounded-lg
                                bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
-                    /&gt;
+                    />
                     <button
                       onClick={addStudentWithConcat}
                       disabled={!newStudentName.trim()}
@@ -789,7 +789,7 @@ const Topic13 = () => {
                           checked={task.completed}
                           onChange={() => toggleTaskCompletion(task.id)}
                           className="mt-1 mr-3"
-                        /&gt;
+                        />
                         <div>
                           <div className={clsx(
                             "font-medium",
@@ -817,7 +817,7 @@ const Topic13 = () => {
                         className="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-700 
                                  dark:bg-blue-900/30 dark:hover:bg-blue-900/50 dark:text-blue-300 
                                  rounded text-sm transition-all duration-300"
-                      &gt;
+                      >
                         Set High
                       </button>
                     </div>
@@ -895,7 +895,7 @@ const Topic13 = () => {
                       placeholder="Enter task title"
                       className="flex-1 p-2 border border-gray-300 dark:border-gray-600 rounded-lg
                                bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
-                    /&gt;
+                    />
                     <button
                       onClick={addTaskWithConcat}
                       disabled={!newTaskTitle.trim()}
@@ -1034,7 +1034,7 @@ const Topic13 = () => {
                   className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-3 rounded-lg font-medium
                            transition-all duration-300 hover:scale-[1.02]"
                 >
-                  {`Remove High Quantity Items (Qty &gt; 3)`}
+                  {`Remove High Quantity Items (Qty > 3)`}
                 </button>
                 
                 <div className="p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
@@ -1109,7 +1109,7 @@ const Topic13 = () => {
               onClick={() => setOperationHistory([])}
               className="px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 
                        text-gray-800 dark:text-white rounded-lg transition-all duration-300"
-            &gt;
+            >
               Clear History
             </button>
           </div>

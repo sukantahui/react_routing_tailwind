@@ -306,7 +306,7 @@ done`}
                       ? "bg-violet-500 text-white shadow-lg"
                       : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                   )}
-                &gt;
+                >
                   {tab === "colon" ? "Colon Magic" : tab.charAt(0).toUpperCase() + tab.slice(1)}
                 </button>
               ))}
@@ -322,7 +322,7 @@ done`}
     case $opt in
         o) OUTPUT_FILE="$OPTARG" ;;
         v) VERBOSE=1 ;;
-        ?) echo "Invalid option: -$OPTARG" &gt;&2; exit 1 ;;
+        ?) echo "Invalid option: -$OPTARG" >&2; exit 1 ;;
     esac
 done`}
                     </code>
@@ -1168,7 +1168,7 @@ done`}
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 For Barrackpore scripts, I use descriptive error messages:
                 <code className="text-sm block mt-1 bg-emerald-100 dark:bg-emerald-900 p-2 rounded">
-                  {`:) echo "Option -$OPTARG requires an argument. See --help." &gt;&2`}
+                  {`:) echo "Option -$OPTARG requires an argument. See --help." >&2`}
                 </code>
               </p>
             </div>

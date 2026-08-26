@@ -83,7 +83,7 @@ console.log(result);`}
 
 // Only keep students who passed all subjects
 const passedAll = students.filter(s =>
-  s.subjects.every(sub => sub.marks &ge; 40)
+  s.subjects.every(sub => sub.marks >= 40)
 );
 
 console.log(passedAll);`}
@@ -194,7 +194,7 @@ const allOrders = customers.flatMap(c => c.orders);
 
 console.log(allOrders);`}
           language="javascript"
-        /&gt;
+        />
       </section>
 
       {/* EXAMPLE 6 - ADVANCED NESTED PIPELINE */}

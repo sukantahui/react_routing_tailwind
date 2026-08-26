@@ -40,7 +40,7 @@ BEGIN
     FROM students s
     JOIN departments d ON s.dept_id = d.dept_id
     WHERE s.dept_id = p_dept_id 
-      AND s.exam_score_pct &ge; p_min_score
+      AND s.exam_score_pct >= p_min_score
     ORDER BY s.exam_score_pct DESC;
 END //
 
@@ -407,7 +407,7 @@ DELIMITER ;`}
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

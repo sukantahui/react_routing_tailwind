@@ -110,7 +110,7 @@ const Topic12 = () => {
                                     animationDelay: `${index * 100}ms`,
                                     animation: 'motion-safe:animate-[fadeInUp_0.6s_ease-out]'
                                 }}
-                            &gt;
+                            >
                                 <div className="font-mono text-lg font-bold mb-1">{test.operator}</div>
                                 <div className="font-medium">{test.name}</div>
                                 <div className="text-sm opacity-90">{test.description}</div>

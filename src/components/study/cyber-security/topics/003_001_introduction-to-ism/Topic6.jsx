@@ -261,7 +261,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{fw.name.split(". ")[1]?.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{fw.name.split(". ")[0]}</div>
                 </button>
@@ -348,7 +348,7 @@ const Topic6 = () => {
               <label
                 onClick={() => toggleCheck("dpdpSafeguards")}
                 className="flex items-center gap-3 p-3.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-indigo-500 cursor-pointer transition-colors"
-              &gt;
+              >
                 <input
                   type="checkbox"
                   checked={checklist.dpdpSafeguards}
@@ -364,7 +364,7 @@ const Topic6 = () => {
               <label
                 onClick={() => toggleCheck("certIn6Hour")}
                 className="flex items-center gap-3 p-3.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-indigo-500 cursor-pointer transition-colors"
-              &gt;
+              >
                 <input
                   type="checkbox"
                   checked={checklist.certIn6Hour}
@@ -380,7 +380,7 @@ const Topic6 = () => {
               <label
                 onClick={() => toggleCheck("independentCiso")}
                 className="flex items-center gap-3 p-3.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-indigo-500 cursor-pointer transition-colors"
-              &gt;
+              >
                 <input
                   type="checkbox"
                   checked={checklist.independentCiso}
@@ -396,7 +396,7 @@ const Topic6 = () => {
               <label
                 onClick={() => toggleCheck("isoSoa")}
                 className="flex items-center gap-3 p-3.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-indigo-500 cursor-pointer transition-colors"
-              &gt;
+              >
                 <input
                   type="checkbox"
                   checked={checklist.isoSoa}
@@ -412,7 +412,7 @@ const Topic6 = () => {
               <label
                 onClick={() => toggleCheck("ntpLogRetention")}
                 className="flex items-center gap-3 p-3.5 rounded-xl bg-gray-900 border border-gray-800 hover:border-indigo-500 cursor-pointer transition-colors"
-              &gt;
+              >
                 <input
                   type="checkbox"
                   checked={checklist.ntpLogRetention}
@@ -616,7 +616,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

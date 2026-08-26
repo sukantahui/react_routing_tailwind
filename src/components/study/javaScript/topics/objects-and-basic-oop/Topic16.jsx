@@ -39,7 +39,7 @@ const toppers = students.filter(function (student) {
 });
 
 console.log(toppers);`}
-        /&gt;
+        />
 
         <EditableCodeBlock
           language="javascript"
@@ -79,7 +79,7 @@ const largeBatchesBySukanta = batches
   });
 
 console.log(largeBatchesBySukanta);`}
-        /&gt;
+        />
       </div>
     );
   }

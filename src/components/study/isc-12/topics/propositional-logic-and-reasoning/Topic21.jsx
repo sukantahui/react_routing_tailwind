@@ -148,7 +148,7 @@ const Topic21 = () => {
               onChange={(e) => setEnglishStatement(e.target.value)}
               className="w-full p-2 border rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
               rows="2"
-            /&gt;
+            />
           </div>
           
           <div className="flex gap-3 mb-4">
@@ -161,7 +161,7 @@ const Topic21 = () => {
             <button
               onClick={() => setShowHint(false)}
               className="px-4 py-2 bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 rounded"
-            &gt;
+            >
               Clear
             </button>
           </div>
@@ -199,7 +199,7 @@ const Topic21 = () => {
                 <button 
                   onClick={() => loadExample(ex)}
                   className="mt-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
-                &gt;
+                >
                   Try this example →
                 </button>
               </div>

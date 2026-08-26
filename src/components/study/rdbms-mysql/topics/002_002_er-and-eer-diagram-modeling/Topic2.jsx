@@ -323,7 +323,7 @@ const Topic2 = () => {
                   onChange={(e) => setCandidateName(e.target.value)}
                   className="w-full rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                   placeholder="Full Name"
-                /&gt;
+                />
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="text"
@@ -331,14 +331,14 @@ const Topic2 = () => {
                     onChange={(e) => setCandidateAadhaar(e.target.value)}
                     className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                     placeholder="Aadhaar (Candidate Key 1)"
-                  /&gt;
+                  />
                   <input
                     type="email"
                     value={candidateEmail}
                     onChange={(e) => setCandidateEmail(e.target.value)}
                     className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                     placeholder="Email (Candidate Key 2)"
-                  /&gt;
+                  />
                 </div>
                 <button
                   onClick={handleInsertStudent}
@@ -358,7 +358,7 @@ const Topic2 = () => {
                     value={dependentStudentId}
                     onChange={(e) => setDependentStudentId(Number(e.target.value))}
                     className="rounded-lg bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none"
-                  &gt;
+                  >
                     {students.map((s) => (
                       <option key={s.id} value={s.id}>
                         Owner: #{s.id} ({s.name.split(" ")[0]})
@@ -371,12 +371,12 @@ const Topic2 = () => {
                     onChange={(e) => setDependentName(e.target.value)}
                     className="rounded-lg bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none"
                     placeholder="Partial Key (Name)"
-                  /&gt;
+                  />
                   <select
                     value={dependentRel}
                     onChange={(e) => setDependentRel(e.target.value)}
                     className="rounded-lg bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none"
-                  &gt;
+                  >
                     <option value="Father">Father</option>
                     <option value="Mother">Mother</option>
                     <option value="Spouse">Spouse</option>

@@ -120,7 +120,7 @@ const Topic24 = () => {
   };
 
   const prevQuestion = () => {
-    if (selectedQuestion &gt; 0) {
+    if (selectedQuestion > 0) {
       setSelectedQuestion(selectedQuestion - 1);
       setUserAnswer("");
       setShowSolution(false);
@@ -197,13 +197,13 @@ const Topic24 = () => {
               className="w-full p-2 border rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
               rows="4"
               placeholder="Type your answer here..."
-            /&gt;
+            />
           </div>
 
           <div className="flex gap-3 mb-4">
             <button onClick={checkAnswer} disabled={!userAnswer.trim()} className={clsx("px-4 py-2 rounded font-semibold", userAnswer.trim() ? "bg-green-600 hover:bg-green-700 text-white" : "bg-gray-400 cursor-not-allowed")}>Check Answer</button>
             {showSolution && (
-              <button onClick={() => setShowSolution(false)} className="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded"&gt;Hide Solution</button>
+              <button onClick={() => setShowSolution(false)} className="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded">Hide Solution</button>
             )}
           </div>
 

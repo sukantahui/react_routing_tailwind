@@ -312,7 +312,7 @@ const Topic6 = () => {
                     value={targetStudentId}
                     onChange={(e) => setTargetStudentId(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {students.map((s) => (
                       <option key={s.id} value={s.id}>
                         #{s.id} - {s.name}
@@ -330,7 +330,7 @@ const Topic6 = () => {
                     value={newPrimaryKeyValue}
                     onChange={(e) => setNewPrimaryKeyValue(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-cyan-500 focus:outline-none"
-                  /&gt;
+                  />
                 </div>
               </div>
 

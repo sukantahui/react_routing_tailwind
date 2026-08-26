@@ -84,7 +84,7 @@ const Topic10 = () => {
       label: "Lateral Pivot Attempt: Compromised Honeypot attempts SSH into Real Database (10.10.1.50)",
       srcIp: "172.20.1.10 (Compromised Honeynet VM)",
       dstIp: "10.10.1.50 (REAL Production Database)",
-      direction: "Outbound &rarr; Internal RFC 1918",
+      direction: "Outbound -> Internal RFC 1918",
       isOutbound: true,
       payload: "SSH SYN Connect to Production Database"
     },
@@ -93,7 +93,7 @@ const Topic10 = () => {
       label: "Outbound DDoS Flood: Compromised Honeypot attempts UDP Flood to External Target",
       srcIp: "172.20.1.10 (Compromised Honeynet VM)",
       dstIp: "203.0.113.80 (External Internet Host)",
-      direction: "Outbound -&gt; Internet",
+      direction: "Outbound -> Internet",
       isOutbound: true,
       payload: "High-Volume UDP Flood Packet Stream"
     }
@@ -342,7 +342,7 @@ const Topic10 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}
@@ -409,7 +409,7 @@ const Topic10 = () => {
                 value={selectedTrafficEvent}
                 onChange={(e) => setSelectedTrafficEvent(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(trafficEvents).map((e) => (
                   <option key={e.id} value={e.id}>
                     {e.label}
@@ -428,7 +428,7 @@ const Topic10 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-rose-950/80 text-rose-300 border-rose-800"
                 )}
-              &gt;
+              >
                 {honeywallDataControlActive ? "✔ Data Control ACTIVE (RFC 1918 Drop & Rate-Limit Enforced)" : "❌ Data Control DISABLED (High Risk!)"}
               </button>
             </div>
@@ -531,7 +531,7 @@ const Topic10 = () => {
                 value={honeynetNodesCount}
                 onChange={(e) => setHoneynetNodesCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
               <span className="text-[10px] text-gray-500 block">AD DC + SQL + Linux + Clients</span>
             </div>
 
@@ -548,7 +548,7 @@ const Topic10 = () => {
                 value={dailyPcapGb}
                 onChange={(e) => setDailyPcapGb(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -564,7 +564,7 @@ const Topic10 = () => {
                 value={retentionDays}
                 onChange={(e) => setRetentionDays(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              /&gt;
+              />
               <span className="text-[10px] text-gray-500 block">CERT-In 180-Day Mandate</span>
             </div>
           </div>
@@ -619,7 +619,7 @@ const Topic10 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

@@ -58,7 +58,7 @@ const Topic8 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            &gt;
+            >
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -257,7 +257,7 @@ const Topic8 = () => {
                     },
                     {
                       tip: "Use bit shifts for division by 2",
-                      desc: "n &gt;> 1 is faster than n / 2 for integers (in many languages).",
+                      desc: "n >> 1 is faster than n / 2 for integers (in many languages).",
                     },
                     {
                       tip: "Apply halving to recursion depth",

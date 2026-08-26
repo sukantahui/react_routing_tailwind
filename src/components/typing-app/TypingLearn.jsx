@@ -286,7 +286,7 @@ export default class TypingLearn extends Component {
     const key = `typingLearn_bestTime_${lessonId}`;
     let bestTime = null,
       isNewRecord = false;
-    if (!currentTime || currentTime &le; 0) return { bestTime: null, isNewRecord: false };
+    if (!currentTime || currentTime <= 0) return { bestTime: null, isNewRecord: false };
     try {
       const stored = localStorage.getItem(key);
       if (stored !== null) {
@@ -315,7 +315,7 @@ export default class TypingLearn extends Component {
     return { bestTime, isNewRecord };
   };
   calculateXPEarned = (accuracy, textLength, timeSeconds) => {
-    if (!timeSeconds || timeSeconds &le; 0) return 0;
+    if (!timeSeconds || timeSeconds <= 0) return 0;
     const speedFactor = textLength / timeSeconds;
     const base = Math.max(5, Math.round(speedFactor * 3));
     const accuracyFactor = accuracy / 100;
@@ -354,7 +354,7 @@ export default class TypingLearn extends Component {
     } else {
       const lastDate = new Date(lastPracticeDate);
       const diffDays = (todayDate - lastDate) / (1000 * 60 * 60 * 24);
-      if (diffDays &ge; 1 && diffDays < 2) streak += 1;
+      if (diffDays >= 1 && diffDays < 2) streak += 1;
       else if (diffDays >= 2) streak = 1;
     }
     const updatedMistakeMap = { ...mistakeMap };
@@ -682,14 +682,14 @@ export default class TypingLearn extends Component {
     const lesson = this.getCurrentLesson();
     const target = lesson.text;
     const accuracy =
-      totalChars &gt; 0 ? Math.round((correctChars / totalChars) * 100) : 0;
+      totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 0;
     const wpm = timer > 0 ? Math.round((totalChars / 5) / (timer / 60)) : 0;
     const expectedChar =
       input.length < target.length ? target[input.length] : "";
     const fingerHint = this.getFingerForChar(expectedChar);
     const lastTypedChar = input.length > 0 ? input[input.length - 1] : "";
     const expectedTypedChar =
-      input.length &gt; 0 ? target[input.length - 1] : "";
+      input.length > 0 ? target[input.length - 1] : "";
     const fingerCorrectness = this.isCorrectFingerUsed(
       lastTypedChar,
       expectedTypedChar
@@ -731,7 +731,7 @@ export default class TypingLearn extends Component {
                     this.saveSoundPreference(val);
                   }}
                   className="w-4 h-4 accent-sky-500"
-                /&gt;
+                />
                 Sound
               </label>
               <button
@@ -918,9 +918,9 @@ export default class TypingLearn extends Component {
               </div>
             </div>
 
-            {(sessionWeakKeys.length &gt; 0 || weakKeys.length > 0) && (
+            {(sessionWeakKeys.length > 0 || weakKeys.length > 0) && (
               <div className="mt-3 text-xs text-gray-400">
-                {sessionWeakKeys.length &gt; 0 && (
+                {sessionWeakKeys.length > 0 && (
                   <p className="mb-1">
                     Session weak keys:{" "}
                     <span className="text-rose-300 font-semibold">
@@ -928,7 +928,7 @@ export default class TypingLearn extends Component {
                     </span>
                   </p>
                 )}
-                {weakKeys.length &gt; 0 && (
+                {weakKeys.length > 0 && (
                   <p>
                     All-time weak keys:{" "}
                     <span className="text-rose-300 font-semibold">
@@ -1064,7 +1064,7 @@ export default class TypingLearn extends Component {
                                     ? "bg-sky-600/25 border-sky-500 text-sky-100 shadow-md"
                                     : "bg-gray-900/60 border-gray-700 text-gray-200 hover:bg-gray-700/50")
                                 }
-                              &gt;
+                              >
                                 <div className="flex justify-between items-center">
                                   <span className="font-semibold">
                                     {isCompleted && "✓ "}
@@ -1121,7 +1121,7 @@ export default class TypingLearn extends Component {
             <div
               className="bg-gray-900 border border-sky-600 rounded-2xl shadow-2xl p-6 md:p-8 max-w-lg w-full mx-4"
               onClick={(e) => e.stopPropagation()}
-            &gt;
+            >
               <h2 className="text-xl md:text-2xl font-bold text-sky-400 mb-2 text-center">
                 Lesson Completed
               </h2>
@@ -1225,7 +1225,7 @@ export default class TypingLearn extends Component {
             onClick={(e) => {
               if (e.target === e.currentTarget) this.toggleRecordsModal();
             }}
-          &gt;
+          >
             <div className="bg-gray-900 border border-sky-600 rounded-2xl shadow-2xl p-6 w-full max-w-5xl max-h-[90vh] flex flex-col">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold text-sky-400">
@@ -1257,7 +1257,7 @@ export default class TypingLearn extends Component {
                   }
                   placeholder="Search by title or level..."
                   className="flex-1 px-3 py-1 bg-gray-800 border border-gray-600 rounded-lg text-sm text-white outline-none focus:ring-1 focus:ring-sky-500"
-                /&gt;
+                />
                 <span className="text-xs text-gray-400">
                   {sortedRecords.length} records
                 </span>
@@ -1270,43 +1270,43 @@ export default class TypingLearn extends Component {
                       <th
                         className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
                         onClick={() => this.handleSort("date")}
-                      &gt;
+                      >
                         Date {sortField === "date" && (sortDirection === "asc" ? "↑" : "↓")}
                       </th>
                       <th
                         className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
                         onClick={() => this.handleSort("title")}
-                      &gt;
+                      >
                         Lesson {sortField === "title" && (sortDirection === "asc" ? "↑" : "↓")}
                       </th>
                       <th
                         className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
                         onClick={() => this.handleSort("level")}
-                      &gt;
+                      >
                         Level {sortField === "level" && (sortDirection === "asc" ? "↑" : "↓")}
                       </th>
                       <th
                         className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
                         onClick={() => this.handleSort("accuracy")}
-                      &gt;
+                      >
                         Accuracy {sortField === "accuracy" && (sortDirection === "asc" ? "↑" : "↓")}
                       </th>
                       <th
                         className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
                         onClick={() => this.handleSort("time")}
-                      &gt;
+                      >
                         Time {sortField === "time" && (sortDirection === "asc" ? "↑" : "↓")}
                       </th>
                       <th
                         className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
                         onClick={() => this.handleSort("wpm")}
-                      &gt;
+                      >
                         WPM {sortField === "wpm" && (sortDirection === "asc" ? "↑" : "↓")}
                       </th>
                       <th
                         className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
                         onClick={() => this.handleSort("xp")}
-                      &gt;
+                      >
                         XP {sortField === "xp" && (sortDirection === "asc" ? "↑" : "↓")}
                       </th>
                     </tr>
@@ -1354,11 +1354,11 @@ export default class TypingLearn extends Component {
                                 className={
                                   record.accuracy >= 90
                                     ? "text-emerald-400"
-                                    : record.accuracy &ge; 70
+                                    : record.accuracy >= 70
                                     ? "text-amber-300"
                                     : "text-rose-400"
                                 }
-                              &gt;
+                              >
                                 {record.accuracy}%
                               </span>
                             </td>

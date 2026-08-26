@@ -161,7 +161,7 @@ const Topic2 = () => {
                                 ? "bg-blue-500 text-white shadow-md"
                                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                         )}
-                    &gt;
+                    >
                         Basic Overriding
                     </button>
                     <button
@@ -172,7 +172,7 @@ const Topic2 = () => {
                                 ? "bg-green-500 text-white shadow-md"
                                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                         )}
-                    &gt;
+                    >
                         @Override Annotation
                     </button>
                     <button
@@ -183,7 +183,7 @@ const Topic2 = () => {
                                 ? "bg-purple-500 text-white shadow-md"
                                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                         )}
-                    &gt;
+                    >
                         Real-World Example
                     </button>
                     <button
@@ -194,7 +194,7 @@ const Topic2 = () => {
                                 ? "bg-orange-500 text-white shadow-md"
                                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                         )}
-                    &gt;
+                    >
                         Rules Demo
                     </button>
                 </div>

@@ -111,7 +111,7 @@ const Topic10 = () => {
                 value={mValue}
                 onChange={(e) => setMValue(Number(e.target.value))}
                 className="w-full"
-              /&gt;
+              />
               <span className="text-sm text-gray-600 dark:text-gray-400">M = {mValue}</span>
             </div>
 
@@ -126,7 +126,7 @@ const Topic10 = () => {
                       ? "bg-blue-600 text-white"
                       : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                   )}
-                &gt;
+                >
                   1
                 </button>
                 <button
@@ -137,7 +137,7 @@ const Topic10 = () => {
                       ? "bg-blue-600 text-white"
                       : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                   )}
-                &gt;
+                >
                   2
                 </button>
                 <button
@@ -148,7 +148,7 @@ const Topic10 = () => {
                       ? "bg-blue-600 text-white"
                       : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                   )}
-                &gt;
+                >
                   3
                 </button>
               </div>
@@ -158,7 +158,7 @@ const Topic10 = () => {
               <button
                 onClick={() => setIteration(iteration + 1)}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300"
-              &gt;
+              >
                 Next Iteration
               </button>
               <button
@@ -228,7 +228,7 @@ const Topic10 = () => {
                   ? "bg-red-600 text-white shadow-lg shadow-red-200 dark:shadow-red-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -391,7 +391,7 @@ const Topic10 = () => {
                       <button
                         onClick={() => toggleExample(example.id)}
                         className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all duration-300"
-                      &gt;
+                      >
                         {showExample[example.id] ? 'Hide Detailed Steps' : 'Show Detailed Steps'}
                       </button>
                     </div>
@@ -432,13 +432,13 @@ const Topic10 = () => {
                         <button
                           onClick={() => setShowSolution(showSolution === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800/30 transition-all duration-300"
-                        &gt;
+                        >
                           {showSolution === problem.id ? 'Hide Solution' : 'Check Solution'}
                         </button>
                         <button
                           onClick={() => setShowHint(showHint === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
-                        &gt;
+                        >
                           {showHint === problem.id ? 'Hide Hint' : 'Show Hint'}
                         </button>
                       </div>

@@ -41,12 +41,12 @@ WHERE s.city = 'Barrackpore' AND e.grade = 'A+';`,
     p2_group: {
       title: "2. Grouping Operator with HAVING Threshold",
       category: "Aggregation & Grouping",
-      raNotation: "σ_{total_students ≥ 2}({}_{city} 𝒢_{COUNT(*) → total_students, AVG(fee) → avg_fee}(σ_{fee &gt; 4000}(Students)))",
+      raNotation: "σ_{total_students ≥ 2}({}_{city} 𝒢_{COUNT(*) → total_students, AVG(fee) → avg_fee}(σ_{fee > 4000}(Students)))",
       sqlQuery: `SELECT city, COUNT(*) AS total_students, ROUND(AVG(admission_fee), 2) AS avg_fee
 FROM students
 WHERE admission_fee > 4000
 GROUP BY city
-HAVING COUNT(*) &ge; 2;`,
+HAVING COUNT(*) >= 2;`,
       explanation: "Inner selection maps to WHERE, Grouping (𝒢) maps to GROUP BY, and outer Selection over 𝒢 maps directly to HAVING.",
       results: [
         { col1: "Barrackpore", col2: "2 Students", col3: "₹5,500.00" },
@@ -331,7 +331,7 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);`,
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Multi-Table Join
               </button>
 
@@ -343,7 +343,7 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Grouping &amp; HAVING
               </button>
 
@@ -355,7 +355,7 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Semijoin (EXISTS)
               </button>
 
@@ -367,7 +367,7 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);`,
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Division (FOR ALL)
               </button>
             </div>

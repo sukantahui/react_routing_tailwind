@@ -36,7 +36,7 @@ const Topic8 = () => {
     return {
       marks: initialMarks,
       average: average,
-      performance: average &ge; 85 ? 'Excellent' : average >= 75 ? 'Good' : 'Average'
+      performance: average >= 85 ? 'Excellent' : average >= 75 ? 'Good' : 'Average'
     };
   });
   
@@ -566,7 +566,7 @@ const Topic8 = () => {
                           className={clsx(
                             "px-4 py-3 rounded-lg text-center transition-all duration-300 hover:scale-105",
                             mark >= 90 ? "bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 text-green-700 dark:text-green-300" :
-                            mark &ge; 80 ? "bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 text-blue-700 dark:text-blue-300" :
+                            mark >= 80 ? "bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 text-blue-700 dark:text-blue-300" :
                             mark >= 70 ? "bg-gradient-to-r from-yellow-100 to-amber-100 dark:from-yellow-900/30 dark:to-amber-900/30 text-yellow-700 dark:text-yellow-300" :
                             "bg-gradient-to-r from-red-100 to-pink-100 dark:from-red-900/30 dark:to-pink-900/30 text-red-700 dark:text-red-300"
                           )}
@@ -653,11 +653,11 @@ const Topic8 = () => {
                   <div><span className="text-blue-400">const</span> [computedValue, setComputedValue] ={' '}
                   <span className="text-yellow-300">useState</span>({`() => {`}</div>
                   <div className="ml-4"><span className="text-blue-400">const</span> marks = [85, 90, 78, 92, 88];</div>
-                  <div className="ml-4"><span className="text-blue-400">const</span> average = marks.reduce((a, b) => a + b, 0) / marks.length;</div>
+                  <div className="ml-4"><span className="text-blue-400">const</span> average = marks.reduce((a, b) =&gt; a + b, 0) / marks.length;</div>
                   <div className="ml-4"><span className="text-blue-400">return</span> {'{'}</div>
                   <div className="ml-8">marks,</div>
                   <div className="ml-8">average,</div>
-                  <div className="ml-8">performance: average >= 85 ? <span className="text-orange-400">'Excellent'</span> : <span className="text-orange-400">'Good'</span></div>
+                  <div className="ml-8">performance: average &gt;= 85 ? <span className="text-orange-400">'Excellent'</span> : <span className="text-orange-400">'Good'</span></div>
                   <div className="ml-4">{'};'}</div>
                   <div>{`});`}</div>
                 </div>

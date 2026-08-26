@@ -213,7 +213,7 @@ export default class Topic12 extends Component {
                       ? `border-2 bg-${condition.color}-50 dark:bg-${condition.color}-900/20 border-${condition.color}-500 shadow-lg`
                       : 'border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-600'
                   }`}
-                &gt;
+                >
                   <div className="flex flex-col items-center">
                     <span className="text-2xl mb-2">{condition.icon}</span>
                     <div className="font-semibold text-gray-800 dark:text-white">{condition.label}</div>
@@ -248,7 +248,7 @@ export default class Topic12 extends Component {
                           onChange={(e) => this.handleConditionValueChange('name', e.target.value)}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                           placeholder="*.txt, file*.pdf, config.???"
-                        /&gt;
+                        />
                       </div>
                       
                       <div className="space-y-3">
@@ -331,7 +331,7 @@ export default class Topic12 extends Component {
                           value={conditionValues.size}
                           onChange={(e) => this.handleConditionValueChange('size', e.target.value)}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500"
-                        &gt;
+                        >
                           <option value="+1M">Larger than 1MB</option>
                           <option value="-1M">Smaller than 1MB</option>
                           <option value="+100M">Larger than 100MB</option>
@@ -367,7 +367,7 @@ export default class Topic12 extends Component {
                           { cmd: 'find /var/log -size -1k', desc: 'Log files smaller than 1KB' },
                           { cmd: 'find ~ -size +500M -size -1G', desc: 'Files between 500MB and 1GB' },
                           { cmd: 'find . -size 0', desc: 'Empty files' },
-                          { cmd: 'find /tmp -size +10M -delete', desc: 'Delete tmp files &gt; 10MB' }
+                          { cmd: 'find /tmp -size +10M -delete', desc: 'Delete tmp files > 10MB' }
                         ].map((example, index) => (
                           <div key={index} className="p-3 bg-white/70 dark:bg-gray-800/70 rounded-lg">
                             <code className="block font-mono text-xs text-green-600 dark:text-green-400 mb-1">
@@ -404,7 +404,7 @@ export default class Topic12 extends Component {
                           value={conditionValues.type}
                           onChange={(e) => this.handleConditionValueChange('type', e.target.value)}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-                        &gt;
+                        >
                           <option value="f">Regular file (f)</option>
                           <option value="d">Directory (d)</option>
                           <option value="l">Symbolic link (l)</option>
@@ -495,7 +495,7 @@ export default class Topic12 extends Component {
                           onChange={(e) => this.handleConditionValueChange('permissions', e.target.value)}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500"
                           placeholder="644, 755, /222, -w-w-w-"
-                        /&gt;
+                        />
                       </div>
                       
                       <div className="space-y-4">
@@ -513,7 +513,7 @@ export default class Topic12 extends Component {
                                     ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
                                     : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                                 }`}
-                              &gt;
+                              >
                                 <code className="font-mono">{perm}</code>
                               </button>
                             ))}
@@ -537,7 +537,7 @@ export default class Topic12 extends Component {
                                     ? 'bg-amber-100 dark:bg-amber-900/30'
                                     : 'bg-white/50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-700'
                                 }`}
-                              &gt;
+                              >
                                 <code className="font-mono text-sm text-amber-600 dark:text-amber-400 mr-2">
                                   {item.perm}
                                 </code>
@@ -594,7 +594,7 @@ export default class Topic12 extends Component {
                           value={conditionValues.time}
                           onChange={(e) => this.handleConditionValueChange('time', e.target.value)}
                           className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-500"
-                        &gt;
+                        >
                           <option value="-7">Last 7 days</option>
                           <option value="+30">Older than 30 days</option>
                           <option value="-1">Last 24 hours</option>
@@ -699,7 +699,7 @@ export default class Topic12 extends Component {
                             key={dir}
                             onClick={() => this.handleDirectoryChange({ target: { value: dir } })}
                             className="text-xs p-2 bg-white dark:bg-gray-800 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200"
-                          &gt;
+                          >
                             {dir}
                           </button>
                         ))}
@@ -786,7 +786,7 @@ export default class Topic12 extends Component {
                         Searching {searchDirectory}...
                       </div>
                     </div>
-                  ) : searchResults.length &gt; 0 ? (
+                  ) : searchResults.length > 0 ? (
                     <div className="space-y-3">
                       <div className="grid grid-cols-12 gap-2 px-4 py-2 text-xs text-gray-600 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
                         <div className="col-span-4">Filename</div>
@@ -854,7 +854,7 @@ export default class Topic12 extends Component {
                     </div>
                   )}
                   
-                  {searchResults.length &gt; 0 && (
+                  {searchResults.length > 0 && (
                     <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
                       <div className="text-sm text-green-800 dark:text-green-200">
                         <strong>Next Step:</strong> You can pipe these results to other commands:
@@ -899,7 +899,7 @@ export default class Topic12 extends Component {
                     scenario: 'Backup preparation for Tuhina\'s research',
                     problem: 'Find large data files modified recently',
                     command: 'find /home/tuhina/research -type f -size +10M -mtime -30',
-                    explanation: 'Files &gt;10MB modified in last 30 days'
+                    explanation: 'Files >10MB modified in last 30 days'
                   },
                   {
                     scenario: 'Disk space recovery',
@@ -1056,7 +1056,7 @@ export default class Topic12 extends Component {
                   {
                     issue: 'No error handling',
                     impact: 'Permission errors break command',
-                    solution: 'Use 2&gt;/dev/null or handle errors',
+                    solution: 'Use 2>/dev/null or handle errors',
                     warning: 'find: \'/root\': Permission denied'
                   }
                 ].map((item, index) => (
@@ -1493,7 +1493,7 @@ export default class Topic12 extends Component {
                       ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                       : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
-                &gt;
+                >
                   <span className="mr-2">{tab.icon}</span>
                   {tab.label}
                 </button>

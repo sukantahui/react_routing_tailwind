@@ -315,7 +315,7 @@ export default class Topic14 extends React.Component {
                                             key={key}
                                             onClick={() => this.handleExampleChange(key)}
                                             className={`px-4 py-2 rounded-lg transition-all duration-300 ${activeExample === key ? 'bg-teal-500 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
-                                        &gt;
+                                        >
                                             {examples[key].title}
                                         </button>
                                     ))}
@@ -370,11 +370,11 @@ export default class Topic14 extends React.Component {
                                                 onChange={(e) => this.handleSearchChange(e.target.value)}
                                                 className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
                                                 placeholder="Enter glob pattern..."
-                                            /&gt;
+                                            />
                                             <button
                                                 onClick={() => this.performGlob(searchPattern)}
                                                 className="px-4 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition-colors duration-300"
-                                            &gt;
+                                            >
                                                 Test
                                             </button>
                                         </div>
@@ -382,11 +382,11 @@ export default class Topic14 extends React.Component {
                                             Try: <button 
                                                 className="cursor-pointer hover:text-teal-600 text-blue-500 dark:text-blue-300 underline" 
                                                 onClick={() => this.handleSearchChange('*.{txt,jpg}')}
-                                            &gt;*.txt,.jpg</button>,
+                                            >*.txt,.jpg</button>,
                                             <button 
                                                 className="cursor-pointer hover:text-teal-600 text-blue-500 dark:text-blue-300 underline ml-2" 
                                                 onClick={() => this.handleSearchChange('file?.*')}
-                                            &gt;file?.txt</button>
+                                            >file?.txt</button>
                                         </p>
                                     </div>
                                 </div>
@@ -439,7 +439,7 @@ export default class Topic14 extends React.Component {
                                                                 : 'border-gray-200 dark:border-gray-700 opacity-50'
                                                             }`}
                                                         onClick={() => isMatch && console.log(`Selected: ${filename}`)}
-                                                    &gt;
+                                                    >
                                                         <div className="flex items-center gap-3 mb-2">
                                                             <div className={`w-10 h-10 rounded-lg flex items-center justify-center
                                                                 ${isText ? 'bg-blue-100 dark:bg-blue-900' :
@@ -490,7 +490,7 @@ export default class Topic14 extends React.Component {
                                                     # Expands to:
                                                 </div>
                                                 <div className="mt-1 text-gray-300">
-                                                    {globResults.length &gt; 0 ? (
+                                                    {globResults.length > 0 ? (
                                                         <div className="flex flex-wrap gap-2">
                                                             {globResults.map((file, index) => (
                                                                 <span key={index} className="px-2 py-1 bg-gray-800 rounded">

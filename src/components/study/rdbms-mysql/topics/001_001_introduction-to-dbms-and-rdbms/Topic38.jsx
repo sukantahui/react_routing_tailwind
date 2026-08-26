@@ -304,7 +304,7 @@ const Topic38 = () => {
                   icon: "📄",
                   title: "Source Command",
                   desc: "Use `SOURCE` from within the mysql client.",
-                  detail: "mysql&gt; SOURCE /path/file.sql",
+                  detail: "mysql> SOURCE /path/file.sql",
                   color: "amber",
                 },
               ].map((method, idx) => {
@@ -439,7 +439,7 @@ gunzip -c backup.sql.gz | mysql -u root -p mydb`}
 mysql -u root -p
 
 # Then inside the mysql client
-mysql&gt; USE mydb;
+mysql> USE mydb;
 Database changed
 
 mysql> SOURCE /path/to/backup.sql;

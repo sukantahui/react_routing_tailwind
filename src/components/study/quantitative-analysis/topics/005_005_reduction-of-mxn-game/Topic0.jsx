@@ -146,7 +146,7 @@ const Topic0 = () => {
                     ? 'bg-blue-600 text-white border-blue-500 shadow-md shadow-blue-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              &gt;
+              >
                 {item.label}
               </button>
             ))}
@@ -158,7 +158,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 font-bold text-sm">
@@ -202,7 +202,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-stream">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-800 pb-4 gap-2">
               <div className="flex items-center space-x-3">
@@ -231,24 +231,24 @@ const Topic0 = () => {
                     <th className="p-2 text-left">A \ B</th>
                     <th className="p-2 text-sky-400">B₁</th>
                     <th className="p-2 text-sky-400">B₂</th>
-                    <th className={clsx('p-2', streamlineStep >= 2 ? 'line-through text-slate-600 bg-rose-950/20' : 'text-sky-400')}&gt;
-                      B₃ {streamlineStep &ge; 2 ? '(Pruned)' : ''}
+                    <th className={clsx('p-2', streamlineStep >= 2 ? 'line-through text-slate-600 bg-rose-950/20' : 'text-sky-400')}>
+                      B₃ {streamlineStep >= 2 ? '(Pruned)' : ''}
                     </th>
-                    <th className={clsx('p-2', streamlineStep >= 2 ? 'line-through text-slate-600 bg-rose-950/20' : 'text-sky-400')}&gt;
-                      B₄ {streamlineStep &ge; 2 ? '(Pruned)' : ''}
+                    <th className={clsx('p-2', streamlineStep >= 2 ? 'line-through text-slate-600 bg-rose-950/20' : 'text-sky-400')}>
+                      B₄ {streamlineStep >= 2 ? '(Pruned)' : ''}
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/60 text-slate-200">
                   {initial5x4.map((row, rIdx) => {
-                    const isRowDead = streamlineStep &ge; 1 && (rIdx === 2 || rIdx === 3 || rIdx === 4);
+                    const isRowDead = streamlineStep >= 1 && (rIdx === 2 || rIdx === 3 || rIdx === 4);
                     return (
                       <tr key={rIdx} className={clsx(isRowDead ? 'line-through bg-rose-950/30 text-slate-600' : '')}>
                         <td className="p-2 text-left font-bold text-rose-300">
                           A_{rIdx + 1} {isRowDead ? '(Pruned)' : ''}
                         </td>
                         {row.map((cell, cIdx) => {
-                          const isColDead = streamlineStep &ge; 2 && (cIdx === 2 || cIdx === 3);
+                          const isColDead = streamlineStep >= 2 && (cIdx === 2 || cIdx === 3);
                           const isDead = isRowDead || isColDead;
                           return (
                             <td
@@ -323,7 +323,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -364,7 +364,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -404,7 +404,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -426,7 +426,7 @@ const Topic0 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                &gt;
+                >
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -453,7 +453,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -493,7 +493,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -527,7 +527,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

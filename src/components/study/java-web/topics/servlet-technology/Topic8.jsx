@@ -54,7 +54,7 @@ const Topic8 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-green-400 flex items-center gap-2">
             <span>🎧</span> What are Servlet Listeners?
           </h2>
@@ -75,7 +75,7 @@ const Topic8 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-green-400">📡 Listener Event Flow</h2>
           <div className="mt-6 flex justify-center">
             <svg viewBox="0 0 750 280" className="w-full max-w-4xl h-auto">
@@ -141,7 +141,7 @@ const Topic8 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-green-400">🌍 ServletContextListener</h2>
           <p className="mt-3 text-gray-300">
             Most commonly used listener. Fires when the web application is deployed (started) and when it is undeployed (stopped). Perfect for one‑time initialisation and cleanup.
@@ -168,7 +168,7 @@ const Topic8 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-green-400">👥 HttpSessionListener</h2>
           <p className="mt-3 text-gray-300">
             Tracks session creation and destruction. Useful for counting active users, logging login/logout events, or releasing session‑specific resources.
@@ -190,7 +190,7 @@ const Topic8 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-green-400">📨 ServletRequestListener</h2>
           <p className="mt-3 text-gray-300">
             Intercepts every request coming into the web application. Ideal for request logging, performance monitoring, or setting up request‑scoped resources.
@@ -230,7 +230,7 @@ const Topic8 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-green-400">🔧 Registering Listeners</h2>
           <p className="mt-3 text-gray-300">
             Two ways: use <code>@WebListener</code> annotation (Servlet 3.0+) or declare in <code>web.xml</code>. Both are equivalent; annotation is simpler for most cases.
@@ -268,7 +268,7 @@ const Topic8 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-green-400">⚠️ Common Pitfalls (Beginners)</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Forgetting to register the listener</strong> – either missing <code>@WebListener</code> or web.xml entry.</li>
@@ -284,7 +284,7 @@ const Topic8 = () => {
         <section
           ref={(el) => (sectionRefs.current[7] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-green-400">✅ Best Practices (Industry)</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Use <code>ServletContextListener</code> for startup tasks</strong> – loading configuration, initialising database pools, starting background threads.</li>
@@ -301,7 +301,7 @@ const Topic8 = () => {
         <section
           ref={(el) => (sectionRefs.current[8] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-green-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -327,7 +327,7 @@ const Topic8 = () => {
         <section
           ref={(el) => (sectionRefs.current[9] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-green-500/30"
-        &gt;
+        >
           <h2 className="text-xl font-semibold text-green-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> Deploy a simple app with a <code>ServletContextListener</code> that prints a message. See when it appears in logs – at deployment, not on first request.</li>
@@ -342,7 +342,7 @@ const Topic8 = () => {
 
         {/* Teacher's Note */}
         <div className="mt-8">
-          <Teacher note="Listeners are often overlooked but extremely useful. Emphasise that they are the entry point for any initialisation (e.g., loading a configuration file, setting up database connections). In the classroom, show a step-by-step: create a listener that sets an application start timestamp in context. Then create another listener counting online users. Combine them to show how listeners communicate via context attributes. Also note that listeners are not affected by <code>web.xml</code> `metadata-complete` unless that flag ignores annotations – so be careful. A great advanced exercise: use <code>ServletContextListener</code> to start a background scheduler (e.g., Quartz) and shut it down properly." /&gt;
+          <Teacher note="Listeners are often overlooked but extremely useful. Emphasise that they are the entry point for any initialisation (e.g., loading a configuration file, setting up database connections). In the classroom, show a step-by-step: create a listener that sets an application start timestamp in context. Then create another listener counting online users. Combine them to show how listeners communicate via context attributes. Also note that listeners are not affected by <code>web.xml</code> `metadata-complete` unless that flag ignores annotations – so be careful. A great advanced exercise: use <code>ServletContextListener</code> to start a background scheduler (e.g., Quartz) and shut it down properly." />
         </div>
 
         <footer className="text-center text-gray-500 text-sm pt-8 border-t border-gray-800">

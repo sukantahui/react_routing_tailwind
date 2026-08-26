@@ -398,7 +398,7 @@ I always tell students: "Think of them as Java methods that you can call with HT
 A good starting exercise: Create a tag that displays the current date and time (like <mytags:currentDateTime />). 
 Then extend it with a format attribute. 
 Remember to emphasize that the tag handler should be stateless – any data needed should be passed as attributes.`}
-          /&gt;
+          />
         </section>
 
         {/* Hint Section */}

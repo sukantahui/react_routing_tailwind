@@ -129,11 +129,11 @@ const Topic4 = () => {
           <div className="space-y-3">
             <div className="p-3 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded">
               <p className="font-medium">Off‑by‑one in reverse loops</p>
-              <p className="text-sm"><code>for (i = n; i >= 0; i--)</code> – when i = n, it's out of bounds. Correct: <code>i = n-1; i >= 0; i--</code>.</p>
+              <p className="text-sm"><code>for (i = n; i &gt;= 0; i--)</code> – when i = n, it's out of bounds. Correct: <code>i = n-1; i &gt;= 0; i--</code>.</p>
             </div>
             <div className="p-3 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded">
               <p className="font-medium">Using <code>size_t</code> (unsigned) in reverse loops</p>
-              <p className="text-sm"><code>for (size_t i = n-1; i >= 0; i--)</code> – when i becomes 0 and decrements, it wraps to a huge value, causing infinite loop. Solution: use signed or different condition.</p>
+              <p className="text-sm"><code>for (size_t i = n-1; i &gt;= 0; i--)</code> – when i becomes 0 and decrements, it wraps to a huge value, causing infinite loop. Solution: use signed or different condition.</p>
             </div>
             <div className="p-3 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded">
               <p className="font-medium">Nested loop inefficiency</p>
@@ -159,7 +159,7 @@ const Topic4 = () => {
           <h2 className="text-xl font-medium mb-2">📋 Mini Checklist – What to remember</h2>
           <ul className="list-check list-inside space-y-1">
             <li>✔️ Forward: start = 0, condition i &lt; n, increment i++.</li>
-            <li>✔️ Reverse: start = n-1, condition i >= 0, decrement i--.</li>
+            <li>✔️ Reverse: start = n-1, condition i &gt;= 0, decrement i--.</li>
             <li>✔️ Nested: outer loop controls one dimension, inner loop another.</li>
             <li>✔️ Avoid off‑by‑one errors.</li>
             <li>✔️ Consider unsigned pitfalls in reverse.</li>

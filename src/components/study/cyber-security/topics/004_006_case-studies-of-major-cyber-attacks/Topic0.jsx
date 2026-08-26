@@ -147,7 +147,7 @@ const Topic0 = () => {
     let compromisedHosts = 0;
     let breachSevered = false;
 
-    if (killChainInterruptionStep &le; 3) {
+    if (killChainInterruptionStep <= 3) {
       // Interrupted during Delivery or earlier
       breachSevered = true;
       compromisedHosts = 0;
@@ -213,7 +213,7 @@ const Topic0 = () => {
       dpdpPenaltyEstimateINR: dpdpPenaltyEstimateINR.toFixed(2),
       totalPotentialBreachImpactINR,
       netSavingsINR,
-      rosiPercentage: rosiPercentage &gt; 0 ? rosiPercentage.toLocaleString() : 0
+      rosiPercentage: rosiPercentage > 0 ? rosiPercentage.toLocaleString() : 0
     };
   }, [annualRevenueINR, customerRecordsExposed, securityInvestmentINR, hasIncidentResponsePlan]);
 
@@ -418,7 +418,7 @@ const Topic0 = () => {
                       ? "bg-blue-600/20 border-blue-500 text-blue-200 shadow-md ring-1 ring-blue-500"
                       : "bg-slate-800/60 border-slate-700/80 text-gray-400 hover:bg-slate-800 hover:text-gray-200"
                   )}
-                &gt;
+                >
                   <span className="text-[10px] text-gray-500 uppercase tracking-wider">{incident.year}</span>
                   <span className="truncate">{incident.title.split("—")[0]}</span>
                 </button>
@@ -508,7 +508,7 @@ const Topic0 = () => {
                 value={killChainInterruptionStep}
                 onChange={(e) => setKillChainInterruptionStep(parseInt(e.target.value))}
                 className="w-full accent-blue-500 cursor-pointer"
-              /&gt;
+              />
               <p className="text-[11px] text-gray-400">
                 {killChainSteps[killChainInterruptionStep - 1].name}
               </p>
@@ -521,7 +521,7 @@ const Topic0 = () => {
                 value={networkSegmentationLevel}
                 onChange={(e) => setNetworkSegmentationLevel(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-blue-500"
-              &gt;
+              >
                 <option value="flat">Flat Network (No Internal Firewalls — e.g. Target 2013)</option>
                 <option value="vlan">Standard VLAN Segmentation (Inter-VLAN Routing)</option>
                 <option value="micro_segmented">Zero Trust Micro-segmentation (Host Isolation)</option>
@@ -538,7 +538,7 @@ const Topic0 = () => {
                     "px-3 py-1 rounded text-xs font-bold transition-all",
                     mfaEnforced ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                &gt;
+                >
                   {mfaEnforced ? "ENABLED (FIDO2)" : "DISABLED (Password Only)"}
                 </button>
               </div>
@@ -554,7 +554,7 @@ const Topic0 = () => {
                 value={totalSubnetHosts}
                 onChange={(e) => setTotalSubnetHosts(parseInt(e.target.value))}
                 className="w-full accent-blue-500 cursor-pointer"
-              /&gt;
+              />
             </div>
           </div>
 
@@ -565,7 +565,7 @@ const Topic0 = () => {
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-7 gap-2">
               {killChainSteps.map((k) => {
-                const isPassed = k.step &le; killChainInterruptionStep;
+                const isPassed = k.step <= killChainInterruptionStep;
                 const isInterruptionPoint = k.step === killChainInterruptionStep;
                 return (
                   <div
@@ -663,7 +663,7 @@ const Topic0 = () => {
                   value={annualRevenueINR}
                   onChange={(e) => setAnnualRevenueINR(parseInt(e.target.value))}
                   className="w-full accent-emerald-500 cursor-pointer"
-                /&gt;
+                />
               </div>
 
               {/* Customer PII Records Slider */}
@@ -680,7 +680,7 @@ const Topic0 = () => {
                   value={customerRecordsExposed}
                   onChange={(e) => setCustomerRecordsExposed(parseInt(e.target.value))}
                   className="w-full accent-blue-500 cursor-pointer"
-                /&gt;
+                />
               </div>
 
               {/* Security Budget Slider */}
@@ -697,7 +697,7 @@ const Topic0 = () => {
                   value={securityInvestmentINR}
                   onChange={(e) => setSecurityInvestmentINR(parseInt(e.target.value))}
                   className="w-full accent-amber-500 cursor-pointer"
-                /&gt;
+                />
               </div>
 
               {/* Verified Incident Plan Toggle */}
@@ -709,7 +709,7 @@ const Topic0 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     hasIncidentResponsePlan ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                &gt;
+                >
                   {hasIncidentResponsePlan ? "VERIFIED (Mitigates Fine)" : "ABSENT (Gross Negligence)"}
                 </button>
               </div>
@@ -819,7 +819,7 @@ const Topic0 = () => {
                         ? "bg-purple-600/20 border-purple-500 text-purple-200 ring-1 ring-purple-500"
                         : "bg-slate-900 border-slate-800 text-gray-400 hover:bg-slate-800"
                     )}
-                  &gt;
+                  >
                     <span className="font-bold text-[11px]">Why #{item.step}</span>
                     <span className="text-[10px] text-gray-500 truncate mt-1">{item.why.split("?")[0]}</span>
                   </button>

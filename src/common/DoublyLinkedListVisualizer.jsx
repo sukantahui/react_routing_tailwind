@@ -63,7 +63,7 @@ const Node = memo(({ value, index, nodeAddress, prevAddress, nextAddress, onDele
       <button
         onClick={() => onDelete(index)}
         className="absolute -top-2 -right-2 w-5 h-5 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center text-xs hover:bg-red-600"
-      &gt;
+      >
         ×
       </button>
     </motion.div>
@@ -197,7 +197,7 @@ const DoublyLinkedListVisualizer = () => {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Enter value"
               className="px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-sky-500 w-32 sm:w-40"
-            /&gt;
+            />
             <button
               onClick={addAtHead}
               className="px-4 py-2 bg-gradient-to-r from-sky-600 to-blue-600 text-white rounded-lg hover:opacity-90 transition shadow-lg"
@@ -222,7 +222,7 @@ const DoublyLinkedListVisualizer = () => {
               className="px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-sky-500 w-20"
               min="0"
               max={nodes.length}
-            /&gt;
+            />
             <button
               onClick={insertAtIndex}
               className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-lg hover:opacity-90 transition shadow-lg"
@@ -239,7 +239,7 @@ const DoublyLinkedListVisualizer = () => {
               onChange={(e) => setDeleteValue(e.target.value)}
               placeholder="Delete value"
               className="px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-red-500 w-32 sm:w-40"
-            /&gt;
+            />
             <button
               onClick={deleteByValue}
               className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg hover:opacity-90 transition shadow-lg"
@@ -259,9 +259,9 @@ const DoublyLinkedListVisualizer = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search data"
               className="px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 w-32 sm:w-40"
-            /&gt;
+            />
             <span className="text-sm text-gray-400">
-              {highlightedIndices.length &gt; 0 ? `${highlightedIndices.length} match(es)` : ""}
+              {highlightedIndices.length > 0 ? `${highlightedIndices.length} match(es)` : ""}
             </span>
           </div>
 

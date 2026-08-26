@@ -35,13 +35,13 @@ const Topic10 = () => {
       id: 101,
       name: "Mamata Hui",
       city: "Barrackpore",
-      enrolledCourses: [201, 202, 203], // All 3 &rarr; Qualifies!
+      enrolledCourses: [201, 202, 203], // All 3 -> Qualifies!
     },
     {
       id: 102,
       name: "Mahima Sharma",
       city: "Kolkata",
-      enrolledCourses: [201, 202], // Missing 203 -&gt; Disqualified
+      enrolledCourses: [201, 202], // Missing 203 -> Disqualified
     },
     {
       id: 103,
@@ -301,7 +301,7 @@ const Topic10 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. GROUP BY ... HAVING COUNT(DISTINCT) (High-Performance Industrial Standard)
               </button>
 
@@ -316,7 +316,7 @@ const Topic10 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Double NOT EXISTS (Theoretical First-Order Logic Translation)
               </button>
             </div>

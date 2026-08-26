@@ -291,7 +291,7 @@ except ValueError as e:
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Relational Foreign Keys
               </button>
               <button
@@ -302,7 +302,7 @@ except ValueError as e:
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Crash-Proof Atomic JSON
               </button>
               <button
@@ -313,7 +313,7 @@ except ValueError as e:
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Repository Pattern Decoupling
               </button>
             </div>
@@ -519,7 +519,7 @@ except ValueError as e:
                           : "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                         : "bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400"
                     )}
-                  &gt;
+                  >
                     <div className="text-xs sm:text-sm font-bold text-slate-200">{item.label}</div>
                     <div className="text-[10px] text-teal-400 font-mono mt-0.5">{item.tag}</div>
                   </button>

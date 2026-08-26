@@ -316,7 +316,7 @@ const Topic6 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {p.title}
               </button>
             ))}
@@ -385,7 +385,7 @@ const Topic6 = () => {
                 value={selectedDpiFlow}
                 onChange={(e) => setSelectedDpiFlow(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(dpiTestFlows).map((f) => (
                   <option key={f.id} value={f.id}>
                     {f.label}
@@ -404,7 +404,7 @@ const Topic6 = () => {
                     ? "bg-purple-950/80 text-purple-300 border-purple-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              &gt;
+              >
                 {sslDecryptionEnabled ? "✔ SSL Forward Decryption Active" : "❌ SSL Decryption Disabled (Blind)"}
               </button>
             </div>
@@ -419,7 +419,7 @@ const Topic6 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-amber-950/80 text-amber-300 border-amber-800"
                 )}
-              &gt;
+              >
                 {wildfireSandboxActive ? "✔ WildFire Sandbox Enabled" : "❌ Sandbox Off"}
               </button>
             </div>
@@ -523,7 +523,7 @@ const Topic6 = () => {
                 value={throughputGbps}
                 onChange={(e) => setThroughputGbps(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -539,7 +539,7 @@ const Topic6 = () => {
                 value={sslDecryptionPercentage}
                 onChange={(e) => setSslDecryptionPercentage(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -555,7 +555,7 @@ const Topic6 = () => {
                     ? "bg-emerald-950 text-emerald-300 border-emerald-800"
                     : "bg-amber-950 text-amber-300 border-amber-800"
                 )}
-              &gt;
+              >
                 {hardwareAsicAcceleration ? "✔ Hardware ASICs Active (SP3)" : "⚠️ Software CPU Scan (UTM Multi-pass)"}
               </button>
             </div>
@@ -611,7 +611,7 @@ const Topic6 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

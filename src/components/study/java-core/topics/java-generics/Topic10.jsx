@@ -697,18 +697,18 @@ public class WildcardMistakes {
     // MISTAKE 3: Overusing wildcards
     public static void mistake3() {
         // ❌ Overly complex - hard to read and maintain
-        Map<? extends Comparable<?>, ? extends List<? extends Number>&gt; complexMap;
+        Map<? extends Comparable<?>, ? extends List<? extends Number>> complexMap;
         
         // ✅ Better - use meaningful type parameters
-        Map<String, List<Integer>&gt; simpleMap = new HashMap<>();
+        Map<String, List<Integer>> simpleMap = new HashMap<>();
         simpleMap.put("marks", Arrays.asList(85, 92, 88));
         
         // Or if you need flexibility, use bounded type parameters
-        class FlexibleContainer<K extends Comparable<K>, V extends Number&gt; {
-            private Map<K, List<V>&gt; data = new HashMap<>();
+        class FlexibleContainer<K extends Comparable<K>, V extends Number> {
+            private Map<K, List<V>> data = new HashMap<>();
             
             public void add(K key, V value) {
-                data.computeIfAbsent(key, k &rarr; new ArrayList<>()).add(value);
+                data.computeIfAbsent(key, k -> new ArrayList<>()).add(value);
             }
             
             public List<V> get(K key) {
@@ -829,7 +829,7 @@ import java.util.*;
 public class AdvancedWildcardPatterns {
     
     // PATTERN 1: Nested wildcards
-    public static double processNestedLists(List<List<? extends Number>&gt; nestedLists) {
+    public static double processNestedLists(List<List<? extends Number>> nestedLists) {
         double total = 0.0;
         int count = 0;
         
@@ -840,7 +840,7 @@ public class AdvancedWildcardPatterns {
             }
         }
         
-        return count &gt; 0 ? total / count : 0.0;
+        return count > 0 ? total / count : 0.0;
     }
     
     // PATTERN 2: Wildcards with bounded type parameters
@@ -849,7 +849,7 @@ public class AdvancedWildcardPatterns {
         
         List<T> result = new ArrayList<>();
         for (T num : numbers) {
-            if (num.doubleValue() &gt; threshold.doubleValue()) {
+            if (num.doubleValue() > threshold.doubleValue()) {
                 result.add(num);
             }
         }
@@ -895,7 +895,7 @@ public class AdvancedWildcardPatterns {
             }
         }
         
-        return totalWeight &gt; 0 ? weightedSum / totalWeight : 0.0;
+        return totalWeight > 0 ? weightedSum / totalWeight : 0.0;
     }
     
     // PATTERN 6: Factory pattern with wildcards
@@ -918,7 +918,7 @@ public class AdvancedWildcardPatterns {
         
         // Calculate overall GPA considering different credit weights
         public static double calculateWeightedGPA(
-                Map<String, List<? extends Number>&gt; subjectMarks) {
+                Map<String, List<? extends Number>> subjectMarks) {
             
             Map<String, Integer> credits = Map.of(
                 "Java", 4,
@@ -930,7 +930,7 @@ public class AdvancedWildcardPatterns {
             double totalWeightedScore = 0.0;
             int totalCredits = 0;
             
-            for (Map.Entry<String, List<? extends Number>&gt; entry : subjectMarks.entrySet()) {
+            for (Map.Entry<String, List<? extends Number>> entry : subjectMarks.entrySet()) {
                 String subject = entry.getKey();
                 List<? extends Number> marks = entry.getValue();
                 
@@ -941,22 +941,22 @@ public class AdvancedWildcardPatterns {
                 totalCredits += credit;
             }
             
-            return totalCredits &gt; 0 ? totalWeightedScore / totalCredits : 0.0;
+            return totalCredits > 0 ? totalWeightedScore / totalCredits : 0.0;
         }
         
         // Process student performance across multiple semesters
         public static Map<String, Double> analyzePerformance(
-                Map<Integer, Map<String, List<? extends Number>&gt;> semesterData) {
+                Map<Integer, Map<String, List<? extends Number>>> semesterData) {
             
             Map<String, Double> performance = new HashMap<>();
             
-            for (Map.Entry<Integer, Map<String, List<? extends Number>&gt;> semester : 
+            for (Map.Entry<Integer, Map<String, List<? extends Number>>> semester : 
                     semesterData.entrySet()) {
                 
                 int semesterNum = semester.getKey();
-                Map<String, List<? extends Number>&gt; subjects = semester.getValue();
+                Map<String, List<? extends Number>> subjects = semester.getValue();
                 
-                for (Map.Entry<String, List<? extends Number>&gt; subject : 
+                for (Map.Entry<String, List<? extends Number>> subject : 
                         subjects.entrySet()) {
                     
                     String subjectName = subject.getKey();
@@ -987,7 +987,7 @@ public class AdvancedWildcardPatterns {
         System.out.println("=== Advanced Wildcard Patterns ===");
         
         // Pattern 1: Nested lists
-        List<List<Integer>&gt; nestedMarks = Arrays.asList(
+        List<List<Integer>> nestedMarks = Arrays.asList(
             Arrays.asList(85, 92, 88),  // Student 1 marks
             Arrays.asList(78, 85, 92),  // Student 2 marks
             Arrays.asList(91, 89, 94)   // Student 3 marks
@@ -1010,7 +1010,7 @@ public class AdvancedWildcardPatterns {
         
         // Pattern 4: Using streams
         OptionalDouble maxMark = findMax(marks);
-        maxMark.ifPresent(max &rarr; System.out.println("Maximum mark: " + max));
+        maxMark.ifPresent(max -> System.out.println("Maximum mark: " + max));
         
         // Pattern 5: Weighted average
         List<Integer> test1 = Arrays.asList(85, 92, 88);
@@ -1021,12 +1021,12 @@ public class AdvancedWildcardPatterns {
         System.out.println("Weighted average: " + weightedAvg);
         
         // Pattern 6: Factory pattern
-        NumberFactory<Integer> integerFactory = () &rarr; (int)(Math.random() * 100);
+        NumberFactory<Integer> integerFactory = () -> (int)(Math.random() * 100);
         List<Integer> randomMarks = createNumberList(integerFactory, 5);
         System.out.println("Random marks: " + randomMarks);
         
         // Real-world college example
-        Map<String, List<? extends Number>&gt; semester1Marks = Map.of(
+        Map<String, List<? extends Number>> semester1Marks = Map.of(
             "Java", Arrays.asList(85, 92, 88),
             "DSA", Arrays.asList(78, 85, 92),
             "DBMS", Arrays.asList(91, 89, 94)
@@ -1036,7 +1036,7 @@ public class AdvancedWildcardPatterns {
         System.out.println("\\nStudent GPA: " + gpa);
         
         // Multi-semester analysis
-        Map<Integer, Map<String, List<? extends Number>&gt;> allSemesters = Map.of(
+        Map<Integer, Map<String, List<? extends Number>>> allSemesters = Map.of(
             1, semester1Marks,
             2, Map.of(
                 "Java", Arrays.asList(88, 95, 91),
@@ -1048,7 +1048,8 @@ public class AdvancedWildcardPatterns {
         Map<String, Double> performance = 
             CollegeMarksSystem.analyzePerformance(allSemesters);
         System.out.println("\\nPerformance analysis:");
-        performance.forEach((key, value) &rarr; System.out.println(key + ": " + value));
+        performance.forEach((key, value) -> 
+            System.out.println(key + ": " + value));
     }
 }`;
 
@@ -1143,7 +1144,7 @@ public class AdvancedWildcardPatterns {
 
       <div className="container mx-auto px-4 py-10 max-w-6xl">
         {/* HEADER */}
-        <header className="mb-12" ref={(el) => setRef("header", el)}&gt;
+        <header className="mb-12" ref={(el) => setRef("header", el)}>
           <div className="flex items-center gap-4 mb-6">
             <div className={`w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center ${!isReducedMotion ? 'animate-fade-in-up' : ''}`} style={{ animationDelay: '0.1s' }}>
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1179,7 +1180,7 @@ public class AdvancedWildcardPatterns {
         <section 
           ref={(el) => setRef("concept", el)}
           className="mb-12"
-        &gt;
+        >
           <div className="flex flex-wrap gap-2 mb-6">
             {["what", "why", "how", "rules"].map((concept) => (
               <button
@@ -1191,7 +1192,7 @@ public class AdvancedWildcardPatterns {
                     ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg"
                     : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                 )}
-              &gt;
+              >
                 {concept === "what" && "What are They?"}
                 {concept === "why" && "Why Use Them?"}
                 {concept === "how" && "How They Work"}
@@ -1408,7 +1409,7 @@ public class AdvancedWildcardPatterns {
             (isVisible.diagram || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.3s" }}
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-6">
             Upper Bounded Wildcard Flow
           </h2>
@@ -1602,7 +1603,7 @@ public class AdvancedWildcardPatterns {
         <section 
           ref={(el) => setRef("examples", el)}
           className="mb-12"
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-6">Code Examples</h2>
           
           <div className="flex flex-wrap gap-2 mb-6">
@@ -1616,7 +1617,7 @@ public class AdvancedWildcardPatterns {
                     ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg"
                     : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                 )}
-              &gt;
+              >
                 {type === "basic" && "Basic Example"}
                 {type === "hierarchy" && "Class Hierarchy"}
                 {type === "generic" && "Generic Classes"}
@@ -1680,7 +1681,7 @@ public class AdvancedWildcardPatterns {
             (isVisible.comparison || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.4s" }}
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-6">Wildcard Type Comparison</h2>
           
           <div className="overflow-x-auto rounded-2xl shadow-lg">
@@ -1776,7 +1777,7 @@ public class AdvancedWildcardPatterns {
             (isVisible.practices || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.5s" }}
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-6">Best Practices & Professional Tips</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -1912,7 +1913,7 @@ public class AdvancedWildcardPatterns {
             (isVisible.checklist || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.6s" }}
-        &gt;
+        >
           <h2 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-6">📋 Quick Reference Checklist</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1953,7 +1954,7 @@ public class AdvancedWildcardPatterns {
             (isVisible.teacher || isReducedMotion) && "animate-fade-in-up hover-lift"
           )}
           style={{ animationDelay: "0.7s" }}
-        &gt;
+        >
           <div className="flex flex-col md:flex-row gap-8">
             <div className="flex-shrink-0">
               <div className="w-24 h-24 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">

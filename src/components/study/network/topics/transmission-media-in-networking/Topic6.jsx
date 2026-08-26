@@ -172,7 +172,7 @@ const Topic6 = () => {
                     ? "bg-blue-600 text-white"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                 )}
-              &gt;
+              >
                 Multi-Mode (MMF)
               </button>
               <button
@@ -183,7 +183,7 @@ const Topic6 = () => {
                     ? "bg-blue-600 text-white"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                 )}
-              &gt;
+              >
                 Single-Mode (SMF)
               </button>
             </div>

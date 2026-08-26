@@ -103,7 +103,7 @@ export default class Topic5 extends Component {
     root.appendChild(el);
   });
 }`}
-          /&gt;
+          />
         </section>
 
         {/* =====================================================
@@ -165,7 +165,7 @@ export default class Topic5 extends Component {
   card.append(title, p, removeBtn);
   return card;
 }`}
-          /&gt;
+          />
         </section>
 
         {/* =====================================================
@@ -192,7 +192,7 @@ function updateUI() {
 
 // Initial draw
 updateUI();`}
-          /&gt;
+          />
 
           <p className="text-slate-400">
             ✔ State changes automatically update UI  
@@ -232,7 +232,7 @@ document.getElementById("addBtn").onclick = () => {
 
   addProduct(n, p);
 };`}
-          /&gt;
+          />
 
           <p className="text-slate-300">
             ✔ UI updates from a single source of truth  

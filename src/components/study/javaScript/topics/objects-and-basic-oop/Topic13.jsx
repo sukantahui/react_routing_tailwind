@@ -35,7 +35,7 @@ const student = {
 };
 
 student.showInfo(); // this will NOT refer to the student object`}
-        /&gt;
+        />
 
         <EditableCodeBlock
           language="javascript"
@@ -51,7 +51,7 @@ const batch = {
 };
 
 batch.printStudents();`}
-        /&gt;
+        />
       </div>
     );
   }

@@ -210,7 +210,7 @@ function check(n){
   }
 }
         `}
-      /&gt;
+      />
 
       <p className="text-slate-400 text-xs italic">
         Try it inside the JavaScript Playground!

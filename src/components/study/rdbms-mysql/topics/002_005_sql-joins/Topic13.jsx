@@ -61,7 +61,7 @@ LEFT JOIN customer_shipment_summary shp USING (customer_id);`,
     },
     lab_fulfillment_gap: {
       title: "2. Warehouse Fulfillment Gap Audit (Anti-Join)",
-      sqlQuery: `-- Finding paid orders waiting &gt; 48 hours for dispatch:
+      sqlQuery: `-- Finding paid orders waiting > 48 hours for dispatch:
 SELECT 
     o.order_id,
     c.customer_name,
@@ -94,7 +94,7 @@ WHERE p.payment_status = 'SETTLED'
 FROM customers c
 INNER JOIN orders o USING (customer_id)
 INNER JOIN loyalty_tiers lt 
-    ON SUM(o.total_amount) &ge; lt.min_spend 
+    ON SUM(o.total_amount) >= lt.min_spend 
    AND (SUM(o.total_amount) < lt.max_spend OR lt.max_spend IS NULL)
 WHERE YEAR(o.order_date) = 2026
 GROUP BY c.customer_id, c.customer_name, c.city, lt.tier_name, lt.cashback_pct;`,
@@ -351,7 +351,7 @@ GROUP BY cat.category_id, cat.category_name;`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Customer 360 Ledger
               </button>
 
@@ -363,7 +363,7 @@ GROUP BY cat.category_id, cat.category_name;`,
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Fulfillment Gap Audit
               </button>
 
@@ -375,7 +375,7 @@ GROUP BY cat.category_id, cat.category_name;`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Loyalty Rebates (₹)
               </button>
 
@@ -387,7 +387,7 @@ GROUP BY cat.category_id, cat.category_name;`,
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Category Revenue
               </button>
             </div>
@@ -503,7 +503,7 @@ SELECT
     s.student_name,
     s.city,
     CASE 
-        WHEN COALESCE(f.total_fee, 0) &le; COALESCE(p.total_paid, 0) THEN 'CLEAR (Admit Card Issued)'
+        WHEN COALESCE(f.total_fee, 0) <= COALESCE(p.total_paid, 0) THEN 'CLEAR (Admit Card Issued)'
         ELSE CONCAT('HOLD (Dues: ₹', FORMAT(f.total_fee - COALESCE(p.total_paid, 0), 2), ')')
     END AS clearance_status
 FROM students s
@@ -528,7 +528,7 @@ LEFT JOIN payment_totals p USING (student_id);`}
 SELECT 
     c.carrier_name,
     COUNT(s.shipment_id) AS total_dispatched,
-    SUM(CASE WHEN s.delivery_status = 'DELIVERED' AND s.delivered_date &le; s.promised_date THEN 1 ELSE 0 END) AS on_time_deliveries,
+    SUM(CASE WHEN s.delivery_status = 'DELIVERED' AND s.delivered_date <= s.promised_date THEN 1 ELSE 0 END) AS on_time_deliveries,
     ROUND((SUM(CASE WHEN s.delivery_status = 'DELIVERED' AND s.delivered_date <= s.promised_date THEN 1 ELSE 0 END) / COUNT(s.shipment_id)) * 100, 2) AS on_time_sla_pct
 FROM carriers c
 INNER JOIN shipments s USING (carrier_id)

@@ -57,7 +57,7 @@ const Topic6 = () => {
       name: "The Painter's Algorithm Layering",
       returnType: "Z-Index Hierarchy",
       purpose: "Background layers rendered first; foreground layers painted sequentially on top.",
-      usage: "Sky &rarr; Mountains -> Hills -> Cottage -> UI Header"
+      usage: "Sky -> Mountains -> Hills -> Cottage -> UI Header"
     }
   ];
 
@@ -124,7 +124,7 @@ const Topic6 = () => {
                       ? layer.color
                       : "bg-gray-800 text-slate-500 border border-slate-700 hover:bg-gray-700"
                   }`}
-                &gt;
+                >
                   {layer.label} {activeLayers[layer.key] ? "(ON)" : "(OFF)"}
                 </button>
               ))}

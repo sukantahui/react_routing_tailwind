@@ -38,7 +38,7 @@ CREATE TABLE students (
     name VARCHAR(100) NOT NULL,
     email VARCHAR(120) NOT NULL UNIQUE, -- Alternate Key!
     academy_id INT NOT NULL,
-    age INT CHECK (age &ge; 16),          -- Domain Integrity!
+    age INT CHECK (age >= 16),          -- Domain Integrity!
     balance_fee_inr DECIMAL(10,2) DEFAULT 0.00,
     CONSTRAINT fk_student_academy 
         FOREIGN KEY (academy_id) REFERENCES academies (academy_id)
@@ -287,7 +287,7 @@ LIMIT 10 OFFSET 20; -- Returns Page 3 (Rows 21 to 30)!`,
                 </tr>
                 <tr className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-bold text-white font-sans">Domain Check</td>
-                  <td className="py-3 px-4 text-amber-400">CHECK (balance >= 0)</td>
+                  <td className="py-3 px-4 text-amber-400">CHECK (balance &gt;= 0)</td>
                   <td className="py-3 px-4 text-slate-300 font-sans">Domain Integrity (Valid Values)</td>
                   <td className="py-3 px-4 text-slate-400 font-sans">Age limits, fee validation</td>
                 </tr>
@@ -378,7 +378,7 @@ LIMIT 10 OFFSET 20; -- Returns Page 3 (Rows 21 to 30)!`,
                   <text x="560" y="230" fill="#e2e8f0" fontSize="11">email (VARCHAR UNIQUE - Alternate Key)</text>
 
                   <rect x="540" y="255" width="340" height="40" rx="4" fill="#1e293b" stroke="#334155" />
-                  <text x="560" y="280" fill="#94a3b8" fontSize="11">balance_fee_inr (DECIMAL(10,2) CHECK >= 0)</text>
+                  <text x="560" y="280" fill="#94a3b8" fontSize="11">balance_fee_inr (DECIMAL(10,2) CHECK &gt;= 0)</text>
 
                   {/* Connecting Foreign Key Arrow */}
                   <path d="M 540 175 C 470 175, 470 125, 410 125" fill="none" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowDiagCyan)" />
@@ -414,7 +414,7 @@ LIMIT 10 OFFSET 20; -- Returns Page 3 (Rows 21 to 30)!`,
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -528,7 +528,7 @@ LIMIT 10 OFFSET 20; -- Returns Page 3 (Rows 21 to 30)!`,
     enrollment_id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT NOT NULL,
     course_id INT NOT NULL,
-    fee_paid_inr DECIMAL(10,2) CHECK (fee_paid_inr &ge; 0),
+    fee_paid_inr DECIMAL(10,2) CHECK (fee_paid_inr >= 0),
     FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE,
     FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE RESTRICT
 );`}

@@ -241,7 +241,7 @@ const Topic14 = () => {
                     ? "bg-blue-500 text-white shadow-md"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              &gt;
+              >
                 Example {idx + 1}
               </button>
             ))}
@@ -267,7 +267,7 @@ const Topic14 = () => {
                 onChange={(e) => setUserInput(e.target.value)}
                 placeholder="e.g., F = A·B"
                 className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              /&gt;
+              />
               <button
                 onClick={checkSimplification}
                 className="px-6 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-300 hover:scale-105"
@@ -281,7 +281,7 @@ const Topic14 = () => {
           <button
             onClick={() => setShowSteps(!showSteps)}
             className="w-full py-2 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-lg font-medium transition-all duration-300 hover:bg-blue-200 dark:hover:bg-blue-900/60 mb-4"
-          &gt;
+          >
             {showSteps ? "Hide" : "Show"} Simplification Steps
           </button>
           

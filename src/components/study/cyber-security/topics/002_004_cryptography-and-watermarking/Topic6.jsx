@@ -51,7 +51,7 @@ const Topic6 = () => {
     key_length: {
       key: "key_length",
       name: "4. Key Length & Security Margins",
-      symmetricValue: "AES-128 (128 bits) / AES-256 (256 bits) &rarr; Optimal Shannon diffusion",
+      symmetricValue: "AES-128 (128 bits) / AES-256 (256 bits) -> Optimal Shannon diffusion",
       asymmetricValue: "RSA-2048 (2048 bits) / RSA-4096 (4096 bits) / ECC-256 (256 bits)",
       ratio: "ECC-256 matches RSA-3072 security with 10x smaller key size",
       technicalVerdict: "Symmetric provides maximum bits of security per byte of key material.",
@@ -249,7 +249,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{dim.name.split(". ")[1]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{dim.name.split(". ")[0]}</div>
                 </button>
@@ -321,7 +321,7 @@ const Topic6 = () => {
                     ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                     : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                 )}
-              &gt;
+              >
                 <div className="font-bold text-gray-200">Phase {hs.step}</div>
                 <div className="text-[10px] text-gray-400 truncate mt-0.5">{hs.title.split(": ")[1]}</div>
               </button>
@@ -501,7 +501,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

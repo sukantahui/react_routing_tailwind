@@ -248,7 +248,7 @@ const Topic8 = () => {
                   value={itBillingNetworkState}
                   onChange={(e) => setItBillingNetworkState(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500"
-                &gt;
+                >
                   <option value="encrypted">1. Encrypted by DarkSide Ransomware (Colonial 2021 Breach)</option>
                   <option value="healthy">2. Normal & Healthy (Full ERP / Invoicing Operational)</option>
                 </select>
@@ -261,7 +261,7 @@ const Topic8 = () => {
                   value={otPumpingArchitecture}
                   onChange={(e) => setOtPumpingArchitecture(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500"
-                &gt;
+                >
                   <option value="tightly_coupled">1. Tightly Coupled (SCADA pumps halt if IT billing is offline)</option>
                   <option value="autonomous_islanding">2. Autonomous Islanding (Local NVRAM flow computer buffering)</option>
                 </select>
@@ -364,7 +364,7 @@ const Topic8 = () => {
                       ? "bg-emerald-600 text-white shadow-lg shadow-emerald-950/50"
                       : "bg-gradient-to-r from-blue-700 to-indigo-700 hover:from-blue-600 hover:to-indigo-600 text-white shadow-lg shadow-blue-950/50"
                   )}
-                &gt;
+                >
                   {fbiSeizureExecuted ? "⚖️ 63.7 BTC SEIZED BY FBI" : "🔍 Execute FBI Private Key Search Warrant"}
                 </button>
               </div>
@@ -436,7 +436,7 @@ const Topic8 = () => {
                   value={vpnMfaStatus}
                   onChange={(e) => setVpnMfaStatus(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500"
-                &gt;
+                >
                   <option value="single_factor">1. Single-Factor Password Only (Colonial 2021 Vulnerability)</option>
                   <option value="fido2_hardware">2. FIDO2 Hardware Security Key (YubiKey Touch Required)</option>
                 </select>
@@ -448,7 +448,7 @@ const Topic8 = () => {
                   value={dormantAccountPolicy}
                   onChange={(e) => setDormantAccountPolicy(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500"
-                &gt;
+                >
                   <option value="manual_audit">1. Manual / Infrequent Audits (Orphaned Accounts Remain Active)</option>
                   <option value="automated_30day_purge">2. Automated 30-Day Inactivity Revocation Policy</option>
                 </select>
@@ -473,7 +473,7 @@ const Topic8 = () => {
                     <p className="text-gray-300 text-[11px] leading-relaxed font-sans">
                       {identitySecurityScore === 100
                         ? "INVULNERABLE TO PASSWORD THEFT: FIDO2 hardware keys require physical touch, rendering dark web leaked passwords completely useless. Automated IGA revokes dormant profiles."
-                        : identitySecurityScore &ge; 60
+                        : identitySecurityScore >= 60
                         ? "MODERATE: Strong hardware MFA active, but lack of automated account de-provisioning leaves dormant profiles in Active Directory."
                         : "CRITICAL VULNERABILITY: Single-factor password on orphaned account allows attackers on the dark web to breach internal LAN in seconds."}
                     </p>
@@ -542,7 +542,7 @@ const Topic8 = () => {
                     ? "bg-amber-500/20 text-amber-300 border border-amber-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 1. Refinery Terminal Findings (Kolkata & Barrackpore)
               </button>
               <button
@@ -553,7 +553,7 @@ const Topic8 = () => {
                     ? "bg-amber-500/20 text-amber-300 border border-amber-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 2. Deployed Defense & NCIIPC Compliance
               </button>
             </div>

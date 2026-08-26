@@ -314,7 +314,7 @@ public class Box<T> {
 }`}
                       language="java"
                       showLineNumbers={true}
-                    /&gt;
+                    />
                     
                     <div className="mt-4 p-4 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
                       <p className="text-indigo-800 dark:text-indigo-300 text-sm">
@@ -371,7 +371,7 @@ public class KeyValuePair<KEY_TYPE, VALUE_TYPE> {
 }`}
                       language="java"
                       showLineNumbers={true}
-                    /&gt;
+                    />
                     
                     <div className="mt-4 p-4 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
                       <p className="text-purple-800 dark:text-purple-300 text-sm">
@@ -518,7 +518,7 @@ public class GenericStack<T> {
     // Generic method inside generic class
     public <U> GenericStack<U> transform(Function<T, U> transformer) {
         GenericStack<U> result = new GenericStack<>(this.capacity);
-        for (int i = 0; i &le; top; i++) {
+        for (int i = 0; i <= top; i++) {
             result.push(transformer.apply(elements[i]));
         }
         return result;
@@ -526,7 +526,7 @@ public class GenericStack<T> {
 }`}
                       language="java"
                       showLineNumbers={true}
-                    /&gt;
+                    />
                   </div>
                   
                   <div className="space-y-6">
@@ -687,7 +687,7 @@ public class CompilationExample {
 }`}
                         language="java"
                         showLineNumbers={true}
-                      /&gt;
+                      />
                     </div>
                     
                     <div className="p-4 bg-green-100 dark:bg-green-900/30 rounded-lg">
@@ -833,7 +833,7 @@ public class GenericClassUsage {
         int grade = studentGrade.getValue();
         
         // 4. Complex: Stack of Pairs
-        GenericStack<Pair<String, Double>&gt; gradeStack = 
+        GenericStack<Pair<String, Double>> gradeStack = 
             new GenericStack<>(50);
         gradeStack.push(new Pair<>("Math", 92.5));
         gradeStack.push(new Pair<>("Science", 88.0));
@@ -842,7 +842,7 @@ public class GenericClassUsage {
         Box<String> inferredBox = createBox("Inferred type");
         
         // 6. Wildcard usage (advanced - next topic)
-        List<Box<String>&gt; stringBoxes = new ArrayList<>();
+        List<Box<String>> stringBoxes = new ArrayList<>();
         processBoxes(stringBoxes);
     }
     
@@ -852,13 +852,13 @@ public class GenericClassUsage {
     }
     
     // Method using wildcards
-    public static void processBoxes(List<? extends Box<?>&gt; boxes) {
+    public static void processBoxes(List<? extends Box<?>> boxes) {
         // Process any Box of any type
     }
     
     // Real-world scenario: Student Record System
     public static class StudentRecordSystem {
-        private Map<Integer, Box<Student>&gt; studentRecords;
+        private Map<Integer, Box<Student>> studentRecords;
         
         public void addStudentRecord(int id, Student student) {
             Box<Student> record = new Box<>(student);
@@ -873,7 +873,7 @@ public class GenericClassUsage {
 }`}
                   language="java"
                   showLineNumbers={true}
-                /&gt;
+                />
               </div>
               
               <div className="space-y-6">
@@ -936,7 +936,7 @@ public class GenericClassUsage {
                       "Mistake: Forgetting diamond operator <>",
                       "Fix: Use new Box<>() not new Box<String>()",
                       "Mistake: Trying to create generic array",
-                      "Fix: Use ArrayList<Box<String>&gt; instead of Box<String>[]",
+                      "Fix: Use ArrayList<Box<String>> instead of Box<String>[]",
                       "Mistake: Using instanceof with parameterized type",
                       "Fix: Use raw type: obj instanceof Box",
                       "Mistake: Ignoring compiler warnings",
@@ -975,7 +975,7 @@ public class GenericClassUsage {
                 <div>
                   <JavaCodeBlock
                     code={`// 1. Nested Generics
-List<Box<String>&gt; listOfBoxes = new ArrayList<>();
+List<Box<String>> listOfBoxes = new ArrayList<>();
 listOfBoxes.add(new Box<>("Item 1"));
 listOfBoxes.add(new Box<>("Item 2"));
 
@@ -985,12 +985,12 @@ for (Box<String> box : listOfBoxes) {
 }
 
 // 2. Generic Class as Type Parameter
-Map<String, Box<Integer>&gt; studentScores = new HashMap<>();
+Map<String, Box<Integer>> studentScores = new HashMap<>();
 studentScores.put("Swadeep", new Box<>(85));
 studentScores.put("Tuhina", new Box<>(92));
 
 // 3. Method Chaining with Generics
-ApiResponse<List<Student>&gt; response = studentService
+ApiResponse<List<Student>> response = studentService
     .getAllStudents()
     .filter(Student::isActive)
     .transformToList();
@@ -1002,13 +1002,13 @@ Undergraduate student = undergradFactory.create("Abhronila");
 
 // 5. Builder Pattern with Generics
 QueryBuilder<Student> builder = new QueryBuilder<Student>()
-    .where("age", "&gt;", 18)
+    .where("age", ">", 18)
     .orderBy("name")
     .limit(100);
 List<Student> students = builder.execute();`}
                     language="java"
                     showLineNumbers={true}
-                  /&gt;
+                  />
                 </div>
                 
                 <div className="space-y-4">

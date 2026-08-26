@@ -28,7 +28,7 @@ const Topic5 = () => {
         [15, 25, 30],
       ],
       steps: [
-        'Pass 1: Row A₂ strictly dominates Row A₃ (35&gt;15, 45>25, 50>30) ➔ Delete Row A₃.',
+        'Pass 1: Row A₂ strictly dominates Row A₃ (35>15, 45>25, 50>30) ➔ Delete Row A₃.',
         'Pass 2: In 2×3 submatrix, Col B₁ strictly dominates Col B₃ (20<40, 35<50) ➔ Delete Col B₃.',
         'Pass 3: Surviving 2×2 is [[20, 30], [35, 45]]. Row A₂ dominates Row A₁; Col B₁ dominates Col B₂.',
         'Final Solution: Pure Saddle Point at (A₂, B₁) with Value of Game v* = +₹35,000.',
@@ -49,7 +49,7 @@ const Topic5 = () => {
         [25, 20, 35, 45],
       ],
       steps: [
-        'Pass 1: Row A₁ strictly dominates Row A₃ (30>20, 20&gt;15, 40>30, 50>40) ➔ Delete Row A₃.',
+        'Pass 1: Row A₁ strictly dominates Row A₃ (30>20, 20>15, 40>30, 50>40) ➔ Delete Row A₃.',
         'Pass 2: Col B₂ [20, 30, 20] dominates Col B₄ [50, 60, 45] ➔ Delete Col B₄.',
         'Pass 3: Row A₂ [40, 30, 50] dominates Row A₄ [25, 20, 35] ➔ Delete Row A₄.',
         'Pass 4: Col B₁ [30, 40] dominates Col B₃ [40, 50] ➔ Delete Col B₃.',
@@ -226,7 +226,7 @@ const Topic5 = () => {
                     ? 'bg-amber-600 text-white border-amber-500 shadow-md shadow-amber-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              &gt;
+              >
                 {item.label}
               </button>
             ))}
@@ -238,7 +238,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -283,7 +283,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-step-dom">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -305,7 +305,7 @@ const Topic5 = () => {
                       ? 'bg-amber-600 text-white border-amber-400 shadow-md'
                       : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white'
                   )}
-                &gt;
+                >
                   {wc.title.split(':')[0]}
                 </button>
               ))}
@@ -341,8 +341,8 @@ const Topic5 = () => {
                             'p-2 font-bold',
                             cell >= 0 ? 'text-emerald-400' : 'text-rose-400'
                           )}
-                        &gt;
-                          {cell &ge; 0 ? `+${cell}` : cell}k
+                        >
+                          {cell >= 0 ? `+${cell}` : cell}k
                         </td>
                       ))}
                     </tr>
@@ -388,7 +388,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -415,7 +415,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -459,7 +459,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -481,7 +481,7 @@ const Topic5 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                &gt;
+                >
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -508,7 +508,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -548,7 +548,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -582,7 +582,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

@@ -28,11 +28,11 @@ const Topic1 = () => {
       sqlSnippet: `-- 🔤 COMPARING STRINGS ACROSS DIFFERENT COLLATIONS:
 -- 1. Case-Insensitive (_ci) Comparison:
 SELECT 'Barrackpore' = 'BARRACKPORE' COLLATE utf8mb4_0900_ai_ci AS is_equal;
--- Result: 1 (TRUE) &rarr; Case is ignored!
+-- Result: 1 (TRUE) -> Case is ignored!
 
 -- 2. Case-Sensitive (_cs) Comparison:
 SELECT 'Barrackpore' = 'BARRACKPORE' COLLATE utf8mb4_0900_as_cs AS is_equal;
--- Result: 0 (FALSE) -&gt; Case is distinguished!
+-- Result: 0 (FALSE) -> Case is distinguished!
 
 -- 3. Binary Byte (_bin) Comparison:
 SELECT 'Barrackpore' = 'BARRACKPORE' COLLATE utf8mb4_bin AS is_equal;
@@ -368,7 +368,7 @@ CREATE TABLE api_keys_secure (
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

@@ -146,7 +146,7 @@ const InquiryForm = memo(() => {
     // Interest (Required, max 255)
     if (!formData.interest.trim()) {
       newErrors.interest = "Please select a course or area of interest.";
-    } else if (formData.interest.trim().length &gt; 255) {
+    } else if (formData.interest.trim().length > 255) {
       newErrors.interest = "Interest selection is too long.";
     }
 
@@ -471,7 +471,7 @@ const InquiryForm = memo(() => {
               className={`text-[11px] font-mono ${
                 formData.message.length > 1900 ? "text-amber-400" : "text-slate-500"
               }`}
-            &gt;
+            >
               {formData.message.length} / 2000
             </span>
           </div>
@@ -717,7 +717,7 @@ const Contact = () => {
                           className="p-1.5 px-2 rounded-lg bg-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-700 transition text-xs"
                           title="Copy phone"
                           aria-label={`Copy phone ${p.label}`}
-                        &gt;
+                        >
                           <i className="bi bi-copy"></i>
                         </button>
                       </div>
@@ -749,7 +749,7 @@ const Contact = () => {
                           className="p-1 px-1.5 rounded-lg bg-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-700 transition text-xs flex-shrink-0 ml-1"
                           title="Copy email"
                           aria-label={`Copy email ${item.email}`}
-                        &gt;
+                        >
                           <i className="bi bi-copy text-[10px]"></i>
                         </button>
                       </div>

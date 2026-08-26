@@ -167,7 +167,7 @@ export default class Topic13 extends Component {
             language="html"
             initialCode={`<!-- Toast container (fixed on top-right) -->
 <div id="toast-root" aria-live="polite" aria-atomic="true"></div>`}
-          /&gt;
+          />
 
           <EditableCodeBlock
             language="css"
@@ -569,7 +569,7 @@ document.getElementById("btnInfo").onclick = () =>
 
   function show(message, options) {
     // if too many, remove oldest
-    if (active.length &ge; maxVisible) {
+    if (active.length >= maxVisible) {
       const oldest = active.shift();
       oldest.toast.classList.remove("toast--show");
       setTimeout(() => oldest.toast.remove(), 220);
@@ -695,7 +695,7 @@ document.getElementById("btnInfo").onclick = () =>
   }
 
   function show(message, opts) {
-    if (active.length &ge; maxVisible) {
+    if (active.length >= maxVisible) {
       const oldest = active.shift();
       oldest.el.classList.remove("toast--show");
       setTimeout(() => oldest.el.remove(), 220);

@@ -18,7 +18,7 @@ import CodeBlock from "../../common/CodeBlock";
 const isCCode = (answer = "") => {
   const lines = answer.split("\n").length;
   return (
-    lines &gt; 1 ||
+    lines > 1 ||
     answer.includes("#include") ||
     answer.includes("int main") ||
     answer.includes("printf(") ||
@@ -116,7 +116,7 @@ export default function CProjectAnswerTemplate({ data }) {
                   <button
                     onClick={() => toggleAnswer(project.projectId)}
                     className="flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium bg-slate-700 hover:bg-slate-600 text-slate-200 transition-colors"
-                  &gt;
+                  >
                     {isVisible ? (
                       <>
                         <EyeOff size={14} /> Hide Answer

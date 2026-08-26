@@ -58,7 +58,7 @@ const Topic19 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            &gt;
+            >
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -272,9 +272,9 @@ const Topic19 = () => {
                         <tr key={i} className={clsx(
                           "border-b border-gray-200 dark:border-gray-700 transition-colors",
                           i >= 5 ? "bg-red-50/50 dark:bg-red-900/10" :
-                          i &ge; 4 ? "bg-amber-50/50 dark:bg-amber-900/10" :
+                          i >= 4 ? "bg-amber-50/50 dark:bg-amber-900/10" :
                           "hover:bg-gray-50 dark:hover:bg-gray-800/50"
-                        )}&gt;
+                        )}>
                           <td className="px-4 py-2 font-mono text-indigo-600 dark:text-indigo-400">{complexity}</td>
                           <td className="px-4 py-2 font-mono">{n10}</td>
                           <td className="px-4 py-2 font-mono">{n100}</td>

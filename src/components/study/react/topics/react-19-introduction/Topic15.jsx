@@ -83,7 +83,7 @@ const Topic15 = () => {
                         ? 'bg-blue-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
                     )}
-                  &gt;
+                  >
                     {tab === 'structure' ? 'Structure' : tab === 'example' ? 'Example' : 'Live'}
                   </button>
                 ))}
@@ -238,7 +238,7 @@ export default ProfileCard;`}
                   <button
                     onClick={() => setShowLivePreview(!showLivePreview)}
                     className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-300"
-                  &gt;
+                  >
                     {showLivePreview ? 'Hide Preview' : 'Show Preview'}
                   </button>
                 </div>
@@ -254,7 +254,7 @@ export default ProfileCard;`}
                           onChange={(e) => setComponentName(e.target.value)}
                           className="w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg"
                           placeholder="Enter component name"
-                        /&gt;
+                        />
                       </div>
                       
                       <LiveProfileCard 
@@ -670,7 +670,7 @@ export default ProfileCard;`}
                   <button
                     onClick={() => alert('Great! Now create this component in your project. Start by creating StudentCard.jsx in src/components/')}
                     className="w-full px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-                  &gt;
+                  >
                     Click When Ready to Start Coding
                   </button>
                 </div>

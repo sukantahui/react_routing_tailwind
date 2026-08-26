@@ -461,7 +461,7 @@ interface GigabitEthernet0/1
                 </text>
               </g>
 
-              {/* PATH 1: Attack &rarr; Zero Trust Gateway */}
+              {/* PATH 1: Attack -> Zero Trust Gateway */}
               <path d="M 210 160 L 330 160" stroke="#f43f5e" strokeWidth="3" fill="none" />
               <circle r="5" fill="#f43f5e">
                 <animateMotion path="M 210 160 L 330 160" dur="1.5s" repeatCount="indefinite" />
@@ -502,7 +502,7 @@ interface GigabitEthernet0/1
                 </text>
               </g>
 
-              {/* PATH 2: Gateway &rarr; Clean Protected Core */}
+              {/* PATH 2: Gateway -> Clean Protected Core */}
               <path d="M 550 160 L 680 160" stroke="#10b981" strokeWidth="3" fill="none" />
               <circle r="4" fill="#10b981">
                 <animateMotion path="M 550 160 L 680 160" dur="1.5s" repeatCount="indefinite" />
@@ -557,7 +557,7 @@ interface GigabitEthernet0/1
                     ? "bg-purple-950/80 border-purple-500 shadow-lg shadow-purple-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-purple-950 text-purple-300 border-purple-800 self-start">
                   SHIELD
                 </span>
@@ -651,7 +651,7 @@ interface GigabitEthernet0/1
                         ? "bg-purple-950 border-purple-500 text-purple-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     {item.name}
                   </button>
                 ))}
@@ -666,7 +666,7 @@ interface GigabitEthernet0/1
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                       : "bg-rose-950 border-rose-500 text-rose-300"
                   )}
-                &gt;
+                >
                   {isSoarAutoEnabled ? "✔ SOAR AUTO-PLAYBOOK ACTIVE" : "✖ MANUAL HUMAN INVESTIGATION"}
                 </button>
               </div>
@@ -722,7 +722,7 @@ interface GigabitEthernet0/1
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -771,7 +771,7 @@ interface GigabitEthernet0/1
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

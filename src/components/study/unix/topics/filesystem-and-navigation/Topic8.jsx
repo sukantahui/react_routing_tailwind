@@ -103,7 +103,7 @@ export default class Topic8 extends Component {
           ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-xl' 
           : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-lg hover:shadow-xl'
         }`}
-      &gt;
+      >
         <span className="text-4xl mb-4">{fileType.icon}</span>
         <div className="font-bold text-lg mb-2">{fileType.name}</div>
         <div className="font-mono text-sm opacity-80">{fileType.symbol}</div>
@@ -251,7 +251,7 @@ export default class Topic8 extends Component {
                     <div className="mt-2 text-xs text-gray-500">
                       {activeFileType === 'regular' && 'First character: - (hyphen) indicates regular file'}
                       {activeFileType === 'directory' && 'First character: d indicates directory'}
-                      {activeFileType === 'symbolic' && 'First character: l indicates symbolic link, &rarr; shows target'}
+                      {activeFileType === 'symbolic' && 'First character: l indicates symbolic link, -> shows target'}
                       {activeFileType === 'device' && 'First character: b/c indicates block/character device, numbers show major/minor'}
                     </div>
                   </div>
@@ -267,7 +267,7 @@ export default class Topic8 extends Component {
                           $ touch newfile.txt
                         </code>
                         <code className="block text-sm font-mono bg-gray-100 dark:bg-gray-700 p-2 rounded">
-                          $ echo "content" {`&gt;`} newfile.txt
+                          $ echo "content" {`>`} newfile.txt
                         </code>
                       </>
                     )}
@@ -344,7 +344,7 @@ export default class Topic8 extends Component {
                         ? 'bg-blue-600 text-white animate-type-pulse' 
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                       }`}
-                    &gt;
+                    >
                       <span className="text-2xl mb-2">{currentFileType.icon}</span>
                       <code className="font-mono text-sm text-center truncate w-full">
                         {example.name}
@@ -615,7 +615,7 @@ export default class Topic8 extends Component {
                   <div className="p-2 bg-gray-100 dark:bg-gray-700 rounded">
                     <code className="text-xs font-mono">
                       $ ls -l latest<br/>
-                      lrwxrwxrwx 1 tuhina students 9 Jan 16 latest -{`&gt;`} v2.0/
+                      lrwxrwxrwx 1 tuhina students 9 Jan 16 latest -{`>`} v2.0/
                     </code>
                   </div>
                   <div className="p-2 bg-red-100 dark:bg-red-900/30 rounded">
@@ -698,7 +698,7 @@ export default class Topic8 extends Component {
                   <p className="text-gray-700 dark:text-gray-300 text-sm">
                     Treating device files like regular files can corrupt data. Know what you're writing to.<br/>
                     <code className="font-mono text-xs block mt-1 p-1 bg-red-100 dark:bg-red-900/30 rounded">
-                      $ echo "test" {`&gt;`} /dev/sda  # DANGEROUS!
+                      $ echo "test" {`>`} /dev/sda  # DANGEROUS!
                     </code>
                   </p>
                 </div>
@@ -830,7 +830,7 @@ export default class Topic8 extends Component {
                       $ ls -l /home/swadeep<br/>
                       -rw-r--r-- 1 swadeep students 1200 Jan 16 notes.txt<br/>
                       drwxr-xr-x 2 swadeep students 4096 Jan 16 Documents/<br/>
-                      lrwxrwxrwx 1 swadeep students 9 Jan 16 python -{`&gt;`} python3.9<br/>
+                      lrwxrwxrwx 1 swadeep students 9 Jan 16 python -{`>`} python3.9<br/>
                       crw-rw-rw- 1 root root 5, 1 Jan 16 /dev/tty1
                     </code>
                     <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
@@ -887,7 +887,7 @@ export default class Topic8 extends Component {
                       brw-rw---- 1 root disk 8, 0 Jan 16 /dev/sda<br/>
                       -rwxr-xr-x 1 root root 12000 Jan 16 /bin/ls<br/>
                       drwxr-xr-x 4 root root 4096 Jan 16 /etc/<br/>
-                      lrwxrwxrwx 1 root root 22 Jan 16 /bin/sh -{`&gt;`} /usr/bin/bash
+                      lrwxrwxrwx 1 root root 22 Jan 16 /bin/sh -{`>`} /usr/bin/bash
                     </code>
                     <p className="text-xs text-gray-600 dark:text-gray-400">
                       Which file is dangerous to write to directly? Why?

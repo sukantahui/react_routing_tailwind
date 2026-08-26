@@ -71,7 +71,7 @@ const Topic1 = () => {
             <span>Relational Normalization Masterclass · Topic 1</span>
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X &rarr; Y, X Must Be a Superkey
+            Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X {"->"} Y, X Must Be a Superkey
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Understand Boyce-Codd Normal Form (BCNF / 3.5NF). Learn why 3NF can still harbor redundancy with overlapping candidate keys, how BCNF tightens the determinant rule, and why dependency preservation may be sacrificed.
@@ -136,7 +136,7 @@ const Topic1 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab1" ? "border-rose-400 text-rose-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>🚫</span>
                 <span>3NF RESIDUAL ANOMALY</span>
               </button>
@@ -147,7 +147,7 @@ const Topic1 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab2" ? "border-amber-400 text-amber-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>⚠️</span>
                 <span>OVERLAPPING KEYS</span>
               </button>
@@ -158,7 +158,7 @@ const Topic1 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab3" ? "border-teal-400 text-teal-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>🔍</span>
                 <span>DEPENDENCY LOSS</span>
               </button>
@@ -169,7 +169,7 @@ const Topic1 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab4" ? "border-emerald-400 text-emerald-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>✅</span>
                 <span>BCNF NORMALIZED</span>
               </button>
@@ -193,7 +193,7 @@ const Topic1 = () => {
                 <button
                   onClick={() => handleCopy(selectedTab === "tab4" ? conf.sql4 : conf.sql1)}
                   className="px-3 py-1.5 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition"
-                &gt;
+                >
                   {copiedCode ? "✓ SQL Copied" : "📋 Copy SQL Code"}
                 </button>
               </div>
@@ -344,7 +344,7 @@ const Topic1 = () => {
             showDownload={true}
             downloadButtonText="Download Plain Text Note"
             downloadFileName="topic1_note.txt"
-          /&gt;
+          />
         </section>
 
         {/* ─── Teacher's Master Note ─────────────────────────── */}
@@ -368,13 +368,13 @@ const Topic1 = () => {
             showExpandAll
             showSearch
             showProgress
-          /&gt;
+          />
         </section>
 
         {/* ─── Footer ─────────────────────────────────────────── */}
         <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
           <span>
-            Topic 1 · Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X &rarr; Y, X Must Be a Superkey · RDBMS MySQL Masterclass · Coder & AccoTax Barrackpore
+            Topic 1 · Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X {"->"} Y, X Must Be a Superkey · RDBMS MySQL Masterclass · Coder &amp; AccoTax Barrackpore
           </span>
         </footer>
       </div>

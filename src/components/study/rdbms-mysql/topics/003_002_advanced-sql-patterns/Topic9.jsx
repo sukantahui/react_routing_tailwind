@@ -50,7 +50,7 @@ ORDER BY dept_name;`,
         "The CTE computes department ranks in a single sorted stream. Filtering `WHERE dept_rank = 1` immediately returns the valedictorian for every department without nested loops!",
     },
     top2_distinct_score_tiers: {
-      title: "2. Top 2 Distinct Score Tiers with DENSE_RANK() &le; 2 (Preserves Ties)",
+      title: "2. Top 2 Distinct Score Tiers with DENSE_RANK() <= 2 (Preserves Ties)",
       badge: "Top 2 Tiers (Ties)",
       badgeColor: "cyan",
       sqlQuery: `-- Top 2 Score Tiers per Department (Preserving tied students):
@@ -217,7 +217,7 @@ SELECT * FROM Ranked WHERE rnk <= 2;`,
                 <span>⚡</span> Modern Window CTE Pattern
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Partitions and ranks rows in a single in-memory pass ($O(N \log N)$), filtering `WHERE rank <= N` cleanly.
+                Partitions and ranks rows in a single in-memory pass ($O(N \log N)$), filtering `WHERE rank &lt;= N` cleanly.
               </p>
             </div>
 
@@ -245,14 +245,14 @@ SELECT * FROM Ranked WHERE rnk <= 2;`,
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
-              <h3 className="text-base font-bold text-emerald-400">1. DENSE_RANK() <= N (Distinct Value Tiers)</h3>
+              <h3 className="text-base font-bold text-emerald-400">1. DENSE_RANK() &lt;= N (Distinct Value Tiers)</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
                 Guarantees that Top $N$ distinct score/salary *tiers* are returned. If two students tie for 2nd place, both are included (returning 3 rows total). Ideal for academic honors and salary compensation benchmarks.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
-              <h3 className="text-base font-bold text-cyan-400">2. ROW_NUMBER() <= N (Exact Physical Row Count)</h3>
+              <h3 className="text-base font-bold text-cyan-400">2. ROW_NUMBER() &lt;= N (Exact Physical Row Count)</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
                 Guarantees that *exactly* $N$ physical rows are returned per department. Requires an explicit secondary tie-breaker (e.g. `student_id ASC`) to ensure deterministic results. Ideal for fixed UI grid layouts.
               </p>
@@ -312,7 +312,7 @@ SELECT * FROM Ranked WHERE rnk <= 2;`,
                   {/* DENSE_RANK */}
                   <g>
                     <rect x="30" y="30" width="370" height="100" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
-                    <text x="215" y="55" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">DENSE_RANK() <= 2 (Preserves Tied Tiers)</text>
+                    <text x="215" y="55" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">DENSE_RANK() &lt;= 2 (Preserves Tied Tiers)</text>
                     <rect x="45" y="70" width="340" height="40" rx="4" fill="#022c22" />
                     <text x="215" y="88" fill="#a7f3d0" fontSize="8 font-mono" textAnchor="middle">Tier 1: Abhronila (96%) | Tier 2: Mamata &amp; Susmita (94%)</text>
                     <text x="215" y="102" fill="#34d399" fontSize="7 font-bold" textAnchor="middle">Returns 3 Students (Both Tied 2nd Place Winners Included!)</text>
@@ -321,7 +321,7 @@ SELECT * FROM Ranked WHERE rnk <= 2;`,
                   {/* ROW_NUMBER */}
                   <g>
                     <rect x="440" y="30" width="380" height="100" rx="8" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5" />
-                    <text x="630" y="55" fill="#c7d2fe" fontSize="10" fontWeight="bold" textAnchor="middle">ROW_NUMBER() <= 2 (Strict Physical Count)</text>
+                    <text x="630" y="55" fill="#c7d2fe" fontSize="10" fontWeight="bold" textAnchor="middle">ROW_NUMBER() &lt;= 2 (Strict Physical Count)</text>
                     <rect x="455" y="70" width="350" height="40" rx="4" fill="#0f172a" />
                     <text x="630" y="88" fill="#38bdf8" fontSize="8 font-mono" textAnchor="middle">Slot 1: Abhronila (96%) | Slot 2: Mamata (94%, ID #101)</text>
                     <text x="630" y="102" fill="#94a3b8" fontSize="7 font-mono" textAnchor="middle">Returns Exactly 2 Students (Susmita Excluded by Tie-Breaker)</text>
@@ -357,7 +357,7 @@ SELECT * FROM Ranked WHERE rnk <= 2;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -475,7 +475,7 @@ WITH RankedBranchStudents AS (
            DENSE_RANK() OVER (PARTITION BY branch_id ORDER BY exam_score_pct DESC) AS rnk
     FROM students
 )
-SELECT * FROM RankedBranchStudents WHERE rnk &le; 3;`}
+SELECT * FROM RankedBranchStudents WHERE rnk <= 3;`}
               </pre>
             </div>
           </div>
@@ -498,7 +498,7 @@ SELECT * FROM RankedBranchStudents WHERE rnk &le; 3;`}
                 <span>❌</span> Using Window Function in WHERE (Error 3593)
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Writing <code className="text-rose-300 font-mono">WHERE DENSE_RANK() OVER (...) <= 2</code> throws Error 3593 because WHERE evaluates at Phase 2 before window ranks exist.
+                Writing <code className="text-rose-300 font-mono">WHERE DENSE_RANK() OVER (...) &lt;= 2</code> throws Error 3593 because WHERE evaluates at Phase 2 before window ranks exist.
               </p>
               <div className="text-xs text-slate-400">
                 Fix: Always compute the rank in a CTE or derived table first!
@@ -510,7 +510,7 @@ SELECT * FROM RankedBranchStudents WHERE rnk &le; 3;`}
                 <span>✓</span> Always Add PK Tie-Breaker
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                When using <code className="text-emerald-400 font-mono">ROW_NUMBER() <= N</code>, always include <code className="text-emerald-400 font-mono">student_id ASC</code> in ORDER BY to ensure deterministic, reproducible row selection across queries.
+                When using <code className="text-emerald-400 font-mono">ROW_NUMBER() &lt;= N</code>, always include <code className="text-emerald-400 font-mono">student_id ASC</code> in ORDER BY to ensure deterministic, reproducible row selection across queries.
               </p>
               <div className="text-xs text-slate-400">
                 Prevents arbitrary flip-flopping of tied records.
@@ -538,15 +538,15 @@ SELECT * FROM RankedBranchStudents WHERE rnk &le; 3;`}
               <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">01.</span>
-                  <span>Use the <code className="text-cyan-300 font-mono">WITH Ranked AS (...) SELECT * FROM Ranked WHERE rnk <= N</code> pattern.</span>
+                  <span>Use the <code className="text-cyan-300 font-mono">WITH Ranked AS (...) SELECT * FROM Ranked WHERE rnk &lt;= N</code> pattern.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">02.</span>
-                  <span>Use <code className="text-cyan-300 font-mono">DENSE_RANK() <= N</code> to preserve tied value tiers.</span>
+                  <span>Use <code className="text-cyan-300 font-mono">DENSE_RANK() &lt;= N</code> to preserve tied value tiers.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">03.</span>
-                  <span>Use <code className="text-cyan-300 font-mono">ROW_NUMBER() <= N</code> for exact physical row counts.</span>
+                  <span>Use <code className="text-cyan-300 font-mono">ROW_NUMBER() &lt;= N</code> for exact physical row counts.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">04.</span>

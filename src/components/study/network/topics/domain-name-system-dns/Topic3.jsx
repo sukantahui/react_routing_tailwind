@@ -87,7 +87,7 @@ const Topic3 = () => {
                       ? `bg-${servers[key].color}-600 text-white shadow-md`
                       : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                   )}
-                &gt;
+                >
                   {servers[key].icon} {servers[key].title}
                 </button>
               ))}

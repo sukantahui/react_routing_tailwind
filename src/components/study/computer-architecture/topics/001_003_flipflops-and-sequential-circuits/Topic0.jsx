@@ -188,7 +188,7 @@ const Topic0 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 1. Combinational vs Sequential Block Architecture
               </button>
               <button
@@ -199,7 +199,7 @@ const Topic0 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 2. The Feedback Memory Mechanism
               </button>
               <button
@@ -210,7 +210,7 @@ const Topic0 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 3. Clock Synchronization Waveforms
               </button>
             </div>
@@ -378,7 +378,7 @@ const Topic0 = () => {
                       ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400"
                   )}
-                &gt;
+                >
                   1. Combinational Mode (XOR Adder)
                 </button>
                 <button
@@ -389,7 +389,7 @@ const Topic0 = () => {
                       ? "bg-cyan-900/80 border-cyan-500 text-cyan-200 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400"
                   )}
-                &gt;
+                >
                   2. Sequential Mode (Accumulator Register)
                 </button>
               </div>
@@ -404,7 +404,7 @@ const Topic0 = () => {
                         "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                         combInputA ? "bg-teal-900/80 border-teal-400 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-500"
                       )}
-                    &gt;
+                    >
                       Input A: {combInputA ? "1" : "0"}
                     </button>
                     <button
@@ -413,7 +413,7 @@ const Topic0 = () => {
                         "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                         combInputB ? "bg-teal-900/80 border-teal-400 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-500"
                       )}
-                    &gt;
+                    >
                       Input B: {combInputB ? "1" : "0"}
                     </button>
                   </>
@@ -422,7 +422,7 @@ const Topic0 = () => {
                     <button
                       onClick={() => setSeqDataIn(seqDataIn === 1 ? 2 : 1)}
                       className="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-950 border border-slate-700 text-slate-300 hover:border-cyan-500 transition"
-                    &gt;
+                    >
                       Increment Step: +{seqDataIn}
                     </button>
                     <button

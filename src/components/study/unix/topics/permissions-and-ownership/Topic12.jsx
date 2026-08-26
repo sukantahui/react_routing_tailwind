@@ -109,7 +109,7 @@ Change: 2024-01-18 11:20:00.000000000 +0530`,
       {
         title: "Symbolic Link",
         command: "ls -l latest_report",
-        output: "lrwxrwxrwx 1 swadeep students 15 Jan 19 16:30 latest_report &rarr; report_jan_2024.pdf",
+        output: "lrwxrwxrwx 1 swadeep students 15 Jan 19 16:30 latest_report -> report_jan_2024.pdf",
         statCommand: "stat latest_report",
         statOutput: `  File: latest_report -> report_jan_2024.pdf
   Size: 15        	Blocks: 0          IO Block: 4096   symbolic link
@@ -126,7 +126,7 @@ Change: 2024-01-19 16:30:00.000000000 +0530`,
   parseLsOutput = (output) => {
     // Parse the ls -l output
     const parts = output.split(/\s+/);
-    if (parts.length &ge; 9) {
+    if (parts.length >= 9) {
       const permissions = parts[0];
       const links = parts[1];
       const owner = parts[2];
@@ -262,7 +262,7 @@ Change: 2024-01-19 16:30:00.000000000 +0530`,
                       ? 'bg-indigo-600 text-white shadow-lg'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                &gt;
+                >
                   ls -l (Quick View)
                 </button>
                 <button
@@ -273,7 +273,7 @@ Change: 2024-01-19 16:30:00.000000000 +0530`,
                       ? 'bg-purple-600 text-white shadow-lg'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                &gt;
+                >
                   stat (Detailed Info)
                 </button>
               </div>
@@ -377,7 +377,7 @@ Change: 2024-01-19 16:30:00.000000000 +0530`,
                           ? 'bg-green-600 text-white'
                           : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                       )}
-                    &gt;
+                    >
                       {example.title.split(' ')[0]}
                     </button>
                   ))}

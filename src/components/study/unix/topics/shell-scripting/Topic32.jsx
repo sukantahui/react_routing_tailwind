@@ -254,7 +254,7 @@ const Topic32 = () => {
             <h3 className="text-xl font-semibold mb-3">🕒 Cron Entry Example</h3>
             <pre className="bg-gray-900 light:bg-gray-200 p-4 rounded text-sm overflow-x-auto">
               {`# Run backup every day at 2:30 AM
-30 2 * * * /usr/local/bin/backup_project.sh -c /etc/backup_config.conf -v &gt;> /var/log/backup_cron.log 2>&1`}
+30 2 * * * /usr/local/bin/backup_project.sh -c /etc/backup_config.conf -v >> /var/log/backup_cron.log 2>&1`}
             </pre>
             <p className="mt-4 text-gray-300 light:text-gray-700">
               The installer script adds this line automatically using <code>crontab</code> commands.
@@ -305,7 +305,7 @@ const Topic32 = () => {
               "🧪 Provide a `--dry-run` option to preview changes.",
               "🔐 Secure the config file – readable only by the backup user.",
               "🔄 Test rotation with `--dry-run` before enabling.",
-              "📉 Monitor backup age – alert if last backup &gt; 48h old.",
+              "📉 Monitor backup age – alert if last backup > 48h old.",
               "💾 Store backups on a separate device or network location.",
               "📋 Document restore procedure – step by step.",
             ].map((practice, idx) => (

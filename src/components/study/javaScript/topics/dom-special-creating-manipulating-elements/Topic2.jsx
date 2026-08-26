@@ -74,7 +74,7 @@ box.textContent = "Hello, this is plain text";
 
 // innerHTML — Can include tags
 box.innerHTML = "<b>Hello!</b> <i>This is formatted HTML</i>";`}
-          /&gt;
+          />
         </section>
 
         {/* ============================================================
@@ -207,7 +207,7 @@ img.removeAttribute("alt");`}
 //   50% { transform: scale(1.05); }
 //   100% { transform: scale(1); }
 // }`}
-          /&gt;
+          />
         </section>
 
         {/* ============================================================

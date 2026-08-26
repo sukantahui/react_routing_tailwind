@@ -65,7 +65,7 @@ class LRUCache:
     timeComplexity = "O(N) Linear Time (Single Pass)";
     spaceComplexity = "O(N) Hash Table Storage";
     explanationText = "Maintains a complement dictionary mapping seen values to indices, finding matching pairs in O(1) average lookup time.";
-    solutionSnippet = `def two_sum(nums: list[int], target: int) &rarr; list[int]:
+    solutionSnippet = `def two_sum(nums: list[int], target: int) -> list[int]:
     seen = {}
     for idx, num in enumerate(nums):
         complement = target - num
@@ -287,7 +287,7 @@ async def sync_all():
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Memory &amp; Cyclic GC
               </button>
               <button
@@ -298,7 +298,7 @@ async def sync_all():
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 GIL &amp; Concurrency Models
               </button>
               <button
@@ -309,7 +309,7 @@ async def sync_all():
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 O(1) LRU Cache Mechanics
               </button>
             </div>
@@ -498,7 +498,7 @@ async def sync_all():
                         ? "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                         : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700"
                     )}
-                  &gt;
+                  >
                     <div className="text-xs font-bold text-slate-200">{item.label}</div>
                     <div className="text-[10px] text-cyan-400 font-mono mt-0.5">{item.tag}</div>
                   </button>

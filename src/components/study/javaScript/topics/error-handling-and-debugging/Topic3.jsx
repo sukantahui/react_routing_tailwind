@@ -101,7 +101,7 @@ console.log(student.name);
   console.log("Passed");
 // ❌ SyntaxError: Unexpected token '{'
 `}
-            /&gt;
+            />
 
             <p className="text-slate-400 text-xs">
               Usually caused by missing parentheses, brackets or quotes.

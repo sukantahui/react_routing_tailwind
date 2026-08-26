@@ -65,13 +65,13 @@ function CompilerSimulator() {
       } else if (ch === '(') {
         opStack.push(ch);
       } else if (ch === ')') {
-        while (opStack.length &gt; 0 && opStack[opStack.length - 1] !== '(') {
+        while (opStack.length > 0 && opStack[opStack.length - 1] !== '(') {
           postfix += opStack.pop();
         }
         opStack.pop();
       } else if (ch in precedence) {
         while (opStack.length > 0 && opStack[opStack.length - 1] !== '(' &&
-               precedence[opStack[opStack.length - 1]] &ge; precedence[ch]) {
+               precedence[opStack[opStack.length - 1]] >= precedence[ch]) {
           postfix += opStack.pop();
         }
         opStack.push(ch);
@@ -115,7 +115,7 @@ function CompilerSimulator() {
             onChange={(e) => setSourceCode(e.target.value)}
             placeholder="int result = a + b * c;"
             className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-mono focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
-          /&gt;
+          />
         </div>
 
         <button
@@ -132,12 +132,12 @@ function CompilerSimulator() {
           </div>
         )}
 
-        {steps.length &gt; 0 && (
+        {steps.length > 0 && (
           <div className="mt-4">
             <button
               onClick={() => setShowSteps(!showSteps)}
               className="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
-            &gt;
+            >
               {showSteps ? 'Hide Steps' : 'Show Steps'}
             </button>
             {showSteps && (

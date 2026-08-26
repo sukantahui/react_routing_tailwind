@@ -333,7 +333,7 @@ FULL OUTER JOIN courses c ON s.course_id = c.course_id;
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Standard UNION ✓
               </button>
 
@@ -345,7 +345,7 @@ FULL OUTER JOIN courses c ON s.course_id = c.course_id;
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Fast UNION ALL ⚡
               </button>
 
@@ -357,7 +357,7 @@ FULL OUTER JOIN courses c ON s.course_id = c.course_id;
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Discrepancy Audit
               </button>
 
@@ -369,7 +369,7 @@ FULL OUTER JOIN courses c ON s.course_id = c.course_id;
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Native Syntax Error
               </button>
             </div>

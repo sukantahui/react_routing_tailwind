@@ -22,7 +22,7 @@ const Topic8 = () => {
       key: "windows_token",
       name: "Token Impersonation (SeImpersonatePrivilege)",
       os: "Windows Server (IIS / SQL Service Accounts)",
-      direction: "VERTICAL ESCALATION (Service Account &rarr; SYSTEM)",
+      direction: "VERTICAL ESCALATION (Service Account -> SYSTEM)",
       flaw: "Service accounts holding SeImpersonatePrivilege can impersonate connecting SYSTEM named pipes.",
       badgeClass: "bg-rose-950 text-rose-300 border-rose-800",
       icon: "🥔",
@@ -33,7 +33,7 @@ const Topic8 = () => {
       key: "unquoted_path",
       name: "Unquoted Service Paths",
       os: "Windows (x86 / x64)",
-      direction: "VERTICAL ESCALATION (Standard User -&gt; SYSTEM)",
+      direction: "VERTICAL ESCALATION (Standard User -> SYSTEM)",
       flaw: "Service ImagePath contains spaces without quotes; Windows looks for partial executables (e.g. C:\\Program.exe).",
       badgeClass: "bg-amber-950 text-amber-300 border-amber-800",
       icon: "📁",
@@ -248,7 +248,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-base sm:text-lg">{vec.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{vec.name.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{vec.os.split(" ")[0]}</div>
@@ -315,7 +315,7 @@ const Topic8 = () => {
                     ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                     : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                 )}
-              &gt;
+              >
                 <div className="font-bold text-xs">{hop.title.split(": ")[0]}</div>
                 <div className="text-[10px] text-gray-400 truncate mt-0.5">{hop.title.split(": ")[1]}</div>
               </button>
@@ -514,7 +514,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

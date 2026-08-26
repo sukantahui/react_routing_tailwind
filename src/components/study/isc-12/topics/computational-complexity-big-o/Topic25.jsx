@@ -58,7 +58,7 @@ const Topic25 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            &gt;
+            >
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -325,7 +325,7 @@ const Topic25 = () => {
                   {[
                     {
                       tip: "Avoid O(2ⁿ) for large n",
-                      desc: "For n &gt; 20, O(2ⁿ) is usually too slow. Look for polynomial alternatives.",
+                      desc: "For n > 20, O(2ⁿ) is usually too slow. Look for polynomial alternatives.",
                     },
                     {
                       tip: "Use dynamic programming",

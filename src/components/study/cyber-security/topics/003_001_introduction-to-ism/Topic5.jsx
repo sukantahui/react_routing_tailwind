@@ -35,7 +35,7 @@ const Topic5 = () => {
     const minScore = Math.min(p, pr, t);
     const maxScore = Math.max(p, pr, t);
 
-    if (maxScore - minScore &ge; 35) {
+    if (maxScore - minScore >= 35) {
       if (minScore === p) {
         status = "THE TECH-HEAVY PHISHING TRAP";
         badgeClass = "bg-rose-950 text-rose-300 border-rose-800";
@@ -242,19 +242,19 @@ const Topic5 = () => {
             <button
               onClick={() => applyPreset(20, 40, 95)}
               className="px-3 py-1.5 rounded-lg bg-gray-850 hover:bg-gray-800 text-rose-300 border border-rose-900/50 transition-colors"
-            &gt;
+            >
               1. The Tech-Heavy Trap (P:20, Pr:40, T:95)
             </button>
             <button
               onClick={() => applyPreset(35, 95, 25)}
               className="px-3 py-1.5 rounded-lg bg-gray-850 hover:bg-gray-800 text-amber-300 border border-amber-900/50 transition-colors"
-            &gt;
+            >
               2. The Process Shelfware Trap (P:35, Pr:95, T:25)
             </button>
             <button
               onClick={() => applyPreset(85, 85, 85)}
               className="px-3 py-1.5 rounded-lg bg-gray-850 hover:bg-gray-800 text-emerald-300 border border-emerald-900/50 transition-colors font-bold"
-            &gt;
+            >
               3. Golden Equilibrium (P:85, Pr:85, T:85)
             </button>
           </div>
@@ -290,7 +290,7 @@ const Topic5 = () => {
                   value={peopleScore}
                   onChange={(e) => setPeopleScore(Number(e.target.value))}
                   className="w-full accent-indigo-500 cursor-pointer"
-                /&gt;
+                />
                 <p className="text-[10px] text-gray-400 font-sans">Culture, anti-phishing hygiene &amp; leadership buy-in.</p>
               </div>
 
@@ -306,7 +306,7 @@ const Topic5 = () => {
                   value={processScore}
                   onChange={(e) => setProcessScore(Number(e.target.value))}
                   className="w-full accent-cyan-500 cursor-pointer"
-                /&gt;
+                />
                 <p className="text-[10px] text-gray-400 font-sans">ISO 27001 policies, change control &amp; JML lifecycles.</p>
               </div>
 
@@ -322,7 +322,7 @@ const Topic5 = () => {
                   value={techScore}
                   onChange={(e) => setTechScore(Number(e.target.value))}
                   className="w-full accent-emerald-500 cursor-pointer"
-                /&gt;
+                />
                 <p className="text-[10px] text-gray-400 font-sans">Zero Trust mTLS, EDR, SIEM &amp; AES-256 HSMs.</p>
               </div>
             </div>
@@ -362,7 +362,7 @@ const Topic5 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200">{dim.name.split(" (")[0]}</div>
                   <div className="text-[11px] text-gray-400 mt-0.5">{dim.name.split(" (")[1]?.replace(")", "")}</div>
                 </button>
@@ -556,7 +556,7 @@ const Topic5 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

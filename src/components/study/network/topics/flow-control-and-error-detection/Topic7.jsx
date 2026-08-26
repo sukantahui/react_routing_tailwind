@@ -69,7 +69,7 @@ export default function Topic7() {
     for (let w of words) {
       sum += w;
       // End‑around carry (fold carry)
-      if (sum &gt; 0xFFFF) sum = (sum & 0xFFFF) + 1;
+      if (sum > 0xFFFF) sum = (sum & 0xFFFF) + 1;
     }
     // 1's complement
     return (~sum) & 0xFFFF;
@@ -372,7 +372,7 @@ No Error  Error`}
                         'px-4 py-2 rounded-md transition-colors',
                         inputMode === 'text' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
                       )}
-                    &gt;
+                    >
                       Text
                     </button>
                     <button
@@ -381,7 +381,7 @@ No Error  Error`}
                         'px-4 py-2 rounded-md transition-colors',
                         inputMode === 'binary' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
                       )}
-                    &gt;
+                    >
                       Binary
                     </button>
                   </div>
@@ -406,7 +406,7 @@ No Error  Error`}
                     value={checksumType}
                     onChange={(e) => { setChecksumType(e.target.value); setComputedChecksum(null); setVerifyResult(null); }}
                     className="w-full p-2 border rounded-md bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
-                  &gt;
+                  >
                     <option value="internet">Internet (16‑bit ones' complement)</option>
                     <option value="simple">Simple Sum (16‑bit)</option>
                     <option value="fletcher">Fletcher‑16</option>
@@ -436,7 +436,7 @@ No Error  Error`}
                         key={ex.label}
                         onClick={() => setInputData(ex.data)}
                         className="px-2 py-1 text-xs bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 rounded transition-colors"
-                      &gt;
+                      >
                         {ex.label}
                       </button>
                     ))}
@@ -476,7 +476,7 @@ No Error  Error`}
                     }}
                     placeholder={inputMode === 'text' ? 'Enter received text...' : 'e.g., 10101011 11110001'}
                     className="w-full p-2 border rounded-md bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none font-mono"
-                  /&gt;
+                  />
                 </div>
                 <button
                   onClick={verifyChecksum}
@@ -496,7 +496,7 @@ No Error  Error`}
             </div>
 
             {/* Word visualisation */}
-            {byteDisplay.length &gt; 0 && (
+            {byteDisplay.length > 0 && (
               <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
                 <p className="text-sm font-medium mb-2">16‑bit words (hex):</p>
                 <div className="flex flex-wrap gap-2">

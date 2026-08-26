@@ -53,7 +53,7 @@ const Topic15 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400 flex items-center gap-2">
             <span>🌐</span> What is JAX‑RS and Jersey?
           </h2>
@@ -74,7 +74,7 @@ const Topic15 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">🔄 REST API Request Flow</h2>
           <div className="mt-6 flex justify-center">
             <svg viewBox="0 0 750 180" className="w-full max-w-4xl h-auto">
@@ -117,7 +117,7 @@ const Topic15 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">🏷️ Hello World Resource</h2>
           <p className="mt-3 text-gray-300">
             A resource class is a plain Java class annotated with <code>@Path</code>. Methods use HTTP method annotations.
@@ -211,7 +211,7 @@ const Topic15 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">⚠️ Common Pitfalls</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300">
             <li><strong>Forgetting to register resources</strong> – either in ApplicationConfig or via package scanning.</li>
@@ -226,7 +226,7 @@ const Topic15 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">✅ Best Practices</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300">
             <li>Use nouns for resource names (e.g., <code>/students</code>, not <code>/getStudent</code>).</li>
@@ -242,7 +242,7 @@ const Topic15 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-purple-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -268,7 +268,7 @@ const Topic15 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-purple-500/30"
-        &gt;
+        >
           <h2 className="text-xl font-semibold text-purple-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> Use browser or Postman to call your API and inspect the JSON response.</li>

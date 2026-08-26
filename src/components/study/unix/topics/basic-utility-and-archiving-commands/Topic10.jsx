@@ -143,7 +143,7 @@ ${verbose ? 'file1.txt\nfile2.txt\nsubdir/file3.txt\n' : ''}archive created succ
                 value={operation}
                 onChange={(e) => setOperation(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700"
-              &gt;
+              >
                 <option value="create">Create (-c)</option>
                 <option value="extract">Extract (-x)</option>
                 <option value="list">List (-t)</option>
@@ -158,7 +158,7 @@ ${verbose ? 'file1.txt\nfile2.txt\nsubdir/file3.txt\n' : ''}archive created succ
                 value={tarFile}
                 onChange={(e) => setTarFile(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 font-mono"
-              /&gt;
+              />
             </div>
           </div>
           <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -168,7 +168,7 @@ ${verbose ? 'file1.txt\nfile2.txt\nsubdir/file3.txt\n' : ''}archive created succ
                 value={compression}
                 onChange={(e) => setCompression(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700"
-              &gt;
+              >
                 <option value="none">None (.tar)</option>
                 <option value="gzip">gzip (.tar.gz / .tgz)</option>
                 <option value="bzip2">bzip2 (.tar.bz2)</option>
@@ -177,11 +177,11 @@ ${verbose ? 'file1.txt\nfile2.txt\nsubdir/file3.txt\n' : ''}archive created succ
             </div>
             <div className="flex items-end gap-4">
               <label className="flex items-center gap-2">
-                <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} /&gt;
+                <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} />
                 <span>Verbose (-v)</span>
               </label>
               <label className="flex items-center gap-2">
-                <input type="checkbox" checked={preservePerms} onChange={() => setPreservePerms(!preservePerms)} /&gt;
+                <input type="checkbox" checked={preservePerms} onChange={() => setPreservePerms(!preservePerms)} />
                 <span>Preserve permissions (-p)</span>
               </label>
             </div>
@@ -332,7 +332,7 @@ ${verbose ? 'file1.txt\nfile2.txt\nsubdir/file3.txt\n' : ''}archive created succ
             <li><strong>Always test archives after creation:</strong> `tar -tf archive.tar`.</li>
             <li><strong>Use `-C` to change directory before archiving to avoid absolute paths.</strong></li>
             <li><strong>For backups, use `--exclude` patterns to skip unnecessary directories (e.g., /proc, /dev, /tmp).</strong></li>
-            <li><strong>Combine tar with `ssh` for remote backups: `tar -czf - dir | ssh user@host "cat {`&gt;`} backup.tar.gz"`</strong></li>
+            <li><strong>Combine tar with `ssh` for remote backups: `tar -czf - dir | ssh user@host "cat {`>`} backup.tar.gz"`</strong></li>
           </ul>
         </div>
       </section>

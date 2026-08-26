@@ -56,7 +56,7 @@ export default class Topic7 extends Component {
   <button class="key backspace">⌫</button>
   <button class="key clear">CLEAR</button>
 </div>`}
-        /&gt;
+        />
 
         {/* ---------------------------------------------------------
             2. ADDING CLICK EVENTS TO KEYS
@@ -153,7 +153,7 @@ function createKeyboard() {
   });
 }
 createKeyboard();`}
-        /&gt;
+        />
 
         <p className="text-slate-400 text-sm">
           This is how digital exam systems generate keyboard layouts.

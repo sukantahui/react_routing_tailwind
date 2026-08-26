@@ -37,7 +37,7 @@ const Topic1 = () => {
       vulnerabilityImpact:
         "Subordinate employees defer to authority and fear insubordination, actively bypassing established multi-step accounting controls to comply with the perceived executive order.",
       telemetryIndicator: "Accounting staff initiating wire transfers based solely on unverified single-party email requests",
-      resilientDefense: "Mandatory Out-of-Band (OOB) dual-authorization requiring voice confirmation for all transfers &gt; ₹1,00,000.",
+      resilientDefense: "Mandatory Out-of-Band (OOB) dual-authorization requiring voice confirmation for all transfers > ₹1,00,000.",
       codeSnippet: `// Authority-Driven BEC Attack Pattern:
 // [From: ceo@kolkata-fintech.in (Spoofed Display Name)]
 // "Mamata, wire ₹45,00,000 to our legal vendor before 4 PM. Keep this strictly confidential."`
@@ -165,11 +165,11 @@ const Topic1 = () => {
     const numerator = persuasionIntensity * psychSusceptibility;
     const exponent = -numerator / verificationFriction;
     const rawBreachProb = (1 - Math.exp(exponent)) * 100;
-    const actualBreachProb = verificationFriction &ge; 500
+    const actualBreachProb = verificationFriction >= 500
       ? (rawBreachProb * 0.008).toFixed(2) // Out-of-band voice verification blocks 99.2% of attacks
       : verificationFriction >= 50
       ? (rawBreachProb * 0.30).toFixed(2)  // Secondary email confirmation blocks 70% of attacks
-      : rawBreachProb.toFixed(2);           // No verification &rarr; 100% exploit rate
+      : rawBreachProb.toFixed(2);           // No verification -> 100% exploit rate
 
     return {
       rawBreachProb: rawBreachProb.toFixed(2),
@@ -200,7 +200,7 @@ class FinancialTransferEngine:
         
         # 1. Authority Check: High value transactions require Dual Authorization
         if amount >= self.threshold:
-            print("[!] High Value Transfer Detected &rarr; Triggering Out-of-Band Verification!")
+            print("[!] High Value Transfer Detected -> Triggering Out-of-Band Verification!")
             
             # Require Out-of-Band Voice Call Confirmation
             is_oob_verified = self.verify_out_of_band_voice_call(requester)
@@ -243,7 +243,7 @@ New-AntiPhishPolicy -Name "Strict_DMARC_Enforcement_Policy" \`
     -EnableMailboxIntelligenceProtection $true
 
 # 2. Verify DMARC DNS Record:
-# DNS TXT: _dmarc.kolkata-fintech.in -&gt; "v=DMARC1; p=reject; rua=mailto:dmarc-reports@kolkata-fintech.in; pct=100"
+# DNS TXT: _dmarc.kolkata-fintech.in -> "v=DMARC1; p=reject; rua=mailto:dmarc-reports@kolkata-fintech.in; pct=100"
 Write-Host "[+] DMARC p=reject Enforcement ACTIVE! Spoofed executive emails blocked at perimeter." -ForegroundColor Green`,
       explanation: "Configures Microsoft Exchange Online anti-phishing policies to quarantine spoofed internal executive domains failing SPF/DKIM/DMARC alignment."
     },
@@ -610,7 +610,7 @@ level: critical`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   PRINCIPLE
                 </span>
@@ -707,7 +707,7 @@ level: critical`,
                   value={persuasionIntensity}
                   onChange={(e) => setPersuasionIntensity(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -723,7 +723,7 @@ level: critical`,
                   value={psychSusceptibility}
                   onChange={(e) => setPsychSusceptibility(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1 pt-1">
@@ -737,7 +737,7 @@ level: critical`,
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     None (1x)
                   </button>
                   <button
@@ -748,7 +748,7 @@ level: critical`,
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Email Check (50x)
                   </button>
                   <button
@@ -759,7 +759,7 @@ level: critical`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Out-of-Band Call (500x)
                   </button>
                 </div>
@@ -818,7 +818,7 @@ level: critical`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -867,7 +867,7 @@ level: critical`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

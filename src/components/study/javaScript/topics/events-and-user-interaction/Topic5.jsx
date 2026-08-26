@@ -43,7 +43,7 @@ background:rgba(0,0,0,0.6); align-items:center; justify-content:center;">
     <button id="closeModal">Close</button>
   </div>
 </div>`}
-        /&gt;
+        />
 
         {/* JS */}
         <CodeBlock
@@ -93,7 +93,7 @@ modal.addEventListener("click", (e) => {
 <div id="tab1" class="tabContent">Overview content here…</div>
 <div id="tab2" class="tabContent" style="display:none;">Examples content here…</div>
 <div id="tab3" class="tabContent" style="display:none;">Practice content here…</div>`}
-        /&gt;
+        />
 
         {/* JS */}
         <CodeBlock
@@ -145,7 +145,7 @@ tabButtons.forEach(btn => {
     JavaScript is a scripting language for web pages.
   </div>
 </div>`}
-        /&gt;
+        />
 
         {/* JS */}
         <CodeBlock

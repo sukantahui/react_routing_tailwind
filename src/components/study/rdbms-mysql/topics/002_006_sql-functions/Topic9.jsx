@@ -424,7 +424,7 @@ FROM warehouse_inventory;`,
                         ? "bg-cyan-950/80 border-cyan-500 text-cyan-200 shadow-lg shadow-cyan-950/50"
                         : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                     )}
-                  &gt;
+                  >
                     <div className="font-semibold">{item.title}</div>
                   </button>
                 );

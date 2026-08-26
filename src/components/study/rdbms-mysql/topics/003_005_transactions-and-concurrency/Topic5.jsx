@@ -117,7 +117,7 @@ SELECT gpa FROM student_records WHERE student_id = 102;
 -- Session 1 (Scholarship Board auditing eligible students):
 START TRANSACTION;
 
--- Query 1: Find all students with GPA &ge; 3.8:
+-- Query 1: Find all students with GPA >= 3.8:
 SELECT COUNT(*) FROM student_records WHERE gpa >= 3.8; -- Returns 2 (Mamata, Susmita)
 
 -- Session 2 CONCURRENTLY (New Student Admission):
@@ -408,7 +408,7 @@ SELECT COUNT(*) FROM student_records WHERE gpa >= 3.8;
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -525,7 +525,7 @@ SELECT COUNT(*) FROM student_records WHERE gpa >= 3.8;
 {`-- Pessimistic Lock Prevention of Lost Updates:
 START TRANSACTION;
 SELECT available_seats INTO v_seats FROM exam_labs WHERE lab_id = 1 FOR UPDATE;
-IF v_seats &gt; 0 THEN
+IF v_seats > 0 THEN
     UPDATE exam_labs SET available_seats = available_seats - 1 WHERE lab_id = 1;
     INSERT INTO lab_bookings (student_id, lab_id) VALUES (p_student_id, 1);
     COMMIT;

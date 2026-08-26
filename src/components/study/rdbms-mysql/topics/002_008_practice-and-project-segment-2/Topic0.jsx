@@ -401,7 +401,7 @@ GROUP BY m.member_id, m.member_code, m.first_name, m.last_name, m.max_books_allo
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -612,7 +612,7 @@ JOIN loans l ON m.member_id = l.member_id
 JOIN fines f ON l.loan_id = f.loan_id
 WHERE f.payment_status = 'UNPAID'
 GROUP BY m.member_id, m.member_code, m.first_name, m.last_name
-HAVING total_unpaid_fines_inr &gt; 500.00;`}
+HAVING total_unpaid_fines_inr > 500.00;`}
               </pre>
             </div>
           </div>

@@ -27,7 +27,7 @@ const Topic33 = () => {
       flags: 'DF=1 (Don\'t Fragment) • MF=0',
       offset: '0 (First / Complete Segment)',
       ttlProtocol: 'TTL: 64 • Protocol: 6 (TCP)',
-      srcDst: '192.168.1.50 &rarr; 103.25.10.4',
+      srcDst: '192.168.1.50 -> 103.25.10.4',
       checksum: '0x4A2B (Validated 1\'s Complement)',
       desc: 'Standard unfragmented web/HTTPS transaction packet passing through an edge router in Barrackpore.',
       wiresharkTrace: 'Frame 1: 1514 bytes on wire (14B Eth + 20B IP + 20B TCP + 1460B Payload). IP Checksum: 0x4A2B [correct].',
@@ -41,7 +41,7 @@ const Topic33 = () => {
       flags: 'DF=0 • MF=1 (More Fragments Follow)',
       offset: '185 (Byte Offset 1480 = 185 * 8)',
       ttlProtocol: 'TTL: 58 • Protocol: 17 (UDP)',
-      srcDst: '172.16.20.10 -&gt; 103.25.10.8',
+      srcDst: '172.16.20.10 -> 103.25.10.8',
       checksum: '0x8F1C (Recomputed Checksum)',
       desc: 'Second fragment of a 4000-byte DNS/NFS payload reassembled by the receiving kernel.',
       wiresharkTrace: 'IPv4 Fragment (offset: 1480, length: 1480, more fragments: true). ID: 0xD3A1.',
@@ -198,7 +198,7 @@ const Topic33 = () => {
                     ? 'bg-sky-600 text-white border-sky-500 shadow-md shadow-sky-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              &gt;
+              >
                 {item.label}
               </button>
             ))}
@@ -210,7 +210,7 @@ const Topic33 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -254,7 +254,7 @@ const Topic33 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-pkt33">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -284,7 +284,7 @@ const Topic33 = () => {
                       ? 'bg-sky-600 text-white border-sky-400 shadow-md'
                       : 'bg-slate-950 text-slate-400 border-slate-800 hover:text-white'
                   )}
-                &gt;
+                >
                   {p.name.split('(')[0]}
                 </button>
               ))}
@@ -343,7 +343,7 @@ const Topic33 = () => {
                   <button
                     onClick={() => setPacketDissectionLog(currentPacket.wiresharkTrace)}
                     className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white transition-all shadow-md shadow-sky-950"
-                  &gt;
+                  >
                     Dissect Frame & Payload ▶
                   </button>
                 </div>
@@ -363,7 +363,7 @@ const Topic33 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -418,7 +418,7 @@ const Topic33 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -479,7 +479,7 @@ const Topic33 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -501,7 +501,7 @@ const Topic33 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                &gt;
+                >
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -528,7 +528,7 @@ const Topic33 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -568,7 +568,7 @@ const Topic33 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -602,7 +602,7 @@ const Topic33 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

@@ -297,7 +297,7 @@ const Topic9 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Disjoint & Total (d, ═)
               </button>
               <button
@@ -308,7 +308,7 @@ const Topic9 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Disjoint & Partial (d, ─)
               </button>
               <button
@@ -319,7 +319,7 @@ const Topic9 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Overlapping & Total (o, ═)
               </button>
               <button
@@ -330,7 +330,7 @@ const Topic9 = () => {
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Overlapping & Partial (o, ─)
               </button>
             </div>

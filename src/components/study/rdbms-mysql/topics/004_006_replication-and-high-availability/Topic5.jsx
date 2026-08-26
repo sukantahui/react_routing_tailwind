@@ -50,7 +50,7 @@ replicate_wild_do_table = 'sales.%'
       sqlSnippet: `-- 💥 STATEMENT FORMAT BUG (binlog_do_db = sales):
 USE inventory;  -- Currently active database is 'inventory'
 UPDATE sales.orders SET status = 'Shipped' WHERE id = 101;
--- &rarr; In STATEMENT mode, this is DROPPED because active DB is inventory!
+-- -> In STATEMENT mode, this is DROPPED because active DB is inventory!
 
 -- 🛡️ ROW FORMAT FIX (binlog_format = ROW):
 -- Every row event records the exact schema ('sales') and table ('orders').
@@ -211,7 +211,7 @@ SHOW REPLICA STATUS\\G`,
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {phase.phaseNumber}
                 </button>
               );

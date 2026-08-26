@@ -53,8 +53,8 @@ WHERE centre_city = 'Barrackpore'
 -- idx_city (centre_city), idx_stream (course_stream), idx_status (admission_status)
 
 -- Query Execution via Index Merge:
--- 1. Scans idx_city &rarr; Retrieves 12,000 PKs for 'Barrackpore'.
--- 2. Scans idx_stream -&gt; Retrieves 8,500 PKs for 'React Fullstack'.
+-- 1. Scans idx_city -> Retrieves 12,000 PKs for 'Barrackpore'.
+-- 2. Scans idx_stream -> Retrieves 8,500 PKs for 'React Fullstack'.
 -- 3. Intersects PK lists in RAM (Using intersect(idx_city, idx_stream)).
 -- 4. Performs bookmark lookups on the resulting 2 PKs!
 -- Latency: 2.1 ms (5x Slower than Composite Index)`,
@@ -73,7 +73,7 @@ WHERE centre_city = 'Barrackpore'
 SELECT * FROM student_registry
 WHERE centre_city = 'Barrackpore'        -- Equality (=)
   AND course_stream = 'React Fullstack'   -- Equality (=)
-  AND tuition_fee_inr &ge; 20000.00         -- Range (>=)
+  AND tuition_fee_inr >= 20000.00         -- Range (>=)
 ORDER BY enrollment_date DESC;            -- Sort (ORDER BY)
 
 -- Optimal Composite Column Sequence:
@@ -347,7 +347,7 @@ CREATE INDEX idx_optimal_order ON student_registry (
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -527,7 +527,7 @@ CREATE INDEX idx_student_cohort_search ON students (
               <pre className="p-4 rounded-xl bg-slate-950 text-xs font-mono text-cyan-300 border border-slate-800 overflow-x-auto">
 {`SELECT product_id, product_name, price_inr, rating_score 
 FROM product_catalog 
-WHERE category_id = 45 AND brand_id = 12 AND price_inr &le; 5000.00
+WHERE category_id = 45 AND brand_id = 12 AND price_inr <= 5000.00
 ORDER BY rating_score DESC;`}
               </pre>
             </div>

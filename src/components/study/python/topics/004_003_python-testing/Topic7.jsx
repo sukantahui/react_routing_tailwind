@@ -256,7 +256,7 @@ exclude_lines = [
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Statement vs Branch Paths
               </button>
               <button
@@ -267,7 +267,7 @@ exclude_lines = [
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Terminal Report Breakdown
               </button>
               <button
@@ -278,7 +278,7 @@ exclude_lines = [
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 HTML Visual Heatmap
               </button>
             </div>
@@ -304,7 +304,7 @@ exclude_lines = [
                   </text>
                   
                   <rect x="20" y="50" width="340" height="50" rx="4" fill="#022c22" stroke="#0d9488" />
-                  <text x="30" y="70" fill="#a7f3d0" fontSize="9" fontFamily="monospace">if score >= 90: discount += 0.20</text>
+                  <text x="30" y="70" fill="#a7f3d0" fontSize="9" fontFamily="monospace">if score &gt;= 90: discount += 0.20</text>
                   <text x="30" y="88" fill="#a7f3d0" fontSize="9" fontFamily="monospace">if is_ews: discount += 0.15</text>
 
                   <rect x="20" y="115" width="340" height="110" rx="4" fill="#134e4a" />
@@ -418,7 +418,7 @@ exclude_lines = [
                   {/* Red Missed Lines */}
                   <rect x="35" y="95" width="750" height="42" rx="2" fill="#881337" stroke="#fb7185" />
                   <text x="45" y="110" fill="#fecdd3" fontSize="9" fontFamily="monospace">
-                    45:       if amount <= 0:
+                    45:       if amount &lt;= 0:
                   </text>
                   <text x="45" y="128" fill="#fecdd3" fontSize="9" fontFamily="monospace">
                     46:           raise ValueError("Payment must be positive")  # MISSED (RED)
@@ -477,7 +477,7 @@ exclude_lines = [
                           ? "bg-teal-950/60 border-teal-500 text-teal-300 shadow-md"
                           : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700"
                       )}
-                    &gt;
+                    >
                       {val}% Threshold
                     </button>
                   ))}
@@ -503,7 +503,7 @@ exclude_lines = [
                           ? "bg-cyan-950/60 border-cyan-500 shadow-md"
                           : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700"
                       )}
-                    &gt;
+                    >
                       <div className="text-xs font-bold text-slate-200">{item.label}</div>
                       <div className="text-[10px] text-cyan-400 font-mono">{item.desc}</div>
                     </button>
@@ -526,7 +526,7 @@ exclude_lines = [
                     ? "bg-emerald-950 border border-emerald-500 text-emerald-300"
                     : "bg-slate-800 border border-slate-700 text-slate-400"
                 )}
-              &gt;
+              >
                 {enableBranchMode ? "BRANCH COVERAGE: ACTIVE" : "STATEMENT ONLY (LENIENT)"}
               </button>
             </div>
@@ -556,7 +556,7 @@ exclude_lines = [
                   {isCiPassing ? "✅ BUILD PASSED" : "❌ BUILD FAILED"}
                 </div>
                 <div className="text-[11px] text-slate-300 mt-1">
-                  {isCiPassing ? `Coverage &ge; ${targetCoverageThreshold}%` : `Required ${targetCoverageThreshold}%, Got ${currentCoverage}%`}
+                  {isCiPassing ? `Coverage >= ${targetCoverageThreshold}%` : `Required ${targetCoverageThreshold}%, Got ${currentCoverage}%`}
                 </div>
               </div>
 

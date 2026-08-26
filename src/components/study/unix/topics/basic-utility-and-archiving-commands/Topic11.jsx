@@ -140,7 +140,7 @@ const Topic11 = () => {
                 value={operation}
                 onChange={(e) => setOperation(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700"
-              &gt;
+              >
                 <option value="create">Create (c)</option>
                 <option value="extract">Extract (x)</option>
                 <option value="list">List (t)</option>
@@ -152,7 +152,7 @@ const Topic11 = () => {
                 value={compression}
                 onChange={(e) => setCompression(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700"
-              &gt;
+              >
                 <option value="gzip">gzip (.tar.gz) -z</option>
                 <option value="bzip2">bzip2 (.tar.bz2) -j</option>
                 <option value="xz">xz (.tar.xz) -J</option>
@@ -170,12 +170,12 @@ const Topic11 = () => {
                 onChange={(e) => setLevel(parseInt(e.target.value))}
                 className="w-full"
                 disabled={operation !== 'create'}
-              /&gt;
+              />
               <div className="text-center text-sm">{level} (1=fast, 9=best)</div>
             </div>
             <div className="flex items-end gap-4">
               <label className="flex items-center gap-2">
-                <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} /&gt;
+                <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} />
                 <span>Verbose (-v)</span>
               </label>
             </div>
@@ -233,7 +233,7 @@ const Topic11 = () => {
                 <li><strong>System backups:</strong> `tar -czf /backup/home_$(date +%Y%m%d).tar.gz /home`</li>
                 <li><strong>Package distribution:</strong> Compiling with `make dist` creates `.tar.gz`.</li>
                 <li><strong>Log rotation:</strong> Archive old logs with high compression (xz).</li>
-                <li><strong>Data transfer:</strong> Pipe compressed tar over SSH: `tar czf - dir | ssh host 'cat {`&gt;`} dir.tar.gz'`</li>
+                <li><strong>Data transfer:</strong> Pipe compressed tar over SSH: `tar czf - dir | ssh host 'cat {`>`} dir.tar.gz'`</li>
               </ul>
             </div>
 
@@ -243,7 +243,7 @@ const Topic11 = () => {
                 <li><strong>Choose compression based on need:</strong> gzip is fastest, bzip2 smaller, xz slowest but best.</li>
                 <li><strong>Use `-9` for maximum size reduction (e.g., for archives).</strong></li>
                 <li><strong>Automatically detect compression on extraction:</strong> `tar -xf archive.tar.xz` works without flags.</li>
-                <li><strong>Parallel compression with `pigz`:</strong> `tar -cf - data | pigz -9 {`&gt;`} archive.tar.gz`</li>
+                <li><strong>Parallel compression with `pigz`:</strong> `tar -cf - data | pigz -9 {`>`} archive.tar.gz`</li>
                 <li><strong>Exclude patterns while compressing:</strong> `tar -czf backup.tar.gz --exclude='*.log' /home`</li>
               </ul>
             </div>

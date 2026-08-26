@@ -157,7 +157,7 @@ export default function Topic36() {
   };
 
   const goToStep = (index) => {
-    if (index &ge; 0 && index < traces.length) {
+    if (index >= 0 && index < traces.length) {
       setCurrentStep(index);
     }
   };
@@ -354,7 +354,7 @@ export default function Topic36() {
                   key={expr}
                   onClick={() => setPostfix(expr)}
                   className="px-3 py-1 text-xs bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-full hover:border-indigo-500 dark:hover:border-indigo-400 transition-colors duration-200"
-                &gt;
+                >
                   {expr}
                 </button>
               ))}
@@ -374,7 +374,7 @@ export default function Topic36() {
             )}
 
             {/* Visual Stack & Navigation */}
-            {traces.length &gt; 0 && (
+            {traces.length > 0 && (
               <div className="mt-6">
                 <div className="flex items-center gap-4 flex-wrap">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Step:</span>
@@ -382,7 +382,7 @@ export default function Topic36() {
                     onClick={() => goToStep(currentStep - 1)}
                     disabled={currentStep === 0}
                     className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                  &gt;
+                  >
                     ◀
                   </button>
                   <span className="text-sm font-mono">
@@ -392,7 +392,7 @@ export default function Topic36() {
                     onClick={() => goToStep(currentStep + 1)}
                     disabled={currentStep === traces.length - 1}
                     className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                  &gt;
+                  >
                     ▶
                   </button>
                   <input
@@ -402,7 +402,7 @@ export default function Topic36() {
                     value={currentStep}
                     onChange={(e) => goToStep(parseInt(e.target.value))}
                     className="w-48 accent-indigo-600 dark:accent-indigo-400"
-                  /&gt;
+                  />
                 </div>
 
                 <VisualStack traces={traces} currentStep={currentStep} />

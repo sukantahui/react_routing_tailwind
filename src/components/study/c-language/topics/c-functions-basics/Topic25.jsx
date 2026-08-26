@@ -279,7 +279,7 @@ const Topic25 = () => {
                 <span className="text-purple-400">void</span>{" "}
                 <span className="text-amber-300">countdown</span>(<span className="text-emerald-300">int n</span>) {"{"}
                 <br />
-                &nbsp;&nbsp;<span className="text-purple-400">if</span> (n <= 0) {"{"}
+                &nbsp;&nbsp;<span className="text-purple-400">if</span> (n &lt;= 0) {"{"}
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;printf(<span className="text-green-300">"Done!\n"</span>);
                 <br />

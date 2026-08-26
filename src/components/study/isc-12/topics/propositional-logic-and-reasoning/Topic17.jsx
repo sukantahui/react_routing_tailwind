@@ -96,8 +96,8 @@ const Topic17 = () => {
           </div>
 
           <div className="flex flex-wrap gap-6 mb-6">
-            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">p (antecedent) = {pVal ? 'true' : 'false'}</span></label>
-            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">q (consequent) = {qVal ? 'true' : 'false'}</span></label>
+            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /> <span className="font-mono font-bold">p (antecedent) = {pVal ? 'true' : 'false'}</span></label>
+            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /> <span className="font-mono font-bold">q (consequent) = {qVal ? 'true' : 'false'}</span></label>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg text-center">

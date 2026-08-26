@@ -203,7 +203,7 @@ FROM students s, enrollments e, courses c, payments p;
               🚫 NOT IN with NULL Disaster
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5">
-              🚀 Null-Safe Equality (<=>)
+              🚀 Null-Safe Equality (&lt;=&gt;)
             </span>
           </div>
         </div>
@@ -334,7 +334,7 @@ FROM students s, enrollments e, courses c, payments p;
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Fan-Out Bug ❌
               </button>
 
@@ -346,7 +346,7 @@ FROM students s, enrollments e, courses c, payments p;
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. CTE Remedy ✓
               </button>
 
@@ -358,7 +358,7 @@ FROM students s, enrollments e, courses c, payments p;
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. NOT IN with NULL
               </button>
 
@@ -370,7 +370,7 @@ FROM students s, enrollments e, courses c, payments p;
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Cartesian Crash ⚠️
               </button>
             </div>
@@ -631,7 +631,7 @@ LEFT JOIN customer_wallet_credits w USING (customer_id);`}
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
-              <span>Remember that NULL = NULL evaluates to UNKNOWN; use <=> for NULL matches</span>
+              <span>Remember that NULL = NULL evaluates to UNKNOWN; use &lt;=&gt; for NULL matches</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>

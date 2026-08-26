@@ -109,7 +109,7 @@ const Topic3 = () => {
                     ? "bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/25"
                     : "bg-gray-800 text-slate-400 border border-slate-700 hover:bg-gray-700"
                 }`}
-              &gt;
+              >
                 <span>{fillActive ? "✔ end_fill() Active" : "⭕ Wireframe Only (No Fill)"}</span>
               </button>
 
@@ -121,7 +121,7 @@ const Topic3 = () => {
                     className={`px-3 py-1 text-xs font-semibold rounded-lg capitalize transition cursor-pointer ${
                       activeShape === shape ? "bg-sky-500 text-white" : "text-slate-400 hover:text-white"
                     }`}
-                  &gt;
+                  >
                     {shape}
                   </button>
                 ))}
@@ -337,7 +337,7 @@ const Topic3 = () => {
           <h3 className="text-xl font-semibold text-emerald-400 mb-3">📝 Student Mastery Checklist</h3>
           <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
             {[
-              "I know the 3-step fill sequence: fillcolor() &rarr; begin_fill() -&gt; draw -> end_fill()",
+              "I know the 3-step fill sequence: fillcolor() -> begin_fill() -> draw -> end_fill()",
               "I understand that end_fill() automatically closes unclosed polygon endpoints",
               "I can check whether a fill is currently active using the t.filling() boolean query",
               "I know to isolate each sub-component in composite illustrations with its own fill pair",

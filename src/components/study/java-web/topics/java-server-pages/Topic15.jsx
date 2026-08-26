@@ -133,7 +133,7 @@ const Topic15 = () => {
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-5 transition-all duration-300 hover:shadow-xl hover:scale-105">
             <h3 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-2">Relational</h3>
-            <p><code>== != &lt; &gt; <=>=</code><br/>Example: <code>{`\${age >= 18}`}</code></p>
+            <p><code>== != &lt; &gt; &lt;= &gt;=</code><br/>Example: <code>{`\${age &gt;= 18}`}</code></p>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-5 transition-all duration-300 hover:shadow-xl hover:scale-105">
             <h3 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-2">Logical</h3>
@@ -145,7 +145,7 @@ const Topic15 = () => {
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-5 transition-all duration-300 hover:shadow-xl hover:scale-105">
             <h3 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-2">Conditional (ternary)</h3>
-            <p><code>? :</code><br/>Example: <code>{`\${score &ge; 60 ? 'Pass' : 'Fail'}`}</code></p>
+            <p><code>? :</code><br/>Example: <code>{`\${score >= 60 ? 'Pass' : 'Fail'}`}</code></p>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-5 transition-all duration-300 hover:shadow-xl hover:scale-105">
             <h3 className="text-lg font-bold text-blue-600 dark:text-blue-400 mb-2">String Concatenation</h3>
@@ -258,7 +258,7 @@ const Topic15 = () => {
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-xl">
           <ul className="list-disc list-inside space-y-2">
             <li>Use <code>{`\${empty collection}`}</code> to safely check for null or empty collections without scriptlets.</li>
-            <li>Combine EL with JSTL tags: <code>&lt;c:if test="{`\${user.loggedIn &amp;&amp; fn:length(cart.items) &gt; 0}`}"&gt;</code>.</li>
+            <li>Combine EL with JSTL tags: <code>&lt;c:if test="{`\${user.loggedIn &amp;&amp; fn:length(cart.items) > 0}`}"&gt;</code>.</li>
             <li>Access nested properties with dot notation even if the property name contains hyphens: use <code>{`\${bean['property-name']}`}</code>.</li>
             <li>When using <code>pageContext</code>, you can get the context path via <code>{`\${pageContext.request.contextPath}`}</code> for building URLs.</li>
             <li>EL also supports <code>gt</code>, <code>lt</code>, <code>ge</code>, <code>le</code>, <code>eq</code>, <code>ne</code> as aliases for comparison operators.</li>

@@ -306,7 +306,7 @@ const Topic7 = () => {
                       key={inst.id}
                       onClick={() => handleDeleteInstructor(inst.id)}
                       className="flex-1 py-1.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-bold hover:bg-cyan-500/30 transition-all"
-                    &gt;
+                    >
                       Delete #{inst.id} ({inst.name.split(" ")[0]})
                     </button>
                   ))}
@@ -324,7 +324,7 @@ const Topic7 = () => {
                 <button
                   onClick={() => handleAttemptDeleteStudent(101)}
                   className="w-full py-2 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-bold hover:bg-amber-500/30 transition-all flex items-center justify-center gap-1.5"
-                &gt;
+                >
                   <span>⚠️</span> Attempt DELETE FROM students WHERE id = 101
                 </button>
               </div>

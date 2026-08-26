@@ -61,14 +61,14 @@ SELECT
     r.dept_rank,
     r.variance_from_dept,
     CASE 
-        WHEN r.dept_rank = 1 AND r.exam_score_pct &ge; 95.00 THEN '🥇 Dean Diamond Gold (₹50,000 INR)'
+        WHEN r.dept_rank = 1 AND r.exam_score_pct >= 95.00 THEN '🥇 Dean Diamond Gold (₹50,000 INR)'
         WHEN r.dept_rank = 1 THEN '🥈 Dean Gold Scholar (₹30,000 INR)'
         WHEN r.dept_rank = 2 THEN '🥉 Department Silver (₹15,000 INR)'
         ELSE '🎖️ Merit Certificate'
     END AS scholarship_award
 FROM RankedStudents r
 JOIN departments d ON r.dept_id = d.dept_id
-WHERE r.dept_rank &le; 2
+WHERE r.dept_rank <= 2
 ORDER BY d.dept_name, r.dept_rank;`,
       resultRows: [
         { id: "STU-103", name: "Abhronila Saha", dept: "Information Tech", score: "96.20%", rank: "Rank #1", metric: "+6.90% Above Dept", award: "🥇 Dean Diamond Gold (₹50k)" },
@@ -464,7 +464,7 @@ WHERE NOT EXISTS (
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -578,7 +578,7 @@ WITH Base AS (SELECT student_id, first_name, dept_id, exam_score_pct FROM studen
 DeptStat AS (SELECT dept_id, AVG(exam_score_pct) AS avg_s FROM Base GROUP BY dept_id),
 Ranked AS (SELECT b.*, d.avg_s, DENSE_RANK() OVER (PARTITION BY b.dept_id ORDER BY b.exam_score_pct DESC) AS rnk
           FROM Base b JOIN DeptStat d ON b.dept_id = d.dept_id)
-SELECT student_id, first_name, exam_score_pct, rnk FROM Ranked WHERE rnk &le; 2;`}
+SELECT student_id, first_name, exam_score_pct, rnk FROM Ranked WHERE rnk <= 2;`}
               </pre>
             </div>
           </div>

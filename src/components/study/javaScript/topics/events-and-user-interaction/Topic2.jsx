@@ -29,7 +29,7 @@ export default class Topic2 extends Component {
           language="html"
           code={`<button class="btn">Mark Attendance</button>
 <button class="btn">Homework Done</button>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -38,7 +38,7 @@ export default class Topic2 extends Component {
     console.log("Clicked:", event.target.innerText);
   });
 });`}
-        /&gt;
+        />
 
         <p className="text-slate-400 text-sm">
           If Devangshu clicks the second button, it prints:  
@@ -71,7 +71,7 @@ export default class Topic2 extends Component {
         <CodeBlock
           language="html"
           code={`<input id="typingBox" placeholder="Type something..." />`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -102,7 +102,7 @@ input.addEventListener("keydown", function(e) {
         <CodeBlock
           language="html"
           code={`<div id="box" style="width:120px;height:120px;background:#475569"></div>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -126,7 +126,7 @@ input.addEventListener("keydown", function(e) {
         <CodeBlock
           language="html"
           code={`<a id="link" href="https://www.codernaccotax.co.in">Visit Website</a>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -154,7 +154,7 @@ link.addEventListener("click", function(e) {
     Inner Box
   </div>
 </div>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -187,7 +187,7 @@ document.getElementById("inner").addEventListener("click", (e) => {
         <CodeBlock
           language="html"
           code={`<input id="activity" placeholder="Type here..." />`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"

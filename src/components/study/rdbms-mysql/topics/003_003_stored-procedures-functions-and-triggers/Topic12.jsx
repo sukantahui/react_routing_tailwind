@@ -32,7 +32,7 @@ AFTER UPDATE ON faculty_salaries
 FOR EACH ROW
 BEGIN
     -- Only log when salary is actually modified:
-    IF NOT (OLD.monthly_salary_inr &le; &gt; NEW.monthly_salary_inr) THEN
+    IF NOT (OLD.monthly_salary_inr <=> NEW.monthly_salary_inr) THEN
         INSERT INTO salary_revision_history (
             faculty_id,
             previous_salary,
@@ -408,7 +408,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -553,10 +553,10 @@ VALUES (NEW.faculty_id, OLD.monthly_salary_inr, NEW.monthly_salary_inr, v_hike_i
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>✓</span> Always Compare with NULL-Safe {"` &le; &gt;`"}
+                <span>✓</span> Always Compare with NULL-Safe {"`<=>`"}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Using <code className="text-emerald-400 font-mono">IF NOT (OLD.col <=> NEW.col)</code> prevents comparison bugs when columns transition to or from `NULL`.
+                Using <code className="text-emerald-400 font-mono">IF NOT (OLD.col &lt;=&gt; NEW.col)</code> prevents comparison bugs when columns transition to or from `NULL`.
               </p>
               <div className="text-xs text-slate-400">
                 Guarantees complete change detection reliability.
@@ -658,7 +658,7 @@ VALUES (NEW.faculty_id, OLD.monthly_salary_inr, NEW.monthly_salary_inr, v_hike_i
 
           <Teacher
             note="The NEW and OLD pseudo-records provide the exact before-and-after state images needed to build industrial-strength audit logging, delta tracking, and data integrity safeguards. Always remember the permission rules: OLD is always read-only across all events, while NEW can only be modified via SET inside BEFORE INSERT and BEFORE UPDATE triggers. Always use the NULL-safe equal operator (<=>) when checking if columns have changed!"
-          /&gt;
+          />
         </section>
       </main>
     </div>

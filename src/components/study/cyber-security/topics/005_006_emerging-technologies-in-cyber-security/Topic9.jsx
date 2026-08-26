@@ -216,7 +216,7 @@ const Topic9 = () => {
                         ? "bg-purple-600 text-white shadow-lg shadow-purple-950"
                         : "bg-slate-900 text-slate-400 border border-slate-800"
                     )}
-                  &gt;
+                  >
                     Bit '0' (Center at 0)
                   </button>
                   <button
@@ -227,7 +227,7 @@ const Topic9 = () => {
                         ? "bg-purple-600 text-white shadow-lg shadow-purple-950"
                         : "bg-slate-900 text-slate-400 border border-slate-800"
                     )}
-                  &gt;
+                  >
                     Bit '1' (Center at q/2 = 48)
                   </button>
                 </div>
@@ -244,19 +244,19 @@ const Topic9 = () => {
                   <button
                     onClick={() => setErrorMagnitude(0)}
                     className={clsx("flex-1 py-1.5 rounded-lg text-[11px] font-bold border", errorMagnitude === 0 ? "bg-slate-800 text-white border-slate-600" : "bg-slate-950 text-slate-500 border-slate-800")}
-                  &gt;
+                  >
                     Zero Noise
                   </button>
                   <button
                     onClick={() => setErrorMagnitude(1)}
                     className={clsx("flex-1 py-1.5 rounded-lg text-[11px] font-bold border", errorMagnitude === 1 ? "bg-emerald-950 text-emerald-300 border-emerald-800" : "bg-slate-950 text-slate-500 border-slate-800")}
-                  &gt;
+                  >
                     Standard Noise (LWE)
                   </button>
                   <button
                     onClick={() => setErrorMagnitude(3)}
                     className={clsx("flex-1 py-1.5 rounded-lg text-[11px] font-bold border", errorMagnitude === 3 ? "bg-rose-950 text-rose-300 border-rose-800" : "bg-slate-950 text-slate-500 border-slate-800")}
-                  &gt;
+                  >
                     Excessive Noise (Fail)
                   </button>
                 </div>
@@ -325,7 +325,7 @@ const Topic9 = () => {
                       ? "bg-purple-600 text-white shadow-lg shadow-purple-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key}
                 </button>
               ))}
@@ -390,7 +390,7 @@ const Topic9 = () => {
                       ? "bg-purple-600 text-white shadow-lg shadow-purple-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_mldsa_pki" ? "Barrackpore ML-DSA PKI" : key === "kolkata_fintech_slhdsa_firmware" ? "Kolkata SLH-DSA POS" : "Ichapur Hybrid ML-KEM"}
                 </button>
               ))}

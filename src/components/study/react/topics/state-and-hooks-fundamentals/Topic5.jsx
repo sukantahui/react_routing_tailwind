@@ -26,7 +26,7 @@ const UnnecessaryStateExample = () => {
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             className="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700"
-          /&gt;
+          />
         </div>
         <div>
           <div className="text-sm opacity-70">Last Name:</div>
@@ -35,7 +35,7 @@ const UnnecessaryStateExample = () => {
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             className="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700"
-          /&gt;
+          />
         </div>
         <div>
           <div className="text-sm opacity-70">Full Name (computed):</div>
@@ -71,7 +71,7 @@ const OptimizedExample = () => {
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             className="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700"
-          /&gt;
+          />
         </div>
         <div>
           <div className="text-sm opacity-70">Last Name:</div>
@@ -80,7 +80,7 @@ const OptimizedExample = () => {
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             className="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700"
-          /&gt;
+          />
         </div>
         <div>
           <div className="text-sm opacity-70">Full Name (computed):</div>
@@ -116,7 +116,7 @@ const StudentGrades = () => {
     : 0;
   
   const gradeLetter = (score) => {
-    if (score &ge; 90) return 'A';
+    if (score >= 90) return 'A';
     if (score >= 80) return 'B';
     if (score >= 70) return 'C';
     if (score >= 60) return 'D';
@@ -149,7 +149,7 @@ const StudentGrades = () => {
                 onChange={(e) => setNewSubject(e.target.value)}
                 placeholder="Subject name"
                 className="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700"
-              /&gt;
+              />
             </div>
             <div>
               <div className="flex items-center gap-3">
@@ -161,7 +161,7 @@ const StudentGrades = () => {
                   value={newScore}
                   onChange={(e) => setNewScore(parseInt(e.target.value))}
                   className="flex-1"
-                /&gt;
+                />
                 <span className="font-bold">{newScore}</span>
               </div>
             </div>
@@ -205,7 +205,7 @@ const StudentGrades = () => {
               <div className={clsx(
                 "px-3 py-1 rounded-full text-sm font-bold",
                 grade.score >= 90 ? "bg-green-900/50 text-green-300" :
-                grade.score &ge; 80 ? "bg-blue-900/50 text-blue-300" :
+                grade.score >= 80 ? "bg-blue-900/50 text-blue-300" :
                 grade.score >= 70 ? "bg-yellow-900/50 text-yellow-300" :
                 grade.score >= 60 ? "bg-orange-900/50 text-orange-300" :
                 "bg-red-900/50 text-red-300"
@@ -466,13 +466,13 @@ const StateDecisionTree = () => {
               <button
                 onClick={() => handleAnswer('yes')}
                 className="flex-1 py-3 bg-green-600 hover:bg-green-500 rounded-lg font-bold"
-              &gt;
+              >
                 ✅ Yes
               </button>
               <button
                 onClick={() => handleAnswer('no')}
                 className="flex-1 py-3 bg-red-600 hover:bg-red-500 rounded-lg font-bold"
-              &gt;
+              >
                 ❌ No
               </button>
             </div>
@@ -721,7 +721,7 @@ const inputRef = useRef(null);`,
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-200 shadow-lg hover:shadow-xl" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-800 shadow-md hover:shadow-lg"
               )}
-            &gt;
+            >
               {isDarkMode ? '🌙 Dark' : '☀️ Light'}
             </button>
           </div>
@@ -822,7 +822,7 @@ const inputRef = useRef(null);`,
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             📋 Guidelines
           </button>
           <button
@@ -838,7 +838,7 @@ const inputRef = useRef(null);`,
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             🎮 Live Demos
           </button>
           <button
@@ -854,7 +854,7 @@ const inputRef = useRef(null);`,
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             💡 Code Examples
           </button>
         </div>
@@ -1058,7 +1058,7 @@ const inputRef = useRef(null);`,
                               ? "bg-purple-600 text-white"
                               : "bg-gray-700 hover:bg-gray-600"
                           )}
-                        &gt;
+                        >
                           {f}
                         </button>
                       ))}
@@ -1082,7 +1082,7 @@ const inputRef = useRef(null);`,
                               ? "bg-gray-600 hover:bg-gray-500"
                               : "bg-green-600 hover:bg-green-500"
                           )}
-                        &gt;
+                        >
                           {todo.startsWith('[Done]') ? 'Undo' : 'Done'}
                         </button>
                       </div>
@@ -1180,7 +1180,7 @@ const inputRef = useRef(null);`,
                 <button
                   onClick={() => setCounter(0)}
                   className="px-6 py-3 bg-gray-600 hover:bg-gray-500 rounded-lg"
-                &gt;
+                >
                   Reset
                 </button>
               </div>
@@ -1237,7 +1237,7 @@ const inputRef = useRef(null);`,
                           ? "bg-gray-700 hover:bg-gray-600" 
                           : "bg-gray-200 hover:bg-gray-300"
                     )}
-                  &gt;
+                  >
                     {example.title}
                   </button>
                 ))}

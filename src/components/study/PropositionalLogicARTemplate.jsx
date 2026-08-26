@@ -49,7 +49,7 @@ const LogicPlayground = () => {
             "hover:scale-105 hover:shadow-md",
             p ? "bg-green-600 hover:bg-green-700" : "bg-red-600 hover:bg-red-700"
           )}
-        &gt;
+        >
           p = {p ? "TRUE" : "FALSE"}
         </button>
         <button
@@ -59,7 +59,7 @@ const LogicPlayground = () => {
             "hover:scale-105 hover:shadow-md",
             q ? "bg-green-600 hover:bg-green-700" : "bg-red-600 hover:bg-red-700"
           )}
-        &gt;
+        >
           q = {q ? "TRUE" : "FALSE"}
         </button>
       </div>
@@ -305,7 +305,7 @@ const PropositionalLogicARTemplate = ({ data, isLoggedIn = false, organizationDe
                         <div className="flex items-center gap-3">
                           <span className="text-sm text-gray-400 bg-gray-700 px-2 py-1 rounded">[{q.marks} mark{q.marks !== 1 ? 's' : ''}]</span>
                           {isLoggedIn && (
-                            <button onClick={() => toggleAnswer(q.id)} className={`px-4 py-1.5 text-sm rounded-lg font-medium transition-all duration-200 shadow ${isOpen ? 'bg-gray-600 hover:bg-gray-500 text-white' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}&gt;
+                            <button onClick={() => toggleAnswer(q.id)} className={`px-4 py-1.5 text-sm rounded-lg font-medium transition-all duration-200 shadow ${isOpen ? 'bg-gray-600 hover:bg-gray-500 text-white' : 'bg-blue-600 hover:bg-blue-500 text-white'}`}>
                               {isOpen ? 'Hide Answer' : 'Show Answer'}
                             </button>
                           )}

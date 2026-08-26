@@ -73,8 +73,8 @@ export default class Topic1 extends Component {
           <div className="mermaid">
 {`
 flowchart TD
-  A["Start"] - &rarr; B["Execute Statements"]
-  B --&gt; C["Check Condition"]
+  A["Start"] --> B["Execute Statements"]
+  B --> C["Check Condition"]
   C -->|True| B
   C -->|False| D["Exit Loop"]
 `}
@@ -126,7 +126,7 @@ do{
 do{
   rev = rev * 10 + (n % 10);
   n = n / 10;
-}while(n > 0);`} /&gt;
+}while(n > 0);`} />
         </div>
 
         {/* ===== HINT ===== */}

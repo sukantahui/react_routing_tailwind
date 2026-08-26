@@ -50,7 +50,7 @@ const SopToPosConverter = () => {
       );
       setFilteredExamples(filtered);
       // Reset selected example if current selection is out of range
-      if (selectedExample &ge; filtered.length) {
+      if (selectedExample >= filtered.length) {
         setSelectedExample(0);
       }
     }
@@ -80,7 +80,7 @@ const SopToPosConverter = () => {
     for (let i = 0; i < totalRows; i++) {
       const values = [];
       for (let j = n - 1; j >= 0; j--) {
-        values.push((i &gt;> j) & 1);
+        values.push((i >> j) & 1);
       }
       
       let output = 0;
@@ -180,7 +180,7 @@ const SopToPosConverter = () => {
               }}
               placeholder="Search by name, SOP, or POS expression..."
               className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
-            /&gt;
+            />
           </div>
           
           <div className="mb-2 flex justify-between items-center">
@@ -214,7 +214,7 @@ const SopToPosConverter = () => {
                     : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                 )}
                 title={ex.name}
-              &gt;
+              >
                 {ex.id}. {ex.name}
               </button>
             ))}
@@ -292,7 +292,7 @@ const SopToPosConverter = () => {
                       ))}
                     </tbody>
                   </table>
-                  {currentExample.variables === 4 && rows.length &gt; 12 && (
+                  {currentExample.variables === 4 && rows.length > 12 && (
                     <p className="text-xs text-gray-500 mt-1">Showing first 12 of {rows.length} rows</p>
                   )}
                 </div>
@@ -304,7 +304,7 @@ const SopToPosConverter = () => {
               <button
                 onClick={() => setShowSteps(!showSteps)}
                 className="w-full py-2 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-lg font-medium transition-all duration-300 hover:bg-blue-200 dark:hover:bg-blue-900/60 mb-4"
-              &gt;
+              >
                 {showSteps ? "📖 Hide" : "📖 Show"} Step-by-Step Algebraic Conversion
               </button>
               

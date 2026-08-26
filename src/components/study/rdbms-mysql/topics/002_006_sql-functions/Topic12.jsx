@@ -33,7 +33,7 @@ const Topic12 = () => {
 FROM student_enrollments
 WHERE enrollment_status = 'ACTIVE' AND is_fee_cleared = 1  -- Row-level filter BEFORE grouping
 GROUP BY centre_city
-HAVING COUNT(*) &ge; 50 AND SUM(fee_paid_inr) >= 250000       -- Group-level filter AFTER aggregation
+HAVING COUNT(*) >= 50 AND SUM(fee_paid_inr) >= 250000       -- Group-level filter AFTER aggregation
 ORDER BY collected_revenue_inr DESC;`,
       resultRows: [
         { group: "Kolkata Central", metric1: "120 Active Students", metric2: "₹6,60,000.00", status: "PASSED (Count >= 50 & Rev >= ₹2.5L)", badgeColor: "emerald" },
@@ -55,7 +55,7 @@ ORDER BY collected_revenue_inr DESC;`,
 FROM batch_evaluations
 WHERE exam_type = 'FINAL_SEMESTER'
 GROUP BY batch_name
-HAVING AVG(marks_pct) >= 80.00 AND MIN(marks_pct) &ge; 60.00
+HAVING AVG(marks_pct) >= 80.00 AND MIN(marks_pct) >= 60.00
 ORDER BY batch_mean_score DESC;`,
       resultRows: [
         { group: "React Barrackpore Morning", metric1: "25 Students", metric2: "88.40% Mean", status: "PASSED (Avg >= 80% & Min >= 60%)", badgeColor: "emerald" },
@@ -64,7 +64,7 @@ ORDER BY batch_mean_score DESC;`,
       ],
       verdictText: "✓ AGGREGATE THRESHOLD APPLIED",
       badgeColor: "cyan",
-      explanation: "HAVING filters whole batches based on their computed statistical mean (AVG >= 80%) and baseline performance floor (MIN &ge; 60%).",
+      explanation: "HAVING filters whole batches based on their computed statistical mean (AVG >= 80%) and baseline performance floor (MIN >= 60%).",
     },
     mode_vip_customers: {
       title: "3. E-Commerce VIP High-Spender Accounts",
@@ -101,7 +101,7 @@ HAVING AVG(marks_pct) >= 70.00;`,
       ],
       verdictText: "✓ SINGLE ROW EMITTED",
       badgeColor: "amber",
-      explanation: "Without GROUP BY, HAVING treats the entire table as 1 global group. If the global average &ge; 70%, 1 row is returned; otherwise 0 rows are returned.",
+      explanation: "Without GROUP BY, HAVING treats the entire table as 1 global group. If the global average >= 70%, 1 row is returned; otherwise 0 rows are returned.",
     },
   };
 
@@ -199,7 +199,7 @@ HAVING AVG(marks_pct) >= 70.00;`,
               </p>
               <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 font-mono text-xs text-slate-300 space-y-1">
                 <div><span className="text-slate-500">-- Filters aggregated groups:</span></div>
-                <div><span className="text-cyan-400">HAVING COUNT</span>(*) >= 50 <span className="text-cyan-400">AND AVG</span>(marks) >= 75;</div>
+                <div><span className="text-cyan-400">HAVING COUNT</span>(*) &gt;= 50 <span className="text-cyan-400">AND AVG</span>(marks) &gt;= 75;</div>
               </div>
             </div>
           </div>
@@ -279,7 +279,7 @@ HAVING AVG(marks_pct) >= 70.00;`,
                 <pre>{`-- FATAL ERROR 1111:
 SELECT student_name, marks 
 FROM students 
-WHERE marks &gt; AVG(marks);  -- Illegal in WHERE!`}</pre>
+WHERE marks > AVG(marks);  -- Illegal in WHERE!`}</pre>
               </div>
             </div>
 
@@ -294,7 +294,7 @@ WHERE marks &gt; AVG(marks);  -- Illegal in WHERE!`}</pre>
                 <pre>{`-- VALID & PRODUCTION OPTIMIZED:
 SELECT student_name, marks 
 FROM students 
-WHERE marks &gt; (SELECT AVG(marks) FROM students);`}</pre>
+WHERE marks > (SELECT AVG(marks) FROM students);`}</pre>
               </div>
             </div>
           </div>
@@ -401,15 +401,15 @@ WHERE marks &gt; (SELECT AVG(marks) FROM students);`}</pre>
                 <text x="125" y="21" fill="#ffffff" fontSize="11.5" fontWeight="bold" textAnchor="middle">3. HAVING Gate (Group Filter)</text>
 
                 <rect x="15" y="45" width="220" height="40" rx="6" fill="#1e293b" stroke="#6366f1" />
-                <text x="25" y="65" fill="#a5b4fc" fontSize="10" fontWeight="bold">HAVING COUNT(*) >= 50</text>
-                <text x="25" y="78" fill="#c7d2fe" fontSize="9">AND SUM(fee) >= ₹2,50,000</text>
+                <text x="25" y="65" fill="#a5b4fc" fontSize="10" fontWeight="bold">HAVING COUNT(*) &gt;= 50</text>
+                <text x="25" y="78" fill="#c7d2fe" fontSize="9">AND SUM(fee) &gt;= ₹2,50,000</text>
 
                 {/* Verdicts */}
                 <rect x="15" y="95" width="220" height="36" rx="6" fill="#064e3b" stroke="#10b981" />
-                <text x="25" y="118" fill="#a7f3d0" fontSize="10" fontWeight="bold">✓ Kolkata: PASSED (160 >= 50)</text>
+                <text x="25" y="118" fill="#a7f3d0" fontSize="10" fontWeight="bold">✓ Kolkata: PASSED (160 &gt;= 50)</text>
 
                 <rect x="15" y="140" width="220" height="36" rx="6" fill="#064e3b" stroke="#10b981" />
-                <text x="25" y="163" fill="#a7f3d0" fontSize="10" fontWeight="bold">✓ Barrackpore: PASSED (140 >= 50)</text>
+                <text x="25" y="163" fill="#a7f3d0" fontSize="10" fontWeight="bold">✓ Barrackpore: PASSED (140 &gt;= 50)</text>
 
                 <rect x="15" y="185" width="220" height="36" rx="6" fill="#881337" stroke="#f43f5e" />
                 <text x="25" y="208" fill="#fecdd3" fontSize="10" fontWeight="bold">✗ Ichapur: DROPPED (40 &lt; 50)</text>
@@ -447,7 +447,7 @@ WHERE marks &gt; (SELECT AVG(marks) FROM students);`}</pre>
                         ? "bg-cyan-950/80 border-cyan-500 text-cyan-200 shadow-lg shadow-cyan-950/50"
                         : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                     )}
-                  &gt;
+                  >
                     <div className="font-semibold">{item.title}</div>
                   </button>
                 );
@@ -555,7 +555,7 @@ WHERE marks &gt; (SELECT AVG(marks) FROM students);`}</pre>
 FROM admissions_master
 WHERE status = 'ACTIVE' AND YEAR(admission_date) = 2026
 GROUP BY centre_city
-HAVING SUM(tuition_fee_inr) &ge; 300000;`}</pre>
+HAVING SUM(tuition_fee_inr) >= 300000;`}</pre>
               </div>
             </div>
 
@@ -577,7 +577,7 @@ HAVING SUM(tuition_fee_inr) &ge; 300000;`}</pre>
 FROM customer_orders
 WHERE payment_status = 'SETTLED'
 GROUP BY customer_id
-HAVING COUNT(order_id) &ge; 5 AND AVG(order_amount_inr) &gt; 4000;`}</pre>
+HAVING COUNT(order_id) >= 5 AND AVG(order_amount_inr) > 4000;`}</pre>
               </div>
             </div>
 
@@ -599,7 +599,7 @@ HAVING COUNT(order_id) &ge; 5 AND AVG(order_amount_inr) &gt; 4000;`}</pre>
     MIN(score_pct) AS lowest_score
 FROM exam_ledger
 GROUP BY batch_name
-HAVING AVG(score_pct) &ge; 80.00 AND MIN(score_pct) >= 40.00;`}</pre>
+HAVING AVG(score_pct) >= 80.00 AND MIN(score_pct) >= 40.00;`}</pre>
               </div>
             </div>
 
@@ -621,7 +621,7 @@ HAVING AVG(score_pct) &ge; 80.00 AND MIN(score_pct) >= 40.00;`}</pre>
 FROM student_directory
 WHERE registration_status = 'CONFIRMED'
 GROUP BY centre_city
-HAVING COUNT(DISTINCT course_id) &ge; 3 AND COUNT(*) >= 50;`}</pre>
+HAVING COUNT(DISTINCT course_id) >= 3 AND COUNT(*) >= 50;`}</pre>
               </div>
             </div>
           </div>

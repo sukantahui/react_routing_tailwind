@@ -223,7 +223,7 @@ const Topic20 = () => {
                           : 'bg-purple-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
                     )}
-                  &gt;
+                  >
                     {tab === 'immutability' ? 'Concept' : 
                      tab === 'wrong' ? 'Wrong Way' : 
                      'Right Way'}
@@ -522,7 +522,7 @@ function UserProfile({ user, onUpdateUser }) {
                             setUserData(updatedUser);
                             alert('✅ Parent received update request and updated state!');
                           }}
-                        /&gt;
+                        />
                         <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
                           The child can request changes but cannot modify props directly.
                         </p>

@@ -260,7 +260,7 @@ const Topic9 = () => {
                       ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                       : "bg-slate-900 text-slate-400 border-slate-800"
                   )}
-                &gt;
+                >
                   departments ➔ students
                 </button>
                 <button
@@ -271,7 +271,7 @@ const Topic9 = () => {
                       ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                       : "bg-slate-900 text-slate-400 border-slate-800"
                   )}
-                &gt;
+                >
                   students ➔ student_courses
                 </button>
                 <button
@@ -282,7 +282,7 @@ const Topic9 = () => {
                       ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                       : "bg-slate-900 text-slate-400 border-slate-800"
                   )}
-                &gt;
+                >
                   courses ➔ student_courses
                 </button>
               </div>
@@ -291,7 +291,7 @@ const Topic9 = () => {
                 <button
                   onClick={() => setActiveTab(activeTab === "canvas" ? "ddl" : "canvas")}
                   className="px-3 py-1 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-bold hover:bg-indigo-500/30 transition-all flex items-center gap-1"
-                &gt;
+                >
                   <span>⚡</span> {activeTab === "canvas" ? "Forward Engineer SQL" : "View Canvas"}
                 </button>
               </div>
@@ -442,7 +442,7 @@ const Topic9 = () => {
                 Pressing <code>Ctrl + R</code> in MySQL Workbench instantly reverse-engineers all tables, foreign keys, and indexes into a diagram.
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
-{`-- Step 1: Menu &rarr; Database -&gt; Reverse Engineer (Ctrl+R)
+{`-- Step 1: Menu -> Database -> Reverse Engineer (Ctrl+R)
 -- Step 2: Select 'college_db' schema
 -- Step 3: Workbench generates visual EER model showing departments (1) ──< (n) students`}
               </pre>
@@ -460,7 +460,7 @@ const Topic9 = () => {
                 Visual EER diagrams exported directly into <code>schema_production.sql</code> for deployment pipelines.
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
-{`-- Menu &rarr; Database -&gt; Forward Engineer... (Ctrl+G)
+{`-- Menu -> Database -> Forward Engineer... (Ctrl+G)
 -- Generates clean, standardized CREATE TABLE scripts with FOREIGN KEY constraints`}
               </pre>
             </div>

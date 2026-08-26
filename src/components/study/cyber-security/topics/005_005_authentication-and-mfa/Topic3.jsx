@@ -42,7 +42,7 @@ const Topic3 = () => {
   const mfaAssessment = useMemo(() => {
     const selected = availableFactors.filter((f) => selectedFactorIds.includes(f.id));
     const categories = new Set(selected.map((f) => f.factor));
-    const isTrueMfa = categories.size &ge; 2;
+    const isTrueMfa = categories.size >= 2;
     const hasFido = selectedFactorIds.includes("fido2_key");
 
     let aal = "";
@@ -284,7 +284,7 @@ const Topic3 = () => {
                         ? "bg-indigo-950/80 border-indigo-500 shadow-md shadow-indigo-950/50"
                         : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700"
                     )}
-                  &gt;
+                  >
                     <div className="flex items-center justify-between">
                       <span className="text-lg">{factor.icon}</span>
                       <span className={clsx("text-[9px] px-1.5 py-0.5 rounded font-bold uppercase", factor.color)}>
@@ -399,7 +399,7 @@ const Topic3 = () => {
                   value={pushCount}
                   onChange={(e) => setPushCount(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                /&gt;
+                />
                 <div className="flex justify-between text-[10px] text-slate-500">
                   <span>1 Prompt (Normal)</span>
                   <span>15 Prompts (Heavy Bombing)</span>
@@ -421,7 +421,7 @@ const Topic3 = () => {
                       ? "bg-emerald-600 text-white"
                       : "bg-slate-800 text-slate-400 hover:text-white"
                   )}
-                &gt;
+                >
                   {hasNumberMatching ? "ENABLED ✔" : "DISABLED ❌"}
                 </button>
               </div>
@@ -474,7 +474,7 @@ const Topic3 = () => {
                   value={transferAmount}
                   onChange={(e) => setTransferAmount(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-2 pt-2 border-t border-slate-800 text-xs">
@@ -485,7 +485,7 @@ const Topic3 = () => {
                     checked={isUnrecognizedDevice}
                     onChange={(e) => setIsUnrecognizedDevice(e.target.checked)}
                     className="accent-indigo-500 w-4 h-4"
-                  /&gt;
+                  />
                 </label>
                 <label className="flex items-center justify-between p-2 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
                   <span>Off-Hours Session (01:00 AM - 05:00 AM IST)</span>
@@ -494,7 +494,7 @@ const Topic3 = () => {
                     checked={isLateNightAccess}
                     onChange={(e) => setIsLateNightAccess(e.target.checked)}
                     className="accent-indigo-500 w-4 h-4"
-                  /&gt;
+                  />
                 </label>
                 <label className="flex items-center justify-between p-2 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
                   <span>Tor Anonymizer / High-Risk IP Origin</span>
@@ -503,7 +503,7 @@ const Topic3 = () => {
                     checked={isTorExitNode}
                     onChange={(e) => setIsTorExitNode(e.target.checked)}
                     className="accent-rose-500 w-4 h-4"
-                  /&gt;
+                  />
                 </label>
               </div>
             </div>
@@ -519,7 +519,7 @@ const Topic3 = () => {
                 </div>
                 <div className="space-y-1">
                   <span className="text-[10px] font-bold text-slate-500 uppercase">Active Risk Triggers:</span>
-                  {adaptiveAssessment.triggers.length &gt; 0 ? (
+                  {adaptiveAssessment.triggers.length > 0 ? (
                     <ul className="space-y-1 text-xs text-amber-300">
                       {adaptiveAssessment.triggers.map((t, idx) => (
                         <li key={idx} className="flex items-center gap-1.5">
@@ -560,7 +560,7 @@ const Topic3 = () => {
                       ? "bg-indigo-600 text-white shadow-lg shadow-indigo-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_treasury" ? "Barrackpore Treasury" : key === "kolkata_fintech_number_matching" ? "Kolkata FinTech" : "Ichapur Adaptive IAM"}
                 </button>
               ))}

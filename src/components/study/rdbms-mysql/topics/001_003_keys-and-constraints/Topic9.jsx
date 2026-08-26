@@ -89,7 +89,7 @@ const Topic9 = () => {
     const maxExistingId = studentRows.length > 0 ? Math.max(...studentRows.map((r) => r.id)) : 0;
     const target = Number(resetTargetValue);
 
-    if (target &le; maxExistingId) {
+    if (target <= maxExistingId) {
       setEngineFeedback(
         `⚠️ SILENTLY IGNORED: Attempted ALTER TABLE students AUTO_INCREMENT = ${target}. Since target (${target}) <= MAX(id) (${maxExistingId}), InnoDB silently ignored the request! Counter remains at ${currentCounter}.`
       );
@@ -221,7 +221,7 @@ const Topic9 = () => {
                 The Monotonic Progression Rule
               </span>
               <p className="text-xs text-slate-400 mb-2">
-                <code>ALTER TABLE tbl AUTO_INCREMENT = N</code> is SILENTLY IGNORED if <code>N <= MAX(id)</code>.
+                <code>ALTER TABLE tbl AUTO_INCREMENT = N</code> is SILENTLY IGNORED if <code>N &lt;= MAX(id)</code>.
               </p>
               <pre className="rounded bg-slate-900 p-2 font-mono text-[11px] text-cyan-300 border border-slate-800">
                 -- If MAX(id) is 1002, setting to 50 does nothing!
@@ -242,8 +242,8 @@ const Topic9 = () => {
               aria-label="Monotonic Progression Diagram"
             >
               {[
-                { title: "Target &gt; MAX(id) (e.g. 5000)", result: "✓ Counter Advances to 5000", color: "#10b981" },
-                { title: "Target &le; MAX(id) (e.g. 50)", result: "⚠️ Silently Ignored (Stays at 1003)", color: "#f59e0b" },
+                { title: "Target > MAX(id) (e.g. 5000)", result: "✓ Counter Advances to 5000", color: "#10b981" },
+                { title: "Target <= MAX(id) (e.g. 50)", result: "⚠️ Silently Ignored (Stays at 1003)", color: "#f59e0b" },
                 { title: "TRUNCATE TABLE students", result: "✓ Counter Resets Back to 1", color: "#38bdf8" },
               ].map((c, idx) => (
                 <g key={idx} transform={`translate(${20 + idx * 250}, 20)`}>
@@ -302,7 +302,7 @@ const Topic9 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       Seed = {s}
                     </button>
                   ))}
@@ -337,7 +337,7 @@ const Topic9 = () => {
                     onChange={(e) => setResetTargetValue(Number(e.target.value))}
                     className="flex-1 rounded-lg bg-slate-900 border border-slate-800 px-3 py-2 text-xs text-white focus:border-cyan-500 focus:outline-none"
                     placeholder="e.g. 5000 or 50"
-                  /&gt;
+                  />
                   <button
                     onClick={handleAttemptReset}
                     className="py-2 px-3 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-bold hover:bg-cyan-500/30 transition-all"
@@ -359,7 +359,7 @@ const Topic9 = () => {
                 <div className="rounded-xl border border-slate-800 bg-slate-950 p-2.5">
                   <span className="text-[10px] uppercase font-bold text-slate-500 block">Max Existing ID</span>
                   <span className="text-base font-bold font-mono text-teal-400">
-                    {studentRows.length &gt; 0 ? Math.max(...studentRows.map((r) => r.id)) : "None (0)"}
+                    {studentRows.length > 0 ? Math.max(...studentRows.map((r) => r.id)) : "None (0)"}
                   </span>
                 </div>
               </div>

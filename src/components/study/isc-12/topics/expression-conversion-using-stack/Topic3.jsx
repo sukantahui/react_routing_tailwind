@@ -184,7 +184,7 @@ export default function Topic3() {
                 <ul className="text-sm text-gray-600 dark:text-gray-400 mt-1 space-y-1">
                   <li><code>==</code> equal</li>
                   <li><code>!=</code> not equal</li>
-                  <li><code>&gt;</code>, <code>&lt;</code>, <code>>=</code>, <code><=</code></li>
+                  <li><code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
                 </ul>
               </div>
               <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-200">
@@ -236,7 +236,7 @@ export default function Topic3() {
               </p>
               <p>
                 <strong>Binary operators</strong> are everywhere. Calculating total marks: <code>total = maths + science + english</code>;
-                checking eligibility: <code>if (age >= 18 &amp;&amp; hasLicense)</code>; and assignment: <code>score = 100;</code>.
+                checking eligibility: <code>if (age &gt;= 18 &amp;&amp; hasLicense)</code>; and assignment: <code>score = 100;</code>.
               </p>
               <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-4 border border-purple-200 dark:border-purple-800">
                 <p className="text-sm">

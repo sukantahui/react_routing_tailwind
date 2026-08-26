@@ -350,7 +350,7 @@ const FAQTemplate = ({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full px-5 py-3 pl-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
-          /&gt;
+          />
           <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg">
             🔍
           </span>
@@ -358,7 +358,7 @@ const FAQTemplate = ({
             <button
               onClick={() => setSearchTerm("")}
               className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-            &gt;
+            >
               ✕
             </button>
           )}
@@ -397,7 +397,7 @@ const FAQTemplate = ({
                 <button
                   onClick={() => toggleAnswer(originalIdx)}
                   className="w-full text-left px-6 py-4 bg-gray-50 dark:bg-gray-900/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 flex justify-between items-center group"
-                &gt;
+                >
                   <div className="flex items-start gap-3">
                     <span className="font-bold text-indigo-500 dark:text-indigo-400 min-w-[2rem]">
                       {originalIdx + 1}.
@@ -460,7 +460,7 @@ const FAQTemplate = ({
             <button
               onClick={() => setSearchTerm("")}
               className="mt-3 text-indigo-500 hover:text-indigo-600 underline"
-            &gt;
+            >
               Clear search
             </button>
           </div>

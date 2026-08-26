@@ -34,13 +34,13 @@ export default class QuizIfElse extends Component {
           <button key={i}
             onClick={()=>this.handleSelect(i)}
             className={`block w-full text-left p-2 mb-2 rounded border
-              ${this.state.selected===i?"bg-sky-100 dark:bg-sky-900":""}`}&gt;
+              ${this.state.selected===i?"bg-sky-100 dark:bg-sky-900":""}`}>
             {opt}
           </button>
         ))}
 
         <button onClick={()=>this.handleSubmit()}
-          className="mt-2 px-4 py-2 bg-sky-500 text-white rounded"&gt;
+          className="mt-2 px-4 py-2 bg-sky-500 text-white rounded">
           Submit
         </button>
 

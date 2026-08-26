@@ -109,7 +109,7 @@ const Topic3 = () => {
                     ? "bg-sky-500 text-slate-950 font-bold shadow-lg shadow-sky-500/25"
                     : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
                 }`}
-              &gt;
+              >
                 Archimedean (r = aθ)
               </button>
 
@@ -120,7 +120,7 @@ const Topic3 = () => {
                     ? "bg-emerald-500 text-slate-950 font-bold shadow-lg shadow-emerald-500/25"
                     : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
                 }`}
-              &gt;
+              >
                 Square Vortex ({turnAngle}°)
               </button>
 
@@ -131,7 +131,7 @@ const Topic3 = () => {
                     ? "bg-purple-500 text-slate-950 font-bold shadow-lg shadow-purple-500/25"
                     : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
                 }`}
-              &gt;
+              >
                 Fibonacci Golden Spiral
               </button>
 
@@ -145,7 +145,7 @@ const Topic3 = () => {
                     value={turnAngle}
                     onChange={(e) => setTurnAngle(Number(e.target.value))}
                     className="w-16 accent-emerald-400 cursor-pointer"
-                  /&gt;
+                  />
                   <span className="font-mono text-xs text-emerald-300 w-6">{turnAngle}°</span>
                 </div>
               )}
@@ -179,7 +179,7 @@ const Topic3 = () => {
                   let cx = 0, cy = 0;
                   let heading = 0;
                   const pts = ["0,0"];
-                  for (let i = 1; i &le; 35; i++) {
+                  for (let i = 1; i <= 35; i++) {
                     const len = i * 4.5;
                     const rad = (heading * Math.PI) / 180;
                     cx += len * Math.cos(rad);

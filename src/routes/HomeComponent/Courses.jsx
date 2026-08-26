@@ -146,13 +146,13 @@ const Courses = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-12 pr-12 py-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 focus:border-sky-500 focus:ring-4 focus:ring-sky-500/20 text-slate-100 placeholder-slate-500 text-sm sm:text-base outline-none transition-all shadow-inner backdrop-blur-xl"
               aria-label="Search courses"
-            /&gt;
+            />
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm("")}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1"
                 aria-label="Clear search"
-              &gt;
+              >
                 ✕
               </button>
             )}
@@ -169,7 +169,7 @@ const Courses = () => {
                     ? "bg-gradient-to-r from-pink-500 to-rose-600 text-white shadow-lg shadow-pink-500/25 scale-105"
                     : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
                 }`}
-              &gt;
+              >
                 {cat}
               </button>
             ))}
@@ -197,7 +197,7 @@ const Courses = () => {
                   <div
                     onClick={() => toggleGroup(group.category)}
                     className="relative bg-slate-900/60 backdrop-blur-xl rounded-3xl border border-slate-800/90 hover:border-sky-500/40 p-6 sm:p-7 cursor-pointer transition-all duration-300 shadow-xl shadow-black/20 group hover:shadow-[0_0_30px_rgba(56,189,248,0.12)]"
-                  &gt;
+                  >
                     {/* Category Header */}
                     <div className="flex items-center justify-between gap-4">
                       <div className="flex items-center gap-4">
@@ -236,13 +236,13 @@ const Courses = () => {
                           transition={{ duration: 0.4, ease: "easeInOut" }}
                           className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 pt-6 border-t border-slate-800"
                           onClick={(e) => e.stopPropagation()}
-                        &gt;
+                        >
                           {visibleCourses.map((course, index) => (
                             <motion.div
                               key={course.courseID}
                               ref={(el) => (courseRefs.current[`${group.category}_${index}`] = el)}
                               className="bg-slate-950/70 border border-slate-800/90 rounded-2xl p-5 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between"
-                            &gt;
+                            >
                               <div>
                                 <div className="flex items-start gap-3.5 mb-3">
                                   <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 p-2 flex items-center justify-center flex-shrink-0">
@@ -294,7 +294,7 @@ const Courses = () => {
                                   <button
                                     onClick={() => toggleCourseDescription(course.courseID)}
                                     className="flex-1 text-xs font-semibold py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition"
-                                  &gt;
+                                  >
                                     {courseDescExpanded[course.courseID] ? "Hide Syllabus" : "View Syllabus"}
                                   </button>
                                 )}

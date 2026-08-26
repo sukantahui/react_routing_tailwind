@@ -261,7 +261,7 @@ export default function Topic6() {
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Polygon Exterior Angles
               </button>
               <button
@@ -272,7 +272,7 @@ export default function Topic6() {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 5-Pointed Star (144° Turn)
               </button>
               <button
@@ -283,7 +283,7 @@ export default function Topic6() {
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              &gt;
+              >
                 Degrees vs Radians Modes
               </button>
             </div>
@@ -427,7 +427,7 @@ export default function Topic6() {
                       ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-md shadow-teal-950/50"
                       : "bg-slate-900 border-slate-800 text-slate-400 hover:text-white"
                   )}
-                &gt;
+                >
                   {shapeSpecs[k].name}
                 </button>
               ))}
@@ -444,13 +444,13 @@ export default function Topic6() {
                   onClick={handleNextStep}
                   className="px-4 py-1.5 bg-teal-950/80 border border-teal-600 rounded-lg text-xs font-bold text-teal-300 hover:bg-teal-900 transition-all"
                 >
-                  {currentStepIndex &ge; currentSpec.sides ? "Restart Shape ↺" : "Draw Next Side ⏩"}
+                  {currentStepIndex >= currentSpec.sides ? "Restart Shape ↺" : "Draw Next Side ⏩"}
                 </button>
 
                 <button
                   onClick={() => setCurrentStepIndex(0)}
                   className="px-3 py-1.5 bg-slate-800 border border-slate-700 rounded-lg text-xs font-bold text-slate-300 hover:bg-slate-700 transition-all"
-                &gt;
+                >
                   Reset
                 </button>
               </div>
@@ -465,7 +465,7 @@ export default function Topic6() {
                 <line x1="0" y1="-65" x2="0" y2="65" stroke="#334155" strokeWidth="1" strokeDasharray="3 3" />
 
                 {/* Drawn Points Path */}
-                {points.length &gt; 1 && (
+                {points.length > 1 && (
                   <polyline
                     points={points.map((p) => `${p.x},${-p.y}`).join(" ")}
                     fill="none"
@@ -473,7 +473,7 @@ export default function Topic6() {
                     strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                  /&gt;
+                  />
                 )}
 
                 {/* Turtle Cursor */}

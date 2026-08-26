@@ -794,7 +794,7 @@ const Topic12 = () => {
                       onChange={(e) => updateFormField('firstName', e.target.value)}
                       className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg
                                bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
-                    /&gt;
+                    />
                   </div>
                   
                   <div>
@@ -805,7 +805,7 @@ const Topic12 = () => {
                       onChange={(e) => updateFormField('lastName', e.target.value)}
                       className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg
                                bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
-                    /&gt;
+                    />
                   </div>
                 </div>
                 
@@ -817,7 +817,7 @@ const Topic12 = () => {
                     onChange={(e) => updateFormField('email', e.target.value)}
                     className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg
                              bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
-                  /&gt;
+                  />
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
@@ -829,7 +829,7 @@ const Topic12 = () => {
                       onChange={(e) => updateNestedFormField('address', 'city', e.target.value)}
                       className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg
                                bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
-                    /&gt;
+                    />
                   </div>
                   
                   <div>
@@ -840,7 +840,7 @@ const Topic12 = () => {
                       onChange={(e) => updateNestedFormField('address', 'zipCode', e.target.value)}
                       className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg
                                bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
-                    /&gt;
+                    />
                   </div>
                 </div>
                 
@@ -853,7 +853,7 @@ const Topic12 = () => {
                         checked={formData.preferences.newsletter}
                         onChange={(e) => updateNestedFormField('preferences', 'newsletter', e.target.checked)}
                         className="mr-2"
-                      /&gt;
+                      />
                       <span className="text-sm">Newsletter</span>
                     </label>
                     
@@ -863,7 +863,7 @@ const Topic12 = () => {
                         checked={formData.preferences.notifications}
                         onChange={(e) => updateNestedFormField('preferences', 'notifications', e.target.checked)}
                         className="mr-2"
-                      /&gt;
+                      />
                       <span className="text-sm">Notifications</span>
                     </label>
                   </div>
@@ -937,7 +937,7 @@ const Topic12 = () => {
                           className="w-8 h-8 flex items-center justify-center bg-red-100 dark:bg-red-900/30 
                                    text-red-600 dark:text-red-300 rounded-full hover:bg-red-200 
                                    dark:hover:bg-red-900/50 transition-colors"
-                        &gt;
+                        >
                           -
                         </button>
                         <span className="font-bold">{item.quantity}</span>
@@ -946,7 +946,7 @@ const Topic12 = () => {
                           className="w-8 h-8 flex items-center justify-center bg-green-100 dark:bg-green-900/30 
                                    text-green-600 dark:text-green-300 rounded-full hover:bg-green-200 
                                    dark:hover:bg-green-900/50 transition-colors"
-                        &gt;
+                        >
                           +
                         </button>
                       </div>
@@ -1191,7 +1191,7 @@ const Topic12 = () => {
               onClick={() => setUpdateHistory([])}
               className="px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 
                        text-gray-800 dark:text-white rounded-lg transition-all duration-300"
-            &gt;
+            >
               Clear History
             </button>
           </div>

@@ -279,7 +279,7 @@ const Topic3 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Mentor Self-Join (Hierarchy Lookup)
               </button>
               <button

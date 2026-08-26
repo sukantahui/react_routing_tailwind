@@ -466,7 +466,7 @@ builtins.input = _js_input
                 this.setState({ showLineNumbers: !showLineNumbers })
               }
               className="px-2 py-1 rounded bg-indigo-600 text-white flex items-center gap-1"
-            &gt;
+            >
               <LayoutList size={14} /> Lines
             </button>
 
@@ -476,7 +476,7 @@ builtins.input = _js_input
               className={`px-2 py-1 rounded ${
                 autoRun ? "bg-green-700" : "bg-green-600"
               } text-white flex items-center gap-1`}
-            &gt;
+            >
               <Play size={14} /> Auto
             </button>
 
@@ -487,7 +487,7 @@ builtins.input = _js_input
                   this.setState({ showFontMenu: !showFontMenu })
                 }
                 className="px-2 py-1 rounded bg-blue-600 text-white flex items-center gap-1"
-              &gt;
+              >
                 <Type size={14} /> Font
               </button>
 
@@ -507,7 +507,7 @@ builtins.input = _js_input
                           ? "bg-sky-600 text-white"
                           : "text-slate-300 hover:bg-slate-700"
                       }`}
-                    &gt;
+                    >
                       {size}px
                     </button>
                   ))}
@@ -522,7 +522,7 @@ builtins.input = _js_input
                   this.setState({ showThemeMenu: !showThemeMenu })
                 }
                 className="px-2 py-1 rounded bg-yellow-600 text-white flex items-center gap-1"
-              &gt;
+              >
                 🎨 Theme
               </button>
 
@@ -552,7 +552,7 @@ builtins.input = _js_input
                           ? "bg-sky-600 text-white"
                           : "text-slate-300 hover:bg-slate-700"
                       }`}
-                    &gt;
+                    >
                       {t.label}
                     </button>
                   ))}
@@ -597,7 +597,7 @@ builtins.input = _js_input
                 alert("Copied!");
               }}
               className="px-2 py-1 rounded bg-slate-600 text-white flex items-center gap-1"
-            &gt;
+            >
               <Copy size={14} /> Copy
             </button>
 
@@ -615,7 +615,7 @@ builtins.input = _js_input
                 this.setState({ showConsole: !showConsole })
               }
               className="px-2 py-1 rounded bg-orange-600 text-white flex items-center gap-1"
-            &gt;
+            >
               {showConsole ? <EyeOff size={14} /> : <Eye size={14} />}
               Console
             </button>
@@ -639,7 +639,7 @@ builtins.input = _js_input
               lineNumbers: showLineNumbers ? "on" : "off",
               padding: { top: 20, bottom: 20 },
             }}
-          /&gt;
+          />
         </div>
 
         {/* ERROR PANEL */}

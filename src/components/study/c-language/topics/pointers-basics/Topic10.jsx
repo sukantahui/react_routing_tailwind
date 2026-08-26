@@ -133,7 +133,7 @@ p[1]     // 20
       <div className="animate-fade-up bg-red-50 dark:bg-red-950/20 border-l-4 border-red-500 p-5 rounded-r-xl" style={{ animationDelay: "250ms" }}>
         <h3 className="text-xl font-semibold text-red-700 dark:text-red-400 mb-2">⚠️ Common Pitfalls</h3>
         <ul className="list-disc list-inside space-y-1">
-          <li><strong>Off-by-one errors:</strong> When using pointer arithmetic, it's easy to go one past the end (e.g., <code>while(p <= end)</code> vs <code>p &lt; end</code>).</li>
+          <li><strong>Off-by-one errors:</strong> When using pointer arithmetic, it's easy to go one past the end (e.g., <code>while(p &lt;= end)</code> vs <code>p &lt; end</code>).</li>
           <li><strong>Mixing array and pointer declarations incorrectly:</strong> <code>int *p = arr;</code> works, but <code>int *p = &arr;</code> gives wrong type.</li>
           <li><strong>Assuming pointer notation is always faster:</strong> Modern compilers optimize both equally; focus on clarity.</li>
           <li><strong>Modifying the base pointer when you still need the start:</strong> If you increment <code>p</code>, you lose the original address unless you keep a copy.</li>

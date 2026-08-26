@@ -210,13 +210,13 @@ const Topic4 = () => {
                       <button
                         onClick={() => setCount(count + 1)}
                         className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
-                      &gt;
+                      >
                         Increment Counter
                       </button>
                       <button
                         onClick={() => setIsPresent(!isPresent)}
                         className="w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
-                      &gt;
+                      >
                         Toggle Attendance
                       </button>
                       <button
@@ -579,14 +579,14 @@ function AttendanceDisplay() {
       <button 
         id="attendanceBtn"
         onClick={() => setIsPresent(!isPresent)}
-      &gt;
+      >
         {isPresent ? 'Mark Absent' : 'Mark Present'}
       </button>
       
       <button 
         id="changeStudent"
         onClick={() => setStudentName('Tuhina')}
-      &gt;
+      >
         Change Student
       </button>
     </div>
@@ -753,7 +753,7 @@ return <div>Average: {average}</div>;`}</pre>
                     <span className="text-purple-300">const</span> badgeColor = isPresent ? <span className="text-green-400">'bg-green-500'</span> : <span className="text-red-400">'bg-red-500'</span>;<br/><br/>
                     
                     <span className="text-blue-300">// Grade status text</span><br/>
-                    <span className="text-purple-300">const</span> status = average {" &ge; "} 70 ? <span className="text-green-400">'Passing'</span> : <span className="text-red-400">'Needs Improvement'</span>;<br/><br/>
+                    <span className="text-purple-300">const</span> status = average {">="} 70 ? <span className="text-green-400">'Passing'</span> : <span className="text-red-400">'Needs Improvement'</span>;<br/><br/>
                     
                     <span className="text-blue-300">// Button text</span><br/>
                     <span className="text-purple-300">const</span> buttonText = isEditing ? <span className="text-yellow-400">'Save Changes'</span> : <span className="text-blue-400">'Edit Profile'</span>;<br/>

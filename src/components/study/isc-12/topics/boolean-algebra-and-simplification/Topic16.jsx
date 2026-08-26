@@ -200,7 +200,7 @@ const Topic16 = () => {
                     ? "bg-orange-500 text-white shadow-md"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              &gt;
+              >
                 {ex.name}
               </button>
             ))}
@@ -218,7 +218,7 @@ const Topic16 = () => {
           <button
             onClick={() => setShowAllSteps(!showAllSteps)}
             className="w-full py-2 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-lg font-medium transition-all duration-300 hover:bg-orange-200 dark:hover:bg-orange-900/60 mb-4"
-          &gt;
+          >
             {showAllSteps ? "Hide" : "Show"} Simplification Steps
           </button>
           
@@ -269,7 +269,7 @@ const Topic16 = () => {
                 onChange={(e) => setUserExpression(e.target.value)}
                 placeholder="e.g., A·B + A·B' or A+AB"
                 className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-orange-500"
-              /&gt;
+              />
               <button
                 onClick={simplifyCustomExpression}
                 className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all duration-300 hover:scale-105"

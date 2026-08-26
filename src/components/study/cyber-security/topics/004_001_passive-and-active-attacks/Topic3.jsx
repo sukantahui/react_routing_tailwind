@@ -48,7 +48,7 @@ const Topic3 = () => {
       detectionMethod: "Cannot be detected at OS level; requires proactive cryptographic prevention (E2EE/AEAD).",
       remedialCode: `// State-Invariant Equation:
 // S_t = (Data, Config, Resources)
-// S_(t+1) == S_t &rarr; File hashes match, zero database row anomalies exist.`
+// S_(t+1) == S_t  -> File hashes match, zero database row anomalies exist.`
     },
     minimal_energy_leakage: {
       key: "minimal_energy_leakage",
@@ -157,7 +157,7 @@ switch(config-if)# switchport port-security violation shutdown`
         return {
           frameStatus: "ACCEPTED BY PROMISCUOUS HARDWARE FILTER",
           kernelState: "Frame passed to libpcap buffer; OS IP stack sees matching IP and replies.",
-          socAlert: "ALERT! Host replied to fake unicast MAC FF:FF:FF:FF:FF:FE &rarr; PROMISCUOUS SNIFFER DETECTED!",
+          socAlert: "ALERT! Host replied to fake unicast MAC FF:FF:FF:FF:FF:FE -> PROMISCUOUS SNIFFER DETECTED!",
           badge: "bg-rose-950 text-rose-300 border-rose-800",
           isSniffer: true
         };
@@ -493,7 +493,7 @@ switch(config-if)# switchport port-security violation shutdown`
                     ? "bg-cyan-950/80 border-cyan-500 shadow-lg shadow-cyan-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-cyan-950 text-cyan-300 border-cyan-800 self-start">
                   CHALLENGE
                 </span>
@@ -589,7 +589,7 @@ switch(config-if)# switchport port-security violation shutdown`
                         ? "bg-cyan-950 border-cyan-500 text-cyan-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Fake Unicast MAC Test
                   </button>
                   <button
@@ -600,7 +600,7 @@ switch(config-if)# switchport port-security violation shutdown`
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Canary Honeytoken Lure
                   </button>
                 </div>
@@ -617,7 +617,7 @@ switch(config-if)# switchport port-security violation shutdown`
                         ? "bg-indigo-950 border-indigo-500 text-indigo-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Standard Host (Normal NIC)
                   </button>
                   <button
@@ -628,7 +628,7 @@ switch(config-if)# switchport port-security violation shutdown`
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Rogue Sniffer (Promiscuous NIC)
                   </button>
                 </div>
@@ -682,7 +682,7 @@ switch(config-if)# switchport port-security violation shutdown`
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

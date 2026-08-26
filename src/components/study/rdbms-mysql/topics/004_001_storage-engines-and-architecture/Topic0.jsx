@@ -53,7 +53,7 @@ SELECT user, host, plugin FROM mysql.user WHERE user = 'root';
       badge: "SQL Core Layer",
       badgeColor: "cyan",
       sqlSnippet: `-- ⚙️ TIER 2: SQL QUERY PROCESSING & OPTIMIZER EXECUTION:
--- 1. Parser generates Parse Tree (AST) &rarr; Throws Error 1064 on syntax failure.
+-- 1. Parser generates Parse Tree (AST) -> Throws Error 1064 on syntax failure.
 -- 2. Preprocessor validates tables & columns against Information Schema.
 -- 3. Cost-Based Optimizer (CBO) evaluates indexes and access costs.
 
@@ -86,7 +86,7 @@ SELECT @@version, @@version_comment;`,
 -- The core server communicates with storage engines via the C++ 'handler' base class:
 -- 
 -- Key Handler Methods:
--- 1. handler::ha_index_read_map() -&gt; Reads row via B+ Tree index seek
+-- 1. handler::ha_index_read_map() -> Reads row via B+ Tree index seek
 -- 2. handler::ha_index_next()     -> Iterates next entry in index scan
 -- 3. handler::ha_rnd_next()       -> Full table scan next record
 -- 4. handler::ha_write_row()      -> Inserts new physical row record
@@ -354,7 +354,7 @@ CREATE TABLE system_audit_logs (
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

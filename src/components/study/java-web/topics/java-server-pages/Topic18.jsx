@@ -607,7 +607,7 @@ const Topic18 = () => {
 Remind students that <jsp:useBean> combined with property="*" eliminates almost all scriptlets for form handling.
 A good exercise: Create a simple "Library Management" system where a JSP uses <jsp:forward> to send a book search request to a servlet, which then forwards to a results JSP — all using action tags.
 Highlight that <jsp:element> is seldom needed in modern JSP, but it demonstrates the power of runtime generation.`}
-          /&gt;
+          />
         </section>
 
         {/* Hint Section (duplicate for consistent closing) */}

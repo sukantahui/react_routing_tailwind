@@ -284,7 +284,7 @@ WHERE NOT EXISTS (
                     <text x="215" y="102" fill="#34d399" fontSize="7 font-bold" textAnchor="middle">Returns TRUE in 0.05ms (1 Index Read)</text>
                   </g>
 
-                  {/* COUNT &gt; 0 */}
+                  {/* COUNT > 0 */}
                   <g>
                     <rect x="440" y="30" width="380" height="100" rx="8" fill="#450a0a" stroke="#ef4444" strokeWidth="1.5" />
                     <text x="630" y="55" fill="#fca5a5" fontSize="11" fontWeight="bold" textAnchor="middle">❌ COUNT(*) &gt; 0 (Exhaustive Scan)</text>
@@ -365,7 +365,7 @@ WHERE NOT EXISTS (
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -473,7 +473,7 @@ WHERE NOT EXISTS (
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 text-xs font-mono text-emerald-300 border border-slate-800 overflow-x-auto">
 {`-- ❌ Slow: Scans all matching enrollment rows to count:
-SELECT * FROM students s WHERE (SELECT COUNT(*) FROM enrollments e WHERE e.student_id = s.student_id) &gt; 0;
+SELECT * FROM students s WHERE (SELECT COUNT(*) FROM enrollments e WHERE e.student_id = s.student_id) > 0;
 
 -- ✅ Fast: Halts immediately upon finding the first matching enrollment row:
 SELECT * FROM students s WHERE EXISTS (SELECT 1 FROM enrollments e WHERE e.student_id = s.student_id);`}
@@ -613,7 +613,7 @@ SELECT * FROM students s WHERE EXISTS (SELECT 1 FROM enrollments e WHERE e.stude
 
           <Teacher
             note="Whenever you find yourself writing 'WHERE (SELECT COUNT(*) ...) > 0', STOP and replace it with 'WHERE EXISTS (SELECT 1 ...)'. EXISTS is built for short-circuiting: why count thousands of matching rows when finding just ONE proves existence? And for anti-joins, NOT EXISTS is your best defense against the silent NULL poisoning trap of NOT IN."
-          /&gt;
+          />
         </section>
       </main>
     </div>

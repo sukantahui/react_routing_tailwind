@@ -262,7 +262,7 @@ const Topic17 = () => {
                         ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     Offset Pagination
                   </button>
                   <button
@@ -273,7 +273,7 @@ const Topic17 = () => {
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  &gt;
+                  >
                     Keyset (Cursor)
                   </button>
                 </div>
@@ -297,7 +297,7 @@ const Topic17 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       {sz} records / page
                     </button>
                   ))}
@@ -313,7 +313,7 @@ const Topic17 = () => {
                     disabled={currentPage <= 1}
                     onClick={() => setCurrentPage(currentPage - 1)}
                     className="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-300 disabled:opacity-30"
-                  &gt;
+                  >
                     ◀ Prev
                   </button>
 
@@ -327,7 +327,7 @@ const Topic17 = () => {
                           ? "bg-teal-500 text-slate-950 border-teal-400"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       {pg}
                     </button>
                   ))}
@@ -450,7 +450,7 @@ LIMIT 25 OFFSET 50; -- Page 3`}
     product_name,
     unit_price AS "Price (₹)"
 FROM products
-WHERE product_id &gt; 10500 -- Cursor ID from previous page
+WHERE product_id > 10500 -- Cursor ID from previous page
 ORDER BY product_id ASC
 LIMIT 20;`}
               </pre>
@@ -593,7 +593,7 @@ LIMIT 20;`}
               "(`WHERE id > last_seen_id LIMIT 20`) for all infinite-scroll mobile apps and high-volume REST APIs. " +
               "It keeps your application lightning-fast and provides constant microsecond response times regardless of data volume."
             }
-          /&gt;
+          />
         </section>
 
         {/* ─── Footer ───────────────────────────────────────────── */}

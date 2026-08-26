@@ -59,7 +59,7 @@ const Topic46 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            &gt;
+            >
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -371,7 +371,7 @@ const Topic46 = () => {
                 </h2>
                 <ul className="space-y-3 list-disc pl-6 text-gray-700 dark:text-gray-300">
                   <li>
-                    <strong>Forgetting the base case:</strong> Without if (left >= right) return, the recursion
+                    <strong>Forgetting the base case:</strong> Without if (left &gt;= right) return, the recursion
                     never terminates.
                   </li>
                   <li>

@@ -101,7 +101,7 @@ ALTER TABLE student_records ADD INDEX idx_city (city);
 -- Index: idx_city_age (city, age)
 EXPLAIN SELECT * 
 FROM student_records 
-WHERE city = 'Barrackpore' AND age &gt; 20 AND notes LIKE '%Scholarship%';
+WHERE city = 'Barrackpore' AND age > 20 AND notes LIKE '%Scholarship%';
 
 -- 📋 EXPLAIN Output:
 -- key = 'idx_city_age'
@@ -346,7 +346,7 @@ WHERE city = 'Barrackpore' AND age &gt; 20 AND notes LIKE '%Scholarship%';
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

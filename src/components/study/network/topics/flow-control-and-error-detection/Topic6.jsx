@@ -175,7 +175,7 @@ export default function Topic6() {
                     value={parityType}
                     onChange={(e) => { setParityType(e.target.value); setComputedParity(null); setCheckResult(null); }}
                     className="w-full p-2 border rounded-md bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
-                  &gt;
+                  >
                     <option value="even">Even Parity</option>
                     <option value="odd">Odd Parity</option>
                   </select>
@@ -296,7 +296,7 @@ export default function Topic6() {
               <li><strong>Always specify parity type explicitly in protocol documentation</strong> to avoid mismatches.</li>
               <li><strong>Use parity only when error rate is low</strong> and single‑bit errors are the dominant failure mode.</li>
               <li><strong>Combine parity with other checks</strong> (e.g., CRC at frame level) for stronger protection.</li>
-              <li><strong>In software, use bitwise XOR to compute parity efficiently</strong> – e.g., <code>parity = data.reduce((a,b) => a ^ b)</code>.</li>
+              <li><strong>In software, use bitwise XOR to compute parity efficiently</strong> – e.g., <code>parity = data.reduce((a,b) =&gt; a ^ b)</code>.</li>
             </ul>
           </div>
         </section>

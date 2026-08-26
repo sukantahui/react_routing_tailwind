@@ -359,7 +359,7 @@ const Topic9 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}
@@ -433,7 +433,7 @@ const Topic9 = () => {
                 value={selectedInteractionTier}
                 onChange={(e) => setSelectedInteractionTier(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 <option value="low_interaction">1. Low-Interaction Daemon (Cowrie / Dionaea Emulation)</option>
                 <option value="high_interaction_contained">2. High-Interaction Real Debian VM + Honeywall Gateway (Recommended)</option>
                 <option value="high_interaction_uncontained">3. High-Interaction VM (WITHOUT Honeywall - High Risk!)</option>
@@ -446,7 +446,7 @@ const Topic9 = () => {
                 value={injectedAttackerCommand}
                 onChange={(e) => setInjectedAttackerCommand(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              &gt;
+              >
                 {Object.values(attackerCommands).map((c) => (
                   <option key={c.id} value={c.id}>
                     {c.type}: {c.command}
@@ -556,7 +556,7 @@ const Topic9 = () => {
                 value={lowInteractionDecoysCount}
                 onChange={(e) => setLowInteractionDecoysCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              /&gt;
+              />
               <span className="text-[10px] text-gray-500 block">RAM: ~{calculatedCapacityMetrics.lowInteractionRamGb} GB (2MB/node)</span>
             </div>
 
@@ -573,7 +573,7 @@ const Topic9 = () => {
                 value={highInteractionVmsCount}
                 onChange={(e) => setHighInteractionVmsCount(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -589,7 +589,7 @@ const Topic9 = () => {
                 value={vmRamAllocationGb}
                 onChange={(e) => setVmRamAllocationGb(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              /&gt;
+              />
             </div>
           </div>
 
@@ -643,7 +643,7 @@ const Topic9 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

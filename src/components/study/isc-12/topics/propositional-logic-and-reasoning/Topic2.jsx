@@ -232,7 +232,7 @@ const Topic2 = () => {
             </li>
             <li className="flex items-start gap-3">
               <span className="text-yellow-400 text-xl">🎯</span>
-              <span className="text-gray-300"><span className="font-semibold">Open sentences need binding:</span> "x {`&gt;`} 5" → assign x a value to become a proposition.</span>
+              <span className="text-gray-300"><span className="font-semibold">Open sentences need binding:</span> "x {`>`} 5" → assign x a value to become a proposition.</span>
             </li>
           </ul>
         </div>

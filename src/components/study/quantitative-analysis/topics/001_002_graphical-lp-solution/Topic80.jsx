@@ -376,7 +376,7 @@ const Topic80 = () => {
                   ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-indigo-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -508,7 +508,7 @@ const Topic80 = () => {
                         ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-indigo-900/30"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  &gt;
+                  >
                     <span>{industry.icon}</span>
                     {industry.industry}
                   </button>
@@ -526,7 +526,7 @@ const Topic80 = () => {
                       key={`industry-summary-${index}`}
                       onClick={() => setSelectedIndustry(index)}
                       className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
-                    &gt;
+                    >
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-2xl">{industry.icon}</span>
                         <h5 className="font-semibold text-gray-800 dark:text-gray-200">

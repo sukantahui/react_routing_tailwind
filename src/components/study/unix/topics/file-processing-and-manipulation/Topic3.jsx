@@ -48,7 +48,7 @@ const FAQTemplate = ({ title, questions }) => {
       <div className="space-y-4">
         {questions.map((faq, idx) => (
           <div key={idx} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden bg-white dark:bg-gray-800 transition-all duration-300 hover:shadow-md">
-            <button onClick={() => setOpenIndex(openIndex === idx ? null : idx)} className="w-full text-left px-6 py-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors flex justify-between items-center"&gt;
+            <button onClick={() => setOpenIndex(openIndex === idx ? null : idx)} className="w-full text-left px-6 py-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors flex justify-between items-center">
               <span>{faq.question}</span>
               <svg className={clsx("w-5 h-5 transition-transform duration-300", openIndex === idx && "rotate-180")} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -175,7 +175,7 @@ const Topic3 = () => {
           <p className="mb-3"><strong>Byte‑based splitting (`-b`):</strong> Splits by size (k, M, G suffixes). Ideal for binary files or when you need chunks of specific size.</p>
           <p className="mb-3"><strong>Suffix options:</strong> Use `-d` for numeric suffixes (00,01,...) instead of alphabetic (aa, ab,...). Use `-a N` to control suffix length (e.g., `-a 3` gives 000,001,...).</p>
           <div className="mt-4 p-4 bg-red-50 dark:bg-red-950/30 rounded-lg border-l-4 border-red-500">
-            <p className="text-sm"><strong>Real‑world at Shyamnagar IT Park:</strong> A data engineer receives a 50GB CSV log file. To process it in parallel, she uses `split -l 1000000 huge.log part_` to create 1‑million‑line chunks, then runs analysis simultaneously on each chunk. Later, she recombines them with `cat part_* {`&gt;`} original.log`.</p>
+            <p className="text-sm"><strong>Real‑world at Shyamnagar IT Park:</strong> A data engineer receives a 50GB CSV log file. To process it in parallel, she uses `split -l 1000000 huge.log part_` to create 1‑million‑line chunks, then runs analysis simultaneously on each chunk. Later, she recombines them with `cat part_* {`>`} original.log`.</p>
           </div>
         </div>
 
@@ -209,10 +209,10 @@ const Topic3 = () => {
           <div className="bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-950/20 dark:to-pink-950/20 p-5 rounded-xl hover:shadow-md transition-all">
             <h3 className="text-xl font-bold flex items-center gap-2">💎 Pro Tips & Tricks</h3>
             <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-200">
-              <li><strong>Recombine chunks:</strong> `cat part_* {`&gt;`} original`</li>
+              <li><strong>Recombine chunks:</strong> `cat part_* {`>`} original`</li>
               <li><strong>Use `-d` and `-a` for predictable naming:</strong> `split -d -a 3 -l 1000 file part_` gives part_000, part_001...</li>
               <li><strong>Split by number of chunks with `-n`:</strong> `split -n l/3 file` splits into 3 chunks (more or less balanced).</li>
-              <li><strong>`--filter` to process each chunk immediately:</strong> `split -l 1000 --filter='gzip {`&gt;`} $FILE.gz' big.log`</li>
+              <li><strong>`--filter` to process each chunk immediately:</strong> `split -l 1000 --filter='gzip {`>`} $FILE.gz' big.log`</li>
               <li><strong>Overwrite chunks:</strong> Use `--verbose` to see which files are created.</li>
             </ul>
           </div>
@@ -277,7 +277,7 @@ const Topic3 = () => {
                 <p><strong>🎓 Teacher's Advice for split Command:</strong></p>
                 <ul className="list-disc ml-5 mt-1 space-y-1">
                   <li>"At Ichapur, I once asked students to split a 50,000‑line mark sheet into class‑wise chunks (200 lines each). They quickly mastered `split -l 200`. Then I asked them to add class prefixes – they learned `--filter` to rename chunks on the fly."</li>
-                  <li>Demonstrate that `cat x* {`&gt;`} combined` works even when chunks are numbered – but only if the chunks are in order. Use `ls -v` for `xaa`, `xab` ordering.</li>
+                  <li>Demonstrate that `cat x* {`>`} combined` works even when chunks are numbered – but only if the chunks are in order. Use `ls -v` for `xaa`, `xab` ordering.</li>
                   <li>Classroom exercise: Give them a large log file, ask to split into daily chunks (by date inside lines). Not directly possible with split – leads to learning grep/awk.</li>
                   <li>Emphasise that split is a building block for parallel processing with GNU Parallel or xargs.</li>
                 </ul>

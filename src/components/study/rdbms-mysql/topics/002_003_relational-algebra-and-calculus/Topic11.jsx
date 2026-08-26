@@ -289,7 +289,7 @@ FROM students;`;
                           ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                           : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       {rate}%
                     </button>
                   ))}
@@ -310,7 +310,7 @@ FROM students;`;
                           ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                           : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       ₹{disc}
                     </button>
                   ))}
@@ -328,7 +328,7 @@ FROM students;`;
                       ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                       : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                   )}
-                &gt;
+                >
                   {useUppercase ? "✓ UPPER(name) Active" : "Original Case (name)"}
                 </button>
               </div>

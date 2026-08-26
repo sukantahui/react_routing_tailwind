@@ -28,13 +28,13 @@ const StudentCard = ({ student, onUpdateScore, onToggleAttendance }) => {
                 ? "bg-green-700 hover:bg-green-600" 
                 : "bg-red-700 hover:bg-red-600"
             )}
-          &gt;
+          >
             {student.isPresent ? 'Present' : 'Absent'}
           </button>
           <button
             onClick={() => setShowDetails(!showDetails)}
             className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm"
-          &gt;
+          >
             {showDetails ? '▲' : '▼'}
           </button>
         </div>
@@ -47,15 +47,15 @@ const StudentCard = ({ student, onUpdateScore, onToggleAttendance }) => {
             <button
               onClick={() => onUpdateScore(student.id, -5)}
               className="w-6 h-6 bg-red-600 hover:bg-red-500 rounded flex items-center justify-center"
-              disabled={student.score &le; 0}
-            &gt;
+              disabled={student.score <= 0}
+            >
               -
             </button>
             <button
               onClick={() => onUpdateScore(student.id, 5)}
               className="w-6 h-6 bg-green-600 hover:bg-green-500 rounded flex items-center justify-center"
-              disabled={student.score &ge; 100}
-            &gt;
+              disabled={student.score >= 100}
+            >
               +
             </button>
           </div>
@@ -63,16 +63,16 @@ const StudentCard = ({ student, onUpdateScore, onToggleAttendance }) => {
         <div className={clsx(
           "h-2 rounded-full overflow-hidden",
           student.score >= 70 ? "bg-green-900/50" : 
-          student.score &ge; 40 ? "bg-yellow-900/50" : "bg-red-900/50"
-        )}&gt;
+          student.score >= 40 ? "bg-yellow-900/50" : "bg-red-900/50"
+        )}>
           <div 
             className={clsx(
               "h-full transition-all duration-500",
               student.score >= 70 ? "bg-green-500" : 
-              student.score &ge; 40 ? "bg-yellow-500" : "bg-red-500"
+              student.score >= 40 ? "bg-yellow-500" : "bg-red-500"
             )}
             style={{ width: `${student.score}%` }}
-          /&gt;
+          />
         </div>
       </div>
       
@@ -90,7 +90,7 @@ const StudentCard = ({ student, onUpdateScore, onToggleAttendance }) => {
                 "bg-gray-800 border-gray-700 text-white"
               )}
               placeholder="This is local state..."
-            /&gt;
+            />
             {localNote && (
               <p className="text-sm text-blue-400 mt-1">
                 Note: "{localNote}" - This only exists in this component
@@ -194,7 +194,7 @@ const ClassroomManager = () => {
             <div className="flex justify-between">
               <span>Top Scorer:</span>
               <span className="font-bold text-green-400">
-                {students.length &gt; 0 
+                {students.length > 0 
                   ? students.reduce((max, s) => s.score > max.score ? s : max).name 
                   : 'None'}
               </span>
@@ -232,7 +232,7 @@ const ClassroomManager = () => {
                   "focus:outline-none focus:ring-2 focus:ring-green-500",
                   "bg-gray-800 border-gray-700 text-white"
                 )}
-              &gt;
+              >
                 <option value="Barrackpore">Barrackpore</option>
                 <option value="Shyamnagar">Shyamnagar</option>
                 <option value="Ichapur">Ichapur</option>
@@ -445,7 +445,7 @@ const Topic4 = () => {
             <button
               onClick={() => onUpdate('Updated from child!')}
               className="w-full py-2 bg-purple-600 hover:bg-purple-500 rounded-lg transition-colors"
-            &gt;
+            >
               Send Update to Parent
             </button>
           </div>
@@ -478,7 +478,7 @@ const Topic4 = () => {
                     ? "bg-purple-600 text-white" 
                     : "bg-gray-700 hover:bg-gray-600"
                 )}
-              &gt;
+              >
                 {t}
               </button>
             ))}
@@ -523,7 +523,7 @@ const Topic4 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-200 shadow-lg hover:shadow-xl" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-800 shadow-md hover:shadow-lg"
               )}
-            &gt;
+            >
               {isDarkMode ? '🌙 Dark' : '☀️ Light'}
             </button>
           </div>
@@ -608,7 +608,7 @@ const Topic4 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             ⚖️ Detailed Comparison
           </button>
           <button
@@ -624,7 +624,7 @@ const Topic4 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             🎮 Interactive Demos
           </button>
           <button
@@ -640,7 +640,7 @@ const Topic4 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-700"
             )}
-          &gt;
+          >
             📚 Real-world Examples
           </button>
         </div>
@@ -675,7 +675,7 @@ const Topic4 = () => {
                           ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                           : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                     )}
-                  &gt;
+                  >
                     {concept.icon} {concept.name}
                   </button>
                 ))}
@@ -860,7 +860,7 @@ const Topic4 = () => {
                       ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                       : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                 )}
-              &gt;
+              >
                 👨‍👦 Parent-Child Demo
               </button>
               <button
@@ -876,7 +876,7 @@ const Topic4 = () => {
                       ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                       : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                 )}
-              &gt;
+              >
                 🏫 Classroom Manager
               </button>
               <button
@@ -892,7 +892,7 @@ const Topic4 = () => {
                       ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                       : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                 )}
-              &gt;
+              >
                 🎨 Theme Switcher
               </button>
             </div>
@@ -949,7 +949,7 @@ const Topic4 = () => {
                             "focus:outline-none focus:ring-2 focus:ring-blue-500",
                             "bg-gray-800 border-gray-700 text-white"
                           )}
-                        /&gt;
+                        />
                       </div>
                       
                       <div className="p-4 rounded-lg bg-gray-800/30">

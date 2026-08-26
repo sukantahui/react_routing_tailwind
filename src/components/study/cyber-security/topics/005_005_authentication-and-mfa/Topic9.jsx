@@ -177,7 +177,7 @@ const Topic9 = () => {
                     ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                     : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                 )}
-              &gt;
+              >
                 1. Synced Passkey (Consumer)
               </button>
               <button
@@ -188,7 +188,7 @@ const Topic9 = () => {
                     ? "bg-emerald-600 text-white shadow-lg shadow-emerald-950"
                     : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                 )}
-              &gt;
+              >
                 2. Device-Bound (Enterprise)
               </button>
             </div>
@@ -262,7 +262,7 @@ const Topic9 = () => {
                   checked={isQrScanned}
                   onChange={(e) => setIsQrScanned(e.target.checked)}
                   className="accent-cyan-500 w-4 h-4"
-                /&gt;
+                />
               </label>
 
               <label className="flex items-center justify-between p-3 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
@@ -275,7 +275,7 @@ const Topic9 = () => {
                   checked={bleProximity}
                   onChange={(e) => setBleProximity(e.target.checked)}
                   className="accent-emerald-500 w-4 h-4"
-                /&gt;
+                />
               </label>
             </div>
 
@@ -319,7 +319,7 @@ const Topic9 = () => {
                       ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_grievance" ? "Barrackpore Grievance" : key === "kolkata_fintech_devcloud" ? "Kolkata FinTech Cloud" : "Ichapur Defense Passkeys"}
                 </button>
               ))}

@@ -68,7 +68,7 @@ const Topic9 = () => {
   // Compute conditions for dynamic SQL string and filtering
   const whereClauses = [];
   if (selectedCity !== "all") whereClauses.push(`city = '${selectedCity}'`);
-  if (minFee > 0) whereClauses.push(`admission_fee &ge; ${minFee}.00`);
+  if (minFee > 0) whereClauses.push(`admission_fee >= ${minFee}.00`);
   if (statusFilter !== "all") whereClauses.push(`is_active = ${statusFilter === "active" ? 1 : 0}`);
 
   const generatedSQL = `SELECT student_id, first_name, city, admission_fee\nFROM students\n${
@@ -212,7 +212,7 @@ const Topic9 = () => {
               <g transform="translate(410, 20)">
                 <rect width="340" height="140" rx="8" fill="#1e293b" stroke="#10b981" />
                 <text x="170" y="24" fill="#10b981" textAnchor="middle" fontWeight="bold">
-                  ⚡ Sargable: WHERE dob >= '2005-01-01'
+                  ⚡ Sargable: WHERE dob &gt;= '2005-01-01'
                 </text>
                 <line x1="15" y1="34" x2="325" y2="34" stroke="#334155" />
                 <text x="20" y="58" fill="#cbd5e1" fontSize="10">• Plain indexed column compared to literal string</text>
@@ -254,7 +254,7 @@ const Topic9 = () => {
                   value={selectedCity}
                   onChange={(e) => setSelectedCity(e.target.value)}
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                &gt;
+                >
                   <option value="all">All Cities</option>
                   <option value="Barrackpore">Barrackpore</option>
                   <option value="Kolkata">Kolkata</option>
@@ -280,7 +280,7 @@ const Topic9 = () => {
                   value={minFee}
                   onChange={(e) => setMinFee(Number(e.target.value))}
                   className="w-full accent-teal-500 cursor-pointer"
-                /&gt;
+                />
               </div>
 
               <div>
@@ -298,7 +298,7 @@ const Topic9 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    &gt;
+                    >
                       {st}
                     </button>
                   ))}
@@ -408,7 +408,7 @@ const Topic9 = () => {
 FROM students
 WHERE city = 'Barrackpore'
   AND is_active = 1
-  AND admission_fee &ge; 15000.00;`}
+  AND admission_fee >= 15000.00;`}
               </pre>
             </div>
 
@@ -431,7 +431,7 @@ WHERE city = 'Barrackpore'
     order_status
 FROM customer_orders
 WHERE order_status = 'pending'
-  AND total_amount &ge; 25000.00
+  AND total_amount >= 25000.00
   AND order_date >= '2026-08-01 00:00:00'
   AND order_date < '2026-09-01 00:00:00';`}
               </pre>

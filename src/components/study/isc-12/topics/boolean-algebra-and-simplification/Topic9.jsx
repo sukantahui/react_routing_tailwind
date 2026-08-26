@@ -138,7 +138,7 @@ const Topic9 = () => {
                         "w-16 h-16 rounded-xl font-mono text-xl font-bold transition-all duration-300 hover:scale-110",
                         andA === 1 ? "bg-green-500 hover:bg-green-600 text-white" : "bg-red-500 hover:bg-red-600 text-white"
                       )}
-                    &gt;
+                    >
                       {andA}
                     </button>
                   </div>
@@ -151,7 +151,7 @@ const Topic9 = () => {
                         "w-16 h-16 rounded-xl font-mono text-xl font-bold transition-all duration-300 hover:scale-110",
                         andB === 1 ? "bg-green-500 hover:bg-green-600 text-white" : "bg-red-500 hover:bg-red-600 text-white"
                       )}
-                    &gt;
+                    >
                       {andB}
                     </button>
                   </div>
@@ -259,7 +259,7 @@ const Topic9 = () => {
                         "w-16 h-16 rounded-xl font-mono text-xl font-bold transition-all duration-300 hover:scale-110",
                         orA === 1 ? "bg-green-500 hover:bg-green-600 text-white" : "bg-red-500 hover:bg-red-600 text-white"
                       )}
-                    &gt;
+                    >
                       {orA}
                     </button>
                   </div>
@@ -272,7 +272,7 @@ const Topic9 = () => {
                         "w-16 h-16 rounded-xl font-mono text-xl font-bold transition-all duration-300 hover:scale-110",
                         orB === 1 ? "bg-green-500 hover:bg-green-600 text-white" : "bg-red-500 hover:bg-red-600 text-white"
                       )}
-                    &gt;
+                    >
                       {orB}
                     </button>
                   </div>

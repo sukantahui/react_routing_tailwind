@@ -157,7 +157,7 @@ const name = "Kaustav";
 
 console.log(highlight\`Hello \${name}, welcome!\`);
 // Output: Hello KAUSTAV, welcome!`}
-        /&gt;
+        />
 
 
         {/* --------------------------------------------------------

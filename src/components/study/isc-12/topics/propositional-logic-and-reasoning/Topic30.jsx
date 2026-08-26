@@ -54,7 +54,7 @@ const LogicPlayground = () => {
             "hover:scale-105 hover:shadow-md",
             p ? "bg-green-600 hover:bg-green-700" : "bg-red-600 hover:bg-red-700"
           )}
-        &gt;
+        >
           p = {p ? "TRUE" : "FALSE"}
         </button>
 
@@ -65,7 +65,7 @@ const LogicPlayground = () => {
             "hover:scale-105 hover:shadow-md",
             q ? "bg-green-600 hover:bg-green-700" : "bg-red-600 hover:bg-red-700"
           )}
-        &gt;
+        >
           q = {q ? "TRUE" : "FALSE"}
         </button>
       </div>
@@ -382,7 +382,7 @@ const examplesDatabase = {
     { text: '∀x (Man(x) → Mortal(x)) – all men are mortal.', exp: 'Universal quantifier.' },
     { text: '∀x (Student(x) → AttendsClass(x)) – all students attend class.', exp: 'If domain all people.' },
     { text: '∀x (Even(x) → DivisibleBy2(x)) – true for all x.', exp: 'True.' },
-    { text: '∀x (x &gt; 0) is false if domain includes negative numbers.', exp: 'Counterexample needed.' },
+    { text: '∀x (x > 0) is false if domain includes negative numbers.', exp: 'Counterexample needed.' },
     { text: 'Universal quantification often uses implication.', exp: '∀x (P(x) → Q(x)).' },
     { text: '∀x (P(x) ∧ Q(x)) is stronger – all x satisfy both.', exp: 'Less common.' },
     { text: 'Negation: ¬∀x P(x) ≡ ∃x ¬P(x).', exp: 'De Morgan for quantifiers.' },
@@ -727,12 +727,12 @@ const Topic30 = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="🔍 Search term (e.g., tautology, modus ponens, De Morgan...)"
               className="w-full p-4 pl-12 rounded-xl bg-transparent border-none focus:ring-2 focus:ring-blue-500 text-gray-800 dark:text-gray-200"
-            /&gt;
+            />
             <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 text-gray-400 hover:text-gray-600"&gt;✕</button>
+              <button onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 text-gray-400 hover:text-gray-600">✕</button>
             )}
           </div>
         </div>
@@ -751,14 +751,14 @@ const Topic30 = () => {
                 "animate-[fadeSlideUp_0.5s_ease-out_forwards] opacity-0"
               )}
               style={{ animationDelay: `${Math.min(idx * 30, 600)}ms` }}
-            &gt;
+            >
               <div className="flex justify-between items-start">
                 <h2 className="text-xl font-bold text-blue-600 dark:text-blue-400">{term.term}</h2>
                 {term.opposite && (
                   <button 
                     onClick={() => scrollToTerm(term.opposite)} 
                     className="text-xs text-purple-500 underline hover:text-purple-700"
-                  &gt;
+                  >
                     Opp: {term.opposite}
                   </button>
                 )}
@@ -768,11 +768,11 @@ const Topic30 = () => {
               {term.note && <div className="mt-2 text-sm text-blue-600">💡 {term.note}</div>}
               {term.confusion && <div className="mt-2 text-sm text-amber-600">⚠️ {term.confusion}</div>}
               
-              {term.related && term.related.length &gt; 0 && (
+              {term.related && term.related.length > 0 && (
                 <div className="mt-3 text-sm">
                   <span className="font-semibold">🔗 Related:</span>{" "}
                   {term.related.map(rel => (
-                    <button key={rel} onClick={() => scrollToTerm(rel)} className="text-blue-600 underline mr-2"&gt;
+                    <button key={rel} onClick={() => scrollToTerm(rel)} className="text-blue-600 underline mr-2">
                       {rel}
                     </button>
                   ))}
@@ -784,7 +784,7 @@ const Topic30 = () => {
                 <button
                   onClick={() => toggleExamples(term.id)}
                   className="text-sm font-medium text-green-600 dark:text-green-400 hover:underline focus:outline-none flex items-center gap-1"
-                &gt;
+                >
                   {expandedTerm === term.id ? '▼' : '▶'} {expandedTerm === term.id ? 'Hide 10 examples' : 'Show 10 examples'}
                 </button>
                 {expandedTerm === term.id && (

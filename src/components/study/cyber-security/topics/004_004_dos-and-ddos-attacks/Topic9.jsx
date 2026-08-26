@@ -185,14 +185,14 @@ int xdp_filter(struct xdp_md *ctx) {
     const hardwareCapacityPerPopGbps = 100.0; // 100 Gbps hardware scrubber per PoP
 
     let rawSatProb = 0;
-    if (loadPerPopGbps &le; hardwareCapacityPerPopGbps) {
+    if (loadPerPopGbps <= hardwareCapacityPerPopGbps) {
       rawSatProb = 0.0;
     } else {
       const surplus = loadPerPopGbps - hardwareCapacityPerPopGbps;
       rawSatProb = (1 - Math.exp(-surplus / 20.0)) * 100;
     }
 
-    const finalSat = rawSatProb &gt; 99.9 ? 99.9 : rawSatProb;
+    const finalSat = rawSatProb > 99.9 ? 99.9 : rawSatProb;
     const overloadRatio = (loadPerPopGbps / hardwareCapacityPerPopGbps).toFixed(1);
 
     return {
@@ -204,7 +204,7 @@ int xdp_filter(struct xdp_md *ctx) {
         : parseFloat(finalSat) > 10
         ? "bg-amber-950 text-amber-300 border-amber-800"
         : "bg-emerald-950 text-emerald-300 border-emerald-800",
-      statusMessage: anycastPopCount &ge; 100
+      statusMessage: anycastPopCount >= 100
         ? `GLOBAL ANYCAST DILUTION ACTIVE: 1.2 Tbps global flood fragmented across ${anycastPopCount} PoPs into negligible ${loadPerPopGbps.toFixed(1)} Gbps per data center; local hardware scrubbers absorb load with 0.00% saturation!`
         : anycastPopCount === 1
         ? `UNICAST ORIGIN COLLAPSE: All ${globalFloodGbps} Gbps of flood traffic converges on a single 100 Gbps pipe (${overloadRatio}x overload), causing ${finalSat}% packet loss!`
@@ -639,7 +639,7 @@ end`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   STRATEGY
                 </span>
@@ -736,7 +736,7 @@ end`,
                   value={globalFloodGbps}
                   onChange={(e) => setGlobalFloodGbps(parseInt(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -750,7 +750,7 @@ end`,
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     1 PoP (Unicast)
                   </button>
                   <button
@@ -761,7 +761,7 @@ end`,
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     50 PoPs (Regional)
                   </button>
                   <button
@@ -772,7 +772,7 @@ end`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     300 PoPs (Anycast)
                   </button>
                 </div>
@@ -791,7 +791,7 @@ end`,
                   value={tokenBucketBurst}
                   onChange={(e) => setTokenBucketBurst(parseInt(e.target.value))}
                   className="w-full accent-amber-500 bg-gray-800"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -807,7 +807,7 @@ end`,
                   value={tokenReplenishRate}
                   onChange={(e) => setTokenReplenishRate(parseInt(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                /&gt;
+                />
               </div>
             </div>
 
@@ -863,7 +863,7 @@ end`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -912,7 +912,7 @@ end`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

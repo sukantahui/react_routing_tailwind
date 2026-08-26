@@ -86,7 +86,7 @@ nslookup example.com 8.8.8.8      # Use specific DNS server
 nslookup -type=MX gmail.com       # Query MX records
 nslookup -type=PTR 8.8.8.8        # Reverse lookup
 nslookup
-&gt; set type=AAAA
+> set type=AAAA
 > google.com
 > exit`}
               </pre>

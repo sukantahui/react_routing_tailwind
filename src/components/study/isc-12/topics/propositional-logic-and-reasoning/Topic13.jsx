@@ -101,8 +101,8 @@ const Topic13 = () => {
           <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">🔄 Interactive De Morgan Verifier</h2>
           <p className="mb-4">Toggle p and q to see both laws in action — the two expressions should always match.</p>
           <div className="flex flex-wrap gap-6 mb-6">
-            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">p = {pVal ? 'true' : 'false'}</span></label>
-            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">q = {qVal ? 'true' : 'false'}</span></label>
+            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /> <span className="font-mono font-bold">p = {pVal ? 'true' : 'false'}</span></label>
+            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /> <span className="font-mono font-bold">q = {qVal ? 'true' : 'false'}</span></label>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center">

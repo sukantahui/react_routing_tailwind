@@ -57,7 +57,7 @@ Bubbling Phase (Target → Top)
   Outer Div
   <button id="inner" style="margin-top:10px">Click Me</button>
 </div>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -158,7 +158,7 @@ document.getElementById("inner").addEventListener("click", (e) => {
   <p onclick="alert('Hello Ritaja')">Profile</p>
   <p>Settings</p>
 </div>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"
@@ -198,7 +198,7 @@ document.addEventListener("click", () => {
     <p class="a" style="display:none">DOM is Document Object Model.</p>
   </div>
 </div>`}
-        /&gt;
+        />
 
         <CodeBlock
           language="javascript"

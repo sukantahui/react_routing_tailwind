@@ -91,9 +91,9 @@ const Topic9 = () => {
     const checkOptimality = () => {
       const coefficients = zRow.slice(0, -1);
       if (problemType === 'max') {
-        return coefficients.every(c => c &ge; 0);
+        return coefficients.every(c => c >= 0);
       } else {
-        return coefficients.every(c => c &le; 0);
+        return coefficients.every(c => c <= 0);
       }
     };
 
@@ -124,7 +124,7 @@ const Topic9 = () => {
                       ? "bg-blue-600 text-white"
                       : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                   )}
-                &gt;
+                >
                   Maximization
                 </button>
                 <button
@@ -135,7 +135,7 @@ const Topic9 = () => {
                       ? "bg-blue-600 text-white"
                       : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                   )}
-                &gt;
+                >
                   Minimization
                 </button>
               </div>
@@ -151,7 +151,7 @@ const Topic9 = () => {
                     value={coef}
                     onChange={(e) => updateCoefficient(idx, e.target.value)}
                     className="w-20 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
-                  /&gt;
+                  />
                 </div>
               ))}
               <div className="flex items-center gap-2 mt-2">
@@ -231,7 +231,7 @@ const Topic9 = () => {
                   ? "bg-green-600 text-white shadow-lg shadow-green-200 dark:shadow-green-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -400,7 +400,7 @@ const Topic9 = () => {
                       <button
                         onClick={() => toggleExample(example.id)}
                         className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-300"
-                      &gt;
+                      >
                         {showExample[example.id] ? 'Hide Detailed Steps' : 'Show Detailed Steps'}
                       </button>
                     </div>
@@ -441,13 +441,13 @@ const Topic9 = () => {
                         <button
                           onClick={() => setShowSolution(showSolution === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800/30 transition-all duration-300"
-                        &gt;
+                        >
                           {showSolution === problem.id ? 'Hide Solution' : 'Check Solution'}
                         </button>
                         <button
                           onClick={() => setShowHint(showHint === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
-                        &gt;
+                        >
                           {showHint === problem.id ? 'Hide Hint' : 'Show Hint'}
                         </button>
                       </div>

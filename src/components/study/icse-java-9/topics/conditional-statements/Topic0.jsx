@@ -123,7 +123,7 @@ export default class Topic0 extends Component {
 if(marks >= 60){
     System.out.println("Swadeep passed the exam in Barrackpore school!");
 }`}
-          /&gt;
+          />
         </div>
 
         {/* ================= Common Pitfalls ================= */}

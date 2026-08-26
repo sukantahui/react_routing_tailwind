@@ -72,7 +72,7 @@ const Topic23 = () => {
     for (let i = 0; i < rowCount; i++) {
       const values = {};
       if (varCount >= 1) values.p = !!(i & 1);
-      if (varCount &ge; 2) values.q = !!(i & 2);
+      if (varCount >= 2) values.q = !!(i & 2);
       if (varCount >= 3) values.r = !!(i & 4);
       rows.push(values);
     }
@@ -157,7 +157,7 @@ const Topic23 = () => {
                     ? "bg-blue-600 text-white"
                     : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              &gt;
+              >
                 {v.name}
               </button>
             ))}

@@ -61,7 +61,7 @@ def tamper_pkt(pkt):
       codeSnippet: `// Bit-Flipping Exploit Equation:
 // P'_i = D_K(C_i) ^ C'_{i-1}
 // Delta = Plaintext_Original ^ Plaintext_Target
-// Ciphertext_Prev ^= Delta &rarr; Decrypts cleanly to Target!`
+// Ciphertext_Prev ^= Delta -> Decrypts cleanly to Target!`
     },
     padding_oracle: {
       key: "padding_oracle",
@@ -74,7 +74,7 @@ def tamper_pkt(pkt):
       detectabilityScore: 78,
       mechanism:
         "Adversary alters ciphertext bytes and submits them to the server, observing whether the server returns a 'Padding Error' or 'Application Error' to mathematically deduce plaintext bytes.",
-      realWorldPayload: "Altering last byte of C[i-1] -&gt; Server returns 200 OK -> Plaintext byte calculated as (PadVal ^ Guess)",
+      realWorldPayload: "Altering last byte of C[i-1] -> Server returns 200 OK -> Plaintext byte calculated as (PadVal ^ Guess)",
       mitigation: "Encrypt-then-MAC (EtM) paradigm and constant-time error handling.",
       codeSnippet: `// Encrypt-then-MAC Defense Pipeline:
 // 1. Verify HMAC_K2(Ciphertext) == AuthTag
@@ -408,7 +408,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                 Ciphertext Bit-Flipping Malleability Equation
               </span>
               <div className="bg-black/90 p-3 rounded font-mono text-rose-300 border border-rose-950/60">
-                P'_i = D_K(C_i) ⊕ C'_{i-1} ===> P' = P ⊕ Δ
+                P'_i = D_K(C_i) ⊕ C'_{i-1} ===&gt; P' = P ⊕ Δ
               </div>
               <p className="text-gray-300 leading-relaxed">
                 In unauthenticated stream ciphers (AES-CTR) and CBC mode, XORing a difference vector Δ into the ciphertext 
@@ -469,7 +469,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                 </text>
               </g>
 
-              {/* PATH 1: Sender &rarr; Attacker */}
+              {/* PATH 1: Sender -> Attacker */}
               <path d="M 220 170 L 360 170" stroke="#60a5fa" strokeWidth="3" fill="none" />
               <circle r="5" fill="#60a5fa">
                 <animateMotion path="M 220 170 L 360 170" dur="1.5s" repeatCount="indefinite" />
@@ -502,7 +502,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                 </text>
               </g>
 
-              {/* PATH 2: Attacker &rarr; Receiver */}
+              {/* PATH 2: Attacker -> Receiver */}
               <path d="M 560 170 L 680 170" stroke="#f43f5e" strokeWidth="3" fill="none" />
               <circle r="5" fill="#f43f5e">
                 <animateMotion path="M 560 170 L 680 170" dur="1.5s" repeatCount="indefinite" />
@@ -559,7 +559,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   TAMPERING
                 </span>
@@ -592,14 +592,14 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                     "text-sm font-extrabold",
                     activeTamper.detectabilityScore > 80
                       ? "text-emerald-400"
-                      : activeTamper.detectabilityScore &gt; 50
+                      : activeTamper.detectabilityScore > 50
                       ? "text-amber-400"
                       : "text-rose-400"
                   )}
                 >
                   {activeTamper.detectabilityScore}/100{" "}
                   <span className="text-xs font-normal text-gray-400">
-                    ({activeTamper.detectabilityScore &gt; 75 ? "Loud / Alarming" : "Subtle Malleability"})
+                    ({activeTamper.detectabilityScore > 75 ? "Loud / Alarming" : "Subtle Malleability"})
                   </span>
                 </span>
               </div>
@@ -677,7 +677,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     Raw AES-CBC (No Integrity Tag)
                   </button>
                   <button
@@ -688,7 +688,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  &gt;
+                  >
                     AES-256-GCM (AEAD Tag)
                   </button>
                 </div>
@@ -703,7 +703,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                       ? "bg-rose-950 border-rose-500 text-rose-300"
                       : "bg-gray-900 border-gray-800 text-gray-300"
                   )}
-                &gt;
+                >
                   {isBitFlipped ? "⚡ IN-FLIGHT BIT FLIPPED (amount=500 ➔ 50000)" : "✔ IN-TRANSIT CIPHERTEXT UNTOUCHED"}
                 </button>
               </div>
@@ -756,7 +756,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 {item.name}
               </button>
             ))}
@@ -805,7 +805,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              &gt;
+              >
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

@@ -315,7 +315,7 @@ public class Box<T> {
 }`}
                       language="java"
                       showLineNumbers={true}
-                    /&gt;
+                    />
                     
                     <p className="text-emerald-800 dark:text-emerald-300 mt-4 text-sm">
                       The <code>Box&lt;T&gt;</code> class is a <strong>template</strong>. <code>T</code> is a placeholder 
@@ -352,7 +352,7 @@ public class Main {
 }`}
                       language="java"
                       showLineNumbers={true}
-                    /&gt;
+                    />
                     
                     <p className="text-blue-800 dark:text-blue-300 mt-4 text-sm">
                       Each instance is <strong>type-specific</strong>. The compiler enforces type consistency.
@@ -470,7 +470,7 @@ public class Pair<K, V> {
     
     // Utility method using both types
     public String toString() {
-        return "Pair: " + key + " &rarr; " + value;
+        return "Pair: " + key + " -> " + value;
     }
     
     // Generic method inside generic class
@@ -490,7 +490,7 @@ int productId = productInfo.getKey();     // Integer
 String productName = productInfo.getValue(); // String`}
                       language="java"
                       showLineNumbers={true}
-                    /&gt;
+                    />
                   </div>
                 </div>
               </div>
@@ -567,7 +567,7 @@ public class LibraryContainer<T> {
     
     // Type-safe addition
     public void addItem(T item) {
-        if (size &ge; capacity) {
+        if (size >= capacity) {
             throw new IllegalStateException("Container is full");
         }
         items[size++] = item;
@@ -617,7 +617,7 @@ public class LibraryContainer<T> {
 }`}
                   language="java"
                   showLineNumbers={true}
-                /&gt;
+                />
               </div>
               
               {/* Example 2: Generic Response Wrapper */}
@@ -677,7 +677,7 @@ public class ApiResponse<T> {
             }
         }
         
-        public ApiResponse<List<Student>&gt; getAllStudents() {
+        public ApiResponse<List<Student>> getAllStudents() {
             try {
                 List<Student> students = database.getAllStudents();
                 return ApiResponse.success(students); // List<Student> type
@@ -703,15 +703,15 @@ public class ApiResponse<T> {
         System.out.println(student.getName());
     }
     
-    ApiResponse<List<Student>&gt; response2 = service.getAllStudents();
+    ApiResponse<List<Student>> response2 = service.getAllStudents();
     if (response2.isSuccess()) {
         List<Student> students = response2.getData(); // Type: List<Student>
-        students.forEach(s &rarr; System.out.println(s.getName()));
+        students.forEach(s -> System.out.println(s.getName()));
     }
 }`}
                   language="java"
                   showLineNumbers={true}
-                /&gt;
+                />
               </div>
             </div>
           </div>
@@ -785,7 +785,7 @@ public class CollegeSystem {
         double grade = courseGrade.getSecond();  // Double
         
         // Complex: Pair of Lists
-        Pair<List<String>, List<Integer>&gt; studentData = 
+        Pair<List<String>, List<Integer>> studentData = 
             new Pair<>(
                 Arrays.asList("Swadeep", "Tuhina"),
                 Arrays.asList(22, 21)
@@ -802,7 +802,7 @@ public class CollegeSystem {
 }`}
                   language="java"
                   showLineNumbers={true}
-                /&gt;
+                />
               </div>
               
               <div className="space-y-6">
@@ -1028,7 +1028,7 @@ Box<Student> studentBox = new Box<>();
 // All types benefit from improvements`}
                     language="java"
                     showLineNumbers={true}
-                  /&gt;
+                  />
                 </div>
               </div>
             </div>
@@ -1095,7 +1095,7 @@ Box<Student> studentBox = new Box<>();
                   code={`// Professional-grade Generic Cache Class
 // Used in Barrackpore University's Student Portal
 public class GenericCache<KEY_TYPE, VALUE_TYPE> {
-    private final Map<KEY_TYPE, CacheEntry<VALUE_TYPE>&gt; cache;
+    private final Map<KEY_TYPE, CacheEntry<VALUE_TYPE>> cache;
     private final long defaultTtl; // Time-to-live in milliseconds
     
     // Static nested generic class
@@ -1109,7 +1109,7 @@ public class GenericCache<KEY_TYPE, VALUE_TYPE> {
         }
         
         public boolean isExpired() {
-            return System.currentTimeMillis() &gt; expiryTime;
+            return System.currentTimeMillis() > expiryTime;
         }
         
         public VALUE_TYPE getValue() {
@@ -1148,7 +1148,7 @@ public class GenericCache<KEY_TYPE, VALUE_TYPE> {
     
     // Clear expired entries
     public void cleanup() {
-        cache.entrySet().removeIf(entry &rarr; entry.getValue().isExpired());
+        cache.entrySet().removeIf(entry -> entry.getValue().isExpired());
     }
 }
 
@@ -1168,7 +1168,7 @@ if (student.isPresent()) {
 }`}
                   language="java"
                   showLineNumbers={true}
-                /&gt;
+                />
               </div>
             </div>
           </div>

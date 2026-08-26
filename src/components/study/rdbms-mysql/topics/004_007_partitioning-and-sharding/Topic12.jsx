@@ -56,7 +56,7 @@ CREATE TABLE invoices (
       badge: "Hybrid VLDB Scale",
       badgeColor: "cyan",
       sqlSnippet: `-- 🌐 TIER 1: HORIZONTAL SCALE-OUT ACROSS 16 AUTONOMOUS NODES
--- Sharded by Consistent Hashing on tenant_id &rarr; Handles 80,000 writes/second!
+-- Sharded by Consistent Hashing on tenant_id -> Handles 80,000 writes/second!
 
 -- ⚙️ TIER 2: LOCAL TABLE PARTITIONING INSIDE EACH SHARD NODE:
 -- On each of the 16 shard nodes, the orders table is partitioned by RANGE:
@@ -78,7 +78,7 @@ PARTITION BY RANGE COLUMNS (order_date) (
       explanation:
         "The Hybrid VLDB architecture combines horizontal multi-node sharding for infinite write IOPS scale-out with localized single-server RANGE partitioning for sub-5ms sliding-window data lifecycle archival.",
       keyTakeaways: [
-        "Horizontal Sharding across 16 nodes scales writes to &gt;80k transactions/sec.",
+        "Horizontal Sharding across 16 nodes scales writes to >80k transactions/sec.",
         "Table Partitioning inside each node enables sub-5ms sliding-window drops.",
         "Achieves massive horizontal concurrency with automated localized retention."
       ]
@@ -224,7 +224,7 @@ wait
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {item.caseName}
                 </button>
               );

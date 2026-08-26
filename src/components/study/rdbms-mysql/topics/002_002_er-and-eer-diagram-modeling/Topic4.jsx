@@ -343,7 +343,7 @@ const Topic4 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Unary (Degree 1 & Roles)
               </button>
               <button
@@ -354,7 +354,7 @@ const Topic4 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Binary (Degree 2 Standard)
               </button>
               <button
@@ -365,7 +365,7 @@ const Topic4 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Ternary (Degree 3 Simulator)
               </button>
             </div>
@@ -431,7 +431,7 @@ const Topic4 = () => {
                             value={selectedDoctorId}
                             onChange={(e) => setSelectedDoctorId(Number(e.target.value))}
                             className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                          &gt;
+                          >
                             {doctors.map((d) => (
                               <option key={d.id} value={d.id}>
                                 {d.name.split(" ")[1]} ({d.clinic})
@@ -445,7 +445,7 @@ const Topic4 = () => {
                             value={selectedPatientId}
                             onChange={(e) => setSelectedPatientId(Number(e.target.value))}
                             className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                          &gt;
+                          >
                             {patients.map((p) => (
                               <option key={p.id} value={p.id}>
                                 #{p.id} ({p.name.split(" ")[0]})
@@ -459,7 +459,7 @@ const Topic4 = () => {
                             value={selectedMedId}
                             onChange={(e) => setSelectedMedId(Number(e.target.value))}
                             className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                          &gt;
+                          >
                             {medications.map((m) => (
                               <option key={m.id} value={m.id}>
                                 {m.brand}
@@ -474,7 +474,7 @@ const Topic4 = () => {
                         onChange={(e) => setDosageText(e.target.value)}
                         className="w-full rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                         placeholder="Dosage Instructions"
-                      /&gt;
+                      />
                       <button
                         onClick={handleAddPrescription}
                         className="w-full py-2 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold hover:bg-emerald-500/30 transition-all"

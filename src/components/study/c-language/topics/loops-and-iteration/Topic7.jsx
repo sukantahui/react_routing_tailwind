@@ -413,7 +413,7 @@ const Topic7 = () => {
             <p className="mt-1 text-gray-700 dark:text-gray-300">
               …how you would print a hollow rectangle (only border stars).<br />
               <strong>Try changing this:</strong> In the triangle example, change the inner loop condition
-              from <code>j <= row</code> to <code>j <= 5 - row</code>. What shape do you get?
+              from <code>j &lt;= row</code> to <code>j &lt;= 5 - row</code>. What shape do you get?
             </p>
           </div>
         </section>

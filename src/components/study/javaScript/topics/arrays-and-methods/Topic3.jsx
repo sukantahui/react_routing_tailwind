@@ -122,7 +122,7 @@ console.log(skills.includes("Python")); // false`}
   { name: "Swadeep", marks: 35 },
 ];
 
-const topper = students.find(s => s.marks &gt; 90);
+const topper = students.find(s => s.marks > 90);
 console.log(topper);`}
             language="javascript"
           />

@@ -146,7 +146,7 @@ const Topic82 = () => {
         'Objective value doesn\'t make sense'
       ],
       solution: 'Always substitute the optimal solution back into ALL constraints.',
-      example: 'Finding (40,60) as optimal but not checking machine constraint: 4(40)+60=220 &gt; 200.'
+      example: 'Finding (40,60) as optimal but not checking machine constraint: 4(40)+60=220 > 200.'
     }
   ];
 
@@ -415,7 +415,7 @@ const Topic82 = () => {
                   ? "bg-red-500 text-white shadow-lg shadow-red-200 dark:shadow-red-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -479,7 +479,7 @@ const Topic82 = () => {
                         "bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]",
                         selectedMistake === mistake.id - 1 ? "border-2 border-red-500" : ""
                       )}
-                    &gt;
+                    >
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{mistake.icon}</span>
                         <div>
@@ -553,7 +553,7 @@ const Topic82 = () => {
                         ? "bg-red-500 text-white shadow-lg shadow-red-200 dark:shadow-red-900/30"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  &gt;
+                  >
                     <span>{mistake.icon}</span>
                     {mistake.id}
                   </button>
@@ -571,7 +571,7 @@ const Topic82 = () => {
                       key={`mistake-summary-${index}`}
                       onClick={() => setSelectedMistake(index)}
                       className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
-                    &gt;
+                    >
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-2xl">{mistake.icon}</span>
                         <h5 className="font-semibold text-gray-800 dark:text-gray-200 text-sm">

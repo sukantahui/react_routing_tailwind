@@ -99,7 +99,7 @@ const Topic7 = () => {
   const nonEquiResults = [];
   students.forEach((s) => {
     feeBands.forEach((b) => {
-      if (s.fee &ge; b.minFee && s.fee &le; b.maxFee) {
+      if (s.fee >= b.minFee && s.fee <= b.maxFee) {
         nonEquiResults.push({
           studentId: s.id,
           name: s.name,
@@ -307,7 +307,7 @@ const Topic7 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Equijoin Mode (Equality Match: s.id = e.student_id)
               </button>
 
@@ -322,7 +322,7 @@ const Topic7 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Non-Equi Join Mode (Range Match: fee BETWEEN min AND max)
               </button>
             </div>
@@ -484,7 +484,7 @@ INNER JOIN enrollments e ON s.student_id = e.student_id;`}
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.full_name, s.admission_fee, b.band_tier, b.scholarship_pct
 FROM students s
-INNER JOIN fee_bands b ON s.admission_fee &ge; b.min_fee AND s.admission_fee &le; b.max_fee;`}
+INNER JOIN fee_bands b ON s.admission_fee >= b.min_fee AND s.admission_fee <= b.max_fee;`}
               </pre>
             </div>
           </div>

@@ -41,7 +41,7 @@ export default function Topic9() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        &gt;
+        >
           <h1 className="text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
             COUNTIFS Function (Multiple Condition Counting)
           </h1>
@@ -54,7 +54,7 @@ export default function Topic9() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-amber-500/50 transition-all duration-300"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-amber-400">🔢</span> Function Prototype
           </h2>
@@ -75,7 +75,7 @@ export default function Topic9() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold">🔍 Parameters Explained</h2>
           <div className="mt-4 space-y-3 text-gray-200">
             <div><span className="text-amber-300 font-mono">criteria_range1</span> – The first range to evaluate.</div>
@@ -83,9 +83,9 @@ export default function Topic9() {
             <div><span className="text-amber-300 font-mono">criteria_range2, criteria2</span> – Additional pairs (up to 127).</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-4 border-l-4 border-amber-500 mt-4">
-            <p className="font-mono text-sm">✅ =COUNTIFS(A2:A100, "Rice", B2:B100, "{`&gt;5`}") → count rows where Product=Rice and Quantity&gt;5</p>
-            <p className="font-mono text-sm mt-1">✅ =COUNTIFS(CityRange, "Barrackpore", ScoreRange, ">=80") → count top students from Barrackpore</p>
-            <p className="font-mono text-sm mt-1">✅ =COUNTIFS(DateRange, ">="&amp;E1, DateRange, "<="&amp;E2) → count dates within a range</p>
+            <p className="font-mono text-sm">✅ =COUNTIFS(A2:A100, "Rice", B2:B100, "{`>5`}") → count rows where Product=Rice and Quantity&gt;5</p>
+            <p className="font-mono text-sm mt-1">✅ =COUNTIFS(CityRange, "Barrackpore", ScoreRange, "&gt;=80") → count top students from Barrackpore</p>
+            <p className="font-mono text-sm mt-1">✅ =COUNTIFS(DateRange, "&gt;="&amp;E1, DateRange, "&lt;="&amp;E2) → count dates within a range</p>
           </div>
         </section>
 
@@ -93,7 +93,7 @@ export default function Topic9() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold">📊 Real-World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -110,7 +110,7 @@ export default function Topic9() {
                   <tr><td className="border px-3 py-1">Debangshu</td><td className="border px-3 py-1">Barrackpore</td><td className="border px-3 py-1">68</td></tr>
                 </tbody>
               </table>
-              <p className="mt-3 text-amber-300">=COUNTIFS(B2:B6, "Barrackpore", C2:C6, "{`&gt;80`}") → 1 (only Swadeep)</p>
+              <p className="mt-3 text-amber-300">=COUNTIFS(B2:B6, "Barrackpore", C2:C6, "{`>80`}") → 1 (only Swadeep)</p>
             </div>
           </div>
         </section>
@@ -119,7 +119,7 @@ export default function Topic9() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (
@@ -148,7 +148,7 @@ export default function Topic9() {
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Mixing argument order – remember COUNTIFS starts with criteria_range1, not sum_range (unlike SUMIFS).</li>
             <li>Using different‑sized ranges – all criteria ranges must be the same size; otherwise #VALUE! error.</li>
-            <li>Forgetting quotes around text or operators: =COUNTIFS(A:A, Apples,B:B,"{`&gt;5`}") → error; correct "Apples".</li>
+            <li>Forgetting quotes around text or operators: =COUNTIFS(A:A, Apples,B:B,"{`>5`}") → error; correct "Apples".</li>
             <li>COUNTIFS is case‑insensitive – “APPLE” = “apple”.</li>
             <li>If you intend OR logic, you must add multiple COUNTIFS.</li>
           </ul>
@@ -158,8 +158,8 @@ export default function Topic9() {
         <section className="reveal-section bg-green-900/20 border border-green-800 rounded-2xl p-5 hover:border-green-500 transition-all">
           <h3 className="text-xl font-semibold text-green-300">✅ Best Practices</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
-            <li>{`Use absolute references for ranges when copying formulas: =COUNTIFS($A$2:$A$100, D2, $B$2:$B$100, "&gt;80").`}</li>
-            <li>{`Use cell references for criteria to make formulas dynamic: =COUNTIFS(Region, E2, Sales, "&gt;"&F2).`}</li>
+            <li>{`Use absolute references for ranges when copying formulas: =COUNTIFS($A$2:$A$100, D2, $B$2:$B$100, ">80").`}</li>
+            <li>{`Use cell references for criteria to make formulas dynamic: =COUNTIFS(Region, E2, Sales, ">"&F2).`}</li>
             <li>Combine COUNTIFS with Data Validation to restrict duplicate entries.</li>
             <li>Test each criterion separately using COUNTIF to debug why COUNTIFS returns 0.</li>
           </ul>
@@ -178,10 +178,10 @@ export default function Topic9() {
         <section className="reveal-section bg-purple-900/20 border border-purple-800 rounded-2xl p-5">
           <h3 className="text-xl font-semibold text-purple-300">💡 Professional Tips & Tricks</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
-            <li>{`Use wildcards inside criteria: =COUNTIFS(Product, "*Phone*", Qty, "&gt;10").`}</li>
-            <li>{`Count dates in a month: =COUNTIFS(Date, " &ge; "&DATE(2025,1,1), Date, " &le; "&EOMONTH(DATE(2025,1,1),0)).`}</li>
-            <li>{`For dynamic date ranges: =COUNTIFS(Date, " &ge; "&E1, Date, " &le; "&E2).`}</li>
-            <li>{`COUNTIFS can count based on another column's value: =COUNTIFS(Region, "North", Sales, "&gt;1000").`}</li>
+            <li>{`Use wildcards inside criteria: =COUNTIFS(Product, "*Phone*", Qty, ">10").`}</li>
+            <li>{`Count dates in a month: =COUNTIFS(Date, ">="&DATE(2025,1,1), Date, "<="&EOMONTH(DATE(2025,1,1),0)).`}</li>
+            <li>{`For dynamic date ranges: =COUNTIFS(Date, ">="&E1, Date, "<="&E2).`}</li>
+            <li>{`COUNTIFS can count based on another column's value: =COUNTIFS(Region, "North", Sales, ">1000").`}</li>
           </ul>
         </section>
 
@@ -192,7 +192,7 @@ export default function Topic9() {
             <li>✅ Syntax: =COUNTIFS(criteria_range1, criteria1, ...)</li>
             <li>✅ All criteria ranges must be same size</li>
             <li>✅ Use quotes for text and operators</li>
-            <li>{`✅ Use &amp; to reference cells in criteria: "&gt;"&amp;E1`}</li>
+            <li>{`✅ Use &amp; to reference cells in criteria: ">"&amp;E1`}</li>
             <li>✅ Up to 127 condition pairs</li>
             <li>✅ Returns 0 if no match</li>
           </ul>

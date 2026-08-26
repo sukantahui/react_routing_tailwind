@@ -230,7 +230,7 @@ CREATE TABLE students (
                 <text x="15" y="68" fill="#94a3b8" fontSize="10">student_name</text>
               </g>
 
-              {/* Arrow X &rarr; Y */}
+              {/* Arrow X -> Y */}
               <g transform="translate(205, 55)">
                 <line x1="0" y1="15" x2="60" y2="15" stroke="#38bdf8" strokeWidth="3" />
                 <polygon points="60,10 75,15 60,20" fill="#38bdf8" />
@@ -246,7 +246,7 @@ CREATE TABLE students (
                 <text x="15" y="68" fill="#f59e0b" fontSize="10">Non-Key Determinant!</text>
               </g>
 
-              {/* Arrow Y &rarr; Z */}
+              {/* Arrow Y -> Z */}
               <g transform="translate(470, 55)">
                 <line x1="0" y1="15" x2="60" y2="15" stroke="#f43f5e" strokeWidth="3" strokeDasharray="3 3" />
                 <polygon points="60,10 75,15 60,20" fill="#f43f5e" />
@@ -301,7 +301,7 @@ CREATE TABLE students (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Direct: sid → dept_id
               </button>
 
@@ -313,7 +313,7 @@ CREATE TABLE students (
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Non-Key: dept_id → head
               </button>
 
@@ -325,7 +325,7 @@ CREATE TABLE students (
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Transitive: sid ➔ head
               </button>
 
@@ -337,7 +337,7 @@ CREATE TABLE students (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. 3NF Decomposed Schema
               </button>
             </div>

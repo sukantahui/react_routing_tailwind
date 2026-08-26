@@ -53,7 +53,7 @@ const Topic6 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/10"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-yellow-400 flex items-center gap-2">
             <span>📁</span> What is the Part API?
           </h2>
@@ -74,7 +74,7 @@ const Topic6 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-yellow-400">🔄 Upload & Download Workflow</h2>
           <div className="mt-6 flex justify-center">
             <svg viewBox="0 0 700 200" className="w-full max-w-3xl h-auto">
@@ -121,7 +121,7 @@ const Topic6 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-yellow-400">⚙️ Enabling Multipart Support</h2>
           <p className="mt-3 text-gray-300">
             Annotate your servlet with <code>@MultipartConfig</code> to tell the container to parse the request as multipart/form-data. You can also specify:
@@ -154,7 +154,7 @@ const Topic6 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-yellow-400">📤 File Upload Servlet</h2>
           <p className="mt-3 text-gray-300">
             In the servlet, call <code>request.getPart("fileInputName")</code> to obtain the <code>Part</code> object. Use its methods: <code>getSubmittedFileName()</code>, <code>getSize()</code>, <code>write(String fileName)</code>, and <code>getInputStream()</code>.
@@ -177,7 +177,7 @@ const Topic6 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-yellow-400">📎 Handling Multiple File Uploads</h2>
           <p className="mt-3 text-gray-300">
             For multiple files (HTML5 <code>multiple</code> attribute or multiple inputs), iterate over <code>request.getParts()</code> and filter by content type or name.
@@ -193,7 +193,7 @@ const Topic6 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-yellow-400">📥 File Download Servlet</h2>
           <p className="mt-3 text-gray-300">
             Download is not handled by Part API – you manually read the file from disk and write it to <code>response.getOutputStream()</code>. Set correct headers: <code>Content-Disposition</code> (attachment/inline) and <code>Content-Type</code>.
@@ -227,7 +227,7 @@ const Topic6 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-yellow-400">⚠️ Common Pitfalls (Beginners)</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Missing <code>@MultipartConfig</code>:</strong> Without this annotation, <code>getPart()</code> throws an exception.</li>
@@ -245,7 +245,7 @@ const Topic6 = () => {
         <section
           ref={(el) => (sectionRefs.current[7] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-yellow-400">✅ Best Practices (Industry)</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Always validate file size and type:</strong> Check content type via <code>Part.getContentType()</code> and limit extensions.</li>
@@ -263,7 +263,7 @@ const Topic6 = () => {
         <section
           ref={(el) => (sectionRefs.current[8] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-yellow-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -291,7 +291,7 @@ const Topic6 = () => {
         <section
           ref={(el) => (sectionRefs.current[9] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-yellow-500/30"
-        &gt;
+        >
           <h2 className="text-xl font-semibold text-yellow-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> When you upload a file, inspect the <code>Part</code> headers – they include the original filename in <code>Content-Disposition</code>.</li>

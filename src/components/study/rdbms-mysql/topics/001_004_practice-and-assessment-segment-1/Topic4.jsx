@@ -65,7 +65,7 @@ INSERT INTO students (email) VALUES ('mamata@example.com'); -- ❌ Duplicate!
 INSERT INTO admissions (student_id, course_id) VALUES (1, 999); -- ❌ Course 999 doesn't exist!
 
 -- Test C: Check Constraint Failure (Error 3819):
-INSERT INTO courses (tuition_fee) VALUES (-500.00); -- ❌ Violated CHECK (fee &gt; 0)!`,
+INSERT INTO courses (tuition_fee) VALUES (-500.00); -- ❌ Violated CHECK (fee > 0)!`,
       fixedSnippet: `-- ⚡ SYSTEMATIC FIXES:
 
 -- Fix A: Use INSERT IGNORE or update alternate key:
@@ -100,7 +100,7 @@ SELECT * FROM students WHERE balance_fee = NULL;
 -- Bug B: Ambiguous Operator Precedence without Parentheses:
 SELECT * FROM students 
 WHERE city = 'Kolkata' OR city = 'Barrackpore' AND age > 20;
--- Evaluates as: Kolkata OR (Barrackpore AND age > 20) &rarr; returns teenagers from Kolkata!`,
+-- Evaluates as: Kolkata OR (Barrackpore AND age > 20) -> returns teenagers from Kolkata!`,
       fixedSnippet: `-- ⚡ FIXED SEMANTIC LOGIC:
 
 -- Fix A: Use IS NULL or IS NOT NULL:
@@ -347,7 +347,7 @@ SELECT * FROM students; -- Table located successfully! ✅`,
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

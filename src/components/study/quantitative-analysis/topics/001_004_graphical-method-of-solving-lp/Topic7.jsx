@@ -329,7 +329,7 @@ const Topic7 = () => {
                   ? "bg-teal-600 text-white shadow-lg shadow-teal-200 dark:shadow-teal-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -352,7 +352,7 @@ const Topic7 = () => {
                       "bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]",
                       selectedExercise === exercise.id - 1 ? "border-2 border-teal-500" : ""
                     )}
-                  &gt;
+                  >
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200 text-sm">
                         {exercise.title}
@@ -408,7 +408,7 @@ const Topic7 = () => {
                         if (showSolution) setShowSolution(false);
                       }}
                       className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-all duration-300"
-                    &gt;
+                    >
                       {showHint ? 'Hide Hint' : 'Show Hint'}
                     </button>
                     <button
@@ -417,7 +417,7 @@ const Topic7 = () => {
                         if (showHint) setShowHint(false);
                       }}
                       className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-all duration-300"
-                    &gt;
+                    >
                       {showSolution ? 'Hide Solution' : 'Show Solution'}
                     </button>
                   </div>
@@ -555,7 +555,7 @@ const Topic7 = () => {
                         setShowHint(false);
                       }}
                       className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
-                    &gt;
+                    >
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200">
                         {exercise.title}
                       </h4>

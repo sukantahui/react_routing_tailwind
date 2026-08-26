@@ -114,7 +114,7 @@ const Topic25 = () => {
             )}
             style={{ marginLeft: `${depth * 24}px` }}
             onClick={() => setSelectedComponent(componentName)}
-          &gt;
+          >
             {/* Expand/collapse arrow */}
             {hasChildren && (
               <button
@@ -123,7 +123,7 @@ const Topic25 = () => {
                   toggleExpand(componentName);
                 }}
                 className="mr-2 w-5 h-5 flex items-center justify-center"
-              &gt;
+              >
                 <svg 
                   className={clsx(
                     "w-4 h-4 transition-transform duration-200",
@@ -243,7 +243,7 @@ const Topic25 = () => {
                     ? "bg-gray-800 hover:bg-gray-700 border border-gray-700" 
                     : "bg-white hover:bg-gray-50 border border-gray-200 shadow"
                 )}
-              &gt;
+              >
                 <span className="flex items-center gap-2">
                   {isDark ? (
                     <>
@@ -503,7 +503,7 @@ const Topic25 = () => {
                               ? "bg-gray-800 border border-gray-700 text-white" 
                               : "bg-white border border-gray-300 text-gray-900"
                           )}
-                        /&gt;
+                        />
                         <svg 
                           className="absolute left-3 top-2.5 w-4 h-4 text-gray-400"
                           fill="currentColor" 
@@ -525,7 +525,7 @@ const Topic25 = () => {
                               ? "bg-gray-700 hover:bg-gray-600"
                               : "bg-gray-200 hover:bg-gray-300"
                         )}
-                      &gt;
+                      >
                         {highlightUpdates ? '🔦 Updates On' : '🔍 Updates Off'}
                       </button>
                     </div>
@@ -672,7 +672,7 @@ const Topic25 = () => {
                                   ? "bg-gray-700 hover:bg-gray-600"
                                   : "bg-gray-200 hover:bg-gray-300"
                             )}
-                          &gt;
+                          >
                             {expandedComponents.includes(selectedComponent) ? 'Collapse' : 'Expand'}
                           </button>
                           <span className={clsx(

@@ -42,7 +42,7 @@ const animations = `
 const interactiveQuestions = [
   { q: "What are the three timestamps associated with a Unix file?", a: "Access time (atime), Modification time (mtime), Change time (ctime)." },
   { q: "What does atime represent?", a: "The last time the file was read (accessed). Updated by commands like `cat`, `less`, `head`." },
-  { q: "What does mtime represent?", a: "The last time the file's content was modified. Updated by editors, `echo >&gt;`, `cp`, etc." },
+  { q: "What does mtime represent?", a: "The last time the file's content was modified. Updated by editors, `echo >>`, `cp`, etc." },
   { q: "What does ctime represent?", a: "The last time the file's metadata (permissions, ownership, link count) or any timestamp was changed." },
   { q: "Which `ls` option shows atime?", a: "`ls -lu`" },
   { q: "Which `ls` option shows ctime?", a: "`ls -lc`" },
@@ -85,7 +85,7 @@ function InteractiveQuestionsBlock() {
                 <button
                   onClick={() => toggle(idx)}
                   className="rounded-full bg-indigo-100 px-4 py-1 text-sm font-medium text-indigo-700 transition-all hover:bg-indigo-200 dark:bg-indigo-900/60 dark:text-indigo-200"
-                &gt;
+                >
                   {revealed[idx] ? "Hide" : "Show answer"}
                 </button>
               </div>

@@ -317,7 +317,7 @@ VALUES ('STU-999', 'Rohan Das', 'Barrackpore', 0);
                   <text x="715" y="90" fill="#6ee7b7" fontSize="9" textAnchor="middle font-bold">(Untouched & Protected)</text>
                 </g>
 
-                {/* Flow Arrow Left &rarr; Middle */}
+                {/* Flow Arrow Left -> Middle */}
                 <path d="M 250 70 L 320 70" stroke="#38bdf8" strokeWidth="2" />
               </svg>
             </div>
@@ -349,7 +349,7 @@ VALUES ('STU-999', 'Rohan Das', 'Barrackpore', 0);
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -535,7 +535,7 @@ SELECT
     designation,
     hourly_rate_inr
 FROM employee_payroll
-WHERE hourly_rate_inr &ge; 250.00
+WHERE hourly_rate_inr >= 250.00
 WITH CHECK OPTION;`}
               </pre>
             </div>

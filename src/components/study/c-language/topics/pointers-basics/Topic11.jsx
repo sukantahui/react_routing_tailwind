@@ -204,7 +204,7 @@ p = "World";   // OK: p now points to another string literal`}
       <div className="animate-fade-up" style={{ animationDelay: "450ms" }}>
         <Teacher note={
           "In Barrackpore CNAT, I emphasize that string literals are like constants – they live in a read‑only part of memory. When you write <code>char *p = \"Hello\";</code>, you're not copying the string, just pointing to it. To get a modifiable copy, use an array: <code>char s[] = \"Hello\";</code>. This distinction often shows up in interviews and is the source of many beginner crashes. Always use <code>const</code> when you intend a pointer to read‑only data."
-        } /&gt;
+        } />
       </div>
 
       <style>{`

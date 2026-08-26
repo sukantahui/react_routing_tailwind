@@ -183,7 +183,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 font-bold text-sm">
@@ -242,7 +242,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -285,7 +285,7 @@ const Topic0 = () => {
                   <span className="text-xs px-2 py-0.5 bg-blue-950 text-blue-300 rounded border border-blue-800">Greedy Scan</span>
                 </div>
                 <p className="text-slate-300 text-xs sm:text-sm">
-                  {"Identify active cell "}<span className="font-mono text-cyan-300">(k, l)</span>{" with absolute minimum unit cost: "}<span className="font-mono text-slate-200">{"c_kl = min { c_ij | S_i &gt; 0, D_j > 0 }"}</span>.
+                  {"Identify active cell "}<span className="font-mono text-cyan-300">(k, l)</span>{" with absolute minimum unit cost: "}<span className="font-mono text-slate-200">{"c_kl = min { c_ij | S_i > 0, D_j > 0 }"}</span>.
                 </p>
               </div>
 
@@ -327,7 +327,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-cyan-600/20 text-cyan-400 font-bold text-sm">
@@ -400,7 +400,7 @@ const Topic0 = () => {
                   <text x="60" y="248" fill="#64748b" fontSize="10">e.g. Ichapur→Jadavpur (₹3)</text>
                 </g>
 
-                {/* Arrow 1 &rarr; 2 */}
+                {/* Arrow 1 -> 2 */}
                 <g>
                   <line x1="225" y1="190" x2="285" y2="190" stroke="#60a5fa" strokeWidth="3" />
                   <polygon points="290,190 280,184 280,196" fill="#60a5fa" />
@@ -434,7 +434,7 @@ const Topic0 = () => {
                   <text x="310" y="248" fill="#64748b" fontSize="10">Assign 50 units @ ₹3</text>
                 </g>
 
-                {/* Arrow 2 &rarr; 3 */}
+                {/* Arrow 2 -> 3 */}
                 <g>
                   <line x1="475" y1="190" x2="535" y2="190" stroke="#34d399" strokeWidth="3" />
                   <polygon points="540,190 530,184 530,196" fill="#34d399" />
@@ -490,7 +490,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -550,7 +550,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -579,7 +579,7 @@ const Topic0 = () => {
                         ? 'bg-blue-600/20 border-blue-500 text-blue-300 shadow-md'
                         : 'bg-slate-800/40 border-slate-700/60 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
                     )}
-                  &gt;
+                  >
                     {ex.title}
                   </button>
                 ))}
@@ -687,7 +687,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-pink-600/20 text-pink-400 font-bold text-sm">
@@ -748,7 +748,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -789,7 +789,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 font-bold text-sm">
@@ -830,7 +830,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[8] = el)}
           data-index="8"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -871,7 +871,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[9] = el)}
           data-index="9"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-violet-600/20 text-violet-400 font-bold text-sm">
@@ -912,7 +912,7 @@ const Topic0 = () => {
           ref={(el) => (sectionRefs.current[10] = el)}
           data-index="10"
           className="flex flex-col space-y-6"
-        &gt;
+        >
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

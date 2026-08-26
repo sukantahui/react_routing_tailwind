@@ -251,7 +251,7 @@ const Topic17 = () => {
               <button
                 onClick={() => setShowComparison(!showComparison)}
                 className="px-4 py-2 bg-purple-900/30 text-purple-300 rounded-lg hover:bg-purple-800/50 transition-colors text-sm border border-purple-800/50"
-              &gt;
+              >
                 {showComparison ? 'Hide Comparison' : 'Show Comparison'}
               </button>
             </div>
@@ -443,7 +443,7 @@ const Topic17 = () => {
                   <h3 className="text-xl font-bold text-gray-300 mb-4">Recent Submissions</h3>
                   
                   <div className="space-y-3 max-h-60 overflow-y-auto">
-                    {submissions.length &gt; 0 ? (
+                    {submissions.length > 0 ? (
                       submissions.map((sub, index) => (
                         <div 
                           key={sub.id}
@@ -646,7 +646,7 @@ const Topic17 = () => {
      e.preventDefault();
      navigate('/dashboard'); // React Router
    }}
-&gt;
+>
   Go to Dashboard
 </a>`}
                 </pre>
@@ -667,7 +667,7 @@ const Topic17 = () => {
 {`<div onContextMenu={(e) => {
   e.preventDefault();
   showCustomMenu(e.clientX, e.clientY);
-}}&gt;
+}}>
   Right-click for custom menu
 </div>`}
                 </pre>
@@ -690,7 +690,7 @@ const Topic17 = () => {
     e.preventDefault(); // Prevent form submit
     handleCustomAction();
   }
-}} /&gt;`}
+}} />`}
                 </pre>
                 <p className="text-sm text-gray-400 mt-2">
                   Override default key behavior

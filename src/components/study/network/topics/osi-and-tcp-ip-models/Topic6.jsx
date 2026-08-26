@@ -25,7 +25,7 @@ const Topic6 = () => {
         <button
           onClick={() => setShowFlow(false)}
           className="fixed top-4 left-4 z-50 px-4 py-2 bg-gray-800 text-white rounded-lg shadow-md hover:bg-gray-700 transition"
-        &gt;
+        >
           ← Back to Network Layer
         </button>
         <Topic_FlowBasedRouting />
@@ -196,7 +196,7 @@ const Topic6 = () => {
             <button
               onClick={() => setShowFlow(true)}
               className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
-            &gt;
+            >
               Learn Flow‑Based Routing – Congestion‑Aware Path Selection
             </button>
           </div>

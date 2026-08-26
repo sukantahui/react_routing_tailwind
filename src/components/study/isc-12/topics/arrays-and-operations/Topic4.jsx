@@ -197,7 +197,7 @@ const Topic4 = () => {
                                         <button 
                                             onClick={() => toggleAnswer(idx)}
                                             className="text-sm text-blue-600 dark:text-blue-400 hover:underline mt-1 transition"
-                                        &gt;
+                                        >
                                             {revealedAnswers[idx] ? "Hide Answer" : "Show Answer"}
                                         </button>
                                         {revealedAnswers[idx] && (

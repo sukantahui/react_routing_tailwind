@@ -52,7 +52,7 @@ CREATE TABLE students (
     roll_number VARCHAR(20) NOT NULL UNIQUE,
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(120) NOT NULL UNIQUE,
-    admission_year INT CHECK (admission_year &ge; 2020)
+    admission_year INT CHECK (admission_year >= 2020)
 ) ENGINE=InnoDB;
 
 -- 4. Course Enrollments (Junction Table with Composite Unique Key)
@@ -78,10 +78,10 @@ CREATE TABLE grade_ledgers (
 ) ENGINE=InnoDB;`,
       tableSummary: [
         { table: "departments", purpose: "Campus departments (Barrackpore, Kolkata)", key: "PK: dept_id" },
-        { table: "courses", purpose: "Curriculum with credit check (1 to 6)", key: "FK &rarr; departments" },
+        { table: "courses", purpose: "Curriculum with credit check (1 to 6)", key: "FK -> departments" },
         { table: "students", purpose: "Student directory with unique roll numbers", key: "PK: student_id" },
         { table: "course_enrollments", purpose: "Term registrations with composite unique key", key: "UNIQUE (std, crs, sem)" },
-        { table: "grade_ledgers", purpose: "Score ledgers with check (0-100 marks)", key: "FK -&gt; enrollments" }
+        { table: "grade_ledgers", purpose: "Score ledgers with check (0-100 marks)", key: "FK -> enrollments" }
       ],
       explanation:
         "The schema represents an end-to-end academic database. Notice the composite unique key on `course_enrollments` (`UNIQUE (student_id, course_id, semester_term)`), preventing double-registration while allowing students to take different courses in the same semester."
@@ -189,7 +189,7 @@ SELECT
     COUNT(DISTINCT e.course_id) AS courses_taken,
     ROUND(AVG(g.marks_obtained), 2) AS overall_average_marks,
     CASE 
-        WHEN AVG(g.marks_obtained) &ge; 90.00 THEN 'High Honors ⭐'
+        WHEN AVG(g.marks_obtained) >= 90.00 THEN 'High Honors ⭐'
         ELSE 'Honors 🎖️'
     END AS academic_standing
 FROM students s
@@ -423,7 +423,7 @@ ORDER BY overall_average_marks DESC;`,
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -666,7 +666,7 @@ ORDER BY overall_average_marks DESC;`,
                 </div>
                 <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
                   <span className="text-emerald-400 font-bold block mb-1">“Think about CASE statements...”</span>
-                  We used a <code>CASE WHEN AVG(...) >= 90 THEN 'High Honors' ... END</code> expression in the SELECT list. Conditional SQL expressions make reporting dynamic and self-documenting!
+                  We used a <code>CASE WHEN AVG(...) &gt;= 90 THEN 'High Honors' ... END</code> expression in the SELECT list. Conditional SQL expressions make reporting dynamic and self-documenting!
                 </div>
               </div>
             </div>

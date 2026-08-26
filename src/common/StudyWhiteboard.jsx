@@ -174,7 +174,7 @@ export default function StudyWhiteboard({
   }, [storageKey]);
 
   const handleUndo = useCallback(() => {
-    if (historyIndexRef.current &gt; 0) {
+    if (historyIndexRef.current > 0) {
       restoreState(historyIndexRef.current - 1);
       showToast("↩️ Undone");
     }
@@ -197,13 +197,13 @@ export default function StudyWhiteboard({
 
     const width = scrollContainer.clientWidth || 600;
     const height = canvasHeight;
-    if (width &le; 0 || height <= 0) return;
+    if (width <= 0 || height <= 0) return;
 
     const dpr = window.devicePixelRatio || 1;
     
     // Save current drawing image before resizing to prevent content loss
     let previousImage = null;
-    if (ctxRef.current && canvas.width > 0 && canvas.height &gt; 0) {
+    if (ctxRef.current && canvas.width > 0 && canvas.height > 0) {
       try {
         previousImage = canvas.toDataURL("image/png");
       } catch (e) {
@@ -650,7 +650,7 @@ export default function StudyWhiteboard({
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
             )}
             title="Ballpoint Pen"
-          &gt;
+          >
             <Pen size={13} />
           </button>
 
@@ -663,7 +663,7 @@ export default function StudyWhiteboard({
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
             )}
             title="Translucent Highlighter"
-          &gt;
+          >
             <Highlighter size={13} />
           </button>
 
@@ -676,7 +676,7 @@ export default function StudyWhiteboard({
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
             )}
             title="Text Note"
-          &gt;
+          >
             <Type size={13} />
           </button>
 
@@ -689,7 +689,7 @@ export default function StudyWhiteboard({
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
             )}
             title="Directional Arrow"
-          &gt;
+          >
             <ArrowUpRight size={13} />
           </button>
 
@@ -702,7 +702,7 @@ export default function StudyWhiteboard({
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
             )}
             title="Rectangle Box"
-          &gt;
+          >
             <Square size={13} />
           </button>
 
@@ -715,7 +715,7 @@ export default function StudyWhiteboard({
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
             )}
             title="Circle / Ring"
-          &gt;
+          >
             <CircleIcon size={13} />
           </button>
 
@@ -728,7 +728,7 @@ export default function StudyWhiteboard({
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
             )}
             title="Straight Line"
-          &gt;
+          >
             <Minus size={13} />
           </button>
 
@@ -741,7 +741,7 @@ export default function StudyWhiteboard({
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
             )}
             title="Educational Stamps"
-          &gt;
+          >
             <Tag size={13} />
           </button>
 
@@ -754,7 +754,7 @@ export default function StudyWhiteboard({
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
             )}
             title="Eraser"
-          &gt;
+          >
             <Eraser size={13} />
           </button>
         </div>
@@ -776,7 +776,7 @@ export default function StudyWhiteboard({
                   : "hover:scale-110 opacity-80 hover:opacity-100"
               )}
               title={p.label}
-            /&gt;
+            />
           ))}
 
           {/* Custom Color Wheel */}
@@ -790,7 +790,7 @@ export default function StudyWhiteboard({
               }}
               className="absolute -inset-2 w-8 h-8 cursor-pointer opacity-0"
               title="Custom Color"
-            /&gt;
+            />
             <div
               className="w-full h-full"
               style={{ backgroundColor: color }}
@@ -837,7 +837,7 @@ export default function StudyWhiteboard({
                 : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
             )}
             title={isFloating ? "Dock back to Sidebar" : "Float Whiteboard Anywhere on Screen"}
-          &gt;
+          >
             <LayoutTemplate size={13} />
             <span className="hidden sm:inline">{isFloating ? "Dock" : "Float"}</span>
           </button>
@@ -927,7 +927,7 @@ export default function StudyWhiteboard({
             <button
               onClick={() => setTextInput({ active: false, x: 0, y: 0, text: "", fontSize: 16 })}
               className="p-1 text-slate-400 hover:text-white text-xs"
-            &gt;
+            >
               ✕
             </button>
           </div>

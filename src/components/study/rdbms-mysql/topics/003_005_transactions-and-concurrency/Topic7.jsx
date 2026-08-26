@@ -57,7 +57,7 @@ COMMIT;`,
 -- Session 1 (Audit with Locking Read):
 START TRANSACTION;
 
--- Locking Range Query on students with GPA &ge; 3.8:
+-- Locking Range Query on students with GPA >= 3.8:
 SELECT * FROM student_records WHERE gpa >= 3.8 FOR UPDATE;
 -- 🔒 InnoDB deploys Next-Key Locks:
 -- 1. Record Locks on matching rows (Mamata, Susmita)
@@ -376,7 +376,7 @@ COMMIT;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

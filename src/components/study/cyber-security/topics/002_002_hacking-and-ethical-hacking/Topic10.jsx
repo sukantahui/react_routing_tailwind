@@ -262,7 +262,7 @@ Acknowledgments: https://kolkata-fintech.co.in/hall-of-fame`;
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-base sm:text-lg">{vuln.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{vuln.vrtRating.split(" - ")[1]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{vuln.title.split(" (")[0]}</div>
@@ -285,7 +285,7 @@ Acknowledgments: https://kolkata-fintech.co.in/hall-of-fame`;
                       ? "bg-purple-950/80 text-white border-purple-500 shadow-md"
                       : "bg-gray-900 text-gray-400 border-gray-800 hover:bg-gray-850 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200">{tier.name.split(": ")[0]}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-0.5">{tier.name.split(": ")[1]}</div>
                 </button>
@@ -359,7 +359,7 @@ Acknowledgments: https://kolkata-fintech.co.in/hall-of-fame`;
                   value={securityEmail}
                   onChange={(e) => setSecurityEmail(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-800 rounded-lg px-3 py-2 text-gray-200 focus:outline-none focus:border-indigo-500"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -369,7 +369,7 @@ Acknowledgments: https://kolkata-fintech.co.in/hall-of-fame`;
                   value={pgpKeyUrl}
                   onChange={(e) => setPgpKeyUrl(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-800 rounded-lg px-3 py-2 text-gray-200 focus:outline-none focus:border-indigo-500"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -379,7 +379,7 @@ Acknowledgments: https://kolkata-fintech.co.in/hall-of-fame`;
                   value={policyUrl}
                   onChange={(e) => setPolicyUrl(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-800 rounded-lg px-3 py-2 text-gray-200 focus:outline-none focus:border-indigo-500"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -389,7 +389,7 @@ Acknowledgments: https://kolkata-fintech.co.in/hall-of-fame`;
                   value={preferredLangs}
                   onChange={(e) => setPreferredLangs(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-800 rounded-lg px-3 py-2 text-gray-200 focus:outline-none focus:border-indigo-500"
-                /&gt;
+                />
               </div>
 
               <div className="space-y-1">
@@ -399,7 +399,7 @@ Acknowledgments: https://kolkata-fintech.co.in/hall-of-fame`;
                   value={expiryDate}
                   onChange={(e) => setExpiryDate(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-800 rounded-lg px-3 py-2 text-gray-200 focus:outline-none focus:border-indigo-500"
-                /&gt;
+                />
               </div>
             </div>
 
@@ -598,7 +598,7 @@ Acknowledgments: https://kolkata-fintech.co.in/hall-of-fame`;
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

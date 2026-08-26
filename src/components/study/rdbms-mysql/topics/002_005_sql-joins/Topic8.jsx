@@ -54,7 +54,7 @@ INNER JOIN grade_scales g
     CONCAT('₹', FORMAT(e.annual_salary * (t.tax_rate_pct / 100), 2)) AS estimated_tax
 FROM employees e
 INNER JOIN tax_slabs t 
-    ON e.annual_salary &ge; t.min_salary 
+    ON e.annual_salary >= t.min_salary 
    AND (e.annual_salary < t.max_salary OR t.max_salary IS NULL);`,
       resultRows: [
         { name: "Mamata Hui", value: "Salary: ₹6,50,000", match: "Slab 2 (₹5L–₹10L)", outcome: "Tax (10%): ₹65,000", badgeColor: "cyan" },
@@ -224,13 +224,13 @@ WHERE s.exam_score = 80;
               <span className="text-xs font-mono font-bold text-teal-400 uppercase">1. Inclusive BETWEEN Operator</span>
               <strong className="text-white text-xs block font-mono">ON s.score BETWEEN g.min_score AND g.max_score</strong>
               <p className="text-xs text-slate-300">
-                BETWEEN is inclusive of both endpoints (<code>min <= val AND val <= max</code>). Perfect for discrete integer grading tables.
+                BETWEEN is inclusive of both endpoints (<code>min &lt;= val AND val &lt;= max</code>). Perfect for discrete integer grading tables.
               </p>
             </div>
 
             <div className="p-4 rounded-xl border border-amber-500/30 bg-slate-950 space-y-2">
               <span className="text-xs font-mono font-bold text-amber-400 uppercase">2. Half-Open Interval Pattern</span>
-              <strong className="text-white text-xs block font-mono">ON salary >= min AND (salary &lt; max OR max IS NULL)</strong>
+              <strong className="text-white text-xs block font-mono">ON salary &gt;= min AND (salary &lt; max OR max IS NULL)</strong>
               <p className="text-xs text-slate-300">
                 Half-open intervals prevent boundary collision bugs in floating-point financial systems and support open-ended top brackets.
               </p>
@@ -308,7 +308,7 @@ WHERE s.exam_score = 80;
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Grade Scales (BETWEEN)
               </button>
 
@@ -320,7 +320,7 @@ WHERE s.exam_score = 80;
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Salary Tax Slabs (₹)
               </button>
 
@@ -332,7 +332,7 @@ WHERE s.exam_score = 80;
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Date Range Pricing
               </button>
 
@@ -344,7 +344,7 @@ WHERE s.exam_score = 80;
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Overlap Bug Demo ❌
               </button>
             </div>
@@ -481,7 +481,7 @@ SELECT
     ROUND(o.cart_total * (1 - (d.discount_pct / 100)), 2) AS discounted_net_total
 FROM orders o
 INNER JOIN volume_discount_tiers d 
-    ON o.cart_total &ge; d.min_amount 
+    ON o.cart_total >= d.min_amount 
    AND (o.cart_total < d.max_amount OR d.max_amount IS NULL);`}
               </pre>
             </div>
@@ -544,7 +544,7 @@ INNER JOIN volume_discount_tiers d
                 <div>
                   <strong className="text-white">2. Use Half-Open Intervals for Float/Currency:</strong>
                   <p className="text-slate-400 mt-0.5">
-                    Use <code>>= min AND &lt; max</code> to guarantee zero boundary gaps and no overlap in continuous values.
+                    Use <code>&gt;= min AND &lt; max</code> to guarantee zero boundary gaps and no overlap in continuous values.
                   </p>
                 </div>
               </div>
@@ -563,7 +563,7 @@ INNER JOIN volume_discount_tiers d
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm text-slate-300">
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
-              <span>Non-Equi Joins use comparison operators (BETWEEN, &gt;, &lt;, >=, <=)</span>
+              <span>Non-Equi Joins use comparison operators (BETWEEN, &gt;, &lt;, &gt;=, &lt;=)</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>

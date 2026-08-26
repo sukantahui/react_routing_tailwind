@@ -21,7 +21,7 @@ export default function AsyncPracticePage() {
               key={index}
               onClick={() => setActiveSection(index)}
               className="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:bg-slate-800 text-left transition"
-            &gt;
+            >
               <h2 className="text-lg font-semibold text-sky-300">
                 {section.title}
               </h2>

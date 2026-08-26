@@ -141,7 +141,7 @@ export default class Topic0 extends Component {
               {/* Root Directory */}
               <div className={`relative z-10 p-4 rounded-xl ${hoveredDir === '/' ? 'ring-4 ring-red-400 dark:ring-red-500' : 'ring-2 ring-gray-300 dark:ring-gray-600'} bg-red-100 dark:bg-red-900/30 transition-all duration-300 transform ${hoveredDir === '/' ? 'scale-105' : 'scale-100'} cursor-pointer`}
                 onMouseEnter={() => this.handleDirectoryHover('/')}
-                onMouseLeave={this.handleDirectoryLeave}&gt;
+                onMouseLeave={this.handleDirectoryLeave}>
                 <div className="flex flex-col items-center">
                   <div className="text-2xl mb-2">🏠</div>
                   <div className="font-mono font-bold text-lg text-red-700 dark:text-red-300">/ (root)</div>
@@ -169,7 +169,7 @@ export default class Topic0 extends Component {
                     className={`p-4 rounded-xl ${hoveredDir === dir.name ? 'ring-4 ring-opacity-50' : 'ring-1 ring-gray-200 dark:ring-gray-700'} ${dir.color} transition-all duration-300 transform ${hoveredDir === dir.name ? 'scale-105 shadow-lg' : 'scale-100'} cursor-pointer ${baseAnimation}`}
                     style={{ animationDelay: `${200 + index * 50}ms` }}
                     onMouseEnter={() => this.handleDirectoryHover(dir.name)}
-                    onMouseLeave={this.handleDirectoryLeave}&gt;
+                    onMouseLeave={this.handleDirectoryLeave}>
                     <div className="flex items-start">
                       <div className="text-xl mr-3">{dir.icon}</div>
                       <div>
@@ -230,7 +230,7 @@ export default class Topic0 extends Component {
                     key={key}
                     className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${activeExample === key ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`}
                     onClick={() => this.handleExampleChange(key)}
-                  &gt;
+                  >
                     {examples[key].title.split(' ')[0]}
                   </button>
                 ))}

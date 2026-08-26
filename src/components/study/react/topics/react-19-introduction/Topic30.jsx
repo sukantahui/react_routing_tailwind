@@ -40,7 +40,7 @@ const Topic30 = () => {
                     ? "bg-gray-800 hover:bg-gray-700 border border-gray-700" 
                     : "bg-white hover:bg-gray-50 border border-gray-200 shadow"
                 )}
-              &gt;
+              >
                 <span className="flex items-center gap-2">
                   {isDark ? (
                     <>

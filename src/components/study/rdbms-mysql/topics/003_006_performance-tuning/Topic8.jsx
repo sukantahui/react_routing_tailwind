@@ -25,7 +25,7 @@ const Topic8 = () => {
       badge: "Date Function Refactoring",
       badgeColor: "emerald",
       sqlQuery: `-- ❌ NON-SARGABLE (YEAR() function wraps indexed column):
--- Forces MySQL to compute YEAR() on all 100,000 rows &rarr; Full Table Scan (ALL)!
+-- Forces MySQL to compute YEAR() on all 100,000 rows -> Full Table Scan (ALL)!
 SELECT student_id, name, registration_date 
 FROM student_records 
 WHERE YEAR(registration_date) = 2026;
@@ -37,7 +37,7 @@ WHERE YEAR(registration_date) = 2026;
 -- Allows B+Tree to perform an index range probe directly on 'registration_date'!
 SELECT student_id, name, registration_date 
 FROM student_records 
-WHERE registration_date &ge; '2026-01-01 00:00:00' 
+WHERE registration_date >= '2026-01-01 00:00:00' 
   AND registration_date < '2027-01-01 00:00:00';
 
 -- 📋 Sargable EXPLAIN:
@@ -54,7 +54,7 @@ WHERE registration_date &ge; '2026-01-01 00:00:00'
           status: "Severe CPU & I/O Waste ❌"
         },
         {
-          variant: "Sargable WHERE reg_date &ge; '2026-01-01'...",
+          variant: "Sargable WHERE reg_date >= '2026-01-01'...",
           accessType: "range (Index Range Scan)",
           indexUsed: "idx_reg_date",
           rowsExamined: "1,200 rows",
@@ -128,7 +128,7 @@ WHERE balance_fee * 1.18 > 10000;
 -- Move the constant multiplication to the right side of the comparison:
 SELECT student_id, name, balance_fee 
 FROM student_records 
-WHERE balance_fee &gt; 10000 / 1.18; -- Evaluated ONCE at parse time: 8474.58
+WHERE balance_fee > 10000 / 1.18; -- Evaluated ONCE at parse time: 8474.58
 
 -- 📋 Sargable EXPLAIN:
 -- type = 'range', key = 'idx_balance_fee', rows = 650, Extra = 'Using index condition'
@@ -323,13 +323,13 @@ CREATE INDEX idx_student_code_prefix ON student_records ((SUBSTRING(student_code
                 <tr className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-bold text-white font-sans">Date Year</td>
                   <td className="py-3 px-4 text-rose-300">WHERE YEAR(reg_date) = 2026</td>
-                  <td className="py-3 px-4 text-emerald-300">WHERE reg_date >= '2026-01-01' AND reg_date &lt; '2027-01-01'</td>
+                  <td className="py-3 px-4 text-emerald-300">WHERE reg_date &gt;= '2026-01-01' AND reg_date &lt; '2027-01-01'</td>
                   <td className="py-3 px-4 font-bold text-emerald-400">120x</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-bold text-white font-sans">Date Day / Today</td>
                   <td className="py-3 px-4 text-rose-300">WHERE DATE(created_at) = CURDATE()</td>
-                  <td className="py-3 px-4 text-emerald-300">WHERE created_at >= CURDATE() AND created_at &lt; CURDATE() + INTERVAL 1 DAY</td>
+                  <td className="py-3 px-4 text-emerald-300">WHERE created_at &gt;= CURDATE() AND created_at &lt; CURDATE() + INTERVAL 1 DAY</td>
                   <td className="py-3 px-4 font-bold text-emerald-400">95x</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40 transition-colors">
@@ -447,7 +447,7 @@ CREATE INDEX idx_student_code_prefix ON student_records ((SUBSTRING(student_code
                   {/* Right Box: Sargable */}
                   <rect x="490" y="40" width="430" height="320" rx="10" fill="#0f172a" stroke="#10b981" strokeWidth="1.5" />
                   <text x="705" y="70" fill="#34d399" fontSize="14" fontWeight="bold" textAnchor="middle">
-                    ⚡ Sargable (reg_date >= '2026-01-01'...)
+                    ⚡ Sargable (reg_date &gt;= '2026-01-01'...)
                   </text>
                   <text x="705" y="90" fill="#94a3b8" fontSize="11" textAnchor="middle">
                     B+Tree Binary Search to Lower Bound + Range Scan
@@ -512,7 +512,7 @@ CREATE INDEX idx_student_code_prefix ON student_records ((SUBSTRING(student_code
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -706,7 +706,7 @@ SELECT candidate_id, hall_ticket_no, exam_center
 FROM candidate_registrations 
 WHERE mobile_no = '9830099887'; -- Explicit string literal!
 
--- Result: type = const on uq_mobile_no (Latency dropped from 89 ms &rarr; 0.04 ms)!`}
+-- Result: type = const on uq_mobile_no (Latency dropped from 89 ms -> 0.04 ms)!`}
                 </pre>
               </div>
             </div>
@@ -754,7 +754,7 @@ WHERE mobile_no = '9830099887'; -- Explicit string literal!
                 <span>✓</span> Best Practice 1: Half-Open Timestamp Intervals
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                For `DATETIME` or `TIMESTAMP` columns, always query date ranges using half-open intervals: <code className="text-cyan-300 font-mono">>= start AND &lt; next_day</code>. Avoid `DATE(col) = ?` or `BETWEEN` with incomplete times.
+                For `DATETIME` or `TIMESTAMP` columns, always query date ranges using half-open intervals: <code className="text-cyan-300 font-mono">&gt;= start AND &lt; next_day</code>. Avoid `DATE(col) = ?` or `BETWEEN` with incomplete times.
               </p>
               <div className="text-xs text-slate-400">
                 Guarantees exact millisecond precision and 100% sargable range seeks.
@@ -798,7 +798,7 @@ WHERE mobile_no = '9830099887'; -- Explicit string literal!
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-cyan-400 font-bold font-mono">02.</span>
-                  <span><strong className="text-cyan-400">Date Ranges</strong> = Replace `YEAR()`, `MONTH()`, `DATE()` with `>=` and `&lt;`.</span>
+                  <span><strong className="text-cyan-400">Date Ranges</strong> = Replace `YEAR()`, `MONTH()`, `DATE()` with `&gt;=` and `&lt;`.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-400 font-bold font-mono">03.</span>

@@ -622,7 +622,7 @@ character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
 
 [mysql]
-prompt = '\\u@\\h [\\d]&gt; '
+prompt = '\\u@\\h [\\d]> '
 auto-rehash = 1`}
             </pre>
           </div>

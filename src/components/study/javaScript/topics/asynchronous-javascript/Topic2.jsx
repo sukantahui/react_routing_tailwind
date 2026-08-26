@@ -64,7 +64,7 @@ export default class Topic2 extends Component {
 loadMarks("Ritaja", function (marks) {
   console.log("Received marks:", marks);
 });`}
-          /&gt;
+          />
 
           <p className="text-slate-400 text-sm mt-2">
             ✔ Here the callback is clean and readable.  

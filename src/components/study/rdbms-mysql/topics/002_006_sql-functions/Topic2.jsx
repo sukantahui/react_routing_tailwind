@@ -321,7 +321,7 @@ ORDER BY FIELD(batch_status, 'ACTIVE', 'PENDING', 'COMPLETED', 'SUSPENDED');`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. TRIM &amp; Case Normal
               </button>
 
@@ -333,7 +333,7 @@ ORDER BY FIELD(batch_status, 'ACTIVE', 'PENDING', 'COMPLETED', 'SUSPENDED');`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. LPAD Sequences
               </button>
 
@@ -345,7 +345,7 @@ ORDER BY FIELD(batch_status, 'ACTIVE', 'PENDING', 'COMPLETED', 'SUSPENDED');`,
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. REPLACE Sanitization
               </button>
 
@@ -357,7 +357,7 @@ ORDER BY FIELD(batch_status, 'ACTIVE', 'PENDING', 'COMPLETED', 'SUSPENDED');`,
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. FIELD Custom Sort
               </button>
             </div>

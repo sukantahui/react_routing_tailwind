@@ -123,7 +123,7 @@ const Topic27 = () => {
     </div>
   );
 }`,
-      explanation: "Void elements in JSX must be self-closed with /&gt;",
+      explanation: "Void elements in JSX must be self-closed with />",
       errorMessage: "Parsing error: Unterminated JSX contents"
     },
     mapKey: {
@@ -289,7 +289,7 @@ const Topic27 = () => {
                     ? "bg-gray-800 hover:bg-gray-700 border border-gray-700" 
                     : "bg-white hover:bg-gray-50 border border-gray-200 shadow"
                 )}
-              &gt;
+              >
                 <span className="flex items-center gap-2">
                   {isDark ? (
                     <>
@@ -553,7 +553,7 @@ const Topic27 = () => {
                               : "bg-gray-50 hover:bg-gray-100 border border-gray-200"
                         )}
                         onClick={() => setActiveMistake(key)}
-                      &gt;
+                      >
                         <div className="flex items-center gap-3">
                           <div className={clsx(
                             "w-8 h-8 rounded-lg flex items-center justify-center",
@@ -803,7 +803,7 @@ const Topic27 = () => {
                           : "bg-white text-gray-900"
                       )}
                       spellCheck="false"
-                    /&gt;
+                    />
                   </div>
                   
                   {/* Validation Result */}
@@ -857,7 +857,7 @@ const Topic27 = () => {
                         <button
                           onClick={() => setShowHint(!showHint)}
                           className="text-sm font-medium flex items-center gap-2 w-full"
-                        &gt;
+                        >
                           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
                           </svg>
@@ -1576,7 +1576,7 @@ return (     // ✅ Correct
   const [students] = useState(['Swadeep', 'Tuhina']);
   const [count, setCount] = useState(0);
   
-  if (count &gt; 0) {
+  if (count > 0) {
     const [extra, setExtra] = useState(''); // ❌
   }
   

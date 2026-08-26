@@ -50,7 +50,7 @@ const Topic26 = () => {
     const exprClean = expr.replace(/\s/g, '');
     
     // Common identity checks
-    if (exprClean === 'A·B+A·C' && varNames.length &ge; 3) {
+    if (exprClean === 'A·B+A·C' && varNames.length >= 3) {
       return (vars.A && vars.B) || (vars.A && vars.C) ? 1 : 0;
     }
     if (exprClean === 'A·(B+C)' && varNames.length >= 3) {
@@ -106,7 +106,7 @@ const Topic26 = () => {
     for (let i = 0; i < totalRows; i++) {
       const values = [];
       for (let j = numVariables - 1; j >= 0; j--) {
-        values.push((i &gt;> j) & 1);
+        values.push((i >> j) & 1);
       }
       const output1 = evaluateExpression(expr1, values);
       const output2 = evaluateExpression(expr2, values);
@@ -131,7 +131,7 @@ const Topic26 = () => {
     for (let i = 0; i < totalRows; i++) {
       const values = [];
       for (let j = numVariables - 1; j >= 0; j--) {
-        values.push((i &gt;> j) & 1);
+        values.push((i >> j) & 1);
       }
       const output1 = evaluateExpression(customExpr1, values);
       const output2 = evaluateExpression(customExpr2, values);
@@ -228,7 +228,7 @@ const Topic26 = () => {
                   key={idx}
                   onClick={() => setIdentity(id)}
                   className="px-3 py-1 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-all text-sm"
-                &gt;
+                >
                   {id.name}
                 </button>
               ))}
@@ -246,7 +246,7 @@ const Topic26 = () => {
                 value={expr1}
                 onChange={(e) => setExpr1(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-mono"
-              /&gt;
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -257,7 +257,7 @@ const Topic26 = () => {
                 value={expr2}
                 onChange={(e) => setExpr2(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-mono"
-              /&gt;
+              />
             </div>
           </div>
           
@@ -266,13 +266,13 @@ const Topic26 = () => {
             <button
               onClick={() => setVerificationMethod('truthTable')}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", verificationMethod === 'truthTable' ? "bg-emerald-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;
+            >
               Truth Table
             </button>
             <button
               onClick={() => setVerificationMethod('algebraic')}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", verificationMethod === 'algebraic' ? "bg-emerald-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;
+            >
               Algebraic Proof
             </button>
           </div>
@@ -392,7 +392,7 @@ const Topic26 = () => {
           <button
             onClick={() => setShowVerification(!showVerification)}
             className="mt-4 w-full py-2 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 rounded-lg font-medium transition-all duration-300 hover:bg-emerald-200"
-          &gt;
+          >
             {showVerification ? "Hide" : "Show"} Verification Explanation
           </button>
           
@@ -428,7 +428,7 @@ const Topic26 = () => {
                 onChange={(e) => setCustomExpr1(e.target.value)}
                 placeholder="e.g., A·B + A·C"
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-mono"
-              /&gt;
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -440,7 +440,7 @@ const Topic26 = () => {
                 onChange={(e) => setCustomExpr2(e.target.value)}
                 placeholder="e.g., A·(B+C)"
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-mono"
-              /&gt;
+              />
             </div>
           </div>
           
@@ -485,7 +485,7 @@ const Topic26 = () => {
                     ))}
                   </tbody>
                 </table>
-                {totalRows &gt; 8 && <p className="text-xs text-gray-500 mt-1">Showing first 8 of {totalRows} rows</p>}
+                {totalRows > 8 && <p className="text-xs text-gray-500 mt-1">Showing first 8 of {totalRows} rows</p>}
               </div>
             </div>
           )}

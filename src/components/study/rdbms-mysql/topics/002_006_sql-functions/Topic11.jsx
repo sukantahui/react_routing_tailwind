@@ -90,7 +90,7 @@ ORDER BY total_settlement_inr DESC;`,
       title: "4. Student Performance Tier Bucketing (GROUP BY CASE)",
       sqlQuery: `SELECT 
     CASE 
-        WHEN marks_pct &ge; 85 THEN 'Distinction (85%+)'
+        WHEN marks_pct >= 85 THEN 'Distinction (85%+)'
         WHEN marks_pct >= 60 THEN 'First Class (60%-84%)'
         WHEN marks_pct >= 40 THEN 'Pass Tier (40%-59%)'
         ELSE 'Needs Re-assessment (<40%)'
@@ -488,7 +488,7 @@ GROUP BY centre_city;`}</pre>
                         ? "bg-cyan-950/80 border-cyan-500 text-cyan-200 shadow-lg shadow-cyan-950/50"
                         : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                     )}
-                  &gt;
+                  >
                     <div className="font-semibold">{item.title}</div>
                   </button>
                 );
@@ -647,7 +647,7 @@ ORDER BY intake_year DESC, MONTH(admission_date) DESC;`}</pre>
               <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 font-mono text-xs text-amber-300 overflow-x-auto">
                 <pre>{`SELECT 
     CASE 
-        WHEN marks_pct &ge; 75 THEN 'DISTINCTION'
+        WHEN marks_pct >= 75 THEN 'DISTINCTION'
         WHEN marks_pct >= 60 THEN 'FIRST_CLASS'
         WHEN marks_pct >= 40 THEN 'PASS'
         ELSE 'FAIL'

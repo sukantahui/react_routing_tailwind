@@ -43,7 +43,7 @@ const Topic4 = () => {
                     ? "bg-blue-600 text-white shadow-lg scale-105"
                     : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              &gt;
+              >
                 <span className="text-xl">🔄</span> Recursive Query
               </button>
               <button
@@ -54,7 +54,7 @@ const Topic4 = () => {
                     ? "bg-purple-600 text-white shadow-lg scale-105"
                     : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              &gt;
+              >
                 <span className="text-xl">🔁</span> Iterative Query
               </button>
             </div>

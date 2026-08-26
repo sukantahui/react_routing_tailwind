@@ -187,7 +187,7 @@ const FAQ = ({ title = "FAQs" }) => {
             <button
               onClick={() => toggleAnswer(idx)}
               className="w-full text-left px-6 py-4 bg-gray-50 dark:bg-gray-900 flex justify-between items-center"
-            &gt;
+            >
               <span className="font-semibold text-gray-900 dark:text-white">
                 {idx + 1}. {faq.question}
               </span>

@@ -79,7 +79,7 @@ int totalMarks;`}
 if(a>0){System.out.println(a);} 
 
 // Proper formatting
-if (a &gt; 0) {
+if (a > 0) {
     System.out.println(a);
 }`}
           />
@@ -134,7 +134,7 @@ if (marks > 40) {
 
 // Good
 final int PASS_MARKS = 40;
-if (marks &gt; PASS_MARKS) {
+if (marks > PASS_MARKS) {
     result = "Pass";
 }`}
           />

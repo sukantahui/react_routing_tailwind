@@ -52,7 +52,7 @@ SELECT
     ) AS mom_growth_percentage,
     CASE 
         WHEN prior_month_revenue_inr IS NULL THEN '⭐ Baseline Month'
-        WHEN monthly_revenue_inr &ge; prior_month_revenue_inr THEN '📈 Expansion'
+        WHEN monthly_revenue_inr >= prior_month_revenue_inr THEN '📈 Expansion'
         ELSE '📉 Contraction'
     END AS financial_trend
 FROM OffsetProjection
@@ -123,7 +123,7 @@ SELECT
         0.00
     ) AS safe_growth_percentage,
     CASE 
-        WHEN prior_rev = 0 AND monthly_rev &gt; 0 THEN '🚀 Zero-to-Revenue Launch'
+        WHEN prior_rev = 0 AND monthly_rev > 0 THEN '🚀 Zero-to-Revenue Launch'
         WHEN prior_rev = 0 AND monthly_rev = 0 THEN '💤 Inactive Period'
         ELSE '🟢 Standard Calculation'
     END AS calculation_safety_status
@@ -426,7 +426,7 @@ ORDER BY branch_city, period_month;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

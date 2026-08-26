@@ -41,7 +41,7 @@ const animations = `
 // 20 interactive questions (click to reveal answer)
 const interactiveQuestions = [
   { q: "What does `>` do in the shell?", a: "Redirects standard output (stdout) to a file, overwriting the file if it exists." },
-  { q: "What does `&gt;>` do?", a: "Redirects standard output to a file, appending to the file (creating it if it doesn't exist)." },
+  { q: "What does `>>` do?", a: "Redirects standard output to a file, appending to the file (creating it if it doesn't exist)." },
   { q: "How do you redirect standard error (stderr) only?", a: "`command 2> error.log`" },
   { q: "How do you redirect both stdout and stderr to the same file?", a: "`command > output.log 2>&1` or `command &> output.log` (bash)." },
   { q: "What is the difference between `2>&1` and `2>&1` placement?", a: "Order matters: `> file 2>&1` sends both to file; `2>&1 > file` sends stderr to current stdout (terminal) then stdout to file – stderr not captured." },
@@ -85,7 +85,7 @@ function InteractiveQuestionsBlock() {
                 <button
                   onClick={() => toggle(idx)}
                   className="rounded-full bg-indigo-100 px-4 py-1 text-sm font-medium text-indigo-700 transition-all hover:bg-indigo-200 dark:bg-indigo-900/60 dark:text-indigo-200"
-                &gt;
+                >
                   {revealed[idx] ? "Hide" : "Show answer"}
                 </button>
               </div>
@@ -197,7 +197,7 @@ export default function Topic8() {
           {/* Core concept cards (staggered) */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-14">
             {[
-              { title: "📤 Overwrite (`&gt;`)", content: "Sends stdout to a file, overwriting existing content. Creates file if not exists. Danger: can erase data." },
+              { title: "📤 Overwrite (`>`)", content: "Sends stdout to a file, overwriting existing content. Creates file if not exists. Danger: can erase data." },
               { title: "📥 Append (`>>`)", content: "Sends stdout to a file, adding to the end. Preserves existing content. Safer for logs." },
               { title: "⚠️ Error Redirection", content: "`2> file` redirects stderr. `2>> file` appends. Use `2>&1` to combine with stdout." },
               { title: "🔁 File Descriptors", content: "0=stdin, 1=stdout, 2=stderr. Others can be used (3-9). `&` duplicates a file descriptor." }
@@ -214,7 +214,7 @@ export default function Topic8() {
             <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2">📜 Redirection Syntax</h2>
             <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
               {`# Overwrite stdout
-command &gt; file
+command > file
 
 # Append stdout
 command >> file
@@ -318,7 +318,7 @@ echo "force" >| file`}
 
           {/* Teacher's Note */}
           <div className="animate-fade-slide-up mt-12">
-            <Teacher note="Redirection is the foundation of shell scripting. I start with a simple example: `ls > list.txt` then `cat list.txt`. Then show `date &gt;> list.txt` (append). The epiphany comes when we combine stderr: `find / -name '*.conf' 2>/dev/null`. I also demonstrate the perils of `>` in a directory with important files – they never forget to double-check after that!" />
+            <Teacher note="Redirection is the foundation of shell scripting. I start with a simple example: `ls > list.txt` then `cat list.txt`. Then show `date >> list.txt` (append). The epiphany comes when we combine stderr: `find / -name '*.conf' 2>/dev/null`. I also demonstrate the perils of `>` in a directory with important files – they never forget to double-check after that!" />
           </div>
 
           {/* FAQTemplate with 30 questions */}

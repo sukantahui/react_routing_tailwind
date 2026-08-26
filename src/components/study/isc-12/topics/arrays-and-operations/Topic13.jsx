@@ -59,7 +59,7 @@ const FAQTemplate = ({ title, questions }) => {
             <button
               onClick={() => toggle(idx)}
               className="w-full text-left p-5 font-semibold text-gray-800 dark:text-gray-100 flex justify-between items-center"
-            &gt;
+            >
               <span>{q.question}</span>
               <span className="text-2xl">{openIndex === idx ? '−' : '+'}</span>
             </button>
@@ -207,7 +207,7 @@ export default function Topic13() {
           <div className="space-y-3">
             {questions.map((q, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg">
-                <button onClick={() => togglePractice(idx)} className="w-full text-left p-4 font-medium flex justify-between items-center"&gt;
+                <button onClick={() => togglePractice(idx)} className="w-full text-left p-4 font-medium flex justify-between items-center">
                   <span>{idx+1}. {q.question}</span>
                   <span>{practiceOpen[idx] ? '▲' : '▼'}</span>
                 </button>

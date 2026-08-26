@@ -28,7 +28,7 @@ const Topic2 = () => {
     },
     {
       q: "How does pointer declaration syntax differ between primitive types and structures?",
-      a: "The syntax is identical: 'int *intPtr;' for integers, 'float *floatPtr;' for floats, 'Student *studPtr;' for structures. However, accessing members differs: For structure pointers, use 'studPtr &rarr; name' (arrow operator) instead of '(*studPtr).name'. The arrow operator is syntactic sugar that combines dereferencing and member access, making code more readable."
+      a: "The syntax is identical: 'int *intPtr;' for integers, 'float *floatPtr;' for floats, 'Student *studPtr;' for structures. However, accessing members differs: For structure pointers, use 'studPtr->name' (arrow operator) instead of '(*studPtr).name'. The arrow operator is syntactic sugar that combines dereferencing and member access, making code more readable."
     },
     {
       q: "What is the difference between 'int* ptr' and 'int *ptr' in terms of readability?",
@@ -104,7 +104,7 @@ const Topic2 = () => {
                   ? "bg-cyan-600 text-white shadow-lg scale-105"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
               )}
-            &gt;
+            >
               {tab === 'concept' ? '📚 Concept & Examples' : '❓ Questions & Answers'}
             </button>
           ))}

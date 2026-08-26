@@ -62,7 +62,7 @@ const Topic5 = () => {
     },
     {
       mistake: "Adding too many devices",
-      correction: "Exceeding the maximum node count (e.g., &gt;30 on 10Base2) severely degrades performance due to excessive collisions."
+      correction: "Exceeding the maximum node count (e.g., >30 on 10Base2) severely degrades performance due to excessive collisions."
     },
     {
       mistake: "Bending or damaging the main cable",

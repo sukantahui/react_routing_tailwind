@@ -51,7 +51,7 @@ const Topic10 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-indigo-400 flex items-center gap-2">
             <span>🚦</span> RequestDispatcher vs sendRedirect
           </h2>
@@ -107,7 +107,7 @@ const Topic10 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-indigo-400">➡️ RequestDispatcher.forward()</h2>
           <p className="mt-3 text-gray-300">Transfers control to another resource on the server. The client sees the original URL. All request parameters and attributes are preserved. Must be called before any response is committed.</p>
           <JavaFileLoader
@@ -135,7 +135,7 @@ const Topic10 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-indigo-400">🔄 HttpServletResponse.sendRedirect()</h2>
           <p className="mt-3 text-gray-300">Sends a 302 status code with a <code>Location</code> header. The client makes a brand new request to the new URL. Use when you want to change the URL in the browser (e.g., after form submission, login, or moving to a different context). Data can be passed via URL parameters or session.</p>
           <JavaFileLoader
@@ -194,7 +194,7 @@ const Topic10 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-indigo-400">⚠️ Common Pitfalls</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Forward after response committed</strong> – throws IllegalStateException. Ensure no previous flush/close.</li>
@@ -209,7 +209,7 @@ const Topic10 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold text-indigo-400">✅ Best Practices</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300">
             <li>Use forward for internal navigation in MVC pattern.</li>

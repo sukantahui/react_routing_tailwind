@@ -66,7 +66,7 @@ export default function COutputPracticeTemplate({ data }) {
                 setStarted(false);
               }}
               className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
-            &gt;
+            >
               <option value="all">All</option>
               <option value="Beginner">Beginner</option>
               <option value="Moderate">Moderate</option>
@@ -85,7 +85,7 @@ export default function COutputPracticeTemplate({ data }) {
                 setStarted(false);
               }}
               className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
-            &gt;
+            >
               <option value="all">All</option>
               {[5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((n) => (
                 <option key={n} value={n}>
@@ -103,7 +103,7 @@ export default function COutputPracticeTemplate({ data }) {
               setStarted(true);
             }}
             className="px-6 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-lg shadow"
-          &gt;
+          >
             Start Practice
           </button>
         </div>
@@ -136,7 +136,7 @@ export default function COutputPracticeTemplate({ data }) {
                 onClick={() => toggle(q.id)}
                 className="mt-3 p-2 rounded-full border border-sky-500/40 bg-slate-900 hover:bg-sky-700/40 transition"
                 title={showAns.includes(q.id) ? "Hide Answer" : "Show Answer"}
-              &gt;
+              >
                 {showAns.includes(q.id) ? (
                   <svg
                     className="w-5 h-5 text-emerald-400"

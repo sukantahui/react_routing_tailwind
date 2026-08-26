@@ -29,7 +29,7 @@ const Topic5 = () => {
         officer: "Susmita Mukherjee",
         department: "Municipal Treasury",
         clearance: "TOP_SECRET",
-        dob: discloseDob ? "1998-04-12" : "HIDDEN (ZKP Proved: Age &ge; 18 ✔)",
+        dob: discloseDob ? "1998-04-12" : "HIDDEN (ZKP Proved: Age >= 18 ✔)",
         salary: discloseSalary ? "₹1,25,000 / month" : "HIDDEN (ZKP Proved: Salary > ₹50,000 ✔)",
         explanation: "Digital signature verification failed! The cryptographic proof does not match the Issuer's public key registered on the blockchain."
       };
@@ -166,7 +166,7 @@ const Topic5 = () => {
                   checked={discloseDob}
                   onChange={(e) => setDiscloseDob(e.target.checked)}
                   className="accent-indigo-500 w-4 h-4"
-                /&gt;
+                />
               </label>
 
               <label className="flex items-center justify-between p-3 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
@@ -179,7 +179,7 @@ const Topic5 = () => {
                   checked={discloseSalary}
                   onChange={(e) => setDiscloseSalary(e.target.checked)}
                   className="accent-indigo-500 w-4 h-4"
-                /&gt;
+                />
               </label>
 
               <label className="flex items-center justify-between p-3 bg-slate-900 rounded-lg border border-rose-900/60 cursor-pointer">
@@ -192,7 +192,7 @@ const Topic5 = () => {
                   checked={isCredentialTampered}
                   onChange={(e) => setIsCredentialTampered(e.target.checked)}
                   className="accent-rose-500 w-4 h-4"
-                /&gt;
+                />
               </label>
             </div>
 
@@ -262,7 +262,7 @@ const Topic5 = () => {
                       ? "bg-indigo-600 text-white shadow-lg shadow-indigo-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                &gt;
+                >
                   {key === "barrackpore_did_treasury" ? "Barrackpore Treasury DID" : key === "kolkata_fintech_audit_anchoring" ? "Kolkata SIEM Ledger" : "Ichapur Air-Gapped Kiosk"}
                 </button>
               ))}

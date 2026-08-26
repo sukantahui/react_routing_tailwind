@@ -121,7 +121,7 @@ export default class EditableCCodeBlock extends Component {
               <button
                 onClick={() => this.setState({ showFontMenu: !showFontMenu })}
                 className="px-2 py-1 rounded bg-blue-600 text-white flex items-center gap-1"
-              &gt;
+              >
                 <Type size={14} /> Font
               </button>
 
@@ -145,7 +145,7 @@ export default class EditableCCodeBlock extends Component {
                           ? "bg-sky-600 text-white"
                           : "text-slate-300 hover:bg-slate-700"
                       }`}
-                    &gt;
+                    >
                       {size}px
                     </button>
                   ))}
@@ -158,7 +158,7 @@ export default class EditableCCodeBlock extends Component {
               <button
                 onClick={() => this.setState({ showThemeMenu: !showThemeMenu })}
                 className="px-2 py-1 rounded bg-yellow-600 text-white"
-              &gt;
+              >
                 🎨 Theme
               </button>
 
@@ -189,7 +189,7 @@ export default class EditableCCodeBlock extends Component {
                           ? "bg-sky-600 text-white"
                           : "text-slate-300 hover:bg-slate-700"
                       }`}
-                    &gt;
+                    >
                       {t.label}
                     </button>
                   ))}
@@ -220,7 +220,7 @@ export default class EditableCCodeBlock extends Component {
                 alert("Copied!");
               }}
               className="px-2 py-1 rounded bg-slate-600 text-white flex items-center gap-1"
-            &gt;
+            >
               <Copy size={14} /> Copy
             </button>
 
@@ -263,7 +263,7 @@ export default class EditableCCodeBlock extends Component {
             scrollBeyondLastLine: false,
             padding: { top: 18, bottom: 18 },
           }}
-        /&gt;
+        />
       </div>
     );
   }

@@ -76,7 +76,7 @@ export default function Topic3() {
     <div className="dark bg-gray-900 text-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Header */}
-        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section"&gt;
+        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
             Exact Match vs Approximate Match in VLOOKUP
           </h1>
@@ -86,7 +86,7 @@ export default function Topic3() {
         </header>
 
         {/* Prototype & Comparison */}
-        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">⚖️ The Fourth Argument</h2>
           <div className="mt-4 grid md:grid-cols-2 gap-4">
             <div className="bg-gray-900 p-4 rounded-lg border-l-4 border-blue-500">
@@ -103,7 +103,7 @@ export default function Topic3() {
         </section>
 
         {/* Detailed Explanation */}
-        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">🧠 How Each Mode Works</h2>
           <div className="mt-4 space-y-4">
             <p><strong className="text-blue-300">Exact Match (FALSE/0):</strong> Excel scans the first column from top to bottom until it finds an exact match. If found, it returns the value from the specified column. If not found → #N/A.</p>
@@ -115,7 +115,7 @@ export default function Topic3() {
         </section>
 
         {/* Real‑world Examples */}
-        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">📊 Real‑World Scenarios</h2>
           <div className="mt-4 space-y-6">
             <div>
@@ -133,7 +133,7 @@ export default function Topic3() {
         </section>
 
         {/* Interactive Excel Demo */}
-        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Examples</h2>
             {sampleDataUrl && (
@@ -151,7 +151,7 @@ export default function Topic3() {
               rowsPerPage={20}
               showSheetSelector={true}
               onError={() => setExcelError(true)}
-            /&gt;
+            />
           ) : (
             <>
               <div className="bg-yellow-950/40 border border-yellow-700 rounded-lg p-3 mb-3 text-sm">

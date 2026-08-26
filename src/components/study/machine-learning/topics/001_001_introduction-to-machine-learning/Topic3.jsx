@@ -141,7 +141,7 @@ const Topic3 = () => {
                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400"
                     : "bg-slate-800/80 text-slate-300 hover:bg-slate-700/80 border border-slate-700/60"
                 )}
-              &gt;
+              >
                 {tab.label}
               </button>
             ))}
@@ -184,7 +184,7 @@ const Topic3 = () => {
                   ? "bg-slate-900 border-indigo-500 ring-2 ring-indigo-500/40 shadow-xl shadow-indigo-500/20"
                   : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
               )}
-            &gt;
+            >
               <div className="flex items-center justify-between w-full">
                 <span className="text-2xl">{item.icon}</span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-800">
@@ -343,7 +343,7 @@ const Topic3 = () => {
               <div className="flex justify-between items-center text-xs">
                 <span className="font-bold text-purple-400 uppercase">Semi-Supervised Label Propagation Wave</span>
                 <button
-                  onClick={() => setSemiSpreadLevel((prev) => (prev &ge; 3 ? 1 : prev + 1))}
+                  onClick={() => setSemiSpreadLevel((prev) => (prev >= 3 ? 1 : prev + 1))}
                   className="px-3 py-1 bg-purple-600 hover:bg-purple-500 text-white rounded text-xs cursor-pointer font-semibold"
                 >
                   Step Wave Spread (Step {semiSpreadLevel}/3)
@@ -361,17 +361,17 @@ const Topic3 = () => {
                 <line x1="130" y1="120" x2="200" y2="90" stroke="#475569" strokeWidth="1.5" />
 
                 {/* Step 1 Propagation Nodes */}
-                <circle cx="130" cy="60" r="7" fill={semiSpreadLevel >= 2 ? "#3b82f6" : "#64748b"} /&gt;
-                <circle cx="130" cy="120" r="7" fill={semiSpreadLevel >= 2 ? "#3b82f6" : "#64748b"} /&gt;
+                <circle cx="130" cy="60" r="7" fill={semiSpreadLevel >= 2 ? "#3b82f6" : "#64748b"} />
+                <circle cx="130" cy="120" r="7" fill={semiSpreadLevel >= 2 ? "#3b82f6" : "#64748b"} />
 
                 {/* Step 2 Propagation Node */}
-                <circle cx="200" cy="90" r="7" fill={semiSpreadLevel >= 3 ? "#3b82f6" : "#64748b"} /&gt;
+                <circle cx="200" cy="90" r="7" fill={semiSpreadLevel >= 3 ? "#3b82f6" : "#64748b"} />
 
                 {/* Unlabeled Right Cluster */}
                 <circle cx="340" cy="90" r="8" fill="#f43f5e" stroke="#ffffff" strokeWidth="2" />
                 <text x="340" y="70" textAnchor="middle" fill="#fda4af" fontSize="9" fontWeight="bold">Seed (Fail)</text>
                 <line x1="340" y1="90" x2="270" y2="90" stroke="#475569" strokeWidth="1.5" />
-                <circle cx="270" cy="90" r="7" fill={semiSpreadLevel >= 2 ? "#f43f5e" : "#64748b"} /&gt;
+                <circle cx="270" cy="90" r="7" fill={semiSpreadLevel >= 2 ? "#f43f5e" : "#64748b"} />
               </svg>
               <div className="text-xs text-slate-400">
                 Notice how knowledge from 2 labeled seed nodes flows along density graph paths to annotate all unlabeled gray nodes.
@@ -384,7 +384,7 @@ const Topic3 = () => {
               <div className="flex justify-between items-center text-xs">
                 <span className="font-bold text-rose-400 uppercase">Reinforcement Learning 1D Q-Agent Gridworld</span>
                 <button
-                  onClick={() => setRlStep((prev) => (prev &ge; 4 ? 0 : prev + 1))}
+                  onClick={() => setRlStep((prev) => (prev >= 4 ? 0 : prev + 1))}
                   className="px-3 py-1 bg-rose-600 hover:bg-rose-500 text-white rounded text-xs cursor-pointer font-semibold"
                 >
                   Execute Agent Step (State: S{rlStep})

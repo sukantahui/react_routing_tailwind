@@ -282,7 +282,7 @@ const Topic8 = () => {
 
         {/* Teacher's Note */}
         <div className="mt-12">
-          <Teacher note="💾 Caching is a double-edged sword. I've seen developers enable second-level cache for everything then wonder why updates don't show. Rule of thumb: 'read more, write less' data benefits most. Demo: show SQL logs with 1st-level cache (2 gets -> 1 SQL). Then show 2nd-level across sessions. Then show query cache on a complex report. Students love seeing the performance jump!" /&gt;
+          <Teacher note="💾 Caching is a double-edged sword. I've seen developers enable second-level cache for everything then wonder why updates don't show. Rule of thumb: 'read more, write less' data benefits most. Demo: show SQL logs with 1st-level cache (2 gets -> 1 SQL). Then show 2nd-level across sessions. Then show query cache on a complex report. Students love seeing the performance jump!" />
         </div>
       </div>
     </div>

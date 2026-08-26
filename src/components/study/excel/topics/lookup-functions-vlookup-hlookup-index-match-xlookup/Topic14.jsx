@@ -66,7 +66,7 @@ export default function Topic14() {
     <div className="dark bg-gray-900 text-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Header */}
-        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section"&gt;
+        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-blue-500 bg-clip-text text-transparent">
             Handling Missing Values with IFERROR
           </h1>
@@ -76,7 +76,7 @@ export default function Topic14() {
         </header>
 
         {/* Function Prototype */}
-        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-indigo-500/50 transition-all"&gt;
+        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-indigo-500/50 transition-all">
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-indigo-400">📐</span> IFERROR Function
           </h2>
@@ -94,7 +94,7 @@ export default function Topic14() {
         </section>
 
         {/* Why Error Handling Matters */}
-        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">🧹 Why Error Handling Matters</h2>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Errors (#N/A, #REF!) make reports look unprofessional.</li>
@@ -109,7 +109,7 @@ export default function Topic14() {
         </section>
 
         {/* Common Use Cases */}
-        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <h2 className="text-2xl font-semibold">📊 Real‑World Use Cases</h2>
           <div className="mt-4 space-y-4">
             <div className="bg-gray-900 p-3 rounded">
@@ -151,7 +151,7 @@ export default function Topic14() {
         </section>
 
         {/* Interactive Excel Demo */}
-        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
+        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive: Practice IFERROR</h2>
             {sampleDataUrl && (
@@ -171,7 +171,7 @@ export default function Topic14() {
               rowsPerPage={20}
               showSheetSelector={true}
               onError={() => setExcelError(true)}
-            /&gt;
+            />
           ) : (
             <>
               <div className="bg-yellow-950/40 border border-yellow-700 rounded-lg p-3 mb-3 text-sm">

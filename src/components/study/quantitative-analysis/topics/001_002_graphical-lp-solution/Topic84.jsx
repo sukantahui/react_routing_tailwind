@@ -429,7 +429,7 @@ const Topic84 = () => {
                   ? "bg-blue-600 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -470,7 +470,7 @@ const Topic84 = () => {
                         "bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02] text-center",
                         selectedAspect === aspect.id - 1 ? "border-2 border-blue-500" : ""
                       )}
-                    &gt;
+                    >
                       <div className="text-4xl mb-2">{aspect.icon}</div>
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200 text-sm">
                         {aspect.title}
@@ -563,7 +563,7 @@ const Topic84 = () => {
                         ? "bg-blue-600 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  &gt;
+                  >
                     <span>{aspect.icon}</span>
                     {aspect.id}
                   </button>
@@ -581,7 +581,7 @@ const Topic84 = () => {
                       key={`aspect-summary-${index}`}
                       onClick={() => setSelectedAspect(index)}
                       className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
-                    &gt;
+                    >
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-2xl">{aspect.icon}</span>
                         <h5 className="font-semibold text-gray-800 dark:text-gray-200 text-sm">

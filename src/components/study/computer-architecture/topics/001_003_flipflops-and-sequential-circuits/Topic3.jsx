@@ -72,7 +72,7 @@ const Topic3 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            &gt;
+            >
               1. 4-NAND + Inverter Schematic
             </button>
             <button
@@ -83,7 +83,7 @@ const Topic3 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            &gt;
+            >
               2. Logic Symbol
             </button>
             <button
@@ -94,7 +94,7 @@ const Topic3 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            &gt;
+            >
               3. Transparency Waveforms
             </button>
           </div>
@@ -257,7 +257,7 @@ const Topic3 = () => {
                   "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                   enInput ? "bg-cyan-900/80 border-cyan-400 text-cyan-200 shadow-lg shadow-cyan-950/50" : "bg-slate-950 border-slate-800 text-slate-500"
                 )}
-              &gt;
+              >
                 EN (Enable): {enInput ? "1 (TRANSPARENT)" : "0 (LOCKED)"}
               </button>
               <button
@@ -266,7 +266,7 @@ const Topic3 = () => {
                   "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                   dInput ? "bg-teal-900/80 border-teal-400 text-teal-200 shadow-lg shadow-teal-950/50" : "bg-slate-950 border-slate-800 text-slate-500"
                 )}
-              &gt;
+              >
                 D (Data Input): {dInput ? "1" : "0"}
               </button>
             </div>

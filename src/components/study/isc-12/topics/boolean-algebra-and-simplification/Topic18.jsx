@@ -38,7 +38,7 @@ const Topic18 = () => {
     for (let i = 0; i < Math.pow(2, n); i++) {
       const values = [];
       for (let j = n - 1; j >= 0; j--) {
-        values.push((i &gt;> j) & 1);
+        values.push((i >> j) & 1);
       }
       // Output is 0 for selected maxterms, 1 otherwise
       const output = selectedMaxterms.includes(i) ? 0 : 1;
@@ -59,7 +59,7 @@ const Topic18 = () => {
       if (selectedMaxterms.includes(i)) {
         const term = [];
         for (let j = 0; j < n; j++) {
-          const bit = (i >&gt; (n - 1 - j)) & 1;
+          const bit = (i >> (n - 1 - j)) & 1;
           // For maxterm, complement the variable if bit is 1
           if (bit === 0) {
             term.push(varNames[j]);
@@ -207,11 +207,11 @@ const Topic18 = () => {
             <button
               onClick={() => setNumVariables(2)}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 2 ? "bg-purple-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;2 Variables (A,B)</button>
+            >2 Variables (A,B)</button>
             <button
               onClick={() => setNumVariables(3)}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 3 ? "bg-purple-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            &gt;3 Variables (A,B,C)</button>
+            >3 Variables (A,B,C)</button>
           </div>
           
           {/* Truth Table */}
@@ -241,7 +241,7 @@ const Topic18 = () => {
                             ? "bg-purple-500 hover:bg-purple-600 text-white shadow-md" 
                             : "bg-green-500 hover:bg-green-600 text-white shadow-md"
                         )}
-                      &gt;
+                      >
                         {row.output}
                       </button>
                     </td>
@@ -266,7 +266,7 @@ const Topic18 = () => {
           <button
             onClick={() => setShowTruthTable(!showTruthTable)}
             className="mt-4 w-full py-2 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-lg font-medium transition-all duration-300 hover:bg-blue-200 dark:hover:bg-blue-900/60"
-          &gt;
+          >
             {showTruthTable ? "Hide" : "Show"} Explanation
           </button>
           
@@ -327,7 +327,7 @@ const Topic18 = () => {
                 onChange={(e) => setCustomExpression(e.target.value)}
                 placeholder="e.g., A·B, A+B, (A·B)'"
                 className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
-              /&gt;
+              />
               <button
                 onClick={convertToPOS}
                 className="px-6 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-all duration-300 hover:scale-105"

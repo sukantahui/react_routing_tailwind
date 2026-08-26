@@ -94,7 +94,7 @@ const Topic14 = () => {
   const probPct = +(prob * 100).toFixed(1);
 
   // 3. Compute Binary Cross-Entropy Loss for current student
-  const actualLabel = selectedStudent && studentPresets[selectedStudent] ? studentPresets[selectedStudent].actual : (prob &ge; 0.5 ? 1 : 0);
+  const actualLabel = selectedStudent && studentPresets[selectedStudent] ? studentPresets[selectedStudent].actual : (prob >= 0.5 ? 1 : 0);
   const eps = 1e-12;
   const probSafe = Math.max(Math.min(prob, 1.0 - eps), eps);
   const bceLoss = -(actualLabel * Math.log(probSafe) + (1 - actualLabel) * Math.log(1.0 - probSafe));
@@ -278,7 +278,7 @@ const Topic14 = () => {
                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400"
                     : "bg-slate-800/80 text-slate-300 hover:bg-slate-700/80 border border-slate-700/60"
                 )}
-              &gt;
+              >
                 {tab.label}
               </button>
             ))}
@@ -379,7 +379,7 @@ const Topic14 = () => {
                 onClick={() => setSelectedFormulaElement("min")}
                 className="hover:text-cyan-200 hover:underline cursor-pointer transition-colors p-1"
                 title="Click to inspect: Optimization Search"
-              &gt;
+              >
                 min<sub>w,b</sub>
               </button>
               &nbsp;
@@ -387,14 +387,14 @@ const Topic14 = () => {
                 onClick={() => setSelectedFormulaElement("cost")}
                 className="text-indigo-300 hover:text-indigo-100 hover:underline cursor-pointer transition-colors p-1"
                 title="Click to inspect: Total Cost J"
-              &gt;
+              >
                 J(w, b)
               </button>
               &nbsp;=&nbsp;
               <button
                 onClick={() => setSelectedFormulaElement("min")}
                 className="hover:text-cyan-200 hover:underline cursor-pointer transition-colors p-1"
-              &gt;
+              >
                 min<sub>w,b</sub>
               </button>
               &nbsp;
@@ -404,7 +404,7 @@ const Topic14 = () => {
                 onClick={() => setSelectedFormulaElement("mean_sum")}
                 className="text-emerald-300 hover:text-emerald-100 hover:underline cursor-pointer transition-colors p-1"
                 title="Click to inspect: Sample Mean Normalizer"
-              &gt;
+              >
                 <span className="text-slate-400 font-normal">&#40;1 / N&#41;</span> &sum;<sub>i=1</sub><sup>N</sup>
               </button>
               &nbsp;
@@ -412,7 +412,7 @@ const Topic14 = () => {
                 onClick={() => setSelectedFormulaElement("loss")}
                 className="text-rose-300 hover:text-rose-100 hover:underline cursor-pointer transition-colors p-1"
                 title="Click to inspect: Binary Cross-Entropy Loss"
-              &gt;
+              >
                 L&#40;
                 <span className="text-pink-300">h&#40;x<sub>i</sub>; w, b&#41;</span>
                 ,
@@ -424,7 +424,7 @@ const Topic14 = () => {
                 onClick={() => setSelectedFormulaElement("reg")}
                 className="text-purple-300 hover:text-purple-100 hover:underline cursor-pointer transition-colors p-1"
                 title="Click to inspect: Regularization Penalty"
-              &gt;
+              >
                 &lambda; &Omega;&#40;w&#41;
               </button>
               &nbsp;
@@ -452,7 +452,7 @@ const Topic14 = () => {
                   ? "bg-indigo-600 text-white font-bold"
                   : "bg-slate-800 text-slate-300 hover:bg-slate-700"
               )}
-            &gt;
+            >
               Show All (11 Elements)
             </button>
             {formulaElements.map((el) => (
@@ -465,7 +465,7 @@ const Topic14 = () => {
                     ? "bg-cyan-600 text-white font-bold"
                     : "bg-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-700"
                 )}
-              &gt;
+              >
                 {el.badge}
               </button>
             ))}
@@ -778,7 +778,7 @@ const Topic14 = () => {
                     ? "bg-indigo-950 border-indigo-500 text-white shadow-lg shadow-indigo-500/20"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <div className="font-bold truncate">{studentPresets[key].name}</div>
                 <div className="text-[10px] text-slate-500">Att: {studentPresets[key].attendance}% | {studentPresets[key].hours}h</div>
               </button>
@@ -810,7 +810,7 @@ const Topic14 = () => {
                   setSelectedStudent("");
                 }}
                 className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-              /&gt;
+              />
             </div>
 
             {/* Study Hours */}
@@ -829,7 +829,7 @@ const Topic14 = () => {
                   setSelectedStudent("");
                 }}
                 className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-              /&gt;
+              />
             </div>
 
             {/* Quiz Score */}
@@ -848,7 +848,7 @@ const Topic14 = () => {
                   setSelectedStudent("");
                 }}
                 className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
-              /&gt;
+              />
             </div>
           </div>
 
@@ -872,7 +872,7 @@ const Topic14 = () => {
                 value={weight1}
                 onChange={(e) => setWeight1(Number(e.target.value))}
                 className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-              /&gt;
+              />
             </div>
 
             {/* Weight 2 */}
@@ -889,7 +889,7 @@ const Topic14 = () => {
                 value={weight2}
                 onChange={(e) => setWeight2(Number(e.target.value))}
                 className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-              /&gt;
+              />
             </div>
 
             {/* Bias */}
@@ -906,7 +906,7 @@ const Topic14 = () => {
                 value={bias}
                 onChange={(e) => setBias(Number(e.target.value))}
                 className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-              /&gt;
+              />
             </div>
 
             {/* Lambda */}
@@ -923,7 +923,7 @@ const Topic14 = () => {
                 value={lambdaReg}
                 onChange={(e) => setLambdaReg(Number(e.target.value))}
                 className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
-              /&gt;
+              />
             </div>
           </div>
         </div>

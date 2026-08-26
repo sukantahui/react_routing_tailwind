@@ -352,7 +352,7 @@ FROM student_registry;`}
                     <text x="745" y="80" fill="#f87171" fontSize="9" textAnchor="middle">Metadata removed</text>
                   </g>
 
-                  {/* Flow Arrow 1 &rarr; 2 (CREATE) */}
+                  {/* Flow Arrow 1 -> 2 (CREATE) */}
                   <path d="M 210 65 L 330 65" stroke="#10b981" strokeWidth="2" />
                   <text x="270" y="55" fill="#34d399" fontSize="9" fontWeight="bold" textAnchor="middle">CREATE VIEW</text>
 
@@ -361,7 +361,7 @@ FROM student_registry;`}
                   <text x="440" y="180" fill="#38bdf8" fontSize="10" fontWeight="bold" textAnchor="middle">ALTER VIEW / CREATE OR REPLACE</text>
                   <text x="440" y="195" fill="#94a3b8" fontSize="9" textAnchor="middle">(Preserves database user permissions)</text>
 
-                  {/* Flow Arrow 2 &rarr; 3 (DROP) */}
+                  {/* Flow Arrow 2 -> 3 (DROP) */}
                   <path d="M 550 65 L 670 65" stroke="#ef4444" strokeWidth="2" />
                   <text x="610" y="55" fill="#f87171" fontSize="9" fontWeight="bold" textAnchor="middle">DROP VIEW</text>
                 </svg>
@@ -446,7 +446,7 @@ FROM student_registry;`}
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

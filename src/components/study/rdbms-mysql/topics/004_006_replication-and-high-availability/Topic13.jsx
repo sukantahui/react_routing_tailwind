@@ -27,7 +27,7 @@ const Topic13 = () => {
       badgeColor: "rose",
       sqlSnippet: `# 💥 OUTAGE DETECTION & QUORUM ASSESSMENT:
 # 1. Primary server is down / unresponsive (TCP Port 3306 timeout).
-# 2. Check remaining cluster nodes for Paxos Majority Quorum (&gt;50%):
+# 2. Check remaining cluster nodes for Paxos Majority Quorum (>50%):
 #    - 3-Node Cluster: 2 surviving nodes form 2/3 majority (Quorum = VALID!)
 #    - Minority partition (<50%) automatically locks in super_read_only = ON!
 
@@ -35,7 +35,7 @@ const Topic13 = () => {
       explanation:
         "When an outage occurs, the orchestrator confirms that the primary is unresponsive. An odd-numbered cluster ensures that only the surviving majority partition (>50%) can proceed with failover, while isolated nodes lock in read-only mode to prevent split-brain data divergence.",
       keyTakeaways: [
-        "Paxos majority quorum (&gt;50%) prevents split-brain data corruption.",
+        "Paxos majority quorum (>50%) prevents split-brain data corruption.",
         "Isolated minority partitions automatically enforce super_read_only = ON.",
         "Guarantees that only one partition can elect a replacement primary."
       ]
@@ -54,7 +54,7 @@ SELECT @@GLOBAL.gtid_executed;
 SELECT @@GLOBAL.gtid_executed;
 -- Output: 3E11FA47-...:1-498  (Lagging by 2 transactions)
 
--- 💡 Decision: Node 2 has the largest GTID set &rarr; Elect Node 2 for promotion!`,
+-- 💡 Decision: Node 2 has the largest GTID set -> Elect Node 2 for promotion!`,
       explanation:
         "The orchestrator or DBA queries @@GLOBAL.gtid_executed on all surviving standby nodes. The node with the most complete transaction range is elected for promotion to guarantee zero data loss (RPO = 0).",
       keyTakeaways: [
@@ -209,7 +209,7 @@ CLONE INSTANCE FROM 'clone_user'@'192.168.1.20':3306 IDENTIFIED BY 'Pass#2026';`
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {step.stepNumber}
                 </button>
               );
@@ -397,7 +397,7 @@ CLONE INSTANCE FROM 'clone_user'@'192.168.1.20':3306 IDENTIFIED BY 'Pass#2026';`
 
           <Teacher
             note="Disaster recovery and failover planning is the ultimate test of database engineering excellence! Understand the difference between local HA (RPO=0, RTO<5s) and cross-region DR (RPO<5s, RTO<15m). Prevent split-brain by requiring strict majority quorums (>50%) and enforcing super_read_only = ON on all standbys. Always use GTID auto-positioning for seamless replica repointing, shift client traffic via Virtual IPs or ProxySQL, and validate your disaster runbooks through quarterly GameDay drills!"
-          /&gt;
+          />
         </section>
 
         {/* ─── SECTION 6: FAQ Accordion ───────────────────────────────── */}

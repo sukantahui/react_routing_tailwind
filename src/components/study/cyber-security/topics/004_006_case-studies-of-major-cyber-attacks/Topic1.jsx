@@ -90,7 +90,7 @@ const Topic1 = () => {
       statusText = "CRITICAL: Harmonic Resonance Deceleration Crash!";
       statusColor = "text-amber-400";
       physicalDamageRisk = "Catastrophic: Passing through sub-harmonic resonance causes severe wobble; rotor shatters against casing.";
-    } else if (centrifugeFrequencyHz >= 1000 && centrifugeFrequencyHz &le; 1100) {
+    } else if (centrifugeFrequencyHz >= 1000 && centrifugeFrequencyHz <= 1100) {
       tensileStressPct = 15;
       statusText = "Nominal Enrichment Speed";
       statusColor = "text-emerald-400";
@@ -290,7 +290,7 @@ const Topic1 = () => {
                   ? "bg-rose-950/60 border-rose-600 text-rose-200 ring-2 ring-rose-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            &gt;
+            >
               <div className="font-bold text-rose-400 text-sm">Phase 1: Overspeed Surge (1,410 Hz)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Spikes frequency to 84,600 RPM for 15 minutes, exceeding tensile yield strength.
@@ -305,7 +305,7 @@ const Topic1 = () => {
                   ? "bg-emerald-950/60 border-emerald-600 text-emerald-200 ring-2 ring-emerald-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            &gt;
+            >
               <div className="font-bold text-emerald-400 text-sm">Phase 2: Stealth Normal (1,064 Hz)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Maintains normal 63,840 RPM for 27 days to disguise sabotage as manufacturing flaws.
@@ -320,7 +320,7 @@ const Topic1 = () => {
                   ? "bg-amber-950/60 border-amber-600 text-amber-200 ring-2 ring-amber-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            &gt;
+            >
               <div className="font-bold text-amber-400 text-sm">Phase 3: Resonant Deceleration (2 Hz)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Slows frequency to 120 RPM for 50 minutes; harmonic resonance causes severe lateral rotor crash.
@@ -342,7 +342,7 @@ const Topic1 = () => {
                 value={centrifugeFrequencyHz}
                 onChange={(e) => setCentrifugeFrequencyHz(parseInt(e.target.value))}
                 className="w-full accent-amber-500 cursor-pointer"
-              /&gt;
+              />
               <div className="flex justify-between text-[10px] text-gray-500 font-mono">
                 <span>2 Hz (Decel Crash)</span>
                 <span>1,064 Hz (Normal IR-1)</span>
@@ -361,7 +361,7 @@ const Topic1 = () => {
                   "px-3 py-1.5 rounded text-xs font-bold transition-all",
                   rootkitTelemetrySpoofActive ? "bg-amber-600 text-white" : "bg-slate-700 text-gray-300"
                 )}
-              &gt;
+              >
                 {rootkitTelemetrySpoofActive ? "ROOTKIT ACTIVE (Spoofing)" : "ROOTKIT DISABLED (Real)"}
               </button>
             </div>
@@ -459,7 +459,7 @@ const Topic1 = () => {
                     ? "bg-purple-600/20 border-purple-500 text-purple-200 ring-1 ring-purple-500 shadow-md"
                     : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
                 )}
-              &gt;
+              >
                 <div className="font-bold text-white text-xs">{item.title.split(" — ")[0]}</div>
                 <div className="text-[10px] text-purple-400 mt-1">{item.type}</div>
               </button>
@@ -556,7 +556,7 @@ const Topic1 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     dataDiodeActive ? "bg-emerald-600 text-white" : "bg-slate-700 text-gray-400"
                   )}
-                &gt;
+                >
                   {dataDiodeActive ? "DEPLOYED (+25 pts)" : "OFF"}
                 </button>
               </div>
@@ -572,7 +572,7 @@ const Topic1 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     plcRootOfTrustEnabled ? "bg-emerald-600 text-white" : "bg-slate-700 text-gray-400"
                   )}
-                &gt;
+                >
                   {plcRootOfTrustEnabled ? "ACTIVE (+25 pts)" : "OFF"}
                 </button>
               </div>
@@ -588,7 +588,7 @@ const Topic1 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     analogMechanicalInterlock ? "bg-emerald-600 text-white" : "bg-slate-700 text-gray-400"
                   )}
-                &gt;
+                >
                   {analogMechanicalInterlock ? "INSTALLED (+30 pts)" : "OFF"}
                 </button>
               </div>
@@ -604,7 +604,7 @@ const Topic1 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     usbPortBlockingPolicy ? "bg-emerald-600 text-white" : "bg-slate-700 text-gray-400"
                   )}
-                &gt;
+                >
                   {usbPortBlockingPolicy ? "ENFORCED (+20 pts)" : "OFF"}
                 </button>
               </div>
@@ -628,7 +628,7 @@ const Topic1 = () => {
                     <p className="text-gray-300 text-[11px] leading-relaxed">
                       {securityHardeningScore === 100
                         ? "PERFECT: Multi-tier defense active. Even if 4 zero-days breach the workstation, the PLC Root of Trust rejects unsigned bytecode, and the physical mechanical governor prevents explosive overspeed."
-                        : securityHardeningScore &ge; 60
+                        : securityHardeningScore >= 60
                         ? "MODERATE: Good software/network boundaries, but missing analog mechanical failsafes leaves equipment vulnerable to direct PLC firmware compromise."
                         : "CRITICAL DEFICIENCY: High vulnerability to USB air-gap jumping and remote ladder logic tampering (identical to Natanz 2010 posture)."}
                     </p>
@@ -697,7 +697,7 @@ const Topic1 = () => {
                     ? "bg-amber-500/20 text-amber-300 border border-amber-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 1. Audit Findings in Ichapur
               </button>
               <button
@@ -708,7 +708,7 @@ const Topic1 = () => {
                     ? "bg-amber-500/20 text-amber-300 border border-amber-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 2. Deployed Defensive Architecture
               </button>
             </div>

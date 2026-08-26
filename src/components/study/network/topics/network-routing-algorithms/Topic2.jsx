@@ -264,7 +264,7 @@ const SVGRoutingIllustration = ({ prefersReducedMotion }) => {
   }, [prefersReducedMotion]);
 
   const routers = [
-    { id: "A", x: 80, y: 100, label: "Router\nA (Kolkata)", vector: step &ge; 1 ? "D→A: via B (3)" : "d(D)=∞" },
+    { id: "A", x: 80, y: 100, label: "Router\nA (Kolkata)", vector: step >= 1 ? "D→A: via B (3)" : "d(D)=∞" },
     { id: "B", x: 280, y: 50, label: "Router\nB (Barrackpore)", vector: step >= 2 ? "D→B: 2" : "d(D)=∞" },
     { id: "C", x: 280, y: 180, label: "Router\nC (Ichapur)", vector: step >= 3 ? "D→C: 1" : "d(D)=1" },
     { id: "D", x: 480, y: 110, label: "Router\nD (Jadavpur)", vector: "d(D)=0" },

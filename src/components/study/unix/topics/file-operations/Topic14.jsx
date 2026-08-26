@@ -118,7 +118,7 @@ export default class Topic14 extends React.Component {
                                         ? 'bg-gradient-to-r from-teal-500 to-emerald-500 text-white shadow-lg'
                                         : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                         }`}
-                                &gt;
+                                >
                                     Step {step}
                                 </button>
                             ))}
@@ -264,7 +264,7 @@ export default class Topic14 extends React.Component {
                                             <code>{'mv messy_folder/*.pdf organized_folder/Documents/pdf/'}</code><br /><br />
                                             <code>{'# Check what moved'}</code><br />
                                             <code>{'ls -la organized_folder/Images/jpg/ | wc -l'}</code><br />
-                                            <code>{'ls -la messy_folder/*.jpg 2&gt;/dev/null | wc -l'}</code>
+                                            <code>{'ls -la messy_folder/*.jpg 2>/dev/null | wc -l'}</code>
                                         </div>
                                         <p className="text-gray-600 dark:text-gray-400 text-sm mt-3">
                                             <span className="font-semibold">Abhronila</span> at Shyamnagar Lab always checks 
@@ -435,7 +435,7 @@ export default class Topic14 extends React.Component {
                                             <code>&nbsp;&nbsp;{'find messy_folder -type f'}</code><br />
                                             <code>{'fi'}</code><br /><br />
                                             <code>{'# Generate organization report'}</code><br />
-                                            <code>{'tree organized_folder &gt; organization_report.txt'}</code>
+                                            <code>{'tree organized_folder > organization_report.txt'}</code>
                                         </div>
                                     </div>
 
@@ -444,7 +444,7 @@ export default class Topic14 extends React.Component {
                                         <div className="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm">
                                             <code>{'#!/bin/bash'}</code><br />
                                             <code>{'# Generate README for the organized folder'}</code><br />
-                                            <code>{'cat &gt; organized_folder/README.txt << EOF'}</code><br />
+                                            <code>{'cat > organized_folder/README.txt << EOF'}</code><br />
                                             <code>{'ORGANIZED FOLDER STRUCTURE'}</code><br />
                                             <code>{'============================'}</code><br />
                                             <code>{'Date: $(date)'}</code><br />
@@ -634,7 +634,7 @@ export default class Topic14 extends React.Component {
                                     <code>{'# Weekly Downloads organizer'}</code><br />
                                     <code>{'BACKUP_DIR="$HOME/Downloads/backup_$(date +%Y%m%d)"'}</code><br />
                                     <code>{'mkdir -p "$BACKUP_DIR"'}</code><br />
-                                    <code>{'cp -r "$HOME/Downloads/"* "$BACKUP_DIR/" 2&gt;/dev/null'}</code><br />
+                                    <code>{'cp -r "$HOME/Downloads/"* "$BACKUP_DIR/" 2>/dev/null'}</code><br />
                                     <code>{'~/bin/organize.sh "$HOME/Downloads" "$HOME/Downloads_organized"'}</code><br />
                                     <code>{'echo "Weekly cleanup complete. Backup at: $BACKUP_DIR"'}</code>
                                 </div>
@@ -707,7 +707,7 @@ export default class Topic14 extends React.Component {
                                 <div className="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm">
                                     <code>{'# Add to crontab -e'}</code><br />
                                     <code>{'# Weekly cleanup every Sunday at 2 AM'}</code><br />
-                                    <code>{'0 2 * * 0 /home/user/bin/organize.sh /home/user/Downloads /home/user/Downloads_organized &gt;> /home/user/organize.log 2>&1'}</code>
+                                    <code>{'0 2 * * 0 /home/user/bin/organize.sh /home/user/Downloads /home/user/Downloads_organized >> /home/user/organize.log 2>&1'}</code>
                                 </div>
                             </div>
 

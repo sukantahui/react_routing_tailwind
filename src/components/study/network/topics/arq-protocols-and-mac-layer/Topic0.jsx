@@ -216,7 +216,7 @@ const StopAndWaitARQ = () => {
             <ul className="list-disc ml-6 mt-2 space-y-1">
               <li>Set RTO = 2 × RTT (smoothed) — prevents premature timeout</li>
               <li>Always use alternate sequence numbers (0/1) to distinguish duplicates.</li>
-              <li>For better throughput, avoid Stop-and-Wait if bandwidth-delay product {`&gt;`} 1 frame.</li>
+              <li>For better throughput, avoid Stop-and-Wait if bandwidth-delay product {`>`} 1 frame.</li>
               <li>Use cumulative ACK only if you extend; with stop-and-wait explicit ACK per frame.</li>
             </ul>
           </div>

@@ -303,7 +303,7 @@ const [value, setValue] = useState('');
 <input
   value={value}
   onChange={(e) => setValue(e.target.value)}
-/&gt;
+/>
 
 // 3. Handle submit
 const handleSubmit = (e) => {
@@ -356,7 +356,7 @@ const handleSubmit = (e) => {
                       ? `bg-${example.color}-900/50 text-${example.color}-300 border border-${example.color}-700`
                       : "bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700"
                   )}
-                &gt;
+                >
                   <span>{example.icon}</span>
                   <span>{example.label}</span>
                 </button>
@@ -390,7 +390,7 @@ const handleSubmit = (e) => {
                     <div className="bg-gray-900/40 p-5 rounded-xl border border-gray-700">
                       <h3 className="text-xl font-bold text-blue-400 mb-4">Search Functionality</h3>
                       
-                      <form onSubmit={(e) => handleSubmit(e, 'search')} className="space-y-4"&gt;
+                      <form onSubmit={(e) => handleSubmit(e, 'search')} className="space-y-4">
                         <div>
                           <label className="block text-gray-400 mb-2">Search Students</label>
                           <div className="relative">
@@ -421,7 +421,7 @@ const handleSubmit = (e) => {
                             type="button"
                             onClick={() => setSearchTerm('')}
                             className="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 border border-gray-700 transition-all duration-300"
-                          &gt;
+                          >
                             Clear
                           </button>
                         </div>
@@ -466,7 +466,7 @@ const handleSubmit = (e) => {
                     <div className="bg-gray-900/40 p-5 rounded-xl border border-gray-700">
                       <h3 className="text-xl font-bold text-green-400 mb-4">Email Subscription</h3>
                       
-                      <form onSubmit={(e) => handleSubmit(e, 'email')} className="space-y-4"&gt;
+                      <form onSubmit={(e) => handleSubmit(e, 'email')} className="space-y-4">
                         <div>
                           <label className="block text-gray-400 mb-2">Email Address *</label>
                           <input
@@ -513,7 +513,7 @@ const handleSubmit = (e) => {
                     <div className="bg-gray-900/40 p-5 rounded-xl border border-gray-700">
                       <h3 className="text-xl font-bold text-red-400 mb-4">Password Security</h3>
                       
-                      <form onSubmit={(e) => handleSubmit(e, 'password')} className="space-y-4"&gt;
+                      <form onSubmit={(e) => handleSubmit(e, 'password')} className="space-y-4">
                         <div>
                           <label className="block text-gray-400 mb-2">New Password *</label>
                           <div className="relative">
@@ -533,7 +533,7 @@ const handleSubmit = (e) => {
                               type="button"
                               onClick={() => setShowPassword(!showPassword)}
                               className="absolute right-3 top-3 text-gray-500 hover:text-gray-300"
-                            &gt;
+                            >
                               {showPassword ? '🙈' : '👁️'}
                             </button>
                           </div>
@@ -586,7 +586,7 @@ const handleSubmit = (e) => {
                     <div className="bg-gray-900/40 p-5 rounded-xl border border-gray-700">
                       <h3 className="text-xl font-bold text-purple-400 mb-4">Quick Message</h3>
                       
-                      <form onSubmit={(e) => handleSubmit(e, 'message')} className="space-y-4"&gt;
+                      <form onSubmit={(e) => handleSubmit(e, 'message')} className="space-y-4">
                         <div>
                           <label className="block text-gray-400 mb-2">Your Message *</label>
                           <textarea
@@ -621,11 +621,11 @@ const handleSubmit = (e) => {
                           disabled={!message.trim() || message.length > 200}
                           className={clsx(
                             "w-full py-3 rounded-lg font-medium border transition-all duration-300",
-                            message.trim() && message.length &le; 200
+                            message.trim() && message.length <= 200
                               ? "bg-purple-900/30 text-purple-300 hover:bg-purple-800/50 hover:text-purple-200 border-purple-800/50 hover:border-purple-600"
                               : "bg-gray-800 text-gray-500 border-gray-700 cursor-not-allowed"
                           )}
-                        &gt;
+                        >
                           Send Message
                         </button>
                       </form>
@@ -788,7 +788,7 @@ const handleSubmit = (e) => {
                                   type="button"
                                   onClick={() => fileInputRef.current?.click()}
                                   className="px-4 py-2 bg-yellow-900/30 text-yellow-300 rounded-lg hover:bg-yellow-800/50 border border-yellow-800/50 transition-all duration-300"
-                                &gt;
+                                >
                                   Browse Files
                                 </button>
                               </div>
@@ -815,7 +815,7 @@ const handleSubmit = (e) => {
                               <button
                                 onClick={() => setSelectedFile(null)}
                                 className="px-3 py-1 bg-red-900/30 text-red-300 rounded-lg hover:bg-red-800/50 border border-red-800/50 text-sm"
-                              &gt;
+                              >
                                 Remove
                               </button>
                             </div>
@@ -832,7 +832,7 @@ const handleSubmit = (e) => {
                     <div className="bg-gray-900/40 p-5 rounded-xl border border-gray-700">
                       <h3 className="text-xl font-bold text-pink-400 mb-4">Login Form</h3>
                       
-                      <form onSubmit={(e) => handleSubmit(e, 'login')} className="space-y-4"&gt;
+                      <form onSubmit={(e) => handleSubmit(e, 'login')} className="space-y-4">
                         <div>
                           <label className="block text-gray-400 mb-2">Username *</label>
                           <input
@@ -889,7 +889,7 @@ const handleSubmit = (e) => {
                     <div className="bg-gray-900/40 p-5 rounded-xl border border-gray-700">
                       <h3 className="text-xl font-bold text-teal-400 mb-4">Course Feedback</h3>
                       
-                      <form onSubmit={(e) => handleSubmit(e, 'feedback')} className="space-y-4"&gt;
+                      <form onSubmit={(e) => handleSubmit(e, 'feedback')} className="space-y-4">
                         <div>
                           <label className="block text-gray-400 mb-2">
                             How can we improve our React classes in Naihati?
@@ -1001,7 +1001,7 @@ const handleSubmit = (e) => {
                             <code className="text-cyan-300">message:</code> 
                             <span className="text-gray-300 ml-2">
                               {message.substring(0, 30) || '(empty)'}
-                              {message.length &gt; 30 ? '...' : ''}
+                              {message.length > 30 ? '...' : ''}
                             </span>
                           </div>
                         )}
@@ -1038,7 +1038,7 @@ const handleSubmit = (e) => {
                             <code className="text-cyan-300">feedback:</code> 
                             <span className="text-gray-300 ml-2">
                               {feedback.substring(0, 30) || '(empty)'}
-                              {feedback.length &gt; 30 ? '...' : ''}
+                              {feedback.length > 30 ? '...' : ''}
                             </span>
                           </div>
                         )}
@@ -1051,7 +1051,7 @@ const handleSubmit = (e) => {
                 <div className="bg-gray-900/40 p-5 rounded-xl border border-gray-700">
                   <div className="flex justify-between items-center mb-4">
                     <h3 className="text-xl font-bold text-gray-300">Recent Submissions</h3>
-                    {submissions.length &gt; 0 && (
+                    {submissions.length > 0 && (
                       <button
                         onClick={clearSubmissions}
                         className="px-3 py-1 bg-gray-800 text-gray-400 rounded-lg hover:bg-gray-700 text-sm border border-gray-700"
@@ -1062,7 +1062,7 @@ const handleSubmit = (e) => {
                   </div>
                   
                   <div className="space-y-3 max-h-60 overflow-y-auto">
-                    {submissions.length &gt; 0 ? (
+                    {submissions.length > 0 ? (
                       submissions.map((submission) => (
                         <div 
                           key={submission.id}

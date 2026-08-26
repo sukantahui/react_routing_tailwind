@@ -265,7 +265,7 @@ const Topic6 = () => {
                     ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 1. Student ── Course (1,N):(0,M)
               </button>
               <button
@@ -276,7 +276,7 @@ const Topic6 = () => {
                     ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 2. Employee ── Dept (0,1):(1,1)
               </button>
               <button
@@ -287,7 +287,7 @@ const Topic6 = () => {
                     ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 3. Customer ── Order (0,N):(1,1)
               </button>
               <button
@@ -298,7 +298,7 @@ const Topic6 = () => {
                     ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              &gt;
+              >
                 4. Citizen ── Passport (0,1):(0,1)
               </button>
             </div>
@@ -442,7 +442,7 @@ CREATE TABLE student_enrollments (
                 <div>
                   <strong className="text-white">1. Inverting Bounds:</strong>
                   <p className="text-slate-400 mt-0.5">
-                    Writing <code>(1, 0)</code> is mathematically invalid; <code>0 <= min <= max</code> must hold.
+                    Writing <code>(1, 0)</code> is mathematically invalid; <code>0 &lt;= min &lt;= max</code> must hold.
                   </p>
                 </div>
                 <div>
@@ -469,7 +469,7 @@ CREATE TABLE student_enrollments (
                 <div>
                   <strong className="text-white">2. Check Mathematical Bounds:</strong>
                   <p className="text-slate-400 mt-0.5">
-                    Verify that every entity's <code>(min, max)</code> satisfies <code>min >= 0</code> and <code>max >= 1</code>.
+                    Verify that every entity's <code>(min, max)</code> satisfies <code>min &gt;= 0</code> and <code>max &gt;= 1</code>.
                   </p>
                 </div>
               </div>

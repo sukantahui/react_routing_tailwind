@@ -136,7 +136,7 @@ const Topic2 = () => {
                       ? "bg-blue-600 text-white shadow-md"
                       : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                   )}
-                &gt;
+                >
                   {idx + 1}
                 </button>
               ))}
@@ -214,7 +214,7 @@ const Topic2 = () => {
                 <li><strong>Forgetting DNS propagation:</strong> Changes can take up to 48 hours due to TTL caches.</li>
                 <li><strong>Misunderstanding recursion vs iteration:</strong> The stub resolver only does recursion; the recursive resolver does iteration.</li>
                 <li><strong>Not testing with +trace:</strong> Many think their local DNS is broken when it's actually a remote issue.</li>
-                <li><strong>Single point of failure:</strong> Only one nameserver in resolv.conf -{`&gt;`} outage brings down resolution.</li>
+                <li><strong>Single point of failure:</strong> Only one nameserver in resolv.conf -{`>`} outage brings down resolution.</li>
               </ul>
             </div>
             <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-2xl">

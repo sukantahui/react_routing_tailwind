@@ -101,7 +101,7 @@ createProfileCard("Mounita Bhandari", "Developer", "mounita.png");`}
 showNotification("Welcome back, Sukanta!", "success");
 showNotification("Your file has been uploaded.", "info");
 showNotification("Error: Unable to process request!", "error");`}
-          /&gt;
+          />
 
           <p className="text-yellow-300 text-sm">
             ✔ Add CSS for smooth fade-in and fade-out animations  
@@ -225,7 +225,7 @@ students.forEach((s) => {
 });
 
 document.body.appendChild(list);`}
-          /&gt;
+          />
         </section>
 
         {/* =====================================================

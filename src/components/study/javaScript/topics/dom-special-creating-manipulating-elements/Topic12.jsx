@@ -81,7 +81,7 @@ export default class Topic12 extends Component {
                         initialHTML={`<div class="card">Architecture Loaded</div>`}
                         initialCSS={`.card { padding: 16px; background:#1e293b; color:#bae6fd; border-radius:8px; }`}
                         initialJS={`console.log("Architecture section active");`}
-                    /&gt;
+                    />
                 </section>
 
 
@@ -113,7 +113,7 @@ const products = [
   { title: "Photoshop Basics", category: "Design", price: 249 },
   { title: "Excel Advanced", category: "Productivity", price: 299 }
 ];`}
-                    /&gt;
+                    />
 
                     {/* Playground */}
                     <CodePenPlayground
@@ -146,7 +146,7 @@ const products = [
 ];
 
 console.log("Template & Dataset Ready");`}
-                    /&gt;
+                    />
                 </section>
 
 
@@ -175,7 +175,7 @@ console.log("Template & Dataset Ready");`}
     grid.appendChild(copy);
   });
 }`}
-                    /&gt;
+                    />
 
                     {/* Playground */}
                     <CodePenPlayground

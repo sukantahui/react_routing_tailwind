@@ -368,7 +368,7 @@ const Topic5 = () => {
             },
             {
               title: "Lower bounds vs non-negativity",
-              desc: "If a variable must be &gt; 0 (strictly positive), use a lower bound like x ≥ 0.1.",
+              desc: "If a variable must be > 0 (strictly positive), use a lower bound like x ≥ 0.1.",
             },
             {
               title: "Keep non-negativity separate",
@@ -454,7 +454,7 @@ const Topic5 = () => {
             "If a variable is expected to be negative, transform it before solving.",
             "Keep non-negativity separate from other constraints for clarity.",
             "Check that all variables are non-negative in the final solution.",
-            "If a variable has a lower bound &gt; 0, write it as a separate constraint.",
+            "If a variable has a lower bound > 0, write it as a separate constraint.",
             "In software, understand the default settings for non-negativity.",
             "Document any free variables and the transformation used.",
             "Test your model with zero values to ensure it behaves correctly.",

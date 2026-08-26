@@ -92,10 +92,10 @@ BEGIN
     INSERT INTO notification_queue (student_id, message) VALUES (101, 'Exam schedule published');
     SET p_success_count = p_success_count + 1;
 
-    -- Item 2: Invalid Student (Foreign key fails) &rarr; Handler catches & continues!
+    -- Item 2: Invalid Student (Foreign key fails) -> Handler catches & continues!
     INSERT INTO notification_queue (student_id, message) VALUES (99999, 'Exam schedule published');
 
-    -- Item 3: Valid Notification -&gt; Executes normally!
+    -- Item 3: Valid Notification -> Executes normally!
     INSERT INTO notification_queue (student_id, message) VALUES (103, 'Exam schedule published');
     SET p_success_count = p_success_count + 1;
 END //
@@ -374,7 +374,7 @@ handler_statement;`}
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

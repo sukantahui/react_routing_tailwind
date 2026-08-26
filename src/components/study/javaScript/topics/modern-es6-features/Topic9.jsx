@@ -248,7 +248,7 @@ console.log(getTeacherList());`}
   import { greet } from "./greetModule.js";
   console.log(greet("Devangshu"));
 </script>`}
-        /&gt;
+        />
 
         {/* SUMMARY */}
         <section className="p-4 bg-slate-900/40 border border-slate-800 rounded-2xl mt-10">

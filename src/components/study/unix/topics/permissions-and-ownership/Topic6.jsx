@@ -375,7 +375,7 @@ class Topic6 extends React.Component {
                               ? "bg-gray-800 hover:bg-gray-700"
                               : "bg-gray-200 hover:bg-gray-300"
                         )}
-                      &gt;
+                      >
                         <div className="font-bold text-sm">{command.name}</div>
                         <div className="text-xs opacity-80">{command.description}</div>
                       </button>
@@ -402,7 +402,7 @@ class Topic6 extends React.Component {
                                 ? "bg-gray-800 hover:bg-gray-700"
                                 : "bg-gray-200 hover:bg-gray-300"
                           )}
-                        &gt;
+                        >
                           <div className="font-bold">{user.name}</div>
                           <div className="text-xs opacity-80">{user.location}</div>
                         </button>
@@ -427,7 +427,7 @@ class Topic6 extends React.Component {
                                 ? "bg-gray-800 hover:bg-gray-700"
                                 : "bg-gray-200 hover:bg-gray-300"
                           )}
-                        &gt;
+                        >
                           <div className="font-bold">{group.name}</div>
                           <div className="text-xs opacity-80">
                             {group.id === 'students' && 'Student access group'}
@@ -458,7 +458,7 @@ class Topic6 extends React.Component {
                                 ? "bg-gray-800 hover:bg-gray-700"
                                 : "bg-gray-200 hover:bg-gray-300"
                           )}
-                        &gt;
+                        >
                           <div className="font-bold">{file.id}</div>
                           <div className="text-xs opacity-80">
                             {file.owner}:{file.group} • {file.permissions}

@@ -108,7 +108,7 @@ const Topic7 = () => {
         status: "LEGACY_SECURE",
         verdict: "⚠️ LEGACY: Cryptographically Secure but Heavy Double Overhead (76B).",
         badgeColor: "bg-purple-950 text-purple-300 border-purple-700",
-        authCrackTime: "X.509 PKI / RSA-3072: Computationally Infeasible (&gt; 10^18 Years)",
+        authCrackTime: "X.509 PKI / RSA-3072: Computationally Infeasible (> 10^18 Years)",
         encryptionStrength: "AES-256-GCM (IPsec ESP Envelope)",
         bitFlipResult: "✔ Bit-flip blocked by IPsec ICV tag (Tampered packet dropped).",
         explanation: "L2TP/IPsec is secure against eavesdropping and tampering, but suffers from severe packet overhead (76+ bytes), NAT-T configuration complexity, and high latency on mobile devices."
@@ -318,7 +318,7 @@ const Topic7 = () => {
                     ? "bg-slate-800 text-white border-rose-500 shadow-md shadow-rose-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              &gt;
+              >
                 {p.title}
               </button>
             ))}
@@ -393,7 +393,7 @@ const Topic7 = () => {
                 value={selectedAuditProto}
                 onChange={(e) => setSelectedAuditProto(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-rose-500 focus:outline-none"
-              &gt;
+              >
                 <option value="pptp">1. PPTP (TCP 1723 + GRE 47 / MS-CHAPv2 + RC4)</option>
                 <option value="l2tp_plain">2. Standalone L2TP (UDP 1701 / Cleartext)</option>
                 <option value="l2tp_ipsec">3. L2TP/IPsec (Transport Mode / AES-256)</option>
@@ -411,7 +411,7 @@ const Topic7 = () => {
                     ? "bg-rose-950/80 text-rose-300 border-rose-800 shadow-md shadow-rose-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              &gt;
+              >
                 {simulateBitFlipAttack ? "🚨 Bit-Flip Injected (Tampering ₹10,000 ➔ ₹90,000)" : "✔ Normal Clean Transmission"}
               </button>
             </div>
@@ -510,7 +510,7 @@ const Topic7 = () => {
                 value={legacyServersCount}
                 onChange={(e) => setLegacyServersCount(Number(e.target.value))}
                 className="w-full accent-rose-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -526,7 +526,7 @@ const Topic7 = () => {
                 value={migratedUsersCount}
                 onChange={(e) => setMigratedUsersCount(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              /&gt;
+              />
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -542,7 +542,7 @@ const Topic7 = () => {
                     ? "bg-sky-950/80 text-sky-300 border-sky-800 shadow-md shadow-sky-500/10"
                     : "bg-purple-950/80 text-purple-300 border-purple-800 shadow-md shadow-purple-500/10"
                 )}
-              &gt;
+              >
                 {migrationTargetType === "wireguard" ? "✔ Target: WireGuard (Lightweight)" : "⚙️ Target: IPsec IKEv2 (Enterprise)"}
               </button>
             </div>
@@ -592,7 +592,7 @@ const Topic7 = () => {
                     ? "bg-rose-600/20 text-rose-300 border-rose-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              &gt;
+              >
                 {d.title}
               </button>
             ))}

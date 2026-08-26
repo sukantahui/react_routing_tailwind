@@ -38,9 +38,9 @@ CREATE USER 'app_remote'@'%' IDENTIFIED BY 'PassRemote#2026';
 
 -- ⚠️ CRUCIAL TAKEAWAYS:
 -- 1. Connecting via: mysql -u admin_local -p
--- &rarr; Routes through /var/run/mysqld/mysqld.sock (Matches 'localhost'!) ✅
+--    -> Routes through /var/run/mysqld/mysqld.sock (Matches 'localhost'!) ✅
 -- 2. Connecting via: mysql -h 127.0.0.1 -u admin_local -p
---    -&gt; Routes through TCP/IP stack (FAILS because 'localhost' != '127.0.0.1'!) ❌
+--    -> Routes through TCP/IP stack (FAILS because 'localhost' != '127.0.0.1'!) ❌
 -- 3. '%' matches any TCP host, but does NOT match Unix socket localhost!`,
       metricsTable: [
         { hostSpecifier: "localhost", transportProtocol: "UNIX Domain Socket (Linux) / Named Pipe (Win)", tcpNetworking: "NO (Bypasses network stack) ⚡", matchesWildcard: "NO ('%' does not match socket)" },
@@ -337,7 +337,7 @@ CREATE USER 'analytics'@'10.0.1.25' IDENTIFIED BY 'Pass#1';
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

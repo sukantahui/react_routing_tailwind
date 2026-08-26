@@ -97,7 +97,7 @@ const Topic10 = () => {
   const calculatedResidual = useMemo(() => {
     const res = (simInherentScore * (1 - simControlStrength / 100)).toFixed(1);
     const numRes = parseFloat(res);
-    const isCompliant = numRes &le; boardRiskAppetite;
+    const isCompliant = numRes <= boardRiskAppetite;
 
     return {
       residualScore: res,
@@ -234,7 +234,7 @@ const Topic10 = () => {
                       ? "bg-indigo-600 text-white shadow-md"
                       : "text-gray-400 hover:text-white"
                   )}
-                &gt;
+                >
                   {st.replace("_", " ")}
                 </button>
               ))}
@@ -268,7 +268,7 @@ const Topic10 = () => {
                           "cursor-pointer transition-colors",
                           isSelected ? "bg-indigo-950/60 text-white font-bold" : "hover:bg-gray-900/50"
                         )}
-                      &gt;
+                      >
                         <td className="p-3.5 font-bold text-cyan-400">{risk.id}</td>
                         <td className="p-3.5">
                           <div className="text-white font-sans">{risk.asset}</div>
@@ -370,7 +370,7 @@ const Topic10 = () => {
                   value={simInherentScore}
                   onChange={(e) => setSimInherentScore(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                /&gt;
+                />
               </div>
 
               {/* Control Mitigation Strength Slider */}
@@ -387,7 +387,7 @@ const Topic10 = () => {
                   value={simControlStrength}
                   onChange={(e) => setSimControlStrength(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                /&gt;
+                />
               </div>
 
               {/* Explanation Note */}
@@ -590,7 +590,7 @@ const Topic10 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

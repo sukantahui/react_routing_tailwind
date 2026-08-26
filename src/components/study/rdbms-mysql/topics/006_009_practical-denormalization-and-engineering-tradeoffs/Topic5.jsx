@@ -136,7 +136,7 @@ const Topic5 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab1" ? "border-rose-400 text-rose-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>🚫</span>
                 <span>OLTP VS OLAP</span>
               </button>
@@ -147,7 +147,7 @@ const Topic5 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab2" ? "border-amber-400 text-amber-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>⚠️</span>
                 <span>PRE-AGGREGATION</span>
               </button>
@@ -158,7 +158,7 @@ const Topic5 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab3" ? "border-teal-400 text-teal-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>🔍</span>
                 <span>SYNC VIA TRIGGERS</span>
               </button>
@@ -169,7 +169,7 @@ const Topic5 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab4" ? "border-emerald-400 text-emerald-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 <span>✅</span>
                 <span>STRATEGIC DENORM</span>
               </button>
@@ -193,7 +193,7 @@ const Topic5 = () => {
                 <button
                   onClick={() => handleCopy(selectedTab === "tab4" ? conf.sql4 : conf.sql1)}
                   className="px-3 py-1.5 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition"
-                &gt;
+                >
                   {copiedCode ? "✓ SQL Copied" : "📋 Copy SQL Code"}
                 </button>
               </div>

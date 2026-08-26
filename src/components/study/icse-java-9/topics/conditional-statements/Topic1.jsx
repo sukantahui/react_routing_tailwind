@@ -84,7 +84,7 @@ if(marks >= 40){
   System.out.println("Abhronila passed.");
 }else{
   System.out.println("Reappear required.");
-}`} /&gt;
+}`} />
         </div>
 
         <div className={`${card} mb-8 ${reveal} animation-delay-[480ms]`}>
@@ -94,7 +94,7 @@ if(attendance >= 75){
   System.out.println("Debangshu eligible.");
 }else{
   System.out.println("Not eligible.");
-}`} /&gt;
+}`} />
         </div>
 
         <div className={`${card} mb-10 ${reveal} animation-delay-[600ms]`}>

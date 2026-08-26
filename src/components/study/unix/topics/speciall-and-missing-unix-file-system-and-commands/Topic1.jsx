@@ -53,7 +53,7 @@ const interactiveQuestions = [
   { q: "What is the `/proc` filesystem?", a: "A virtual filesystem providing process and kernel information as files (e.g., /proc/cpuinfo)." },
   { q: "What is the `/dev` directory?", a: "Contains device files representing hardware (e.g., /dev/sda, /dev/tty)." },
   { q: "What does the `ls -i` command show?", a: "The inode number of each file." },
-  { q: "How can you find all hard links to a file?", a: "Use `ls -li` to see inode numbers, then `find / -inum <inode> 2&gt;/dev/null`." },
+  { q: "How can you find all hard links to a file?", a: "Use `ls -li` to see inode numbers, then `find / -inum <inode> 2>/dev/null`." },
   { q: "What is the maximum number of hard links to a file?", a: "Limited by filesystem (often 65,000). Directories usually cannot be hard linked (except `.` and `..`)." },
   { q: "Why can't you create hard links across different filesystems?", a: "Because inode numbers are only unique within a single filesystem." },
   { q: "What does the `mount` command do?", a: "Attaches a filesystem to a directory (mount point), making it accessible under the root tree." },
@@ -85,7 +85,7 @@ function InteractiveQuestionsBlock() {
                 <button
                   onClick={() => toggle(idx)}
                   className="rounded-full bg-indigo-100 px-4 py-1 text-sm font-medium text-indigo-700 transition-all hover:bg-indigo-200 dark:bg-indigo-900/60 dark:text-indigo-200"
-                &gt;
+                >
                   {revealed[idx] ? "Hide" : "Show answer"}
                 </button>
               </div>
@@ -236,7 +236,7 @@ ln target_file link_name
 ln -s target_file link_name
 
 # Find files by inode number
-find / -inum [inode_number] 2&gt;/dev/null`}
+find / -inum [inode_number] 2>/dev/null`}
             </pre>
             <p className="mt-4 text-gray-700 dark:text-gray-200"><strong>Purpose:</strong> Navigate, inspect, and manage the Unix filesystem. <strong>When/Why:</strong> System administrators, developers, and power users rely on these to understand disk usage, locate files, and manage links.</p>
             <div className="mt-4 rounded-lg bg-white p-3 dark:bg-gray-800/60">

@@ -148,7 +148,7 @@ int main() {
     printf("Back to main()\\n");
     return 0;
 }`}
-          /&gt;
+          />
         </section>
 
         {/* ================= STEP-BY-STEP ================= */}

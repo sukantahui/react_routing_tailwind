@@ -66,7 +66,7 @@ const Topic0 = () => {
                   ? "bg-blue-600 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            &gt;
+            >
               {tab.label}
             </button>
           ))}
@@ -247,7 +247,7 @@ const Topic0 = () => {
                       <button
                         onClick={() => setShowExample(!showExample)}
                         className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300"
-                      &gt;
+                      >
                         {showExample ? 'Hide Detailed Solution' : 'Show Detailed Solution'}
                       </button>
                     </div>

@@ -41,7 +41,7 @@ export default function Topic10() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        &gt;
+        >
           <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">
             AVERAGEIF Function (Conditional Average)
           </h1>
@@ -54,7 +54,7 @@ export default function Topic10() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-blue-400">📐</span> Function Prototype
           </h2>
@@ -72,7 +72,7 @@ export default function Topic10() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold">🔍 Parameters Explained</h2>
           <div className="mt-4 space-y-3 text-gray-200">
             <div><span className="text-blue-300 font-mono">range</span> – The range of cells to evaluate against the criteria.</div>
@@ -80,7 +80,7 @@ export default function Topic10() {
             <div><span className="text-blue-300 font-mono">average_range</span> – (Optional) The actual cells to average. If omitted, the function averages the range itself.</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-4 border-l-4 border-blue-500 mt-4">
-            <p className="font-mono text-sm">{`✅ =AVERAGEIF(A1:A10, "&gt;80") → average of numbers greater than 80 in A1:A10`}</p>
+            <p className="font-mono text-sm">{`✅ =AVERAGEIF(A1:A10, ">80") → average of numbers greater than 80 in A1:A10`}</p>
             <p className="font-mono text-sm mt-1">✅ =AVERAGEIF(B2:B100, "Rice", C2:C100) → average price of Rice</p>
             <p className="font-mono text-sm mt-1">✅ =AVERAGEIF(D:D, "Pass", E:E) → average score of students who passed</p>
           </div>
@@ -90,7 +90,7 @@ export default function Topic10() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold">📊 Real-World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -108,7 +108,7 @@ export default function Topic10() {
                 </tbody>
               </table>
               <p className="mt-3 text-blue-300">=AVERAGEIF(A2:A6, "Rice", B2:B6) → (600+750+500)/3 = 616.67</p>
-              <p className="mt-1 text-blue-300">{`=AVERAGEIF(B2:B6, "&gt;500") → (600+750)/2 = 675`}</p>
+              <p className="mt-1 text-blue-300">{`=AVERAGEIF(B2:B6, ">500") → (600+750)/2 = 675`}</p>
             </div>
           </div>
         </section>
@@ -117,7 +117,7 @@ export default function Topic10() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (
@@ -146,7 +146,7 @@ export default function Topic10() {
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Forgetting that <strong>average_range</strong> is optional – if omitted, AVERAGEIF averages the <strong>range</strong> itself (which may not be what you want).</li>
             <li>Using text criteria without double quotes: =AVERAGEIF(A:A, Rice, B:B) → error; correct "Rice".</li>
-            <li>{`Concatenating cells incorrectly: for dynamic threshold, use "&gt;"&amp;E1 (not ">E1").`}</li>
+            <li>{`Concatenating cells incorrectly: for dynamic threshold, use ">"&amp;E1 (not ">E1").`}</li>
             <li>AVERAGEIF <strong>ignores blank cells</strong> in average_range, but includes zeros – this affects the result.</li>
             <li>If no cells meet the criteria, AVERAGEIF returns #DIV/0! (not 0 like SUMIF).</li>
           </ul>
@@ -177,7 +177,7 @@ export default function Topic10() {
           <h3 className="text-xl font-semibold text-purple-300">💡 Professional Tips & Tricks</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Use wildcards for partial text matches: =AVERAGEIF(Product, "*Phone*", Sales) averages sales of products containing "Phone".</li>
-            <li>{`Average for a date range: =AVERAGEIF(Date, &ge; &;DATE(2025,1,1), Sales) – but for two dates, use AVERAGEIFS.`}</li>
+            <li>{`Average for a date range: =AVERAGEIF(Date, >=&;DATE(2025,1,1), Sales) – but for two dates, use AVERAGEIFS.`}</li>
             <li>{`To exclude zeros from average: =AVERAGEIF(range, <;>;0, average_range).`}</li>
             <li>Combine AVERAGEIF with IFERROR to handle #DIV/0! when no match: =IFERROR(AVERAGEIF(...), 0).</li>
           </ul>
@@ -188,8 +188,8 @@ export default function Topic10() {
           <h3 className="font-bold text-lg">📋 Quick Revision Checklist</h3>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mt-2 list-disc list-inside text-gray-200">
             <li>✅ Syntax: =AVERAGEIF(range, criteria, [average_range])</li>
-            <li>{`✅ Quotes for text and operators: "Rice", "&gt;80"`}</li>
-            <li>{`✅ Use &amp; for cell references: '&gt;'&amp;E1`}</li>
+            <li>{`✅ Quotes for text and operators: "Rice", ">80"`}</li>
+            <li>{`✅ Use &amp; for cell references: '>'&amp;E1`}</li>
             <li>✅ If average_range omitted, range is averaged</li>
             <li>✅ Returns #DIV/0! if no match</li>
             <li>✅ Ignores text and blanks in average_range</li>

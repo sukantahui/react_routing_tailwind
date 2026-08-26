@@ -41,7 +41,7 @@ export default function Topic18() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        &gt;
+        >
           <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-blue-500 bg-clip-text text-transparent">
             VAR.P Function (Population Variance)
           </h1>
@@ -54,7 +54,7 @@ export default function Topic18() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-indigo-500/50 transition-all duration-300"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-indigo-400">📐</span> Function Prototype
           </h2>
@@ -67,7 +67,7 @@ export default function Topic18() {
             <li><strong className="text-indigo-300">When to use:</strong> When your data represents the entire population (e.g., all 50 employees in a small company, all students in a class, all sales days in a closed month).</li>
           </ul>
           <div className="mt-3 text-sm text-gray-400 bg-gray-900/50 p-2 rounded">
-            💡 Population variance is smaller than sample variance for the same data, because denominator n {`&gt;`} n-1.
+            💡 Population variance is smaller than sample variance for the same data, because denominator n {`>`} n-1.
           </div>
         </section>
 
@@ -75,7 +75,7 @@ export default function Topic18() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold">📐 How VAR.P Works</h2>
           <div className="mt-4 space-y-4 text-gray-200 leading-relaxed">
             <p>
@@ -94,7 +94,7 @@ export default function Topic18() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <h2 className="text-2xl font-semibold">📊 Real-World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -116,7 +116,7 @@ export default function Topic18() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        &gt;
+        >
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (

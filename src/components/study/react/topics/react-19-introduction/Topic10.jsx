@@ -90,7 +90,7 @@ const element = React.createElement(
       description: "All JSX tags must be closed, even self-closing ones",
       correct: `<img src="logo.png" />`,
       wrong: `<img src="logo.png">`,
-      tip: "Self-closing tags need /&gt; in JSX"
+      tip: "Self-closing tags need /> in JSX"
     },
     {
       rule: "camelCase Attributes",
@@ -490,7 +490,7 @@ return (
                     ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
                     : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                 )}
-              &gt;
+              >
                 <span className="mr-2">{section.icon}</span>
                 {section.label}
               </button>
@@ -630,7 +630,7 @@ return (
                           ? "bg-purple-600 text-white scale-110"
                           : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                       )}
-                    &gt;
+                    >
                       {index + 1}
                     </button>
                   ))}
@@ -1115,7 +1115,7 @@ return (
                   "px-4 py-2 rounded-lg font-medium mb-4",
                   showErrors ? "bg-red-600 text-white" : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                 )}
-              &gt;
+              >
                 {showErrors ? "Hide Error Examples" : "Show Error Examples"}
               </button>
             </div>

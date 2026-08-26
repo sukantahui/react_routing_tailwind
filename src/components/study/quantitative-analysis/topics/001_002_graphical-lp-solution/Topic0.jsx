@@ -50,7 +50,7 @@ const Topic0 = () => {
         { label: "2x + 3y ≤ 12", type: "≤", color: "#3b82f6" },
         { label: "x - y ≥ 2", type: "≥", color: "#10b981" },
         { label: "y < 2x + 1", type: "<", color: "#f59e0b" },
-        { label: "y > -x + 4", type: "&gt;", color: "#ef4444" },
+        { label: "y > -x + 4", type: ">", color: "#ef4444" },
     ];
 
     const [selectedExample, setSelectedExample] = useState(0);
@@ -101,7 +101,7 @@ const Topic0 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📐</span>
                         What is a Linear Inequality?
@@ -155,7 +155,7 @@ const Topic0 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📊</span>
                         The Coordinate Plane
@@ -202,7 +202,7 @@ const Topic0 = () => {
                                         <g key={`tick-${v}`}>
                                             <line x1={v} y1="195" x2={v} y2="205" stroke="#1e293b" strokeWidth="1.5" className="dark:stroke-slate-300" />
                                             <line x1="195" y1={v} x2="205" y2={v} stroke="#1e293b" strokeWidth="1.5" className="dark:stroke-slate-300" />
-                                            {v &ge; 40 && v &le; 360 && (
+                                            {v >= 40 && v <= 360 && (
                                                 <>
                                                     <text x={v - 4} y="220" fontSize="11" fill="#475569" className="dark:fill-slate-500">{v === 200 ? 0 : (v - 200) / 40}</text>
                                                     <text x="180" y={v + 5} fontSize="11" fill="#475569" className="dark:fill-slate-500">{v === 200 ? 0 : (200 - v) / 40}</text>
@@ -252,7 +252,7 @@ const Topic0 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">✏️</span>
                         Graphing a Linear Inequality — Step by Step
@@ -316,7 +316,7 @@ const Topic0 = () => {
                                                 ? "bg-blue-600 dark:bg-blue-500 text-white border-blue-600 dark:border-blue-500 shadow-md"
                                                 : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-sm"
                                         )}
-                                    &gt;
+                                    >
                                         {ex.label}
                                     </button>
                                 ))}
@@ -349,7 +349,7 @@ const Topic0 = () => {
                                         <g key={`tick2-${v}`}>
                                             <line x1={v} y1="195" x2={v} y2="205" stroke="#1e293b" strokeWidth="1" className="dark:stroke-slate-300" />
                                             <line x1="195" y1={v} x2="205" y2={v} stroke="#1e293b" strokeWidth="1" className="dark:stroke-slate-300" />
-                                            {v &ge; 40 && v &le; 360 && (
+                                            {v >= 40 && v <= 360 && (
                                                 <>
                                                     <text x={v - 4} y="218" fontSize="10" fill="#94a3b8" className="dark:fill-slate-500">{v === 200 ? 0 : (v - 200) / 40}</text>
                                                     <text x="178" y={v + 4} fontSize="10" fill="#94a3b8" className="dark:fill-slate-500">{v === 200 ? 0 : (200 - v) / 40}</text>
@@ -398,7 +398,7 @@ const Topic0 = () => {
 
                                     {selectedExample === 3 && (
                                         <g>
-                                            {/* Shaded region for y &gt; -x + 4 */}
+                                            {/* Shaded region for y > -x + 4 */}
                                             <polygon points="20,20 380,20 380,380 20,380" fill="#ef4444" fillOpacity="0.15" />
                                             {/* y = -x + 4 (dashed) */}
                                             <line x1="20" y1="380" x2="380" y2="20" stroke="#ef4444" strokeWidth="2.5" strokeDasharray="8,4" />
@@ -424,7 +424,7 @@ const Topic0 = () => {
                                     {inequalityExamples[selectedExample].type === "≤" && "≤ : Solid line, shade below"}
                                     {inequalityExamples[selectedExample].type === "≥" && "≥ : Solid line, shade above"}
                                     {inequalityExamples[selectedExample].type === "<" && "< : Dashed line, shade below"}
-                                    {inequalityExamples[selectedExample].type === ">" && "&gt; : Dashed line, shade above"}
+                                    {inequalityExamples[selectedExample].type === ">" && "> : Dashed line, shade above"}
                                 </span>
                             </div>
                         </div>
@@ -440,7 +440,7 @@ const Topic0 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🌍</span>
                         Real-World Examples
@@ -514,7 +514,7 @@ const Topic0 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -607,7 +607,7 @@ const Topic0 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                &gt;
+                >
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

@@ -46,9 +46,9 @@ const Topic0 = () => {
       title: "2. Disaster Recovery Objectives: RPO & RTO",
       badge: "Disaster Recovery",
       badgeColor: "cyan",
-      sqlSnippet: `# 🎯 1. RPO (RECOVERY POINT OBJECTIVE) &rarr; MAX TOLERABLE DATA LOSS:
+      sqlSnippet: `# 🎯 1. RPO (RECOVERY POINT OBJECTIVE) -> MAX TOLERABLE DATA LOSS:
 # - RPO = 0 : ZERO Data Loss (Requires Lossless Semi-Sync or Group Replication)
-# - RPO &gt; 0 : Eventual Consistency (Async Replication with potential lag loss)
+# - RPO > 0 : Eventual Consistency (Async Replication with potential lag loss)
 
 # ⏱️ 2. RTO (RECOVERY TIME OBJECTIVE) -> MAX TOLERABLE DOWNTIME:
 # - RTO < 30s : Automated Proxy + Orchestrator Failover (InnoDB Cluster)
@@ -71,7 +71,7 @@ const Topic0 = () => {
 # - Limitation: Hardware ceiling and remains a Single Point of Failure (SPOF)!
 
 # ➡️ 2. SCALE-OUT (HORIZONTAL SCALING):
-# - Read Scaling: 1 Primary (Writes) &rarr; ProxySQL -&gt; 5 Read Replicas (Reads).
+# - Read Scaling: 1 Primary (Writes) -> ProxySQL -> 5 Read Replicas (Reads).
 # - Write Scaling: Horizontal Database Sharding by Shard Key (e.g. Vitess).`,
       explanation:
         "Vertical scaling upgrades a single server's hardware but remains a SPOF. Horizontal scaling distributes read queries across multiple read replicas via intelligent proxies and partitions write traffic across shards.",
@@ -200,7 +200,7 @@ const Topic0 = () => {
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                &gt;
+                >
                   {phase.phaseNumber}
                 </button>
               );

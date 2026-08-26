@@ -351,7 +351,7 @@ const Topic18 = () => {
                     value={selectedFlightNumber}
                     onChange={(e) => setSelectedFlightNumber(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  &gt;
+                  >
                     {flightSchedule.map((f) => (
                       <option key={f.flightNumber} value={f.flightNumber}>
                         {f.flightNumber} ({f.arr.split(" ")[0]})
@@ -363,14 +363,14 @@ const Topic18 = () => {
                     value={flightDate}
                     onChange={(e) => setFlightDate(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
-                  /&gt;
+                  />
                   <input
                     type="text"
                     value={seatNumber}
                     onChange={(e) => setSeatNumber(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                     placeholder="Seat (e.g. 12A)"
-                  /&gt;
+                  />
                 </div>
 
                 <div className="grid grid-cols-3 gap-2">
@@ -380,21 +380,21 @@ const Topic18 = () => {
                     onChange={(e) => setPassengerName(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
                     placeholder="Passenger Name"
-                  /&gt;
+                  />
                   <input
                     type="text"
                     value={passengerPhone}
                     onChange={(e) => setPassengerPhone(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
                     placeholder="Phone"
-                  /&gt;
+                  />
                   <input
                     type="number"
                     value={farePaid}
                     onChange={(e) => setFarePaid(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
                     placeholder="Fare ₹"
-                  /&gt;
+                  />
                 </div>
 
                 <button
@@ -416,7 +416,7 @@ const Topic18 = () => {
                       key={idx}
                       onClick={() => handleCancelReservation(r.flightNumber, r.date, r.seat)}
                       className="py-1 px-2.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-bold hover:bg-rose-500/30 transition-all"
-                    &gt;
+                    >
                       Drop [{r.flightNumber} {r.seat} - {r.name.split(" ")[0]}]
                     </button>
                   ))}

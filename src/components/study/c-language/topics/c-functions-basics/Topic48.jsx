@@ -234,7 +234,7 @@ const Topic48 = () => {
           <br />
           <span className="mt-2 block">
             <strong>Try changing this:</strong> Add a new rule: give a bonus to
-            employees with {`&gt;`}5 years experience. In the bad version, you'd have to
+            employees with {`>`}5 years experience. In the bad version, you'd have to
             modify the giant function. In the good version, you'd create a new
             small function <code>calculateBonus()</code> and call it from{" "}
             <code>calculateSalary()</code>. Much safer.

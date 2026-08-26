@@ -126,7 +126,7 @@ switch (choice) {
     default:
         printf("Invalid choice");
 }`}
-      /&gt;
+      />
 
       <EditableCCodeBlock
         title="Example 4: Exit-Based Menu"

@@ -83,7 +83,7 @@ const Topic22 = () => {
       industry: "Healthcare",
       location: "Multi-specialty hospital, Ichapur",
       challenge: "Connect MRI, CT scanners, patient monitoring systems, and administrative offices. MRI machines produce extreme magnetic fields that can disrupt nearby electronics.",
-      solution: "All-fiber network to all diagnostic equipment. Copper only for office workstations (&gt;10m away from MRI). Fiber between all buildings (6 buildings, 300m apart).",
+      solution: "All-fiber network to all diagnostic equipment. Copper only for office workstations (>10m away from MRI). Fiber between all buildings (6 buildings, 300m apart).",
       mediaUsed: "Single-mode fiber (OS2) for medical equipment, Cat6 UTP for offices",
       whyChosen: "MRI machines generate 1.5-3 Tesla magnetic fields — copper cables would act as antennas, picking up interference and potentially heating up (safety risk). Fiber is completely non-metallic (no interference, no heating).",
       outcome: "MRI images transmitted without artifacts. Zero EMI-related errors in 3 years. Initial cost high (₹12 lakhs), but prevented potential patient safety issues.",
@@ -172,7 +172,7 @@ const Topic22 = () => {
                       ? "bg-blue-600 text-white shadow-md" 
                       : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                   )}
-                &gt;
+                >
                   {study.title.length > 30 ? study.title.substring(0, 27) + "..." : study.title}
                 </button>
               ))}
@@ -412,7 +412,7 @@ const QAItem = ({ question, answer, index }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left p-4 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex justify-between items-center"
-      &gt;
+      >
         <span className="font-medium text-gray-800 dark:text-gray-200">
           {index+1}. {question}
         </span>

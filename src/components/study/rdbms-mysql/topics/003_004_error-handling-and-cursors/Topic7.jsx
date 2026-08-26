@@ -101,7 +101,7 @@ BEGIN
         END IF;
 
         -- Complex non-linear procedural business logic:
-        IF v_score &ge; 90.0 AND v_income < 250000.00 THEN
+        IF v_score >= 90.0 AND v_income < 250000.00 THEN
             SET v_scholarship = 50000.00;
         ELSEIF v_score >= 80.0 AND v_income < 400000.00 THEN
             SET v_scholarship = 25000.00;
@@ -426,7 +426,7 @@ WHERE department_id = 1;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(

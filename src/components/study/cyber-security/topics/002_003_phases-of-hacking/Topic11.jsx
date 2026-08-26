@@ -235,7 +235,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-base sm:text-lg">{ph.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">Phase {ph.phaseNum}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{ph.name.split(": ")[1]}</div>
@@ -313,7 +313,7 @@ const Topic11 = () => {
                     "w-14 h-7 flex items-center rounded-full p-1 transition-colors duration-300 cursor-pointer",
                     isZeroTrustActive ? "bg-emerald-600" : "bg-rose-700"
                   )}
-                &gt;
+                >
                   <div
                     className={clsx(
                       "bg-white w-5 h-5 rounded-full shadow-md transform transition-transform duration-300",
@@ -492,7 +492,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

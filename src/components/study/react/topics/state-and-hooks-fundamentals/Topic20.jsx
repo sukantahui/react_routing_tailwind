@@ -438,7 +438,7 @@ const handleChange = (e) => {
                       ? "bg-purple-900/50 text-purple-300 border border-purple-700"
                       : "bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700"
                   )}
-                &gt;
+                >
                   Form
                 </button>
                 <button
@@ -449,7 +449,7 @@ const handleChange = (e) => {
                       ? "bg-blue-900/50 text-blue-300 border border-blue-700"
                       : "bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700"
                   )}
-                &gt;
+                >
                   State
                 </button>
                 <button
@@ -460,7 +460,7 @@ const handleChange = (e) => {
                       ? "bg-green-900/50 text-green-300 border border-green-700"
                       : "bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700"
                   )}
-                &gt;
+                >
                   JSON
                 </button>
               </div>
@@ -502,7 +502,7 @@ const handleChange = (e) => {
                           ? `bg-${section.color}-900/30 text-${section.color}-300 border border-${section.color}-700/50`
                           : "bg-gray-900/40 text-gray-400 hover:bg-gray-800/60 border border-gray-700"
                       )}
-                    &gt;
+                    >
                       <span className="text-lg">{section.icon}</span>
                       <div className="flex-1">
                         <div className="font-medium">{section.label}</div>
@@ -929,7 +929,7 @@ const handleChange = (e) => {
                                   checked={studentForm.skills.includes(skill)}
                                   onChange={() => handleSkillToggle(skill)}
                                   className="w-4 h-4 text-cyan-500 bg-gray-800 border-gray-700 rounded focus:ring-cyan-500 focus:ring-2"
-                                /&gt;
+                                />
                                 <span className="text-gray-300 text-sm">{skill}</span>
                               </label>
                             ))}
@@ -937,7 +937,7 @@ const handleChange = (e) => {
                           <div className="mt-4 p-3 bg-gray-800/40 rounded-lg border border-gray-700">
                             <h4 className="font-bold text-cyan-400 mb-2">Selected Skills ({studentForm.skills.length})</h4>
                             <div className="flex flex-wrap gap-2">
-                              {studentForm.skills.length &gt; 0 ? (
+                              {studentForm.skills.length > 0 ? (
                                 studentForm.skills.map(skill => (
                                   <span key={skill} className="px-3 py-1 bg-cyan-900/30 text-cyan-300 rounded-full text-sm border border-cyan-800/50">
                                     {skill}

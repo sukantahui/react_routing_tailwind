@@ -109,7 +109,7 @@ const Topic7 = () => {
         "Mamata upgraded the batch file verification pipeline to SHA-256 and HMAC-SHA256, eliminating MD5 collision risks and meeting 100% RBI compliance.",
       metrics: {
         batchFilesProtected: "100% Daily Banking Batches",
-        hashAlgorithmMigrated: "MD5 Deprecated &rarr; SHA-256",
+        hashAlgorithmMigrated: "MD5 Deprecated -> SHA-256",
         collisionRisk: "0% Mathematical Exposure",
         compliance: "RBI Master Direction on Cyber Security"
       }
@@ -218,7 +218,7 @@ const Topic7 = () => {
                 onChange={(e) => setInputText(e.target.value)}
                 className="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs sm:text-sm focus:outline-none focus:border-indigo-500"
                 placeholder="Type message to hash..."
-              /&gt;
+              />
             </div>
 
             {/* Live Digest Outputs */}
@@ -284,7 +284,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="font-bold text-gray-200 truncate">{hp.name.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5 font-mono">{hp.digestLength.split(" ")[0]} Bits</div>
                 </button>
@@ -484,7 +484,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                &gt;
+                >
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

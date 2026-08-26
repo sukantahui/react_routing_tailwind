@@ -50,7 +50,7 @@ const Topic14 = () => {
   // Timing Status Evaluation
   // Clock edge occurs at T_edge = 5.0ns in local window
   const clockEdgeTime = 5.0;
-  const isSetupViolated = dataArrivalTimeNs &gt; (clockEdgeTime - setupTimeNs) && dataArrivalTimeNs &le; clockEdgeTime;
+  const isSetupViolated = dataArrivalTimeNs > (clockEdgeTime - setupTimeNs) && dataArrivalTimeNs <= clockEdgeTime;
   const isHoldViolated = dataArrivalTimeNs >= clockEdgeTime && dataArrivalTimeNs < (clockEdgeTime + holdTimeNs);
   const isMetastable = isSetupViolated || isHoldViolated;
 
@@ -95,7 +95,7 @@ const Topic14 = () => {
     if (quizAnswer.trim() === "200") {
       setQuizFeedback({
         correct: true,
-        msg: "🎉 Correct! T_min = t_cq + t_comb + t_su = 1.2ns + 2.6ns + 1.2ns = 5.0ns &rarr; f_max = 1 / 5ns = 200 MHz!"
+        msg: "🎉 Correct! T_min = t_cq + t_comb + t_su = 1.2ns + 2.6ns + 1.2ns = 5.0ns -> f_max = 1 / 5ns = 200 MHz!"
       });
     } else {
       setQuizFeedback({
@@ -174,25 +174,25 @@ const Topic14 = () => {
             <button
               onClick={() => loadScenario("safe")}
               className="px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-800/60 text-emerald-300 hover:bg-emerald-900/80 transition"
-            &gt;
+            >
               🟢 Safe Timing (Positive Slack)
             </button>
             <button
               onClick={() => loadScenario("setup-violation")}
               className="px-3 py-1.5 rounded-lg bg-rose-950/60 border border-rose-800/60 text-rose-300 hover:bg-rose-900/80 transition"
-            &gt;
+            >
               🔴 Setup Violation (Metastable Trap)
             </button>
             <button
               onClick={() => loadScenario("hold-violation")}
               className="px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-800/60 text-amber-300 hover:bg-amber-900/80 transition"
-            &gt;
+            >
               🟠 Hold Violation (Data Overwrite Race)
             </button>
             <button
               onClick={() => loadScenario("high-frequency")}
               className="px-3 py-1.5 rounded-lg bg-cyan-950/60 border border-cyan-800/60 text-cyan-300 hover:bg-cyan-900/80 transition"
-            &gt;
+            >
               ⚡ 200 MHz Clock Budget
             </button>
           </div>
@@ -435,7 +435,7 @@ const Topic14 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 1. Timing Window &amp; Violation Simulator
               </button>
               <button
@@ -446,7 +446,7 @@ const Topic14 = () => {
                     ? "bg-purple-900/80 border border-purple-500 text-purple-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 2. Metastability Potential Well &amp; 2-FF CDC
               </button>
               <button
@@ -457,7 +457,7 @@ const Topic14 = () => {
                     ? "bg-cyan-900/80 border border-cyan-500 text-cyan-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              &gt;
+              >
                 3. Real-Time STA Slack Calculator
               </button>
             </div>
@@ -484,7 +484,7 @@ const Topic14 = () => {
                       value={dataArrivalTimeNs}
                       onChange={(e) => setDataArrivalTimeNs(parseFloat(e.target.value))}
                       className="w-full accent-cyan-400"
-                    /&gt;
+                    />
                     <span className="text-[10px] text-slate-500">Clock edge is at 5.0 ns</span>
                   </div>
 
@@ -501,7 +501,7 @@ const Topic14 = () => {
                       value={setupTimeNs}
                       onChange={(e) => setSetupTimeNs(parseFloat(e.target.value))}
                       className="w-full accent-teal-400"
-                    /&gt;
+                    />
                     <span className="text-[10px] text-slate-500">Window: [{(5.0 - setupTimeNs).toFixed(1)}ns, 5.0ns]</span>
                   </div>
 
@@ -518,7 +518,7 @@ const Topic14 = () => {
                       value={holdTimeNs}
                       onChange={(e) => setHoldTimeNs(parseFloat(e.target.value))}
                       className="w-full accent-amber-400"
-                    /&gt;
+                    />
                     <span className="text-[10px] text-slate-500">Window: [5.0ns, {(5.0 + holdTimeNs).toFixed(1)}ns]</span>
                   </div>
                 </div>
@@ -541,7 +541,7 @@ const Topic14 = () => {
                     </span>
                   </div>
                   <span className="px-2.5 py-1 rounded bg-slate-950 text-[10px]">
-                    {!isMetastable ? "SLACK &gt; 0" : "NEGATIVE SLACK"}
+                    {!isMetastable ? "SLACK > 0" : "NEGATIVE SLACK"}
                   </span>
                 </div>
 
@@ -705,7 +705,7 @@ const Topic14 = () => {
                         <text x="125" y="60" fill="#f43f5e" textAnchor="middle" fontWeight="bold" fontSize="9">SYNC_FF1</text>
                         <text x="125" y="75" fill="#94a3b8" textAnchor="middle" fontSize="8">(Absorber)</text>
 
-                        {/* Wire FF1 &rarr; FF2 */}
+                        {/* Wire FF1 -> FF2 */}
                         <line x1="160" y1="70" x2="210" y2="70" stroke="#a855f7" strokeWidth="2" strokeDasharray="3 2" />
                         <text x="185" y="62" fill="#a855f7" textAnchor="middle" fontSize="8">Resolves</text>
 
@@ -749,7 +749,7 @@ const Topic14 = () => {
                       value={staTclk}
                       onChange={(e) => setStaTclk(e.target.value)}
                       className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white font-bold"
-                    /&gt;
+                    />
                   </div>
 
                   <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
@@ -759,7 +759,7 @@ const Topic14 = () => {
                       value={staTcq}
                       onChange={(e) => setStaTcq(e.target.value)}
                       className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white font-bold"
-                    /&gt;
+                    />
                   </div>
 
                   <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
@@ -769,7 +769,7 @@ const Topic14 = () => {
                       value={staTcomb}
                       onChange={(e) => setStaTcomb(e.target.value)}
                       className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white font-bold"
-                    /&gt;
+                    />
                   </div>
 
                   <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
@@ -779,7 +779,7 @@ const Topic14 = () => {
                       value={staTsu}
                       onChange={(e) => setStaTsu(e.target.value)}
                       className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white font-bold"
-                    /&gt;
+                    />
                   </div>
 
                   <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
@@ -789,7 +789,7 @@ const Topic14 = () => {
                       value={staTh}
                       onChange={(e) => setStaTh(e.target.value)}
                       className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white font-bold"
-                    /&gt;
+                    />
                   </div>
 
                   <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
@@ -799,7 +799,7 @@ const Topic14 = () => {
                       value={staTskew}
                       onChange={(e) => setStaTskew(e.target.value)}
                       className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-white font-bold"
-                    /&gt;
+                    />
                   </div>
                 </div>
 
@@ -812,11 +812,11 @@ const Topic14 = () => {
                         ? "bg-emerald-950/40 border-emerald-800 text-emerald-300"
                         : "bg-rose-950/40 border-rose-800 text-rose-300"
                     )}
-                  &gt;
+                  >
                     <span className="text-[10px] text-slate-400 block uppercase">Setup Slack Margin</span>
                     <div className="text-2xl font-bold">{setupSlack} ns</div>
                     <span className="text-[10px] font-bold">
-                      {parseFloat(setupSlack) &ge; 0 ? "✓ TIMING PASS" : "❌ SETUP VIOLATION"}
+                      {parseFloat(setupSlack) >= 0 ? "✓ TIMING PASS" : "❌ SETUP VIOLATION"}
                     </span>
                   </div>
 
@@ -827,11 +827,11 @@ const Topic14 = () => {
                         ? "bg-emerald-950/40 border-emerald-800 text-emerald-300"
                         : "bg-rose-950/40 border-rose-800 text-rose-300"
                     )}
-                  &gt;
+                  >
                     <span className="text-[10px] text-slate-400 block uppercase">Hold Slack Margin</span>
                     <div className="text-2xl font-bold">{holdSlack} ns</div>
                     <span className="text-[10px] font-bold">
-                      {parseFloat(holdSlack) &ge; 0 ? "✓ TIMING PASS" : "❌ HOLD VIOLATION"}
+                      {parseFloat(holdSlack) >= 0 ? "✓ TIMING PASS" : "❌ HOLD VIOLATION"}
                     </span>
                   </div>
 
@@ -868,7 +868,7 @@ const Topic14 = () => {
                       ? "bg-teal-900/80 border-teal-400 text-teal-200 shadow-lg shadow-teal-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                   )}
-                &gt;
+                >
                   {s.title}
                 </button>
               ))}
@@ -928,7 +928,7 @@ const Topic14 = () => {
                 onChange={(e) => setQuizAnswer(e.target.value)}
                 placeholder="Enter frequency in MHz..."
                 className="px-4 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs font-mono text-white focus:outline-none focus:border-cyan-400"
-              /&gt;
+              />
               <button
                 onClick={verifyQuiz}
                 className="px-4 py-2 rounded-xl bg-cyan-700 hover:bg-cyan-600 text-white font-mono text-xs font-bold transition"

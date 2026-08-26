@@ -130,8 +130,8 @@ export default function Topic2() {
                   <li><code>!=</code> not equal</li>
                   <li><code>&gt;</code> greater than</li>
                   <li><code>&lt;</code> less than</li>
-                  <li><code>>=</code> greater/equal</li>
-                  <li><code><=</code> less/equal</li>
+                  <li><code>&gt;=</code> greater/equal</li>
+                  <li><code>&lt;=</code> less/equal</li>
                 </ul>
               </div>
               <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-200">
@@ -184,7 +184,7 @@ export default function Topic2() {
               </p>
               <p>
                 Logical operators like <code>&amp;&amp;</code> and <code>||</code> are used to combine conditions:
-                <code>if (age >= 18 &amp;&amp; hasLicense)</code> determines driving eligibility.
+                <code>if (age &gt;= 18 &amp;&amp; hasLicense)</code> determines driving eligibility.
               </p>
               <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
                 <p className="text-sm">

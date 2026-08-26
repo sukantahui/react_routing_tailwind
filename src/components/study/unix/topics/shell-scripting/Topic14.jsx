@@ -189,7 +189,7 @@ esac`}
                                                 animationDelay: `${index * 100}ms`,
                                                 animation: 'motion-safe:animate-[fadeInUp_0.8s_ease-out]'
                                             }}
-                                        &gt;
+                                        >
                                             <div className="flex items-center">
                                                 <div className={clsx(
                                                     "w-8 h-8 rounded-full flex items-center justify-center mr-3",
@@ -281,7 +281,7 @@ esac`}
                                     animationDelay: `${index * 100}ms`,
                                     animation: 'motion-safe:animate-[fadeInUp_0.6s_ease-out]'
                                 }}
-                            &gt;
+                            >
                                 <div className="font-semibold mb-1">{example.name}</div>
                                 <div className="text-sm mb-2">{example.description}</div>
                                 <div className="text-xs opacity-80 bg-black/10 dark:bg-white/10 px-2 py-1 rounded">

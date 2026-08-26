@@ -22,7 +22,7 @@ const CourseGroup = ({
       <div
         onClick={() => toggleGroup(group.category)}
         className="relative bg-gray-800/40 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-md hover:shadow-sky-500/30 overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] hover:-translate-y-1 group"
-      &gt;
+      >
         <div className="p-6 md:p-8">
           {/* Group header */}
           <div className="flex flex-col md:flex-row items-center gap-4">
@@ -72,7 +72,7 @@ const CourseGroup = ({
                 }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6"
                 onClick={(e) => e.stopPropagation()}
-              &gt;
+              >
                 {filteredCourses(group).map((course, index) => (
                   <CourseCard
                     key={course.courseID}

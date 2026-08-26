@@ -348,7 +348,7 @@ fragmentClone.querySelector(".card-body").textContent =
   "This card comes from cloneNode(true) on template.content.";
 
 mount.appendChild(fragmentClone);`}
-            /&gt;
+            />
           </div>
 
           {/* Example 4 — Fix duplicate IDs */}
@@ -392,7 +392,7 @@ if (nameEl) {
 }
 
 document.body.appendChild(cloned);`}
-            /&gt;
+            />
           </div>
 
           {/* Tips & Best Practices */}
@@ -795,14 +795,14 @@ btn.onclick = () => {
             initialJS={`const frag = document.createDocumentFragment();
 const ul = document.getElementById("bigList");
 
-for (let i = 1; i &le; 200; i++) {
+for (let i = 1; i <= 200; i++) {
   const li = document.createElement("li");
   li.textContent = "Item " + i;
   frag.appendChild(li);
 }
 
 ul.appendChild(frag);`}
-          /&gt;
+          />
 
           {/* Example 2 – building student cards */}
           <CodePenPlayground
@@ -953,7 +953,7 @@ users.forEach((u) => {
 
 showToast("Success", "Data saved successfully!");
 showToast("Warning", "Please check your inputs.");`}
-          /&gt;
+          />
 
           {/* Example 3 – nested template usage */}
           <CodePenPlayground
@@ -1023,7 +1023,7 @@ renderCourses();`}
             initialJS={`const btn = document.querySelector(".user-btn");
 console.log(btn.dataset.userId); // "101"
 console.log(btn.dataset.role);   // "admin"`}
-          /&gt;
+          />
 
           {/* Example 2 – using dataset in list + event delegation */}
           <CodePenPlayground
@@ -1136,7 +1136,7 @@ const rect = box.getBoundingClientRect();
 
 console.log("top:", rect.top, "left:", rect.left);
 console.log("width:", rect.width, "height:", rect.height);`}
-          /&gt;
+          />
 
           {/* Example 2 – positioning tooltip */}
           <CodePenPlayground

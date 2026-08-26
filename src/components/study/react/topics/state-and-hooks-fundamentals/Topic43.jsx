@@ -181,7 +181,7 @@ const Topic43 = () => {
               <button
                 onClick={() => setShowDiagram(!showDiagram)}
                 className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 text-sm"
-              &gt;
+              >
                 {showDiagram ? 'Hide Diagram' : 'Show Diagram'}
               </button>
             </div>
@@ -319,7 +319,7 @@ const Topic43 = () => {
                     ? "bg-blue-500 text-white"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              &gt;
+              >
                 {tab === 'temperature' && '🌡️ Temperature Converter'}
                 {tab === 'theme' && '🎨 Theme Switcher'}
                 {tab === 'cart' && '🛒 Shopping Cart'}
@@ -359,7 +359,7 @@ const Topic43 = () => {
                           value={celsius}
                           onChange={(e) => handleCelsiusChange(parseFloat(e.target.value))}
                           className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer"
-                        /&gt;
+                        />
                         <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-1">
                           <span>-100°C</span>
                           <span>0°C</span>
@@ -370,7 +370,7 @@ const Topic43 = () => {
                             {celsius.toFixed(1)}°C
                           </div>
                           <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">
-                            Water {celsius &ge; 100 ? 'Boils' : celsius &le; 0 ? 'Freezes' : 'Liquid'}
+                            Water {celsius >= 100 ? 'Boils' : celsius <= 0 ? 'Freezes' : 'Liquid'}
                           </div>
                         </div>
                       </div>
@@ -398,7 +398,7 @@ const Topic43 = () => {
                           value={fahrenheit}
                           onChange={(e) => handleFahrenheitChange(parseFloat(e.target.value))}
                           className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer"
-                        /&gt;
+                        />
                         <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-1">
                           <span>-148°F</span>
                           <span>32°F</span>
@@ -409,7 +409,7 @@ const Topic43 = () => {
                             {fahrenheit.toFixed(1)}°F
                           </div>
                           <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">
-                            Water {fahrenheit &ge; 212 ? 'Boils' : fahrenheit &le; 32 ? 'Freezes' : 'Liquid'}
+                            Water {fahrenheit >= 212 ? 'Boils' : fahrenheit <= 32 ? 'Freezes' : 'Liquid'}
                           </div>
                         </div>
                       </div>
@@ -473,7 +473,7 @@ const Topic43 = () => {
                                 checked={theme === t}
                                 onChange={(e) => setTheme(e.target.value)}
                                 className="text-blue-500"
-                              /&gt;
+                              />
                               <span className="capitalize">{t} theme</span>
                             </label>
                           ))}
@@ -587,7 +587,7 @@ const Topic43 = () => {
                             <button
                               onClick={() => addToCart(product)}
                               className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-300 text-sm"
-                            &gt;
+                            >
                               Add to Cart
                             </button>
                           </div>
@@ -622,20 +622,20 @@ const Topic43 = () => {
                               <button
                                 onClick={() => updateQuantity(item.id, -1)}
                                 className="w-6 h-6 flex items-center justify-center bg-gray-200 dark:bg-gray-600 rounded hover:bg-gray-300 dark:hover:bg-gray-500"
-                              &gt;
+                              >
                                 -
                               </button>
                               <span className="font-medium">{item.quantity}</span>
                               <button
                                 onClick={() => updateQuantity(item.id, 1)}
                                 className="w-6 h-6 flex items-center justify-center bg-gray-200 dark:bg-gray-600 rounded hover:bg-gray-300 dark:hover:bg-gray-500"
-                              &gt;
+                              >
                                 +
                               </button>
                               <button
                                 onClick={() => removeFromCart(item.id)}
                                 className="ml-2 text-red-500 hover:text-red-700"
-                              &gt;
+                              >
                                 🗑️
                               </button>
                             </div>
@@ -673,7 +673,7 @@ const Topic43 = () => {
                           </div>
                           <div className="flex justify-between">
                             <span>Shipping:</span>
-                            <span className={cartTotal > 3000 ? "text-green-500" : ""}&gt;
+                            <span className={cartTotal > 3000 ? "text-green-500" : ""}>
                               {cartTotal > 3000 ? "FREE" : "₹99"}
                             </span>
                           </div>
@@ -685,7 +685,7 @@ const Topic43 = () => {
                             <div className="flex justify-between font-bold text-lg">
                               <span>Total:</span>
                               <span className="text-blue-600 dark:text-blue-400">
-                                ₹{(cartTotal + (cartTotal &gt; 3000 ? 0 : 99) + (cartTotal * 0.18)).toLocaleString()}
+                                ₹{(cartTotal + (cartTotal > 3000 ? 0 : 99) + (cartTotal * 0.18)).toLocaleString()}
                               </span>
                             </div>
                           </div>
@@ -758,7 +758,7 @@ const Topic43 = () => {
                           onChange={(e) => handleInputChange('name', e.target.value)}
                           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                           placeholder="Enter your name"
-                        /&gt;
+                        />
                         <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">
                           {formData.name ? `${formData.name.length}/50 characters` : 'Required field'}
                         </div>
@@ -775,7 +775,7 @@ const Topic43 = () => {
                           onChange={(e) => handleInputChange('email', e.target.value)}
                           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200"
                           placeholder="user@example.com"
-                        /&gt;
+                        />
                         <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">
                           {formData.email.includes('@') ? '✓ Valid email format' : 'Enter valid email'}
                         </div>
@@ -793,7 +793,7 @@ const Topic43 = () => {
                           value={formData.age || 18}
                           onChange={(e) => handleInputChange('age', e.target.value)}
                           className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer"
-                        /&gt;
+                        />
                         <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
                           <span>18</span>
                           <span>49</span>
@@ -810,7 +810,7 @@ const Topic43 = () => {
                           value={formData.subscription}
                           onChange={(e) => handleInputChange('subscription', e.target.value)}
                           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-                        &gt;
+                        >
                           <option value="basic">Basic (Free)</option>
                           <option value="pro">Pro (₹499/month)</option>
                           <option value="enterprise">Enterprise (₹1999/month)</option>
@@ -859,7 +859,7 @@ const Topic43 = () => {
                             <div className={clsx(
                               "w-3 h-3 rounded-full mr-2",
                               formData.name.length >= 3 ? "bg-green-500" : "bg-red-500"
-                            )}&gt;</div>
+                            )}></div>
                             <span>Name must be at least 3 characters</span>
                           </div>
                           <div className="flex items-center">
@@ -873,7 +873,7 @@ const Topic43 = () => {
                             <div className={clsx(
                               "w-3 h-3 rounded-full mr-2",
                               formData.age >= 18 ? "bg-green-500" : "bg-red-500"
-                            )}&gt;</div>
+                            )}></div>
                             <span>Age must be 18 or older</span>
                           </div>
                         </div>

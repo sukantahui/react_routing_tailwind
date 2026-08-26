@@ -27,7 +27,7 @@ export default function CertificateGenerator({
 
   const generate = async () => {
     const percentage = total ? ((score / total) * 100).toFixed(2) : "0.00";
-    const passed = percentage &ge; passPercent;
+    const passed = percentage >= passPercent;
     const grade =
       percentage >= 85 ? "A+" :
       percentage >= 70 ? "A" :
@@ -179,7 +179,7 @@ export default function CertificateGenerator({
     const percent = total ? ((score / total) * 100).toFixed(2) : "0.00";
 
     const grade =
-      percent &ge; 85 ? "A+ 🌟" :
+      percent >= 85 ? "A+ 🌟" :
       percent >= 70 ? "A 👍" :
       percent >= 60 ? "B 🙂" :
       percent >= 50 ? "C ⚠️" : "D ❌";

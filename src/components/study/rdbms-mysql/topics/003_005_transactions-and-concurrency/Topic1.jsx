@@ -50,7 +50,7 @@ ROLLBACK;
 -- Table Definition with Balance CHECK Constraint:
 -- CREATE TABLE student_bank_accounts (
 --     student_id INT PRIMARY KEY,
---     balance DECIMAL(10,2) NOT NULL CHECK (balance &ge; 0.00)
+--     balance DECIMAL(10,2) NOT NULL CHECK (balance >= 0.00)
 -- );
 
 START TRANSACTION;
@@ -369,7 +369,7 @@ COMMIT; -- Redo Log Buffer is flushed to physical disk (fsync)!
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                &gt;
+                >
                   <div>
                     <span
                       className={clsx(
@@ -515,7 +515,7 @@ SELECT
                 <span>✓</span> Enforce Consistency at the Schema Layer
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Never rely solely on application backend validation; always declare database-level <code className="text-emerald-400 font-mono">CHECK (balance >= 0)</code>, <code className="text-emerald-400 font-mono">FOREIGN KEY</code>, and <code className="text-emerald-400 font-mono">NOT NULL</code> constraints.
+                Never rely solely on application backend validation; always declare database-level <code className="text-emerald-400 font-mono">CHECK (balance &gt;= 0)</code>, <code className="text-emerald-400 font-mono">FOREIGN KEY</code>, and <code className="text-emerald-400 font-mono">NOT NULL</code> constraints.
               </p>
               <div className="text-xs text-slate-400">
                 Guarantees consistency even if buggy application scripts bypass backend logic.
