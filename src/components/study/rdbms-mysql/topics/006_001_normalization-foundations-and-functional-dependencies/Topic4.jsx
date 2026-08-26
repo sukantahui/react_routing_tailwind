@@ -173,7 +173,7 @@ CREATE TABLE enrollments (
             <span>Relational Normalization Masterclass · Topic 4</span>
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Formal Mathematical Definition and Semantics of Functional Dependencies (X -> Y)
+            Formal Mathematical Definition and Semantics of Functional Dependencies (X &rarr; Y)
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Eliminate insertion, deletion, and update anomalies through rigorous functional dependency analysis,
@@ -553,7 +553,7 @@ CREATE TABLE enrollments (
         {/* ─── Footer ─────────────────────────────────────────── */}
         <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
           <span>
-            Topic 4 · Formal Mathematical Definition and Semantics of Functional Dependencies (X -> Y) · RDBMS MySQL Masterclass · Coder & AccoTax Barrackpore
+            Topic 4 · Formal Mathematical Definition and Semantics of Functional Dependencies (X &rarr; Y) · RDBMS MySQL Masterclass · Coder & AccoTax Barrackpore
           </span>
         </footer>
       </div>

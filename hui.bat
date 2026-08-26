@@ -1,14 +1,26 @@
 @echo off
-echo Starting development environment...
+echo Starting Tailwind CLI watcher...
+start "TAILWIND" cmd /k "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
 
-REM Start Tailwind and Vite servers
-start "TAILWIND" cmd /c "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
-start "VITE DEV" cmd /c "npm run dev"
+echo Starting Vite/React dev server...
+start "VITE DEV" cmd /k "npm run dev"
 
-REM Wait for Vite to boot and open localhost
+echo Opening VS Code...
+start "VS CODE" cmd /k "code ."
+
+echo Waiting 3 seconds for Vite to boot...
 timeout /t 3 >nul
-start http://localhost:5173
 
-echo All development services initialized successfully.
+echo Opening browser in Microsoft Edge at http://localhost:5173 ...
+start "" "msedge.exe" "http://localhost:5173"
 
-start "" "C:\Program Files\Firefox Developer Edition\firefox.exe" -no-remote -P "CNAT-Developer" --devtools -new-window "https://titus.protondns.net:2083/cpsess6220590010/frontend/jupiter/terminal/index.html"
+echo All processes started in separate terminals.
+
+echo Opening cPanel Terminal in new tab pref firefox...
+start "" "https://titus.protondns.net:2083/cpsess2424099602/frontend/jupiter/terminal/index.html"
+
+echo Opening chatGpt Terminal in new tab...
+start "" "https://chatgpt.com/ "
+
+echo Opening Deepseek in new tab...
+start "" "https://chat.deepseek.com/"
