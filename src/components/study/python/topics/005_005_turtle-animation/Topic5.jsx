@@ -1,379 +1,466 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState, useEffect } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic5_files/topic5_questions";
+
+// Import Python Source Files
+import billiardsCode from "./topic5_files/box_boundary_bouncing_billiards.py?raw";
+import wrapVsBounceCode from "./topic5_files/screen_wrap_vs_bounce_comparison.py?raw";
+import airHockeyCode from "./topic5_files/interactive_air_hockey_arena.py?raw";
 import noteText from "./topic5_files/topic5_note.txt?raw";
 
-/**
- * Topic5 – Boundary detection and wall bouncing logic
- * Module: 005_005_turtle-animation (Module 5 – Animation & Motion Logic)
- * Track: Python from Basic to Pro
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with concept simulator,
- *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
- */
+const keyframes = `
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes sparkFlash {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+`;
+
 const Topic5 = () => {
-  const [activeTab, setActiveTab] = useState("concept");
-  const [filterThreshold, setFilterThreshold] = useState(70000);
-  const sectionRefs = useRef([]);
+  const [boundaryMode, setBoundaryMode] = useState("bounce"); // "bounce" vs "wrap"
+  const [ball, setBall] = useState({ x: 150, y: 90, vx: 4.5, vy: 3.2 });
+  const [bounces, setBounces] = useState(0);
 
+  // Live Billiard / Wrap Simulation Loop
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    let px = 150;
+    let py = 90;
+    let pvx = 4.5;
+    let pvy = 3.2;
+    const r = 12;
+    const minX = 25;
+    const maxX = 295;
+    const minY = 25;
+    const maxY = 155;
 
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
+    const interval = setInterval(() => {
+      px += pvx;
+      py += pvy;
 
-    return () => observer.disconnect();
-  }, []);
+      if (boundaryMode === "bounce") {
+        if (px + r >= maxX) {
+          px = maxX - r;
+          pvx = -pvx;
+          setBounces((b) => b + 1);
+        } else if (px - r <= minX) {
+          px = minX + r;
+          pvx = -pvx;
+          setBounces((b) => b + 1);
+        }
 
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
+        if (py + r >= maxY) {
+          py = maxY - r;
+          pvy = -pvy;
+          setBounces((b) => b + 1);
+        } else if (py - r <= minY) {
+          py = minY + r;
+          pvy = -pvy;
+          setBounces((b) => b + 1);
+        }
+      } else {
+        // Toroidal Wrap Mode
+        if (px > maxX + 10) px = minX - 10;
+        if (px < minX - 10) px = maxX + 10;
+        if (py > maxY + 10) py = minY - 10;
+        if (py < minY - 10) py = maxY + 10;
+      }
+
+      setBall({ x: px, y: py, vx: pvx, vy: pvy });
+    }, 25);
+
+    return () => clearInterval(interval);
+  }, [boundaryMode]);
+
+  const prototypes = [
+    {
+      name: "if x + radius >= max_x:",
+      returnType: "Boundary Overlap Check",
+      purpose: "Detects collision with right wall taking radial geometry into account.",
+      usage: "if x + r >= max_x:\n    x = max_x - r\n    vx = -vx"
+    },
+    {
+      name: "x = max_x - radius",
+      returnType: "Position Correction",
+      purpose: "Snaps object position back inside boundary, preventing sticky-wall and tunneling bugs.",
+      usage: "x = max_x - radius"
+    },
+    {
+      name: "vx = -vx; vy = -vy",
+      returnType: "Velocity Vector Reflection",
+      purpose: "Reverses perpendicular velocity vector component upon elastic boundary collision.",
+      usage: "vx = -vx"
+    },
+    {
+      name: "if x > max_x: x = min_x",
+      returnType: "Toroidal Screen Wrap",
+      purpose: "Teleports entity seamlessly to opposing edge for Asteroids / Pac-Man wrap mechanics.",
+      usage: "if x > max_x: x = min_x"
     }
-  };
-
-  const sampleEmployees = [
-    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
-    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
-    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
-    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
-  const filteredList = sampleEmployees.filter((e) => e.salary &ge; filterThreshold);
-
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
+    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <style>{keyframes}</style>
 
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
-        
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>🐍</span>
-            <span>Python Masterclass · Module 005 · Topic 5</span>
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* =========================================================================
+            HERO SECTION
+        ========================================================================= */}
+        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+            Module 005_005 · Animation & Motion Logic · Topic 5
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Boundary detection and wall bouncing logic
+
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
+            Boundary Detection & Wall Bouncing Logic
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Master smooth frame animation, physics simulations, boundary bouncing, and tracer controls.
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Contain and steer moving entities across virtual worlds. Master <span className="text-cyan-300 font-semibold">4-Wall Box Boundary Collisions</span>, <span className="text-amber-300 font-semibold">Anti-Tunneling Position Snapping</span>, <span className="text-emerald-300 font-semibold">Radius Compensation</span>, and <span className="text-indigo-400 font-semibold">Toroidal Screen Wrapping</span>.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              ⚡ Pythonic Architecture
+          <div className="flex justify-center gap-4 flex-wrap pt-2">
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🎱 4-Wall Billiards Reflection
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              🧮 Clean Code &amp; Idioms
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🛡️ Anti-Tunneling Position Snapping
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 Robust Error Handling
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Scalability
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🚀 Asteroids-Style Toroidal Wrapping
             </span>
           </div>
-        </header>
+        </div>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* =========================================================================
+            INTERACTIVE BOUNDARY SIMULATOR
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/60 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Boundary detection and wall bouncing logic
-              </h2>
+              <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                <span>🎱</span> Interactive Boundary Collision & Wrap Simulator
+              </h3>
               <p className="text-xs text-slate-400">
-                Understanding Python mechanics and design patterns from first principles
+                Switch between Solid Wall Bouncing (Pong/Billiards) and Toroidal Screen Wrapping (Asteroids/Pac-Man).
+              </p>
+            </div>
+
+            {/* Boundary Mode Selector */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setBoundaryMode("bounce")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  boundaryMode === "bounce"
+                    ? "bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/25"
+                    : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
+                }`}
+              >
+                🎱 Solid Wall Bouncing (Pong)
+              </button>
+
+              <button
+                onClick={() => setBoundaryMode("wrap")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  boundaryMode === "wrap"
+                    ? "bg-emerald-500 text-slate-950 font-bold shadow-md shadow-emerald-500/25"
+                    : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
+                }`}
+              >
+                🚀 Toroidal Screen Wrap (Asteroids)
+              </button>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            {/* View 1: Real-Time Rendered Canvas SVG */}
+            <div className="flex flex-col items-center p-4 bg-slate-950 rounded-xl border border-slate-800">
+              <span className="text-xs font-mono text-cyan-400 mb-2">
+                Boundary Viewport ({boundaryMode.toUpperCase()} MODE)
+              </span>
+              <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-sm h-auto bg-slate-950 rounded-lg">
+                {/* Boundary Box */}
+                <rect
+                  x="20"
+                  y="20"
+                  width="280"
+                  height="140"
+                  rx="4"
+                  fill="#0f172a"
+                  stroke={boundaryMode === "bounce" ? "#38bdf8" : "#334155"}
+                  strokeWidth="3"
+                  strokeDasharray={boundaryMode === "wrap" ? "6 6" : "none"}
+                />
+
+                {/* Billiard Ball */}
+                <circle
+                  cx={ball.x}
+                  cy={ball.y}
+                  r="12"
+                  fill="#f43f5e"
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                />
+
+                {/* Telemetry HUD */}
+                <text x="30" y="38" fill="#94a3b8" fontSize="9" fontFamily="monospace">
+                  BOUNCES: {bounces} | POS: ({ball.x.toFixed(0)}, {ball.y.toFixed(0)})
+                </text>
+              </svg>
+            </div>
+
+            {/* View 2: Boundary Mathematics & Logic Breakdown */}
+            <div className="space-y-4 bg-gray-900 p-5 rounded-xl border border-slate-800 text-xs">
+              <div className="text-sm font-bold text-cyan-400 flex justify-between items-center">
+                <span>Boundary Collision Equations</span>
+                <span className="font-mono text-xs text-amber-300">Anti-Tunneling Safe</span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                  <div className="text-slate-400 text-[11px]">Radius Offset Compensation</div>
+                  <div className="text-base font-mono font-bold text-sky-400">r = 12 px</div>
+                  <div className="text-[10px] text-slate-500">Center-to-surface offset</div>
+                </div>
+
+                <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                  <div className="text-slate-400 text-[11px]">Collision Total</div>
+                  <div className="text-base font-mono font-bold text-emerald-400">{bounces} Hits</div>
+                  <div className="text-[10px] text-slate-500">Zero tunneling confirmed</div>
+                </div>
+              </div>
+
+              {/* Code Snippet Box */}
+              <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 space-y-1">
+                <span className="text-[10px] text-slate-500 font-mono uppercase tracking-wider block">
+                  # 3-Stage Boundary Collision Blueprint
+                </span>
+                <pre className="font-mono text-emerald-300 text-xs overflow-x-auto">
+{boundaryMode === "bounce"
+  ? `# 1. Detect | 2. Snap | 3. Invert
+if x + r >= max_x:
+    x = max_x - r
+    vx = -vx`
+  : `# Toroidal Screen Teleport
+if x > max_x:
+    x = min_x`}
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PROTOTYPES SPECIFICATION TABLE
+        ========================================================================= */}
+        <div className="bg-gray-800/60 rounded-2xl p-6 border border-slate-800 animate-[fadeInUp_0.6s_ease-out_0.2s]">
+          <h2 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
+            <span>⚙️</span> Boundary Detection & Reflection APIs
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-gray-700 text-gray-400 text-xs uppercase tracking-wider">
+                  <th className="py-3 px-4">Boundary Rule</th>
+                  <th className="py-3 px-4">Axis / Mode</th>
+                  <th className="py-3 px-4">Collision Handling Function</th>
+                  <th className="py-3 px-4">Standard Call</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800 text-gray-200">
+                {prototypes.map((proto, index) => (
+                  <tr key={index} className="hover:bg-gray-800/40 transition">
+                    <td className="py-3.5 px-4 font-mono text-cyan-300 font-bold text-xs">{proto.name}</td>
+                    <td className="py-3.5 px-4 font-mono text-indigo-400 text-xs">{proto.returnType}</td>
+                    <td className="py-3.5 px-4 text-xs text-gray-300">{proto.purpose}</td>
+                    <td className="py-3.5 px-4 font-mono text-amber-300 text-xs">{proto.usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PYTHON CODE IMPLEMENTATION SCRIPTS
+        ========================================================================= */}
+        <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.3s]">
+          <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
+            <span>💻</span> Professional Python Implementation Scripts
+          </h2>
+
+          <div className="space-y-6">
+            {/* File 1: box_boundary_bouncing_billiards.py */}
+            <PythonFileLoader
+              fileModule={billiardsCode}
+              title="box_boundary_bouncing_billiards.py"
+              highlightLines={[25, 26, 42, 43, 44, 47, 48, 52, 53]}
+            />
+
+            {/* File 2: screen_wrap_vs_bounce_comparison.py */}
+            <PythonFileLoader
+              fileModule={wrapVsBounceCode}
+              title="screen_wrap_vs_bounce_comparison.py"
+              highlightLines={[22, 33, 34, 35, 42, 43]}
+            />
+
+            {/* File 3: interactive_air_hockey_arena.py */}
+            <PythonFileLoader
+              fileModule={airHockeyCode}
+              title="interactive_air_hockey_arena.py"
+              highlightLines={[20, 21, 38, 39, 43, 44, 49, 50]}
+            />
+          </div>
+        </div>
+
+        {/* =========================================================================
+            REAL-WORLD CLASSROOM SCENARIOS
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.4s]">
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-cyan-400 text-lg flex items-center gap-2">
+              <span>🏓</span> Barrackpore Pong: Solving Sticky Paddle Walls
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Mahima brought a Pong game to class where the ball frequently got stuck vibrating inside the top wall. Teacher Sukanta Hui guided her to implement <strong>Position Snapping</strong> (<code className="text-cyan-300 font-mono">y = max_y - radius</code>) right before inverting velocity. The sticky-wall bug disappeared completely, and the game ran flawlessly!
+            </p>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-emerald-400 text-lg flex items-center gap-2">
+              <span>🚀</span> Jadavpur Space Rocks: Seamless Wrapping
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Debangshu in Jadavpur built an Asteroids space combat arena. Instead of solid walls, he implemented toroidal wrapping: when a spaceship or asteroid flew past the right edge, it immediately re-emerged on the left with identical velocity and angle, creating an infinite feeling cosmic arena!
+            </p>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            COMMON BEGINNER TRAPS & PITFALLS
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
+          <h3 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+            <span>⚠️</span> Top 4 Boundary Collision Traps to Avoid
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">1. Forgetting Radius Compensation</strong>
+              <p className="text-slate-400">
+                Checking <code className="text-rose-300 font-mono">if x &gt;= max_x</code> without subtracting the circle's radius causes the ball to sink halfway into the wall before bouncing.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">2. Omitting Position Correction</strong>
+              <p className="text-slate-400">
+                Only inverting velocity (<code className="text-rose-300 font-mono">vx = -vx</code>) without snapping position leaves the ball inside the boundary on the next frame, causing it to rapidly vibrate back and forth trapped inside the wall.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">3. High-Speed Tunneling Glitches</strong>
+              <p className="text-slate-400">
+                When velocity per frame is greater than wall thickness (e.g. <code className="text-amber-300 font-mono">vx = 40</code>), the ball jumps completely through the wall in a single frame without ever triggering collision.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">4. Hardcoding Screen Coordinates</strong>
+              <p className="text-slate-400">
+                Hardcoding walls to 300px on a resized 1000px window causes balls to bounce off invisible boundaries in mid-air. Always use <code className="text-cyan-300 font-mono">screen.window_width() // 2</code>.
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Architectural Insight
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern software engineering, <strong className="text-teal-300">Boundary detection and wall bouncing logic</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Readable Syntax · Deterministic Execution · Fast Prototyping
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
-                </p>
+        {/* =========================================================================
+            STUDENT CHECKLIST
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-cyan-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
+          <h3 className="text-xl font-semibold text-cyan-400 mb-3">📝 Student Mastery Checklist</h3>
+          <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
+            {[
+              "I check boundary collisions taking the object's radius (`x + radius >= max_x`) into account",
+              "I always snap the object position back inside the boundary (`x = max_x - radius`)",
+              "I invert normal velocity vectors (`vx = -vx` or `vy = -vy`) on impact",
+              "I know how to implement toroidal screen wrapping for seamless wrap-around games",
+              "I understand how Continuous Collision Detection (CCD) prevents high-speed tunneling",
+              "I can calculate 2D Euclidean distance (`math.hypot(dx, dy)`) for circle-to-circle collisions"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-gray-900/60 border border-slate-800">
+                <span className="text-cyan-400 font-bold shrink-0">✓</span>
+                <span>{item}</span>
               </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated logistics dispatch office in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Boundary detection and wall bouncing logic
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
-                <button
-                  onClick={() => setActiveTab("concept")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                &gt;
-                  Structured View
-                </button>
-                <button
-                  onClick={() => setActiveTab("json")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                &gt;
-                  Raw Dictionary JSON
-                </button>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Filter Minimum Salary (₹):
-                </label>
-                <select
-                  value={filterThreshold}
-                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
-                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
-                &gt;
-                  <option value={60000}>₹60,000+ (All 4 Records)</option>
-                  <option value={75000}>₹75,000+ (3 Records)</option>
-                  <option value={85000}>₹85,000+ (2 Records)</option>
-                  <option value={90000}>₹90,000+ (Top Earner)</option>
-                </select>
-              </div>
-            </div>
-
-            {activeTab === "concept" ? (
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
-                <table className="w-full text-left text-xs font-mono">
-                  <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="pb-2">ID</th>
-                      <th className="pb-2">Employee</th>
-                      <th className="pb-2">Location</th>
-                      <th className="pb-2">Salary</th>
-                      <th className="pb-2">Performance</th>
-                      <th className="pb-2">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
-                    {filteredList.map((emp) => (
-                      <tr key={emp.id} className="hover:bg-slate-900/40">
-                        <td className="py-2.5 text-slate-500">{emp.id}</td>
-                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
-                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
-                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
-                        <td className="py-2.5">
-                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
-                            ⭐ {emp.score}
-                          </span>
-                        </td>
-                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
-                  {JSON.stringify(filteredList, null, 2)}
-                </pre>
-              </div>
-            )}
+        {/* =========================================================================
+            HINTS & EXPERT MINDSET
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
+          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Think about:</strong> How video games like Breakout, Pong, and Pinball use boundary mathematics to keep playfields active and exciting!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Observe:</strong> How toggling between Solid Bouncing and Toroidal Wrap instantly converts a contained billiards table into an infinite universe!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Try changing:</strong> Add corner bumpers that repel balls with double speed when hitting 45-degree angled corners!
+            </p>
           </div>
-        </section>
 
-        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE ENTERPRISE
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Automated Financial Auditing
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR ROBOTICS
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Millisecond Telemetry Ingestion
-              </div>
-            </div>
+          <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Spatial containment is the bedrock of simulation stability. By mastering boundary conditions, position corrections, and normal vector reflections, you gain the engineering precision required to build robust physics simulations, robotic navigation algorithms, and collision engines that never glitch.
+            </p>
           </div>
-        </section>
+        </div>
 
-        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
-                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
-                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
-              </div>
-            </div>
+        {/* =========================================================================
+            FAQS TEMPLATE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
+          <FAQTemplate title="Boundary Detection & Bouncing FAQs" questions={questions} />
+        </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
-                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
-                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Boundary detection and wall bouncing logic FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            PLAIN TEXT PRINT & DOWNLOAD NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
           <PlainTextPrint
             content={noteText}
-            title="Boundary detection and wall bouncing logic"
+            title="Topic 5: Boundary Detection Study Note"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Note"
+            downloadButtonText="Download Study Note"
             downloadFileName="topic5_note.txt"
           />
-        </section>
+        </div>
 
-        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            TEACHER'S NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note={
-              "In software development, simplicity is the ultimate sophistication. " +
-              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
-            }
+            note="When we teach collision mechanics at Coder & AccoTax in Barrackpore and Kolkata, I emphasize: detecting the hit is only half the battle—correcting the position is what makes your physics rock-solid. Always remember the three-step dance: detect, snap, and reflect. Do this, and your game physics will feel crisp, responsive, and arcade-perfect!"
           />
-        </section>
+        </div>
 
-        {/* ─── 9. Footer ──────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 5 · Boundary detection and wall bouncing logic · Python Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
       </div>
-    </>
+    </div>
   );
 };
 

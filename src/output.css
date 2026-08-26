@@ -2869,6 +2869,9 @@
   .animate-\[flowRight_3s_linear_infinite\] {
     animation: flowRight 3s linear infinite;
   }
+  .animate-\[glowSun_3s_infinite\] {
+    animation: glowSun 3s infinite;
+  }
   .animate-\[highlightError_1\.5s_ease-in-out\] {
     animation: highlightError 1.5s ease-in-out;
   }
@@ -3030,6 +3033,9 @@
   }
   .animate-\[staggerItem_0\.3s_ease-out_forwards\] {
     animation: staggerItem 0.3s ease-out forwards;
+  }
+  .animate-\[strobeFlash_0\.8s_infinite\] {
+    animation: strobeFlash 0.8s infinite;
   }
   .animate-\[successGlow_2s_ease-in-out_infinite\] {
     animation: successGlow 2s ease-in-out infinite;
@@ -16169,6 +16175,9 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .transition-none {
+    transition-property: none;
+  }
   .delay-75 {
     transition-delay: 75ms;
   }
@@ -20058,6 +20067,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-cyan-200);
+      }
+    }
+  }
+  .hover\:bg-cyan-400 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-cyan-400);
       }
     }
   }
