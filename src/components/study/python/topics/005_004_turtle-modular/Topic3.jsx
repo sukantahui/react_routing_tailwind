@@ -1,379 +1,479 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic3_files/topic3_questions";
+
+// Import Python Source Files
+import iconLibraryCode from "./topic3_files/custom_shapes_icon_library.py?raw";
+import dashboardDemoCode from "./topic3_files/library_client_dashboard_demo.py?raw";
+import badgeSystemCode from "./topic3_files/themeable_badge_system.py?raw";
 import noteText from "./topic3_files/topic3_note.txt?raw";
 
-/**
- * Topic3 – Building an extensible custom Shape & Icon Library
- * Module: 005_004_turtle-modular (Module 4 – Modular Graphics with Functions)
- * Track: Python from Basic to Pro
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with concept simulator,
- *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
- */
+const keyframes = `
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spinGear {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+`;
+
 const Topic3 = () => {
-  const [activeTab, setActiveTab] = useState("concept");
-  const [filterThreshold, setFilterThreshold] = useState(70000);
-  const sectionRefs = useRef([]);
+  const [activeTab, setActiveTab] = useState("gallery"); // "gallery" vs "dashboard"
+  const [selectedIcon, setSelectedIcon] = useState("gear"); // gear, shield, heart, cloud, sun
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
+  const prototypes = [
+    {
+      name: "draw_gear(t, x, y, radius, teeth, fill_color)",
+      returnType: "Library Primitive",
+      purpose: "Renders mechanical cog/gear icon with center bore hole using radial vertex alternation.",
+      usage: "draw_gear(t, -100, 0, radius=40, teeth=8)"
+    },
+    {
+      name: "draw_shield(t, x, y, width, height, fill_color)",
+      returnType: "Library Primitive",
+      purpose: "Renders cybersecurity verification shield badge anchored at top-center (x, y).",
+      usage: "draw_shield(t, 0, 50, width=60, height=80)"
+    },
+    {
+      name: "draw_heart(t, x, y, size, fill_color)",
+      returnType: "Library Primitive",
+      purpose: "Renders cardiovascular heart icon combining 50° tangent vectors and twin 200° arcs.",
+      usage: "draw_heart(t, 100, -20, size=45)"
+    },
+    {
+      name: "draw_pill_badge(t, x, y, text, status)",
+      returnType: "Themeable Component",
+      purpose: "Renders rounded pill status badge with status-aware color themes (success, danger, info).",
+      usage: "draw_pill_badge(t, 0, 0, 'Verified', status='success')"
     }
-  };
-
-  const sampleEmployees = [
-    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
-    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
-    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
-    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
-  const filteredList = sampleEmployees.filter((e) => e.salary &ge; filterThreshold);
-
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
+    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <style>{keyframes}</style>
 
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
-        
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>🐍</span>
-            <span>Python Masterclass · Module 004 · Topic 3</span>
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* =========================================================================
+            HERO SECTION
+        ========================================================================= */}
+        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+            Module 005_004 · Modular Graphics with Functions · Topic 3
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Building an extensible custom Shape &amp; Icon Library
+
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
+            Building an Extensible Shape & Icon Library
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Encapsulate drawing logic into parameterized functions to build reusable visual asset libraries.
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Package vector primitives into a production-grade Python module. Build reusable <span className="text-cyan-300 font-semibold">Gears</span>, <span className="text-emerald-300 font-semibold">Shields</span>, <span className="text-rose-300 font-semibold">Hearts</span>, and themeable <span className="text-amber-300 font-semibold">UI Badges</span> for client dashboards.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              ⚡ Pythonic Architecture
+          <div className="flex justify-center gap-4 flex-wrap pt-2">
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              📦 Standalone Module Architecture
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              🧮 Clean Code &amp; Idioms
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🛡️ Standardized Vector UI Icons
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 Robust Error Handling
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Scalability
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              📊 Live Telemetry Client App
             </span>
           </div>
-        </header>
+        </div>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* =========================================================================
+            INTERACTIVE VECTOR ICON STUDIO & CLIENT DASHBOARD
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/60 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Building an extensible custom Shape &amp; Icon Library
-              </h2>
+              <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                <span>🎨</span> Interactive Icon Library Studio & Dashboard Client
+              </h3>
               <p className="text-xs text-slate-400">
-                Understanding Python mechanics and design patterns from first principles
+                Switch between the Library Sprite Gallery and the assembled Live Telemetry Dashboard client.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setActiveTab("gallery")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  activeTab === "gallery"
+                    ? "bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/25"
+                    : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
+                }`}
+              >
+                📦 Shape Library Gallery
+              </button>
+
+              <button
+                onClick={() => setActiveTab("dashboard")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  activeTab === "dashboard"
+                    ? "bg-emerald-500 text-slate-950 font-bold shadow-lg shadow-emerald-500/25"
+                    : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
+                }`}
+              >
+                📊 Telemetry Dashboard Client
+              </button>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            {/* View 1: SVG Vector Canvas */}
+            <div className="flex flex-col items-center p-4 bg-slate-950 rounded-xl border border-slate-800">
+              <span className="text-xs font-mono text-cyan-400 mb-2">
+                {activeTab === "gallery" ? "Library Icon Showcase View" : "Client Dashboard Telemetry View"}
+              </span>
+
+              {activeTab === "gallery" ? (
+                /* Gallery View: Display 5 Vector Icons */
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-sm h-auto bg-slate-950 rounded-lg">
+                  {/* Icon 1: Gear */}
+                  <g transform="translate(35, 45)">
+                    <circle cx="25" cy="25" r="22" fill="#38bdf8" stroke="#ffffff" strokeWidth="2" />
+                    <circle cx="25" cy="25" r="7" fill="#020617" stroke="#ffffff" strokeWidth="1.5" />
+                    <text x="25" y="60" fill="#94a3b8" fontSize="9" textAnchor="middle" fontFamily="monospace">draw_gear</text>
+                  </g>
+
+                  {/* Icon 2: Shield */}
+                  <g transform="translate(135, 30)">
+                    <polygon points="25,5 50,5 50,30 25,50 0,30 0,5" fill="#10b981" stroke="#ffffff" strokeWidth="2" />
+                    <path d="M 18,25 L 23,32 L 34,18" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+                    <text x="25" y="75" fill="#94a3b8" fontSize="9" textAnchor="middle" fontFamily="monospace">draw_shield</text>
+                  </g>
+
+                  {/* Icon 3: Heart */}
+                  <g transform="translate(235, 35)">
+                    <path d="M 25,42 L 5,20 A 10,10 0 0,1 25,8 A 10,10 0 0,1 45,20 Z" fill="#f43f5e" stroke="#ffffff" strokeWidth="2" />
+                    <text x="25" y="70" fill="#94a3b8" fontSize="9" textAnchor="middle" fontFamily="monospace">draw_heart</text>
+                  </g>
+
+                  {/* Icon 4: Cloud */}
+                  <g transform="translate(75, 125)">
+                    <path d="M 10,35 L 50,35 A 12,12 0 0,0 50,15 A 16,16 0 0,0 22,12 A 12,12 0 0,0 10,35 Z" fill="#06b6d4" stroke="#ffffff" strokeWidth="2" />
+                    <text x="30" y="55" fill="#94a3b8" fontSize="9" textAnchor="middle" fontFamily="monospace">draw_cloud</text>
+                  </g>
+
+                  {/* Icon 5: Sun */}
+                  <g transform="translate(195, 125)">
+                    <circle cx="30" cy="25" r="14" fill="#fbbf24" stroke="#ffffff" strokeWidth="2" />
+                    {[0, 45, 90, 135, 180, 225, 270, 315].map((ang) => {
+                      const rad = (ang * Math.PI) / 180;
+                      return (
+                        <line
+                          key={ang}
+                          x1={30 + 17 * Math.cos(rad)}
+                          y1={25 + 17 * Math.sin(rad)}
+                          x2={30 + 24 * Math.cos(rad)}
+                          y2={25 + 24 * Math.sin(rad)}
+                          stroke="#fbbf24"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                      );
+                    })}
+                    <text x="30" y="55" fill="#94a3b8" fontSize="9" textAnchor="middle" fontFamily="monospace">draw_sun</text>
+                  </g>
+                </svg>
+              ) : (
+                /* Dashboard Client View: Telemetry Cards */
+                <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-sm h-auto bg-slate-950 rounded-lg p-2">
+                  {/* Card 1: Shield / Security */}
+                  <g transform="translate(10, 15)">
+                    <rect x="0" y="0" width="140" height="75" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                    <polygon points="20,15 35,15 35,30 20,40 5,30 5,15" fill="#10b981" stroke="#ffffff" strokeWidth="1" />
+                    <text x="45" y="24" fill="#94a3b8" fontSize="8" fontFamily="sans-serif">SYSTEM HEALTH</text>
+                    <text x="45" y="45" fill="#34d399" fontSize="13" fontWeight="bold" fontFamily="monospace">99.98%</text>
+                  </g>
+
+                  {/* Card 2: Gear / CPU */}
+                  <g transform="translate(165, 15)">
+                    <rect x="0" y="0" width="140" height="75" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                    <circle cx="20" cy="27" r="14" fill="#38bdf8" stroke="#ffffff" strokeWidth="1" />
+                    <circle cx="20" cy="27" r="5" fill="#0f172a" />
+                    <text x="45" y="24" fill="#94a3b8" fontSize="8" fontFamily="sans-serif">CPU LOAD</text>
+                    <text x="45" y="45" fill="#38bdf8" fontSize="13" fontWeight="bold" fontFamily="monospace">42.5%</text>
+                  </g>
+
+                  {/* Card 3: Cloud / Storage */}
+                  <g transform="translate(10, 105)">
+                    <rect x="0" y="0" width="140" height="75" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                    <path d="M 10,35 L 32,35 A 7,7 0 0,0 32,23 A 10,10 0 0,0 16,20 A 7,7 0 0,0 10,35 Z" fill="#06b6d4" stroke="#ffffff" strokeWidth="1" />
+                    <text x="45" y="24" fill="#94a3b8" fontSize="8" fontFamily="sans-serif">STORAGE</text>
+                    <text x="45" y="45" fill="#06b6d4" fontSize="13" fontWeight="bold" fontFamily="monospace">1.24 TB</text>
+                  </g>
+
+                  {/* Card 4: Heart / Health */}
+                  <g transform="translate(165, 105)">
+                    <rect x="0" y="0" width="140" height="75" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                    <path d="M 20,38 L 8,24 A 6,6 0 0,1 20,17 A 6,6 0 0,1 32,24 Z" fill="#f43f5e" stroke="#ffffff" strokeWidth="1" />
+                    <text x="45" y="24" fill="#94a3b8" fontSize="8" fontFamily="sans-serif">UPTIME SCORE</text>
+                    <text x="45" y="45" fill="#fb7185" fontSize="13" fontWeight="bold" fontFamily="monospace">4.9 / 5.0</text>
+                  </g>
+                </svg>
+              )}
+            </div>
+
+            {/* View 2: Library Documentation & Python Import Code */}
+            <div className="space-y-4 bg-gray-900 p-5 rounded-xl border border-slate-800 text-xs">
+              <div className="text-sm font-bold text-cyan-400 flex justify-between items-center">
+                <span>Library API Specification</span>
+                <span className="font-mono text-xs text-emerald-300">from shapes import *</span>
+              </div>
+
+              {/* Selector for Icon Details */}
+              <div className="space-y-2">
+                <label className="block text-slate-400 text-[11px]">Inspect Library Primitive:</label>
+                <div className="flex gap-2 flex-wrap">
+                  {["gear", "shield", "heart", "cloud", "sun"].map((icon) => (
+                    <button
+                      key={icon}
+                      onClick={() => setSelectedIcon(icon)}
+                      className={`px-3 py-1 rounded-md capitalize text-xs font-mono transition cursor-pointer ${
+                        selectedIcon === icon
+                          ? "bg-cyan-500 text-slate-950 font-bold"
+                          : "bg-slate-950 text-slate-400 border border-slate-800 hover:bg-slate-800"
+                      }`}
+                    >
+                      {icon}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Code Box */}
+              <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 space-y-1">
+                <span className="text-[10px] text-slate-500 font-mono uppercase tracking-wider block">
+                  # Clean Import & Usage Pattern
+                </span>
+                <pre className="font-mono text-emerald-300 text-xs overflow-x-auto">
+{`from custom_shapes_icon_library import draw_${selectedIcon}
+
+# Draw modular vector icon in client app:
+draw_${selectedIcon}(t, x=0, y=0)`}
+                </pre>
+              </div>
+
+              <div className="text-[11px] text-slate-400 leading-relaxed">
+                💡 <strong>Architectural Tip:</strong> Library modules never invoke <code className="text-amber-300 font-mono">turtle.done()</code> or <code className="text-amber-300 font-mono">screen.setup()</code> at the top level. They define clean mathematical drawing functions and protect demo code under <code className="text-cyan-300 font-mono">{"if __name__ == '__main__':"}</code>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PROTOTYPES SPECIFICATION TABLE
+        ========================================================================= */}
+        <div className="bg-gray-800/60 rounded-2xl p-6 border border-slate-800 animate-[fadeInUp_0.6s_ease-out_0.2s]">
+          <h2 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
+            <span>⚙️</span> Shape Library API Standard
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-gray-700 text-gray-400 text-xs uppercase tracking-wider">
+                  <th className="py-3 px-4">Library Function</th>
+                  <th className="py-3 px-4">Category</th>
+                  <th className="py-3 px-4">Geometric Anchor & Math</th>
+                  <th className="py-3 px-4">Standard Call</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800 text-gray-200">
+                {prototypes.map((proto, index) => (
+                  <tr key={index} className="hover:bg-gray-800/40 transition">
+                    <td className="py-3.5 px-4 font-mono text-cyan-300 font-bold text-xs">{proto.name}</td>
+                    <td className="py-3.5 px-4 font-mono text-indigo-400 text-xs">{proto.returnType}</td>
+                    <td className="py-3.5 px-4 text-xs text-gray-300">{proto.purpose}</td>
+                    <td className="py-3.5 px-4 font-mono text-amber-300 text-xs">{proto.usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PYTHON CODE IMPLEMENTATION SCRIPTS
+        ========================================================================= */}
+        <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.3s]">
+          <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
+            <span>💻</span> Professional Python Implementation Scripts
+          </h2>
+
+          <div className="space-y-6">
+            {/* File 1: custom_shapes_icon_library.py */}
+            <PythonFileLoader
+              fileModule={iconLibraryCode}
+              title="custom_shapes_icon_library.py"
+              highlightLines={[18, 19, 39, 40, 52, 53, 65, 75, 95]}
+            />
+
+            {/* File 2: library_client_dashboard_demo.py */}
+            <PythonFileLoader
+              fileModule={dashboardDemoCode}
+              title="library_client_dashboard_demo.py"
+              highlightLines={[11, 14, 25, 27, 29, 31, 51, 52, 53, 54]}
+            />
+
+            {/* File 3: themeable_badge_system.py */}
+            <PythonFileLoader
+              fileModule={badgeSystemCode}
+              title="themeable_badge_system.py"
+              highlightLines={[12, 19, 20, 21, 22, 33, 35, 49, 50, 51]}
+            />
+          </div>
+        </div>
+
+        {/* =========================================================================
+            REAL-WORLD CLASSROOM SCENARIOS
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.4s]">
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-cyan-400 text-lg flex items-center gap-2">
+              <span>📊</span> Kolkata Fintech Dashboard
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Mahima in Kolkata was tasked with building a real-time server health monitor. Instead of rewriting shapes inside each card widget, she built a standalone <code className="text-cyan-300 font-mono">custom_shapes_icon_library.py</code>. By importing <code className="text-emerald-300 font-mono">draw_shield</code> and <code className="text-sky-300 font-mono">draw_gear</code>, she assembled a 4-card enterprise dashboard in under 30 minutes!
+            </p>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-purple-400 text-lg flex items-center gap-2">
+              <span>🎮</span> Barrackpore Game UI: HUD Badges
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Susmita developed an RPG game heads-up display (HUD). Using the themeable badge system with <code className="text-purple-300 font-mono">draw_pill_badge()</code> and <code className="text-rose-300 font-mono">draw_heart()</code>, she dynamically updated player health, armor levels, and inventory alerts with seamless color-coded state transitions.
+            </p>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            COMMON BEGINNER TRAPS & PITFALLS
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
+          <h3 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+            <span>⚠️</span> Top 4 Library Design Pitfalls to Avoid
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">1. Omitting `__name__ == '__main__'`</strong>
+              <p className="text-slate-400">
+                Placing test drawings at the root level of a library module causes an empty turtle window to pop up every time a consumer imports the file.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">2. Inconsistent Anchor Conventions</strong>
+              <p className="text-slate-400">
+                If <code className="text-cyan-300 font-mono">draw_gear</code> anchors at center while <code className="text-rose-300 font-mono">draw_shield</code> anchors at bottom-left without clear documentation, client layouts will misalign horribly.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">3. Calling turtle.done() in Libraries</strong>
+              <p className="text-slate-400">
+                Calling <code className="text-rose-300 font-mono">turtle.done()</code> inside a helper blocks the caller from rendering subsequent elements. Keep <code className="text-emerald-300 font-mono">turtle.done()</code> exclusively in the client entry point.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">4. Hardcoding Colors Inside Primitives</strong>
+              <p className="text-slate-400">
+                Failing to accept <code className="text-cyan-300 font-mono">fill_color</code> and <code className="text-cyan-300 font-mono">border_color</code> parameters prevents consumers from adapting icons to custom light or dark themes.
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Architectural Insight
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern software engineering, <strong className="text-teal-300">Building an extensible custom Shape &amp; Icon Library</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Readable Syntax · Deterministic Execution · Fast Prototyping
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
-                </p>
+        {/* =========================================================================
+            STUDENT CHECKLIST
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-cyan-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
+          <h3 className="text-xl font-semibold text-cyan-400 mb-3">📝 Student Mastery Checklist</h3>
+          <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
+            {[
+              "I know how to structure a reusable Python graphics library module (`shapes.py`)",
+              "I protect interactive demonstration code using `if __name__ == '__main__':`",
+              "I maintain consistent parameter signatures across all library icon functions",
+              "I understand how theme dictionaries map UI statuses (success/warning/danger) to palettes",
+              "I can construct gears, shields, hearts, and clouds using mathematical vector primitives",
+              "I keep `turtle.done()` and `screen.setup()` strictly in client application files"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-gray-900/60 border border-slate-800">
+                <span className="text-cyan-400 font-bold shrink-0">✓</span>
+                <span>{item}</span>
               </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated logistics dispatch office in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Building an extensible custom Shape &amp; Icon Library
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
-                <button
-                  onClick={() => setActiveTab("concept")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                &gt;
-                  Structured View
-                </button>
-                <button
-                  onClick={() => setActiveTab("json")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                &gt;
-                  Raw Dictionary JSON
-                </button>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Filter Minimum Salary (₹):
-                </label>
-                <select
-                  value={filterThreshold}
-                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
-                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
-                &gt;
-                  <option value={60000}>₹60,000+ (All 4 Records)</option>
-                  <option value={75000}>₹75,000+ (3 Records)</option>
-                  <option value={85000}>₹85,000+ (2 Records)</option>
-                  <option value={90000}>₹90,000+ (Top Earner)</option>
-                </select>
-              </div>
-            </div>
-
-            {activeTab === "concept" ? (
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
-                <table className="w-full text-left text-xs font-mono">
-                  <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="pb-2">ID</th>
-                      <th className="pb-2">Employee</th>
-                      <th className="pb-2">Location</th>
-                      <th className="pb-2">Salary</th>
-                      <th className="pb-2">Performance</th>
-                      <th className="pb-2">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
-                    {filteredList.map((emp) => (
-                      <tr key={emp.id} className="hover:bg-slate-900/40">
-                        <td className="py-2.5 text-slate-500">{emp.id}</td>
-                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
-                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
-                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
-                        <td className="py-2.5">
-                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
-                            ⭐ {emp.score}
-                          </span>
-                        </td>
-                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
-                  {JSON.stringify(filteredList, null, 2)}
-                </pre>
-              </div>
-            )}
+        {/* =========================================================================
+            HINTS & EXPERT MINDSET
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
+          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Think about:</strong> How open-source icon libraries like FontAwesome, Lucide, and Material Icons distribute thousands of standardized vector icons across the web!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Observe:</strong> How the telemetry dashboard seamlessly incorporates gears, shields, clouds, and hearts into unified metric cards!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Try changing:</strong> Add a new <code className="text-amber-300 font-mono">draw_battery(t, x, y, percentage)</code> icon function to your library and render it on a dashboard card!
+            </p>
           </div>
-        </section>
 
-        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE ENTERPRISE
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Automated Financial Auditing
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR ROBOTICS
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Millisecond Telemetry Ingestion
-              </div>
-            </div>
+          <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Great software engineers do not write one-off code; they create tools, packages, and libraries that empower other developers. Building an extensible vector icon library teaches you API design, interface stability, documentation standards, and the software engineering principles that power modern open-source ecosystems.
+            </p>
           </div>
-        </section>
+        </div>
 
-        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
-                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
-                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
-              </div>
-            </div>
+        {/* =========================================================================
+            FAQS TEMPLATE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
+          <FAQTemplate title="Custom Shape & Icon Library FAQs" questions={questions} />
+        </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
-                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
-                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Building an extensible custom Shape &amp; Icon Library FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            PLAIN TEXT PRINT & DOWNLOAD NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
           <PlainTextPrint
             content={noteText}
-            title="Building an extensible custom Shape &amp; Icon Library"
+            title="Topic 3: Shape Library Design Study Note"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Note"
+            downloadButtonText="Download Study Note"
             downloadFileName="topic3_note.txt"
           />
-        </section>
+        </div>
 
-        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            TEACHER'S NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note={
-              "In software development, simplicity is the ultimate sophistication. " +
-              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
-            }
+            note="Packaging your drawing functions into an importable module like `custom_shapes_icon_library.py` is the transition from student scriptwriter to software library author. When our students in Kolkata and Barrackpore import their own custom libraries into their game and dashboard projects, they experience firsthand the joy of clean, professional modular architecture!"
           />
-        </section>
+        </div>
 
-        {/* ─── 9. Footer ──────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 3 · Building an extensible custom Shape &amp; Icon Library · Python Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
       </div>
-    </>
+    </div>
   );
 };
 

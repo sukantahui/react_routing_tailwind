@@ -1,379 +1,499 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic0_files/topic0_questions";
+
+// Import Python Source Files
+import primitivesCode from "./topic0_files/reusable_shapes_primitives.py?raw";
+import houseBuilderCode from "./topic0_files/composite_house_builder.py?raw";
+import villageLandscapeCode from "./topic0_files/modular_village_landscape.py?raw";
 import noteText from "./topic0_files/topic0_note.txt?raw";
 
-/**
- * Topic0 – Writing reusable drawing functions (draw_circle, draw_star, draw_house)
- * Module: 005_004_turtle-modular (Module 4 – Modular Graphics with Functions)
- * Track: Python from Basic to Pro
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with concept simulator,
- *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
- */
+const keyframes = `
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5)); }
+}
+`;
+
 const Topic0 = () => {
-  const [activeTab, setActiveTab] = useState("concept");
-  const [filterThreshold, setFilterThreshold] = useState(70000);
-  const sectionRefs = useRef([]);
+  // Interactive Scene Builder State
+  const [houseSize, setHouseSize] = useState(100);
+  const [wallColor, setWallColor] = useState("#0284c7");
+  const [roofColor, setRoofColor] = useState("#f43f5e");
+  const [showTrees, setShowTrees] = useState(true);
+  const [showStars, setShowStars] = useState(true);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
+  const prototypes = [
+    {
+      name: "def draw_square(t, x, y, size, fill_color)",
+      returnType: "Void Primitive",
+      purpose: "Draws a 4-sided closed square anchored at bottom-left (x, y) with specified dimensions and fill.",
+      usage: "draw_square(t, -100, 50, 80, '#38bdf8')"
+    },
+    {
+      name: "def draw_triangle(t, x, y, size, fill_color)",
+      returnType: "Void Primitive",
+      purpose: "Draws an equilateral 3-sided triangle anchored at (x, y) for roofs, arrows, and mountains.",
+      usage: "draw_triangle(t, 0, 100, 90, '#f43f5e')"
+    },
+    {
+      name: "def draw_star(t, x, y, size, color)",
+      returnType: "Void Primitive",
+      purpose: "Draws a 5-pointed self-intersecting star centered approximately at (x, y).",
+      usage: "draw_star(t, 120, 180, 25, '#fbbf24')"
+    },
+    {
+      name: "def draw_house(t, x, y, size, wall_col, roof_col)",
+      returnType: "Composite Function",
+      purpose: "Composes base walls, triangular roof, door, and illuminated window into a single unified object.",
+      usage: "draw_house(t, -200, -80, size=110)"
     }
-  };
-
-  const sampleEmployees = [
-    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
-    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
-    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
-    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
-  const filteredList = sampleEmployees.filter((e) => e.salary &ge; filterThreshold);
-
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
+    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <style>{keyframes}</style>
 
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
-        
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>🐍</span>
-            <span>Python Masterclass · Module 004 · Topic 0</span>
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* =========================================================================
+            HERO SECTION
+        ========================================================================= */}
+        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+            Module 005_004 · Modular Graphics with Functions · Topic 0
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Writing reusable drawing functions (draw_circle, draw_star, draw_house)
+
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
+            Writing Reusable Drawing Functions
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Encapsulate drawing logic into parameterized functions to build reusable visual asset libraries.
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Decompose monolithic spaghetti code into elegant, parameterized building blocks. Master functional composition by creating <code className="text-cyan-300 font-mono">draw_square</code>, <code className="text-rose-300 font-mono">draw_star</code>, and composite <code className="text-emerald-300 font-mono">draw_house</code> primitives.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              ⚡ Pythonic Architecture
+          <div className="flex justify-center gap-4 flex-wrap pt-2">
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🧩 Parameterized Primitives
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              🧮 Clean Code &amp; Idioms
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🏠 Composite Functional Architecture
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 Robust Error Handling
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Scalability
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🌲 Scalable Scene Orchestration
             </span>
           </div>
-        </header>
+        </div>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* =========================================================================
+            INTERACTIVE MODULAR SCENE COMPOSER
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/60 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Writing reusable drawing functions (draw_circle, draw_star, draw_house)
-              </h2>
+              <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                <span>🎨</span> Interactive Modular Scene Composer
+              </h3>
               <p className="text-xs text-slate-400">
-                Understanding Python mechanics and design patterns from first principles
+                Adjust function parameters to see how parameterized functions generate responsive vector geometry in real time.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <label className="flex items-center gap-1.5 text-xs text-slate-300 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={showTrees}
+                  onChange={(e) => setShowTrees(e.target.checked)}
+                  className="rounded text-cyan-500 focus:ring-0"
+                />
+                Trees
+              </label>
+
+              <label className="flex items-center gap-1.5 text-xs text-slate-300 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={showStars}
+                  onChange={(e) => setShowStars(e.target.checked)}
+                  className="rounded text-amber-500 focus:ring-0"
+                />
+                Stars
+              </label>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            {/* View 1: SVG Real-Time Canvas Preview */}
+            <div className="flex flex-col items-center p-4 bg-slate-950 rounded-xl border border-slate-800">
+              <span className="text-xs font-mono text-cyan-400 mb-2">
+                Rendered Canvas View (Modular Composition)
+              </span>
+              <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-sm h-auto bg-slate-950 rounded-lg">
+                {/* Night Sky Stars */}
+                {showStars && (
+                  <>
+                    <polygon points="40,25 43,33 51,33 45,38 47,46 40,41 33,46 35,38 29,33 37,33" fill="#fbbf24" />
+                    <polygon points="120,40 122,46 128,46 123,50 125,56 120,52 115,56 117,50 112,46 118,46" fill="#fef08a" />
+                    <polygon points="220,20 222,26 228,26 223,30 225,36 220,32 215,36 217,30 212,26 218,26" fill="#fbbf24" />
+                    <polygon points="280,45 282,51 288,51 283,55 285,61 280,57 275,61 277,55 272,51 278,51" fill="#fef08a" />
+                  </>
+                )}
+
+                {/* Ground Line */}
+                <line x1="10" y1="180" x2="310" y2="180" stroke="#334155" strokeWidth="3" />
+
+                {/* Modular Pine Trees */}
+                {showTrees && (
+                  <>
+                    {/* Tree 1 */}
+                    <rect x="35" y="155" width="10" height="25" fill="#78350f" />
+                    <polygon points="40,110 20,145 60,145" fill="#15803d" />
+                    <polygon points="40,130 25,160 55,160" fill="#166534" />
+
+                    {/* Tree 2 */}
+                    <rect x="265" y="155" width="10" height="25" fill="#78350f" />
+                    <polygon points="270,110 250,145 290,145" fill="#15803d" />
+                    <polygon points="270,130 255,160 285,160" fill="#166534" />
+                  </>
+                )}
+
+                {/* Composite House (Centered) */}
+                {/* Wall Base */}
+                <rect
+                  x={160 - houseSize * 0.5}
+                  y={180 - houseSize * 0.8}
+                  width={houseSize}
+                  height={houseSize * 0.8}
+                  fill={wallColor}
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  className="transition-all duration-300"
+                />
+
+                {/* Triangular Roof */}
+                <polygon
+                  points={`
+                    ${160},${180 - houseSize * 1.3}
+                    ${160 - houseSize * 0.6},${180 - houseSize * 0.8}
+                    ${160 + houseSize * 0.6},${180 - houseSize * 0.8}
+                  `}
+                  fill={roofColor}
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  className="transition-all duration-300"
+                />
+
+                {/* Door */}
+                <rect
+                  x={160 - houseSize * 0.35}
+                  y={180 - houseSize * 0.45}
+                  width={houseSize * 0.25}
+                  height={houseSize * 0.45}
+                  fill="#78350f"
+                  stroke="#ffffff"
+                  strokeWidth="1"
+                />
+
+                {/* Window */}
+                <rect
+                  x={160 + houseSize * 0.1}
+                  y={180 - houseSize * 0.65}
+                  width={houseSize * 0.25}
+                  height={houseSize * 0.25}
+                  fill="#fef08a"
+                  stroke="#ffffff"
+                  strokeWidth="1"
+                />
+              </svg>
+            </div>
+
+            {/* View 2: Parameter Controls & Live Python Code Call */}
+            <div className="space-y-4 bg-gray-900 p-5 rounded-xl border border-slate-800 text-xs">
+              <div className="text-sm font-bold text-cyan-400">
+                Function Arguments & Live Python Invocation
+              </div>
+
+              {/* Slider: House Size */}
+              <div className="space-y-1">
+                <div className="flex justify-between text-slate-300">
+                  <span>Parameter: <code className="text-cyan-300 font-mono">size</code></span>
+                  <span className="font-mono font-bold text-cyan-400">{houseSize} px</span>
+                </div>
+                <input
+                  type="range"
+                  min="60"
+                  max="140"
+                  value={houseSize}
+                  onChange={(e) => setHouseSize(Number(e.target.value))}
+                  className="w-full accent-cyan-500 cursor-pointer"
+                />
+              </div>
+
+              {/* Color Controls */}
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <div>
+                  <label className="block text-slate-400 mb-1">Wall Color (wall_color):</label>
+                  <div className="flex gap-1.5">
+                    {["#0284c7", "#059669", "#7c3aed", "#e11d48"].map((c) => (
+                      <button
+                        key={c}
+                        onClick={() => setWallColor(c)}
+                        className={`w-6 h-6 rounded-full border transition cursor-pointer ${
+                          wallColor === c ? "border-white scale-110 shadow-md" : "border-transparent opacity-70"
+                        }`}
+                        style={{ backgroundColor: c }}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-slate-400 mb-1">Roof Color (roof_color):</label>
+                  <div className="flex gap-1.5">
+                    {["#f43f5e", "#eab308", "#fb923c", "#10b981"].map((c) => (
+                      <button
+                        key={c}
+                        onClick={() => setRoofColor(c)}
+                        className={`w-6 h-6 rounded-full border transition cursor-pointer ${
+                          roofColor === c ? "border-white scale-110 shadow-md" : "border-transparent opacity-70"
+                        }`}
+                        style={{ backgroundColor: c }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Generated Live Python Call */}
+              <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 space-y-1">
+                <span className="text-[11px] text-slate-500 font-mono uppercase tracking-wider block">
+                  # Live Python Function Call
+                </span>
+                <pre className="font-mono text-emerald-300 text-xs overflow-x-auto">
+{`draw_house(
+    t,
+    x=0, y=-120,
+    size=${houseSize},
+    wall_color="${wallColor}",
+    roof_color="${roofColor}"
+)`}
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PROTOTYPES SPECIFICATION TABLE
+        ========================================================================= */}
+        <div className="bg-gray-800/60 rounded-2xl p-6 border border-slate-800 animate-[fadeInUp_0.6s_ease-out_0.2s]">
+          <h2 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
+            <span>⚙️</span> Modular Drawing Function Architecture
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-gray-700 text-gray-400 text-xs uppercase tracking-wider">
+                  <th className="py-3 px-4">Function Signature</th>
+                  <th className="py-3 px-4">Type</th>
+                  <th className="py-3 px-4">Architectural Purpose</th>
+                  <th className="py-3 px-4">Sample Invocation</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800 text-gray-200">
+                {prototypes.map((proto, index) => (
+                  <tr key={index} className="hover:bg-gray-800/40 transition">
+                    <td className="py-3.5 px-4 font-mono text-cyan-300 font-bold text-xs">{proto.name}</td>
+                    <td className="py-3.5 px-4 font-mono text-indigo-400 text-xs">{proto.returnType}</td>
+                    <td className="py-3.5 px-4 text-xs text-gray-300">{proto.purpose}</td>
+                    <td className="py-3.5 px-4 font-mono text-amber-300 text-xs">{proto.usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PYTHON CODE IMPLEMENTATION SCRIPTS
+        ========================================================================= */}
+        <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.3s]">
+          <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
+            <span>💻</span> Professional Python Implementation Scripts
+          </h2>
+
+          <div className="space-y-6">
+            {/* File 1: reusable_shapes_primitives.py */}
+            <PythonFileLoader
+              fileModule={primitivesCode}
+              title="reusable_shapes_primitives.py"
+              highlightLines={[12, 13, 23, 24, 34, 35]}
+            />
+
+            {/* File 2: composite_house_builder.py */}
+            <PythonFileLoader
+              fileModule={houseBuilderCode}
+              title="composite_house_builder.py"
+              highlightLines={[12, 23, 33, 36, 39, 43, 47]}
+            />
+
+            {/* File 3: modular_village_landscape.py */}
+            <PythonFileLoader
+              fileModule={villageLandscapeCode}
+              title="modular_village_landscape.py"
+              highlightLines={[11, 19, 39, 61, 62, 69, 73]}
+            />
+          </div>
+        </div>
+
+        {/* =========================================================================
+            REAL-WORLD CLASSROOM SCENARIOS
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.4s]">
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-cyan-400 text-lg flex items-center gap-2">
+              <span>🏛️</span> Barrackpore School Project: The 300-Line Refactor
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Mamata wrote a 450-line script to draw a miniature neighborhood in Barrackpore. When the teacher requested changing the roof style from triangular to rounded tile, she had to manually edit 12 different sections. After refactoring her drawing code into a modular <code className="text-cyan-300 font-mono">draw_house()</code> function, she changed the roof style across all 12 houses in just <strong>2 lines of code</strong>!
+            </p>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-indigo-400 text-lg flex items-center gap-2">
+              <span>🌆</span> Kolkata Generative Art: Procedural Skylines
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Debangshu in Kolkata created an animated nighttime city skyline by writing a single <code className="text-indigo-300 font-mono">draw_building(t, x, y, width, height, floors)</code> function and feeding it a list of randomized coordinates. What used to take hours of manual coordinate math now renders dynamically in 0.05 seconds.
+            </p>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            COMMON BEGINNER TRAPS & PITFALLS
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
+          <h3 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+            <span>⚠️</span> Top 4 Modular Graphics Pitfalls to Avoid
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">1. Forgetting penup() Before Repositioning</strong>
+              <p className="text-slate-400">
+                Calling <code className="text-rose-300 font-mono">t.goto(x, y)</code> without calling <code className="text-cyan-300 font-mono">t.penup()</code> leaves unwanted diagonal drag lines connecting consecutive shapes.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">2. Neglecting Heading Reset (setheading)</strong>
+              <p className="text-slate-400">
+                If a preceding function leaves the turtle facing at 45°, calling <code className="text-amber-300 font-mono">draw_square()</code> without <code className="text-cyan-300 font-mono">t.setheading(0)</code> produces a tilted diamond instead of an upright square.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">3. Hardcoding Coordinates Inside Functions</strong>
+              <p className="text-slate-400">
+                Writing <code className="text-rose-300 font-mono">t.goto(100, 200)</code> inside a function completely destroys reusability. Always accept <code className="text-cyan-300 font-mono">(x, y)</code> as arguments.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">4. Unmatched begin_fill() / end_fill()</strong>
+              <p className="text-slate-400">
+                Leaving <code className="text-amber-300 font-mono">t.begin_fill()</code> unclosed causes fill colors to bleed uncontrollably across unrelated objects drawn later in the program.
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Architectural Insight
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern software engineering, <strong className="text-teal-300">Writing reusable drawing functions (draw_circle, draw_star, draw_house)</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Readable Syntax · Deterministic Execution · Fast Prototyping
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
-                </p>
+        {/* =========================================================================
+            STUDENT CHECKLIST
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-cyan-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
+          <h3 className="text-xl font-semibold text-cyan-400 mb-3">📝 Student Mastery Checklist</h3>
+          <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
+            {[
+              "I always pass the turtle instance `t` as the first argument to drawing functions",
+              "I lift the pen with `penup()` before moving to the starting anchor `(x, y)`",
+              "I enforce upright alignment by calling `t.setheading(0)` inside shape functions",
+              "I understand how composite functions build complex scenes from simpler primitives",
+              "I use default arguments to provide flexible yet convenient styling options",
+              "I keep `screen.update()` in the scene orchestrator rather than inside individual helpers"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-gray-900/60 border border-slate-800">
+                <span className="text-cyan-400 font-bold shrink-0">✓</span>
+                <span>{item}</span>
               </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated logistics dispatch office in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Writing reusable drawing functions (draw_circle, draw_star, draw_house)
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
-                <button
-                  onClick={() => setActiveTab("concept")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                &gt;
-                  Structured View
-                </button>
-                <button
-                  onClick={() => setActiveTab("json")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                &gt;
-                  Raw Dictionary JSON
-                </button>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Filter Minimum Salary (₹):
-                </label>
-                <select
-                  value={filterThreshold}
-                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
-                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
-                &gt;
-                  <option value={60000}>₹60,000+ (All 4 Records)</option>
-                  <option value={75000}>₹75,000+ (3 Records)</option>
-                  <option value={85000}>₹85,000+ (2 Records)</option>
-                  <option value={90000}>₹90,000+ (Top Earner)</option>
-                </select>
-              </div>
-            </div>
-
-            {activeTab === "concept" ? (
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
-                <table className="w-full text-left text-xs font-mono">
-                  <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="pb-2">ID</th>
-                      <th className="pb-2">Employee</th>
-                      <th className="pb-2">Location</th>
-                      <th className="pb-2">Salary</th>
-                      <th className="pb-2">Performance</th>
-                      <th className="pb-2">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
-                    {filteredList.map((emp) => (
-                      <tr key={emp.id} className="hover:bg-slate-900/40">
-                        <td className="py-2.5 text-slate-500">{emp.id}</td>
-                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
-                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
-                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
-                        <td className="py-2.5">
-                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
-                            ⭐ {emp.score}
-                          </span>
-                        </td>
-                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
-                  {JSON.stringify(filteredList, null, 2)}
-                </pre>
-              </div>
-            )}
+        {/* =========================================================================
+            HINTS & EXPERT MINDSET
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
+          <div className="bg-sky-900/20 rounded-2xl p-5 border border-sky-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-sky-300">💡 Hints to Explore</h3>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Think about:</strong> How video games like Minecraft or Terraria build entire procedural worlds by stamping modular tile functions across coordinate grids!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Observe:</strong> How passing <code className="text-cyan-300 font-mono">size=120</code> vs <code className="text-cyan-300 font-mono">size=60</code> automatically scales the walls, roof, doors, and windows proportionately without recalculating manual offsets!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Try changing:</strong> Add a chimney function <code className="text-amber-300 font-mono">draw_chimney(t, x, y, width, height)</code> and call it inside <code className="text-emerald-300 font-mono">draw_house()</code>!
+            </p>
           </div>
-        </section>
 
-        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE ENTERPRISE
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Automated Financial Auditing
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR ROBOTICS
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Millisecond Telemetry Ingestion
-              </div>
-            </div>
+          <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Software engineering is the art of abstraction. When you transform raw sequential turtle movements into clean, parameterized geometric abstractions, you transition from simply drawing on a canvas to designing scalable, professional graphic systems and rendering engines.
+            </p>
           </div>
-        </section>
+        </div>
 
-        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
-                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
-                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
-              </div>
-            </div>
+        {/* =========================================================================
+            FAQS TEMPLATE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
+          <FAQTemplate title="Modular Drawing Functions FAQs" questions={questions} />
+        </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
-                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
-                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Writing reusable drawing functions (draw_circle, draw_star, draw_house) FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            PLAIN TEXT PRINT & DOWNLOAD NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
           <PlainTextPrint
             content={noteText}
-            title="Writing reusable drawing functions (draw_circle, draw_star, draw_house)"
+            title="Topic 0: Modular Drawing Functions Study Note"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Note"
+            downloadButtonText="Download Study Note"
             downloadFileName="topic0_note.txt"
           />
-        </section>
+        </div>
 
-        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            TEACHER'S NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note={
-              "In software development, simplicity is the ultimate sophistication. " +
-              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
-            }
+            note="In Module 005_004 at Coder & AccoTax in Barrackpore and Kolkata, this topic represents a major cognitive milestone. When students stop thinking in 'steps' and start thinking in 'reusable modular shapes', their code shrinks by 70% while their graphical capabilities expand tenfold. Always remember the Golden Rule of Modular Drawing: decouple state, parameterize coordinates, and restore heading!"
           />
-        </section>
+        </div>
 
-        {/* ─── 9. Footer ──────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 0 · Writing reusable drawing functions (draw_circle, draw_star, draw_house) · Python Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
       </div>
-    </>
+    </div>
   );
 };
 

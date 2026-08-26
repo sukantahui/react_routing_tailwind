@@ -2857,6 +2857,9 @@
   .animate-\[flashWarning_2s_ease-in-out_infinite\] {
     animation: flashWarning 2s ease-in-out infinite;
   }
+  .animate-\[floatSun_4s_ease-in-out_infinite\] {
+    animation: floatSun 4s ease-in-out infinite;
+  }
   .animate-\[float_6s_ease-in-out_infinite\] {
     animation: float 6s ease-in-out infinite;
   }
