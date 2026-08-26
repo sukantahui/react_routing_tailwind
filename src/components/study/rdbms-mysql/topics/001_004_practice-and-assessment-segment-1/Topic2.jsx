@@ -52,7 +52,7 @@ CREATE TABLE products (
     supplier_id INT NOT NULL,
     sku_code VARCHAR(30) NOT NULL UNIQUE,
     product_name VARCHAR(120) NOT NULL,
-    unit_price_inr DECIMAL(10,2) CHECK (unit_price_inr > 0),
+    unit_price_inr DECIMAL(10,2) CHECK (unit_price_inr &gt; 0),
     is_active BOOLEAN DEFAULT TRUE,
     CONSTRAINT fk_prod_category FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE RESTRICT,
     CONSTRAINT fk_prod_supplier FOREIGN KEY (supplier_id) REFERENCES suppliers(supplier_id) ON DELETE RESTRICT
@@ -63,7 +63,7 @@ CREATE TABLE inventory_stock (
     stock_id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL UNIQUE,
     warehouse_city VARCHAR(50) DEFAULT 'Barrackpore',
-    stock_quantity INT CHECK (stock_quantity >= 0) DEFAULT 0,
+    stock_quantity INT CHECK (stock_quantity &ge; 0) DEFAULT 0,
     reorder_level INT DEFAULT 10,
     last_restocked_date DATE DEFAULT (CURDATE()),
     CONSTRAINT fk_stock_product FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
@@ -71,7 +71,7 @@ CREATE TABLE inventory_stock (
       tableSummary: [
         { table: "categories", purpose: "Classification categories (Electronics, Books)", key: "PK: category_id" },
         { table: "suppliers", purpose: "Vendor contacts & locations (Kolkata, Barrackpore)", key: "PK: supplier_id" },
-        { table: "products", purpose: "Product definitions with unique SKU & price checks", key: "FK -> categories, suppliers" },
+        { table: "products", purpose: "Product definitions with unique SKU & price checks", key: "FK &rarr; categories, suppliers" },
         { table: "inventory_stock", purpose: "1:1 Stock ledgers with non-negative checks", key: "FK -> products (1:1)" }
       ],
       explanation:
@@ -107,7 +107,7 @@ INSERT INTO products (category_id, supplier_id, sku_code, product_name, unit_pri
 -- 4. Seed Inventory Stock:
 INSERT INTO inventory_stock (product_id, warehouse_city, stock_quantity, reorder_level) VALUES
 (1, 'Barrackpore', 15, 5),
-(2, 'Barrackpore', 3, 5),   -- LOW STOCK ALERT! (3 <= 5)
+(2, 'Barrackpore', 3, 5),   -- LOW STOCK ALERT! (3 &le; 5)
 (3, 'Kolkata', 45, 10),
 (4, 'Kolkata', 8, 10),     -- LOW STOCK ALERT! (8 <= 10)
 (5, 'Ichapur', 22, 10);`,
@@ -187,7 +187,7 @@ FROM products p
 JOIN categories c ON p.category_id = c.category_id
 JOIN suppliers s ON p.supplier_id = s.supplier_id
 JOIN inventory_stock i ON p.product_id = i.product_id
-WHERE i.stock_quantity <= i.reorder_level
+WHERE i.stock_quantity &le; i.reorder_level
 ORDER BY shortage_units DESC;`,
       tableSummary: [
         { table: "Valuation Report", purpose: "Calculates total asset value per warehouse location", key: "Grouped Summary" },
@@ -289,7 +289,7 @@ ORDER BY shortage_units DESC;`,
               <span className="text-xs font-mono text-rose-400 font-bold uppercase">Table 4</span>
               <h3 className="font-bold text-white">inventory_stock</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                1:1 Stock ledgers with non-negative constraints (`&gt;= 0`) and reorder thresholds.
+                1:1 Stock ledgers with non-negative constraints (`>= 0`) and reorder thresholds.
               </p>
             </div>
           </div>
@@ -359,7 +359,7 @@ ORDER BY shortage_units DESC;`,
                 <line x1="330" y1="268" x2="620" y2="268" stroke="#334155" />
                 <text x="345" y="290" fill="#bae6fd" fontSize="10">🔑 stock_id (PK)</text>
                 <text x="345" y="310" fill="#38bdf8" fontSize="10">🔗 product_id (FK UNIQUE - 1:1 Link)</text>
-                <text x="345" y="330" fill="#94a3b8" fontSize="10">stock_quantity (CHECK &gt;= 0), reorder_level</text>
+                <text x="345" y="330" fill="#94a3b8" fontSize="10">stock_quantity (CHECK >= 0), reorder_level</text>
 
                 {/* Arrows */}
                 <path d="M 330 110 L 270 110" fill="none" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrRetCyan)" />
@@ -396,7 +396,7 @@ ORDER BY shortage_units DESC;`,
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -524,7 +524,7 @@ ORDER BY shortage_units DESC;`,
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                In Kolkata, automated nightly queries check <code>stock_quantity &lt;= reorder_level</code> and immediately generate supplier purchase order drafts with contact phone numbers, completely eliminating out-of-stock delays for high-demand items.
+                In Kolkata, automated nightly queries check <code>stock_quantity <= reorder_level</code> and immediately generate supplier purchase order drafts with contact phone numbers, completely eliminating out-of-stock delays for high-demand items.
               </p>
             </div>
           </div>
@@ -571,7 +571,7 @@ ORDER BY shortage_units DESC;`,
                 <span>✓</span> Best Practice 1: Enforce Non-Negative Stock Checks
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Always define <code>CHECK (stock_quantity &gt;= 0)</code> on warehouse ledger tables to guarantee physical sanity at the storage engine level.
+                Always define <code>CHECK (stock_quantity >= 0)</code> on warehouse ledger tables to guarantee physical sanity at the storage engine level.
               </p>
               <div className="text-xs text-slate-400">
                 Protects inventory databases against accidental race-condition overdrafts.

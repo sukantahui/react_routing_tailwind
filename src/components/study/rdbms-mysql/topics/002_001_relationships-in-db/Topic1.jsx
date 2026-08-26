@@ -300,7 +300,7 @@ const Topic1 = () => {
                         ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     Strategy 1: FK + UNIQUE
                   </button>
                   <button
@@ -311,7 +311,7 @@ const Topic1 = () => {
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     Strategy 2: Shared PK
                   </button>
                 </div>
@@ -325,7 +325,7 @@ const Topic1 = () => {
                     checked={testDuplicateAttempt}
                     onChange={(e) => setTestDuplicateAttempt(e.target.checked)}
                     className="rounded border-slate-800 bg-slate-900 text-rose-500 focus:ring-0"
-                  />
+                  /&gt;
                   <span>Attempt inserting second passport for student #101 (Triggers Error 1062)</span>
                 </label>
               </div>
@@ -390,7 +390,7 @@ const Topic1 = () => {
                             <button
                               onClick={() => handleDeleteParent(s.id)}
                               className="text-[10px] text-rose-400 hover:text-rose-300 underline font-sans"
-                            >
+                            &gt;
                               Cascade Delete
                             </button>
                           </td>

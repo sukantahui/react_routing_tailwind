@@ -40,7 +40,7 @@ const Topic19 = () => {
     for (let i = 0; i < Math.pow(2, n); i++) {
       const values = [];
       for (let j = n - 1; j >= 0; j--) {
-        values.push((i >> j) & 1);
+        values.push((i &gt;> j) & 1);
       }
       const output = selectedMinterms.includes(i) ? 1 : 0;
       rows.push({ inputs: values, output, index: i });
@@ -60,7 +60,7 @@ const Topic19 = () => {
       if (selectedMinterms.includes(i)) {
         const term = [];
         for (let j = 0; j < n; j++) {
-          const bit = (i >> (n - 1 - j)) & 1;
+          const bit = (i >&gt; (n - 1 - j)) & 1;
           if (bit === 1) {
             term.push(varNames[j]);
           } else {
@@ -89,7 +89,7 @@ const Topic19 = () => {
     for (let i of maxterms) {
       const term = [];
       for (let j = 0; j < n; j++) {
-        const bit = (i >> (n - 1 - j)) & 1;
+        const bit = (i >&gt; (n - 1 - j)) & 1;
         // For maxterm, complement variable if bit is 1
         if (bit === 0) {
           term.push(varNames[j]);
@@ -204,7 +204,7 @@ const Topic19 = () => {
                   ? "bg-amber-500 text-white shadow-md" 
                   : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
               )}
-            >
+            &gt;
               <div className="text-2xl mb-2">📊</div>
               <p className="font-semibold">Truth Table Method</p>
               <p className="text-xs">Most intuitive, works for any function</p>
@@ -217,7 +217,7 @@ const Topic19 = () => {
                   ? "bg-amber-500 text-white shadow-md" 
                   : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
               )}
-            >
+            &gt;
               <div className="text-2xl mb-2">⚖️</div>
               <p className="font-semibold">Duality Method</p>
               <p className="text-xs">Uses dual and complement</p>
@@ -230,7 +230,7 @@ const Topic19 = () => {
                   ? "bg-amber-500 text-white shadow-md" 
                   : "bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
               )}
-            >
+            &gt;
               <div className="text-2xl mb-2">🔢</div>
               <p className="font-semibold">Algebraic Method</p>
               <p className="text-xs">Using Boolean algebra and De Morgan's</p>
@@ -390,7 +390,7 @@ const Topic19 = () => {
                 onChange={(e) => setCustomSOP(e.target.value)}
                 placeholder="Enter SOP expression (e.g., A·B + A'·C)"
                 className="w-full px-3 py-2 mb-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500"
-              />
+              /&gt;
               <button
                 onClick={convertSOPToPOS}
                 className="w-full py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-300 hover:scale-105"
@@ -414,7 +414,7 @@ const Topic19 = () => {
                 onChange={(e) => setCustomPOS(e.target.value)}
                 placeholder="Enter POS expression (e.g., (A+B)·(A+C))"
                 className="w-full px-3 py-2 mb-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-amber-500"
-              />
+              /&gt;
               <button
                 onClick={convertPOSToSOP}
                 className="w-full py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-all duration-300 hover:scale-105"

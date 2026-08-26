@@ -56,7 +56,7 @@ const Topic0 = () => {
   const handleComputeClosure = (attr) => {
     setClosureInput(attr);
     if (attr.includes("student_id") && attr.includes("course_id")) {
-      setComputedClosure("{ student_id, course_id, student_name, city, course_title, instructor, fee_inr } -> SUPERKEY / CANDIDATE KEY");
+      setComputedClosure("{ student_id, course_id, student_name, city, course_title, instructor, fee_inr } &rarr; SUPERKEY / CANDIDATE KEY");
     } else if (attr.includes("student_id")) {
       setComputedClosure("{ student_id, student_name, city } (Partial Closure)");
     } else if (attr.includes("course_id")) {
@@ -241,7 +241,7 @@ CREATE TABLE enrollments (
                     ? "border-rose-400 text-rose-300 bg-slate-900"
                     : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>🚫</span>
                 <span>1. Insertion Anomaly</span>
               </button>
@@ -254,7 +254,7 @@ CREATE TABLE enrollments (
                     ? "border-amber-400 text-amber-300 bg-slate-900"
                     : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>⚠️</span>
                 <span>2. Update Anomaly</span>
               </button>
@@ -267,7 +267,7 @@ CREATE TABLE enrollments (
                     ? "border-rose-400 text-rose-300 bg-slate-900"
                     : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>💥</span>
                 <span>3. Deletion Anomaly</span>
               </button>
@@ -280,7 +280,7 @@ CREATE TABLE enrollments (
                     ? "border-emerald-400 text-emerald-300 bg-slate-900"
                     : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>✅</span>
                 <span>4. Normalized Solution</span>
               </button>
@@ -301,7 +301,7 @@ CREATE TABLE enrollments (
                 <button
                   onClick={() => handleCopy(simulatorScenarios[selectedTab].sqlCode)}
                   className="px-3 py-1.5 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition"
-                >
+                &gt;
                   {copiedCode ? "✓ SQL Copied" : "📋 Copy SQL Code"}
                 </button>
               </div>
@@ -392,7 +392,7 @@ CREATE TABLE enrollments (
                     "px-3 py-2 rounded-lg text-xs font-mono font-semibold border transition",
                     closureInput === "student_id" ? "bg-teal-900/60 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   {'{ student_id }'}
                 </button>
                 <button
@@ -401,7 +401,7 @@ CREATE TABLE enrollments (
                     "px-3 py-2 rounded-lg text-xs font-mono font-semibold border transition",
                     closureInput === "course_id" ? "bg-amber-900/60 border-amber-500 text-amber-200" : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   {'{ course_id }'}
                 </button>
                 <button
@@ -410,7 +410,7 @@ CREATE TABLE enrollments (
                     "px-3 py-2 rounded-lg text-xs font-mono font-semibold border transition",
                     closureInput === "student_id, course_id" ? "bg-emerald-900/60 border-emerald-500 text-emerald-200" : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   {'{ student_id, course_id } (Composite)'}
                 </button>
                 <button
@@ -419,7 +419,7 @@ CREATE TABLE enrollments (
                     "px-3 py-2 rounded-lg text-xs font-mono font-semibold border transition",
                     closureInput === "city" ? "bg-rose-900/60 border-rose-500 text-rose-200" : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   {'{ city }'}
                 </button>
               </div>

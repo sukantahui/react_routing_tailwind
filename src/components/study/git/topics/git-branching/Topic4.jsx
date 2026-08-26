@@ -134,7 +134,7 @@ function calculateTotal() {
 function calculateTotal() {
   return price + tax + discount;
 }
->>>>>>> feature-branch`}
+>&gt;>>>>> feature-branch`}
           </pre>
 
           <p className="text-slate-400 text-sm mt-2">

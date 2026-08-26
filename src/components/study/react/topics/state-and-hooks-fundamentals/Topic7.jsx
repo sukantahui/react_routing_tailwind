@@ -397,10 +397,10 @@ const [marks, setMarks]
                         className={clsx(
                           "p-3 rounded-lg text-center transition-all duration-300",
                           mark >= 85 ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300" :
-                          mark >= 75 ? "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300" :
+                          mark &ge; 75 ? "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300" :
                           "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300"
                         )}
-                      >
+                      &gt;
                         <div className="text-xs opacity-75">Test {index + 1}</div>
                         <div className="font-bold text-lg">{mark}</div>
                       </div>

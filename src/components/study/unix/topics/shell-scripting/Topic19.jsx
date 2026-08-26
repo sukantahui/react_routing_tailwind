@@ -50,7 +50,7 @@ const Topic19 = () => {
             id: "named", 
             name: "Named Pipe", 
             description: "FIFO for process communication",
-            syntax: "mkfifo pipe; cmd1 > pipe & cmd2 < pipe",
+            syntax: "mkfifo pipe; cmd1 &gt; pipe & cmd2 < pipe",
             color: "from-yellow-500 to-amber-600",
             example: "mkfifo mypipe; producer > mypipe & consumer < mypipe"
         },
@@ -217,7 +217,7 @@ const Topic19 = () => {
                                     animationDelay: `${index * 100}ms`,
                                     animation: 'motion-safe:animate-[fadeInUp_0.6s_ease-out]'
                                 }}
-                            >
+                            &gt;
                                 <div className="font-bold mb-1">{pipe.name}</div>
                                 <div className="text-sm mb-2">{pipe.description}</div>
                                 <code className="text-xs opacity-80 bg-black/10 dark:bg-white/10 px-2 py-1 rounded block truncate mb-1">
@@ -248,18 +248,18 @@ const Topic19 = () => {
                                                         ? "bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg scale-105"
                                                         : "bg-gray-100 dark:bg-gray-700"
                                                 )}
-                                            >
+                                            &gt;
                                                 <div className="flex items-center">
                                                     <div className={clsx(
                                                         "w-8 h-8 rounded-full flex items-center justify-center mr-3",
                                                         currentStage > index 
                                                             ? "bg-white/30" 
                                                             : "bg-gray-200 dark:bg-gray-600"
-                                                    )}>
+                                                    )}&gt;
                                                         <span className={clsx(
                                                             "font-bold",
                                                             currentStage > index ? "text-white" : "text-gray-600 dark:text-gray-400"
-                                                        )}>
+                                                        )}&gt;
                                                             {stage.stage}
                                                         </span>
                                                     </div>
@@ -295,7 +295,7 @@ const Topic19 = () => {
                                     <div className="mb-4">
                                         <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">Current Stage:</div>
                                         <div className="font-mono text-lg font-bold text-blue-600 dark:text-blue-400">
-                                            {currentStage > 0 ? pipelineStages[currentStage - 1]?.command : "Ready to start"}
+                                            {currentStage &gt; 0 ? pipelineStages[currentStage - 1]?.command : "Ready to start"}
                                         </div>
                                     </div>
                                     
@@ -306,15 +306,15 @@ const Topic19 = () => {
                                         </pre>
                                     </div>
                                     
-                                    {currentStage > 0 && (
+                                    {currentStage &gt; 0 && (
                                         <div className="mt-4 p-4 bg-white/50 dark:bg-gray-700/50 rounded-lg">
                                             <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">Data Flow:</div>
                                             <ul className="text-gray-700 dark:text-gray-300 space-y-1">
-                                                {currentStage >= 1 && <li>✓ Generated 1-100 with seq</li>}
-                                                {currentStage >= 2 && <li>✓ Filtered even numbers with grep</li>}
-                                                {currentStage >= 3 && <li>✓ Transformed numbers to text with sed</li>}
-                                                {currentStage >= 4 && <li>✓ Sorted numerically with sort</li>}
-                                                {currentStage >= 5 && <li>✓ Limited to top 5 with head</li>}
+                                                {currentStage &ge; 1 && <li>✓ Generated 1-100 with seq</li>}
+                                                {currentStage &ge; 2 && <li>✓ Filtered even numbers with grep</li>}
+                                                {currentStage &ge; 3 && <li>✓ Transformed numbers to text with sed</li>}
+                                                {currentStage &ge; 4 && <li>✓ Sorted numerically with sort</li>}
+                                                {currentStage &ge; 5 && <li>✓ Limited to top 5 with head</li>}
                                             </ul>
                                         </div>
                                     )}
@@ -536,7 +536,7 @@ cat large_file.txt | \
                             </h3>
                             <code className="text-sm text-gray-700 dark:text-gray-300 block bg-gray-100 dark:bg-gray-800 p-3 rounded mb-3">
 {`# Process data with intermediate files
-cat large_file.txt > tmp1
+cat large_file.txt &gt; tmp1
 grep "pattern" tmp1 > tmp2
 sort tmp2 > tmp3
 uniq -c tmp3 > tmp4
@@ -671,7 +671,7 @@ generate_large_data | sort | process_stream`}
 {`# Filter first, then sort smaller dataset
 generate_large_data | grep "interesting" | sort | process_stream
 # Or use temporary file for huge datasets
-generate_large_data > tmpfile
+generate_large_data &gt; tmpfile
 sort tmpfile | process_stream
 rm tmpfile`}
                             </code>

@@ -41,7 +41,7 @@ export default function Topic7() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        >
+        &gt;
           <h1 className="text-4xl font-bold bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text text-transparent">
             SUMIFS Function (Multiple Condition Summation)
           </h1>
@@ -54,7 +54,7 @@ export default function Topic7() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-teal-500/50 transition-all duration-300"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-teal-400">📐</span> Function Prototype
           </h2>
@@ -75,7 +75,7 @@ export default function Topic7() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">🧠 How SUMIFS Works</h2>
           <div className="mt-4 space-y-4 text-gray-200 leading-relaxed">
             <p>
@@ -83,9 +83,9 @@ export default function Topic7() {
               You can add up to 127 condition pairs.
             </p>
             <div className="bg-gray-900 rounded-lg p-4 border-l-4 border-teal-500">
-              <p className="font-mono text-sm">✅ <span className="text-green-300">=SUMIFS(C2:C100, A2:A100, "Rice", B2:B100, "{`>`}50")</span> → sum of Rice sales where Quantity &gt; 50</p>
+              <p className="font-mono text-sm">✅ <span className="text-green-300">=SUMIFS(C2:C100, A2:A100, "Rice", B2:B100, "{`&gt;`}50")</span> → sum of Rice sales where Quantity &gt; 50</p>
               <p className="font-mono text-sm mt-1">✅ <span className="text-green-300">=SUMIFS(Sales, Region, "North", Product, "Laptop")</span> → sum Laptop sales in North region</p>
-              <p className="font-mono text-sm mt-1">⚠️ <span className="text-yellow-300">{`=SUMIFS(A1:A10, B1:B10, ">5", C1:C10, "<>0")</span> → sum A where B>5 and C not zero`}</span></p>
+              <p className="font-mono text-sm mt-1">⚠️ <span className="text-yellow-300">{`=SUMIFS(A1:A10, B1:B10, "&gt;5", C1:C10, "<>0")</span> → sum A where B&gt;5 and C not zero`}</span></p>
             </div>
           </div>
         </section>
@@ -94,7 +94,7 @@ export default function Topic7() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">📊 Real-World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -110,7 +110,7 @@ export default function Topic7() {
                   <tr><td className="border px-3 py-1">Wheat</td><td className="border px-3 py-1">Grocery</td><td className="border px-3 py-1">450</td><td className="border px-3 py-1">3</td></tr>
                 </tbody>
               </table>
-              <p className="mt-3 text-teal-300">=SUMIFS(C2:C5, A2:A5, "Rice", D2:D5, "{`>4`}") → 600 + 750 = 1350</p>
+              <p className="mt-3 text-teal-300">=SUMIFS(C2:C5, A2:A5, "Rice", D2:D5, "{`&gt;4`}") → 600 + 750 = 1350</p>
             </div>
           </div>
         </section>
@@ -119,7 +119,7 @@ export default function Topic7() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (
@@ -148,8 +148,8 @@ export default function Topic7() {
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Confusing argument order: SUMIFS puts <strong>sum_range first</strong>, whereas SUMIF puts sum_range last.</li>
             <li>Using different sized ranges – all criteria ranges and sum_range must have same number of rows and columns.</li>
-            <li>{`Forgetting quotes around criteria when using operators: ">5" not >5.`}</li>
-            <li>Missing &amp; when concatenating cell references: "{`>`}"&amp;E1.</li>
+            <li>{`Forgetting quotes around criteria when using operators: "&gt;5" not >5.`}</li>
+            <li>Missing &amp; when concatenating cell references: "{`&gt;`}"&amp;E1.</li>
             <li>SUMIFS returns 0 if no cells meet all criteria – not an error.</li>
           </ul>
         </section>
@@ -158,9 +158,9 @@ export default function Topic7() {
         <section className="reveal-section bg-green-900/20 border border-green-800 rounded-2xl p-5 hover:border-green-500 transition-all">
           <h3 className="text-xl font-semibold text-green-300">✅ Best Practices</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
-            <li>Use absolute references for ranges when copying formulas: =SUMIFS($C$2:$C$100, $A$2:$A$100, "Rice", $B$2:$B$100, "{`>4"`}).</li>
+            <li>Use absolute references for ranges when copying formulas: =SUMIFS($C$2:$C$100, $A$2:$A$100, "Rice", $B$2:$B$100, "{`&gt;4"`}).</li>
             <li>Prefer SUMIFS even for single condition – it's easier to add more later.</li>
-            <li>Use named ranges or Excel Tables for cleaner formulas: =SUMIFS(Table1[Sales], Table1[Product], E2, Table1[Qty], "{`>4"`}).</li>
+            <li>Use named ranges or Excel Tables for cleaner formulas: =SUMIFS(Table1[Sales], Table1[Product], E2, Table1[Qty], "{`&gt;4"`}).</li>
             <li>Test each criterion separately using COUNTIFS to debug.</li>
           </ul>
         </section>
@@ -179,7 +179,7 @@ export default function Topic7() {
           <h3 className="text-xl font-semibold text-purple-300">💡 Professional Tips & Tricks</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Use wildcards in criteria: =SUMIFS(Sales, Product, "*Phone*") – any product containing "Phone".</li>
-            <li>Dynamic date ranges: =SUMIFS(Sales, Date, "{`>`}="&amp;E1, Date, "&lt;="&amp;E2).</li>
+            <li>Dynamic date ranges: =SUMIFS(Sales, Date, "{`&gt;`}="&amp;E1, Date, "<="&amp;E2).</li>
             <li>SUMIFS can sum based on another column's value: =SUMIFS(Amount, Region, "North", Salesperson, "Swadeep").</li>
             <li>For large datasets, SUMIFS is well optimised – faster than array formulas.</li>
           </ul>
@@ -192,8 +192,8 @@ export default function Topic7() {
             <li>✅ Syntax: =SUMIFS(sum_range, criteria_range1, criteria1, ...)</li>
             <li>✅ sum_range comes first (unlike SUMIF)</li>
             <li>✅ Ranges must be same size</li>
-            <li>✅ Use quotes for operators: "{`>10`}"</li>
-            <li>✅ Use &amp; to reference cells: "{`>`}"&amp;A1</li>
+            <li>✅ Use quotes for operators: "{`&gt;10`}"</li>
+            <li>✅ Use &amp; to reference cells: "{`&gt;`}"&amp;A1</li>
             <li>✅ Up to 127 condition pairs</li>
           </ul>
         </div>
@@ -202,7 +202,7 @@ export default function Topic7() {
         <FAQTemplate title="SUMIFS Function – Frequently Asked Questions" questions={questions} />
 
         {/* Teacher's Note */}
-        <Teacher note={"Emphasise the argument order difference from SUMIF. Start with two criteria: product and region. Then add a third (e.g., quantity > 5). Show how SUMIFS is more readable than nested SUMIFs. The Excel sheet 'sumifs_data' should contain at least 4 columns: Product, Region, Sales, Quantity."} />
+        <Teacher note={"Emphasise the argument order difference from SUMIF. Start with two criteria: product and region. Then add a third (e.g., quantity > 5). Show how SUMIFS is more readable than nested SUMIFs. The Excel sheet 'sumifs_data' should contain at least 4 columns: Product, Region, Sales, Quantity."} /&gt;
       </div>
 
       <style>{`

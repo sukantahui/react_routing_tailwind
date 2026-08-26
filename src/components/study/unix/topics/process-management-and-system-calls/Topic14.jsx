@@ -193,7 +193,7 @@ top -b -n 1 | head -20
 
 # Log every 10 seconds for 1 hour
 while true; do
-    echo "=== $(date) ===" >> /var/log/top.log
+    echo "=== $(date) ===" &gt;> /var/log/top.log
     top -b -n 1 -w 512 >> /var/log/top.log
     sleep 10
 done

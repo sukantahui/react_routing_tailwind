@@ -316,7 +316,7 @@ WHERE e.student_id IS NULL; -- Isolates only orphans!`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Filter in ON (Preserves All)
               </button>
 
@@ -328,7 +328,7 @@ WHERE e.student_id IS NULL; -- Isolates only orphans!`,
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Filter in WHERE (Row Loss)
               </button>
 
@@ -340,7 +340,7 @@ WHERE e.student_id IS NULL; -- Isolates only orphans!`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Left Table WHERE
               </button>
 
@@ -352,7 +352,7 @@ WHERE e.student_id IS NULL; -- Isolates only orphans!`,
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Anti-Join (IS NULL)
               </button>
             </div>
@@ -487,7 +487,7 @@ SELECT
 FROM customers c
 LEFT JOIN orders o 
     ON c.customer_id = o.customer_id 
-   AND o.order_date >= CURDATE() - INTERVAL 90 DAY
+   AND o.order_date &ge; CURDATE() - INTERVAL 90 DAY
 WHERE o.order_id IS NULL; -- Isolates customers with zero recent orders!`}
               </pre>
             </div>

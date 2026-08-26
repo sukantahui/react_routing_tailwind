@@ -151,7 +151,7 @@ const Topic3 = () => {
           <ul className="list-disc list-inside space-y-2">
             <li>Encapsulate each operation in a function – this makes the code reusable and easier to test.</li>
             <li>Pass both the array and the current size (and capacity for insert) to functions.</li>
-            <li>Validate indices: <code>if (pos &lt; 0 || pos &gt;= n) return error;</code> and for insert also check <code>n &lt; capacity</code>.</li>
+            <li>Validate indices: <code>if (pos &lt; 0 || pos >= n) return error;</code> and for insert also check <code>n &lt; capacity</code>.</li>
             <li>Use meaningful variable names: <code>current_size</code>, <code>capacity</code>, <code>position</code>.</li>
             <li>Consider returning a status code (success/failure) instead of modifying a global variable.</li>
           </ul>

@@ -70,7 +70,7 @@ const Topic3 = () => {
     let tempSeq = currentSequenceNumber;
     for (let i = 11; i >= 4; i--) {
       seqBytes[i] = tempSeq & 0xff;
-      tempSeq = tempSeq >> 8;
+      tempSeq = tempSeq &gt;> 8;
     }
 
     // XOR byte by byte
@@ -269,7 +269,7 @@ const Topic3 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Legacy TLS 1.2 Record
               </button>
               <button
@@ -280,7 +280,7 @@ const Topic3 = () => {
                     ? "bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Modern TLS 1.3 Record (AEAD)
               </button>
             </div>
@@ -297,7 +297,7 @@ const Topic3 = () => {
                   value={selectedSubProtocol}
                   onChange={(e) => setSelectedSubProtocol(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-cyan-500 focus:outline-none"
-                >
+                &gt;
                   <option value="app_data">Application Data (HTTP/2 Payload - Type 23)</option>
                   <option value="alert_protocol">Alert Message (CloseNotify - Type 21)</option>
                   <option value="handshake_protocol">Handshake Message (KeyUpdate - Type 22)</option>
@@ -319,7 +319,7 @@ const Topic3 = () => {
                     value={paddingZeroBytes}
                     onChange={(e) => setPaddingZeroBytes(Number(e.target.value))}
                     className="w-full accent-cyan-500 cursor-pointer"
-                  />
+                  /&gt;
                 </div>
               )}
             </div>
@@ -436,7 +436,7 @@ const Topic3 = () => {
                 value={currentSequenceNumber}
                 onChange={(e) => setCurrentSequenceNumber(Number(e.target.value))}
                 className="w-full accent-cyan-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Ticks up by 1 with every record. Never transmitted on the wire!
               </p>
@@ -453,7 +453,7 @@ const Topic3 = () => {
                 onChange={(e) => setBaseIvHex(e.target.value.toLowerCase().replace(/[^0-9a-f]/g, ""))}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white font-mono focus:border-cyan-500 focus:outline-none"
                 maxLength={24}
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 12-byte static vector derived during the HKDF key expansion.
               </p>
@@ -512,7 +512,7 @@ const Topic3 = () => {
                 value={configuredRecordSizeBytes}
                 onChange={(e) => setConfiguredRecordSizeBytes(Number(e.target.value))}
                 className="w-full accent-cyan-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Small initial records (1,400B) fit in 1 TCP packet; bulk records (16 KB) span ~11 packets.
               </p>
@@ -532,7 +532,7 @@ const Topic3 = () => {
                 value={mobileRttMs}
                 onChange={(e) => setMobileRttMs(Number(e.target.value))}
                 className="w-full accent-emerald-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Latency across 4G cellular links in Kolkata and suburban West Bengal.
               </p>
@@ -709,7 +709,7 @@ const Topic3 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Barrackpore Padding Drill
               </button>
               <button
@@ -720,7 +720,7 @@ const Topic3 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Sector V Record Tuning Drill
               </button>
             </div>

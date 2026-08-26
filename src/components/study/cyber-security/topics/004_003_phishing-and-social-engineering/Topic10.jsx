@@ -51,7 +51,7 @@ _dmarc.kolkata-fintech.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=m
         "Exceeding the 10 DNS lookup limit triggers `SPF PermError`, which causes receiving gateways to bypass SPF checks, allowing unauthorized senders to forge Return-Path addresses.",
       vulnerabilityImpact:
         "Unauthorized SMTP servers send emails using the victim's domain without being rejected by receiving gateways.",
-      telemetryIndicator: "SPF evaluation returning `PermError` or `SoftFail` due to nested lookup overflow (>10 lookups)",
+      telemetryIndicator: "SPF evaluation returning `PermError` or `SoftFail` due to nested lookup overflow (&gt;10 lookups)",
       resilientDefense: "SPF record flattening into static CIDR ranges and strict `-all` hard fail enforcement.",
       codeSnippet: `// Flattened SPF DNS TXT Record:
 kolkata-fintech.in. IN TXT "v=spf1 ip4:103.25.10.50/28 ip4:198.51.100.0/24 include:_spf.google.com -all"`
@@ -176,11 +176,11 @@ _25._tcp.mail.kolkata-fintech.in. IN TLSA 3 1 1 5f8a9e7d4c2b1a0f8e7d6c5b4a3f2e1d
     const numerator = alignmentStrictness * dkimKeyStrength;
     const exponent = -numerator / dmarcPolicyStrength;
     const rawSpoofProb = (1 - Math.exp(exponent)) * 100;
-    const actualSpoofProb = dmarcPolicyStrength >= 500
+    const actualSpoofProb = dmarcPolicyStrength &ge; 500
       ? (rawSpoofProb * 0.015).toFixed(2) // DMARC p=reject blocks 98.5% of spoofing
       : dmarcPolicyStrength >= 50
       ? (rawSpoofProb * 0.35).toFixed(2)  // DMARC p=quarantine blocks 65% of spoofing
-      : rawSpoofProb.toFixed(2);           // DMARC p=none -> 100% vulnerable to exact-domain spoofing
+      : rawSpoofProb.toFixed(2);           // DMARC p=none &rarr; 100% vulnerable to exact-domain spoofing
 
     return {
       rawSpoofProb: rawSpoofProb.toFixed(2),
@@ -625,7 +625,7 @@ _mta-sts IN     TXT     "v=STSv1; id=20260823T120000Z"`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   STANDARD
                 </span>
@@ -722,7 +722,7 @@ _mta-sts IN     TXT     "v=STSv1; id=20260823T120000Z"`,
                   value={alignmentStrictness}
                   onChange={(e) => setAlignmentStrictness(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -738,7 +738,7 @@ _mta-sts IN     TXT     "v=STSv1; id=20260823T120000Z"`,
                   value={dkimKeyStrength}
                   onChange={(e) => setDkimKeyStrength(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -752,7 +752,7 @@ _mta-sts IN     TXT     "v=STSv1; id=20260823T120000Z"`,
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     p=none (1x)
                   </button>
                   <button
@@ -763,7 +763,7 @@ _mta-sts IN     TXT     "v=STSv1; id=20260823T120000Z"`,
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     p=quarantine (50x)
                   </button>
                   <button
@@ -774,7 +774,7 @@ _mta-sts IN     TXT     "v=STSv1; id=20260823T120000Z"`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     p=reject (500x)
                   </button>
                 </div>
@@ -833,7 +833,7 @@ _mta-sts IN     TXT     "v=STSv1; id=20260823T120000Z"`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -882,7 +882,7 @@ _mta-sts IN     TXT     "v=STSv1; id=20260823T120000Z"`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

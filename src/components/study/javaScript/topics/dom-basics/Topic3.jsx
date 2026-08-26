@@ -46,7 +46,7 @@ export default class Topic3 extends Component {
         <CodeBlock
           language="html"
           code={`<div id="container"></div>`}
-        />
+        /&gt;
 
         {/* JS */}
         <CodeBlock
@@ -134,7 +134,7 @@ unwanted.remove();`}
 </ul>
 
 <button id="addBtn">Add New Student</button>`}
-        />
+        /&gt;
 
         {/* JS */}
         <CodeBlock
@@ -147,7 +147,7 @@ btn.addEventListener("click", () => {
   newStd.innerText = "Devangshu";
   list.appendChild(newStd);
 });`}
-        />
+        /&gt;
 
 
         {/* ===========================

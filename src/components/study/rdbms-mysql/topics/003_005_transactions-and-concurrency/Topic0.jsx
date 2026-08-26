@@ -30,7 +30,7 @@ START TRANSACTION;
 -- Step 1: Deduct ₹5,000 from Mamata's Account:
 UPDATE student_bank_accounts 
 SET balance = balance - 5000.00 
-WHERE student_id = 101 AND balance >= 5000.00;
+WHERE student_id = 101 AND balance &ge; 5000.00;
 
 -- Step 2: Add ₹5,000 to Susmita's Account:
 UPDATE student_bank_accounts 
@@ -296,7 +296,7 @@ DELIMITER ;`,
                     <text x="325" y="102" fill="#bae6fd" fontSize="7 font-mono" textAnchor="middle">Staged in Undo/Redo Logs</text>
                   </g>
 
-                  {/* Step 3: Fork -> COMMIT / ROLLBACK */}
+                  {/* Step 3: Fork &rarr; COMMIT / ROLLBACK */}
                   <g>
                     {/* COMMIT Path */}
                     <rect x="460" y="15" width="170" height="60" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="2" />
@@ -397,7 +397,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

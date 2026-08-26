@@ -32,7 +32,7 @@ CREATE TABLE job_candidates (
     profile JSON NOT NULL,
     
     -- Multi-Valued Index on the JSON array $.skills[*]:
-    INDEX idx_skills ((CAST(profile->'$.skills' AS CHAR(30) ARRAY)))
+    INDEX idx_skills ((CAST(profile &rarr; '$.skills' AS CHAR(30) ARRAY)))
 );
 
 -- Inserting a single row with 3 skills in an array:
@@ -41,7 +41,7 @@ INSERT INTO job_candidates (candidate_name, profile) VALUES
 
 -- HOW INNODB INDEXES THIS:
 -- Creates 3 SEPARATE B+ Tree index entries for Candidate ID 1:
--- ['MySQL']   -> PK 1
+-- ['MySQL']   -&gt; PK 1
 -- ['React']   -> PK 1
 -- ['Node.js'] -> PK 1! 🚀`,
       metricsTable: [
@@ -349,7 +349,7 @@ WHERE 'React' MEMBER OF (profile->'$.skills');
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -467,7 +467,7 @@ WHERE 'React' MEMBER OF (profile->'$.skills');
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                In Barrackpore, filtering 1 million student resumes for candidates with `'MySQL'` in their <code>{"profile->'$.skills'"}</code> array previously took 4.8 seconds because MySQL had to parse every JSON document sequentially. Adding a Multi-Valued Index <code>{"INDEX idx_skills ((CAST(profile->'$.skills' AS CHAR(30) ARRAY)))"}</code> dropped query latency to 1.4 milliseconds, enabling instant sub-second candidate recruitment searches.
+                In Barrackpore, filtering 1 million student resumes for candidates with `'MySQL'` in their <code>{"profile &rarr; '$.skills'"}</code> array previously took 4.8 seconds because MySQL had to parse every JSON document sequentially. Adding a Multi-Valued Index <code>{"INDEX idx_skills ((CAST(profile &rarr; '$.skills' AS CHAR(30) ARRAY)))"}</code> dropped query latency to 1.4 milliseconds, enabling instant sub-second candidate recruitment searches.
               </p>
             </div>
 
@@ -506,7 +506,7 @@ WHERE 'React' MEMBER OF (profile->'$.skills');
                 <span>⚠️</span> Pitfall 1: Under-Sizing the Cast Array Type
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Defining <code>{"CAST(doc->'$.tags' AS CHAR(10) ARRAY)"}</code> triggers insert errors if a user inserts a tag with 11 characters.
+                Defining <code>{"CAST(doc &rarr; '$.tags' AS CHAR(10) ARRAY)"}</code> triggers insert errors if a user inserts a tag with 11 characters.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
                 Rule: Size the array cast type to accommodate the maximum expected element length.
@@ -530,7 +530,7 @@ WHERE 'React' MEMBER OF (profile->'$.skills');
                 <span>✓</span> Best Practice 1: Use MEMBER OF() for Single Tags
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Use <code>{"'tag' MEMBER OF (doc->'$.tags')"}</code> as the primary search operator to ensure clean range seeks on the Multi-Valued Index.
+                Use <code>{"'tag' MEMBER OF (doc &rarr; '$.tags')"}</code> as the primary search operator to ensure clean range seeks on the Multi-Valued Index.
               </p>
               <div className="text-xs text-slate-400">
                 Standard SQL operator for single-item membership checks.
@@ -542,7 +542,7 @@ WHERE 'React' MEMBER OF (profile->'$.skills');
                 <span>✓</span> Best Practice 2: Combine with Relational Columns
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Create composite indexes combining foreign keys with multi-valued arrays (<code>{"INDEX (store_id, (CAST(doc->'$.tags' AS CHAR(30) ARRAY)))"}</code>).
+                Create composite indexes combining foreign keys with multi-valued arrays (<code>{"INDEX (store_id, (CAST(doc &rarr; '$.tags' AS CHAR(30) ARRAY)))"}</code>).
               </p>
               <div className="text-xs text-slate-400">
                 Enables compound multi-tier index seeks.
@@ -594,7 +594,7 @@ WHERE 'React' MEMBER OF (profile->'$.skills');
               <div className="space-y-4 text-xs sm:text-sm text-slate-300">
                 <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
                   <span className="text-cyan-400 font-bold block mb-1">“Observe JSON_OVERLAPS in E-Commerce...”</span>
-                  <code>{"JSON_OVERLAPS(profile->'$.interests', '[\"electronics\", \"mobile\", \"gadgets\"]')"}</code> checks if the customer is interested in ANY of those categories, and executes a multi-key B+ tree range scan in under 1ms!
+                  <code>{"JSON_OVERLAPS(profile &rarr; '$.interests', '[\"electronics\", \"mobile\", \"gadgets\"]')"}</code> checks if the customer is interested in ANY of those categories, and executes a multi-key B+ tree range scan in under 1ms!
                 </div>
                 <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
                   <span className="text-emerald-400 font-bold block mb-1">“Think about Many-to-Many Simplicity...”</span>

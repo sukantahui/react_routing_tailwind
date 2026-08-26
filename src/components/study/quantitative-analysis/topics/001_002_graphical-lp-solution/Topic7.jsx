@@ -52,7 +52,7 @@ const Topic7 = () => {
         { 
             label: "x + 2y > 8", 
             a: 1, b: 2, c: 8, 
-            sign: ">", 
+            sign: "&gt;", 
             testPoint: { x: 0, y: 0 },
             expectedResult: false,
             explanation: "0 > 8 is false → shade opposite side (dashed)"
@@ -81,7 +81,7 @@ const Topic7 = () => {
         const { a, b, c } = current;
         const points = [];
         if (b !== 0 && a !== 0) {
-            for (let x = -5; x <= 5; x += 0.1) {
+            for (let x = -5; x &le; 5; x += 0.1) {
                 const y = (c - a * x) / b;
                 if (y >= -5 && y <= 5) {
                     points.push(toPixel(x, y));
@@ -89,7 +89,7 @@ const Topic7 = () => {
             }
         } else if (a !== 0 && b === 0) {
             const xVal = c / a;
-            if (xVal >= -5 && xVal <= 5) {
+            if (xVal >= -5 && xVal &le; 5) {
                 const px = 200 + xVal * 40;
                 points.push({ px, py: 20 });
                 points.push({ px, py: 380 });
@@ -132,7 +132,7 @@ const Topic7 = () => {
                     pts.push({ px: 380, py: 380 });
                     // Find intersection with right edge
                     const yRight = yAtX(4.5);
-                    if (yRight >= -4.5 && yRight <= 4.5) {
+                    if (yRight &ge; -4.5 && yRight &le; 4.5) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     // Find intersection with left edge
@@ -145,7 +145,7 @@ const Topic7 = () => {
                     pts.push({ px: 20, py: 20 });
                     pts.push({ px: 380, py: 20 });
                     const yRight = yAtX(4.5);
-                    if (yRight >= -4.5 && yRight <= 4.5) {
+                    if (yRight >= -4.5 && yRight &le; 4.5) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-4.5);
@@ -160,7 +160,7 @@ const Topic7 = () => {
                     pts.push({ px: 20, py: 20 });
                     pts.push({ px: 380, py: 20 });
                     const yRight = yAtX(4.5);
-                    if (yRight >= -4.5 && yRight <= 4.5) {
+                    if (yRight &ge; -4.5 && yRight &le; 4.5) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-4.5);
@@ -172,7 +172,7 @@ const Topic7 = () => {
                     pts.push({ px: 20, py: 380 });
                     pts.push({ px: 380, py: 380 });
                     const yRight = yAtX(4.5);
-                    if (yRight >= -4.5 && yRight <= 4.5) {
+                    if (yRight >= -4.5 && yRight &le; 4.5) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-4.5);
@@ -218,7 +218,7 @@ const Topic7 = () => {
         }
         
         // Filter points to be within bounds
-        return pts.filter(p => p.px >= 20 && p.px <= 380 && p.py >= 20 && p.py <= 380);
+        return pts.filter(p => p.px &ge; 20 && p.px &le; 380 && p.py >= 20 && p.py <= 380);
     };
 
     const shadingPolygon = getShadingPolygon();
@@ -292,7 +292,7 @@ const Topic7 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎨</span>
                         What is Shading the Half-Plane?
@@ -337,7 +337,7 @@ const Topic7 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">✏️</span>
                         How to Shade the Half-Plane
@@ -383,7 +383,7 @@ const Topic7 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🖱️</span>
                         See Shading in Action
@@ -404,7 +404,7 @@ const Topic7 = () => {
                                         ? "bg-amber-600 text-white border-amber-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showShading ? "Hide Shading" : "Show Shading"}
                             </button>
                         </div>
@@ -421,7 +421,7 @@ const Topic7 = () => {
                                             ? "bg-amber-600 dark:bg-amber-500 text-white border-amber-600 dark:border-amber-500 shadow-md"
                                             : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-amber-400 dark:hover:border-amber-500"
                                     )}
-                                >
+                                &gt;
                                     {con.label}
                                 </button>
                             ))}
@@ -439,14 +439,14 @@ const Topic7 = () => {
                                 <rect width="400" height="400" fill="url(#grid_t7)" />
 
                                 {/* Shading */}
-                                {showShading && shadingPolygon.length > 2 && (
+                                {showShading && shadingPolygon.length &gt; 2 && (
                                     <polygon
                                         points={shadingPolygon.map(p => `${p.px},${p.py}`).join(' ')}
                                         fill="#fbbf24"
                                         fillOpacity="0.25"
                                         stroke="none"
                                         className="dark:fill-amber-400 dark:fill-opacity-20"
-                                    />
+                                    /&gt;
                                 )}
 
                                 {/* Axes */}
@@ -466,7 +466,7 @@ const Topic7 = () => {
                                     <g key={`t7-tick-${v}`}>
                                         <line x1={v} y1="195" x2={v} y2="205" stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
                                         <line x1="195" y1={v} x2="205" y2={v} stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
-                                        {v >= 40 && v <= 360 && (
+                                        {v &ge; 40 && v &le; 360 && (
                                             <>
                                                 <text x={v - 4} y="218" fontSize="11" fill="#475569" className="dark:fill-slate-500">{v === 200 ? 0 : (v - 200) / 40}</text>
                                                 <text x="178" y={v + 5} fontSize="11" fill="#475569" className="dark:fill-slate-500">{v === 200 ? 0 : (200 - v) / 40}</text>
@@ -476,14 +476,14 @@ const Topic7 = () => {
                                 ))}
 
                                 {/* Draw constraint line */}
-                                {linePoints.length > 1 && (
+                                {linePoints.length &gt; 1 && (
                                     <polyline
                                         points={linePoints.map(p => `${p.px},${p.py}`).join(' ')}
                                         fill="none"
                                         stroke="#8b5cf6"
                                         strokeWidth="3"
                                         strokeDasharray={isSolid ? "none" : "8,6"}
-                                    />
+                                    /&gt;
                                 )}
 
                                 {/* Test point marker */}
@@ -558,7 +558,7 @@ const Topic7 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📊</span>
                         Shading Patterns by Inequality Type
@@ -614,7 +614,7 @@ const Topic7 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🌍</span>
                         Real-World Examples
@@ -664,7 +664,7 @@ const Topic7 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -718,7 +718,7 @@ const Topic7 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[6]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

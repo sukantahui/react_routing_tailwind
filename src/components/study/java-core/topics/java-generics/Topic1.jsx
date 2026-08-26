@@ -721,7 +721,7 @@ public class StudentManagerWithGenerics {
 }`}
                   language="java"
                   showLineNumbers={true}
-                />
+                /&gt;
               </div>
               
               <div className="space-y-6">
@@ -890,7 +890,7 @@ public class ModernStudentSystem {
 }`}
                   language="java"
                   showLineNumbers={true}
-                />
+                /&gt;
               </div>
             </div>
           </div>

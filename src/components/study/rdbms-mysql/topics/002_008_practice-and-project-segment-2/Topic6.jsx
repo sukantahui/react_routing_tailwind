@@ -97,7 +97,7 @@ FROM MonthlyBranchSales;`,
 -- ✅ Refactored:
 SELECT enrollment_id, payment_date, amount_paid_inr 
 FROM fee_payments 
-WHERE payment_date >= '2026-01-01 00:00:00' 
+WHERE payment_date &ge; '2026-01-01 00:00:00' 
   AND payment_date < '2027-01-01 00:00:00'
 ORDER BY amount_paid_inr DESC;
 
@@ -355,7 +355,7 @@ CREATE INDEX idx_payment_covering ON fee_payments (payment_date, amount_paid_inr
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

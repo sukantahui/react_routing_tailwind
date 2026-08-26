@@ -24,7 +24,7 @@ const Topic6 = () => {
       name: "Fingerprint Minutiae Matching (ISO/IEC 19794-2)",
       features: "Ridge Endings, Bifurcations, Core & Delta Points",
       metric: "Minutiae Spatial Euclidean Distance & Orientation Angle Diff",
-      threshold: "Score >= 75% Minutiae Agreement",
+      threshold: "Score &ge; 75% Minutiae Agreement",
       typicalEer: "~0.1% Equal Error Rate",
       probeScore: "88.4%",
       verdict: "MATCH VERIFIED ✔: 24/28 Minutiae Points aligned within 10-pixel radius.",
@@ -44,7 +44,7 @@ const Topic6 = () => {
       name: "Daugman's IrisCode Recognition (2D Gabor Wavelets)",
       features: "2048-bit Phase Demodulation Binary Code + Noise Mask",
       metric: "Fractional Hamming Distance: HD = sum(A XOR B) / N",
-      threshold: "Hamming Distance HD <= 0.32 (<= 32% bit difference)",
+      threshold: "Hamming Distance HD &le; 0.32 (<= 32% bit difference)",
       typicalEer: "~1 in 4 Million (Highest Unique Entropy)",
       probeScore: "HD = 0.184 (81.6% Bit Match)",
       verdict: "MATCH VERIFIED ✔: Extreme confidence iris muscle trabecular match.",
@@ -71,7 +71,7 @@ const Topic6 = () => {
     let badgeColor = "";
     let description = "";
 
-    if (score >= 75) {
+    if (score &ge; 75) {
       status = "LIVE HUMAN VERIFIED ✔";
       badgeColor = "bg-emerald-950 text-emerald-300 border-emerald-700";
       description = "All physical biometric indicators (3D depth curvature, 36.8°C thermal signature, and micro-blink dynamics) confirmed. Presentation attack rejected.";
@@ -132,7 +132,7 @@ const Topic6 = () => {
       threatScenario:
         "High staff turnover and variable lighting conditions caused false rejection spikes with legacy 2D facial cameras during late-night maintenance shifts.",
       solution:
-        "Migrated to dual-eye Near-Infrared (NIR) Iris scanning using Daugman's 2048-bit algorithm with a strict Hamming Distance threshold of HD <= 0.30.",
+        "Migrated to dual-eye Near-Infrared (NIR) Iris scanning using Daugman's 2048-bit algorithm with a strict Hamming Distance threshold of HD &le; 0.30.",
       outcome:
         "Zero false acceptances over 36 months; seamless entry in complete darkness; audit certified under ISO 27001 physical security standards."
     },
@@ -213,7 +213,7 @@ const Topic6 = () => {
                       ? "bg-purple-600 text-white shadow-lg shadow-purple-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key}
                 </button>
               ))}
@@ -339,7 +339,7 @@ const Topic6 = () => {
                   checked={has3dDepth}
                   onChange={(e) => setHas3dDepth(e.target.checked)}
                   className="accent-purple-500 w-4 h-4"
-                />
+                /&gt;
               </label>
 
               <label className="flex items-center justify-between p-3 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
@@ -352,7 +352,7 @@ const Topic6 = () => {
                   checked={hasThermalHeat}
                   onChange={(e) => setHasThermalHeat(e.target.checked)}
                   className="accent-purple-500 w-4 h-4"
-                />
+                /&gt;
               </label>
 
               <label className="flex items-center justify-between p-3 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
@@ -365,7 +365,7 @@ const Topic6 = () => {
                   checked={hasMicroBlink}
                   onChange={(e) => setHasMicroBlink(e.target.checked)}
                   className="accent-purple-500 w-4 h-4"
-                />
+                /&gt;
               </label>
             </div>
 
@@ -405,7 +405,7 @@ const Topic6 = () => {
                     ? "bg-purple-600 text-white shadow-lg shadow-purple-950"
                     : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                 )}
-              >
+              &gt;
                 Transform Key Alpha
               </button>
               <button
@@ -416,7 +416,7 @@ const Topic6 = () => {
                     ? "bg-purple-600 text-white shadow-lg shadow-purple-950"
                     : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                 )}
-              >
+              &gt;
                 Revoke &amp; Issue Key Beta 🔄
               </button>
             </div>
@@ -462,7 +462,7 @@ const Topic6 = () => {
                       ? "bg-purple-600 text-white shadow-lg shadow-purple-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_biometrics" ? "Barrackpore Biometrics" : key === "kolkata_fintech_iris" ? "Kolkata Iris Vault" : "Ichapur Liveness"}
                 </button>
               ))}

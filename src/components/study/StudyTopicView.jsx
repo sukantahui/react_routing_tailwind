@@ -130,7 +130,7 @@ function TldrawWrapper({ onEditorReady, subjectKey }) {
         onMount={(e) => setEditor(e)}
         autoFocus
         persistenceKey={`${subjectKey}-tldraw-storage`}
-      />
+      /&gt;
     </div>
   );
 }
@@ -396,7 +396,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
         const rect = container.getBoundingClientRect();
         const newWidth = rect.right - e.clientX - 4;
         const available = rect.width - leftSidebarWidth - 4;
-        if (available <= 0) return;
+        if (available &le; 0) return;
         let newPercent = newWidth / available;
         newPercent = Math.max(0.25, Math.min(0.75, newPercent));
         setRightSidebarPercent(newPercent);
@@ -585,7 +585,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                     : "bg-slate-900 border-slate-800 text-slate-300 hover:text-white"
                   }`}
                 title="Toggle topics sidebar"
-              >
+              &gt;
                 <List size={16} />
                 <span className="hidden md:inline">{showSidebar ? "Hide Topics" : "Topic Index"}</span>
               </button>
@@ -597,7 +597,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                     : "bg-slate-900 border-slate-800 text-slate-300 hover:text-white"
                   }`}
                 title="Toggle study workspace & whiteboard"
-              >
+              &gt;
                 {showRightSidebar ? <PanelRightClose size={16} /> : <PanelRight size={16} />}
                 <span className="hidden md:inline">{showRightSidebar ? "Close Workspace" : "Workspace"}</span>
               </button>
@@ -610,7 +610,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                     : "bg-slate-900 border-slate-800 text-slate-300 hover:text-white"
                   }`}
                 title="Annotate directly on screen"
-              >
+              &gt;
                 <PenTool size={16} className={drawAnywhere ? "text-rose-400" : "text-slate-400"} />
                 <span className="hidden md:inline">{drawAnywhere ? "Stop Annotating" : "Annotate"}</span>
               </button>
@@ -620,7 +620,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                 onClick={() => setShowMathSymbols(true)}
                 className="px-3 py-1.5 rounded-xl text-sm font-semibold border transition flex items-center gap-1.5 bg-purple-950/40 border-purple-800/80 text-purple-300 hover:bg-purple-900/60 hover:text-white hover:border-purple-600 shadow-sm"
                 title="Open Mathematical Symbols & Pronunciation Dictionary"
-              >
+              &gt;
                 <Sigma size={16} className="text-purple-400" />
                 <span className="hidden xl:inline">Math Symbols</span>
               </button>
@@ -630,7 +630,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                 onClick={() => setFocusMode(!focusMode)}
                 className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition"
                 title="Focus Mode (Hide sidebars & clutter)"
-              >
+              &gt;
                 {focusMode ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
               </button>
 
@@ -703,7 +703,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                 type="button"
                 onClick={() => setSidebarOpen(true)}
                 className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 sm:hidden"
-              >
+              &gt;
                 <Menu size={16} />
               </button>
 
@@ -718,7 +718,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
         <button
           onClick={() => setFocusMode(false)}
           className="fixed top-5 right-5 z-50 px-4 py-2 rounded-xl bg-slate-900/95 border border-slate-700 text-sm font-semibold text-slate-200 hover:text-white backdrop-blur shadow-2xl flex items-center gap-2 transition"
-        >
+        &gt;
           <Minimize2 size={16} /> Exit Focus Mode
         </button>
       )}
@@ -759,12 +759,12 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                   value={sidebarSearch}
                   onChange={(e) => setSidebarSearch(e.target.value)}
                   className="w-full pl-9 pr-8 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-sm focus:outline-none focus:border-slate-700"
-                />
+                /&gt;
                 {sidebarSearch && (
                   <button
                     onClick={() => setSidebarSearch("")}
                     className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
-                  >
+                  &gt;
                     <X size={14} />
                   </button>
                 )}
@@ -829,14 +829,14 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
           {/* ============================================================== */}
           {sidebarOpen && (
             <>
-              <div className="fixed inset-0 z-40 bg-black/70 lg:hidden" onClick={() => setSidebarOpen(false)} />
+              <div className="fixed inset-0 z-40 bg-black/70 lg:hidden" onClick={() => setSidebarOpen(false)} /&gt;
               <aside className="fixed inset-y-0 left-0 z-50 w-80 bg-slate-950 border-r border-slate-800 p-5 flex flex-col lg:hidden">
                 <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
                   <div className="flex items-center gap-2">
                     <Layers size={18} className="text-sky-400" />
                     <span className="text-sm font-bold text-slate-200 truncate max-w-[200px]">{moduleData.title}</span>
                   </div>
-                  <button onClick={() => setSidebarOpen(false)} className="p-1 rounded-lg text-slate-400 hover:text-white">
+                  <button onClick={() => setSidebarOpen(false)} className="p-1 rounded-lg text-slate-400 hover:text-white"&gt;
                     <X size={18} />
                   </button>
                 </div>
@@ -856,7 +856,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                               ? "text-slate-400"
                               : "text-slate-300 hover:bg-slate-900"
                           }`}
-                      >
+                      &gt;
                         {isDone ? <CheckCircle2 size={16} className="text-emerald-400" /> : <Circle size={16} className="text-slate-600" />}
                         <span className="truncate">{i + 1}. {t}</span>
                       </Link>
@@ -915,7 +915,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                     <div className="w-8 h-8 border-2 border-slate-700 border-t-sky-400 rounded-full animate-spin mx-auto" />
                     <p className="text-sm">Loading topic formulation & calculations…</p>
                   </div>
-                }>
+                }&gt;
                   {TopicPage ? (
                     <TopicPage key={topicKey} />
                   ) : (
@@ -965,7 +965,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                     window.open(`https://wa.me/${cleanPhone}?text=${message}`, "_blank");
                   }}
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-100 hover:text-white border border-slate-700 text-sm font-semibold transition shadow-sm"
-                >
+                &gt;
                   <MessageSquare size={16} className="text-emerald-400" />
                   <span>Send Query via WhatsApp</span>
                 </button>
@@ -1009,7 +1009,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                 storageKey={`${subjectKey}-drawanywhere-${moduleSlug}-${topicIndex}`}
                 onClose={() => setDrawAnywhere(false)}
                 showToast={showToast}
-              />
+              /&gt;
             )}
           </main>
 
@@ -1051,7 +1051,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                           ? "bg-slate-800 text-slate-100 shadow-sm"
                           : "text-slate-400 hover:text-slate-200"
                         }`}
-                    >
+                    &gt;
                       Whiteboard
                     </button>
 
@@ -1061,7 +1061,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                           ? "bg-slate-800 text-slate-100 shadow-sm"
                           : "text-slate-400 hover:text-slate-200"
                         }`}
-                    >
+                    &gt;
                       TLDraw
                     </button>
 
@@ -1071,7 +1071,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                           ? "bg-slate-800 text-slate-100 shadow-sm"
                           : "text-slate-400 hover:text-slate-200"
                         }`}
-                    >
+                    &gt;
                       Notes
                     </button>
 
@@ -1081,7 +1081,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                           ? "bg-slate-800 text-slate-100 shadow-sm"
                           : "text-slate-400 hover:text-slate-200"
                         }`}
-                    >
+                    &gt;
                       Formulas
                     </button>
 
@@ -1091,7 +1091,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                           ? "bg-purple-900/80 text-purple-200 border border-purple-700 shadow-sm"
                           : "text-slate-400 hover:text-slate-200"
                         }`}
-                    >
+                    &gt;
                       Symbols
                     </button>
                   </div>
@@ -1100,7 +1100,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                     onClick={() => setShowRightSidebar(false)}
                     className="p-1.5 rounded-lg text-slate-400 hover:text-white"
                     title="Close workspace"
-                  >
+                  &gt;
                     <X size={16} />
                   </button>
                 </div>
@@ -1128,7 +1128,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                               onClick={() => handleShortcutClick(key, toolName)}
                               className={`px-2 py-0.5 rounded-md uppercase font-mono text-xs ${selectedShortcut === toolName ? "bg-slate-700 text-white font-bold" : "bg-slate-900 text-slate-400 hover:text-slate-200"
                                 }`}
-                            >
+                            &gt;
                               {key}
                             </button>
                           );
@@ -1142,7 +1142,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                       onEditorReady={(editor) => {
                         tldrawEditorRef.current = editor;
                       }}
-                    />
+                    /&gt;
                   </div>
                 )}
 
@@ -1163,7 +1163,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                         }}
                         className="p-1.5 text-slate-400 hover:text-white"
                         title="Download notes"
-                      >
+                      &gt;
                         <Download size={15} />
                       </button>
                     </div>
@@ -1172,7 +1172,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                       onChange={(e) => handleScratchpadChange(e.target.value)}
                       placeholder="Write your calculations, scratch notes, formulas here..."
                       className="flex-1 w-full bg-slate-950 text-slate-200 p-4 rounded-xl border border-slate-800 text-sm font-mono placeholder:text-slate-600 focus:outline-none focus:border-slate-700 resize-none leading-relaxed"
-                    />
+                    /&gt;
                   </div>
                 )}
 
@@ -1301,7 +1301,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
               <button
                 onClick={() => setShowMathSymbols(false)}
                 className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer text-lg font-bold"
-              >
+              &gt;
                 ✕
               </button>
             </div>

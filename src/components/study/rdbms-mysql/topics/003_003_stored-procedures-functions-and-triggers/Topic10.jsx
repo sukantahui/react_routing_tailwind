@@ -85,7 +85,7 @@ END //
 
 DELIMITER ;
 
--- Insert new student -> Trigger automatically fires and creates audit record!
+-- Insert new student &rarr; Trigger automatically fires and creates audit record!
 INSERT INTO students (first_name, last_name, email, dept_id)
 VALUES ('Abhronila', 'Saha', 'abhronila.saha@gmail.com', 2);`,
       resultRows: [
@@ -374,7 +374,7 @@ DELIMITER ;`}
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

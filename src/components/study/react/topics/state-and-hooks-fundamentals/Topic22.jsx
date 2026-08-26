@@ -284,7 +284,7 @@ const Topic22 = () => {
     let strength = 0;
     
     // Length check
-    if (password.length >= 8) strength += 1;
+    if (password.length &ge; 8) strength += 1;
     if (password.length >= 12) strength += 1;
     
     // Character type checks
@@ -497,7 +497,7 @@ const Topic22 = () => {
                   value={validationMode}
                   onChange={(e) => setValidationMode(e.target.value)}
                   className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-cyan-500 text-sm"
-                >
+                &gt;
                   {validationModes.map(mode => (
                     <option key={mode.id} value={mode.id}>
                       {mode.label}
@@ -565,7 +565,7 @@ const Topic22 = () => {
                         />
                         <div className="flex justify-between mt-2">
                           <div className="text-sm text-gray-500">
-                            {formData.username.length > 0 ? (
+                            {formData.username.length &gt; 0 ? (
                               <span className={clsx(
                                 "flex items-center gap-1",
                                 validateField('username', formData.username) ? "text-red-400" : "text-green-400"
@@ -579,7 +579,7 @@ const Topic22 = () => {
                           <div className={clsx(
                             "text-sm",
                             formData.username.length > validationRules.username.maxLength ? "text-red-400" : "text-gray-500"
-                          )}>
+                          )}&gt;
                             {formData.username.length}/{validationRules.username.maxLength}
                           </div>
                         </div>
@@ -674,7 +674,7 @@ const Topic22 = () => {
                             {/* Password Requirements */}
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">
                               {[
-                                { label: '8+ chars', test: formData.password.length >= 8 },
+                                { label: '8+ chars', test: formData.password.length &ge; 8 },
                                 { label: 'Lowercase', test: /[a-z]/.test(formData.password) },
                                 { label: 'Uppercase', test: /[A-Z]/.test(formData.password) },
                                 { label: 'Number', test: /[0-9]/.test(formData.password) },
@@ -837,7 +837,7 @@ const Topic22 = () => {
                           <div className={clsx(
                             "text-sm",
                             formData.bio.length > validationRules.bio.maxLength ? "text-red-400" : "text-gray-500"
-                          )}>
+                          )}&gt;
                             {formData.bio.length}/{validationRules.bio.maxLength}
                           </div>
                         </div>
@@ -1004,7 +1004,7 @@ const Topic22 = () => {
                     <h3 className="text-xl font-bold text-gray-300">Error Summary</h3>
                     <span className={clsx(
                       "px-2 py-1 rounded text-sm",
-                      Object.keys(errors).filter(key => errors[key]).length > 0
+                      Object.keys(errors).filter(key => errors[key]).length &gt; 0
                         ? "bg-red-900/30 text-red-400 border border-red-800/50"
                         : "bg-green-900/30 text-green-400 border border-green-800/50"
                     )}>

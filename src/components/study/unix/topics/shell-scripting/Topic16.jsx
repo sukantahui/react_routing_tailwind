@@ -138,7 +138,7 @@ const Topic16 = () => {
                                     animationDelay: `${index * 100}ms`,
                                     animation: 'motion-safe:animate-[fadeInUp_0.8s_ease-out]'
                                 }}
-                            >
+                            &gt;
                                 <div className="flex items-center mb-4">
                                     <div className={clsx(
                                         "w-12 h-12 rounded-lg flex items-center justify-center mr-4 text-2xl font-bold",
@@ -174,7 +174,7 @@ echo "Count: $count"`}
                                 <button
                                     onClick={() => runDemo("subshell")}
                                     className="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-600 text-white rounded-lg hover:opacity-90 transition-all duration-300"
-                                >
+                                &gt;
                                     Run Subshell Example
                                 </button>
                                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
@@ -198,7 +198,7 @@ echo "Count: $count"`}
                                 <button
                                     onClick={() => runDemo("grouping")}
                                     className="w-full px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:opacity-90 transition-all duration-300"
-                                >
+                                &gt;
                                     Run Grouping Example
                                 </button>
                                 <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">

@@ -227,7 +227,7 @@ const Topic4 = () => {
                 <text x="110" y="95" fill="#94a3b8" textAnchor="middle" fontSize="9">Both Needed for Final Grade</text>
               </g>
 
-              {/* Partial Arrow 1: student_id -> name */}
+              {/* Partial Arrow 1: student_id &rarr; name */}
               <g transform="translate(255, 45)">
                 <line x1="0" y1="0" x2="100" y2="-15" stroke="#f43f5e" strokeWidth="2" strokeDasharray="3 3" />
                 <polygon points="100,-20 115,-15 100,-10" fill="#f43f5e" />
@@ -240,7 +240,7 @@ const Topic4 = () => {
                 <text x="90" y="20" fill="#fca5a5" textAnchor="middle" fontWeight="bold">student_name, city</text>
               </g>
 
-              {/* Full Arrow: (sid, cid) -> grade */}
+              {/* Full Arrow: (sid, cid) &rarr; grade */}
               <g transform="translate(255, 75)">
                 <line x1="0" y1="0" x2="100" y2="0" stroke="#10b981" strokeWidth="3" />
                 <polygon points="100,-5 115,0 100,5" fill="#10b981" />
@@ -253,7 +253,7 @@ const Topic4 = () => {
                 <text x="90" y="20" fill="#10b981" textAnchor="middle" fontWeight="bold">final_grade (2NF Safe)</text>
               </g>
 
-              {/* Partial Arrow 2: course_id -> fee */}
+              {/* Partial Arrow 2: course_id &rarr; fee */}
               <g transform="translate(255, 105)">
                 <line x1="0" y1="0" x2="100" y2="15" stroke="#f43f5e" strokeWidth="2" strokeDasharray="3 3" />
                 <polygon points="100,10 115,15 100,20" fill="#f43f5e" />
@@ -306,7 +306,7 @@ const Topic4 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Full: (sid, cid) → grade
               </button>
 
@@ -318,7 +318,7 @@ const Topic4 = () => {
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Partial: sid → name, city
               </button>
 
@@ -330,7 +330,7 @@ const Topic4 = () => {
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Partial: cid → title, fee
               </button>
 
@@ -342,7 +342,7 @@ const Topic4 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. 2NF Decomposed Solution
               </button>
             </div>

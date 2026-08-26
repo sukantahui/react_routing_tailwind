@@ -361,7 +361,7 @@ WHERE centre_city = 'Barrackpore'
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -513,7 +513,7 @@ WHERE centre_city = 'Barrackpore' AND YEAR(enrollment_date) = 2026;
 -- Optimized (Uses both columns, key_len = 208):
 SELECT * FROM students 
 WHERE centre_city = 'Barrackpore' 
-  AND enrollment_date >= '2026-01-01' AND enrollment_date <= '2026-12-31';`}
+  AND enrollment_date &ge; '2026-01-01' AND enrollment_date &le; '2026-12-31';`}
               </pre>
             </div>
 

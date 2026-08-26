@@ -179,7 +179,7 @@ const Topic23 = () => {
                   type="range" min="1" max="160" step="1" value={wavelengthCount}
                   onChange={(e) => setWavelengthCount(parseInt(e.target.value))}
                   className="w-64 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                />
+                /&gt;
                 <span className="font-mono font-bold text-purple-600 dark:text-purple-400">{wavelengthCount}</span>
               </div>
               <div className="mt-3 p-3 bg-purple-50 dark:bg-purple-900/30 rounded-lg">
@@ -428,7 +428,7 @@ const QAItem = ({ question, answer, index }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left p-4 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex justify-between items-center"
-      >
+      &gt;
         <span className="font-medium text-gray-800 dark:text-gray-200">
           {index+1}. {question}
         </span>

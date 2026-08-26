@@ -21,7 +21,7 @@ const Topic32 = () => {
     {
       id: 'fiber-1g',
       name: '1 Gbps Clean Optical Fiber (Zero Loss)',
-      pathLinks: '10G Core -> 1G Aggregation -> 1G Endpoint',
+      pathLinks: '10G Core &rarr; 1G Aggregation -&gt; 1G Endpoint',
       bottleneckCap: '1,000 Mbps (1 Gbps)',
       packetLoss: '0.001% (Clean Fiber)',
       rtt: '15 ms',
@@ -194,7 +194,7 @@ const Topic32 = () => {
                     ? 'bg-sky-600 text-white border-sky-500 shadow-md shadow-sky-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -206,7 +206,7 @@ const Topic32 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -250,7 +250,7 @@ const Topic32 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-tp32">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -280,7 +280,7 @@ const Topic32 = () => {
                       ? 'bg-sky-600 text-white border-sky-400 shadow-md'
                       : 'bg-slate-950 text-slate-400 border-slate-800 hover:text-white'
                   )}
-                >
+                &gt;
                   {t.name.split('(')[0]}
                 </button>
               ))}
@@ -329,7 +329,7 @@ const Topic32 = () => {
                   <button
                     onClick={() => setThroughputBenchmarkLog(currentProfile.benchmarkSim)}
                     className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white transition-all shadow-md shadow-sky-950"
-                  >
+                  &gt;
                     Execute iPerf3 Test ▶
                   </button>
                 </div>
@@ -349,7 +349,7 @@ const Topic32 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -406,7 +406,7 @@ const Topic32 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -473,7 +473,7 @@ const Topic32 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -495,7 +495,7 @@ const Topic32 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -522,7 +522,7 @@ const Topic32 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -562,7 +562,7 @@ const Topic32 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -596,7 +596,7 @@ const Topic32 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -609,7 +609,7 @@ const Topic32 = () => {
 
             <div className="flex flex-col space-y-2">
               {[
-                'Mastered the Bottleneck Link Rule: Throughput <= min(R1, R2, ..., RN)',
+                'Mastered the Bottleneck Link Rule: Throughput &le; min(R1, R2, ..., RN)',
                 'Calculated TCP throughput limits using Mathis\' Formula: (MSS / RTT) * (1 / sqrt(p))',
                 'Decomposed protocol stack overheads and calculated Goodput efficiency percentage',
                 'Evaluated Jumbo Frames (MTU 9000) and NIC Hardware Offloading (TSO/RSS)',

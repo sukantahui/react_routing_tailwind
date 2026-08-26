@@ -68,7 +68,7 @@ export default function Topic13() {
     <div className="dark bg-gray-900 text-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Header */}
-        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section">
+        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section"&gt;
           <h1 className="text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
             XLOOKUP vs VLOOKUP: The Ultimate Comparison
           </h1>
@@ -78,7 +78,7 @@ export default function Topic13() {
         </header>
 
         {/* Side‑by‑Side Feature Table */}
-        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
+        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
           <h2 className="text-2xl font-semibold">⚖️ Feature Comparison</h2>
           <div className="mt-4 overflow-x-auto">
             <table className="min-w-full text-sm">
@@ -102,7 +102,7 @@ export default function Topic13() {
         </section>
 
         {/* Practical Examples: Same Task – Different Code */}
-        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
+        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
           <h2 className="text-2xl font-semibold">📝 Same Task, Different Code</h2>
           <div className="mt-4 space-y-6">
             <div className="bg-gray-900 p-3 rounded">
@@ -132,7 +132,7 @@ export default function Topic13() {
         </section>
 
         {/* Interactive Excel Demo */}
-        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
+        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive: Compare Live</h2>
             {sampleDataUrl && (
@@ -152,7 +152,7 @@ export default function Topic13() {
               rowsPerPage={20}
               showSheetSelector={true}
               onError={() => setExcelError(true)}
-            />
+            /&gt;
           ) : (
             <>
               <div className="bg-yellow-950/40 border border-yellow-700 rounded-lg p-3 mb-3 text-sm">

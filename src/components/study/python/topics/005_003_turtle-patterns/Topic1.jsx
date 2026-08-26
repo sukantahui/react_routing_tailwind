@@ -121,7 +121,7 @@ const Topic1 = () => {
                       ? "bg-amber-500 text-slate-950 font-bold shadow-lg shadow-amber-500/25"
                       : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
                   }`}
-                >
+                &gt;
                   N = {s} ({polygonData[s].name.split(" ")[1] || polygonData[s].name})
                 </button>
               ))}

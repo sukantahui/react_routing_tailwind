@@ -73,7 +73,7 @@ const Topic4 = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* UTP Card */}
             <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800 transition-all duration-300 hover:shadow-lg hover:scale-[1.01] transform cursor-pointer animate-[fadeSlideUp_0.6s_ease-out_0.15s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.15s]"
-                 onMouseEnter={() => setCableType("utp")}>
+                 onMouseEnter={() => setCableType("utp")}&gt;
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-green-100 dark:bg-green-800/50 rounded-lg">
                   <svg className="w-5 h-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,7 +92,7 @@ const Topic4 = () => {
 
             {/* STP Card */}
             <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-800 transition-all duration-300 hover:shadow-lg hover:scale-[1.01] transform cursor-pointer animate-[fadeSlideUp_0.6s_ease-out_0.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.2s]"
-                 onMouseEnter={() => setCableType("stp")}>
+                 onMouseEnter={() => setCableType("stp")}&gt;
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-purple-100 dark:bg-purple-800/50 rounded-lg">
                   <svg className="w-5 h-5 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,7 +208,7 @@ const Topic4 = () => {
                       ? "bg-blue-600 text-white"
                       : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                   )}
-                >
+                &gt;
                   {categories[cat].name}
                 </button>
               ))}

@@ -54,7 +54,7 @@ const Topic3 = () => {
     { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
-  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+  const filteredList = sampleEmployees.filter((e) => e.salary &ge; filterThreshold);
 
   return (
     <>
@@ -179,7 +179,7 @@ const Topic3 = () => {
                     "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
                     activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
                   )}
-                >
+                &gt;
                   Structured View
                 </button>
                 <button
@@ -188,7 +188,7 @@ const Topic3 = () => {
                     "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
                     activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
                   )}
-                >
+                &gt;
                   Raw Dictionary JSON
                 </button>
               </div>
@@ -201,7 +201,7 @@ const Topic3 = () => {
                   value={filterThreshold}
                   onChange={(e) => setFilterThreshold(Number(e.target.value))}
                   className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
-                >
+                &gt;
                   <option value={60000}>₹60,000+ (All 4 Records)</option>
                   <option value={75000}>₹75,000+ (3 Records)</option>
                   <option value={85000}>₹85,000+ (2 Records)</option>

@@ -266,7 +266,7 @@ const Topic15 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    >
+                    &gt;
                       {btn.label}
                     </button>
                   ))}
@@ -280,7 +280,7 @@ const Topic15 = () => {
                     checked={useCoalesce}
                     onChange={(e) => setUseCoalesce(e.target.checked)}
                     className="rounded border-slate-700 bg-slate-800 text-teal-500"
-                  />
+                  /&gt;
                   <span><strong>Apply COALESCE():</strong> Replace NULL phone with custom fallback</span>
                 </label>
               </div>
@@ -295,7 +295,7 @@ const Topic15 = () => {
                     value={fallbackPhone}
                     onChange={(e) => setFallbackPhone(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                  />
+                  /&gt;
                 </div>
               )}
             </div>

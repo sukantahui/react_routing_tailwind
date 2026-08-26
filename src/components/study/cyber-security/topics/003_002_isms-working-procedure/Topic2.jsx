@@ -108,7 +108,7 @@ const Topic2 = () => {
         "Why 5 (Root Cause): ISO 27001 Control A.8.8 (Management of Technical Vulnerabilities) lacked defined 48-hour emergency patch escalation SLAs!"
       ],
       correctiveAction: "Emergency patched all 500 payment switch nodes with the updated OpenSSL binary during a 15-minute zero-downtime rolling maintenance window.",
-      preventiveAction: "Configured automated daily Qualys vulnerability scans and enacted an emergency 48-hour patch deployment SLA for any vulnerability with CVSS >= 9.0."
+      preventiveAction: "Configured automated daily Qualys vulnerability scans and enacted an emergency 48-hour patch deployment SLA for any vulnerability with CVSS &ge; 9.0."
     }
   };
 
@@ -243,7 +243,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{phase.name.split(". ")[1]?.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{phase.name.split(". ")[0]}</div>
                 </button>
@@ -314,7 +314,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{sc.title}</div>
                   <div className="text-[10px] text-gray-400 mt-1 truncate">{sc.finding.split(":")[0]}</div>
                 </button>
@@ -544,7 +544,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>
@@ -678,7 +678,7 @@ const Topic2 = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold">•</span>
-                  <span><strong>Enforce 48h Emergency Patch SLA:</strong> Rapidly patch any vulnerability with CVSS &gt;= 9.0.</span>
+                  <span><strong>Enforce 48h Emergency Patch SLA:</strong> Rapidly patch any vulnerability with CVSS >= 9.0.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold">•</span>

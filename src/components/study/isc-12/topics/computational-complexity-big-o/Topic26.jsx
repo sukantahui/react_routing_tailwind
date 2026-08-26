@@ -58,7 +58,7 @@ const Topic26 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            >
+            &gt;
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -329,7 +329,7 @@ const Topic26 = () => {
                   {[
                     {
                       tip: "Avoid O(n!) at all costs",
-                      desc: "For n > 10, O(n!) is completely infeasible. Look for better algorithms.",
+                      desc: "For n &gt; 10, O(n!) is completely infeasible. Look for better algorithms.",
                     },
                     {
                       tip: "Use approximation algorithms",
@@ -554,7 +554,7 @@ const Topic26 = () => {
               "Also, emphasize that for n > 10, O(n!) is completely impractical, so we must use approximation " +
               "or heuristic methods. This topic is a great lead-in to discussions about NP-hard problems."
             }
-          />
+          /&gt;
         </div>
 
         {/* ─── Footer ────────────────────────────────────────────────────────── */}

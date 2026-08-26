@@ -367,7 +367,7 @@ const Topic13 = () => {
                   </div>
                   <div className="mt-1 text-[11px] font-mono text-slate-400">
                     • student_id INT PRIMARY KEY<br />
-                    • admission_fee DECIMAL(10,2) {chkActive ? "(CHECK >= 10000)" : "(Unconstrained)"}
+                    • admission_fee DECIMAL(10,2) {chkActive ? "(CHECK &ge; 10000)" : "(Unconstrained)"}
                   </div>
                 </div>
 
@@ -384,7 +384,7 @@ const Topic13 = () => {
                   </div>
                   <div className="mt-1 text-[11px] font-mono text-slate-400">
                     • payment_id INT PRIMARY KEY<br />
-                    • student_id INT {fkActive ? "(FK -> students.student_id)" : "(Raw Column)"}
+                    • student_id INT {fkActive ? "(FK &rarr; students.student_id)" : "(Raw Column)"}
                   </div>
                 </div>
               </div>

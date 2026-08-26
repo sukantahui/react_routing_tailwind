@@ -329,27 +329,27 @@ export default function AppRoutes() {
           </div>
         </div>
       }
-    >
+    &gt;
       <Routes>
         {/* ---------- Public routes ---------- */}
-        <Route path={ROUTES.HOME} element={<Home />} />
-        <Route path={ROUTES.LOGIN} element={<Login />} />
-        <Route path={ROUTES.CERTIFICATE_VIEW} element={<Certificate />} />
-        <Route path={ROUTES.QRCODE} element={<QRCodeGenerator />} />
-        <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
-        <Route path={ROUTES.PYTHON_PLAY} element={<PythonPlayground />} />
-        <Route path={ROUTES.WHITEBOARD} element={<PlayWhiteBoard />} />
-        <Route path={ROUTES.ICONS} element={<IconResources />} />
-        <Route path={ROUTES.VSCODE} element={<VSCodeUltraExpertGuide />} />
-        <Route path={ROUTES.TYPING_TEST} element={<TypingTest />} />
-        <Route path={ROUTES.TYPING_LEARN} element={<TypingLearn />} />
-        <Route path={ROUTES.AUDIO_EXTRACT} element={<AudioExtractor />} />
+        <Route path={ROUTES.HOME} element={<Home />} /&gt;
+        <Route path={ROUTES.LOGIN} element={<Login />} /&gt;
+        <Route path={ROUTES.CERTIFICATE_VIEW} element={<Certificate />} /&gt;
+        <Route path={ROUTES.QRCODE} element={<QRCodeGenerator />} /&gt;
+        <Route path={ROUTES.PLAYGROUND} element={<Playground />} /&gt;
+        <Route path={ROUTES.PYTHON_PLAY} element={<PythonPlayground />} /&gt;
+        <Route path={ROUTES.WHITEBOARD} element={<PlayWhiteBoard />} /&gt;
+        <Route path={ROUTES.ICONS} element={<IconResources />} /&gt;
+        <Route path={ROUTES.VSCODE} element={<VSCodeUltraExpertGuide />} /&gt;
+        <Route path={ROUTES.TYPING_TEST} element={<TypingTest />} /&gt;
+        <Route path={ROUTES.TYPING_LEARN} element={<TypingLearn />} /&gt;
+        <Route path={ROUTES.AUDIO_EXTRACT} element={<AudioExtractor />} /&gt;
 
         {/* Data structure visualizers */}
-        <Route path={ROUTES.LINKED_LIST} element={<LinkedListVisualizer />} />
-        <Route path={ROUTES.DOUBLY_LINKED_LIST} element={<DoublyLinkedListVisualizer />} />
-        <Route path={ROUTES.BINARY_TREE} element={<BinaryTreeVisualizer />} />
-        <Route path={ROUTES.AVL_TREE} element={<AvlTreeVisualizer />} />
+        <Route path={ROUTES.LINKED_LIST} element={<LinkedListVisualizer />} /&gt;
+        <Route path={ROUTES.DOUBLY_LINKED_LIST} element={<DoublyLinkedListVisualizer />} /&gt;
+        <Route path={ROUTES.BINARY_TREE} element={<BinaryTreeVisualizer />} /&gt;
+        <Route path={ROUTES.AVL_TREE} element={<AvlTreeVisualizer />} /&gt;
 
         {/* ---------- Protected routes (admin / internal) ---------- */}
         <Route
@@ -359,7 +359,7 @@ export default function AppRoutes() {
               <Dashboard />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.STUDENT_WITH_ADMISSION}
@@ -368,7 +368,7 @@ export default function AppRoutes() {
               <StudentWithAdmission />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ADMIN}
@@ -377,12 +377,12 @@ export default function AppRoutes() {
               <Admin />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.BIJOYA}
           element={<Bijoya />}
-        />
+        /&gt;
 
         <Route
           path={ROUTES.CERTIFICATE_GENERATOR}
@@ -391,7 +391,7 @@ export default function AppRoutes() {
               <CertificateGenerator />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.STUDENT_ADMISSION}
@@ -400,7 +400,7 @@ export default function AppRoutes() {
               <StudentAdmission />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ADD_COURSE}
@@ -409,7 +409,7 @@ export default function AppRoutes() {
               <AddCourse />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ADD_RESULT}
@@ -418,7 +418,7 @@ export default function AppRoutes() {
               <AddResult />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.FEE_RECEIPT}
@@ -427,7 +427,7 @@ export default function AppRoutes() {
               <StudentFeeReceipt />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.FEE_RECEIPT_PART2}
@@ -436,7 +436,7 @@ export default function AppRoutes() {
               <StudentFeeReceiptPart2 />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.FEE_RECEIPT_PART3}
@@ -445,7 +445,7 @@ export default function AppRoutes() {
               <StudentFeeReceiptPart3 />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.FEE_RECEIPT_PART4}
@@ -454,142 +454,142 @@ export default function AppRoutes() {
               <StudentFeeReceiptPart4 />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
-        <Route path={ROUTES.ADD_STUDENT} element={<AddStudent />} />
-        <Route path={ROUTES.SUBJECTS} element={<Subject />} />
+        <Route path={ROUTES.ADD_STUDENT} element={<AddStudent />} /&gt;
+        <Route path={ROUTES.SUBJECTS} element={<Subject />} /&gt;
 
         {/* ---------- Study routes ---------- */}
-        <Route path={ROUTES.STUDY} element={<Study />} />
+        <Route path={ROUTES.STUDY} element={<Study />} /&gt;
 
         {/* Class 11 & WB Board */}
-        <Route path={ROUTES.CLASS_11} element={<ClassEleven />} />
-        <Route path={ROUTES.CLASS_11_WBB} element={<ClassElevenWbb />} />
-        <Route path={ROUTES.WBB_COMP_APP} element={<ComputerApplicationWbbEleven />} />
-        <Route path={ROUTES.WBB_COMP_APP_SEM2} element={<SemTwoComputerApplicationWbbEleven />} />
+        <Route path={ROUTES.CLASS_11} element={<ClassEleven />} /&gt;
+        <Route path={ROUTES.CLASS_11_WBB} element={<ClassElevenWbb />} /&gt;
+        <Route path={ROUTES.WBB_COMP_APP} element={<ComputerApplicationWbbEleven />} /&gt;
+        <Route path={ROUTES.WBB_COMP_APP_SEM2} element={<SemTwoComputerApplicationWbbEleven />} /&gt;
         <Route
           path={ROUTES.WBB_COMP_APP_SEM2_DSA}
           element={<DataStructureSemTwoComputerApplicationWbbEleven />}
-        />
+        /&gt;
 
         {/* BCA */}
-        <Route path={ROUTES.BCA} element={<Bca />} />
-        <Route path={ROUTES.BCA_JAVA} element={<JavaChapters />} />
-        <Route path={ROUTES.BCA_JAVA_CH1} element={<IntroductionToJava />} />
+        <Route path={ROUTES.BCA} element={<Bca />} /&gt;
+        <Route path={ROUTES.BCA_JAVA} element={<JavaChapters />} /&gt;
+        <Route path={ROUTES.BCA_JAVA_CH1} element={<IntroductionToJava />} /&gt;
 
         {/* ---------- Technology roadmaps (each with /roadmap, /module, /topic) ---------- */}
         {/* JavaScript */}
-        <Route path={ROUTES.JAVASCRIPT_ROADMAP} element={<JavaScriptRoadmap />} />
-        <Route path={ROUTES.JAVASCRIPT_MODULE} element={<JavaScriptModuleView />} />
-        <Route path={ROUTES.JAVASCRIPT_TOPIC} element={<JavaScriptTopicView />} />
+        <Route path={ROUTES.JAVASCRIPT_ROADMAP} element={<JavaScriptRoadmap />} /&gt;
+        <Route path={ROUTES.JAVASCRIPT_MODULE} element={<JavaScriptModuleView />} /&gt;
+        <Route path={ROUTES.JAVASCRIPT_TOPIC} element={<JavaScriptTopicView />} /&gt;
 
         {/* Python */}
-        <Route path={ROUTES.PYTHON_ROADMAP} element={<PythonRoadmap />} />
-        <Route path={ROUTES.PYTHON_MODULE} element={<PythonModuleView />} />
-        <Route path={ROUTES.PYTHON_TOPIC} element={<PythonTopicView />} />
+        <Route path={ROUTES.PYTHON_ROADMAP} element={<PythonRoadmap />} /&gt;
+        <Route path={ROUTES.PYTHON_MODULE} element={<PythonModuleView />} /&gt;
+        <Route path={ROUTES.PYTHON_TOPIC} element={<PythonTopicView />} /&gt;
 
         {/* C Language */}
-        <Route path={ROUTES.C_ROADMAP} element={<CRoadmap />} />
-        <Route path={ROUTES.C_MODULE} element={<CModuleView />} />
-        <Route path={ROUTES.C_TOPIC} element={<CTopicView />} />
+        <Route path={ROUTES.C_ROADMAP} element={<CRoadmap />} /&gt;
+        <Route path={ROUTES.C_MODULE} element={<CModuleView />} /&gt;
+        <Route path={ROUTES.C_TOPIC} element={<CTopicView />} /&gt;
 
         {/* Tally */}
-        <Route path={ROUTES.TALLY_ROADMAP} element={<TallyRoadmap />} />
-        <Route path={ROUTES.TALLY_MODULE} element={<TallyModuleView />} />
-        <Route path={ROUTES.TALLY_TOPIC} element={<TallyTopicView />} />
+        <Route path={ROUTES.TALLY_ROADMAP} element={<TallyRoadmap />} /&gt;
+        <Route path={ROUTES.TALLY_MODULE} element={<TallyModuleView />} /&gt;
+        <Route path={ROUTES.TALLY_TOPIC} element={<TallyTopicView />} /&gt;
 
         {/* Excel */}
-        <Route path={ROUTES.EXCEL_ROADMAP} element={<ExcelRoadmap />} />
-        <Route path={ROUTES.EXCEL_MODULE} element={<ExcelModuleView />} />
-        <Route path={ROUTES.EXCEL_TOPIC} element={<ExcelTopicView />} />
+        <Route path={ROUTES.EXCEL_ROADMAP} element={<ExcelRoadmap />} /&gt;
+        <Route path={ROUTES.EXCEL_MODULE} element={<ExcelModuleView />} /&gt;
+        <Route path={ROUTES.EXCEL_TOPIC} element={<ExcelTopicView />} /&gt;
 
         {/* Git */}
-        <Route path={ROUTES.GIT_ROADMAP} element={<GitRoadmap />} />
-        <Route path={ROUTES.GIT_MODULE} element={<GitModuleView />} />
-        <Route path={ROUTES.GIT_TOPIC} element={<GitTopicView />} />
+        <Route path={ROUTES.GIT_ROADMAP} element={<GitRoadmap />} /&gt;
+        <Route path={ROUTES.GIT_MODULE} element={<GitModuleView />} /&gt;
+        <Route path={ROUTES.GIT_TOPIC} element={<GitTopicView />} /&gt;
 
         {/* ICSE Java IX */}
-        <Route path={ROUTES.ICSE_IX_ROADMAP} element={<ICSE9JavaRoadmap />} />
-        <Route path={ROUTES.ICSE_IX_MODULE} element={<ICSE9JavaModuleView />} />
-        <Route path={ROUTES.ICSE_IX_TOPIC} element={<ICSE9JavaTopicView />} />
+        <Route path={ROUTES.ICSE_IX_ROADMAP} element={<ICSE9JavaRoadmap />} /&gt;
+        <Route path={ROUTES.ICSE_IX_MODULE} element={<ICSE9JavaModuleView />} /&gt;
+        <Route path={ROUTES.ICSE_IX_TOPIC} element={<ICSE9JavaTopicView />} /&gt;
 
         {/* ICSE Java X */}
-        <Route path={ROUTES.ICSE_X_ROADMAP} element={<JavaXRoadmap />} />
-        <Route path={ROUTES.ICSE_X_MODULE} element={<JavaXModuleView />} />
-        <Route path={ROUTES.ICSE_X_TOPIC} element={<JavaXTopicView />} />
+        <Route path={ROUTES.ICSE_X_ROADMAP} element={<JavaXRoadmap />} /&gt;
+        <Route path={ROUTES.ICSE_X_MODULE} element={<JavaXModuleView />} /&gt;
+        <Route path={ROUTES.ICSE_X_TOPIC} element={<JavaXTopicView />} /&gt;
 
         {/* Java Core */}
-        <Route path={ROUTES.JAVA_CORE_ROADMAP} element={<JavaRoadmap />} />
-        <Route path={ROUTES.JAVA_CORE_MODULE} element={<JavaModuleView />} />
-        <Route path={ROUTES.JAVA_CORE_TOPIC} element={<JavaTopicView />} />
+        <Route path={ROUTES.JAVA_CORE_ROADMAP} element={<JavaRoadmap />} /&gt;
+        <Route path={ROUTES.JAVA_CORE_MODULE} element={<JavaModuleView />} /&gt;
+        <Route path={ROUTES.JAVA_CORE_TOPIC} element={<JavaTopicView />} /&gt;
 
         {/* General */}
-        <Route path={ROUTES.GENERAL_ROADMAP} element={<GeneralRoadmap />} />
-        <Route path={ROUTES.GENERAL_MODULE} element={<GeneralModuleView />} />
-        <Route path={ROUTES.GENERAL_TOPIC} element={<GeneralTopicView />} />
+        <Route path={ROUTES.GENERAL_ROADMAP} element={<GeneralRoadmap />} /&gt;
+        <Route path={ROUTES.GENERAL_MODULE} element={<GeneralModuleView />} /&gt;
+        <Route path={ROUTES.GENERAL_TOPIC} element={<GeneralTopicView />} /&gt;
 
         {/* CSS */}
-        <Route path={ROUTES.CSS_ROADMAP} element={<CssRoadmap />} />
-        <Route path={ROUTES.CSS_MODULE} element={<CssModuleView />} />
-        <Route path={ROUTES.CSS_TOPIC} element={<CssTopicView />} />
+        <Route path={ROUTES.CSS_ROADMAP} element={<CssRoadmap />} /&gt;
+        <Route path={ROUTES.CSS_MODULE} element={<CssModuleView />} /&gt;
+        <Route path={ROUTES.CSS_TOPIC} element={<CssTopicView />} /&gt;
 
         {/* ISC 11 */}
-        <Route path={ROUTES.ISC_11_ROADMAP} element={<IscElevenRoadmap />} />
-        <Route path={ROUTES.ISC_11_MODULE} element={<IscElevenModuleView />} />
-        <Route path={ROUTES.ISC_11_TOPIC} element={<IscElevenTopicView />} />
+        <Route path={ROUTES.ISC_11_ROADMAP} element={<IscElevenRoadmap />} /&gt;
+        <Route path={ROUTES.ISC_11_MODULE} element={<IscElevenModuleView />} /&gt;
+        <Route path={ROUTES.ISC_11_TOPIC} element={<IscElevenTopicView />} /&gt;
 
         {/* ISC 12 */}
-        <Route path={ROUTES.ISC_12_ROADMAP} element={<IscTweleveRoadmap />} />
-        <Route path={ROUTES.ISC_12_MODULE} element={<IscTweleveModuleView />} />
-        <Route path={ROUTES.ISC_12_TOPIC} element={<IscTweleveTopicView />} />
+        <Route path={ROUTES.ISC_12_ROADMAP} element={<IscTweleveRoadmap />} /&gt;
+        <Route path={ROUTES.ISC_12_MODULE} element={<IscTweleveModuleView />} /&gt;
+        <Route path={ROUTES.ISC_12_TOPIC} element={<IscTweleveTopicView />} /&gt;
 
         {/* Computer Architecture */}
-        <Route path={ROUTES.COMP_ARCH_ROADMAP} element={<ComputerArchitectureRoadmap />} />
-        <Route path={ROUTES.COMP_ARCH_MODULE} element={<ComputerArchitectureModuleView />} />
-        <Route path={ROUTES.COMP_ARCH_TOPIC} element={<ComputerArchitectureTopicView />} />
+        <Route path={ROUTES.COMP_ARCH_ROADMAP} element={<ComputerArchitectureRoadmap />} /&gt;
+        <Route path={ROUTES.COMP_ARCH_MODULE} element={<ComputerArchitectureModuleView />} /&gt;
+        <Route path={ROUTES.COMP_ARCH_TOPIC} element={<ComputerArchitectureTopicView />} /&gt;
 
         {/* Unix */}
-        <Route path={ROUTES.UNIX_ROADMAP} element={<UnixRoadmap />} />
-        <Route path={ROUTES.UNIX_MODULE} element={<UnixModuleView />} />
-        <Route path={ROUTES.UNIX_TOPIC} element={<UnixTopicView />} />
+        <Route path={ROUTES.UNIX_ROADMAP} element={<UnixRoadmap />} /&gt;
+        <Route path={ROUTES.UNIX_MODULE} element={<UnixModuleView />} /&gt;
+        <Route path={ROUTES.UNIX_TOPIC} element={<UnixTopicView />} /&gt;
 
         {/* React */}
-        <Route path={ROUTES.REACT_ROADMAP} element={<ReactRoadmap />} />
-        <Route path={ROUTES.REACT_MODULE} element={<ReactModuleView />} />
-        <Route path={ROUTES.REACT_TOPIC} element={<ReactTopicView />} />
+        <Route path={ROUTES.REACT_ROADMAP} element={<ReactRoadmap />} /&gt;
+        <Route path={ROUTES.REACT_MODULE} element={<ReactModuleView />} /&gt;
+        <Route path={ROUTES.REACT_TOPIC} element={<ReactTopicView />} /&gt;
 
         {/* Node.js */}
-        <Route path={ROUTES.NODE_ROADMAP} element={<NodeRoadmap />} />
-        <Route path={ROUTES.NODE_MODULE} element={<NodeModuleView />} />
-        <Route path={ROUTES.NODE_TOPIC} element={<NodeTopicView />} />
+        <Route path={ROUTES.NODE_ROADMAP} element={<NodeRoadmap />} /&gt;
+        <Route path={ROUTES.NODE_MODULE} element={<NodeModuleView />} /&gt;
+        <Route path={ROUTES.NODE_TOPIC} element={<NodeTopicView />} /&gt;
 
         {/* Java Web */}
-        <Route path={ROUTES.JAVA_WEB_ROADMAP} element={<JavaWebRoadmap />} />
-        <Route path={ROUTES.JAVA_WEB_MODULE} element={<JavaWebModuleView />} />
-        <Route path={ROUTES.JAVA_WEB_TOPIC} element={<JavaWebTopicView />} />
+        <Route path={ROUTES.JAVA_WEB_ROADMAP} element={<JavaWebRoadmap />} /&gt;
+        <Route path={ROUTES.JAVA_WEB_MODULE} element={<JavaWebModuleView />} /&gt;
+        <Route path={ROUTES.JAVA_WEB_TOPIC} element={<JavaWebTopicView />} /&gt;
 
         {/* Network */}
-        <Route path={ROUTES.NETWORK_ROADMAP} element={<NetworkRoadmap />} />
-        <Route path={ROUTES.NETWORK_MODULE} element={<NetworkModuleView />} />
-        <Route path={ROUTES.NETWORK_TOPIC} element={<NetworkTopicView />} />
+        <Route path={ROUTES.NETWORK_ROADMAP} element={<NetworkRoadmap />} /&gt;
+        <Route path={ROUTES.NETWORK_MODULE} element={<NetworkModuleView />} /&gt;
+        <Route path={ROUTES.NETWORK_TOPIC} element={<NetworkTopicView />} /&gt;
 
         {/* RDBMS */}
-        <Route path={ROUTES.RDBMS_MYSQL_ROADMAP} element={<RDBMSMysQLRoadmap />} />
-        <Route path={ROUTES.RDBMS_MYSQL_MODULE} element={<RDBMSMysQLModuleView />} />
-        <Route path={ROUTES.RDBMS_MYSQL_TOPIC} element={<RDBMSMysQLTopicView />} />
+        <Route path={ROUTES.RDBMS_MYSQL_ROADMAP} element={<RDBMSMysQLRoadmap />} /&gt;
+        <Route path={ROUTES.RDBMS_MYSQL_MODULE} element={<RDBMSMysQLModuleView />} /&gt;
+        <Route path={ROUTES.RDBMS_MYSQL_TOPIC} element={<RDBMSMysQLTopicView />} /&gt;
 
         {/* Cyber Security */}
-        <Route path={ROUTES.CYBER_SECURITY_ROADMAP} element={<CyberSecurityRoadmap />} />
-        <Route path={ROUTES.CYBER_SECURITY_MODULE} element={<CyberSecurityModuleView />} />
-        <Route path={ROUTES.CYBER_SECURITY_TOPIC} element={<CyberSecurityTopicView />} />
+        <Route path={ROUTES.CYBER_SECURITY_ROADMAP} element={<CyberSecurityRoadmap />} /&gt;
+        <Route path={ROUTES.CYBER_SECURITY_MODULE} element={<CyberSecurityModuleView />} /&gt;
+        <Route path={ROUTES.CYBER_SECURITY_TOPIC} element={<CyberSecurityTopicView />} /&gt;
 
         {/* Quatatitative Analysis */}
-        <Route path={ROUTES.QUANTITATIVE_ANALYSIS_ROADMAP} element={<QuantitativeAnalysisRoadmap />} />
-        <Route path={ROUTES.QUANTITATIVE_ANALYSIS_MODULE} element={<QuantitativeAnalysisModuleView />} />
-        <Route path={ROUTES.QUANTITATIVE_ANALYSIS_TOPIC} element={<QuantitativeAnalysisTopicView />} />
+        <Route path={ROUTES.QUANTITATIVE_ANALYSIS_ROADMAP} element={<QuantitativeAnalysisRoadmap />} /&gt;
+        <Route path={ROUTES.QUANTITATIVE_ANALYSIS_MODULE} element={<QuantitativeAnalysisModuleView />} /&gt;
+        <Route path={ROUTES.QUANTITATIVE_ANALYSIS_TOPIC} element={<QuantitativeAnalysisTopicView />} /&gt;
 
         {/* ---------- Catch‑all 404 ---------- */}
-        <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
+        <Route path={ROUTES.NOT_FOUND} element={<NotFound />} /&gt;
       </Routes>
     </Suspense>
   );

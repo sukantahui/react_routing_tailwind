@@ -149,7 +149,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -207,7 +207,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-cyan-600/20 text-cyan-400 font-bold text-sm">
@@ -234,7 +234,7 @@ const Topic2 = () => {
                       ? 'bg-cyan-600/30 border-cyan-500 text-cyan-300 shadow-md font-bold'
                       : 'bg-slate-800/40 border-slate-700/60 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
                   )}
-                >
+                &gt;
                   {sc.title.split(':')[0]}
                 </button>
               ))}
@@ -278,7 +278,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 font-bold text-sm">
@@ -382,7 +382,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -405,7 +405,7 @@ const Topic2 = () => {
                       ? 'bg-teal-600/20 border-teal-500 text-teal-300 shadow-md'
                       : 'bg-slate-800/40 border-slate-700/60 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
                   )}
-                >
+                &gt;
                   {cs.title}
                 </button>
               ))}
@@ -476,7 +476,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -517,7 +517,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 font-bold text-sm">
@@ -558,7 +558,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -599,7 +599,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-violet-600/20 text-violet-400 font-bold text-sm">
@@ -640,7 +640,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[8] = el)}
           data-index="8"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

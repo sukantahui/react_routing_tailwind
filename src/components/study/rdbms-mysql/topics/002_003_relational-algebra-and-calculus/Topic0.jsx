@@ -338,7 +338,7 @@ const Topic0 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 σ Selection
               </button>
               <button
@@ -349,7 +349,7 @@ const Topic0 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 π Projection
               </button>
               <button
@@ -360,7 +360,7 @@ const Topic0 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 × Cross Product
               </button>
               <button
@@ -371,7 +371,7 @@ const Topic0 = () => {
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 ∪ Set Union
               </button>
               <button
@@ -382,7 +382,7 @@ const Topic0 = () => {
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 − Set Difference
               </button>
             </div>

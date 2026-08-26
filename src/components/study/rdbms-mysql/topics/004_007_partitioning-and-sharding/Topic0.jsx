@@ -111,7 +111,7 @@ SELECT * FROM partitioned_orders WHERE amount > 50000.00;
 -- Query performs SLOWER than a single indexed monolithic table!
 
 -- ✅ REMEDY: Always include partition column in query predicates:
-SELECT * FROM partitioned_orders WHERE order_date >= '2025-01-01' AND amount > 50000.00;`,
+SELECT * FROM partitioned_orders WHERE order_date &ge; '2025-01-01' AND amount &gt; 50000.00;`,
       explanation:
         "If a query omits the partitioning key, MySQL must execute a Scatter-Gather scan across all partitions, incurring multi-file handle overhead that can perform slower than an unpartitioned table.",
       keyTakeaways: [
@@ -217,7 +217,7 @@ SELECT * FROM partitioned_orders WHERE order_date >= '2025-01-01' AND amount > 5
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {concept.conceptName}
                 </button>
               );
@@ -405,7 +405,7 @@ SELECT * FROM partitioned_orders WHERE order_date >= '2025-01-01' AND amount > 5
 
           <Teacher
             note="Table Partitioning is your most potent tool for managing Very Large Databases (VLDB) in MySQL! When tables scale beyond 50 million rows, monolithic B-Trees cause buffer pool thrashing and slow query times. Partitioning gives you two incredible superpowers: Partition Pruning (where MySQL reads only the physical files matching your query) and instant sub-5ms data purging via DROP PARTITION. Remember the golden rules: always include the partition column in your primary key, always filter on the partition key to avoid scatter-gather penalties, and only partition tables that are genuinely large (>10GB/20M+ rows)!"
-          />
+          /&gt;
         </section>
 
         {/* ─── SECTION 6: FAQ Accordion ───────────────────────────────── */}

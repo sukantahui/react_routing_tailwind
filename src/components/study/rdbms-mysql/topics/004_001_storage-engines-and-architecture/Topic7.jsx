@@ -29,7 +29,7 @@ const Topic7 = () => {
 -- 1. InnoDB uses 16KB (16,384 bytes) page frames.
 -- 2. Operating System filesystems (ext4, XFS, NTFS) write in 4KB blocks.
 -- 3. Writing ONE 16KB page requires 4 consecutive 4KB OS block writes:
---      [Block 1: 4KB] -> [Block 2: 4KB] -> [Block 3: 4KB] -> [Block 4: 4KB]
+--      [Block 1: 4KB] &rarr; [Block 2: 4KB] -&gt; [Block 3: 4KB] -> [Block 4: 4KB]
 
 -- 💥 POWER CUT DISASTER:
 -- If power cuts after Block 2 is written, the page on disk is HALF OLD / HALF NEW!
@@ -339,7 +339,7 @@ SHOW VARIABLES LIKE 'innodb_doublewrite%';
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

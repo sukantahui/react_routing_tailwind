@@ -345,7 +345,7 @@ export default class Topic14 extends React.Component {
     `;
 
     const getSecurityColor = (score) => {
-      if (score >= 90) return 'text-green-600 dark:text-green-400';
+      if (score &ge; 90) return 'text-green-600 dark:text-green-400';
       if (score >= 70) return 'text-yellow-600 dark:text-yellow-400';
       return 'text-red-600 dark:text-red-400';
     };
@@ -406,7 +406,7 @@ export default class Topic14 extends React.Component {
               </div>
               
               {/* Security Score */}
-              <div className={`p-6 ${getSecurityBg(securityScore)} rounded-lg border-l-4 ${securityScore >= 90 ? 'border-green-500' : securityScore >= 70 ? 'border-yellow-500' : 'border-red-500'}`}>
+              <div className={`p-6 ${getSecurityBg(securityScore)} rounded-lg border-l-4 ${securityScore >= 90 ? 'border-green-500' : securityScore &ge; 70 ? 'border-yellow-500' : 'border-red-500'}`}&gt;
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-xl font-bold mb-2">System Security Score</h3>
@@ -419,15 +419,15 @@ export default class Topic14 extends React.Component {
                       {securityScore}%
                     </div>
                     <p className="text-sm mt-2">
-                      {securityScore >= 90 ? 'Excellent' : securityScore >= 70 ? 'Good' : 'Needs Improvement'}
+                      {securityScore &ge; 90 ? 'Excellent' : securityScore >= 70 ? 'Good' : 'Needs Improvement'}
                     </p>
                   </div>
                 </div>
                 <div className="mt-4 w-full bg-gray-300 dark:bg-gray-700 rounded-full h-4">
                   <div 
-                    className={`h-4 rounded-full ${securityScore >= 90 ? 'bg-green-500' : securityScore >= 70 ? 'bg-yellow-500' : 'bg-red-500'}`}
+                    className={`h-4 rounded-full ${securityScore >= 90 ? 'bg-green-500' : securityScore &ge; 70 ? 'bg-yellow-500' : 'bg-red-500'}`}
                     style={{ width: `${securityScore}%` }}
-                  ></div>
+                  &gt;</div>
                 </div>
               </div>
               
@@ -463,7 +463,7 @@ export default class Topic14 extends React.Component {
                           ? 'bg-blue-600 text-white'
                           : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                       )}
-                    >
+                    &gt;
                       <div className="font-semibold">{scenarios[key].title}</div>
                       <div className="text-xs opacity-80">{scenarios[key].location}</div>
                     </button>
@@ -530,7 +530,7 @@ export default class Topic14 extends React.Component {
                       ? 'bg-emerald-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   👤 User Management
                 </button>
                 <button
@@ -541,7 +541,7 @@ export default class Topic14 extends React.Component {
                       ? 'bg-emerald-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   📁 File Permissions
                 </button>
                 <button
@@ -552,7 +552,7 @@ export default class Topic14 extends React.Component {
                       ? 'bg-emerald-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   📊 Monitoring & Logging
                 </button>
                 <button
@@ -563,7 +563,7 @@ export default class Topic14 extends React.Component {
                       ? 'bg-emerald-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   💾 Backup & Recovery
                 </button>
               </div>

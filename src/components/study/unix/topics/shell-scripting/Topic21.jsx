@@ -238,7 +238,7 @@ const Topic21 = () => {
                     ? "bg-emerald-500 text-white shadow-lg"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {tab === "&" ? "Background (&)" : tab}
               </button>
             ))}
@@ -303,7 +303,7 @@ const Topic21 = () => {
                   
                   <div className="p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg">
                     <h4 className="font-bold text-purple-800 dark:text-purple-300 mb-2">Batch Mode</h4>
-                    <code className="text-sm text-gray-700 dark:text-gray-300 block">{`top -b -n 1 > process_snapshot.txt`}</code>
+                    <code className="text-sm text-gray-700 dark:text-gray-300 block">{`top -b -n 1 &gt; process_snapshot.txt`}</code>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                       Swadeep uses this for automated monitoring of the Ichapur school server.
                     </p>

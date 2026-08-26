@@ -149,7 +149,7 @@ const Topic1 = () => {
                     ? "bg-purple-600 text-white" 
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 Analog Only
               </button>
               <button
@@ -160,7 +160,7 @@ const Topic1 = () => {
                     ? "bg-green-600 text-white" 
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 Digital Only
               </button>
               <button
@@ -171,7 +171,7 @@ const Topic1 = () => {
                     ? "bg-blue-600 text-white" 
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 Both Signals
               </button>
             </div>
@@ -188,7 +188,7 @@ const Topic1 = () => {
                 value={frequency}
                 onChange={(e) => setFrequency(parseInt(e.target.value))}
                 className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer"
-              />
+              /&gt;
             </div>
 
             {/* SVG Waveform */}

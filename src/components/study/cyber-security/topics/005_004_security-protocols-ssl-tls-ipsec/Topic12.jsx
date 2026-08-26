@@ -310,7 +310,7 @@ const Topic12 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{item.name.split(". ")[1].split(" (")[0]}</span>
                   <span className={clsx("text-[10px] px-2 py-0.5 rounded w-fit border", item.badgeColor)}>
                     Primitive #{item.name.split(".")[0]}
@@ -378,7 +378,7 @@ const Topic12 = () => {
                     ? "bg-rose-950 border-rose-600 text-rose-300 shadow-md shadow-rose-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 Flawed Protocol (Counterexample Found)
               </button>
               <button
@@ -389,7 +389,7 @@ const Topic12 = () => {
                     ? "bg-emerald-950 border-emerald-600 text-emerald-300 shadow-md shadow-emerald-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 Hardened TLS 1.3 (Mathematically Proven)
               </button>
             </div>
@@ -424,8 +424,8 @@ const Topic12 = () => {
                   <div>Completing equations...</div>
                   <div>Starting query: not attacker(client_application_traffic_secret[])</div>
                   <div><span className="text-emerald-400 font-bold">RESULT not attacker(client_application_traffic_secret[]) is true.</span> (Secrecy Holds ✔)</div>
-                  <div>Starting query: inj-event(endServer(x)) ==&gt; inj-event(beginClient(x))</div>
-                  <div><span className="text-emerald-400 font-bold">RESULT inj-event(endServer(x)) ==&gt; inj-event(beginClient(x)) is true.</span> (1-to-1 Authentication Holds ✔)</div>
+                  <div>Starting query: inj-event(endServer(x)) ==> inj-event(beginClient(x))</div>
+                  <div><span className="text-emerald-400 font-bold">RESULT inj-event(endServer(x)) ==> inj-event(beginClient(x)) is true.</span> (1-to-1 Authentication Holds ✔)</div>
                   <div className="text-emerald-300 font-bold">Verification time: 0.284s • 0 Counterexamples found across infinite sessions.</div>
                 </div>
               </div>
@@ -470,7 +470,7 @@ const Topic12 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{proto.name.split(" (")[0]}</span>
                   <span className={clsx("text-[10px] px-2 py-0.5 rounded w-fit border", proto.badgeColor)}>
                     {proto.layer.split(" (")[0]}
@@ -554,7 +554,7 @@ const Topic12 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{drill.title}</span>
                   <span className="text-[10px] text-cyan-400">{drill.engineers}</span>
                 </button>
@@ -606,7 +606,7 @@ const Topic12 = () => {
                 <div>-- Clause generation: 0.012s</div>
                 <div>-- Resolution algorithm running across 42 Horn clauses...</div>
                 <div>Query not attacker(session_secret[]): <span className="text-emerald-300 font-bold">RESULT true (Secrecy holds)</span></div>
-                <div>Query inj-event(endTreasury(x)) ==&gt; inj-event(beginClient(x)): <span className="text-emerald-300 font-bold">RESULT true (Mutual Injective Agreement holds)</span></div>
+                <div>Query inj-event(endTreasury(x)) ==> inj-event(beginClient(x)): <span className="text-emerald-300 font-bold">RESULT true (Mutual Injective Agreement holds)</span></div>
                 <div>Mathematical verification complete. Zero counterexamples found. Certificate generated ✔</div>
               </div>
             </div>

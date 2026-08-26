@@ -288,7 +288,7 @@ export default class Topic7 extends Component {
                 : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
               }`}
               onClick={() => this.handleViewChange('basic')}
-            >
+            &gt;
               <span className="text-xl mr-3">🌱</span>
               <div className="text-left">
                 <div className="font-bold">Basic Usage</div>
@@ -302,7 +302,7 @@ export default class Topic7 extends Component {
                 : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
               }`}
               onClick={() => this.handleViewChange('options')}
-            >
+            &gt;
               <span className="text-xl mr-3">⚙️</span>
               <div className="text-left">
                 <div className="font-bold">Options & Flags</div>
@@ -316,7 +316,7 @@ export default class Topic7 extends Component {
                 : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
               }`}
               onClick={() => this.handleViewChange('visual')}
-            >
+            &gt;
               <span className="text-xl mr-3">🎨</span>
               <div className="text-left">
                 <div className="font-bold">Visual Examples</div>
@@ -575,7 +575,7 @@ export default class Topic7 extends Component {
                           : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700'
                         }`}
                         onClick={() => this.toggleOption(option)}
-                      >
+                      &gt;
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center">
                             <span className="text-xl mr-3">{details.icon}</span>
@@ -662,7 +662,7 @@ export default class Topic7 extends Component {
                     <div>
                       <div className="text-gray-400 text-sm mb-2">Output to file:</div>
                       <code className="block font-mono text-green-400 bg-black/50 p-3 rounded">
-                        {`$ tree -h > project_structure.txt`}<br/>
+                        {`$ tree -h &gt; project_structure.txt`}<br/>
                         {`# Save tree output to file`}
                       </code>
                     </div>
@@ -678,7 +678,7 @@ export default class Topic7 extends Component {
                     <div>
                       <div className="text-gray-400 text-sm mb-2">HTML output:</div>
                       <code className="block font-mono text-green-400 bg-black/50 p-3 rounded">
-                        {`$ tree -H . > index.html`}<br/>
+                        {`$ tree -H . &gt; index.html`}<br/>
                         {`# Generate HTML directory listing`}
                       </code>
                     </div>
@@ -733,7 +733,7 @@ export default class Topic7 extends Component {
                         Creating backup list for Shyamnagar server:
                       </p>
                       <code className="block text-xs font-mono bg-gray-100 dark:bg-gray-700 p-2 rounded">
-                        {`$ tree -af --noreport /etc > backup_list.txt`}<br/>
+                        {`$ tree -af --noreport /etc &gt; backup_list.txt`}<br/>
                         {`# List all config files for backup`}
                       </code>
                     </div>
@@ -848,7 +848,7 @@ export default class Topic7 extends Component {
                     <div>
                       <div className="text-gray-400 text-sm mb-2">Generate directory map:</div>
                       <code className="block font-mono text-green-400 bg-black/50 p-3 rounded">
-                        {`$ tree -d -L 3 /home > directory_map.txt`}
+                        {`$ tree -d -L 3 /home &gt; directory_map.txt`}
                         <br/>
                         {`# Create documentation of directory structure`}
                       </code>
@@ -1029,7 +1029,7 @@ export default class Topic7 extends Component {
                     </p>
                     <div className="mt-2 flex items-center space-x-2">
                       <code className="text-xs font-mono bg-black/50 p-2 rounded flex-1">
-                        $ tree <input type="text" className="bg-transparent border-b border-gray-600 w-20" placeholder="options" /> {`>`} docs/structure.html
+                        $ tree <input type="text" className="bg-transparent border-b border-gray-600 w-20" placeholder="options" /> {`&gt;`} docs/structure.html
                       </code>
                     </div>
                   </div>

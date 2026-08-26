@@ -204,8 +204,8 @@ const Topic0 = () => {
           {/* Mode Switcher Tabs */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
-              { id: "confidentiality", label: "Mode A: Confidentiality Encryption", sub: "Public (e, N) Encrypts -> Private (d, N) Decrypts" },
-              { id: "signature", label: "Mode B: Digital Signature & Non-Repudiation", sub: "Private (d, N) Signs -> Public (e, N) Verifies" }
+              { id: "confidentiality", label: "Mode A: Confidentiality Encryption", sub: "Public (e, N) Encrypts &rarr; Private (d, N) Decrypts" },
+              { id: "signature", label: "Mode B: Digital Signature & Non-Repudiation", sub: "Private (d, N) Signs -&gt; Public (e, N) Verifies" }
             ].map((m) => (
               <button
                 key={m.id}
@@ -216,7 +216,7 @@ const Topic0 = () => {
                     ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                     : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                 )}
-              >
+              &gt;
                 <div className="font-bold text-sm text-gray-200">{m.label}</div>
                 <div className="text-[11px] text-gray-400 mt-0.5">{m.sub}</div>
               </button>
@@ -293,7 +293,7 @@ const Topic0 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{kp.name.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5 font-mono">{kp.symmetricEquivalent.split(" ")[0]} Bits Sec</div>
                 </button>
@@ -485,7 +485,7 @@ const Topic0 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

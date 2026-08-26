@@ -68,7 +68,7 @@ const Topic13 = () => {
       setSingleJkState((prev) => (prev === 0 ? 1 : 0));
       osc++;
       setSingleJkOscCount(osc);
-      if (osc >= maxOsc) {
+      if (osc &ge; maxOsc) {
         clearInterval(oscillationTimerRef.current);
       }
     }, 60);
@@ -203,19 +203,19 @@ const Topic13 = () => {
             <button
               onClick={() => loadScenario("severe-race")}
               className="px-3 py-1.5 rounded-lg bg-rose-950/60 border border-rose-800/60 text-rose-300 hover:bg-rose-900/80 transition"
-            >
+            &gt;
               ⚠️ Severe Race (50ns / 5ns = 10 Toggles)
             </button>
             <button
               onClick={() => loadScenario("borderline-race")}
               className="px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-800/60 text-amber-300 hover:bg-amber-900/80 transition"
-            >
+            &gt;
               ⚡ Borderline Race (15ns / 5ns = 3 Toggles)
             </button>
             <button
               onClick={() => loadScenario("ideal-ms")}
               className="px-3 py-1.5 rounded-lg bg-teal-950/60 border border-teal-800/60 text-teal-300 hover:bg-teal-900/80 transition"
-            >
+            &gt;
               🔒 Master-Slave (100% Deterministic)
             </button>
           </div>
@@ -295,7 +295,7 @@ const Topic13 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 1. Animated Split-Screen Schematics
               </button>
               <button
@@ -306,7 +306,7 @@ const Topic13 = () => {
                     ? "bg-cyan-900/80 border border-cyan-500 text-cyan-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 2. Live 4-Channel Logic Analyzer
               </button>
               <button
@@ -317,7 +317,7 @@ const Topic13 = () => {
                     ? "bg-amber-900/80 border border-amber-500 text-amber-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 3. Complete 8-NAND Gate Schematic
               </button>
               <button
@@ -328,7 +328,7 @@ const Topic13 = () => {
                     ? "bg-purple-900/80 border border-purple-500 text-purple-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 4. 1s-Catching Hazard Simulator
               </button>
             </div>
@@ -348,7 +348,7 @@ const Topic13 = () => {
                         "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition shadow-lg flex items-center gap-1.5",
                         isPlaying ? "bg-rose-600 border-rose-400 text-white" : "bg-emerald-600 border-emerald-400 text-white"
                       )}
-                    >
+                    &gt;
                       {isPlaying ? "⏸️ Pause Clock" : "▶️ Continuous Clock Stream"}
                     </button>
                     <button
@@ -390,7 +390,7 @@ const Topic13 = () => {
                       value={pulseWidthNs}
                       onChange={(e) => setPulseWidthNs(Number(e.target.value))}
                       className="w-full accent-cyan-400"
-                    />
+                    /&gt;
                   </div>
 
                   <div className="space-y-1.5">
@@ -406,7 +406,7 @@ const Topic13 = () => {
                       value={gateDelayNs}
                       onChange={(e) => setGateDelayNs(Number(e.target.value))}
                       className="w-full accent-rose-400"
-                    />
+                    /&gt;
                   </div>
 
                   <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex flex-col justify-center text-center">
@@ -958,7 +958,7 @@ const Topic13 = () => {
                     <button
                       onClick={() => setOnesCatchingMasterY(0)}
                       className="px-3 py-2 rounded-xl font-bold bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 transition"
-                    >
+                    &gt;
                       Reset State
                     </button>
                   </div>
@@ -994,7 +994,7 @@ const Topic13 = () => {
                       ? "bg-teal-900/80 border-teal-400 text-teal-200 shadow-lg shadow-teal-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   {s.title}
                 </button>
               ))}
@@ -1109,7 +1109,7 @@ const Topic13 = () => {
                 onChange={(e) => setUserAnswer(e.target.value)}
                 placeholder="Enter number of toggles..."
                 className="px-4 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs font-mono text-white focus:outline-none focus:border-cyan-400"
-              />
+              /&gt;
               <button
                 onClick={checkQuizAnswer}
                 className="px-4 py-2 rounded-xl bg-cyan-700 hover:bg-cyan-600 text-white font-mono text-xs font-bold transition"

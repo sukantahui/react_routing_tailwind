@@ -402,7 +402,7 @@ const Topic33 = () => {
 
 # Then enter password
 # After login:
-mysql> SHOW DATABASES;
+mysql&gt; SHOW DATABASES;
 mysql> USE mydb;
 mysql> SELECT * FROM users;`}
                 </pre>

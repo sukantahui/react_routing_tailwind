@@ -100,7 +100,7 @@ LEFT JOIN exam_scores e ON en.enrollment_id = e.enrollment_id
 GROUP BY s.student_id, s.student_name, c.course_title, b.batch_code;
 
 -- Frontend developer writes simple 1-line query:
-SELECT * FROM view_student_academic_summary WHERE average_exam_score >= 80;`,
+SELECT * FROM view_student_academic_summary WHERE average_exam_score &ge; 80;`,
       resultRows: [
         { col1: "STU-101", col2: "Mamata Hui", col3: "Advanced React & Redux", col4: "BKP-REACT-M01", col5: "₹25,000.00", col6: "92.50% (Distinction)", status: "Encapsulated" },
         { col1: "STU-102", col2: "Susmita Sen", col3: "Java Microservices Pro", col4: "BKP-JAVA-E02", col5: "₹25,000.00", col6: "88.40% (Distinction)", status: "Encapsulated" },
@@ -335,7 +335,7 @@ SELECT * FROM view_student_academic_summary WHERE average_exam_score >= 80;`,
                   <g>
                     <rect x="250" y="20" width="350" height="50" rx="8" fill="#0f172a" stroke="#38bdf8" strokeWidth="2" />
                     <text x="425" y="42" fill="#38bdf8" fontSize="12" fontWeight="bold" textAnchor="middle">Client Application / Web Portal</text>
-                    <text x="425" y="58" fill="#94a3b8" fontSize="10" textAnchor="middle font-mono">SELECT * FROM view_student_summary WHERE avg_marks &gt;= 80</text>
+                    <text x="425" y="58" fill="#94a3b8" fontSize="10" textAnchor="middle font-mono">SELECT * FROM view_student_summary WHERE avg_marks >= 80</text>
                   </g>
 
                   {/* Middle: The Virtual View Lens */}
@@ -345,7 +345,7 @@ SELECT * FROM view_student_academic_summary WHERE average_exam_score >= 80;`,
                     <text x="425" y="153" fill="#a5b4fc" fontSize="10" textAnchor="middle">Logical schema abstraction (Zero bytes stored on disk)</text>
                   </g>
 
-                  {/* Flow Arrow Client -> View */}
+                  {/* Flow Arrow Client &rarr; View */}
                   <path d="M 425 70 L 425 110" stroke="#38bdf8" strokeWidth="2" />
 
                   {/* Bottom: Physical Base Tables */}
@@ -369,7 +369,7 @@ SELECT * FROM view_student_academic_summary WHERE average_exam_score >= 80;`,
                     <text x="690" y="264" fill="#64748b" fontSize="9" textAnchor="middle">(Physical InnoDB storage)</text>
                   </g>
 
-                  {/* Flow Arrows View -> Base Tables */}
+                  {/* Flow Arrows View &rarr; Base Tables */}
                   <path d="M 300 170 L 160 210" stroke="#818cf8" strokeWidth="1.5" strokeDasharray="3 2" />
                   <path d="M 425 170 L 425 210" stroke="#818cf8" strokeWidth="1.5" strokeDasharray="3 2" />
                   <path d="M 550 170 L 690 210" stroke="#818cf8" strokeWidth="1.5" strokeDasharray="3 2" />
@@ -459,7 +459,7 @@ SELECT * FROM view_student_academic_summary WHERE average_exam_score >= 80;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

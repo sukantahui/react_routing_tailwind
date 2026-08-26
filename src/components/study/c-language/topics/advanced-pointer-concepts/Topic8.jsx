@@ -22,7 +22,7 @@ const Topic8 = () => {
     { q: "What are the two syntaxes for calling a function via pointer?", a: "`(*funcPtr)(args)` and `funcPtr(args)`. The latter is simpler and works in modern C, but the former explicitly shows dereferencing." },
     { q: "Is `funcPtr(args)` equivalent to `(*funcPtr)(args)`?", a: "Yes, the standard allows `funcPtr(args)` as syntactic sugar. Both call the function pointed to by `funcPtr`." },
     { q: "What happens if you call a NULL function pointer?", a: "Undefined behavior – usually a segmentation fault. Always check for NULL before calling." },
-    { q: "Can you use `->` with function pointers stored in structs?", a: "Yes, if a struct has a function pointer member, you call it as `structPtr->funcPtr(args)` or `(*structPtr).funcPtr(args)`." },
+    { q: "Can you use ` &rarr; ` with function pointers stored in structs?", a: "Yes, if a struct has a function pointer member, you call it as `structPtr-&gt;funcPtr(args)` or `(*structPtr).funcPtr(args)`." },
     { q: "How do you call a function pointer that takes no arguments and returns void?", a: "`funcPtr();` or `(*funcPtr)();`" },
     { q: "Is there a performance difference between direct call and call via pointer?", a: "Indirect calls may have a small overhead due to the extra indirection, but it's usually negligible. The compiler may inline direct calls but cannot inline through a pointer unless it knows the target." },
     { q: "Can you call a function pointer with the wrong number of arguments?", a: "It will compile but cause undefined behavior (stack corruption, wrong arguments passed). The signature must match exactly." },

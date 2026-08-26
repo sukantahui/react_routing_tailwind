@@ -297,7 +297,7 @@ export default class Topic9 extends Component {
         symbolic: {
           command: 'ln -s python3.9 python3',
           description: 'Create "python3" pointer to specific version',
-          output: 'lrwxrwxrwx 1 tuhina users 9 Jan 16 python3 -> python3.9'
+          output: 'lrwxrwxrwx 1 tuhina users 9 Jan 16 python3 &rarr; python3.9'
         },
         hard: {
           command: 'Not applicable',
@@ -355,7 +355,7 @@ export default class Topic9 extends Component {
                       ? 'bg-white dark:bg-gray-800 shadow-lg border-2 border-blue-500'
                       : 'bg-white/70 dark:bg-gray-800/70 hover:bg-white dark:hover:bg-gray-800'
                   }`}
-                >
+                &gt;
                   <div className="font-semibold text-gray-800 dark:text-white mb-2">{example.title}</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">{example.scenario}</div>
                 </button>
@@ -947,7 +947,7 @@ export default class Topic9 extends Component {
                       ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                       : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
-                >
+                &gt;
                   <span className="mr-2">{tab.icon}</span>
                   {tab.label}
                 </button>

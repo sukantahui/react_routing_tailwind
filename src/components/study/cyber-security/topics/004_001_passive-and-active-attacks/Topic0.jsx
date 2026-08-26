@@ -39,7 +39,7 @@ const Topic0 = () => {
       mechanism:
         "Adversary places a Network Interface Card (NIC) into Promiscuous Mode on a shared Ethernet broadcast domain, Wi-Fi radio, or mirrored switch port, copying every passing frame into memory.",
       attackVectorCode: `// Promiscuous Sniffing Command (tcpdump / Wireshark):
-# tcpdump -i eth0 -nn -A -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12:2]&0xf0)>>2)) != 0)'
+# tcpdump -i eth0 -nn -A -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12:2]&0xf0)>&gt;2)) != 0)'
 // Output captured: Cleartext HTTP credentials, unencrypted session cookies, database queries.`,
       realWorldPayload: "GET /api/v1/auth HTTP/1.1\nHost: portal.kolkata-edu.in\nCookie: session_id=SECRET_SESSION_TOKEN_89812\nAuthorization: Bearer eyJhbGciOi...",
       countermeasure: "End-to-End Encryption (E2EE) with TLS 1.3 (AES-256-GCM / ChaCha20-Poly1305), IPsec ESP, and SSHv2.",
@@ -62,7 +62,7 @@ ssl_prefer_server_ciphers off;`
       mechanism:
         "Even when payloads are strongly encrypted with AES-256, the adversary analyzes packet timing intervals, burst volumes, and endpoint IP pairs to deduce military, commercial, or operational activity.",
       attackVectorCode: `// Statistical Burst Analyzer:
-// Inter-packet arrival time: [0.001s, 0.001s, 0.002s] -> Keystroke typing cadence identified
+// Inter-packet arrival time: [0.001s, 0.001s, 0.002s] &rarr; Keystroke typing cadence identified
 // Volume Surge: 120,000 pkts/min between Barrackpore Military Substation & Kolkata Command at 03:00 AM`,
       realWorldPayload: "[Encrypted TLS 1.3 ApplicationData]\nSrc: 192.168.10.5:5432 -> Dst: 10.0.1.20:443\nLength: 1420 Bytes | Burst Duration: 45.2s (Inferred DB Dump)",
       countermeasure: "Traffic Padding (Continuous dummy packet injection), Constant-Rate Transmission, and Onion Routing (Tor).",
@@ -86,7 +86,7 @@ def transmit_with_padding(payload, target_rate_bps=10000000):
       mechanism:
         "Adversary attaches a clip-on optical coupler that slightly curves the glass fiber core. Leaked light is focused onto a high-sensitivity photodiode receiver, cloning gigabit backbone data streams.",
       attackVectorCode: `// Optical Tapping Physics:
-// Light Ray Angle > Critical Angle -> Core Confinement broken -> Photon leakage
+// Light Ray Angle > Critical Angle &rarr; Core Confinement broken -&gt; Photon leakage
 // Attenuation Delta: -0.22 dB (Ignored by standard network monitoring alarms)`,
       realWorldPayload: "[Optical Bitstream Raw] 10 Gbps Ethernet Frame Cloned in Real-Time at Physical Fiber Sheath",
       countermeasure: "Optical Time-Domain Reflectometry (OTDR), Armored Conduit Enclosures, and Layer 2/3 Link-Level Encryption (MACsec / IPsec).",
@@ -117,7 +117,7 @@ function unsafeCompare(a, b) {
   }
   return true;
 }`,
-      realWorldPayload: "Probe: 'P' -> Time: 4.12ms | Probe: 'Pa' -> Time: 4.18ms | Probe: 'Pas' -> Time: 4.25ms (Key Leaked!)",
+      realWorldPayload: "Probe: 'P' -> Time: 4.12ms | Probe: 'Pa' &rarr; Time: 4.18ms | Probe: 'Pas' -&gt; Time: 4.25ms (Key Leaked!)",
       countermeasure: "Constant-Time Cryptographic Primitives (crypto.timingSafeEqual), Hardware Masking, and Cache Flush Defenses.",
       countermeasureCode: `// Constant-Time Secure Comparison in Node.js / WebCrypto:
 const crypto = require('crypto');
@@ -550,7 +550,7 @@ sysctl -w net.ipv4.tcp_synack_retries=2`
                     ? "bg-cyan-950 border-cyan-500 text-cyan-300 shadow-md shadow-cyan-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 Layer {lvl}
                 <span className="block text-[10px] font-normal text-gray-400 mt-0.5">
                   {lvl === 7 ? "Application" : lvl === 6 ? "Pres / Sess" : lvl === 4 ? "Transport" : lvl === 3 ? "Network" : lvl === 2 ? "Data Link" : "Physical"}
@@ -768,7 +768,7 @@ sysctl -w net.ipv4.tcp_synack_retries=2`
                     ? "bg-indigo-950/80 border-indigo-500 shadow-lg shadow-indigo-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span
                   className={clsx(
                     "text-[8.5px] font-bold px-1.5 py-0.5 rounded border self-start",
@@ -808,7 +808,7 @@ sysctl -w net.ipv4.tcp_synack_retries=2`
                     "text-sm font-extrabold",
                     activeThreat.detectabilityScore > 70
                       ? "text-emerald-400"
-                      : activeThreat.detectabilityScore > 30
+                      : activeThreat.detectabilityScore &gt; 30
                       ? "text-amber-400"
                       : "text-rose-400"
                   )}
@@ -890,7 +890,7 @@ sysctl -w net.ipv4.tcp_synack_retries=2`
                     ? "bg-emerald-950/80 border-emerald-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="font-bold text-white block">{sim.name}</span>
                 <span className="text-[10px] text-gray-400 line-clamp-1">{sim.attackAction}</span>
               </button>
@@ -961,7 +961,7 @@ sysctl -w net.ipv4.tcp_synack_retries=2`
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

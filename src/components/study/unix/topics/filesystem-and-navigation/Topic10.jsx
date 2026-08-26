@@ -227,7 +227,7 @@ export default class Topic10 extends Component {
                             ? 'bg-blue-900/30 -mx-2 px-2 py-1 rounded'
                             : 'hover:bg-gray-800/50 hover:-mx-2 hover:px-2 hover:py-1 hover:rounded'
                         }`}
-                      >
+                      &gt;
                         <div className="w-24 text-cyan-400 flex-shrink-0">{line.label}</div>
                         <div className={`${
                           line.field === 'permissions' ? 'text-yellow-400' :
@@ -360,7 +360,7 @@ export default class Topic10 extends Component {
                 {
                   name: 'Modify Time (mtime)',
                   description: 'When content was last changed',
-                  command: 'echo "text" >> file.txt',
+                  command: 'echo "text" &gt;> file.txt',
                   changes: 'Editing file content',
                   example: 'Swadeep saves his code changes',
                   color: 'green'
@@ -726,7 +726,7 @@ export default class Topic10 extends Component {
                   },
                   {
                     mistake: 'Overlooking link count',
-                    explanation: 'Link count > 1 means multiple hard links',
+                    explanation: 'Link count &gt; 1 means multiple hard links',
                     example: 'Deleting "a copy" might delete the original',
                     fix: 'Always check link count before deleting'
                   }
@@ -939,7 +939,7 @@ export default class Topic10 extends Component {
               
               <div className="space-y-3">
                 {[
-                  'Before deleting: Check link count (if >1, other files point here)',
+                  'Before deleting: Check link count (if &gt;1, other files point here)',
                   'Permission issues: Verify Access field matches expected permissions',
                   'Size discrepancies: Compare stat size with du/df outputs',
                   'Timing issues: Check all three timestamps (atime, mtime, ctime)',
@@ -1171,7 +1171,7 @@ export default class Topic10 extends Component {
                       ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                       : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
-                >
+                &gt;
                   <span className="mr-2">{tab.icon}</span>
                   {tab.label}
                 </button>

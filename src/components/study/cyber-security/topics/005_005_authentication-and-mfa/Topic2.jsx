@@ -304,7 +304,7 @@ const Topic2 = () => {
                       ? "bg-cyan-950/80 border-cyan-500 text-cyan-200 font-bold shadow-md shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <div className="font-semibold text-slate-300">{item.label}</div>
                   <div className="font-mono text-cyan-400 truncate mt-0.5">{item.val}</div>
                 </button>
@@ -324,7 +324,7 @@ const Topic2 = () => {
               onChange={(e) => setCustomPassword(e.target.value)}
               className="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-sm font-mono text-white focus:outline-none focus:border-cyan-500 transition-colors"
               placeholder="Type any password or passphrase..."
-            />
+            /&gt;
           </div>
 
           {/* Entropy Metrics Grid */}
@@ -490,7 +490,7 @@ const Topic2 = () => {
                       ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key}
                 </button>
               ))}
@@ -574,7 +574,7 @@ const Topic2 = () => {
                       ? "bg-indigo-600 text-white shadow-lg shadow-indigo-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key}
                 </button>
               ))}
@@ -639,7 +639,7 @@ const Topic2 = () => {
                       ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_payroll" ? "Barrackpore Payroll" : key === "kolkata_fintech_argon2" ? "Kolkata FinTech" : "Ichapur Spraying"}
                 </button>
               ))}

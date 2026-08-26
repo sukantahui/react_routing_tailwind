@@ -393,7 +393,7 @@ const Topic0 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {l.ringNumber}: {l.name}
               </button>
             ))}
@@ -471,7 +471,7 @@ const Topic0 = () => {
                 value={selectedPacketType}
                 onChange={(e) => setSelectedPacketType(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(testPackets).map((p) => (
                   <option key={p.id} value={p.id}>
                     {p.label}
@@ -490,7 +490,7 @@ const Topic0 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-rose-950/80 text-rose-300 border-rose-800"
                 )}
-              >
+              &gt;
                 {edrEnabled ? "✔ Host EDR Active (CrowdStrike/Wazuh)" : "❌ Host EDR Disabled"}
               </button>
             </div>
@@ -505,7 +505,7 @@ const Topic0 = () => {
                     ? "bg-indigo-950/80 text-indigo-300 border-indigo-800"
                     : "bg-amber-950/80 text-amber-300 border-amber-800"
                 )}
-              >
+              &gt;
                 {zeroTrustEnabled ? "✔ Zero Trust Gatekeeper Active" : "❌ Legacy Bastion (Password Only)"}
               </button>
             </div>
@@ -603,7 +603,7 @@ const Topic0 = () => {
                 value={layer1Prob}
                 onChange={(e) => setLayer1Prob(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -618,7 +618,7 @@ const Topic0 = () => {
                 value={layer2Prob}
                 onChange={(e) => setLayer2Prob(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -633,7 +633,7 @@ const Topic0 = () => {
                 value={layer3Prob}
                 onChange={(e) => setLayer3Prob(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -648,7 +648,7 @@ const Topic0 = () => {
                 value={layer4Prob}
                 onChange={(e) => setLayer4Prob(Number(e.target.value))}
                 className="w-full accent-rose-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -702,7 +702,7 @@ const Topic0 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {s.title}
               </button>
             ))}

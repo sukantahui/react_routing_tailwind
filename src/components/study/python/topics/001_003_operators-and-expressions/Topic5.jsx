@@ -83,7 +83,7 @@ export default function Topic5() {
       level: 6,
       name: "Bitwise Shift Operators",
       category: "bitwise",
-      symbols: "<<, >>",
+      symbols: "<<, >&gt;",
       associativity: "L → R",
       assocType: "left",
       description: "Bitwise left shift (multiply by 2^n) and right shift (divide by 2^n)",
@@ -127,7 +127,7 @@ export default function Topic5() {
       level: 10,
       name: "Comparisons, Identity & Membership",
       category: "comparison",
-      symbols: "<, <=, >, >=, ==, !=, is, is not, in, not in",
+      symbols: "<, <=, >, &ge; , ==, !=, is, is not, in, not in",
       associativity: "Chained (L → R)",
       assocType: "chain",
       description: "Relational comparisons, object identity, and collection membership",
@@ -175,7 +175,7 @@ export default function Topic5() {
       associativity: "R → L",
       assocType: "right",
       description: "Inline conditional branch returning x if True else y",
-      example: "'Adult' if age >= 18 else 'Minor'",
+      example: "'Adult' if age &ge; 18 else 'Minor'",
       tip: "Right-associative when nested: a if c1 else (b if c2 else c)."
     },
     {
@@ -299,7 +299,7 @@ print("2 ** 3 ** 2  =", 2 ** 3 ** 2)    # Is it 64 or 512?
 # Trap 2: Unary Minus vs Exponentiation Priority
 print("-3 ** 2       =", -3 ** 2)       # Is it 9 or -9?
 
-# Trap 3: Logical Hierarchy (not > and > or)
+# Trap 3: Logical Hierarchy (not > and &gt; or)
 print("True or False and False =", True or False and False) # Is it False or True?
 
 # Trap 4: Subtraction Associativity (Left-to-Right)
@@ -333,7 +333,7 @@ print("100 - 30 - 20 =", 100 - 30 - 20) # Is it 90 or 50?`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="px-3.5 py-2 text-xs rounded-xl bg-slate-800 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition w-full sm:w-56"
-            />
+            /&gt;
           </div>
         </div>
 
@@ -355,7 +355,7 @@ print("100 - 30 - 20 =", 100 - 30 - 20) # Is it 90 or 50?`}
                   ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
                   : "bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700/60"
               )}
-            >
+            &gt;
               <Filter size={12} />
               {tab.label}
             </button>
@@ -609,7 +609,7 @@ print(f"a = {a}, b = {b}, c = {c}")
 # Modifying one primitive does not affect others
 a += 50
 print(f"After a += 50 -> a = {a}, b = {b}")`}
-            />
+            /&gt;
           </div>
 
           {/* 4. Conditional (Ternary) Expression */}
@@ -626,7 +626,7 @@ print(f"After a += 50 -> a = {a}, b = {b}")`}
               initialCode={`score = 85
 
 # Right-associative nested ternary
-grade = "A+" if score >= 90 else "A" if score >= 80 else "B" if score >= 60 else "F"
+grade = "A+" if score >= 90 else "A" if score &ge; 80 else "B" if score >= 60 else "F"
 print("Student Grade:", grade)  # Output: A`}
             />
           </div>
@@ -653,11 +653,11 @@ print("Student Grade:", grade)  # Output: A`}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
             <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">What you write</h4>
-            <code className="text-sm font-mono text-cyan-300">10 &lt; score &lt;= 100 == total</code>
+            <code className="text-sm font-mono text-cyan-300">10 &lt; score <= 100 == total</code>
           </div>
           <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
             <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">How Python executes it</h4>
-            <code className="text-sm font-mono text-emerald-400">(10 &lt; score) and (score &lt;= 100) and (100 == total)</code>
+            <code className="text-sm font-mono text-emerald-400">(10 &lt; score) and (score <= 100) and (100 == total)</code>
           </div>
         </div>
 
@@ -677,7 +677,7 @@ print("a == b == c == 10 :", a == b == c == 10)  # True`}
       </section>
 
       {/* =========================================================================
-          LOGICAL OPERATORS HIERARCHY: not > and > or
+          LOGICAL OPERATORS HIERARCHY: not &gt; and > or
       ========================================================================= */}
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-indigo-300 flex items-center gap-2">
@@ -820,7 +820,7 @@ print("Result of 10 + 4 * 3 ** 2 - 20 // 4 =", expr1)  # Output: 41`}
           </div>
 
           <EditablePythonCodeBlock
-            initialCode={`expr2 = not 5 + 3 > 10 and 4 * 2 == 8 or 10 > 20
+            initialCode={`expr2 = not 5 + 3 > 10 and 4 * 2 == 8 or 10 &gt; 20
 print("Result:", expr2)  # Output: True`}
           />
         </div>
@@ -885,7 +885,7 @@ board_marks = 88.5
 entrance_rank = 350
 has_state_sports_cert = True
 
-# Logic: Must have Board >= 85 AND (Rank <= 500 OR Sports Quota)
+# Logic: Must have Board >= 85 AND (Rank &le; 500 OR Sports Quota)
 is_eligible = board_marks >= 85 and (entrance_rank <= 500 or has_state_sports_cert)
 
 print(f"Mamata's Admission Status: {'Eligible' if is_eligible else 'Not Eligible'}")`}

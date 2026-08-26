@@ -83,7 +83,7 @@ SHOW BINLOG EVENTS IN 'binlog.000045' FROM 1582 LIMIT 20;
 mysqlbinlog --base64-output=DECODE-ROWS -vv \\
   --start-datetime="2026-08-25 14:00:00" \\
   --stop-datetime="2026-08-25 14:35:00" \\
-  /var/log/mysql/binlog.000045 > /tmp/audit_incident.sql`,
+  /var/log/mysql/binlog.000045 &gt; /tmp/audit_incident.sql`,
       explanation:
         "SHOW BINLOG EVENTS provides fast, live query inspection of active server logs. mysqlbinlog with DECODE-ROWS -vv decodes raw row mutations into human-readable pseudo-SQL with full column data types for forensic analysis.",
       keyTakeaways: [
@@ -215,7 +215,7 @@ SET GTID_NEXT = 'AUTOMATIC';
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );
@@ -403,7 +403,7 @@ SET GTID_NEXT = 'AUTOMATIC';
 
           <Teacher
             note="Locating binary log positions is all about microsecond precision. Remember the 3-step formula: search for the destructive query text, identify the '# at <pos>' starting byte offset immediately preceding it, and set that value as your --stop-position. Never use end_log_pos as your stop position, or you will execute the bad statement! Always preview your extracted replay file before applying it to the database!"
-          />
+          /&gt;
         </section>
 
         {/* ─── SECTION 6: FAQ Accordion ───────────────────────────────── */}

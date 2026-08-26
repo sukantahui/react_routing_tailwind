@@ -39,7 +39,7 @@ const Topic7 = () => {
     },
     "RSA-4096": {
       name: "RSA-4096 (High Security Public Key)",
-      classicalTime: "> 10^20 Years (Age of Universe)",
+      classicalTime: "&gt; 10^20 Years (Age of Universe)",
       logicalQubits: "8,195 Logical Qubits",
       physicalQubits: "8,195,000 Physical Qubits (Surface Code)",
       quantumCrackTime: "38 Hours on a CRQC",
@@ -79,7 +79,7 @@ const Topic7 = () => {
       badgeColor = "bg-rose-950 text-rose-300 border-rose-700";
       action = `Adversaries intercepting ciphertext today will decrypt it in year ${quantumArrivalZ}. Since data must remain secret for ${shelfLifeX} years and migration takes ${migrationTimeY} years, your systems are ALREADY breached! Immediate hybrid PQC TLS transition required.`;
     } else {
-      status = "PQC MIGRATION WINDOW SECURE ✔ (X + Y <= Z)";
+      status = "PQC MIGRATION WINDOW SECURE ✔ (X + Y &le; Z)";
       badgeColor = "bg-emerald-950 text-emerald-300 border-emerald-700";
       action = "Migration will complete before a Cryptanalytically Relevant Quantum Computer arrives. Data secrecy will be preserved.";
     }
@@ -200,7 +200,7 @@ const Topic7 = () => {
                       ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key}
                 </button>
               ))}
@@ -278,7 +278,7 @@ const Topic7 = () => {
                   value={shelfLifeX}
                   onChange={(e) => setShelfLifeX(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1.5">
@@ -294,7 +294,7 @@ const Topic7 = () => {
                   value={migrationTimeY}
                   onChange={(e) => setMigrationTimeY(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1.5">
@@ -310,7 +310,7 @@ const Topic7 = () => {
                   value={quantumArrivalZ}
                   onChange={(e) => setQuantumArrivalZ(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -359,7 +359,7 @@ const Topic7 = () => {
                       ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_pqc_audit" ? "Barrackpore PQC Audit" : key === "kolkata_fintech_grover_hardening" ? "Kolkata AES-256 Hardening" : "Ichapur Hybrid VPN"}
                 </button>
               ))}
@@ -504,7 +504,7 @@ const Topic7 = () => {
         {/* ========================================================================= */}
         <Teacher
           note="For your BCA BCAC703 examination: Master the mathematical mechanics of Shor's Algorithm ($O((\log N)^3)$ polynomial time) and explain which public-key algorithms it breaks. Contrast it with Grover's Algorithm ($O(\sqrt{N})$ quadratic search) and explain why AES-256 remains secure. State Mosca's Theorem ($X+Y>Z$) and detail the 'Harvest Now, Decrypt Later' (HNDL) threat model. Explain the difference between Physical and Logical Qubits under Surface Code error correction."
-        />
+        /&gt;
 
         {/* ========================================================================= */}
         {/* PLAIN TEXT PRINT & STUDY GUIDE */}

@@ -118,7 +118,7 @@ int main() {
     printf("%d", add(10, 20));
     return 0;
 }`}
-          />
+          /&gt;
         </section>
 
         {/* ================= EXECUTION FLOW ================= */}

@@ -30,9 +30,9 @@ console.log(5 === "5");    // false (value + type comparison)`}
         code={`console.log(10 > 5);      // true
 console.log(10 < 5);      // false
 console.log(10 >= 10);    // true
-console.log(4 <= 8);      // true`}
+console.log(4 &le; 8);      // true`}
         language="javascript"
-      />
+      /&gt;
 
       <p className="text-slate-400 text-sm">
         Always use <strong>===</strong> instead of <strong>==</strong> to avoid

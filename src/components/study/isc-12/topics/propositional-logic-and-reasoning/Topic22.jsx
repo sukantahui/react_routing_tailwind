@@ -141,7 +141,7 @@ const Topic22 = () => {
                     ? "bg-blue-600 text-white"
                     : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {expr.name}
               </button>
             ))}
@@ -150,15 +150,15 @@ const Topic22 = () => {
           {/* Variable toggles */}
           <div className="flex flex-wrap gap-6 mb-6">
             <label className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" />
+              <input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /&gt;
               <span className="font-mono font-bold">p = {pVal ? 'true' : 'false'}</span>
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" />
+              <input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /&gt;
               <span className="font-mono font-bold">q = {qVal ? 'true' : 'false'}</span>
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" checked={rVal} onChange={() => setRVal(!rVal)} className="w-5 h-5" />
+              <input type="checkbox" checked={rVal} onChange={() => setRVal(!rVal)} className="w-5 h-5" /&gt;
               <span className="font-mono font-bold">r = {rVal ? 'true' : 'false'}</span>
             </label>
           </div>

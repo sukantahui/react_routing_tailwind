@@ -641,7 +641,7 @@ const Topic26 = () => {
               <li><strong>Minimum:</strong> ≥ 15 units</li>
               <li><strong>Maximum:</strong> ≤ 35 units</li>
               <li><strong>Optimal:</strong> 26.67 units</li>
-              <li><strong>Min Status:</strong> Not binding (26.67 {`>`} 15)</li>
+              <li><strong>Min Status:</strong> Not binding (26.67 {`&gt;`} 15)</li>
               <li><strong>Max Status:</strong> Not binding (26.67 {`<`} 35)</li>
             </ul>
           </div>
@@ -651,7 +651,7 @@ const Topic26 = () => {
               <li><strong>Minimum:</strong> ≥ 10 units</li>
               <li><strong>Maximum:</strong> ≤ 30 units</li>
               <li><strong>Optimal:</strong> 30 units</li>
-              <li><strong>Min Status:</strong> Not binding (30 {`>`} 10)</li>
+              <li><strong>Min Status:</strong> Not binding (30 {`&gt;`} 10)</li>
               <li><strong>Max Status:</strong> Binding ✓ (30 = 30)</li>
             </ul>
           </div>

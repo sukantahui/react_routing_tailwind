@@ -174,11 +174,11 @@ Get-InboxRule -Mailbox "cfo@kolkata-fintech.in" | Where-Object {
     const numerator = transferAmountNormalized * authorityFactor;
     const exponent = -numerator / dualAuthStrength;
     const rawFraudProb = (1 - Math.exp(exponent)) * 100;
-    const actualFraudProb = dualAuthStrength >= 500
+    const actualFraudProb = dualAuthStrength &ge; 500
       ? (rawFraudProb * 0.015).toFixed(2) // Out-of-Band Dual-Auth + FIDO2 blocks 98.5% of fraud
       : dualAuthStrength >= 50
       ? (rawFraudProb * 0.35).toFixed(2)  // Email Confirmation blocks 65% of fraud
-      : rawFraudProb.toFixed(2);           // No dual-auth -> 100% fraud success rate
+      : rawFraudProb.toFixed(2);           // No dual-auth &rarr; 100% fraud success rate
 
     return {
       rawFraudProb: rawFraudProb.toFixed(2),
@@ -614,7 +614,7 @@ level: high`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   SCENARIO
                 </span>
@@ -711,7 +711,7 @@ level: high`,
                   value={transferAmountNormalized}
                   onChange={(e) => setTransferAmountNormalized(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -727,7 +727,7 @@ level: high`,
                   value={authorityFactor}
                   onChange={(e) => setAuthorityFactor(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -741,7 +741,7 @@ level: high`,
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     None (1x)
                   </button>
                   <button
@@ -752,7 +752,7 @@ level: high`,
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Email Sign (50x)
                   </button>
                   <button
@@ -763,7 +763,7 @@ level: high`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     OOB Voice (500x)
                   </button>
                 </div>
@@ -822,7 +822,7 @@ level: high`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -871,7 +871,7 @@ level: high`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>
@@ -1112,7 +1112,7 @@ level: high`,
         <section className="pt-4">
           <Teacher
             note="Teacher's Note: Business Email Compromise (BEC) is the single most lucrative attack category in cybercrime today! Understand the FBI IC3 5-part taxonomy: Supplier Swindle (altering bank invoices), CEO Fraud (emergency wire demands), Email Account Compromise (EAC inside authentic mailboxes), Attorney Impersonation, and Data Theft (payroll/PAN harvesting). Learn how attackers maintain persistence via hidden Exchange transport rules and illicit OAuth application consent grants with Graph API `Mail.ReadWrite` permissions that persist across password resets! Understand how Watering Hole attacks compromise legitimate industry websites, using selective IP filtering to deliver zero-day browser exploits. To build an unbreachable defense: enforce Remote Browser Isolation (RBI) for all untrusted external sites, establish an inviolable Out-of-Band (OOB) Dual-Authorization policy requiring verbal phone verification on registered numbers for all wire transfers > ₹1,00,000, continuously audit Microsoft Graph API OAuth permissions, and deploy FIDO2 WebAuthn passkeys to eliminate EAC credential theft. Remember that Section 66D of the Indian IT Act treats Cheating by Personation as a severe criminal offense punishable with up to 3 years imprisonment!"
-          />
+          /&gt;
         </section>
 
       </div>

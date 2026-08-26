@@ -101,7 +101,7 @@ DNSSEC=yes`
       vulnerabilityRoot: "Windows default fallback to broadcast LLMNR/NetBIOS name resolution for proxy discovery.",
       productionDefense: "Disabling LLMNR and NetBIOS via Group Policy (GPO) + Disabling WPAD in browsers.",
       codeSnippet: `// Disable LLMNR via Windows Group Policy (GPO):
-// Computer Configuration -> Administrative Templates -> Network -> DNS Client
+// Computer Configuration &rarr; Administrative Templates -&gt; Network -> DNS Client
 // Policy: "Turn off multicast name resolution" -> ENABLED`
     },
     bgp_wan_hijack: {
@@ -459,7 +459,7 @@ ip arp inspection validate src-mac dst-mac ip`,
                 </text>
               </g>
 
-              {/* PATH 1: Alice -> Attacker */}
+              {/* PATH 1: Alice &rarr; Attacker */}
               <path d="M 220 165 L 360 165" stroke="#f43f5e" strokeWidth="3" fill="none" />
               <circle r="5" fill="#f43f5e">
                 <animateMotion path="M 220 165 L 360 165" dur="1.5s" repeatCount="indefinite" />
@@ -492,7 +492,7 @@ ip arp inspection validate src-mac dst-mac ip`,
                 </text>
               </g>
 
-              {/* PATH 2: Attacker -> Server */}
+              {/* PATH 2: Attacker &rarr; Server */}
               <path d="M 570 165 L 680 165" stroke="#f43f5e" strokeWidth="3" fill="none" />
               <circle r="5" fill="#f43f5e">
                 <animateMotion path="M 570 165 L 680 165" dur="1.5s" repeatCount="indefinite" />
@@ -547,7 +547,7 @@ ip arp inspection validate src-mac dst-mac ip`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   MitM
                 </span>
@@ -641,7 +641,7 @@ ip arp inspection validate src-mac dst-mac ip`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     ✔ HSTS Preloaded (Hardcoded)
                   </button>
                   <button
@@ -652,7 +652,7 @@ ip arp inspection validate src-mac dst-mac ip`,
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     ✖ No HSTS Preload (Vulnerable)
                   </button>
                 </div>
@@ -667,7 +667,7 @@ ip arp inspection validate src-mac dst-mac ip`,
                       ? "bg-amber-950 border-amber-500 text-amber-300"
                       : "bg-gray-900 border-gray-800 text-gray-300"
                   )}
-                >
+                &gt;
                   {attemptCleartextHttp ? "⚡ Attacker Intercepting: http://portal.bank.in" : "Direct User Visit: https://portal.bank.in"}
                 </button>
               </div>
@@ -718,7 +718,7 @@ ip arp inspection validate src-mac dst-mac ip`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -767,7 +767,7 @@ ip arp inspection validate src-mac dst-mac ip`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

@@ -99,7 +99,7 @@ const Topic11 = () => {
       key: "bangladesh_bank_2016",
       title: "Bangladesh Bank SWIFT Heist (2016)",
       category: "Central Banking & FinTech (South Asia)",
-      ingressVector: "Phishing email to employee -> Lateral movement across unmanaged $10 network switches",
+      ingressVector: "Phishing email to employee &rarr; Lateral movement across unmanaged $10 network switches",
       adversaryTTP: "Injected evtdt.exe and hooked PDF printer library (fxservice.dll) to suppress physical paper transaction receipts for fraudulent MT103 wire transfers.",
       realImpact: "₹650 Crores ($81 Million) successfully stolen and laundered through Sri Lankan and Philippine casinos.",
       ethicalBlueprint:
@@ -273,7 +273,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{sector.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{sector.name.split(" &")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{sector.name.split(" ")[0]} Sector</div>
@@ -344,7 +344,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{c.title.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{c.category.split(" (")[0]}</div>
                 </button>
@@ -554,7 +554,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

@@ -250,7 +250,7 @@ class WireTransferPolicyEngine:
         
         print(f"[*] Evaluating Wire Transfer Request: ₹{amount:,.2f} to Vendor: {vendor_id}")
         
-        # Policy Threshold: Any transfer >= ₹1,00,000 or Bank Detail Change requires OOB Phone Callback!
+        # Policy Threshold: Any transfer &ge; ₹1,00,000 or Bank Detail Change requires OOB Phone Callback!
         if amount >= 100000 or transaction_request.get("is_bank_detail_changed", False):
             print("[!] HIGH-VALUE WIRE: Mandatory Out-of-Band (OOB) Verification Enforced!")
             
@@ -636,7 +636,7 @@ Write-Host "[+] Number Matching & Geolocation Context ENFORCED for all 1,200 use
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   CASE
                 </span>
@@ -733,7 +733,7 @@ Write-Host "[+] Number Matching & Geolocation Context ENFORCED for all 1,200 use
                   value={humanLayerScore}
                   onChange={(e) => setHumanLayerScore(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -749,7 +749,7 @@ Write-Host "[+] Number Matching & Geolocation Context ENFORCED for all 1,200 use
                   value={technicalLayerScore}
                   onChange={(e) => setTechnicalLayerScore(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -765,7 +765,7 @@ Write-Host "[+] Number Matching & Geolocation Context ENFORCED for all 1,200 use
                   value={policyLayerScore}
                   onChange={(e) => setPolicyLayerScore(parseFloat(e.target.value))}
                   className="w-full accent-purple-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -781,7 +781,7 @@ Write-Host "[+] Number Matching & Geolocation Context ENFORCED for all 1,200 use
                   value={attackerSophistication}
                   onChange={(e) => setAttackerSophistication(parseFloat(e.target.value))}
                   className="w-full accent-amber-500 bg-gray-800"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -837,7 +837,7 @@ Write-Host "[+] Number Matching & Geolocation Context ENFORCED for all 1,200 use
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -886,7 +886,7 @@ Write-Host "[+] Number Matching & Geolocation Context ENFORCED for all 1,200 use
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

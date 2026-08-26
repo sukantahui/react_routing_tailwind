@@ -269,7 +269,7 @@ function ExcelTopicViewInner({ moduleSlug, topicIndex }) {
               type="button"
               onClick={() => setSidebarOpen(true)}
               className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-[11px] text-slate-100 sm:hidden"
-            >
+            &gt;
               <Menu size={14} /> Topics
             </button>
           </div>
@@ -447,7 +447,7 @@ ${moduleLink}
               <div
                 className="fixed inset-0 z-40 bg-black/60 lg:hidden"
                 onClick={() => setSidebarOpen(false)}
-              />
+              /&gt;
 
               <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950/95 backdrop-blur-xl border-r border-slate-800 pt-4 pb-6 px-4 flex flex-col lg:hidden">
                 <div className="flex items-center justify-between mb-4">
@@ -462,7 +462,7 @@ ${moduleLink}
                     type="button"
                     onClick={() => setSidebarOpen(false)}
                     className="p-1 rounded-full border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-300"
-                  >
+                  &gt;
                     <X size={14} />
                   </button>
                 </div>
@@ -511,7 +511,7 @@ ${moduleLink}
                             : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"
                           }
                         `}
-                      >
+                      &gt;
                         <span
                           className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"
                             }`}
@@ -538,7 +538,7 @@ ${moduleLink}
                     to={`/${roadmapData.folder}/module/${moduleSlug}`}
                     onClick={() => setSidebarOpen(false)}
                     className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
-                  >
+                  &gt;
                     ← Back to Module Overview
                   </Link>
 
@@ -546,7 +546,7 @@ ${moduleLink}
                     to={`/${roadmapData.folder}/roadmap`}
                     onClick={() => setSidebarOpen(false)}
                     className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
-                  >
+                  &gt;
                     📍 Go To Roadmap
                   </Link>
 
@@ -632,7 +632,7 @@ ${moduleLink}
               {/* ===================== TOPIC CONTENT PANEL ===================== */}
               <section className="relative rounded-3xl border border-slate-800 bg-slate-900/70 backdrop-blur-lg shadow-[0_22px_45px_rgba(15,23,42,0.75)] px-5 md:px-8 py-6 md:py-8">
 
-                <Suspense fallback={<p className="text-slate-400 text-sm">Loading topic content…</p>}>
+                <Suspense fallback={<p className="text-slate-400 text-sm">Loading topic content…</p>}&gt;
                   {TopicPage ? (
                     <TopicPage key={topicKey} />
                   ) : (
@@ -677,7 +677,7 @@ ${moduleLink}
                       window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
                     }}
                     className="px-4 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-white text-sm font-semibold transition"
-                  >
+                  &gt;
                     📲 Send WhatsApp Query
                   </button>
                 </div>
@@ -761,7 +761,7 @@ ${userMsg}
         rounded-lg text-sm font-semibold
         text-white transition
       "
-                  >
+                  &gt;
                     📲 Send on WhatsApp
                   </button>
                 </div>
@@ -783,7 +783,7 @@ ${userMsg}
       hover:scale-[1.06]
       transition-all
     "
-                >
+                &gt;
                   💬
                 </button>
               </div>

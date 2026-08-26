@@ -30,7 +30,7 @@ int main() {
 
     return 0;
 }`}
-        />
+        /&gt;
 
         <p className="text-slate-300 text-sm leading-relaxed">
           Note: integer division discards the decimal part.

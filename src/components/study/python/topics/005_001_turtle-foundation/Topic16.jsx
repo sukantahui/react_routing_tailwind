@@ -102,7 +102,7 @@ const Topic16 = () => {
               <text x="100" y="138" fill="#94a3b8" fontSize="10" textAnchor="middle">Screen() setup</text>
               <text x="100" y="153" fill="#94a3b8" fontSize="10" textAnchor="middle">bgcolor(), title()</text>
 
-              {/* Arrow 1 -> 2 */}
+              {/* Arrow 1 &rarr; 2 */}
               <path d="M 185 115 L 215 115" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow)" />
 
               {/* Phase 2 */}
@@ -113,7 +113,7 @@ const Topic16 = () => {
               <text x="300" y="138" fill="#94a3b8" fontSize="10" textAnchor="middle">t = Turtle()</text>
               <text x="300" y="153" fill="#94a3b8" fontSize="10" textAnchor="middle">color(), pensize()</text>
 
-              {/* Arrow 2 -> 3 */}
+              {/* Arrow 2 &rarr; 3 */}
               <path d="M 385 115 L 415 115" stroke="#818cf8" strokeWidth="2" markerEnd="url(#arrow)" />
 
               {/* Phase 3 */}
@@ -124,7 +124,7 @@ const Topic16 = () => {
               <text x="500" y="138" fill="#94a3b8" fontSize="10" textAnchor="middle">forward(), circle()</text>
               <text x="500" y="153" fill="#94a3b8" fontSize="10" textAnchor="middle">loops & math art</text>
 
-              {/* Arrow 3 -> 4 */}
+              {/* Arrow 3 &rarr; 4 */}
               <path d="M 585 115 L 615 115" stroke="#34d399" strokeWidth="2" markerEnd="url(#arrow)" />
 
               {/* Phase 4 */}

@@ -426,7 +426,7 @@ const Topic6 = () => {
                 length of a string. Handles <code>null</code> gracefully (returns 0).
               </p>
               <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
-                {`<c:if test="\${fn:length(cart.items) > 0}">
+                {`<c:if test="\${fn:length(cart.items) > 0}"&gt;
   You have \${fn:length(cart.items)} items in your cart.
 </c:if>
 String length: \${fn:length("Hello")} <!-- outputs 5 -->`}
@@ -757,7 +757,7 @@ A good exercise: take a JSP full of scriptlets and refactor it using only Core t
 Remind them that the varStatus attribute is often overlooked but extremely handy for alternating row colours or numbering.
 
 Also introduce the Functions (fn:) library as a natural extension. Students often try to write scriptlet calls for string manipulation – show them fn:contains, fn:substring, etc. It's amazing how many "if" statements can be replaced by fn:contains inside a test attribute.`}
-          />
+          /&gt;
         </section>
 
         {/* Hint Section */}

@@ -123,7 +123,7 @@ const Topic85 = () => {
         ],
         optimal: '(30,80) with Z = ₹7,200',
         resourceUtilization: [
-          'Budget: 30 + 80 = 110 > 100! Wait, this violates budget constraint.'
+          'Budget: 30 + 80 = 110 &gt; 100! Wait, this violates budget constraint.'
         ]
       },
       hint: 'Check all corner points and verify each satisfies all constraints. The actual optimal is different.'
@@ -280,7 +280,7 @@ const Topic85 = () => {
                   ? "bg-purple-600 text-white shadow-lg shadow-purple-200 dark:shadow-purple-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -300,7 +300,7 @@ const Topic85 = () => {
                     ? "bg-purple-600 text-white"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {level}
               </button>
             ))}
@@ -317,7 +317,7 @@ const Topic85 = () => {
                     ? "bg-purple-600 text-white"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {cat}
               </button>
             ))}
@@ -340,7 +340,7 @@ const Topic85 = () => {
                       "bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]",
                       selectedProblem === problem.id - 1 ? "border-2 border-purple-500" : ""
                     )}
-                  >
+                  &gt;
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200 text-sm">
                         {problem.title}
@@ -374,7 +374,7 @@ const Topic85 = () => {
               )}
 
               {/* Selected Problem Detail */}
-              {filteredProblems.length > 0 && (
+              {filteredProblems.length &gt; 0 && (
                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl">
                   <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">
                     {filteredProblems[selectedProblem]?.title}
@@ -428,7 +428,7 @@ const Topic85 = () => {
                     <button
                       onClick={() => setShowSolution(!showSolution)}
                       className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-300"
-                    >
+                    &gt;
                       {showSolution ? 'Hide Solution' : 'Show Solution'}
                     </button>
 
@@ -478,7 +478,7 @@ const Topic85 = () => {
                         setShowSolution(true);
                       }}
                       className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
-                    >
+                    &gt;
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200">
                         {problem.title}
                       </h4>

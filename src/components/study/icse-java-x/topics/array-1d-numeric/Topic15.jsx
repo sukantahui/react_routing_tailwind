@@ -15,12 +15,12 @@ const FindSmallestVisualSVG = () => {
   
   const stages = [
     { label: "Step 1: Initialize min = arr[0] = 45", array: [45, 67, 23, 89, 12, 78, 34], currentMin: 45, currentIndex: 0, comparing: -1 },
-    { label: "Step 2: Compare 67 with min (45) → 67 > 45, no change", array: [45, 67, 23, 89, 12, 78, 34], currentMin: 45, currentIndex: 1, comparing: 1 },
+    { label: "Step 2: Compare 67 with min (45) → 67 &gt; 45, no change", array: [45, 67, 23, 89, 12, 78, 34], currentMin: 45, currentIndex: 1, comparing: 1 },
     { label: "Step 3: Compare 23 with min (45) → 23 < 45, update min = 23", array: [45, 67, 23, 89, 12, 78, 34], currentMin: 23, currentIndex: 2, comparing: 2 },
     { label: "Step 4: Compare 89 with min (23) → 89 > 23, no change", array: [45, 67, 23, 89, 12, 78, 34], currentMin: 23, currentIndex: 3, comparing: 3 },
     { label: "Step 5: Compare 12 with min (23) → 12 < 23, update min = 12", array: [45, 67, 23, 89, 12, 78, 34], currentMin: 12, currentIndex: 4, comparing: 4 },
     { label: "Step 6: Compare 78 with min (12) → 78 > 12, no change", array: [45, 67, 23, 89, 12, 78, 34], currentMin: 12, currentIndex: 5, comparing: 5 },
-    { label: "Step 7: Compare 34 with min (12) → 34 > 12, no change", array: [45, 67, 23, 89, 12, 78, 34], currentMin: 12, currentIndex: 6, comparing: 6 },
+    { label: "Step 7: Compare 34 with min (12) → 34 &gt; 12, no change", array: [45, 67, 23, 89, 12, 78, 34], currentMin: 12, currentIndex: 6, comparing: 6 },
     { label: "✓ Complete! Smallest element is 12 at index 4", array: [45, 67, 23, 89, 12, 78, 34], currentMin: 12, currentIndex: -1, comparing: -1 }
   ];
 
@@ -118,7 +118,7 @@ const FindSmallestVisualSVG = () => {
         <button 
           onClick={() => setStep((step + 1) % 8)}
           className="px-4 py-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-all duration-300"
-        >
+        &gt;
           {step < 7 ? "Next Step (Step " + (step + 2) + "/8)" : "Reset Animation"}
         </button>
       </div>
@@ -219,7 +219,7 @@ const Topic15 = () => {
                   ? "bg-emerald-50 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 border-b-2 border-emerald-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               )}
-            >
+            &gt;
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
@@ -259,7 +259,7 @@ const Topic15 = () => {
                     <code className="block bg-gray-900 text-green-400 p-2 rounded text-sm">
                       {`int max = arr[0];
 for (int i = 1; i < arr.length; i++) {
-    if (arr[i] > max) {  // > operator
+    if (arr[i] > max) {  // &gt; operator
         max = arr[i];
     }
 }`}
@@ -608,7 +608,7 @@ const qaData = [
   },
   {
     question: "What's the only difference between finding max and finding min?",
-    answer: "The comparison operator changes from > to <. Everything else remains identical!"
+    answer: "The comparison operator changes from &gt; to <. Everything else remains identical!"
   },
   {
     question: "What if array has only one element?",

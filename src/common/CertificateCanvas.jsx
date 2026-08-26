@@ -133,7 +133,7 @@ const CertificateCanvas = ({
   const autoFontSize = (ctx, text, maxWidth, startSize) => {
     let size = startSize;
     ctx.font = `bold ${size}px Times New Roman`;
-    while (ctx.measureText(text).width > maxWidth && size > 20) {
+    while (ctx.measureText(text).width &gt; maxWidth && size > 20) {
       size--;
       ctx.font = `bold ${size}px Times New Roman`;
     }

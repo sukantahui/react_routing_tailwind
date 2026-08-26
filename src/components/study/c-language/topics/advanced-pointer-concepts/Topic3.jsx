@@ -48,7 +48,7 @@ const Topic3 = () => {
     },
     {
       q: "How do you pass a structure to a function efficiently?",
-      a: "Pass pointer to structure: 'void processStudent(Student *s)'. This copies only the pointer (8 bytes) instead of the entire structure (potentially hundreds of bytes). Inside, use arrow operator (->) to access members: 's->age = 20;'. For read-only access, use 'const Student *s' to prevent modification while still avoiding copy overhead."
+      a: "Pass pointer to structure: 'void processStudent(Student *s)'. This copies only the pointer (8 bytes) instead of the entire structure (potentially hundreds of bytes). Inside, use arrow operator ( &rarr; ) to access members: 's-&gt;age = 20;'. For read-only access, use 'const Student *s' to prevent modification while still avoiding copy overhead."
     },
     {
       q: "What's the difference between passing 'int *ptr' and 'int * const ptr'?",
@@ -104,7 +104,7 @@ const Topic3 = () => {
                   ? "bg-blue-600 text-white shadow-lg scale-105"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
               )}
-            >
+            &gt;
               {tab === 'concept' ? '📚 Concept & Examples' : '❓ Questions & Answers'}
             </button>
           ))}

@@ -283,7 +283,7 @@ const Topic4 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Set Union (A ∪ B)
               </button>
 
@@ -298,7 +298,7 @@ const Topic4 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Intersection (A ∩ B)
               </button>
 
@@ -313,7 +313,7 @@ const Topic4 = () => {
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Difference (A − B)
               </button>
 
@@ -328,7 +328,7 @@ const Topic4 = () => {
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Reverse (B − A)
               </button>
             </div>

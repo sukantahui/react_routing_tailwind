@@ -85,7 +85,7 @@ const Topic1 = () => {
       key: "miller_rabin",
       name: "3. Miller-Rabin Primality Test (FIPS 186-5)",
       complexity: "O( k * log^3(N) ) [Ultra-Fast: ~1.2 ms]",
-      errorBound: "<= 4^(-k) (For k=64 rounds: Error < 2^-128)",
+      errorBound: " &le; 4^(-k) (For k=64 rounds: Error < 2^-128)",
       status: "GLOBAL GOLD STANDARD: Mandatory for all commercial RSA key generation.",
       vulnerability: "None in practice: Mathematically impossible for a composite imposter to pass 64 rounds.",
       badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800"
@@ -156,7 +156,7 @@ const Topic1 = () => {
       resolution:
         "Debangshu enforced strong prime generation (|p - q| > 2^900) across all industrial gateways, ensuring 100.00% resilience against algebraic factorization attacks and zero power grid downtime.",
       metrics: {
-        primeSeparation: "|p - q| > 2^900 Bits",
+        primeSeparation: "|p - q| &gt; 2^900 Bits",
         fermatAttackImmunity: "100% Mathematical Immunity",
         gridUptime: "100.00% Zero Disruption",
         compliance: "CEA Cyber Security Regulations"
@@ -232,7 +232,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-sm text-gray-200">{pr.name}</div>
                   <div className="text-[10px] text-gray-400 mt-1">{pr.tagline}</div>
                 </button>
@@ -310,7 +310,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{pt.name.split(". ")[1].split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{pt.name.split(". ")[0]}</div>
                 </button>
@@ -504,7 +504,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

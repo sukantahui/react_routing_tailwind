@@ -309,7 +309,7 @@ class Topic5 extends React.Component {
                                 ? "bg-gray-800 hover:bg-gray-700"
                                 : "bg-gray-200 hover:bg-gray-300"
                           )}
-                        >
+                        &gt;
                           <div className="font-bold">{user.name}</div>
                           <div className="text-xs opacity-80">{user.location}</div>
                         </button>
@@ -334,7 +334,7 @@ class Topic5 extends React.Component {
                                 ? "bg-gray-800 hover:bg-gray-700"
                                 : "bg-gray-200 hover:bg-gray-300"
                           )}
-                        >
+                        &gt;
                           <div className="font-bold">{group.name}</div>
                           <div className="text-xs opacity-80">
                             {group.members.length} member{group.members.length !== 1 ? 's' : ''}
@@ -367,7 +367,7 @@ class Topic5 extends React.Component {
                           <div className={clsx(
                             "w-8 h-8 rounded-full flex items-center justify-center mr-2",
                             users.find(u => u.id === selectedUser)?.color || 'bg-blue-500'
-                          )}>
+                          )}&gt;
                             <span className="text-white text-sm">
                               {selectedUser.charAt(0).toUpperCase()}
                             </span>
@@ -395,7 +395,7 @@ class Topic5 extends React.Component {
                           <div className={clsx(
                             "w-8 h-8 rounded-full flex items-center justify-center mr-2",
                             groups.find(g => g.id === selectedGroup)?.color || 'bg-green-500'
-                          )}>
+                          )}&gt;
                             <span className="text-white text-sm">
                               {selectedGroup.charAt(0).toUpperCase()}
                             </span>
@@ -459,7 +459,7 @@ class Topic5 extends React.Component {
                           ? "bg-gray-800 hover:bg-gray-700"
                           : "bg-gray-200 hover:bg-gray-300"
                     )}
-                  >
+                  &gt;
                     {section === 'ls-output' && 'ls -l Output'}
                     {section === 'real-world' && 'Real World Examples'}
                     {section === 'hierarchy' && 'Ownership Hierarchy'}
@@ -977,7 +977,7 @@ class Topic5 extends React.Component {
                             <div className={clsx(
                               "w-6 h-6 rounded-full flex items-center justify-center mr-2 text-white text-xs",
                               users.find(u => u.id === file.owner)?.color || 'bg-gray-500'
-                            )}>
+                            )}&gt;
                               {file.owner.charAt(0).toUpperCase()}
                             </div>
                             {file.owner}
@@ -988,7 +988,7 @@ class Topic5 extends React.Component {
                             <div className={clsx(
                               "w-6 h-6 rounded-full flex items-center justify-center mr-2 text-white text-xs",
                               groups.find(g => g.id === file.group)?.color || 'bg-gray-500'
-                            )}>
+                            )}&gt;
                               {file.group.charAt(0).toUpperCase()}
                             </div>
                             {file.group}

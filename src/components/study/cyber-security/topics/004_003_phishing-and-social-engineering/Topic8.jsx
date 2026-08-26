@@ -89,7 +89,7 @@ const Topic8 = () => {
       resilientDefense: "Two-Person Rule for destructive commands and automated configuration drift integrity monitoring (Tripwire / OSSEC).",
       codeSnippet: `// Logic Bomb Trigger Script (Bash):
 #!/bin/bash
-if ! id "rogue_admin" &>/dev/null; then
+if ! id "rogue_admin" &&gt;/dev/null; then
     logger -p crit "LOGIC BOMB TRIGGERED: Account deleted! Wiping database clusters..."
     rm -rf /opt/oracle/oradata/*
 fi`
@@ -177,11 +177,11 @@ aws s3api put-public-access-block \
     const numerator = motiveScore * accessLevel;
     const exponent = -numerator / controlStrength;
     const rawBreachProb = (1 - Math.exp(exponent)) * 100;
-    const actualBreachProb = controlStrength >= 500
+    const actualBreachProb = controlStrength &ge; 500
       ? (rawBreachProb * 0.016).toFixed(2) // UEBA + JIT PAM + Two-Person Rule blocks 98.4% of insider risk
       : controlStrength >= 50
       ? (rawBreachProb * 0.35).toFixed(2)  // Basic Logging blocks 65% of insider risk
-      : rawBreachProb.toFixed(2);           // Unhardened -> 100% insider vulnerability
+      : rawBreachProb.toFixed(2);           // Unhardened &rarr; 100% insider vulnerability
 
     return {
       rawBreachProb: rawBreachProb.toFixed(2),
@@ -218,7 +218,7 @@ def calculate_ueba_anomaly_score(user_history, current_download_mb, is_off_hours
     print(f"[+] Statistical Z-Score        : {z_score:.2f} Sigma")
     
     # Evaluate Anomaly Conditions
-    if z_score > 3.0 and is_off_hours:
+    if z_score &gt; 3.0 and is_off_hours:
         print("[!] CRITICAL INSIDER ANOMALY: Mass Data Download during Off-Hours!")
         print("[-] Action: Locking User Kerberos Ticket & Triggering SOC Escalation!")
         return True
@@ -618,7 +618,7 @@ fi`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   ARCHETYPE
                 </span>
@@ -715,7 +715,7 @@ fi`,
                   value={motiveScore}
                   onChange={(e) => setMotiveScore(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -731,7 +731,7 @@ fi`,
                   value={accessLevel}
                   onChange={(e) => setAccessLevel(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -745,7 +745,7 @@ fi`,
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     None (1x)
                   </button>
                   <button
@@ -756,7 +756,7 @@ fi`,
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Logging (50x)
                   </button>
                   <button
@@ -767,7 +767,7 @@ fi`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     UEBA+JIT (500x)
                   </button>
                 </div>
@@ -826,7 +826,7 @@ fi`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -875,7 +875,7 @@ fi`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

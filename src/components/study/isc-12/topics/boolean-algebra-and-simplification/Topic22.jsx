@@ -78,7 +78,7 @@ const Topic22 = () => {
         label: `${rows[r].rowVar}${cols[c].colVar}`.replace(/''/g, ''),
         value: kmapValues[`m${minterm}`],
         minterm: minterm,
-        binary: `${(minterm >> 3) & 1}${(minterm >> 2) & 1}${(minterm >> 1) & 1}${minterm & 1}`
+        binary: `${(minterm >&gt; 3) & 1}${(minterm >> 2) & 1}${(minterm >> 1) & 1}${minterm & 1}`
       });
     }
   }
@@ -279,7 +279,7 @@ const Topic22 = () => {
                 checked={showDonCares}
                 onChange={(e) => setShowDonCares(e.target.checked)}
                 className="w-4 h-4 text-rose-600 rounded focus:ring-rose-500"
-              />
+              /&gt;
               <span className="text-sm text-gray-700 dark:text-gray-300">Enable Don't Cares (X)</span>
             </label>
             {showDonCares && (
@@ -329,11 +329,11 @@ const Topic22 = () => {
           
           {/* Control Buttons */}
           <div className="flex flex-wrap gap-2 mb-6">
-            <button onClick={() => setExample('bcd')} className="px-3 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all text-sm">BCD Example</button>
-            <button onClick={() => setExample('gray')} className="px-3 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all text-sm">All 1s</button>
-            <button onClick={() => setExample('checkerboard')} className="px-3 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all text-sm">Checkerboard</button>
-            <button onClick={() => setExample('quad')} className="px-3 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all text-sm">2x2 Quad</button>
-            <button onClick={() => setExample('wrap')} className="px-3 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all text-sm">Corner Group</button>
+            <button onClick={() => setExample('bcd')} className="px-3 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all text-sm"&gt;BCD Example</button>
+            <button onClick={() => setExample('gray')} className="px-3 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all text-sm"&gt;All 1s</button>
+            <button onClick={() => setExample('checkerboard')} className="px-3 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all text-sm"&gt;Checkerboard</button>
+            <button onClick={() => setExample('quad')} className="px-3 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all text-sm"&gt;2x2 Quad</button>
+            <button onClick={() => setExample('wrap')} className="px-3 py-1 bg-rose-500 hover:bg-rose-600 text-white rounded-lg transition-all text-sm"&gt;Corner Group</button>
             <button onClick={clearMap} className="px-3 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-all text-sm">Clear</button>
           </div>
           
@@ -347,7 +347,7 @@ const Topic22 = () => {
           <button
             onClick={() => setShowGroups(!showGroups)}
             className="mt-2 w-full py-2 bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 rounded-lg font-medium transition-all duration-300 hover:bg-rose-200 dark:hover:bg-rose-900/60"
-          >
+          &gt;
             {showGroups ? "Hide" : "Show"} Grouping Strategy
           </button>
           

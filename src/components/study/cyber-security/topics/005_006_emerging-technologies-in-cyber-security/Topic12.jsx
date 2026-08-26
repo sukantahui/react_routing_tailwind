@@ -40,7 +40,7 @@ const Topic12 = () => {
       title: "Integer Overflow in Wire Transfer Amount Calculation",
       cve: "CVE-2026-7730 (CVSS 8.8 High)",
       vulnerableCode: "total = current_balance + incoming_transfer;",
-      synthesizedFix: "if (incoming_transfer > UINT64_MAX - current_balance) return ERR_OVERFLOW;\ntotal = current_balance + incoming_transfer;",
+      synthesizedFix: "if (incoming_transfer &gt; UINT64_MAX - current_balance) return ERR_OVERFLOW;\ntotal = current_balance + incoming_transfer;",
       synthesisTime: "310 ms",
       injectionMethod: "eBPF Instruction Rewrite at NIC Layer"
     }
@@ -200,7 +200,7 @@ const Topic12 = () => {
                         ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950 border-cyan-500"
                         : "bg-slate-900 text-slate-400 border-slate-800"
                     )}
-                  >
+                  &gt;
                     {key.replace("_", " ")}
                   </button>
                 ))}
@@ -220,7 +220,7 @@ const Topic12 = () => {
               <button
                 onClick={() => setPatchExecuted(true)}
                 className="w-full py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg shadow-lg shadow-cyan-950 transition-all duration-200"
-              >
+              &gt;
                 Synthesize &amp; Hot-Deploy AI Patch ⚡
               </button>
             </div>
@@ -297,7 +297,7 @@ const Topic12 = () => {
                   value={shelfLifeX}
                   onChange={(e) => setShelfLifeX(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                />
+                /&gt;
                 <span className="text-[10px] text-slate-500">Duration intercepted data remains confidential (Banking: 15-20 yrs, Defense: 30 yrs).</span>
               </div>
 
@@ -314,7 +314,7 @@ const Topic12 = () => {
                   value={migrationTimeY}
                   onChange={(e) => setMigrationTimeY(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
                 <span className="text-[10px] text-slate-500">Time required to inventory CBOM and deploy NIST FIPS 203/204 across all systems.</span>
               </div>
 
@@ -331,7 +331,7 @@ const Topic12 = () => {
                   value={crqcArrivalZ}
                   onChange={(e) => setCrqcArrivalZ(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
-                />
+                /&gt;
                 <span className="text-[10px] text-slate-500">Estimated years until a 4,100-logical qubit quantum computer cracks RSA-2048.</span>
               </div>
             </div>
@@ -385,7 +385,7 @@ const Topic12 = () => {
                       ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_ebpf_hotpatch" ? "Barrackpore eBPF Hot-Patch" : key === "kolkata_fintech_cbom_audit" ? "Kolkata CBOM Audit" : "Ichapur Moving Target"}
                 </button>
               ))}
@@ -530,7 +530,7 @@ const Topic12 = () => {
         {/* ========================================================================= */}
         <Teacher
           note="For your BCA BCAC703 examination: Master the concepts of Autonomous Cyber Defense (DARPA Cyber Grand Challenge milestones: automated discovery, genetic patch synthesis, and zero-downtime hot-patching via eBPF). Detail the Cryptographic Bill of Materials (CBOM) and explain Mosca's Theorem of Quantum Risk ($X + Y > Z$) with a numerical calculation demonstrating the 'Harvest Now, Decrypt Later' (HNDL) peril window. Describe Moving Target Defense (MTD) and multi-agent AI co-evolution."
-        />
+        /&gt;
 
         {/* ========================================================================= */}
         {/* PLAIN TEXT PRINT & STUDY GUIDE */}

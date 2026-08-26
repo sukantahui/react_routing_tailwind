@@ -33,7 +33,7 @@ echo "Even squares: @(squares)"
 
 # Real‑world: count large log files in /var/log
 log_files = $(ls /var/log/*.log 2>/dev/null).splitlines()
-large_logs = [f for f in log_files if $(du -k @(f) | cut -f1) > 1024]
+large_logs = [f for f in log_files if $(du -k @(f) | cut -f1) &gt; 1024]
 echo "Logs >1MB: @(len(large_logs))"`;
 
 const xonshEnvScript = `#!/usr/bin/env xonsh

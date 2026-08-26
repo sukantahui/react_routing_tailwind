@@ -445,7 +445,7 @@ const StudentAdmission = () => {
                 label: s.studentName,
               }))}
               loading={loading.students}
-            />
+            /&gt;
 
             {/* Course Select */}
             <Select
@@ -460,7 +460,7 @@ const StudentAdmission = () => {
                 label: `${c.courseCode} | ${c.courseName}`,
               }))}
               loading={loading.courses}
-            />
+            /&gt;
 
             {/* Course Fees */}
             <Input
@@ -526,12 +526,12 @@ const StudentAdmission = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-10 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 text-gray-100 placeholder-gray-400"
-              />
+              /&gt;
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm("")}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
-                >
+                &gt;
                   <XCircle className="w-5 h-5" />
                 </button>
               )}
@@ -595,7 +595,7 @@ const StudentAdmission = () => {
                       scope="col"
                       className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("student")}
-                    >
+                    &gt;
                       <div className="flex items-center gap-1">
                         Student
                         <SortIcon columnKey="student" />
@@ -605,7 +605,7 @@ const StudentAdmission = () => {
                       scope="col"
                       className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("course")}
-                    >
+                    &gt;
                       <div className="flex items-center gap-1">
                         Course
                         <SortIcon columnKey="course" />
@@ -615,7 +615,7 @@ const StudentAdmission = () => {
                       scope="col"
                       className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("fees")}
-                    >
+                    &gt;
                       <div className="flex items-center gap-1">
                         Fees
                         <SortIcon columnKey="fees" />
@@ -625,7 +625,7 @@ const StudentAdmission = () => {
                       scope="col"
                       className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("admissionDate")}
-                    >
+                    &gt;
                       <div className="flex items-center gap-1">
                         Admission Date
                         <SortIcon columnKey="admissionDate" />
@@ -635,7 +635,7 @@ const StudentAdmission = () => {
                       scope="col"
                       className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("completionDate")}
-                    >
+                    &gt;
                       <div className="flex items-center gap-1">
                         Completion Date
                         <SortIcon columnKey="completionDate" />
@@ -645,7 +645,7 @@ const StudentAdmission = () => {
                       scope="col"
                       className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("status")}
-                    >
+                    &gt;
                       <div className="flex items-center gap-1">
                         Status
                         <SortIcon columnKey="status" />
@@ -748,7 +748,7 @@ const StudentAdmission = () => {
             <button
               onClick={() => setShowFormJson(!showFormJson)}
               className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm flex items-center gap-2"
-            >
+            &gt;
               {showFormJson ? "Hide Form JSON" : "Show Form JSON"}
             </button>
 

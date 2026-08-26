@@ -105,7 +105,7 @@ const Topic0 = () => {
                   ? "bg-indigo-50 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               )}
-            >
+            &gt;
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
@@ -260,7 +260,7 @@ int[] numbers = {10, 20, 30, 40, 50};`}</code>
         arr[1] = 200;  // Store 200 at offset 1  
         arr[2] = 300;  // Store 300 at offset 2
         
-        // Access: arr[1] -> base address + (1 * 4) bytes
+        // Access: arr[1] &rarr; base address + (1 * 4) bytes
         System.out.println(arr[1]);  // Output: 200
     }
 }`}</code>

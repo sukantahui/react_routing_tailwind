@@ -320,7 +320,7 @@ const Topic2 = () => {
                     value={candidateName}
                     onChange={(e) => setCandidateName(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  />
+                  /&gt;
                 </div>
 
                 <div>
@@ -331,7 +331,7 @@ const Topic2 = () => {
                     value={selectedDeptId}
                     onChange={(e) => setSelectedDeptId(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  >
+                  &gt;
                     {departments.map((d) => (
                       <option key={d.id} value={d.id}>
                         #{d.id} - {d.name}
@@ -384,13 +384,13 @@ const Topic2 = () => {
                               "font-mono text-xs px-2 py-0.5 rounded font-bold",
                               count > 0 ? "bg-teal-500/20 text-teal-300" : "bg-slate-800 text-slate-400"
                             )}
-                          >
+                          &gt;
                             {count} Student{count === 1 ? "" : "s"}
                           </span>
                           <button
                             onClick={() => handleDeleteDepartment(d.id)}
                             className="text-[10px] text-rose-400 hover:text-rose-300 underline font-sans"
-                          >
+                          &gt;
                             Drop Dept
                           </button>
                         </div>

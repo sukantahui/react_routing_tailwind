@@ -286,7 +286,7 @@ const Topic17 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 7A: Table-Per-Type (TPT)
               </button>
               <button
@@ -297,7 +297,7 @@ const Topic17 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 7B: Concrete Classes (TPC)
               </button>
               <button
@@ -308,7 +308,7 @@ const Topic17 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 7C: Single Table ENUM (TPH)
               </button>
               <button
@@ -319,7 +319,7 @@ const Topic17 = () => {
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 7D: Single Table Flags (TPH)
               </button>
             </div>

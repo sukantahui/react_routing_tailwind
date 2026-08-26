@@ -24,7 +24,7 @@ export default function Topic8() {
   const [efficiency, setEfficiency] = useState(null);
 
   const computeEfficiency = () => {
-    if (transmissionTime <= 0 || propagationDelay < 0) {
+    if (transmissionTime &le; 0 || propagationDelay < 0) {
       alert('Transmission Time must be positive, Propagation Delay must be non‑negative.');
       return;
     }
@@ -97,8 +97,7 @@ export default function Topic8() {
                 <pre className="whitespace-pre-wrap">
 {`Sender                          Receiver
 
-Frame 1  ------------------------->
-                     (Travelling...)
+Frame 1  ------------------------ &rarr; (Travelling...)
                      Received
 ACK     <--------------------------
 
@@ -195,7 +194,7 @@ ACK     <--------------------------`}
                     min="0.1"
                     step="0.1"
                     className="w-full p-2 border rounded-md bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
-                  />
+                  /&gt;
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Propagation Delay (T<sub>p</sub>) in ms</label>
@@ -206,7 +205,7 @@ ACK     <--------------------------`}
                     min="0"
                     step="0.1"
                     className="w-full p-2 border rounded-md bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none"
-                  />
+                  /&gt;
                 </div>
                 <button
                   onClick={computeEfficiency}
@@ -222,7 +221,7 @@ ACK     <--------------------------`}
                         key={ex.label}
                         onClick={() => loadExample(ex.Tt, ex.Tp)}
                         className="px-2 py-1 text-xs bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 rounded transition-colors"
-                      >
+                      &gt;
                         {ex.label}
                       </button>
                     ))}

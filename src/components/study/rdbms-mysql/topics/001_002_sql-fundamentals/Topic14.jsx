@@ -278,7 +278,7 @@ const Topic14 = () => {
                     value={targetColumn}
                     onChange={(e) => setTargetColumn(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  >
+                  &gt;
                     <option value="name">Full Name</option>
                     <option value="email">Email Address</option>
                     <option value="city">City</option>
@@ -294,7 +294,7 @@ const Topic14 = () => {
                     value={pattern}
                     onChange={(e) => setPattern(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                  />
+                  /&gt;
                 </div>
               </div>
 
@@ -309,7 +309,7 @@ const Topic14 = () => {
                       key={preset}
                       onClick={() => setPattern(preset)}
                       className="px-2 py-1 rounded bg-slate-950 border border-slate-800 text-xs font-mono text-teal-300 hover:border-teal-500 transition-all"
-                    >
+                    &gt;
                       {preset}
                     </button>
                   ))}
@@ -337,7 +337,7 @@ const Topic14 = () => {
                     checked={isNotLike}
                     onChange={(e) => setIsNotLike(e.target.checked)}
                     className="rounded border-slate-700 bg-slate-800 text-teal-500"
-                  />
+                  /&gt;
                   <span><strong>Toggle NOT LIKE:</strong> Exclude rows matching pattern</span>
                 </label>
               </div>

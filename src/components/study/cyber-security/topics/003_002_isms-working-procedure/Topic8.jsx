@@ -151,7 +151,7 @@ const Topic8 = () => {
       resolution:
         "Debangshu established an emergency 48-hour patch deployment SLA for SCADA RTUs and automated CIS hardening baseline scans across all high-voltage sites under CEA cyber regulations.",
       metrics: {
-        patchVelocity: "100% CVSS >= 9.0 < 48 Hours",
+        patchVelocity: "100% CVSS &ge; 9.0 < 48 Hours",
         scadaUptime: "100.000% Continuous Power",
         ciiCompliance: "10-Year Criminal Risk Immunized",
         compliance: "IT Act Section 70 & CEA Cyber Regulations"
@@ -227,7 +227,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{ms.title.split(": ")[0]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{ms.title.split(": ")[1]}</div>
                 </button>
@@ -309,10 +309,10 @@ const Topic8 = () => {
                   "flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-colors",
                   kpiMetrics.patchVelocitySla ? "bg-gray-900 border-indigo-500" : "bg-gray-950 border-gray-800 opacity-60"
                 )}
-              >
+              &gt;
                 <input type="checkbox" checked={kpiMetrics.patchVelocitySla} readOnly className="w-4 h-4 accent-indigo-500 rounded" />
                 <div className="flex-1">
-                  <span className="font-bold text-gray-200 block">1. Vulnerability Patch Velocity (CVSS &gt;= 9.0 SLA):</span>
+                  <span className="font-bold text-gray-200 block">1. Vulnerability Patch Velocity (CVSS >= 9.0 SLA):</span>
                   <span className="text-[11px] text-gray-400">100% of Critical vulnerabilities patched across all production servers within 48 Hours.</span>
                 </div>
               </label>
@@ -323,7 +323,7 @@ const Topic8 = () => {
                   "flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-colors",
                   kpiMetrics.phishProneLow ? "bg-gray-900 border-blue-500" : "bg-gray-950 border-gray-800 opacity-60"
                 )}
-              >
+              &gt;
                 <input type="checkbox" checked={kpiMetrics.phishProneLow} readOnly className="w-4 h-4 accent-blue-500 rounded" />
                 <div className="flex-1">
                   <span className="font-bold text-gray-200 block">2. Phish-Prone Human Failure Rate (&lt; 2.0%):</span>
@@ -337,7 +337,7 @@ const Topic8 = () => {
                   "flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-colors",
                   kpiMetrics.quarterlyAccessCertified ? "bg-gray-900 border-amber-500" : "bg-gray-950 border-gray-800 opacity-60"
                 )}
-              >
+              &gt;
                 <input type="checkbox" checked={kpiMetrics.quarterlyAccessCertified} readOnly className="w-4 h-4 accent-amber-500 rounded" />
                 <div className="flex-1">
                   <span className="font-bold text-gray-200 block">3. Quarterly Privileged Access Review Compliance (100% Certified):</span>
@@ -351,7 +351,7 @@ const Topic8 = () => {
                   "flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-colors",
                   kpiMetrics.capaClosedOnTime ? "bg-gray-900 border-emerald-500" : "bg-gray-950 border-gray-800 opacity-60"
                 )}
-              >
+              &gt;
                 <input type="checkbox" checked={kpiMetrics.capaClosedOnTime} readOnly className="w-4 h-4 accent-emerald-500 rounded" />
                 <div className="flex-1">
                   <span className="font-bold text-gray-200 block">4. CAPA Non-Conformity Closure Rate (100% in &lt; 30 Days):</span>
@@ -555,7 +555,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>
@@ -647,7 +647,7 @@ const Topic8 = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-indigo-400 font-bold">•</span>
-                  <span><strong>Enforce 48h Patch SLA:</strong> Rapidly patch any critical vulnerability with CVSS &gt;= 9.0.</span>
+                  <span><strong>Enforce 48h Patch SLA:</strong> Rapidly patch any critical vulnerability with CVSS >= 9.0.</span>
                 </li>
               </ul>
             </div>

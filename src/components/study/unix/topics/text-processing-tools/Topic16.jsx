@@ -43,7 +43,7 @@ const Topic16 = () => {
                         </div>
                         <div className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
                             <h3 className="font-semibold text-sky-300 mb-2">Key Operators</h3>
-                            <p className="text-sm">{`>, >>, <, |, 2>, &>, >>, <<`}</p>
+                            <p className="text-sm">{`&gt;, >>, <, |, 2>, &&gt;, >>, <<`}</p>
                         </div>
                         <div className="p-4 bg-gray-900/50 rounded-xl border border-gray-700">
                             <h3 className="font-semibold text-blue-300 mb-2">Real-World Use</h3>
@@ -279,7 +279,7 @@ const Topic16 = () => {
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="text-xl font-bold text-rose-300">Essential Redirection Patterns</h3>
                                 <span className="px-3 py-1 bg-rose-900/50 text-rose-300 rounded-full text-sm font-semibold">
-                                    {`>, >>, <, 2>`}
+                                    {`&gt;, >>, <, 2>`}
                                 </span>
                             </div>
                             <p className="mb-4">
@@ -298,15 +298,15 @@ const Topic16 = () => {
                                 <h4 className="font-bold text-sky-300 mb-2">Output Redirection:</h4>
                                 <div className="space-y-4">
                                     <div className="p-3 bg-gray-900/50 rounded">
-                                        <code className="text-sm">{`command > file.txt`}</code>
+                                        <code className="text-sm">{`command &gt; file.txt`}</code>
                                         <p className="text-xs text-gray-400 mt-1">Overwrite file with output</p>
                                     </div>
                                     <div className="p-3 bg-gray-900/50 rounded">
-                                        <code className="text-sm">{`command >> file.txt`}</code>
+                                        <code className="text-sm">{`command &gt;> file.txt`}</code>
                                         <p className="text-xs text-gray-400 mt-1">Append output to file</p>
                                     </div>
                                     <div className="p-3 bg-gray-900/50 rounded">
-                                        <code className="text-sm">{`command 2> error.log`}</code>
+                                        <code className="text-sm">{`command 2&gt; error.log`}</code>
                                         <p className="text-xs text-gray-400 mt-1">Redirect errors to file</p>
                                     </div>
                                 </div>
@@ -375,11 +375,11 @@ const Topic16 = () => {
                                         <span><code>|&</code> - Pipe both stdout and stderr</span>
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-amber-300 font-bold">{`>&`}</span>
+                                        <span className="text-amber-300 font-bold">{`&gt;&`}</span>
                                         <span><code>2&gt;&1</code> - Redirect stderr to stdout</span>
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-purple-300 font-bold">{`>()`}</span>
+                                        <span className="text-purple-300 font-bold">{`&gt;()`}</span>
                                         <span><code>&gt;(command)</code> - Process substitution</span>
                                     </li>
                                 </ul>
@@ -559,11 +559,11 @@ const Topic16 = () => {
                                 <h4 className="font-bold text-red-300 mb-2">Order Matters!</h4>
                                 <p className="text-sm mb-2">Redirection order affects results</p>
                                 <code className="text-xs block bg-gray-900 p-2 rounded">
-                                    {`command 2>&1 > file.txt  # WRONG!`}
+                                    {`command 2&gt;&1 > file.txt  # WRONG!`}
                                 </code>
                                 <div className="mt-2 p-2 bg-gray-800 rounded">
                                     <p className="text-xs text-green-300">Correct order:</p>
-                                    <code className="text-xs">{`command > file.txt 2>&1`}</code>
+                                    <code className="text-xs">{`command &gt; file.txt 2>&1`}</code>
                                 </div>
                             </div>
                             
@@ -571,7 +571,7 @@ const Topic16 = () => {
                                 <h4 className="font-bold text-red-300 mb-2">Truncating Files</h4>
                                 <p className="text-sm"><code>&gt;</code> overwrites, <code>&gt;&gt;</code> appends</p>
                                 <code className="text-xs block bg-gray-900 p-2 rounded mt-2">
-                                    {`echo "test" > file.txt  # Overwrites entire file!`}
+                                    {`echo "test" &gt; file.txt  # Overwrites entire file!`}
                                 </code>
                             </div>
                         </div>
@@ -595,7 +595,7 @@ const Topic16 = () => {
                                 <h4 className="font-bold text-red-300 mb-2">Pipe vs Redirect</h4>
                                 <p className="text-sm">Pipes connect processes, redirects connect to files</p>
                                 <code className="text-xs block bg-gray-900 p-2 rounded mt-2">
-                                    {`echo "data" > grep "pattern"  # WRONG!
+                                    {`echo "data" &gt; grep "pattern"  # WRONG!
                                     echo "data" | grep "pattern"  # CORRECT`}
                                 </code>
                             </div>
@@ -664,7 +664,7 @@ const Topic16 = () => {
                                 <ul className="space-y-2">
                                     <li className="flex items-start gap-2">
                                         <span className="text-blue-300">⚡</span>
-                                        <span>Use <code>{`&>`}</code> instead of <code>&gt; file 2&gt;&1</code> for brevity</span>
+                                        <span>Use <code>{`&&gt;`}</code> instead of <code>&gt; file 2&gt;&1</code> for brevity</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-blue-300">⚡</span>
@@ -788,12 +788,12 @@ const Topic16 = () => {
                             <h3 className="text-xl font-bold mb-4 text-rose-300">Basic Operations</h3>
                             <div className="space-y-3">
                                 {[
-                                    "> file - Overwrite file with output",
+                                    "&gt; file - Overwrite file with output",
                                     ">> file - Append output to file",
                                     "< file - Read input from file",
                                     "2> file - Redirect errors to file",
                                     "| command - Pipe output to another command",
-                                    "&> file - Redirect both stdout and stderr"
+                                    "&&gt; file - Redirect both stdout and stderr"
                                 ].map((item, index) => (
                                     <div 
                                         key={index}
@@ -813,7 +813,7 @@ const Topic16 = () => {
                             <div className="space-y-3">
                                 {[
                                     "tee file - Save AND display output",
-                                    "2>&1 - Redirect stderr to stdout",
+                                    "2&gt;&1 - Redirect stderr to stdout",
                                     "<< EOF - Here document (multiline input)",
                                     ">(cmd) - Process substitution output",
                                     "<(cmd) - Process substitution input",

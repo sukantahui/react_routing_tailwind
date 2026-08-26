@@ -41,7 +41,7 @@ export default function Topic11() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        >
+        &gt;
           <h1 className="text-4xl font-bold bg-gradient-to-r from-violet-400 to-purple-500 bg-clip-text text-transparent">
             AVERAGEIFS Function (Multiple Condition Average)
           </h1>
@@ -54,7 +54,7 @@ export default function Topic11() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-violet-500/50 transition-all duration-300"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-violet-400">📐</span> Function Prototype
           </h2>
@@ -75,7 +75,7 @@ export default function Topic11() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">🔍 Parameters Explained</h2>
           <div className="mt-4 space-y-3 text-gray-200">
             <div><span className="text-violet-300 font-mono">average_range</span> – The cells to average (numeric).</div>
@@ -93,7 +93,7 @@ export default function Topic11() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">📊 Real-World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -110,7 +110,7 @@ export default function Topic11() {
                   <tr><td className="border px-3 py-1">Rice</td><td className="border px-3 py-1">North</td><td className="border px-3 py-1">620</td><td className="border px-3 py-1">5</td></tr>
                 </tbody>
               </table>
-              <p className="mt-3 text-violet-300">{`=AVERAGEIFS(C2:C6, A2:A6, "Rice", B2:B6, "North", D2:D6, ">4") → (600+620)/2 = 610`}</p>
+              <p className="mt-3 text-violet-300">{`=AVERAGEIFS(C2:C6, A2:A6, "Rice", B2:B6, "North", D2:D6, "&gt;4") → (600+620)/2 = 610`}</p>
             </div>
           </div>
         </section>
@@ -119,7 +119,7 @@ export default function Topic11() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (
@@ -149,7 +149,7 @@ export default function Topic11() {
             <li><strong>Argument order:</strong> AVERAGEIFS puts average_range first, while AVERAGEIF puts it last – easy to confuse.</li>
             <li>Using different sized ranges – all criteria ranges and average_range must be the same size; otherwise #VALUE! error.</li>
             <li>Forgetting quotes around text or operators: =AVERAGEIFS(B:B, A:A, Rice) → error; correct "Rice".</li>
-            <li>{`Not using &amp; to concatenate cell references: ">"&;E1 not ">E1".`}</li>
+            <li>{`Not using &amp; to concatenate cell references: "&gt;"&;E1 not ">E1".`}</li>
             <li>If no cells meet all criteria, AVERAGEIFS returns #DIV/0!.</li>
           </ul>
         </section>
@@ -179,7 +179,7 @@ export default function Topic11() {
           <h3 className="text-xl font-semibold text-purple-300">💡 Professional Tips & Tricks</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Use wildcards for partial matches: =AVERAGEIFS(Sales, Product, "*Phone*", Region, "East").</li>
-            <li>{`Average within a date range: =AVERAGEIFS(Amount, Date, ">="&;Start, Date, "<="&;End).`}</li>
+            <li>{`Average within a date range: =AVERAGEIFS(Amount, Date, " &ge; "&;Start, Date, " &le; "&;End).`}</li>
             <li>To average based on another column's text length, use a helper column with LEN, then AVERAGEIFS on that.</li>
             <li>AVERAGEIFS is optimised for speed – use it instead of array formulas for large data.</li>
           </ul>
@@ -193,7 +193,7 @@ export default function Topic11() {
             <li>✅ average_range comes first</li>
             <li>✅ All ranges must be same size</li>
             <li>✅ Use quotes for text and operators</li>
-            <li>{`✅ Use &; for cell references: ">"&;E1`}</li>
+            <li>{`✅ Use &; for cell references: "&gt;"&;E1`}</li>
             <li>✅ Returns #DIV/0! if no match</li>
           </ul>
         </div>
@@ -202,7 +202,7 @@ export default function Topic11() {
         <FAQTemplate title="AVERAGEIFS Function – Frequently Asked Questions" questions={questions} />
 
         {/* Teacher's Note */}
-        <Teacher note={"Start with two conditions: product and region. Then add a third (e.g., quantity > 5). Show how AVERAGEIFS is more intuitive than nested AVERAGEIFs. Use the Excel sheet 'averageifs_data' with columns: Product, Region, Sales, Quantity, Date – at least 20 rows for rich practice. Emphasise the argument order difference from AVERAGEIF."} />
+        <Teacher note={"Start with two conditions: product and region. Then add a third (e.g., quantity > 5). Show how AVERAGEIFS is more intuitive than nested AVERAGEIFs. Use the Excel sheet 'averageifs_data' with columns: Product, Region, Sales, Quantity, Date – at least 20 rows for rich practice. Emphasise the argument order difference from AVERAGEIF."} /&gt;
       </div>
 
       <style>{`

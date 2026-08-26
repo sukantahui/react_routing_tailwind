@@ -139,7 +139,7 @@ const Topic8 = () => {
                           ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                           : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                       )}
-                    >
+                    &gt;
                       {complementVar}
                     </button>
                   </div>
@@ -171,7 +171,7 @@ const Topic8 = () => {
               <button
                 onClick={() => setShowExplanation(!showExplanation)}
                 className="w-full py-2 bg-pink-100 dark:bg-pink-900/40 text-pink-700 dark:text-pink-300 rounded-lg font-medium transition-all duration-300 hover:bg-pink-200 dark:hover:bg-pink-900/60"
-              >
+              &gt;
                 {showExplanation ? "Hide" : "Show"} Why This Makes Sense
               </button>
               
@@ -254,7 +254,7 @@ const Topic8 = () => {
                           ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                           : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                       )}
-                    >
+                    &gt;
                       {complementVar}
                     </button>
                   </div>

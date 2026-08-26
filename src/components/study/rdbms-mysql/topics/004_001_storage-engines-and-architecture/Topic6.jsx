@@ -32,8 +32,8 @@ const Topic6 = () => {
 -- 3. DB_ROW_ID (6 bytes): Internal surrogate key if no PK is defined.
 
 -- VERSION CHAIN EVOLUTION:
--- Initial Insert (Trx 100): balance = ₹10,000 -> DB_ROLL_PTR = NULL
--- Update 1 (Trx 200): balance = ₹12,000 -> Clustered Row points to Undo V1 (₹10,000)
+-- Initial Insert (Trx 100): balance = ₹10,000 &rarr; DB_ROLL_PTR = NULL
+-- Update 1 (Trx 200): balance = ₹12,000 -&gt; Clustered Row points to Undo V1 (₹10,000)
 -- Update 2 (Trx 300): balance = ₹15,000 -> Clustered Row points to Undo V2 (₹12,000) -> Undo V1 (₹10,000)
 
 -- When a query reads from an older snapshot, it follows DB_ROLL_PTR backwards in time!`,
@@ -60,8 +60,8 @@ const Topic6 = () => {
 
 -- VISIBILITY LOGIC:
 -- 1. If row TRX_ID < 201 -> VISIBLE (Committed before Read View).
--- 2. If row TRX_ID >= 210 -> INVISIBLE (Started after Read View).
--- 3. If row TRX_ID is in [201, 205] -> INVISIBLE (Was uncommitted when View opened).
+-- 2. If row TRX_ID &ge; 210 &rarr; INVISIBLE (Started after Read View).
+-- 3. If row TRX_ID is in [201, 205] -&gt; INVISIBLE (Was uncommitted when View opened).
 -- 4. If row TRX_ID == creator_trx_id -> VISIBLE (Own modification!).
 
 -- ISOLATION DIFFERENCE:
@@ -349,7 +349,7 @@ KILL 142; -- Frees the Read View and allows Purge Threads to sweep!`,
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

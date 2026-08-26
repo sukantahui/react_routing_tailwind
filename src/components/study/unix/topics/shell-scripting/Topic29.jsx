@@ -244,7 +244,7 @@ const Topic29 = () => {
               { bash: 'source file.sh', posix: '. file.sh' },
               { bash: "echo {1..10}", posix: 'seq 1 10 (if available) or manual loop' },
               { bash: "export -f func", posix: 'not possible – define in dot scripts' },
-              { bash: ">&2 echo error", posix: 'echo error >&2' },
+              { bash: "&gt;&2 echo error", posix: 'echo error >&2' },
               { bash: '[[ -v var ]]', posix: 'test -n "${var+set}"' },
             ].map((item, idx) => (
               <div

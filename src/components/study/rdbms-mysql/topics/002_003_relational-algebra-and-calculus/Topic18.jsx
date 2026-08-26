@@ -26,7 +26,7 @@ const Topic18 = () => {
     drc_filter: {
       title: "1. DRC Attribute Filter & Positional Projection",
       category: "Domain Variable Selection",
-      formula: "{ ⟨n, f⟩ | ∃i (⟨i, n, 'Barrackpore', f⟩ ∈ Students ∧ f > 4000) }",
+      formula: "{ ⟨n, f⟩ | ∃i (⟨i, n, 'Barrackpore', f⟩ ∈ Students ∧ f &gt; 4000) }",
       explanation: "Uses domain variables n (name) and f (fee). Variable i (id) is existentially quantified; city is constrained by constant 'Barrackpore'.",
       qbeGrid: `Students | student_id | full_name | city         | admission_fee |
          |            | P._N      | 'Barrackpore'| P._F > 4000   |`,
@@ -304,7 +304,7 @@ DRC (Domain) ➔ Declarative (Domain variables: ⟨x, y⟩ ∈ R) ➔ Basis of Q
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Positional Filter
               </button>
 
@@ -316,7 +316,7 @@ DRC (Domain) ➔ Declarative (Domain variables: ⟨x, y⟩ ∈ R) ➔ Basis of Q
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Shared Variable Join
               </button>
 
@@ -328,7 +328,7 @@ DRC (Domain) ➔ Declarative (Domain variables: ⟨x, y⟩ ∈ R) ➔ Basis of Q
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. IBM QBE 2D Grid
               </button>
 
@@ -340,7 +340,7 @@ DRC (Domain) ➔ Declarative (Domain variables: ⟨x, y⟩ ∈ R) ➔ Basis of Q
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Codd's Equivalence
               </button>
             </div>
@@ -449,12 +449,12 @@ DRC (Domain) ➔ Declarative (Domain variables: ⟨x, y⟩ ∈ R) ➔ Basis of Q
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"DRC: { ⟨n, f⟩ | ∃i (⟨i, n, 'Barrackpore', f⟩ ∈ Students ∧ f > 4000) }"}
+                {"DRC: { ⟨n, f⟩ | ∃i (⟨i, n, 'Barrackpore', f⟩ ∈ Students ∧ f &gt; 4000) }"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT full_name, admission_fee
 FROM students
-WHERE city = 'Barrackpore' AND admission_fee > 4000;`}
+WHERE city = 'Barrackpore' AND admission_fee &gt; 4000;`}
               </pre>
             </div>
 

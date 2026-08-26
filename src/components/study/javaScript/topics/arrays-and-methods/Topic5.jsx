@@ -56,7 +56,7 @@ export default class Topic5 extends Component {
   return /* transformed value */;
 });`}
   language="javascript"
-/>
+/&gt;
           </div>
 
           {/* Examples */}
@@ -69,7 +69,7 @@ export default class Topic5 extends Component {
 const doubled = nums.map(n => n * 2);
 console.log(doubled);`}
               language="javascript"
-            />
+            /&gt;
           </div>
 
           <div className="space-y-2">
@@ -85,7 +85,7 @@ console.log(doubled);`}
 const names = students.map(s => s.name);
 console.log(names);`}
               language="javascript"
-            />
+            /&gt;
           </div>
 
           <div className="space-y-2">
@@ -102,7 +102,7 @@ console.log(names);`}
 const labels = students.map(s => \`\${s.name} — \${s.course}\`);
 console.log(labels);`}
               language="javascript"
-            />
+            /&gt;
           </div>
 
           {/* Common Mistakes */}
@@ -138,7 +138,7 @@ console.log(labels);`}
   return /* condition */; // keep item if true
 });`}
               language="javascript"
-            />
+            /&gt;
           </div>
 
           {/* Examples */}
@@ -151,7 +151,7 @@ console.log(labels);`}
 const even = nums.filter(n => n % 2 === 0);
 console.log(even);`}
               language="javascript"
-            />
+            /&gt;
           </div>
 
           <div className="space-y-2">
@@ -166,10 +166,10 @@ console.log(even);`}
   { name: "Kaustav", marks: 29 }
 ];
 
-const passed = students.filter(s => s.marks >= 40);
+const passed = students.filter(s => s.marks &ge; 40);
 console.log(passed);`}
               language="javascript"
-            />
+            /&gt;
           </div>
 
           <div className="space-y-2">
@@ -192,7 +192,7 @@ const result = courses.filter(c =>
 
 console.log(result);`}
               language="javascript"
-            />
+            /&gt;
           </div>
         </section>
 
@@ -218,7 +218,7 @@ console.log(result);`}
   return /* updated accumulator */;
 }, initialValue);`}
               language="javascript"
-            />
+            /&gt;
           </div>
 
           {/* Examples */}
@@ -231,7 +231,7 @@ console.log(result);`}
 const total = marks.reduce((acc, m) => acc + m, 0);
 console.log(total);`}
               language="javascript"
-            />
+            /&gt;
           </div>
 
           <div className="space-y-2">
@@ -247,12 +247,12 @@ console.log(total);`}
 ];
 
 const passedCount = students.reduce((acc, s) => {
-  return s.marks >= 40 ? acc + 1 : acc;
+  return s.marks &ge; 40 ? acc + 1 : acc;
 }, 0);
 
 console.log(passedCount);`}
               language="javascript"
-            />
+            /&gt;
           </div>
         </section>
 

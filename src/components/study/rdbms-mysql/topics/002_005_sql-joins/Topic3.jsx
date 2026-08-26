@@ -297,7 +297,7 @@ GROUP BY c.course_id, c.course_title, c.course_fee;`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Standard RIGHT JOIN
               </button>
 
@@ -309,7 +309,7 @@ GROUP BY c.course_id, c.course_title, c.course_fee;`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Empty Course Audit
               </button>
 
@@ -321,7 +321,7 @@ GROUP BY c.course_id, c.course_title, c.course_fee;`,
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Rewrite to LEFT JOIN
               </button>
 
@@ -333,7 +333,7 @@ GROUP BY c.course_id, c.course_title, c.course_fee;`,
                     ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. COUNT(col) Aggregation
               </button>
             </div>

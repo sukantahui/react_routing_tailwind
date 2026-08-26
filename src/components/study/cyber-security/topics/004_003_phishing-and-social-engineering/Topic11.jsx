@@ -111,7 +111,7 @@ if (Record.IsVIP == true && !User.ActivePatientRoster.Contains(Record.PatientID)
       resilientDefense: "Automated host isolation via micro-segmentation and revoking Kerberos ticket-granting tickets (TGT).",
       codeSnippet: `// Graph Centrality Lateral Movement Logic:
 let novel_connections_count = CountNovelHostConnections(User, Window="5m");
-if (novel_connections_count > 5) {
+if (novel_connections_count &gt; 5) {
     TriggerAlert("LATERAL MOVEMENT DETECTED: Abnormal degree centrality spike!");
     IsolateHostFromVLAN();
 }`
@@ -180,11 +180,11 @@ if (TargetAccount == "svc_honeypot_admin" && EventType == "Kerberos_PreAuth") {
     const numerator = zScoreDeviation * dataQualityScore;
     const exponent = -numerator / calibrationStrength;
     const rawDetectionProb = (1 - Math.exp(exponent)) * 100;
-    const actualDetectionProb = calibrationStrength >= 500
+    const actualDetectionProb = calibrationStrength &ge; 500
       ? (rawDetectionProb * 0.985).toFixed(2) // Calibrated UEBA + SOAR detects 98.5% with high fidelity
       : calibrationStrength >= 50
       ? (rawDetectionProb * 0.65).toFixed(2)  // Static SIEM detects 65% with high false positives
-      : rawDetectionProb.toFixed(2);           // Raw Logs -> 100% false alarms / low accuracy
+      : rawDetectionProb.toFixed(2);           // Raw Logs &rarr; 100% false alarms / low accuracy
 
     return {
       rawDetectionProb: rawDetectionProb.toFixed(2),
@@ -627,7 +627,7 @@ WHERE ((today.daily_download_mb - stats.mean_download) / NULLIF(stats.stddev_dow
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   ANOMALY
                 </span>
@@ -724,7 +724,7 @@ WHERE ((today.daily_download_mb - stats.mean_download) / NULLIF(stats.stddev_dow
                   value={zScoreDeviation}
                   onChange={(e) => setZScoreDeviation(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -740,7 +740,7 @@ WHERE ((today.daily_download_mb - stats.mean_download) / NULLIF(stats.stddev_dow
                   value={dataQualityScore}
                   onChange={(e) => setDataQualityScore(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -754,7 +754,7 @@ WHERE ((today.daily_download_mb - stats.mean_download) / NULLIF(stats.stddev_dow
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Raw Logs (1x)
                   </button>
                   <button
@@ -765,7 +765,7 @@ WHERE ((today.daily_download_mb - stats.mean_download) / NULLIF(stats.stddev_dow
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     SIEM Rules (50x)
                   </button>
                   <button
@@ -776,7 +776,7 @@ WHERE ((today.daily_download_mb - stats.mean_download) / NULLIF(stats.stddev_dow
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     UEBA ML (500x)
                   </button>
                 </div>
@@ -835,7 +835,7 @@ WHERE ((today.daily_download_mb - stats.mean_download) / NULLIF(stats.stddev_dow
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -884,7 +884,7 @@ WHERE ((today.daily_download_mb - stats.mean_download) / NULLIF(stats.stddev_dow
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

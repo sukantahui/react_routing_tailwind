@@ -209,7 +209,7 @@ const Topic9 = () => {
 
     // Format into Lakhs or Crores for Indian currency notation
     const formatINR = (val) => {
-      if (val >= 10000000) {
+      if (val &ge; 10000000) {
         return `₹${(val / 10000000).toFixed(2)} Crores`;
       } else if (val >= 100000) {
         return `₹${(val / 100000).toFixed(2)} Lakhs`;
@@ -365,7 +365,7 @@ const Topic9 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-800/80 text-gray-300 border-gray-700 hover:bg-gray-750 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-gray-400 uppercase tracking-wider">{cs.year}</div>
                   <div className="font-bold truncate mt-0.5">{cs.name.split(" ")[0]}</div>
                   <div className={clsx("mt-1.5 text-[10px] px-1.5 py-0.5 rounded border inline-block", cs.badgeClass)}>
@@ -481,7 +481,7 @@ const Topic9 = () => {
                   value={selectedThreatType}
                   onChange={(e) => setSelectedThreatType(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-700 rounded-lg p-2.5 text-xs text-gray-200 focus:outline-none focus:border-indigo-500"
-                >
+                &gt;
                   {Object.entries(threatScenarios).map(([key, val]) => (
                     <option key={key} value={key}>
                       {val.name}
@@ -504,7 +504,7 @@ const Topic9 = () => {
                   value={downtimeHours}
                   onChange={(e) => setDowntimeHours(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-gray-500">
                   <span>1 Hour (Quick Recovery)</span>
                   <span>24 Hours (Severe Outage)</span>
@@ -526,7 +526,7 @@ const Topic9 = () => {
                   value={dataLossMinutes}
                   onChange={(e) => setDataLossMinutes(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-gray-500">
                   <span>0 Min (Sync Replication)</span>
                   <span>60 Min (Hourly Snapshot)</span>
@@ -548,7 +548,7 @@ const Topic9 = () => {
                   value={affectedRecords}
                   onChange={(e) => setAffectedRecords(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-gray-500">
                   <span>10K (SMB Breach)</span>
                   <span>1M (Mid-Tier Platform)</span>
@@ -603,7 +603,7 @@ const Topic9 = () => {
                 </h4>
                 <div className="bg-gray-950 p-3 rounded-lg border border-gray-800 font-mono text-gray-300 text-[11px] space-y-1">
                   <div>Availability (%) = [ MTBF / (MTBF + MTTR) ] × 100</div>
-                  <div className="text-gray-500">// Example: MTBF = 720 hrs, MTTR = 0.25 hrs (15 mins) =&gt; 99.965% Uptime (~3.06 hrs downtime/year)</div>
+                  <div className="text-gray-500">// Example: MTBF = 720 hrs, MTTR = 0.25 hrs (15 mins) => 99.965% Uptime (~3.06 hrs downtime/year)</div>
                   <div>Annual Loss Expectancy (ALE) = Single Loss Expectancy (SLE) × Annualized Rate of Occurrence (ARO)</div>
                 </div>
                 <p className="text-gray-400 text-[11px] leading-relaxed">
@@ -782,7 +782,7 @@ const Topic9 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

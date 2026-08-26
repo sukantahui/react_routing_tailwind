@@ -106,7 +106,7 @@ const Topic9 = () => {
                 value={extractOption}
                 onChange={(e) => setExtractOption(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700"
-              >
+              &gt;
                 <option value="default">Default (extract all)</option>
                 <option value="subdir">Extract to subdirectory</option>
                 <option value="list">List contents (-l)</option>
@@ -122,20 +122,20 @@ const Topic9 = () => {
                 onChange={(e) => setTargetDir(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 font-mono"
                 disabled={extractOption !== 'subdir'}
-              />
+              /&gt;
             </div>
           </div>
           <div className="flex flex-wrap gap-4 mb-4">
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} />
+              <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} /&gt;
               <span>Verbose output (-v)</span>
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={overwrite === 'never'} onChange={() => setOverwrite(overwrite === 'never' ? 'default' : 'never')} />
+              <input type="checkbox" checked={overwrite === 'never'} onChange={() => setOverwrite(overwrite === 'never' ? 'default' : 'never')} /&gt;
               <span>Never overwrite (-n)</span>
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={overwrite === 'always'} onChange={() => setOverwrite(overwrite === 'always' ? 'default' : 'always')} />
+              <input type="checkbox" checked={overwrite === 'always'} onChange={() => setOverwrite(overwrite === 'always' ? 'default' : 'always')} /&gt;
               <span>Force overwrite (-o)</span>
             </label>
           </div>

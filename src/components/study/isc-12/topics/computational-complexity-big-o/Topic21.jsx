@@ -58,7 +58,7 @@ const Topic21 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            >
+            &gt;
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -108,7 +108,7 @@ const Topic21 = () => {
                       icon: "🔍",
                       title: "Binary Search",
                       desc: "Search a sorted array by repeatedly halving the search space.",
-                      example: "while (low <= high) { mid = (low+high)/2; ... }",
+                      example: "while (low &le; high) { mid = (low+high)/2; ... }",
                     },
                     {
                       icon: "🌳",

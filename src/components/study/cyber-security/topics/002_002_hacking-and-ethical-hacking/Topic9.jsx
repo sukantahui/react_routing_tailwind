@@ -95,7 +95,7 @@ const Topic9 = () => {
     const rosiPercentage = annualDefenseCostINR > 0 ? (netSavingsINR / annualDefenseCostINR) * 100 : 0;
 
     const formatINR = (val) => {
-      if (val >= 10000000) return `₹${(val / 10000000).toFixed(2)} Crores`;
+      if (val &ge; 10000000) return `₹${(val / 10000000).toFixed(2)} Crores`;
       if (val >= 100000) return `₹${(val / 100000).toFixed(2)} Lakhs`;
       return `₹${val.toLocaleString("en-IN")}`;
     };
@@ -241,7 +241,7 @@ const Topic9 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{stage.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">Stage {stage.stepNum}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{stage.name.split(" &")[0]}</div>
@@ -319,7 +319,7 @@ const Topic9 = () => {
                   value={singleLossExpectancyINR}
                   onChange={(e) => setSingleLossExpectancyINR(parseFloat(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
               </div>
 
               {/* ARO Slider */}
@@ -336,7 +336,7 @@ const Topic9 = () => {
                   value={annualRateOfOccurrence}
                   onChange={(e) => setAnnualRateOfOccurrence(parseFloat(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-                />
+                /&gt;
               </div>
 
               {/* Mitigation Efficacy */}
@@ -353,7 +353,7 @@ const Topic9 = () => {
                   value={mitigationEfficacy}
                   onChange={(e) => setMitigationEfficacy(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                />
+                /&gt;
               </div>
 
               {/* Annual Defense Cost */}
@@ -370,7 +370,7 @@ const Topic9 = () => {
                   value={annualDefenseCostINR}
                   onChange={(e) => setAnnualDefenseCostINR(parseFloat(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -585,7 +585,7 @@ const Topic9 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

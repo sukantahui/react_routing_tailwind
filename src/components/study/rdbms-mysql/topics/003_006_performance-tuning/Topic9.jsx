@@ -44,7 +44,7 @@ ORDER BY gpa DESC;
 -- 📋 Refactored EXPLAIN:
 -- key = 'idx_student_cov' (city, status, gpa DESC, name)
 -- Extra = 'Using index' ⚡ (Zero table reads, Zero filesort!)
--- Execution time drops from 38.5 ms -> 0.32 ms (120x faster)!`,
+-- Execution time drops from 38.5 ms &rarr; 0.32 ms (120x faster)!`,
       resultRows: [
         {
           variant: "SELECT * (Wide Payload)",
@@ -98,7 +98,7 @@ LEFT JOIN (
 WHERE s.city = 'Kolkata';
 
 -- 📋 Refactored EXPLAIN:
--- Executes a single batch hash/index join! Latency drops from 210 ms -> 2.4 ms!`,
+-- Executes a single batch hash/index join! Latency drops from 210 ms -&gt; 2.4 ms!`,
       resultRows: [
         {
           variant: "Correlated Subquery in SELECT",
@@ -514,7 +514,7 @@ LIMIT 20;
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -685,7 +685,7 @@ FROM students s
 LEFT JOIN AttendanceAgg a ON s.student_id = a.student_id
 LEFT JOIN ExamAgg e ON s.student_id = e.student_id;
 
--- Result: Execution dropped from 4,500 ms -> 55 ms! ⚡`}
+-- Result: Execution dropped from 4,500 ms &rarr; 55 ms! ⚡`}
                 </pre>
               </div>
             </div>

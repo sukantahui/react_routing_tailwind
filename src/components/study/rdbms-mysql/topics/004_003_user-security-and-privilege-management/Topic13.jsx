@@ -123,7 +123,7 @@ SELECT audit_log_filter_set_user('app_microservice@%', 'ddl_and_logins');
   "query": "DROP TABLE kolkata_finance.orders"
 }
 
--- SIEM Alert Rule: (status == 1142 AND query =~ "^DROP") -> PagerDuty Critical Alert!`,
+-- SIEM Alert Rule: (status == 1142 AND query =~ "^DROP") &rarr; PagerDuty Critical Alert!`,
       explanation:
         "Forensic incident response relies on immutable audit streams to reconstruct security incidents. By shipping JSON logs to external SIEM platforms (Splunk, Elastic, Datadog), security teams detect intrusion attempts in real time and maintain non-repudiation.",
       keyTakeaways: [
@@ -229,7 +229,7 @@ SELECT audit_log_filter_set_user('app_microservice@%', 'ddl_and_logins');
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );

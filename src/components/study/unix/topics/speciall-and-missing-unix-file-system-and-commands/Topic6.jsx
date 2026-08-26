@@ -85,7 +85,7 @@ function InteractiveQuestionsBlock() {
                 <button
                   onClick={() => toggle(idx)}
                   className="rounded-full bg-indigo-100 px-4 py-1 text-sm font-medium text-indigo-700 transition-all hover:bg-indigo-200 dark:bg-indigo-900/60 dark:text-indigo-200"
-                >
+                &gt;
                   {revealed[idx] ? "Hide" : "Show answer"}
                 </button>
               </div>
@@ -184,7 +184,7 @@ export default function Topic6() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-14">
             {[
               { title: "🔍 Name & Type", content: "`-name`, `-iname` (case‑insensitive), `-type f` (file), `-type d` (directory). Wildcards must be quoted." },
-              { title: "📏 Size & Time", content: "`-size +100M`, `-size -1k`; `-mtime -7` (modified within 7 days), `-atime +30` (accessed >30 days)." },
+              { title: "📏 Size & Time", content: "`-size +100M`, `-size -1k`; `-mtime -7` (modified within 7 days), `-atime +30` (accessed &gt;30 days)." },
               { title: "⚙️ Actions", content: "`-exec command {} \\;` (runs command per file); `-delete`; `-print` (default); `-ok` (prompt)." },
               { title: "🔗 Conditions", content: "`-and` (default), `-or` (`-o`), `-not` (`!`). Group with `\\( ... \\)`. Use `-a` for and, `-o` for or." }
             ].map((card, idx) => (

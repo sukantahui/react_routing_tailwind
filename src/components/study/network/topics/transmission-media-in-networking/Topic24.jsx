@@ -32,7 +32,7 @@ const Topic24 = () => {
   
   const currentFreq = frequencyData[frequencyBand];
   const signalStrength = Math.max(0, 100 - (distance / currentFreq.range) * 100);
-  const signalQuality = signalStrength > 70 ? "Excellent" : signalStrength > 40 ? "Good" : signalStrength > 20 ? "Poor" : "No Signal";
+  const signalQuality = signalStrength &gt; 70 ? "Excellent" : signalStrength > 40 ? "Good" : signalStrength > 20 ? "Poor" : "No Signal";
   const signalColor = signalStrength > 70 ? "text-green-600" : signalStrength > 40 ? "text-yellow-600" : "text-red-600";
   
   // Mobile network components
@@ -182,7 +182,7 @@ const Topic24 = () => {
                             ? "bg-green-600 text-white" 
                             : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                         )}
-                      >
+                      &gt;
                         {gen}
                       </button>
                     ))}
@@ -195,7 +195,7 @@ const Topic24 = () => {
                     type="range" min="0.1" max={currentFreq.range * 1.2} step="0.1" value={distance}
                     onChange={(e) => setDistance(parseFloat(e.target.value))}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                  />
+                  /&gt;
                 </div>
                 
                 <div className="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
@@ -210,15 +210,15 @@ const Topic24 = () => {
               <div className="bg-gray-100 dark:bg-gray-900 rounded-lg p-4 flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-6xl mb-2">
-                    {signalStrength > 70 ? "📶📶📶" : signalStrength > 40 ? "📶📶" : signalStrength > 20 ? "📶" : "❌"}
+                    {signalStrength &gt; 70 ? "📶📶📶" : signalStrength > 40 ? "📶📶" : signalStrength > 20 ? "📶" : "❌"}
                   </div>
                   <p className="text-sm mt-2">
-                    {signalStrength > 70 ? "Strong connection — optimal performance" : 
+                    {signalStrength &gt; 70 ? "Strong connection — optimal performance" : 
                      signalStrength > 40 ? "Fair connection — may experience slowdowns" :
                      signalStrength > 20 ? "Weak connection — frequent drops likely" : 
                      "No connection — out of coverage area"}
                   </p>
-                  {distance > currentFreq.range && (
+                  {distance &gt; currentFreq.range && (
                     <p className="text-xs text-red-500 mt-2">⚠️ Beyond typical range for {frequencyBand}</p>
                   )}
                 </div>
@@ -463,7 +463,7 @@ const QAItem = ({ question, answer, index }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left p-4 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex justify-between items-center"
-      >
+      &gt;
         <span className="font-medium text-gray-800 dark:text-gray-200">
           {index+1}. {question}
         </span>

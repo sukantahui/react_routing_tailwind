@@ -40,7 +40,7 @@ const Topic62 = () => {
             optimalPoint: { x: 4, y: 3, Z: 24 },
             bindingConstraints: ["x + y ≤ 10", "2x + y ≤ 14"],
             nonBindingConstraints: ["x ≥ 0", "y ≥ 0"],
-            explanation: "At (4,3), x+y=10 and 2x+y=14 are binding (equality holds). Non-negativity constraints have slack (x=4>0, y=3>0)."
+            explanation: "At (4,3), x+y=10 and 2x+y=14 are binding (equality holds). Non-negativity constraints have slack (x=4&gt;0, y=3>0)."
         },
         {
             id: 1,
@@ -94,18 +94,18 @@ const Topic62 = () => {
         const range = 12;
         const minRange = -1;
         if (b !== 0 && a !== 0) {
-            for (let x = minRange; x <= range + 1; x += 0.1) {
+            for (let x = minRange; x &le; range + 1; x += 0.1) {
                 const y = (c - a * x) / b;
                 if (y >= minRange && y <= range + 1) {
                     const p = toPixel(x, y);
-                    if (p.px >= 40 && p.px <= 560 && p.py >= 20 && p.py <= 390) {
+                    if (p.px >= 40 && p.px &le; 560 && p.py >= 20 && p.py <= 390) {
                         points.push(p);
                     }
                 }
             }
         } else if (a !== 0 && b === 0) {
             const xVal = c / a;
-            if (xVal >= minRange && xVal <= range + 1) {
+            if (xVal >= minRange && xVal &le; range + 1) {
                 const px = toPixel(xVal, 0).px;
                 points.push({ px, py: 20 });
                 points.push({ px, py: 380 });
@@ -136,7 +136,7 @@ const Topic62 = () => {
                     pts.push(toPixel(minRange, minRange));
                     pts.push(toPixel(range, minRange));
                     const yRight = yAtX(range);
-                    if (yRight >= minRange && yRight <= range) {
+                    if (yRight &ge; minRange && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(minRange);
@@ -147,7 +147,7 @@ const Topic62 = () => {
                     pts.push(toPixel(minRange, range));
                     pts.push(toPixel(range, range));
                     const yRight = yAtX(range);
-                    if (yRight >= minRange && yRight <= range) {
+                    if (yRight >= minRange && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(minRange);
@@ -160,7 +160,7 @@ const Topic62 = () => {
                     pts.push(toPixel(minRange, range));
                     pts.push(toPixel(range, range));
                     const yRight = yAtX(range);
-                    if (yRight >= minRange && yRight <= range) {
+                    if (yRight &ge; minRange && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(minRange);
@@ -171,7 +171,7 @@ const Topic62 = () => {
                     pts.push(toPixel(minRange, minRange));
                     pts.push(toPixel(range, minRange));
                     const yRight = yAtX(range);
-                    if (yRight >= minRange && yRight <= range) {
+                    if (yRight >= minRange && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(minRange);
@@ -197,7 +197,7 @@ const Topic62 = () => {
         } else if (b !== 0 && a === 0) {
             const yVal = c / b;
             const py = toPixel(0, yVal).py;
-            if (sign === "≥" || sign === ">") {
+            if (sign === "≥" || sign === "&gt;") {
                 pts.push(toPixel(minRange, yVal));
                 pts.push(toPixel(range, yVal));
                 pts.push(toPixel(range, range));
@@ -209,7 +209,7 @@ const Topic62 = () => {
                 pts.push(toPixel(minRange, yVal));
             }
         }
-        return pts.filter(p => p.px >= 40 && p.px <= 560 && p.py >= 20 && p.py <= 390);
+        return pts.filter(p => p.px &ge; 40 && p.px &le; 560 && p.py >= 20 && p.py <= 390);
     };
 
     useEffect(() => {
@@ -293,7 +293,7 @@ const Topic62 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🔗</span>
                         What are Binding and Non-Binding Constraints?
@@ -339,7 +339,7 @@ const Topic62 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🔍</span>
                         How to Identify Binding vs Non-Binding Constraints
@@ -384,7 +384,7 @@ const Topic62 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🖱️</span>
                         Interactive Binding Explorer
@@ -407,7 +407,7 @@ const Topic62 = () => {
                                             ? "bg-blue-600 dark:bg-blue-500 text-white border-blue-600 dark:border-blue-500 shadow-md"
                                             : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-blue-400 dark:hover:border-blue-500"
                                     )}
-                                >
+                                &gt;
                                     {ex.name}
                                 </button>
                             ))}
@@ -423,7 +423,7 @@ const Topic62 = () => {
                                         ? "bg-rose-600 text-white border-rose-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showBindingHighlight ? "Hide Highlight" : "Show Highlight"}
                             </button>
                             <button
@@ -434,7 +434,7 @@ const Topic62 = () => {
                                         ? "bg-emerald-600 text-white border-emerald-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showSlackValues ? "Hide Slack" : "Show Slack"}
                             </button>
                             <button
@@ -445,7 +445,7 @@ const Topic62 = () => {
                                         ? "bg-purple-600 text-white border-purple-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showSteps ? "Hide Steps" : "Show Steps"}
                             </button>
                         </div>
@@ -474,7 +474,7 @@ const Topic62 = () => {
                                                     fill={con.color}
                                                     fillOpacity={opacity}
                                                     stroke="none"
-                                                />
+                                                /&gt;
                                             );
                                         }
                                         return null;
@@ -546,7 +546,7 @@ const Topic62 = () => {
                                     {/* Tick marks */}
                                     {[100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520, 540].map((v) => {
                                         const val = Math.round((v - 80) / 40);
-                                        if (val >= -1 && val <= 12 && val % 1 === 0) {
+                                        if (val &ge; -1 && val &le; 12 && val % 1 === 0) {
                                             return (
                                                 <g key={`t62-tick-${v}`}>
                                                     <line x1={v} y1="373" x2={v} y2="387" stroke="#1e293b" strokeWidth="1.5" className="dark:stroke-slate-300" />
@@ -558,7 +558,7 @@ const Topic62 = () => {
                                     })}
                                     {[100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360].map((v) => {
                                         const val = Math.round((380 - v) / 40);
-                                        if (val >= -1 && val <= 12 && val % 1 === 0) {
+                                        if (val &ge; -1 && val &le; 12 && val % 1 === 0) {
                                             return (
                                                 <g key={`t62-ytick-${v}`}>
                                                     <line x1="73" y1={v} x2="87" y2={v} stroke="#1e293b" strokeWidth="1.5" className="dark:stroke-slate-300" />
@@ -583,7 +583,7 @@ const Topic62 = () => {
                                                     strokeWidth={con.isBinding ? 4 : 2.5}
                                                     strokeDasharray={con.isBinding ? "none" : "4,4"}
                                                     opacity={con.isBinding ? 1 : 0.6}
-                                                />
+                                                /&gt;
                                             );
                                         }
                                         return null;
@@ -722,7 +722,7 @@ const Topic62 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -776,7 +776,7 @@ const Topic62 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

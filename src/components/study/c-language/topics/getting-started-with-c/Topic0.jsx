@@ -77,7 +77,7 @@ int main() {
     printf("Welcome to C Programming!\\n");
     return 0;
 }`}
-        />
+        /&gt;
 
         <ul className="list-disc pl-6 text-slate-400 text-sm space-y-1">
           <li><code>#include &lt;stdio.h&gt;</code> — gives access to input/output functions.</li>
@@ -112,7 +112,7 @@ int main() {
     printf("My age is: %d", age);
     return 0;
 }`}
-        />
+        /&gt;
 
         <p className="text-slate-300 text-sm leading-relaxed">
           This program introduces variables and formatted output using placeholders.

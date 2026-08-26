@@ -276,8 +276,8 @@ const Topic3 = () => {
             <p className="text-sm text-cyan-800 dark:text-cyan-300 flex items-start gap-2">
               <span className="font-bold">✏️ Note:</span>
               The <code>for</code> loop is not a new kind of loop – it's a compact way to write
-              a <code>while</code> loop. Compare: <code>{`for(i=1; i<=5; i++)`}</code> is equivalent
-              to <code>{`i=1; while(i<=5){ i++;}`}</code>.
+              a <code>while</code> loop. Compare: <code>{`for(i=1; i &le; 5; i++)`}</code> is equivalent
+              to <code>{`i=1; while(i &le; 5){ i++;}`}</code>.
             </p>
           </div>
         </section>
@@ -316,7 +316,7 @@ const Topic3 = () => {
               </div>
               <p className="text-gray-700 dark:text-gray-300">
                 Tuhina writes a program to print roll numbers 1 to 45.
-                <code>{`for(roll=1; roll<=45; roll++)`}</code> – clear, concise.
+                <code>{`for(roll=1; roll &le; 45; roll++)`}</code> – clear, concise.
               </p>
             </div>
             <div className="bg-gray-100 dark:bg-gray-700 p-5 rounded-xl hover:shadow-lg transition-shadow">
@@ -366,11 +366,11 @@ const Topic3 = () => {
               <ul className="space-y-4 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-2">
                   <span className="text-red-500">•</span>
-                  <span><strong>Off‑by‑one errors</strong> – using <code>&lt;=</code> when you meant <code>&lt;</code>, or vice versa.</span>
+                  <span><strong>Off‑by‑one errors</strong> – using <code><=</code> when you meant <code>&lt;</code>, or vice versa.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500">•</span>
-                  <span><strong>Using commas instead of semicolons</strong> – <code>for(i=1, i&lt;=5, i++)</code> is invalid.</span>
+                  <span><strong>Using commas instead of semicolons</strong> – <code>for(i=1, i<=5, i++)</code> is invalid.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500">•</span>
@@ -430,10 +430,10 @@ const Topic3 = () => {
               💭 Think about…
             </p>
             <p className="mt-1 text-gray-700 dark:text-gray-300">
-              …what happens if you omit the update expression, like <code>for(i=1; i&lt;=5; )</code>.
+              …what happens if you omit the update expression, like <code>for(i=1; i<=5; )</code>.
               Is it still a valid loop? How do you avoid an infinite loop? <br />
               <strong>Try changing this:</strong> In the sum example, change the condition to
-              <code>i &lt;= n+1</code>. What output do you get? Why?
+              <code>i <= n+1</code>. What output do you get? Why?
             </p>
           </div>
         </section>
@@ -508,7 +508,7 @@ const Topic3 = () => {
                   The real power is when we combine it with arrays – that's when 
                   Abhronila’s grade processing and Debangshu’s shopping cart come to life. 
                   Emphasise the <strong>off‑by‑one</strong> – I make them deliberately 
-                  write both <code>i &lt; 5</code> and <code>i &lt;= 5</code> and observe.”
+                  write both <code>i &lt; 5</code> and <code>i <= 5</code> and observe.”
                 </p>
               </div>
             </div>

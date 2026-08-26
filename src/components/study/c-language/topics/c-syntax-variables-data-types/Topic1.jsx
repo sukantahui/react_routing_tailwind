@@ -41,7 +41,7 @@ int main() {
 
     return 0;
 }`}
-        />
+        /&gt;
 
         <p className="text-slate-300 text-sm leading-relaxed">
           Comments should be meaningful and describe why something is done—not just what.

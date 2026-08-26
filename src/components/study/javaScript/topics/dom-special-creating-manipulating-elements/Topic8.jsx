@@ -109,7 +109,7 @@ for (const s of students) {
 }
 
 document.body.appendChild(container);`}
-          />
+          /&gt;
         </section>
 
         {/* ============================================================
@@ -159,7 +159,7 @@ document.body.appendChild(list); // One-time render`}
     <p class="role"></p>
   </div>
 </template>`}
-          />
+          /&gt;
 
           <EditableCodeBlock
             language="javascript"
@@ -215,7 +215,7 @@ renderList(document.body, ["A", "B", "C"], (text) => {
   div.textContent = text;
   return div;
 });`}
-          />
+          /&gt;
         </section>
 
         {/* ============================================================
@@ -283,7 +283,7 @@ renderList(document.body, tasks, (t) => {
 
   return box;
 });`}
-          />
+          /&gt;
         </section>
 
         {/* ============================================================

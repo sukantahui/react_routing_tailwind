@@ -58,7 +58,7 @@ const Topic30 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            >
+            &gt;
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -537,7 +537,7 @@ const Topic30 = () => {
               "And always profile — theory is a guide, but real-world performance is what matters. " +
               "Encourage students to think like engineers: choose the simplest algorithm that meets performance goals."
             }
-          />
+          /&gt;
         </div>
 
         {/* ─── Footer ────────────────────────────────────────────────────────── */}

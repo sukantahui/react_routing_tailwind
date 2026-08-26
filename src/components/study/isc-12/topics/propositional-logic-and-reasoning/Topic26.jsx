@@ -149,7 +149,7 @@ const Topic26 = () => {
   };
 
   const prevExample = () => {
-    if (selectedIndex > 0) {
+    if (selectedIndex &gt; 0) {
       setSelectedIndex(selectedIndex - 1);
       setSelectedOption(null);
       setShowResult(false);
@@ -218,7 +218,7 @@ const Topic26 = () => {
           <div className="space-y-2 mb-4">
             {options.map(opt => (
               <label key={opt.code} className="flex items-start gap-2 p-2 bg-white dark:bg-gray-800 rounded cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition">
-                <input type="radio" name="option" value={opt.code} checked={selectedOption === opt.code} onChange={() => setSelectedOption(opt.code)} className="mt-1" />
+                <input type="radio" name="option" value={opt.code} checked={selectedOption === opt.code} onChange={() => setSelectedOption(opt.code)} className="mt-1" /&gt;
                 <span><strong>{opt.code}:</strong> {opt.text}</span>
               </label>
             ))}
@@ -226,7 +226,7 @@ const Topic26 = () => {
 
           <div className="flex gap-3">
             <button onClick={checkAnswer} disabled={!selectedOption} className={clsx("px-4 py-2 rounded font-semibold", selectedOption ? "bg-green-600 hover:bg-green-700 text-white" : "bg-gray-400 cursor-not-allowed")}>Check Answer</button>
-            {showResult && <button onClick={() => setShowResult(false)} className="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded">Hide Explanation</button>}
+            {showResult && <button onClick={() => setShowResult(false)} className="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded"&gt;Hide Explanation</button>}
           </div>
 
           {showResult && (

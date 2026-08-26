@@ -61,7 +61,7 @@ const Topic8 = () => {
         what: "Modbus Function Code 05 (Force Single Coil): Trip 220kV Feeder Breaker #CB-14",
         when: "2026-08-23T02:28:44.015Z (GPS Clocks Sub-Millisecond Sync)",
         where: "Substation RTU 192.168.40.12 (Barrackpore 220kV Grid Substation)",
-        why: "Automated Overcurrent Fault Protection Trigger (>1200 Amperes Surge)",
+        why: "Automated Overcurrent Fault Protection Trigger (&gt;1200 Amperes Surge)",
         how: "Hardened Serial-over-IP Gateway via Encrypted IPsec Tunnel"
       },
       sha256Hash: "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
@@ -268,7 +268,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{ev.title.split(": ")[1]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{ev.service}</div>
                 </button>
@@ -375,7 +375,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{fp.name.split(": ")[1]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{fp.name.split(": ")[0]}</div>
                 </button>
@@ -590,7 +590,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

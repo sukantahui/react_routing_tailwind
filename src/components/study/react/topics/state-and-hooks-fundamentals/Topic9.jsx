@@ -658,7 +658,7 @@ const Topic9 = () => {
                               ? "bg-red-100 hover:bg-red-200 text-red-700 dark:bg-red-900/30 dark:hover:bg-red-900/50 dark:text-red-300"
                               : "bg-green-100 hover:bg-green-200 text-green-700 dark:bg-green-900/30 dark:hover:bg-green-900/50 dark:text-green-300"
                           )}
-                        >
+                        &gt;
                           {student.present ? 'Mark Absent' : 'Mark Present'}
                         </button>
                       </div>
@@ -675,7 +675,7 @@ const Topic9 = () => {
                 <div className="p-4 bg-gray-900 rounded-lg">
                   <div className="text-sm text-gray-400 mb-2">Update Nested Schedule</div>
                   <div className="font-mono text-green-300 text-sm">
-                    <div>setClassroom(prev =&gt; ({"{"}</div>
+                    <div>setClassroom(prev => ({"{"}</div>
                     <div className="ml-4">...prev,</div>
                     <div className="ml-4">schedule: {"{"}</div>
                     <div className="ml-8">...prev.schedule,</div>
@@ -689,9 +689,9 @@ const Topic9 = () => {
                 <div className="p-4 bg-gray-900 rounded-lg">
                   <div className="text-sm text-gray-400 mb-2">Toggle Student Attendance</div>
                   <div className="font-mono text-green-300 text-sm">
-                    <div>setClassroom(prev =&gt; ({"{"}</div>
+                    <div>setClassroom(prev => ({"{"}</div>
                     <div className="ml-4">...prev,</div>
-                    <div className="ml-4">students: prev.students.map(student =&gt;</div>
+                    <div className="ml-4">students: prev.students.map(student =></div>
                     <div className="ml-8">student.id === id</div>
                     <div className="ml-12">? {"{"} ...student, present: !student.present {"}"}</div>
                     <div className="ml-8">: student</div>
@@ -763,7 +763,7 @@ const Topic9 = () => {
                       checked={task.completed}
                       onChange={() => toggleTaskCompletion(task.id)}
                       className="w-5 h-5 mr-3 rounded border-gray-300 focus:ring-blue-500"
-                    />
+                    /&gt;
                     <div>
                       <div className={clsx(
                         "font-medium",
@@ -791,7 +791,7 @@ const Topic9 = () => {
                     className="px-3 py-1 bg-red-100 hover:bg-red-200 text-red-700 dark:bg-red-900/30 
                              dark:hover:bg-red-900/50 dark:text-red-300 rounded text-sm
                              transition-all duration-300"
-                  >
+                  &gt;
                     Delete
                   </button>
                 </div>

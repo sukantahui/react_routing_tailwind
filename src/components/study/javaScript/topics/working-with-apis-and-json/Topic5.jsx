@@ -24,7 +24,7 @@ export default class Topic5 extends Component {
           code={`<button id="loadBtn">Load Posts</button>
 <div id="status"></div>
 <ul id="postList"></ul>`}
-        />
+        /&gt;
 
         <h3 className="text-lg font-semibold text-slate-200">
           2. JavaScript to Fetch &amp; Render
@@ -61,7 +61,7 @@ async function loadPosts() {
 }
 
 loadBtn.addEventListener("click", loadPosts);`}
-        />
+        /&gt;
 
         <h3 className="text-lg font-semibold text-slate-200">
           3. Ideas to Extend This Project

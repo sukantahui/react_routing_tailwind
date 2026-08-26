@@ -34,7 +34,7 @@ const Topic8 = () => {
     setIsAnimating(true);
     const timer = setTimeout(() => setIsAnimating(false), 300);
     // Simulate zip compression: ratio depends on level (1-9)
-    const ratio = 1 - (compressionLevel / 25); // level 6 -> 0.76, level 9 -> 0.64
+    const ratio = 1 - (compressionLevel / 25); // level 6 &rarr; 0.76, level 9 -> 0.64
     const compressed = Math.floor(totalSize * Math.max(0.2, ratio));
     setCompressedSize(compressed.toLocaleString());
   }, [compressionLevel, totalSize]);
@@ -113,7 +113,7 @@ const Topic8 = () => {
                 value={archiveName}
                 onChange={(e) => setArchiveName(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 font-mono"
-              />
+              /&gt;
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">Compression level (1-9):</label>
@@ -124,21 +124,21 @@ const Topic8 = () => {
                 value={compressionLevel}
                 onChange={(e) => setCompressionLevel(parseInt(e.target.value))}
                 className="w-full"
-              />
+              /&gt;
               <div className="text-center text-sm">{compressionLevel} (1=fast, 9=best)</div>
             </div>
           </div>
           <div className="flex flex-wrap gap-4 mb-4">
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={recurse} onChange={() => setRecurse(!recurse)} />
+              <input type="checkbox" checked={recurse} onChange={() => setRecurse(!recurse)} /&gt;
               <span>Recurse into directories (-r)</span>
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={includeHidden} onChange={() => setIncludeHidden(!includeHidden)} />
+              <input type="checkbox" checked={includeHidden} onChange={() => setIncludeHidden(!includeHidden)} /&gt;
               <span>Include hidden files (.*)</span>
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} />
+              <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} /&gt;
               <span>Verbose output (-v)</span>
             </label>
           </div>
@@ -149,7 +149,7 @@ const Topic8 = () => {
               value={totalSize}
               onChange={(e) => setTotalSize(parseInt(e.target.value) || 0)}
               className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 font-mono"
-            />
+            /&gt;
           </div>
           <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm text-green-400">
             <div className="flex items-center gap-2 text-gray-400 mb-2">

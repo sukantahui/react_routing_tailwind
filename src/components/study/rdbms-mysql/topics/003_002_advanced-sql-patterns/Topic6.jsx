@@ -129,7 +129,7 @@ SELECT
         2
     ) AS cumulative_rev_percentage,
     CASE 
-        WHEN (SUM(course_total_rev) OVER (ORDER BY course_total_rev DESC) / SUM(course_total_rev) OVER ()) * 100.0 <= 80.00 
+        WHEN (SUM(course_total_rev) OVER (ORDER BY course_total_rev DESC) / SUM(course_total_rev) OVER ()) * 100.0 &le; 80.00 
         THEN '🌟 Core Driver (Top 80%)'
         ELSE '🟢 Long Tail (Remaining 20%)'
     END AS pareto_classification
@@ -380,7 +380,7 @@ ORDER BY course_total_rev DESC;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

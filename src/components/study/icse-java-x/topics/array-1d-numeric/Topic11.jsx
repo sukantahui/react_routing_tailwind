@@ -93,7 +93,7 @@ const BubbleSortDescendingVisualSVG = () => {
         <button 
           onClick={() => setStep((step + 1) % 5)}
           className="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-all duration-300"
-        >
+        &gt;
           {step < 4 ? "Next Pass (Step " + (step + 2) + "/5)" : "Reset Animation"}
         </button>
       </div>
@@ -179,7 +179,7 @@ const Topic11 = () => {
                   ? "bg-pink-50 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400 border-b-2 border-pink-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               )}
-            >
+            &gt;
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
@@ -217,7 +217,7 @@ const Topic11 = () => {
                   <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
                     <h3 className="font-semibold text-blue-800 dark:text-blue-300 mb-2">Ascending Order</h3>
                     <code className="block bg-gray-900 text-green-400 p-2 rounded text-sm">
-                      {`if (arr[j] > arr[j+1]) {
+                      {`if (arr[j] &gt; arr[j+1]) {
     // Swap - larger moves right
     int temp = arr[j];
     arr[j] = arr[j+1];
@@ -530,7 +530,7 @@ const Topic11 = () => {
 const qaData = [
   {
     question: "What is the only difference between ascending and descending bubble sort?",
-    answer: "The comparison operator in the swap condition changes from > (greater than) to < (less than)."
+    answer: "The comparison operator in the swap condition changes from &gt; (greater than) to < (less than)."
   },
   {
     question: "In descending bubble sort, which elements 'bubble' to the end?",

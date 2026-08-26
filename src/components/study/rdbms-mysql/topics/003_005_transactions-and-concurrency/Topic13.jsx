@@ -112,7 +112,7 @@ BEGIN
         END IF;
 
         -- 4. Max Retries Guard:
-        IF v_attempts >= 3 THEN
+        IF v_attempts &ge; 3 THEN
             SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'OCC Error: Max update retries exceeded!';
         END IF;
     END LOOP retry_loop;
@@ -376,7 +376,7 @@ WHERE order_id = 500 AND status = 'PENDING';
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

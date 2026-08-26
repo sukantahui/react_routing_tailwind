@@ -131,9 +131,9 @@ const Topic9 = () => {
           <p className="mb-4">Try changing the truth values below and watch how the expression <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded font-mono">(p ∧ q) ∨ ¬r</code> gets evaluated step-by-step:</p>
           
           <div className="flex flex-wrap gap-6 mb-6">
-            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /> <span className="font-mono font-bold">p = {pVal ? 'true' : 'false'}</span></label>
-            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /> <span className="font-mono font-bold">q = {qVal ? 'true' : 'false'}</span></label>
-            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={rVal} onChange={() => setRVal(!rVal)} className="w-5 h-5" /> <span className="font-mono font-bold">r = {rVal ? 'true' : 'false'}</span></label>
+            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">p = {pVal ? 'true' : 'false'}</span></label>
+            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">q = {qVal ? 'true' : 'false'}</span></label>
+            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={rVal} onChange={() => setRVal(!rVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">r = {rVal ? 'true' : 'false'}</span></label>
           </div>
 
           <div className="bg-white dark:bg-gray-800 rounded-lg p-4 space-y-2 font-mono text-sm">

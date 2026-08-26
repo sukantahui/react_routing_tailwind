@@ -852,7 +852,7 @@ const Topic31 = () => {
                         example.border,
                         exampleType === example.id ? "" : example.color
                       )}
-                    >
+                    &gt;
                       <div className="flex items-center">
                         <span className="text-lg mr-2">{example.icon}</span>
                         <div className="text-left">
@@ -1017,7 +1017,7 @@ const Topic31 = () => {
                 </div>
               )}
               
-              {exampleType === 'subscription' && websocketMessages.length > 0 && (
+              {exampleType === 'subscription' && websocketMessages.length &gt; 0 && (
                 <div className="mb-8 p-6 bg-white dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700">
                   <h4 className="font-bold text-gray-900 dark:text-white mb-4">WebSocket Messages</h4>
                   

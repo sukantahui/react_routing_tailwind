@@ -39,7 +39,7 @@ BEGIN
     WHERE course_id = NEW.course_id AND batch_year = NEW.batch_year;
 
     -- Invariant: Maximum batch capacity is 30 students:
-    IF v_current_count >= 30 THEN
+    IF v_current_count &ge; 30 THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'CAPACITY_EXCEEDED: Maximum 30 students permitted per batch!',
             MYSQL_ERRNO  = 50001,
@@ -149,7 +149,7 @@ END //
 
 DELIMITER ;`,
       resultRows: [
-        { id: "Score 125", targetCourse: "Exam Entry", conditionTest: "p_score > 100", signalAction: "SIGNAL score_out_of_range", customErrNo: "50004", clientOutcome: "💥 INVALID_SCORE: Must be 0-100", status: "Rejected Cleanly" },
+        { id: "Score 125", targetCourse: "Exam Entry", conditionTest: "p_score &gt; 100", signalAction: "SIGNAL score_out_of_range", customErrNo: "50004", clientOutcome: "💥 INVALID_SCORE: Must be 0-100", status: "Rejected Cleanly" },
       ],
       explanation:
         "Binding a named condition (`DECLARE score_out_of_range CONDITION FOR SQLSTATE '45000'`) makes procedural code highly readable and maintainable across large teams.",
@@ -302,7 +302,7 @@ DELIMITER ;`,
                     <text x="300" y="55" fill="#fcd34d" fontSize="9" fontWeight="bold" textAnchor="middle">2. Invariant Check</text>
                     <rect x="220" y="70" width="160" height="40" rx="4" fill="#1e293b" />
                     <text x="300" y="88" fill="#fbbf24" fontSize="8 font-mono" textAnchor="middle">Capacity Check</text>
-                    <text x="300" y="102" fill="#f87171" fontSize="7 font-bold" textAnchor="middle">Count (30) &gt;= 30 ❌</text>
+                    <text x="300" y="102" fill="#f87171" fontSize="7 font-bold" textAnchor="middle">Count (30) >= 30 ❌</text>
                   </g>
 
                   {/* Step 3: SIGNAL Raised */}
@@ -396,7 +396,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -506,7 +506,7 @@ DELIMITER ;`,
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 text-xs font-mono text-emerald-300 border border-slate-800 overflow-x-auto">
 {`-- Classroom Capacity Guard Trigger:
-IF (SELECT COUNT(*) FROM enrollments WHERE batch_id = NEW.batch_id) >= 30 THEN
+IF (SELECT COUNT(*) FROM enrollments WHERE batch_id = NEW.batch_id) &ge; 30 THEN
     SIGNAL SQLSTATE '45000'
     SET MESSAGE_TEXT = 'BATCH_FULL: Maximum 30 students reached for this batch!',
         MYSQL_ERRNO  = 50010;

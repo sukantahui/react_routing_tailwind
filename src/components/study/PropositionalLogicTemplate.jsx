@@ -83,7 +83,7 @@ const PropositionalLogicTemplate = ({ data, isLoggedIn = false, organizationDeta
 
   // Helper: format minutes to a readable string
   const formatMinutesToDuration = (minutes) => {
-    if (minutes >= 60) {
+    if (minutes &ge; 60) {
       const hours = Math.floor(minutes / 60);
       const mins = minutes % 60;
       return mins > 0 ? `${hours} hour${hours > 1 ? 's' : ''} ${mins} minutes` : `${hours} hour${hours > 1 ? 's' : ''}`;
@@ -393,7 +393,7 @@ const renderQuestionForPrint = (q, idx) => {
         key={q.id}
         ref={el => questionRefs.current[q.id] = el}
         className="bg-gray-800/40 rounded-xl border border-gray-700 overflow-hidden hover:border-gray-600 transition-all mb-6"
-      >
+      &gt;
         <div className="p-4 md:p-5">
           <div className="flex justify-between items-start gap-3">
             <div className="flex-1">
@@ -404,7 +404,7 @@ const renderQuestionForPrint = (q, idx) => {
                     checked={isSelected}
                     onChange={() => toggleSelectQuestion(q.id)}
                     className="w-4 h-4 rounded border-gray-500 bg-gray-700 text-blue-600 focus:ring-blue-500 focus:ring-offset-gray-800"
-                  />
+                  /&gt;
                 )}
                 <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">Q{q.id}</span>
                 <span className="text-gray-400 text-sm">[{q.marks} mark{q.marks !== 1 ? 's' : ''}]</span>
@@ -430,7 +430,7 @@ const renderQuestionForPrint = (q, idx) => {
               )}
             </div>
             {isLoggedIn && (
-              <button onClick={() => toggleAnswer(q.id)} className={`px-4 py-1.5 text-sm rounded-lg font-medium shadow ${isOpen ? 'bg-gray-600 hover:bg-gray-500' : 'bg-blue-600 hover:bg-blue-500'} text-white`}>
+              <button onClick={() => toggleAnswer(q.id)} className={`px-4 py-1.5 text-sm rounded-lg font-medium shadow ${isOpen ? 'bg-gray-600 hover:bg-gray-500' : 'bg-blue-600 hover:bg-blue-500'} text-white`}&gt;
                 {isOpen ? 'Hide Answer' : 'Show Answer'}
               </button>
             )}
@@ -503,12 +503,12 @@ const renderQuestionForPrint = (q, idx) => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-600 text-gray-200 focus:outline-none focus:border-blue-500"
-            />
+            /&gt;
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm('')}
                 className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200"
-              >
+              &gt;
                 ✕
               </button>
             )}

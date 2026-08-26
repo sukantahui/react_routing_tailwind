@@ -189,10 +189,10 @@ export default class Topic5 extends Component {
         <div 
           className={`flex items-center py-1 px-2 rounded cursor-pointer transition-all duration-200 ${isSelected ? 'bg-blue-100 dark:bg-blue-900/30' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}`}
           onClick={() => this.handleFileSelect(currentPath)}
-        >
+        &gt;
           <div className="flex items-center min-w-0 flex-1">
             <div className="w-4 mr-2 flex-shrink-0">
-              {depth > 0 && (
+              {depth &gt; 0 && (
                 <div className="h-full border-l border-gray-300 dark:border-gray-600 ml-2"></div>
               )}
             </div>
@@ -318,7 +318,7 @@ export default class Topic5 extends Component {
                 : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
               }`}
               onClick={() => this.handlePathTypeChange('absolute')}
-            >
+            &gt;
               <span className="text-xl mr-3">🌍</span>
               <div className="text-left">
                 <div className="font-bold">Absolute Paths</div>
@@ -332,7 +332,7 @@ export default class Topic5 extends Component {
                 : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
               }`}
               onClick={() => this.handlePathTypeChange('relative')}
-            >
+            &gt;
               <span className="text-xl mr-3">📍</span>
               <div className="text-left">
                 <div className="font-bold">Relative Paths</div>
@@ -346,7 +346,7 @@ export default class Topic5 extends Component {
                 : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
               }`}
               onClick={() => this.handlePathTypeChange('comparison')}
-            >
+            &gt;
               <span className="text-xl mr-3">⚖️</span>
               <div className="text-left">
                 <div className="font-bold">Comparison</div>
@@ -415,7 +415,7 @@ export default class Topic5 extends Component {
                         key={index}
                         onClick={() => this.navigateTo(nav.path)}
                         className="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300 flex items-center"
-                      >
+                      &gt;
                         <span className="mr-2">{nav.icon}</span>
                         <span>{nav.label}</span>
                       </button>
@@ -441,7 +441,7 @@ export default class Topic5 extends Component {
                           ? 'bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30' 
                           : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700'
                         }`}
-                      >
+                      &gt;
                         <span className="text-xl mb-2">
                           {item.type === 'directory' ? '📁' : 
                            item.type === 'hidden' ? '🔒' : '📄'}

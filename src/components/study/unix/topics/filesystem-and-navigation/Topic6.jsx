@@ -203,7 +203,7 @@ export default class Topic6 extends Component {
                 }`}
                 onClick={() => this.handleSectionChange(section)}
                 style={{animationDelay: `${300 + index * 100}ms`}}
-              >
+              &gt;
                 <span className="text-xl mr-3">{sections[section].icon}</span>
                 <div className="text-left">
                   <div className="font-bold">{sections[section].title}</div>
@@ -354,7 +354,7 @@ export default class Topic6 extends Component {
                             } animate-reveal`}
                             style={{animationDelay: `${index * 50}ms`}}
                             onClick={() => this.handleFileSelect(file.name)}
-                          >
+                          &gt;
                             <div className="flex items-center justify-between mb-2">
                               <div className="flex items-center">
                                 <span className="text-xl mr-3">

@@ -87,7 +87,7 @@ const Topic0 = () => {
   liveA = Math.max(0, Math.min(100, liveA));
 
   const getScoreColor = (score) => {
-    if (score >= 85) return "text-emerald-400 border-emerald-500 bg-emerald-950/40";
+    if (score &ge; 85) return "text-emerald-400 border-emerald-500 bg-emerald-950/40";
     if (score >= 60) return "text-amber-400 border-amber-500 bg-amber-950/40";
     return "text-rose-400 border-rose-500 bg-rose-950/40";
   };
@@ -143,7 +143,7 @@ const Topic0 = () => {
                   ? "bg-sky-600 text-white shadow-lg shadow-sky-600/30"
                   : "bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800"
               )}
-            >
+            &gt;
               🔒 Confidentiality (Secrecy & Privacy)
             </button>
             <button
@@ -154,7 +154,7 @@ const Topic0 = () => {
                   ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
                   : "bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800"
               )}
-            >
+            &gt;
               🛡️ Integrity (Accuracy & Trust)
             </button>
             <button
@@ -165,7 +165,7 @@ const Topic0 = () => {
                   ? "bg-amber-600 text-white shadow-lg shadow-amber-600/30"
                   : "bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800"
               )}
-            >
+            &gt;
               ⚡ Availability (Uptime & Resilience)
             </button>
           </div>
@@ -381,7 +381,7 @@ const Topic0 = () => {
                         ? "bg-slate-800 border-sky-500 shadow-md shadow-sky-500/20"
                         : "bg-slate-950 border-slate-800 hover:border-slate-700"
                     )}
-                  >
+                  &gt;
                     <div className="flex justify-between items-center">
                       <span className="text-xs font-bold text-white">{item.location}</span>
                       <span className="text-[10px] text-sky-400 bg-sky-950 px-1.5 py-0.5 rounded">{item.lead}</span>
@@ -407,7 +407,7 @@ const Topic0 = () => {
                       "py-2 px-3 text-xs rounded border transition-all font-medium",
                       activeThreat === "none" ? "bg-emerald-950 border-emerald-500 text-emerald-300" : "bg-slate-900 border-slate-800 text-slate-400 hover:text-white"
                     )}
-                  >
+                  &gt;
                     🟢 Normal Traffic (Zero Attacks)
                   </button>
                   <button
@@ -416,7 +416,7 @@ const Topic0 = () => {
                       "py-2 px-3 text-xs rounded border transition-all font-medium",
                       activeThreat === "sniffing" ? "bg-rose-950 border-rose-500 text-rose-300" : "bg-slate-900 border-slate-800 text-slate-400 hover:text-white"
                     )}
-                  >
+                  &gt;
                     📡 Wi-Fi Packet Sniffing (Confidentiality)
                   </button>
                   <button
@@ -425,7 +425,7 @@ const Topic0 = () => {
                       "py-2 px-3 text-xs rounded border transition-all font-medium",
                       activeThreat === "sql_injection" ? "bg-rose-950 border-rose-500 text-rose-300" : "bg-slate-900 border-slate-800 text-slate-400 hover:text-white"
                     )}
-                  >
+                  &gt;
                     💉 SQL Injection Tamper (Integrity)
                   </button>
                   <button
@@ -434,7 +434,7 @@ const Topic0 = () => {
                       "py-2 px-3 text-xs rounded border transition-all font-medium",
                       activeThreat === "ddos" ? "bg-rose-950 border-rose-500 text-rose-300" : "bg-slate-900 border-slate-800 text-slate-400 hover:text-white"
                     )}
-                  >
+                  &gt;
                     🌊 100 Gbps DDoS Flood (Availability)
                   </button>
                 </div>
@@ -453,7 +453,7 @@ const Topic0 = () => {
                       checked={encryptionEnabled}
                       onChange={(e) => setEncryptionEnabled(e.target.checked)}
                       className="w-4 h-4 text-sky-600 rounded bg-slate-800 border-slate-700"
-                    />
+                    /&gt;
                   </label>
                   <label className="flex items-center justify-between p-2 bg-slate-900 rounded border border-slate-800 cursor-pointer">
                     <span className="text-xs text-slate-200">SHA-256 Hashes &amp; Digital Signatures (Integrity)</span>
@@ -462,7 +462,7 @@ const Topic0 = () => {
                       checked={hashingEnabled}
                       onChange={(e) => setHashingEnabled(e.target.checked)}
                       className="w-4 h-4 text-emerald-600 rounded bg-slate-800 border-slate-700"
-                    />
+                    /&gt;
                   </label>
                   <label className="flex items-center justify-between p-2 bg-slate-900 rounded border border-slate-800 cursor-pointer">
                     <span className="text-xs text-slate-200">HA Clusters &amp; Anycast DDoS Scrubbing (Availability)</span>
@@ -471,7 +471,7 @@ const Topic0 = () => {
                       checked={haClusteringEnabled}
                       onChange={(e) => setHaClusteringEnabled(e.target.checked)}
                       className="w-4 h-4 text-amber-600 rounded bg-slate-800 border-slate-700"
-                    />
+                    /&gt;
                   </label>
                 </div>
               </div>
@@ -494,7 +494,7 @@ const Topic0 = () => {
                     <div className={clsx("h-full transition-all duration-500", getBarColor(liveC))} style={{ width: `${liveC}%` }} />
                   </div>
                   <span className="text-[11px] text-slate-300">
-                    {liveC >= 85 ? "Encrypted data is safe from eavesdroppers." : "High risk of unauthorized data exposure!"}
+                    {liveC &ge; 85 ? "Encrypted data is safe from eavesdroppers." : "High risk of unauthorized data exposure!"}
                   </span>
                 </div>
 
@@ -508,7 +508,7 @@ const Topic0 = () => {
                     <div className={clsx("h-full transition-all duration-500", getBarColor(liveI))} style={{ width: `${liveI}%` }} />
                   </div>
                   <span className="text-[11px] text-slate-300">
-                    {liveI >= 85 ? "Ledgers & hashes match original state." : "Data corruption & tampering detected!"}
+                    {liveI &ge; 85 ? "Ledgers & hashes match original state." : "Data corruption & tampering detected!"}
                   </span>
                 </div>
 
@@ -522,7 +522,7 @@ const Topic0 = () => {
                     <div className={clsx("h-full transition-all duration-500", getBarColor(liveA))} style={{ width: `${liveA}%` }} />
                   </div>
                   <span className="text-[11px] text-slate-300">
-                    {liveA >= 85 ? "High availability failover active (Five 9s)." : "Severe downtime or service outage!"}
+                    {liveA &ge; 85 ? "High availability failover active (Five 9s)." : "Severe downtime or service outage!"}
                   </span>
                 </div>
               </div>

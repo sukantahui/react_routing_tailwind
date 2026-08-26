@@ -250,7 +250,7 @@ const Topic2 = () => {
                     ? 'bg-emerald-600 text-white border-emerald-500 shadow-md shadow-emerald-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -262,7 +262,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -303,7 +303,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-cyan-600/20 text-cyan-400 font-bold text-sm">
@@ -374,7 +374,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-target">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-800 pb-4 gap-2">
               <div className="flex items-center space-x-3">
@@ -402,7 +402,7 @@ const Topic2 = () => {
                       ? 'bg-emerald-600 text-white border-emerald-400 shadow-lg'
                       : 'bg-slate-800/80 text-slate-300 border-slate-700 hover:bg-slate-700'
                   )}
-                >
+                &gt;
                   {preset.name}
                 </button>
               ))}
@@ -531,7 +531,7 @@ const Topic2 = () => {
               <p className="text-slate-300">
                 • <strong>Chosen Line:</strong> <span className="text-white font-bold">{calcData.winner.type === 'row' ? `Row ${calcData.winner.idx + 1} (${calcData.winner.name})` : `Column ${calcData.winner.idx + 1} (${calcData.winner.name})`}</span> with Maximum Penalty <span className="font-mono text-emerald-400 font-bold">₹{calcData.maxVal}</span>.
               </p>
-              {calcData.tiedCandidates.length > 1 && (
+              {calcData.tiedCandidates.length &gt; 1 && (
                 <p className="text-amber-300">
                   • <strong>Tie-Breaking Applied:</strong> {calcData.tiedCandidates.length} lines were tied at ₹{calcData.maxVal}. Selected line offered the lowest unit cost route at <span className="font-mono font-bold">₹{calcData.winner.minCost}/unit</span>.
                 </p>
@@ -545,7 +545,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-violet-600/20 text-violet-400 font-bold text-sm">
@@ -578,7 +578,7 @@ const Topic2 = () => {
                 <text x="120" y="80" fill="#60a5fa" fontSize="12" fontWeight="bold" textAnchor="middle">1. Scan All Penalties</text>
                 <text x="120" y="100" fill="#94a3b8" fontSize="10" textAnchor="middle">Compare all Pᵢ and Pⱼ</text>
 
-                {/* Arrow 1 -> 2 */}
+                {/* Arrow 1 &rarr; 2 */}
                 <line x1="210" y1="85" x2="270" y2="85" stroke="#60a5fa" strokeWidth="2" strokeDasharray="4 4" />
                 <polygon points="270,85 262,80 262,90" fill="#60a5fa" />
 
@@ -587,7 +587,7 @@ const Topic2 = () => {
                 <text x="375" y="80" fill="#f59e0b" fontSize="12" fontWeight="bold" textAnchor="middle">2. Find Max Penalty</text>
                 <text x="375" y="100" fill="#cbd5e1" fontSize="10" fontFamily="monospace" textAnchor="middle">Max_P = max(P_all)</text>
 
-                {/* Arrow 2 -> 3 */}
+                {/* Arrow 2 &rarr; 3 */}
                 <line x1="470" y1="85" x2="530" y2="85" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 4" />
                 <polygon points="530,85 522,80 522,90" fill="#f59e0b" />
 
@@ -623,7 +623,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -645,7 +645,7 @@ const Topic2 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -673,7 +673,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -713,7 +713,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -747,7 +747,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

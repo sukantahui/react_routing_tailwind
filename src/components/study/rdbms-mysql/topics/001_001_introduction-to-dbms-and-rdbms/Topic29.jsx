@@ -672,7 +672,7 @@ sudo service mysql status`}
 Enter password: ********
 
 # After successful login:
-mysql> SHOW DATABASES;
+mysql&gt; SHOW DATABASES;
 mysql> SELECT VERSION();
 mysql> EXIT;`}
                 </pre>

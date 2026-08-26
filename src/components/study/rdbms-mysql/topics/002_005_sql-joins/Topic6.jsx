@@ -318,7 +318,7 @@ CROSS JOIN order_items oi;
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. SKU Variant Matrix
               </button>
 
@@ -330,7 +330,7 @@ CROSS JOIN order_items oi;
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Seating Grid
               </button>
 
@@ -342,7 +342,7 @@ CROSS JOIN order_items oi;
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Attendance Ledger
               </button>
 
@@ -354,7 +354,7 @@ CROSS JOIN order_items oi;
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Explosion Hazard ⚠️
               </button>
             </div>

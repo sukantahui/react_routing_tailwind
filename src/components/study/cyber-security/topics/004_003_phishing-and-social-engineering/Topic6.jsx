@@ -57,7 +57,7 @@ const Topic6 = () => {
       resilientDefense: "Polarized 30-degree micro-louver privacy screens and randomized keypad displays.",
       codeSnippet: `// Optical Privacy Screen Physics:
 // Viewing Angle: 0° to 30° (Direct Front) ➔ 100% Visual Clarity (Authorized User)
-// Viewing Angle: > 30° (Side Angles)      ➔ 0% Light Transmission (Black Screen!)`
+// Viewing Angle: &gt; 30° (Side Angles)      ➔ 0% Light Transmission (Black Screen!)`
     },
     dumpster_diving_trashing: {
       key: "dumpster_diving_trashing",
@@ -73,7 +73,7 @@ const Topic6 = () => {
       resilientDefense: "DIN 66399 Level P-5 cross-cut micro-shredders and locked disposal consoles.",
       codeSnippet: `// Document Shredding Standards:
 // Strip-Cut (Level P-1) : Strips 12mm wide ➔ Reassembled via Computer Vision!
-// Micro-Cut (Level P-5) : Particles <= 30 mm² (Micro-dust) ➔ 100% Irrecoverable!`
+// Micro-Cut (Level P-5) : Particles &le; 30 mm² (Micro-dust) ➔ 100% Irrecoverable!`
     },
     rfid_badge_cloning_125khz: {
       key: "rfid_badge_cloning_125khz",
@@ -89,7 +89,7 @@ const Topic6 = () => {
       resilientDefense: "Upgrading to 13.56MHz MIFARE DESFire EV3 smart cards with AES-128 mutual authentication.",
       codeSnippet: `# Flipper Zero 125kHz RFID Badge Clone (Proxmark3):
 lf search -> Found EM4100 Tag [Card ID: 2006A48F]
-lf clone 2006A48F -> Written to blank card in 1.8s (ACCESS GRANTED!)`
+lf clone 2006A48F &rarr; Written to blank card in 1.8s (ACCESS GRANTED!)`
     },
     anti_tailgating_mantrap_airlocks: {
       key: "anti_tailgating_mantrap_airlocks",
@@ -168,7 +168,7 @@ lf clone 2006A48F -> Written to blank card in 1.8s (ACCESS GRANTED!)`
     const numerator = proximityScore * opportunityFactor;
     const exponent = -numerator / mantrapArmorStrength;
     const rawBreachProb = (1 - Math.exp(exponent)) * 100;
-    const actualBreachProb = mantrapArmorStrength >= 500
+    const actualBreachProb = mantrapArmorStrength &ge; 500
       ? (rawBreachProb * 0.014).toFixed(2) // Optical Mantrap + DESFire EV3 blocks 98.6% of physical attacks
       : mantrapArmorStrength >= 50
       ? (rawBreachProb * 0.35).toFixed(2)  // Guarded Turnstile blocks 65% of physical attacks
@@ -607,7 +607,7 @@ bool verify_desfire_ev3_aes128(uint8_t card_uid[7], uint8_t aes_key[16]) {
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   THREAT
                 </span>
@@ -704,7 +704,7 @@ bool verify_desfire_ev3_aes128(uint8_t card_uid[7], uint8_t aes_key[16]) {
                   value={proximityScore}
                   onChange={(e) => setProximityScore(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -720,7 +720,7 @@ bool verify_desfire_ev3_aes128(uint8_t card_uid[7], uint8_t aes_key[16]) {
                   value={opportunityFactor}
                   onChange={(e) => setOpportunityFactor(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -734,7 +734,7 @@ bool verify_desfire_ev3_aes128(uint8_t card_uid[7], uint8_t aes_key[16]) {
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     None (1x)
                   </button>
                   <button
@@ -745,7 +745,7 @@ bool verify_desfire_ev3_aes128(uint8_t card_uid[7], uint8_t aes_key[16]) {
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Turnstile (50x)
                   </button>
                   <button
@@ -756,7 +756,7 @@ bool verify_desfire_ev3_aes128(uint8_t card_uid[7], uint8_t aes_key[16]) {
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Mantrap (500x)
                   </button>
                 </div>
@@ -815,7 +815,7 @@ bool verify_desfire_ev3_aes128(uint8_t card_uid[7], uint8_t aes_key[16]) {
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -864,7 +864,7 @@ bool verify_desfire_ev3_aes128(uint8_t card_uid[7], uint8_t aes_key[16]) {
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

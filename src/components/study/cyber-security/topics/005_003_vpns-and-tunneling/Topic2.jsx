@@ -294,7 +294,7 @@ const Topic2 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}
@@ -361,7 +361,7 @@ const Topic2 = () => {
                 value={selectedTrafficSource}
                 onChange={(e) => setSelectedTrafficSource(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 <option value="remote_worker">1. Roaming Field Inspector (Remote Access VPN)</option>
                 <option value="branch_workstation">2. Barrackpore Branch Workstation (Site-to-Site IPsec)</option>
               </select>
@@ -378,7 +378,7 @@ const Topic2 = () => {
                       ? "bg-emerald-950/80 text-emerald-300 border-emerald-800 shadow-md shadow-emerald-500/10"
                       : "bg-rose-950/80 text-rose-300 border-rose-800 shadow-md shadow-rose-500/10"
                   )}
-                >
+                &gt;
                   {mfaValidationSuccess ? "✔ MFA Challenge SUCCESS (Valid FIDO2 Key)" : "❌ MFA Challenge FAILED (Rejected by IdP)"}
                 </button>
               </div>
@@ -485,7 +485,7 @@ const Topic2 = () => {
                 value={remoteStaffCount}
                 onChange={(e) => setRemoteStaffCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
               <span className="text-[10px] text-gray-500 block">Traffic: ~{calculatedCapacityMetrics.remoteAccessTotalMbps} Mbps</span>
             </div>
 
@@ -502,7 +502,7 @@ const Topic2 = () => {
                 value={branchSitesCount}
                 onChange={(e) => setBranchSitesCount(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -518,7 +518,7 @@ const Topic2 = () => {
                 value={branchBandwidthMbps}
                 onChange={(e) => setBranchBandwidthMbps(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -572,7 +572,7 @@ const Topic2 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

@@ -84,7 +84,7 @@ const Topic7 = () => {
       gnfsComplexity: "Infeasible on Classical Computers",
       decryptSpeed: "~15 ops/sec (65.40 ms)",
       verifySpeed: "~1,800 ops/sec (0.550 ms)",
-      tlsHandshakeLatency: "Severe Bottleneck (>7 KB Chain, Severe Frag)",
+      tlsHandshakeLatency: "Severe Bottleneck (&gt;7 KB Chain, Severe Frag)",
       regulatoryStatus: "IMPRACTICAL (Migrate to Post-Quantum PQC)",
       badgeClass: "bg-amber-950 text-amber-300 border-amber-800"
     }
@@ -272,7 +272,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{kp.name.split(" ")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{kp.equivalentSymmetric} Security</div>
                 </button>
@@ -347,7 +347,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{tier.name.split(" ")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{tier.name.split("(")[1]?.replace(")", "") || "Standard"}</div>
                 </button>
@@ -536,7 +536,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

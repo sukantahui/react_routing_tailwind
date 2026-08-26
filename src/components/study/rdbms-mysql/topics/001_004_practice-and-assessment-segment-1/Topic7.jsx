@@ -71,8 +71,8 @@ CREATE TABLE students (
 CREATE TABLE inventory_items (
     item_id INT AUTO_INCREMENT PRIMARY KEY,
     item_name VARCHAR(100) NOT NULL,
-    stock_qty INT CHECK (stock_qty >= 0) DEFAULT 0,
-    unit_price_inr DECIMAL(10,2) CHECK (unit_price_inr > 0)
+    stock_qty INT CHECK (stock_qty &ge; 0) DEFAULT 0,
+    unit_price_inr DECIMAL(10,2) CHECK (unit_price_inr &gt; 0)
 ) ENGINE=InnoDB;
 
 -- ALTER TABLE Drills:
@@ -155,7 +155,7 @@ LIMIT 10 OFFSET 20; -- Page 3 (Rows 21 to 30) with deterministic tie-breaker!`,
 -- Error 1175 (Safe Mode): UPDATE/DELETE without KEY column in WHERE
 
 -- PRODUCTION PR STANDARDS:
--- 1. Zero SELECT * -> Explicit column projections only.
+-- 1. Zero SELECT * &rarr; Explicit column projections only.
 -- 2. Named constraints (CONSTRAINT fk_...) on all Foreign Keys.
 -- 3. Capitalized SQL keywords with 4-space clause indentation.`,
       examQuestions: [
@@ -383,7 +383,7 @@ LIMIT 10 OFFSET 20; -- Page 3 (Rows 21 to 30) with deterministic tie-breaker!`,
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

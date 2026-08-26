@@ -75,7 +75,7 @@ const Topic5 = () => {
       badgeClass: "bg-red-950 text-red-300 border-red-800",
       authorization: "ZERO Authorization",
       malice: "EXTREME (Financial blackmail under threat of data leakage)",
-      legalityVerdict: "SEVERELY CRIMINAL (Extortion IPC 384 + IT Act 2000 Section 66 -> Up to 3-7 Yrs Jail)",
+      legalityVerdict: "SEVERELY CRIMINAL (Extortion IPC 384 + IT Act 2000 Section 66 &rarr; Up to 3-7 Yrs Jail)",
       corporateResponse: "Refuse extortion demand, isolate compromised endpoints, engage specialized forensic negotiators, and file FIR with Cyber Crime Cell."
     }
   };
@@ -263,7 +263,7 @@ const Topic5 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{sc.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{sc.title.split(". ")[1]}</div>
                   <div className={clsx("mt-1 text-[10px] px-1.5 py-0.5 rounded border inline-block", sc.badgeClass)}>
@@ -336,7 +336,7 @@ const Topic5 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] font-mono text-indigo-400 font-bold">{phase.day}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{phase.title.split(" ")[0]}</div>
                 </button>
@@ -547,7 +547,7 @@ const Topic5 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

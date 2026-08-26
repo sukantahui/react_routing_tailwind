@@ -36,7 +36,7 @@ SELECT
     'Above Dept Average' AS performance_tier
 FROM students s
 JOIN departments d ON s.dept_id = d.dept_id
-WHERE s.exam_score_pct > (
+WHERE s.exam_score_pct &gt; (
     SELECT AVG(i.exam_score_pct) 
     FROM students i 
     WHERE i.dept_id = s.dept_id -- Correlation Link!
@@ -97,7 +97,7 @@ WHERE (
     SELECT COUNT(i.student_id) 
     FROM students i 
     WHERE i.dept_id = s.dept_id 
-      AND i.exam_score_pct > s.exam_score_pct
+      AND i.exam_score_pct &gt; s.exam_score_pct
 ) < 1
 ORDER BY d.dept_name;`,
       resultRows: [
@@ -371,7 +371,7 @@ ORDER BY dept_name, exam_score_pct DESC;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

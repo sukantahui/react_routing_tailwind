@@ -89,7 +89,7 @@ const Topic11 = () => {
     if (simulateOsPatched) score += 30;
 
     let isMfaCompliant = simulatedMfaMethod === "fido2_passkey";
-    let isPosturePassed = score >= 80;
+    let isPosturePassed = score &ge; 80;
 
     let decisionTitle = "✔ ACCESS GRANTED: Least-Privilege Active";
     let decisionBadge = "bg-emerald-950 text-emerald-300 border-emerald-700";
@@ -365,7 +365,7 @@ const Topic11 = () => {
                         ? "bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-900/40"
                         : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {item.title.split(":")[0]}
                   </button>
                 );
@@ -541,7 +541,7 @@ const Topic11 = () => {
                 value={selectedPersonaKey}
                 onChange={(e) => setSelectedPersonaKey(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-emerald-500 focus:outline-none"
-              >
+              &gt;
                 <option value="susmita_executive">Susmita (Finance Lead / Executive - Barrackpore)</option>
                 <option value="debangshu_contractor">Debangshu (Third-Party Contractor - Jadavpur)</option>
                 <option value="mamata_admin">Mamata (SOC Infrastructure Lead - Kolkata)</option>
@@ -561,7 +561,7 @@ const Topic11 = () => {
                 value={simulatedMfaMethod}
                 onChange={(e) => setSimulatedMfaMethod(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-emerald-500 focus:outline-none"
-              >
+              &gt;
                 <option value="fido2_passkey">FIDO2 / WebAuthn Hardware Passkey (Compliant)</option>
                 <option value="totp_authenticator">TOTP Authenticator App (Microsoft/Google)</option>
                 <option value="sms_otp">SMS / Voice OTP (Insecure - Non-Compliant)</option>
@@ -583,7 +583,7 @@ const Topic11 = () => {
                     checked={simulateDiskEncryption}
                     onChange={(e) => setSimulateDiskEncryption(e.target.checked)}
                     className="accent-emerald-500 rounded"
-                  />
+                  /&gt;
                   <span>BitLocker / FileVault Encrypted (+35 pts)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -592,7 +592,7 @@ const Topic11 = () => {
                     checked={simulateEdrActive}
                     onChange={(e) => setSimulateEdrActive(e.target.checked)}
                     className="accent-emerald-500 rounded"
-                  />
+                  /&gt;
                   <span>CrowdStrike EDR Running (+35 pts)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -601,7 +601,7 @@ const Topic11 = () => {
                     checked={simulateOsPatched}
                     onChange={(e) => setSimulateOsPatched(e.target.checked)}
                     className="accent-emerald-500 rounded"
-                  />
+                  /&gt;
                   <span>OS Patches &lt; 30 Days Old (+30 pts)</span>
                 </label>
               </div>
@@ -616,7 +616,7 @@ const Topic11 = () => {
                 <span className={clsx(
                   "font-mono font-bold text-sm px-2 py-0.5 rounded",
                   personaPolicyResult.score >= 80 ? "bg-emerald-950 text-emerald-300 border border-emerald-800" : "bg-rose-950 text-rose-300 border border-rose-800"
-                )}>
+                )}&gt;
                   {personaPolicyResult.score} / 100
                 </span>
               </div>
@@ -677,7 +677,7 @@ const Topic11 = () => {
                 value={totalRemoteWorkforce}
                 onChange={(e) => setTotalRemoteWorkforce(Number(e.target.value))}
                 className="w-full accent-emerald-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Total remote employees, field staff, and third-party contractors.
               </p>
@@ -697,7 +697,7 @@ const Topic11 = () => {
                 value={peakConcurrencyPercent}
                 onChange={(e) => setPeakConcurrencyPercent(Number(e.target.value))}
                 className="w-full accent-emerald-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Percentage of employees connected simultaneously during peak business hours.
               </p>
@@ -717,7 +717,7 @@ const Topic11 = () => {
                 value={avgThroughputPerUserMbps}
                 onChange={(e) => setAvgThroughputPerUserMbps(Number(e.target.value))}
                 className="w-full accent-emerald-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Accounts for Teams/Zoom HD calls, database queries, and cloud SaaS.
               </p>
@@ -793,7 +793,7 @@ const Topic11 = () => {
                       ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                       : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                   )}
-                >
+                &gt;
                   Phase {idx + 1}
                 </button>
               ))}

@@ -41,7 +41,7 @@ const Topic5 = () => {
           <button
             onClick={() => setShowHDLC(false)}
             className="fixed top-4 left-4 z-50 px-4 py-2 bg-gray-800 text-white rounded-lg shadow-md hover:bg-gray-700 transition-all duration-300 hover:scale-105 focus:outline-none"
-          >
+          &gt;
             ← Back to Data Link Layer
           </button>
           <Topic_HDLC />
@@ -261,7 +261,7 @@ const Topic5 = () => {
             <button
               onClick={() => setShowHDLC(true)}
               className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none"
-            >
+            &gt;
               Learn HDLC – Advanced Data Link Control
             </button>
           </div>

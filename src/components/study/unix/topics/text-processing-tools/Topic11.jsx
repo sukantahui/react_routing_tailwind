@@ -194,7 +194,7 @@ const Topic11 = () => {
                           activeFlow === "if" ? "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400" : "bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400"
                         )}
                         onClick={() => setActiveFlow("if")}
-                      >
+                      &gt;
                         if-else
                       </button>
                       <button 
@@ -203,7 +203,7 @@ const Topic11 = () => {
                           activeFlow === "ternary" ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400" : "bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400"
                         )}
                         onClick={() => setActiveFlow("ternary")}
-                      >
+                      &gt;
                         Ternary
                       </button>
                     </div>
@@ -213,7 +213,7 @@ const Topic11 = () => {
                   <div className="relative h-64 mb-6">
                     <svg width="100%" height="100%" viewBox="0 0 400 250" className="overflow-visible">
                       {/* Decision Diamond */}
-                      <g transform="translate(150, 20)" onMouseEnter={() => setActiveFlow("if")}>
+                      <g transform="translate(150, 20)" onMouseEnter={() => setActiveFlow("if")}&gt;
                         <polygon 
                           points="0,-30 30,0 0,30 -30,0" 
                           fill="#10b981" 
@@ -368,7 +368,7 @@ const Topic11 = () => {
                     <button 
                       className="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-full text-sm"
                       onClick={() => setLoopStep((loopStep + 1) % 6)}
-                    >
+                    &gt;
                       Next Step →
                     </button>
                   </div>
@@ -408,27 +408,27 @@ const Topic11 = () => {
                     {/* Loop Structure */}
                     <g transform="translate(100, 30)">
                       {/* Initialization */}
-                      <g transform="translate(100, 0)" className={clsx(loopStep >= 0 && "animate-[codeExecution_1s_ease-in-out]")}>
+                      <g transform="translate(100, 0)" className={clsx(loopStep >= 0 && "animate-[codeExecution_1s_ease-in-out]")}&gt;
                         <rect x="0" y="0" width="100" height="30" rx="6" fill="#3b82f6" />
                         <text x="50" y="15" textAnchor="middle" fill="white" fontSize="11" dy=".3em">i = 1</text>
                       </g>
                       
                       {/* Condition Check */}
-                      <g transform="translate(100, 50)" className={clsx(loopStep >= 1 && "animate-[codeExecution_1s_ease-in-out]")}>
+                      <g transform="translate(100, 50)" className={clsx(loopStep >= 1 && "animate-[codeExecution_1s_ease-in-out]")}&gt;
                         <polygon points="0,-15 15,0 0,15 -15,0" fill="#10b981" stroke="#059669" strokeWidth="2" />
                         <text x="0" y="0" textAnchor="middle" fill="white" fontSize="10" dy=".3em">
-                            {`i <= 5`}
+                            {`i &le; 5`}
                         </text>
                       </g>
                       
                       {/* Loop Body */}
-                      <g transform="translate(100, 100)" className={clsx(loopStep >= 2 && "animate-[codeExecution_1s_ease-in-out]")}>
+                      <g transform="translate(100, 100)" className={clsx(loopStep >= 2 && "animate-[codeExecution_1s_ease-in-out]")}&gt;
                         <rect x="0" y="0" width="120" height="40" rx="8" fill="#8b5cf6" />
                         <text x="60" y="20" textAnchor="middle" fill="white" fontSize="11" dy=".3em">Process $i</text>
                       </g>
                       
                       {/* Increment */}
-                      <g transform="translate(100, 160)" className={clsx(loopStep >= 3 && "animate-[codeExecution_1s_ease-in-out]")}>
+                      <g transform="translate(100, 160)" className={clsx(loopStep >= 3 && "animate-[codeExecution_1s_ease-in-out]")}&gt;
                         <rect x="0" y="0" width="100" height="30" rx="6" fill="#f59e0b" />
                         <text x="50" y="15" textAnchor="middle" fill="white" fontSize="11" dy=".3em">i++</text>
                       </g>
@@ -452,7 +452,7 @@ const Topic11 = () => {
                       />
                       
                       {/* Exit Block */}
-                      <g transform="translate(0, 190)" className={clsx(loopStep >= 5 && "animate-[codeExecution_1s_ease-in-out]")}>
+                      <g transform="translate(0, 190)" className={clsx(loopStep >= 5 && "animate-[codeExecution_1s_ease-in-out]")}&gt;
                         <rect x="0" y="0" width="80" height="30" rx="6" fill="#059669" />
                         <text x="40" y="15" textAnchor="middle" fill="white" fontSize="11" dy=".3em">Exit Loop</text>
                       </g>
@@ -472,7 +472,7 @@ const Topic11 = () => {
                     <div>
                       <h5 className="font-medium text-sm mb-1">for loop</h5>
                       <pre className="bg-gray-900 text-gray-100 p-2 rounded text-xs">
-{`for (i=1; i<=NF; i++)
+{`for (i=1; i &le; NF; i++)
     print $i`}
                       </pre>
                     </div>
@@ -480,7 +480,7 @@ const Topic11 = () => {
                       <h5 className="font-medium text-sm mb-1">while loop</h5>
                       <pre className="bg-gray-900 text-gray-100 p-2 rounded text-xs">
 {`i = 1
-while (i <= NF) {
+while (i &le; NF) {
     print $i
     i++
 }`}
@@ -493,7 +493,7 @@ while (i <= NF) {
 do {
     print $i
     i++
-} while (i <= NF)`}
+} while (i &le; NF)`}
                       </pre>
                     </div>
                   </div>
@@ -602,16 +602,16 @@ awk '{
     print "Number of fields:", NF
     
     # Loop through all fields
-    for (i = 1; i <= NF; i++) {
+    for (i = 1; i &le; NF; i++) {
         printf "Field %d: %s\\n", i, $i
         
         # Nested condition within loop
         if ($i ~ /^[0-9]+$/) {
-            printf "  -> Numeric field, value: %d\\n", $i
+            printf "  -&gt; Numeric field, value: %d\\n", $i
             
             # Further nested logic
             if ($i > 90) {
-                print "  -> Excellent score!"
+                print " &rarr; Excellent score!"
             }
         }
     }
@@ -630,7 +630,7 @@ awk '{
     total = 0
     count = 0
     
-    while (i <= NF) {
+    while (i &le; NF) {
         # Skip non-numeric fields
         if ($i !~ /^[0-9]+$/) {
             i++
@@ -677,7 +677,7 @@ awk '{
                   Immediately exits the innermost loop. Useful for stopping processing when a condition is met.
                 </p>
                 <pre className="bg-gray-900 text-gray-100 p-2 rounded text-xs">
-{`for (i=1; i<=NF; i++) {
+{`for (i=1; i &le; NF; i++) {
     if ($i == "STOP") {
         break  # Exit loop
     }
@@ -697,7 +697,7 @@ awk '{
                   Skips the rest of the current loop iteration and moves to the next one.
                 </p>
                 <pre className="bg-gray-900 text-gray-100 p-2 rounded text-xs">
-{`for (i=1; i<=NF; i++) {
+{`for (i=1; i &le; NF; i++) {
     if ($i == "") {
         continue  # Skip empty fields
     }
@@ -764,12 +764,12 @@ awk '{
                     <h4 className="font-bold text-red-600 dark:text-red-400 mb-2">Infinite Loops</h4>
                     <p className="text-sm">
                       Forgetting to update loop counter or using wrong condition. At <strong>CNAT Shyamnagar</strong>, 
-                      a student's script ran forever because <code>while ({`i <= NF`})</code> had no <code>i++</code>.
+                      a student's script ran forever because <code>while ({`i &le; NF`})</code> had no <code>i++</code>.
                     </p>
                     <pre className="bg-gray-900 text-gray-100 p-2 rounded mt-2 text-xs">
 {`# INFINITE LOOP:
 i = 1
-while (i <= NF) {
+while (i &le; NF) {
     print $i
     # Missing: i++
 }`}
@@ -795,7 +795,7 @@ if (x == 5) { ... }`}
                   <div className="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
                     <h4 className="font-bold text-red-600 dark:text-red-400 mb-2">Off-by-One Errors</h4>
                     <p className="text-sm">
-                      Starting loops at 0 instead of 1 for fields, or using <code>{`<=`}</code> when <code>{`<`}</code> is correct.
+                      Starting loops at 0 instead of 1 for fields, or using <code>{` &le; `}</code> when <code>{`<`}</code> is correct.
                     </p>
                     <pre className="bg-gray-900 text-gray-100 p-2 rounded mt-2 text-xs">
 {`# WRONG: $0 is entire record, not first field
@@ -897,7 +897,7 @@ for (i=1; i<=NF; i++) print $i`}
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <span className="w-6 h-6 bg-emerald-500 text-white rounded-full flex items-center justify-center text-sm mt-0.5">4</span>
-                      <span>Fields start at 1: <code>{`for (i=1; i<=NF; i++)`}</code></span>
+                      <span>Fields start at 1: <code>{`for (i=1; i &le; NF; i++)`}</code></span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-6 h-6 bg-emerald-500 text-white rounded-full flex items-center justify-center text-sm mt-0.5">5</span>
@@ -948,7 +948,7 @@ for (i=1; i<=NF; i++) print $i`}
                       <p className="text-sm">
                         Start with simple <code>if</code> statements on single fields, progress to <code>if-else</code> ladders 
                         for grading, then introduce loops for processing all fields. Always trace execution on paper first - 
-                        have students predict what <code>{`for (i=1; i<=NF; i++) print $i`}</code> will do before running it.
+                        have students predict what <code>{`for (i=1; i &le; NF; i++) print $i`}</code> will do before running it.
                       </p>
                     </div>
                   </div>
@@ -991,7 +991,7 @@ for (i=1; i<=NF; i++) print $i`}
                   <div className="bg-white/50 dark:bg-gray-800/50 p-4 rounded-lg">
                     <h4 className="font-bold text-amber-600 dark:text-amber-400 mb-2">Observe Carefully:</h4>
                     <p className="text-sm">
-                      What's the difference between <code>{`while (i <= NF)</code> and <code>do { ... } while (i <= NF)`}</code>? 
+                      What's the difference between <code>{`while (i &le; NF)</code> and <code>do { ... } while (i &le; NF)`}</code>? 
                       Try both with <strong>Tuhina</strong>'s student record when <code>i</code> starts at <code>NF + 1</code>.
                     </p>
                   </div>

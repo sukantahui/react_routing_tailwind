@@ -58,10 +58,10 @@ FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES
 (product_id, title, @raw_price, @dummy_notes, @raw_date)
 SET 
-  -- 1. Clean Rupee currency formatting ('₹1,250.00' -> 1250.00):
+  -- 1. Clean Rupee currency formatting ('₹1,250.00' &rarr; 1250.00):
   price = CAST(REPLACE(REPLACE(@raw_price, '₹', ''), ',', '') AS DECIMAL(10,2)),
   -- 2. Discard unwanted notes column (mapped to @dummy_notes):
-  -- 3. Transform date format ('25-08-2026' -> '2026-08-25'):
+  -- 3. Transform date format ('25-08-2026' -&gt; '2026-08-25'):
   created_at = STR_TO_DATE(@raw_date, '%d-%m-%Y');`,
       explanation:
         "Mapping CSV columns to user variables (@var) enables inline data scrubbing, currency formatting, date parsing, and discarding unwanted columns (@dummy) directly inside the import engine without intermediate ETL scripts.",
@@ -221,7 +221,7 @@ mysqlimport -u root -p \\
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );

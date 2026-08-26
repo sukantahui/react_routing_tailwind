@@ -311,7 +311,7 @@ export default class Topic10 extends React.Component {
                       onChange={(e) => this.handleUmaskChange(e.target.value)}
                       className="w-full p-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg font-mono text-center text-xl"
                       maxLength="4"
-                    />
+                    /&gt;
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                       Enter 3-4 digit octal number (0-7)
                     </p>

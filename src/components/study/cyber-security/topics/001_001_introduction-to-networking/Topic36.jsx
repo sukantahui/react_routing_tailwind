@@ -29,7 +29,7 @@ const Topic36 = () => {
       securityGuard: 'Direct external connection to database port 8080 is strictly blocked by internal firewall.',
       estApplianceCost: '₹1,85,000 (Dual FortiGate UTM Pair)',
       desc: 'Standard multi-tier DMZ architecture protecting corporate ERP data in Barrackpore from Internet threats.',
-      simResult: 'External Client -> [Ext Firewall: Allow 443] -> DMZ Reverse Proxy -> [Int Firewall: Allow DB Query] -> 10.0.5.20 (Safe Isolation Enforced).',
+      simResult: 'External Client &rarr; [Ext Firewall: Allow 443] -&gt; DMZ Reverse Proxy -> [Int Firewall: Allow DB Query] -> 10.0.5.20 (Safe Isolation Enforced).',
     },
     {
       id: 'internal-intranet-erp',
@@ -42,7 +42,7 @@ const Topic36 = () => {
       securityGuard: 'High-speed 10 Gbps LAN fabric with < 0.5 ms latency and zero Internet exposure.',
       estApplianceCost: '₹85,000 (10G Core Distribution Switch)',
       desc: 'Authenticated internal employee accessing confidential payroll records within the private Intranet.',
-      simResult: 'HR PC (10.0.1.45) -> 802.1X NAC Verified -> Internal Core Switch -> Payroll Server (10.0.5.10) [Transfer speed: 9.8 Gbps].',
+      simResult: 'HR PC (10.0.1.45) -> 802.1X NAC Verified &rarr; Internal Core Switch -&gt; Payroll Server (10.0.5.10) [Transfer speed: 9.8 Gbps].',
     },
     {
       id: 'direct-internet-traffic',
@@ -194,7 +194,7 @@ const Topic36 = () => {
                     ? 'bg-sky-600 text-white border-sky-500 shadow-md shadow-sky-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -206,7 +206,7 @@ const Topic36 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -250,7 +250,7 @@ const Topic36 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-dmz36">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -280,7 +280,7 @@ const Topic36 = () => {
                       ? 'bg-sky-600 text-white border-sky-400 shadow-md'
                       : 'bg-slate-950 text-slate-400 border-slate-800 hover:text-white'
                   )}
-                >
+                &gt;
                   {s.name.split('(')[0]}
                 </button>
               ))}
@@ -335,7 +335,7 @@ const Topic36 = () => {
                   <button
                     onClick={() => setScenarioAuditLog(currentScenario.simResult)}
                     className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white transition-all shadow-md shadow-sky-950"
-                  >
+                  &gt;
                     Execute Firewall Policy Audit ▶
                   </button>
                 </div>
@@ -355,7 +355,7 @@ const Topic36 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -417,7 +417,7 @@ const Topic36 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -489,7 +489,7 @@ const Topic36 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -511,7 +511,7 @@ const Topic36 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -538,7 +538,7 @@ const Topic36 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -578,7 +578,7 @@ const Topic36 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -612,7 +612,7 @@ const Topic36 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -627,7 +627,7 @@ const Topic36 = () => {
               {[
                 'Mapped the differences between the public Internet and private Intranets',
                 'Listed RFC 1918 private address ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)',
-                'Designed a 3-tier DMZ perimeter architecture (Untrusted -> DMZ -> Trusted Intranet)',
+                'Designed a 3-tier DMZ perimeter architecture (Untrusted &rarr; DMZ -&gt; Trusted Intranet)',
                 'Analyzed Split-Horizon DNS and Network Address Translation (NAT/PAT)',
                 'Evaluated Lateral Movement, Air-Gap breaches, and Zero Trust Network Access (ZTNA)',
                 'Formulated realistic perimeter firewall and DMZ hardware budgets in Indian Rupees (₹)',

@@ -31,7 +31,7 @@ const CourseCard = ({ course, groupCategory, index, courseRefs }) => {
                  border border-gray-700/50 rounded-xl p-5 backdrop-blur-sm
                  hover:border-sky-400/50 hover:shadow-[0_8px_30px_rgba(56,189,248,0.15)]
                  transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
-    >
+    &gt;
       {/* Decorative glow on hover */}
       <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-sky-500/0 via-sky-400/5 to-purple-500/0
                       opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -118,7 +118,7 @@ const CourseCard = ({ course, groupCategory, index, courseRefs }) => {
         </div>
 
         {/* Skills Tags */}
-        {course.skills && course.skills.length > 0 && (
+        {course.skills && course.skills.length &gt; 0 && (
           <div className="flex flex-wrap gap-1 mt-3">
             {course.skills.slice(0, 6).map((skill, i) => (
               <span
@@ -128,7 +128,7 @@ const CourseCard = ({ course, groupCategory, index, courseRefs }) => {
                 {skill}
               </span>
             ))}
-            {course.skills.length > 6 && (
+            {course.skills.length &gt; 6 && (
               <span className="text-[0.55rem] text-gray-500">+{course.skills.length - 6} more</span>
             )}
           </div>

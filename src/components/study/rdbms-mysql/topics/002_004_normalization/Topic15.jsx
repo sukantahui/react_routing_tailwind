@@ -304,7 +304,7 @@ CREATE TABLE invoices (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Derived Aggregates
               </button>
 
@@ -316,7 +316,7 @@ CREATE TABLE invoices (
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Replicate Parent Text
               </button>
 
@@ -328,7 +328,7 @@ CREATE TABLE invoices (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Immutable Snapshot
               </button>
 
@@ -340,7 +340,7 @@ CREATE TABLE invoices (
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. 3NF vs Denorm Matrix
               </button>
             </div>

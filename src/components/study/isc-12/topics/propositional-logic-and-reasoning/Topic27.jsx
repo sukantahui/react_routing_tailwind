@@ -140,7 +140,7 @@ const Topic27 = () => {
   };
 
   const prevExample = () => {
-    if (selectedIndex > 0) {
+    if (selectedIndex &gt; 0) {
       setSelectedIndex(selectedIndex - 1);
       setUserAnswer("");
       setShowSolution(false);
@@ -190,7 +190,7 @@ const Topic27 = () => {
             <div className="flex flex-wrap gap-2">
               <span className="text-sm font-semibold">Filter by category:</span>
               {categories.map(cat => (
-                <button key={cat} onClick={() => { setCategoryFilter(cat); setSelectedIndex(0); setShowSolution(false); setSubmitted(false); setUserAnswer(""); }} className={clsx("px-2 py-1 text-xs rounded", categoryFilter === cat ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300")}>{cat}</button>
+                <button key={cat} onClick={() => { setCategoryFilter(cat); setSelectedIndex(0); setShowSolution(false); setSubmitted(false); setUserAnswer(""); }} className={clsx("px-2 py-1 text-xs rounded", categoryFilter === cat ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300")}&gt;{cat}</button>
               ))}
             </div>
             <button onClick={resetExample} className="text-sm bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">Reset Current</button>
@@ -218,12 +218,12 @@ const Topic27 = () => {
               className="w-full p-2 border rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
               rows="3"
               placeholder="Type your reasoning or final answer here..."
-            />
+            /&gt;
           </div>
 
           <div className="flex gap-3 mb-4">
             <button onClick={checkAnswer} className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded font-semibold">Show Solution</button>
-            {showSolution && <button onClick={() => setShowSolution(false)} className="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded">Hide Solution</button>}
+            {showSolution && <button onClick={() => setShowSolution(false)} className="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded"&gt;Hide Solution</button>}
           </div>
 
           {/* Solution Display */}

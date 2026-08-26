@@ -61,8 +61,8 @@ const Topic21 = () => {
                 <button
                   key={star}
                   onClick={() => onRatingChange && onRatingChange(star)}
-                  className={`text-2xl ${star <= rating ? 'text-yellow-500' : 'text-gray-300'}`}
-                >
+                  className={`text-2xl ${star &le; rating ? 'text-yellow-500' : 'text-gray-300'}`}
+                &gt;
                   ★
                 </button>
               ))}
@@ -96,7 +96,7 @@ const Topic21 = () => {
       errors.push('Rating must be a number between 1 and 5');
     }
     
-    if (errors.length > 0) {
+    if (errors.length &gt; 0) {
       setValidationErrors(errors);
       return (
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6">
@@ -247,7 +247,7 @@ const Topic21 = () => {
                         ? 'bg-purple-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
                     )}
-                  >
+                  &gt;
                     {tab === 'default' ? 'Concepts' : 
                      tab === 'examples' ? 'Examples' : 
                      'Live Demo'}
@@ -482,7 +482,7 @@ function BusinessCard({
                                 <button
                                   onClick={() => setComponentConfig({...componentConfig, [key]: !value})}
                                   className={`px-4 py-2 rounded ${value ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}`}
-                                >
+                                &gt;
                                   {value ? 'ON' : 'OFF'}
                                 </button>
                               ) : (
@@ -493,7 +493,7 @@ function BusinessCard({
                                   value={value}
                                   onChange={(e) => setComponentConfig({...componentConfig, [key]: parseInt(e.target.value)})}
                                   className="w-32"
-                                />
+                                /&gt;
                               )}
                             </label>
                           </div>
@@ -523,7 +523,7 @@ function BusinessCard({
                         isStudent={componentConfig.isStudent}
                         rating={componentConfig.rating}
                         onRatingChange={(newRating) => setComponentConfig({...componentConfig, rating: newRating})}
-                      />
+                      /&gt;
                       
                       <div className="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
                         <h4 className="font-bold mb-2 text-emerald-800 dark:text-emerald-300">What's Happening:</h4>
@@ -760,7 +760,7 @@ function ComplaintForm({ onSubmit }) {
                       <button
                         onClick={() => setValidationErrors([])}
                         className="w-full px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold"
-                      >
+                      &gt;
                         Test: Valid Props
                       </button>
                     </div>
@@ -769,7 +769,7 @@ function ComplaintForm({ onSubmit }) {
                   <div>
                     <h5 className="font-bold mb-3 text-gray-700 dark:text-gray-300">Validation Output:</h5>
                     
-                    {validationErrors.length > 0 ? (
+                    {validationErrors.length &gt; 0 ? (
                       <div className="p-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
                         <h6 className="font-bold text-red-700 dark:text-red-300 mb-3">
                           ❌ Validation Failed ({validationErrors.length} errors)
@@ -1079,7 +1079,7 @@ function ComplaintForm({ onSubmit }) {
                             </div>
                           );
                         }`}
-                        >
+                        &gt;
                         </ReactCodeBlock>
                  
                     </div>
@@ -1098,7 +1098,7 @@ function ComplaintForm({ onSubmit }) {
                   <button
                     onClick={() => alert('Start with defaults: category = "General", onAddToCart = () => console.warn(...). Add validation: if (!name || typeof price !== "number") return <Error />')}
                     className="w-full px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-                  >
+                  &gt;
                     Click for Starter Solution
                   </button>
                 </div>

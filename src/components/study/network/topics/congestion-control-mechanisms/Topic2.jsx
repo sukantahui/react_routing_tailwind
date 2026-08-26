@@ -130,7 +130,7 @@ const Topic2 = () => {
             <h2 className="text-2xl font-semibold mb-2">🧩 Mathematical model (simplified)</h2>
             <pre className="bg-gray-950 p-4 rounded-lg text-sm text-rose-300 overflow-x-auto">
 {`// Congestion occurs when:
- arrival_rate > link_capacity
+ arrival_rate &gt; link_capacity
 
 // Queue growth (deterministic fluid model):
  dQ/dt = arrival_rate - service_rate   (when Q > 0)

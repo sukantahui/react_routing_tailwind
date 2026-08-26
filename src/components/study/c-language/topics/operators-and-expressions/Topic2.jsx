@@ -23,7 +23,7 @@ int main() {
     int a = 5, b = 10;
 
     printf("a < b AND b > 5 = %d\\n", (a < b) && (b > 5));
-    printf("a > b OR b == 10 = %d\\n", (a > b) || (b == 10));
+    printf("a &gt; b OR b == 10 = %d\\n", (a > b) || (b == 10));
 
     return 0;
 }
@@ -43,7 +43,7 @@ int main() {
     return 0;
 }
 `}
-        />
+        /&gt;
 
         {/* Teacher Tip */}
         <div className="border border-slate-700 p-4 rounded-xl bg-slate-800/60">

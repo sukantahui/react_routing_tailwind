@@ -199,7 +199,7 @@ const Topic19 = () => {
                     ? "bg-blue-600 text-white" 
                     : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 Pair {idx + 1}
               </button>
             ))}
@@ -222,7 +222,7 @@ const Topic19 = () => {
                   checked={selectedOption === opt.code}
                   onChange={() => setSelectedOption(opt.code)}
                   className="mt-1"
-                />
+                /&gt;
                 <span><strong>{opt.code}:</strong> {opt.text}</span>
               </label>
             ))}

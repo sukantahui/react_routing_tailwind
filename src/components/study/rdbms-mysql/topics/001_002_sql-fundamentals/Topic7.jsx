@@ -222,7 +222,7 @@ ON DUPLICATE KEY UPDATE qty = qty + 10;`}
               </p>
               <pre className="rounded bg-slate-900 p-2.5 font-mono text-[11px] text-purple-300 border border-slate-800">
 {`INSERT INTO honor_students (student_id, name)
-SELECT student_id, first_name FROM students WHERE gpa >= 3.8;`}
+SELECT student_id, first_name FROM students WHERE gpa &ge; 3.8;`}
               </pre>
             </div>
           </div>
@@ -302,7 +302,7 @@ SELECT student_id, first_name FROM students WHERE gpa >= 3.8;`}
                         ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     Single-Row
                   </button>
                   <button
@@ -313,7 +313,7 @@ SELECT student_id, first_name FROM students WHERE gpa >= 3.8;`}
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     Multi-Row Batch
                   </button>
                   <button
@@ -324,7 +324,7 @@ SELECT student_id, first_name FROM students WHERE gpa >= 3.8;`}
                         ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     Upsert
                   </button>
                 </div>
@@ -340,7 +340,7 @@ SELECT student_id, first_name FROM students WHERE gpa >= 3.8;`}
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                  />
+                  /&gt;
                 </div>
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-1">
@@ -351,7 +351,7 @@ SELECT student_id, first_name FROM students WHERE gpa >= 3.8;`}
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                  />
+                  /&gt;
                 </div>
               </div>
 
@@ -364,7 +364,7 @@ SELECT student_id, first_name FROM students WHERE gpa >= 3.8;`}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                />
+                /&gt;
               </div>
 
               <div>
@@ -376,7 +376,7 @@ SELECT student_id, first_name FROM students WHERE gpa >= 3.8;`}
                   value={admissionFee}
                   onChange={(e) => setAdmissionFee(e.target.value)}
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                />
+                /&gt;
               </div>
 
               <button

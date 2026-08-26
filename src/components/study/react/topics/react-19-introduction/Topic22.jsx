@@ -61,7 +61,7 @@ const Topic22 = () => {
             <button
               onClick={() => setRenderStep(Math.max(0, renderStep - 1))}
               className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded"
-            >
+            &gt;
               ← Previous
             </button>
             <span className="px-4 py-1 bg-purple-600 text-white rounded">
@@ -70,7 +70,7 @@ const Topic22 = () => {
             <button
               onClick={() => setRenderStep(Math.min(steps.length - 1, renderStep + 1))}
               className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded"
-            >
+            &gt;
               Next →
             </button>
           </div>
@@ -201,7 +201,7 @@ const Topic22 = () => {
                           : 'bg-green-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
                     )}
-                  >
+                  &gt;
                     {tab === 'problem' ? 'The Problem' : 'The Solution'}
                   </button>
                 ))}
@@ -938,7 +938,7 @@ function UserProfile({ user }) {
   return (
     <ul>
       {students.map((student, index) => (
-        <li onClick={() => onSelect(student)}> {/* Missing key! */}
+        <li onClick={() => onSelect(student)}&gt; {/* Missing key! */}
           {student.name} - {student.city}
         </li>
       ))}

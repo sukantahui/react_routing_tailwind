@@ -62,8 +62,8 @@ export default class Topic3 extends Component {
           <div className="mermaid">
             {`
 flowchart TD
-  A["Is Student Present?"] -->|Yes| B["Attendance >= 75?"]
-  A -->|No| D["Reject : Absent"]
+  A["Is Student Present?"] - &rarr; |Yes| B["Attendance &ge; 75?"]
+  A --&gt;|No| D["Reject : Absent"]
   B -->|Yes| C["Allow Exam"]
   B -->|No| E["Reject : Low Attendance"]
             `}
@@ -77,7 +77,7 @@ if(present){
   if(attendance>=75){
     System.out.println("Allow Exam");
   }
-}`} />
+}`} /&gt;
         </div>
 
         <div className={`${card} mb-6 ${reveal} animation-delay-[480ms]`}>
@@ -86,7 +86,7 @@ if(cardInserted){
   if(balance>=2000){
     System.out.println("Withdraw Cash");
   }
-}`} />
+}`} /&gt;
         </div>
 
         <div className={`${card} mb-10 ${reveal} animation-delay-[600ms]`}>

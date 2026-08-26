@@ -410,27 +410,27 @@ export default function AppRoutes() {
           </div>
         </div>
       }
-    >
+    &gt;
       <Routes>
         {/* ---------- Public routes ---------- */}
-        <Route path={ROUTES.HOME} element={<Home />} />
-        <Route path={ROUTES.LOGIN} element={<Login />} />
-        <Route path={ROUTES.CERTIFICATE_VIEW} element={<Certificate />} />
-        <Route path={ROUTES.QRCODE} element={<QRCodeGenerator />} />
-        <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
-        <Route path={ROUTES.PYTHON_PLAY} element={<PythonPlayground />} />
-        <Route path={ROUTES.WHITEBOARD} element={<PlayWhiteBoard />} />
-        <Route path={ROUTES.ICONS} element={<IconResources />} />
-        <Route path={ROUTES.VSCODE} element={<VSCodeUltraExpertGuide />} />
-        <Route path={ROUTES.TYPING_TEST} element={<TypingTest />} />
-        <Route path={ROUTES.TYPING_LEARN} element={<TypingLearn />} />
-        <Route path={ROUTES.AUDIO_EXTRACT} element={<AudioExtractor />} />
+        <Route path={ROUTES.HOME} element={<Home />} /&gt;
+        <Route path={ROUTES.LOGIN} element={<Login />} /&gt;
+        <Route path={ROUTES.CERTIFICATE_VIEW} element={<Certificate />} /&gt;
+        <Route path={ROUTES.QRCODE} element={<QRCodeGenerator />} /&gt;
+        <Route path={ROUTES.PLAYGROUND} element={<Playground />} /&gt;
+        <Route path={ROUTES.PYTHON_PLAY} element={<PythonPlayground />} /&gt;
+        <Route path={ROUTES.WHITEBOARD} element={<PlayWhiteBoard />} /&gt;
+        <Route path={ROUTES.ICONS} element={<IconResources />} /&gt;
+        <Route path={ROUTES.VSCODE} element={<VSCodeUltraExpertGuide />} /&gt;
+        <Route path={ROUTES.TYPING_TEST} element={<TypingTest />} /&gt;
+        <Route path={ROUTES.TYPING_LEARN} element={<TypingLearn />} /&gt;
+        <Route path={ROUTES.AUDIO_EXTRACT} element={<AudioExtractor />} /&gt;
 
         {/* Data structure visualizers */}
-        <Route path={ROUTES.LINKED_LIST} element={<LinkedListVisualizer />} />
-        <Route path={ROUTES.DOUBLY_LINKED_LIST} element={<DoublyLinkedListVisualizer />} />
-        <Route path={ROUTES.BINARY_TREE} element={<BinaryTreeVisualizer />} />
-        <Route path={ROUTES.AVL_TREE} element={<AvlTreeVisualizer />} />
+        <Route path={ROUTES.LINKED_LIST} element={<LinkedListVisualizer />} /&gt;
+        <Route path={ROUTES.DOUBLY_LINKED_LIST} element={<DoublyLinkedListVisualizer />} /&gt;
+        <Route path={ROUTES.BINARY_TREE} element={<BinaryTreeVisualizer />} /&gt;
+        <Route path={ROUTES.AVL_TREE} element={<AvlTreeVisualizer />} /&gt;
 
         {/* ---------- Protected routes (admin / internal) ---------- */}
         <Route
@@ -440,7 +440,7 @@ export default function AppRoutes() {
               <Dashboard />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.STUDENT_WITH_ADMISSION}
@@ -449,7 +449,7 @@ export default function AppRoutes() {
               <StudentWithAdmission />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ADMIN}
@@ -458,12 +458,12 @@ export default function AppRoutes() {
               <Admin />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.BIJOYA}
           element={<Bijoya />}
-        />
+        /&gt;
 
         <Route
           path={ROUTES.CERTIFICATE_GENERATOR}
@@ -472,7 +472,7 @@ export default function AppRoutes() {
               <CertificateGenerator />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.STUDENT_ADMISSION}
@@ -481,7 +481,7 @@ export default function AppRoutes() {
               <StudentAdmission />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ADD_COURSE}
@@ -490,7 +490,7 @@ export default function AppRoutes() {
               <AddCourse />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ADD_RESULT}
@@ -499,7 +499,7 @@ export default function AppRoutes() {
               <AddResult />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.FEE_RECEIPT}
@@ -508,7 +508,7 @@ export default function AppRoutes() {
               <StudentFeeReceipt />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.FEE_RECEIPT_PART2}
@@ -517,7 +517,7 @@ export default function AppRoutes() {
               <StudentFeeReceiptPart2 />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.FEE_RECEIPT_PART3}
@@ -526,7 +526,7 @@ export default function AppRoutes() {
               <StudentFeeReceiptPart3 />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.FEE_RECEIPT_PART4}
@@ -535,28 +535,28 @@ export default function AppRoutes() {
               <StudentFeeReceiptPart4 />
             </ProtectedRouteWrapper>
           }
-        />
+        /&gt;
 
-        <Route path={ROUTES.ADD_STUDENT} element={<AddStudent />} />
-        <Route path={ROUTES.SUBJECTS} element={<Subject />} />
+        <Route path={ROUTES.ADD_STUDENT} element={<AddStudent />} /&gt;
+        <Route path={ROUTES.SUBJECTS} element={<Subject />} /&gt;
 
         {/* ---------- Study routes ---------- */}
-        <Route path={ROUTES.STUDY} element={<Study />} />
+        <Route path={ROUTES.STUDY} element={<Study />} /&gt;
 
         {/* Class 11 & WB Board */}
-        <Route path={ROUTES.CLASS_11} element={<ClassEleven />} />
-        <Route path={ROUTES.CLASS_11_WBB} element={<ClassElevenWbb />} />
-        <Route path={ROUTES.WBB_COMP_APP} element={<ComputerApplicationWbbEleven />} />
-        <Route path={ROUTES.WBB_COMP_APP_SEM2} element={<SemTwoComputerApplicationWbbEleven />} />
+        <Route path={ROUTES.CLASS_11} element={<ClassEleven />} /&gt;
+        <Route path={ROUTES.CLASS_11_WBB} element={<ClassElevenWbb />} /&gt;
+        <Route path={ROUTES.WBB_COMP_APP} element={<ComputerApplicationWbbEleven />} /&gt;
+        <Route path={ROUTES.WBB_COMP_APP_SEM2} element={<SemTwoComputerApplicationWbbEleven />} /&gt;
         <Route
           path={ROUTES.WBB_COMP_APP_SEM2_DSA}
           element={<DataStructureSemTwoComputerApplicationWbbEleven />}
-        />
+        /&gt;
 
         {/* BCA */}
-        <Route path={ROUTES.BCA} element={<Bca />} />
-        <Route path={ROUTES.BCA_JAVA} element={<JavaChapters />} />
-        <Route path={ROUTES.BCA_JAVA_CH1} element={<IntroductionToJava />} />
+        <Route path={ROUTES.BCA} element={<Bca />} /&gt;
+        <Route path={ROUTES.BCA_JAVA} element={<JavaChapters />} /&gt;
+        <Route path={ROUTES.BCA_JAVA_CH1} element={<IntroductionToJava />} /&gt;
         <Route
           path={ROUTES.C_ROADMAP}
           element={
@@ -565,7 +565,7 @@ export default function AppRoutes() {
               subjectKey="c-language"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.C_MODULE}
@@ -575,7 +575,7 @@ export default function AppRoutes() {
               subjectKey="c-language"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.C_TOPIC}
@@ -587,7 +587,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/c-language/topics"
             />
           }
-        />
+        /&gt;
         {/* -------------------------------------------------- */}
 
         {/* Tally */}
@@ -599,7 +599,7 @@ export default function AppRoutes() {
               subjectKey="tally"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.TALLY_MODULE}
@@ -609,7 +609,7 @@ export default function AppRoutes() {
               subjectKey="tally"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.TALLY_TOPIC}
@@ -621,7 +621,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/tally/topics"
             />
           }
-        />
+        /&gt;
         {/* ------------------------------------------ */}
         <Route
           path={ROUTES.GIT_ROADMAP}
@@ -631,7 +631,7 @@ export default function AppRoutes() {
               subjectKey="git"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.GIT_MODULE}
@@ -641,7 +641,7 @@ export default function AppRoutes() {
               subjectKey="git"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.GIT_TOPIC}
@@ -653,7 +653,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/git/topics"
             />
           }
-        />
+        /&gt;
         {/* --------------------------------------------------- */}
         {/* JavaScript - MASTER STUDY COMPONENTS */}
         <Route
@@ -664,7 +664,7 @@ export default function AppRoutes() {
               subjectKey="javascript"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.JAVASCRIPT_MODULE}
@@ -674,7 +674,7 @@ export default function AppRoutes() {
               subjectKey="javascript"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.JAVASCRIPT_TOPIC}
@@ -686,7 +686,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/javaScript/topics"
             />
           }
-        />
+        /&gt;
 
         {/* Python */}
         <Route
@@ -697,7 +697,7 @@ export default function AppRoutes() {
               subjectKey="python"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.PYTHON_MODULE}
@@ -707,7 +707,7 @@ export default function AppRoutes() {
               subjectKey="python"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.PYTHON_TOPIC}
@@ -719,7 +719,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/python/topics"
             />
           }
-        />
+        /&gt;
 
         {/* -------------------------------------- */}
         <Route
@@ -730,7 +730,7 @@ export default function AppRoutes() {
               subjectKey="icse-java-ix"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ICSE_IX_MODULE}
@@ -740,7 +740,7 @@ export default function AppRoutes() {
               subjectKey="icse-java-ix"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ICSE_IX_TOPIC}
@@ -752,7 +752,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/icse-java-9/topics"
             />
           }
-        />
+        /&gt;
 
         {/* ---------------------------------------------------------- */}
         <Route
@@ -763,7 +763,7 @@ export default function AppRoutes() {
               subjectKey="icse-java-x"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ICSE_X_MODULE}
@@ -773,7 +773,7 @@ export default function AppRoutes() {
               subjectKey="icse-java-x"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ICSE_X_TOPIC}
@@ -785,7 +785,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/icse-java-x/topics"
             />
           }
-        />
+        /&gt;
 
         {/* ----------------------------------------------------- */}
 
@@ -799,7 +799,7 @@ export default function AppRoutes() {
               subjectKey="java-core"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.JAVA_CORE_MODULE}
@@ -809,7 +809,7 @@ export default function AppRoutes() {
               subjectKey="java-core"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.JAVA_CORE_TOPIC}
@@ -821,7 +821,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/java-core/topics"
             />
           }
-        />
+        /&gt;
         {/* --------------------------------- */}
         <Route
           path={ROUTES.JAVA_WEB_ROADMAP}
@@ -831,7 +831,7 @@ export default function AppRoutes() {
               subjectKey="java-web"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.JAVA_WEB_MODULE}
@@ -841,7 +841,7 @@ export default function AppRoutes() {
               subjectKey="java-web"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.JAVA_WEB_TOPIC}
@@ -853,7 +853,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/java-web/topics"
             />
           }
-        />
+        /&gt;
 
         {/* --------------------------- */}
         {/* Modern CSS - MASTER STUDY COMPONENTS */}
@@ -866,7 +866,7 @@ export default function AppRoutes() {
               subjectKey="css"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.CSS_MODULE}
@@ -876,7 +876,7 @@ export default function AppRoutes() {
               subjectKey="css"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.CSS_TOPIC}
@@ -888,7 +888,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/css/topics"
             />
           }
-        />
+        /&gt;
         {/* ----------------------------------- */}
         {/* ISC Class 11 - MASTER STUDY COMPONENTS */}
 
@@ -900,7 +900,7 @@ export default function AppRoutes() {
               subjectKey="isc-11"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ISC_11_MODULE}
@@ -910,7 +910,7 @@ export default function AppRoutes() {
               subjectKey="isc-11"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ISC_11_TOPIC}
@@ -922,7 +922,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/isc-11/topics"
             />
           }
-        />
+        /&gt;
         {/* ------------------------------------------ */}
         {/* ISC Class 12 - MASTER STUDY COMPONENTS */}
 
@@ -934,7 +934,7 @@ export default function AppRoutes() {
               subjectKey="isc-12"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ISC_12_MODULE}
@@ -944,7 +944,7 @@ export default function AppRoutes() {
               subjectKey="isc-12"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.ISC_12_TOPIC}
@@ -956,7 +956,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/isc-12/topics"
             />
           }
-        />
+        /&gt;
 
         {/* ----------------------------------------------- */}
         <Route
@@ -967,7 +967,7 @@ export default function AppRoutes() {
               subjectKey="computer-architecture"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.COMPUTER_ARCHITECTURE_MODULE}
@@ -977,7 +977,7 @@ export default function AppRoutes() {
               subjectKey="computer-architecture"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.COMPUTER_ARCHITECTURE_TOPIC}
@@ -989,7 +989,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/computer-architecture/topics"
             />
           }
-        />
+        /&gt;
         {/* ---------------------------------------------------- */}
         {/* UNIX - MASTER STUDY COMPONENTS */}
 
@@ -1001,7 +1001,7 @@ export default function AppRoutes() {
               subjectKey="unix"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.UNIX_MODULE}
@@ -1011,7 +1011,7 @@ export default function AppRoutes() {
               subjectKey="unix"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.UNIX_TOPIC}
@@ -1023,7 +1023,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/unix/topics"
             />
           }
-        />
+        /&gt;
         {/* ---------------------------------------------------------- */}
         {/* Computer Network - MASTER STUDY COMPONENTS */}
 
@@ -1035,7 +1035,7 @@ export default function AppRoutes() {
               subjectKey="computer-network"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.NETWORK_MODULE}
@@ -1045,7 +1045,7 @@ export default function AppRoutes() {
               subjectKey="computer-network"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.NETWORK_TOPIC}
@@ -1057,7 +1057,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/computer-network/topics"
             />
           }
-        />
+        /&gt;
         {/* ----------------------------------------------------------------- */}
         <Route
           path={ROUTES.CYBER_SECURITY_ROADMAP}
@@ -1067,7 +1067,7 @@ export default function AppRoutes() {
               subjectKey="cyber-security"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.CYBER_SECURITY_MODULE}
@@ -1077,7 +1077,7 @@ export default function AppRoutes() {
               subjectKey="cyber-security"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.CYBER_SECURITY_TOPIC}
@@ -1089,7 +1089,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/cyber-security/topics"
             />
           }
-        />
+        /&gt;
         {/* ------------------------------------------------------ */}
         <Route
           path={ROUTES.GENERAL_ROADMAP}
@@ -1099,7 +1099,7 @@ export default function AppRoutes() {
               subjectKey="general"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.GENERAL_MODULE}
@@ -1109,7 +1109,7 @@ export default function AppRoutes() {
               subjectKey="general"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.GENERAL_TOPIC}
@@ -1121,7 +1121,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/general/topics"
             />
           }
-        />
+        /&gt;
         {/* ---------------------------------------------------------- */}
         <Route
           path={ROUTES.NODE_ROADMAP}
@@ -1131,7 +1131,7 @@ export default function AppRoutes() {
               subjectKey="node"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.NODE_MODULE}
@@ -1141,7 +1141,7 @@ export default function AppRoutes() {
               subjectKey="node"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.NODE_TOPIC}
@@ -1153,7 +1153,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/node/topics"
             />
           }
-        />
+        /&gt;
         {/* ------------------------------------------------------------------ */}
         {/* Machine Learning */}
         <Route
@@ -1164,7 +1164,7 @@ export default function AppRoutes() {
               subjectKey="machine-learning"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.MACHINE_LEARNING_MODULE}
@@ -1174,7 +1174,7 @@ export default function AppRoutes() {
               subjectKey="machine-learning"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.MACHINE_LEARNING_TOPIC}
@@ -1186,7 +1186,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/machine-learning/topics"
             />
           }
-        />
+        /&gt;
         {/* ------------------------------------------------------------------ */}
         {/* Excel */}
         <Route
@@ -1197,7 +1197,7 @@ export default function AppRoutes() {
               subjectKey="excel"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.EXCEL_MODULE}
@@ -1207,7 +1207,7 @@ export default function AppRoutes() {
               subjectKey="excel"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.EXCEL_TOPIC}
@@ -1219,7 +1219,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/excel/topics"
             />
           }
-        />
+        /&gt;
         <Route
           path={ROUTES.RDBMS_MYSQL_ROADMAP}
           element={
@@ -1228,7 +1228,7 @@ export default function AppRoutes() {
               subjectKey="rdbms-mysql"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.RDBMS_MYSQL_MODULE}
@@ -1238,7 +1238,7 @@ export default function AppRoutes() {
               subjectKey="rdbms-mysql"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.RDBMS_MYSQL_TOPIC}
@@ -1250,7 +1250,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/rdbms-mysql/topics"
             />
           }
-        />
+        /&gt;
         {/* --------------------------------------------- */}
         <Route
           path={ROUTES.REACT_ROADMAP}
@@ -1260,7 +1260,7 @@ export default function AppRoutes() {
               subjectKey="react"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.REACT_MODULE}
@@ -1270,7 +1270,7 @@ export default function AppRoutes() {
               subjectKey="react"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.REACT_TOPIC}
@@ -1282,7 +1282,7 @@ export default function AppRoutes() {
               topicBasePath="../components/study/react/topics"
             />
           }
-        />
+        /&gt;
 
         {/* Quantitative Analysis */}
         <Route
@@ -1293,7 +1293,7 @@ export default function AppRoutes() {
               subjectKey="quantitative-analysis"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.QUANTITATIVE_ANALYSIS_MODULE}
@@ -1303,7 +1303,7 @@ export default function AppRoutes() {
               subjectKey="quantitative-analysis"
             />
           }
-        />
+        /&gt;
 
         <Route
           path={ROUTES.QUANTITATIVE_ANALYSIS_TOPIC}
@@ -1315,10 +1315,10 @@ export default function AppRoutes() {
               topicBasePath="../components/study/quantitative-analysis/topics"
             />
           }
-        />
+        /&gt;
 
         {/* Catch-all 404 */}
-        <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
+        <Route path={ROUTES.NOT_FOUND} element={<NotFound />} /&gt;
       </Routes>
     </Suspense>
   );

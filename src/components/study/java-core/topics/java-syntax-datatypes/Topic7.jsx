@@ -95,7 +95,7 @@ export default class Topic7 extends Component {
                 stroke="currentColor" strokeWidth="2" className="text-sky-500" />
               <text x="200" y="75" textAnchor="middle"
                 className="fill-current text-slate-700 dark:text-slate-300 text-sm">
-                marks &gt;= 40
+                marks >= 40
               </text>
 
               {/* True path */}
@@ -168,7 +168,7 @@ boolean eligible = marks >= 40;
 System.out.println(isPassed);
 System.out.println(hasIDCard);
 System.out.println(eligible);`}
-          />
+          /&gt;
         </section>
 
         {/* ======================================================

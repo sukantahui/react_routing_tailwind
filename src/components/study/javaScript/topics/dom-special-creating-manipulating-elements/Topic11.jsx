@@ -94,7 +94,7 @@ export default class Topic11 extends Component {
   border: 1px solid #334155;
 }`}
                         initialJS={`console.log("Architecture section loaded");`}
-                    />
+                    /&gt;
                 </section>
 
 

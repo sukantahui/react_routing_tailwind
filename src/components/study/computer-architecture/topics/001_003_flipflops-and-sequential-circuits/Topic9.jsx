@@ -82,7 +82,7 @@ const Topic9 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            >
+            &gt;
               1. 4-NAND Gate Schematic
             </button>
             <button
@@ -93,7 +93,7 @@ const Topic9 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            >
+            &gt;
               2. IEEE Block Symbol
             </button>
             <button
@@ -104,7 +104,7 @@ const Topic9 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            >
+            &gt;
               3. Toggle Waveforms
             </button>
           </div>
@@ -264,7 +264,7 @@ const Topic9 = () => {
                   "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                   jInput ? "bg-teal-900/80 border-teal-400 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-500"
                 )}
-              >
+              &gt;
                 J: {jInput ? "1" : "0"}
               </button>
               <button
@@ -273,7 +273,7 @@ const Topic9 = () => {
                   "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                   kInput ? "bg-rose-900/80 border-rose-400 text-rose-200" : "bg-slate-950 border-slate-800 text-slate-500"
                 )}
-              >
+              &gt;
                 K: {kInput ? "1" : "0"}
               </button>
               <button

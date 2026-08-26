@@ -281,7 +281,7 @@ sysctl kernel.sched_*`}
               <li>Assuming higher nice value means higher priority – actually lower nice = higher priority (since nice = "niceness" to others).</li>
               <li>Forgetting that real‑time processes can block the system if they never yield (infinite loop in SCHED_FIFO).</li>
               <li>Not understanding that <code>sched_yield()</code> only yields to processes of same priority.</li>
-              <li>Misinterpreting <code>vmstat</code>'s run queue (r) – values {`>`} number of cores indicate overload.</li>
+              <li>Misinterpreting <code>vmstat</code>'s run queue (r) – values {`&gt;`} number of cores indicate overload.</li>
             </ul>
           </div>
           <div className="bg-emerald-50 dark:bg-emerald-950/20 p-5 rounded-xl">

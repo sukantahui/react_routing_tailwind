@@ -55,7 +55,7 @@ WHERE name LIKE '%admissions%';`,
       sqlSnippet: `-- 📄 16KB PAGE INTERNAL BYTE LAYOUT (Total: 16,384 Bytes):
 -- 1. File Header (38 B):
 --    - Checksum (4B), Page Number (4B), Page LSN (8B), Page Type (2B)
---    - FIL_PAGE_PREV (4B) & FIL_PAGE_NEXT (4B) -> Doubly-linked list!
+--    - FIL_PAGE_PREV (4B) & FIL_PAGE_NEXT (4B) &rarr; Doubly-linked list!
 -- 2. Page Header (56 B): Slots count, heap top pointer, number of records.
 -- 3. Infimum & Supremum (26 B): Minimum and maximum sentinel boundary records.
 -- 4. User Records: Actual data rows with DB_TRX_ID and DB_ROLL_PTR.
@@ -86,7 +86,7 @@ WHERE name LIKE '%admissions%';`,
 -- 3. Slot N points to Supremum record.
 
 -- SEARCH WORKFLOW:
--- 1. Perform Binary Search on Page Directory slots -> O(log K) complexity.
+-- 1. Perform Binary Search on Page Directory slots -&gt; O(log K) complexity.
 -- 2. Locate target slot boundary.
 -- 3. Traverse at most 4 to 8 rows linearly along the linked list!
 -- Result: Sub-microsecond row location within the 16KB RAM frame! ✅`,
@@ -326,7 +326,7 @@ WHERE name LIKE '%admissions%';`,
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

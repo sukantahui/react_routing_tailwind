@@ -283,7 +283,7 @@ export default class Topic13 extends React.Component {
                       ? 'bg-rose-600 text-white shadow-lg'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   Core Concepts
                 </button>
                 <button
@@ -294,7 +294,7 @@ export default class Topic13 extends React.Component {
                       ? 'bg-rose-600 text-white shadow-lg'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   Key Commands
                 </button>
                 <button
@@ -305,7 +305,7 @@ export default class Topic13 extends React.Component {
                       ? 'bg-rose-600 text-white shadow-lg'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   Real Scenarios
                 </button>
               </div>
@@ -525,7 +525,7 @@ export default class Topic13 extends React.Component {
                               ? 'bg-rose-600 text-white'
                               : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                           )}
-                        >
+                        &gt;
                           {scenarios[key].title.split(' ')[0]}
                         </button>
                       ))}

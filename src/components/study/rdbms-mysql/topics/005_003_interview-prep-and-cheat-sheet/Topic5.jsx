@@ -50,7 +50,7 @@ WITH DeptSalaries AS (
 )
 SELECT department_id, full_name, salary 
 FROM DeptSalaries 
-WHERE rnk &lt;= 2;`,
+WHERE rnk <= 2;`,
       explanation: "Provides optimal, industry-standard SQL query solutions utilizing modern MySQL 8.0 Window Functions and Common Table Expressions.",
       keyTakeaways: ["Use DENSE_RANK over RANK to prevent skipped ranking numbers on ties.","Isolate partitioned window calculations inside Common Table Expressions.","Explain the EXPLAIN plan to the interviewer to prove query efficiency."]
     },
@@ -169,7 +169,7 @@ SELECT * FROM customers c WHERE NOT EXISTS (SELECT 1 FROM orders o WHERE o.custo
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {concept.conceptName}
                 </button>
               );

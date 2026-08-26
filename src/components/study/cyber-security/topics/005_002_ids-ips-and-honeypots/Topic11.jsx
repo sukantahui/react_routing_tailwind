@@ -324,7 +324,7 @@ const Topic11 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}
@@ -395,7 +395,7 @@ const Topic11 = () => {
                     ? "bg-sky-950/80 text-sky-300 border-sky-800 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              >
+              &gt;
                 {nidsAlertActive ? "✔ SQLi Exploit Fired" : "❌ No NIDS Signal"}
               </button>
             </div>
@@ -410,7 +410,7 @@ const Topic11 = () => {
                     ? "bg-purple-950/80 text-purple-300 border-purple-800 shadow-md shadow-purple-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              >
+              &gt;
                 {deceptionAlertActive ? "✔ Canary Tripwire Hit" : "❌ No Deception Signal"}
               </button>
             </div>
@@ -425,7 +425,7 @@ const Topic11 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800 shadow-md shadow-emerald-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              >
+              &gt;
                 {edrAlertActive ? "✔ Process Injection Fired" : "❌ No EDR Signal"}
               </button>
             </div>
@@ -513,7 +513,7 @@ const Topic11 = () => {
                 value={eventsPerSecondThousands}
                 onChange={(e) => setEventsPerSecondThousands(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -529,7 +529,7 @@ const Topic11 = () => {
                 value={kafkaBrokersCount}
                 onChange={(e) => setKafkaBrokersCount(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -545,7 +545,7 @@ const Topic11 = () => {
                 value={retentionDays}
                 onChange={(e) => setRetentionDays(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -599,7 +599,7 @@ const Topic11 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

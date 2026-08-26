@@ -70,7 +70,7 @@ SELECT
     c.course_fee
 FROM students s
 LEFT JOIN courses c ON s.course_id = c.course_id
-WHERE c.course_fee > '₹4,000'; -- Silently drops Susmita and Mahima!`,
+WHERE c.course_fee &gt; '₹4,000'; -- Silently drops Susmita and Mahima!`,
       resultRows: [
         { id: "101", name: "Mamata Hui", city: "Barrackpore", course: "MySQL Master", fee: "₹4,500", isNull: false },
         { id: "102", name: "Debangshu Roy", city: "Kolkata", course: "React Architect", fee: "₹5,500", isNull: false },
@@ -89,7 +89,7 @@ SELECT
 FROM students s
 LEFT JOIN courses c 
     ON s.course_id = c.course_id 
-   AND c.course_fee >= '₹5,000';`,
+   AND c.course_fee &ge; '₹5,000';`,
       resultRows: [
         { id: "101", name: "Mamata Hui", city: "Barrackpore", course: "No Matching Premium Course", fee: "₹0.00", isNull: true },
         { id: "102", name: "Debangshu Roy", city: "Kolkata", course: "React Architect", fee: "₹5,500", isNull: false },
@@ -300,7 +300,7 @@ LEFT JOIN courses c
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. LEFT + COALESCE() ✓
               </button>
 
@@ -312,7 +312,7 @@ LEFT JOIN courses c
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Orphan Anti-Join
               </button>
 
@@ -324,7 +324,7 @@ LEFT JOIN courses c
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. The WHERE Trap ❌
               </button>
 
@@ -336,7 +336,7 @@ LEFT JOIN courses c
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Safe ON Filter ✓
               </button>
             </div>

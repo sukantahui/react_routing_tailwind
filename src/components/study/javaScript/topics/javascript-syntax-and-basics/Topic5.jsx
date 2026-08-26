@@ -134,7 +134,7 @@ console.log(typeof {});
 console.log(typeof (() => {}));
 console.log(typeof NaN);
 console.log(typeof null);`}
-      />
+      /&gt;
 
       <p className="text-slate-400 text-xs italic">
         Try evaluating these in your JavaScript playground.

@@ -52,8 +52,8 @@ ORDER BY l.balance_inr DESC
 LIMIT 50000, 20;
 
 -- 📋 EXPLAIN ANALYZE Metrics:
--- -> Table scan on s (cost=52412 rows=500000) (actual time=0.15..5180.2 ms, rows=50020)
--- -> Using filesort (Disk temporary sort file: 28MB)
+-- &rarr; Table scan on s (cost=52412 rows=500000) (actual time=0.15..5180.2 ms, rows=50020)
+-- -&gt; Using filesort (Disk temporary sort file: 28MB)
 -- Total Actual Execution Time: 5,200 ms 🚨 (Severe System Bottleneck!)`,
       metricsTable: [
         { metric: "Execution Latency", value: "5,200.00 ms (5.2 seconds) 🚨" },
@@ -76,7 +76,7 @@ LIMIT 50000, 20;
       sqlCode: `-- ⚡ PHASE 2: SARGABILITY & PROJECTION REFACTORING (840 ms):
 -- 1. Eliminated SELECT * -> Project ONLY explicit columns needed by frontend.
 -- 2. Converted YEAR(s.registration_date) = 2026 into half-open date boundaries:
---    s.registration_date >= '2026-01-01 00:00:00' AND s.registration_date < '2027-01-01 00:00:00'
+--    s.registration_date &ge; '2026-01-01 00:00:00' AND s.registration_date < '2027-01-01 00:00:00'
 -- 3. Quoted phone string literal: s.phone_number = '9830012345' to eliminate implicit cast!
 
 EXPLAIN ANALYZE
@@ -137,7 +137,7 @@ JOIN departments d ON s.department_id = d.department_id
 JOIN student_ledgers l ON s.student_id = l.student_id
 LEFT JOIN FeeAggregates f ON s.student_id = f.student_id
 WHERE s.city = 'Barrackpore'
-  AND s.registration_date >= '2026-01-01 00:00:00' 
+  AND s.registration_date &ge; '2026-01-01 00:00:00' 
   AND s.registration_date < '2027-01-01 00:00:00'
 ORDER BY l.balance_inr DESC
 LIMIT 50000, 20;
@@ -164,7 +164,7 @@ LIMIT 50000, 20;
       latency: "14.00 ms",
       speedup: "371x Faster",
       sqlCode: `-- ⚡ PHASE 4: TARGETED COMPOSITE COVERING INDEX (14 ms):
--- Created index following the Equality -> Range -> Sort rule:
+-- Created index following the Equality &rarr; Range -&gt; Sort rule:
 -- DDL: CREATE INDEX idx_student_ledger_cov ON student_records (city, registration_date, student_id, name);
 -- DDL: CREATE INDEX idx_ledger_balance ON student_ledgers (student_id, balance_inr);
 
@@ -184,7 +184,7 @@ JOIN departments d ON s.department_id = d.department_id
 JOIN student_ledgers l ON s.student_id = l.student_id
 LEFT JOIN FeeAggregates f ON s.student_id = f.student_id
 WHERE s.city = 'Barrackpore'
-  AND s.registration_date >= '2026-01-01 00:00:00' 
+  AND s.registration_date &ge; '2026-01-01 00:00:00' 
   AND s.registration_date < '2027-01-01 00:00:00'
 ORDER BY l.balance_inr DESC
 LIMIT 50000, 20;
@@ -219,7 +219,7 @@ EXPLAIN ANALYZE
 WITH FeeAggregates AS (
     SELECT student_id, SUM(fee_amount) AS total_fees 
     FROM student_fees 
-    WHERE student_id > 50000
+    WHERE student_id &gt; 50000
     GROUP BY student_id
 )
 SELECT 
@@ -232,14 +232,14 @@ JOIN departments d ON s.department_id = d.department_id
 JOIN student_ledgers l ON s.student_id = l.student_id
 LEFT JOIN FeeAggregates f ON s.student_id = f.student_id
 WHERE s.city = 'Barrackpore'
-  AND s.registration_date >= '2026-01-01 00:00:00' 
+  AND s.registration_date &ge; '2026-01-01 00:00:00' 
   AND s.registration_date < '2027-01-01 00:00:00'
   AND s.student_id > 50000
 ORDER BY s.student_id ASC
 LIMIT 20;
 
 -- 📋 EXPLAIN ANALYZE Final Metrics:
--- -> Index range scan on s (s.student_id > 50000) (actual time=0.03..4.65 ms, rows=20)
+-- &rarr; Index range scan on s (s.student_id &gt; 50000) (actual time=0.03..4.65 ms, rows=20)
 -- -> Single-row point lookups on d and l (actual time=0.01 ms)
 -- 🚀 FINAL ACTUAL EXECUTION TIME: 4.80 ms (1,083x faster than baseline 5,200 ms!)`,
       metricsTable: [
@@ -540,7 +540,7 @@ LIMIT 20;
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

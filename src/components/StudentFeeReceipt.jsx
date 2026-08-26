@@ -176,9 +176,9 @@ const StudentFeeReceipt = () => {
       const crores = Math.floor(remaining / 10000000);
       result += convertBelowHundred(crores) + ' Crore';
       remaining %= 10000000;
-      if (remaining > 0) result += ' ';
+      if (remaining &gt; 0) result += ' ';
     }
-    if (remaining >= 100000) {
+    if (remaining &ge; 100000) {
       const lakhs = Math.floor(remaining / 100000);
       result += convertBelowHundred(lakhs) + ' Lakh';
       remaining %= 100000;
@@ -425,7 +425,7 @@ const StudentFeeReceipt = () => {
         alert('Please fill in period details and monthly fee amount for monthly fee type');
         return;
       }
-      if (!formData.feesPaid || parseFloat(formData.feesPaid) <= 0) {
+      if (!formData.feesPaid || parseFloat(formData.feesPaid) &le; 0) {
         alert('Please calculate total fees by selecting period and monthly amount');
         return;
       }
@@ -1008,7 +1008,7 @@ const StudentFeeReceipt = () => {
         <button
           onClick={() => setDarkMode(!darkMode)}
           className="flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 shadow-md hover:shadow-lg transition border border-gray-200 dark:border-gray-600 text-sm"
-        >
+        &gt;
           {darkMode ? (
             <>
               <span>☀️</span> Light Mode
@@ -1284,7 +1284,7 @@ const StudentFeeReceipt = () => {
                     onError={(e) => {
                       e.target.style.display = 'none';
                     }}
-                  />
+                  /&gt;
                 </div>
 
                 {/* PAID Stamp Image */}
@@ -1306,7 +1306,7 @@ const StudentFeeReceipt = () => {
                         onError={(e) => {
                           e.target.style.display = 'none';
                         }}
-                      />
+                      /&gt;
                       <h3 className="text-lg font-bold text-blue-700">Coder & AccoTax</h3>
                     </div>
                     <p className="text-[9px] text-gray-500 mt-1">Fee Payment Receipt</p>

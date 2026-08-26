@@ -85,7 +85,7 @@ CREATE PROCEDURE sp_calculate_installment_plan(
 )
 BEGIN
     CASE
-        WHEN p_is_scholarship = TRUE AND p_installments <= 2 THEN
+        WHEN p_is_scholarship = TRUE AND p_installments &le; 2 THEN
             SET p_surcharge_amount = 0.00;
             SET p_plan_description = 'Scholarship Flexi-Plan (0% Surcharge)';
         WHEN p_installments = 1 THEN
@@ -126,7 +126,7 @@ SELECT @total AS total_fee, @surcharge AS fee_surcharge, @plan AS chosen_plan;`,
 --     WHEN 'A' THEN SET v_val = 1;
 --     WHEN 'B' THEN SET v_val = 2;
 -- END CASE;
--- 🚨 If p_code = 'C' -> ERROR 1339 (20000): Case not found for CASE statement!
+-- 🚨 If p_code = 'C' -&gt; ERROR 1339 (20000): Case not found for CASE statement!
 
 -- ✅ DEFENSIVE ARCHITECTURE FIX:
 DELIMITER //
@@ -158,7 +158,7 @@ SELECT
     student_id,
     first_name,
     CASE 
-        WHEN exam_score_pct >= 90 THEN 'Distinction'
+        WHEN exam_score_pct &ge; 90 THEN 'Distinction'
         WHEN exam_score_pct >= 75 THEN 'First Class'
         ELSE 'Standard'
     END AS academic_division -- ✅ Ends with END
@@ -261,7 +261,7 @@ END CASE;`}
               <h3 className="text-base font-bold text-cyan-400">2. Searched CASE (Boolean Ranges)</h3>
               <pre className="p-3 bg-slate-950 rounded-lg text-xs font-mono text-cyan-300 border border-slate-800">
 {`CASE 
-    WHEN score >= 90 AND is_topper = 1 THEN SET disc = 30;
+    WHEN score &ge; 90 AND is_topper = 1 THEN SET disc = 30;
     WHEN score >= 75 THEN SET disc = 15;
     ELSE SET disc = 0;
 END CASE;`}
@@ -331,7 +331,7 @@ END CASE;`}
                     <rect x="440" y="30" width="380" height="100" rx="8" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5" />
                     <text x="630" y="55" fill="#c7d2fe" fontSize="10" fontWeight="bold" textAnchor="middle">Searched CASE (Independent Boolean Predicates)</text>
                     <rect x="455" y="70" width="350" height="40" rx="4" fill="#0f172a" />
-                    <text x="630" y="88" fill="#38bdf8" fontSize="8 font-mono" textAnchor="middle">CASE WHEN score &gt;= 90 ... WHEN installments &lt;= 3 ...</text>
+                    <text x="630" y="88" fill="#38bdf8" fontSize="8 font-mono" textAnchor="middle">CASE WHEN score >= 90 ... WHEN installments <= 3 ...</text>
                     <text x="630" y="102" fill="#94a3b8" fontSize="7 font-mono" textAnchor="middle">Evaluates expressions sequentially until first TRUE match</text>
                   </g>
                 </svg>
@@ -394,7 +394,7 @@ END CASE;`}
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

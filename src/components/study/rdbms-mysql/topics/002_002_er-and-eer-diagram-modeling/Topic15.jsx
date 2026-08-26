@@ -343,7 +343,7 @@ const Topic15 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 Binary M:N: Student Course Enrollments
               </button>
               <button
@@ -354,7 +354,7 @@ const Topic15 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 Ternary 3-Way: Doctor-Patient Prescriptions
               </button>
             </div>
@@ -372,7 +372,7 @@ const Topic15 = () => {
                         value={selectedStudentId}
                         onChange={(e) => setSelectedStudentId(Number(e.target.value))}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none"
-                      >
+                      &gt;
                         {students.map((s) => (
                           <option key={s.id} value={s.id}>
                             {s.name.split(" ")[0]} (#{s.id})
@@ -383,7 +383,7 @@ const Topic15 = () => {
                         value={selectedCourseId}
                         onChange={(e) => setSelectedCourseId(Number(e.target.value))}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none"
-                      >
+                      &gt;
                         {courses.map((c) => (
                           <option key={c.id} value={c.id}>
                             {c.title.split(" ")[0]} (#{c.id})
@@ -396,7 +396,7 @@ const Topic15 = () => {
                         onChange={(e) => setGradeInput(e.target.value)}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none"
                         placeholder="Grade"
-                      />
+                      /&gt;
                     </div>
                     <button
                       onClick={handleEnroll}
@@ -417,7 +417,7 @@ const Topic15 = () => {
                         value={selectedDocId}
                         onChange={(e) => setSelectedDocId(Number(e.target.value))}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
-                      >
+                      &gt;
                         <option value={1}>Dr. Sukanta (#1)</option>
                         <option value={2}>Dr. Debangshu (#2)</option>
                       </select>
@@ -425,7 +425,7 @@ const Topic15 = () => {
                         value={selectedPatId}
                         onChange={(e) => setSelectedPatId(Number(e.target.value))}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
-                      >
+                      &gt;
                         <option value={101}>Mamata (#101)</option>
                         <option value={102}>Abhronila (#102)</option>
                       </select>
@@ -433,7 +433,7 @@ const Topic15 = () => {
                         value={selectedMedId}
                         onChange={(e) => setSelectedMedId(Number(e.target.value))}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
-                      >
+                      &gt;
                         <option value={501}>Paracetamol (#501)</option>
                         <option value={502}>Amoxicillin (#502)</option>
                       </select>
@@ -444,7 +444,7 @@ const Topic15 = () => {
                       onChange={(e) => setDosage(e.target.value)}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2.5 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                       placeholder="Dosage Instructions"
-                    />
+                    /&gt;
                     <button
                       onClick={handlePrescribe}
                       className="w-full py-2 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-bold hover:bg-cyan-500/30 transition-all"
@@ -468,7 +468,7 @@ const Topic15 = () => {
                             key={`${en.studentId}-${en.courseId}`}
                             onClick={() => handleDeleteEnrollment(en.studentId, en.courseId)}
                             className="py-1 px-2.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-bold hover:bg-rose-500/30 transition-all"
-                          >
+                          &gt;
                             Drop ({st?.name.split(" ")[0]} ➔ {co?.title.split(" ")[0]})
                           </button>
                         );

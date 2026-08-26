@@ -25,7 +25,7 @@ const Topic13 = () => {
     { q: "How do void pointers enable generic functions?", a: "They can point to any data type, and by passing the size of the data, functions like `memcpy` work generically." },
     { q: "What is the role of `size_t` in generic functions?", a: "It tells the function how many bytes to operate on, allowing it to handle any type correctly." },
     { q: "What's a real-world example of generic handling in C?", a: "`qsort` works on any array type because it uses `void*` and a comparator callback that knows the actual type." },
-    { q: "Can macros provide generic functionality?", a: "Yes, macros like `#define MAX(a,b) ((a)>(b)?(a):(b))` work for any type, but have limitations (multiple evaluation)." },
+    { q: "Can macros provide generic functionality?", a: "Yes, macros like `#define MAX(a,b) ((a)&gt;(b)?(a):(b))` work for any type, but have limitations (multiple evaluation)." },
     { q: "What are the trade-offs of generic code in C?", a: "Pros: reusability, less code. Cons: type safety loss, potential performance overhead, more complex debugging." },
     { q: "How does C++ improve on C's generic capabilities?", a: "Templates provide type-safe generics at compile time without needing void pointers or manual size passing." },
     { q: "What is type erasure in C?", a: "Using `void*` to hide the actual type, but you lose type information and must recover it via casting or tags." },
@@ -64,8 +64,8 @@ const Topic13 = () => {
           <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded">
             <p className="font-mono text-sm">
               // Without generics, you need separate functions:<br/>
-              {`int max_int(int a, int b) { return a > b ? a : b; }`}<br/>
-              {`double max_double(double a, double b) { return a > b ? a : b; }`}<br/>
+              {`int max_int(int a, int b) { return a &gt; b ? a : b; }`}<br/>
+              {`double max_double(double a, double b) { return a &gt; b ? a : b; }`}<br/>
               // What about char*, structs, etc.?
             </p>
           </div>

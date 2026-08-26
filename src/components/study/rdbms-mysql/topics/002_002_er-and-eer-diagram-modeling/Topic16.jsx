@@ -310,7 +310,7 @@ const Topic16 = () => {
                     value={selectedStudentId}
                     onChange={(e) => setSelectedStudentId(Number(e.target.value))}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  >
+                  &gt;
                     {students.map((s) => (
                       <option key={s.id} value={s.id}>
                         {s.name.split(" ")[0]} (#{s.id})
@@ -323,12 +323,12 @@ const Topic16 = () => {
                     onChange={(e) => setPhoneInput(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                     placeholder="Phone Number"
-                  />
+                  /&gt;
                   <select
                     value={phoneType}
                     onChange={(e) => setPhoneType(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
-                  >
+                  &gt;
                     <option value="Mobile">Mobile</option>
                     <option value="WhatsApp">WhatsApp</option>
                     <option value="Home">Home</option>
@@ -354,7 +354,7 @@ const Topic16 = () => {
                       key={s.id}
                       onClick={() => handleDeleteStudent(s.id)}
                       className="py-1 px-2.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-bold hover:bg-rose-500/30 transition-all"
-                    >
+                    &gt;
                       Drop #{s.id} ({s.name.split(" ")[0]})
                     </button>
                   ))}

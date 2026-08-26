@@ -248,7 +248,7 @@ const Topic2 = () => {
                         ? "bg-slate-800 border-rose-500 shadow-md shadow-rose-500/20"
                         : "bg-slate-950 border-slate-800 hover:border-slate-700"
                     )}
-                  >
+                  &gt;
                     <span className="text-xs font-bold text-white line-clamp-1">{item.title}</span>
                     <span className="text-[10px] text-slate-400">{item.location}</span>
                     <span className="text-[10px] text-rose-400">Lead: {item.engineer}</span>
@@ -274,7 +274,7 @@ const Topic2 = () => {
                     checked={encryptionActive}
                     onChange={(e) => setEncryptionActive(e.target.checked)}
                     className="w-4 h-4 text-emerald-600 rounded bg-slate-800 border-slate-700"
-                  />
+                  /&gt;
                 </label>
 
                 {/* Control 2 */}
@@ -288,7 +288,7 @@ const Topic2 = () => {
                     checked={dnsFilterActive}
                     onChange={(e) => setDnsFilterActive(e.target.checked)}
                     className="w-4 h-4 text-emerald-600 rounded bg-slate-800 border-slate-700"
-                  />
+                  /&gt;
                 </label>
 
                 {/* Control 3 */}
@@ -302,7 +302,7 @@ const Topic2 = () => {
                     checked={s3BlockPublicActive}
                     onChange={(e) => setS3BlockPublicActive(e.target.checked)}
                     className="w-4 h-4 text-emerald-600 rounded bg-slate-800 border-slate-700"
-                  />
+                  /&gt;
                 </label>
 
                 {/* Control 4 */}
@@ -316,7 +316,7 @@ const Topic2 = () => {
                     checked={credentialGuardActive}
                     onChange={(e) => setCredentialGuardActive(e.target.checked)}
                     className="w-4 h-4 text-emerald-600 rounded bg-slate-800 border-slate-700"
-                  />
+                  /&gt;
                 </label>
               </div>
             </div>

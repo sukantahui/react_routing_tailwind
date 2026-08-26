@@ -393,7 +393,7 @@ const Topic37 = () => {
                                                 checked={shouldUpdate}
                                                 onChange={(e) => setShouldUpdate(e.target.checked)}
                                                 className="sr-only"
-                                            />
+                                            /&gt;
                                             <div className={clsx(
                                                 "block w-12 h-6 rounded-full transition-colors duration-300",
                                                 shouldUpdate ? "bg-green-500" : "bg-gray-300 dark:bg-gray-600"

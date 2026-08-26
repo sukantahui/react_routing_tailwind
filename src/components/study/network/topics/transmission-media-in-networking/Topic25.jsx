@@ -32,8 +32,8 @@ const Topic25 = () => {
   };
   
   const currentSpec = cableSpecs[cableType];
-  const isWithinSpec = cableLength <= currentSpec.maxLength;
-  const speedNote = cableType === "cat6" && cableLength > 55 ? "10 Gbps only supported up to 55m — at 100m, max is 1 Gbps" : 
+  const isWithinSpec = cableLength &le; currentSpec.maxLength;
+  const speedNote = cableType === "cat6" && cableLength &gt; 55 ? "10 Gbps only supported up to 55m — at 100m, max is 1 Gbps" : 
                     cableType === "cat6a" ? "Full 10 Gbps supported up to 100m" :
                     cableType === "cat5e" ? "Max 1 Gbps at 100m" : "";
   
@@ -206,7 +206,7 @@ const Topic25 = () => {
                             ? "bg-blue-600 text-white" 
                             : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                         )}
-                      >
+                      &gt;
                         {cat.toUpperCase()}
                       </button>
                     ))}
@@ -219,7 +219,7 @@ const Topic25 = () => {
                     type="range" min="1" max="120" step="1" value={cableLength}
                     onChange={(e) => setCableLength(parseInt(e.target.value))}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                  />
+                  /&gt;
                 </div>
                 
                 <div className={clsx(
@@ -475,7 +475,7 @@ const QAItem = ({ question, answer, index }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left p-4 bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex justify-between items-center"
-      >
+      &gt;
         <span className="font-medium text-gray-800 dark:text-gray-200">
           {index+1}. {question}
         </span>

@@ -66,7 +66,7 @@ FROM students;`,
     mode_where_vs_having: {
       title: "3. The Execution Order Rule (WHERE vs HAVING)",
       sqlQuery: `-- ❌ ILLEGAL (Throws Error 1111: Invalid use of group function):
--- SELECT city, AVG(course_fee) FROM students WHERE AVG(course_fee) > 4500 GROUP BY city;
+-- SELECT city, AVG(course_fee) FROM students WHERE AVG(course_fee) &gt; 4500 GROUP BY city;
 
 -- ✅ CORRECT: Group-level filters belong in the HAVING clause!
 SELECT 
@@ -75,7 +75,7 @@ SELECT
     CONCAT('₹', FORMAT(AVG(course_fee), 2)) AS avg_fee
 FROM students
 GROUP BY city
-HAVING AVG(course_fee) >= 5000;`,
+HAVING AVG(course_fee) &ge; 5000;`,
       transformationType: "Filter Execution Timeline (WHERE: Pre-Group | HAVING: Post-Group)",
       resultRows: [
         { col1: "Barrackpore", col2: "Count: 2 Students", col3: "Avg: ₹5,000.00", col4: "Filter: Passed (>= ₹5k)", col5: "Retained in Report", badgeColor: "emerald" },
@@ -325,7 +325,7 @@ FROM exam_submissions;
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Scalar Transforms
               </button>
 
@@ -337,7 +337,7 @@ FROM exam_submissions;
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Aggregate Compression
               </button>
 
@@ -349,7 +349,7 @@ FROM exam_submissions;
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. WHERE vs HAVING
               </button>
 
@@ -361,7 +361,7 @@ FROM exam_submissions;
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. NULL Elimination
               </button>
             </div>
@@ -502,7 +502,7 @@ FROM customers c
 INNER JOIN orders o USING (customer_id)
 WHERE o.status = 'COMPLETED'
 GROUP BY UPPER(TRIM(c.city))
-HAVING SUM(o.total_amount) >= 50000.00
+HAVING SUM(o.total_amount) &ge; 50000.00
 ORDER BY SUM(o.total_amount) DESC;`}
               </pre>
             </div>
@@ -559,7 +559,7 @@ ORDER BY SUM(o.total_amount) DESC;`}
                 <div>
                   <strong className="text-white">1. Write SARGable Date Range Predicates:</strong>
                   <p className="text-slate-400 mt-0.5">
-                    Use <code>WHERE order_date &gt;= '2026-01-01' AND order_date &lt; '2027-01-01'</code> to preserve fast B-Tree index seek lookups.
+                    Use <code>WHERE order_date >= '2026-01-01' AND order_date &lt; '2027-01-01'</code> to preserve fast B-Tree index seek lookups.
                   </p>
                 </div>
                 <div>

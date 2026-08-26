@@ -37,7 +37,7 @@ const Topic9 = () => {
       severity: "CRITICAL SECURITY RISK",
       badgeColor: "bg-rose-950 text-rose-300 border-rose-800",
       description: "A broader rule higher up matches all packets intended for a specific rule below it. The lower rule is completely shadowed and will NEVER execute, leaving intended blocks inoperative.",
-      codeSnippet: "Rule 10: PERMIT Source: 10.10.1.0/24 -> Dest: ANY\nRule 25: DROP   Source: 10.10.1.50   -> Dest: ANY  <-- SHADOWED! 10.10.1.50 is NEVER blocked!",
+      codeSnippet: "Rule 10: PERMIT Source: 10.10.1.0/24 &rarr; Dest: ANY\nRule 25: DROP   Source: 10.10.1.50   -&gt; Dest: ANY  <-- SHADOWED! 10.10.1.50 is NEVER blocked!",
       engineeringFix: "Move specific narrower rules (e.g. Host Drop) ABOVE general broader rules (e.g. Subnet Allow)."
     },
     redundancy: {
@@ -46,7 +46,7 @@ const Topic9 = () => {
       severity: "PERFORMANCE DEBT",
       badgeColor: "bg-amber-950 text-amber-300 border-amber-800",
       description: "Two rules perform identical actions on identical or overlapping traffic. Does not create security holes directly, but wastes CPU lookup cycles and confuses administrators.",
-      codeSnippet: "Rule 30: PERMIT Source: ANY -> Dest: 172.16.1.10:443 [TCP]\nRule 45: PERMIT Source: ANY -> Dest: 172.16.1.10:443 [TCP]  <-- REDUNDANT DUPLICATE",
+      codeSnippet: "Rule 30: PERMIT Source: ANY -> Dest: 172.16.1.10:443 [TCP]\nRule 45: PERMIT Source: ANY &rarr; Dest: 172.16.1.10:443 [TCP]  <-- REDUNDANT DUPLICATE",
       engineeringFix: "Run automated static deduplication scripts to delete identical subordinate rules."
     },
     correlation: {
@@ -55,7 +55,7 @@ const Topic9 = () => {
       severity: "AMBIGUOUS POLICY RISK",
       badgeColor: "bg-purple-950 text-purple-300 border-purple-800",
       description: "Two rules intersect on some packet criteria but have conflicting actions. The effective policy depends entirely on relative rule ordering, leading to unintended access grants.",
-      codeSnippet: "Rule 1: PERMIT Subnet 10.10.1.0/24 -> 172.16.1.10:80\nRule 2: DENY   Host   10.10.1.50   -> ANY:ANY\nResult: 10.10.1.50 gets access to 172.16.1.10:80 only because Rule 1 is above Rule 2!",
+      codeSnippet: "Rule 1: PERMIT Subnet 10.10.1.0/24 -> 172.16.1.10:80\nRule 2: DENY   Host   10.10.1.50 &rarr; ANY:ANY\nResult: 10.10.1.50 gets access to 172.16.1.10:80 only because Rule 1 is above Rule 2!",
       engineeringFix: "Disambiguate rules by creating explicit mutually exclusive source and destination definitions."
     },
     orphaned: {
@@ -64,7 +64,7 @@ const Topic9 = () => {
       severity: "UNMONITORED ATTACK SURFACE",
       badgeColor: "bg-sky-950 text-sky-300 border-sky-800",
       description: "Legacy permit rules pointing to IP addresses or servers that were decommissioned months or years ago, leaving unmonitored open doors in the perimeter.",
-      codeSnippet: "Rule 89: PERMIT ANY -> 10.10.4.80:8080 (Old staging database retired in 2022!)",
+      codeSnippet: "Rule 89: PERMIT ANY -&gt; 10.10.4.80:8080 (Old staging database retired in 2022!)",
       engineeringFix: "Conduct quarterly hit-count recertifications: auto-prune rules with zero hits over 90–180 days."
     }
   };
@@ -295,7 +295,7 @@ const Topic9 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {a.title}
               </button>
             ))}
@@ -362,7 +362,7 @@ const Topic9 = () => {
                 value={selectedTrafficFlow}
                 onChange={(e) => setSelectedTrafficFlow(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(trafficFlows).map((f) => (
                   <option key={f.id} value={f.id}>
                     {f.label}
@@ -381,7 +381,7 @@ const Topic9 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-rose-950/80 text-rose-300 border-rose-800"
                 )}
-              >
+              &gt;
                 {ruleOrderMode === "optimized_order" ? "✔ Optimized Order (Specific Above General)" : "⚠️ Flawed Order (Subnet Above Host Drop)"}
               </button>
             </div>
@@ -396,7 +396,7 @@ const Topic9 = () => {
                     ? "bg-sky-950/80 text-sky-300 border-sky-800"
                     : "bg-amber-950/80 text-amber-300 border-amber-800"
                 )}
-              >
+              &gt;
                 {defaultDenyEnabled ? "✔ Default-Deny (Catch-All Drop)" : "❌ Default-Allow (Blacklist Flaw)"}
               </button>
             </div>
@@ -484,7 +484,7 @@ const Topic9 = () => {
                 value={totalRuleCount}
                 onChange={(e) => setTotalRuleCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -500,7 +500,7 @@ const Topic9 = () => {
                 value={zeroHitRulePercentage}
                 onChange={(e) => setZeroHitRulePercentage(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -516,7 +516,7 @@ const Topic9 = () => {
                     ? "bg-emerald-950 text-emerald-300 border-emerald-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              >
+              &gt;
                 {trafficFrequencySorted ? "✔ Traffic-Frequency Sorted (90% hits top 5)" : "Unsorted Linear List"}
               </button>
             </div>
@@ -572,7 +572,7 @@ const Topic9 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

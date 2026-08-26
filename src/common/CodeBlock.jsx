@@ -131,7 +131,7 @@ export default function CodeBlock({
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="p-1 rounded hover:bg-slate-700/40"
-          >
+          &gt;
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 

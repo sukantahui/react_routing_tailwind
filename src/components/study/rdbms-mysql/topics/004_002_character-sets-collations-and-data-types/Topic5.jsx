@@ -92,7 +92,7 @@ CREATE TABLE bank_ledger (
     running_balance DECIMAL(15, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
-    CONSTRAINT chk_positive_amt CHECK (transaction_amount >= 0.00)
+    CONSTRAINT chk_positive_amt CHECK (transaction_amount &ge; 0.00)
 );
 
 -- Accurate aggregation without losing a single paisa:
@@ -331,7 +331,7 @@ WHERE table_schema = 'college_admissions'
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

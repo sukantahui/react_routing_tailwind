@@ -316,7 +316,7 @@ const Topic3 = () => {
                     value={selectedStudentId}
                     onChange={(e) => setSelectedStudentId(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  >
+                  &gt;
                     {studentsList.map((s) => (
                       <option key={s.id} value={s.id}>
                         #{s.id} - {s.name}
@@ -333,7 +333,7 @@ const Topic3 = () => {
                     value={selectedCourseId}
                     onChange={(e) => setSelectedCourseId(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  >
+                  &gt;
                     {coursesList.map((c) => (
                       <option key={c.id} value={c.id}>
                         #{c.id} - {c.title} (₹{c.fee.toLocaleString("en-IN")})
@@ -351,7 +351,7 @@ const Topic3 = () => {
                   value={gradeInput}
                   onChange={(e) => setGradeInput(e.target.value)}
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                >
+                &gt;
                   {["A+", "A", "B+", "B", "Audit"].map((g) => (
                     <option key={g} value={g}>
                       Grade: {g}
@@ -423,7 +423,7 @@ const Topic3 = () => {
                               <button
                                 onClick={() => handleDropEnrollment(e.studentId, e.courseId)}
                                 className="text-[10px] text-rose-400 hover:text-rose-300 underline font-sans"
-                              >
+                              &gt;
                                 Drop Link
                               </button>
                             </td>

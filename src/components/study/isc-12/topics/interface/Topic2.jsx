@@ -261,7 +261,7 @@ const Topic2 = () => {
             "Make them write a class that implements three different interfaces and use it polymorphically. " +
             "Debugging tip: When a class fails to compile due to unimplemented methods, read the error message carefully – it lists missing methods."
           }
-        />
+        /&gt;
       </section>
     </div>
   );

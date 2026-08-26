@@ -293,7 +293,7 @@ const Topic2 = () => {
                             ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                             : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                         )}
-                      >
+                      &gt;
                         <span>{col.label}</span>
                         <span>{isSelected ? "✓" : "+"}</span>
                       </button>
@@ -312,7 +312,7 @@ const Topic2 = () => {
                         ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                         : "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     )}
-                  >
+                  &gt;
                     {isDistinctMode ? "Set Mode (DISTINCT Active)" : "Bag Mode (Duplicates Kept)"}
                   </button>
                 </div>

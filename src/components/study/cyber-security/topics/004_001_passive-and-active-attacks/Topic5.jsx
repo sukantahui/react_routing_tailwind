@@ -444,7 +444,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                 </text>
               </g>
 
-              {/* PATH 1: Attacker -> Switch */}
+              {/* PATH 1: Attacker &rarr; Switch */}
               <path d="M 230 165 L 360 165" stroke="#f43f5e" strokeWidth="3" fill="none" />
               <circle r="5" fill="#f43f5e">
                 <animateMotion path="M 230 165 L 360 165" dur="1.5s" repeatCount="indefinite" />
@@ -480,7 +480,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                 </text>
               </g>
 
-              {/* PATH 2: Switch -> Victim (Blocked) */}
+              {/* PATH 2: Switch &rarr; Victim (Blocked) */}
               <path d="M 580 165 L 680 165" stroke="#334155" strokeWidth="3" strokeDasharray="4 4" fill="none" />
               <text x="630" y="155" fill="#f87171" fontSize="10" fontWeight="bold" textAnchor="middle">
                 BLOCKED
@@ -535,7 +535,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   MASQUERADE
                 </span>
@@ -631,7 +631,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     p=none (Monitor)
                   </button>
                   <button
@@ -642,7 +642,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                         ? "bg-blue-950 border-blue-500 text-blue-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     p=quarantine
                   </button>
                   <button
@@ -653,7 +653,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     p=reject (Strict)
                   </button>
                 </div>
@@ -668,7 +668,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                       : "bg-gray-900 border-gray-800 text-gray-400"
                   )}
-                >
+                &gt;
                   {isSpfMatch ? "✔ SPF IP Matched" : "✖ SPF Check Failed (Spoofed IP)"}
                 </button>
                 <button
@@ -679,7 +679,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                       : "bg-gray-900 border-gray-800 text-gray-400"
                   )}
-                >
+                &gt;
                   {isDkimSigned ? "✔ DKIM Valid Signature" : "✖ DKIM Unsigned / Fake"}
                 </button>
               </div>
@@ -734,7 +734,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -783,7 +783,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

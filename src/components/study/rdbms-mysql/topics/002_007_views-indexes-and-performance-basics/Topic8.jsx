@@ -30,7 +30,7 @@ FROM student_registry
 WHERE student_id = 45012;
 
 -- Traversal Execution:
--- Hop 1: Root Page (Page #3) -> Inspect boundaries -> Follow Pointer to Branch Page #48.
+-- Hop 1: Root Page (Page #3) &rarr; Inspect boundaries -&gt; Follow Pointer to Branch Page #48.
 -- Hop 2: Branch Page (Page #48) -> Binary search -> Follow Pointer to Leaf Page #1209.
 -- Hop 3: Leaf Page (Page #1209) -> Binary search within page directory -> Pinpoint row!
 -- Latency: 0.5 ms`,
@@ -368,7 +368,7 @@ ORDER BY tuition_fee_inr ASC;
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -477,7 +477,7 @@ ORDER BY tuition_fee_inr ASC;
 -- Traverses leaf doubly-linked list from 2026-04-01 to 2026-06-30:
 SELECT payment_id, student_id, amount_inr, payment_mode
 FROM fee_payments
-WHERE payment_date >= '2026-04-01' AND payment_date <= '2026-06-30'
+WHERE payment_date &ge; '2026-04-01' AND payment_date &le; '2026-06-30'
 ORDER BY payment_date ASC;`}
               </pre>
             </div>

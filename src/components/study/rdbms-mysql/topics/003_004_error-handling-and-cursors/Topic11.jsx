@@ -24,10 +24,10 @@ const Topic11 = () => {
       title: "1. 370x Speedup: Refactoring Cursor Updates to UPDATE ... JOIN",
       badge: "UPDATE JOIN Refactoring",
       badgeColor: "emerald",
-      sqlQuery: `-- ❌ SLOW PROCEDURAL CURSOR (10,000 Iterations -> 9.20s):
+      sqlQuery: `-- ❌ SLOW PROCEDURAL CURSOR (10,000 Iterations &rarr; 9.20s):
 -- OPEN cur; LOOP FETCH INTO v_id, v_gpa; UPDATE student_gpa SET gpa = v_gpa WHERE id = v_id; END LOOP;
 
--- ✅ FAST SET-BASED ALTERNATIVE (Direct Engine Execution -> 0.02s):
+-- ✅ FAST SET-BASED ALTERNATIVE (Direct Engine Execution -&gt; 0.02s):
 UPDATE student_gpa g
 JOIN (
     SELECT student_id, AVG(grade_point) AS calc_gpa 
@@ -354,7 +354,7 @@ GROUP BY d.department_id, d.department_name;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -475,7 +475,7 @@ UPDATE student_ledgers l
 JOIN (
     SELECT student_id, SUM(fee_amount) AS total_paid
     FROM payment_transactions
-    WHERE transaction_date >= CURDATE()
+    WHERE transaction_date &ge; CURDATE()
     GROUP BY student_id
 ) sub ON l.student_id = sub.student_id
 SET l.current_balance = l.current_balance - sub.total_paid;`}

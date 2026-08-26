@@ -52,7 +52,7 @@ const Topic0 = () => {
       name: "Phase 2: Logical Design (Relational Schema & 3NF)",
       focus: "HOW conceptual entities map into mathematical relational tables and foreign keys.",
       audience: "Data Modelers, Software Engineers, Database Architects",
-      artifacts: "Relational Schema Model, Normalized Tables (1NF -> BCNF)",
+      artifacts: "Relational Schema Model, Normalized Tables (1NF &rarr; BCNF)",
       independence: "DBMS-Independent (works on MySQL, PostgreSQL, Oracle)",
       badgeColor: "text-cyan-400 border-cyan-500/40 bg-cyan-500/10",
       content: (
@@ -347,7 +347,7 @@ CREATE TABLE student_courses (
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Conceptual Phase (ER)
               </button>
               <button
@@ -358,7 +358,7 @@ CREATE TABLE student_courses (
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Logical Phase (Schema & 3NF)
               </button>
               <button
@@ -369,7 +369,7 @@ CREATE TABLE student_courses (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Physical Phase (MySQL DDL)
               </button>
             </div>

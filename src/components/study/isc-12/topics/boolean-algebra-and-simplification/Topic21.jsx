@@ -120,7 +120,7 @@ const Topic21 = () => {
     const getSimplifiedExpression = () => {
         const values = kmapValues;
         const ones = [];
-        for (let i = 0; i <= 7; i++) {
+        for (let i = 0; i &le; 7; i++) {
             if (values[`m${i}`] === 1) ones.push(i);
         }
 
@@ -139,7 +139,7 @@ const Topic21 = () => {
 
         // Check columns (B,C groups) - needs pattern recognition
         // Check for 2x2 squares
-        // Quad (m0,m1,m4,m5) -> B'
+        // Quad (m0,m1,m4,m5) &rarr; B'
         if (values.m0 && values.m1 && values.m4 && values.m5) groups.push("B'");
         // Quad (m2,m3,m6,m7) -> B
         if (values.m2 && values.m3 && values.m6 && values.m7) groups.push("B");
@@ -345,7 +345,7 @@ const Topic21 = () => {
                                 checked={showDonCares}
                                 onChange={(e) => setShowDonCares(e.target.checked)}
                                 className="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500"
-                            />
+                            /&gt;
                             <span className="text-sm text-gray-700 dark:text-gray-300">Enable Don't Cares (X)</span>
                         </label>
                         {showDonCares && (
@@ -411,11 +411,11 @@ const Topic21 = () => {
 
                     {/* Control Buttons */}
                     <div className="flex flex-wrap gap-2 mb-6">
-                        <button onClick={() => setExample('majority')} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-all">Majority (3-input)</button>
-                        <button onClick={() => setExample('odd')} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-all">Odd Parity</button>
-                        <button onClick={() => setExample('even')} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-all">Even Parity</button>
-                        <button onClick={() => setExample('and3')} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-all">3-Input AND</button>
-                        <button onClick={() => setExample('or3')} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-all">3-Input OR</button>
+                        <button onClick={() => setExample('majority')} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-all"&gt;Majority (3-input)</button>
+                        <button onClick={() => setExample('odd')} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-all"&gt;Odd Parity</button>
+                        <button onClick={() => setExample('even')} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-all"&gt;Even Parity</button>
+                        <button onClick={() => setExample('and3')} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-all"&gt;3-Input AND</button>
+                        <button onClick={() => setExample('or3')} className="px-3 py-1 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-all"&gt;3-Input OR</button>
                         <button onClick={clearMap} className="px-3 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-all">Clear</button>
                     </div>
 
@@ -433,7 +433,7 @@ const Topic21 = () => {
                     <button
                         onClick={() => setShowGroups(!showGroups)}
                         className="mt-4 w-full py-2 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 rounded-lg font-medium transition-all duration-300 hover:bg-indigo-200 dark:hover:bg-indigo-900/60"
-                    >
+                    &gt;
                         {showGroups ? "Hide" : "Show"} Grouping Strategy
                     </button>
 
@@ -497,7 +497,7 @@ const Topic21 = () => {
                                                 className={`w-20 h-20 m-1 border rounded-lg font-bold text-lg
                   ${kmap4[cell.name] ? "bg-green-500 text-white" : "bg-gray-200 dark:bg-gray-700"}
                 `}
-                                            >
+                                            &gt;
                                                 {kmap4[cell.name]}
                                             </button>
                                         ))}

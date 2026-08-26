@@ -119,7 +119,7 @@ const SelectionSortDescendingVisualSVG = () => {
         <button 
           onClick={() => setStep((step + 1) % 7)}
           className="px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-all duration-300"
-        >
+        &gt;
           {step < 6 ? "Next Pass (Step " + (step + 2) + "/7)" : "Reset Animation"}
         </button>
       </div>
@@ -207,7 +207,7 @@ const Topic13 = () => {
                   ? "bg-rose-50 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 border-b-2 border-rose-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               )}
-            >
+            &gt;
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
@@ -620,7 +620,7 @@ const qaData = [
   },
   {
     question: "How to sort objects in descending order?",
-    answer: "Use comparator: if (comparator.compare(arr[j], arr[maxIndex]) > 0) to find maximum based on custom logic."
+    answer: "Use comparator: if (comparator.compare(arr[j], arr[maxIndex]) &gt; 0) to find maximum based on custom logic."
   },
   {
     question: "Why do we swap when arr[j] > arr[maxIndex] for descending?",

@@ -33,9 +33,9 @@ WHERE student_id = 101 AND date = '2026-08-25';
 -- 1. Client Connection: Authenticated via TCP/IP; Thread 42 assigned.
 -- 2. Lexical Parser: Tokenized [SELECT, student_id, FROM, ...]; Valid grammar tree built.
 -- 3. Preprocessor: Verified table 'student_attendance' exists; resolved columns; privileges OK.
--- 4. Optimizer: Evaluated plans -> Selected 'idx_student_date' (Cost: 1.2 vs Table Scan: 1450.0).
+-- 4. Optimizer: Evaluated plans &rarr; Selected 'idx_student_date' (Cost: 1.2 vs Table Scan: 1450.0).
 -- 5. Execution Engine: Sent command to Storage Engine via Handler API.
--- 6. Storage Engine (InnoDB): ha_innodb::index_read() -> Fetched 1 row from Buffer Pool -> Streamed to Client!`,
+-- 6. Storage Engine (InnoDB): ha_innodb::index_read() -&gt; Fetched 1 row from Buffer Pool -> Streamed to Client!`,
       resultRows: [
         { stage: "1. Connection Pool", subsystem: "Network Layer", action: "TCP Handshake & Auth", outputState: "Thread Allocated (ID 42)", latency: "0.05ms", status: "Connected ✅" },
         { stage: "2. Lexical Parser", subsystem: "SQL Parser", action: "Tokenization & Grammar Tree", outputState: "Abstract Syntax Tree (AST)", latency: "0.02ms", status: "Parsed Validly ✅" },
@@ -399,7 +399,7 @@ DEALLOCATE PREPARE stmt_student;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

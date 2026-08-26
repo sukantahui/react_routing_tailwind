@@ -56,7 +56,7 @@ const Topic33 = () => {
           },
           {
             title: "Limit Parameters",
-            desc: "Too many parameters ( > 3 ) make functions confusing. Group related data into structures.",
+            desc: "Too many parameters ( &gt; 3 ) make functions confusing. Group related data into structures.",
             icon: "🔢",
           },
           {

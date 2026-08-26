@@ -40,7 +40,7 @@ BEGIN
     FROM students WHERE student_id = p_student_id;
     
     -- Multi-Branch IF statement (Descending Thresholds):
-    IF v_score >= 95.00 THEN
+    IF v_score &ge; 95.00 THEN
         SET p_honor_tier = 'Distinction with Highest Honors 🏆';
         SET p_award_badge = '🌟 Gold Valedictorian Medallion';
     ELSEIF v_score >= 90.00 THEN
@@ -136,7 +136,7 @@ BEGIN
     DECLARE v_student_exists INT DEFAULT 0;
     
     -- Validation 1: Amount must be positive:
-    IF p_payment_amount <= 0.00 THEN
+    IF p_payment_amount &le; 0.00 THEN
         SET p_status_code = 'ERR_INVALID_AMOUNT';
         SET p_message = 'Payment amount must be strictly greater than zero.';
     ELSE
@@ -179,7 +179,7 @@ SELECT
 FROM students;
 
 -- 2. Procedural IF ... THEN ... END IF Statement (Inside Routines):
--- IF v_score >= 40.0 THEN
+-- IF v_score &ge; 40.0 THEN
 --     SET p_result = 'PASS';
 --     INSERT INTO passed_students VALUES (p_student_id);
 -- ELSE
@@ -293,7 +293,7 @@ END IF;`}
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
               <h3 className="text-base font-bold text-cyan-400">2. Descending Threshold Precedence</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                When checking numeric ranges with <code className="text-cyan-300 font-mono">&gt;=</code>, always order from highest to lowest (<code className="text-cyan-300 font-mono">&gt;= 90</code>, <code className="text-cyan-300 font-mono">&gt;= 75</code>, <code className="text-cyan-300 font-mono">&gt;= 60</code>) to prevent premature lower-tier matching.
+                When checking numeric ranges with <code className="text-cyan-300 font-mono">>=</code>, always order from highest to lowest (<code className="text-cyan-300 font-mono">>= 90</code>, <code className="text-cyan-300 font-mono">>= 75</code>, <code className="text-cyan-300 font-mono">>= 60</code>) to prevent premature lower-tier matching.
               </p>
             </div>
           </div>
@@ -322,7 +322,7 @@ END IF;`}
                   {/* Decision 1 */}
                   <g>
                     <polygon points="120,30 200,80 120,130 40,80" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5" />
-                    <text x="120" y="84" fill="#c7d2fe" fontSize="9 font-mono" textAnchor="middle">Score &gt;= 90%?</text>
+                    <text x="120" y="84" fill="#c7d2fe" fontSize="9 font-mono" textAnchor="middle">Score >= 90%?</text>
                   </g>
 
                   {/* Action 1 (True) */}
@@ -334,7 +334,7 @@ END IF;`}
                   {/* Decision 2 (False) */}
                   <g>
                     <polygon points="480,30 560,80 480,130 400,80" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5" />
-                    <text x="480" y="84" fill="#c7d2fe" fontSize="9 font-mono" textAnchor="middle">Score &gt;= 75%?</text>
+                    <text x="480" y="84" fill="#c7d2fe" fontSize="9 font-mono" textAnchor="middle">Score >= 75%?</text>
                   </g>
 
                   {/* Action 2 (True) */}
@@ -369,18 +369,18 @@ END IF;`}
                   {/* Correct Descending */}
                   <g>
                     <rect x="30" y="30" width="370" height="100" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="2" />
-                    <text x="215" y="55" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">✅ Correct Descending Order (&gt;= 90, &gt;= 75, &gt;= 60)</text>
+                    <text x="215" y="55" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">✅ Correct Descending Order (>= 90, >= 75, >= 60)</text>
                     <rect x="45" y="70" width="340" height="40" rx="4" fill="#022c22" />
-                    <text x="215" y="88" fill="#a7f3d0" fontSize="8 font-mono" textAnchor="middle">Score 96% matches &gt;= 90% Distinction branch perfectly!</text>
+                    <text x="215" y="88" fill="#a7f3d0" fontSize="8 font-mono" textAnchor="middle">Score 96% matches >= 90% Distinction branch perfectly!</text>
                     <text x="215" y="102" fill="#34d399" fontSize="7 font-bold" textAnchor="middle">Mathematically Correct Classification</text>
                   </g>
 
                   {/* Incorrect Ascending Bug */}
                   <g>
                     <rect x="440" y="30" width="380" height="100" rx="8" fill="#450a0a" stroke="#ef4444" strokeWidth="1.5" />
-                    <text x="630" y="55" fill="#fca5a5" fontSize="10" fontWeight="bold" textAnchor="middle">❌ Broken Ascending Order (&gt;= 60, &gt;= 75, &gt;= 90)</text>
+                    <text x="630" y="55" fill="#fca5a5" fontSize="10" fontWeight="bold" textAnchor="middle">❌ Broken Ascending Order (>= 60, >= 75, >= 90)</text>
                     <rect x="455" y="70" width="350" height="40" rx="4" fill="#1e293b" />
-                    <text x="630" y="88" fill="#f87171" fontSize="8 font-mono" textAnchor="middle">Score 96% matches &gt;= 60% Second Class and exits! 💥</text>
+                    <text x="630" y="88" fill="#f87171" fontSize="8 font-mono" textAnchor="middle">Score 96% matches >= 60% Second Class and exits! 💥</text>
                     <text x="630" y="102" fill="#fca5a5" fontSize="7 font-bold" textAnchor="middle">90% Distinction Branch is NEVER Reached!</text>
                   </g>
                 </svg>
@@ -414,7 +414,7 @@ END IF;`}
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -524,7 +524,7 @@ END IF;`}
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 text-xs font-mono text-emerald-300 border border-slate-800 overflow-x-auto">
 {`-- Automated Honors Trigger:
-IF v_score >= 95.00 THEN
+IF v_score &ge; 95.00 THEN
     INSERT INTO convocation_medals (student_id, medal_type) VALUES (p_id, 'GOLD_MEDALLION');
 ELSEIF v_score >= 90.00 THEN
     INSERT INTO convocation_medals (student_id, medal_type) VALUES (p_id, 'SILVER_STAR');
@@ -551,10 +551,10 @@ END IF;`}
                 <span>❌</span> Threshold Inversion Precedence Bug
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Checking <code className="text-rose-300 font-mono">IF v_score &gt;= 60 THEN ...</code> before checking <code className="text-rose-300 font-mono">&gt;= 90</code> causes a 95% topper to match the 60% branch and exit immediately!
+                Checking <code className="text-rose-300 font-mono">IF v_score >= 60 THEN ...</code> before checking <code className="text-rose-300 font-mono">>= 90</code> causes a 95% topper to match the 60% branch and exit immediately!
               </p>
               <div className="text-xs text-slate-400">
-                Fix: Always check highest thresholds first (<code className="text-emerald-400 font-mono">&gt;= 95</code>, <code className="text-emerald-400 font-mono">&gt;= 90</code>, <code className="text-emerald-400 font-mono">&gt;= 75</code>)!
+                Fix: Always check highest thresholds first (<code className="text-emerald-400 font-mono">>= 95</code>, <code className="text-emerald-400 font-mono">>= 90</code>, <code className="text-emerald-400 font-mono">>= 75</code>)!
               </div>
             </div>
 
@@ -595,7 +595,7 @@ END IF;`}
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">02.</span>
-                  <span>Order range thresholds in descending order (<code className="text-cyan-300 font-mono">&gt;= 90</code>, <code className="text-cyan-300 font-mono">&gt;= 75</code>).</span>
+                  <span>Order range thresholds in descending order (<code className="text-cyan-300 font-mono">>= 90</code>, <code className="text-cyan-300 font-mono">>= 75</code>).</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">03.</span>
@@ -664,7 +664,7 @@ END IF;`}
           />
 
           <Teacher
-            note="Procedural IF statements bring true algorithmic power to SQL routines. Remember the rule of short-circuit evaluation: MySQL executes the first branch that evaluates to TRUE and ignores the rest. Therefore, when checking numeric score or salary ranges, always check the highest thresholds first (>= 90, >= 75, >= 60). Always terminate your block with END IF; and include an ELSE fallback for complete safety!"
+            note="Procedural IF statements bring true algorithmic power to SQL routines. Remember the rule of short-circuit evaluation: MySQL executes the first branch that evaluates to TRUE and ignores the rest. Therefore, when checking numeric score or salary ranges, always check the highest thresholds first (>= 90, &ge; 75, >= 60). Always terminate your block with END IF; and include an ELSE fallback for complete safety!"
           />
         </section>
       </main>

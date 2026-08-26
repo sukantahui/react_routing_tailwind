@@ -329,7 +329,7 @@ const Topic11 = () => {
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     Owner: Person
                   </button>
                   <button
@@ -340,7 +340,7 @@ const Topic11 = () => {
                         ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     Owner: Company
                   </button>
                 </div>
@@ -353,14 +353,14 @@ const Topic11 = () => {
                       onChange={(e) => setPersonName(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                       placeholder="Full Name"
-                    />
+                    /&gt;
                     <input
                       type="text"
                       value={aadhaarNo}
                       onChange={(e) => setAadhaarNo(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                       placeholder="Aadhaar No"
-                    />
+                    /&gt;
                   </div>
                 ) : (
                   <div className="grid grid-cols-2 gap-2">
@@ -370,14 +370,14 @@ const Topic11 = () => {
                       onChange={(e) => setCompanyName(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
                       placeholder="Company Name"
-                    />
+                    /&gt;
                     <input
                       type="text"
                       value={gstin}
                       onChange={(e) => setGstin(e.target.value)}
                       className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
                       placeholder="GSTIN"
-                    />
+                    /&gt;
                   </div>
                 )}
 
@@ -399,7 +399,7 @@ const Topic11 = () => {
                     value={selectedOwnerId}
                     onChange={(e) => setSelectedOwnerId(Number(e.target.value))}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-indigo-500 focus:outline-none"
-                  >
+                  &gt;
                     {owners.map((o) => (
                       <option key={o.id} value={o.id}>
                         #{o.id} ({o.name.split(" ")[0]}, {o.type})
@@ -412,14 +412,14 @@ const Topic11 = () => {
                     onChange={(e) => setVehicleReg(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-indigo-500 focus:outline-none"
                     placeholder="Reg No"
-                  />
+                  /&gt;
                   <input
                     type="text"
                     value={vehicleModel}
                     onChange={(e) => setVehicleModel(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-indigo-500 focus:outline-none"
                     placeholder="Model"
-                  />
+                  /&gt;
                 </div>
                 <button
                   onClick={handleRegisterVehicle}

@@ -388,7 +388,7 @@ const Topic8 = () => {
                         ? "bg-cyan-600 text-white border-cyan-400 shadow-md shadow-cyan-900/40"
                         : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {item.title.split(". ")[1].split(" (")[0]}
                   </button>
                 );
@@ -565,7 +565,7 @@ const Topic8 = () => {
                 value={localNetworkEnv}
                 onChange={(e) => setLocalNetworkEnv(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-cyan-500 focus:outline-none"
-              >
+              &gt;
                 <option value="untrusted_cafe">Jadavpur Public Cafe Wi-Fi (Untrusted)</option>
                 <option value="compromised_hotspot">Ichapur Compromised Hotspot</option>
                 <option value="home_wifi">Barrackpore Residential Wi-Fi</option>
@@ -584,7 +584,7 @@ const Topic8 = () => {
                 value={endpointTunnelPolicy}
                 onChange={(e) => setEndpointTunnelPolicy(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-cyan-500 focus:outline-none"
-              >
+              &gt;
                 <option value="split_no_isolation">Split Tunnel (No Host Isolation - Vulnerable)</option>
                 <option value="split_with_isolation">Split Tunnel + Endpoint Host Isolation GPO</option>
                 <option value="full_tunnel_secure">Full Tunneling + Always-On Kill Switch</option>
@@ -603,7 +603,7 @@ const Topic8 = () => {
                 value={simulatedAttackType}
                 onChange={(e) => setSimulatedAttackType(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-cyan-500 focus:outline-none"
-              >
+              &gt;
                 <option value="pivot_attack">Lateral Pivot into Intranet ERP (Port 445/SMB)</option>
                 <option value="passive_sniff">Local DNS Leak &amp; Session Sniffing</option>
                 <option value="malware_exfil">Drive-by Malware &amp; DLP Bypass Exfiltration</option>
@@ -683,7 +683,7 @@ const Topic8 = () => {
                 value={remoteUserCount}
                 onChange={(e) => setRemoteUserCount(Number(e.target.value))}
                 className="w-full accent-cyan-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Number of remote staff streaming meetings, SaaS, and video over the VPN.
               </p>
@@ -703,7 +703,7 @@ const Topic8 = () => {
                 value={videoTrafficPerDay}
                 onChange={(e) => setVideoTrafficPerDay(Number(e.target.value))}
                 className="w-full accent-cyan-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Includes Microsoft Teams, Zoom HD calls, cloud downloads, and streaming.
               </p>
@@ -723,7 +723,7 @@ const Topic8 = () => {
                 value={gatewayBandwidthGbps}
                 onChange={(e) => setGatewayBandwidthGbps(Number(e.target.value))}
                 className="w-full accent-cyan-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Total provisioned symmetric internet pipe at the Barrackpore datacenter.
               </p>
@@ -746,7 +746,7 @@ const Topic8 = () => {
                 "text-2xl font-extrabold font-mono",
                 calculatedWanMetrics.saturationPercent > 85
                   ? "text-rose-400 animate-pulse"
-                  : calculatedWanMetrics.saturationPercent > 60
+                  : calculatedWanMetrics.saturationPercent &gt; 60
                   ? "text-amber-400"
                   : "text-emerald-400"
               )}>
@@ -982,7 +982,7 @@ const Topic8 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Barrackpore Dual-Home Drill
               </button>
               <button
@@ -993,7 +993,7 @@ const Topic8 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Sector V WAN Saturation Drill
               </button>
             </div>

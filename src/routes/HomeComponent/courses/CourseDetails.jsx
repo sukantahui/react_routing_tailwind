@@ -14,7 +14,7 @@ const CourseDetails = ({ details }) => {
         </div>
       )}
 
-      {details.syllabus && details.syllabus.length > 0 && (
+      {details.syllabus && details.syllabus.length &gt; 0 && (
         <div>
           <h4 className="text-sm font-semibold text-sky-300 mb-1">📚 Syllabus</h4>
           <ul className="list-disc list-inside text-sm space-y-0.5">
@@ -25,7 +25,7 @@ const CourseDetails = ({ details }) => {
         </div>
       )}
 
-      {details.learningOutcomes && details.learningOutcomes.length > 0 && (
+      {details.learningOutcomes && details.learningOutcomes.length &gt; 0 && (
         <div>
           <h4 className="text-sm font-semibold text-sky-300 mb-1">🎯 Learning Outcomes</h4>
           <ul className="list-disc list-inside text-sm space-y-0.5">
@@ -43,7 +43,7 @@ const CourseDetails = ({ details }) => {
         </div>
       )}
 
-      {details.projects && details.projects.length > 0 && (
+      {details.projects && details.projects.length &gt; 0 && (
         <div>
           <h4 className="text-sm font-semibold text-sky-300 mb-1">🛠️ Projects</h4>
           <ul className="list-disc list-inside text-sm space-y-0.5">

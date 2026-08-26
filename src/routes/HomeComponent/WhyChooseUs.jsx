@@ -131,7 +131,7 @@ const WhyChooseUs = () => {
                     ? "bg-purple-600 text-white shadow-md shadow-purple-600/30"
                     : "text-slate-400 hover:text-slate-200"
                 }`}
-              >
+              &gt;
                 {cat}
               </button>
             ))}
@@ -221,7 +221,7 @@ const WhyChooseUs = () => {
                           className="text-slate-500 hover:text-sky-400 ml-1.5 flex-shrink-0"
                           title="Copy Email"
                           aria-label={`Copy email for ${review.name}`}
-                        >
+                        &gt;
                           <i className="bi bi-copy text-[10px]"></i>
                         </button>
                       </div>

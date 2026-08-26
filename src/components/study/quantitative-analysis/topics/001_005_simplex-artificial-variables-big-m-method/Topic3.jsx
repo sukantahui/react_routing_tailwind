@@ -119,7 +119,7 @@ const Topic3 = () => {
                   value={a1}
                   onChange={(e) => setA1(Number(e.target.value))}
                   className="w-full"
-                />
+                /&gt;
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-600 dark:text-gray-400">Constraint 2: {a2}x + {b2}y ≥ {c2}</label>
@@ -130,7 +130,7 @@ const Topic3 = () => {
                   value={a2}
                   onChange={(e) => setA2(Number(e.target.value))}
                   className="w-full"
-                />
+                /&gt;
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-600 dark:text-gray-400">x value: {xVal}</label>
@@ -141,7 +141,7 @@ const Topic3 = () => {
                   value={xVal}
                   onChange={(e) => setXVal(Number(e.target.value))}
                   className="w-full"
-                />
+                /&gt;
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-600 dark:text-gray-400">y value: {yVal}</label>
@@ -152,7 +152,7 @@ const Topic3 = () => {
                   value={yVal}
                   onChange={(e) => setYVal(Number(e.target.value))}
                   className="w-full"
-                />
+                /&gt;
               </div>
             </div>
             <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
@@ -184,10 +184,10 @@ const Topic3 = () => {
                 <span className="font-semibold">Interpretation:</span>
               </p>
               <p className="text-sm text-gray-700 dark:text-gray-300">
-                s₁ = {surplus.s1.toFixed(1)} → {surplus.s1 >= 0 ? 'Excess over requirement' : 'Infeasible (negative surplus)'}
+                s₁ = {surplus.s1.toFixed(1)} → {surplus.s1 &ge; 0 ? 'Excess over requirement' : 'Infeasible (negative surplus)'}
               </p>
               <p className="text-sm text-gray-700 dark:text-gray-300">
-                s₂ = {surplus.s2.toFixed(1)} → {surplus.s2 >= 0 ? 'Excess over requirement' : 'Infeasible (negative surplus)'}
+                s₂ = {surplus.s2.toFixed(1)} → {surplus.s2 &ge; 0 ? 'Excess over requirement' : 'Infeasible (negative surplus)'}
               </p>
             </div>
           </div>
@@ -222,7 +222,7 @@ const Topic3 = () => {
                   ? "bg-orange-600 text-white shadow-lg shadow-orange-200 dark:shadow-orange-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -425,7 +425,7 @@ const Topic3 = () => {
                       <button
                         onClick={() => toggleExample(example.id)}
                         className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all duration-300"
-                      >
+                      &gt;
                         {showExample[example.id] ? 'Hide Detailed Steps' : 'Show Detailed Steps'}
                       </button>
                     </div>
@@ -466,13 +466,13 @@ const Topic3 = () => {
                         <button
                           onClick={() => setShowSolution(showSolution === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800/30 transition-all duration-300"
-                        >
+                        &gt;
                           {showSolution === problem.id ? 'Hide Solution' : 'Check Solution'}
                         </button>
                         <button
                           onClick={() => setShowHint(showHint === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
-                        >
+                        &gt;
                           {showHint === problem.id ? 'Hide Hint' : 'Show Hint'}
                         </button>
                       </div>

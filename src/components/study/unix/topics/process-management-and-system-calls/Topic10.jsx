@@ -129,27 +129,27 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
               </g>
               
               {/* <!-- Transition arrows -->
-              <!-- NEW -> READY (admit) --> */}
+              <!-- NEW -> READY (admit) - &rarr; */}
               <line x1="105" y1="80" x2="165" y2="80" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)"/>
               <text x="135" y="65" fill="#c026d3" fontSize="10">admit (fork/exec)</text>
               
-              {/* <!-- READY -> RUNNING (dispatch) --> */}
+              {/* <!-- READY -> RUNNING (dispatch) - &rarr; */}
               {/* <line x1="270" y1="80" x2="360" y2="80" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)"/> */}
               <text x="315" y="65" fill="#c026d3" fontSize="10">dispatch</text>
               
-              {/* <!-- RUNNING -> READY (preempt / time slice) --> */}
+              {/* <!-- RUNNING -> READY (preempt / time slice) - &rarr; */}
               <line x1="420" y1="110" x2="270" y2="110" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)" strokeDasharray="4"/>
               <text x="345" y="125" fill="#c026d3" fontSize="9">time slice expired / preempt</text>
               
-              {/* <!-- RUNNING -> WAITING (I/O request) --> */}
+              {/* <!-- RUNNING -> WAITING (I/O request) - &rarr; */}
               <line x1="420" y1="140" x2="420" y2="170" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)"/>
               <text x="435" y="155" fill="#c026d3" fontSize="10">I/O request</text>
               
-              {/* <!-- WAITING -> READY (event completion) --> */}
+              {/* <!-- WAITING -> READY (event completion) - &rarr; */}
               <line x1="380" y1="230" x2="275" y2="140" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)" strokeDasharray="4"/>
               <text x="330" y="190" fill="#c026d3" fontSize="9">event completion (I/O done)</text>
               
-              {/* <!-- RUNNING -> TERMINATED (exit) --> */}
+              {/* <!-- RUNNING -> TERMINATED (exit) - &rarr; */}
               <line x1="365" y1="80" x2="290" y2="170" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)"/>
               <text x="320" y="135" fill="#c026d3" fontSize="10">exit / kill</text>
               
@@ -228,7 +228,7 @@ int main() {
         printf("Parent (PID %d) - RUNNING, child PID = %d\\n", getpid(), pid);
         sleep(2);
         printf("Parent waiting for child... (state: SLEEPING while waiting)\\n");
-        wait(NULL);  // Parent blocks -> SLEEPING until child exits
+        wait(NULL);  // Parent blocks &rarr; SLEEPING until child exits
         printf("Parent reaped child. Now exiting.\\n");
     }
     return 0;
@@ -331,7 +331,7 @@ watch -n 1 'ps -e -o stat | head -20'`}
                 “The state transition diagram is the most visual part of teaching process management. At <strong>Naihati</strong>, I use coloured magnets on a whiteboard: blue for ready, green for running, red for waiting. 
                 <strong>Tuhina</strong> visualised it as a board game where the scheduler moves tokens. 
                 One effective demo: run <code>while true; do :; done</code> in one terminal and watch it stay R (runnable). 
-                Then run <code>{`cat > /dev/null`}</code> and press Ctrl+Z – see it become T (stopped). 
+                Then run <code>{`cat &gt; /dev/null`}</code> and press Ctrl+Z – see it become T (stopped). 
                 <strong>Abhronila</strong> found it illuminating to see her own bash shell change state while waiting for commands.
                 I always emphasise: a process in R state may be waiting for CPU, not actually executing – that's the 'ready' queue.”
               </p>

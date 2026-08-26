@@ -292,7 +292,7 @@ const Topic5 = () => {
                       value={selectedDeptId}
                       onChange={(e) => setSelectedDeptId(Number(e.target.value))}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                    >
+                    &gt;
                       {departments.map((d) => (
                         <option key={d.id} value={d.id}>
                           #{d.id} ({d.name.replace("Dept of ", "")})
@@ -306,7 +306,7 @@ const Topic5 = () => {
                       value={selectedFacultyId}
                       onChange={(e) => setSelectedFacultyId(Number(e.target.value))}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                    >
+                    &gt;
                       {faculties.map((f) => (
                         <option key={f.id} value={f.id}>
                           {f.name.split(" ")[1]} (#{f.id})

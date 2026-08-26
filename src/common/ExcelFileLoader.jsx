@@ -82,7 +82,7 @@ export default function ExcelFileLoader({
       } else if (sheetName && !names.includes(sheetName)) {
         console.warn(`Sheet "${sheetName}" not found. Using index ${sheetIndex}.`);
       }
-      if (targetIndex >= names.length) targetIndex = 0;
+      if (targetIndex &ge; names.length) targetIndex = 0;
       setCurrentSheetIdx(targetIndex);
     } catch (err) {
       console.error("Excel load error:", err);
@@ -154,7 +154,7 @@ export default function ExcelFileLoader({
   // ---- Pagination ----
   const totalPages = pageSize > 0 ? Math.ceil(sortedRows.length / pageSize) : 1;
   const paginatedRows = useMemo(() => {
-    if (pageSize <= 0) return sortedRows;
+    if (pageSize &le; 0) return sortedRows;
     const start = currentPage * pageSize;
     const end = start + pageSize;
     return sortedRows.slice(start, end);
@@ -258,7 +258,7 @@ export default function ExcelFileLoader({
       <div className="p-3 bg-slate-800 border-b border-slate-700 flex flex-wrap gap-3 justify-between items-center">
         <div className="flex flex-wrap gap-3 items-center">
           {title && <h3 className="text-md font-semibold text-slate-200">{title}</h3>}
-          {showSheetSelector && sheetNames.length > 1 && (
+          {showSheetSelector && sheetNames.length &gt; 1 && (
             <div className="flex items-center gap-2">
               <label htmlFor="sheet-select" className="text-sm text-slate-300">Sheet:</label>
               <select
@@ -283,7 +283,7 @@ export default function ExcelFileLoader({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="bg-slate-700 text-slate-200 text-sm rounded-md px-3 py-1 border border-slate-600 focus:outline-none focus:ring-1 focus:ring-sky-500"
-            />
+            /&gt;
           )}
           {(searchQuery || sortColumn !== null) && (
             <button
@@ -336,7 +336,7 @@ export default function ExcelFileLoader({
                     checked={selectedRows.size === paginatedRows.length && paginatedRows.length > 0}
                     onChange={handleSelectAll}
                     className="rounded bg-slate-700"
-                  />
+                  /&gt;
                 </th>
               )}
               <th className="border border-slate-600 px-3 py-2 w-12 text-center">#</th>
@@ -347,7 +347,7 @@ export default function ExcelFileLoader({
                     enableSorting ? "hover:bg-slate-700" : ""
                   }`}
                   onClick={() => handleSort(idx)}
-                >
+                &gt;
                   {header || `Column ${idx + 1}`}
                   {enableSorting && renderSortIcon(idx)}
                 </th>
@@ -372,7 +372,7 @@ export default function ExcelFileLoader({
                         checked={isSelected}
                         onChange={() => handleSelectRow(rowIdx)}
                         className="rounded bg-slate-700"
-                      />
+                      /&gt;
                     </td>
                   )}
                   <td className="border border-slate-700 px-3 py-1 text-slate-400 font-mono text-right">
@@ -398,7 +398,7 @@ export default function ExcelFileLoader({
       </div>
 
       {/* Pagination controls */}
-      {pageSize > 0 && totalPages > 1 && (
+      {pageSize &gt; 0 && totalPages > 1 && (
         <div className="flex flex-wrap justify-between items-center gap-3 p-3 bg-slate-800 border-t border-slate-700 text-sm">
           <div className="flex items-center gap-2">
             <span className="text-slate-300">Rows per page:</span>
@@ -406,7 +406,7 @@ export default function ExcelFileLoader({
               value={pageSize}
               onChange={(e) => setPageSize(Number(e.target.value))}
               className="bg-slate-700 text-slate-200 rounded px-2 py-1 border border-slate-600"
-            >
+            &gt;
               {pageSizeOptions.map((size) => (
                 <option key={size} value={size}>{size}</option>
               ))}

@@ -101,12 +101,12 @@ function App() {
       <Header 
         title="Barrackpore School Portal"
         onThemeToggle={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      />
+      /&gt;
       <main>
         <StudentList 
           students={students}
           onAddStudent={(name) => setStudents([...students, name])}
-        />
+        /&gt;
       </main>
       <footer>
         <p>Welcome to React development!</p>
@@ -313,7 +313,7 @@ export default App`,
       mainStructure: `const root = createRoot(document.getElementById('root')!)
 root.render(
   <ErrorBoundary>
-    <Suspense fallback={<LoadingScreen />}>
+    <Suspense fallback={<LoadingScreen />}&gt;
       <App />
     </Suspense>
   </ErrorBoundary>
@@ -342,9 +342,9 @@ root.render(
       appStructure: `function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/quiz" element={<Quiz />} />
-      <Route path="/results" element={<Results />} />
+      <Route path="/" element={<Home />} /&gt;
+      <Route path="/quiz" element={<Quiz />} /&gt;
+      <Route path="/results" element={<Results />} /&gt;
     </Routes>
   )
 }`,
@@ -502,7 +502,7 @@ root.render(
                   "bg-gradient-to-br from-gray-800 to-gray-900",
                   "hover:shadow-lg"
                 )}
-              >
+              &gt;
                 <div className="flex items-center mb-4">
                   <div className={clsx(
                     "w-12 h-12 rounded-xl flex items-center justify-center text-2xl mr-4",
@@ -671,7 +671,7 @@ root.render(
                         ? "bg-blue-600 text-white scale-110"
                         : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                     )}
-                  >
+                  &gt;
                     {step.id}
                   </button>
                 ))}
@@ -758,11 +758,11 @@ root.render(
                 <div className={clsx(
                   "flex flex-col items-center",
                   flowStep >= 1 ? "opacity-100" : "opacity-50"
-                )}>
+                )}&gt;
                   <div className={clsx(
                     "w-12 h-12 rounded-full flex items-center justify-center mb-2",
                     flowStep >= 1 ? "bg-blue-600" : "bg-gray-700"
-                  )}>
+                  )}&gt;
                     <span className="text-white">1</span>
                   </div>
                   <div className="text-center">
@@ -775,17 +775,17 @@ root.render(
                 <div className={clsx(
                   "hidden md:block w-16 h-1",
                   flowStep >= 2 ? "bg-green-500" : "bg-gray-700"
-                )}></div>
+                )}&gt;</div>
 
                 {/* Step 2 */}
                 <div className={clsx(
                   "flex flex-col items-center",
                   flowStep >= 2 ? "opacity-100" : "opacity-50"
-                )}>
+                )}&gt;
                   <div className={clsx(
                     "w-12 h-12 rounded-full flex items-center justify-center mb-2",
                     flowStep >= 2 ? "bg-green-600" : "bg-gray-700"
-                  )}>
+                  )}&gt;
                     <span className="text-white">2</span>
                   </div>
                   <div className="text-center">
@@ -798,17 +798,17 @@ root.render(
                 <div className={clsx(
                   "hidden md:block w-16 h-1",
                   flowStep >= 3 ? "bg-purple-500" : "bg-gray-700"
-                )}></div>
+                )}&gt;</div>
 
                 {/* Step 3 */}
                 <div className={clsx(
                   "flex flex-col items-center",
                   flowStep >= 3 ? "opacity-100" : "opacity-50"
-                )}>
+                )}&gt;
                   <div className={clsx(
                     "w-12 h-12 rounded-full flex items-center justify-center mb-2",
                     flowStep >= 3 ? "bg-purple-600" : "bg-gray-700"
-                  )}>
+                  )}&gt;
                     <span className="text-white">3</span>
                   </div>
                   <div className="text-center">
@@ -821,17 +821,17 @@ root.render(
                 <div className={clsx(
                   "hidden md:block w-16 h-1",
                   flowStep >= 4 ? "bg-yellow-500" : "bg-gray-700"
-                )}></div>
+                )}&gt;</div>
 
                 {/* Step 4 */}
                 <div className={clsx(
                   "flex flex-col items-center",
                   flowStep >= 4 ? "opacity-100" : "opacity-50"
-                )}>
+                )}&gt;
                   <div className={clsx(
                     "w-12 h-12 rounded-full flex items-center justify-center mb-2",
                     flowStep >= 4 ? "bg-yellow-600" : "bg-gray-700"
-                  )}>
+                  )}&gt;
                     <span className="text-white">4</span>
                   </div>
                   <div className="text-center">
@@ -844,17 +844,17 @@ root.render(
                 <div className={clsx(
                   "hidden md:block w-16 h-1",
                   flowStep >= 5 ? "bg-red-500" : "bg-gray-700"
-                )}></div>
+                )}&gt;</div>
 
                 {/* Step 5 */}
                 <div className={clsx(
                   "flex flex-col items-center",
                   flowStep >= 5 ? "opacity-100" : "opacity-50"
-                )}>
+                )}&gt;
                   <div className={clsx(
                     "w-12 h-12 rounded-full flex items-center justify-center mb-2",
                     flowStep >= 5 ? "bg-red-600" : "bg-gray-700"
-                  )}>
+                  )}&gt;
                     <span className="text-white">5</span>
                   </div>
                   <div className="text-center">
@@ -867,17 +867,17 @@ root.render(
                 <div className={clsx(
                   "hidden md:block w-16 h-1",
                   flowStep >= 6 ? "bg-indigo-500" : "bg-gray-700"
-                )}></div>
+                )}&gt;</div>
 
                 {/* Step 6 */}
                 <div className={clsx(
                   "flex flex-col items-center",
                   flowStep >= 6 ? "opacity-100" : "opacity-50"
-                )}>
+                )}&gt;
                   <div className={clsx(
                     "w-12 h-12 rounded-full flex items-center justify-center mb-2",
                     flowStep >= 6 ? "bg-indigo-600" : "bg-gray-700"
-                  )}>
+                  )}&gt;
                     <span className="text-white">6</span>
                   </div>
                   <div className="text-center">
@@ -1052,7 +1052,7 @@ function App() {
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} /&gt;
         </Routes>
       </Layout>
     </Router>

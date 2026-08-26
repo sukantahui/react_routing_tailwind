@@ -29,7 +29,7 @@ const Topic7 = () => {
     let badgeColor = "";
     let posture = "";
 
-    if (t >= 0.75) {
+    if (t &ge; 0.75) {
       status = "HIGH SECURITY (Near Zero-FAR)";
       posture = "Imposters strictly blocked (FAR < 0.01%), but legitimate users will experience ~6-10% false rejections requiring rescanning.";
       badgeColor = "bg-rose-950 text-rose-300 border-rose-700";
@@ -196,7 +196,7 @@ const Topic7 = () => {
                 value={decisionThreshold}
                 onChange={(e) => setDecisionThreshold(Number(e.target.value))}
                 className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-              />
+              /&gt;
               <div className="flex justify-between text-[10px] text-slate-500">
                 <span>0.05 (Lenient / High FAR)</span>
                 <span>0.50 (EER Crossover)</span>
@@ -343,7 +343,7 @@ const Topic7 = () => {
                       ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "defense" ? "High Security Defense" : key === "commercial" ? "Commercial Balanced" : "Transit High Flow"}
                 </button>
               ))}
@@ -404,7 +404,7 @@ const Topic7 = () => {
                       ? "bg-cyan-600 text-white shadow-lg shadow-cyan-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_threshold" ? "Barrackpore Treasury" : key === "kolkata_metro_turnstile" ? "Kolkata Metro Turnstile" : "Ichapur Dual-Tier"}
                 </button>
               ))}

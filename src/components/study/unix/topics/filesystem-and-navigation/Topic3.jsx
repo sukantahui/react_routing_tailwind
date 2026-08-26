@@ -90,7 +90,7 @@ export default class Topic3 extends Component {
       const units = ['B', 'K', 'M', 'G', 'T'];
       let index = 0;
       let formattedSize = size;
-      while (formattedSize >= 1024 && index < units.length - 1) {
+      while (formattedSize &ge; 1024 && index < units.length - 1) {
         formattedSize /= 1024;
         index++;
       }
@@ -275,7 +275,7 @@ export default class Topic3 extends Component {
                 }`}
                 onClick={() => this.handleOptionSelect(option)}
                 style={{animationDelay: `${300 + index * 100}ms`}}
-              >
+              &gt;
                 <span className="text-xl mr-3">{optionDetails[option].icon}</span>
                 <div className="text-left">
                   <div className="font-bold font-mono">{optionDetails[option].name}</div>
@@ -430,7 +430,7 @@ export default class Topic3 extends Component {
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                       }`}
                       onClick={() => this.toggleOption(option)}
-                    >
+                    &gt;
                       <span className="text-lg mb-1">{optionDetails[option].icon}</span>
                       <span className="font-mono text-sm">{option}</span>
                       <span className="text-xs opacity-80 mt-1">
@@ -503,7 +503,7 @@ export default class Topic3 extends Component {
                           : 'hover:bg-gray-800'
                         } ${file.type === 'hidden' && !lsOptions['-a'] ? 'hidden' : ''}`}
                         onClick={() => this.handleFileSelect(file.name)}
-                      >
+                      &gt;
                         {lsOptions['-l'] ? (
                           <div className="grid grid-cols-12 gap-2 items-center">
                             <div className={`col-span-3 font-mono ${this.getPermissionColor(file.permissions)}`}>

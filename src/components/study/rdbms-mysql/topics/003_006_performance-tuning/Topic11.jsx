@@ -46,8 +46,8 @@ WHERE c.department_id = 1;
 
 -- ⚡ BENEFIT:
 -- 1. Exactly ONE database query executed.
--- 2. Network round-trips drop from 51 -> 1.
--- 3. Execution time drops from 185.0 ms -> 2.1 ms (90x faster)!`,
+-- 2. Network round-trips drop from 51 &rarr; 1.
+-- 3. Execution time drops from 185.0 ms -&gt; 2.1 ms (90x faster)!`,
       resultRows: [
         {
           strategy: "N+1 Lazy Loading Loop",
@@ -514,7 +514,7 @@ WHERE student_id IN (101, 102, 103);
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -695,7 +695,7 @@ LEFT JOIN enrollments e ON c.course_id = e.course_id
 WHERE c.department_id = 1
 GROUP BY c.course_id, c.course_name, c.department_id;
 
--- Result: Latency dropped from 420 ms -> 3.2 ms (130x faster)!`}
+-- Result: Latency dropped from 420 ms &rarr; 3.2 ms (130x faster)!`}
                 </pre>
               </div>
             </div>
@@ -722,7 +722,7 @@ UPDATE fee_receipts
 SET status = 'Reconciled', reconciled_at = NOW() 
 WHERE receipt_id IN (/* 500 receipt IDs passed as array parameter */);
 
--- Result: Execution dropped from 4,200 ms -> 12.0 ms (350x speedup)!`}
+-- Result: Execution dropped from 4,200 ms &rarr; 12.0 ms (350x speedup)!`}
                 </pre>
               </div>
             </div>
@@ -746,7 +746,7 @@ WHERE receipt_id IN (/* 500 receipt IDs passed as array parameter */);
                 <span>⚠️</span> Pitfall 1: Queries Inside Array.prototype.map()
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Writing <code className="text-rose-300 font-mono">await Promise.all(items.map(async i =&gt; db.query(...)))</code> fires dozens of concurrent queries simultaneously, flooding connection pool queues and causing database thread spikes.
+                Writing <code className="text-rose-300 font-mono">await Promise.all(items.map(async i => db.query(...)))</code> fires dozens of concurrent queries simultaneously, flooding connection pool queues and causing database thread spikes.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
                 Fix: Collect IDs into an array and fire a single WHERE id IN (...) query.

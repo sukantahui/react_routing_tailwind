@@ -168,7 +168,7 @@ const Topic8 = () => {
                   activeMode === "stream" ? "border-green-500 dark:border-green-400" : "border-transparent"
                 )}
                 onMouseEnter={() => setActiveMode("stream")}
-              >
+              &gt;
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg">
@@ -275,7 +275,7 @@ const Topic8 = () => {
                   activeMode === "file" ? "border-red-500 dark:border-red-400" : "border-transparent"
                 )}
                 onMouseEnter={() => setActiveMode("file")}
-              >
+              &gt;
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
@@ -480,7 +480,7 @@ sed -e 's/ - -.*//' -e '/192.168/d' -e 's/^/IP: /' access.log`}
                     <h4 className="font-semibold mb-2 text-sm text-gray-500 dark:text-gray-400">Combining with File Edit:</h4>
                     <pre className="bg-purple-900/30 text-purple-100 p-3 rounded-lg overflow-x-auto text-xs">
 {`# Extract data, then modify config
-grep "ERROR" app.log | sed 's/.*ERROR: //' > errors.txt
+grep "ERROR" app.log | sed 's/.*ERROR: //' &gt; errors.txt
 
 # Update config file with backup
 sed -i.bak 's/old_database/new_database/' config.cnf

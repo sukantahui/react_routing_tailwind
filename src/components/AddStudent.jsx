@@ -251,7 +251,7 @@ export default function AddStudent() {
               type="button"
               onClick={() => navigate(-1)}
               className="px-5 py-2 rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all"
-            >
+            &gt;
               Cancel
             </button>
             
@@ -293,7 +293,7 @@ export default function AddStudent() {
                   });
                 }}
                 className="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600"
-              >
+              &gt;
                 Log in Console
               </button>
 
@@ -322,7 +322,7 @@ export default function AddStudent() {
                   })
                 }
                 className="px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500"
-              >
+              &gt;
                 Autofill Test Data
               </button>
 

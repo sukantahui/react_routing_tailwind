@@ -142,7 +142,7 @@ const Topic44 = () => {
     const value = e.target.value;
     setTextareaInput(value);
     logEvent('onChange', 'Textarea', { 
-      value: value.substring(0, 30) + (value.length > 30 ? '...' : ''),
+      value: value.substring(0, 30) + (value.length &gt; 30 ? '...' : ''),
       length: value.length,
       lines: value.split('\n').length
     });
@@ -350,7 +350,7 @@ const Topic44 = () => {
                 <strong className="block mb-2 text-green-800 dark:text-green-300">Event Handler Pattern:</strong>
                 <pre className="bg-gray-800 text-gray-100 p-3 rounded-lg overflow-x-auto text-sm">
 {`// Inline arrow function
-<button onClick={(e) => handleClick(e, 'button1')}>
+<button onClick={(e) => handleClick(e, 'button1')}&gt;
   Click Me
 </button>
 
@@ -485,21 +485,21 @@ const Topic44 = () => {
                   <button
                     onClick={(e) => handleClick(e, 'Primary')}
                     className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-300"
-                  >
+                  &gt;
                     Primary Button
                   </button>
                   
                   <button
                     onClick={(e) => handleClick(e, 'Secondary')}
                     className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-colors duration-300"
-                  >
+                  &gt;
                     Secondary Button
                   </button>
                   
                   <button
                     onClick={(e) => handleClick(e, 'Success')}
                     className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors duration-300"
-                  >
+                  &gt;
                     Success Button
                   </button>
                 </div>
@@ -564,7 +564,7 @@ const Topic44 = () => {
                 <div 
                   onClick={() => alert('Outer div clicked!')}
                   className="p-4 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg cursor-pointer"
-                >
+                &gt;
                   <div className="mb-2 text-sm text-yellow-800 dark:text-yellow-300">
                     Outer Div (click me)
                   </div>
@@ -630,7 +630,7 @@ const Topic44 = () => {
                     Characters: {textInput.length}
                     {textInput && (
                       <span className="ml-2">
-                        Preview: "{textInput.substring(0, 20)}{textInput.length > 20 ? '...' : ''}"
+                        Preview: "{textInput.substring(0, 20)}{textInput.length &gt; 20 ? '...' : ''}"
                       </span>
                     )}
                   </div>
@@ -686,7 +686,7 @@ const Topic44 = () => {
                           passwordInput.length < 6 && "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-300",
                           passwordInput.length >= 6 && passwordInput.length < 10 && "bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-300",
                           passwordInput.length >= 10 && "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300"
-                        )}>
+                        )}&gt;
                           {passwordInput.length === 0 ? 'Empty' :
                            passwordInput.length < 6 ? 'Weak' :
                            passwordInput.length < 10 ? 'Medium' : 'Strong'}
@@ -998,8 +998,8 @@ const Topic44 = () => {
                       <div className={clsx(
                         "w-2 h-2 rounded-full mr-2",
                         formData.name.trim() && formData.name.length >= 2 ? "bg-green-500" : "bg-red-500"
-                      )}></div>
-                      <span>Name: {formData.name.trim() && formData.name.length >= 2 ? 'Valid' : 'Invalid'}</span>
+                      )}&gt;</div>
+                      <span>Name: {formData.name.trim() && formData.name.length &ge; 2 ? 'Valid' : 'Invalid'}</span>
                     </div>
                     <div className="flex items-center">
                       <div className={clsx(
@@ -1012,8 +1012,8 @@ const Topic44 = () => {
                       <div className={clsx(
                         "w-2 h-2 rounded-full mr-2",
                         formData.message.trim() && formData.message.length >= 10 ? "bg-green-500" : "bg-red-500"
-                      )}></div>
-                      <span>Message: {formData.message.trim() && formData.message.length >= 10 ? 'Valid' : 'Invalid'}</span>
+                      )}&gt;</div>
+                      <span>Message: {formData.message.trim() && formData.message.length &ge; 10 ? 'Valid' : 'Invalid'}</span>
                     </div>
                     <div className="flex items-center">
                       <div className={clsx(

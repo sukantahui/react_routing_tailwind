@@ -331,7 +331,7 @@ const Topic81 = () => {
               ? "bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed"
               : "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800/30"
           )}
-        >
+        &gt;
           ← Previous
         </button>
         <span className="text-sm text-gray-600 dark:text-gray-400">
@@ -346,7 +346,7 @@ const Topic81 = () => {
               ? "bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed"
               : "bg-indigo-500 text-white hover:bg-indigo-600"
           )}
-        >
+        &gt;
           Next →
         </button>
       </div>
@@ -394,7 +394,7 @@ const Topic81 = () => {
                     ? "bg-indigo-500 text-white"
                     : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {step.num}. {step.label}
               </button>
             ))}
@@ -413,7 +413,7 @@ const Topic81 = () => {
                   ? "bg-indigo-500 text-white shadow-lg shadow-indigo-200 dark:shadow-indigo-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}

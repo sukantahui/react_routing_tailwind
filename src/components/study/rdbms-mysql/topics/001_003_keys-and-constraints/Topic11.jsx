@@ -78,7 +78,7 @@ const Topic11 = () => {
     if (violationType === "fee_check") {
       simulatedError = "ERROR 3819 (HY000): Check constraint 'chk_students_fee_floor' is violated.";
       errorExplanation =
-        "Self-Documenting Named Constraint: The error immediately reveals the table (`students`) and the broken business rule (`fee_floor >= ₹10,000`), requiring zero reverse-engineering!";
+        "Self-Documenting Named Constraint: The error immediately reveals the table (`students`) and the broken business rule (`fee_floor &ge; ₹10,000`), requiring zero reverse-engineering!";
     } else if (violationType === "email_unique") {
       simulatedError = "ERROR 1062 (23000): Duplicate entry 'mamata@gmail.com' for key 'uq_students_email'";
       errorExplanation =
@@ -224,7 +224,7 @@ const Topic11 = () => {
                   </text>
                   <line x1="15" y1="34" x2="325" y2="34" stroke="#334155" />
                   <text x="20" y="54" fill="#cbd5e1" fontSize="10">Error: Check constraint 'chk_students_fee_floor' is violated.</text>
-                  <text x="20" y="74" fill="#10b981" fontWeight="bold" fontSize="10">✓ Self-documenting: Table 'students', Rule 'fee_floor &gt;= ₹10,000'</text>
+                  <text x="20" y="74" fill="#10b981" fontWeight="bold" fontSize="10">✓ Self-documenting: Table 'students', Rule 'fee_floor >= ₹10,000'</text>
                 </g>
             </svg>
           </div>
@@ -265,7 +265,7 @@ const Topic11 = () => {
                         ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     Anonymous Syntax
                   </button>
                   <button
@@ -276,7 +276,7 @@ const Topic11 = () => {
                         ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     Explicit CONSTRAINT Names
                   </button>
                 </div>
@@ -301,7 +301,7 @@ const Topic11 = () => {
                           ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    >
+                    &gt;
                       <span>{v.label}</span>
                       <span className="font-mono text-[10px] text-slate-500">{v.code}</span>
                     </button>
@@ -377,7 +377,7 @@ const Topic11 = () => {
     CONSTRAINT pk_student_admissions PRIMARY KEY (student_id),
     CONSTRAINT uq_student_roll UNIQUE (roll_no),
     CONSTRAINT uq_student_email UNIQUE (email),
-    CONSTRAINT chk_student_fee_floor CHECK (admission_fee >= 10000.00)
+    CONSTRAINT chk_student_fee_floor CHECK (admission_fee &ge; 10000.00)
 ) ENGINE=InnoDB;`}
               </pre>
             </div>
@@ -405,7 +405,7 @@ const Topic11 = () => {
         REFERENCES orders(order_id) ON DELETE RESTRICT,
     CONSTRAINT fk_invoices_customer FOREIGN KEY (customer_id)
         REFERENCES customers(customer_id) ON DELETE RESTRICT,
-    CONSTRAINT chk_invoices_total CHECK (invoice_total > 0.00)
+    CONSTRAINT chk_invoices_total CHECK (invoice_total &gt; 0.00)
 ) ENGINE=InnoDB;`}
               </pre>
             </div>

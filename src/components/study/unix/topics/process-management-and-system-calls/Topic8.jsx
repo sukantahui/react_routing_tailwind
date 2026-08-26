@@ -188,7 +188,7 @@ int main() {
         close(fd[1]);  // close unused write end
         char buffer[100];
         ssize_t n = read(fd[0], buffer, sizeof(buffer) - 1);
-        if (n > 0) {
+        if (n &gt; 0) {
             buffer[n] = '\\0';
             printf("Child received: %s\\n", buffer);
         }
@@ -235,7 +235,7 @@ ulimit -a | grep 'pipe size'
 # Create a slow pipeline
 yes | head -1000 | wc -l
 # Measure pipeline performance
-time sh -c "dd if=/dev/zero bs=1M count=100 | cat > /dev/null"`}
+time sh -c "dd if=/dev/zero bs=1M count=100 | cat &gt; /dev/null"`}
             </code>
           </div>
         </div>
@@ -275,7 +275,7 @@ time sh -c "dd if=/dev/zero bs=1M count=100 | cat > /dev/null"`}
             <h4 className="font-bold text-emerald-700 flex items-center gap-2">✅ Best Practices</h4>
             <ul className="list-disc pl-5 mt-2 text-sm space-y-1">
               <li>Always check the return of <code>read()</code> and <code>write()</code> for errors and short transfers.</li>
-              <li>Use <code>{`while ( (n = read(fd, buf, size)) > 0 ) { ... }`}</code> to read until EOF.</li>
+              <li>Use <code>{`while ( (n = read(fd, buf, size)) &gt; 0 ) { ... }`}</code> to read until EOF.</li>
               <li>For structured messages, encode length first or delimit with newlines (as Unix tools do).</li>
               <li>Consider using <code>socketpair(AF_UNIX, SOCK_STREAM, 0, fd)</code> for bidirectional streams.</li>
               <li>In multi‑threaded programs, each thread should have its own pipe or proper locking.</li>

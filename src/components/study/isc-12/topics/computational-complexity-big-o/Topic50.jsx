@@ -59,7 +59,7 @@ const Topic50 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            >
+            &gt;
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -568,7 +568,7 @@ const Topic50 = () => {
               understanding NP-hard problems and why we need heuristics and approximations. Practice with 
               n-queens and graph coloring to see the effect of pruning on performance.`
             }
-          />
+          /&gt;
         </div>
 
         {/* ─── Footer ────────────────────────────────────────────────────────── */}

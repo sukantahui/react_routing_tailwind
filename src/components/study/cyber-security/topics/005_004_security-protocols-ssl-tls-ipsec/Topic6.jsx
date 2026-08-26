@@ -377,7 +377,7 @@ const Topic6 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{item.name.split(" (")[0]}</span>
                   <span className="text-[10px] text-cyan-400 font-mono">+{item.overheadBytes}B Overhead</span>
                 </button>
@@ -482,7 +482,7 @@ const Topic6 = () => {
                     ? "bg-rose-950 border-rose-600 text-rose-300 shadow-md shadow-rose-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 Test AH (Protocol 51)
               </button>
               <button
@@ -493,7 +493,7 @@ const Topic6 = () => {
                     ? "bg-emerald-950 border-emerald-600 text-emerald-300 shadow-md shadow-emerald-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 Test ESP NAT-T (UDP 4500)
               </button>
             </div>
@@ -600,7 +600,7 @@ const Topic6 = () => {
                   value={simulatedLinkSpeedGbps}
                   onChange={(e) => setSimulatedLinkSpeedGbps(Number(e.target.value))}
                   className="w-full accent-cyan-500 cursor-pointer"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-2">
@@ -616,7 +616,7 @@ const Topic6 = () => {
                   value={simulatedPacketSize}
                   onChange={(e) => setSimulatedPacketSize(Number(e.target.value))}
                   className="w-full accent-emerald-500 cursor-pointer"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -716,7 +716,7 @@ const Topic6 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{drill.title}</span>
                   <span className="text-[10px] text-cyan-400">{drill.engineers}</span>
                 </button>

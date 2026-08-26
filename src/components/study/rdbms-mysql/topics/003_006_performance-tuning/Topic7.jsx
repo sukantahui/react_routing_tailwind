@@ -97,7 +97,7 @@ JOIN (
 -- 📋 EXPLAIN Output for Subquery:
 -- key = 'idx_status_reg_id'
 -- Extra = 'Using index' ⚡
--- Latency drops from 450 ms -> 4.2 ms (100x faster)!`,
+-- Latency drops from 450 ms &rarr; 4.2 ms (100x faster)!`,
       resultRows: [
         {
           patternName: "Standard Pagination (LIMIT 100k, 20)",
@@ -568,7 +568,7 @@ WHERE city = 'Kolkata';
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -731,7 +731,7 @@ WHERE city = 'Kolkata';
 CREATE INDEX idx_customer_orders_cov 
 ON customer_orders (customer_id, order_date DESC, total_amount_inr, status);
 
--- Result: Extra = 'Using index' ⚡ (Zero base table reads; latency drops from 28 ms -> 0.4 ms!)`}
+-- Result: Extra = 'Using index' ⚡ (Zero base table reads; latency drops from 28 ms &rarr; 0.4 ms!)`}
                 </pre>
               </div>
             </div>

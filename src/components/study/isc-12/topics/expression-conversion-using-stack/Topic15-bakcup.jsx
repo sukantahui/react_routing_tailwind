@@ -80,7 +80,7 @@ function infixToPostfixWithTrace(infix) {
       while (
         stack.length &&
         stack[stack.length - 1] !== '(' &&
-        PRECEDENCE[stack[stack.length - 1]] >= PRECEDENCE[ch]
+        PRECEDENCE[stack[stack.length - 1]] &ge; PRECEDENCE[ch]
       ) {
         const popped = stack.pop();
         output += popped;
@@ -356,7 +356,7 @@ function Tracer({ convertFn, resultLabel, placeholder, defaultExpr, examples = [
   };
 
   const goToStep = (index) => {
-    if (index >= 0 && index < traces.length) setCurrentStep(index);
+    if (index &ge; 0 && index < traces.length) setCurrentStep(index);
   };
 
   // Keyboard navigation
@@ -395,7 +395,7 @@ function Tracer({ convertFn, resultLabel, placeholder, defaultExpr, examples = [
       <div className="mt-2 flex flex-wrap gap-2">
         <span className="text-sm text-gray-500 dark:text-gray-400 mr-2">Examples:</span>
         {examples.map((ex) => (
-          <button key={ex} onClick={() => setExpr(ex)} className="px-3 py-1 text-xs bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-full hover:border-indigo-500 transition-colors">
+          <button key={ex} onClick={() => setExpr(ex)} className="px-3 py-1 text-xs bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-full hover:border-indigo-500 transition-colors"&gt;
             {ex}
           </button>
         ))}
@@ -414,14 +414,14 @@ function Tracer({ convertFn, resultLabel, placeholder, defaultExpr, examples = [
         </div>
       )}
 
-      {traces.length > 0 && (
+      {traces.length &gt; 0 && (
         <div className="mt-4">
           <div className="flex items-center gap-4 flex-wrap">
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Step:</span>
-            <button onClick={() => goToStep(currentStep - 1)} disabled={currentStep === 0} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600">◀</button>
+            <button onClick={() => goToStep(currentStep - 1)} disabled={currentStep === 0} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600"&gt;◀</button>
             <span className="text-sm font-mono">{currentStep + 1} / {traces.length}</span>
-            <button onClick={() => goToStep(currentStep + 1)} disabled={currentStep === traces.length - 1} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600">▶</button>
-            <input type="range" min={0} max={traces.length - 1} value={currentStep} onChange={(e) => goToStep(parseInt(e.target.value))} className="w-48 accent-indigo-600 dark:accent-indigo-400" />
+            <button onClick={() => goToStep(currentStep + 1)} disabled={currentStep === traces.length - 1} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600"&gt;▶</button>
+            <input type="range" min={0} max={traces.length - 1} value={currentStep} onChange={(e) => goToStep(parseInt(e.target.value))} className="w-48 accent-indigo-600 dark:accent-indigo-400" /&gt;
           </div>
 
           <VisualStack traces={traces} currentStep={currentStep} title="Stack (top → bottom)" />

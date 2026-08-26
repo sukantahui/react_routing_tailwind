@@ -28,7 +28,7 @@ const Topic6 = () => {
         { label: "2x + 3y ≤ 12", a: 2, b: 3, c: 12, sign: "≤" },
         { label: "x - 2y ≥ 6", a: 1, b: -2, c: 6, sign: "≥" },
         { label: "3x + y < 9", a: 3, b: 1, c: 9, sign: "<" },
-        { label: "x + 2y > 8", a: 1, b: 2, c: 8, sign: ">" },
+        { label: "x + 2y > 8", a: 1, b: 2, c: 8, sign: "&gt;" },
         { label: "4x - y ≤ 4", a: 4, b: -1, c: 4, sign: "≤" },
     ];
 
@@ -45,7 +45,7 @@ const Topic6 = () => {
         const { a, b, c } = current;
         const points = [];
         if (b !== 0 && a !== 0) {
-            for (let x = -5; x <= 5; x += 0.1) {
+            for (let x = -5; x &le; 5; x += 0.1) {
                 const y = (c - a * x) / b;
                 if (y >= -5 && y <= 5) {
                     points.push(toPixel(x, y));
@@ -53,7 +53,7 @@ const Topic6 = () => {
             }
         } else if (a !== 0 && b === 0) {
             const xVal = c / a;
-            if (xVal >= -5 && xVal <= 5) {
+            if (xVal >= -5 && xVal &le; 5) {
                 const px = 200 + xVal * 40;
                 points.push({ px, py: 20 });
                 points.push({ px, py: 380 });
@@ -78,10 +78,10 @@ const Topic6 = () => {
         const lhs = a * testPoint.x + b * testPoint.y;
         let result = false;
         switch (sign) {
-            case "≤": result = lhs <= c; break;
+            case "≤": result = lhs &le; c; break;
             case "≥": result = lhs >= c; break;
             case "<": result = lhs < c; break;
-            case ">": result = lhs > c; break;
+            case ">": result = lhs &gt; c; break;
             default: result = false;
         }
         return result;
@@ -177,7 +177,7 @@ const Topic6 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Why Test a Point?
@@ -212,7 +212,7 @@ const Topic6 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">✏️</span>
                         The Test Point Method — Step by Step
@@ -264,7 +264,7 @@ const Topic6 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🖱️</span>
                         Test a Point — Interactive
@@ -290,7 +290,7 @@ const Topic6 = () => {
                                             ? "bg-fuchsia-600 dark:bg-fuchsia-500 text-white border-fuchsia-600 dark:border-fuchsia-500 shadow-md"
                                             : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-fuchsia-400 dark:hover:border-fuchsia-500"
                                     )}
-                                >
+                                &gt;
                                     {con.label}
                                 </button>
                             ))}
@@ -309,7 +309,7 @@ const Topic6 = () => {
                                             ? "bg-emerald-600 text-white border-emerald-600"
                                             : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-fuchsia-400 dark:hover:border-fuchsia-500"
                                     )}
-                                >
+                                &gt;
                                     {pt.label}
                                 </button>
                             ))}
@@ -346,7 +346,7 @@ const Topic6 = () => {
                                     <g key={`t6-tick-${v}`}>
                                         <line x1={v} y1="195" x2={v} y2="205" stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
                                         <line x1="195" y1={v} x2="205" y2={v} stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
-                                        {v >= 40 && v <= 360 && (
+                                        {v &ge; 40 && v &le; 360 && (
                                             <>
                                                 <text x={v - 4} y="218" fontSize="11" fill="#475569" className="dark:fill-slate-500">{v === 200 ? 0 : (v - 200) / 40}</text>
                                                 <text x="178" y={v + 5} fontSize="11" fill="#475569" className="dark:fill-slate-500">{v === 200 ? 0 : (200 - v) / 40}</text>
@@ -367,14 +367,14 @@ const Topic6 = () => {
                                 )}
 
                                 {/* Draw constraint line */}
-                                {linePoints.length > 1 && (
+                                {linePoints.length &gt; 1 && (
                                     <polyline
                                         points={linePoints.map(p => `${p.px},${p.py}`).join(' ')}
                                         fill="none"
                                         stroke="#8b5cf6"
                                         strokeWidth="3"
                                         strokeDasharray={isSolid ? "none" : "8,6"}
-                                    />
+                                    /&gt;
                                 )}
 
                                 {/* Test point */}
@@ -443,7 +443,7 @@ const Topic6 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">💡</span>
                         Choosing the Right Test Point
@@ -494,7 +494,7 @@ const Topic6 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🌍</span>
                         Real-World Examples
@@ -543,7 +543,7 @@ const Topic6 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -594,7 +594,7 @@ const Topic6 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[6]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

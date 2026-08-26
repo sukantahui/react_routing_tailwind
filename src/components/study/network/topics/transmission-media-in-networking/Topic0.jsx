@@ -257,13 +257,13 @@ const Topic0 = () => {
                 <button
                   onClick={() => sendBit(0)}
                   className="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500"
-                >
+                &gt;
                   Send 0
                 </button>
                 <button
                   onClick={() => sendBit(1)}
                   className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
+                &gt;
                   Send 1
                 </button>
               </div>
@@ -440,7 +440,7 @@ const Topic0 = () => {
                       checked={signalType === "voltage"}
                       onChange={(e) => setSignalType(e.target.value)}
                       className="form-radio"
-                    />
+                    /&gt;
                     Voltage (Electrical)
                   </label>
                 </div>

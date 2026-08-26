@@ -37,7 +37,7 @@ const Topic2 = () => {
       matchType: "Exact Host (/32) or Subnet Prefix (CIDR)",
       functionDesc: "Identifies the network layer origin of the packet. Used for Bogon filtering, Geo-IP blocking, and ingress spoofing detection.",
       vulnerabilityContext: "Easily spoofed in connectionless UDP and raw TCP SYN packets unless border routers enforce strict uRPF (RFC 3704).",
-      example: "198.51.100.25 -> Mask: 255.255.255.255"
+      example: "198.51.100.25 &rarr; Mask: 255.255.255.255"
     },
     dst_ip: {
       key: "dst_ip",
@@ -345,7 +345,7 @@ const Topic2 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {f.name}
               </button>
             ))}
@@ -407,7 +407,7 @@ const Topic2 = () => {
                 value={selectedTestPacket}
                 onChange={(e) => setSelectedTestPacket(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(testPackets).map((p) => (
                   <option key={p.id} value={p.id}>
                     {p.label}
@@ -427,7 +427,7 @@ const Topic2 = () => {
                       ? "bg-amber-950/80 text-amber-300 border-amber-800 shadow-md"
                       : "bg-slate-950 text-gray-400 border-slate-800"
                   )}
-                >
+                &gt;
                   Stateless ACL (Cisco 'established')
                 </button>
                 <button
@@ -438,7 +438,7 @@ const Topic2 = () => {
                       ? "bg-emerald-950/80 text-emerald-300 border-emerald-800 shadow-md"
                       : "bg-slate-950 text-gray-400 border-slate-800"
                   )}
-                >
+                &gt;
                   Stateful Inspection (SPI Conntrack)
                 </button>
               </div>
@@ -539,7 +539,7 @@ const Topic2 = () => {
                 value={packetRateMpps}
                 onChange={(e) => setPacketRateMpps(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -555,7 +555,7 @@ const Topic2 = () => {
                 value={ruleCount}
                 onChange={(e) => setRuleCount(Number(e.target.value))}
                 className="w-full accent-indigo-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -571,7 +571,7 @@ const Topic2 = () => {
                     ? "bg-emerald-950 text-emerald-300 border-emerald-800"
                     : "bg-amber-950 text-amber-300 border-amber-800"
                 )}
-              >
+              &gt;
                 {hardwareAcceleration ? "✔ Hardware TCAM Active (O(1))" : "⚠️ Software CPU Scan (O(N))"}
               </button>
             </div>
@@ -627,7 +627,7 @@ const Topic2 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

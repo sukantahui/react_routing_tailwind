@@ -24,7 +24,7 @@ const addArrow = (a, b) => a + b;
 
 console.log(addArrow(5, 7));`}
         language="javascript"
-      />
+      /&gt;
 
       <h3 className="text-lg text-slate-200 font-semibold">With one parameter</h3>
 
@@ -33,7 +33,7 @@ console.log(addArrow(5, 7));`}
 
 console.log(greet("Coder & AccoTax"));`}
         language="javascript"
-      />
+      /&gt;
 
       <p className="text-slate-400 text-sm">
         Arrow functions do not have their own <code>this</code>.

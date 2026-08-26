@@ -73,7 +73,7 @@ $PROMPT = '{hostname} {user} {cwd} {git_branch} {time} > '
 
 # You can also define a function to set prompt conditionally
 def git_branch():
-    branch = $(git branch --show-current 2>/dev/null).strip()
+    branch = $(git branch --show-current 2&gt;/dev/null).strip()
     return f"[{branch}]" if branch else ""
 
 # To test in current session, source this file:

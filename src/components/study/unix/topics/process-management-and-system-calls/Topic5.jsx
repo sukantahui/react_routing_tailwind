@@ -145,7 +145,7 @@ int main() {
     pid_t pid = fork();
     if (pid == 0) {
         printf("Child:  my PID = %d, my parent PID = %d\\n", getpid(), getppid());
-    } else if (pid > 0) {
+    } else if (pid &gt; 0) {
         printf("Parent: my PID = %d, my child PID = %d, my parent PID = %d\\n",
                getpid(), pid, getppid());
     }

@@ -117,7 +117,7 @@ const Topic38 = () => {
         // The problem statement: "must produce at least 24 units of total output and at least 12 units of Product A"
         // So x+y≥24 and x≥12. Also 3x+2y≤48.
         // At x=12, y=12 gives total 24, but material: 3(12)+2(12)=36+24=60>48 — infeasible.
-        // At x=16, y=8 gives total 24, material: 3(16)+2(8)=48+16=64>48 — infeasible.
+        // At x=16, y=8 gives total 24, material: 3(16)+2(8)=48+16=64&gt;48 — infeasible.
         // At x=20, y=4 gives total 24, material: 3(20)+2(4)=60+8=68>48 — infeasible.
         // It seems there is no feasible solution! The constraints are contradictory.
         // Let's check x+y=24 and 3x+2y=48: subtract 2(x+y)=48 from 3x+2y=48: x=0, y=24 — E(0,24), but x<12.
@@ -197,18 +197,18 @@ const Topic38 = () => {
         const points = [];
         const range = 30;
         if (b !== 0 && a !== 0) {
-            for (let x = -2; x <= range + 2; x += 0.5) {
+            for (let x = -2; x &le; range + 2; x += 0.5) {
                 const y = (c - a * x) / b;
                 if (y >= -2 && y <= range + 2) {
                     const p = toPixel(x, y);
-                    if (p.px >= 40 && p.px <= 560 && p.py >= 20 && p.py <= 390) {
+                    if (p.px >= 40 && p.px &le; 560 && p.py >= 20 && p.py <= 390) {
                         points.push(p);
                     }
                 }
             }
         } else if (a !== 0 && b === 0) {
             const xVal = c / a;
-            if (xVal >= -2 && xVal <= range + 2) {
+            if (xVal >= -2 && xVal &le; range + 2) {
                 const px = toPixel(xVal, 0).px;
                 points.push({ px, py: 20 });
                 points.push({ px, py: 380 });
@@ -238,7 +238,7 @@ const Topic38 = () => {
                     pts.push(toPixel(0, 0));
                     pts.push(toPixel(range, 0));
                     const yRight = yAtX(range);
-                    if (yRight >= -2 && yRight <= range) {
+                    if (yRight &ge; -2 && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(0);
@@ -249,7 +249,7 @@ const Topic38 = () => {
                     pts.push(toPixel(0, range));
                     pts.push(toPixel(range, range));
                     const yRight = yAtX(range);
-                    if (yRight >= -2 && yRight <= range) {
+                    if (yRight >= -2 && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(0);
@@ -262,7 +262,7 @@ const Topic38 = () => {
                     pts.push(toPixel(0, range));
                     pts.push(toPixel(range, range));
                     const yRight = yAtX(range);
-                    if (yRight >= -2 && yRight <= range) {
+                    if (yRight &ge; -2 && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(0);
@@ -273,7 +273,7 @@ const Topic38 = () => {
                     pts.push(toPixel(0, 0));
                     pts.push(toPixel(range, 0));
                     const yRight = yAtX(range);
-                    if (yRight >= -2 && yRight <= range) {
+                    if (yRight >= -2 && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(0);
@@ -299,7 +299,7 @@ const Topic38 = () => {
         } else if (b !== 0 && a === 0) {
             const yVal = c / b;
             const py = toPixel(0, yVal).py;
-            if (sign === "≥" || sign === ">") {
+            if (sign === "≥" || sign === "&gt;") {
                 pts.push(toPixel(0, yVal));
                 pts.push(toPixel(range, yVal));
                 pts.push(toPixel(range, range));
@@ -311,7 +311,7 @@ const Topic38 = () => {
                 pts.push(toPixel(0, yVal));
             }
         }
-        return pts.filter(p => p.px >= 40 && p.px <= 560 && p.py >= 20 && p.py <= 390);
+        return pts.filter(p => p.px &ge; 40 && p.px &le; 560 && p.py >= 20 && p.py <= 390);
     };
 
     // Get feasible region shading
@@ -324,11 +324,11 @@ const Topic38 = () => {
     const getObjectiveLineAtC = (C) => {
         const points = [];
         const range = 30;
-        for (let x = -2; x <= range + 2; x += 0.5) {
+        for (let x = -2; x &le; range + 2; x += 0.5) {
             const y = (C - 2 * x) / 3;
             if (y >= -2 && y <= range + 2) {
                 const p = toPixel(x, y);
-                if (p.px >= 40 && p.px <= 560 && p.py >= 20 && p.py <= 390) {
+                if (p.px >= 40 && p.px &le; 560 && p.py >= 20 && p.py <= 390) {
                     points.push(p);
                 }
             }
@@ -422,7 +422,7 @@ const Topic38 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Problem Statement
@@ -464,7 +464,7 @@ const Topic38 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">✏️</span>
                         Step 1: Formulate the LP Problem
@@ -504,7 +504,7 @@ const Topic38 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📊</span>
                         Step 2: Graphical Solution
@@ -525,7 +525,7 @@ const Topic38 = () => {
                                         ? "bg-blue-600 text-white border-blue-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showAllLines ? "Hide All" : "Show All Lines"}
                             </button>
                             <button
@@ -536,7 +536,7 @@ const Topic38 = () => {
                                         ? "bg-amber-600 text-white border-amber-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showCornerPoints ? "Hide Corners" : "Show Corners"}
                             </button>
                             <button
@@ -547,7 +547,7 @@ const Topic38 = () => {
                                         ? "bg-purple-600 text-white border-purple-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showSteps ? "Hide Steps" : "Show Steps"}
                             </button>
                         </div>
@@ -564,7 +564,7 @@ const Topic38 = () => {
                                     value={objectiveValue}
                                     onChange={(e) => setObjectiveValue(parseFloat(e.target.value))}
                                     className="flex-1 accent-amber-500"
-                                />
+                                /&gt;
                                 <span className="text-sm font-mono font-bold text-amber-700 dark:text-amber-300 min-w-[40px]">
                                     {objectiveValue.toFixed(0)}
                                 </span>
@@ -599,7 +599,7 @@ const Topic38 = () => {
                                                     fill={con.color}
                                                     fillOpacity="0.08"
                                                     stroke="none"
-                                                />
+                                                /&gt;
                                             );
                                         }
                                         return null;
@@ -615,7 +615,7 @@ const Topic38 = () => {
                                                     fill="#f59e0b"
                                                     fillOpacity="0.12"
                                                     stroke="none"
-                                                />
+                                                /&gt;
                                             );
                                         }
                                         return null;
@@ -634,7 +634,7 @@ const Topic38 = () => {
                                                     strokeWidth={isOptimal ? 3 : 1.5}
                                                     strokeDasharray={isOptimal ? "none" : "6,4"}
                                                     opacity={isOptimal ? 1 : 0.4}
-                                                />
+                                                /&gt;
                                             );
                                         }
                                         return null;
@@ -648,7 +648,7 @@ const Topic38 = () => {
                                             stroke="#f59e0b"
                                             strokeWidth="3"
                                             strokeDasharray="8,4"
-                                        />
+                                        /&gt;
                                     )}
 
                                     {/* Current line label */}
@@ -679,12 +679,12 @@ const Topic38 = () => {
                                     {/* Tick marks */}
                                     {[110, 140, 170, 200, 230, 260, 290, 320, 350, 380, 410, 440, 470, 500, 530].map((v) => {
                                         const val = Math.round((v - 80) / 14.67);
-                                        if (val >= 0 && val <= 30 && val % 2 === 0) {
+                                        if (val &ge; 0 && val &le; 30 && val % 2 === 0) {
                                             return (
                                                 <g key={`t38-tick-${v}`}>
                                                     <line x1={v} y1="353" x2={v} y2="367" stroke="#1e293b" strokeWidth="1.5" className="dark:stroke-slate-300" />
                                                     <line x1="73" y1={v} x2="87" y2={v} stroke="#1e293b" strokeWidth="1.5" className="dark:stroke-slate-300" />
-                                                    {val > 0 && (
+                                                    {val &gt; 0 && (
                                                         <>
                                                             <text x={v - 6} y="380" fontSize="11" fill="#475569" className="dark:fill-slate-500">{val}</text>
                                                             <text x="50" y={v + 4} fontSize="11" fill="#475569" className="dark:fill-slate-500">{val}</text>
@@ -710,7 +710,7 @@ const Topic38 = () => {
                                                     strokeWidth="3"
                                                     strokeDasharray={solid ? "none" : "8,6"}
                                                     opacity="0.9"
-                                                />
+                                                /&gt;
                                             );
                                         }
                                         return null;
@@ -834,7 +834,7 @@ const Topic38 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">💡</span>
                         Interpretation of the Solution
@@ -877,7 +877,7 @@ const Topic38 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -931,7 +931,7 @@ const Topic38 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

@@ -321,7 +321,7 @@ export default class IscTweleveRoadmap extends Component {
                     : "border-slate-600 text-slate-400 hover:bg-slate-700/30"
                   }
                 `}
-              >
+              &gt;
                 {completed ? "Mark Incomplete" : "Mark Completed"}
               </button>
             </div>
@@ -418,7 +418,7 @@ export default class IscTweleveRoadmap extends Component {
                 border border-slate-700 text-slate-200
                 focus:outline-none focus:ring-2 focus:ring-sky-500
               "
-            />
+            /&gt;
           </div>
 
           {/* Header */}
@@ -608,7 +608,7 @@ export default class IscTweleveRoadmap extends Component {
           )}
 
           {/* Segments */}
-          {visibleSegments.length > 0 ? (
+          {visibleSegments.length &gt; 0 ? (
             visibleSegments.map((seg, i) =>
               this.renderSegment(seg, i)
             )

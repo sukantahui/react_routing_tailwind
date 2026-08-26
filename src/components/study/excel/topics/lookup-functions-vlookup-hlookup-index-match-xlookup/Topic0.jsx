@@ -52,7 +52,7 @@ export default function Topic0() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        >
+        &gt;
           <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
             Understanding Lookup Functions & Reference Tables
           </h1>
@@ -66,7 +66,7 @@ export default function Topic0() {
           <section
             ref={(el) => (sectionsRef.current[1] = el)}
             className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
-          >
+          &gt;
             <h2 className="text-2xl font-semibold flex items-center gap-2">
               <span className="text-blue-400">🔍</span> What are Lookup Functions?
             </h2>
@@ -89,7 +89,7 @@ export default function Topic0() {
           <section
             ref={(el) => (sectionsRef.current[2] = el)}
             className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-green-500/50 transition-all duration-300"
-          >
+          &gt;
             <h2 className="text-2xl font-semibold flex items-center gap-2">
               <span className="text-green-400">📊</span> Reference Tables Explained
             </h2>
@@ -112,7 +112,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h3 className="text-xl font-semibold text-center mb-6">🔄 How a Lookup Navigates a Reference Table</h3>
           <div className="flex justify-center">
             <svg width="500" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" className="max-w-full h-auto">
@@ -147,7 +147,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section"
-        >
+        &gt;
           <h2 className="text-2xl font-bold mb-6 text-center">🧠 The Lookup Workflow</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {lookupSteps.map((step, idx) => (
@@ -167,7 +167,7 @@ export default function Topic0() {
           <section
             ref={(el) => (sectionsRef.current[5] = el)}
             className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all"
-          >
+          &gt;
             <h3 className="text-xl font-semibold text-blue-300">🏫 Real‑world Scenarios</h3>
             <ul className="mt-3 space-y-2 list-disc pl-5 text-gray-200">
               <li><strong>School gradebook:</strong> Lookup student name (Swadeep, Tuhina) using roll numbers from master table.</li>
@@ -183,7 +183,7 @@ export default function Topic0() {
           <section
             ref={(el) => (sectionsRef.current[6] = el)}
             className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-green-500/50 transition-all"
-          >
+          &gt;
             <h3 className="text-xl font-semibold text-green-300">🧰 Professional Tips & Tricks</h3>
             <ul className="mt-3 space-y-2 list-disc pl-5 text-gray-200">
               <li><strong>Name your table:</strong> Use descriptive names like “tblStudents” to avoid cell range chaos.</li>
@@ -199,7 +199,7 @@ export default function Topic0() {
           <section
             ref={(el) => (sectionsRef.current[7] = el)}
             className="reveal-section bg-red-900/20 border border-red-800 rounded-2xl p-5 hover:border-red-500 transition-all"
-          >
+          &gt;
             <h3 className="text-xl font-semibold text-red-300">⚠️ Common Pitfalls</h3>
             <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
               <li><strong>Moving target:</strong> Inserting/deleting columns breaks column index numbers.</li>
@@ -213,7 +213,7 @@ export default function Topic0() {
           <section
             ref={(el) => (sectionsRef.current[8] = el)}
             className="reveal-section bg-green-900/20 border border-green-800 rounded-2xl p-5 hover:border-green-500 transition-all"
-          >
+          &gt;
             <h3 className="text-xl font-semibold text-green-300">✅ Best Practices Checklist</h3>
             <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
               <li>✅ Use structured references (Excel Tables) instead of A1 ranges.</li>
@@ -229,7 +229,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[9] = el)}
           className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5"
-        >
+        &gt;
           <h3 className="text-xl font-semibold text-yellow-300">💭 Think about…</h3>
           <p className="mt-2 text-gray-200">
             “What happens if the lookup value appears twice in the reference table? (Hint: Most lookup functions return the first match only — data uniqueness matters!)<br />
@@ -241,7 +241,7 @@ export default function Topic0() {
         <section
           ref={(el) => (sectionsRef.current[10] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example: Lookup in Action</h2>
             {sampleMinDataUrl && (

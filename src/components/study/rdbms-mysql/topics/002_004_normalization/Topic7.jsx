@@ -316,7 +316,7 @@ const Topic7 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. {`{sid, cid}+ (Primary CK)`}
               </button>
 
@@ -328,7 +328,7 @@ const Topic7 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. {`{email, cid}+ (Alternate CK)`}
               </button>
 
@@ -340,7 +340,7 @@ const Topic7 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. {`{sid}+ (Incomplete)`}
               </button>
 
@@ -352,7 +352,7 @@ const Topic7 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. {`{cid}+ (Incomplete)`}
               </button>
             </div>
@@ -449,7 +449,7 @@ const Topic7 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Relation: R(student_id, email, course_id, grade)
--- FDs: student_id -> email, email -> student_id, (student_id, course_id) -> grade
+-- FDs: student_id &rarr; email, email -&gt; student_id, (student_id, course_id) -> grade
 -- Step 1: L={course_id}, R={grade}, LR={student_id, email}
 -- Step 2: (student_id, course_id)+ = { student_id, course_id, email, grade } = R -> CK 1!
 -- Step 3: (email, course_id)+ = { email, course_id, student_id, grade } = R -> CK 2!
@@ -470,7 +470,7 @@ const Topic7 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Relation: R(student_id, name, academic_year)
--- FD: student_id -> name
+-- FD: student_id &rarr; name
 -- Analysis: academic_year is in Class N (appears on neither side).
 -- Core Set = { student_id, academic_year }
 -- { student_id, academic_year }+ = { student_id, academic_year, name } = R

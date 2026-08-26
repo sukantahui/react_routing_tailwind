@@ -23,7 +23,7 @@ const Topic8 = () => {
       title: "1. Local Port Forwarding (-L)",
       command: "ssh -L 5432:10.14.0.88:5432 susmita@bastion.barrackpore.gov.in",
       clientPort: "127.0.0.1:5432 (Listening on Client)",
-      tunnelPath: "Client ──(Encrypted SSH on Port 22)──> Bastion (198.51.100.10)",
+      tunnelPath: "Client ──(Encrypted SSH on Port 22)──&gt; Bastion (198.51.100.10)",
       targetDestination: "10.14.0.88:5432 (Internal PostgreSQL DB)",
       useCase: "Accessing private backend databases and microservices directly from local admin tools",
       flowDirection: "Inbound Local ➔ Outbound Remote Target",
@@ -160,7 +160,7 @@ const Topic8 = () => {
     let score = 0;
     if (!permitRootLogin) score += 25;
     if (!passwordAuth) score += 30;
-    if (maxAuthTries <= 3) score += 15;
+    if (maxAuthTries &le; 3) score += 15;
     if (!x11Forwarding) score += 10;
     if (useAeadCiphersOnly) score += 20;
 
@@ -169,7 +169,7 @@ const Topic8 = () => {
     if (score >= 95) {
       grade = "A+ (CIS Benchmark / NIST Compliant)";
       color = "bg-emerald-950 text-emerald-300 border-emerald-700";
-    } else if (score >= 75) {
+    } else if (score &ge; 75) {
       grade = "B (Moderate Hardening)";
       color = "bg-cyan-950 text-cyan-300 border-cyan-700";
     } else if (score >= 50) {
@@ -370,7 +370,7 @@ const Topic8 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{mode.title}</span>
                   <span className={clsx("text-[10px] px-2 py-0.5 rounded w-fit border", mode.badgeColor)}>
                     {mode.flowDirection.split(" ➔ ")[0]}
@@ -471,7 +471,7 @@ const Topic8 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{algo.name.split(" (")[0]}</span>
                   <span className={clsx("text-[10px] px-2 py-0.5 rounded w-fit border", algo.badgeColor)}>
                     {algo.securityGrade.split(" ")[0]}
@@ -549,7 +549,7 @@ const Topic8 = () => {
                   checked={!permitRootLogin}
                   onChange={(e) => setPermitRootLogin(!e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Disable Root Login (PermitRootLogin no)</span>
               </label>
 
@@ -559,7 +559,7 @@ const Topic8 = () => {
                   checked={!passwordAuth}
                   onChange={(e) => setPasswordAuth(!e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Enforce Public Key Only (PasswordAuthentication no)</span>
               </label>
 
@@ -569,7 +569,7 @@ const Topic8 = () => {
                   checked={maxAuthTries <= 3}
                   onChange={(e) => setMaxAuthTries(e.target.checked ? 3 : 6)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Limit Max Auth Attempts (MaxAuthTries 3)</span>
               </label>
 
@@ -579,7 +579,7 @@ const Topic8 = () => {
                   checked={!x11Forwarding}
                   onChange={(e) => setX11Forwarding(!e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Disable X11 Forwarding (X11Forwarding no)</span>
               </label>
 
@@ -589,7 +589,7 @@ const Topic8 = () => {
                   checked={useAeadCiphersOnly}
                   onChange={(e) => setUseAeadCiphersOnly(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Enforce Modern AEAD Ciphers (ChaCha20-Poly1305 &amp; AES-256-GCM)</span>
               </label>
             </div>
@@ -656,7 +656,7 @@ MACs hmac-sha2-512-etm@openssh.com` : "# Legacy ciphers enabled (Vulnerable)"}`}
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{drill.title}</span>
                   <span className="text-[10px] text-cyan-400">{drill.engineers}</span>
                 </button>

@@ -292,7 +292,7 @@ FROM shipment_logs;`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Exact Age (Years)
               </button>
 
@@ -304,7 +304,7 @@ FROM shipment_logs;`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Expiration (DATE_ADD)
               </button>
 
@@ -316,7 +316,7 @@ FROM shipment_logs;`,
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Overdue Fines (₹)
               </button>
 
@@ -328,7 +328,7 @@ FROM shipment_logs;`,
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Transit Duration
               </button>
             </div>
@@ -459,7 +459,7 @@ SELECT
     delivered_time,
     TIMESTAMPDIFF(MINUTE, order_placed_time, delivered_time) AS total_minutes,
     CASE 
-        WHEN TIMESTAMPDIFF(MINUTE, order_placed_time, delivered_time) > 30 
+        WHEN TIMESTAMPDIFF(MINUTE, order_placed_time, delivered_time) &gt; 30 
         THEN CONCAT('BREACH (Delayed by ', TIMESTAMPDIFF(MINUTE, order_placed_time, delivered_time) - 30, ' mins)')
         ELSE 'ON TIME'
     END AS sla_status
@@ -525,7 +525,7 @@ FROM delivery_fleet_logs;`}
                 <div>
                   <strong className="text-white">2. SARGable Date Ranges in WHERE:</strong>
                   <p className="text-slate-400 mt-0.5">
-                    Use <code>WHERE created_at &gt;= CURDATE() - INTERVAL 30 DAY</code> to preserve B-Tree index lookups.
+                    Use <code>WHERE created_at >= CURDATE() - INTERVAL 30 DAY</code> to preserve B-Tree index lookups.
                   </p>
                 </div>
               </div>

@@ -288,7 +288,7 @@ const Topic8 = () => {
                 </span>
               </div>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
-                Tuhina's attendance program used <code>i &lt;= n</code> for an array of size n.
+                Tuhina's attendance program used <code>i <= n</code> for an array of size n.
                 It accessed index n, which is out of bounds. Swadeep spent 2 hours before
                 spotting the ≤.
               </p>
@@ -345,7 +345,7 @@ const Topic8 = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500">•</span>
-                  <span><strong>Off‑by‑one:</strong> using <code>&lt;=</code> instead of <code>&lt;</code> (or vice versa) with 0‑based indexing.</span>
+                  <span><strong>Off‑by‑one:</strong> using <code><=</code> instead of <code>&lt;</code> (or vice versa) with 0‑based indexing.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-red-500">•</span>

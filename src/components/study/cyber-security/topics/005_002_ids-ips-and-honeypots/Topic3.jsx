@@ -296,7 +296,7 @@ const Topic3 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}
@@ -363,7 +363,7 @@ const Topic3 = () => {
                 value={selectedTrafficPattern}
                 onChange={(e) => setSelectedTrafficPattern(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(trafficPatterns).map((p) => (
                   <option key={p.id} value={p.id}>
                     {p.label}
@@ -382,7 +382,7 @@ const Topic3 = () => {
                     ? "bg-sky-950/80 text-sky-300 border-sky-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              >
+              &gt;
                 {signatureEngineActive ? "✔ 35,000 Signatures Active" : "❌ Signatures Disabled"}
               </button>
             </div>
@@ -397,7 +397,7 @@ const Topic3 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              >
+              &gt;
                 {anomalyEngineActive ? "✔ Anomaly Z-Score Active" : "❌ Anomaly Engine Disabled"}
               </button>
             </div>
@@ -498,7 +498,7 @@ const Topic3 = () => {
                 value={zScoreThreshold}
                 onChange={(e) => setZScoreThreshold(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
               <span className="text-[10px] text-gray-500 block">Lower = More Zero-Days, More False Alarms</span>
             </div>
 
@@ -515,7 +515,7 @@ const Topic3 = () => {
                 value={dailyEventsMillions}
                 onChange={(e) => setDailyEventsMillions(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -531,7 +531,7 @@ const Topic3 = () => {
                 value={trainingWindowDays}
                 onChange={(e) => setTrainingWindowDays(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -585,7 +585,7 @@ const Topic3 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

@@ -30,8 +30,8 @@ const Topic2 = () => {
 
   // 4x4 binary assignment grid state
   const [grid, setGrid] = useState([
-    [1, 0, 0, 0], // Debangshu -> M1
-    [0, 1, 0, 0], // Susmita -> M2
+    [1, 0, 0, 0], // Debangshu &rarr; M1
+    [0, 1, 0, 0], // Susmita -&gt; M2
     [0, 0, 1, 0], // Mamata -> M3
     [0, 0, 0, 1], // Mahima -> M4
   ]);
@@ -122,7 +122,7 @@ const Topic2 = () => {
     {
       name: '3. Optimal Cost Matching (Hungarian Optima)',
       g: [
-        [0, 0, 0, 1], // Debangshu -> M4 (₹20)
+        [0, 0, 0, 1], // Debangshu &rarr; M4 (₹20)
         [0, 1, 0, 0], // Susmita -> M2 (₹20)
         [0, 0, 1, 0], // Mamata -> M3 (₹20)
         [1, 0, 0, 0], // Mahima -> M1 (₹15)
@@ -220,7 +220,7 @@ const Topic2 = () => {
                     ? 'bg-sky-600 text-white border-sky-500 shadow-md shadow-sky-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -232,7 +232,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -271,7 +271,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-alloc">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-800 pb-4 gap-2">
               <div className="flex items-center space-x-3">
@@ -288,7 +288,7 @@ const Topic2 = () => {
                     key={idx}
                     onClick={() => setGrid(pr.g)}
                     className="px-2.5 py-1 rounded text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:text-white hover:bg-slate-700 transition-all"
-                  >
+                  &gt;
                     Preset {idx + 1}
                   </button>
                 ))}
@@ -330,7 +330,7 @@ const Topic2 = () => {
                                   ? 'bg-emerald-950 text-emerald-300 border-emerald-500 shadow-md shadow-emerald-950/60'
                                   : 'bg-slate-900 text-slate-500 border-slate-800 hover:border-slate-700 hover:text-slate-300'
                               )}
-                            >
+                            &gt;
                               {val === 1 && (
                                 <span className="text-[9px] font-extrabold bg-emerald-500 text-slate-950 px-1 py-0.2 rounded mb-0.5">
                                   x = 1
@@ -344,7 +344,7 @@ const Topic2 = () => {
                         <td className="p-2 text-xs font-semibold">
                           {rSum === 1 ? (
                             <span className="text-emerald-400">✓ Dedicated (1)</span>
-                          ) : rSum > 1 ? (
+                          ) : rSum &gt; 1 ? (
                             <span className="text-rose-400 font-bold">⚠️ Double-Booked ({rSum})</span>
                           ) : (
                             <span className="text-amber-400">⚠️ Idle (0)</span>
@@ -371,7 +371,7 @@ const Topic2 = () => {
                       <td key={cIdx} className="p-1.5">
                         {cSum === 1 ? (
                           <span className="text-emerald-400 font-semibold">✓ Filled</span>
-                        ) : cSum > 1 ? (
+                        ) : cSum &gt; 1 ? (
                           <span className="text-rose-400 font-bold">Contested</span>
                         ) : (
                           <span className="text-amber-400">Vacant</span>
@@ -413,7 +413,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -461,7 +461,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -509,7 +509,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -531,7 +531,7 @@ const Topic2 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -558,7 +558,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -598,7 +598,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -632,7 +632,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

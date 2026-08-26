@@ -56,7 +56,7 @@ chown -R mysql:mysql /var/lib/mysql`,
 -- 1. Day 0 (Sunday Full Base):
 xtrabackup --backup --target-dir=/backups/base
 
--- 2. Day 1 (Monday Incremental - Copies only pages with LSN > base to_lsn):
+-- 2. Day 1 (Monday Incremental - Copies only pages with LSN &gt; base to_lsn):
 xtrabackup --backup --target-dir=/backups/inc1 --incremental-basedir=/backups/base
 
 -- 🛠️ PREPARATION SEQUENCE (Note --apply-log-only!):
@@ -223,7 +223,7 @@ ALTER TABLE kolkata_retail.orders IMPORT TABLESPACE;`,
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );

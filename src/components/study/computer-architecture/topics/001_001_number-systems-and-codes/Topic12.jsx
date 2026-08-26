@@ -170,7 +170,7 @@ const Topic12 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 1. Radix Conversion Engine
               </button>
               <button
@@ -181,7 +181,7 @@ const Topic12 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 2. 2's Complement Sign Unit
               </button>
               <button
@@ -192,7 +192,7 @@ const Topic12 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 3. Positional Bit Weights
               </button>
             </div>
@@ -326,7 +326,7 @@ const Topic12 = () => {
                         ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/50"
                         : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                     )}
-                  >
+                  &gt;
                     Phase {step}
                   </button>
                 ))}

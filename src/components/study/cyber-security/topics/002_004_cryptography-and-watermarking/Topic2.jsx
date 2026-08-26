@@ -264,7 +264,7 @@ const Topic2 = () => {
                         ? "bg-indigo-950 text-white border-indigo-500 shadow-md shadow-indigo-950/50"
                         : "bg-gray-900 text-gray-400 border-gray-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {c.label}
                   </button>
                 ))}
@@ -279,7 +279,7 @@ const Topic2 = () => {
                   onChange={(e) => setUserPlaintext(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-indigo-500"
                   placeholder="Type message here..."
-                />
+                /&gt;
               </div>
 
               {/* Dynamic Parameter Sliders */}
@@ -296,7 +296,7 @@ const Topic2 = () => {
                     value={caesarShift}
                     onChange={(e) => setCaesarShift(Number(e.target.value))}
                     className="w-full accent-indigo-500"
-                  />
+                  /&gt;
                 </div>
               )}
 
@@ -308,7 +308,7 @@ const Topic2 = () => {
                     value={vigenereKey}
                     onChange={(e) => setVigenereKey(e.target.value)}
                     className="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-emerald-300 font-mono text-xs focus:outline-none focus:border-indigo-500 uppercase"
-                  />
+                  /&gt;
                 </div>
               )}
             </div>
@@ -369,7 +369,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{arch.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{arch.name.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{arch.category.split(" ")[0]}</div>
@@ -555,7 +555,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

@@ -388,7 +388,7 @@ const Topic1 = () => {
                     value={dob}
                     onChange={(e) => handleUpdateDob(e.target.value)}
                     className="w-full rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none"
-                  />
+                  /&gt;
                 </div>
               </div>
 
@@ -404,12 +404,12 @@ const Topic1 = () => {
                     onChange={(e) => setNewPhone(e.target.value)}
                     className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-rose-500 focus:outline-none"
                     placeholder="+91 Phone"
-                  />
+                  /&gt;
                   <select
                     value={phoneType}
                     onChange={(e) => setPhoneType(e.target.value)}
                     className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-rose-500 focus:outline-none"
-                  >
+                  &gt;
                     <option value="Mobile">Mobile</option>
                     <option value="Home">Home</option>
                     <option value="Guardian">Guardian</option>

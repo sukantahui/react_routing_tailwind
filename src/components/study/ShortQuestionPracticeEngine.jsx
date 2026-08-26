@@ -68,7 +68,7 @@ export default function ShortQuestionPracticeEngine({ data }) {
                         value={topic}
                         onChange={e => { setTopic(e.target.value); setStarted(false); }}
                         className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
-                    >
+                    &gt;
                         <option value="all">All Topics</option>
                         {uniqueTopics.map((t, i) =>
                             <option key={i} value={t}>{t}</option>
@@ -83,7 +83,7 @@ export default function ShortQuestionPracticeEngine({ data }) {
                             setStarted(false);
                         }}
                         className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
-                    >
+                    &gt;
                         <option value="all">All Questions</option>
                         {[5, 10, 20, 30, 50].map(n =>
                             <option key={n} value={n}>{n}</option>
@@ -98,7 +98,7 @@ export default function ShortQuestionPracticeEngine({ data }) {
                             setStarted(true);
                         }}
                         className="px-6 py-2 bg-sky-600 hover:bg-sky-500 rounded-lg"
-                    >
+                    &gt;
                         Start Practice
                     </button>
                 </div>
@@ -122,7 +122,7 @@ export default function ShortQuestionPracticeEngine({ data }) {
                         <button
                             onClick={() => toggle(q.id)}
                             className="mt-3 text-sky-400 text-sm underline"
-                        >
+                        &gt;
                             {showAns.includes(q.id) ? "Hide Answer" : "Show Answer"}
                         </button>
 

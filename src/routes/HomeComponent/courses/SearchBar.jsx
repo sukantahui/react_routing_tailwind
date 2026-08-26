@@ -11,7 +11,7 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
         onChange={(e) => setSearchTerm(e.target.value)}
         className="px-5 py-3 w-full md:w-1/2 rounded-full bg-gray-800/50 border border-gray-700 text-gray-200 focus:ring-2 focus:ring-sky-400 focus:outline-none placeholder-gray-500 transition-all duration-300"
         aria-label="Search courses"
-      />
+      /&gt;
     </div>
   );
 };

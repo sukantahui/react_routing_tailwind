@@ -156,7 +156,7 @@ const Topic15 = () => {
         const points = [];
         const range = 12;
         if (b !== 0 && a !== 0) {
-            for (let x = -1; x <= range; x += 0.05) {
+            for (let x = -1; x &le; range; x += 0.05) {
                 const y = (c - a * x) / b;
                 if (y >= -1 && y <= range) {
                     points.push(toPixel(x, y));
@@ -164,7 +164,7 @@ const Topic15 = () => {
             }
         } else if (a !== 0 && b === 0) {
             const xVal = c / a;
-            if (xVal >= -1 && xVal <= range) {
+            if (xVal >= -1 && xVal &le; range) {
                 const px = 200 + xVal * 40;
                 points.push({ px, py: 20 });
                 points.push({ px, py: 380 });
@@ -252,7 +252,7 @@ const Topic15 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🔢</span>
                         Why Algebraic Methods for Finding Corner Points?
@@ -302,7 +302,7 @@ const Topic15 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📐</span>
                         Algebraic Methods for Finding Corner Points
@@ -360,7 +360,7 @@ const Topic15 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🧮</span>
                         Interactive Algebraic Solver
@@ -383,7 +383,7 @@ const Topic15 = () => {
                                             ? "bg-indigo-600 dark:bg-indigo-500 text-white border-indigo-600 dark:border-indigo-500 shadow-md"
                                             : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-indigo-400 dark:hover:border-indigo-500"
                                     )}
-                                >
+                                &gt;
                                     {ex.name}
                                 </button>
                             ))}
@@ -399,7 +399,7 @@ const Topic15 = () => {
                                         ? "bg-amber-600 text-white border-amber-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showSteps ? "Hide Steps" : "Show Steps"}
                             </button>
                         </div>
@@ -431,12 +431,12 @@ const Topic15 = () => {
                                     {/* Tick marks */}
                                     {[40, 80, 120, 160, 240, 280, 320, 360].map((v) => {
                                         const val = (v - 200) / 40;
-                                        if (val >= -1 && val <= 12) {
+                                        if (val &ge; -1 && val &le; 12) {
                                             return (
                                                 <g key={`t15-tick-${v}`}>
                                                     <line x1={v} y1="195" x2={v} y2="205" stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
                                                     <line x1="195" y1={v} x2="205" y2={v} stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
-                                                    {v >= 40 && v <= 360 && val !== 0 && val >= -1 && val <= 10 && (
+                                                    {v &ge; 40 && v &le; 360 && val !== 0 && val >= -1 && val <= 10 && (
                                                         <>
                                                             <text x={v - 4} y="218" fontSize="11" fill="#475569" className="dark:fill-slate-500">{val}</text>
                                                             <text x="178" y={v + 5} fontSize="11" fill="#475569" className="dark:fill-slate-500">{val}</text>
@@ -462,7 +462,7 @@ const Topic15 = () => {
                                                     strokeWidth="3"
                                                     strokeDasharray={solid ? "none" : "8,6"}
                                                     opacity="0.9"
-                                                />
+                                                /&gt;
                                             );
                                         }
                                         return null;
@@ -577,7 +577,7 @@ const Topic15 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Systematic Approach to Finding All Corner Points
@@ -628,7 +628,7 @@ const Topic15 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🌍</span>
                         Real-World Examples
@@ -678,7 +678,7 @@ const Topic15 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -732,7 +732,7 @@ const Topic15 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[6]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

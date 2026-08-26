@@ -310,7 +310,7 @@ const Topic6 = () => {
                   ? "bg-rose-600 text-white shadow-lg shadow-rose-200 dark:shadow-rose-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -330,7 +330,7 @@ const Topic6 = () => {
                       "bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02] border-l-4",
                       selectedCase === index ? "border-rose-500" : "border-gray-300 dark:border-gray-600"
                     )}
-                  >
+                  &gt;
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-3xl">{caseItem.icon}</span>
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200">
@@ -451,7 +451,7 @@ const Topic6 = () => {
                         ? "bg-rose-500 text-white shadow-lg shadow-rose-200 dark:shadow-rose-900/30"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  >
+                  &gt;
                     {caseItem.icon} {caseItem.title}
                   </button>
                 ))}

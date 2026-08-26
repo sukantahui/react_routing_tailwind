@@ -37,7 +37,7 @@ const Topic3 = () => {
   // Expected payoffs against original 3 columns
   const expVsB1 = p1Sub * 30 + 0 + p2Sub * 10 + 0; // 0.6(30) + 0.4(10) = 18 + 4 = 22
   const expVsB2 = p1Sub * 10 + 0 + p2Sub * 40 + 0; // 0.6(10) + 0.4(40) = 6 + 16 = 22
-  const expVsB3 = p1Sub * 40 + 0 + p2Sub * 50 + 0; // 0.6(40) + 0.4(50) = 24 + 20 = 44 (>= 22, valid!)
+  const expVsB3 = p1Sub * 40 + 0 + p2Sub * 50 + 0; // 0.6(40) + 0.4(50) = 24 + 20 = 44 ( &ge; 22, valid!)
 
   const sectionRefs = useRef([]);
 
@@ -159,7 +159,7 @@ const Topic3 = () => {
                     ? 'bg-emerald-600 text-white border-emerald-500 shadow-md shadow-emerald-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -171,7 +171,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -205,7 +205,7 @@ const Topic3 = () => {
 
               <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex flex-col space-y-1">
                 <span className="text-emerald-400 font-bold">5. Global Audit</span>
-                <p className="text-slate-300 text-[11px]">Verify E(p*, Bj) &gt;= v* for ALL original columns.</p>
+                <p className="text-slate-300 text-[11px]">Verify E(p*, Bj) >= v* for ALL original columns.</p>
               </div>
             </div>
           </div>
@@ -216,7 +216,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-red22">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-800 pb-4 gap-2">
               <div className="flex items-center space-x-3">
@@ -246,21 +246,21 @@ const Topic3 = () => {
                     <th className="p-2 text-left">A \ B</th>
                     <th className="p-2 text-sky-400">B₁</th>
                     <th className="p-2 text-sky-400">B₂</th>
-                    <th className={clsx('p-2', reductionStep >= 2 ? 'line-through text-slate-600 bg-rose-950/20' : 'text-sky-400')}>
-                      B₃ {reductionStep >= 2 ? '(Pruned)' : ''}
+                    <th className={clsx('p-2', reductionStep >= 2 ? 'line-through text-slate-600 bg-rose-950/20' : 'text-sky-400')}&gt;
+                      B₃ {reductionStep &ge; 2 ? '(Pruned)' : ''}
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/60 text-slate-200">
                   {initial4x3.map((row, rIdx) => {
-                    const isRowDead = reductionStep >= 1 && (rIdx === 1 || rIdx === 3);
+                    const isRowDead = reductionStep &ge; 1 && (rIdx === 1 || rIdx === 3);
                     return (
                       <tr key={rIdx} className={clsx(isRowDead ? 'line-through bg-rose-950/30 text-slate-600' : '')}>
                         <td className="p-2 text-left font-bold text-rose-300">
                           A_{rIdx + 1} {isRowDead ? '(Pruned)' : ''}
                         </td>
                         {row.map((cell, cIdx) => {
-                          const isColDead = reductionStep >= 2 && cIdx === 2;
+                          const isColDead = reductionStep &ge; 2 && cIdx === 2;
                           const isDead = isRowDead || isColDead;
                           const isSurvivingCell = reductionStep >= 2 && (rIdx === 0 || rIdx === 2) && (cIdx === 0 || cIdx === 1);
                           return (
@@ -298,7 +298,7 @@ const Topic3 = () => {
             </div>
 
             {/* Reconstructed Vectors & Global Audit Grid (Stages 3 & 4) */}
-            {reductionStep >= 3 && (
+            {reductionStep &ge; 3 && (
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs">
                 <div className="p-3.5 bg-slate-950 rounded-xl border border-slate-800 flex flex-col space-y-1">
                   <span className="text-rose-400 font-sans font-bold">Full 4D Vector p*:</span>
@@ -355,7 +355,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -406,7 +406,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -465,7 +465,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -487,7 +487,7 @@ const Topic3 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -514,7 +514,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -554,7 +554,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -588,7 +588,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -622,7 +622,7 @@ const Topic3 = () => {
             note={
               "To Debangshu, Mamata, Mahima, Susmita, and Abhronila: When you reduce an m x n game to 2x2, always complete Step 5: the Global Audit check! Checking that E(p*, Bj) >= v* across all original columns guarantees your solution is rock-solid. In our next topic (Topic 4), we will explore Reduction to 2×n and m×2 Cases!"
             }
-          />
+          /&gt;
         </section>
 
         {/* SECTION 10: FAQ Section */}

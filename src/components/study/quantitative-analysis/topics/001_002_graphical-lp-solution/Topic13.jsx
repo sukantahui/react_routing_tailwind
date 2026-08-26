@@ -109,7 +109,7 @@ const Topic13 = () => {
         const points = [];
         const range = 12;
         if (b !== 0 && a !== 0) {
-            for (let x = -0.5; x <= range; x += 0.05) {
+            for (let x = -0.5; x &le; range; x += 0.05) {
                 const y = (c - a * x) / b;
                 if (y >= -0.5 && y <= range) {
                     points.push(toPixel(x, y));
@@ -117,7 +117,7 @@ const Topic13 = () => {
             }
         } else if (a !== 0 && b === 0) {
             const xVal = c / a;
-            if (xVal >= -0.5 && xVal <= range) {
+            if (xVal >= -0.5 && xVal &le; range) {
                 const px = 200 + xVal * 40;
                 points.push({ px, py: 20 });
                 points.push({ px, py: 380 });
@@ -147,7 +147,7 @@ const Topic13 = () => {
                     pts.push({ px: 200, py: 380 });
                     pts.push({ px: 380, py: 380 });
                     const yRight = yAtX(range);
-                    if (yRight >= -0.5 && yRight <= range) {
+                    if (yRight &ge; -0.5 && yRight &le; range) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -158,7 +158,7 @@ const Topic13 = () => {
                     pts.push({ px: 200, py: 20 });
                     pts.push({ px: 380, py: 20 });
                     const yRight = yAtX(range);
-                    if (yRight >= -0.5 && yRight <= range) {
+                    if (yRight >= -0.5 && yRight &le; range) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -171,7 +171,7 @@ const Topic13 = () => {
                     pts.push({ px: 200, py: 20 });
                     pts.push({ px: 380, py: 20 });
                     const yRight = yAtX(range);
-                    if (yRight >= -0.5 && yRight <= range) {
+                    if (yRight &ge; -0.5 && yRight &le; range) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -182,7 +182,7 @@ const Topic13 = () => {
                     pts.push({ px: 200, py: 380 });
                     pts.push({ px: 380, py: 380 });
                     const yRight = yAtX(range);
-                    if (yRight >= -0.5 && yRight <= range) {
+                    if (yRight >= -0.5 && yRight &le; range) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -208,7 +208,7 @@ const Topic13 = () => {
         } else if (b !== 0 && a === 0) {
             const yVal = c / b;
             const py = 200 - yVal * 40;
-            if (sign === "≥" || sign === ">") {
+            if (sign === "≥" || sign === "&gt;") {
                 pts.push({ px: 200, py: 20 });
                 pts.push({ px: 380, py: 20 });
                 pts.push({ px: 380, py: py });
@@ -220,7 +220,7 @@ const Topic13 = () => {
                 pts.push({ px: 200, py: 380 });
             }
         }
-        return pts.filter(p => p.px >= 200 && p.px <= 380 && p.py >= 20 && p.py <= 380);
+        return pts.filter(p => p.px &ge; 200 && p.px &le; 380 && p.py >= 20 && p.py <= 380);
     };
 
     // Get feasible region shading
@@ -298,7 +298,7 @@ const Topic13 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         What are Corner Points and Extreme Points?
@@ -344,7 +344,7 @@ const Topic13 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">⭐</span>
                         Why Corner Points Matter
@@ -394,7 +394,7 @@ const Topic13 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🖱️</span>
                         Explore Corner Points
@@ -417,7 +417,7 @@ const Topic13 = () => {
                                             ? "bg-purple-600 dark:bg-purple-500 text-white border-purple-600 dark:border-purple-500 shadow-md"
                                             : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-purple-400 dark:hover:border-purple-500"
                                     )}
-                                >
+                                &gt;
                                     {ex.name}
                                 </button>
                             ))}
@@ -433,7 +433,7 @@ const Topic13 = () => {
                                         ? "bg-amber-600 text-white border-amber-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showCornerPoints ? "Hide Corners" : "Show Corners"}
                             </button>
                             <button
@@ -444,7 +444,7 @@ const Topic13 = () => {
                                         ? "bg-blue-600 text-white border-blue-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showLabels ? "Hide Labels" : "Show Labels"}
                             </button>
                         </div>
@@ -471,7 +471,7 @@ const Topic13 = () => {
                                                 fill={con.color}
                                                 fillOpacity="0.08"
                                                 stroke="none"
-                                            />
+                                            /&gt;
                                         );
                                     }
                                     return null;
@@ -487,7 +487,7 @@ const Topic13 = () => {
                                                 fill="#8b5cf6"
                                                 fillOpacity="0.15"
                                                 stroke="none"
-                                            />
+                                            /&gt;
                                         );
                                     }
                                     return null;
@@ -508,12 +508,12 @@ const Topic13 = () => {
                                 {/* Tick marks */}
                                 {[40, 80, 120, 160, 240, 280, 320, 360].map((v) => {
                                     const val = (v - 200) / 40;
-                                    if (val >= 0 && val <= 12) {
+                                    if (val &ge; 0 && val &le; 12) {
                                         return (
                                             <g key={`t13-tick-${v}`}>
                                                 <line x1={v} y1="195" x2={v} y2="205" stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
                                                 <line x1="195" y1={v} x2="205" y2={v} stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
-                                                {v >= 40 && v <= 360 && val !== 0 && val <= 10 && (
+                                                {v &ge; 40 && v &le; 360 && val !== 0 && val <= 10 && (
                                                     <>
                                                         <text x={v - 4} y="218" fontSize="11" fill="#475569" className="dark:fill-slate-500">{val}</text>
                                                         <text x="178" y={v + 5} fontSize="11" fill="#475569" className="dark:fill-slate-500">{val}</text>
@@ -539,7 +539,7 @@ const Topic13 = () => {
                                                 strokeWidth="2.5"
                                                 strokeDasharray={solid ? "none" : "8,6"}
                                                 opacity="0.7"
-                                            />
+                                            /&gt;
                                         );
                                     }
                                     return null;
@@ -637,7 +637,7 @@ const Topic13 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">✏️</span>
                         How to Find Corner Points
@@ -683,7 +683,7 @@ const Topic13 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🌍</span>
                         Real-World Examples
@@ -733,7 +733,7 @@ const Topic13 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -787,7 +787,7 @@ const Topic13 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[6]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

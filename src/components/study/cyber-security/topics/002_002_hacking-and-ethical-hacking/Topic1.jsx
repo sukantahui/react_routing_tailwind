@@ -274,7 +274,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{era.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{era.eraName.split(":")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{era.eraName.split(":")[1]?.trim()}</div>
@@ -368,7 +368,7 @@ const Topic1 = () => {
                   value={reinfectionChance}
                   onChange={(e) => setReinfectionChance(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-gray-500">
                   <span>1 in 1 (Infinite Loop Crash)</span>
                   <span>1 in 7 (Morris Original)</span>
@@ -390,7 +390,7 @@ const Topic1 = () => {
                   value={simulationHosts}
                   onChange={(e) => setSimulationHosts(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-                />
+                /&gt;
               </div>
 
               {/* Technical Root Cause Box */}
@@ -616,7 +616,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

@@ -68,7 +68,7 @@ export default function Topic4() {
 
 if (marks >= 90)
     printf("Grade: A");
-else if (marks >= 75)
+else if (marks &ge; 75)
     printf("Grade: B");
 else if (marks >= 60)
     printf("Grade: C");
@@ -128,11 +128,11 @@ else
 
 if (amount >= 5000)
     printf("Discount: 20%%");
-else if (amount >= 3000)
+else if (amount &ge; 3000)
     printf("Discount: 10%%");
 else
     printf("No Discount");`}
-      />
+      /&gt;
 
       {/* ================= FINAL NOTES ================= */}
       <div className="space-y-2">

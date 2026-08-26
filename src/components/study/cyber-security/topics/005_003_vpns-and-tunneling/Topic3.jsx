@@ -322,7 +322,7 @@ const Topic3 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {s.title}
               </button>
             ))}
@@ -396,7 +396,7 @@ const Topic3 = () => {
                 value={selectedCipherChoice}
                 onChange={(e) => setSelectedCipherChoice(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 <option value="aes_256_gcm">AES-256-GCM + SHA-384 (IPsec ESP / OpenVPN)</option>
                 <option value="chacha20_poly1305">ChaCha20-Poly1305 (WireGuard)</option>
               </select>
@@ -413,7 +413,7 @@ const Topic3 = () => {
                       ? "bg-emerald-950/80 text-emerald-300 border-emerald-800 shadow-md shadow-emerald-500/10"
                       : "bg-slate-950 text-gray-400 border-slate-800"
                   )}
-                >
+                &gt;
                   ✔ Valid Packet
                 </button>
                 <button
@@ -424,7 +424,7 @@ const Topic3 = () => {
                       ? "bg-rose-950/80 text-rose-300 border-rose-800 shadow-md shadow-rose-500/10"
                       : "bg-slate-950 text-gray-400 border-slate-800"
                   )}
-                >
+                &gt;
                   🚨 Bit-Flip Tamper
                 </button>
                 <button
@@ -435,7 +435,7 @@ const Topic3 = () => {
                       ? "bg-amber-950/80 text-amber-300 border-amber-800 shadow-md shadow-amber-500/10"
                       : "bg-slate-950 text-gray-400 border-slate-800"
                   )}
-                >
+                &gt;
                   🔁 Replay #41
                 </button>
               </div>
@@ -538,7 +538,7 @@ const Topic3 = () => {
                 value={cryptoThroughputGbps}
                 onChange={(e) => setCryptoThroughputGbps(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -554,7 +554,7 @@ const Topic3 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-rose-950/80 text-rose-300 border-rose-800"
                 )}
-              >
+              &gt;
                 {hardwareAccelerationEnabled ? "✔ Hardware AES-NI Active" : "❌ Software Crypto (Slow)"}
               </button>
             </div>
@@ -572,7 +572,7 @@ const Topic3 = () => {
                 value={packetSizeAverageBytes}
                 onChange={(e) => setPacketSizeAverageBytes(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -626,7 +626,7 @@ const Topic3 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

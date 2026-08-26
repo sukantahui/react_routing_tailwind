@@ -313,7 +313,7 @@ const Topic2 = () => {
                       ? "bg-cyan-600 text-white border-cyan-400 shadow-md shadow-cyan-900/40"
                       : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                   )}
-                >
+                &gt;
                   {s.step}
                 </button>
               ))}
@@ -354,14 +354,14 @@ const Topic2 = () => {
                 disabled={activeStepIndex === 1}
                 onClick={() => setActiveStepIndex(activeStepIndex - 1)}
                 className="px-4 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
-              >
+              &gt;
                 ◀ Previous Step
               </button>
               <button
                 disabled={activeStepIndex === 6}
                 onClick={() => setActiveStepIndex(activeStepIndex + 1)}
                 className="px-4 py-1.5 rounded-lg text-xs font-semibold bg-cyan-600 text-white border border-cyan-400 hover:bg-cyan-500 disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
-              >
+              &gt;
                 Next Step ▶
               </button>
             </div>
@@ -397,7 +397,7 @@ const Topic2 = () => {
                     ? "bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Server-Only Auth
               </button>
               <button
@@ -408,7 +408,7 @@ const Topic2 = () => {
                     ? "bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Mutual TLS (mTLS)
               </button>
             </div>
@@ -510,7 +510,7 @@ const Topic2 = () => {
                         ? "bg-cyan-600 text-white border-cyan-400 shadow-md shadow-cyan-900/40"
                         : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {item.name.split("_WITH_")[0].split("_")[1] || item.name.split("_")[1]}
                   </button>
                 );
@@ -687,7 +687,7 @@ const Topic2 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Barrackpore mTLS Drill
               </button>
               <button
@@ -698,7 +698,7 @@ const Topic2 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Kolkata Transit Clock Drill
               </button>
             </div>

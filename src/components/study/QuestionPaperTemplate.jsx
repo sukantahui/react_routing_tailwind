@@ -78,7 +78,7 @@ const QuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetails =
                           <button
                             onClick={() => toggleAnswer(sectionIdx, qIdx)}
                             className="px-2 py-1 text-xs rounded bg-blue-600 hover:bg-blue-500 text-white transition-colors no-print"
-                          >
+                          &gt;
                             {isOpen ? "Hide Answer" : "Show Answer"}
                           </button>
                         )}

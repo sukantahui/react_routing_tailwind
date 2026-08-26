@@ -318,7 +318,7 @@ const Topic3 = () => {
                       value={selectedStudentId}
                       onChange={(e) => setSelectedStudentId(Number(e.target.value))}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                    >
+                    &gt;
                       {students.map((s) => (
                         <option key={s.id} value={s.id}>
                           #{s.id} ({s.name.split(" ")[0]})
@@ -333,7 +333,7 @@ const Topic3 = () => {
                       value={depNameInput}
                       onChange={(e) => setDepNameInput(e.target.value)}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                    />
+                    /&gt;
                   </div>
                   <div>
                     <label className="text-[10px] text-slate-500 block mb-0.5">Relation:</label>
@@ -341,7 +341,7 @@ const Topic3 = () => {
                       value={depRelInput}
                       onChange={(e) => setDepRelInput(e.target.value)}
                       className="w-full rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                    >
+                    &gt;
                       <option value="Father">Father</option>
                       <option value="Mother">Mother</option>
                       <option value="Spouse">Spouse</option>
@@ -372,7 +372,7 @@ const Topic3 = () => {
                       key={s.id}
                       onClick={() => handleDeleteStudent(s.id)}
                       className="flex-1 py-1.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-bold hover:bg-rose-500/30 transition-all"
-                    >
+                    &gt;
                       Drop #{s.id} ({s.name.split(" ")[0]})
                     </button>
                   ))}

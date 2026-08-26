@@ -383,7 +383,7 @@ const Topic9 = () => {
                         ? "bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-900/40"
                         : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {item.title.split(". ")[1].split(" (")[0]}
                   </button>
                 );
@@ -635,7 +635,7 @@ const Topic9 = () => {
                 value={selectedPersona}
                 onChange={(e) => setSelectedPersona(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-emerald-500 focus:outline-none"
-              >
+              &gt;
                 <option value="debangshu_contractor">Debangshu (Contract Developer - Jadavpur)</option>
                 <option value="susmita_finance">Susmita (Finance Officer - Barrackpore)</option>
                 <option value="mamata_admin">Mamata (SOC Infrastructure Admin - Kolkata)</option>
@@ -654,7 +654,7 @@ const Topic9 = () => {
                 value={activeDefenseMode}
                 onChange={(e) => setActiveDefenseMode(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-emerald-500 focus:outline-none"
-              >
+              &gt;
                 <option value="traditional_vpn_concentrator">Traditional Hardware VPN (Castle-and-Moat)</option>
                 <option value="ztna_zero_trust">Cloud ZTNA SDP (Zero Implicit Trust)</option>
               </select>
@@ -672,7 +672,7 @@ const Topic9 = () => {
                 value={adversaryAction}
                 onChange={(e) => setAdversaryAction(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-emerald-500 focus:outline-none"
-              >
+              &gt;
                 <option value="nmap_subnet_sweep">Nmap Subnet Sweep (10.14.0.0/16)</option>
                 <option value="lateral_smb_pivot">Pass-the-Hash SMB Lateral Movement (Port 445)</option>
                 <option value="public_gateway_exploit">Public Gateway Zero-Day Exploit (CVE-2023-46805)</option>
@@ -757,7 +757,7 @@ const Topic9 = () => {
                 value={enterpriseHeadcount}
                 onChange={(e) => setEnterpriseHeadcount(Number(e.target.value))}
                 className="w-full accent-emerald-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Total remote staff accessing internal applications and web services.
               </p>
@@ -777,7 +777,7 @@ const Topic9 = () => {
                 value={internalAppCount}
                 onChange={(e) => setInternalAppCount(Number(e.target.value))}
                 className="w-full accent-emerald-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Number of ERP, Git, Jira, Oracle, and SSH services connected to ZTNA.
               </p>
@@ -797,7 +797,7 @@ const Topic9 = () => {
                 value={hardwareRefreshLakhs}
                 onChange={(e) => setHardwareRefreshLakhs(Number(e.target.value))}
                 className="w-full accent-emerald-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Capital expenditure required every 3 years for hardware VPN upgrades.
               </p>
@@ -1046,7 +1046,7 @@ const Topic9 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Barrackpore Contractor Drill
               </button>
               <button
@@ -1057,7 +1057,7 @@ const Topic9 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Sector V Zero-Day Drill
               </button>
             </div>

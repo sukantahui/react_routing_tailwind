@@ -156,7 +156,7 @@ const Topic1 = () => {
                             <span className="text-3xl">⚠️</span> Common Pitfalls in Traversal
                         </h2>
                         <ul className="list-disc list-inside space-y-2 leading-relaxed">
-                            <li><strong>Off-by-one errors:</strong> Using <code>&lt;= length</code> instead of <code>&lt; length</code> causes <code>ArrayIndexOutOfBoundsException</code>.</li>
+                            <li><strong>Off-by-one errors:</strong> Using <code><= length</code> instead of <code>&lt; length</code> causes <code>ArrayIndexOutOfBoundsException</code>.</li>
                             <li><strong>Modifying array during for-each:</strong> The enhanced for loop gives a copy of the value (for primitives) or reference (for objects). Modifying the loop variable doesn't change the array element.</li>
                             <li><strong>Forgetting row length varies in jagged arrays:</strong> Using a fixed column count leads to exceptions.</li>
                             <li><strong>Inefficient column-major traversal in large matrices:</strong> Can be 10x slower due to cache misses.</li>
@@ -197,7 +197,7 @@ const Topic1 = () => {
                                     <button 
                                         onClick={() => toggleAnswer(idx)}
                                         className="text-sm text-blue-600 dark:text-blue-400 hover:underline mt-1 transition"
-                                    >
+                                    &gt;
                                         {revealedAnswers[idx] ? "Hide Answer" : "Show Answer"}
                                     </button>
                                     {revealedAnswers[idx] && (

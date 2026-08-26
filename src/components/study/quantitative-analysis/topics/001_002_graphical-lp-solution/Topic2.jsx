@@ -92,7 +92,7 @@ const Topic2 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📏</span>
                         What are the x-axis and y-axis?
@@ -141,7 +141,7 @@ const Topic2 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🖱️</span>
                         Explore the Axes
@@ -154,7 +154,7 @@ const Topic2 = () => {
                             <button
                                 onClick={() => setShowGridLabels(!showGridLabels)}
                                 className="px-3 py-1.5 text-sm rounded-lg border bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-200"
-                            >
+                            &gt;
                                 {showGridLabels ? "Hide Labels" : "Show Labels"}
                             </button>
                             <button
@@ -165,7 +165,7 @@ const Topic2 = () => {
                                         ? "bg-sky-600 text-white border-sky-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-sky-400"
                                 )}
-                            >
+                            &gt;
                                 QI
                             </button>
                             <button
@@ -176,7 +176,7 @@ const Topic2 = () => {
                                         ? "bg-indigo-600 text-white border-indigo-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-indigo-400"
                                 )}
-                            >
+                            &gt;
                                 QII
                             </button>
                             <button
@@ -187,7 +187,7 @@ const Topic2 = () => {
                                         ? "bg-rose-600 text-white border-rose-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-rose-400"
                                 )}
-                            >
+                            &gt;
                                 QIII
                             </button>
                             <button
@@ -198,13 +198,13 @@ const Topic2 = () => {
                                         ? "bg-emerald-600 text-white border-emerald-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-emerald-400"
                                 )}
-                            >
+                            &gt;
                                 QIV
                             </button>
                             <button
                                 onClick={() => setHighlightQuadrant(null)}
                                 className="px-3 py-1.5 text-sm rounded-lg border bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-gray-400 transition-all duration-200"
-                            >
+                            &gt;
                                 Reset
                             </button>
                         </div>
@@ -255,7 +255,7 @@ const Topic2 = () => {
                                     <g key={`t2-tick-${v}`}>
                                         <line x1={v} y1="195" x2={v} y2="205" stroke="#1e293b" strokeWidth="1.5" className="dark:stroke-slate-300" />
                                         <line x1="195" y1={v} x2="205" y2={v} stroke="#1e293b" strokeWidth="1.5" className="dark:stroke-slate-300" />
-                                        {v >= 40 && v <= 360 && (
+                                        {v &ge; 40 && v &le; 360 && (
                                             <>
                                                 <text x={v - 4} y="218" fontSize="11" fill="#475569" className="dark:fill-slate-500">{v === 200 ? 0 : (v - 200) / 40}</text>
                                                 <text x="178" y={v + 5} fontSize="11" fill="#475569" className="dark:fill-slate-500">{v === 200 ? 0 : (200 - v) / 40}</text>
@@ -308,7 +308,7 @@ const Topic2 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📍</span>
                         Reading Coordinates
@@ -356,7 +356,7 @@ const Topic2 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         The Origin and Special Points
@@ -396,7 +396,7 @@ const Topic2 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🌍</span>
                         Real-World Examples
@@ -445,7 +445,7 @@ const Topic2 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -496,7 +496,7 @@ const Topic2 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[6]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

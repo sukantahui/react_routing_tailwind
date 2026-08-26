@@ -149,7 +149,7 @@ const Login = () => {
                       onClick={() => setError("")}
                       className="text-rose-400 hover:text-rose-200 ml-1 flex-shrink-0 cursor-pointer"
                       aria-label="Dismiss error"
-                    >
+                    &gt;
                       <i className="bi bi-x-lg text-xs"></i>
                     </button>
                   </div>
@@ -207,7 +207,7 @@ const Login = () => {
                       });
                     }}
                     className="text-[11px] text-sky-400 hover:text-sky-300 hover:underline font-medium cursor-pointer"
-                  >
+                  &gt;
                     Forgot password?
                   </button>
                 </div>
@@ -232,7 +232,7 @@ const Login = () => {
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-3 text-slate-400 hover:text-slate-200 text-sm focus:outline-none cursor-pointer"
                     title={showPassword ? "Hide password" : "Show password"}
-                  >
+                  &gt;
                     <i className={`bi ${showPassword ? "bi-eye-slash-fill" : "bi-eye-fill"}`}></i>
                   </button>
                 </div>
@@ -246,7 +246,7 @@ const Login = () => {
                     checked={rememberMe}
                     onChange={(e) => setRememberMe(e.target.checked)}
                     className="w-4 h-4 rounded bg-slate-950 border-slate-700 text-sky-500 focus:ring-sky-500 focus:ring-offset-0 transition cursor-pointer"
-                  />
+                  /&gt;
                   <span className="text-xs text-slate-400 font-medium">Keep me signed in</span>
                 </label>
               </div>

@@ -97,7 +97,7 @@ const Topic13 = () => {
             <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
               <li>🔹 <code className="bg-gray-100 dark:bg-gray-700 px-1">@NotNull</code> – value must not be null</li>
               <li>🔹 <code className="bg-gray-100 dark:bg-gray-700 px-1">@NotEmpty</code> – CharSequence/Collection/Map not null and not empty</li>
-              <li>🔹 <code className="bg-gray-100 dark:bg-gray-700 px-1">@NotBlank</code> – trimmed string length {`>`} 0</li>
+              <li>🔹 <code className="bg-gray-100 dark:bg-gray-700 px-1">@NotBlank</code> – trimmed string length {`&gt;`} 0</li>
               <li>🔹 <code className="bg-gray-100 dark:bg-gray-700 px-1">@Size(min, max)</code> – length / size limits</li>
               <li>🔹 <code className="bg-gray-100 dark:bg-gray-700 px-1">@Min / @Max</code> – numeric boundaries</li>
               <li>🔹 <code className="bg-gray-100 dark:bg-gray-700 px-1">@Pattern(regex)</code> – regular expression match</li>

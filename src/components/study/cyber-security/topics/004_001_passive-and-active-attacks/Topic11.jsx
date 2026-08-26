@@ -232,7 +232,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
     computed_tag = hmac.new(secret_key, payload_bytes, hashlib.sha256).hexdigest()
     
     if not hmac.compare_digest(computed_tag, received_tag):
-        # 2. Tampering Detected -> Execute SOAR Automated Containment (<150ms)
+        # 2. Tampering Detected &rarr; Execute SOAR Automated Containment (<150ms)
         print("[!] ACTIVE TAMPERING DETECTED: Discarding packet & isolating port!")
         
         # Shutdown switch port via RESTCONF API
@@ -470,7 +470,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
                 </text>
               </g>
 
-              {/* PATH 1: Passive -> Active */}
+              {/* PATH 1: Passive &rarr; Active */}
               <path d="M 220 160 L 340 160" stroke="#f59e0b" strokeWidth="3" strokeDasharray="4 4" fill="none" />
               <circle r="4" fill="#f59e0b">
                 <animateMotion path="M 220 160 L 340 160" dur="2s" repeatCount="indefinite" />
@@ -497,7 +497,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
                 </text>
               </g>
 
-              {/* PATH 2: Active -> Zero Trust Defense */}
+              {/* PATH 2: Active &rarr; Zero Trust Defense */}
               <path d="M 530 160 L 650 160" stroke="#10b981" strokeWidth="3" fill="none" />
               <circle r="5" fill="#10b981">
                 <animateMotion path="M 530 160 L 650 160" dur="1.5s" repeatCount="indefinite" />
@@ -558,7 +558,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
                     ? "bg-purple-950/80 border-purple-500 shadow-lg shadow-purple-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8px] font-bold px-1.5 py-0.5 rounded border bg-purple-950 text-purple-300 border-purple-800 self-start">
                   DIMENSION
                 </span>
@@ -642,7 +642,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
                     ? "bg-purple-950 border-purple-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className={clsx("text-[10px] font-bold px-2 py-0.5 rounded border", stage.badgeClass)}>
                   Step {stage.step} · {stage.type}
                 </span>
@@ -712,7 +712,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -761,7 +761,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

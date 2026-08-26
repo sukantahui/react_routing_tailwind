@@ -33,7 +33,7 @@ SELECT
     tuition_fee_inr
 FROM view_student_public_directory
 WHERE centre_city = 'Barrackpore' 
-  AND tuition_fee_inr >= 20000.00
+  AND tuition_fee_inr &ge; 20000.00
 ORDER BY tuition_fee_inr DESC, full_name ASC
 LIMIT 10 OFFSET 0;`,
       resultRows: [
@@ -270,7 +270,7 @@ ORDER BY gross_tuition_inr DESC;`,
                   <text x="425" y="128" fill="#a5b4fc" fontSize="9" textAnchor="middle font-mono">Internal: SELECT id, name, city FROM base_students WHERE status = 'ACTIVE'</text>
                 </g>
 
-                {/* Flow Arrow Caller -> View */}
+                {/* Flow Arrow Caller &rarr; View */}
                 <path d="M 425 60 L 425 90" stroke="#38bdf8" strokeWidth="2" />
 
                 {/* Bottom: Base Table B-Tree Index */}
@@ -285,7 +285,7 @@ ORDER BY gross_tuition_inr DESC;`,
                   </text>
                 </g>
 
-                {/* Flow Arrow View -> B-Tree */}
+                {/* Flow Arrow View &rarr; B-Tree */}
                 <path d="M 425 140 L 425 170" stroke="#10b981" strokeWidth="2" />
               </svg>
             </div>
@@ -317,7 +317,7 @@ ORDER BY gross_tuition_inr DESC;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

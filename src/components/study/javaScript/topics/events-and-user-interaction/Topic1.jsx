@@ -36,7 +36,7 @@ export default class Topic1 extends Component {
         <CodeBlock
           language="html"
           code={`<button id="btn">Click Me</button>`}
-        />
+        /&gt;
 
         <CodeBlock
           language="javascript"
@@ -45,7 +45,7 @@ export default class Topic1 extends Component {
 btn.addEventListener("click", () => {
   console.log("Button Clicked!");
 });`}
-        />
+        /&gt;
 
 
         {/* ===================================
@@ -63,7 +63,7 @@ btn.addEventListener("click", () => {
         <CodeBlock
           language="html"
           code={`<button id="mark">Mark Attendance</button>`}
-        />
+        /&gt;
 
         <CodeBlock
           language="javascript"
@@ -72,7 +72,7 @@ btn.addEventListener("click", () => {
 markBtn.addEventListener("click", () => {
   console.log("Attendance marked by teacher Sukanta Hui.");
 });`}
-        />
+        /&gt;
 
 
         {/* ===================================
@@ -113,7 +113,7 @@ btn.removeEventListener("click", sayHello);`}
         <CodeBlock
           language="html"
           code={`<button id="submitBtn">Submit</button>`}
-        />
+        /&gt;
 
         <CodeBlock
           language="javascript"
@@ -147,7 +147,7 @@ submitBtn.addEventListener("click", handleSubmit);`}
           language="html"
           code={`<button id="open">Open Modal</button>
 <div id="modal" style="display:none">Welcome Students</div>`}
-        />
+        /&gt;
 
         <CodeBlock
           language="javascript"

@@ -53,7 +53,7 @@ END //
 
 DELIMITER ;
 
--- Insert Payment -> Audit record generated automatically with zero app code:
+-- Insert Payment &rarr; Audit record generated automatically with zero app code:
 INSERT INTO fee_payments (student_id, amount_paid_inr, payment_mode) 
 VALUES (101, 15000.00, 'UPI_RAZORPAY');`,
       resultRows: [
@@ -82,7 +82,7 @@ BEGIN
     WHERE course_id = NEW.course_id;
     
     -- Guardrail: Abort transaction if capacity is reached:
-    IF v_current_enrolled >= v_max_capacity THEN
+    IF v_current_enrolled &ge; v_max_capacity THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'CAPACITY OVERFLOW: Course has reached its maximum quota of 30 seats!';
     END IF;
@@ -400,7 +400,7 @@ VALUES ('Mamata', '098300-11223', '  MAMATA@BKP.EDU  ');
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

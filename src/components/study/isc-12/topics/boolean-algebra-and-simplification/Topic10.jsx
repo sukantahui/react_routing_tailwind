@@ -142,15 +142,15 @@ const Topic10 = () => {
                 <div className="flex justify-center items-center gap-3 mb-4 flex-wrap">
                   <div className="text-center">
                     <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">A</p>
-                    <button onClick={() => setAndA(andA === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", andA === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{andA}</button>
+                    <button onClick={() => setAndA(andA === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", andA === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{andA}</button>
                   </div>
                   <div className="text-center">
                     <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">B</p>
-                    <button onClick={() => setAndB(andB === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", andB === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{andB}</button>
+                    <button onClick={() => setAndB(andB === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", andB === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{andB}</button>
                   </div>
                   <div className="text-center">
                     <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">C</p>
-                    <button onClick={() => setAndC(andC === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", andC === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{andC}</button>
+                    <button onClick={() => setAndC(andC === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", andC === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{andC}</button>
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-4 flex-wrap">
@@ -232,15 +232,15 @@ const Topic10 = () => {
                 <div className="flex justify-center items-center gap-3 mb-4 flex-wrap">
                   <div className="text-center">
                     <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">A</p>
-                    <button onClick={() => setOrA(orA === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", orA === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{orA}</button>
+                    <button onClick={() => setOrA(orA === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", orA === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{orA}</button>
                   </div>
                   <div className="text-center">
                     <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">B</p>
-                    <button onClick={() => setOrB(orB === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", orB === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{orB}</button>
+                    <button onClick={() => setOrB(orB === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", orB === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{orB}</button>
                   </div>
                   <div className="text-center">
                     <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">C</p>
-                    <button onClick={() => setOrC(orC === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", orC === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{orC}</button>
+                    <button onClick={() => setOrC(orC === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold transition-all hover:scale-110", orC === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{orC}</button>
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-4 flex-wrap">

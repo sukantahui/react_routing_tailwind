@@ -301,7 +301,7 @@ for batch in chunked_stream(million_applicant_stream, 2000):
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 GIL &amp; Concurrency Engine
               </button>
               <button
@@ -312,7 +312,7 @@ for batch in chunked_stream(million_applicant_stream, 2000):
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Zero-Copy memoryview Slicing
               </button>
               <button
@@ -323,7 +323,7 @@ for batch in chunked_stream(million_applicant_stream, 2000):
                     ? "bg-amber-900/50 text-amber-300 border border-amber-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Multi-Core Process Pipeline
               </button>
             </div>
@@ -552,7 +552,7 @@ for batch in chunked_stream(million_applicant_stream, 2000):
                         ? "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                         : "bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400"
                     )}
-                  >
+                  &gt;
                     <div className="text-base mb-0.5">{item.icon} <strong className="text-slate-200 text-xs sm:text-sm">{item.label}</strong></div>
                     <div className="text-[11px] text-teal-400 font-mono">{item.tag}</div>
                   </button>
@@ -580,7 +580,7 @@ for batch in chunked_stream(million_applicant_stream, 2000):
                   value={workerCount}
                   onChange={(e) => setWorkerCount(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[11px] text-slate-500 font-mono mt-1">
                   <span>1 Core</span>
                   <span>4 Cores (Quad)</span>
@@ -606,7 +606,7 @@ for batch in chunked_stream(million_applicant_stream, 2000):
                   value={datasetVolume}
                   onChange={(e) => setDatasetVolume(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[11px] text-slate-500 font-mono mt-1">
                   <span>10,000</span>
                   <span>100,000</span>

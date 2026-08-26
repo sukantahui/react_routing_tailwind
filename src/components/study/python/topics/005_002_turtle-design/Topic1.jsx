@@ -110,7 +110,7 @@ const Topic1 = () => {
                       ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
                       : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
                   }`}
-                >
+                &gt;
                   pensize({w})
                 </button>
               ))}

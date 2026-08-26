@@ -163,7 +163,7 @@ const Topic19 = () => {
     setEngineLog("Simulator reset to initial state.");
   };
 
-  const ddlSnippet = `-- Prescriptions Table (1:1 with completed appointment)\nCREATE TABLE prescriptions (\n    prescription_id INT AUTO_INCREMENT PRIMARY KEY,\n    appointment_id INT NOT NULL UNIQUE,\n    issued_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,\n    clinical_notes TEXT NULL,\n    CONSTRAINT fk_presc_appt FOREIGN KEY (appointment_id)\n        REFERENCES appointments(appointment_id) ON DELETE CASCADE\n) ENGINE=InnoDB;\n\n-- Pharmacy Medicines Catalog & Stock\nCREATE TABLE pharmacy_medicines (\n    medicine_id INT AUTO_INCREMENT PRIMARY KEY,\n    brand_name VARCHAR(100) NOT NULL,\n    generic_name VARCHAR(100) NOT NULL,\n    unit_price DECIMAL(10, 2) NOT NULL,\n    stock_quantity INT NOT NULL DEFAULT 0,\n    CONSTRAINT chk_stock CHECK (stock_quantity >= 0)\n) ENGINE=InnoDB;\n\n-- Prescription Line Items (Composite PK)\nCREATE TABLE prescription_items (\n    prescription_id INT NOT NULL,\n    medicine_id INT NOT NULL,\n    dosage VARCHAR(100) NOT NULL,\n    quantity_dispensed INT NOT NULL DEFAULT 1,\n    PRIMARY KEY (prescription_id, medicine_id),\n    CONSTRAINT fk_item_presc FOREIGN KEY (prescription_id)\n        REFERENCES prescriptions(prescription_id) ON DELETE CASCADE,\n    CONSTRAINT fk_item_med FOREIGN KEY (medicine_id)\n        REFERENCES pharmacy_medicines(medicine_id)\n) ENGINE=InnoDB;`;
+  const ddlSnippet = `-- Prescriptions Table (1:1 with completed appointment)\nCREATE TABLE prescriptions (\n    prescription_id INT AUTO_INCREMENT PRIMARY KEY,\n    appointment_id INT NOT NULL UNIQUE,\n    issued_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,\n    clinical_notes TEXT NULL,\n    CONSTRAINT fk_presc_appt FOREIGN KEY (appointment_id)\n        REFERENCES appointments(appointment_id) ON DELETE CASCADE\n) ENGINE=InnoDB;\n\n-- Pharmacy Medicines Catalog & Stock\nCREATE TABLE pharmacy_medicines (\n    medicine_id INT AUTO_INCREMENT PRIMARY KEY,\n    brand_name VARCHAR(100) NOT NULL,\n    generic_name VARCHAR(100) NOT NULL,\n    unit_price DECIMAL(10, 2) NOT NULL,\n    stock_quantity INT NOT NULL DEFAULT 0,\n    CONSTRAINT chk_stock CHECK (stock_quantity &ge; 0)\n) ENGINE=InnoDB;\n\n-- Prescription Line Items (Composite PK)\nCREATE TABLE prescription_items (\n    prescription_id INT NOT NULL,\n    medicine_id INT NOT NULL,\n    dosage VARCHAR(100) NOT NULL,\n    quantity_dispensed INT NOT NULL DEFAULT 1,\n    PRIMARY KEY (prescription_id, medicine_id),\n    CONSTRAINT fk_item_presc FOREIGN KEY (prescription_id)\n        REFERENCES prescriptions(prescription_id) ON DELETE CASCADE,\n    CONSTRAINT fk_item_med FOREIGN KEY (medicine_id)\n        REFERENCES pharmacy_medicines(medicine_id)\n) ENGINE=InnoDB;`;
 
   return (
     <>
@@ -357,7 +357,7 @@ const Topic19 = () => {
                     value={selectedDoctorId}
                     onChange={(e) => setSelectedDoctorId(Number(e.target.value))}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  >
+                  &gt;
                     {doctors.map((d) => (
                       <option key={d.id} value={d.id}>
                         {d.name} ({d.spec})
@@ -368,7 +368,7 @@ const Topic19 = () => {
                     value={selectedPatientId}
                     onChange={(e) => setSelectedPatientId(Number(e.target.value))}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  >
+                  &gt;
                     {patients.map((p) => (
                       <option key={p.id} value={p.id}>
                         {p.name} ({p.blood})
@@ -382,7 +382,7 @@ const Topic19 = () => {
                     value={selectedMedId}
                     onChange={(e) => setSelectedMedId(Number(e.target.value))}
                     className="col-span-2 rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
-                  >
+                  &gt;
                     {medicines.map((m) => (
                       <option key={m.id} value={m.id}>
                         {m.brand} (Stock: {m.stock}, ₹{m.price}/ea)
@@ -395,7 +395,7 @@ const Topic19 = () => {
                     onChange={(e) => setDispenseQty(Number(e.target.value))}
                     className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                     placeholder="Qty"
-                  />
+                  /&gt;
                 </div>
 
                 <input
@@ -404,7 +404,7 @@ const Topic19 = () => {
                   onChange={(e) => setDosageText(e.target.value)}
                   className="w-full rounded bg-slate-900 border border-slate-800 px-2.5 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
                   placeholder="Dosage Instructions"
-                />
+                /&gt;
 
                 <button
                   onClick={handleDispenseMedicine}
@@ -425,7 +425,7 @@ const Topic19 = () => {
                       key={m.id}
                       onClick={() => handleRestockMedicine(m.id)}
                       className="py-1 px-2.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 text-xs font-bold hover:bg-indigo-500/30 transition-all"
-                    >
+                    &gt;
                       +50 {m.brand.split(" ")[0]}
                     </button>
                   ))}
@@ -464,7 +464,7 @@ const Topic19 = () => {
               {/* Live Inventory & Dispensed Items Table */}
               <div>
                 <div className="flex items-center justify-between text-xs font-bold text-slate-300 mb-1">
-                  <span>Pharmacy Inventory Stock (CHECK stock &gt;= 0)</span>
+                  <span>Pharmacy Inventory Stock (CHECK stock >= 0)</span>
                 </div>
                 <div className="overflow-x-auto rounded-xl border border-slate-800 max-h-40 overflow-y-auto">
                   <table className="w-full text-left text-xs text-slate-300">
@@ -615,7 +615,7 @@ JOIN pharmacy_medicines m ON i.medicine_id = m.medicine_id;`}
                 <div>
                   <strong className="text-white">2. Check Constraint on Inventory Stock:</strong>
                   <p className="text-slate-400 mt-0.5">
-                    <code>CHECK (stock_quantity &gt;= 0)</code> guarantees that pharmacy stock cannot drop below zero.
+                    <code>CHECK (stock_quantity >= 0)</code> guarantees that pharmacy stock cannot drop below zero.
                   </p>
                 </div>
               </div>
@@ -646,7 +646,7 @@ JOIN pharmacy_medicines m ON i.medicine_id = m.medicine_id;`}
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
-              <span>Enforce `stock_quantity &gt;= 0` with a database-level CHECK constraint</span>
+              <span>Enforce `stock_quantity >= 0` with a database-level CHECK constraint</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
@@ -696,7 +696,7 @@ JOIN pharmacy_medicines m ON i.medicine_id = m.medicine_id;`}
               "the database itself acts as a safeguard, guaranteeing that pharmacy stock can never go negative. " +
               "That is how enterprise-grade software is built!"
             }
-          />
+          /&gt;
         </section>
 
         {/* ─── Footer ───────────────────────────────────────────── */}

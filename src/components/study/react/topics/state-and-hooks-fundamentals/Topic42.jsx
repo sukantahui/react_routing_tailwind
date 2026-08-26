@@ -521,7 +521,7 @@ const Topic42 = () => {
                     ? "bg-blue-500 text-white"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {tab === 'cart' && '🛒 Cart Example'}
                 {tab === 'todos' && '📝 Todos Example'}
                 {tab === 'preferences' && '⚙️ Preferences'}
@@ -579,14 +579,14 @@ const Topic42 = () => {
                               <button
                                 onClick={() => updateQuantity(item.id, -1)}
                                 className="w-8 h-8 flex items-center justify-center bg-gray-200 dark:bg-gray-600 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500"
-                              >
+                              &gt;
                                 -
                               </button>
                               <span className="font-bold">{item.quantity}</span>
                               <button
                                 onClick={() => updateQuantity(item.id, 1)}
                                 className="w-8 h-8 flex items-center justify-center bg-gray-200 dark:bg-gray-600 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500"
-                              >
+                              &gt;
                                 +
                               </button>
                             </div>
@@ -702,7 +702,7 @@ const Topic42 = () => {
                               checked={todo.completed}
                               onChange={() => toggleTodo(todo.id)}
                               className="mr-3 h-5 w-5 rounded border-gray-300"
-                            />
+                            /&gt;
                             <div>
                               <div className={clsx(
                                 "font-medium",
@@ -809,7 +809,7 @@ const Topic42 = () => {
                           value={filters.category}
                           onChange={(e) => updateFilter('category', e.target.value)}
                           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200"
-                        >
+                        &gt;
                           <option value="all">All Priorities</option>
                           <option value="high">High Priority</option>
                           <option value="medium">Medium Priority</option>
@@ -822,7 +822,7 @@ const Topic42 = () => {
                             checked={filters.inStock}
                             onChange={(e) => updateFilter('inStock', e.target.checked)}
                             className="rounded border-gray-300"
-                          />
+                          /&gt;
                           <span className="text-sm text-gray-700 dark:text-gray-300">Show only incomplete</span>
                         </label>
                       </div>
@@ -883,7 +883,7 @@ const Topic42 = () => {
                                   ? "bg-blue-500 text-white"
                                   : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500"
                               )}
-                            >
+                            &gt;
                               {theme}
                             </button>
                           ))}
@@ -905,7 +905,7 @@ const Topic42 = () => {
                                   ? "bg-blue-500 text-white"
                                   : "bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500"
                               )}
-                            >
+                            &gt;
                               {size}
                             </button>
                           ))}
@@ -919,7 +919,7 @@ const Topic42 = () => {
                             checked={userPreferences.notifications}
                             onChange={(e) => updatePreference('notifications', e.target.checked)}
                             className="rounded border-gray-300"
-                          />
+                          /&gt;
                           <span className="text-gray-700 dark:text-gray-300">Enable Notifications</span>
                         </label>
                         
@@ -929,7 +929,7 @@ const Topic42 = () => {
                             checked={userPreferences.autoSave}
                             onChange={(e) => updatePreference('autoSave', e.target.checked)}
                             className="rounded border-gray-300"
-                          />
+                          /&gt;
                           <span className="text-gray-700 dark:text-gray-300">Auto-save Changes</span>
                         </label>
                       </div>

@@ -32,7 +32,7 @@ const total = marks.reduce((sum, m) => sum + m, 0);
 
 console.log("Total Marks:", total);`}
           language="javascript"
-        />
+        /&gt;
 
         <EditableCodeBlock
           initialCode={`const expenses = [
@@ -46,7 +46,7 @@ const totalCost = expenses.reduce((sum, e) => sum + e.cost, 0);
 
 console.log("Total Expense:", totalCost);`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* 2. Averages */}
@@ -69,7 +69,7 @@ const avgMarks = students.reduce((acc, s, _, arr) => {
 
 console.log("Average Marks:", avgMarks.toFixed(2));`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* 3. Grouping */}
@@ -98,7 +98,7 @@ const groupByCourse = students.reduce((acc, s) => {
 
 console.log(groupByCourse);`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* 4. Frequency Map */}
@@ -117,7 +117,7 @@ const frequency = items.reduce((acc, item) => {
 
 console.log(frequency);`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* 5. Reduce for Object Transformations */}
@@ -141,7 +141,7 @@ const mapped = students.reduce((acc, s) => {
 console.log(mapped);
 // { 1: "Ritaja", 2: "Susmita", 3: "Kaustav" }`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* 6. Nested Data */}
@@ -231,7 +231,7 @@ summary.overallAvg = summary.totalAvg / courseData.length;
 
 console.log(summary);`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* TEACHER NOTE */}

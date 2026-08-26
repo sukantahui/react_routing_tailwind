@@ -30,7 +30,7 @@ const Topic7 = () => {
   // Compute flip-flop response whenever S, R, or CLK changes
   useEffect(() => {
     if (!clkInput) {
-      // Clock is LOW (0) -> Inactive / Memory Hold
+      // Clock is LOW (0) &rarr; Inactive / Memory Hold
       setIsInvalid(false);
       return;
     }
@@ -330,7 +330,7 @@ const Topic7 = () => {
                       ? "bg-cyan-900/80 border-cyan-400 text-cyan-200 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-500"
                   )}
-                >
+                &gt;
                   CLK: {clkInput ? "1 (ACTIVE HIGH)" : "0 (DISABLED / LOW)"}
                 </button>
 
@@ -343,7 +343,7 @@ const Topic7 = () => {
                       ? "bg-teal-900/80 border-teal-400 text-teal-200 shadow-lg shadow-teal-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-500"
                   )}
-                >
+                &gt;
                   S (Set): {sInput ? "1 (HIGH)" : "0 (LOW)"}
                 </button>
 
@@ -356,7 +356,7 @@ const Topic7 = () => {
                       ? "bg-rose-900/80 border-rose-400 text-rose-200 shadow-lg shadow-rose-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-500"
                   )}
-                >
+                &gt;
                   R (Reset): {rInput ? "1 (HIGH)" : "0 (LOW)"}
                 </button>
               </div>

@@ -33,7 +33,7 @@ const Topic1 = () => {
 //       │
 //       ▼
 // [ha_partition (Partition Handler Proxy)]
-//       │ (Evaluates YEAR('2025-04-12') = 2025 -> Target: Partition 1)
+//       │ (Evaluates YEAR('2025-04-12') = 2025 &rarr; Target: Partition 1)
 //       ▼
 // [ha_innobase Instance for Partition 1]
 //       │
@@ -78,7 +78,7 @@ CREATE INDEX idx_customer ON sales_records (customer_id);
 
 -- 💡 HOW MYSQL HANDLES SECONDARY INDEXES:
 -- Every partition (.ibd file) maintains its OWN LOCAL B-TREE INDEX!
--- p2024.ibd -> Contains idx_customer for 2024 rows only.
+-- p2024.ibd -&gt; Contains idx_customer for 2024 rows only.
 -- p2025.ibd -> Contains idx_customer for 2025 rows only.
 -- MySQL does NOT have Global Indexes; all indexes are strictly LOCAL!`,
       explanation:
@@ -208,7 +208,7 @@ ALTER TABLE sales_records EXCHANGE PARTITION p2024 WITH TABLE orders_2024_stagin
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {mechanic.mechanicName}
                 </button>
               );

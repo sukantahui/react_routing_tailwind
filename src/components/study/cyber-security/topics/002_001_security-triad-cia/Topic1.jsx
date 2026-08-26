@@ -67,7 +67,7 @@ const Topic1 = () => {
 
   if (accessModel === "rbac") {
     // RBAC: Static role vs tier
-    if (currentUser.clearance >= currentAsset.tierLevel) {
+    if (currentUser.clearance &ge; currentAsset.tierLevel) {
       accessGranted = true;
       decisionReason = `RBAC: Role '${currentUser.role}' has assigned clearance Level ${currentUser.clearance} >= Tier Level ${currentAsset.tierLevel}.`;
     } else {
@@ -290,7 +290,7 @@ const Topic1 = () => {
                           ? "bg-slate-800 border-sky-500 shadow-md shadow-sky-500/20"
                           : "bg-slate-950 border-slate-800 hover:border-slate-700"
                       )}
-                    >
+                    &gt;
                       <div className="flex justify-between items-center">
                         <span className="text-xs font-bold text-white">{item.name}</span>
                         <span className="text-[10px] text-sky-400 bg-sky-950 px-1.5 py-0.5 rounded">Lvl {item.clearance}</span>
@@ -314,7 +314,7 @@ const Topic1 = () => {
                       "p-2.5 rounded-lg border text-center text-xs font-semibold transition-all",
                       accessModel === "rbac" ? "bg-sky-950 border-sky-500 text-sky-300" : "bg-slate-950 border-slate-800 text-slate-400"
                     )}
-                  >
+                  &gt;
                     RBAC
                     <span className="block text-[10px] font-normal text-slate-500">Role-Based</span>
                   </button>
@@ -324,7 +324,7 @@ const Topic1 = () => {
                       "p-2.5 rounded-lg border text-center text-xs font-semibold transition-all",
                       accessModel === "abac" ? "bg-emerald-950 border-emerald-500 text-emerald-300" : "bg-slate-950 border-slate-800 text-slate-400"
                     )}
-                  >
+                  &gt;
                     ABAC
                     <span className="block text-[10px] font-normal text-slate-500">Attribute/Context</span>
                   </button>
@@ -334,7 +334,7 @@ const Topic1 = () => {
                       "p-2.5 rounded-lg border text-center text-xs font-semibold transition-all",
                       accessModel === "bell_lapadula" ? "bg-indigo-950 border-indigo-500 text-indigo-300" : "bg-slate-950 border-slate-800 text-slate-400"
                     )}
-                  >
+                  &gt;
                     Bell-LaPadula
                     <span className="block text-[10px] font-normal text-slate-500">No Read Up</span>
                   </button>
@@ -352,7 +352,7 @@ const Topic1 = () => {
                           "py-1.5 px-2 text-[11px] rounded border text-left font-medium transition-all",
                           targetAssetTier === key ? "bg-slate-800 border-sky-400 text-sky-300" : "bg-slate-950 border-slate-800 text-slate-400"
                         )}
-                      >
+                      &gt;
                         Tier {item.tierLevel}: {item.name}
                       </button>
                     ))}
@@ -373,7 +373,7 @@ const Topic1 = () => {
                       "flex-1 py-1.5 text-xs rounded border transition-all",
                       networkLocation === "trusted" ? "bg-emerald-950 border-emerald-500 text-emerald-300" : "bg-slate-900 border-slate-800 text-slate-400"
                     )}
-                  >
+                  &gt;
                     🏢 Corporate/Hospital LAN
                   </button>
                   <button
@@ -382,7 +382,7 @@ const Topic1 = () => {
                       "flex-1 py-1.5 text-xs rounded border transition-all",
                       networkLocation === "untrusted" ? "bg-rose-950 border-rose-500 text-rose-300" : "bg-slate-900 border-slate-800 text-slate-400"
                     )}
-                  >
+                  &gt;
                     ☕ Public Wi-Fi
                   </button>
                 </div>
@@ -398,7 +398,7 @@ const Topic1 = () => {
                       "flex-1 py-1.5 text-xs rounded border transition-all",
                       devicePosture === "compliant" ? "bg-emerald-950 border-emerald-500 text-emerald-300" : "bg-slate-900 border-slate-800 text-slate-400"
                     )}
-                  >
+                  &gt;
                     🛡️ Managed &amp; Compliant
                   </button>
                   <button
@@ -407,7 +407,7 @@ const Topic1 = () => {
                       "flex-1 py-1.5 text-xs rounded border transition-all",
                       devicePosture === "unmanaged" ? "bg-rose-950 border-rose-500 text-rose-300" : "bg-slate-900 border-slate-800 text-slate-400"
                     )}
-                  >
+                  &gt;
                     ⚠️ Unmanaged Device
                   </button>
                 </div>
@@ -423,7 +423,7 @@ const Topic1 = () => {
                     checked={dynamicMasking}
                     onChange={(e) => setDynamicMasking(e.target.checked)}
                     className="w-4 h-4 text-sky-600 rounded bg-slate-800 border-slate-700"
-                  />
+                  /&gt;
                 </label>
               </div>
             </div>

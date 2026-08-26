@@ -41,7 +41,7 @@ export default function Topic32() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        >
+        &gt;
           <h1 className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
             Handling Errors with IFERROR in Statistical Formulas
           </h1>
@@ -54,7 +54,7 @@ export default function Topic32() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-red-500/50 transition-all duration-300"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-red-400">⚠️</span> Function Prototype
           </h2>
@@ -75,7 +75,7 @@ export default function Topic32() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">📐 How IFERROR Works</h2>
           <div className="mt-4 space-y-4 text-gray-200 leading-relaxed">
             <p>
@@ -93,11 +93,11 @@ export default function Topic32() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">📊 Real-World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
-              <strong>Scenario:</strong> In Barrackpore, a school wants to compute the average score of students who passed (score &gt;= 40). If no student passed, AVERAGEIF returns #DIV/0! – which would break a report. Using IFERROR, they replace it with 0 or "No passing students".
+              <strong>Scenario:</strong> In Barrackpore, a school wants to compute the average score of students who passed (score >= 40). If no student passed, AVERAGEIF returns #DIV/0! – which would break a report. Using IFERROR, they replace it with 0 or "No passing students".
             </p>
             <div className="mt-3 bg-gray-900 p-4 rounded-lg overflow-x-auto">
               <table className="w-full text-sm border-collapse">
@@ -109,7 +109,7 @@ export default function Topic32() {
                   <tr><td className="border px-3 py-1">Tuhina</td><td className="border px-3 py-1">38</td></tr>
                 </tbody>
               </table>
-              <p className="mt-3 text-red-300">{`=IFERROR(AVERAGEIF(B2:B3, ">=40", B2:B3), "No eligible scores") → "No eligible scores"`}</p>
+              <p className="mt-3 text-red-300">{`=IFERROR(AVERAGEIF(B2:B3, " &ge; 40", B2:B3), "No eligible scores") → "No eligible scores"`}</p>
             </div>
           </div>
         </section>
@@ -118,7 +118,7 @@ export default function Topic32() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (

@@ -79,7 +79,7 @@ X-Header-2: b\\r\\n  <-- Never sends final \\r\\n\\r\\n! Holds thread indefinite
 // Fragment 1 : Offset = 0, Length = 1500
 // ...
 // Final Frag : Offset = 8100 (64,800 bytes), Length = 1000
-// Reassembled Total: 65,800 bytes > 65,535 Max IP Limit ➔ KERNEL PANIC!`
+// Reassembled Total: 65,800 bytes &gt; 65,535 Max IP Limit ➔ KERNEL PANIC!`
     },
     teardrop_overlapping_offset: {
       key: "teardrop_overlapping_offset",
@@ -178,7 +178,7 @@ let attack_payload = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!"; // 30 'a's followed by '
     const availableCapacity = serverCapacity - legitTraffic;
     
     let rawDropProb = 0;
-    if (availableCapacity <= 0) {
+    if (availableCapacity &le; 0) {
       rawDropProb = 100;
     } else {
       const exponent = -effectiveAttack / availableCapacity;
@@ -193,7 +193,7 @@ let attack_payload = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!"; // 30 'a's followed by '
       dropProb: finalDropProb.toFixed(2),
       badgeClass: parseFloat(availabilityScore) > 90
         ? "bg-emerald-950 text-emerald-300 border-emerald-800"
-        : parseFloat(availabilityScore) > 50
+        : parseFloat(availabilityScore) &gt; 50
         ? "bg-amber-950 text-amber-300 border-amber-800"
         : "bg-rose-950 text-rose-300 border-rose-800",
       statusMessage: parseFloat(availabilityScore) > 90
@@ -629,7 +629,7 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   VECTOR
                 </span>
@@ -726,7 +726,7 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
                   value={serverCapacity}
                   onChange={(e) => setServerCapacity(parseInt(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -742,7 +742,7 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
                   value={legitTraffic}
                   onChange={(e) => setLegitTraffic(parseInt(e.target.value))}
                   className="w-full accent-emerald-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -758,7 +758,7 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
                   value={attackTraffic}
                   onChange={(e) => setAttackTraffic(parseInt(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -772,7 +772,7 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     None (1x)
                   </button>
                   <button
@@ -783,7 +783,7 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Firewall (50x)
                   </button>
                   <button
@@ -794,7 +794,7 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     SYN Cookie (500x)
                   </button>
                 </div>
@@ -853,7 +853,7 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -902,7 +902,7 @@ print("[+] DoS Packet Inspection Engine Active on Kolkata Financial Gateway!")`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

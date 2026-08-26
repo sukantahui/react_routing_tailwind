@@ -332,7 +332,7 @@ const Topic1 = () => {
                         ? "bg-cyan-600 text-white border-cyan-400 shadow-md shadow-cyan-900/40"
                         : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {item.title.split(". ")[1].split(" (")[0]}
                   </button>
                 );
@@ -484,7 +484,7 @@ const Topic1 = () => {
                 value={simulatedRttMs}
                 onChange={(e) => setSimulatedRttMs(Number(e.target.value))}
                 className="w-full accent-cyan-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Barrackpore to Kolkata Datacenter (~12ms) vs Roaming Mobile 4G (~65ms).
               </p>
@@ -508,7 +508,7 @@ const Topic1 = () => {
                     ? "bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-900/40"
                     : "bg-slate-800 text-slate-400 border-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 {isSessionResumption ? "0-RTT ACTIVE" : "STANDARD 1-RTT"}
               </button>
             </div>
@@ -589,7 +589,7 @@ const Topic1 = () => {
                         ? "bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-900/40"
                         : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {item.title.split(". ")[1]}
                   </button>
                 );
@@ -767,7 +767,7 @@ const Topic1 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Barrackpore Bank Drill
               </button>
               <button
@@ -778,7 +778,7 @@ const Topic1 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Sector V E-Commerce Drill
               </button>
             </div>

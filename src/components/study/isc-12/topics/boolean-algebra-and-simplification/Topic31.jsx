@@ -50,7 +50,7 @@ const BooleanSimplification = () => {
       );
       setFilteredExamples(filtered);
       // Reset selected example if current selection is out of range
-      if (selectedExample >= filtered.length) {
+      if (selectedExample &ge; filtered.length) {
         setSelectedExample(0);
       }
     }
@@ -98,7 +98,7 @@ const BooleanSimplification = () => {
     for (let i = 0; i < totalRows; i++) {
       const values = [];
       for (let j = n - 1; j >= 0; j--) {
-        values.push((i >> j) & 1);
+        values.push((i &gt;> j) & 1);
       }
       const originalOutput = evaluate(currentExample.original, values);
       const simplifiedOutput = evaluate(currentExample.simplified, values);
@@ -167,7 +167,7 @@ const BooleanSimplification = () => {
               }}
               placeholder="Search by name, original expression, or simplified expression..."
               className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500"
-            />
+            /&gt;
           </div>
           
           <div className="mb-2 flex justify-between items-center">
@@ -201,7 +201,7 @@ const BooleanSimplification = () => {
                     : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                 )}
                 title={ex.name}
-              >
+              &gt;
                 {ex.id}. {ex.name}
               </button>
             ))}
@@ -285,10 +285,10 @@ const BooleanSimplification = () => {
                       ))}
                     </tbody>
                   </table>
-                  {currentExample.variables.length === 3 && rows.length > 8 && (
+                  {currentExample.variables.length === 3 && rows.length &gt; 8 && (
                     <p className="text-xs text-gray-500 mt-1">Showing first 8 of {rows.length} rows</p>
                   )}
-                  {currentExample.variables.length === 4 && rows.length > 12 && (
+                  {currentExample.variables.length === 4 && rows.length &gt; 12 && (
                     <p className="text-xs text-gray-500 mt-1">Showing first 12 of {rows.length} rows</p>
                   )}
                 </div>
@@ -300,7 +300,7 @@ const BooleanSimplification = () => {
               <button
                 onClick={() => setShowSteps(!showSteps)}
                 className="w-full py-2 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 rounded-lg font-medium transition-all duration-300 hover:bg-emerald-200 dark:hover:bg-emerald-900/60 mb-4"
-              >
+              &gt;
                 {showSteps ? "📖 Hide" : "📖 Show"} Step-by-Step Algebraic Simplification
               </button>
               

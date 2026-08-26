@@ -303,7 +303,7 @@ const Topic6 = () => {
                   value={cityInputMode}
                   onChange={(e) => setCityInputMode(e.target.value)}
                   className="w-full rounded-lg bg-slate-900 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                >
+                &gt;
                   <option value="omitted">Omit Column (Auto Injects 'Barrackpore')</option>
                   <option value="default_kw">Use DEFAULT Keyword (VALUES(..., DEFAULT))</option>
                   <option value="custom">Provide Custom Value ('Kolkata')</option>
@@ -320,7 +320,7 @@ const Topic6 = () => {
                   value={feeInputMode}
                   onChange={(e) => setFeeInputMode(e.target.value)}
                   className="w-full rounded-lg bg-slate-900 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                >
+                &gt;
                   <option value="omitted">Omit Column (Auto Injects ₹15,000.00)</option>
                   <option value="default_kw">Use DEFAULT Keyword</option>
                   <option value="custom">Provide Custom Amount (₹18,500.00)</option>

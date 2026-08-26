@@ -150,7 +150,7 @@ const PythonQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDet
                           <button
                             onClick={() => toggleAnswer(sectionIdx, qIdx)}
                             className="px-2 py-1 text-xs rounded bg-blue-600 hover:bg-blue-500 text-white transition-colors no-print"
-                          >
+                          &gt;
                             {isOpen ? "Hide Answer" : "Show Answer"}
                           </button>
                         )}
@@ -221,7 +221,7 @@ const PythonQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDet
           .mb-8 {
             margin-bottom: 0.75rem !important;
           }
-          .space-y-6 > * + * {
+          .space-y-6 &gt; * + * {
             margin-top: 0.5rem !important;
           }
           p {

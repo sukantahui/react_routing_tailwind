@@ -204,7 +204,7 @@ const AddResult = () => {
               <button
                 onClick={() => setShowDevTools(!showDevTools)}
                 className="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded-lg text-sm"
-              >
+              &gt;
                 {showDevTools ? "Hide" : "Show"}
               </button>
             </div>

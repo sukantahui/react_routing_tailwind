@@ -135,7 +135,7 @@ const Topic6 = () => {
                   ? "bg-emerald-600 text-white shadow-lg shadow-emerald-200 dark:shadow-emerald-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -153,7 +153,7 @@ const Topic6 = () => {
                   ? "bg-emerald-600 text-white"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
               )}
-            >
+            &gt;
               {cat}
             </button>
           ))}
@@ -187,7 +187,7 @@ const Topic6 = () => {
                           setShowHint(null);
                         }}
                         className="px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800/30 transition-all duration-300"
-                      >
+                      &gt;
                         {showSolution === problem.id ? 'Hide Solution' : 'Show Solution'}
                       </button>
                       <button
@@ -196,7 +196,7 @@ const Topic6 = () => {
                           setShowSolution(null);
                         }}
                         className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
-                      >
+                      &gt;
                         {showHint === problem.id ? 'Hide Hint' : 'Show Hint'}
                       </button>
                     </div>
@@ -250,7 +250,7 @@ const Topic6 = () => {
                             setShowHint(null);
                           }}
                           className="hover:underline"
-                        >
+                        &gt;
                           Click to view solution →
                         </button>
                       </div>

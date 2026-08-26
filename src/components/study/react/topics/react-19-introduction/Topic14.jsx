@@ -233,7 +233,7 @@ const Topic14 = () => {
               <button
                 onClick={() => setShowLegacyExample(!showLegacyExample)}
                 className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors duration-300"
-              >
+              &gt;
                 <span className="text-xl">{showLegacyExample ? '▼' : '▶'}</span>
                 <span className="font-medium">
                   {showLegacyExample ? 'Hide' : 'Show'} Legacy Class Component Example
@@ -290,7 +290,7 @@ function CounterModern() {
   return (
     <div>
       <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>
+      <button onClick={() => setCount(count + 1)}&gt;
         Increment
       </button>
     </div>

@@ -29,7 +29,7 @@ const Topic8 = () => {
     student_name,
     marks_obtained,
     CASE 
-        WHEN marks_obtained >= 90 THEN 'A+ (Distinction)'
+        WHEN marks_obtained &ge; 90 THEN 'A+ (Distinction)'
         WHEN marks_obtained >= 80 THEN 'A (First Class - High)'
         WHEN marks_obtained >= 60 THEN 'B (First Class)'
         WHEN marks_obtained >= 40 THEN 'C (Pass)'
@@ -220,8 +220,8 @@ ORDER BY
               </p>
               <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 font-mono text-xs text-slate-300 space-y-1">
                 <div><span className="text-indigo-400">CASE</span></div>
-                <div className="pl-4"><span className="text-indigo-400">WHEN</span> marks &gt;= 80 <span className="text-indigo-400">THEN</span> <span className="text-emerald-400">'A'</span></div>
-                <div className="pl-4"><span className="text-indigo-400">WHEN</span> marks &gt;= 60 <span className="text-indigo-400">THEN</span> <span className="text-emerald-400">'B'</span></div>
+                <div className="pl-4"><span className="text-indigo-400">WHEN</span> marks >= 80 <span className="text-indigo-400">THEN</span> <span className="text-emerald-400">'A'</span></div>
+                <div className="pl-4"><span className="text-indigo-400">WHEN</span> marks >= 60 <span className="text-indigo-400">THEN</span> <span className="text-emerald-400">'B'</span></div>
                 <div className="pl-4"><span className="text-indigo-400">WHEN</span> marks <span className="text-indigo-400">IS NULL THEN</span> <span className="text-amber-400">'Absent'</span></div>
                 <div className="pl-4"><span className="text-indigo-400">ELSE</span> <span className="text-rose-400">'F'</span></div>
                 <div><span className="text-indigo-400">END</span></div>
@@ -329,7 +329,7 @@ ORDER BY
 
               {/* Step 1: WHEN 1 */}
               <rect x="290" y="65" width="220" height="50" rx="8" fill="#0f172a" stroke="#475569" />
-              <text x="400" y="87" fill="#94a3b8" fontSize="11" textAnchor="middle">1. WHEN marks &gt;= 90 ?</text>
+              <text x="400" y="87" fill="#94a3b8" fontSize="11" textAnchor="middle">1. WHEN marks >= 90 ?</text>
               <text x="400" y="103" fill="#f43f5e" fontSize="11" fontWeight="bold" textAnchor="middle">Evaluates to FALSE (84 &lt; 90)</text>
 
               {/* Arrow down to Step 2 */}
@@ -338,8 +338,8 @@ ORDER BY
 
               {/* Step 2: WHEN 2 (MATCH!) */}
               <rect x="290" y="155" width="220" height="55" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="2" filter="url(#shadowCase)" />
-              <text x="400" y="177" fill="#a7f3d0" fontSize="11" fontWeight="bold" textAnchor="middle">2. WHEN marks &gt;= 80 ?</text>
-              <text x="400" y="196" fill="#34d399" fontSize="12" fontWeight="extrabold" textAnchor="middle">TRUE! (84 &gt;= 80) &rarr; MATCH!</text>
+              <text x="400" y="177" fill="#a7f3d0" fontSize="11" fontWeight="bold" textAnchor="middle">2. WHEN marks >= 80 ?</text>
+              <text x="400" y="196" fill="#34d399" fontSize="12" fontWeight="extrabold" textAnchor="middle">TRUE! (84 >= 80) &rarr; MATCH!</text>
 
               {/* Arrow to Result Output */}
               <path d="M 510 182 L 630 182" fill="none" stroke="#10b981" strokeWidth="2.5" />
@@ -355,8 +355,8 @@ ORDER BY
 
               {/* Skipped Branches Box */}
               <rect x="290" y="250" width="220" height="100" rx="8" fill="#0f172a" stroke="#334155" strokeDasharray="3 3" opacity="0.6" />
-              <text x="400" y="275" fill="#64748b" fontSize="10" textAnchor="middle">3. WHEN marks &gt;= 60 &rarr; (SKIPPED)</text>
-              <text x="400" y="295" fill="#64748b" fontSize="10" textAnchor="middle">4. WHEN marks &gt;= 40 &rarr; (SKIPPED)</text>
+              <text x="400" y="275" fill="#64748b" fontSize="10" textAnchor="middle">3. WHEN marks >= 60 &rarr; (SKIPPED)</text>
+              <text x="400" y="295" fill="#64748b" fontSize="10" textAnchor="middle">4. WHEN marks >= 40 &rarr; (SKIPPED)</text>
               <text x="400" y="315" fill="#64748b" fontSize="10" textAnchor="middle">5. ELSE 'Fail' &rarr; (SKIPPED)</text>
               <text x="400" y="335" fill="#f59e0b" fontSize="9.5" fontWeight="bold" textAnchor="middle">-- Short-Circuit Terminated --</text>
             </svg>
@@ -390,7 +390,7 @@ ORDER BY
                         ? "bg-cyan-950/80 border-cyan-500 text-cyan-200 shadow-lg shadow-cyan-950/50"
                         : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                     )}
-                  >
+                  &gt;
                     <div className="font-semibold">{item.title}</div>
                   </button>
                 );
@@ -535,7 +535,7 @@ ORDER BY
     student_name,
     final_score_pct,
     CASE 
-        WHEN final_score_pct >= 90 THEN 'GOLD_DISTINCTION'
+        WHEN final_score_pct &ge; 90 THEN 'GOLD_DISTINCTION'
         WHEN final_score_pct >= 75 THEN 'SILVER_MERIT'
         WHEN final_score_pct >= 50 THEN 'BRONZE_PASS'
         ELSE 'REAPPEAR_REQUIRED'
@@ -565,7 +565,7 @@ FROM student_records;`}</pre>
     customer_tier,
     cart_total_inr,
     ROUND(cart_total_inr * (1 - CASE 
-        WHEN customer_tier = 'VIP' AND cart_total_inr >= 10000 THEN 0.20
+        WHEN customer_tier = 'VIP' AND cart_total_inr &ge; 10000 THEN 0.20
         WHEN customer_tier = 'VIP' OR cart_total_inr >= 5000 THEN 0.10
         WHEN cart_total_inr >= 2500 THEN 0.05
         ELSE 0.00
@@ -664,7 +664,7 @@ ORDER BY
                   <span className="text-rose-400 font-bold">3.</span>
                   <div>
                     <strong className="text-white">Incorrect Condition Ordering:</strong>{" "}
-                    Placing <code className="text-rose-300">WHEN marks &gt;= 40 THEN 'Pass'</code> before <code className="text-rose-300">WHEN marks &gt;= 80 THEN 'Distinction'</code> prevents the distinction branch from ever executing.
+                    Placing <code className="text-rose-300">WHEN marks >= 40 THEN 'Pass'</code> before <code className="text-rose-300">WHEN marks >= 80 THEN 'Distinction'</code> prevents the distinction branch from ever executing.
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
@@ -751,7 +751,7 @@ The SQL CASE expression is one of your most valuable architectural tools. When w
 4. For report pivoting, SUM(CASE WHEN status = 'PAID' THEN 1 ELSE 0 END) is the industry standard for transposing data into columns without stored procedures.
 
 Master the interactive sandbox scenarios above and solve all 30 interview questions below.`}
-          />
+          /&gt;
 
           {/* Printable Plain Text Component */}
           <div className="mt-8">

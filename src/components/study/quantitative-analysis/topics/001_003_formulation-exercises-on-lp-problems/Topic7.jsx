@@ -89,7 +89,7 @@ const Topic7 = () => {
     const testX = 1;
     const testY = 1;
     const lhs = a * testX + b * testY;
-    const isTrue = symbol === '≤' ? lhs <= c : lhs >= c;
+    const isTrue = symbol === '≤' ? lhs &le; c : lhs >= c;
 
     return (
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl">
@@ -112,7 +112,7 @@ const Topic7 = () => {
                         ? "bg-blue-600 text-white"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  >
+                  &gt;
                     {type.label}
                   </button>
                 ))}
@@ -255,7 +255,7 @@ const Topic7 = () => {
                   ? "bg-blue-600 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -419,7 +419,7 @@ const Topic7 = () => {
                       <button
                         onClick={() => toggleExample(example.id)}
                         className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300"
-                      >
+                      &gt;
                         {showExample[example.id] ? 'Hide Detailed Steps' : 'Show Detailed Steps'}
                       </button>
                     </div>
@@ -460,13 +460,13 @@ const Topic7 = () => {
                         <button
                           onClick={() => setShowSolution(showSolution === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800/30 transition-all duration-300"
-                        >
+                        &gt;
                           {showSolution === problem.id ? 'Hide Solution' : 'Check Solution'}
                         </button>
                         <button
                           onClick={() => setShowHint(showHint === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
-                        >
+                        &gt;
                           {showHint === problem.id ? 'Hide Hint' : 'Show Hint'}
                         </button>
                       </div>

@@ -31,9 +31,9 @@ FROM student_ledgers
 WHERE student_id = 101;
 
 -- 📋 Real Execution Output:
--- -> Rows fetched before execution  (cost=0.00..0.00 rows=1) 
+-- &rarr; Rows fetched before execution  (cost=0.00..0.00 rows=1) 
 --    (actual time=0.000..0.000 rows=1 loops=1)
--- -> Point lookup on student_ledgers using PRIMARY (student_id=101)  
+-- -&gt; Point lookup on student_ledgers using PRIMARY (student_id=101)  
 --    (cost=1.00 rows=1) (actual time=0.021..0.038 rows=1 loops=1)`,
       resultRows: [
         { node: "Point lookup on PRIMARY", estimatedCost: "cost=1.00", estimatedRows: "rows=1", actualFirstRow: "0.021 ms", actualAllRows: "0.038 ms", actualRowsPerLoop: "1", loops: "1", totalTime: "0.038 ms ⚡", status: "Optimal Const Fetch ✅" },
@@ -103,8 +103,8 @@ ORDER BY AVG(score) DESC;
 -- 📋 Real Execution Output:
 -- -> Sort: AVG(score) DESC  (actual time=14.200..14.280 rows=15 loops=1)
 --     -> Table scan on <temporary>  (actual time=12.100..12.120 rows=15 loops=1)
---         -> Aggregate using temporary table  (actual time=11.800..12.050 rows=15 loops=1)
---             -> Table scan on student_scores  (cost=1200.00 rows=10000) 
+-- &rarr; Aggregate using temporary table  (actual time=11.800..12.050 rows=15 loops=1)
+--             -&gt; Table scan on student_scores  (cost=1200.00 rows=10000) 
 --                (actual time=0.080..8.450 rows=10000 loops=1)`,
       resultRows: [
         { node: "Sort: AVG(score) DESC", estimatedCost: "Filesort", estimatedRows: "rows=15", actualFirstRow: "14.200 ms", actualAllRows: "14.280 ms", actualRowsPerLoop: "15", loops: "1", totalTime: "14.280 ms", status: "High Startup Time ⏳" },
@@ -348,7 +348,7 @@ ORDER BY AVG(score) DESC;
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

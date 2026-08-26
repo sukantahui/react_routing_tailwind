@@ -202,7 +202,7 @@ if (mlock(buffer, 1024 * 1024) == 0) {
             <p className="text-sm flex items-center gap-2"><span className="text-slate-600">🔍</span> Quick swap inspection commands:</p>
             <code className="block text-xs bg-white dark:bg-gray-900 p-2 rounded mt-1">
               {`# Show swap usage per process (swap used)
-for file in /proc/*/status; do grep -E "^(Pid|VmSwap)" "$file" 2>/dev/null; done | paste - - | sort -k3 -n -r | head -10
+for file in /proc/*/status; do grep -E "^(Pid|VmSwap)" "$file" 2&gt;/dev/null; done | paste - - | sort -k3 -n -r | head -10
 # Turn swap off/on (requires root)
 sudo swapoff -a && sudo swapon -a
 # Adjust swappiness temporarily

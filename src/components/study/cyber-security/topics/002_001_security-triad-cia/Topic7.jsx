@@ -308,7 +308,7 @@ const Topic7 = () => {
                     ? "bg-slate-800 border-purple-500 text-white shadow-lg shadow-purple-500/10"
                     : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span className={clsx("text-xs font-mono uppercase tracking-wider", isSelected ? "text-purple-400" : "text-slate-500")}>
                   Pillar {Object.keys(hexadData).indexOf(key) + 1}
                 </span>
@@ -382,7 +382,7 @@ const Topic7 = () => {
                     ? "bg-slate-900 border-cyan-500 text-white"
                     : "bg-slate-900/60 border-slate-800 text-slate-300 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 <div className={clsx("font-bold text-cyan-400 mb-1")}>{sc.title}</div>
                 <div className={clsx("text-[11px] text-slate-400 line-clamp-2")}>{sc.desc}</div>
               </button>
@@ -580,7 +580,7 @@ const Topic7 = () => {
               value={contractText}
               onChange={(e) => setContractText(e.target.value)}
               className={clsx("w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 focus:outline-none focus:border-cyan-500 font-mono resize-none")}
-            />
+            /&gt;
 
             <div className={clsx("grid grid-cols-1 sm:grid-cols-2 gap-3")}>
               <div>
@@ -591,7 +591,7 @@ const Topic7 = () => {
                   value={signerKey}
                   onChange={(e) => setSignerKey(e.target.value)}
                   className={clsx("w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-slate-300 focus:outline-none")}
-                >
+                &gt;
                   <option value="HSM-RSA-4096-DEBANGSHU-CORP">Debangshu (Director, HSM RSA-4096)</option>
                   <option value="HSM-ECDSA-P384-MAMATA-MED">Mamata (MD, HSM ECDSA P-384)</option>
                   <option value="HSM-ED25519-SUSMITA-FIN">Susmita (CFO, HSM Ed25519)</option>
@@ -629,7 +629,7 @@ const Topic7 = () => {
                     ? "bg-red-500 text-white shadow-lg shadow-red-500/30"
                     : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 )}
-              >
+              &gt;
                 {tamperDoc ? "Revert Tamper" : "Simulate Tamper"}
               </button>
             </div>
@@ -694,7 +694,7 @@ const Topic7 = () => {
               "px-4 py-2 rounded-xl text-xs font-bold transition-all",
               activeModelTab === "hexad" ? "bg-purple-500/20 text-purple-400 border border-purple-500/30" : "text-slate-400 hover:text-slate-200"
             )}
-          >
+          &gt;
             Parkerian Hexad (6 Pillars)
           </button>
           <button
@@ -703,7 +703,7 @@ const Topic7 = () => {
               "px-4 py-2 rounded-xl text-xs font-bold transition-all",
               activeModelTab === "dod" ? "bg-rose-500/20 text-rose-400 border border-rose-500/30" : "text-slate-400 hover:text-slate-200"
             )}
-          >
+          &gt;
             DoD 5 Pillars of IA
           </button>
           <button
@@ -712,7 +712,7 @@ const Topic7 = () => {
               "px-4 py-2 rounded-xl text-xs font-bold transition-all",
               activeModelTab === "matrix" ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30" : "text-slate-400 hover:text-slate-200"
             )}
-          >
+          &gt;
             Full Comparison Matrix
           </button>
         </div>

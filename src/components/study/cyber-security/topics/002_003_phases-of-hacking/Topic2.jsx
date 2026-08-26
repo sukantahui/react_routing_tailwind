@@ -252,7 +252,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{cat.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{cat.name.split(" &")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{cat.name.split(" ")[0]} Domain</div>
@@ -327,7 +327,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{root.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{root.title.split(": ")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{root.title.split(": ")[1]}</div>
@@ -352,7 +352,7 @@ const Topic2 = () => {
               <button
                 onClick={() => setIsTransformExecuted(!isTransformExecuted)}
                 className="px-4 py-2 rounded-xl bg-purple-900 hover:bg-purple-850 text-purple-200 font-bold text-xs border border-purple-600 transition"
-              >
+              &gt;
                 {isTransformExecuted ? "✓ Transforms Active" : "⚡ Execute Transforms"}
               </button>
             </div>
@@ -549,7 +549,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

@@ -63,7 +63,7 @@ const Topic63 = () => {
       bindingConstraints: ['2x + 3y ≥ 12', '3x + 2y ≥ 10'],
       nonBindingConstraints: ['x + 4y ≥ 8'],
       explanation: 'At the optimal point (2, 2.67), the first constraint is binding because 2(2) + 3(2.67) ≈ 12. The second constraint is non-binding because 2 + 4(2.67) ≈ 12.68, which is greater than 8. The third constraint is binding because 3(2) + 2(2.67) ≈ 11.34, wait let me recalculate more precisely.',
-      calculation: 'At (2, 2.67):\nConstraint 1: 2(2) + 3(2.67) = 12.01 ≈ 12 ✓ (binding)\nConstraint 2: 2 + 4(2.67) = 12.68 > 8 (non-binding, surplus = 4.68)\nConstraint 3: 3(2) + 2(2.67) = 11.34 > 10 (non-binding, surplus = 1.34)'
+      calculation: 'At (2, 2.67):\nConstraint 1: 2(2) + 3(2.67) = 12.01 ≈ 12 ✓ (binding)\nConstraint 2: 2 + 4(2.67) = 12.68 > 8 (non-binding, surplus = 4.68)\nConstraint 3: 3(2) + 2(2.67) = 11.34 &gt; 10 (non-binding, surplus = 1.34)'
     }
   ];
 
@@ -246,7 +246,7 @@ const Topic63 = () => {
                   const py = 450 - (optY * 40);
                   
                   // Check if point is within visible area
-                  if (px >= 50 && px <= 450 && py >= 50 && py <= 450) {
+                  if (px &ge; 50 && px &le; 450 && py >= 50 && py <= 450) {
                     return (
                       <g>
                         <circle cx={px} cy={py} r="8" fill="#FF6B6B" stroke="#FF4757" strokeWidth="2" className="transition-all duration-300 hover:r-12">
@@ -350,7 +350,7 @@ const Topic63 = () => {
                   ? "bg-blue-500 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -420,7 +420,7 @@ const Topic63 = () => {
                       <p className="ml-4">For each constraint i:</p>
                       <p className="ml-8 text-green-600 dark:text-green-400">If aᵢ₁x* + aᵢ₂y* = bᵢ → <span className="font-bold">BINDING</span></p>
                       <p className="ml-8 text-yellow-600 dark:text-yellow-400">If aᵢ₁x* + aᵢ₂y* {'<'} bᵢ → <span className="font-bold">NON-BINDING (Slack = bᵢ - LHS)</span></p>
-                      <p className="ml-8 text-orange-600 dark:text-orange-400">If aᵢ₁x* + aᵢ₂y* {'>'} bᵢ → <span className="font-bold">NON-BINDING (Surplus = LHS - bᵢ)</span></p>
+                      <p className="ml-8 text-orange-600 dark:text-orange-400">If aᵢ₁x* + aᵢ₂y* {'&gt;'} bᵢ → <span className="font-bold">NON-BINDING (Surplus = LHS - bᵢ)</span></p>
                     </div>
                   </div>
                 </div>
@@ -486,7 +486,7 @@ const Topic63 = () => {
                         ? "bg-blue-500 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  >
+                  &gt;
                     Example {index + 1}
                   </button>
                 ))}
@@ -503,7 +503,7 @@ const Topic63 = () => {
                       key={`example-preview-${index}`}
                       onClick={() => setSelectedExample(index)}
                       className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
-                    >
+                    &gt;
                       <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
                         Example {index + 1}
                       </h5>

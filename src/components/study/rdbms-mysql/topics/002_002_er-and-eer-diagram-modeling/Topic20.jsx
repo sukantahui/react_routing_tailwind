@@ -305,7 +305,7 @@ const Topic20 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Fan Trap (Diverging Ambiguity)
               </button>
               <button
@@ -316,7 +316,7 @@ const Topic20 = () => {
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Chasm Trap (Broken Optional Links)
               </button>
             </div>

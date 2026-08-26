@@ -337,7 +337,7 @@ SELECT * FROM kolkata_fintech_ledger.accounts;`}
                   onChange={(e) => setFilterQuery(e.target.value)}
                   placeholder="e.g. barrackpore, ledger, school..."
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                />
+                /&gt;
               </div>
 
               <div>
@@ -358,7 +358,7 @@ SELECT * FROM kolkata_fintech_ledger.accounts;`}
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50 shadow-md"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:border-slate-700 hover:text-white"
                       )}
-                    >
+                    &gt;
                       <span className="flex items-center gap-2">
                         <span>📁</span>
                         <span>{db.name}</span>
@@ -490,7 +490,7 @@ SELECT
 FROM kolkata_fintech_ledger.transactions t
 JOIN jadavpur_user_registry.customers c
     ON t.customer_id = c.customer_id
-WHERE t.amount_inr >= 50000.00;`}
+WHERE t.amount_inr &ge; 50000.00;`}
               </pre>
             </div>
           </div>

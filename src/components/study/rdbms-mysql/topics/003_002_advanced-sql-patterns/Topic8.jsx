@@ -29,7 +29,7 @@ SELECT
     s.student_id,
     CONCAT(s.first_name, ' ', s.last_name) AS student_name,
     s.exam_score_pct,
-    -- 1. CUME_DIST: Fraction of rows <= current row (Range: >0 to 1.0):
+    -- 1. CUME_DIST: Fraction of rows &le; current row (Range: &gt;0 to 1.0):
     ROUND(CUME_DIST() OVER (ORDER BY s.exam_score_pct ASC), 4) AS cumulative_distribution,
     -- 2. PERCENT_RANK: Relative Rank Percentile (Range: 0.0 to 1.0):
     ROUND(PERCENT_RANK() OVER (ORDER BY s.exam_score_pct ASC), 4) AS percentile_rank,
@@ -47,7 +47,7 @@ ORDER BY s.exam_score_pct ASC;`,
         "`PERCENT_RANK()` anchors the lowest score at exactly 0.0000 and the highest score at 1.0000. In contrast, `CUME_DIST()` measures the actual fraction of rows $\\le$ current row (0.2500 to 1.0000).",
     },
     top_10_percentile_scholarship: {
-      title: "2. Top 10th Percentile Cutoff Filtering (PERCENT_RANK >= 0.90)",
+      title: "2. Top 10th Percentile Cutoff Filtering (PERCENT_RANK &ge; 0.90)",
       badge: "Top 10% Cutoff",
       badgeColor: "cyan",
       sqlQuery: `-- Isolating the Top 10% Performing Cohort across the entire academy:
@@ -220,7 +220,7 @@ ORDER BY e.subject_name, subject_standardized_percentile DESC;`,
                 <span>🎯</span> Top Cutoff Filtering
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Filter for Top 10th percentile candidates directly: `WHERE PERCENT_RANK() &gt;= 0.90` in a CTE!
+                Filter for Top 10th percentile candidates directly: `WHERE PERCENT_RANK() >= 0.90` in a CTE!
               </p>
             </div>
           </div>
@@ -277,13 +277,13 @@ ORDER BY e.subject_name, subject_standardized_percentile DESC;`,
                   {/* CUME_DIST Bar */}
                   <g>
                     <rect x="30" y="30" width="790" height="40" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
-                    <text x="425" y="55" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">CUME_DIST() Scale: (0.00 &lt; x &lt;= 1.00) [Row 1 = 1/N = 0.25 | Top Row = 1.00]</text>
+                    <text x="425" y="55" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">CUME_DIST() Scale: (0.00 &lt; x <= 1.00) [Row 1 = 1/N = 0.25 | Top Row = 1.00]</text>
                   </g>
 
                   {/* PERCENT_RANK Bar */}
                   <g>
                     <rect x="30" y="90" width="790" height="40" rx="6" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5" />
-                    <text x="425" y="115" fill="#c7d2fe" fontSize="10" fontWeight="bold" textAnchor="middle">PERCENT_RANK() Scale: [0.00 &lt;= x &lt;= 1.00] [Row 1 = 0.00 (Anchor) | Top Row = 1.00]</text>
+                    <text x="425" y="115" fill="#c7d2fe" fontSize="10" fontWeight="bold" textAnchor="middle">PERCENT_RANK() Scale: [0.00 <= x <= 1.00] [Row 1 = 0.00 (Anchor) | Top Row = 1.00]</text>
                   </g>
                 </svg>
               </div>
@@ -309,7 +309,7 @@ ORDER BY e.subject_name, subject_standardized_percentile DESC;`,
                   {/* Tier 2 */}
                   <g>
                     <rect x="230" y="30" width="180" height="100" rx="6" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5" />
-                    <text x="320" y="55" fill="#c7d2fe" fontSize="10" fontWeight="bold" textAnchor="middle">0.25 &lt;= CD &lt; 0.50</text>
+                    <text x="320" y="55" fill="#c7d2fe" fontSize="10" fontWeight="bold" textAnchor="middle">0.25 <= CD &lt; 0.50</text>
                     <rect x="240" y="70" width="160" height="40" rx="4" fill="#0f172a" />
                     <text x="320" y="88" fill="#38bdf8" fontSize="8 font-mono" textAnchor="middle">Average Tier</text>
                     <text x="320" y="102" fill="#94a3b8" fontSize="7 font-mono" textAnchor="middle">Grade B</text>
@@ -318,7 +318,7 @@ ORDER BY e.subject_name, subject_standardized_percentile DESC;`,
                   {/* Tier 3 */}
                   <g>
                     <rect x="440" y="30" width="180" height="100" rx="6" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5" />
-                    <text x="530" y="55" fill="#c7d2fe" fontSize="10" fontWeight="bold" textAnchor="middle">0.50 &lt;= CD &lt; 0.75</text>
+                    <text x="530" y="55" fill="#c7d2fe" fontSize="10" fontWeight="bold" textAnchor="middle">0.50 <= CD &lt; 0.75</text>
                     <rect x="450" y="70" width="160" height="40" rx="4" fill="#0f172a" />
                     <text x="530" y="88" fill="#38bdf8" fontSize="8 font-mono" textAnchor="middle">Above Average</text>
                     <text x="530" y="102" fill="#94a3b8" fontSize="7 font-mono" textAnchor="middle">Grade A</text>
@@ -327,7 +327,7 @@ ORDER BY e.subject_name, subject_standardized_percentile DESC;`,
                   {/* Tier 4 */}
                   <g>
                     <rect x="650" y="30" width="180" height="100" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
-                    <text x="740" y="55" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">CUME_DIST &gt;= 0.75</text>
+                    <text x="740" y="55" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">CUME_DIST >= 0.75</text>
                     <rect x="660" y="70" width="160" height="40" rx="4" fill="#022c22" />
                     <text x="740" y="88" fill="#a7f3d0" fontSize="8 font-mono" textAnchor="middle">Top 25% Distinction</text>
                     <text x="740" y="102" fill="#34d399" fontSize="7 font-bold" textAnchor="middle">Grade A+ (Gold Honors)</text>
@@ -363,7 +363,7 @@ ORDER BY e.subject_name, subject_standardized_percentile DESC;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -469,7 +469,7 @@ ORDER BY e.subject_name, subject_standardized_percentile DESC;`,
                 <span className="text-xs text-slate-400 font-mono">Location: Barrackpore Academy Analytics</span>
               </div>
               <p className="text-sm text-slate-300 mb-4 leading-relaxed">
-                Sukanta Hui architected the state entrance exam scholarship pipeline: By computing <code className="text-emerald-300 font-mono">PERCENT_RANK() OVER (ORDER BY marks ASC)</code> inside a CTE, the system automatically extracted all candidates scoring in the 95th percentile or higher (<code className="text-cyan-300 font-mono">WHERE pr &gt;= 0.95</code>) across 50,000 applicants in under 80 milliseconds!
+                Sukanta Hui architected the state entrance exam scholarship pipeline: By computing <code className="text-emerald-300 font-mono">PERCENT_RANK() OVER (ORDER BY marks ASC)</code> inside a CTE, the system automatically extracted all candidates scoring in the 95th percentile or higher (<code className="text-cyan-300 font-mono">WHERE pr >= 0.95</code>) across 50,000 applicants in under 80 milliseconds!
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 text-xs font-mono text-emerald-300 border border-slate-800 overflow-x-auto">
 {`-- ✅ High-Speed 95th Percentile Extraction:
@@ -479,7 +479,7 @@ WITH ApplicantPercentiles AS (
 )
 SELECT student_id, marks, (pr * 100.0) AS percentile_score
 FROM ApplicantPercentiles
-WHERE pr >= 0.95;`}
+WHERE pr &ge; 0.95;`}
               </pre>
             </div>
           </div>

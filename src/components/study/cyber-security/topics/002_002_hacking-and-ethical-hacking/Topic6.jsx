@@ -235,7 +235,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{team.icon}</div>
                   <div className="font-bold text-sm text-gray-200 mt-1">{team.name.split(" (")[0]}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-0.5">{team.name.split(" (")[1]?.replace(")", "")}</div>
@@ -321,7 +321,7 @@ const Topic6 = () => {
                           ? "bg-indigo-950/90 text-white border-indigo-500 shadow-md"
                           : "bg-gray-900 text-gray-400 border-gray-800 hover:bg-gray-850 hover:text-white"
                       )}
-                    >
+                    &gt;
                       <div className="flex justify-between">
                         <span className="font-mono text-indigo-300 font-bold">{tech.techniqueId}</span>
                         <span className="text-[10px] text-gray-500">Atomic Test</span>
@@ -341,7 +341,7 @@ const Topic6 = () => {
                     ? "bg-emerald-950 text-emerald-300 border-emerald-700 hover:bg-emerald-900"
                     : "bg-purple-900 text-purple-200 border-purple-600 hover:bg-purple-850"
                 )}
-              >
+              &gt;
                 {isRuleTuned ? "✓ Detection Rule Active (Reset Lab)" : "⚡ Apply Purple Team Sigma Rule"}
               </button>
             </div>
@@ -562,7 +562,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

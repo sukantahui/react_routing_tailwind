@@ -71,8 +71,8 @@ SHOW REPLICA STATUS\\G
       badge: "Incident Triage",
       badgeColor: "rose",
       sqlSnippet: `-- 💥 TRIAGING I/O THREAD ERRORS (Network / Auth / Purged Binlogs):
--- Last_IO_Errno: 2003  -> Can't connect to MySQL server (Firewall / Port 3306)
--- Last_IO_Errno: 1045  -> Access denied for repl_user (Wrong password / grant)
+-- Last_IO_Errno: 2003 &rarr; Can't connect to MySQL server (Firewall / Port 3306)
+-- Last_IO_Errno: 1045  -&gt; Access denied for repl_user (Wrong password / grant)
 -- Last_IO_Errno: 1236  -> Fatal 1236: Binlog purged on primary before replica synced
 
 -- 💥 TRIAGING SQL THREAD ERRORS (Schema / Constraint Conflicts):
@@ -208,7 +208,7 @@ FROM performance_schema.replication_applier_status_by_worker;`,
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {metric.metricName}
                 </button>
               );

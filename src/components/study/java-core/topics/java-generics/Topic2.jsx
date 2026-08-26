@@ -601,7 +601,7 @@ public class EnrollmentSystem {
                   scenario: "Debangshu creates list of lists, loses track of inner types",
                   code: `List listOfLists = new ArrayList();\nList<String> names = Arrays.asList("A", "B");\nList<Integer> ages = Arrays.asList(20, 21);\n\nlistOfLists.add(names);\nlistOfLists.add(ages); // Mixed types!\n\n// Processing...\nList<String> firstList = (List<String>) listOfLists.get(0); // OK\nList<String> secondList = (List<String>) listOfLists.get(1); // ClassCastException!`,
                   impact: "Complex nested structures become type nightmares",
-                  fix: "Generics allow: List<List<String>> for homogeneous nesting"
+                  fix: "Generics allow: List<List<String>&gt; for homogeneous nesting"
                 },
                 {
                   title: "The API Boundary Failure",
@@ -713,7 +713,7 @@ public class SafeSystemWithGenerics {
 }`}
                   language="java"
                   showLineNumbers={true}
-                />
+                /&gt;
                 
                 <div className="mt-4 p-4 bg-green-100 dark:bg-green-900/30 rounded-lg">
                   <h5 className="font-bold text-green-800 dark:text-green-300 mb-2">Benefits:</h5>
@@ -877,7 +877,7 @@ public class StudentProcessor {
 }`}
                   language="java"
                   showLineNumbers={true}
-                />
+                /&gt;
                 
                 <div className="mt-6 grid md:grid-cols-1 gap-8">
                   <div className="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-xl border border-yellow-200 dark:border-yellow-800">

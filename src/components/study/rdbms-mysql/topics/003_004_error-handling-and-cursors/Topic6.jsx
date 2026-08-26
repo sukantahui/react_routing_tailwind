@@ -174,7 +174,7 @@ END //
 
 DELIMITER ;`,
       resultRows: [
-        { id: "Child -> Parent", handlerAction: "Child Re-throws -> Parent Catches", loggingAction: "Child Trace Logged", rollbackAction: "Propagated Up Call Stack", resignalMode: "Multi-Tier RESIGNAL", clientResult: "Parent workflow caught propagated exception", status: "Hierarchical Recovery" },
+        { id: "Child &rarr; Parent", handlerAction: "Child Re-throws -&gt; Parent Catches", loggingAction: "Child Trace Logged", rollbackAction: "Propagated Up Call Stack", resignalMode: "Multi-Tier RESIGNAL", clientResult: "Parent workflow caught propagated exception", status: "Hierarchical Recovery" },
       ],
       explanation:
         "`RESIGNAL` enables clean hierarchical error propagation: child routines can log granular local telemetry and re-throw exceptions for parent workflows to handle centrally.",
@@ -429,7 +429,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

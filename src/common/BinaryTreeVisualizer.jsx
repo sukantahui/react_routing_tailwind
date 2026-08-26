@@ -70,7 +70,7 @@ const invertTree = (root) => {
   return new TreeNode(root.value, invertTree(root.right), invertTree(root.left));
 };
 
-// Balance Tree (convert BST -> Sorted Array -> Balanced BST)
+// Balance Tree (convert BST &rarr; Sorted Array -> Balanced BST)
 const getSortedArray = (root, arr = []) => {
   if (!root) return arr;
   getSortedArray(root.left, arr);
@@ -351,8 +351,8 @@ const TASK_RULES = {
     invariants: "The LCA is the highest node where values n1 and n2 diverge into separate subtrees.",
     steps: [
       { step: 1, title: "Both Nodes Smaller", desc: "If n1 < root.val AND n2 < root.val, LCA must lie in the left subtree (recurse left)." },
-      { step: 2, title: "Both Nodes Larger", desc: "If n1 > root.val AND n2 > root.val, LCA must lie in the right subtree (recurse right)." },
-      { step: 3, title: "Split Point Detected", desc: "If one value is <= root.val and other >= root.val (or root matches one of them), root is the LCA!" },
+      { step: 2, title: "Both Nodes Larger", desc: "If n1 > root.val AND n2 &gt; root.val, LCA must lie in the right subtree (recurse right)." },
+      { step: 3, title: "Split Point Detected", desc: "If one value is &le; root.val and other >= root.val (or root matches one of them), root is the LCA!" },
     ],
     timeComplexity: "O(h) where h is tree height (O(log N) in balanced BST)",
     spaceComplexity: "O(1) iterative / O(h) recursive",
@@ -756,7 +756,7 @@ const BinaryTreeVisualizer = () => {
     if (isPlaying && traversalSequence.length > 0) {
       timerRef.current = setInterval(() => {
         setActiveStepIndex((prev) => {
-          if (prev >= traversalSequence.length - 1) {
+          if (prev &ge; traversalSequence.length - 1) {
             setIsPlaying(false);
             clearInterval(timerRef.current);
             setFeedback(`${traversalType.toUpperCase()} traversal complete!`, "success");
@@ -838,7 +838,7 @@ const BinaryTreeVisualizer = () => {
                     ? "bg-gradient-to-r from-cyan-600 to-blue-600 text-white border-cyan-400 shadow-md shadow-cyan-500/20"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 }`}
-              >
+              &gt;
                 <i className="bi bi-journal-text text-sm"></i>
                 <span>{showRulesPanel ? "Hide Rules Guide" : "Show Rules Guide"}</span>
               </button>
@@ -935,7 +935,7 @@ const BinaryTreeVisualizer = () => {
                             ? "bg-cyan-500 text-white shadow-sm shadow-cyan-500/30"
                             : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                         }`}
-                      >
+                      &gt;
                         <i className={`bi ${t.icon}`}></i>
                         <span>{t.label}</span>
                       </button>
@@ -1030,7 +1030,7 @@ const BinaryTreeVisualizer = () => {
                   ? "bg-cyan-500 text-white shadow-md shadow-cyan-500/20"
                   : "text-slate-400 hover:text-white"
               }`}
-            >
+            &gt;
               <i className="bi bi-gear-wide-connected"></i>
               <span>Tree Operations</span>
             </button>
@@ -1045,7 +1045,7 @@ const BinaryTreeVisualizer = () => {
                   ? "bg-purple-600 text-white shadow-md shadow-purple-500/20"
                   : "text-slate-400 hover:text-white"
               }`}
-            >
+            &gt;
               <i className="bi bi-play-circle-fill"></i>
               <span>Traversal Player</span>
             </button>
@@ -1060,7 +1060,7 @@ const BinaryTreeVisualizer = () => {
                   ? "bg-emerald-600 text-white shadow-md shadow-emerald-500/20"
                   : "text-slate-400 hover:text-white"
               }`}
-            >
+            &gt;
               <i className="bi bi-diagram-3-fill"></i>
               <span>Algorithms & LCA</span>
             </button>
@@ -1072,7 +1072,7 @@ const BinaryTreeVisualizer = () => {
                   ? "bg-amber-600 text-white shadow-md shadow-amber-500/20"
                   : "text-slate-400 hover:text-white"
               }`}
-            >
+            &gt;
               <i className="bi bi-code-slash"></i>
               <span>Code Implementations</span>
             </button>
@@ -1137,7 +1137,7 @@ const BinaryTreeVisualizer = () => {
                         }
                       }}
                       className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs shadow-lg shadow-rose-600/20 transition cursor-pointer"
-                    >
+                    &gt;
                       Delete
                     </button>
                   </div>
@@ -1196,13 +1196,13 @@ const BinaryTreeVisualizer = () => {
                   <button
                     onClick={() => handleLoadPreset("balanced")}
                     className="px-2.5 py-1 rounded-lg text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 whitespace-nowrap transition cursor-pointer"
-                  >
+                  &gt;
                     Balanced BST
                   </button>
                   <button
                     onClick={() => handleLoadPreset("complex")}
                     className="px-2.5 py-1 rounded-lg text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 whitespace-nowrap transition cursor-pointer"
-                  >
+                  &gt;
                     Complex (12)
                   </button>
                   <button
@@ -1231,7 +1231,7 @@ const BinaryTreeVisualizer = () => {
                   <button
                     onClick={() => startTraversal("inorder")}
                     className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
-                      traversalType === "inorder" && traversalSequence.length > 0
+                      traversalType === "inorder" && traversalSequence.length &gt; 0
                         ? "bg-purple-600 text-white shadow-md shadow-purple-500/30"
                         : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
                     }`}
@@ -1242,7 +1242,7 @@ const BinaryTreeVisualizer = () => {
                   <button
                     onClick={() => startTraversal("preorder")}
                     className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
-                      traversalType === "preorder" && traversalSequence.length > 0
+                      traversalType === "preorder" && traversalSequence.length &gt; 0
                         ? "bg-purple-600 text-white shadow-md shadow-purple-500/30"
                         : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
                     }`}
@@ -1253,7 +1253,7 @@ const BinaryTreeVisualizer = () => {
                   <button
                     onClick={() => startTraversal("postorder")}
                     className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
-                      traversalType === "postorder" && traversalSequence.length > 0
+                      traversalType === "postorder" && traversalSequence.length &gt; 0
                         ? "bg-purple-600 text-white shadow-md shadow-purple-500/30"
                         : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
                     }`}
@@ -1264,7 +1264,7 @@ const BinaryTreeVisualizer = () => {
                   <button
                     onClick={() => startTraversal("levelorder")}
                     className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
-                      traversalType === "levelorder" && traversalSequence.length > 0
+                      traversalType === "levelorder" && traversalSequence.length &gt; 0
                         ? "bg-purple-600 text-white shadow-md shadow-purple-500/30"
                         : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
                     }`}
@@ -1278,7 +1278,7 @@ const BinaryTreeVisualizer = () => {
                   <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800">
                     <button
                       onClick={() => setActiveStepIndex((prev) => Math.max(0, prev - 1))}
-                      disabled={activeStepIndex <= 0}
+                      disabled={activeStepIndex &le; 0}
                       className="p-1.5 rounded-lg text-slate-400 hover:text-white disabled:opacity-40"
                       title="Step Backward"
                     >
@@ -1288,14 +1288,14 @@ const BinaryTreeVisualizer = () => {
                     <button
                       onClick={() => setIsPlaying(!isPlaying)}
                       className="px-3 py-1 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs"
-                    >
+                    &gt;
                       {isPlaying ? <i className="bi bi-pause-fill"></i> : <i className="bi bi-play-fill"></i>}
                       <span className="ml-1">{isPlaying ? "Pause" : "Play"}</span>
                     </button>
 
                     <button
                       onClick={() => setActiveStepIndex((prev) => Math.min(traversalSequence.length - 1, prev + 1))}
-                      disabled={activeStepIndex >= traversalSequence.length - 1}
+                      disabled={activeStepIndex &ge; traversalSequence.length - 1}
                       className="p-1.5 rounded-lg text-slate-400 hover:text-white disabled:opacity-40"
                       title="Step Forward"
                     >
@@ -1310,7 +1310,7 @@ const BinaryTreeVisualizer = () => {
                       value={animationSpeed}
                       onChange={(e) => setAnimationSpeed(Number(e.target.value))}
                       className="bg-slate-950 border border-slate-800 text-white text-xs rounded-lg px-2 py-1 focus:outline-none"
-                    >
+                    &gt;
                       <option value={1200}>0.5x (Slow)</option>
                       <option value={600}>1.0x (Normal)</option>
                       <option value={300}>2.0x (Fast)</option>
@@ -1320,14 +1320,14 @@ const BinaryTreeVisualizer = () => {
               </div>
 
               {/* Traversal Tape / Visited Array */}
-              {traversalSequence.length > 0 && (
+              {traversalSequence.length &gt; 0 && (
                 <div className="p-3 bg-slate-950 rounded-2xl border border-slate-800 space-y-2">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-bold text-slate-400 uppercase tracking-wider">
                       {traversalType.toUpperCase()} Sequence ({activeStepIndex + 1} / {traversalSequence.length})
                     </span>
                     <span className="text-[11px] text-purple-400 font-mono">
-                      Current Node: {activeStepIndex >= 0 ? traversalSequence[activeStepIndex] : "—"}
+                      Current Node: {activeStepIndex &ge; 0 ? traversalSequence[activeStepIndex] : "—"}
                     </span>
                   </div>
 
@@ -1453,18 +1453,18 @@ const BinaryTreeVisualizer = () => {
               <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800 overflow-x-auto text-[11px] text-sky-300 leading-relaxed">
                 <pre>{`// BST Node Lookup - O(log N) average, O(N) worst case
 TreeNode* search(TreeNode* root, int key) {
-    if (root == nullptr || root->val == key)
+    if (root == nullptr || root &rarr; val == key)
         return root;
     if (key < root->val)
-        return search(root->left, key);
-    return search(root->right, key);
+        return search(root &rarr; left, key);
+    return search(root-&gt;right, key);
 }
 
 // BST Node Insertion
 TreeNode* insert(TreeNode* root, int key) {
     if (root == nullptr) return new TreeNode(key);
     if (key < root->val)
-        root->left = insert(root->left, key);
+        root &rarr; left = insert(root-&gt;left, key);
     else if (key > root->val)
         root->right = insert(root->right, key);
     return root;
@@ -1508,7 +1508,7 @@ TreeNode* insert(TreeNode* root, int key) {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/30"
                     : "bg-slate-950 text-slate-400 border-slate-800"
                 }`}
-              >
+              &gt;
                 Levels: {showNodeLevels ? "ON" : "OFF"}
               </button>
 
@@ -1517,7 +1517,7 @@ TreeNode* insert(TreeNode* root, int key) {
                 value={currentTheme}
                 onChange={(e) => setCurrentTheme(e.target.value)}
                 className="bg-slate-950 border border-slate-800 text-xs text-slate-300 rounded-lg px-2 py-1 focus:outline-none"
-              >
+              &gt;
                 <option value="cyan">Neon Cyan</option>
                 <option value="emerald">Emerald Jade</option>
                 <option value="purple">Cosmic Purple</option>
@@ -1545,7 +1545,7 @@ TreeNode* insert(TreeNode* root, int key) {
                   onClick={() => setZoomLevel(1)}
                   className="p-1 text-slate-400 hover:text-white text-[10px]"
                   title="Reset Zoom"
-                >
+                &gt;
                   Reset
                 </button>
               </div>
@@ -1671,7 +1671,7 @@ TreeNode* insert(TreeNode* root, int key) {
                     const isDeleting = pendingDelete === node.value;
                     const isSelected = selectedNode?.value === node.value;
                     const isTraversalActive =
-                      activeStepIndex >= 0 && traversalSequence[activeStepIndex] === node.value;
+                      activeStepIndex &ge; 0 && traversalSequence[activeStepIndex] === node.value;
                     const inSearchPath = searchPath.includes(node.value);
                     const isSearchMatch = searchTarget === node.value;
                     const isLCANode = lcaResult === node.value;
@@ -1687,7 +1687,7 @@ TreeNode* insert(TreeNode* root, int key) {
                           transformOrigin: `${pos.x}px ${pos.y}px`,
                           transition: "all 0.3s ease-out",
                         }}
-                      >
+                      &gt;
                         {/* Outer Glow Halo for Active State */}
                         {(isTraversalActive || isSearchMatch || isLCANode || isSelected) && (
                           <circle
@@ -1789,7 +1789,7 @@ TreeNode* insert(TreeNode* root, int key) {
                               handleDelete(node.value);
                             }}
                             className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                          >
+                          &gt;
                             <circle
                               cx={pos.x + NODE_RADIUS - 5}
                               cy={pos.y - NODE_RADIUS + 5}
@@ -1845,7 +1845,7 @@ TreeNode* insert(TreeNode* root, int key) {
                 <button
                   onClick={() => setSelectedNode(null)}
                   className="text-slate-400 hover:text-white text-xs"
-                >
+                &gt;
                   <i className="bi bi-x-lg"></i>
                 </button>
               </div>
@@ -1873,7 +1873,7 @@ TreeNode* insert(TreeNode* root, int key) {
                 <button
                   onClick={() => handleDelete(selectedNode.value)}
                   className="flex-1 py-1.5 rounded-xl bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 text-xs font-bold transition cursor-pointer"
-                >
+                &gt;
                   Delete Node
                 </button>
                 <button
@@ -1882,7 +1882,7 @@ TreeNode* insert(TreeNode* root, int key) {
                     handleSearch();
                   }}
                   className="flex-1 py-1.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white border border-cyan-500/30 text-xs font-bold transition cursor-pointer"
-                >
+                &gt;
                   Trace Path
                 </button>
               </div>

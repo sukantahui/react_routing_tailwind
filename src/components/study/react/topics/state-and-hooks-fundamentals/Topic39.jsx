@@ -335,7 +335,7 @@ const Topic39 = () => {
                   )}
                   
                   {/* Success indicator */}
-                  {users.length > 0 && !loading.users && !errors.users && (
+                  {users.length &gt; 0 && !loading.users && !errors.users && (
                     <circle cx="430" cy="70" r="8" fill="#10B981" className="animate-pulse" />
                   )}
                 </g>
@@ -404,7 +404,7 @@ const Topic39 = () => {
                   ? "bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400"
                   : "bg-purple-500 hover:bg-purple-600 text-white hover:scale-[1.02]"
               )}
-            >
+            &gt;
               {loading.posts ? (
                 <>
                   <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
@@ -438,7 +438,7 @@ const Topic39 = () => {
                   checked={simulateFailure}
                   onChange={(e) => setSimulateFailure(e.target.checked)}
                   className="sr-only"
-                />
+                /&gt;
                 <div className={clsx(
                   "block w-12 h-6 rounded-full transition-colors duration-300",
                   simulateFailure ? "bg-red-500" : "bg-gray-300 dark:bg-gray-600"
@@ -460,7 +460,7 @@ const Topic39 = () => {
                   checked={showSkeletons}
                   onChange={(e) => setShowSkeletons(e.target.checked)}
                   className="sr-only"
-                />
+                /&gt;
                 <div className={clsx(
                   "block w-12 h-6 rounded-full transition-colors duration-300",
                   showSkeletons ? "bg-green-500" : "bg-gray-300 dark:bg-gray-600"
@@ -497,7 +497,7 @@ const Topic39 = () => {
                     ? "bg-blue-500 text-white"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {tab === 'users' && '👥 Users Example'}
                 {tab === 'posts' && '📝 Posts Example'}
                 {tab === 'single' && '👤 Single User'}
@@ -552,7 +552,7 @@ const Topic39 = () => {
                         <button
                           onClick={() => setSimulateFailure(false)}
                           className="px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg transition-colors duration-300"
-                        >
+                        &gt;
                           Disable Failure Mode
                         </button>
                       </div>
@@ -565,7 +565,7 @@ const Topic39 = () => {
                           key={user.id}
                           className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300 group cursor-pointer"
                           onClick={() => fetchSingleUser(user.id)}
-                        >
+                        &gt;
                           <div className="flex justify-between items-start">
                             <div>
                               <h4 className="font-bold text-gray-800 dark:text-gray-200 mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
@@ -618,7 +618,7 @@ const Topic39 = () => {
                           onClick={() => fetchPosts(true)}
                           disabled={loading.retry}
                           className="px-4 py-2 bg-red-100 dark:bg-red-900 hover:bg-red-200 dark:hover:bg-red-800 text-red-700 dark:text-red-300 rounded-lg transition-colors duration-300 flex items-center"
-                        >
+                        &gt;
                           {loading.retry ? (
                             <>
                               <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-red-500 mr-2"></div>
@@ -646,7 +646,7 @@ const Topic39 = () => {
                   )}
                   
                   {/* Success Content */}
-                  {!loading.posts && posts.length > 0 && (
+                  {!loading.posts && posts.length &gt; 0 && (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {posts.map(post => (
                         <div 
@@ -700,7 +700,7 @@ const Topic39 = () => {
                           ? "bg-blue-500 text-white"
                           : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                       )}
-                    >
+                    &gt;
                       User {id}
                     </button>
                   ))}
@@ -729,7 +729,7 @@ const Topic39 = () => {
                       <button
                         onClick={() => fetchSingleUser(1)}
                         className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-300"
-                      >
+                      &gt;
                         Load Default User
                       </button>
                     </div>
@@ -1208,7 +1208,7 @@ const UserList = ({ users, loading, error }) => {
               <div className="text-3xl mb-3">⏳</div>
               <h4 className="font-bold mb-2">Loading States</h4>
               <ul className="text-sm text-gray-300 space-y-1">
-                <li>{`Show for operations > 300ms`}</li>
+                <li>{`Show for operations &gt; 300ms`}</li>
                 <li>Use skeleton loaders</li>
                 <li>Maintain layout stability</li>
                 <li>Reset in finally block</li>

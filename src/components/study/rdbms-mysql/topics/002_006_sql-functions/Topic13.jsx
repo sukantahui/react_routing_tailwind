@@ -34,7 +34,7 @@ const Topic13 = () => {
 FROM student_enrollments
 WHERE admission_status = 'CONFIRMED'
 GROUP BY centre_city, course_stream
-HAVING COUNT(*) >= 5
+HAVING COUNT(*) &ge; 5
 ORDER BY centre_city ASC, stream_revenue_inr DESC;`,
       resultRows: [
         { dim1: "Barrackpore Campus", dim2: "React Fullstack", metric1: "34 Students", metric2: "₹8,50,000", metric3: "88.4%", status: "High Demand", color: "emerald" },
@@ -322,7 +322,7 @@ GROUP BY FLOOR(fee_inr / 5000) * 5000;`}
                 Segments continuous metrics into categorical operational tiers (Distinction, Pass, Remedial).
               </p>
               <pre className="p-3 bg-slate-950 rounded-lg text-xs font-mono text-violet-300 overflow-x-auto border border-slate-800">
-{`SELECT CASE WHEN marks >= 75 THEN 'Distinction'
+{`SELECT CASE WHEN marks &ge; 75 THEN 'Distinction'
             ELSE 'General Pass' END AS grade_tier,
        COUNT(*)
 FROM exams
@@ -502,8 +502,8 @@ GROUP BY CASE WHEN marks >= 75 THEN 'Distinction'
                     <text x="410" y="55" fill="#a5b4fc" fontSize="12" fontWeight="bold" textAnchor="middle">2. Scalar Expression Evaluator</text>
 
                     <rect x="295" y="75" width="230" height="40" rx="4" fill="#1e1b4b" stroke="#4338ca" />
-                    <text x="305" y="92" fill="#c7d2fe" fontSize="9" fontWeight="mono">CASE WHEN marks &gt;= 85 THEN 'Distinction'</text>
-                    <text x="305" y="106" fill="#c7d2fe" fontSize="9" fontWeight="mono">     WHEN marks &gt;= 70 THEN 'First Div' ...</text>
+                    <text x="305" y="92" fill="#c7d2fe" fontSize="9" fontWeight="mono">CASE WHEN marks >= 85 THEN 'Distinction'</text>
+                    <text x="305" y="106" fill="#c7d2fe" fontSize="9" fontWeight="mono">     WHEN marks >= 70 THEN 'First Div' ...</text>
 
                     <rect x="295" y="125" width="230" height="40" rx="4" fill="#1e1b4b" stroke="#4338ca" />
                     <text x="305" y="142" fill="#c7d2fe" fontSize="9" fontWeight="mono">FLOOR(fee_inr / 5000) * 5000</text>
@@ -566,7 +566,7 @@ GROUP BY CASE WHEN marks >= 75 THEN 'Distinction'
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -702,7 +702,7 @@ GROUP BY CASE WHEN marks >= 75 THEN 'Distinction'
 FROM academy_enrollments
 WHERE academic_session = '2026-2027' AND is_confirmed = 1
 GROUP BY centre_city, course_stream, batch_timing
-HAVING COUNT(*) >= 10
+HAVING COUNT(*) &ge; 10
 ORDER BY centre_city ASC, total_revenue_inr DESC;`}
               </pre>
             </div>

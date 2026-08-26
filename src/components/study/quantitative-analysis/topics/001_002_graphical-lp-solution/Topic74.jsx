@@ -431,7 +431,7 @@ const Topic74 = () => {
                   ? "bg-amber-500 text-white shadow-lg shadow-amber-200 dark:shadow-amber-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -447,7 +447,7 @@ const Topic74 = () => {
                 ? "bg-amber-500 text-white shadow-lg shadow-amber-200 dark:shadow-amber-900/30"
                 : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
             )}
-          >
+          &gt;
             Change c₁ (x coefficient)
           </button>
           <button
@@ -458,7 +458,7 @@ const Topic74 = () => {
                 ? "bg-amber-500 text-white shadow-lg shadow-amber-200 dark:shadow-amber-900/30"
                 : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
             )}
-          >
+          &gt;
             Change c₂ (y coefficient)
           </button>
           <button
@@ -469,7 +469,7 @@ const Topic74 = () => {
                 ? "bg-amber-500 text-white shadow-lg shadow-amber-200 dark:shadow-amber-900/30"
                 : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
             )}
-          >
+          &gt;
             Change Both
           </button>
         </div>
@@ -633,7 +633,7 @@ const Topic74 = () => {
                         ? "bg-amber-500 text-white shadow-lg shadow-amber-200 dark:shadow-amber-900/30"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  >
+                  &gt;
                     Example {index + 1}
                   </button>
                 ))}
@@ -653,7 +653,7 @@ const Topic74 = () => {
                       key={`example-summary-${index}`}
                       onClick={() => setSelectedExample(index)}
                       className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
-                    >
+                    &gt;
                       <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
                         {example.title}
                       </h5>

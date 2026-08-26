@@ -62,7 +62,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
   const userInitials = useMemo(() => {
     if (!user?.name) return "AD";
     const parts = user.name.trim().split(" ");
-    if (parts.length >= 2) {
+    if (parts.length &ge; 2) {
       return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
     }
     return user.name.substring(0, 2).toUpperCase();
@@ -596,7 +596,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                       : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
                   }`
                 }
-              >
+              &gt;
                 <i className="bi bi-speedometer2 text-sky-400 text-sm"></i>
                 <span>Dashboard</span>
               </NavLink>
@@ -612,7 +612,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                       : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
                   }`}
                   aria-expanded={activeDropdown === "master"}
-                >
+                &gt;
                   <i className="bi bi-layers-half text-sky-400 text-sm"></i>
                   <span>Master</span>
                   <i
@@ -667,7 +667,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                         : "hover:bg-slate-800/80 text-slate-300 hover:text-white border border-transparent"
                                     }`
                                   }
-                                >
+                                &gt;
                                   <div className="mt-0.5 flex-shrink-0 w-7 h-7 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-sky-400 group-hover/item:border-sky-500/40 group-hover/item:text-sky-300 group-hover/item:scale-105 transition">
                                     <i className={`bi ${item.icon} text-xs`}></i>
                                   </div>
@@ -724,7 +724,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                       : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
                   }`}
                   aria-expanded={activeDropdown === "tools"}
-                >
+                &gt;
                   <i className="bi bi-tools text-cyan-400 text-sm"></i>
                   <span>Tools</span>
                   <i
@@ -779,7 +779,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                         : "hover:bg-slate-800/80 text-slate-300 hover:text-white border border-transparent"
                                     }`
                                   }
-                                >
+                                &gt;
                                   <div className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-cyan-400 group-hover/tool:border-cyan-500/40 group-hover/tool:text-cyan-300 group-hover/tool:scale-105 transition">
                                     <i className={`bi ${item.icon} text-xs`}></i>
                                   </div>
@@ -833,7 +833,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                       : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
                   }`}
                   aria-expanded={activeDropdown === "tutorials"}
-                >
+                &gt;
                   <i className="bi bi-journal-bookmark-fill text-purple-400 text-sm"></i>
                   <span>Tutorials</span>
                   <i
@@ -867,7 +867,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                   ? "bg-purple-600 text-white shadow-sm shadow-purple-500/20"
                                   : "text-slate-400 hover:text-white hover:bg-slate-800"
                               }`}
-                            >
+                            &gt;
                               <i className={`bi ${cat.icon} text-[10px]`}></i>
                               <span>{cat.label}</span>
                             </button>
@@ -883,7 +883,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                             onChange={(e) => setTutorialDropdownSearch(e.target.value)}
                             placeholder="Filter roadmaps..."
                             className="w-full bg-slate-950/80 border border-slate-800 rounded-lg pl-7 pr-2.5 py-1 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/60"
-                          />
+                          /&gt;
                         </div>
                       </div>
 
@@ -907,7 +907,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                     : "bg-slate-950/40 hover:bg-slate-800/80 text-slate-300 hover:text-white border-slate-800/60 hover:border-purple-500/30"
                                 }`
                               }
-                            >
+                            &gt;
                               <div className="flex items-center gap-2.5 min-w-0">
                                 <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-sm border ${item.color} group-hover/tut:scale-105 transition`}>
                                   <i className={`bi ${item.icon}`}></i>
@@ -955,7 +955,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 }}
                 className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-800/80 hover:border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-medium transition shadow-sm hover:shadow group cursor-pointer"
                 title="Search anything (Ctrl+K)"
-              >
+              &gt;
                 <i className="bi bi-search text-slate-400 group-hover:text-sky-400 transition-colors"></i>
                 <span className="text-slate-400 group-hover:text-slate-300">Quick Jump...</span>
                 <kbd className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-semibold text-slate-400 bg-slate-800 rounded border border-slate-700/60 shadow-xs">
@@ -974,7 +974,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                       : "bg-slate-900/80 hover:bg-slate-800/80 border-slate-800/80 text-slate-300"
                   }`}
                   aria-label="User Account Menu"
-                >
+                &gt;
                   {/* Avatar with gradient & online dot */}
                   <div className="relative flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-tr from-sky-600 via-indigo-600 to-purple-600 text-white font-bold text-xs shadow-md shadow-sky-500/20">
                     {userInitials}
@@ -1107,7 +1107,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                   onClick={() => setSearchModalOpen(true)}
                   className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white focus:outline-none cursor-pointer"
                   aria-label="Search"
-                >
+                &gt;
                   <i className="bi bi-search text-sm"></i>
                 </button>
 
@@ -1116,7 +1116,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                   onClick={() => setMobileMenuOpen(true)}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 text-white font-semibold text-xs border border-sky-400/30 shadow-md shadow-sky-500/20 active:scale-95 transition cursor-pointer"
                   aria-label="Open Navigation Menu"
-                >
+                &gt;
                   <i className="bi bi-grid-fill text-xs"></i>
                   <span>Menu</span>
                 </button>
@@ -1135,7 +1135,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 isActive ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30" : "hover:text-white hover:bg-slate-900"
               }`
             }
-          >
+          &gt;
             <i className="bi bi-speedometer2 text-sky-400"></i>
             <span>Dashboard</span>
           </NavLink>
@@ -1147,7 +1147,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
               setMobileMenuOpen(true);
             }}
             className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
-          >
+          &gt;
             <i className="bi bi-layers-half text-sky-400"></i>
             <span>Master</span>
           </button>
@@ -1159,7 +1159,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
               setMobileMenuOpen(true);
             }}
             className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
-          >
+          &gt;
             <i className="bi bi-tools text-cyan-400"></i>
             <span>Tools</span>
           </button>
@@ -1171,7 +1171,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
               setMobileMenuOpen(true);
             }}
             className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
-          >
+          &gt;
             <i className="bi bi-journal-bookmark-fill text-purple-400"></i>
             <span>Roadmaps</span>
           </button>
@@ -1180,7 +1180,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
             type="button"
             onClick={() => setSearchModalOpen(true)}
             className="flex items-center gap-1 px-2 py-1 rounded-lg whitespace-nowrap text-slate-400 hover:text-white ml-auto"
-          >
+          &gt;
             <i className="bi bi-search text-xs"></i>
           </button>
         </div>
@@ -1202,7 +1202,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 transition={{ duration: 0.15 }}
                 className="fixed inset-0 bg-slate-950/80 backdrop-blur-md"
                 onClick={() => setSearchModalOpen(false)}
-              />
+              /&gt;
 
               {/* Spotlight Modal Box */}
               <motion.div
@@ -1225,13 +1225,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                     }}
                     placeholder="Search master pages, tools, roadmaps, tutorials..."
                     className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-10 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500/70 shadow-inner"
-                  />
+                  /&gt;
                   {searchQuery && (
                     <button
                       type="button"
                       onClick={() => setSearchQuery("")}
                       className="absolute right-3 text-slate-400 hover:text-white"
-                    >
+                    &gt;
                       <i className="bi bi-x-circle-fill"></i>
                     </button>
                   )}
@@ -1258,7 +1258,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                             ? "bg-sky-500/20 text-white border-sky-500/40 shadow-sm"
                             : "bg-slate-950/40 text-slate-300 hover:bg-slate-800/80 hover:text-white border-slate-800/60"
                         }`}
-                      >
+                      &gt;
                         <div className="flex items-center gap-3 min-w-0">
                           <div className="w-8 h-8 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-sky-400 text-sm flex-shrink-0">
                             <i className={`bi ${item.icon}`}></i>
@@ -1309,7 +1309,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 transition={{ duration: 0.2 }}
                 className="fixed inset-0 bg-slate-950/85 backdrop-blur-md"
                 onClick={() => setMobileMenuOpen(false)}
-              />
+              /&gt;
 
               {/* Slide-out Menu Panel */}
               <motion.div
@@ -1346,7 +1346,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                       onClick={() => setMobileMenuOpen(false)}
                       className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer"
                       aria-label="Close navigation"
-                    >
+                    &gt;
                       <i className="bi bi-x-lg text-lg"></i>
                     </button>
                   </div>
@@ -1361,7 +1361,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           ? "bg-sky-500 text-white shadow-sm"
                           : "text-slate-400 hover:text-white"
                       }`}
-                    >
+                    &gt;
                       All Sections
                     </button>
                     <button
@@ -1372,7 +1372,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           ? "bg-sky-500 text-white shadow-sm"
                           : "text-slate-400 hover:text-white"
                       }`}
-                    >
+                    &gt;
                       Master
                     </button>
                     <button
@@ -1383,7 +1383,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           ? "bg-cyan-500 text-white shadow-sm"
                           : "text-slate-400 hover:text-white"
                       }`}
-                    >
+                    &gt;
                       Tools
                     </button>
                     <button
@@ -1394,7 +1394,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           ? "bg-purple-600 text-white shadow-sm"
                           : "text-slate-400 hover:text-white"
                       }`}
-                    >
+                    &gt;
                       Roadmaps
                     </button>
                   </div>
@@ -1410,20 +1410,20 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                       onChange={(e) => setMobileSearchQuery(e.target.value)}
                       placeholder="Search any page, tool, roadmap..."
                       className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500/60"
-                    />
+                    /&gt;
                     {mobileSearchQuery && (
                       <button
                         type="button"
                         onClick={() => setMobileSearchQuery("")}
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs"
-                      >
+                      &gt;
                         <i className="bi bi-x-circle-fill"></i>
                       </button>
                     )}
                   </div>
 
                   {/* Instant Search Results Box on Mobile */}
-                  {mobileFilteredSearchResults.length > 0 && (
+                  {mobileFilteredSearchResults.length &gt; 0 && (
                     <div className="mt-2 p-1.5 bg-slate-950 rounded-xl border border-slate-800 max-h-56 overflow-y-auto space-y-1">
                       <div className="px-2 py-1 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
                         Matching Results ({mobileFilteredSearchResults.length})
@@ -1434,7 +1434,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           to={item.to}
                           onClick={() => setMobileMenuOpen(false)}
                           className="flex items-center justify-between p-2 rounded-lg text-xs text-slate-300 hover:bg-slate-800 hover:text-white border border-transparent hover:border-slate-700"
-                        >
+                        &gt;
                           <div className="flex items-center gap-2.5 min-w-0">
                             <i className={`bi ${item.icon} text-sky-400 text-sm`}></i>
                             <div className="min-w-0">
@@ -1487,7 +1487,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                         type="button"
                         onClick={() => setMobileActiveAccordion(mobileActiveAccordion === "master" ? null : "master")}
                         className="w-full flex items-center justify-between p-3 text-xs font-bold text-slate-200 hover:bg-slate-800/60 transition cursor-pointer"
-                      >
+                      &gt;
                         <span className="flex items-center gap-2.5">
                           <span className="w-6 h-6 rounded-lg bg-sky-500/20 text-sky-400 border border-sky-500/30 flex items-center justify-center">
                             <i className="bi bi-layers-half text-xs"></i>
@@ -1560,7 +1560,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                         type="button"
                         onClick={() => setMobileActiveAccordion(mobileActiveAccordion === "tools" ? null : "tools")}
                         className="w-full flex items-center justify-between p-3 text-xs font-bold text-slate-200 hover:bg-slate-800/60 transition cursor-pointer"
-                      >
+                      &gt;
                         <span className="flex items-center gap-2.5">
                           <span className="w-6 h-6 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center">
                             <i className="bi bi-tools text-xs"></i>
@@ -1633,7 +1633,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                         type="button"
                         onClick={() => setMobileActiveAccordion(mobileActiveAccordion === "tutorials" ? null : "tutorials")}
                         className="w-full flex items-center justify-between p-3 text-xs font-bold text-slate-200 hover:bg-slate-800/60 transition cursor-pointer"
-                      >
+                      &gt;
                         <span className="flex items-center gap-2.5">
                           <span className="w-6 h-6 rounded-lg bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center">
                             <i className="bi bi-journal-bookmark-fill text-xs"></i>
@@ -1666,7 +1666,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                     ? "bg-purple-600 text-white shadow-sm"
                                     : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
                                 }`}
-                              >
+                              &gt;
                                 <i className={`bi ${cat.icon} text-[10px]`}></i>
                                 <span>{cat.label}</span>
                               </button>

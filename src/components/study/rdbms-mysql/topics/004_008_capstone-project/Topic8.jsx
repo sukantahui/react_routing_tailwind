@@ -29,7 +29,7 @@ EXPLAIN ANALYZE
 SELECT c.customer_id, c.full_name, COUNT(o.order_id) AS order_count
 FROM customers c
 JOIN orders o ON c.customer_id = o.customer_id
-WHERE o.order_date &gt;= '2026-01-01'
+WHERE o.order_date >= '2026-01-01'
 GROUP BY c.customer_id, c.full_name;
 
 -- 📊 OUTPUT METRICS TO EVALUATE:
@@ -48,7 +48,7 @@ GROUP BY c.customer_id, c.full_name;
 -- Query:
 SELECT customer_id, order_date, total_amount 
 FROM orders 
-WHERE customer_id = 4500 AND order_date &gt;= '2026-01-01';
+WHERE customer_id = 4500 AND order_date >= '2026-01-01';
 
 -- 🚀 Create composite index satisfying WHERE and SELECT columns:
 CREATE INDEX idx_cust_date_amount ON orders (customer_id, order_date, total_amount);
@@ -67,11 +67,11 @@ CREATE INDEX idx_cust_date_amount ON orders (customer_id, order_date, total_amou
 -- ✅ Index Used:
 SELECT * FROM transactions WHERE branch_id = 5;
 SELECT * FROM transactions WHERE branch_id = 5 AND status = 'COMPLETED';
-SELECT * FROM transactions WHERE branch_id = 5 AND status = 'COMPLETED' AND created_at &gt;= '2026-01-01';
+SELECT * FROM transactions WHERE branch_id = 5 AND status = 'COMPLETED' AND created_at >= '2026-01-01';
 
 -- ❌ Index SKIPPED (Leftmost column missing!):
 SELECT * FROM transactions WHERE status = 'COMPLETED';
-SELECT * FROM transactions WHERE created_at &gt;= '2026-01-01';`,
+SELECT * FROM transactions WHERE created_at >= '2026-01-01';`,
       explanation: "B-Tree indexes can only filter on composite columns starting from the leftmost column sequentially without skipping intermediate fields.",
       keyTakeaways: ["Order composite index columns from highest equality filtering to range filters.","Place equality columns (branch_id, status) before range columns (created_at).","Avoid duplicate single-column indexes when a composite index already covers the prefix."]
     },
@@ -179,7 +179,7 @@ SELECT * FROM transactions WHERE created_at &gt;= '2026-01-01';`,
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {concept.conceptName}
                 </button>
               );
@@ -304,7 +304,7 @@ SELECT * FROM transactions WHERE created_at &gt;= '2026-01-01';`,
                 Writing WHERE YEAR(order_date) = 2026 prevents MySQL from using indexes on order_date, forcing a full table scan.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
-                Rule: Write sargable queries: WHERE order_date >= '2026-01-01' AND order_date &lt; '2027-01-01'.
+                Rule: Write sargable queries: WHERE order_date &ge; '2026-01-01' AND order_date &lt; '2027-01-01'.
               </div>
             </div>
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">

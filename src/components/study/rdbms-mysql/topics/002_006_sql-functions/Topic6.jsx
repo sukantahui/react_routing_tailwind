@@ -292,7 +292,7 @@ ORDER BY order_amount DESC;`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Executive Format
               </button>
 
@@ -304,7 +304,7 @@ ORDER BY order_amount DESC;`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. CSV STR_TO_DATE
               </button>
 
@@ -316,7 +316,7 @@ ORDER BY order_amount DESC;`,
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Quarters &amp; Months
               </button>
 
@@ -328,7 +328,7 @@ ORDER BY order_amount DESC;`,
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Weekend Analytics
               </button>
             </div>

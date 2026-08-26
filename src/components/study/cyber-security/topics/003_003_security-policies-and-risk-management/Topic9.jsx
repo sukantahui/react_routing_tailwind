@@ -24,7 +24,7 @@ const Topic9 = () => {
       name: "1. Risk Mitigation (Risk Reduction)",
       definition: "Deploying technical, administrative, and physical countermeasures to lower threat likelihood or impact.",
       mechanisms: "Technical: AES-256 encryption, WAF, EDR, ZTNA; Administrative: AUP, training; Physical: Mantraps, biometric locks.",
-      financials: "Capital & Operational Expenditure (CapEx/OpEx); justified by positive Return on Security Investment (ROSI > 0%).",
+      financials: "Capital & Operational Expenditure (CapEx/OpEx); justified by positive Return on Security Investment (ROSI &gt; 0%).",
       auditorCheck: "Auditors verify control effectiveness via penetration tests, configuration reviews, and SOC log sampling.",
       badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800"
     },
@@ -91,7 +91,7 @@ const Topic9 = () => {
           strategy: "ACCEPT",
           action: "Sign risk acceptance memo without deploying backups or EDR.",
           residual: "9.2 (Critical - High Breach Exposure)",
-          rtpDoc: "RTP-01: Violates Board Risk Appetite (<= 2.5); Rejected by CISO Sukanta Hui.",
+          rtpDoc: "RTP-01: Violates Board Risk Appetite ( &le; 2.5); Rejected by CISO Sukanta Hui.",
           status: "REJECTED BY CISO"
         }
       }
@@ -265,7 +265,7 @@ const Topic9 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{stg.name.split(". ")[1]?.split(" (")[0]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{stg.name.split(". ")[0]}</div>
                 </button>
@@ -343,7 +343,7 @@ const Topic9 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200">{sc.title}</div>
                   <div className="text-[11px] text-rose-400 font-mono mt-0.5">Raw Inherent Risk: {sc.rawRisk}</div>
                 </button>
@@ -373,7 +373,7 @@ const Topic9 = () => {
                         ? "bg-indigo-600 text-white border-indigo-400 shadow-md"
                         : "bg-gray-900 text-gray-400 border-gray-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {optKey}
                   </button>
                 ))}
@@ -519,7 +519,7 @@ const Topic9 = () => {
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
                     <rect x="20" y="105" width="210" height="45" rx="4" fill="#18181b" stroke="#f59e0b" />
                     <text x="125" y="125" fill="#fbbf24" fontWeight="bold" textAnchor="middle" fontSize="8">5. RESIDUAL RISK AUDIT</text>
-                    <text x="125" y="138" fill="#cbd5e1" font-family="monospace" textAnchor="middle" fontSize="6.5">Verify Risk &lt;= Appetite</text>
+                    <text x="125" y="138" fill="#cbd5e1" font-family="monospace" textAnchor="middle" fontSize="6.5">Verify Risk <= Appetite</text>
                   </g>
 
                   {/* Bottom Box */}
@@ -582,7 +582,7 @@ const Topic9 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

@@ -361,7 +361,7 @@ class Topic3 extends React.Component {
                                 ? "bg-gray-800 hover:bg-gray-700"
                                 : "bg-gray-200 hover:bg-gray-300"
                           )}
-                        >
+                        &gt;
                           <div className="text-lg font-bold">{entity.id}</div>
                           <div className="text-sm">{entity.label}</div>
                           <div className="text-xs opacity-80 mt-1">{entity.description}</div>
@@ -388,7 +388,7 @@ class Topic3 extends React.Component {
                                 ? "bg-gray-800 hover:bg-gray-700"
                                 : "bg-gray-200 hover:bg-gray-300"
                           )}
-                        >
+                        &gt;
                           <div className="text-2xl font-bold mb-2">{mode.symbol}</div>
                           <div className="text-lg font-semibold">{mode.label}</div>
                           <div className="text-sm opacity-80 mt-1">{mode.description}</div>
@@ -415,7 +415,7 @@ class Topic3 extends React.Component {
                                 ? "bg-gray-800 hover:bg-gray-700"
                                 : "bg-gray-200 hover:bg-gray-300"
                           )}
-                        >
+                        &gt;
                           <div className="text-lg font-bold">{perm.id}</div>
                           <div className="text-sm">{perm.label}</div>
                           {perm.value.length === 1 && (

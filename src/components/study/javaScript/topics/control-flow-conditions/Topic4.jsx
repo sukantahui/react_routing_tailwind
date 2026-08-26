@@ -68,7 +68,7 @@ if (username === "admin" && password === "1234") {
 
 if (marks >= 90) {
   console.log("A+");
-} else if (marks >= 80) {
+} else if (marks &ge; 80) {
   console.log("A");
 } else if (marks >= 70) {
   console.log("B");
@@ -100,7 +100,7 @@ if (marks >= 90) {
 let discount = price > 400 ? 20 : 5;
 
 console.log("Discount:", discount, "%");`}
-        />
+        /&gt;
 
         <p className="text-slate-400 text-sm md:text-base leading-relaxed">
           This is a perfect use-case for the ternary operator — quick, clean, readable.
@@ -128,7 +128,7 @@ if (cartValue >= 500) {
 } else {
   console.log("Shipping charges apply.");
 }`}
-        />
+        /&gt;
       </section>
 
       {/* ============================================================

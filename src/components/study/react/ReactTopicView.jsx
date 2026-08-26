@@ -313,7 +313,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                 setWaBoxOpen(false);
               }}
               className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-[11px] text-slate-100 sm:hidden"
-            >
+            &gt;
               <Menu size={14} /> Topics
             </button>
           </div>
@@ -441,7 +441,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                 type="text"
                 placeholder="e.g., Ritaja Ghosh"
                 className="w-full bg-slate-800 text-slate-200 p-2 rounded-lg border border-slate-600 text-xs mt-1 mb-3 focus:outline-none focus:border-sky-500"
-              />
+              /&gt;
 
               {/* PHONE NUMBER INPUT */}
               <label className="text-[11px] text-slate-400">WhatsApp number</label>
@@ -452,7 +452,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                 type="text"
                 placeholder="e.g., 919876543210"
                 className="w-full bg-slate-800 text-slate-200 p-2 rounded-lg border border-slate-600 text-xs mt-1 focus:outline-none focus:border-sky-500"
-              />
+              /&gt;
 
               {/* Options */}
               <div className="flex items-center gap-2 mt-3">
@@ -498,7 +498,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     }
                   }}
                   className="ml-auto px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs text-slate-300 hover:bg-slate-900"
-                >
+                &gt;
                   Copy Preview
                 </button>
               </div>
@@ -570,7 +570,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   window.open(url, "_blank");
                 }}
                 className="w-full mt-3 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-xs font-semibold text-white transition"
-              >
+              &gt;
                 📤 Send Ultra Premium Topic Message
               </button>
 
@@ -586,7 +586,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               <div
                 className="fixed inset-0 z-40 bg-black/60 lg:hidden"
                 onClick={() => setSidebarOpen(false)}
-              />
+              /&gt;
 
               <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950/95 backdrop-blur-xl border-r border-slate-800 pt-4 pb-6 px-4 flex flex-col lg:hidden">
                 <div className="flex items-center justify-between mb-4">
@@ -601,7 +601,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     type="button"
                     onClick={() => setSidebarOpen(false)}
                     className="p-1 rounded-full border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-300"
-                  >
+                  &gt;
                     <X size={14} />
                   </button>
                 </div>
@@ -650,7 +650,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                             : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"
                           }
                         `}
-                      >
+                      &gt;
                         <span
                           className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"
                             }`}
@@ -677,7 +677,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     to={`/${roadmapData.folder}/module/${moduleSlug}`}
                     onClick={() => setSidebarOpen(false)}
                     className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
-                  >
+                  &gt;
                     ← Back to Module Overview
                   </Link>
 
@@ -685,7 +685,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     to={`/${roadmapData.folder}/roadmap`}
                     onClick={() => setSidebarOpen(false)}
                     className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
-                  >
+                  &gt;
                     📍 {roadmapData.subject} Roadmap
                   </Link>
 
@@ -771,7 +771,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               {/* ===================== TOPIC CONTENT PANEL ===================== */}
               <section className="relative rounded-3xl border border-slate-800 bg-slate-900/70 backdrop-blur-lg shadow-[0_22px_45px_rgba(15,23,42,0.75)] px-5 md:px-8 py-6 md:py-8">
 
-                <Suspense fallback={<p className="text-slate-400 text-sm">Loading topic content…</p>}>
+                <Suspense fallback={<p className="text-slate-400 text-sm">Loading topic content…</p>}&gt;
                   {TopicPage ? (
                     <TopicPage key={topicKey} />
                   ) : (
@@ -816,7 +816,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                       window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
                     }}
                     className="px-4 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-white text-sm font-semibold transition"
-                  >
+                  &gt;
                     📲 Send WhatsApp Query
                   </button>
                 </div>
@@ -898,7 +898,7 @@ ${userMsg}
         rounded-lg text-sm font-semibold
         text-white transition
       "
-                  >
+                  &gt;
                     📲 Send on WhatsApp
                   </button>
                 </div>

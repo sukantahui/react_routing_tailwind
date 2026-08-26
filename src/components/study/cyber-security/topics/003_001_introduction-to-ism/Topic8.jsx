@@ -244,7 +244,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{stage.name.split(". ")[1]?.split(" ")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{stage.name.split(". ")[0]}</div>
                 </button>
@@ -311,7 +311,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200">{san.name.split(" (")[0]}</div>
                   <div className="text-[11px] text-gray-400 mt-0.5">{san.mediaSuitability.split(" ")[0]} {san.mediaSuitability.split(" ")[1]} Storage</div>
                 </button>
@@ -553,7 +553,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

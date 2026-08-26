@@ -54,7 +54,7 @@ const Topic71 = () => {
       title: 'Example 5: Redundant Non-Negativity Constraint',
       problem: 'Maximize Z = 2x + y\nSubject to:\nx + y ≥ 5\n2x + 3y ≥ 12\nx, y ≥ 0',
       redundantConstraints: ['y ≥ 0'],
-      reason: 'The constraint y ≥ 0 is redundant because the other constraints already force y to be positive. Any solution satisfying x + y ≥ 5 and 2x + 3y ≥ 12 will have y > 0.',
+      reason: 'The constraint y ≥ 0 is redundant because the other constraints already force y to be positive. Any solution satisfying x + y ≥ 5 and 2x + 3y ≥ 12 will have y &gt; 0.',
       visualization: 'The feasible region is entirely in the positive y quadrant, making y ≥ 0 redundant.',
       solution: 'The non-negativity constraint y ≥ 0 can be removed, though it\'s usually kept for clarity.'
     }
@@ -299,7 +299,7 @@ const Topic71 = () => {
                   ? "bg-purple-500 text-white shadow-lg shadow-purple-200 dark:shadow-purple-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -461,7 +461,7 @@ const Topic71 = () => {
                         ? "bg-purple-500 text-white shadow-lg shadow-purple-200 dark:shadow-purple-900/30"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  >
+                  &gt;
                     Example {index + 1}
                   </button>
                 ))}
@@ -478,7 +478,7 @@ const Topic71 = () => {
                       key={`example-summary-${index}`}
                       onClick={() => setSelectedExample(index)}
                       className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]"
-                    >
+                    &gt;
                       <h5 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
                         {example.title}
                       </h5>

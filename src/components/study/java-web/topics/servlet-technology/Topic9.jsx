@@ -53,7 +53,7 @@ const Topic9 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/10"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-red-400 flex items-center gap-2">
             <span>⚡</span> What are Asynchronous Servlets?
           </h2>
@@ -74,7 +74,7 @@ const Topic9 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-red-400">🔄 Synchronous vs Asynchronous Processing</h2>
           <div className="mt-6 flex flex-wrap justify-center gap-8">
             <svg viewBox="0 0 320 200" className="w-80 h-auto">
@@ -112,7 +112,7 @@ const Topic9 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-red-400">🔧 Enabling Asynchronous Support</h2>
           <p className="mt-3 text-gray-300">
             Two steps: mark the servlet with <code>asyncSupported = true</code> in <code>@WebServlet</code> or in <code>web.xml</code>. Then call <code>request.startAsync()</code> to obtain an <code>AsyncContext</code>.
@@ -151,7 +151,7 @@ const Topic9 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-red-400">⏱️ Timeout and Error Handling</h2>
           <p className="mt-3 text-gray-300">If an async operation takes too long, the container will call <code>AsyncListener.onTimeout()</code> and complete the response with an error. You can set a timeout or implement custom logic.</p>
           <JavaFileLoader
@@ -178,7 +178,7 @@ const Topic9 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-red-400">🏭 Executor Pattern with Async Servlets</h2>
           <p className="mt-3 text-gray-300">Instead of starting raw threads, use a shared thread pool (e.g., <code>ExecutorService</code>). This prevents resource exhaustion.</p>
           <JavaFileLoader
@@ -203,7 +203,7 @@ const Topic9 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-red-400">⚠️ Common Pitfalls (Beginners)</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Omitting <code>asyncSupported=true</code></strong> – <code>request.startAsync()</code> throws <code>IllegalStateException</code>.</li>
@@ -219,7 +219,7 @@ const Topic9 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-red-400">✅ Best Practices (Industry)</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Always set a timeout</strong> – prevent infinite hanging requests.</li>
@@ -235,7 +235,7 @@ const Topic9 = () => {
         <section
           ref={(el) => (sectionRefs.current[7] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-red-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -261,7 +261,7 @@ const Topic9 = () => {
         <section
           ref={(el) => (sectionRefs.current[8] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-red-500/30"
-        >
+        &gt;
           <h2 className="text-xl font-semibold text-red-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> In server logs, note that the request thread exits quickly while async task runs on another thread.</li>

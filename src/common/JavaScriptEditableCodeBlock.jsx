@@ -161,7 +161,7 @@ const JavaScriptEditableCodeBlock = ({
           <button
             onClick={() => setShowLineNumbers(!showLineNumbers)}
             className="px-2 py-1 bg-indigo-600 rounded text-white flex items-center gap-1"
-          >
+          &gt;
             <LayoutList size={14} /> Lines
           </button>
 
@@ -196,7 +196,7 @@ const JavaScriptEditableCodeBlock = ({
           <button
             onClick={() => setIsFullscreen(!isFullscreen)}
             className="px-2 py-1 bg-purple-600 rounded text-white flex items-center gap-1"
-          >
+          &gt;
             {isFullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
             Full
           </button>
@@ -204,7 +204,7 @@ const JavaScriptEditableCodeBlock = ({
           <button
             onClick={() => navigator.clipboard.writeText(code)}
             className="px-2 py-1 bg-slate-600 rounded text-white flex items-center gap-1"
-          >
+          &gt;
             <Copy size={14} /> Copy
           </button>
 
@@ -232,7 +232,7 @@ const JavaScriptEditableCodeBlock = ({
           scrollBeyondLastLine: false,
           padding: { top: 18, bottom: 18 },
         }}
-      />
+      /&gt;
 
       {/* ================= ERROR ================= */}
       {error && (

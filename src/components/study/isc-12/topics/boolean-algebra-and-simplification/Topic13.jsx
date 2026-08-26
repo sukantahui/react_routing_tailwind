@@ -240,7 +240,7 @@ const Topic13 = () => {
                     ? "bg-indigo-500 text-white shadow-md"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {expr}
               </button>
             ))}
@@ -269,7 +269,7 @@ const Topic13 = () => {
           <button
             onClick={() => setShowDual(!showDual)}
             className="mt-4 w-full py-2 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 rounded-lg font-medium transition-all duration-300 hover:bg-indigo-200 dark:hover:bg-indigo-900/60"
-          >
+          &gt;
             {showDual ? "Hide" : "Show"} Explanation
           </button>
           

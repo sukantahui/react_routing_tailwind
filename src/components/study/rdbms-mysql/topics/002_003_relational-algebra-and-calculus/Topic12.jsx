@@ -101,7 +101,7 @@ const Topic12 = () => {
       const min = Math.min(...groupStudents.map((s) => s.fee));
       const max = Math.max(...groupStudents.map((s) => s.fee));
 
-      if (count >= minStudentThreshold) {
+      if (count &ge; minStudentThreshold) {
         groupResults.push({
           groupKey: k,
           count: count,
@@ -230,7 +230,7 @@ HAVING COUNT(*) >= ${minStudentThreshold};`;
             </div>
             <div className="p-3.5 rounded-xl border border-emerald-500/30 bg-slate-950 space-y-1">
               <span className="text-xs font-mono font-bold text-emerald-400 uppercase">3. Selection over 𝒢</span>
-              <strong className="text-white text-xs block font-mono">{`σ_{avg > 4000}(_{city} 𝒢(R))`}</strong>
+              <strong className="text-white text-xs block font-mono">{`σ_{avg &gt; 4000}(_{city} 𝒢(R))`}</strong>
               <p className="text-[11px] text-slate-400">Maps directly to SQL `HAVING` filter applied after grouping.</p>
             </div>
           </div>
@@ -328,7 +328,7 @@ HAVING COUNT(*) >= ${minStudentThreshold};`;
                         ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     1. By City
                   </button>
                   <button
@@ -339,7 +339,7 @@ HAVING COUNT(*) >= ${minStudentThreshold};`;
                         ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     2. By Track
                   </button>
                   <button
@@ -350,7 +350,7 @@ HAVING COUNT(*) >= ${minStudentThreshold};`;
                         ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                         : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     3. Global (No G)
                   </button>
                 </div>
@@ -373,7 +373,7 @@ HAVING COUNT(*) >= ${minStudentThreshold};`;
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
                       )}
-                    >
+                    &gt;
                       &ge; {threshold} Students
                     </button>
                   ))}
@@ -502,7 +502,7 @@ GROUP BY city;`}
 {`SELECT course_id, COUNT(*) AS enroll_count
 FROM enrollments
 GROUP BY course_id
-HAVING COUNT(*) >= 2;`}
+HAVING COUNT(*) &ge; 2;`}
               </pre>
             </div>
           </div>

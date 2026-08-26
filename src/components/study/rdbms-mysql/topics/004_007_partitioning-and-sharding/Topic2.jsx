@@ -78,7 +78,7 @@ SELECT * FROM sales_records WHERE DATE_FORMAT(order_date, '%Y') = '2025';
 -- MySQL must evaluate DATE_FORMAT row-by-row across EVERY partition!
 
 -- ✅ SOLUTION: ALWAYS ISOLATE BARE PARTITION COLUMN WITH RANGE BOUNDS:
-SELECT * FROM sales_records WHERE order_date >= '2025-01-01' AND order_date < '2026-01-01';
+SELECT * FROM sales_records WHERE order_date &ge; '2025-01-01' AND order_date < '2026-01-01';
 -- 🎯 EXPLAIN output: partitions = p2025 (100% Pruned, 15ms Response Time!)`,
       explanation:
         "Wrapping the partition key in string formatting or mathematical functions prevents the optimizer from calculating range bounds, forcing a full table scan across every partition.",
@@ -208,7 +208,7 @@ WHERE a.branch_id = 101;
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {rule.ruleName}
                 </button>
               );
@@ -294,7 +294,7 @@ WHERE a.branch_id = 101;
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                In Barrackpore, POS sales reports took 38 seconds across ₹1.2 Crores in retail inventory. The original query used <code>WHERE YEAR(order_date) = 2025</code>, which prevented clean range pruning. Susmita refactored the query to explicit date boundaries (<code>WHERE order_date &gt;= &apos;2025-01-01&apos; AND order_date &lt; &apos;2026-01-01&apos;</code>), allowing the optimizer to prune to the single 2025 partition and cutting query time to 15 milliseconds.
+                In Barrackpore, POS sales reports took 38 seconds across ₹1.2 Crores in retail inventory. The original query used <code>WHERE YEAR(order_date) = 2025</code>, which prevented clean range pruning. Susmita refactored the query to explicit date boundaries (<code>WHERE order_date >= &apos;2025-01-01&apos; AND order_date &lt; &apos;2026-01-01&apos;</code>), allowing the optimizer to prune to the single 2025 partition and cutting query time to 15 milliseconds.
               </p>
             </div>
 
@@ -336,7 +336,7 @@ WHERE a.branch_id = 101;
                 Using <code>WHERE DATE_FORMAT(date, &apos;%Y&apos;) = &apos;2025&apos;</code> disables partition pruning, forcing MySQL to scan every single physical partition.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
-                Rule: Use bare column range comparisons (order_date &gt;= &apos;2025-01-01&apos;).
+                Rule: Use bare column range comparisons (order_date >= &apos;2025-01-01&apos;).
               </div>
             </div>
 

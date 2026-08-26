@@ -78,7 +78,7 @@ ORDER BY distance_meters ASC;
       metricsTable: [
         { functionName: "ST_Distance(g1, g2)", inputSRID: "SRID 4326", outputUnit: "Meters on Earth's ellipsoid ⚡", precision: "Geodesic accuracy" },
         { functionName: "ST_Distance(g1, g2)", inputSRID: "SRID 0 (Flat)", outputUnit: "Euclidean Units (Degree math)", precision: "Flat 2D Cartesian plane" },
-        { functionName: "5km Radius Search", inputSRID: "SRID 4326", outputUnit: "WHERE ST_Distance(...) <= 5000", precision: "Finds nearby stores" },
+        { functionName: "5km Radius Search", inputSRID: "SRID 4326", outputUnit: "WHERE ST_Distance(...) &le; 5000", precision: "Finds nearby stores" },
         { functionName: "ST_Buffer(pt, r)", inputSRID: "SRID 4326", outputUnit: "Circular Polygon area", precision: "Radial coverage zone" }
       ],
       explanation:
@@ -133,7 +133,7 @@ EXPLAIN SELECT
     hub_id, hub_name,
     ST_Distance(location, ST_GeomFromText('POINT(88.35 22.76)', 4326)) AS dist_m
 FROM delivery_hubs
-WHERE ST_Distance(location, ST_GeomFromText('POINT(88.35 22.76)', 4326)) <= 3000
+WHERE ST_Distance(location, ST_GeomFromText('POINT(88.35 22.76)', 4326)) &le; 3000
 ORDER BY dist_m ASC
 LIMIT 5;
 
@@ -295,7 +295,7 @@ LIMIT 5;
                 {/* Right: Distance Radius Box */}
                 <rect x="490" y="40" width="440" height="280" rx="8" fill="#0f172a" stroke="#0ea5e9" strokeWidth="1.5" />
                 <text x="710" y="70" fill="#38bdf8" fontSize="13" fontWeight="bold" textAnchor="middle">
-                  2. PROXIMITY RADIUS: ST_Distance(pt1, pt2) &lt;= 5000
+                  2. PROXIMITY RADIUS: ST_Distance(pt1, pt2) <= 5000
                 </text>
                 <line x1="490" y1="85" x2="930" y2="85" stroke="#334155" />
 
@@ -344,7 +344,7 @@ LIMIT 5;
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -478,7 +478,7 @@ LIMIT 5;
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                In Kolkata, dispatching 10,000 active taxi cabs required finding the 5 closest drivers within a 3-kilometer radius of a passenger pickup point. Using <code>ST_Distance(location, @pickup_point) &lt;= 3000</code> on an R-Tree indexed `POINT SRID 4326` column enabled driver matching in under 3 milliseconds without needing external Redis or PostGIS clusters.
+                In Kolkata, dispatching 10,000 active taxi cabs required finding the 5 closest drivers within a 3-kilometer radius of a passenger pickup point. Using <code>ST_Distance(location, @pickup_point) <= 3000</code> on an R-Tree indexed `POINT SRID 4326` column enabled driver matching in under 3 milliseconds without needing external Redis or PostGIS clusters.
               </p>
             </div>
           </div>

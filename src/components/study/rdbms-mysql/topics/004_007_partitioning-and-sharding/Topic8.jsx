@@ -27,8 +27,8 @@ const Topic8 = () => {
       badgeColor: "emerald",
       sqlSnippet: `-- ⚡ 1. INSTANT 5ms DROP (Deletes Physical File & Schema Definition):
 ALTER TABLE financial_ledger DROP PARTITION p2022_01;
--- -> Unlinks financial_ledger#p#p2022_01.ibd at the OS filesystem level!
--- -> Zero undo logs, zero redo log saturation, zero row-lock waits!
+-- &rarr; Unlinks financial_ledger#p#p2022_01.ibd at the OS filesystem level!
+-- -&gt; Zero undo logs, zero redo log saturation, zero row-lock waits!
 
 -- 📦 2. TRUNCATE PARTITION (Deletes Rows, Preserves Schema Boundaries):
 ALTER TABLE financial_ledger TRUNCATE PARTITION p2025_08;
@@ -210,7 +210,7 @@ ALTER TABLE financial_ledger DROP PARTITION p2022_01;
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {cmd.cmdName}
                 </button>
               );

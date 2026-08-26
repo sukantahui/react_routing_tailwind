@@ -446,10 +446,10 @@ export default function Whiteboard() {
     <div className="bg-slate-900 border border-slate-700 rounded-xl h-[100dvh] flex flex-col">
       <div className="flex gap-2 p-3 bg-slate-800 border-b border-slate-700 overflow-x-auto">
 
-        <button className={btn("select")} onClick={() => setTool("select")}><MousePointer2 size={18} /></button>
-        <button className={btn("draw")} onClick={() => setTool("draw")}><Pencil size={18} /></button>
-        <button className={btn("rect")} onClick={() => setTool("rect")}><Square size={18} /></button>
-        <button className={btn("circle")} onClick={() => setTool("circle")}><CircleIcon size={18} /></button>
+        <button className={btn("select")} onClick={() => setTool("select")}&gt;<MousePointer2 size={18} /></button>
+        <button className={btn("draw")} onClick={() => setTool("draw")}&gt;<Pencil size={18} /></button>
+        <button className={btn("rect")} onClick={() => setTool("rect")}&gt;<Square size={18} /></button>
+        <button className={btn("circle")} onClick={() => setTool("circle")}&gt;<CircleIcon size={18} /></button>
 
         <button
           className="flex items-center justify-center p-2 min-w-[36px]"
@@ -464,7 +464,7 @@ export default function Whiteboard() {
               })
             )
           }
-        >
+        &gt;
           <Type size={18} /><span>Text</span>
         </button>
         <button className="shrink-0" onClick={undo}><Undo size={18} /></button>
@@ -479,16 +479,16 @@ export default function Whiteboard() {
         <button className="shrink-0" onClick={sendToBack}><ArrowDown size={18} /></button>
         <button className="shrink-0" onClick={exportPNG}><Download size={18} /></button>
 
-        <input type="color" value={strokeColor} onChange={e => setStrokeColor(e.target.value)} />
-        <input type="color" value={fillColor} onChange={e => setFillColor(e.target.value)} />
+        <input type="color" value={strokeColor} onChange={e => setStrokeColor(e.target.value)} /&gt;
+        <input type="color" value={fillColor} onChange={e => setFillColor(e.target.value)} /&gt;
         <input
           type="color"
           value={bgColor}
           onChange={(e) => setBgColor(e.target.value)}
           title="Canvas Background"
-        />
+        /&gt;
 
-        <input type="range" min="1" max="10" value={lineWidth} onChange={e => setLineWidth(+e.target.value)} />
+        <input type="range" min="1" max="10" value={lineWidth} onChange={e => setLineWidth(+e.target.value)} /&gt;
       </div>
 
       <div id="canvasWrap" className="flex-1 overflow-hidden">

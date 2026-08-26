@@ -177,7 +177,7 @@ const Topic15 = () => {
                     ? "bg-teal-500 text-white shadow-md"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {identities[key].name}
               </button>
             ))}
@@ -216,7 +216,7 @@ const Topic15 = () => {
           <button
             onClick={() => setShowProof(!showProof)}
             className="mt-4 w-full py-2 bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 rounded-lg font-medium transition-all duration-300 hover:bg-teal-200 dark:hover:bg-teal-900/60"
-          >
+          &gt;
             {showProof ? "Hide" : "Show"} Algebraic Proof
           </button>
           
@@ -387,7 +387,7 @@ const Topic15 = () => {
                 onChange={(e) => setUserAnswer(e.target.value)}
                 placeholder="Enter simplified expression (e.g., A·B)"
                 className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500"
-              />
+              /&gt;
               <button
                 onClick={handleQuizSubmit}
                 className="px-6 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-all duration-300 hover:scale-105"

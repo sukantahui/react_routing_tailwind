@@ -195,7 +195,7 @@ int main() {
             <p className="text-sm flex items-center gap-2"><span className="text-blue-600">🔍</span> Try this in terminal:</p>
             <code className="block text-xs bg-white dark:bg-gray-900 p-2 rounded mt-1">
               {`# Count how many forks a command does
-strace -f -e clone bash -c 'ls' 2>&1 | grep -c clone
+strace -f -e clone bash -c 'ls' 2&gt;&1 | grep -c clone
 # Or see fork in action with a C program
 gcc -o /tmp/fork_demo /path/to/simple_fork.c && /tmp/fork_demo`}
             </code>

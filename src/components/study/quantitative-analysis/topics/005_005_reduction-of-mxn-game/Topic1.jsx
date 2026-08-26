@@ -146,7 +146,7 @@ const Topic1 = () => {
                     ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -158,7 +158,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -177,12 +177,12 @@ const Topic1 = () => {
 
               <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex flex-col space-y-1">
                 <span className="text-rose-400 font-bold">2. Row Sweeps</span>
-                <p className="text-slate-300 text-[11px]">Delete Row R_j if R_i &gt;= R_j in all columns.</p>
+                <p className="text-slate-300 text-[11px]">Delete Row R_j if R_i >= R_j in all columns.</p>
               </div>
 
               <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex flex-col space-y-1">
                 <span className="text-sky-400 font-bold">3. Column Sweeps</span>
-                <p className="text-slate-300 text-[11px]">Delete Col C_s if C_r &lt;= C_s in all rows.</p>
+                <p className="text-slate-300 text-[11px]">Delete Col C_s if C_r <= C_s in all rows.</p>
               </div>
 
               <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex flex-col space-y-1">
@@ -203,7 +203,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-mxn">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-800 pb-4 gap-2">
               <div className="flex items-center space-x-3">
@@ -232,18 +232,18 @@ const Topic1 = () => {
                   <tr className="border-b border-slate-800 text-slate-400">
                     <th className="p-2 text-left">A \ B</th>
                     <th className="p-2 text-sky-400">B₁</th>
-                    <th className={clsx('p-2', reductionPass >= 2 ? 'line-through text-slate-600 bg-rose-950/20' : 'text-sky-400')}>
-                      B₂ {reductionPass >= 2 ? '(Pruned)' : ''}
+                    <th className={clsx('p-2', reductionPass >= 2 ? 'line-through text-slate-600 bg-rose-950/20' : 'text-sky-400')}&gt;
+                      B₂ {reductionPass &ge; 2 ? '(Pruned)' : ''}
                     </th>
                     <th className="p-2 text-sky-400">B₃</th>
-                    <th className={clsx('p-2', reductionPass >= 2 ? 'line-through text-slate-600 bg-rose-950/20' : 'text-sky-400')}>
-                      B₄ {reductionPass >= 2 ? '(Pruned)' : ''}
+                    <th className={clsx('p-2', reductionPass >= 2 ? 'line-through text-slate-600 bg-rose-950/20' : 'text-sky-400')}&gt;
+                      B₄ {reductionPass &ge; 2 ? '(Pruned)' : ''}
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/60 text-slate-200">
                   {initial4x4.map((row, rIdx) => {
-                    const isRow4Dead = reductionPass >= 1 && rIdx === 3;
+                    const isRow4Dead = reductionPass &ge; 1 && rIdx === 3;
                     const isRow3Dead = reductionPass >= 3 && rIdx === 2;
                     const isRowDead = isRow4Dead || isRow3Dead;
                     return (
@@ -252,7 +252,7 @@ const Topic1 = () => {
                           A_{rIdx + 1} {isRowDead ? '(Pruned)' : ''}
                         </td>
                         {row.map((cell, cIdx) => {
-                          const isColDead = reductionPass >= 2 && (cIdx === 1 || cIdx === 3);
+                          const isColDead = reductionPass &ge; 2 && (cIdx === 1 || cIdx === 3);
                           const isDead = isRowDead || isColDead;
                           const isSurvivingCell = reductionPass >= 3 && (rIdx === 0 || rIdx === 1) && (cIdx === 0 || cIdx === 2);
                           return (
@@ -347,7 +347,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -377,7 +377,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -444,7 +444,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -466,7 +466,7 @@ const Topic1 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -493,7 +493,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -533,7 +533,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -567,7 +567,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

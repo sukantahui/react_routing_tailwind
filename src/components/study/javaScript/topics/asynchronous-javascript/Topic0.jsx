@@ -102,7 +102,7 @@ Possible output:
 2. Loading marks for Ritaja...
 */
 `}
-        />
+        /&gt;
 
         <div className="mt-2 p-3 bg-emerald-900/20 border border-emerald-700 rounded-xl text-sm text-emerald-300 animate-[fadeIn_1.3s_ease-out]">
           ✔ Asynchronous code prevents blocking and keeps your UI smooth.

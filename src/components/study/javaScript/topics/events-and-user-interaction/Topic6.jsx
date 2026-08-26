@@ -31,14 +31,14 @@ export default class Topic6 extends Component {
         <CodeBlock
           language="html"
           code={`<input id="nameInput" placeholder="Type your name..." />`}
-        />
+        /&gt;
 
         <CodeBlock
           language="javascript"
           code={`document.getElementById("nameInput").addEventListener("keydown", (e) => {
   console.log("Key pressed:", e.key);
 });`}
-        />
+        /&gt;
 
         <p className="text-slate-400 text-sm">
           If Ritaja presses <strong>A</strong>, console shows:  
@@ -58,7 +58,7 @@ export default class Topic6 extends Component {
           code={`document.getElementById("nameInput").addEventListener("keyup", () => {
   console.log("Current value:", nameInput.value);
 });`}
-        />
+        /&gt;
 
         <p className="text-slate-400 text-sm">
           Often used in live search boxes.
@@ -82,7 +82,7 @@ export default class Topic6 extends Component {
           code={`document.addEventListener("keypress", (e) => {
   console.log("keypress:", e.key);
 });`}
-        />
+        /&gt;
 
 
         {/* -------------------------
@@ -106,7 +106,7 @@ export default class Topic6 extends Component {
     alert("Only alphabets allowed!");
   }
 });`}
-        />
+        /&gt;
 
 
         {/* -------------------------
@@ -131,7 +131,7 @@ export default class Topic6 extends Component {
   <li>Swadeep</li>
   <li>Devangshu</li>
 </ul>`}
-        />
+        /&gt;
 
         {/* JS */}
         <CodeBlock
@@ -170,7 +170,7 @@ search.addEventListener("keyup", () => {
     alert("Ctrl + S is disabled (Coder & AccoTax Style)");
   }
 });`}
-        />
+        /&gt;
 
 
         {/* -------------------------
@@ -186,7 +186,7 @@ search.addEventListener("keyup", () => {
   if (e.key === "ArrowUp") console.log("Up arrow pressed");
   if (e.key === "ArrowDown") console.log("Down arrow pressed");
 });`}
-        />
+        /&gt;
 
         <p className="text-slate-400 text-sm">
           Useful for sliders, games, carousels, animations.

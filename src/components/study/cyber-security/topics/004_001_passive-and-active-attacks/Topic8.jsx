@@ -483,7 +483,7 @@ policy-map type pbr DDoS-DROP-POLICY
                 </text>
               </g>
 
-              {/* PATH 1: Botnet -> Anycast PoPs */}
+              {/* PATH 1: Botnet &rarr; Anycast PoPs */}
               <path d="M 220 165 L 360 165" stroke="#f43f5e" strokeWidth="4" fill="none" />
               <circle r="6" fill="#f43f5e">
                 <animateMotion path="M 220 165 L 360 165" dur="1s" repeatCount="indefinite" />
@@ -519,7 +519,7 @@ policy-map type pbr DDoS-DROP-POLICY
                 </text>
               </g>
 
-              {/* PATH 2: Anycast -> Clean Origin */}
+              {/* PATH 2: Anycast &rarr; Clean Origin */}
               <path d="M 590 165 L 690 165" stroke="#10b981" strokeWidth="3" fill="none" />
               <circle r="4" fill="#10b981">
                 <animateMotion path="M 590 165 L 690 165" dur="1.5s" repeatCount="indefinite" />
@@ -574,7 +574,7 @@ policy-map type pbr DDoS-DROP-POLICY
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   DDoS
                 </span>
@@ -675,7 +675,7 @@ policy-map type pbr DDoS-DROP-POLICY
                   value={botCount}
                   onChange={(e) => setBotCount(parseInt(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-2">
@@ -689,7 +689,7 @@ policy-map type pbr DDoS-DROP-POLICY
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     TCP SYN Flood
                   </button>
                   <button
@@ -700,7 +700,7 @@ policy-map type pbr DDoS-DROP-POLICY
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-900 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     DNS Amplification
                   </button>
                 </div>
@@ -715,7 +715,7 @@ policy-map type pbr DDoS-DROP-POLICY
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                       : "bg-rose-950 border-rose-500 text-rose-300"
                   )}
-                >
+                &gt;
                   {isSynCookiesOn ? "✔ TCP SYN Cookies ENABLED" : "✖ TCP SYN Cookies DISABLED"}
                 </button>
               </div>
@@ -778,7 +778,7 @@ policy-map type pbr DDoS-DROP-POLICY
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -827,7 +827,7 @@ policy-map type pbr DDoS-DROP-POLICY
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

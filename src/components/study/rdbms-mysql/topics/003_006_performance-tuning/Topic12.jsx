@@ -116,7 +116,7 @@ $ mysqldumpslow -s ar -t 5 /var/log/mysql/mysql-slow.log
 -- ⚡ ARCHITECTURAL INSIGHT:
 -- Examined: 500,000 rows | Sent: 1 row! (Ratio: 500,000:1 🚨)
 -- The storage engine scans half a million physical records to return a single student row!
--- Adding a single B+Tree index on 'pin_code' cuts rows examined from 500,000 -> 1!`,
+-- Adding a single B+Tree index on 'pin_code' cuts rows examined from 500,000 &rarr; 1!`,
       resultRows: [
         {
           rank: "#1 Worst Scan Ratio",
@@ -464,7 +464,7 @@ WHERE address LIKE '%Ichapur%';`}
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -638,7 +638,7 @@ WHERE address LIKE '%Ichapur%';`}
 {`-- Enforced string binding on candidate mobile lookup:
 SELECT student_id, name FROM candidate_registrations WHERE mobile_no = '9830012345';
 
--- Result: CPU dropped from 95% -> 4%! Recovered 5,820s of compute time per hour!`}
+-- Result: CPU dropped from 95% &rarr; 4%! Recovered 5,820s of compute time per hour!`}
                 </pre>
               </div>
             </div>

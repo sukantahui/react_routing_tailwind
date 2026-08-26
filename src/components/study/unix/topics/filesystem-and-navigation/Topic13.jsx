@@ -244,7 +244,7 @@ export default class Topic13 extends Component {
                         ? 'bg-blue-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
-                  >
+                  &gt;
                     {mode}
                   </button>
                 ))}
@@ -618,7 +618,7 @@ export default class Topic13 extends Component {
                             )}
                             
                             {/* Tab completion suggestions */}
-                            {showCompletion && completionOptions.length > 0 && (
+                            {showCompletion && completionOptions.length &gt; 0 && (
                               <div className="mt-2 p-2 bg-gray-800 rounded-lg border border-gray-700">
                                 <div className="text-gray-400 text-xs mb-1">Tab completion suggestions:</div>
                                 {completionOptions.map((option, index) => (
@@ -655,7 +655,7 @@ export default class Topic13 extends Component {
                   {/* Terminal Footer */}
                   <div className="bg-gray-800 px-4 py-2 text-xs text-gray-500 flex justify-between">
                     <div>
-                      History: {currentHistoryIndex > 0 ? `${currentHistoryIndex}/${commandHistory.length}` : 'Ready'}
+                      History: {currentHistoryIndex &gt; 0 ? `${currentHistoryIndex}/${commandHistory.length}` : 'Ready'}
                     </div>
                     <div className="space-x-4">
                       <span>↑/↓: History</span>
@@ -1381,7 +1381,7 @@ export default class Topic13 extends Component {
                       ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
                       : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
-                >
+                &gt;
                   <span className="mr-2">{tab.icon}</span>
                   {tab.label}
                 </button>

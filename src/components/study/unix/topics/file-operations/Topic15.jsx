@@ -49,7 +49,7 @@ export default class Topic15 extends Component {
   animateRecoveryRate() {
     let rate = 0;
     this.recoveryAnimation = setInterval(() => {
-      if (rate <= 70) {
+      if (rate &le; 70) {
         this.setState({ recoverySuccessRate: rate });
         rate += 2;
       } else {
@@ -275,7 +275,7 @@ export default class Topic15 extends Component {
             <button 
               onClick={() => this.toggleSection('overview')}
               className="w-full text-left mb-4"
-            >
+            &gt;
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.overview 
@@ -408,7 +408,7 @@ export default class Topic15 extends Component {
                         ? (isDarkMode ? 'bg-rose-600 text-white' : 'bg-rose-500 text-white')
                         : (isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300')
                     )}
-                  >
+                  &gt;
                     {scenario === 'accidentalDelete' && 'Accidental Delete'}
                     {scenario === 'wildcard' && 'Wildcard Disaster'}
                     {scenario === 'permanentDelete' && 'Permanent Delete'}
@@ -594,7 +594,7 @@ export default class Topic15 extends Component {
             <button 
               onClick={() => this.toggleSection('recoveryMindset')}
               className="w-full text-left mb-4"
-            >
+            &gt;
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.recoveryMindset 
@@ -703,7 +703,7 @@ export default class Topic15 extends Component {
             <button 
               onClick={() => this.toggleSection('technicalRecovery')}
               className="w-full text-left mb-4"
-            >
+            &gt;
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.technicalRecovery 
@@ -861,7 +861,7 @@ export default class Topic15 extends Component {
             <button 
               onClick={() => this.toggleSection('prevention')}
               className="w-full text-left mb-4"
-            >
+            &gt;
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.prevention 
@@ -946,7 +946,7 @@ export default class Topic15 extends Component {
             <button 
               onClick={() => this.toggleSection('bestPractices')}
               className="w-full text-left mb-4"
-            >
+            &gt;
               <h2 className={clsx(
                 'text-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:gap-4',
                 expandedSections.bestPractices 

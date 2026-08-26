@@ -379,7 +379,7 @@ StudentContainer<Integer> ageList = new StudentContainer<>();
 StudentContainer<Double> gradeList = new StudentContainer<>();`}
                 language="java"
                 showLineNumbers={true}
-              />
+              /&gt;
             </div>
           </div>
         </section>
@@ -462,7 +462,7 @@ public class WithGenericsExample {
 }`}
                   language="java"
                   showLineNumbers={true}
-                />
+                /&gt;
               </div>
             </div>
           </div>

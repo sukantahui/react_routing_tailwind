@@ -134,7 +134,7 @@ const SingleStudentMarksheet = ({ questions: questionsProp, examData, paperTitle
             }}
             placeholder="e.g., Priya Verma"
             className="w-full p-3 border border-gray-300 rounded-xl text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
+          /&gt;
         </div>
 
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Marks per Question</h2>
@@ -156,7 +156,7 @@ const SingleStudentMarksheet = ({ questions: questionsProp, examData, paperTitle
                     value={marks[idx]}
                     onChange={(e) => updateMark(idx, e.target.value)}
                     className="w-24 p-2 text-center border border-gray-300 rounded-lg text-gray-800 focus:ring-2 focus:ring-blue-500"
-                  />
+                  /&gt;
                   <span className="text-sm text-gray-600">/ {q.maxMarks}</span>
                 </div>
               </div>
@@ -229,7 +229,7 @@ const SingleStudentMarksheet = ({ questions: questionsProp, examData, paperTitle
                       alt="Teacher Signature" 
                       className="h-20 object-contain mx-auto mb-2"
                       onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
-                    />
+                    /&gt;
                   ) : null}
                   <div className="text-sm text-gray-500">Teacher's Signature</div>
                   <div className="text-xs text-gray-400 mt-1">(Instructor)</div>
@@ -243,7 +243,7 @@ const SingleStudentMarksheet = ({ questions: questionsProp, examData, paperTitle
                       alt="Principal Signature" 
                       className="h-20 object-contain mx-auto mb-2"
                       onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
-                    />
+                    /&gt;
                   ) : null}
                   <div className="text-sm text-gray-500">Principal's Signature</div>
                   <div className="text-xs text-gray-400 mt-1">(Director)</div>
@@ -254,20 +254,20 @@ const SingleStudentMarksheet = ({ questions: questionsProp, examData, paperTitle
               <div className="flex justify-between items-center pt-4 text-sm text-gray-500 mt-6">
                 <span>📅 {new Date().toLocaleDateString()}</span>
                 <span className="font-medium">
-                  {percentage >= 40 ? '✅ Pass' : '❌ Needs Improvement'}
+                  {percentage &ge; 40 ? '✅ Pass' : '❌ Needs Improvement'}
                 </span>
               </div>
             </div>
 
             {/* Action buttons */}
             <div className="bg-gray-50 px-6 py-3 text-right text-xs text-gray-500">
-              <button onClick={() => window.print()} className="text-blue-600 hover:text-blue-800 mr-4">
+              <button onClick={() => window.print()} className="text-blue-600 hover:text-blue-800 mr-4"&gt;
                 🖨️ Print Marksheet
               </button>
               <button onClick={saveAsJpg} className="text-green-600 hover:text-green-800 mr-4">
                 📸 Save as JPG
               </button>
-              <button onClick={() => setShowMarksheet(false)} className="text-gray-500 hover:text-gray-700">
+              <button onClick={() => setShowMarksheet(false)} className="text-gray-500 hover:text-gray-700"&gt;
                 ✖ Close
               </button>
             </div>

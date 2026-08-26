@@ -177,7 +177,7 @@ const Topic4 = () => {
         recommendation: "Major Non-Conformity (Major NC) - Cryptographic hash mismatch or unverified data source. Immediate forensic escalation required.",
       };
     }
-    if (assuranceScore >= 80 && evidenceStates.electronic && evidenceCount >= 3) {
+    if (assuranceScore &ge; 80 && evidenceStates.electronic && evidenceCount >= 3) {
       return {
         rating: "FULLY CONFORMING (TRIANGULATED)",
         color: "text-emerald-400",
@@ -677,7 +677,7 @@ const Topic4 = () => {
                     ? "bg-rose-600 text-white border-rose-500 shadow-lg shadow-rose-900/50 animate-pulse"
                     : "bg-gray-800 hover:bg-gray-700 text-gray-300 border-gray-600"
                 }`}
-              >
+              &gt;
                 {tamperSimActive ? "⚠️ Tamper Simulation Active (Corrupted)" : "Simulate Evidence Tampering"}
               </button>
             </div>
@@ -694,7 +694,7 @@ const Topic4 = () => {
                     ? "bg-cyan-950/70 border-cyan-500 text-cyan-200 shadow-md shadow-cyan-950"
                     : "bg-gray-900/60 border-gray-700/60 text-gray-400 hover:bg-gray-800/80 hover:text-gray-200"
                 }`}
-              >
+              &gt;
                 <div className="font-bold text-sm text-white mb-1 truncate">{item.title}</div>
                 <div className="text-cyan-400 font-mono text-[11px] truncate">{item.criteria}</div>
               </button>
@@ -720,7 +720,7 @@ const Topic4 = () => {
                   ? "bg-gray-900/90 border-cyan-600/80 shadow-md"
                   : "bg-gray-900/30 border-gray-800 opacity-60 hover:opacity-100"
               }`}
-            >
+            &gt;
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <input
@@ -728,7 +728,7 @@ const Topic4 = () => {
                     checked={evidenceStates.testimonial}
                     onChange={() => {}}
                     className="rounded bg-gray-800 border-gray-700 text-cyan-500 focus:ring-0"
-                  />
+                  /&gt;
                   <span className="font-bold text-sm text-cyan-300">
                     Tier 4: {currentAssertion.evidenceDetails.testimonial.name}
                   </span>
@@ -754,7 +754,7 @@ const Topic4 = () => {
                   ? "bg-gray-900/90 border-cyan-600/80 shadow-md"
                   : "bg-gray-900/30 border-gray-800 opacity-60 hover:opacity-100"
               }`}
-            >
+            &gt;
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <input
@@ -762,7 +762,7 @@ const Topic4 = () => {
                     checked={evidenceStates.documentary}
                     onChange={() => {}}
                     className="rounded bg-gray-800 border-gray-700 text-cyan-500 focus:ring-0"
-                  />
+                  /&gt;
                   <span className="font-bold text-sm text-cyan-300">
                     Tier 3: {currentAssertion.evidenceDetails.documentary.name}
                   </span>
@@ -788,7 +788,7 @@ const Topic4 = () => {
                   ? "bg-gray-900/90 border-emerald-600/80 shadow-md"
                   : "bg-gray-900/30 border-gray-800 opacity-60 hover:opacity-100"
               }`}
-            >
+            &gt;
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <input
@@ -796,7 +796,7 @@ const Topic4 = () => {
                     checked={evidenceStates.electronic}
                     onChange={() => {}}
                     className="rounded bg-gray-800 border-gray-700 text-emerald-500 focus:ring-0"
-                  />
+                  /&gt;
                   <span className="font-bold text-sm text-emerald-300">
                     Tier 1: {currentAssertion.evidenceDetails.electronic.name}
                   </span>
@@ -822,7 +822,7 @@ const Topic4 = () => {
                   ? "bg-gray-900/90 border-cyan-600/80 shadow-md"
                   : "bg-gray-900/30 border-gray-800 opacity-60 hover:opacity-100"
               }`}
-            >
+            &gt;
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <input
@@ -830,7 +830,7 @@ const Topic4 = () => {
                     checked={evidenceStates.physical}
                     onChange={() => {}}
                     className="rounded bg-gray-800 border-gray-700 text-cyan-500 focus:ring-0"
-                  />
+                  /&gt;
                   <span className="font-bold text-sm text-cyan-300">
                     Tier 1 (Physical): {currentAssertion.evidenceDetails.physical.name}
                   </span>
@@ -866,10 +866,10 @@ const Topic4 = () => {
                 <div className="w-24 bg-gray-900 rounded-full h-3.5 border border-gray-700 overflow-hidden">
                   <div
                     className={`h-full transition-all duration-500 ${
-                      tamperSimActive ? "bg-rose-500" : assuranceScore >= 80 ? "bg-emerald-500" : assuranceScore >= 50 ? "bg-amber-500" : "bg-red-500"
+                      tamperSimActive ? "bg-rose-500" : assuranceScore >= 80 ? "bg-emerald-500" : assuranceScore &ge; 50 ? "bg-amber-500" : "bg-red-500"
                     }`}
                     style={{ width: `${assuranceScore}%` }}
-                  ></div>
+                  &gt;</div>
                 </div>
               </div>
             </div>
@@ -912,13 +912,13 @@ const Topic4 = () => {
                     ? "bg-emerald-700 hover:bg-emerald-600 text-white border-emerald-500"
                     : "bg-rose-900/80 hover:bg-rose-800 text-rose-200 border-rose-600"
                 }`}
-              >
+              &gt;
                 {evidenceTampered ? "🔄 Restore Original Evidence (Clear Tamper)" : "💥 Corrupt 1 Byte in Transit (Tamper Test)"}
               </button>
               <button
                 onClick={() => setShowCertModal(true)}
                 className="px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-700 hover:bg-cyan-600 text-white border border-cyan-500 transition-all shadow-md"
-              >
+              &gt;
                 📜 View Sec 65B / BSA Sec 63 Certificate
               </button>
             </div>
@@ -935,7 +935,7 @@ const Topic4 = () => {
                     ? "bg-purple-950/80 border-purple-500 text-purple-200 shadow-md"
                     : "bg-gray-900/60 border-gray-800 text-gray-400 hover:bg-gray-800 hover:text-gray-200"
                 }`}
-              >
+              &gt;
                 <div className="text-[10px] font-mono text-purple-400 font-bold uppercase">Phase {step.id + 1}</div>
                 <div className="text-xs font-bold text-white truncate">{step.title.split(":")[1]}</div>
               </button>
@@ -963,8 +963,8 @@ const Topic4 = () => {
                   evidenceTampered && activeCustodyStep >= 2
                     ? "bg-rose-950 text-rose-300 border-rose-700 animate-pulse"
                     : "bg-emerald-950 text-emerald-300 border-emerald-700"
-                }`}>
-                  {evidenceTampered && activeCustodyStep >= 2 ? "🚨 INTEGRITY BREACH" : "✔ HASH VERIFIED"}
+                }`}&gt;
+                  {evidenceTampered && activeCustodyStep &ge; 2 ? "🚨 INTEGRITY BREACH" : "✔ HASH VERIFIED"}
                 </span>
               </div>
             </div>
@@ -982,11 +982,11 @@ const Topic4 = () => {
               </div>
               <div className="p-2 bg-gray-900 rounded border border-gray-800 text-xs break-all">
                 <span className="text-gray-400">Recorded Digest: </span>
-                <span className={evidenceTampered && activeCustodyStep >= 2 ? "text-rose-400 font-bold" : "text-emerald-400"}>
+                <span className={evidenceTampered && activeCustodyStep >= 2 ? "text-rose-400 font-bold" : "text-emerald-400"}&gt;
                   {custodySteps[activeCustodyStep].hash}
                 </span>
               </div>
-              {evidenceTampered && activeCustodyStep >= 2 ? (
+              {evidenceTampered && activeCustodyStep &ge; 2 ? (
                 <div className="text-rose-400 text-[11px] pt-1 flex items-center gap-1.5">
                   <span>❌</span>
                   <span>Alert: The computed hash differs from the baseline acquisition hash. The evidence has been tampered with or corrupted during courier transfer. Inadmissible under Section 65B!</span>
@@ -1011,7 +1011,7 @@ const Topic4 = () => {
                   <button
                     onClick={() => setShowCertModal(false)}
                     className="text-gray-400 hover:text-white text-lg font-bold"
-                  >
+                  &gt;
                     ✕
                   </button>
                 </div>
@@ -1056,7 +1056,7 @@ const Topic4 = () => {
                   <button
                     onClick={() => setShowCertModal(false)}
                     className="px-4 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-bold text-gray-200 border border-gray-700"
-                  >
+                  &gt;
                     Close Certificate Preview
                   </button>
                 </div>

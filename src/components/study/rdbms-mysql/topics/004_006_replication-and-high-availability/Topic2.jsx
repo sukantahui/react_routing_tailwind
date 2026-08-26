@@ -47,7 +47,7 @@ SET GLOBAL rpl_semi_sync_master_timeout = 10000; -- 10s fallback`,
     mode2_async_replication: {
       modeName: "2. Asynchronous Replication",
       title: "2. Asynchronous Replication (Zero Commit Latency)",
-      badge: "RPO > 0 (Risk)",
+      badge: "RPO &gt; 0 (Risk)",
       badgeColor: "rose",
       sqlSnippet: `-- ⚡ ASYNCHRONOUS REPLICATION FLOW:
 -- 1. Client sends COMMIT
@@ -74,7 +74,7 @@ SET GLOBAL rpl_semi_sync_master_timeout = 10000; -- 10s fallback`,
 -- 2. Concurrent sessions can now SEE the new un-replicated data!
 -- 3. Source sends event to Replica & waits for ACK
 -- 4. 💥 CRASH SCENARIO: Source crashes before ACK!
--- -> Failover promotes Replica, but transaction is GONE (Phantom Read)!`,
+-- &rarr; Failover promotes Replica, but transaction is GONE (Phantom Read)!`,
       explanation:
         "In legacy AFTER_COMMIT, the Source commits to storage engine before waiting for replica acknowledgment. If the Source crashes during the wait, concurrent sessions saw phantom data that disappears upon replica promotion.",
       keyTakeaways: [
@@ -201,7 +201,7 @@ SHOW GLOBAL STATUS LIKE 'Rpl_semi_sync_master_%';
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {mode.modeName}
                 </button>
               );

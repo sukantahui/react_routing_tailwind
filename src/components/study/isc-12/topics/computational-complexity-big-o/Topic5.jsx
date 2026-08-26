@@ -59,7 +59,7 @@ const Topic5 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            >
+            &gt;
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -302,7 +302,7 @@ const Topic5 = () => {
                     },
                     {
                       tip: "Remember the domain",
-                      desc: "In log form, x must be positive; in exponential form, b>0 and b≠1.",
+                      desc: "In log form, x must be positive; in exponential form, b&gt;0 and b≠1.",
                     },
                   ].map((item, i) => (
                     <div

@@ -37,7 +37,7 @@ SELECT
 FROM warehouse_inventory inv
 JOIN warehouses w ON inv.warehouse_id = w.warehouse_id
 JOIN products p ON inv.product_id = p.product_id
-WHERE inv.quantity_on_hand <= p.min_reorder_level
+WHERE inv.quantity_on_hand &le; p.min_reorder_level
 ORDER BY shortage_units DESC;`,
       resultRows: [
         { id: "SKU-LAP-401", name: "Dell Latitude Pro 16GB", warehouse: "Barrackpore Hub", onHand: "4 Units", min: "15 Units", shortage: "11 Units", cost: "₹6,05,000.00", status: "CRITICAL REORDER" },
@@ -410,7 +410,7 @@ ORDER BY monetary_lifetime_spend_inr DESC;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -526,7 +526,7 @@ CREATE TABLE products (
     cost_price_inr DECIMAL(10,2) NOT NULL,
     selling_price_inr DECIMAL(10,2) NOT NULL,
     min_reorder_level INT NOT NULL DEFAULT 10,
-    CHECK (selling_price_inr >= cost_price_inr)
+    CHECK (selling_price_inr &ge; cost_price_inr)
 ) ENGINE=InnoDB;
 
 -- 3. Warehouse Inventory Ledger
@@ -560,7 +560,7 @@ CREATE TABLE order_items (
     quantity INT NOT NULL,
     unit_price_at_sale_inr DECIMAL(10,2) NOT NULL,
     subtotal_inr DECIMAL(12,2) NOT NULL,
-    CHECK (quantity > 0),
+    CHECK (quantity &gt; 0),
     FOREIGN KEY (order_id) REFERENCES customer_orders(order_id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE RESTRICT
 ) ENGINE=InnoDB;`}
@@ -661,7 +661,7 @@ COMMIT;`}
                 <span>✓</span> Enforce Positive Selling Margins
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Add <code className="text-emerald-400 font-mono">CHECK (selling_price_inr &gt;= cost_price_inr)</code> on the products master to prevent cashiers or admins from accidentally listing products below manufacturing cost.
+                Add <code className="text-emerald-400 font-mono">CHECK (selling_price_inr >= cost_price_inr)</code> on the products master to prevent cashiers or admins from accidentally listing products below manufacturing cost.
               </p>
               <div className="text-xs text-slate-400">
                 Enforces business profitability rules directly in the database engine.
@@ -701,7 +701,7 @@ COMMIT;`}
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">04.</span>
-                  <span>Trigger automated reorder alerts when <code className="text-cyan-300 font-mono">quantity_on_hand &lt;= min_reorder_level</code>.</span>
+                  <span>Trigger automated reorder alerts when <code className="text-cyan-300 font-mono">quantity_on_hand <= min_reorder_level</code>.</span>
                 </li>
               </ul>
             </div>

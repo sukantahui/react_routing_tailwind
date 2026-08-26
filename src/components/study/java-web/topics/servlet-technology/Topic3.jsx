@@ -52,7 +52,7 @@ const Topic3 = () => {
         <section
           ref={(el) => (sectionRefs.current[0] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-emerald-400 flex items-center gap-2">
             <span>🔧</span> What are ServletConfig and ServletContext?
           </h2>
@@ -73,7 +73,7 @@ const Topic3 = () => {
         <section
           ref={(el) => (sectionRefs.current[1] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-emerald-400">📊 ServletConfig vs ServletContext</h2>
           <div className="mt-6 flex justify-center">
             <svg viewBox="0 0 700 260" className="w-full max-w-3xl h-auto">
@@ -110,7 +110,7 @@ const Topic3 = () => {
         <section
           ref={(el) => (sectionRefs.current[2] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-emerald-400">🎯 ServletConfig – Per‑Servlet Configuration</h2>
           <p className="mt-3 text-gray-300">
             The container creates a <code>ServletConfig</code> object after instantiating a servlet and passes it to the <code>init()</code> method. You can retrieve it using <code>getServletConfig()</code> inside the servlet.
@@ -142,7 +142,7 @@ const Topic3 = () => {
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-emerald-400">🌍 ServletContext – Application‑Wide Shared Space</h2>
           <p className="mt-3 text-gray-300">
             One <code>ServletContext</code> per web application. Obtained via <code>getServletContext()</code> from a servlet or <code>getServletConfig().getServletContext()</code>. It lives as long as the application is loaded.
@@ -171,7 +171,7 @@ const Topic3 = () => {
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-emerald-400">📈 Real‑World Example: Web Application Hit Counter</h2>
           <p className="mt-3 text-gray-300">
             Use <code>ServletContext.setAttribute()</code> to maintain a global counter that survives across multiple servlets and sessions. Perfect for tracking school website visits (e.g., for Ichapur Public School).
@@ -192,7 +192,7 @@ const Topic3 = () => {
         <section
           ref={(el) => (sectionRefs.current[5] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-emerald-400">🔍 Key Differences at a Glance</h2>
           <div className="overflow-x-auto mt-4">
             <table className="min-w-full text-sm text-left text-gray-300">
@@ -219,7 +219,7 @@ const Topic3 = () => {
         <section
           ref={(el) => (sectionRefs.current[6] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-emerald-400">⚠️ Common Pitfalls (Beginners)</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Confusing Config with Context:</strong> Using <code>servletConfig.getInitParameter()</code> to read <code>&lt;context-param&gt;</code> – it won't work (returns null).</li>
@@ -235,7 +235,7 @@ const Topic3 = () => {
         <section
           ref={(el) => (sectionRefs.current[7] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-emerald-400">✅ Best Practices (Industry)</h2>
           <ul className="list-decimal list-inside space-y-2 text-gray-300 mt-3">
             <li><strong>Use ServletConfig for service‑specific settings</strong> – email templates, pagination size, etc.</li>
@@ -251,7 +251,7 @@ const Topic3 = () => {
         <section
           ref={(el) => (sectionRefs.current[8] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold text-emerald-400">📋 Mini Checklist</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
             {[
@@ -277,7 +277,7 @@ const Topic3 = () => {
         <section
           ref={(el) => (sectionRefs.current[9] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-emerald-500/30"
-        >
+        &gt;
           <h2 className="text-xl font-semibold text-emerald-400">🧠 Hints – Think Like a Pro</h2>
           <ul className="space-y-2 text-gray-300 italic">
             <li>🔍 <strong>Observe carefully:</strong> What does <code>getServletContext().getContextPath()</code> return? Use it to build absolute URLs.</li>

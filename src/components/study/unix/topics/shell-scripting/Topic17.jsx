@@ -215,7 +215,7 @@ const Topic17 = () => {
                                     animationDelay: `${index * 100}ms`,
                                     animation: 'motion-safe:animate-[fadeInUp_0.8s_ease-out]'
                                 }}
-                            >
+                            &gt;
                                 <div className="flex items-center mb-2">
                                     <div className={clsx(
                                         "w-10 h-10 rounded-full flex items-center justify-center mr-3 text-xl",
@@ -245,13 +245,13 @@ const Topic17 = () => {
                                     <button
                                         onClick={() => testCommand("success")}
                                         className="flex-1 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-300"
-                                    >
+                                    &gt;
                                         Test Success
                                     </button>
                                     <button
                                         onClick={() => testCommand("notfound")}
                                         className="flex-1 px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-all duration-300"
-                                    >
+                                    &gt;
                                         Test Not Found
                                     </button>
                                 </div>
@@ -259,13 +259,13 @@ const Topic17 = () => {
                                     <button
                                         onClick={() => testCommand("permission")}
                                         className="flex-1 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all duration-300"
-                                    >
+                                    &gt;
                                         Test Permission
                                     </button>
                                     <button
                                         onClick={() => testCommand("syntax")}
                                         className="flex-1 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-all duration-300"
-                                    >
+                                    &gt;
                                         Test Syntax Error
                                     </button>
                                 </div>

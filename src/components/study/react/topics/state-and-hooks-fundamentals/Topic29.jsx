@@ -93,7 +93,7 @@ const Topic29 = () => {
     console.log(`📊 User score updated: ${user.name} - ${user.score}`);
     
     // Calculate grade based on score
-    const grade = user.score >= 90 ? 'A' : 
+    const grade = user.score &ge; 90 ? 'A' : 
                   user.score >= 80 ? 'B' : 
                   user.score >= 70 ? 'C' : 'D';
     

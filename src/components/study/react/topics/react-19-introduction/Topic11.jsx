@@ -237,7 +237,7 @@ return <h1>{greeting}, Swadeep!</h1>`
       to: "Ternary expression",
       example: `// Statement:
 let message
-if (score > 50) {
+if (score &gt; 50) {
   message = 'Pass'
 } else {
   message = 'Fail'
@@ -356,7 +356,7 @@ return isLoggedIn
   return (
     <div>
       {let count = 0}
-      <button onClick={() => count++}>
+      <button onClick={() => count++}&gt;
         Count: {count}
       </button>
     </div>
@@ -369,7 +369,7 @@ return isLoggedIn
   
   return (
     <div>
-      <button onClick={() => setCount(count + 1)}>
+      <button onClick={() => setCount(count + 1)}&gt;
         Count: {count}
       </button>
     </div>
@@ -497,7 +497,7 @@ return isLoggedIn
                     ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
                     : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                 )}
-              >
+              &gt;
                 <span className="mr-2">{tab.icon}</span>
                 {tab.label}
               </button>
@@ -760,7 +760,7 @@ return isLoggedIn
                           ? "bg-green-600 text-white scale-110"
                           : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                       )}
-                    >
+                    &gt;
                       {index + 1}
                     </button>
                   ))}
@@ -769,7 +769,7 @@ return isLoggedIn
                 <button
                   onClick={() => setShowExplanation(!showExplanation)}
                   className="px-4 py-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700"
-                >
+                &gt;
                   {showExplanation ? "Hide Explanation" : "Show Explanation"}
                 </button>
               </div>
@@ -867,7 +867,7 @@ return isLoggedIn
                   },
                   {
                     category: "Operations",
-                    examples: ["a + b", "x > 5", "!isActive"],
+                    examples: ["a + b", "x &gt; 5", "!isActive"],
                     color: "from-green-600 to-emerald-700"
                   },
                   {
@@ -1041,13 +1041,13 @@ return isLoggedIn
     <div>
       {let x = 5}
       <p>Value: {x}</p>
-      {if (x > 3) {
+      {if (x &gt; 3) {
         <span>Large</span>
       }}
     </div>
   )
 }`,
-                    statements: ["let x = 5", "if (x > 3) { ... }"],
+                    statements: ["let x = 5", "if (x &gt; 3) { ... }"],
                     explanation: "Both are statements. Declare x before return, use ternary for conditional."
                   },
                   {
@@ -1463,7 +1463,7 @@ return isLoggedIn
                   {
                     statement: `// Convert this statement to expression
 const statusMessage = ''
-if (score >= 90) {
+if (score &ge; 90) {
   statusMessage = 'Excellent'
 } else if (score >= 70) {
   statusMessage = 'Good'
@@ -1473,7 +1473,7 @@ if (score >= 90) {
 return <p>{statusMessage}</p>`,
                     hint: "Use nested ternary or object lookup",
                     solution: `// Expression solution
-const statusMessage = score >= 90 
+const statusMessage = score &ge; 90 
   ? 'Excellent' 
   : score >= 70 
     ? 'Good' 

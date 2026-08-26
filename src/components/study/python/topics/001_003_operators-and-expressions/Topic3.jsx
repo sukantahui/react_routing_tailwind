@@ -53,14 +53,14 @@ export default function Topic3() {
       category: "equality"
     },
     {
-      symbol: ">",
+      symbol: "&gt;",
       name: "Strictly Greater Than",
       mathSymbol: ">",
       dunder: "__gt__(other)",
       description: "Returns True if left operand is strictly greater in value than right operand.",
       trueCase: "25 > 18",
       falseCase: "18 > 18",
-      tip: "Equal values return False. For equality inclusion, use >=.",
+      tip: "Equal values return False. For equality inclusion, use &ge; .",
       category: "relational"
     },
     {
@@ -80,13 +80,13 @@ export default function Topic3() {
       mathSymbol: "≥",
       dunder: "__ge__(other)",
       description: "Returns True if left operand is either greater than OR equal to right operand.",
-      trueCase: "18 >= 18",
+      trueCase: "18 &ge; 18",
       falseCase: "17 >= 18",
       tip: "Equivalent to (a > b) or (a == b). Highly common in age and score thresholds.",
       category: "relational"
     },
     {
-      symbol: "<=",
+      symbol: " &le; ",
       name: "Less Than or Equal To",
       mathSymbol: "≤",
       dunder: "__le__(other)",
@@ -199,7 +199,7 @@ export default function Topic3() {
               value={searchFilter}
               onChange={(e) => setSearchFilter(e.target.value)}
               className="px-3.5 py-2 text-xs rounded-xl bg-slate-800 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition w-full sm:w-56"
-            />
+            /&gt;
           </div>
         </div>
 
@@ -208,7 +208,7 @@ export default function Topic3() {
           {[
             { id: "all", label: "All 6 Operators" },
             { id: "equality", label: "Equality Operators (==, !=)" },
-            { id: "relational", label: "Relational Operators (<, <=, >, >=)" }
+            { id: "relational", label: "Relational Operators (<, <=, >, &ge; )" }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -219,7 +219,7 @@ export default function Topic3() {
                   ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/25"
                   : "bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-700/60"
               )}
-            >
+            &gt;
               <Filter size={12} />
               {tab.label}
             </button>
@@ -329,7 +329,7 @@ export default function Topic3() {
               <Layers size={18} /> Strict Type Checking in Python 3
             </h3>
             <p className="text-xs text-slate-300 leading-relaxed">
-              Unlike JavaScript or Python 2, Python 3 enforces <strong>strict type comparison</strong> for relational operators (<code className="text-purple-300">&lt;, &lt;=, &gt;, &gt;=</code>):
+              Unlike JavaScript or Python 2, Python 3 enforces <strong>strict type comparison</strong> for relational operators (<code className="text-purple-300">&lt;, <=, &gt;, >=</code>):
             </p>
             <ul className="text-xs text-slate-400 space-y-1.5 list-disc pl-4">
               <li><code className="text-emerald-300">10 == "10"</code> evaluates safely to <code className="text-rose-400 font-bold">False</code> (different types cannot be equal).</li>
@@ -423,7 +423,7 @@ print("math.isclose(a, b):", math.isclose(a, b))  # True`}
         </div>
 
         <p className="text-slate-300 text-sm leading-relaxed">
-          When comparing strings with <code className="text-emerald-300">&lt;, &lt;=, &gt;, &gt;=</code>, Python does not compare word lengths. 
+          When comparing strings with <code className="text-emerald-300">&lt;, <=, &gt;, >=</code>, Python does not compare word lengths. 
           It compares strings <strong>character-by-character from left to right using their Unicode code points</strong> (<code className="text-sky-300">ord()</code>).
         </p>
 
@@ -559,7 +559,7 @@ if 10 < get_val() < 20:
             </p>
             <div className="p-2 bg-slate-950 rounded font-mono text-xs text-emerald-400">
               {`{1, 2} < {1, 2, 3}`} → True<br />
-              {`{1, 2} <= {1, 2}`} → True
+              {`{1, 2} &le; {1, 2}`} → True
             </div>
           </div>
 
@@ -625,13 +625,13 @@ attendance_percent = 92.5
 backlogs = 0
 
 # Chained and Relational Criteria
-is_scholarship_eligible = (cgpa >= 9.0) and (attendance_percent >= 85.0) and (backlogs == 0)
+is_scholarship_eligible = (cgpa >= 9.0) and (attendance_percent &ge; 85.0) and (backlogs == 0)
 
 if is_scholarship_eligible:
     print("Mamata is eligible for the Merit-cum-Means Scholarship!")
 else:
     print("Criteria not met.")`}
-            />
+            /&gt;
           </div>
 
           {/* Scenario 2 */}
@@ -658,7 +658,7 @@ if gate_open:
     print(f"Gate Opened! Travel Safe. Remaining Balance: ₹{card_balance:.2f}")
 else:
     print("Gate Locked: Low balance. Please recharge your card.")`}
-            />
+            /&gt;
           </div>
 
         </div>
@@ -791,7 +791,7 @@ else:
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
           <li className="flex items-start gap-2 p-2.5 rounded-xl bg-slate-950 border border-slate-800/80">
             <CheckCircle2 size={14} className="text-emerald-400 mt-0.5 shrink-0" />
-            <span>Python provides <strong>6 comparison operators</strong>: <code>==, !=, &lt;, &gt;, &lt;=, &gt;=</code>.</span>
+            <span>Python provides <strong>6 comparison operators</strong>: <code>==, !=, &lt;, &gt;, <=, >=</code>.</span>
           </li>
           <li className="flex items-start gap-2 p-2.5 rounded-xl bg-slate-950 border border-slate-800/80">
             <CheckCircle2 size={14} className="text-emerald-400 mt-0.5 shrink-0" />

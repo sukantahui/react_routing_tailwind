@@ -59,7 +59,7 @@ const Topic39 = () => {
                   ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20 dark:shadow-indigo-500/20"
                   : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
-            >
+            &gt;
               {tab === "overview" && "📖 Overview"}
               {tab === "code" && "☕ Code Examples"}
               {tab === "faq" && "❓ FAQ"}
@@ -111,7 +111,7 @@ const Topic39 = () => {
                   {[
                     {
                       step: "1. Base Case",
-                      desc: "If low > high, the element is not present. Return -1.",
+                      desc: "If low &gt; high, the element is not present. Return -1.",
                       icon: "🎯",
                     },
                     {
@@ -324,7 +324,7 @@ const Topic39 = () => {
                 </h2>
                 <ul className="space-y-3 list-disc pl-6 text-gray-700 dark:text-gray-300">
                   <li>
-                    <strong>Off-by-one errors:</strong> Using low &lt; high vs low &lt;= high, or updating mid incorrectly.
+                    <strong>Off-by-one errors:</strong> Using low &lt; high vs low <= high, or updating mid incorrectly.
                   </li>
                   <li>
                     <strong>Integer overflow:</strong> (low + high) / 2 can overflow for large arrays. Use low + (high - low) / 2.

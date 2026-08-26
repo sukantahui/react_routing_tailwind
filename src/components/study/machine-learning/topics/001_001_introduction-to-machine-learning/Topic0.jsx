@@ -133,7 +133,7 @@ const Topic0 = () => {
           onClick={() => setIsSymbolModalOpen(true)}
           className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-4 py-2.5 rounded-full shadow-2xl border border-purple-400/50 flex items-center gap-2.5 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-purple-500/40 group"
           title="Open Math Symbol & Pronunciation Dictionary"
-        >
+        &gt;
           <span className="text-xl group-hover:rotate-12 transition-transform">🔣</span>
           <span className="text-xs sm:text-sm font-bold tracking-wide">Math Symbol Dictionary</span>
           <span className="bg-purple-950/80 text-[10px] font-mono px-2 py-0.5 rounded-full border border-purple-700">
@@ -159,7 +159,7 @@ const Topic0 = () => {
               <button
                 onClick={() => setIsSymbolModalOpen(false)}
                 className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer text-lg font-bold"
-              >
+              &gt;
                 ✕
               </button>
             </div>
@@ -217,7 +217,7 @@ const Topic0 = () => {
                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-400"
                     : "bg-slate-800/80 text-slate-300 hover:bg-slate-700/80 border border-slate-700/60"
                 )}
-              >
+              &gt;
                 {tab.label}
               </button>
             ))}
@@ -320,7 +320,7 @@ const Topic0 = () => {
               <text x="130" y="165" textAnchor="middle" fill="#94a3b8" fontSize="9.5">• Retinopathy Diagnosis</text>
             </g>
 
-            {/* Arrow T -> P */}
+            {/* Arrow T &rarr; P */}
             <g>
               <line x1="230" y1="110" x2="300" y2="110" stroke="#64748b" strokeWidth="2" strokeDasharray="4 2" />
               <polygon points="305,110 295,105 295,115" fill="#64748b" />
@@ -337,7 +337,7 @@ const Topic0 = () => {
               <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="9.5">• AUC-ROC / Sensitivity</text>
             </g>
 
-            {/* Arrow P -> E */}
+            {/* Arrow P &rarr; E */}
             <g>
               <line x1="510" y1="110" x2="580" y2="110" stroke="#64748b" strokeWidth="2" strokeDasharray="4 2" />
               <polygon points="585,110 575,105 575,115" fill="#64748b" />
@@ -354,7 +354,7 @@ const Topic0 = () => {
               <text x="690" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="9.5">• 10M UPI Transaction Logs</text>
             </g>
 
-            {/* Feedback Loop Arc E -> T */}
+            {/* Feedback Loop Arc E &rarr; T */}
             <path d="M 690 175 Q 410 225 130 175" fill="none" stroke="#a855f7" strokeWidth="2" strokeDasharray="5 3" />
             <polygon points="125,175 137,170 135,180" fill="#a855f7" />
             <text x="410" y="210" textAnchor="middle" fill="#e9d5ff" fontSize="10" fontWeight="bold">
@@ -409,7 +409,7 @@ const Topic0 = () => {
                   ? "bg-indigo-600 border-indigo-400 text-white shadow-lg shadow-indigo-600/30"
                   : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
               )}
-            >
+            &gt;
               <div className="text-base">{tab.icon}</div>
               <div className="text-[11px] font-bold truncate">{tab.title}</div>
             </button>
@@ -614,7 +614,7 @@ const Topic0 = () => {
                       value={demoSize}
                       onChange={(e) => setDemoSize(Number(e.target.value))}
                       className="w-full h-1.5 bg-slate-800 rounded accent-cyan-500"
-                    />
+                    /&gt;
                   </div>
                   <div className="space-y-1">
                     <span className="text-slate-400">Bedrooms: {demoBeds}</span>
@@ -625,7 +625,7 @@ const Topic0 = () => {
                       value={demoBeds}
                       onChange={(e) => setDemoBeds(Number(e.target.value))}
                       className="w-full h-1.5 bg-slate-800 rounded accent-cyan-500"
-                    />
+                    /&gt;
                   </div>
                   <div className="space-y-1">
                     <span className="text-slate-400">Age: {demoAge} yrs</span>
@@ -636,7 +636,7 @@ const Topic0 = () => {
                       value={demoAge}
                       onChange={(e) => setDemoAge(Number(e.target.value))}
                       className="w-full h-1.5 bg-slate-800 rounded accent-cyan-500"
-                    />
+                    /&gt;
                   </div>
                 </div>
 
@@ -784,7 +784,7 @@ const Topic0 = () => {
                     The programmer explicitly writes every conditional branch:
                   </p>
                   <pre className="p-3 bg-slate-950 rounded-lg border border-slate-800 font-mono text-[11px] text-amber-300 overflow-x-auto">
-{`IF income > ₹50,000
+{`IF income &gt; ₹50,000
 AND age > 25
 AND credit_score > 750
 THEN approve_loan()
@@ -956,7 +956,7 @@ model.fit(X_historical, y_historical)
                   ? "bg-indigo-950/80 border-indigo-500 text-white shadow-lg shadow-indigo-500/20"
                   : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
               )}
-            >
+            &gt;
               <div className="text-xl">{d.icon}</div>
               <div className="text-xs font-bold">{d.label}</div>
             </button>
@@ -1020,7 +1020,7 @@ model.fit(X_historical, y_historical)
               value={experienceLevel}
               onChange={(e) => setExperienceLevel(Number(e.target.value))}
               className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-            />
+            /&gt;
             <div className="flex justify-between text-[11px] font-mono text-slate-500">
               <span>100 Samples (Cold Start / High Variance)</span>
               <span>2,500 Samples</span>
@@ -1267,7 +1267,7 @@ model.fit(X_historical, y_historical)
                   value={studyHoursInput}
                   onChange={(e) => setStudyHoursInput(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded accent-emerald-500 cursor-pointer"
-                />
+                /&gt;
               </div>
 
               <div className="p-3.5 bg-emerald-950/40 rounded-lg border border-emerald-800/60 space-y-1">
@@ -1294,7 +1294,7 @@ model.fit(X_historical, y_historical)
                 ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
                 : "text-slate-400 hover:text-slate-200"
             )}
-          >
+          &gt;
             🔬 Lab 1: Scikit-Learn Regression (Pandas &amp; Matplotlib)
           </button>
           <button
@@ -1305,7 +1305,7 @@ model.fit(X_historical, y_historical)
                 ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
                 : "text-slate-400 hover:text-slate-200"
             )}
-          >
+          &gt;
             ⚙️ Lab 2: Multi-Feature Gradient Descent Lab
           </button>
         </div>

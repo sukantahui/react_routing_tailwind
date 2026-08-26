@@ -122,7 +122,7 @@ const Topic10 = () => {
             <li><strong>Use a debugger (gdb)</strong> – set breakpoints, step through code, examine array contents.</li>
             <li><strong>Enable compiler warnings</strong> – <code>-Wall -Wextra</code> catches many mistakes.</li>
             <li><strong>Run under Valgrind or AddressSanitizer</strong> – they detect out‑of‑bounds and uninitialized reads.</li>
-            <li><strong>Add assertions for critical conditions</strong> – <code>assert(index &gt;= 0 &amp;&amp; index &lt; size);</code>.</li>
+            <li><strong>Add assertions for critical conditions</strong> – <code>assert(index >= 0 &amp;&amp; index &lt; size);</code>.</li>
             <li><strong>Keep a “debug print” macro</strong> that you can disable globally: <code>#ifdef DEBUG</code>.</li>
             <li><strong>Isolate the minimal test case</strong> – reduce the program to the smallest code that still shows the bug.</li>
           </ul>

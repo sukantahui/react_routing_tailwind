@@ -170,7 +170,7 @@ const Topic34 = () => {
               fileModule={diskUsageAlertSh}
               title="disk_usage_alert.sh – Check mount points and send alert if usage > THRESHOLD"
               highlightLines={[8, 15, 24]} // df, awk, mail
-            />
+            /&gt;
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm bg-gray-800 light:bg-gray-100 p-4 rounded-lg">
               <div><span className="font-bold">🔹 Use case:</span> Cron job to monitor server disk space</div>
               <div><span className="font-bold">🔹 Key technique:</span> `df -P`, `awk`, `mail`</div>

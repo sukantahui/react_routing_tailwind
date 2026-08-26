@@ -180,7 +180,7 @@ const Topic3 = () => {
     
     // Drop probability:
     let rawDropProb = 0;
-    if (activeStates <= conntrackMaxStates) {
+    if (activeStates &le; conntrackMaxStates) {
       rawDropProb = 0.0;
     } else {
       const overload = (activeStates - conntrackMaxStates) / conntrackMaxStates;
@@ -266,10 +266,10 @@ def inspect_tcp_protocol_packet(packet):
         
         # 1. Detect Malformed TCP Flag Combinations (NULL, XMAS, SYN+FIN)
         if flags == 0:
-            print(f"[!] NULL SCAN DETECTED from {src_ip} -> Dropping packet!")
+            print(f"[!] NULL SCAN DETECTED from {src_ip} &rarr; Dropping packet!")
             return "DROP_NULL"
         elif flags == 0x29: # SYN+FIN+PSH
-            print(f"[!] XMAS SCAN DETECTED from {src_ip} -> Dropping packet!")
+            print(f"[!] XMAS SCAN DETECTED from {src_ip} -&gt; Dropping packet!")
             return "DROP_XMAS"
             
         # 2. Check for TCP SYN-ACK without valid session state
@@ -622,7 +622,7 @@ print("[+] Protocol Flag Inspection Engine Active on Kolkata Financial Gateway!"
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   VECTOR
                 </span>
@@ -719,7 +719,7 @@ print("[+] Protocol Flag Inspection Engine Active on Kolkata Financial Gateway!"
                   value={synIngressRatePps}
                   onChange={(e) => setSynIngressRatePps(parseInt(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -735,7 +735,7 @@ print("[+] Protocol Flag Inspection Engine Active on Kolkata Financial Gateway!"
                   value={embryonicTimeoutSec}
                   onChange={(e) => setEmbryonicTimeoutSec(parseInt(e.target.value))}
                   className="w-full accent-amber-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -751,7 +751,7 @@ print("[+] Protocol Flag Inspection Engine Active on Kolkata Financial Gateway!"
                   value={conntrackMaxStates}
                   onChange={(e) => setConntrackMaxStates(parseInt(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -764,7 +764,7 @@ print("[+] Protocol Flag Inspection Engine Active on Kolkata Financial Gateway!"
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300 shadow-md shadow-emerald-950/50"
                       : "bg-gray-950 border-gray-800 text-gray-400"
                   )}
-                >
+                &gt;
                   {synCookieMode ? "✔ SYN Cookies ENABLED (0 RAM Allocated)" : "❌ SYN Cookies DISABLED (Allocates RAM)"}
                 </button>
               </div>
@@ -822,7 +822,7 @@ print("[+] Protocol Flag Inspection Engine Active on Kolkata Financial Gateway!"
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -871,7 +871,7 @@ print("[+] Protocol Flag Inspection Engine Active on Kolkata Financial Gateway!"
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

@@ -247,12 +247,12 @@ export default function Topic6() {
 # Expression 1: Mixed Arithmetic & Exponentiation
 res1 = 100 - 4 * 3 ** 2 + 15 // 4
 print("100 - 4 * 3 ** 2 + 15 // 4 =", res1)
-# Trace: 3**2=9 -> 4*9=36 -> 15//4=3 -> 100-36=64 -> 64+3=67
+# Trace: 3**2=9 -> 4*9=36 &rarr; 15//4=3 -&gt; 100-36=64 -> 64+3=67
 
 # Expression 2: Logical Short-Circuiting with Comparisons
 age = 20
 city = "Kolkata"
-is_eligible = (age >= 18) and (city == "Kolkata" or city == "Barrackpore")
+is_eligible = (age &ge; 18) and (city == "Kolkata" or city == "Barrackpore")
 print("Eligibility Status         :", is_eligible)
 
 # Expression 3: Right-Associative Exponentiation vs Parentheses
@@ -299,11 +299,11 @@ sports_points = 15     # Bonus
 
 # Multi-stage composite evaluation
 composite_index = (board_marks * 0.40) + ((entrance_score / 200) * 50) + sports_points
-is_top_tier = (composite_index >= 90.0) and (board_marks >= 90.0)
+is_top_tier = (composite_index >= 90.0) and (board_marks &ge; 90.0)
 
 print(f"Mamata's Composite Score: {composite_index:.2f} / 105.0")
 print(f"Direct Admission Tier    : {'Merit Top 10' if is_top_tier else 'Standard Admission'}")`}
-            />
+            /&gt;
           </div>
 
           {/* Case 2: Debangshu's Banking Guard */}

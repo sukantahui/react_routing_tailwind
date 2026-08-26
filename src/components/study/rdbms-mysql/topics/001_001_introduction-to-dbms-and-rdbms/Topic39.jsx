@@ -281,7 +281,7 @@ const Topic39 = () => {
                   icon: "💻",
                   title: "mysqldump",
                   desc: "The most powerful and flexible command‑line tool.",
-                  detail: "mysqldump -u root -p db_name > backup.sql",
+                  detail: "mysqldump -u root -p db_name &gt; backup.sql",
                   color: "blue",
                 },
                 {
@@ -396,7 +396,7 @@ const Topic39 = () => {
                   )}
                 >
                   {`# Export entire database
-mysqldump -u root -p db_name > backup.sql
+mysqldump -u root -p db_name &gt; backup.sql
 
 # Export only structure (no data)
 mysqldump -u root -p --no-data db_name > structure.sql
@@ -493,7 +493,7 @@ mysqldump -u root -p --all-databases > all.sql`}
                   )}
                 >
                   {`# Export and compress on the fly
-mysqldump -u root -p db_name | gzip > backup.sql.gz
+mysqldump -u root -p db_name | gzip &gt; backup.sql.gz
 
 # Or use --compress in some versions
 mysqldump -u root -p --compress db_name > backup.sql.gz
@@ -522,7 +522,7 @@ gunzip -c backup.sql.gz | mysql -u root -p db_name`}
                   )}
                 >
                   {`# Export first, then zip
-mysqldump -u root -p db_name > backup.sql
+mysqldump -u root -p db_name &gt; backup.sql
 zip backup.zip backup.sql
 
 # Or pipe directly (some systems)
@@ -749,7 +749,7 @@ ls -lh backup.zip`}
 #!/bin/bash
 BACKUP_DIR="/backups"
 DATE=$(date +%Y%m%d_%H%M%S)
-mysqldump -u root -p'password' db_name | gzip > $BACKUP_DIR/db_$DATE.sql.gz
+mysqldump -u root -p'password' db_name | gzip &gt; $BACKUP_DIR/db_$DATE.sql.gz
 
 # Add to crontab (daily at 2am)
 0 2 * * * /path/to/backup.sh
@@ -784,7 +784,7 @@ find $BACKUP_DIR -name "*.sql.gz" -mtime +7 -delete`}
                   {`@echo off
 set BACKUP_DIR=C:\\backups
 set DATE=%date:~10,4%%date:~4,2%%date:~7,2%
-mysqldump -u root -p'password' db_name > %BACKUP_DIR%\\db_%DATE%.sql`}
+mysqldump -u root -p'password' db_name &gt; %BACKUP_DIR%\\db_%DATE%.sql`}
                 </pre>
               </div>
             </div>

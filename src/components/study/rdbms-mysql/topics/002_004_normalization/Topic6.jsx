@@ -317,7 +317,7 @@ const Topic6 = () => {
                         ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {r.name.split(". ")[1].split(" (")[0]}
                   </button>
                 );
@@ -422,8 +422,8 @@ const Topic6 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Given FD Set F:
--- 1. student_id -> { student_name, dept_id }
--- 2. dept_id -> { dept_name, building }
+-- 1. student_id &rarr; { student_name, dept_id }
+-- 2. dept_id -&gt; { dept_name, building }
 
 -- Step 1 (Reflexivity): student_id+ = { student_id }
 -- Step 2 (Apply FD 1): student_id+ = { student_id, student_name, dept_id }
@@ -445,8 +445,8 @@ const Topic6 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Given:
--- 1. student_id -> roll_no
--- 2. (roll_no, exam_id) -> marks_obtained
+-- 1. student_id &rarr; roll_no
+-- 2. (roll_no, exam_id) -&gt; marks_obtained
 
 -- By Pseudotransitivity: (student_id, exam_id) -> marks_obtained
 -- Proves that student_id can be directly used with exam_id to query marks!`}

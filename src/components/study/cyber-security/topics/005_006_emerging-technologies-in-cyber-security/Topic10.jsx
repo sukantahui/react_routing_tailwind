@@ -177,7 +177,7 @@ const Topic10 = () => {
                       ? "bg-indigo-600 text-white shadow-lg shadow-indigo-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {level.replace("ML-KEM-", "Level ")}
                 </button>
               ))}
@@ -213,7 +213,7 @@ const Topic10 = () => {
               <button
                 onClick={() => setKemExecuted(true)}
                 className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg shadow-lg shadow-indigo-950 transition-all duration-200"
-              >
+              &gt;
                 Execute ML-KEM Encapsulation &amp; Decapsulation ⚡
               </button>
             </div>
@@ -281,7 +281,7 @@ const Topic10 = () => {
                     setSignatureGenerated(false);
                   }}
                   className="w-full p-2.5 bg-slate-900 rounded-lg border border-slate-800 text-white font-mono text-xs focus:outline-none focus:border-indigo-500"
-                />
+                /&gt;
               </div>
 
               <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 font-mono text-[11px] text-cyan-300 space-y-1">
@@ -292,7 +292,7 @@ const Topic10 = () => {
               <button
                 onClick={() => setSignatureGenerated(true)}
                 className="w-full py-2.5 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-lg shadow-lg shadow-purple-950 transition-all duration-200"
-              >
+              &gt;
                 Generate NIST FIPS 204 ML-DSA Signature ✍️
               </button>
             </div>
@@ -354,7 +354,7 @@ const Topic10 = () => {
                       ? "bg-indigo-600 text-white shadow-lg shadow-indigo-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_mldsa_treasury" ? "Barrackpore Hybrid TLS" : key === "kolkata_fintech_mldsa_core" ? "Kolkata Banking ML-DSA" : "Ichapur CNSA 2.0"}
                 </button>
               ))}

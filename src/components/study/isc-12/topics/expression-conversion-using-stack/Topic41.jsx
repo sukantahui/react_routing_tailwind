@@ -204,7 +204,7 @@ function PrefixEvaluator() {
   };
 
   const goToStep = (index) => {
-    if (index >= 0 && index < traces.length) {
+    if (index &ge; 0 && index < traces.length) {
       setCurrentStep(index);
     }
   };
@@ -235,7 +235,7 @@ function PrefixEvaluator() {
             onChange={(e) => setExpression(e.target.value)}
             placeholder="e.g. + A B"
             className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
-          />
+          /&gt;
         </div>
 
         {/* Variable values */}
@@ -249,7 +249,7 @@ function PrefixEvaluator() {
             onChange={(e) => setVarValues(e.target.value)}
             placeholder="A=5, B=3"
             className="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent"
-          />
+          /&gt;
         </div>
 
         {/* Example buttons */}
@@ -260,7 +260,7 @@ function PrefixEvaluator() {
               key={idx}
               onClick={() => setExpression(expr)}
               className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-full hover:border-indigo-500 dark:hover:border-indigo-400 transition-colors"
-            >
+            &gt;
               {expr}
             </button>
           ))}
@@ -272,7 +272,7 @@ function PrefixEvaluator() {
               key={idx}
               onClick={() => setVarValues(vars)}
               className="px-3 py-1 text-xs bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-full hover:border-indigo-500 dark:hover:border-indigo-400 transition-colors"
-            >
+            &gt;
               {vars}
             </button>
           ))}
@@ -312,7 +312,7 @@ function PrefixEvaluator() {
         )}
 
         {/* Visual Stack & Navigation */}
-        {traces.length > 0 && (
+        {traces.length &gt; 0 && (
           <div className="mt-6">
             <div className="flex items-center gap-4 flex-wrap">
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Step:</span>
@@ -320,7 +320,7 @@ function PrefixEvaluator() {
                 onClick={() => goToStep(currentStep - 1)}
                 disabled={currentStep === 0}
                 className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-              >
+              &gt;
                 ◀
               </button>
               <span className="text-sm font-mono">
@@ -330,7 +330,7 @@ function PrefixEvaluator() {
                 onClick={() => goToStep(currentStep + 1)}
                 disabled={currentStep === traces.length - 1}
                 className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-              >
+              &gt;
                 ▶
               </button>
               <input
@@ -340,7 +340,7 @@ function PrefixEvaluator() {
                 value={currentStep}
                 onChange={(e) => goToStep(parseInt(e.target.value))}
                 className="w-48 accent-indigo-600 dark:accent-indigo-400"
-              />
+              /&gt;
             </div>
 
             <VisualStack traces={traces} currentStep={currentStep} />

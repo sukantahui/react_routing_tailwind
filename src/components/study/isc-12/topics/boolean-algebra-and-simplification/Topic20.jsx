@@ -248,7 +248,7 @@ const Topic20 = () => {
                       ? "bg-green-500 hover:bg-green-600 text-white" 
                       : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300"
                   )}
-                >
+                &gt;
                   {kmapValues.m0}
                 </button>
                 <button
@@ -259,7 +259,7 @@ const Topic20 = () => {
                       ? "bg-green-500 hover:bg-green-600 text-white" 
                       : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300"
                   )}
-                >
+                &gt;
                   {kmapValues.m1}
                 </button>
               </div>
@@ -273,7 +273,7 @@ const Topic20 = () => {
                       ? "bg-green-500 hover:bg-green-600 text-white" 
                       : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300"
                   )}
-                >
+                &gt;
                   {kmapValues.m2}
                 </button>
                 <button
@@ -284,7 +284,7 @@ const Topic20 = () => {
                       ? "bg-green-500 hover:bg-green-600 text-white" 
                       : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300"
                   )}
-                >
+                &gt;
                   {kmapValues.m3}
                 </button>
               </div>
@@ -293,11 +293,11 @@ const Topic20 = () => {
           
           {/* Control Buttons */}
           <div className="flex flex-wrap gap-2 mb-6">
-            <button onClick={() => setExample('and')} className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all">A·B (AND)</button>
-            <button onClick={() => setExample('or')} className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all">A+B (OR)</button>
-            <button onClick={() => setExample('xor')} className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all">A⊕B (XOR)</button>
-            <button onClick={() => setExample('all')} className="px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all">All 1s</button>
-            <button onClick={() => setExample('none')} className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all">All 0s</button>
+            <button onClick={() => setExample('and')} className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all"&gt;A·B (AND)</button>
+            <button onClick={() => setExample('or')} className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all"&gt;A+B (OR)</button>
+            <button onClick={() => setExample('xor')} className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all"&gt;A⊕B (XOR)</button>
+            <button onClick={() => setExample('all')} className="px-3 py-1 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all"&gt;All 1s</button>
+            <button onClick={() => setExample('none')} className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all"&gt;All 0s</button>
             <button onClick={clearMap} className="px-3 py-1 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-all">Clear</button>
           </div>
           
@@ -315,7 +315,7 @@ const Topic20 = () => {
           <button
             onClick={() => setShowSteps(!showSteps)}
             className="mt-4 w-full py-2 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-lg font-medium transition-all duration-300 hover:bg-blue-200 dark:hover:bg-blue-900/60"
-          >
+          &gt;
             {showSteps ? "Hide" : "Show"} Simplification Steps
           </button>
           

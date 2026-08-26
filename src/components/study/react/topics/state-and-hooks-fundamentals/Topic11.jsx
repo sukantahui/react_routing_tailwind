@@ -721,7 +721,7 @@ const Topic11 = () => {
               </div>
               
               {/* Queue Display */}
-              {queue.length > 0 && (
+              {queue.length &gt; 0 && (
                 <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
                   <h4 className="font-bold text-gray-800 dark:text-white mb-2">Queue Items</h4>
                   <div className="flex flex-wrap gap-2">
@@ -763,7 +763,7 @@ const Topic11 = () => {
               onClick={() => setHistory([])}
               className="px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 
                        text-gray-800 dark:text-white rounded-lg transition-all duration-300"
-            >
+            &gt;
               Clear History
             </button>
           </div>

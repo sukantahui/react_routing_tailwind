@@ -133,9 +133,9 @@ const Topic11 = () => {
               <div className="bg-gray-100 dark:bg-gray-700/50 p-4 rounded-xl">
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-3 text-center">🎮 Interactive Demo</h3>
                 <div className="flex justify-center items-center gap-2 mb-4 flex-wrap">
-                  <button onClick={() => setDistA(distA === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold", distA === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{distA}</button>
-                  <button onClick={() => setDistB(distB === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold", distB === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{distB}</button>
-                  <button onClick={() => setDistC(distC === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold", distC === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{distC}</button>
+                  <button onClick={() => setDistA(distA === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold", distA === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{distA}</button>
+                  <button onClick={() => setDistB(distB === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold", distB === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{distB}</button>
+                  <button onClick={() => setDistC(distC === 0 ? 1 : 0)} className={clsx("w-12 h-12 rounded-lg font-mono font-bold", distC === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}&gt;{distC}</button>
                 </div>
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div><p className="text-xs">A·(B+C)</p><div className={clsx("p-3 rounded-lg font-bold", andOverOrLeft === 1 ? "bg-green-500 text-white" : "bg-red-500 text-white")}>{andOverOrLeft}</div></div>

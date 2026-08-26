@@ -54,7 +54,7 @@ const interactiveQuestions = [
   { q: "What does `touch -d '2 days ago' file` do?", a: "Sets the file's timestamp to two days before the current time." },
   { q: "How do you create a file with a specific timestamp in the past?", a: "`touch -t 202301011200 file`" },
   { q: "Why would you use `touch` on an existing file?", a: "To force rebuilds in makefiles, update backup timestamps, or test scripts that rely on file age." },
-  { q: "What is the difference between `touch file` and `> file`?", a: "`touch` updates timestamps of existing files or creates empty ones; `> file` truncates an existing file to zero length (destroys content) or creates empty." },
+  { q: "What is the difference between `touch file` and `> file`?", a: "`touch` updates timestamps of existing files or creates empty ones; `&gt; file` truncates an existing file to zero length (destroys content) or creates empty." },
   { q: "How can you avoid creating a new file with touch if it doesn't exist?", a: "Use `touch -c` (no create) or `touch --no-create`." },
   { q: "What does `touch -h` do?", a: "Changes timestamps of a symbolic link itself, not the file it points to." },
   { q: "Can `touch` be used with wildcards to update many files?", a: "Yes, `touch *.log` updates all .log files in current directory." },
@@ -85,7 +85,7 @@ function InteractiveQuestionsBlock() {
                 <button
                   onClick={() => toggle(idx)}
                   className="rounded-full bg-indigo-100 px-4 py-1 text-sm font-medium text-indigo-700 transition-all hover:bg-indigo-200 dark:bg-indigo-900/60 dark:text-indigo-200"
-                >
+                &gt;
                   {revealed[idx] ? "Hide" : "Show answer"}
                 </button>
               </div>

@@ -220,7 +220,7 @@ class Topic9 extends React.Component {
                       {/* Users trying to access */}
                       <g>
                         {/* Swadeep */}
-                        <g className={simulationStep >= 1 ? "user-walk" : ""}>
+                        <g className={simulationStep >= 1 ? "user-walk" : ""}&gt;
                           <circle cx="100" cy="150" r="20" 
                                   fill={isDarkMode ? "#3B82F6" : "#1D4ED8"} />
                           <text x="100" y="155" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">S</text>
@@ -228,7 +228,7 @@ class Topic9 extends React.Component {
                         </g>
                         
                         {/* Tuhina */}
-                        <g className={simulationStep >= 2 ? "user-walk" : ""} style={{animationDelay: '0.5s'}}>
+                        <g className={simulationStep >= 2 ? "user-walk" : ""} style={{animationDelay: '0.5s'}}&gt;
                           <circle cx="200" cy="150" r="20" 
                                   fill={isDarkMode ? "#10B981" : "#059669"} />
                           <text x="200" y="155" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">T</text>
@@ -236,7 +236,7 @@ class Topic9 extends React.Component {
                         </g>
                         
                         {/* Abhronila */}
-                        <g className={simulationStep >= 3 ? "user-walk" : ""} style={{animationDelay: '1s'}}>
+                        <g className={simulationStep >= 3 ? "user-walk" : ""} style={{animationDelay: '1s'}}&gt;
                           <circle cx="600" cy="150" r="20" 
                                   fill={isDarkMode ? "#8B5CF6" : "#7C3AED"} />
                           <text x="600" y="155" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">A</text>
@@ -244,7 +244,7 @@ class Topic9 extends React.Component {
                         </g>
                         
                         {/* Debangshu */}
-                        <g className={simulationStep >= 1 ? "user-walk" : ""} style={{animationDelay: '1.5s'}}>
+                        <g className={simulationStep >= 1 ? "user-walk" : ""} style={{animationDelay: '1.5s'}}&gt;
                           <circle cx="700" cy="150" r="20" 
                                   fill={isDarkMode ? "#EF4444" : "#DC2626"} />
                           <text x="700" y="155" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold">D</text>
@@ -347,7 +347,7 @@ class Topic9 extends React.Component {
                           ? "bg-gray-800 hover:bg-gray-700"
                           : "bg-gray-200 hover:bg-gray-300"
                     )}
-                  >
+                  &gt;
                     {tab === 'concept' && 'Concept & Theory'}
                     {tab === 'simulation' && 'Interactive Simulation'}
                     {tab === 'real-world' && 'Real World Examples'}
@@ -544,7 +544,7 @@ class Topic9 extends React.Component {
                               <select 
                                 className="w-full p-2 rounded-lg bg-black/20"
                                 onChange={(e) => this.setState({ selectedUser: e.target.value })}
-                              >
+                              &gt;
                                 {users.map((user) => (
                                   <option key={user} value={user}>{user}</option>
                                 ))}
@@ -555,7 +555,7 @@ class Topic9 extends React.Component {
                               <select 
                                 className="w-full p-2 rounded-lg bg-black/20"
                                 onChange={(e) => this.setState({ selectedFile: e.target.value })}
-                              >
+                              &gt;
                                 {tmpFiles.map((file) => (
                                   <option key={file.name} value={file.name}>{file.name}</option>
                                 ))}
@@ -576,7 +576,7 @@ class Topic9 extends React.Component {
                                   ? "bg-red-600 hover:bg-red-500" 
                                   : "bg-red-500 hover:bg-red-400"
                               )}
-                            >
+                            &gt;
                               Simulate Delete Attempt
                             </button>
                           </div>

@@ -162,7 +162,7 @@ export default class Topic13 extends React.Component {
                                         ? 'bg-gradient-to-r from-violet-500 to-purple-500 text-white shadow-lg'
                                         : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                         }`}
-                                >
+                                &gt;
                                     {section.label}
                                 </button>
                             ))}
@@ -620,7 +620,7 @@ export default class Topic13 extends React.Component {
                                         Create two hard links to the same file and compare their <code>stat</code> output:
                                     </p>
                                     <div className="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm">
-                                        <code>{'echo "test" > original.txt'}</code><br />
+                                        <code>{'echo "test" &gt; original.txt'}</code><br />
                                         <code>{'ln original.txt link1.txt'}</code><br />
                                         <code>{'ln original.txt link2.txt'}</code><br />
                                         <code>{'stat original.txt link1.txt link2.txt'}</code>
@@ -679,10 +679,10 @@ export default class Topic13 extends React.Component {
                                 </p>
                                 <div className="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm">
                                     <code>{'# Find world-writable files'}</code><br />
-                                    <code>{'find / -type f -perm /o+w -exec stat -c "%a %U %G %n" {} \\; 2>/dev/null'}</code>
+                                    <code>{'find / -type f -perm /o+w -exec stat -c "%a %U %G %n" {} \\; 2&gt;/dev/null'}</code>
                                     <br /><br />
                                     <code>{'# Find files owned by deleted users'}</code><br />
-                                    <code>{'find / -nouser -exec stat -c "%U %G %n" {} \\; 2>/dev/null'}</code>
+                                    <code>{'find / -nouser -exec stat -c "%U %G %n" {} \\; 2&gt;/dev/null'}</code>
                                 </div>
                             </div>
 

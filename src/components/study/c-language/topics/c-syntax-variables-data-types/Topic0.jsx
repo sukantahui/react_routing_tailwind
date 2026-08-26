@@ -30,7 +30,7 @@ int main() {
     printf("Hello, World!\\n");
     return 0;
 }`}
-        />
+        /&gt;
 
         <p className="text-slate-300 text-sm leading-relaxed">
           In this example, indentation clearly shows which statements belong inside 

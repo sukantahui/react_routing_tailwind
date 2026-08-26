@@ -176,7 +176,7 @@ const Topic6 = () => {
                     ? 'bg-blue-600 text-white border-blue-500 shadow-md shadow-blue-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -188,7 +188,7 @@ const Topic6 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-master3">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-800 pb-4 gap-2">
               <div className="flex items-center space-x-3">
@@ -212,7 +212,7 @@ const Topic6 = () => {
                 <button
                   onClick={() => setShowAnswer(!showAnswer)}
                   className="px-3 py-1 bg-blue-950 text-blue-300 border border-blue-800 rounded-lg text-xs font-semibold hover:bg-blue-900 transition-all"
-                >
+                &gt;
                   {showAnswer ? 'Hide Answer 👁️' : 'Reveal Answer 🔍'}
                 </button>
               </div>
@@ -260,7 +260,7 @@ const Topic6 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -282,19 +282,19 @@ const Topic6 = () => {
                 <tbody className="divide-y divide-slate-800/60 text-slate-300">
                   <tr>
                     <td className="p-2.5 font-bold text-white font-sans">Row Dominance (Player A)</td>
-                    <td className="p-2.5 text-rose-300">a_ik ≥ a_jk  ∀ k  ==&gt;  DELETE SMALLER ROW j</td>
+                    <td className="p-2.5 text-rose-300">a_ik ≥ a_jk  ∀ k  ==>  DELETE SMALLER ROW j</td>
                   </tr>
                   <tr>
                     <td className="p-2.5 font-bold text-white font-sans">Column Dominance (Player B)</td>
-                    <td className="p-2.5 text-sky-300">a_kr ≤ a_ks  ∀ k  ==&gt;  DELETE LARGER COLUMN s</td>
+                    <td className="p-2.5 text-sky-300">a_kr ≤ a_ks  ∀ k  ==>  DELETE LARGER COLUMN s</td>
                   </tr>
                   <tr>
                     <td className="p-2.5 font-bold text-white font-sans">Modified Row Dominance</td>
-                    <td className="p-2.5 text-purple-300">λ · R₁ + (1−λ) · R₂ ≥ R_target  ==&gt;  DELETE R_target</td>
+                    <td className="p-2.5 text-purple-300">λ · R₁ + (1−λ) · R₂ ≥ R_target  ==>  DELETE R_target</td>
                   </tr>
                   <tr>
                     <td className="p-2.5 font-bold text-white font-sans">Modified Column Dominance</td>
-                    <td className="p-2.5 text-cyan-300">μ · C₁ + (1−μ) · C₂ ≤ C_target  ==&gt;  DELETE C_target</td>
+                    <td className="p-2.5 text-cyan-300">μ · C₁ + (1−μ) · C₂ ≤ C_target  ==>  DELETE C_target</td>
                   </tr>
                   <tr>
                     <td className="p-2.5 font-bold text-white font-sans">Standard Test Weights</td>
@@ -319,7 +319,7 @@ const Topic6 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -375,7 +375,7 @@ const Topic6 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -397,7 +397,7 @@ const Topic6 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -424,7 +424,7 @@ const Topic6 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -468,7 +468,7 @@ const Topic6 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

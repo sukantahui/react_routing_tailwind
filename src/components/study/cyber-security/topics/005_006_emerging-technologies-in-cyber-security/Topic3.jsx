@@ -24,7 +24,7 @@ const Topic3 = () => {
   const deepfakeResult = useMemo(() => {
     let score = 100;
     if (blinkRate < 5 || blinkRate > 35) score -= 30;
-    if (lipSyncDelay > 80) score -= 35;
+    if (lipSyncDelay &gt; 80) score -= 35;
     if (!hasRppgPulse) score -= 40;
     if (phaseCoherence < 0.60) score -= 25;
 
@@ -187,7 +187,7 @@ const Topic3 = () => {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-slate-300 font-semibold">
                   <span>Eye Blink Rate:</span>
-                  <span className="font-mono text-cyan-400">{blinkRate.toFixed(1)} blinks/min ({blinkRate >= 10 && blinkRate <= 22 ? "Normal Human ✔" : "Abnormal AI Artifact 🚨"})</span>
+                  <span className="font-mono text-cyan-400">{blinkRate.toFixed(1)} blinks/min ({blinkRate &ge; 10 && blinkRate &le; 22 ? "Normal Human ✔" : "Abnormal AI Artifact 🚨"})</span>
                 </div>
                 <input
                   type="range"
@@ -197,13 +197,13 @@ const Topic3 = () => {
                   value={blinkRate}
                   onChange={(e) => setBlinkRate(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1.5">
                 <div className="flex justify-between text-slate-300 font-semibold">
                   <span>Viseme-Phoneme Lip Sync Delay:</span>
-                  <span className="font-mono text-amber-400 font-bold">{lipSyncDelay} ms ({lipSyncDelay <= 40 ? "Synchronized ✔" : "AI Desynchronized 🚨"})</span>
+                  <span className="font-mono text-amber-400 font-bold">{lipSyncDelay} ms ({lipSyncDelay &le; 40 ? "Synchronized ✔" : "AI Desynchronized 🚨"})</span>
                 </div>
                 <input
                   type="range"
@@ -213,13 +213,13 @@ const Topic3 = () => {
                   value={lipSyncDelay}
                   onChange={(e) => setLipSyncDelay(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1.5">
                 <div className="flex justify-between text-slate-300 font-semibold">
                   <span>Acoustic Spectral Phase Coherence:</span>
-                  <span className="font-mono text-purple-400 font-bold">{phaseCoherence.toFixed(2)} ({phaseCoherence >= 0.7 ? "Natural Voice ✔" : "Neural Cloned Audio 🚨"})</span>
+                  <span className="font-mono text-purple-400 font-bold">{phaseCoherence.toFixed(2)} ({phaseCoherence &ge; 0.7 ? "Natural Voice ✔" : "Neural Cloned Audio 🚨"})</span>
                 </div>
                 <input
                   type="range"
@@ -229,7 +229,7 @@ const Topic3 = () => {
                   value={phaseCoherence}
                   onChange={(e) => setPhaseCoherence(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
-                />
+                /&gt;
               </div>
 
               <label className="flex items-center justify-between p-3 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer pt-2">
@@ -242,7 +242,7 @@ const Topic3 = () => {
                   checked={hasRppgPulse}
                   onChange={(e) => setHasRppgPulse(e.target.checked)}
                   className="accent-emerald-500 w-4 h-4"
-                />
+                /&gt;
               </label>
             </div>
 
@@ -303,7 +303,7 @@ const Topic3 = () => {
                   value={epsilon}
                   onChange={(e) => setEpsilon(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-slate-500">
                   <span>0.0 (Clean Input)</span>
                   <span>0.05</span>
@@ -363,7 +363,7 @@ const Topic3 = () => {
                       ? "bg-rose-600 text-white shadow-lg shadow-rose-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_deepfake_defense" ? "Barrackpore Deepfake" : key === "kolkata_fintech_spectral_defense" ? "Kolkata Spectral Audit" : "Ichapur PGD Hardening"}
                 </button>
               ))}

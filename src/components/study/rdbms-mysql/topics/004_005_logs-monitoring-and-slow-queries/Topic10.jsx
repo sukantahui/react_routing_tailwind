@@ -36,7 +36,7 @@ JOIN performance_schema.global_variables m ON m.VARIABLE_NAME = 'max_connections
 JOIN performance_schema.global_status r ON r.VARIABLE_NAME = 'Threads_running'
 WHERE c.VARIABLE_NAME = 'Threads_connected';
 
--- ⚠️ Critical Alert: If Threads_running > (CPU Cores * 2), queries are starving on CPU!`,
+-- ⚠️ Critical Alert: If Threads_running &gt; (CPU Cores * 2), queries are starving on CPU!`,
       explanation:
         "Threads_connected tracks open client connections, while Threads_running measures how many threads are actively executing queries on CPU cores right now. When Threads_running exceeds CPU core limits, thread queuing occurs.",
       keyTakeaways: [
@@ -90,7 +90,7 @@ WHERE r.VARIABLE_NAME = 'Innodb_buffer_pool_reads';
       keyTakeaways: [
         "Read requests represent logical memory demands in RAM.",
         "Reads represent cache misses that had to fetch 16KB pages from disk.",
-        "Maintain Hit Ratio >99.0% on enterprise production workloads."
+        "Maintain Hit Ratio &gt;99.0% on enterprise production workloads."
       ]
     },
     group4_handler_efficiency: {
@@ -213,7 +213,7 @@ WHERE k.VARIABLE_NAME = 'Handler_read_key';
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {group.groupName}
                 </button>
               );
@@ -341,7 +341,7 @@ WHERE k.VARIABLE_NAME = 'Handler_read_key';
                 A Buffer Pool Hit Ratio dropping below 95% indicates the server is constantly reading from physical disk storage, destroying transaction throughput.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
-                Rule: Maintain Buffer Pool Hit Ratio >99.0% by sizing innodb_buffer_pool_size properly.
+                Rule: Maintain Buffer Pool Hit Ratio &gt;99.0% by sizing innodb_buffer_pool_size properly.
               </div>
             </div>
 
@@ -353,13 +353,13 @@ WHERE k.VARIABLE_NAME = 'Handler_read_key';
                 A rising <code>Handler_read_rnd_next</code> rate indicates applications are frequently executing unindexed full table scans across millions of rows.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
-                Rule: Maintain Handler_read_key >> Handler_read_rnd_next with composite indexes.
+                Rule: Maintain Handler_read_key &gt;> Handler_read_rnd_next with composite indexes.
               </div>
             </div>
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>✓</span> Best Practice 1: Alert on Threads_running > 2x CPU Cores
+                <span>✓</span> Best Practice 1: Alert on Threads_running &gt; 2x CPU Cores
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
                 Configure Prometheus and PMM alerts to trigger when <code>Threads_running</code> exceeds double the physical CPU core count for more than 30 seconds.

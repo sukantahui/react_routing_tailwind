@@ -45,11 +45,11 @@ export default function Topic4() {
   } else if (commitCategory === "FIX") {
     calculatedNextVersion = "v1.0.1";
     sampleCommitMessage = "fix(ledger): prevent overpayment balance corruption in atomic transactions";
-    semverExplanation = "Patch bump (1.0.0 -> 1.0.1) for backwards-compatible bug fix.";
+    semverExplanation = "Patch bump (1.0.0 &rarr; 1.0.1) for backwards-compatible bug fix.";
   } else if (commitCategory === "DOCS") {
     calculatedNextVersion = "v1.0.0";
     sampleCommitMessage = "docs(readme): add shields.io coverage badge and quickstart guide";
-    semverExplanation = "No version bump (1.0.0 -> 1.0.0) for documentation-only changes.";
+    semverExplanation = "No version bump (1.0.0 -&gt; 1.0.0) for documentation-only changes.";
   } else if (commitCategory === "BREAKING") {
     calculatedNextVersion = "v2.0.0";
     sampleCommitMessage = "feat(api)!: migrate student ID schema to UUIDv4 format";
@@ -286,7 +286,7 @@ jobs:
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 GitHub Actions CI Matrix
               </button>
               <button
@@ -297,7 +297,7 @@ jobs:
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Conventional Commits &amp; SemVer
               </button>
               <button
@@ -308,7 +308,7 @@ jobs:
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 PR Quality Gate Lifecycle
               </button>
             </div>
@@ -375,7 +375,7 @@ jobs:
                   <rect x="10" y="45" width="150" height="175" rx="4" fill="#0f172a" stroke="#4f46e5" />
                   <text x="15" y="70" fill="#facc15" fontSize="9" fontWeight="bold">Coverage Audit:</text>
                   <text x="15" y="90" fill="#a5b4fc" fontSize="8">Total Coverage: 96%</text>
-                  <text x="15" y="105" fill="#a5b4fc" fontSize="8">Threshold: &gt;= 85%</text>
+                  <text x="15" y="105" fill="#a5b4fc" fontSize="8">Threshold: >= 85%</text>
                   
                   <rect x="15" y="130" width="140" height="40" rx="4" fill="#064e3b" />
                   <text x="22" y="153" fill="#86efac" fontSize="9" fontWeight="bold">BUILD: PASSED ✅</text>
@@ -445,7 +445,7 @@ jobs:
                   <rect x="295" y="40" width="240" height="165" rx="6" fill="#042f2e" stroke="#2dd4bf" />
                   <text x="305" y="65" fill="#5eead4" fontSize="11" fontWeight="bold">2. PR Automated CI Gate</text>
                   <text x="305" y="90" fill="#ccfbf1" fontSize="8">✓ 9/9 Matrix Tests Passing</text>
-                  <text x="305" y="108" fill="#ccfbf1" fontSize="8">✓ 96% Branch Coverage (&gt;= 85%)</text>
+                  <text x="305" y="108" fill="#ccfbf1" fontSize="8">✓ 96% Branch Coverage (>= 85%)</text>
                   <text x="305" y="126" fill="#ccfbf1" fontSize="8">✓ Ruff &amp; Mypy Strict Clean</text>
                   <text x="305" y="144" fill="#ccfbf1" fontSize="8">✓ 1 Peer Review Approved</text>
                   <text x="305" y="180" fill="#86efac" fontSize="8" fontWeight="bold">All Status Checks Green</text>
@@ -509,7 +509,7 @@ jobs:
                           : "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                         : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700"
                     )}
-                  >
+                  &gt;
                     <div className="text-xs font-bold text-slate-200">{item.label}</div>
                     <div className="text-[10px] text-cyan-400 font-mono mt-0.5">{item.bump}</div>
                   </button>

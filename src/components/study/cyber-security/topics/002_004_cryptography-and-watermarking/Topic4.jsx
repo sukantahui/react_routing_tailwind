@@ -81,7 +81,7 @@ const Topic4 = () => {
       name: "Data Encryption Standard (DES)",
       standard: "FIPS 46-3 (Standardized in 1977 by IBM & NIST)",
       blockSize: "64 bits (8 bytes)",
-      keyLength: "56 bits effective (8 parity bits discarded -> 2^56 keys)",
+      keyLength: "56 bits effective (8 parity bits discarded &rarr; 2^56 keys)",
       structure: "16-Round Feistel Network with uninvertible round function F",
       roundCount: "16 Rounds",
       knownAttacks: "Exhaustive Key Search: Broken in 22 hours by EFF Deep Crack (1999); broken in <1 hour on modern GPUs.",
@@ -132,7 +132,7 @@ const Topic4 = () => {
         "Mamata led the fleet-wide firmware upgrade to AES-256-GCM with hardware HSM PIN blocks, eliminating Sweet32 collision risks and achieving 100% RBI compliance.",
       metrics: {
         atmsUpgraded: "1,200 Payment Terminals",
-        cipherMigrated: "3DES Deprecated -> AES-256-GCM",
+        cipherMigrated: "3DES Deprecated &rarr; AES-256-GCM",
         sweet32Vulnerability: "0% Collision Surface",
         compliance: "RBI Master Direction on Cyber Security"
       }
@@ -248,7 +248,7 @@ const Topic4 = () => {
                     ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                     : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                 )}
-              >
+              &gt;
                 <div className="font-bold text-sm text-gray-200">{st.label}</div>
                 <div className="text-[10px] text-gray-400 mt-0.5">{st.sub}</div>
               </button>
@@ -329,7 +329,7 @@ const Topic4 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-sm text-gray-200">{cip.name.split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 mt-1 font-mono">{cip.blockSize} • {cip.keyLength.split(" ")[0]}</div>
                 </button>
@@ -501,7 +501,7 @@ const Topic4 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

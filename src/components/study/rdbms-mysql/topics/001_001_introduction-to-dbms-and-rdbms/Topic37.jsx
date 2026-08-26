@@ -297,7 +297,7 @@ const Topic37 = () => {
                 {
                   icon: "💻",
                   title: "Command Line",
-                  desc: "Use output redirection: `mysql -u root -p -e \"SELECT * FROM users;\" > query.sql`.",
+                  desc: "Use output redirection: `mysql -u root -p -e \"SELECT * FROM users;\" &gt; query.sql`.",
                   detail: "Great for capturing query output.",
                   color: "emerald",
                 },

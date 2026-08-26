@@ -261,7 +261,7 @@ ORDER BY p.student_id, p.payment_date;`,
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2">
               <h3 className="text-base font-bold text-rose-400">4. High-Velocity Fraud Detection</h3>
               <p className="text-xs text-slate-300">
-                Formula: <code className="text-rose-300 font-mono">TIMESTAMPDIFF(SECOND, LAG(tx_time), tx_time) &lt;= 60</code>.
+                Formula: <code className="text-rose-300 font-mono">TIMESTAMPDIFF(SECOND, LAG(tx_time), tx_time) <= 60</code>.
               </p>
             </div>
           </div>
@@ -390,7 +390,7 @@ ORDER BY p.student_id, p.payment_date;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

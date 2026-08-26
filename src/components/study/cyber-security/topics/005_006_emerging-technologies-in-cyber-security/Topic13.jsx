@@ -38,7 +38,7 @@ const Topic13 = () => {
       tier = "TIER-5: TRANSCENDENT NEXT-GEN RESILIENCE ✔";
       badgeColor = "bg-emerald-950 text-emerald-300 border-emerald-700";
       desc = "Maximum state-of-the-art security posture. Unified machine-speed AI self-healing, sovereign DID identity, quantum-safe transit, and physical Heisenberg unbreakability.";
-    } else if (score >= 60) {
+    } else if (score &ge; 60) {
       tier = "TIER-3: TRANSITIONAL HYBRID RESILIENCE ⚠️";
       badgeColor = "bg-amber-950 text-amber-300 border-amber-700";
       desc = "Partially modernized infrastructure. Gaps remain in either quantum readiness, autonomous remediation, or continuous zero-trust authorization.";
@@ -226,7 +226,7 @@ const Topic13 = () => {
                   checked={p1AiSoar}
                   onChange={(e) => setP1AiSoar(e.target.checked)}
                   className="accent-emerald-500 w-4 h-4"
-                />
+                /&gt;
               </label>
 
               {/* Pillar 2 */}
@@ -240,7 +240,7 @@ const Topic13 = () => {
                   checked={p2BlockchainDid}
                   onChange={(e) => setP2BlockchainDid(e.target.checked)}
                   className="accent-emerald-500 w-4 h-4"
-                />
+                /&gt;
               </label>
 
               {/* Pillar 3 */}
@@ -254,7 +254,7 @@ const Topic13 = () => {
                   checked={p3QkdPhotonic}
                   onChange={(e) => setP3QkdPhotonic(e.target.checked)}
                   className="accent-emerald-500 w-4 h-4"
-                />
+                /&gt;
               </label>
 
               {/* Pillar 4 */}
@@ -268,7 +268,7 @@ const Topic13 = () => {
                   checked={p4NistPqc}
                   onChange={(e) => setP4NistPqc(e.target.checked)}
                   className="accent-emerald-500 w-4 h-4"
-                />
+                /&gt;
               </label>
 
               {/* Pillar 5 */}
@@ -282,7 +282,7 @@ const Topic13 = () => {
                   checked={p5ZeroTrust}
                   onChange={(e) => setP5ZeroTrust(e.target.checked)}
                   className="accent-emerald-500 w-4 h-4"
-                />
+                /&gt;
               </label>
             </div>
 
@@ -305,7 +305,7 @@ const Topic13 = () => {
                         : "bg-rose-500"
                     )}
                     style={{ width: `${resilienceAssessment.score}%` }}
-                  />
+                  /&gt;
                 </div>
 
                 <p className="text-xs md:text-sm text-slate-200 leading-relaxed bg-slate-900 p-3.5 rounded-lg border border-slate-800">
@@ -344,7 +344,7 @@ const Topic13 = () => {
               <button
                 onClick={() => setAttackLaunched(true)}
                 className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg shadow-lg shadow-emerald-950 transition-all duration-200"
-              >
+              &gt;
                 Launch Multilateral Attack ⚡
               </button>
             </div>
@@ -389,7 +389,7 @@ const Topic13 = () => {
                       ? "bg-emerald-600 text-white shadow-lg shadow-emerald-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_5pillar_synthesis" ? "Barrackpore 5-Pillar Synthesis" : key === "kolkata_fintech_transcendent" ? "Kolkata FinTech Hub" : "Ichapur Defense Enclave"}
                 </button>
               ))}

@@ -36,7 +36,7 @@ function CallStackVisualizer({ onStepChange }) {
       note: "greetStudent is pushed; it will run next."
     },
     {
-      label: 'greetStudent -> console.log("Hello Kaustav")',
+      label: 'greetStudent &rarr; console.log("Hello Kaustav")',
       stack: ["global()", "startClass()", 'greetStudent("Kaustav")', 'console.log("Hello Kaustav")'],
       console: ["Class starting...", "Hello Kaustav"],
       note: "console.log inside greetStudent runs and prints 'Hello Kaustav'."
@@ -328,7 +328,7 @@ Conceptual Steps:
 6. Moves callback → Call Stack
 7. "2. Async task..." runs
 */`}
-          />
+          /&gt;
 
           <div className="mt-2 p-3 bg-emerald-900/20 border border-emerald-700 rounded-xl text-sm text-emerald-300 animate-[fadeIn_1.3s_ease-out]">
             ✔ Even with <code>0ms</code>, the callback <strong>never</strong> runs before the main script finishes.

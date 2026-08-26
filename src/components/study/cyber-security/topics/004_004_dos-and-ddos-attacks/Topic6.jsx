@@ -198,7 +198,7 @@ ST: ssdp:all\\r\\n
     
     // Saturation Probability:
     let rawSatProb = 0;
-    if (reflectedGbps <= scrubbingCapacityGbps) {
+    if (reflectedGbps &le; scrubbingCapacityGbps) {
       rawSatProb = 0.0;
     } else {
       const surplus = reflectedGbps - scrubbingCapacityGbps;
@@ -278,7 +278,7 @@ options {
 
 # 1. Hardening NTP Daemon (/etc/ntp.conf)
 echo "[*] Hardening NTP: Disabling Mode 7 monlist diagnostic query..."
-cat << 'EOF' >> /etc/ntp.conf
+cat << 'EOF' >&gt; /etc/ntp.conf
 disable monitor
 restrict default nomodify notrap nopeer noquery
 restrict 127.0.0.1
@@ -640,7 +640,7 @@ echo "[+] NTP (556x) and Memcached (51,000x) Amplification Vectors COMPLETELY NE
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   VECTOR
                 </span>
@@ -733,7 +733,7 @@ echo "[+] NTP (556x) and Memcached (51,000x) Amplification Vectors COMPLETELY NE
                   value={selectedProtocolFactor}
                   onChange={(e) => setSelectedProtocolFactor(e.target.value)}
                   className="w-full p-2 bg-gray-950 border border-gray-800 rounded font-mono text-cyan-300 text-xs"
-                >
+                &gt;
                   {Object.entries(protocolFactors).map(([key, val]) => (
                     <option key={key} value={key}>
                       {val.name} ➔ {val.unit}
@@ -755,7 +755,7 @@ echo "[+] NTP (556x) and Memcached (51,000x) Amplification Vectors COMPLETELY NE
                   value={attackerRequestMbps}
                   onChange={(e) => setAttackerRequestMbps(parseInt(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -769,7 +769,7 @@ echo "[+] NTP (556x) and Memcached (51,000x) Amplification Vectors COMPLETELY NE
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     10 Gbps (None)
                   </button>
                   <button
@@ -780,7 +780,7 @@ echo "[+] NTP (556x) and Memcached (51,000x) Amplification Vectors COMPLETELY NE
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     500 Gbps (ISP)
                   </button>
                   <button
@@ -791,7 +791,7 @@ echo "[+] NTP (556x) and Memcached (51,000x) Amplification Vectors COMPLETELY NE
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     10 Tbps (Anycast)
                   </button>
                 </div>
@@ -850,7 +850,7 @@ echo "[+] NTP (556x) and Memcached (51,000x) Amplification Vectors COMPLETELY NE
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -899,7 +899,7 @@ echo "[+] NTP (556x) and Memcached (51,000x) Amplification Vectors COMPLETELY NE
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

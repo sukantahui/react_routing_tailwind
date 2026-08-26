@@ -290,7 +290,7 @@ const Topic2 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}
@@ -357,7 +357,7 @@ const Topic2 = () => {
                 value={selectedThreatKey}
                 onChange={(e) => setSelectedThreatKey(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(hybridThreats).map((t) => (
                   <option key={t.id} value={t.id}>
                     {t.label}
@@ -376,7 +376,7 @@ const Topic2 = () => {
                     ? "bg-sky-950/80 text-sky-300 border-sky-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              >
+              &gt;
                 {nidsSensorEnabled ? "✔ NIDS Wire Sensor Active" : "❌ NIDS Sensor Disabled"}
               </button>
             </div>
@@ -391,7 +391,7 @@ const Topic2 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              >
+              &gt;
                 {hidsAgentEnabled ? "✔ HIDS Endpoint Agent Active" : "❌ HIDS Agent Disabled"}
               </button>
             </div>
@@ -498,7 +498,7 @@ const Topic2 = () => {
                 value={serverFleetCount}
                 onChange={(e) => setServerFleetCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -514,7 +514,7 @@ const Topic2 = () => {
                 value={agentCpuAllocationPercent}
                 onChange={(e) => setAgentCpuAllocationPercent(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -530,7 +530,7 @@ const Topic2 = () => {
                 value={dailyLogMbPerHost}
                 onChange={(e) => setDailyLogMbPerHost(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -584,7 +584,7 @@ const Topic2 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

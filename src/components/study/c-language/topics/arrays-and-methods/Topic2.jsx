@@ -142,8 +142,8 @@ const Topic2 = () => {
           <h2 className="text-2xl font-medium mb-4">💡 Tips & Tricks (Professional habits)</h2>
           <ul className="list-disc list-inside space-y-2 leading-relaxed">
             <li><strong>Always use <code>size_t</code> for indices</strong> – it's unsigned and matches the type returned by <code>sizeof</code>. This avoids negative indices.</li>
-            <li><strong>Loop condition: <code>i &lt; n</code> not <code>i &lt;= n</code></strong> – the last valid index is <code>n-1</code>.</li>
-            <li><strong>When accepting index input, validate it</strong>: <code>if (index &gt;= 0 &amp;&amp; index &lt; size)</code> before use.</li>
+            <li><strong>Loop condition: <code>i &lt; n</code> not <code>i <= n</code></strong> – the last valid index is <code>n-1</code>.</li>
+            <li><strong>When accepting index input, validate it</strong>: <code>if (index >= 0 &amp;&amp; index &lt; size)</code> before use.</li>
             <li><strong>Use <code>assert(index &lt; size)</code> in debug builds</strong> to catch out‑of‑bounds early.</li>
             <li><strong>Remember: <code>arr[size]</code> is not part of the array</strong> – it's one past the end, but you can take its address for pointer comparisons (never dereference).</li>
           </ul>
@@ -155,7 +155,7 @@ const Topic2 = () => {
           <div className="space-y-3">
             <div className="p-3 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded">
               <p className="font-medium">Off‑by‑one in loops</p>
-              <p className="text-sm"><code>for (i = 1; i &lt;= 5; i++)</code> when array has 5 elements – this accesses indices 1‑5, missing index 0 and going out of bounds at 5.</p>
+              <p className="text-sm"><code>for (i = 1; i <= 5; i++)</code> when array has 5 elements – this accesses indices 1‑5, missing index 0 and going out of bounds at 5.</p>
             </div>
             <div className="p-3 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded">
               <p className="font-medium">Assuming bounds checking</p>
@@ -196,10 +196,10 @@ const Topic2 = () => {
         <section className="animate-[fade-slide-up_0.6s_ease-out] motion-safe:animate animation-delay-[800ms] p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded">
           <h2 className="text-xl font-medium mb-2">🤔 Hint – Think like a programmer</h2>
           <p className="italic">
-            “If you have an array of 10 elements, the indices are 0–9. When you write <code>for (i = 0; i &lt;= 9; i++)</code> it works, but the professional habit is <code>i &lt; 10</code> because it directly relates to the size.”
+            “If you have an array of 10 elements, the indices are 0–9. When you write <code>for (i = 0; i <= 9; i++)</code> it works, but the professional habit is <code>i &lt; 10</code> because it directly relates to the size.”
           </p>
           <p className="italic mt-2">
-            Try changing the loop in Example 2 to <code>i &lt;= 5</code> – what happens? (Run it and see the unpredictable output.)
+            Try changing the loop in Example 2 to <code>i <= 5</code> – what happens? (Run it and see the unpredictable output.)
           </p>
         </section>
 

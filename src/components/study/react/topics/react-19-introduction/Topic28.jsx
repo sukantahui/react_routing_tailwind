@@ -289,7 +289,7 @@ function StudentList({ students }) {
                 className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 group"
                 onMouseEnter={() => setActiveError(error.id)}
                 style={{ animationDelay: `${0.4 + index * 0.1}s` }}
-              >
+              &gt;
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-xl font-bold text-gray-800 dark:text-white">
@@ -303,7 +303,7 @@ function StudentList({ students }) {
                           ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
                           : "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-800/50"
                       )}
-                    >
+                    &gt;
                       {isFixed[index] ? '✓ Fixed' : 'Show Error'}
                     </button>
                   </div>
@@ -871,7 +871,7 @@ function TestWrapper() {
     <ProblemComponent 
       testProp="test value"
       onTest={() => console.log('test')}
-    />
+    /&gt;
   );
 }`,
                 tip: "Eliminates parent component interference"

@@ -52,7 +52,7 @@ function ProblemItem({ problem, index }) {
           <button
             onClick={() => setShowSolution(!showSolution)}
             className="mt-3 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200"
-          >
+          &gt;
             {showSolution ? "Hide Solution" : "Show Solution"}
           </button>
 
@@ -188,7 +188,7 @@ export default function Topic26() {
               level: q.level || "intermediate",
               codeExample: q.solution
             }))}
-          />
+          /&gt;
         </div>
 
         {/* FOOTER */}

@@ -219,7 +219,7 @@ const PlainTextPrint = ({
         const parts = html.split(
             '<hr class="note-divider note-divider-light" />'
         );
-        if (parts.length > 1) {
+        if (parts.length &gt; 1) {
             html = parts
                 .map((part, index) => {
                     if (index === parts.length - 1) return part;

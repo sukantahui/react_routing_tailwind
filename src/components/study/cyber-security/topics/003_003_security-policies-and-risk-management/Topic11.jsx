@@ -227,7 +227,7 @@ const Topic11 = () => {
                           ? "bg-cyan-950 text-cyan-200 border-cyan-500 font-bold"
                           : "bg-gray-900 text-gray-400 border-gray-800 hover:bg-gray-850"
                       )}
-                    >
+                    &gt;
                       {btn.label}
                     </button>
                   ))}
@@ -252,7 +252,7 @@ const Topic11 = () => {
                           ? "bg-purple-950 text-purple-200 border-purple-500 font-bold"
                           : "bg-gray-900 text-gray-400 border-gray-800 hover:bg-gray-850"
                       )}
-                    >
+                    &gt;
                       {btn.label}
                     </button>
                   ))}
@@ -277,7 +277,7 @@ const Topic11 = () => {
                           ? "bg-emerald-950 text-emerald-200 border-emerald-500 font-bold"
                           : "bg-gray-900 text-gray-400 border-gray-800 hover:bg-gray-850"
                       )}
-                    >
+                    &gt;
                       {btn.label}
                     </button>
                   ))}
@@ -346,7 +346,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{svc.serviceName}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{svc.purl}</div>
                 </button>
@@ -580,7 +580,7 @@ const Topic11 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

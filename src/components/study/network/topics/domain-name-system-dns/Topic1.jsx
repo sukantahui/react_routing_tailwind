@@ -71,7 +71,7 @@ const Topic1 = () => {
               <button
                 onClick={() => setShowComparison(!showComparison)}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition"
-              >
+              &gt;
                 {showComparison ? "Hide" : "Show"} Detailed Comparison Table
               </button>
             </div>

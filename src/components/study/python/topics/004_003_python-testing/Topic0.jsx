@@ -55,15 +55,15 @@ export default function Topic0() {
 def calculate_scholarship(score: float, income: float) -> float:
 ${
   simulatedBugState === "CLEAN"
-    ? `    if score >= 90.0:  # Clean boundary check
+    ? `    if score &ge; 90.0:  # Clean boundary check
         return 5000.0
-    elif score >= 75.0 and income <= 300000.0:
+    elif score >= 75.0 and income &le; 300000.0:
         return 3000.0
     return 0.0`
     : simulatedBugState === "BUGGY_OFF_BY_ONE"
     ? `    if score > 90.0:   # ⚠️ BUG: Off-by-one! Fails for exact score of 90.0!
         return 5000.0
-    elif score >= 75.0 and income <= 300000.0:
+    elif score &ge; 75.0 and income <= 300000.0:
         return 3000.0
     return 0.0`
     : `    if score >= 90.0:
@@ -271,7 +271,7 @@ def test_scholarship_boundaries():
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Cost of Defect Curve
               </button>
               <button
@@ -282,7 +282,7 @@ def test_scholarship_boundaries():
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Regression Shield Workflow
               </button>
               <button
@@ -293,7 +293,7 @@ def test_scholarship_boundaries():
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 AAA Test Pipeline
               </button>
             </div>
@@ -448,8 +448,8 @@ def test_scholarship_boundaries():
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
-                  { id: "CLEAN", label: "Clean Production Code", icon: "✅", desc: "Correct >= boundary checks" },
-                  { id: "BUGGY_OFF_BY_ONE", label: "Off-by-One Boundary Bug", icon: "⚠️", desc: "Refactored with > instead of >=" },
+                  { id: "CLEAN", label: "Clean Production Code", icon: "✅", desc: "Correct &ge; boundary checks" },
+                  { id: "BUGGY_OFF_BY_ONE", label: "Off-by-One Boundary Bug", icon: "⚠️", desc: "Refactored with &gt; instead of >=" },
                   { id: "BUGGY_NEGATIVE_FEE", label: "Missing Input Validation", icon: "💥", desc: "No check for negative balance" },
                 ].map((item) => (
                   <button
@@ -464,7 +464,7 @@ def test_scholarship_boundaries():
                         ? "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                         : "bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400"
                     )}
-                  >
+                  &gt;
                     <div className="text-base mb-1">{item.icon} <strong className="text-slate-200 text-xs sm:text-sm">{item.label}</strong></div>
                     <div className="text-[11px] text-slate-400">{item.desc}</div>
                   </button>

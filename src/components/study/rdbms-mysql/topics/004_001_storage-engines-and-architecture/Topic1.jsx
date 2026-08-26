@@ -29,7 +29,7 @@ const Topic1 = () => {
 CREATE TABLE customer_orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
-    order_total_inr DECIMAL(10,2) CHECK (order_total_inr >= 0),
+    order_total_inr DECIMAL(10,2) CHECK (order_total_inr &ge; 0),
     order_status ENUM('Pending', 'Paid', 'Shipped') DEFAULT 'Pending'
 ) ENGINE=InnoDB;
 
@@ -381,7 +381,7 @@ SELECT * FROM replication_relay_node; -- Output: Empty set (0 rows)!
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

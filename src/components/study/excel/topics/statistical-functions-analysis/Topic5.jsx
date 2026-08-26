@@ -41,7 +41,7 @@ export default function Topic5() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        >
+        &gt;
           <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
             Revision: COUNTA Function
           </h1>
@@ -54,7 +54,7 @@ export default function Topic5() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-cyan-400">📐</span> Function Prototype
           </h2>
@@ -72,7 +72,7 @@ export default function Topic5() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">🧠 How COUNTA Works</h2>
           <div className="mt-4 space-y-4 text-gray-200 leading-relaxed">
             <div>
@@ -97,7 +97,7 @@ export default function Topic5() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">📊 Real-World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -129,7 +129,7 @@ export default function Topic5() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (
@@ -168,7 +168,7 @@ export default function Topic5() {
         <section
           ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section bg-red-900/20 border border-red-800 rounded-2xl p-5 hover:border-red-500 transition-all"
-        >
+        &gt;
           <h3 className="text-xl font-semibold text-red-300">⚠️ Common Pitfalls</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Confusing COUNTA with COUNT – COUNTA counts everything non‑blank, not just numbers.</li>
@@ -182,7 +182,7 @@ export default function Topic5() {
         <section
           ref={(el) => (sectionsRef.current[6] = el)}
           className="reveal-section bg-green-900/20 border border-green-800 rounded-2xl p-5 hover:border-green-500 transition-all"
-        >
+        &gt;
           <h3 className="text-xl font-semibold text-green-300">✅ Best Practices</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Use COUNTA to count records in a dataset before analysis – ensures you know the sample size.</li>
@@ -196,7 +196,7 @@ export default function Topic5() {
         <section
           ref={(el) => (sectionsRef.current[7] = el)}
           className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5"
-        >
+        &gt;
           <h3 className="text-xl font-semibold text-yellow-300">💭 Think about...</h3>
           <p className="mt-2 text-gray-200">
             “If a column has many cells that look empty but contain `=IF(A1="","",A1)`, COUNTA will count them as non‑empty.<br />
@@ -208,7 +208,7 @@ export default function Topic5() {
         <section
           ref={(el) => (sectionsRef.current[8] = el)}
           className="reveal-section bg-purple-900/20 border border-purple-800 rounded-2xl p-5"
-        >
+        &gt;
           <h3 className="text-xl font-semibold text-purple-300">💡 Professional Tips & Tricks</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Quick count from status bar: select a range and see “Count” – this is actually COUNTA, not COUNT.</li>

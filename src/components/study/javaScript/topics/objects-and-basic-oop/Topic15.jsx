@@ -49,7 +49,7 @@ Object.entries(feesStatus).forEach(function (entry) {
   const status = entry[1];
   console.log(name + " -> " + status);
 });`}
-        />
+        /&gt;
       </div>
     );
   }

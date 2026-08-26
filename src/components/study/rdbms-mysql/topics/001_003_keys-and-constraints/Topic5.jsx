@@ -308,7 +308,7 @@ const Topic5 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    >
+                    &gt;
                       <div className="font-bold">{opt.label}</div>
                       <div className="text-[10px] text-slate-500">{opt.desc}</div>
                     </button>
@@ -324,7 +324,7 @@ const Topic5 = () => {
                     checked={includeCheckConstraint}
                     onChange={(e) => setIncludeCheckConstraint(e.target.checked)}
                     className="rounded border-slate-800 bg-slate-900 text-teal-500 focus:ring-0"
-                  />
+                  /&gt;
                   <span>Enable <code>CHECK (TRIM(first_name) != '')</code></span>
                 </label>
               </div>

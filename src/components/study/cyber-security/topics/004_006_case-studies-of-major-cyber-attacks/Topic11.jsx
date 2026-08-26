@@ -126,7 +126,7 @@ const Topic11 = () => {
     let tierColor = "";
     let description = "";
 
-    if (maturityPercentage >= 85) {
+    if (maturityPercentage &ge; 85) {
       maturityTier = "TIER 4: ADAPTIVE & CYBER-RESILIENT";
       tierColor = "text-emerald-400 font-extrabold";
       description = "World-class defense! Automated 24-hr KEV patching, universal FIDO2 hardware MFA, host micro-segmentation, and immutable WORM backups reduce breach probability by >95%.";
@@ -356,7 +356,7 @@ const Topic11 = () => {
                   value={patchHygieneLevel}
                   onChange={(e) => setPatchHygieneLevel(Number(e.target.value))}
                   className="w-full accent-emerald-500 cursor-pointer"
-                />
+                /&gt;
               </div>
 
               {/* Slider 2 */}
@@ -372,7 +372,7 @@ const Topic11 = () => {
                   value={zeroTrustIdentityLevel}
                   onChange={(e) => setZeroTrustIdentityLevel(Number(e.target.value))}
                   className="w-full accent-blue-500 cursor-pointer"
-                />
+                /&gt;
               </div>
 
               {/* Slider 3 */}
@@ -388,7 +388,7 @@ const Topic11 = () => {
                   value={microsegmentationLevel}
                   onChange={(e) => setMicrosegmentationLevel(Number(e.target.value))}
                   className="w-full accent-purple-500 cursor-pointer"
-                />
+                /&gt;
               </div>
 
               {/* Slider 4 */}
@@ -404,7 +404,7 @@ const Topic11 = () => {
                   value={immutableBackupLevel}
                   onChange={(e) => setImmutableBackupLevel(Number(e.target.value))}
                   className="w-full accent-amber-500 cursor-pointer"
-                />
+                /&gt;
               </div>
 
               {/* Slider 5 */}
@@ -420,7 +420,7 @@ const Topic11 = () => {
                   value={soarAutomationLevel}
                   onChange={(e) => setSoarAutomationLevel(Number(e.target.value))}
                   className="w-full accent-pink-500 cursor-pointer"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -542,7 +542,7 @@ const Topic11 = () => {
                     ? "bg-indigo-950/70 border-indigo-500 text-white ring-2 ring-indigo-500 shadow-lg"
                     : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
                 )}
-              >
+              &gt;
                 {item.name.split(" (")[0]}
               </button>
             ))}
@@ -625,7 +625,7 @@ const Topic11 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 1. The Regional Enterprise Resilience Architecture
               </button>
               <button
@@ -636,7 +636,7 @@ const Topic11 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 2. Sovereign Governance & DPDP Act 2023 Compliance
               </button>
             </div>

@@ -79,7 +79,7 @@ p {
             <button
               onClick={() => this.copyCode(codeExample)}
               className="absolute top-2 right-2 text-xs px-2 py-1 bg-slate-700 text-white rounded opacity-0 group-hover:opacity-100 transition"
-            >
+            &gt;
               <ClipboardCopy size={12} className="inline mr-1" />
               {this.state.copied ? "Copied!" : "Copy"}
             </button>

@@ -73,7 +73,7 @@ const Topic9 = () => {
     }
   };
 
-  // 1. Compute Semijoin (Students ⋉ Enrollments) -> Enrolled Students (101, 102, 103)
+  // 1. Compute Semijoin (Students ⋉ Enrollments) &rarr; Enrolled Students (101, 102, 103)
   const semijoinResults = students.filter((s) =>
     enrollments.some((e) => e.studentId === s.id)
   );
@@ -282,7 +282,7 @@ const Topic9 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Semijoin (R ⋉ S - Enrolled)
               </button>
 
@@ -297,7 +297,7 @@ const Topic9 = () => {
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Antijoin (R ▷ S - Unenrolled)
               </button>
 
@@ -312,7 +312,7 @@ const Topic9 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. The NOT IN NULL Trap Demo
               </button>
             </div>

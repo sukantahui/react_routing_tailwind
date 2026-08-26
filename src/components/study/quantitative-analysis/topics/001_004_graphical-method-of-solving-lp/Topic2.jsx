@@ -119,7 +119,7 @@ const Topic2 = () => {
                   value={a}
                   onChange={(e) => setA(Number(e.target.value))}
                   className="w-full"
-                />
+                /&gt;
                 <span className="text-sm text-gray-600 dark:text-gray-400">{a}</span>
               </div>
               <div>
@@ -131,7 +131,7 @@ const Topic2 = () => {
                   value={b}
                   onChange={(e) => setB(Number(e.target.value))}
                   className="w-full"
-                />
+                /&gt;
                 <span className="text-sm text-gray-600 dark:text-gray-400">{b}</span>
               </div>
               <div>
@@ -143,7 +143,7 @@ const Topic2 = () => {
                   value={c}
                   onChange={(e) => setC(Number(e.target.value))}
                   className="w-full"
-                />
+                /&gt;
                 <span className="text-sm text-gray-600 dark:text-gray-400">{c}</span>
               </div>
             </div>
@@ -217,7 +217,7 @@ const Topic2 = () => {
               })()}
               
               {/* Intercept points */}
-              {xIntercept >= 0 && xIntercept <= 10 && (
+              {xIntercept &ge; 0 && xIntercept &le; 10 && (
                 <g>
                   <circle cx={40 + xIntercept * 32} cy="360" r="7" fill="#4ECDC4" stroke="white" strokeWidth="2">
                     <animate attributeName="r" values="7;9;7" dur="1.5s" repeatCount="indefinite" />
@@ -227,7 +227,7 @@ const Topic2 = () => {
                   </text>
                 </g>
               )}
-              {yIntercept >= 0 && yIntercept <= 10 && (
+              {yIntercept &ge; 0 && yIntercept &le; 10 && (
                 <g>
                   <circle cx="40" cy={360 - yIntercept * 32} r="7" fill="#FFE66D" stroke="white" strokeWidth="2">
                     <animate attributeName="r" values="7;9;7" dur="1.5s" begin="0.5s" repeatCount="indefinite" />
@@ -287,7 +287,7 @@ const Topic2 = () => {
                   ? "bg-blue-600 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -468,7 +468,7 @@ const Topic2 = () => {
                       <button
                         onClick={() => toggleExample(example.id)}
                         className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300"
-                      >
+                      &gt;
                         {showExample[example.id] ? 'Hide Detailed Steps' : 'Show Detailed Steps'}
                       </button>
                     </div>
@@ -509,13 +509,13 @@ const Topic2 = () => {
                         <button
                           onClick={() => setShowSolution(showSolution === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800/30 transition-all duration-300"
-                        >
+                        &gt;
                           {showSolution === problem.id ? 'Hide Solution' : 'Check Solution'}
                         </button>
                         <button
                           onClick={() => setShowHint(showHint === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
-                        >
+                        &gt;
                           {showHint === problem.id ? 'Hide Hint' : 'Show Hint'}
                         </button>
                       </div>

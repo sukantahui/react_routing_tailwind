@@ -38,7 +38,7 @@ export default class Topic2 extends Component {
         <CodeBlock
           code={`<h2 id="greet">Welcome to Coder & AccoTax</h2>`}
           language="html"
-        />
+        /&gt;
 
         {/* JS */}
         <CodeBlock
@@ -61,7 +61,7 @@ title.innerText = "Hello Students — Class by Sukanta Hui";`}
         <CodeBlock
           code={`<div id="box"></div>`}
           language="html"
-        />
+        /&gt;
 
         <CodeBlock
           code={`document.getElementById("box").innerHTML = \`
@@ -73,7 +73,7 @@ title.innerText = "Hello Students — Class by Sukanta Hui";`}
   </ul>
 \`;`}
           language="javascript"
-        />
+        /&gt;
 
         {/* ===========================
             SECTION 3 — Changing CSS
@@ -90,7 +90,7 @@ title.innerText = "Hello Students — Class by Sukanta Hui";`}
         <CodeBlock
           code={`<p id="note">Important Notice</p>`}
           language="html"
-        />
+        /&gt;
 
         {/* JS */}
         <CodeBlock
@@ -116,7 +116,7 @@ note.style.borderRadius = "6px";`}
         <CodeBlock
           code={`<p id="studentName" class="tag">Kaustav</p>`}
           language="html"
-        />
+        /&gt;
 
         <CodeBlock
           code={`const student = document.getElementById("studentName");
@@ -152,7 +152,7 @@ student.classList.toggle("dark-theme");`}
 
 <button id="add">Add Devangshu</button>`}
           language="html"
-        />
+        /&gt;
 
         {/* JS */}
         <CodeBlock
@@ -163,7 +163,7 @@ btn.addEventListener("click", () => {
   attendance.innerHTML += "<li>Devangshu</li>";
 });`}
           language="javascript"
-        />
+        /&gt;
 
         {/* ===========================
             Summary

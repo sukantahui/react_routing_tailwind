@@ -41,7 +41,7 @@ export default function Topic8() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        >
+        &gt;
           <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-400 to-rose-500 bg-clip-text text-transparent">
             COUNTIF Function (Single Condition Counting)
           </h1>
@@ -54,7 +54,7 @@ export default function Topic8() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-pink-500/50 transition-all duration-300"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-pink-400">🔢</span> Function Prototype
           </h2>
@@ -72,14 +72,14 @@ export default function Topic8() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">🔍 Parameters Explained</h2>
           <div className="mt-4 space-y-3 text-gray-200">
             <div><span className="text-pink-300 font-mono">range</span> – The group of cells you want to evaluate.</div>
             <div><span className="text-pink-300 font-mono">criteria</span> – The condition that determines which cells to count. Can be a number, text, expression, or cell reference.</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-4 border-l-4 border-pink-500 mt-4">
-            <p className="font-mono text-sm">{`✅ =COUNTIF(A1:A10, ">50") → counts numbers greater than 50`}</p>
+            <p className="font-mono text-sm">{`✅ =COUNTIF(A1:A10, "&gt;50") → counts numbers greater than 50`}</p>
             <p className="font-mono text-sm mt-1">✅ =COUNTIF(B2:B100, "Apple") → counts cells containing exactly "Apple"</p>
             <p className="font-mono text-sm mt-1">{`✅ =COUNTIF(C:C, "="&amp;D1) → counts cells equal to value in D1`}</p>
             <p className="font-mono text-sm mt-1">{`✅ =COUNTIF(E:E, "*") → counts all non‑blank cells`}</p>
@@ -90,7 +90,7 @@ export default function Topic8() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">📊 Real-World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -107,7 +107,7 @@ export default function Topic8() {
                   <tr><td className="border px-3 py-1">Debangshu</td><td className="border px-3 py-1">68</td></tr>
                 </tbody>
               </table>
-              <p className="mt-3 text-pink-300">{`=COUNTIF(B2:B6, ">80") → 3 (85,92,95)`}</p>
+              <p className="mt-3 text-pink-300">{`=COUNTIF(B2:B6, "&gt;80") → 3 (85,92,95)`}</p>
               <p className="mt-1 text-pink-300">=COUNTIF(A2:A6, "Swadeep") → 1</p>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function Topic8() {
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (
@@ -145,8 +145,8 @@ export default function Topic8() {
           <h3 className="text-xl font-semibold text-red-300">⚠️ Common Pitfalls</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Forgetting quotes around text criteria: =COUNTIF(A:A, Apples) → error; correct: "Apples".</li>
-            <li>{`Using operators like >, < without quotes: =COUNTIF(A:A, >5) → error; correct: ">5".`}</li>
-            <li>{`Concatenating cell references incorrectly: ">"&amp;E1 (not ">E1").`}</li>
+            <li>{`Using operators like &gt;, < without quotes: =COUNTIF(A:A, >5) → error; correct: "&gt;5".`}</li>
+            <li>{`Concatenating cell references incorrectly: "&gt;"&amp;E1 (not ">E1").`}</li>
             <li>COUNTIF is not case‑sensitive – “APPLE” = “apple”.</li>
             <li>COUNTIF treats numbers stored as text as text – they won't be counted with numeric criteria.</li>
           </ul>
@@ -167,8 +167,8 @@ export default function Topic8() {
         <section className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5">
           <h3 className="text-xl font-semibold text-yellow-300">💭 Think about...</h3>
           <p className="mt-2 text-gray-200">
-            {`“If you have a list of exam marks, =COUNTIF(marks, “>80”) gives the number of top performers. But what if you want to count students whose marks are strictly greater than the class average?<br />
-            Observe carefully: =COUNTIF(marks, “>”&AVERAGE(marks)) – the criteria is dynamic.”`}
+            {`“If you have a list of exam marks, =COUNTIF(marks, “&gt;80”) gives the number of top performers. But what if you want to count students whose marks are strictly greater than the class average?<br />
+            Observe carefully: =COUNTIF(marks, “&gt;”&AVERAGE(marks)) – the criteria is dynamic.”`}
           </p>
         </section>
 
@@ -189,8 +189,8 @@ export default function Topic8() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mt-2 list-disc list-inside text-gray-200">
             <li>✅ Syntax: =COUNTIF(range, criteria)</li>
             <li>✅ Text criteria in double quotes: "Apple"</li>
-            <li>{`✅ Operators in quotes: ">10"`}</li>
-            <li>{`✅ Use &amp; to reference cells: ">"&amp;B1`}</li>
+            <li>{`✅ Operators in quotes: "&gt;10"`}</li>
+            <li>{`✅ Use &amp; to reference cells: "&gt;"&amp;B1`}</li>
             <li>✅ Wildcards * and ? work for text</li>
             <li>✅ Returns 0 if no match</li>
           </ul>

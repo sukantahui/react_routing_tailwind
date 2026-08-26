@@ -275,7 +275,7 @@ const Topic9 = () => {
           <h3 className="text-xl font-bold text-green-800 dark:text-green-300">✅ Best Practices for Microwave Deployment</h3>
           <ul className="list-disc pl-5 mt-2 space-y-1">
             <li>Always perform a site survey with a GPS and binoculars (or drone) to verify LOS.</li>
-            <li>Use high-quality, low-loss coaxial cables (or waveguide for {`>`}10 GHz) between radio and antenna.</li>
+            <li>Use high-quality, low-loss coaxial cables (or waveguide for {`&gt;`}10 GHz) between radio and antenna.</li>
             <li>Install lightning arrestors and grounding for outdoor equipment.</li>
             <li>Monitor link performance with SNMP and set up alerts for RSSI drops.</li>
             <li>Document link parameters (frequency, polarization, antenna gains, cable losses) for troubleshooting.</li>

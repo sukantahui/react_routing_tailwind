@@ -49,7 +49,7 @@ const Topic4 = () => {
       usage: "p = vertices, q = density"
     },
     {
-      name: "Compound Stars: gcd(p,q) > 1",
+      name: "Compound Stars: gcd(p,q) &gt; 1",
       returnType: "Overlapping Polygons",
       purpose: "Decomposes into gcd(p, q) overlapping regular polygons (e.g. 2 squares for {8/2}).",
       usage: "draw_rotated_squares(offset=45)"
@@ -120,7 +120,7 @@ const Topic4 = () => {
                       ? "bg-amber-500 text-slate-950 font-bold shadow-lg shadow-amber-500/25"
                       : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
                   }`}
-                >
+                &gt;
                   {star.name}
                 </button>
               ))}
@@ -321,7 +321,7 @@ const Topic4 = () => {
             <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
               <strong className="text-rose-400 block text-sm">2. Non-Coprime Stride Deadlock</strong>
               <p className="text-slate-400">
-                Trying to draw {"{6/2}"} as a single continuous line loops over 3 vertices endlessly. When <code className="text-amber-300 font-mono">{"gcd(p, q) > 1"}</code>, multiple distinct polygons must be drawn.
+                Trying to draw {"{6/2}"} as a single continuous line loops over 3 vertices endlessly. When <code className="text-amber-300 font-mono">{"gcd(p, q) &gt; 1"}</code>, multiple distinct polygons must be drawn.
               </p>
             </div>
 

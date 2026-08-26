@@ -124,7 +124,7 @@ const Topic7 = () => {
             <button
               onClick={() => setShowCnameChain(!showCnameChain)}
               className="mt-3 text-sm text-blue-600 dark:text-blue-400 hover:underline"
-            >
+            &gt;
               {showCnameChain ? "Hide" : "Show"} CNAME chaining example
             </button>
             {showCnameChain && (
@@ -174,7 +174,7 @@ const Topic7 = () => {
             <div className="bg-red-50 dark:bg-red-900/20 p-6 rounded-2xl">
               <h3 className="text-xl font-bold text-red-700 dark:text-red-300 mb-3">⚠️ Common Pitfalls</h3>
               <ul className="list-disc pl-5 space-y-2">
-                <li><strong>CNAME at apex:</strong> Trying to set CNAME on the bare domain {`(e.g., example.com -> alias)`}.</li>
+                <li><strong>CNAME at apex:</strong> Trying to set CNAME on the bare domain {`(e.g., example.com &rarr; alias)`}.</li>
                 <li><strong>CNAME with other records:</strong> Adding A or MX record alongside CNAME — causes unpredictable behavior.</li>
                 <li><strong>Forgotten trailing dot:</strong> <code>example.com CNAME google.com</code> (relative) vs <code>google.com.</code> (FQDN).</li>
                 <li><strong>Circular CNAME chains:</strong> A → B → A creates a loop; resolves time out.</li>

@@ -181,11 +181,11 @@ if (forbidden_pretexts.Contains(ProposedSimulation.PretextType)) {
     const numerator = trainingQualityScore * simulationCadence;
     const exponent = -numerator / lureDifficulty;
     const rawPpp = baselinePppRate * Math.exp(exponent);
-    const actualPpp = simulationCadence >= 4
+    const actualPpp = simulationCadence &ge; 4
       ? (rawPpp * 0.25).toFixed(2) // Monthly Micro-Learning achieves 75% additional reduction
       : simulationCadence >= 2
       ? (rawPpp * 0.65).toFixed(2)  // Quarterly training achieves moderate reduction
-      : rawPpp.toFixed(2);           // Annual training -> High persistent failure rate
+      : rawPpp.toFixed(2);           // Annual training &rarr; High persistent failure rate
 
     return {
       rawPpp: rawPpp.toFixed(2),
@@ -635,7 +635,7 @@ Write-Host "[+] Malicious Phishing Email PURGED globally from all 1,199 remainin
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   METHOD
                 </span>
@@ -732,7 +732,7 @@ Write-Host "[+] Malicious Phishing Email PURGED globally from all 1,199 remainin
                   value={baselinePppRate}
                   onChange={(e) => setBaselinePppRate(parseInt(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -748,7 +748,7 @@ Write-Host "[+] Malicious Phishing Email PURGED globally from all 1,199 remainin
                   value={trainingQualityScore}
                   onChange={(e) => setTrainingQualityScore(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -762,7 +762,7 @@ Write-Host "[+] Malicious Phishing Email PURGED globally from all 1,199 remainin
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Annual (1x)
                   </button>
                   <button
@@ -773,7 +773,7 @@ Write-Host "[+] Malicious Phishing Email PURGED globally from all 1,199 remainin
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Quarterly (2x)
                   </button>
                   <button
@@ -784,7 +784,7 @@ Write-Host "[+] Malicious Phishing Email PURGED globally from all 1,199 remainin
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Monthly (4x)
                   </button>
                 </div>
@@ -843,7 +843,7 @@ Write-Host "[+] Malicious Phishing Email PURGED globally from all 1,199 remainin
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -892,7 +892,7 @@ Write-Host "[+] Malicious Phishing Email PURGED globally from all 1,199 remainin
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

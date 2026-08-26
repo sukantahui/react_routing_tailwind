@@ -36,7 +36,7 @@ const Topic55 = () => {
         <h2 className="mb-4 text-2xl font-semibold">What Are Inline Functions?</h2>
         <p className="leading-relaxed">
           At Barrackpore CNAT, Ritaja noticed that a tiny function like{" "}
-          <code>{`int max(int a, int b){ return a > b ? a : b; }`}</code> was
+          <code>{`int max(int a, int b){ return a &gt; b ? a : b; }`}</code> was
           called thousands of times. Each call had overhead: pushing arguments,
           jumping, returning. She wondered: could we just paste the code where
           it's called? That's exactly what <strong>inline functions</strong> aim
@@ -68,7 +68,7 @@ const Topic55 = () => {
             {/* After: expanded */}
             <text x="320" y="30" fill="#374151" fontSize="14" fontWeight="bold">After</text>
             <rect x="320" y="40" width="150" height="100" fill="#059669" rx="4" />
-            <text x="330" y="70" fill="white" fontSize="10">x = a {`>`} b ? a : b;</text>
+            <text x="330" y="70" fill="white" fontSize="10">x = a {`&gt;`} b ? a : b;</text>
             <text x="330" y="100" fill="white" fontSize="10">(no call)</text>
             <text x="330" y="130" fill="white" fontSize="10">body inserted directly</text>
 

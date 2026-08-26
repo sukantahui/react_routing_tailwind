@@ -21,7 +21,7 @@ const Topic1 = () => {
 
   const singleRowScenarios = {
     above_average_score: {
-      title: "1. Above-Average Benchmark Filter (> AVG)",
+      title: "1. Above-Average Benchmark Filter (&gt; AVG)",
       badge: "Arithmetic Comparison",
       badgeColor: "emerald",
       sqlQuery: `-- Finding students scoring strictly above the academy-wide average:
@@ -109,7 +109,7 @@ ORDER BY s.first_name ASC;`,
       badgeColor: "rose",
       sqlQuery: `-- Discovering the 2nd highest exam score in the academy:
 -- Inner Nested Query 1: Computes global MAX(exam_score_pct) = 96.20%.
--- Inner Nested Query 2: Computes MAX(exam_score_pct) strictly less than 96.20% -> 94.50%.
+-- Inner Nested Query 2: Computes MAX(exam_score_pct) strictly less than 96.20% &rarr; 94.50%.
 -- Outer Query: Matches students scoring exactly 94.50%.
 
 SELECT 
@@ -166,7 +166,7 @@ WHERE s.exam_score_pct = (
             Single-Row Subqueries with Comparison Operators
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
-            Harness single-row scalar subqueries with standard comparison operators (<code className="text-cyan-300 font-mono">=, &lt;&gt;, &gt;, &gt;=, &lt;, &lt;=</code>). Master dynamic benchmarking, extreme value matching, and defensive techniques to eliminate Error 1242.
+            Harness single-row scalar subqueries with standard comparison operators (<code className="text-cyan-300 font-mono">=, &lt;&gt;, &gt;, >=, &lt;, <=</code>). Master dynamic benchmarking, extreme value matching, and defensive techniques to eliminate Error 1242.
           </p>
         </div>
       </header>
@@ -214,7 +214,7 @@ WHERE s.exam_score_pct = (
                 <span>⚖️</span> Scalar Comparison Operators
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Directly compatible with <code className="text-emerald-300 font-mono">=, !=, &lt;&gt;, &gt;, &gt;=, &lt;, &lt;=</code> without requiring set keywords.
+                Directly compatible with <code className="text-emerald-300 font-mono">=, !=, &lt;&gt;, &gt;, >=, &lt;, <=</code> without requiring set keywords.
               </p>
             </div>
 
@@ -254,7 +254,7 @@ WHERE s.exam_score_pct = (
               <p className="text-slate-400 font-sans">Strictly greater than scalar.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-              <span className="text-emerald-400 font-bold block text-sm">&gt;=</span>
+              <span className="text-emerald-400 font-bold block text-sm">>=</span>
               <p className="text-slate-400 font-sans">Greater than or equal to.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
@@ -262,7 +262,7 @@ WHERE s.exam_score_pct = (
               <p className="text-slate-400 font-sans">Strictly less than scalar.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-              <span className="text-amber-400 font-bold block text-sm">&lt;=</span>
+              <span className="text-amber-400 font-bold block text-sm"><=</span>
               <p className="text-slate-400 font-sans">Less than or equal to.</p>
             </div>
           </div>
@@ -373,7 +373,7 @@ WHERE s.exam_score_pct = (
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -553,7 +553,7 @@ SELECT * FROM enrollments WHERE fee_paid = (SELECT SUM(amount_paid_inr) FROM fee
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">02.</span>
-                  <span>Use standard comparison operators: <code className="text-cyan-300 font-mono">=, &lt;&gt;, &gt;, &gt;=, &lt;, &lt;=</code>.</span>
+                  <span>Use standard comparison operators: <code className="text-cyan-300 font-mono">=, &lt;&gt;, &gt;, >=, &lt;, <=</code>.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">03.</span>

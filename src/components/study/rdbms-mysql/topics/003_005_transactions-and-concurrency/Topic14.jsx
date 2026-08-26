@@ -40,7 +40,7 @@ UPDATE student_ledgers SET balance = balance + 1000 WHERE student_id = 102;
 -- Session 2 NOW requests Mamata:
 UPDATE student_ledgers SET balance = balance + 1000 WHERE student_id = 101;
 -- 💥 DEADLOCK DETECTED!
--- InnoDB traverses Wait-For Graph: Session 1 -> Session 2 -> Session 1 (CYCLE!)
+-- InnoDB traverses Wait-For Graph: Session 1 &rarr; Session 2 -&gt; Session 1 (CYCLE!)
 -- InnoDB selects Session 2 as Victim (fewer undo logs):
 -- 🚨 Session 2 receives: ERROR 1213 (40001): Deadlock found; try restarting transaction!
 -- ⚡ Session 1 unblocks and commits successfully!`,
@@ -150,7 +150,7 @@ END //
 DELIMITER ;`,
       resultRows: [
         { session: "Session 1 (Transfer 101 -> 102)", holdsLockOn: "Locks 101 then 102", waitsForLockOn: "Zero Cycle", engineDecision: "Deterministic Queue", finalAction: "Executes in Order", status: "Zero Deadlocks 🛡️" },
-        { session: "Session 2 (Transfer 102 -> 101)", holdsLockOn: "Locks 101 then 102", waitsForLockOn: "Waits on 101 cleanly", engineDecision: "Linear Lock Queue", finalAction: "Executes in Order", status: "Zero Deadlocks 🛡️" },
+        { session: "Session 2 (Transfer 102 &rarr; 101)", holdsLockOn: "Locks 101 then 102", waitsForLockOn: "Waits on 101 cleanly", engineDecision: "Linear Lock Queue", finalAction: "Executes in Order", status: "Zero Deadlocks 🛡️" },
       ],
       explanation:
         "Sorting row locks in ascending primary key order guarantees that all concurrent transactions request locks in the exact same sequence, making circular wait deadlocks mathematically impossible.",
@@ -372,7 +372,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

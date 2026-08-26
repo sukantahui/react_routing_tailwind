@@ -77,7 +77,7 @@ const Topic7 = () => {
     sqli_rule: {
       id: "sqli_rule",
       title: "SQL Injection Detection Rule (SID: 1000001)",
-      ruleHeader: "alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS 80",
+      ruleHeader: "alert tcp $EXTERNAL_NET any &rarr; $HTTP_SERVERS 80",
       ruleOptions: `(msg:"EXPLOIT SQL Injection UNION SELECT"; flow:to_server,established; content:"UNION SELECT"; nocase; http_uri; fast_pattern; classtype:web-application-attack; sid:1000001; rev:1;)`,
       testedPattern: "UNION SELECT",
       isHttpUri: true
@@ -85,7 +85,7 @@ const Topic7 = () => {
     log4shell_rule: {
       id: "log4shell_rule",
       title: "Log4Shell JNDI Exploit Drop Rule (SID: 1000002)",
-      ruleHeader: "drop tcp $EXTERNAL_NET any -> $HTTP_SERVERS 443",
+      ruleHeader: "drop tcp $EXTERNAL_NET any -&gt; $HTTP_SERVERS 443",
       ruleOptions: `(msg:"EXPLOIT Log4Shell JNDI Lookup"; flow:to_server,established; content:"\${diagnostic_jndi:"; nocase; fast_pattern; classtype:attempted-admin; sid:1000002; rev:2;)`,
       testedPattern: "${diagnostic_jndi:",
       isHttpUri: false
@@ -350,7 +350,7 @@ const Topic7 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {a.title}
               </button>
             ))}
@@ -424,7 +424,7 @@ const Topic7 = () => {
                 value={selectedRuleTemplate}
                 onChange={(e) => setSelectedRuleTemplate(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(ruleTemplates).map((r) => (
                   <option key={r.id} value={r.id}>
                     {r.title}
@@ -439,7 +439,7 @@ const Topic7 = () => {
                 value={injectedPayloadType}
                 onChange={(e) => setInjectedPayloadType(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(injectedPayloads).map((p) => (
                   <option key={p.id} value={p.id}>
                     {p.label}
@@ -544,7 +544,7 @@ const Topic7 = () => {
                 value={cpuCoresCount}
                 onChange={(e) => setCpuCoresCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -560,7 +560,7 @@ const Topic7 = () => {
                 value={networkLinkGbps}
                 onChange={(e) => setNetworkLinkGbps(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -576,7 +576,7 @@ const Topic7 = () => {
                 value={loadedRuleCountThousands}
                 onChange={(e) => setLoadedRuleCountThousands(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -590,10 +590,10 @@ const Topic7 = () => {
 
             <div className="p-4 bg-slate-950 border border-amber-950/80 rounded-xl space-y-1">
               <span className="text-[11px] text-gray-400 font-bold uppercase tracking-wider">Estimated CPU Load</span>
-              <div className={clsx("text-2xl font-extrabold font-mono", calculatedSuricataMetrics.cpuUtilizationPercent > 80 ? "text-rose-400" : "text-emerald-400")}>
+              <div className={clsx("text-2xl font-extrabold font-mono", calculatedSuricataMetrics.cpuUtilizationPercent > 80 ? "text-rose-400" : "text-emerald-400")}&gt;
                 {calculatedSuricataMetrics.cpuUtilizationPercent}% Load
               </div>
-              <span className="text-[10px] text-gray-500 block">{calculatedSuricataMetrics.cpuUtilizationPercent > 80 ? "⚠️ Sizing Warning: Add More Cores" : "✔ Inspection Headroom Optimal"}</span>
+              <span className="text-[10px] text-gray-500 block">{calculatedSuricataMetrics.cpuUtilizationPercent &gt; 80 ? "⚠️ Sizing Warning: Add More Cores" : "✔ Inspection Headroom Optimal"}</span>
             </div>
 
             <div className="p-4 bg-slate-950 border border-purple-950/80 rounded-xl space-y-1">
@@ -632,7 +632,7 @@ const Topic7 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

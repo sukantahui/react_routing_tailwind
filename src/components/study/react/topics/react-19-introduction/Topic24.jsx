@@ -71,7 +71,7 @@ const Topic24 = () => {
                     ? "bg-gray-800 hover:bg-gray-700 border border-gray-700" 
                     : "bg-white hover:bg-gray-50 border border-gray-200 shadow"
                 )}
-              >
+              &gt;
                 <span className="flex items-center gap-2">
                   {isDark ? (
                     <>
@@ -745,7 +745,7 @@ const Topic24 = () => {
                               ? "text-gray-400 hover:text-gray-300"
                               : "text-gray-500 hover:text-gray-700"
                         )}
-                      >
+                      &gt;
                         {tab.charAt(0).toUpperCase() + tab.slice(1)}
                       </button>
                     ))}
@@ -843,7 +843,7 @@ const Topic24 = () => {
                             : "bg-white hover:bg-gray-50 border border-gray-200 shadow-sm"
                         )}
                         onClick={() => toggleAttendance(student.id)}
-                      >
+                      &gt;
                         <div className="flex justify-between items-center">
                           <div>
                             <h4 className={clsx(
@@ -885,7 +885,7 @@ const Topic24 = () => {
                                   ? "bg-gray-700 hover:bg-gray-600" 
                                   : "bg-gray-200 hover:bg-gray-300"
                               )}
-                            >
+                            &gt;
                               Toggle
                             </button>
                           </div>

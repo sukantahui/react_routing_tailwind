@@ -37,7 +37,7 @@ const Topic11 = () => {
     trustScore = Math.max(trustScore, 0);
 
     const minRequired = targetResource === "CROWN_JEWEL" ? 85 : 40;
-    const isGranted = trustScore >= minRequired;
+    const isGranted = trustScore &ge; minRequired;
     const isChallenge = !isGranted && trustScore >= (minRequired - 20);
 
     let decision = "";
@@ -215,19 +215,19 @@ const Topic11 = () => {
                   <button
                     onClick={() => setMfaType("NONE")}
                     className={clsx("flex-1 py-1.5 rounded-lg text-[11px] font-bold border", mfaType === "NONE" ? "bg-rose-950 text-rose-300 border-rose-800" : "bg-slate-900 text-slate-400 border-slate-800")}
-                  >
+                  &gt;
                     Password Only (No MFA)
                   </button>
                   <button
                     onClick={() => setMfaType("SMS_OTP")}
                     className={clsx("flex-1 py-1.5 rounded-lg text-[11px] font-bold border", mfaType === "SMS_OTP" ? "bg-amber-950 text-amber-300 border-amber-800" : "bg-slate-900 text-slate-400 border-slate-800")}
-                  >
+                  &gt;
                     SMS OTP (Phishable)
                   </button>
                   <button
                     onClick={() => setMfaType("FIDO2")}
                     className={clsx("flex-1 py-1.5 rounded-lg text-[11px] font-bold border", mfaType === "FIDO2" ? "bg-emerald-950 text-emerald-300 border-emerald-800" : "bg-slate-900 text-slate-400 border-slate-800")}
-                  >
+                  &gt;
                     FIDO2 Hardware Passkey
                   </button>
                 </div>
@@ -242,7 +242,7 @@ const Topic11 = () => {
                     checked={deviceEdrActive}
                     onChange={(e) => setDeviceEdrActive(e.target.checked)}
                     className="accent-blue-500 w-4 h-4"
-                  />
+                  /&gt;
                 </label>
                 <label className="flex items-center justify-between p-2 bg-slate-900 rounded-lg border border-slate-800 cursor-pointer">
                   <span className="text-[11px] text-white">OS Patched (0-30d)</span>
@@ -251,7 +251,7 @@ const Topic11 = () => {
                     checked={devicePatched}
                     onChange={(e) => setDevicePatched(e.target.checked)}
                     className="accent-blue-500 w-4 h-4"
-                  />
+                  /&gt;
                 </label>
               </div>
 
@@ -259,7 +259,7 @@ const Topic11 = () => {
               <div className="space-y-1.5 pt-2 border-t border-slate-800">
                 <div className="flex justify-between text-slate-300 font-semibold">
                   <span>UEBA Anomaly Risk Score:</span>
-                  <span className={clsx("font-mono font-bold", uebaRisk > 50 ? "text-rose-400" : "text-emerald-400")}>
+                  <span className={clsx("font-mono font-bold", uebaRisk > 50 ? "text-rose-400" : "text-emerald-400")}&gt;
                     {uebaRisk} / 100 ({uebaRisk > 50 ? "High Anomaly 🚨" : "Normal Baseline ✔"})
                   </span>
                 </div>
@@ -271,20 +271,20 @@ const Topic11 = () => {
                   value={uebaRisk}
                   onChange={(e) => setUebaRisk(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
-                />
+                /&gt;
               </div>
 
               <div className="flex gap-2 pt-2 border-t border-slate-800">
                 <button
                   onClick={() => setTargetResource("INTERNAL_WIKI")}
                   className={clsx("flex-1 py-1.5 rounded-lg text-[11px] font-bold border", targetResource === "INTERNAL_WIKI" ? "bg-blue-600 text-white shadow-lg" : "bg-slate-900 text-slate-400 border-slate-800")}
-                >
+                &gt;
                   Resource: Internal Wiki (Score &ge; 40)
                 </button>
                 <button
                   onClick={() => setTargetResource("CROWN_JEWEL")}
                   className={clsx("flex-1 py-1.5 rounded-lg text-[11px] font-bold border", targetResource === "CROWN_JEWEL" ? "bg-rose-600 text-white shadow-lg" : "bg-slate-900 text-slate-400 border-slate-800")}
-                >
+                &gt;
                   Resource: Treasury DB (Score &ge; 85)
                 </button>
               </div>
@@ -344,13 +344,13 @@ const Topic11 = () => {
                     "px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200",
                     microSegEnabled ? "bg-blue-600 text-white" : "bg-slate-800 text-slate-400"
                   )}
-                >
+                &gt;
                   {microSegEnabled ? "Micro-Segmentation: ACTIVE ✔" : "Flat Network: ACTIVE ⚠️"}
                 </button>
                 <button
                   onClick={() => setInfectionTriggered(true)}
                   className="px-4 py-1.5 bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold rounded-lg shadow-lg shadow-rose-950 transition-all duration-200"
-                >
+                &gt;
                   Infect Workstation A 🚨
                 </button>
               </div>
@@ -423,7 +423,7 @@ const Topic11 = () => {
                       ? "bg-blue-600 text-white shadow-lg shadow-blue-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_microseg" ? "Barrackpore Micro-Seg" : key === "kolkata_fintech_cae_revocation" ? "Kolkata CAE Token Revocation" : "Ichapur SPIRE Mesh"}
                 </button>
               ))}

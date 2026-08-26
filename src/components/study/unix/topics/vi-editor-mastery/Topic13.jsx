@@ -119,7 +119,7 @@ set clipboard=unnamedplus " Use system clipboard (Linux)
 colorscheme desert       " Built-in scheme
 
 " Save and restore cursor position
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif`}
+au BufReadPost * if line("'\"") &gt; 1 && line("'\"") &le; line("$") | exe "normal! g'\"" | endif`}
             </pre>
             <p className="text-gray-400 text-xs mt-2">Put this in <code>~/.vimrc</code> and restart Vim. Each line is executed at startup.</p>
           </div>

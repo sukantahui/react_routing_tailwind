@@ -175,8 +175,8 @@ const Topic10 = () => {
           <p className="mb-4">Toggle p and q to see how different expressions behave. Observe which expression always yields the same result.</p>
           
           <div className="flex flex-wrap gap-6 mb-6">
-            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /> <span className="font-mono font-bold">p = {pVal ? 'true' : 'false'}</span></label>
-            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /> <span className="font-mono font-bold">q = {qVal ? 'true' : 'false'}</span></label>
+            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">p = {pVal ? 'true' : 'false'}</span></label>
+            <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">q = {qVal ? 'true' : 'false'}</span></label>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -246,7 +246,7 @@ const Topic10 = () => {
 
         {/* Teacher's Note */}
         <div className="animate-[slideUp_0.5s_ease-out] animation-delay-800">
-          <Teacher note="Tautologies and contradictions are the extremes of logical expressions. Use everyday examples: 'It will rain or it will not rain' (tautology) vs 'It will rain and it will not rain' (contradiction). Encourage students to create their own examples. In coding, tautologies often indicate logic errors — a condition like 'if (x > 5 || x <= 5)' is always true." />
+          <Teacher note="Tautologies and contradictions are the extremes of logical expressions. Use everyday examples: 'It will rain or it will not rain' (tautology) vs 'It will rain and it will not rain' (contradiction). Encourage students to create their own examples. In coding, tautologies often indicate logic errors — a condition like 'if (x > 5 || x &le; 5)' is always true." /&gt;
         </div>
 
         {/* FAQ Section */}

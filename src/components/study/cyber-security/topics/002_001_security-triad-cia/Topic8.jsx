@@ -375,7 +375,7 @@ const Topic8 = () => {
               value={authStrictness}
               onChange={(e) => setAuthStrictness(Number(e.target.value))}
               className="w-full h-3 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-            />
+            /&gt;
 
             <div className="flex justify-between text-xs text-gray-500 font-mono">
               <span>1: Permissive</span>
@@ -399,17 +399,17 @@ const Topic8 = () => {
                 <span>Security Strength</span>
                 <span className={clsx(
                   currentPolicy.securityScore >= 80 ? "text-emerald-400" :
-                  currentPolicy.securityScore >= 50 ? "text-amber-400" : "text-rose-400"
-                )}>{currentPolicy.securityScore}%</span>
+                  currentPolicy.securityScore &ge; 50 ? "text-amber-400" : "text-rose-400"
+                )}&gt;{currentPolicy.securityScore}%</span>
               </div>
               <div className="w-full h-2.5 bg-gray-800 rounded-full overflow-hidden">
                 <div 
                   className={clsx("h-full transition-all duration-500", 
                     currentPolicy.securityScore >= 80 ? "bg-emerald-500" :
-                    currentPolicy.securityScore >= 50 ? "bg-amber-500" : "bg-rose-500"
+                    currentPolicy.securityScore &ge; 50 ? "bg-amber-500" : "bg-rose-500"
                   )}
                   style={{ width: `${currentPolicy.securityScore}%` }}
-                />
+                /&gt;
               </div>
               <p className="text-xs text-gray-500 pt-1">Defensive resistance against credential theft &amp; brute-force attacks.</p>
             </div>
@@ -503,7 +503,7 @@ const Topic8 = () => {
                     ? "bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-600/30"
                     : "bg-gray-950 text-gray-400 border-gray-800 hover:bg-gray-800 hover:text-white"
                 )}
-              >
+              &gt;
                 {paradigms[key].name}
               </button>
             ))}
@@ -624,7 +624,7 @@ const Topic8 = () => {
                     ? "bg-indigo-600/20 border-indigo-500 text-white shadow-lg shadow-indigo-600/20"
                     : "bg-gray-950 border-gray-800 text-gray-400 hover:bg-gray-800/60 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 block">{sc.location}</span>
                   <span className="text-sm font-semibold text-white block mt-0.5">{sc.title}</span>

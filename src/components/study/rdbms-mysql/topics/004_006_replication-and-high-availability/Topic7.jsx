@@ -74,9 +74,9 @@ SAVE MYSQL QUERY RULES TO DISK;`,
       badge: "Lag Protection",
       badgeColor: "purple",
       sqlSnippet: `-- 🛡️ AUTOMATED REPLICATION LAG SHUNNING:
--- If Seconds_Behind_Source > max_replication_lag (5s), ProxySQL marks node SHUNNED!
+-- If Seconds_Behind_Source &gt; max_replication_lag (5s), ProxySQL marks node SHUNNED!
 SELECT hostgroup_id, hostname, status, max_replication_lag FROM mysql_servers;
--- Output: Hostgroup 20 | 192.168.1.20 | SHUNNED | 5 (Lag: 12s -> Shunted!)
+-- Output: Hostgroup 20 | 192.168.1.20 | SHUNNED | 5 (Lag: 12s &rarr; Shunted!)
 
 -- 🧹 ZERO-DOWNTIME MAINTENANCE (OFFLINE_SOFT):
 UPDATE mysql_servers SET status = 'OFFLINE_SOFT' WHERE hostname = '192.168.1.20';
@@ -208,7 +208,7 @@ mysqlrouter --bootstrap cluster_admin@192.168.1.10:3306 --user=mysqlrouter
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {arch.archName}
                 </button>
               );

@@ -51,7 +51,7 @@ export default function Topic5() {
 
     setCumulativeOdometer((prev) => prev + Math.abs(dist));
     setMotionLogs((prev) => [
-      `[${isForward ? "FORWARD" : "BACKWARD"}] ${dist} px -> New Pos: (${newX}, ${newY})`,
+      `[${isForward ? "FORWARD" : "BACKWARD"}] ${dist} px &rarr; New Pos: (${newX}, ${newY})`,
       ...prev.slice(0, 4)
     ]);
 
@@ -261,7 +261,7 @@ export default function Topic5() {
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Forward vs Backward Vectors
               </button>
               <button
@@ -272,7 +272,7 @@ export default function Topic5() {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Relative vs Absolute Motion
               </button>
               <button
@@ -283,7 +283,7 @@ export default function Topic5() {
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Sub-Pixel Precision &amp; Drift
               </button>
             </div>
@@ -428,28 +428,28 @@ export default function Topic5() {
               <button
                 onClick={() => handleStep(50, true)}
                 className="p-2.5 bg-teal-950/80 border border-teal-600 rounded-xl text-xs font-bold text-teal-300 hover:bg-teal-900 transition-all text-center"
-              >
+              &gt;
                 Forward 50 px ⏩
               </button>
 
               <button
                 onClick={() => handleStep(30, false)}
                 className="p-2.5 bg-amber-950/80 border border-amber-600 rounded-xl text-xs font-bold text-amber-300 hover:bg-amber-900 transition-all text-center"
-              >
+              &gt;
                 Backward 30 px ⏪
               </button>
 
               <button
                 onClick={() => handleTurn(90)}
                 className="p-2.5 bg-cyan-950/80 border border-cyan-600 rounded-xl text-xs font-bold text-cyan-300 hover:bg-cyan-900 transition-all text-center"
-              >
+              &gt;
                 Turn Left 90° ↺
               </button>
 
               <button
                 onClick={() => handleTurn(-90)}
                 className="p-2.5 bg-purple-950/80 border border-purple-600 rounded-xl text-xs font-bold text-purple-300 hover:bg-purple-900 transition-all text-center"
-              >
+              &gt;
                 Turn Right 90° ↻
               </button>
 
@@ -518,7 +518,7 @@ export default function Topic5() {
             </div>
 
             {/* Motion Logs */}
-            {motionLogs.length > 0 && (
+            {motionLogs.length &gt; 0 && (
               <div className="p-3 bg-slate-900/90 rounded-xl border border-slate-800 font-mono text-[11px] text-slate-300 space-y-1">
                 <div className="text-[10px] text-slate-500 uppercase font-bold mb-1">Recent Motion Dispatch Log:</div>
                 {motionLogs.map((log, idx) => (

@@ -95,7 +95,7 @@ const Topic6 = () => {
       ? Math.round(currentThreat.rawImpact.lossRatePerHour * 0.05)
       : Math.round(currentThreat.rawImpact.lossRatePerHour * (simulatedTrafficLoad / 100));
 
-    let systemStatus = effectiveHealth >= 80 ? "Operational & Protected" : effectiveHealth >= 50 ? "Degraded Performance" : "Critical Outage";
+    let systemStatus = effectiveHealth &ge; 80 ? "Operational & Protected" : effectiveHealth >= 50 ? "Degraded Performance" : "Critical Outage";
     let statusColor = effectiveHealth >= 80 ? "text-emerald-400" : effectiveHealth >= 50 ? "text-amber-400" : "text-rose-400";
     let bgStatusColor = effectiveHealth >= 80 ? "bg-emerald-500/10 border-emerald-500/30" : effectiveHealth >= 50 ? "bg-amber-500/10 border-amber-500/30" : "bg-rose-500/10 border-rose-500/30";
 
@@ -194,7 +194,7 @@ const Topic6 = () => {
                         ? "bg-rose-500/15 border-rose-500 text-white shadow-lg shadow-rose-500/10"
                         : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                     )}
-                  >
+                  &gt;
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-bold text-slate-200">{t.name}</span>
                       {isSelected && (
@@ -258,7 +258,7 @@ const Topic6 = () => {
                         ? "bg-emerald-500/15 border-emerald-500 text-white shadow-md shadow-emerald-500/10"
                         : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
                     )}
-                  >
+                  &gt;
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-semibold">{def.label}</span>
                       <span
@@ -297,7 +297,7 @@ const Topic6 = () => {
               value={simulatedTrafficLoad}
               onChange={(e) => setSimulatedTrafficLoad(Number(e.target.value))}
               className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-            />
+            /&gt;
             <div className="flex justify-between text-xs text-slate-400 font-mono">
               <span>10% (Low Probe)</span>
               <span>50% (Standard Surge)</span>

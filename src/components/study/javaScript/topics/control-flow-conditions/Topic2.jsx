@@ -31,7 +31,7 @@ let message = age >= 18
   : "Minor";
 
 console.log(message);`}
-        />
+        /&gt;
 
         <p className="text-slate-300 text-sm md:text-base leading-relaxed">
           This line replaces a full <code>if / else</code> structure, making your code more concise.
@@ -84,7 +84,7 @@ let status = temperature > 30
   : "Comfortable";
 
 console.log(status);`}
-        />
+        /&gt;
 
         <p className="text-slate-300 text-sm md:text-base">
           These examples are ideal because each has only **two possible outcomes**.
@@ -107,7 +107,7 @@ console.log(status);`}
 
 let grade = 
   score >= 90 ? "A" :
-  score >= 75 ? "B" :
+  score &ge; 75 ? "B" :
   score >= 60 ? "C" :
   "D";
 
@@ -146,7 +146,7 @@ if (x > 10) {
 }
 
 // GOOD: Clean & simple
-let result = x > 10 ? "High" : "Low";`}
+let result = x &gt; 10 ? "High" : "Low";`}
         />
       </section>
 

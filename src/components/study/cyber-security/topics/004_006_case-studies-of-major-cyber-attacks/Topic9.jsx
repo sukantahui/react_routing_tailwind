@@ -100,7 +100,7 @@ const Topic9 = () => {
       blastRadiusDesc = "ISOLATED TO SINGLE WORKLOAD (0.01% Blast Radius)";
       postureSummary = "GOLDEN RESILIENCE FORTRESS: Automated 24-hr KEV patch pipelines eliminate weaponized CVEs; NIST Zero Trust and FIDO2 MFA prevent credential misuse; micro-segmentation prevents lateral movement. Breaches are instantly contained!";
       postureColor = "text-emerald-400 font-extrabold";
-    } else if (score >= 66) {
+    } else if (score &ge; 66) {
       blastRadiusDesc = "CONTAINED TO LOCAL SUBNET (10-25% Blast Radius)";
       postureSummary = "MODERATE DEFENSE: Two pillars active, but gaps remain. An adversary can breach one dimension, requiring manual SOC intervention to prevent domain escalation.";
       postureColor = "text-blue-400 font-bold";
@@ -129,7 +129,7 @@ const Topic9 = () => {
     let riskColor = "";
     let description = "";
 
-    if (enterprisePatchSlaHours <= 24) {
+    if (enterprisePatchSlaHours &le; 24) {
       adversaryWindowHours = enterprisePatchSlaHours;
       riskLevel = "MINIMAL (CISA KEV Compliant)";
       riskColor = "text-emerald-400 font-bold";
@@ -294,7 +294,7 @@ const Topic9 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     pillar1PatchActive ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {pillar1PatchActive ? "ACTIVE (+33%)" : "DISABLED"}
                 </button>
               </div>
@@ -311,7 +311,7 @@ const Topic9 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     pillar2ZeroTrustActive ? "bg-blue-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {pillar2ZeroTrustActive ? "ACTIVE (+34%)" : "DISABLED"}
                 </button>
               </div>
@@ -328,7 +328,7 @@ const Topic9 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     pillar3SegmentationActive ? "bg-purple-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {pillar3SegmentationActive ? "ACTIVE (+33%)" : "DISABLED"}
                 </button>
               </div>
@@ -401,7 +401,7 @@ const Topic9 = () => {
                     ? "bg-emerald-950/60 border-emerald-500 text-emerald-200 ring-2 ring-emerald-500 shadow-md"
                     : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
                 )}
-              >
+              &gt;
                 <div className="font-bold text-white text-[11px] truncate">{item.name.split(" — ")[0]}</div>
                 <div className="text-[10px] text-gray-400 mt-0.5 truncate">{item.name.split(" — ")[1]}</div>
               </button>
@@ -474,7 +474,7 @@ const Topic9 = () => {
                       "p-2.5 rounded-lg border font-bold text-xs transition-all",
                       enterprisePatchSlaHours === 24 ? "bg-emerald-600 text-white" : "bg-slate-900 border-slate-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     24 Hours (CISA KEV SLA)
                   </button>
                   <button
@@ -483,7 +483,7 @@ const Topic9 = () => {
                       "p-2.5 rounded-lg border font-bold text-xs transition-all",
                       enterprisePatchSlaHours === 48 ? "bg-blue-600 text-white" : "bg-slate-900 border-slate-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     48 Hours (High Standard)
                   </button>
                   <button
@@ -492,7 +492,7 @@ const Topic9 = () => {
                       "p-2.5 rounded-lg border font-bold text-xs transition-all",
                       enterprisePatchSlaHours === 168 ? "bg-amber-600 text-white" : "bg-slate-900 border-slate-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     7 Days (Standard SLA)
                   </button>
                   <button
@@ -501,7 +501,7 @@ const Topic9 = () => {
                       "p-2.5 rounded-lg border font-bold text-xs transition-all",
                       enterprisePatchSlaHours === 720 ? "bg-rose-900 text-rose-200" : "bg-slate-900 border-slate-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     30+ Days (Legacy / Equifax)
                   </button>
                 </div>
@@ -594,7 +594,7 @@ const Topic9 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 1. Conglomerate Audit Findings (Kolkata & Barrackpore)
               </button>
               <button
@@ -605,7 +605,7 @@ const Topic9 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 2. Deployed 3-Pillar Zero Trust Blueprint
               </button>
             </div>

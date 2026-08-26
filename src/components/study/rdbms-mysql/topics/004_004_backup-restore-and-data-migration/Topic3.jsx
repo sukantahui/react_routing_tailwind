@@ -38,7 +38,7 @@ mysqldump -u backup_admin -p \\
   --default-character-set=utf8mb4 \\
   --max-allowed-packet=128M \\
   --databases kolkata_ecommerce kolkata_finance | \\
-  zstd -T4 -3 > /backups/prod_$(date +%F).sql.zst`,
+  zstd -T4 -3 &gt; /backups/prod_$(date +%F).sql.zst`,
       explanation:
         "This battle-tested combination guarantees a 100% consistent, non-blocking MVCC snapshot without locking tables, streams rows to avoid OOM memory crashes, includes all stored procedures, triggers, and scheduled events, and embeds binary log coordinates for PITR.",
       keyTakeaways: [
@@ -219,7 +219,7 @@ mysqldump --single-transaction --routines --triggers --events kolkata_finance > 
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );

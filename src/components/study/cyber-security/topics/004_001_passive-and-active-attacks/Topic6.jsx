@@ -52,8 +52,8 @@ if (!isProcessed) return res.json(await redis.get(\`receipt:\${idempKey}\`));`
       vulnerabilityRoot: "Asynchronous rolling code windows and lack of two-way challenge-response in keyfobs.",
       productionDefense: "Multi-stage two-way cryptographically signed challenge-response transceivers.",
       codeSnippet: `// Two-Way Keyfob Challenge Response:
-// Car -> Keyfob : Transmits 128-bit Nonce R
-// Keyfob -> Car : Transmits AES_K( R || Counter || "UNLOCK" )`
+// Car &rarr; Keyfob : Transmits 128-bit Nonce R
+// Keyfob -&gt; Car : Transmits AES_K( R || Counter || "UNLOCK" )`
     },
     kerberos_ticket_replay: {
       key: "kerberos_ticket_replay",
@@ -80,7 +80,7 @@ if (replayCache.has(clientName, authTimestamp)) return KRB_AP_ERR_REPEAT;`
       vulnerabilityRoot: "Unauthenticated legacy industrial protocols accepting raw replayed binary command strings.",
       productionDefense: "DNP3 Secure Authentication version 5 (IEC 62351-5) challenge nonces and sequence numbers.",
       codeSnippet: `// DNP3 SAv5 Sequence Nonce Check:
-if (command.seqNum <= rtu.lastSeenSeqNum) {
+if (command.seqNum &le; rtu.lastSeenSeqNum) {
     log_security_alert("Replayed SCADA Trip Command Dropped!");
     return DROP_PACKET;
 }`
@@ -155,7 +155,7 @@ if (new_firmware_version < tpm_nv_read(COUNTER_INDEX)) {
     let newBitmap = [...receivedBitmap];
     let statusText = "";
 
-    if (seq > maxSeq) {
+    if (seq &gt; maxSeq) {
       const shift = seq - maxSeq;
       newMaxSeq = seq;
       // Shift bitmap right
@@ -226,20 +226,20 @@ async function verifyRequestFreshness(nonce, timestamp, signature, payload, secr
 } ipsec_replay_window_t;
 
 int ipsec_check_replay(ipsec_replay_window_t *win, uint32_t seq) {
-    if (seq > win->last_seq) {
+    if (seq &gt; win &rarr; last_seq) {
         uint32_t diff = seq - win->last_seq;
         if (diff < 64) {
-            win->bitmap = (win->bitmap << diff) | 1ULL;
+            win->bitmap = (win &rarr; bitmap << diff) | 1ULL;
         } else {
             win->bitmap = 1ULL; // Advanced beyond full window
         }
-        win->last_seq = seq;
+        win &rarr; last_seq = seq;
         return 1; // ACCEPT
     }
-    if (seq <= win->last_seq - 64) {
+    if (seq &le; win-&gt;last_seq - 64) {
         return 0; // REJECT: Packet too old
     }
-    uint32_t bit_index = win->last_seq - seq;
+    uint32_t bit_index = win &rarr; last_seq - seq;
     if (win->bitmap & (1ULL << bit_index)) {
         return 0; // REJECT: Duplicate packet replay
     }
@@ -559,7 +559,7 @@ app.post('/api/v1/upi/transfer', async (req, res) => {
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   REPLAY
                 </span>
@@ -654,20 +654,20 @@ app.post('/api/v1/upi/transfer', async (req, res) => {
                   value={inputSequence}
                   onChange={(e) => setInputSequence(parseInt(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="grid grid-cols-2 gap-2 pt-2">
                 <button
                   onClick={() => handleProcessPacket(inputSequence)}
                   className="p-2.5 rounded-lg border font-bold text-xs bg-cyan-950 border-cyan-500 text-cyan-300 hover:bg-cyan-900 transition-all duration-300 text-center"
-                >
+                &gt;
                   Send Packet #{inputSequence}
                 </button>
                 <button
                   onClick={() => handleProcessPacket(maxSeq - 2)}
                   className="p-2.5 rounded-lg border font-bold text-xs bg-rose-950 border-rose-500 text-rose-300 hover:bg-rose-900 transition-all duration-300 text-center"
-                >
+                &gt;
                   ⚡ Replay Packet #{maxSeq - 2}
                 </button>
               </div>
@@ -723,7 +723,7 @@ app.post('/api/v1/upi/transfer', async (req, res) => {
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -772,7 +772,7 @@ app.post('/api/v1/upi/transfer', async (req, res) => {
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

@@ -63,13 +63,13 @@ export default function Topic0() {
       title: "3. Comparison / Relational",
       icon: Scale,
       color: "emerald",
-      symbols: "==, !=, <, >, <=, >=",
+      symbols: "==, !=, <, >, &le; , >=",
       purpose: "Compare operands and evaluate boolean True/False outcomes.",
       description: "Essential for decision making, conditional branches (if/elif/else), and loop terminations.",
       examples: [
         { code: "10 == 10", result: "True", note: "Equality check" },
         { code: "10 != 5", result: "True", note: "Not equal check" },
-        { code: "15 >= 20", result: "False", note: "Greater than or equal" },
+        { code: "15 &ge; 20", result: "False", note: "Greater than or equal" },
         { code: "5 < 10 < 20", result: "True", note: "Python Chained comparison" }
       ]
     },
@@ -123,7 +123,7 @@ export default function Topic0() {
       title: "7. Bitwise Operators",
       icon: Binary,
       color: "cyan",
-      symbols: "&, |, ^, ~, <<, >>",
+      symbols: "&, |, ^, ~, <<, >&gt;",
       purpose: "Manipulate integer numbers at the binary bit level (0s and 1s).",
       description: "Used in low-level programming, encryption, network masks, graphics, and performance critical code.",
       examples: [
@@ -297,7 +297,7 @@ export default function Topic0() {
                   ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
                   : "bg-slate-800 text-slate-400 hover:bg-slate-700"
               )}
-            >
+            &gt;
               All 7 Families
             </button>
             {operatorFamilies.map((f) => (
@@ -310,7 +310,7 @@ export default function Topic0() {
                     ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
                     : "bg-slate-800 text-slate-400 hover:bg-slate-700"
                 )}
-              >
+              &gt;
                 {f.title.split(". ")[1]}
               </button>
             ))}
@@ -549,7 +549,7 @@ count = 0
 total = 100
 
 # Since count > 0 is False, (total / count) is NEVER executed!
-if count > 0 and (total / count) > 10:
+if count &gt; 0 and (total / count) > 10:
     print("Average is high")
 else:
     print("Safe execution: avoided ZeroDivisionError via short-circuiting!")`}
@@ -596,12 +596,12 @@ total_credits = 4 + 4 + 3
 sgpa = (math_grade * 4 + dsa_grade * 4 + dbms_grade * 3) / total_credits
 percentage = (sgpa - 0.75) * 10
 
-is_honors = sgpa >= 8.5 and percentage >= 75.0
+is_honors = sgpa >= 8.5 and percentage &ge; 75.0
 
 print(f"Mamata's SGPA: {sgpa:.2f}")
 print(f"Equivalent Percentage: {percentage:.1f}%")
 print(f"Honors Distinction Awarded: {is_honors}")`}
-            />
+            /&gt;
           </div>
 
           {/* Case 2: Banking Transaction Guard */}
@@ -623,7 +623,7 @@ requested_amount = 5000
 
 # Guard Conditions Combined via Logical & Comparison Operators
 is_valid_denom = (requested_amount % 100 == 0) and (requested_amount > 0)
-has_funds = requested_amount <= account_balance
+has_funds = requested_amount &le; account_balance
 within_limit = (daily_withdrawn + requested_amount) <= daily_limit
 
 can_dispense = is_valid_denom and has_funds and within_limit

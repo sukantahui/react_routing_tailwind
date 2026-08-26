@@ -644,7 +644,7 @@ const Topic27 = () => {
               <li><strong>Minimum (Equity):</strong> ≥ 10 units</li>
               <li><strong>Maximum (Capacity):</strong> ≤ 25 units</li>
               <li><strong>Optimal:</strong> 25 units</li>
-              <li><strong>Min Status:</strong> Not binding (25 {`>`} 10)</li>
+              <li><strong>Min Status:</strong> Not binding (25 {`&gt;`} 10)</li>
               <li><strong>Max Status:</strong> Binding ✓ (25 = 25)</li>
             </ul>
           </div>
@@ -654,7 +654,7 @@ const Topic27 = () => {
               <li><strong>Minimum (Equity):</strong> ≥ 8 units</li>
               <li><strong>Maximum (Capacity):</strong> ≤ 30 units</li>
               <li><strong>Optimal:</strong> 23.33 units</li>
-              <li><strong>Min Status:</strong> Not binding (23.33 {`>`} 8)</li>
+              <li><strong>Min Status:</strong> Not binding (23.33 {`&gt;`} 8)</li>
               <li><strong>Max Status:</strong> Not binding (23.33 {`<`} 30)</li>
             </ul>
           </div>

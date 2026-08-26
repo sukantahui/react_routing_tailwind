@@ -60,7 +60,7 @@ const Topic1 = () => {
     },
     {
       q: "How do double pointers help with creating linked list insert functions?",
-      a: "In linked lists, when inserting at the beginning, you need to modify the head pointer. Using a double pointer allows the insert function to update the head: 'void insertAtHead(Node **head, int data) { Node *newNode = malloc(sizeof(Node)); newNode->data = data; newNode->next = *head; *head = newNode; }'. This modifies the original head pointer in main. Without double pointers, you'd need to return the new head or use a global variable."
+      a: "In linked lists, when inserting at the beginning, you need to modify the head pointer. Using a double pointer allows the insert function to update the head: 'void insertAtHead(Node **head, int data) { Node *newNode = malloc(sizeof(Node)); newNode->data = data; newNode &rarr; next = *head; *head = newNode; }'. This modifies the original head pointer in main. Without double pointers, you'd need to return the new head or use a global variable."
     },
     {
       q: "What is pointer arithmetic with double pointers?",
@@ -104,7 +104,7 @@ const Topic1 = () => {
                   ? "bg-purple-600 text-white shadow-lg scale-105"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
               )}
-            >
+            &gt;
               {tab === 'concept' ? '📚 Concept & Examples' : '❓ Questions & Answers'}
             </button>
           ))}

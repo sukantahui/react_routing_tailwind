@@ -63,7 +63,7 @@ export default function Topic18() {
     <div className="dark bg-gray-900 text-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Header */}
-        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section">
+        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section"&gt;
           <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
             Lookup Performance Best Practices
           </h1>
@@ -73,13 +73,13 @@ export default function Topic18() {
         </header>
 
         {/* Why Performance Matters */}
-        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
+        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
           <h2 className="text-2xl font-semibold">⚡ Why Worry About Performance?</h2>
           <p className="mt-2 text-gray-200">A poorly written lookup on 500,000 rows can take minutes to calculate. Users get frustrated, reports become unusable. With the right techniques, the same lookup finishes in seconds.</p>
         </section>
 
         {/* Best Practice 1: Limit Ranges */}
-        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all">
+        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all"&gt;
           <h3 className="text-xl font-semibold text-blue-300">1️⃣ Avoid Whole‑Column References</h3>
           <p className="mt-2 text-gray-200">Using <span className="font-mono">A:A</span> forces Excel to scan over 1 million rows. Instead, use a specific range that covers your actual data (e.g., <span className="font-mono">$A$2:$A$100000</span>).</p>
           <div className="mt-2 bg-gray-900 p-2 rounded">
@@ -138,7 +138,7 @@ export default function Topic18() {
         </section>
 
         {/* Interactive Excel Demo */}
-        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
+        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive: Performance Testing</h2>
             {sampleDataUrl && (
@@ -158,7 +158,7 @@ export default function Topic18() {
               rowsPerPage={20}
               showSheetSelector={true}
               onError={() => setExcelError(true)}
-            />
+            /&gt;
           ) : (
             <StaticPerformanceTips />
           )}

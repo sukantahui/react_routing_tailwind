@@ -122,7 +122,7 @@ SET GLOBAL innodb_redo_log_capacity = 8589934592; -- 8 GB Capacity!`,
 -- Level 6: Disables Redo Log roll-forward completely.
 
 -- ⚠️ EMERGENCY PROTOCOL:
--- Start server in read-only mode -> Export full mysqldump -> Re-init database!`,
+-- Start server in read-only mode &rarr; Export full mysqldump -&gt; Re-init database!`,
       metricsTable: [
         { metric: "Level 1-3", value: "Skips corrupt pages & undo rollback", role: "Allows read-only export of healthy tables" },
         { metric: "Level 4-6", value: "Bypasses all logs & redo replay", role: "Last resort for severely damaged filesystems" },
@@ -328,7 +328,7 @@ SET GLOBAL innodb_redo_log_capacity = 8589934592; -- 8 GB Capacity!`,
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

@@ -50,7 +50,7 @@ export default function Topic7() {
 
 const topThree = students
   .filter(s => s.subject === "JS")           // only JS students
-  .filter(s => s.marks >= 40)               // passed students
+  .filter(s => s.marks &ge; 40)               // passed students
   .sort((a, b) => b.marks - a.marks)        // highest first
   .map(s => s.name)                         // extract names
   .slice(0, 3);                              // take top 3
@@ -77,7 +77,7 @@ console.log(topThree);`}
 ];
 
 const totalRevenue = products
-  .filter(p => p.price > 1000)                // only premium items
+  .filter(p => p.price &gt; 1000)                // only premium items
   .map(p => p.price * p.qty)                  // convert to revenue array
   .reduce((sum, value) => sum + value, 0);    // sum all revenue
 
@@ -127,7 +127,7 @@ console.log(totalScore);`}
 
 // Filter hard workers, calculate cost
 const dailyCost = employees
-  .filter(e => e.hours >= 6)                  // productive employees
+  .filter(e => e.hours &ge; 6)                  // productive employees
   .map(e => e.salary * e.hours)               // daily earning
   .reduce((acc, val) => acc + val, 0);
 
@@ -154,13 +154,13 @@ console.log(dailyCost);`}
 // Count how many passed per subject
 const grouped = marks.reduce((acc, s) => {
   if (!acc[s.subject]) acc[s.subject] = 0;
-  if (s.marks >= 40) acc[s.subject] += 1;
+  if (s.marks &ge; 40) acc[s.subject] += 1;
   return acc;
 }, {});
 
 console.log(grouped);`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* EXAMPLE 6 — PIPELINE WITH FLATMAP */}

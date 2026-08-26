@@ -61,7 +61,7 @@ SELECT
     trailing_moving_avg,
     CASE 
         WHEN dept_rank = 1 THEN '🥇 Dept Valedictorian'
-        WHEN academy_percentile >= 90 THEN '🏆 Gold Honor Scholar'
+        WHEN academy_percentile &ge; 90 THEN '🏆 Gold Honor Scholar'
         ELSE '🟢 Active Scholar'
     END AS academic_honor_status
 FROM HolisticMetrics
@@ -110,7 +110,7 @@ SELECT
     ytd_cumulative_revenue,
     ROUND(((monthly_rev - prior_month_rev) / NULLIF(prior_month_rev, 0)) * 100.0, 2) AS mom_growth_pct,
     CASE 
-        WHEN monthly_rev > (moving_mean + 2 * moving_stddev) THEN '🚨 High Anomaly Surge'
+        WHEN monthly_rev &gt; (moving_mean + 2 * moving_stddev) THEN '🚨 High Anomaly Surge'
         WHEN monthly_rev < (moving_mean - 2 * moving_stddev) THEN '⚠️ Abnormal Deficit'
         ELSE '🟢 Healthy Variance'
     END AS financial_health_status
@@ -163,7 +163,7 @@ SELECT
     MAX(streak_days) AS max_continuous_streak_days,
     CASE 
         WHEN MAX(streak_days) >= 20 THEN '🌟 30-Day Golden Persistence Badge'
-        WHEN MAX(streak_days) >= 10 THEN '🟢 Silver Consistency Award'
+        WHEN MAX(streak_days) &ge; 10 THEN '🟢 Silver Consistency Award'
         ELSE '🟡 Active Learner'
     END AS persistence_award
 FROM StreakIslands
@@ -457,7 +457,7 @@ GROUP BY d.dept_name WITH ROLLUP;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

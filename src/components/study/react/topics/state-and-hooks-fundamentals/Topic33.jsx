@@ -452,7 +452,7 @@ const Topic33 = () => {
                     : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700"
                 )}
                 style={{ animationDelay: `${index * 0.1}s` }}
-              >
+              &gt;
                 <div className="flex flex-col items-center gap-2">
                   <span className="text-2xl">{example.icon}</span>
                   <span className="font-medium text-sm text-center">{example.title}</span>

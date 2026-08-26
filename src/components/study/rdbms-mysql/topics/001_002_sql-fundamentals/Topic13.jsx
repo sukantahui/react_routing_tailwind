@@ -293,7 +293,7 @@ const Topic13 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    >
+                    &gt;
                       <span>{c}</span>
                       <span>{selectedCities[c] ? "✓" : "+"}</span>
                     </button>
@@ -308,7 +308,7 @@ const Topic13 = () => {
                     checked={isNotIn}
                     onChange={(e) => setIsNotIn(e.target.checked)}
                     className="rounded border-rose-600 bg-slate-800 text-rose-500"
-                  />
+                  /&gt;
                   <span><strong>Toggle NOT IN:</strong> Exclude students residing in selected cities</span>
                 </label>
               </div>

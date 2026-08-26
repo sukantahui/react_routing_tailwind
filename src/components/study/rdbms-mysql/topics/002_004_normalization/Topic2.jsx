@@ -39,7 +39,7 @@ const Topic2 = () => {
       verdict: "VALID FUNCTIONAL DEPENDENCY",
       verdictColor: "emerald",
       explanation: "Every unique student_id maps to exactly ONE student name and city. No two rows with the same student_id have different names.",
-      sqlSchema: `-- Enforcing student_id -> { student_name, city } in SQL:
+      sqlSchema: `-- Enforcing student_id &rarr; { student_name, city } in SQL:
 CREATE TABLE students (
     student_id VARCHAR(10) PRIMARY KEY, -- Determinant is PRIMARY KEY
     student_name VARCHAR(100) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE students (
       verdict: "VALID FUNCTIONAL DEPENDENCY",
       verdictColor: "emerald",
       explanation: "Every course_id (e.g. 'C101') consistently maps to the same title ('MySQL Master') and tuition fee ('₹4,500') across all tuples.",
-      sqlSchema: `-- Enforcing course_id -> { course_title, course_fee } in SQL:
+      sqlSchema: `-- Enforcing course_id -&gt; { course_title, course_fee } in SQL:
 CREATE TABLE courses (
     course_id VARCHAR(10) PRIMARY KEY, -- Determinant is PRIMARY KEY
     course_title VARCHAR(100) NOT NULL,
@@ -247,7 +247,7 @@ CREATE TABLE enrollments (
                 <text x="10" y="85" fill="#38bdf8" fontSize="10" fontWeight="bold">Invariant: t1[X] = t2[X]</text>
               </g>
 
-              {/* Arrow X -> Y */}
+              {/* Arrow X &rarr; Y */}
               <g transform="translate(260, 60)">
                 <line x1="0" y1="10" x2="80" y2="10" stroke="#10b981" strokeWidth="3" />
                 <polygon points="80,5 95,10 80,15" fill="#10b981" />
@@ -297,7 +297,7 @@ CREATE TABLE enrollments (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 student_id → name, city
               </button>
 
@@ -309,7 +309,7 @@ CREATE TABLE enrollments (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 course_id → title, fee
               </button>
 
@@ -321,7 +321,7 @@ CREATE TABLE enrollments (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 (sid, cid) → grade
               </button>
 
@@ -333,7 +333,7 @@ CREATE TABLE enrollments (
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 city → student_name ❌
               </button>
             </div>
@@ -363,7 +363,7 @@ CREATE TABLE enrollments (
                       <p className="text-slate-300 mt-0.5">{currentFd.explanation}</p>
                     </div>
 
-                    {!currentFd.isValid && currentFd.conflicts.length > 0 && (
+                    {!currentFd.isValid && currentFd.conflicts.length &gt; 0 && (
                       <div>
                         <span className="text-rose-400 block text-[11px] uppercase font-bold">Conflicting Tuples Detected:</span>
                         <div className="flex gap-2 mt-1">

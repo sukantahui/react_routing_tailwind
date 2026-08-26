@@ -63,11 +63,11 @@ console.log(anyFailed); // true`}
 ];
 
 // Check if all passed
-const allPassed = students.every(s => s.marks >= 40);
+const allPassed = students.every(s => s.marks &ge; 40);
 
 console.log(allPassed); // true`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* EXAMPLE 3 — USER ACTIVE STATUS */}
@@ -88,7 +88,7 @@ const hasInactive = users.some(u => u.active === false);
 
 console.log(hasInactive); // true`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* EXAMPLE 4 — ALL USERS ACTIVE */}
@@ -109,7 +109,7 @@ const allActive = users.every(u => u.active);
 
 console.log(allActive); // true`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* EXAMPLE 5 — PRODUCT AVAILABILITY */}
@@ -129,7 +129,7 @@ const outOfStock = products.some(p => p.stock === 0);
 
 console.log(outOfStock); // true`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* EXAMPLE 6 — VALIDATION SYSTEM */}
@@ -153,7 +153,7 @@ const valid = formData.every(f => {
 
 console.log(valid);`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* EXAMPLE 7 — TASK COMPLETION */}
@@ -174,7 +174,7 @@ const allDone = tasks.every(t => t.done);
 
 console.log(allDone); // false`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* EXAMPLE 8 — SEARCH SYSTEM */}
@@ -199,7 +199,7 @@ const found = users.some(u =>
 
 console.log(found); // true`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* TEACHER NOTE */}

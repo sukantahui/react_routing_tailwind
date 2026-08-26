@@ -213,7 +213,7 @@ int main() {
       <div className="animate-fade-up" style={{ animationDelay: "450ms" }}>
         <Teacher note={
           "In Barrackpore CNAT, I often say: 'In C, you can't change what you can't point to.' Passing by value is safe but limited; passing pointers gives you the power to modify. The key is remembering to use <code>&amp;</code> at the call and <code>*</code> inside the function. Practice with swap and increment functions until it becomes second nature. And always ask: 'Do I want to change the original or just use its value?' That choice guides whether to pass a value or a pointer."
-        } />
+        } /&gt;
       </div>
 
       <style>{`

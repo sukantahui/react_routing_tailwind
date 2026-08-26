@@ -28,7 +28,7 @@ const Topic44 = () => {
       throughputLatency: '2.5 kbps Quantum Key Generation Rate • &lt; 0.2 ms Optical Propagation',
       estResearchBudget: '₹48,00,000 (Single-Photon QKD Optical Terminal Pair & Dark Fiber Transceivers)',
       desc: 'Transmits cryptographic encryption keys via polarized single photons, guaranteeing mathematical proof against eavesdropping.',
-      simResult: 'Alice sends 10,000 polarized photons -> Bob measures in rectilinear/diagonal bases -> QBER measured at 2.4% (< 11%) -> 256-bit AES Master Key Distilled.',
+      simResult: 'Alice sends 10,000 polarized photons &rarr; Bob measures in rectilinear/diagonal bases -&gt; QBER measured at 2.4% (< 11%) -> 256-bit AES Master Key Distilled.',
     },
     {
       id: 'pqc-hybrid-tls',
@@ -40,7 +40,7 @@ const Topic44 = () => {
       throughputLatency: '1.2 KB Public Key Size • 1-RTT Handshake Duration (3.8 ms) • Zero Latency Penalty',
       estResearchBudget: '₹3,80,000 (PQC HSM Firmware Upgrade & Cryptographic Gateway Cluster)',
       desc: 'Combines classical elliptic curves with post-quantum lattice mathematics to protect sensitive healthcare data permanently.',
-      simResult: 'TLS 1.3 ClientHello offers [X25519, ML-KEM-768] -> Server encapsulates shared secret -> Derives AES-256-GCM session key in 3.8ms.',
+      simResult: 'TLS 1.3 ClientHello offers [X25519, ML-KEM-768] &rarr; Server encapsulates shared secret -&gt; Derives AES-256-GCM session key in 3.8ms.',
     },
     {
       id: '6g-leo-laser',
@@ -190,7 +190,7 @@ const Topic44 = () => {
                     ? 'bg-sky-600 text-white border-sky-500 shadow-md shadow-sky-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -202,7 +202,7 @@ const Topic44 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -246,7 +246,7 @@ const Topic44 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-future44">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -276,7 +276,7 @@ const Topic44 = () => {
                       ? 'bg-sky-600 text-white border-sky-400 shadow-md'
                       : 'bg-slate-950 text-slate-400 border-slate-800 hover:text-white'
                   )}
-                >
+                &gt;
                   {f.name.split('(')[0]}
                 </button>
               ))}
@@ -325,7 +325,7 @@ const Topic44 = () => {
                   <button
                     onClick={() => setFutureSimLog(currentFuture.simResult)}
                     className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white transition-all shadow-md shadow-sky-950"
-                  >
+                  &gt;
                     Execute Frontier Simulation ▶
                   </button>
                 </div>
@@ -345,7 +345,7 @@ const Topic44 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">
@@ -402,7 +402,7 @@ const Topic44 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -470,7 +470,7 @@ const Topic44 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -492,7 +492,7 @@ const Topic44 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -519,7 +519,7 @@ const Topic44 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -559,7 +559,7 @@ const Topic44 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -593,7 +593,7 @@ const Topic44 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

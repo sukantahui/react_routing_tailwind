@@ -22,11 +22,11 @@ const Topic6 = () => {
   const replicationTopologies = {
     topology1_fan_out: {
       topologyName: "1. Standard Fan-Out",
-      title: "1. Standard Fan-Out (1 Primary -> N Replicas)",
+      title: "1. Standard Fan-Out (1 Primary &rarr; N Replicas)",
       badge: "Read Scaling",
       badgeColor: "emerald",
       sqlSnippet: `-- 🌐 STANDARD FAN-OUT ARCHITECTURE:
--- [Primary (RW)] ───┬───> [Read Replica 1 (RO)]
+-- [Primary (RW)] ───┬───&gt; [Read Replica 1 (RO)]
 --                   ├───> [Read Replica 2 (RO)]
 --                   └───> [Read Replica 3 (RO)]
 
@@ -213,7 +213,7 @@ auto_increment_offset = 2   # Generates IDs: 2, 4, 6, 8...
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {topo.topologyName}
                 </button>
               );

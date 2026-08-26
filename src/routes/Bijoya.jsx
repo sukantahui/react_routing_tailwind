@@ -108,7 +108,7 @@ export default function Bijoya() {
   };
 
   // Validation rules
-  const isNameValid = formData.guestName.trim().length >= 2;
+  const isNameValid = formData.guestName.trim().length &ge; 2;
   const isMobileValid = /^\d{10,}$/.test(formData.mobile.replace(/\D/g, ""));
   const isWpValid = /^\d{10,}$/.test(formData.wpNumber.replace(/\D/g, ""));
   const isPinValid = /^\d{4}$/.test(formData.pin);
@@ -722,7 +722,7 @@ export default function Bijoya() {
                             type="button"
                             onClick={() => setShowPin(!showPin)}
                             className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
-                          >
+                          &gt;
                             {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                           </button>
                         </div>
@@ -753,7 +753,7 @@ export default function Bijoya() {
                             type="button"
                             onClick={() => setShowConfirmPin(!showConfirmPin)}
                             className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
-                          >
+                          &gt;
                             {showConfirmPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                           </button>
                         </div>
@@ -1018,7 +1018,7 @@ export default function Bijoya() {
                             ? "bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border-emerald-500/30"
                             : "bg-slate-800 text-slate-400 hover:text-amber-300 border-slate-700"
                         }`}
-                      >
+                      &gt;
                         {isLoggedIn ? (
                           <Share2 className="w-3.5 h-3.5 text-emerald-400" />
                         ) : (
@@ -1062,7 +1062,7 @@ export default function Bijoya() {
                       resetForm();
                     }}
                     className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
-                  >
+                  &gt;
                     <PlusCircle className="w-4 h-4" />
                     <span>Register Another Guest</span>
                   </button>
@@ -1076,7 +1076,7 @@ export default function Bijoya() {
                       }
                     }}
                     className="py-3 px-5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition cursor-pointer"
-                  >
+                  &gt;
                     View Guest Directory
                   </button>
                 </div>
@@ -1128,7 +1128,7 @@ export default function Bijoya() {
                     viewMode === "grid" ? "bg-purple-600 text-white" : "text-slate-400 hover:text-slate-200"
                   }`}
                   title="Grid View"
-                >
+                &gt;
                   <LayoutGrid className="w-4 h-4" />
                 </button>
                 <button
@@ -1137,7 +1137,7 @@ export default function Bijoya() {
                     viewMode === "table" ? "bg-purple-600 text-white" : "text-slate-400 hover:text-slate-200"
                   }`}
                   title="Table View"
-                >
+                &gt;
                   <List className="w-4 h-4" />
                 </button>
               </div>
@@ -1155,12 +1155,12 @@ export default function Bijoya() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
-              />
+              /&gt;
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white cursor-pointer"
-                >
+                &gt;
                   ✕
                 </button>
               )}
@@ -1182,7 +1182,7 @@ export default function Bijoya() {
                       ? "bg-purple-600 text-white shadow-md shadow-purple-600/20"
                       : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200"
                   }`}
-                >
+                &gt;
                   {tab.label}
                 </button>
               ))}
@@ -1286,7 +1286,7 @@ export default function Bijoya() {
                             ? "bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border-emerald-500/30"
                             : "bg-slate-800/80 hover:bg-slate-700/80 text-slate-400 hover:text-amber-300 border-slate-700/60"
                         }`}
-                      >
+                      &gt;
                         {isLoggedIn ? (
                           <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
                         ) : (
@@ -1298,7 +1298,7 @@ export default function Bijoya() {
                       <button
                         onClick={() => handleEdit(guest)}
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 text-xs font-semibold border border-purple-500/30 transition cursor-pointer"
-                      >
+                      &gt;
                         <Edit3 className="w-3.5 h-3.5" />
                         <span>Edit</span>
                       </button>
@@ -1369,7 +1369,7 @@ export default function Bijoya() {
                                   ? "bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border-emerald-500/20"
                                   : "bg-slate-800 text-slate-400 hover:text-amber-300 border-slate-700"
                               }`}
-                            >
+                            &gt;
                               {isLoggedIn ? (
                                 <MessageCircle className="w-4 h-4" />
                               ) : (
@@ -1380,7 +1380,7 @@ export default function Bijoya() {
                               onClick={() => handleEdit(guest)}
                               title="Edit Details"
                               className="p-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/20 transition cursor-pointer"
-                            >
+                            &gt;
                               <Edit3 className="w-4 h-4" />
                             </button>
                           </div>

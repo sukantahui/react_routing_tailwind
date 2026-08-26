@@ -445,7 +445,7 @@ CREATE TABLE enrollments (
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Insertion Anomaly
               </button>
 
@@ -457,7 +457,7 @@ CREATE TABLE enrollments (
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Update Anomaly
               </button>
 
@@ -469,7 +469,7 @@ CREATE TABLE enrollments (
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Deletion Anomaly
               </button>
 
@@ -481,7 +481,7 @@ CREATE TABLE enrollments (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Normalized 3NF Solution
               </button>
             </div>

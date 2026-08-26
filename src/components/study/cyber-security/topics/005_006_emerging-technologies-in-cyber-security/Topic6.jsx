@@ -38,7 +38,7 @@ const Topic6 = () => {
         drainsCount: 1,
         status: "REENTRANCY BLOCKED BY CEI + MUTEX ✔",
         badgeColor: "bg-emerald-950 text-emerald-300 border-emerald-700",
-        explanation: "Checks-Effects-Interactions (CEI) updated internal state to 0 BEFORE external call. Attacker's recursive call failed require(balance >= amount) and was blocked!"
+        explanation: "Checks-Effects-Interactions (CEI) updated internal state to 0 BEFORE external call. Attacker's recursive call failed require(balance &ge; amount) and was blocked!"
       };
     } else {
       return {
@@ -207,14 +207,14 @@ const Topic6 = () => {
                     setAttackExecuted(false);
                   }}
                   className="accent-emerald-500 w-4 h-4"
-                />
+                /&gt;
               </label>
 
               <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 font-mono text-[11px] text-cyan-300 space-y-1">
                 <div className="text-slate-400">// Execution Flow:</div>
                 {useSecureCei ? (
                   <>
-                    <div className="text-emerald-400">1. CHECKS: require(balances[user] &gt;= amount)</div>
+                    <div className="text-emerald-400">1. CHECKS: require(balances[user] >= amount)</div>
                     <div className="text-emerald-400">2. EFFECTS: balances[user] -= amount (Updated!)</div>
                     <div className="text-cyan-300">3. INTERACTIONS: msg.sender.call&#123;value: amount&#125;("")</div>
                   </>
@@ -229,7 +229,7 @@ const Topic6 = () => {
               <button
                 onClick={() => setAttackExecuted(true)}
                 className="w-full py-2.5 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg shadow-lg shadow-amber-950 transition-all duration-200"
-              >
+              &gt;
                 Execute Withdrawal / Reentrancy Attack ⚡
               </button>
             </div>
@@ -300,7 +300,7 @@ const Topic6 = () => {
                   value={flashLoanAmount}
                   onChange={(e) => setFlashLoanAmount(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-slate-500">
                   <span>5,000 ETH</span>
                   <span>30,000 ETH</span>
@@ -318,7 +318,7 @@ const Topic6 = () => {
                   checked={useDecentralizedOracle}
                   onChange={(e) => setUseDecentralizedOracle(e.target.checked)}
                   className="accent-emerald-500 w-4 h-4"
-                />
+                /&gt;
               </label>
             </div>
 
@@ -376,7 +376,7 @@ const Topic6 = () => {
                       ? "bg-amber-600 text-white shadow-lg shadow-amber-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "kolkata_defi_audit" ? "Kolkata DeFi Protocol" : key === "barrackpore_municipal_escrow" ? "Barrackpore Escrow" : "Ichapur EIP-712"}
                 </button>
               ))}
@@ -468,7 +468,7 @@ const Topic6 = () => {
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
               <span className="font-bold text-amber-300">Think About:</span>
               <p className="leading-relaxed">
-                Why does updating `balances[user] = 0` BEFORE transferring ETH stop Reentrancy? Because when the attacker's fallback function recursively calls `withdraw()` again, the contract checks `balances[user] &gt;= amount`, sees 0, and reverts the attack immediately!
+                Why does updating `balances[user] = 0` BEFORE transferring ETH stop Reentrancy? Because when the attacker's fallback function recursively calls `withdraw()` again, the contract checks `balances[user] >= amount`, sees 0, and reverts the attack immediately!
               </p>
             </div>
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">

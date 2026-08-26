@@ -245,7 +245,7 @@ const Topic0 = () => {
                   ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/40"
                   : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
               )}
-            >
+            &gt;
               Integer Family
             </button>
             <button
@@ -256,7 +256,7 @@ const Topic0 = () => {
                   ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/40"
                   : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
               )}
-            >
+            &gt;
               DECIMAL(M, D) for Currency (₹)
             </button>
             <button
@@ -267,7 +267,7 @@ const Topic0 = () => {
                   ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/40"
                   : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
               )}
-            >
+            &gt;
               FLOAT & DOUBLE (Scientific)
             </button>
           </div>
@@ -347,21 +347,21 @@ const Topic0 = () => {
                       value={interactiveInt}
                       onChange={(e) => setInteractiveInt(Number(e.target.value) || 0)}
                       className="w-24 rounded-lg bg-slate-900 border border-slate-700 px-3 py-1.5 text-xs text-white"
-                    />
+                    /&gt;
                     <label className="flex items-center gap-1 text-xs text-slate-300 cursor-pointer">
                       <input
                         type="checkbox"
                         checked={isUnsigned}
                         onChange={(e) => setIsUnsigned(e.target.checked)}
                         className="rounded border-slate-700 bg-slate-800 text-teal-500"
-                      />
+                      /&gt;
                       UNSIGNED
                     </label>
                   </div>
                 </div>
                 <div className="mt-3 text-xs">
                   {isUnsigned ? (
-                    interactiveInt >= 0 && interactiveInt <= 255 ? (
+                    interactiveInt &ge; 0 && interactiveInt &le; 255 ? (
                       <span className="text-emerald-400 font-semibold">
                         ✅ Valid for TINYINT UNSIGNED (Range: 0 to 255)
                       </span>
@@ -370,7 +370,7 @@ const Topic0 = () => {
                         ❌ Out of range for TINYINT UNSIGNED! Causes MySQL Error 1264: Out of range value.
                       </span>
                     )
-                  ) : interactiveInt >= -128 && interactiveInt <= 127 ? (
+                  ) : interactiveInt &ge; -128 && interactiveInt &le; 127 ? (
                     <span className="text-emerald-400 font-semibold">
                       ✅ Valid for signed TINYINT (Range: -128 to 127)
                     </span>

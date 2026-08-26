@@ -652,7 +652,7 @@ WHERE Class = 10;
                 <ul className="list-disc pl-5 space-y-1 mt-2">
                   <li>
                     <strong>Sales dashboard:</strong> <code>SELECT SUM(amount)
-                    FROM sales WHERE date &gt;= '2024-01-01'</code> — total
+                    FROM sales WHERE date >= '2024-01-01'</code> — total
                     sales this year.
                   </li>
                   <li>

@@ -98,7 +98,7 @@ const Topic24 = () => {
       if (vars.A) count++;
       if (vars.B) count++;
       if (vars.C) count++;
-      return count >= 2 ? 1 : 0;
+      return count &ge; 2 ? 1 : 0;
     }
     if (exprClean === 'A⊕B⊕C') {
       let count = 0;
@@ -124,7 +124,7 @@ const Topic24 = () => {
     for (let i = 0; i < total; i++) {
       const values = [];
       for (let j = n - 1; j >= 0; j--) {
-        values.push((i >> j) & 1);
+        values.push((i &gt;> j) & 1);
       }
       const output = evaluateExpression(expression, values);
       rows.push({
@@ -149,7 +149,7 @@ const Topic24 = () => {
     for (let i = 0; i < total; i++) {
       const values = [];
       for (let j = n - 1; j >= 0; j--) {
-        values.push((i >> j) & 1);
+        values.push((i &gt;> j) & 1);
       }
       const output = evaluateExpression(expr, values);
       rows.push({
@@ -269,15 +269,15 @@ const Topic24 = () => {
             <button
               onClick={() => setNumVariables(2)}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 2 ? "bg-teal-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            >2 Variables</button>
+            &gt;2 Variables</button>
             <button
               onClick={() => setNumVariables(3)}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 3 ? "bg-teal-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            >3 Variables</button>
+            &gt;3 Variables</button>
             <button
               onClick={() => setNumVariables(4)}
               className={clsx("px-4 py-2 rounded-lg font-medium transition-all", numVariables === 4 ? "bg-teal-500 text-white" : "bg-gray-200 dark:bg-gray-700")}
-            >4 Variables</button>
+            &gt;4 Variables</button>
           </div>
           
           {/* Expression Selector */}
@@ -293,7 +293,7 @@ const Topic24 = () => {
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300"
                 )}
                 title={desc}
-              >
+              &gt;
                 {expr}
               </button>
             ))}
@@ -339,7 +339,7 @@ const Topic24 = () => {
           <button
             onClick={() => setShowSteps(!showSteps)}
             className="mt-2 w-full py-2 bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 rounded-lg font-medium transition-all duration-300 hover:bg-teal-200 dark:hover:bg-teal-900/60"
-          >
+          &gt;
             {showSteps ? "Hide" : "Show"} Construction Steps
           </button>
           
@@ -378,7 +378,7 @@ const Topic24 = () => {
               onChange={(e) => setCustomExpr(e.target.value)}
               placeholder="Enter expression (e.g., A·B + A·C, A⊕B, (A+B)' )"
               className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-teal-500"
-            />
+            /&gt;
             <button
               onClick={buildCustomTruthTable}
               className="px-6 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-all duration-300 hover:scale-105"

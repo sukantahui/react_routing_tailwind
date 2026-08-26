@@ -176,7 +176,7 @@ console.log(teacher);`}
 
 const student1 = createStudent("Kaustav", "JS-2025");
 student1.display();`}
-        />
+        /&gt;
 
         {/* --------------------------------------------------------
             SUMMARY

@@ -269,7 +269,7 @@ ${
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 pytest.raises Execution Flow
               </button>
               <button
@@ -280,7 +280,7 @@ ${
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Regex Message Matching
               </button>
               <button
@@ -291,7 +291,7 @@ ${
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Custom Exception Payload
               </button>
             </div>
@@ -462,7 +462,7 @@ ${
                         ? "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                         : "bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400"
                     )}
-                  >
+                  &gt;
                     <div className="text-base mb-1">{item.icon} <strong className="text-slate-200 text-xs sm:text-sm">{item.label}</strong></div>
                     <div className="text-[11px] text-teal-400 font-mono">{item.tag}</div>
                   </button>
@@ -484,7 +484,7 @@ ${
                     ? "bg-emerald-950 border border-emerald-500 text-emerald-300"
                     : "bg-slate-800 border border-slate-700 text-slate-400"
                 )}
-              >
+              &gt;
                 {useRegexMatch ? "REGEX MATCH: STRICT" : "TYPE ONLY: LENIENT"}
               </button>
             </div>

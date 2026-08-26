@@ -305,7 +305,7 @@ const Topic8 = () => {
                   value={selectedScenarioIndex}
                   onChange={(e) => setSelectedScenarioIndex(Number(e.target.value))}
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2.5 text-xs text-white focus:border-teal-500 focus:outline-none"
-                >
+                &gt;
                   {businessScenarios.map((sc, idx) => (
                     <option key={sc.id} value={idx}>
                       {sc.title}

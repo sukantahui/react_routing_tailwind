@@ -44,7 +44,7 @@ BEGIN
     FROM students WHERE student_id = p_student_id;
     
     -- 3. Compute discount based on merit (SET math):
-    IF v_student_score >= 90.00 THEN
+    IF v_student_score &ge; 90.00 THEN
         SET v_discount_amount = v_base_tuition * 0.20; -- 20% Scholarship
     ELSE
         SET v_discount_amount = 0.00;
@@ -121,7 +121,7 @@ SELECT @summary;`,
 -- 🚨 ERROR 1329 (02000): No data - zero rows fetched, selected, or processed!
 -- FIX: Use DECLARE CONTINUE HANDLER FOR NOT FOUND SET v_id = NULL;`,
       resultRows: [
-        { id: "Multiple Rows (N > 1)", name: "SELECT without PK/LIMIT", base: "Returns 10 Rows", discount: "Scalar Variable Target", gst: "Cannot hold 10 values", total: "💥 Error 1172 (More than 1 row)", status: "Cardinality Violation" },
+        { id: "Multiple Rows (N &gt; 1)", name: "SELECT without PK/LIMIT", base: "Returns 10 Rows", discount: "Scalar Variable Target", gst: "Cannot hold 10 values", total: "💥 Error 1172 (More than 1 row)", status: "Cardinality Violation" },
         { id: "Zero Rows (N = 0)", name: "SELECT with Missing ID", base: "Returns 0 Rows", discount: "Scalar Variable Target", gst: "No data to assign", total: "💥 Error 1329 (No data found)", status: "Zero-Row Exception" },
       ],
       explanation:
@@ -404,7 +404,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

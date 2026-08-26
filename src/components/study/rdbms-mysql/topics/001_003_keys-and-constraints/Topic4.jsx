@@ -301,14 +301,14 @@ const Topic4 = () => {
                   onChange={(e) => setTestEmail(e.target.value)}
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none disabled:opacity-30"
                   placeholder="e.g. mamata@codernaccotax.in"
-                />
+                /&gt;
                 <label className="mt-2 flex items-center gap-2 text-xs text-slate-400 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={allowNull}
                     onChange={(e) => setAllowNull(e.target.checked)}
                     className="rounded border-slate-800 bg-slate-950 text-teal-500 focus:ring-0"
-                  />
+                  /&gt;
                   <span>Test with <code>email = NULL</code> (Test NULL Uniqueness Exception)</span>
                 </label>
               </div>
@@ -323,7 +323,7 @@ const Topic4 = () => {
                   onChange={(e) => setTestRoll(e.target.value)}
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
                   placeholder="e.g. REG-2026-001"
-                />
+                /&gt;
               </div>
 
               <div className="flex gap-2 pt-2">

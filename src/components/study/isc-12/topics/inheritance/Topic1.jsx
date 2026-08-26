@@ -46,7 +46,7 @@ const Topic1 = () => {
                                     ? "bg-blue-500 text-white shadow-lg"
                                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                             )}
-                        >
+                        &gt;
                             🔷 Single Inheritance
                         </button>
                         <button
@@ -57,7 +57,7 @@ const Topic1 = () => {
                                     ? "bg-green-500 text-white shadow-lg"
                                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                             )}
-                        >
+                        &gt;
                             📚 Multilevel Inheritance
                         </button>
                         <button
@@ -68,7 +68,7 @@ const Topic1 = () => {
                                     ? "bg-purple-500 text-white shadow-lg"
                                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                             )}
-                        >
+                        &gt;
                             🌳 Hierarchical Inheritance
                         </button>
                     </div>

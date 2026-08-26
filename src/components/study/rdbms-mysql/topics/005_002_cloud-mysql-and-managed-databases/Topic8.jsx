@@ -164,7 +164,7 @@ resource "aws_db_instance" "prod_mysql" {
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {concept.conceptName}
                 </button>
               );

@@ -297,7 +297,7 @@ const Topic5 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}
@@ -371,7 +371,7 @@ const Topic5 = () => {
                 value={selectedCaptureMode}
                 onChange={(e) => setSelectedCaptureMode(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 <option value="optical_tap">Hardware Passive Optical TAP (70/30)</option>
                 <option value="switch_span">Switch SPAN / Mirror Port (10G)</option>
                 <option value="inline_ips">In-Line Active IPS (Bridge with Bypass)</option>
@@ -388,7 +388,7 @@ const Topic5 = () => {
                 value={linkUtilizationPercent}
                 onChange={(e) => setLinkUtilizationPercent(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
               <span className="text-[10px] text-gray-400 font-mono">{linkUtilizationPercent}% Load (Aggregate: {((10.0 * linkUtilizationPercent) / 100 * 2).toFixed(1)} Gbps)</span>
             </div>
 
@@ -402,7 +402,7 @@ const Topic5 = () => {
                 value={switchCpuLoadPercent}
                 onChange={(e) => setSwitchCpuLoadPercent(Number(e.target.value))}
                 className="w-full accent-amber-400 cursor-pointer"
-              />
+              /&gt;
               <span className="text-[10px] text-gray-400 font-mono">Switch CPU: {switchCpuLoadPercent}%</span>
             </div>
           </div>
@@ -430,7 +430,7 @@ const Topic5 = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-3.5 bg-slate-900 rounded-lg border border-slate-800 space-y-1">
                 <span className="text-sky-400 font-bold text-[11px] block">Packet Drop Percentage:</span>
-                <div className={clsx("text-2xl font-extrabold font-mono", currentFidelityStatus.dropPercentage > 0 ? "text-rose-400" : "text-emerald-400")}>
+                <div className={clsx("text-2xl font-extrabold font-mono", currentFidelityStatus.dropPercentage > 0 ? "text-rose-400" : "text-emerald-400")}&gt;
                   {currentFidelityStatus.dropPercentage}% Packet Loss
                 </div>
                 <span className="text-[10px] text-gray-500 block">Switch Overhead: {currentFidelityStatus.switchCpuOverhead}</span>
@@ -496,7 +496,7 @@ const Topic5 = () => {
                 value={opticalSplitRatio}
                 onChange={(e) => setOpticalSplitRatio(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded p-1.5 text-xs text-gray-200 focus:outline-none"
-              >
+              &gt;
                 <option value="70_30">70/30 Split (1.8 dB Production Loss - Recommended)</option>
                 <option value="50_50">50/50 Split (3.4 dB Production Loss)</option>
               </select>
@@ -515,7 +515,7 @@ const Topic5 = () => {
                 value={monitoredLinksCount}
                 onChange={(e) => setMonitoredLinksCount(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -531,7 +531,7 @@ const Topic5 = () => {
                 value={laserTxPowerDbm}
                 onChange={(e) => setLaserTxPowerDbm(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -587,7 +587,7 @@ const Topic5 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

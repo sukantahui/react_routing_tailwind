@@ -101,7 +101,7 @@ const Topic23 = () => {
               showAnimation && !isReducedMotion && "motion-safe:hover:scale-105"
             )}
             style={{ marginLeft: `${level * 40}px` }}
-          >
+          &gt;
             <div className="font-bold mr-3">{node.name}</div>
             
             {step === 2 && hasDiff && (
@@ -141,7 +141,7 @@ const Topic23 = () => {
             <button
               onClick={() => setShowAnimation(!showAnimation)}
               className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded text-sm"
-            >
+            &gt;
               {showAnimation ? 'Pause Animations' : 'Resume Animations'}
             </button>
             
@@ -174,7 +174,7 @@ const Topic23 = () => {
                   ? 'bg-purple-600 text-white transform scale-105'
                   : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
               )}
-            >
+            &gt;
               <div className="font-bold">Step {idx + 1}</div>
               <div className="text-xs mt-1">{tree.title}</div>
             </button>
@@ -256,7 +256,7 @@ const Topic23 = () => {
                         ? 'bg-blue-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
                     )}
-                  >
+                  &gt;
                     {tab === 'overview' ? 'Overview' : 
                      tab === 'analogy' ? 'Analogy' : 
                      'Importance'}
@@ -970,7 +970,7 @@ const Topic23 = () => {
                   <button
                     onClick={() => alert('Start with keys for complaint list. Add React.memo() to ComplaintItem. Use useCallback for event handlers. Consider virtualization for 100+ items.')}
                     className="w-full px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-                  >
+                  &gt;
                     Click for Analysis Hints
                   </button>
                 </div>

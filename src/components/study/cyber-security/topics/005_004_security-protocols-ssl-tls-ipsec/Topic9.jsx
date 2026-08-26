@@ -294,7 +294,7 @@ const Topic9 = () => {
               <button
                 onClick={() => setPipelineProtocol(pipelineProtocol === "smime" ? "openpgp" : "smime")}
                 className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-950 border border-cyan-700 text-cyan-300 hover:bg-cyan-900 transition-colors"
-              >
+              &gt;
                 Switch to {pipelineProtocol === "smime" ? "OpenPGP / GPG" : "S/MIME (X.509)"}
               </button>
             </div>
@@ -314,7 +314,7 @@ const Topic9 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{stg.title.split(". ")[1].split(" (")[0]}</span>
                   <span className="text-[10px] text-cyan-400 font-mono">Stage #{stg.stage}</span>
                 </button>
@@ -386,7 +386,7 @@ const Topic9 = () => {
                     ? "bg-cyan-950 border-cyan-500 text-white shadow-md shadow-cyan-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 S/MIME Hierarchical PKI
               </button>
               <button
@@ -397,7 +397,7 @@ const Topic9 = () => {
                     ? "bg-emerald-950 border-emerald-500 text-white shadow-md shadow-emerald-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 OpenPGP Web of Trust (WoT)
               </button>
             </div>
@@ -480,7 +480,7 @@ const Topic9 = () => {
                 value={dmarcPolicySetting}
                 onChange={(e) => setDmarcPolicySetting(e.target.value)}
                 className="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1 text-cyan-300 font-mono text-xs focus:outline-none"
-              >
+              &gt;
                 <option value="none">p=none (Monitor Only)</option>
                 <option value="quarantine">p=quarantine (Spam Folder)</option>
                 <option value="reject">p=reject (Drop at Gateway)</option>
@@ -502,7 +502,7 @@ const Topic9 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{item.title}</span>
                   <span className="text-[10px] text-cyan-400 font-mono">{item.mailFrom}</span>
                 </button>
@@ -582,7 +582,7 @@ const Topic9 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{drill.title}</span>
                   <span className="text-[10px] text-cyan-400">{drill.engineers}</span>
                 </button>

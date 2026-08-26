@@ -189,7 +189,7 @@ const Topic3 = () => {
                         </h2>
                         <ul className="list-disc list-inside space-y-2 leading-relaxed">
                             <li><strong>Binary search on unsorted array:</strong> Returns incorrect result or infinite loop.</li>
-                            <li><strong>Off-by-one errors:</strong> Using <code>low &lt;= high</code> vs <code>low &lt; high</code> incorrectly causes missed elements or infinite loops.</li>
+                            <li><strong>Off-by-one errors:</strong> Using <code>low <= high</code> vs <code>low &lt; high</code> incorrectly causes missed elements or infinite loops.</li>
                             <li><strong>Integer overflow in mid calculation:</strong> <code>(low + high) / 2</code> can overflow for large arrays. Use <code>low + (high - low) / 2</code>.</li>
                             <li><strong>Assuming binary search always returns first occurrence:</strong> It returns any occurrence; for first/last, use modified version.</li>
                             <li><strong>Not handling empty arrays:</strong> Always check if array is null or length 0 before searching.</li>
@@ -233,7 +233,7 @@ const Topic3 = () => {
                                     <button
                                         onClick={() => toggleAnswer(idx)}
                                         className="text-sm text-blue-600 dark:text-blue-400 hover:underline mt-1 transition"
-                                    >
+                                    &gt;
                                         {revealedAnswers[idx] ? "Hide Answer" : "Show Answer"}
                                     </button>
                                     {revealedAnswers[idx] && (

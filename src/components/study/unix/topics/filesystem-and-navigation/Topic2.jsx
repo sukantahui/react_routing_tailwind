@@ -222,7 +222,7 @@ drwxr-xr-x 2 swadeep swadeep 4096 Jan 14 16:20 Videos`;
                 }`}
                 onClick={() => this.handleCommandSelect(cmd)}
                 style={{animationDelay: `${300 + index * 100}ms`}}
-              >
+              &gt;
                 <span className="text-xl mr-3">{commands[cmd].icon}</span>
                 <div className="text-left">
                   <div className="font-bold text-lg font-mono">{commands[cmd].name}</div>
@@ -326,7 +326,7 @@ drwxr-xr-x 2 swadeep swadeep 4096 Jan 14 16:20 Videos`;
                         <button
                           onClick={() => this.executeCommand(`cd ${'../'.repeat(arr.length - index - 1)}`)}
                           className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded-lg text-sm transition-colors duration-300"
-                        >
+                        &gt;
                           {segment}
                         </button>
                         {index < arr.length - 1 && (
@@ -342,28 +342,28 @@ drwxr-xr-x 2 swadeep swadeep 4096 Jan 14 16:20 Videos`;
                   <button
                     onClick={() => this.executeCommand('pwd')}
                     className="p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300 flex flex-col items-center"
-                  >
+                  &gt;
                     <span className="text-lg mb-1">📍</span>
                     <span className="font-mono text-sm">pwd</span>
                   </button>
                   <button
                     onClick={() => this.executeCommand('ls')}
                     className="p-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-300 flex flex-col items-center"
-                  >
+                  &gt;
                     <span className="text-lg mb-1">📋</span>
                     <span className="font-mono text-sm">ls</span>
                   </button>
                   <button
                     onClick={() => this.executeCommand('ls -l')}
                     className="p-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-300 flex flex-col items-center"
-                  >
+                  &gt;
                     <span className="text-lg mb-1">📊</span>
                     <span className="font-mono text-sm">ls -l</span>
                   </button>
                   <button
                     onClick={() => this.executeCommand('cd ..')}
                     className="p-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors duration-300 flex flex-col items-center"
-                  >
+                  &gt;
                     <span className="text-lg mb-1">⬆️</span>
                     <span className="font-mono text-sm">cd ..</span>
                   </button>
@@ -376,25 +376,25 @@ drwxr-xr-x 2 swadeep swadeep 4096 Jan 14 16:20 Videos`;
                     <button
                       onClick={() => this.executeCommand('cd ~')}
                       className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded text-sm transition-colors duration-300"
-                    >
+                    &gt;
                       Home (~)
                     </button>
                     <button
                       onClick={() => this.executeCommand('cd /etc')}
                       className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded text-sm transition-colors duration-300"
-                    >
+                    &gt;
                       /etc
                     </button>
                     <button
                       onClick={() => this.navigateHistory('up')}
                       className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded text-sm transition-colors duration-300"
-                    >
+                    &gt;
                       ← History
                     </button>
                     <button
                       onClick={() => this.navigateHistory('down')}
                       className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-gray-200 rounded text-sm transition-colors duration-300"
-                    >
+                    &gt;
                       History →
                     </button>
                   </div>

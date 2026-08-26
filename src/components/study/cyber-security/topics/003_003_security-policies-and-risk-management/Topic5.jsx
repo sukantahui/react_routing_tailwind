@@ -76,7 +76,7 @@ const Topic5 = () => {
 
   const classificationTier = useMemo(() => {
     const val = parseFloat(totalValuationCrores);
-    if (val >= 25.0) return { name: "TIER 1: RESTRICTED / HIGHLY CONFIDENTIAL", badgeClass: "bg-purple-950 text-purple-300 border-purple-800", ciaScore: "15 / 15 (Critical)" };
+    if (val &ge; 25.0) return { name: "TIER 1: RESTRICTED / HIGHLY CONFIDENTIAL", badgeClass: "bg-purple-950 text-purple-300 border-purple-800", ciaScore: "15 / 15 (Critical)" };
     if (val >= 5.0) return { name: "TIER 2: CONFIDENTIAL", badgeClass: "bg-indigo-950 text-indigo-300 border-indigo-800", ciaScore: "12 / 15 (High)" };
     if (val >= 0.5) return { name: "TIER 3: INTERNAL USE ONLY", badgeClass: "bg-blue-950 text-blue-300 border-blue-800", ciaScore: "8 / 15 (Medium)" };
     return { name: "TIER 4: PUBLIC", badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800", ciaScore: "3 / 15 (Low)" };
@@ -265,7 +265,7 @@ const Topic5 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{p.name.split(". ")[1]?.split(" (")[0]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{p.name.split(". ")[0]}</div>
                 </button>
@@ -293,7 +293,7 @@ const Topic5 = () => {
                   value={hardwareCostLakhs}
                   onChange={(e) => setHardwareCostLakhs(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                />
+                /&gt;
               </div>
 
               {/* Daily Revenue Dependency Slider */}
@@ -310,7 +310,7 @@ const Topic5 = () => {
                   value={dailyRevenueLakhs}
                   onChange={(e) => setDailyRevenueLakhs(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
               </div>
 
               {/* Statutory Regulatory Liability Slider */}
@@ -327,7 +327,7 @@ const Topic5 = () => {
                   value={statutoryLiabilityCrores}
                   onChange={(e) => setStatutoryLiabilityCrores(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -383,7 +383,7 @@ const Topic5 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{ast.name.split(" ")[0]} {ast.name.split(" ")[1]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{ast.id}</div>
                 </button>
@@ -603,7 +603,7 @@ const Topic5 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

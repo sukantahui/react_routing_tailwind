@@ -26,7 +26,7 @@ const Topic9 = () => {
       badge: "High-Water Mark",
       badgeColor: "rose",
       sqlSnippet: `-- ⚠️ WHY DELETE DOES NOT SHRINK .IBD FILES:
--- 1. Insert 10 million rows -> .ibd file expands to 50 GB.
+-- 1. Insert 10 million rows &rarr; .ibd file expands to 50 GB.
 -- 2. Execute massive delete:
 DELETE FROM customer_orders WHERE order_date < '2025-01-01';
 
@@ -352,7 +352,7 @@ ALTER TABLE customer_orders IMPORT TABLESPACE;
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -506,7 +506,7 @@ ALTER TABLE customer_orders IMPORT TABLESPACE;
                 Executing `OPTIMIZE TABLE` on a 200 GB table when the server only has 40 GB of free disk space will fill the disk to 100% and abort the operation.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
-                Rule: Verify free disk space &gt;= active table size before rebuilding.
+                Rule: Verify free disk space >= active table size before rebuilding.
               </div>
             </div>
 

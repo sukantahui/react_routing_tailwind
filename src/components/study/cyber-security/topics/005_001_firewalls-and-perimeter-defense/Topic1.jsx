@@ -432,7 +432,7 @@ const Topic1 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {z.title}
               </button>
             ))}
@@ -510,7 +510,7 @@ const Topic1 = () => {
                 value={selectedPacketFlow}
                 onChange={(e) => setSelectedPacketFlow(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(packetSimulationCases).map((c) => (
                   <option key={c.id} value={c.id}>
                     {c.label}
@@ -529,7 +529,7 @@ const Topic1 = () => {
                     ? "bg-indigo-950/80 text-indigo-300 border-indigo-800"
                     : "bg-amber-950/80 text-amber-300 border-amber-800"
                 )}
-              >
+              &gt;
                 {interVlanStrictness === "strict" ? "✔ Strict Micro-segmentation (Drop Direct DB Access)" : "⚠️ Permissive (Allow Direct DB Subnet Routing)"}
               </button>
             </div>
@@ -633,7 +633,7 @@ const Topic1 = () => {
                 value={concurrentUsers}
                 onChange={(e) => setConcurrentUsers(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -649,7 +649,7 @@ const Topic1 = () => {
                 value={bandwidthGbps}
                 onChange={(e) => setBandwidthGbps(Number(e.target.value))}
                 className="w-full accent-indigo-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -661,7 +661,7 @@ const Topic1 = () => {
                 value={applianceFormFactor}
                 onChange={(e) => setApplianceFormFactor(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded p-1.5 text-xs text-gray-200 focus:outline-none"
-              >
+              &gt;
                 <option value="hardware_ha">Dual Hardware HA Appliance</option>
                 <option value="virtual_cloud">Virtual Cloud Firewall (AWS/Azure)</option>
                 <option value="hybrid">Hybrid Enterprise Mesh</option>
@@ -719,7 +719,7 @@ const Topic1 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

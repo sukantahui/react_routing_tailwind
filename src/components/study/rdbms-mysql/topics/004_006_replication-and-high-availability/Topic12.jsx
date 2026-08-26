@@ -98,9 +98,9 @@ cluster.status();
       title: "4. Zero-Downtime Rolling Upgrade Workflow",
       badge: "Zero Downtime",
       badgeColor: "rose",
-      sqlSnippet: `# 🔄 STEP-BY-STEP ROLLING UPGRADE RUNBOOK (e.g. 8.0.35 -> 8.0.36):
+      sqlSnippet: `# 🔄 STEP-BY-STEP ROLLING UPGRADE RUNBOOK (e.g. 8.0.35 &rarr; 8.0.36):
 
-# Step 1: Upgrade Secondary Node 3 -> Start mysqld -> cluster.status() shows ONLINE.
+# Step 1: Upgrade Secondary Node 3 -&gt; Start mysqld -> cluster.status() shows ONLINE.
 # Step 2: Upgrade Secondary Node 2 -> Start mysqld -> cluster.status() shows ONLINE.
 
 # Step 3: Switch Primary to upgraded Node 2:
@@ -213,7 +213,7 @@ cluster.setPrimaryInstance('admin@192.168.1.20:3306');
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {arch.archName}
                 </button>
               );

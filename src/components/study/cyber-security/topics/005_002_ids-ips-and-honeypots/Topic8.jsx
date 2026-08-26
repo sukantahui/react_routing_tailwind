@@ -282,7 +282,7 @@ const Topic8 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {a.title}
               </button>
             ))}
@@ -348,7 +348,7 @@ const Topic8 = () => {
               value={selectedTripwireScenario}
               onChange={(e) => setSelectedTripwireScenario(e.target.value)}
               className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-            >
+            &gt;
               {Object.values(tripwireScenarios).map((s) => (
                 <option key={s.id} value={s.id}>
                   {s.label}
@@ -441,7 +441,7 @@ const Topic8 = () => {
                 value={internalSubnetsCount}
                 onChange={(e) => setInternalSubnetsCount(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -457,7 +457,7 @@ const Topic8 = () => {
                 value={plantedDecoysCount}
                 onChange={(e) => setPlantedDecoysCount(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -473,7 +473,7 @@ const Topic8 = () => {
                 value={threatInteractionRatePerMonth}
                 onChange={(e) => setThreatInteractionRatePerMonth(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -527,7 +527,7 @@ const Topic8 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

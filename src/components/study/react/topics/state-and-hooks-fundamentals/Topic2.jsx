@@ -452,7 +452,7 @@ const Topic2 = () => {
                   ? "bg-gray-700 hover:bg-gray-600 text-gray-200 shadow-lg hover:shadow-xl" 
                   : "bg-gray-200 hover:bg-gray-300 text-gray-800 shadow-md hover:shadow-lg"
               )}
-            >
+            &gt;
               {isDarkMode ? '🌙 Dark' : '☀️ Light'}
             </button>
           </div>
@@ -545,7 +545,7 @@ const Topic2 = () => {
                       ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                       : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                 )}
-              >
+              &gt;
                 🏛️ Class Component
               </button>
               <button
@@ -561,7 +561,7 @@ const Topic2 = () => {
                       ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                       : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                 )}
-              >
+              &gt;
                 ⚡ Functional with Hooks
               </button>
             </div>
@@ -668,7 +668,7 @@ const Topic2 = () => {
                       : "border-gray-300 bg-white hover:bg-gray-100"
                 )}
                 style={{ animationDelay: `${index * 100}ms` }}
-              >
+              &gt;
                 <div className="flex items-start gap-3">
                   <div className={clsx(
                     "text-2xl p-2 rounded-lg",
@@ -789,7 +789,7 @@ const Topic2 = () => {
                       ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                       : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                 )}
-              >
+              &gt;
                 🏛️ Class Component Code
               </button>
               <button
@@ -805,7 +805,7 @@ const Topic2 = () => {
                       ? "bg-gray-700 hover:bg-gray-600 text-gray-300" 
                       : "bg-gray-200 hover:bg-gray-300 text-gray-700"
                 )}
-              >
+              &gt;
                 ⚡ Hook Component Code
               </button>
             </div>

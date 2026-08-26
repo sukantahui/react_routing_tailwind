@@ -48,7 +48,7 @@ ORDER BY s.exam_score_pct DESC;`,
         "The `IN` operator checks if the student's `branch_id` matches any element in the subquery's returned list. MySQL executes this via an optimized Semi-Join.",
     },
     greater_than_any: {
-      title: "2. > ANY (Greater than MIN of Subquery)",
+      title: "2. &gt; ANY (Greater than MIN of Subquery)",
       badge: "> ANY (Existential)",
       badgeColor: "cyan",
       sqlQuery: `-- Finding students whose score is greater than ANY student in IT Dept:
@@ -107,7 +107,7 @@ WHERE s.exam_score_pct > ALL (
       badge: "NULL Defense",
       badgeColor: "rose",
       sqlQuery: `-- ❌ BUGGY QUERY (Fails silently if subquery contains ANY NULL!):
--- If subquery returns [101, 102, NULL], 'NOT IN' evaluates to UNKNOWN for all rows -> EMPTY SET!
+-- If subquery returns [101, 102, NULL], 'NOT IN' evaluates to UNKNOWN for all rows &rarr; EMPTY SET!
 -- SELECT * FROM courses WHERE course_id NOT IN (SELECT course_id FROM enrollments);
 
 -- ✅ DEFENSIVE REFACTORED QUERY (Explicit NULL filtration):
@@ -312,7 +312,7 @@ WHERE c.course_id NOT IN (
                     <text x="140" y="94" fill="#38bdf8" fontSize="10 font-mono" textAnchor="middle">[ 82.40, 88.00, 94.50 ]</text>
                   </g>
 
-                  {/* > ANY Box */}
+                  {/* &gt; ANY Box */}
                   <g>
                     <rect x="310" y="30" width="230" height="100" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
                     <text x="425" y="55" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle">&gt; ANY (Min Threshold)</text>
@@ -321,7 +321,7 @@ WHERE c.course_id NOT IN (
                     <text x="425" y="102" fill="#34d399" fontSize="8 font-bold" textAnchor="middle">3 Students Qualify</text>
                   </g>
 
-                  {/* > ALL Box */}
+                  {/* &gt; ALL Box */}
                   <g>
                     <rect x="590" y="30" width="230" height="100" rx="8" fill="#1e1b4b" stroke="#f59e0b" strokeWidth="2" />
                     <text x="705" y="55" fill="#fcd34d" fontSize="11" fontWeight="bold" textAnchor="middle">&gt; ALL (Max Threshold)</text>
@@ -395,7 +395,7 @@ WHERE c.course_id NOT IN (
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

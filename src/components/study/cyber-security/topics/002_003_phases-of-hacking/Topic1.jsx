@@ -267,7 +267,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{tech.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{tech.name.split(" (")[0]}</div>
                   <div className={clsx("mt-1 text-[9.5px] px-1.5 py-0.5 rounded border inline-block", tech.badgeClass)}>
@@ -350,7 +350,7 @@ const Topic1 = () => {
                   value={targetDomain}
                   onChange={(e) => setTargetDomain(e.target.value)}
                   className="w-full bg-gray-900 border border-gray-800 rounded-lg px-3 py-2 text-gray-200 focus:outline-none focus:border-indigo-500 font-mono"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1.5">
@@ -368,7 +368,7 @@ const Topic1 = () => {
                             ? "bg-indigo-950/80 text-white border-indigo-500 shadow-md"
                             : "bg-gray-900 text-gray-400 border-gray-800 hover:bg-gray-850 hover:text-white"
                         )}
-                      >
+                      &gt;
                         <div className="font-semibold text-gray-200">{dork.title}</div>
                       </button>
                     );
@@ -542,7 +542,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

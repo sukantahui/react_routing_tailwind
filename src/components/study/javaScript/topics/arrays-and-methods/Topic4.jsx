@@ -151,7 +151,7 @@ for (let name of students) {
           initialCode={`const nums = [10, 20, 30];
 
 nums.forEach(n => console.log(n));`}
-        />
+        /&gt;
 
         {/* Example 2 */}
         <EditableCodeBlock
@@ -162,7 +162,7 @@ const courses = ["JavaScript", "Python", "C"];
 courses.forEach((course, index) => {
   console.log(index, course);
 });`}
-        />
+        /&gt;
 
         {/* Example 3 */}
         <EditableCodeBlock
@@ -177,7 +177,7 @@ const report = [
 report.forEach((item) => {
   console.log(\`\${item.name} scored \${item.marks}\`);
 });`}
-        />
+        /&gt;
 
         <hr className="border-slate-700" />
 

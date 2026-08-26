@@ -131,7 +131,7 @@ const Topic4 = () => {
 
     let grade = "F";
     let badgeColor = "bg-rose-950 text-rose-300 border-rose-700";
-    if (score >= 95) {
+    if (score &ge; 95) {
       grade = "A+ (Maximum Hardening)";
       badgeColor = "bg-emerald-950 text-emerald-300 border-emerald-700";
     } else if (score >= 80) {
@@ -317,7 +317,7 @@ const Topic4 = () => {
                     ? "bg-rose-600 text-white border-rose-400 shadow-md shadow-rose-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Cleartext HTTP (Port 80)
               </button>
               <button
@@ -328,7 +328,7 @@ const Topic4 = () => {
                     ? "bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Encrypted HTTPS (Port 443)
               </button>
             </div>
@@ -416,7 +416,7 @@ const Topic4 = () => {
                         ? "bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-900/40"
                         : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {item.title.split(". ")[1].split(" (")[0]}
                   </button>
                 );
@@ -489,7 +489,7 @@ const Topic4 = () => {
                     checked={enableHsts}
                     onChange={(e) => setEnableHsts(e.target.checked)}
                     className="accent-emerald-500 rounded"
-                  />
+                  /&gt;
                   <span>Enable HSTS (Strict-Transport-Security: max-age=31536000)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer pl-4">
@@ -499,7 +499,7 @@ const Topic4 = () => {
                     disabled={!enableHsts}
                     onChange={(e) => setEnableHstsSubdomains(e.target.checked)}
                     className="accent-emerald-500 rounded disabled:opacity-30"
-                  />
+                  /&gt;
                   <span>HSTS includeSubDomains (Protects *.barrackpore.gov.in)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer pl-4">
@@ -509,7 +509,7 @@ const Topic4 = () => {
                     disabled={!enableHsts}
                     onChange={(e) => setEnableHstsPreload(e.target.checked)}
                     className="accent-emerald-500 rounded disabled:opacity-30"
-                  />
+                  /&gt;
                   <span>HSTS Preload (Hardcoded in Chrome/Firefox browsers)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -518,7 +518,7 @@ const Topic4 = () => {
                     checked={enableCsp}
                     onChange={(e) => setEnableCsp(e.target.checked)}
                     className="accent-emerald-500 rounded"
-                  />
+                  /&gt;
                   <span>Content-Security-Policy (Mitigates XSS)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -527,7 +527,7 @@ const Topic4 = () => {
                     checked={enableNoSniff}
                     onChange={(e) => setEnableNoSniff(e.target.checked)}
                     className="accent-emerald-500 rounded"
-                  />
+                  /&gt;
                   <span>X-Content-Type-Options: nosniff (Blocks MIME confusion)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -536,7 +536,7 @@ const Topic4 = () => {
                     checked={enableDnsCaa}
                     onChange={(e) => setEnableDnsCaa(e.target.checked)}
                     className="accent-emerald-500 rounded"
-                  />
+                  /&gt;
                   <span>Publish DNS CAA Records (Restricts authorized CAs)</span>
                 </label>
               </div>
@@ -703,7 +703,7 @@ const Topic4 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Barrackpore Tax HSTS Drill
               </button>
               <button
@@ -714,7 +714,7 @@ const Topic4 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Sector V DNS CAA Drill
               </button>
             </div>

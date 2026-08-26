@@ -62,7 +62,7 @@ SecRule ARGS "@rx (?i:union\\s+select)" "id:942100,phase:2,block,setvar:tx.anoma
       mechanismDescription:
         "When a critical zero-day (Log4Shell or unauthenticated SQLi) is disclosed, a targeted WAF rule blocks exploit signatures at the cloud edge immediately, buying 48 hours for engineering teams to test code fixes.",
       mitigationPattern: "Deploy AWS WAF / Cloudflare custom regex rules on active CVE advisories.",
-      typicalSyntax: "ByteMatchStatement: SearchString: \"jndi:ldap\" -> Block",
+      typicalSyntax: "ByteMatchStatement: SearchString: \"jndi:ldap\" &rarr; Block",
       codeSnippet: `// AWS WAF Virtual Patch Rule:
 { "Name": "Block-Log4j-ZeroDay", "Statement": { "ByteMatchStatement": { "SearchString": "\${jndi:" } }, "Action": { "Block": {} } }`
     },
@@ -75,7 +75,7 @@ SecRule ARGS "@rx (?i:union\\s+select)" "id:942100,phase:2,block,setvar:tx.anoma
       mechanismDescription:
         "The WAF ingests the Swagger / OpenAPI specification. Any request containing unapproved endpoints (`/admin.php`), illegal parameters (`role=admin`), or wrong data types is blocked at the perimeter.",
       mitigationPattern: "Enforce positive schema validation on all REST and GraphQL API gateways.",
-      typicalSyntax: "Enforce OpenAPI Contract: POST /api/v1/transfer -> Strict Types Only",
+      typicalSyntax: "Enforce OpenAPI Contract: POST /api/v1/transfer -&gt; Strict Types Only",
       codeSnippet: `// Positive OpenAPI WAF Gating:
 // Request: POST /api/v1/invoice { "id": 105, "unapprovedParam": "attack" } ➔ BLOCKED (HTTP 400 Bad Request)`
     },
@@ -168,7 +168,7 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()`
       if (hasXssSignature) wafAnomalyScore += 5;
       if (rawHttpRequest.includes("%09") || rawHttpRequest.includes("/**/")) wafAnomalyScore += 3;
 
-      if (wafAnomalyScore >= 5) {
+      if (wafAnomalyScore &ge; 5) {
         wafDecision = `BLOCKED (Anomaly Score: ${wafAnomalyScore} >= Inbound Threshold 5) ➔ HTTP 403 Forbidden`;
         isWafBlocked = true;
       } else {
@@ -621,7 +621,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
                   CRS INSPECTION:
                 </text>
                 <text x="70" y="90" fill="#ffffff" fontSize="7.5" textAnchor="middle">
-                  Score &gt;= 5 ➔ Block!
+                  Score >= 5 ➔ Block!
                 </text>
                 <text x="70" y="106" fill="#c7d2fe" fontSize="7.5" textAnchor="middle">
                   Virtual Patch Active
@@ -730,7 +730,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
                     ? "bg-emerald-950/80 border-emerald-500 shadow-lg shadow-emerald-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-emerald-950 text-emerald-300 border-emerald-800 self-start">
                   PERIMETER
                 </span>
@@ -816,7 +816,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
                   value={rawHttpRequest}
                   onChange={(e) => setRawHttpRequest(e.target.value)}
                   className="w-full p-2 bg-gray-950 rounded border border-gray-800 text-cyan-300 font-mono text-xs focus:border-cyan-500 outline-none"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1 border-t border-gray-800">
@@ -837,7 +837,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
                           ? "bg-purple-950 border-purple-500 text-purple-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    >
+                    &gt;
                       {waf.label}
                     </button>
                   ))}
@@ -862,7 +862,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
                           ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    >
+                    &gt;
                       {csp.label}
                     </button>
                   ))}
@@ -885,7 +885,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
                           ? cd.id === "unsafe_concatenation" ? "bg-rose-950 border-rose-500 text-rose-300" : "bg-emerald-950 border-emerald-500 text-emerald-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    >
+                    &gt;
                       {cd.label}
                     </button>
                   ))}
@@ -897,7 +897,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
             <div className="bg-[#050811] p-5 rounded-xl border border-gray-800 col-span-1 md:col-span-2 space-y-4 text-xs">
               <div className="flex justify-between items-center border-b border-gray-800 pb-2">
                 <h3 className="font-bold text-white uppercase tracking-wider text-[11px]">Dual-Perimeter Decision Matrix</h3>
-                <span className={clsx("text-xs px-2.5 py-0.5 rounded font-mono font-bold border", simulationResults.jointExploitabilityPct > 0 ? "bg-rose-950 text-rose-300 border-rose-800" : "bg-emerald-950 text-emerald-300 border-emerald-800")}>
+                <span className={clsx("text-xs px-2.5 py-0.5 rounded font-mono font-bold border", simulationResults.jointExploitabilityPct > 0 ? "bg-rose-950 text-rose-300 border-rose-800" : "bg-emerald-950 text-emerald-300 border-emerald-800")}&gt;
                   {simulationResults.jointExploitabilityPct > 0 ? "EXPLOITABLE RESIDUAL RISK" : "100% DUAL-PERIMETER IMMUNE"}
                 </span>
               </div>
@@ -924,7 +924,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
 
                 <div className="bg-gray-950 p-3 rounded-lg border border-gray-800">
                   <span className="text-gray-400 text-[10px] uppercase block">Joint Exploitability Probability</span>
-                  <span className={clsx("text-lg font-extrabold mt-0.5 block", simulationResults.jointExploitabilityPct > 0 ? "text-rose-400" : "text-emerald-400")}>
+                  <span className={clsx("text-lg font-extrabold mt-0.5 block", simulationResults.jointExploitabilityPct > 0 ? "text-rose-400" : "text-emerald-400")}&gt;
                     {simulationResults.jointExploitabilityPct}%
                   </span>
                 </div>
@@ -964,7 +964,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -1013,7 +1013,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

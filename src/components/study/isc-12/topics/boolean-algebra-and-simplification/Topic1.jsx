@@ -142,7 +142,7 @@ const Topic1 = () => {
                       ? "bg-green-500 hover:bg-green-600 text-white shadow-md hover:shadow-lg" 
                       : "bg-red-500 hover:bg-red-600 text-white shadow-md hover:shadow-lg"
                   )}
-                >
+                &gt;
                   {variableExample ? "1 (TRUE)" : "0 (FALSE)"}
                 </button>
               </div>
@@ -359,7 +359,7 @@ const Topic1 = () => {
             </div>
             <div className="border-b border-gray-200 dark:border-gray-700 pb-4">
               <p className="font-semibold text-gray-900 dark:text-white">Q13: Can a Boolean variable represent more than just TRUE/FALSE?</p>
-              <p className="text-gray-700 dark:text-gray-300 mt-1">A: In digital circuits, it strictly represents a binary state. In programming, Boolean variables can be derived from comparisons (e.g., <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">age {`>`} 18</code>), which evaluate to true/false.</p>
+              <p className="text-gray-700 dark:text-gray-300 mt-1">A: In digital circuits, it strictly represents a binary state. In programming, Boolean variables can be derived from comparisons (e.g., <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">age {`&gt;`} 18</code>), which evaluate to true/false.</p>
             </div>
             <div className="border-b border-gray-200 dark:border-gray-700 pb-4">
               <p className="font-semibold text-gray-900 dark:text-white">Q14: What does it mean when we say Boolean Algebra is "binary"?</p>

@@ -47,7 +47,7 @@ const Topic1 = () => {
     let grade = "";
     let color = "";
 
-    if (distinctCount >= 3) {
+    if (distinctCount &ge; 3) {
       verdict = "TRUE 3FA (High-Assurance Triple Factor Authentication)";
       grade = "A+ (NIST AAL3 Compliant)";
       color = "bg-emerald-950 text-emerald-300 border-emerald-700";
@@ -113,7 +113,7 @@ const Topic1 = () => {
     let color = "";
     let grade = "";
 
-    if (riskScore <= 20) {
+    if (riskScore &le; 20) {
       action = "LOW RISK (Score: " + riskScore + "/100) ➔ Single Sign-On (SSO Pass)";
       grade = "Permit without friction";
       color = "bg-emerald-950 text-emerald-300 border-emerald-700";
@@ -325,7 +325,7 @@ const Topic1 = () => {
                         ? "bg-cyan-950/70 border-cyan-500 text-white shadow-md shadow-cyan-950/50"
                         : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                     )}
-                  >
+                  &gt;
                     <div className="flex items-center justify-between">
                       <span className="text-base">{cred.icon}</span>
                       <span className={clsx("text-[10px] px-2 py-0.5 rounded font-mono border", isSelected ? "bg-cyan-900/80 border-cyan-700 text-cyan-300" : "bg-slate-800 border-slate-700 text-slate-400")}>
@@ -381,7 +381,7 @@ const Topic1 = () => {
                     ? "bg-rose-950 border-rose-600 text-rose-300 shadow-md shadow-rose-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 Impossible Anomaly (Fraud)
               </button>
               <button
@@ -392,7 +392,7 @@ const Topic1 = () => {
                     ? "bg-emerald-950 border-emerald-600 text-emerald-300 shadow-md shadow-emerald-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 Plausible Commute (Legitimate)
               </button>
             </div>
@@ -462,7 +462,7 @@ const Topic1 = () => {
                   checked={isKnownDevice}
                   onChange={(e) => setIsKnownDevice(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Managed Corporate Laptop (Known Device Cookie)</span>
               </label>
 
@@ -472,7 +472,7 @@ const Topic1 = () => {
                   checked={isNormalHours}
                   onChange={(e) => setIsNormalHours(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Normal Working Hours (09:00 - 18:00 hrs)</span>
               </label>
 
@@ -482,7 +482,7 @@ const Topic1 = () => {
                   checked={isCorporateSubnet}
                   onChange={(e) => setIsCorporateSubnet(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Internal Barrackpore SOC Subnet (10.14.0.0/16)</span>
               </label>
 
@@ -492,7 +492,7 @@ const Topic1 = () => {
                   checked={isEndpointHealthy}
                   onChange={(e) => setIsEndpointHealthy(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Zero-Trust EDR Health &amp; BitLocker Compliant</span>
               </label>
             </div>
@@ -546,7 +546,7 @@ const Topic1 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{drill.title}</span>
                   <span className="text-[10px] text-cyan-400">{drill.engineers}</span>
                 </button>

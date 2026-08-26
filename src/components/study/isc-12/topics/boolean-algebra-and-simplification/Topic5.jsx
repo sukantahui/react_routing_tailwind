@@ -138,7 +138,7 @@ const Topic5 = () => {
                           ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                           : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                       )}
-                    >
+                    &gt;
                       {andNullVar}
                     </button>
                   </div>
@@ -235,7 +235,7 @@ const Topic5 = () => {
                           ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                           : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                       )}
-                    >
+                    &gt;
                       {orNullVar}
                     </button>
                   </div>

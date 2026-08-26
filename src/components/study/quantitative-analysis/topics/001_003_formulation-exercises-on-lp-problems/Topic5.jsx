@@ -108,7 +108,7 @@ const Topic5 = () => {
                   ? "bg-cyan-600 text-white shadow-lg shadow-cyan-200 dark:shadow-cyan-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -292,7 +292,7 @@ const Topic5 = () => {
                       <button
                         onClick={() => toggleExample(example.id)}
                         className="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-all duration-300"
-                      >
+                      &gt;
                         {showExample[example.id] ? 'Hide Analysis' : 'Show Analysis'}
                       </button>
                     </div>
@@ -336,13 +336,13 @@ const Topic5 = () => {
                         <button
                           onClick={() => setShowSolution(showSolution === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800/30 transition-all duration-300"
-                        >
+                        &gt;
                           {showSolution === problem.id ? 'Hide Answer' : 'Check Answer'}
                         </button>
                         <button
                           onClick={() => setShowHint(showHint === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
-                        >
+                        &gt;
                           {showHint === problem.id ? 'Hide Hint' : 'Show Hint'}
                         </button>
                       </div>

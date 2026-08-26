@@ -321,7 +321,7 @@ class CitizenHealthService:
         patient_id: int, 
         department: str, 
         sort_by: str = "date"
-    ) -> List[Dict]:
+    ) &rarr; List[Dict]:
         safe_sort = self.ALLOWED_SORT_FIELDS.get(sort_by, "diagnosis_date")
 
         # 1. SECURE: Pre-compiled SQL with positional $1, $2 parameter placeholders
@@ -680,7 +680,7 @@ class CitizenHealthService:
                     ? "bg-emerald-950/80 border-emerald-500 shadow-lg shadow-emerald-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-emerald-950 text-emerald-300 border-emerald-800 self-start">
                   PREPARED
                 </span>
@@ -766,7 +766,7 @@ class CitizenHealthService:
                   value={rawParameterInput}
                   onChange={(e) => setRawParameterInput(e.target.value)}
                   className="w-full p-2 bg-gray-950 rounded border border-gray-800 text-cyan-300 font-mono text-xs focus:border-cyan-500 outline-none"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1 border-t border-gray-800">
@@ -787,7 +787,7 @@ class CitizenHealthService:
                           ? p.id === "unsafe_concatenation" ? "bg-rose-950 border-rose-500 text-rose-300" : "bg-emerald-950 border-emerald-500 text-emerald-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    >
+                    &gt;
                       {p.label}
                     </button>
                   ))}
@@ -812,7 +812,7 @@ class CitizenHealthService:
                           ? "bg-purple-950 border-purple-500 text-purple-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    >
+                    &gt;
                       {lang.label}
                     </button>
                   ))}
@@ -824,7 +824,7 @@ class CitizenHealthService:
             <div className="bg-[#050811] p-5 rounded-xl border border-gray-800 col-span-1 md:col-span-2 space-y-4 text-xs">
               <div className="flex justify-between items-center border-b border-gray-800 pb-2">
                 <h3 className="font-bold text-white uppercase tracking-wider text-[11px]">Database Parser AST &amp; Wire Inspection</h3>
-                <span className={clsx("text-xs px-2.5 py-0.5 rounded font-mono font-bold border", simulationResults.exploitabilityPct > 0 ? "bg-rose-950 text-rose-300 border-rose-800" : "bg-emerald-950 text-emerald-300 border-emerald-800")}>
+                <span className={clsx("text-xs px-2.5 py-0.5 rounded font-mono font-bold border", simulationResults.exploitabilityPct > 0 ? "bg-rose-950 text-rose-300 border-rose-800" : "bg-emerald-950 text-emerald-300 border-emerald-800")}&gt;
                   {simulationResults.exploitabilityPct > 0 ? "VULNERABLE (AST Mutated)" : "100% IMMUNE (AST Invariant)"}
                 </span>
               </div>
@@ -851,7 +851,7 @@ class CitizenHealthService:
 
                 <div className="bg-gray-950 p-3 rounded-lg border border-gray-800">
                   <span className="text-gray-400 text-[10px] uppercase block">Exploitability Probability</span>
-                  <span className={clsx("text-lg font-extrabold mt-0.5 block", simulationResults.exploitabilityPct > 0 ? "text-rose-400" : "text-emerald-400")}>
+                  <span className={clsx("text-lg font-extrabold mt-0.5 block", simulationResults.exploitabilityPct > 0 ? "text-rose-400" : "text-emerald-400")}&gt;
                     {simulationResults.exploitabilityPct}%
                   </span>
                 </div>
@@ -891,7 +891,7 @@ class CitizenHealthService:
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -940,7 +940,7 @@ class CitizenHealthService:
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

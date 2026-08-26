@@ -98,7 +98,7 @@ function ErrorSpotter() {
           <button
             onClick={() => setShowAnswer(!showAnswer)}
             className="mt-3 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
-          >
+          &gt;
             {showAnswer ? "Hide Answer" : "Show Answer"}
           </button>
         </div>
@@ -106,13 +106,13 @@ function ErrorSpotter() {
           <button
             onClick={() => { setCurrentError((currentError - 1 + errors.length) % errors.length); setShowAnswer(false); }}
             className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-          >
+          &gt;
             ◀ Previous
           </button>
           <button
             onClick={() => { setCurrentError((currentError + 1) % errors.length); setShowAnswer(false); }}
             className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-          >
+          &gt;
             Next ▶
           </button>
         </div>

@@ -342,7 +342,7 @@ const Topic7 = () => {
                     ? "bg-cyan-950 border-cyan-500 text-white shadow-md shadow-cyan-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 IKEv2 (4 Messages - Modern)
               </button>
               <button
@@ -353,7 +353,7 @@ const Topic7 = () => {
                     ? "bg-amber-950 border-amber-500 text-white shadow-md shadow-amber-950/50"
                     : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 IKEv1 Main Mode (9 Messages - Legacy)
               </button>
             </div>
@@ -373,7 +373,7 @@ const Topic7 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{stepItem.name.split(":")[0]}</span>
                   <span className={clsx("text-[10px] font-mono", stepItem.isEncrypted ? "text-emerald-400" : "text-amber-400")}>
                     {stepItem.isEncrypted ? "🔒 Encrypted" : "🔓 Plaintext"}
@@ -435,7 +435,7 @@ const Topic7 = () => {
                 checked={isUnderDosFlood}
                 onChange={(e) => setIsUnderDosFlood(e.target.checked)}
                 className="rounded bg-slate-900 border-slate-700 text-rose-500 focus:ring-0"
-              />
+              /&gt;
               <span className="text-slate-300 font-semibold">Simulate High-Load DoS / Half-Open Flood</span>
             </label>
           </div>
@@ -451,7 +451,7 @@ const Topic7 = () => {
                   <div>Client IP : <span className="text-cyan-300">{clientIpAddress}</span></div>
                   <div>Payload   : <span className="text-amber-400">IKE_SA_INIT (KEi + SAi1)</span></div>
                   <div>Load State: <span className={clsx(isUnderDosFlood ? "text-rose-400 font-bold" : "text-emerald-400")}>
-                    {isUnderDosFlood ? "🚨 FLOOD DETECTED (Threshold > 500 req/s)" : "✔ NORMAL (Load < 50 req/s)"}
+                    {isUnderDosFlood ? "🚨 FLOOD DETECTED (Threshold &gt; 500 req/s)" : "✔ NORMAL (Load < 50 req/s)"}
                   </span></div>
                 </div>
               </div>
@@ -516,7 +516,7 @@ const Topic7 = () => {
                   checked={pfsEnabled}
                   onChange={(e) => setPfsEnabled(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Enforce Perfect Forward Secrecy (PFS Diffie-Hellman on Rekey)</span>
               </label>
               <span className="text-slate-400 font-mono">
@@ -620,7 +620,7 @@ const Topic7 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{drill.title}</span>
                   <span className="text-[10px] text-cyan-400">{drill.engineers}</span>
                 </button>

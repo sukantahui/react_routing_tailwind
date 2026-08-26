@@ -38,7 +38,7 @@ const Topic2 = () => {
     for (let s = 0; s < 3; s++) {
       if (r !== s) {
         const isDom =
-          matrix.every((row) => row[r] <= row[s]) &&
+          matrix.every((row) => row[r] &le; row[s]) &&
           matrix.some((row) => row[r] < row[s]);
         if (isDom) {
           colDominancePairs.push({ dominant: r, dominated: s });
@@ -175,7 +175,7 @@ const Topic2 = () => {
                     ? 'bg-sky-600 text-white border-sky-500 shadow-md shadow-sky-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -187,7 +187,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -231,7 +231,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-col-dom">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -294,7 +294,7 @@ const Topic2 = () => {
                                 'w-16 px-2 py-1 text-center rounded bg-slate-900 border font-mono text-xs',
                                 isDominant ? 'border-emerald-500 text-emerald-300 font-bold' : isDominated ? 'border-rose-500 text-rose-300' : 'border-slate-700 text-slate-300'
                               )}
-                            />
+                            /&gt;
                           </td>
                         );
                       })}
@@ -316,7 +316,7 @@ const Topic2 = () => {
                                   ? 'bg-slate-800 text-slate-400 border-slate-700'
                                   : 'bg-rose-600 text-white border-rose-500 hover:bg-rose-500'
                               )}
-                            >
+                            &gt;
                               {isElim ? 'Restore ↩️' : 'Eliminate ❌'}
                             </button>
                           ) : (
@@ -333,7 +333,7 @@ const Topic2 = () => {
             {/* Dominance Detection Findings */}
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col space-y-2 text-xs sm:text-sm font-mono">
               <span className="text-amber-400 font-sans font-bold">Pairwise Column Dominance Analysis:</span>
-              {colDominancePairs.length > 0 ? (
+              {colDominancePairs.length &gt; 0 ? (
                 colDominancePairs.map((pair, idx) => (
                   <p key={idx} className="text-emerald-300">
                     ✅ <strong>Column B_{pair.dominant + 1}</strong> dominates <strong>Column B_{pair.dominated + 1}</strong> because all entries ({matrix.map((r) => `₹${r[pair.dominant]}k`).join(', ')}) ≤ ({matrix.map((r) => `₹${r[pair.dominated]}k`).join(', ')}). ➔ <em>Delete Column B_{pair.dominated + 1} (Larger Column)!</em>
@@ -351,7 +351,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -380,7 +380,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -424,7 +424,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -446,7 +446,7 @@ const Topic2 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -473,7 +473,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -491,7 +491,7 @@ const Topic2 = () => {
                   fix: 'Player B is a Minimizer; always delete the column with LARGER entries (higher liabilities).',
                 },
                 {
-                  trap: 'Claiming Column Dominance When One Row Fails (e.g. 45 > 35 in one row)',
+                  trap: 'Claiming Column Dominance When One Row Fails (e.g. 45 &gt; 35 in one row)',
                   fix: 'Inequality a_kr ≤ a_ks must hold down EVERY single row without exception.',
                 },
                 {
@@ -513,7 +513,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -547,7 +547,7 @@ const Topic2 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

@@ -71,7 +71,7 @@ const Topic19 = () => {
             <button
               onClick={() => setPropDrillingLevel(Math.max(1, propDrillingLevel - 1))}
               className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded"
-            >
+            &gt;
               -
             </button>
             <span className="px-4 py-1 bg-purple-600 text-white rounded">
@@ -80,7 +80,7 @@ const Topic19 = () => {
             <button
               onClick={() => setPropDrillingLevel(Math.min(4, propDrillingLevel + 1))}
               className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded"
-            >
+            &gt;
               +
             </button>
           </div>
@@ -112,12 +112,12 @@ const Topic19 = () => {
           <div className="text-sm">
             <span className="text-red-400">⚠️ Problem: </span>
             <span className="text-gray-300">
-              {propDrillingLevel >= 3 
+              {propDrillingLevel &ge; 3 
                 ? "Props passed through intermediate components that don't use them"
                 : "Acceptable prop passing between directly related components"}
             </span>
           </div>
-          {propDrillingLevel >= 3 && (
+          {propDrillingLevel &ge; 3 && (
             <div className="mt-3 text-sm text-amber-300">
               💡 Solution: Use Context API or composition to avoid drilling
             </div>
@@ -268,7 +268,7 @@ const Topic19 = () => {
                         ? 'bg-purple-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
                     )}
-                  >
+                  &gt;
                     {tab === 'basic' ? 'Basic Syntax' : 
                      tab === 'types' ? 'Prop Types' : 
                      'Live Demo'}
@@ -476,20 +476,20 @@ function StudentDashboard() {
                                 value={value}
                                 onChange={(e) => setLiveProps({...liveProps, [key]: e.target.value})}
                                 className="w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg"
-                              />
+                              /&gt;
                             ) : typeof value === 'number' ? (
                               <input
                                 type="number"
                                 value={value}
                                 onChange={(e) => setLiveProps({...liveProps, [key]: parseInt(e.target.value) || 0})}
                                 className="w-full px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg"
-                              />
+                              /&gt;
                             ) : typeof value === 'boolean' ? (
                               <div className="flex items-center">
                                 <button
                                   onClick={() => setLiveProps({...liveProps, [key]: !value})}
                                   className={`px-4 py-2 rounded-lg ${value ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}`}
-                                >
+                                &gt;
                                   {value ? 'Yes' : 'No'}
                                 </button>
                                 <span className="ml-3">{value ? 'Student 🎓' : 'Professional 💼'}</span>
@@ -981,7 +981,7 @@ interface UserCardProps {
                   <button
                     onClick={() => alert('Start by defining the ProductCard component signature: function ProductCard({ name, price, imageUrl, description, onAddToCart, seller })')}
                     className="w-full px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-                  >
+                  &gt;
                     Click for Starter Code
                   </button>
                 </div>

@@ -140,7 +140,7 @@ export default function Dashboard() {
               <td className="p-3 text-gray-400">{new Date(v.created_at).toLocaleString()}</td>
             </>
           )}
-        />
+        /&gt;
 
         {/* Students Section */}
         <div className="flex items-center justify-between mb-2 mt-12">
@@ -150,7 +150,7 @@ export default function Dashboard() {
             whileTap={{ scale: 0.97 }}
             onClick={() => navigate("/students/add")}
             className="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-xl shadow-md transition-all"
-          >
+          &gt;
             + Add Student
           </motion.button>
         </div>
@@ -170,7 +170,7 @@ export default function Dashboard() {
               <td className="p-3 text-gray-400">{new Date(s.created_at).toLocaleDateString()}</td>
             </>
           )}
-        />
+        /&gt;
       </div>
     </div>
   );

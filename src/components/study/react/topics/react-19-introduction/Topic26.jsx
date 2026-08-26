@@ -139,7 +139,7 @@ export function formatDate(date) {
 }
 
 export function calculateGrade(marks) {
-  if (marks >= 90) return 'A+';
+  if (marks &ge; 90) return 'A+';
   if (marks >= 80) return 'A';
   if (marks >= 70) return 'B+';
   if (marks >= 60) return 'B';
@@ -194,7 +194,7 @@ export const constants = {
                     ? "bg-gray-800 hover:bg-gray-700 border border-gray-700" 
                     : "bg-white hover:bg-gray-50 border border-gray-200 shadow"
                 )}
-              >
+              &gt;
                 <span className="flex items-center gap-2">
                   {isDark ? (
                     <>
@@ -459,7 +459,7 @@ export const constants = {
                               : "bg-gray-50 hover:bg-gray-100 border border-gray-200"
                         )}
                         onClick={() => setSelectedFile(fileName)}
-                      >
+                      &gt;
                         <div className="flex items-center gap-3">
                           <div className={clsx(
                             "w-8 h-8 rounded-lg flex items-center justify-center",
@@ -724,7 +724,7 @@ export const constants = {
                     : "bg-gray-50 border border-gray-200 hover:bg-gray-100"
               )}
                 onClick={() => setActiveTab('defaultExport')}
-              >
+              &gt;
                 <div className="flex items-center gap-3 mb-4">
                   <div className={clsx(
                     "p-3 rounded-xl",
@@ -781,7 +781,7 @@ export const constants = {
                     : "bg-gray-50 border border-gray-200 hover:bg-gray-100"
               )}
                 onClick={() => setActiveTab('namedExport')}
-              >
+              &gt;
                 <div className="flex items-center gap-3 mb-4">
                   <div className={clsx(
                     "p-3 rounded-xl",
@@ -838,7 +838,7 @@ export const constants = {
                     : "bg-gray-50 border border-gray-200 hover:bg-gray-100"
               )}
                 onClick={() => setActiveTab('namespaceExport')}
-              >
+              &gt;
                 <div className="flex items-center gap-3 mb-4">
                   <div className={clsx(
                     "p-3 rounded-xl",

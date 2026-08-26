@@ -313,7 +313,7 @@ const Topic23 = () => {
                       : "bg-green-500 text-white shadow-lg"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {tool.toUpperCase()}
               </button>
             ))}
@@ -345,7 +345,7 @@ const Topic23 = () => {
                           ? "bg-blue-500 text-white shadow"
                           : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                       )}
-                    >
+                    &gt;
                       {example.charAt(0).toUpperCase() + example.slice(1)}
                     </button>
                   ))}
@@ -462,7 +462,7 @@ const Topic23 = () => {
                           ? "bg-green-500 text-white shadow"
                           : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                       )}
-                    >
+                    &gt;
                       {example.charAt(0).toUpperCase() + example.slice(1)}
                     </button>
                   ))}
@@ -532,7 +532,7 @@ const Topic23 = () => {
                           <code className="text-sm text-gray-700 dark:text-gray-300 block">
                             {`# Count lines with more than 5 fields`}
                             <br/>
-                            {`awk 'NF > 5 {count++} END {print count}' file.txt`}
+                            {`awk 'NF &gt; 5 {count++} END {print count}' file.txt`}
                           </code>
                         </div>
                       </div>
@@ -551,7 +551,7 @@ const Topic23 = () => {
                             <span className="text-sm ml-2">Regular expression</span>
                           </div>
                           <div>
-                            <code className="text-sm bg-amber-100 dark:bg-amber-900 px-2 py-1 rounded">{`$3 > 50`}</code>
+                            <code className="text-sm bg-amber-100 dark:bg-amber-900 px-2 py-1 rounded">{`$3 &gt; 50`}</code>
                             <span className="text-sm ml-2">Field comparison</span>
                           </div>
                           <div>
@@ -576,9 +576,9 @@ const Topic23 = () => {
                         
                         <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-300 dark:border-gray-700">
                           <code className="text-sm text-gray-700 dark:text-gray-300 block">
-                            {`# Students with score > 80`}
+                            {`# Students with score &gt; 80`}
                             <br/>
-                            {`awk '$3 > 80 {print $1, ":", $3}' grades.txt`}
+                            {`awk '$3 &gt; 80 {print $1, ":", $3}' grades.txt`}
                           </code>
                         </div>
                         
@@ -901,7 +901,7 @@ sed -i 's/old/new/' important.txt`}
                   {`# RIGHT: Always provide backup extension
 sed -i.bak 's/old/new/' important.txt
 # Or test first
-sed 's/old/new/' important.txt > test.txt`}
+sed 's/old/new/' important.txt &gt; test.txt`}
                 </code>
               </div>
             </div>
@@ -915,7 +915,7 @@ awk '{print $5}' file.txt  # Might be empty!`}
                 </code>
                 <code className="text-sm text-gray-700 dark:text-gray-300 block bg-green-100 dark:bg-green-900 p-2 rounded">
                   {`# RIGHT: Check NF or use $NF
-awk 'NF >= 5 {print $5}' file.txt
+awk 'NF &ge; 5 {print $5}' file.txt
 awk '{print $(NF-1)}' file.txt  # Second from last`}
                 </code>
                 <p className="text-blue-700 dark:text-blue-400 text-sm">
@@ -1185,7 +1185,7 @@ awk '{print $(NF-1)}' file.txt  # Second from last`}
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Print debugging info without stopping:
                 <code className="text-sm block mt-1 bg-green-100 dark:bg-green-900 p-2 rounded">
-                  {`awk '{print NR ": " $0 > "/dev/stderr"; print $1}'`}
+                  {`awk '{print NR ": " $0 &gt; "/dev/stderr"; print $1}'`}
                 </code>
               </p>
             </div>

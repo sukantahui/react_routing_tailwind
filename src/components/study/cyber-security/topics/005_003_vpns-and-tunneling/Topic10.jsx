@@ -386,7 +386,7 @@ const Topic10 = () => {
                         ? "bg-cyan-600 text-white border-cyan-400 shadow-md shadow-cyan-900/40"
                         : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {item.title.split(". ")[1].split(" (")[0]}
                   </button>
                 );
@@ -411,7 +411,7 @@ const Topic10 = () => {
                   value={innerPayloadBytes}
                   onChange={(e) => setInnerPayloadBytes(Number(e.target.value))}
                   className="w-full accent-cyan-500 cursor-pointer"
-                />
+                /&gt;
                 <p className="text-[11px] text-slate-400">
                   Standard web browsing generates 1460-byte payload segments before VPN encapsulation.
                 </p>
@@ -435,7 +435,7 @@ const Topic10 = () => {
                       ? "bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-900/40"
                       : "bg-slate-800 text-slate-400 border-slate-700 hover:text-white"
                   )}
-                >
+                &gt;
                   {enableMssClamping ? "CLAMPING ON" : "CLAMPING OFF"}
                 </button>
               </div>
@@ -466,7 +466,7 @@ const Topic10 = () => {
                   </text>
 
                   {/* IV / Nonce */}
-                  {currentProto.ivSize > 0 && (
+                  {currentProto.ivSize &gt; 0 && (
                     <>
                       <rect x="240" y="0" width="70" height="70" rx="6" fill="#311042" stroke="#a855f7" strokeWidth="1.5" />
                       <text x="275" y="30" fill="#e9d5ff" fontSize="11" fontWeight="bold" textAnchor="middle">Crypto IV</text>
@@ -484,11 +484,11 @@ const Topic10 = () => {
                     fill="#064e3b"
                     stroke="#10b981"
                     strokeWidth="1.5"
-                  />
-                  <text x={currentProto.ivSize > 0 ? 375 : 300} y="30" fill="#a7f3d0" fontSize="11" fontWeight="bold" textAnchor="middle">
+                  /&gt;
+                  <text x={currentProto.ivSize > 0 ? 375 : 300} y="30" fill="#a7f3d0" fontSize="11" fontWeight="bold" textAnchor="middle"&gt;
                     Inner IP + TCP
                   </text>
-                  <text x={currentProto.ivSize > 0 ? 375 : 300} y="50" fill="#94a3b8" fontSize="10" textAnchor="middle">40 Bytes</text>
+                  <text x={currentProto.ivSize > 0 ? 375 : 300} y="50" fill="#94a3b8" fontSize="10" textAnchor="middle"&gt;40 Bytes</text>
 
                   {/* Payload Block */}
                   <rect
@@ -500,8 +500,8 @@ const Topic10 = () => {
                     fill="#0f172a"
                     stroke={packetAudit.isFragmented ? "#f43f5e" : "#3b82f6"}
                     strokeWidth="2"
-                  />
-                  <text x={currentProto.ivSize > 0 ? 570 : 495} y="30" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">
+                  /&gt;
+                  <text x={currentProto.ivSize > 0 ? 570 : 495} y="30" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle"&gt;
                     Application Payload
                   </text>
                   <text
@@ -511,7 +511,7 @@ const Topic10 = () => {
                     fontSize="11"
                     fontWeight="bold"
                     textAnchor="middle"
-                  >
+                  &gt;
                     {packetAudit.effectivePayload} Bytes
                   </text>
 
@@ -525,11 +525,11 @@ const Topic10 = () => {
                     fill="#4c0519"
                     stroke="#f43f5e"
                     strokeWidth="1.5"
-                  />
-                  <text x={currentProto.ivSize > 0 ? 750 : 675} y="30" fill="#fecdd3" fontSize="11" fontWeight="bold" textAnchor="middle">
+                  /&gt;
+                  <text x={currentProto.ivSize > 0 ? 750 : 675} y="30" fill="#fecdd3" fontSize="11" fontWeight="bold" textAnchor="middle"&gt;
                     ICV / MAC
                   </text>
-                  <text x={currentProto.ivSize > 0 ? 750 : 675} y="50" fill="#94a3b8" fontSize="10" textAnchor="middle">
+                  <text x={currentProto.ivSize > 0 ? 750 : 675} y="50" fill="#94a3b8" fontSize="10" textAnchor="middle"&gt;
                     16 Bytes
                   </text>
                 </g>
@@ -562,8 +562,8 @@ const Topic10 = () => {
               <div className="space-y-1">
                 <div className="font-bold text-sm">
                   {packetAudit.isBlackHole
-                    ? "Path MTU Black Hole Hazard Detected! (Packet Size = " + packetAudit.totalPacketSize + "B > 1500B)"
-                    : "Packet Fits Perfectly Inside Physical MTU (Size = " + packetAudit.totalPacketSize + "B <= 1500B)"}
+                    ? "Path MTU Black Hole Hazard Detected! (Packet Size = " + packetAudit.totalPacketSize + "B &gt; 1500B)"
+                    : "Packet Fits Perfectly Inside Physical MTU (Size = " + packetAudit.totalPacketSize + "B &le; 1500B)"}
                 </div>
                 <p className="text-[11px] leading-relaxed opacity-90">
                   {packetAudit.isBlackHole
@@ -608,7 +608,7 @@ const Topic10 = () => {
                 value={simulatedPacketLoss}
                 onChange={(e) => setSimulatedPacketLoss(Number(e.target.value))}
                 className="w-full accent-rose-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Typical residential Wi-Fi packet loss ranges from 1% to 6%.
               </p>
@@ -628,7 +628,7 @@ const Topic10 = () => {
                 value={simulatedRttMs}
                 onChange={(e) => setSimulatedRttMs(Number(e.target.value))}
                 className="w-full accent-cyan-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Network latency between remote worker and Barrackpore datacenter.
               </p>
@@ -648,7 +648,7 @@ const Topic10 = () => {
                 value={wanLinkSpeedMbps}
                 onChange={(e) => setWanLinkSpeedMbps(Number(e.target.value))}
                 className="w-full accent-emerald-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 ISP bandwidth provisioned on the remote endpoint.
               </p>
@@ -724,7 +724,7 @@ const Topic10 = () => {
                     ? "bg-rose-600 text-white border-rose-400 shadow-md shadow-rose-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Static PSK
               </button>
               <button
@@ -735,7 +735,7 @@ const Topic10 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Manual X.509
               </button>
               <button
@@ -746,7 +746,7 @@ const Topic10 = () => {
                     ? "bg-emerald-600 text-white border-emerald-400 shadow-md shadow-emerald-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Automated SCEP PKI
               </button>
             </div>
@@ -767,7 +767,7 @@ const Topic10 = () => {
                 value={enterpriseFleetSize}
                 onChange={(e) => setEnterpriseFleetSize(Number(e.target.value))}
                 className="w-full accent-cyan-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Total active workforce requiring unique cryptographic credentials.
               </p>
@@ -933,7 +933,7 @@ const Topic10 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Barrackpore PMTU Black Hole Drill
               </button>
               <button
@@ -944,7 +944,7 @@ const Topic10 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Sector V PKI Expiry Drill
               </button>
             </div>

@@ -339,7 +339,7 @@ LEFT JOIN payments p ON e.enrollment_id = p.enrollment_id;`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. 4-Table Academy
               </button>
 
@@ -351,7 +351,7 @@ LEFT JOIN payments p ON e.enrollment_id = p.enrollment_id;`,
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. 5-Table E-Commerce
               </button>
 
@@ -363,7 +363,7 @@ LEFT JOIN payments p ON e.enrollment_id = p.enrollment_id;`,
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Mixed Join Trap ❌
               </button>
 
@@ -375,7 +375,7 @@ LEFT JOIN payments p ON e.enrollment_id = p.enrollment_id;`,
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Safe Outer Chain ✓
               </button>
             </div>
@@ -516,7 +516,7 @@ JOIN order_items oi ON o.order_id = oi.order_id
 JOIN products p ON oi.product_id = p.product_id
 JOIN shipments shp ON o.order_id = shp.order_id
 JOIN warehouses w ON shp.warehouse_id = w.warehouse_id
-WHERE o.order_date >= CURDATE() - INTERVAL 7 DAY;`}
+WHERE o.order_date &ge; CURDATE() - INTERVAL 7 DAY;`}
               </pre>
             </div>
           </div>

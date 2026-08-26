@@ -334,7 +334,7 @@ const Topic6 = () => {
                   <strong>Sukanta Hui</strong> (27 years of experience) reminds:
                 </p>
                 <p>
-                  “The <code className="text-xs">length</code> property is your best friend when looping. I’ve seen students in Shyamnagar waste hours debugging because they wrote <code className="text-xs">&lt;= arr.length</code>. Remember: array indices are zero‑based, so the condition is <code className="text-xs">i &lt; arr.length</code>. And never try to change <code className="text-xs">length</code> – it’s final for a reason. The array size is fixed at birth, like the number of seats in a classroom.”
+                  “The <code className="text-xs">length</code> property is your best friend when looping. I’ve seen students in Shyamnagar waste hours debugging because they wrote <code className="text-xs"><= arr.length</code>. Remember: array indices are zero‑based, so the condition is <code className="text-xs">i &lt; arr.length</code>. And never try to change <code className="text-xs">length</code> – it’s final for a reason. The array size is fixed at birth, like the number of seats in a classroom.”
                 </p>
                 <p className="text-sm">
                   📧 sukantahui@codernaccotax.co.in | 📞 7003756860

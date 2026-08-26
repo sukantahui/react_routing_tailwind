@@ -178,7 +178,7 @@ const ALOHAProtocols = () => {
             <ul className="list-disc ml-6 space-y-1">
               <li>✓ Use exponential backoff (e.g., wait random between 0 and 2^k slots) to reduce collision probability.</li>
               <li>✓ For Slotted ALOHA, ensure slot synchronization via a common clock (e.g., GPS or beacon).</li>
-              <li>✓ Monitor channel load: when G {`>`} 1, throughput collapses (unstable). Implement admission control or adapt backoff.</li>
+              <li>✓ Monitor channel load: when G {`&gt;`} 1, throughput collapses (unstable). Implement admission control or adapt backoff.</li>
               <li>✓ In modern systems (LoRaWAN), ALOHA is used with spreading factors to reduce collision probability.</li>
             </ul>
           </div>

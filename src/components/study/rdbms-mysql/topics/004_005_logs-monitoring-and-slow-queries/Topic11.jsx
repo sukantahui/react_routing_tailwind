@@ -22,7 +22,7 @@ const Topic10Calculations = () => {
   const healthFormulas = {
     formula1_hit_ratio: {
       formulaName: "1. Buffer Pool Hit Ratio",
-      title: "1. InnoDB Buffer Pool Hit Ratio (>99.0% SLA)",
+      title: "1. InnoDB Buffer Pool Hit Ratio (&gt;99.0% SLA)",
       badge: "Memory Caching SLA",
       badgeColor: "emerald",
       sqlSnippet: `-- 🧠 INNODB BUFFER POOL HIT RATIO FORMULA:
@@ -44,7 +44,7 @@ WHERE r.VARIABLE_NAME = 'Innodb_buffer_pool_reads';
         "The Buffer Pool Hit Ratio measures the percentage of 16KB data page requests satisfied directly from system RAM. In healthy OLTP production systems, this ratio must remain strictly above 99.0%.",
       keyTakeaways: [
         "Compares logical RAM requests against physical disk reads.",
-        "Target SLA is >99.0% (Gold standard: >99.9%).",
+        "Target SLA is >99.0% (Gold standard: &gt;99.9%).",
         "A ratio <95% indicates disk thrashing and memory starvation."
       ]
     },
@@ -67,7 +67,7 @@ WHERE c.VARIABLE_NAME = 'Threads_connected';
 -- 🎯 Alert Thresholds:
 -- < 80% : Normal Operating Headroom
 -- >= 80% : Warning Alert (Scale Pool!)
--- >= 90% : Critical Alert (Outage Imminent -> Error 1040!)`,
+-- &ge; 90% : Critical Alert (Outage Imminent &rarr; Error 1040!)`,
       explanation:
         "Connection Pool Saturation tracks how close the database is to exhausting its connection limit. Crossing 80% triggers automated alerts to prevent Error 1040 (Too many connections).",
       keyTakeaways: [
@@ -101,7 +101,7 @@ WHERE VARIABLE_NAME IN ('Com_commit', 'Com_rollback');`,
     },
     formula4_index_and_tmp_ratios: {
       formulaName: "4. Index & Disk Spills",
-      title: "4. Index Efficiency (>95%) & Disk Spill (<10%) Ratios",
+      title: "4. Index Efficiency (&gt;95%) & Disk Spill (<10%) Ratios",
       badge: "Query Optimization",
       badgeColor: "rose",
       sqlSnippet: `-- 🔍 1. INDEX EFFICIENCY RATIO (>95.0% TARGET):
@@ -226,7 +226,7 @@ WHERE d.VARIABLE_NAME = 'Created_tmp_disk_tables';`,
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {item.formulaName}
                 </button>
               );
@@ -360,7 +360,7 @@ WHERE d.VARIABLE_NAME = 'Created_tmp_disk_tables';`,
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-rose-400 mb-3 flex items-center gap-2">
-                <span>⚠️</span> Pitfall 2: High Disk Spill Ratio (>15%)
+                <span>⚠️</span> Pitfall 2: High Disk Spill Ratio (&gt;15%)
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
                 When <code>Created_tmp_disk_tables</code> exceeds 15% of total temporary tables, queries write intermediate results to disk, choking NVMe I/O.
@@ -372,7 +372,7 @@ WHERE d.VARIABLE_NAME = 'Created_tmp_disk_tables';`,
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>✓</span> Best Practice 1: Maintain Hit Ratio >99.0%
+                <span>✓</span> Best Practice 1: Maintain Hit Ratio &gt;99.0%
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
                 Ensure the InnoDB Buffer Pool Hit Ratio stays strictly above 99.0% on OLTP instances to guarantee sub-millisecond RAM query execution.
@@ -384,7 +384,7 @@ WHERE d.VARIABLE_NAME = 'Created_tmp_disk_tables';`,
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>✓</span> Best Practice 2: Enforce Index Ratio >95%
+                <span>✓</span> Best Practice 2: Enforce Index Ratio &gt;95%
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
                 Monitor <code>Handler_read_key / (Handler_read_key + Handler_read_rnd_next)</code> to verify that B-Tree indexes satisfy over 95% of row requests.
@@ -414,7 +414,7 @@ WHERE d.VARIABLE_NAME = 'Created_tmp_disk_tables';`,
 
           <Teacher
             note="Raw numbers without formulas are meaningless! Master these five essential formulas: maintain your Buffer Pool Hit Ratio strictly above 99.0% (ideally >99.9%), keep Connection Saturation below 80% to avoid Error 1040, calculate real-time QPS and TPS over 10-second intervals for accurate capacity planning, and ensure your Index Efficiency Ratio stays above 95% to keep queries blazing fast!"
-          />
+          /&gt;
         </section>
 
         {/* ─── SECTION 6: FAQ Accordion ───────────────────────────────── */}

@@ -79,7 +79,7 @@ export default class Topic6 extends Component {
           <div className="relative group">
             <button
               onClick={()=>this.copyToClipboard(code)}
-              className="absolute top-2 right-2 text-xs px-2 py-1 rounded bg-slate-700 text-slate-200 opacity-0 group-hover:opacity-100 transition">
+              className="absolute top-2 right-2 text-xs px-2 py-1 rounded bg-slate-700 text-slate-200 opacity-0 group-hover:opacity-100 transition"&gt;
               {this.state.copied?"Copied!":"Copy"}
             </button>
             <pre className="bg-slate-800 text-slate-200 p-3 rounded-lg text-sm">{code}</pre>

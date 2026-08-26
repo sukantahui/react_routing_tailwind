@@ -41,7 +41,7 @@ export default function Topic36() {
         <header
           ref={(el) => (sectionsRef.current[0] = el)}
           className="reveal-section transition-all duration-700 ease-out"
-        >
+        &gt;
           <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
             Practice: Multi‑Condition Statistical Analysis
           </h1>
@@ -54,7 +54,7 @@ export default function Topic36() {
         <section
           ref={(el) => (sectionsRef.current[1] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-purple-500/50 transition-all duration-300"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold flex items-center gap-2">
             <span className="text-purple-400">🎯</span> Why Multi‑Condition Analysis?
           </h2>
@@ -77,23 +77,23 @@ export default function Topic36() {
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <h2 className="text-2xl font-semibold">📝 Hands-On Exercises</h2>
           <div className="mt-4 space-y-6 text-gray-200">
             <div>
               <p className="font-semibold text-purple-300">Exercise 1: SUMIFS</p>
               <p class="text-gray-300">“Calculate total sales of product ‘Laptop’ in the region ‘East’ with quantity &gt; 5.”</p>
-              <p className="font-mono text-sm mt-1">{`=SUMIFS(sales_range, product_range, "Laptop", region_range, "East", qty_range, ">5")`}</p>
+              <p className="font-mono text-sm mt-1">{`=SUMIFS(sales_range, product_range, "Laptop", region_range, "East", qty_range, "&gt;5")`}</p>
             </div>
             <div>
               <p className="font-semibold text-purple-300">Exercise 2: COUNTIFS</p>
               <p class="text-gray-300">“How many students scored above 80 and are from Shyamnagar?”</p>
-              <p className="font-mono text-sm mt-1">{`=COUNTIFS(score_range, ">80", city_range, "Shyamnagar")`}</p>
+              <p className="font-mono text-sm mt-1">{`=COUNTIFS(score_range, "&gt;80", city_range, "Shyamnagar")`}</p>
             </div>
             <div>
               <p className="font-semibold text-purple-300">Exercise 3: AVERAGEIFS</p>
               <p class="text-gray-300">“Average exam score of Barrackpore students who passed (score &gt; 40) and attended at least 5 days.”</p>
-              <p className="font-mono text-sm mt-1">{`=AVERAGEIFS(score_range, city_range, "Barrackpore", score_range, ">40", attendance_range, ">=5")`}</p>
+              <p className="font-mono text-sm mt-1">{`=AVERAGEIFS(score_range, city_range, "Barrackpore", score_range, "&gt;40", attendance_range, " &ge; 5")`}</p>
             </div>
           </div>
         </section>
@@ -102,7 +102,7 @@ export default function Topic36() {
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"
-        >
+        &gt;
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Practice Dataset</h2>
             {sampleDataUrl && (
@@ -144,7 +144,7 @@ export default function Topic36() {
             <li>Swapping arguments: SUMIFS puts the sum range first; SUMIF puts it last.</li>
             <li>Using different ranges for SUMIFS – all must be the same size.</li>
             <li>Omitting quotes around text criteria: =SUMIFS(…, region, North) → error; should be "North".</li>
-            <li>{`Forgetting &; when using cell references: “>&;E1” not “>E1”.`}</li>
+            <li>{`Forgetting &; when using cell references: “&gt;&;E1” not “>E1”.`}</li>
           </ul>
         </section>
 
@@ -175,7 +175,7 @@ export default function Topic36() {
             <li>Use SUMIFS even for single‑condition – it is easier to add more later.</li>
             <li>Combine with IFERROR if your criteria may produce no results (SUMIFS returns 0, but AVERAGEIFS returns #DIV/0!).</li>
             <li>Master the wildcards: “*” for any characters, “?” for one character. Use them in text criteria.</li>
-            <li>{`For dates, use DATE functions inside criteria: “>=”&;DATE(2025,1,1).`}</li>
+            <li>{`For dates, use DATE functions inside criteria: “ &ge; ”&;DATE(2025,1,1).`}</li>
           </ul>
         </section>
 

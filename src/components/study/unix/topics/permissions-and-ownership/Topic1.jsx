@@ -306,7 +306,7 @@ class Topic1 extends React.Component {
                             ? "bg-gray-800 hover:bg-gray-700"
                             : "bg-gray-200 hover:bg-gray-300"
                       )}
-                    >
+                    &gt;
                       <div className="font-mono text-sm">{example.permission}</div>
                       <div className="text-xs">{example.label}</div>
                     </button>

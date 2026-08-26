@@ -252,7 +252,7 @@ const Topic40 = () => {
 
   // Example 5: Polling (conditional on interval)
   useEffect(() => {
-    if (!fetchEnabled || pollingInterval <= 0) {
+    if (!fetchEnabled || pollingInterval &le; 0) {
       if (pollingRef.current) {
         clearInterval(pollingRef.current);
         pollingRef.current = null;
@@ -555,7 +555,7 @@ const Topic40 = () => {
                   ? "bg-red-500 hover:bg-red-600 text-white hover:scale-[1.02]"
                   : "bg-green-500 hover:bg-green-600 text-white hover:scale-[1.02]"
               )}
-            >
+            &gt;
               {fetchEnabled ? '⏸️ Disable Fetching' : '▶️ Enable Fetching'}
             </button>
             
@@ -583,7 +583,7 @@ const Topic40 = () => {
                 value={fetchStrategy}
                 onChange={(e) => setFetchStrategy(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-              >
+              &gt;
                 <option value="debounced">Debounced (wait {debounceTime}ms)</option>
                 <option value="immediate">Immediate (no delay)</option>
               </select>
@@ -601,7 +601,7 @@ const Topic40 = () => {
                 value={debounceTime}
                 onChange={(e) => setDebounceTime(parseInt(e.target.value))}
                 className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer"
-              />
+              /&gt;
               <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
                 <span>0ms</span>
                 <span>1s</span>
@@ -611,7 +611,7 @@ const Topic40 = () => {
             
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Polling Interval: {pollingInterval > 0 ? `${pollingInterval}ms` : 'Off'}
+                Polling Interval: {pollingInterval &gt; 0 ? `${pollingInterval}ms` : 'Off'}
               </label>
               <input
                 type="range"
@@ -621,7 +621,7 @@ const Topic40 = () => {
                 value={pollingInterval}
                 onChange={(e) => setPollingInterval(parseInt(e.target.value))}
                 className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer"
-              />
+              /&gt;
               <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
                 <span>Off</span>
                 <span>2.5s</span>
@@ -657,7 +657,7 @@ const Topic40 = () => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Search users by name, email, or location..."
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
+                /&gt;
                 <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   Try: "Swadeep", "Barrackpore", or "example.com"
                 </div>
@@ -677,7 +677,7 @@ const Topic40 = () => {
                     <div className="text-2xl mb-2">⚠️</div>
                     {errors.search}
                   </div>
-                ) : searchResults.length > 0 ? (
+                ) : searchResults.length &gt; 0 ? (
                   <div className="space-y-3">
                     {searchResults.map(user => (
                       <div 
@@ -725,7 +725,7 @@ const Topic40 = () => {
                   userId && /^\d+$/.test(userId) && parseInt(userId) <= 8 && parseInt(userId) >= 1
                     ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300"
                     : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300"
-                )}>
+                )}&gt;
                   {userId ? 'Valid ID' : 'No ID'}
                 </div>
               </div>
@@ -737,7 +737,7 @@ const Topic40 = () => {
                   onChange={(e) => setUserId(e.target.value)}
                   placeholder="Enter user ID (1-8)..."
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
+                /&gt;
                 <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   Valid IDs: 1-8 (Try invalid like "9" or "abc")
                 </div>
@@ -829,7 +829,7 @@ const Topic40 = () => {
                           ? "bg-blue-500 text-white"
                           : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                       )}
-                    >
+                    &gt;
                       {cat}
                     </button>
                   ))}
@@ -922,7 +922,7 @@ const Topic40 = () => {
                             ? "bg-blue-500 text-white"
                             : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                         )}
-                      >
+                      &gt;
                         {p}
                       </button>
                     ))}
@@ -1079,7 +1079,7 @@ const Topic40 = () => {
     }
     
     if (parseInt(userId) > MAX_USERS) {
-      setError(\`User ID must be <= \${MAX_USERS}\`);
+      setError(\`User ID must be &le; \${MAX_USERS}\`);
       return;
     }
 

@@ -232,7 +232,7 @@ class Topic4 extends React.Component {
                     <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-3">Basic Safety Options:</h4>
                     <ul className="list-disc pl-5 text-gray-600 dark:text-gray-400 space-y-2">
                       <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">-i</code> - Interactive (confirm each file)</li>
-                      <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">-I</code> - Prompt once before deleting {`>`}3 files</li>
+                      <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">-I</code> - Prompt once before deleting {`&gt;`}3 files</li>
                       <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">-v</code> - Verbose (show what's being deleted)</li>
                       <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">--</code> - End of options (protects against filenames starting with -)</li>
                     </ul>

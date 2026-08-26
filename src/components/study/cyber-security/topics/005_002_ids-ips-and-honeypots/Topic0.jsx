@@ -115,7 +115,7 @@ const Topic0 = () => {
 
     // Packet drop rate percentage on multi-gigabit load
     const packetDropPercentage = packetCaptureDriver === "dpdk_zero_copy"
-      ? (tapThroughputGbps > 30 ? 0.02 : 0.00).toFixed(2)
+      ? (tapThroughputGbps &gt; 30 ? 0.02 : 0.00).toFixed(2)
       : (tapThroughputGbps * 1.8).toFixed(1);
 
     // 5-Year Hardware NIDS TCO (INR ₹ Lakhs)
@@ -280,7 +280,7 @@ const Topic0 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {s.title}
               </button>
             ))}
@@ -349,7 +349,7 @@ const Topic0 = () => {
                 value={selectedPacketFlow}
                 onChange={(e) => setSelectedPacketFlow(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(injectedPacketFlows).map((f) => (
                   <option key={f.id} value={f.id}>
                     {f.label}
@@ -368,7 +368,7 @@ const Topic0 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-rose-950/80 text-rose-300 border-rose-800"
                 )}
-              >
+              &gt;
                 {promiscuousModeActive ? "✔ Promiscuous Mode Enabled (100% Ingestion)" : "❌ Promiscuous Disabled (MAC Filtered)"}
               </button>
             </div>
@@ -383,7 +383,7 @@ const Topic0 = () => {
                     ? "bg-purple-950/80 text-purple-300 border-purple-800"
                     : "bg-amber-950/80 text-amber-300 border-amber-800"
                 )}
-              >
+              &gt;
                 {heuristicEngineActive ? "✔ Heuristic Sweep Engine Active" : "❌ Heuristics Disabled"}
               </button>
             </div>
@@ -471,7 +471,7 @@ const Topic0 = () => {
                 value={tapThroughputGbps}
                 onChange={(e) => setTapThroughputGbps(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -483,7 +483,7 @@ const Topic0 = () => {
                 value={packetCaptureDriver}
                 onChange={(e) => setPacketCaptureDriver(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded p-1.5 text-xs text-gray-200 focus:outline-none"
-              >
+              &gt;
                 <option value="dpdk_zero_copy">DPDK / PF_RING ZC (Zero-Copy 14.88M pps)</option>
                 <option value="standard_kernel">Standard Linux Kernel Socket (1.85M pps)</option>
               </select>
@@ -502,7 +502,7 @@ const Topic0 = () => {
                 value={retentionDays}
                 onChange={(e) => setRetentionDays(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -556,7 +556,7 @@ const Topic0 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

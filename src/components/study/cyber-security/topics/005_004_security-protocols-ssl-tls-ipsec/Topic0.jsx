@@ -358,7 +358,7 @@ const Topic0 = () => {
                         ? "bg-cyan-600 text-white border-cyan-400 shadow-md shadow-cyan-900/40"
                         : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {item.title.split(":")[0]}
                   </button>
                 );
@@ -518,7 +518,7 @@ const Topic0 = () => {
                 value={threatScenarioKey}
                 onChange={(e) => setThreatScenarioKey(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-white focus:border-cyan-500 focus:outline-none"
-              >
+              &gt;
                 <option value="isp_mitm">Compromised ISP Edge Router / Man-in-the-Middle (Kolkata Transit)</option>
                 <option value="public_wifi_sniff">Public Wi-Fi Packet Sniffing (Barrackpore Coffee Shop)</option>
                 <option value="fiber_tap">Physical Optical Fiber Laser Tap (Sector V Datacenter)</option>
@@ -542,7 +542,7 @@ const Topic0 = () => {
                     checked={enableLayer7Https}
                     onChange={(e) => setEnableLayer7Https(e.target.checked)}
                     className="accent-emerald-500 rounded"
-                  />
+                  /&gt;
                   <span>Layer 7: HTTPS / TLS 1.3 (End-to-End API Crypto)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -551,7 +551,7 @@ const Topic0 = () => {
                     checked={enableLayer3Ipsec}
                     onChange={(e) => setEnableLayer3Ipsec(e.target.checked)}
                     className="accent-cyan-500 rounded"
-                  />
+                  /&gt;
                   <span>Layer 3: IPsec ESP (Network Layer Gateway VPN)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -560,7 +560,7 @@ const Topic0 = () => {
                     checked={enableLayer2Macsec}
                     onChange={(e) => setEnableLayer2Macsec(e.target.checked)}
                     className="accent-amber-500 rounded"
-                  />
+                  /&gt;
                   <span>Layer 2: MACsec 802.1AE (Switch Link Encryption)</span>
                 </label>
               </div>
@@ -634,7 +634,7 @@ const Topic0 = () => {
                 value={networkLinkSpeedGbps}
                 onChange={(e) => setNetworkLinkSpeedGbps(Number(e.target.value))}
                 className="w-full accent-cyan-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Physical bandwidth capacity of the optical or copper link.
               </p>
@@ -654,7 +654,7 @@ const Topic0 = () => {
                 value={averagePayloadBytes}
                 onChange={(e) => setAveragePayloadBytes(Number(e.target.value))}
                 className="w-full accent-emerald-500 cursor-pointer"
-              />
+              /&gt;
               <p className="text-[11px] text-slate-400">
                 Average user data payload before multi-layer security headers.
               </p>
@@ -832,7 +832,7 @@ const Topic0 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Barrackpore Treasury Drill
               </button>
               <button
@@ -843,7 +843,7 @@ const Topic0 = () => {
                     ? "bg-amber-600 text-white border-amber-400 shadow-md shadow-amber-900/40"
                     : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white"
                 )}
-              >
+              &gt;
                 Sector V Smart Grid Drill
               </button>
             </div>

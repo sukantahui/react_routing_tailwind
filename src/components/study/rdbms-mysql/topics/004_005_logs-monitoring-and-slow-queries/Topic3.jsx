@@ -27,7 +27,7 @@ const Topic3 = () => {
       badgeColor: "emerald",
       sqlSnippet: `-- ⚡ 1. THE DANGER OF STATEMENT LOGGING (NON-DETERMINISTIC DRIFT):
 -- Master executes: UPDATE orders SET code = UUID(), discount = RAND() LIMIT 10;
--- Replica executes raw SQL text -> Modifies DIFFERENT rows with DIFFERENT values! ❌
+-- Replica executes raw SQL text &rarr; Modifies DIFFERENT rows with DIFFERENT values! ❌
 
 -- 🛡️ 2. ROW-BASED LOGGING (100% DETERMINISTIC DELTAS - MYSQL 8.0 DEFAULT):
 -- Master transmits exact before/after physical row bytes:
@@ -210,7 +210,7 @@ PURGE BINARY LOGS TO 'binlog.000085';
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );

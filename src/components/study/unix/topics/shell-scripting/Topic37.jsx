@@ -74,8 +74,8 @@ const Topic37 = () => {
               height="140"
               viewBox="0 0 360 140"
               className="drop-shadow-xl hover:scale-[1.02] transition-transform duration-300"
-              aria-label="Command -> exit code -> 0 success / non-zero failure"
-            >
+              aria-label="Command -> exit code &rarr; 0 success / non-zero failure"
+            &gt;
               {/* Command box */}
               <rect x="30" y="50" width="100" height="40" rx="8" fill="#1e293b" stroke="#6b7280" />
               <text x="55" y="77" fontSize="14" fill="#d1d5db">grep pattern</text>
@@ -244,7 +244,7 @@ const Topic37 = () => {
               3+ for specific conditions.</strong> This follows BSD conventions and makes debugging easier.
             </p>
             <p>
-              🔹 <strong>Use `trap 'echo "Error on line $LINENO" {`>`}&2' ERR`</strong> to catch unexpected 
+              🔹 <strong>Use `trap 'echo "Error on line $LINENO" {`&gt;`}&2' ERR`</strong> to catch unexpected 
               errors when `set -e` is enabled. It prints the line number where the script failed.
             </p>
             <p>

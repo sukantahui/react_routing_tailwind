@@ -26,12 +26,12 @@ const Topic15 = () => {
       badgeColor: "rose",
       sqlQuery: `-- Calculating mean score across 4 candidates (Mamata: 100%, Susmita: 80%, Abhronila: 60%, Debangshu: NULL [Absent])
 
--- Query A: Standard AVG() -> Ignores Debangshu (Divisor = 3)
+-- Query A: Standard AVG() &rarr; Ignores Debangshu (Divisor = 3)
 SELECT 
     ROUND(AVG(marks_pct), 2) AS attendee_mean_score
 FROM exam_submissions; -- Result: (100+80+60)/3 = 80.00%
 
--- Query B: COALESCE(marks, 0) -> Penalizes absence as 0 (Divisor = 4)
+-- Query B: COALESCE(marks, 0) -&gt; Penalizes absence as 0 (Divisor = 4)
 SELECT 
     ROUND(AVG(COALESCE(marks_pct, 0.0)), 2) AS cohort_mean_score
 FROM exam_submissions; -- Result: (100+80+60+0)/4 = 60.00%`,
@@ -363,7 +363,7 @@ GROUP BY centre_city;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

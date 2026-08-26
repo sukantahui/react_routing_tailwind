@@ -21,7 +21,7 @@ const Topic10 = () => {
 
   const nestedScenarios = {
     nested_block_master_detail: {
-      title: "1. The Correct Pattern: Nested Block Scoping (Department -> Student)",
+      title: "1. The Correct Pattern: Nested Block Scoping (Department &rarr; Student)",
       badge: "Nested Block Scope",
       badgeColor: "emerald",
       sqlQuery: `-- ✅ THE AUTHORITATIVE NESTED CURSOR ARCHITECTURE:
@@ -149,7 +149,7 @@ DELIMITER ;`,
         "In a flat block, when the inner cursor reaches EOF for Dept 1, the shared `NOT FOUND` handler sets `v_done = TRUE`. When the outer loop checks `v_done`, it exits immediately, skipping all remaining departments!",
     },
     three_tier_deep_nesting: {
-      title: "3. Deep Nesting: 3-Tier Hierarchy (Faculty -> Department -> Student)",
+      title: "3. Deep Nesting: 3-Tier Hierarchy (Faculty -&gt; Department -> Student)",
       badge: "3-Tier Hierarchy",
       badgeColor: "cyan",
       sqlQuery: `-- 3-Tier Nested Block Cursor Hierarchy:
@@ -433,7 +433,7 @@ JOIN students s ON d.department_id = s.department_id;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

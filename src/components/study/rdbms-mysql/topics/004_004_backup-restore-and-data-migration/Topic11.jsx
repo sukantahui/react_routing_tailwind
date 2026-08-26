@@ -74,7 +74,7 @@ util.checkForServerUpgrade({
 // 1. Checks reserved keywords (RANK, MEMBER, SYSTEM, LEAD).
 // 2. Checks obsolete SQL modes & zero-dates ('0000-00-00').
 // 3. Checks legacy MyISAM system tables.
-// 4. Verifies utf8mb3 -> utf8mb4 conversion prerequisites.`,
+// 4. Verifies utf8mb3 &rarr; utf8mb4 conversion prerequisites.`,
       explanation:
         "MySQL Shell's util.checkForServerUpgrade() is mandatory before upgrading from MySQL 5.7 to 8.0 or 8.4 LTS. It detects reserved keyword collisions, invalid default values, and legacy table formats before migration begins.",
       keyTakeaways: [
@@ -231,7 +231,7 @@ ALTER USER 'app_user'@'%' IDENTIFIED WITH caching_sha2_password BY 'SecurePass#2
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );

@@ -76,7 +76,7 @@ const Topic9 = () => {
     const getLinePoints = (a, b, c) => {
         const points = [];
         if (b !== 0 && a !== 0) {
-            for (let x = -0.5; x <= 5.5; x += 0.05) {
+            for (let x = -0.5; x &le; 5.5; x += 0.05) {
                 const y = (c - a * x) / b;
                 if (y >= -0.5 && y <= 5.5) {
                     points.push(toPixel(x, y));
@@ -84,7 +84,7 @@ const Topic9 = () => {
             }
         } else if (a !== 0 && b === 0) {
             const xVal = c / a;
-            if (xVal >= -0.5 && xVal <= 5.5) {
+            if (xVal >= -0.5 && xVal &le; 5.5) {
                 const px = 200 + xVal * 40;
                 points.push({ px, py: 20 });
                 points.push({ px, py: 380 });
@@ -113,7 +113,7 @@ const Topic9 = () => {
                     pts.push({ px: 200, py: 380 });
                     pts.push({ px: 380, py: 380 });
                     const yRight = yAtX(4.5);
-                    if (yRight >= -0.5 && yRight <= 5.5) {
+                    if (yRight &ge; -0.5 && yRight &le; 5.5) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -124,7 +124,7 @@ const Topic9 = () => {
                     pts.push({ px: 200, py: 20 });
                     pts.push({ px: 380, py: 20 });
                     const yRight = yAtX(4.5);
-                    if (yRight >= -0.5 && yRight <= 5.5) {
+                    if (yRight >= -0.5 && yRight &le; 5.5) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -137,7 +137,7 @@ const Topic9 = () => {
                     pts.push({ px: 200, py: 20 });
                     pts.push({ px: 380, py: 20 });
                     const yRight = yAtX(4.5);
-                    if (yRight >= -0.5 && yRight <= 5.5) {
+                    if (yRight &ge; -0.5 && yRight &le; 5.5) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -148,7 +148,7 @@ const Topic9 = () => {
                     pts.push({ px: 200, py: 380 });
                     pts.push({ px: 380, py: 380 });
                     const yRight = yAtX(4.5);
-                    if (yRight >= -0.5 && yRight <= 5.5) {
+                    if (yRight >= -0.5 && yRight &le; 5.5) {
                         pts.push({ px: 380, py: 200 - yRight * 40 });
                     }
                     const yLeft = yAtX(-0.5);
@@ -174,7 +174,7 @@ const Topic9 = () => {
         } else if (b !== 0 && a === 0) {
             const yVal = c / b;
             const py = 200 - yVal * 40;
-            if (sign === "≥" || sign === ">") {
+            if (sign === "≥" || sign === "&gt;") {
                 pts.push({ px: 200, py: 20 });
                 pts.push({ px: 380, py: 20 });
                 pts.push({ px: 380, py: py });
@@ -186,7 +186,7 @@ const Topic9 = () => {
                 pts.push({ px: 200, py: 380 });
             }
         }
-        return pts.filter(p => p.px >= 200 && p.px <= 380 && p.py >= 20 && p.py <= 380);
+        return pts.filter(p => p.px &ge; 200 && p.px &le; 380 && p.py >= 20 && p.py <= 380);
     };
 
     // Get the feasible region (intersection of all constraints)
@@ -247,17 +247,17 @@ const Topic9 = () => {
         const value = con.a * x + con.b * y;
 
         switch (con.sign) {
-            case "<=":
+            case " &le; ":
             case "≤":
                 return value <= con.c + tolerance;
 
             case ">=":
             case "≥":
-                return value >= con.c - tolerance;
+                return value &ge; con.c - tolerance;
 
             case "=":
             case "==":
-                return Math.abs(value - con.c) <= tolerance;
+                return Math.abs(value - con.c) &le; tolerance;
 
             default:
                 return true;
@@ -335,7 +335,7 @@ const Topic9 = () => {
                 const x = con.c / con.a;
                 const y = 0;
 
-                if (x >= 0) {
+                if (x &ge; 0) {
                     const feasible = constraints.every(c =>
                         satisfiesConstraint(x, y, c)
                     );
@@ -467,7 +467,7 @@ const Topic9 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Why Plot Multiple Constraints?
@@ -512,7 +512,7 @@ const Topic9 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">✏️</span>
                         Step-by-Step: Plotting Multiple Constraints
@@ -563,7 +563,7 @@ const Topic9 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🖱️</span>
                         Explore Multiple Constraints
@@ -584,7 +584,7 @@ const Topic9 = () => {
                                         ? "bg-purple-600 text-white border-purple-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showAllConstraints ? "Hide All Shading" : "Show All Shading"}
                             </button>
                         </div>
@@ -606,7 +606,7 @@ const Topic9 = () => {
                                         borderColor: selectedConstraint === con.id ? con.color : undefined,
                                         backgroundColor: selectedConstraint === con.id ? con.color : undefined,
                                     }}
-                                >
+                                &gt;
                                     {con.label}
                                 </button>
                             ))}
@@ -970,7 +970,7 @@ const Topic9 = () => {
                                                     con.sign
                                                 );
 
-                                            if (shading.length <= 2) {
+                                            if (shading.length &le; 2) {
                                                 return null;
                                             }
 
@@ -997,7 +997,7 @@ const Topic9 = () => {
                                                     }
                                                     stroke="none"
                                                     className="transition-all duration-300"
-                                                />
+                                                /&gt;
                                             );
                                         })}
 
@@ -1007,7 +1007,7 @@ const Topic9 = () => {
             ==================================================== */}
 
                                     {showAllConstraints &&
-                                        feasibleVertices.length >= 3 && (
+                                        feasibleVertices.length &ge; 3 && (
 
                                             <polygon
                                                 points={feasibleVertices
@@ -1028,7 +1028,7 @@ const Topic9 = () => {
                                                 strokeWidth="2.5"
                                                 strokeLinejoin="round"
                                                 filter="url(#feasibleGlow_lp)"
-                                            />
+                                            /&gt;
                                         )}
 
 
@@ -1057,7 +1057,7 @@ const Topic9 = () => {
                                                 ? 0.28
                                                 : 0.95;
 
-                                        if (points.length <= 1) {
+                                        if (points.length &le; 1) {
                                             return null;
                                         }
 
@@ -1078,7 +1078,7 @@ const Topic9 = () => {
                                                         stroke={con.color}
                                                         strokeWidth="8"
                                                         opacity="0.12"
-                                                    />
+                                                    /&gt;
                                                 )}
 
                                                 {/* Main line */}
@@ -1105,7 +1105,7 @@ const Topic9 = () => {
                                                     strokeLinecap="round"
                                                     opacity={opacity}
                                                     className="transition-all duration-300"
-                                                />
+                                                /&gt;
 
                                             </g>
                                         );
@@ -1459,7 +1459,7 @@ const Topic9 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📊</span>
                         Tips for Managing Multiple Constraints
@@ -1505,7 +1505,7 @@ const Topic9 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🌍</span>
                         Real-World Examples
@@ -1555,7 +1555,7 @@ const Topic9 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[5]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -1609,7 +1609,7 @@ const Topic9 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[6]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

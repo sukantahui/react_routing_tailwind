@@ -29,7 +29,7 @@ const Topic3 = () => {
 -- student_id INT NOT NULL (4 bytes)
 -- city VARCHAR(30) NOT NULL (30 * 4 + 2 length bytes = 122 bytes)
 -- status CHAR(1) NOT NULL (1 * 4 = 4 bytes)
--- INDEX idx_composite (student_id, city, status) -> Total Max Length = 130 bytes!
+-- INDEX idx_composite (student_id, city, status) &rarr; Total Max Length = 130 bytes!
 
 -- Query 1 (Matches student_id ONLY):
 EXPLAIN SELECT * FROM student_records WHERE student_id = 101;
@@ -37,7 +37,7 @@ EXPLAIN SELECT * FROM student_records WHERE student_id = 101;
 
 -- Query 2 (Matches student_id AND city):
 EXPLAIN SELECT * FROM student_records WHERE student_id = 101 AND city = 'Barrackpore';
--- 📊 key = 'idx_composite' | key_len = 126 (4 + 122 -> Uses Columns 1 & 2!)
+-- 📊 key = 'idx_composite' | key_len = 126 (4 + 122 -&gt; Uses Columns 1 & 2!)
 
 -- Query 3 (Matches student_id, city AND status):
 EXPLAIN SELECT * FROM student_records WHERE student_id = 101 AND city = 'Barrackpore' AND status = 'A';
@@ -394,7 +394,7 @@ EXPLAIN SELECT city, COUNT(*) FROM student_records WHERE age > 18 GROUP BY city 
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -510,7 +510,7 @@ EXPLAIN SELECT city, COUNT(*) FROM student_records WHERE age > 18 GROUP BY city 
               <pre className="p-4 rounded-xl bg-slate-950 text-xs font-mono text-emerald-300 border border-slate-800 overflow-x-auto">
 {`-- Before: Leftmost prefix rule blocked 3rd column:
 -- Index: (student_id, roll_no, exam_center)
--- Query: WHERE student_id = 101 AND exam_center = 'Kolkata_01' -> key_len = 4 bytes only!
+-- Query: WHERE student_id = 101 AND exam_center = 'Kolkata_01' &rarr; key_len = 4 bytes only!
 
 -- After Performance Tuning Fix: Matching query predicate order:
 ALTER TABLE student_records DROP INDEX idx_student_roll_center;

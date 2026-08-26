@@ -181,7 +181,7 @@ iptables -A INPUT -p tcp -m multiport --dports 80,443 -j DROP # Drops direct byp
     
     // Saturation Probability:
     let rawSaturationProb = 0;
-    if (totalAttackGbps <= scrubbingCapacityGbps) {
+    if (totalAttackGbps &le; scrubbingCapacityGbps) {
       rawSaturationProb = 0.0;
     } else {
       const surplus = totalAttackGbps - scrubbingCapacityGbps;
@@ -359,7 +359,7 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
       incident:
         "Researchers modeled the mathematical interaction between aggregate botnet node volume, upstream ISP pipe capacity, and Anycast cloud scrubbing saturation.",
       defenseStrategy:
-        "Susmita and Abhronila published their mathematical model in IEEE Transactions, proving that Anycast networks with C_scrubbing > 5 × B_attack achieve zero link saturation.",
+        "Susmita and Abhronila published their mathematical model in IEEE Transactions, proving that Anycast networks with C_scrubbing &gt; 5 × B_attack achieve zero link saturation.",
       outcome: "Published peer-reviewed mathematical proof; verified across 75,000 simulated distributed botnet scenarios.",
       metrics: {
         simulationTrials: "75,000 Test Trials",
@@ -624,7 +624,7 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   BOTNET
                 </span>
@@ -721,7 +721,7 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
                   value={botCount}
                   onChange={(e) => setBotCount(parseInt(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -737,7 +737,7 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
                   value={nodeBandwidthMbps}
                   onChange={(e) => setNodeBandwidthMbps(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -751,7 +751,7 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     10 Gbps (None)
                   </button>
                   <button
@@ -762,7 +762,7 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     500 Gbps (ISP)
                   </button>
                   <button
@@ -773,7 +773,7 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     5 Tbps (Anycast)
                   </button>
                 </div>
@@ -832,7 +832,7 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -881,7 +881,7 @@ echo "[+] Origin Firewall LOCKED DOWN: Direct-to-Origin DDoS Bypassing Neutraliz
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

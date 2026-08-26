@@ -665,7 +665,7 @@ export default class Topic0 extends Component {
                 </ul>
               </li>
               <li>
-                Filter students with marks &gt;= 80 and observe how Total Row
+                Filter students with marks >= 80 and observe how Total Row
                 updates.
               </li>
             </ol>

@@ -23,7 +23,7 @@ const Topic4 = () => {
   const inherentRiskScore = threatScore * vulnerabilityScore * impactScore; // Max = 125
   const residualRiskScore = (inherentRiskScore * (1 - controlEffectiveness / 100)).toFixed(1);
   const boardRiskAppetiteThreshold = 25.0;
-  const isWithinAppetite = parseFloat(residualRiskScore) <= boardRiskAppetiteThreshold;
+  const isWithinAppetite = parseFloat(residualRiskScore) &le; boardRiskAppetiteThreshold;
 
   // Studio 2: ISO 27005 Stages Data
   const iso27005Stages = {
@@ -220,7 +220,7 @@ const Topic4 = () => {
                   value={threatScore}
                   onChange={(e) => setThreatScore(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                />
+                /&gt;
               </div>
 
               {/* Vulnerability Severity Slider */}
@@ -236,7 +236,7 @@ const Topic4 = () => {
                   value={vulnerabilityScore}
                   onChange={(e) => setVulnerabilityScore(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
               </div>
 
               {/* Asset Impact Slider */}
@@ -252,7 +252,7 @@ const Topic4 = () => {
                   value={impactScore}
                   onChange={(e) => setImpactScore(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                />
+                /&gt;
               </div>
 
               {/* Control Effectiveness Slider */}
@@ -269,7 +269,7 @@ const Topic4 = () => {
                   value={controlEffectiveness}
                   onChange={(e) => setControlEffectiveness(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -297,7 +297,7 @@ const Topic4 = () => {
 
               {/* Status Badge */}
               <div className={clsx("p-3.5 rounded-xl border text-xs font-mono font-bold text-center", isWithinAppetite ? "bg-emerald-950 text-emerald-300 border-emerald-700" : "bg-rose-950 text-rose-300 border-rose-700")}>
-                {isWithinAppetite ? "✔ WITHIN BOARD RISK APPETITE (<= 25.0)" : "❌ EXCEEDS RISK APPETITE (ESCALATE TO CISO)"}
+                {isWithinAppetite ? "✔ WITHIN BOARD RISK APPETITE ( &le; 25.0)" : "❌ EXCEEDS RISK APPETITE (ESCALATE TO CISO)"}
               </div>
             </div>
           </div>
@@ -328,7 +328,7 @@ const Topic4 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{stg.title.split(". ")[1]?.split(" (")[0]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{stg.title.split(". ")[0]}</div>
                 </button>
@@ -550,7 +550,7 @@ const Topic4 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

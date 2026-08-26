@@ -65,7 +65,7 @@ return (
     {
       title: "Function Calls",
       code: `function formatGrade(score) {
-  return score >= 90 ? 'A' : 'B'
+  return score &ge; 90 ? 'A' : 'B'
 }
 
 const scores = [85, 92, 78]
@@ -89,7 +89,7 @@ const score = 85
 return (
   <div>
     <p>Status: {isPresent ? 'Present ✓' : 'Absent ✗'}</p>
-    <p>Result: {score > 50 ? 'Pass' : 'Fail'}</p>
+    <p>Result: {score &gt; 50 ? 'Pass' : 'Fail'}</p>
     {/* Logical AND for conditional rendering */}
     {isPresent && <AttendanceBadge />}
   </div>
@@ -453,7 +453,7 @@ return <div>Welcome, {user.name}</div>`,
                     ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
                     : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                 )}
-              >
+              &gt;
                 <span className="mr-2">{section.icon}</span>
                 {section.label}
               </button>
@@ -469,7 +469,7 @@ return <div>Welcome, {user.name}</div>`,
                   ? "bg-red-900/30 text-red-300 border border-red-800"
                   : "bg-gray-800 text-gray-400 hover:bg-gray-700"
               )}
-            >
+            &gt;
               <AlertTriangle size={16} className="mr-2" />
               {showDangers ? "Hide Danger Examples" : "Show Danger Examples"}
             </button>
@@ -704,7 +704,7 @@ React.createElement('div', null, escaped)`}</pre>
                           ? "bg-green-600 text-white scale-110"
                           : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                       )}
-                    >
+                    &gt;
                       {index + 1}
                     </button>
                   ))}

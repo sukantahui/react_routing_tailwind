@@ -35,8 +35,8 @@ SELECT
     COALESCE(SUM(p.amount_inr), 0.00) AS total_paid_inr,
     (en.course_fee_inr - COALESCE(SUM(p.amount_inr), 0.00)) AS balance_due_inr,
     CASE 
-        WHEN (en.course_fee_inr - COALESCE(SUM(p.amount_inr), 0.00)) <= 0 THEN 'CLEARED'
-        WHEN COALESCE(SUM(p.amount_inr), 0.00) > 0 THEN 'PARTIAL'
+        WHEN (en.course_fee_inr - COALESCE(SUM(p.amount_inr), 0.00)) &le; 0 THEN 'CLEARED'
+        WHEN COALESCE(SUM(p.amount_inr), 0.00) &gt; 0 THEN 'PARTIAL'
         ELSE 'UNPAID'
     END AS clearance_status,
     ROUND(AVG(sc.exam_score_pct), 1) AS avg_score_pct
@@ -352,7 +352,7 @@ FROM MonthlyBranchTurnover;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

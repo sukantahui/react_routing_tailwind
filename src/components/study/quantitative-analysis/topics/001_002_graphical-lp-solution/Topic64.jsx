@@ -144,7 +144,7 @@ const Topic64 = () => {
     },
     {
       title: 'Step 4: Interpret Results',
-      description: 'If slack = 0, the constraint is binding. If slack > 0, there is unused capacity. Larger slack means more unused resources.',
+      description: 'If slack = 0, the constraint is binding. If slack &gt; 0, there is unused capacity. Larger slack means more unused resources.',
       icon: '💡'
     }
   ];
@@ -192,7 +192,7 @@ const Topic64 = () => {
               onChange={(e) => setConstraint(e.target.value)}
               className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
               placeholder="e.g., 3x + 2y ≤ 18"
-            />
+            /&gt;
           </div>
           
           <div className="grid grid-cols-2 gap-4">
@@ -205,7 +205,7 @@ const Topic64 = () => {
                 value={xVal}
                 onChange={(e) => setXVal(parseFloat(e.target.value) || 0)}
                 className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              />
+              /&gt;
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -216,7 +216,7 @@ const Topic64 = () => {
                 value={yVal}
                 onChange={(e) => setYVal(parseFloat(e.target.value) || 0)}
                 className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              />
+              /&gt;
             </div>
           </div>
           
@@ -262,7 +262,7 @@ const Topic64 = () => {
     },
     {
       mistake: 'Ignoring Non-Negativity Slack',
-      explanation: 'Non-negativity constraints (x ≥ 0, y ≥ 0) also have slack/surplus. If x > 0, the constraint x ≥ 0 has slack.'
+      explanation: 'Non-negativity constraints (x ≥ 0, y ≥ 0) also have slack/surplus. If x &gt; 0, the constraint x ≥ 0 has slack.'
     }
   ];
 
@@ -312,7 +312,7 @@ const Topic64 = () => {
                   ? "bg-blue-500 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -382,7 +382,7 @@ const Topic64 = () => {
                     </div>
                     
                     <div className="border-t border-gray-300 dark:border-gray-600 my-2 pt-2">
-                      <p className="font-bold text-yellow-600 dark:text-yellow-400">If Slack {'>'} 0:</p>
+                      <p className="font-bold text-yellow-600 dark:text-yellow-400">If Slack {'&gt;'} 0:</p>
                       <p className="ml-4">The constraint is NON-BINDING</p>
                       <p className="ml-4 text-sm text-gray-500 dark:text-gray-400">There are Slack units of unused resource</p>
                     </div>
@@ -459,7 +459,7 @@ const Topic64 = () => {
                         ? "bg-blue-500 text-white shadow-lg shadow-blue-200 dark:shadow-blue-900/30"
                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
-                  >
+                  &gt;
                     Example {index + 1}
                   </button>
                 ))}
@@ -659,7 +659,7 @@ const Topic64 = () => {
                   <li>For ≤ constraints: Slack = RHS - LHS</li>
                   <li>For ≥ constraints: Surplus = LHS - RHS</li>
                   <li>Slack = 0 means the constraint is <strong>binding</strong></li>
-                  <li>Slack {'>'} 0 means there are <strong>unused resources</strong></li>
+                  <li>Slack {'&gt;'} 0 means there are <strong>unused resources</strong></li>
                   <li>Large slack values indicate significant unused capacity</li>
                   <li>Small slack values indicate the constraint is close to being binding</li>
                 </ul>

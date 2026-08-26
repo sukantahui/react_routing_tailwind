@@ -334,7 +334,7 @@ const Topic14 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 Step 2: Weak Entity Dependents
               </button>
               <button
@@ -345,7 +345,7 @@ const Topic14 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 Step 3: 1:1 Unique Department Heads
               </button>
               <button
@@ -356,7 +356,7 @@ const Topic14 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 Step 4: 1:N Faculty in Departments
               </button>
             </div>
@@ -375,7 +375,7 @@ const Topic14 = () => {
                         value={studentIdForDep}
                         onChange={(e) => setStudentIdForDep(Number(e.target.value))}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none"
-                      >
+                      &gt;
                         <option value={101}>Mamata (#101)</option>
                         <option value={102}>Abhronila (#102)</option>
                         <option value={103}>Debangshu (#103)</option>
@@ -386,14 +386,14 @@ const Topic14 = () => {
                         onChange={(e) => setDepName(e.target.value)}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none"
                         placeholder="Dependent Name"
-                      />
+                      /&gt;
                       <input
                         type="text"
                         value={depRelation}
                         onChange={(e) => setDepRelation(e.target.value)}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-amber-500 focus:outline-none"
                         placeholder="Relation"
-                      />
+                      /&gt;
                     </div>
                     <button
                       onClick={handleAddDependent}
@@ -416,12 +416,12 @@ const Topic14 = () => {
                         onChange={(e) => setDeptName(e.target.value)}
                         className="rounded bg-slate-900 border border-slate-800 px-2.5 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                         placeholder="Dept Name"
-                      />
+                      /&gt;
                       <select
                         value={headFacultyId}
                         onChange={(e) => setHeadFacultyId(Number(e.target.value))}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
-                      >
+                      &gt;
                         {facultyList.map((f) => (
                           <option key={f.id} value={f.id}>
                             #{f.id} {f.name.split(" ")[1]}
@@ -450,12 +450,12 @@ const Topic14 = () => {
                         onChange={(e) => setFacultyName(e.target.value)}
                         className="rounded bg-slate-900 border border-slate-800 px-2.5 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
                         placeholder="Faculty Name"
-                      />
+                      /&gt;
                       <select
                         value={assignedDeptId}
                         onChange={(e) => setAssignedDeptId(Number(e.target.value))}
                         className="rounded bg-slate-900 border border-slate-800 px-2 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
-                      >
+                      &gt;
                         {departments.map((d) => (
                           <option key={d.id} value={d.id}>
                             #{d.id} {d.name}

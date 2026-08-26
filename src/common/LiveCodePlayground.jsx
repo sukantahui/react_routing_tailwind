@@ -59,7 +59,7 @@ function changeText() {
             value={html}
             onChange={(v) => setHtml(v)}
             options={{ minimap: { enabled: false }, fontSize: 14 }}
-          />
+          /&gt;
         </div>
 
         <div>
@@ -71,7 +71,7 @@ function changeText() {
             value={css}
             onChange={(v) => setCss(v)}
             options={{ minimap: { enabled: false }, fontSize: 14 }}
-          />
+          /&gt;
         </div>
 
         <div>
@@ -83,7 +83,7 @@ function changeText() {
             value={js}
             onChange={(v) => setJs(v)}
             options={{ minimap: { enabled: false }, fontSize: 14 }}
-          />
+          /&gt;
         </div>
 
       </div>

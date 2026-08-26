@@ -49,9 +49,9 @@ const Topic6 = () => {
       severity: "CRITICAL (Credential Exposure)"
     },
     drop_jsp_shell: {
-      cmd: "echo 'HEALTH_CHECK_ACTIVE_OK' > /opt/acis/webapps/ROOT/health_probe.txt",
+      cmd: "echo 'HEALTH_CHECK_ACTIVE_OK' &gt; /opt/acis/webapps/ROOT/health_probe.txt",
       description: "Persistence: Deploy persistent test probe endpoint",
-      rawOutput: "File written successfully: /opt/acis/webapps/ROOT/health_probe.txt -> Probe file ACTIVE at https://dispute.equifax.com/health_probe.txt",
+      rawOutput: "File written successfully: /opt/acis/webapps/ROOT/health_probe.txt &rarr; Probe file ACTIVE at https://dispute.equifax.com/health_probe.txt",
       severity: "HIGH (Unauthorized File Creation)"
     }
   };
@@ -289,7 +289,7 @@ const Topic6 = () => {
                 value={selectedOgnlCommand}
                 onChange={(e) => setSelectedOgnlCommand(e.target.value)}
                 className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500"
-              >
+              &gt;
                 {Object.entries(ognlCommandPool).map(([k, v]) => (
                   <option key={k} value={k}>
                     {v.cmd} — {v.description}
@@ -309,7 +309,7 @@ const Topic6 = () => {
                   "px-3 py-1.5 rounded text-xs font-bold transition-all",
                   wafVirtualPatchActive ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                 )}
-              >
+              &gt;
                 {wafVirtualPatchActive ? "WAF ACTIVE" : "WAF OFF"}
               </button>
             </div>
@@ -387,7 +387,7 @@ const Topic6 = () => {
                   value={sslInspectionCertStatus}
                   onChange={(e) => setSslInspectionCertStatus(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500"
-                >
+                &gt;
                   <option value="expired">1. Expired Certificate (Equifax 2017 — Expired 10 Months Ago)</option>
                   <option value="valid_renewed">2. Active & Valid Certificate (Continuous HTTPS Decryption)</option>
                 </select>
@@ -405,7 +405,7 @@ const Topic6 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     sbomTrackingActive ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {sbomTrackingActive ? "SBOM ACTIVE" : "NO INVENTORY"}
                 </button>
               </div>
@@ -421,8 +421,8 @@ const Topic6 = () => {
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between p-3 rounded bg-slate-900 border border-slate-800">
                     <span className="text-gray-400">Adversary Dwell Time Inside Network:</span>
-                    <span className={clsx("font-mono font-bold text-base", detectionMetrics.dwellTimeDays > 1 ? "text-rose-400" : "text-emerald-400")}>
-                      {detectionMetrics.dwellTimeDays >= 1 ? `${detectionMetrics.dwellTimeDays} Days` : "< 1 Hour"}
+                    <span className={clsx("font-mono font-bold text-base", detectionMetrics.dwellTimeDays > 1 ? "text-rose-400" : "text-emerald-400")}&gt;
+                      {detectionMetrics.dwellTimeDays &ge; 1 ? `${detectionMetrics.dwellTimeDays} Days` : "< 1 Hour"}
                     </span>
                   </div>
 
@@ -479,7 +479,7 @@ const Topic6 = () => {
                   value={webDbPrivilegeLevel}
                   onChange={(e) => setWebDbPrivilegeLevel(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500"
-                >
+                &gt;
                   <option value="dba_admin">1. Insecure Global Admin (Equifax 2017 — Can Query All 48 Databases)</option>
                   <option value="least_privilege">2. Strict Least Privilege (Can ONLY Query Dispute Tables)</option>
                 </select>
@@ -491,7 +491,7 @@ const Topic6 = () => {
                   value={databaseNetworkSegmentation}
                   onChange={(e) => setDatabaseNetworkSegmentation(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500"
-                >
+                &gt;
                   <option value="flat">1. Insecure Flat Network (Direct Routing from Web to Core Databases)</option>
                   <option value="microsegmented">2. Zero Trust Micro-segmentation (Database Firewalls Active)</option>
                 </select>
@@ -508,7 +508,7 @@ const Topic6 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     dataTokenizationActive ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {dataTokenizationActive ? "TOKENIZED" : "CLEARTEXT SSNs"}
                 </button>
               </div>
@@ -597,7 +597,7 @@ const Topic6 = () => {
                     ? "bg-red-500/20 text-red-300 border border-red-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 1. Credit Bureau Findings (Kolkata & Barrackpore)
               </button>
               <button
@@ -608,7 +608,7 @@ const Topic6 = () => {
                     ? "bg-red-500/20 text-red-300 border border-red-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 2. Deployed Defense & DPDP Act 2023 Compliance
               </button>
             </div>

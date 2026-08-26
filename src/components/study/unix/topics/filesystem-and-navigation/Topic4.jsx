@@ -231,7 +231,7 @@ export default class Topic4 extends Component {
                 }`}
                 onClick={() => this.handleSectionChange(section)}
                 style={{animationDelay: `${300 + index * 100}ms`}}
-              >
+              &gt;
                 <span className="text-xl mr-3">{sections[section].icon}</span>
                 <div className="text-left">
                   <div className="font-bold">{sections[section].title}</div>
@@ -349,7 +349,7 @@ export default class Topic4 extends Component {
                         className={`px-3 py-1 rounded text-sm ${fileSystemView === 'structure' 
                           ? 'bg-blue-600 text-white' 
                           : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'}`}
-                      >
+                      &gt;
                         Structure
                       </button>
                       <button
@@ -357,7 +357,7 @@ export default class Topic4 extends Component {
                         className={`px-3 py-1 rounded text-sm ${fileSystemView === 'inodetree' 
                           ? 'bg-blue-600 text-white' 
                           : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'}`}
-                      >
+                      &gt;
                         Inode Tree
                       </button>
                     </div>
@@ -444,7 +444,7 @@ export default class Topic4 extends Component {
                                       : 'bg-purple-100 dark:bg-purple-900/30'
                                     : 'bg-gray-100 dark:bg-gray-700'
                                 }`}
-                              >
+                              &gt;
                                 <div className="font-mono text-sm font-bold">
                                   {inode.number}
                                 </div>
@@ -920,7 +920,7 @@ export default class Topic4 extends Component {
                   <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                     <code className="block text-xs font-mono mb-2">
                       $ touch file.txt<br/>
-                      $ echo "data" {`>`} file.txt<br/>
+                      $ echo "data" {`&gt;`} file.txt<br/>
                       $ chmod 644 file.txt
                     </code>
                     <p className="text-xs text-gray-600 dark:text-gray-400">

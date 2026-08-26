@@ -85,7 +85,7 @@ const Topic8 = () => {
 
     if (insertMode === "explicit_jump") {
       assignedId = Number(explicitIdValue);
-      nextCounterVal = assignedId >= currentCounter ? assignedId + 1 : currentCounter;
+      nextCounterVal = assignedId &ge; currentCounter ? assignedId + 1 : currentCounter;
     }
 
     const newRow = {
@@ -320,7 +320,7 @@ const Topic8 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    >
+                    &gt;
                       <div className="font-bold">{btn.label}</div>
                       <div className="text-[10px] text-slate-500">{btn.desc}</div>
                     </button>
@@ -338,7 +338,7 @@ const Topic8 = () => {
                     value={explicitIdValue}
                     onChange={(e) => setExplicitIdValue(Number(e.target.value))}
                     className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                  />
+                  /&gt;
                 </div>
               )}
 

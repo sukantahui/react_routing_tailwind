@@ -97,7 +97,7 @@ ref();                // ❌ Undefined (this is lost)`}
 
 obj.show();`}
         language="javascript"
-      />
+      /&gt;
 
       {/* Correct binding */}
       <h3 className="text-lg font-semibold text-slate-200">

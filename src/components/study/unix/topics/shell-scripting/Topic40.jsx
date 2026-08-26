@@ -217,7 +217,7 @@ const Topic40 = () => {
               "🔹 Use `bash -x script.sh` for one‑off debugging runs.",
               "🔹 Wrap trace sections with `set -x` / `set +x` – don't trace the whole script.",
               "🔹 Customize `PS4` to include line numbers and function names.",
-              "🔹 Redirect trace output to a file: `exec 5> debug.log; BASH_XTRACEFD=5`.",
+              "🔹 Redirect trace output to a file: `exec 5&gt; debug.log; BASH_XTRACEFD=5`.",
               "🔹 Use `trap DEBUG` to run a command before every statement (e.g., print variable).",
               "🔹 Keep a clean version of the script without debug code in version control.",
               "🔹 Combine `set -x` with `set -v` to see raw lines before expansion.",

@@ -207,7 +207,7 @@ ptr++;  // now points to class[1] (sizeof(Student) bytes later)`}
       <div className="animate-fade-up" style={{ animationDelay: "450ms" }}>
         <Teacher note={
           "In my Barrackpore CNAT class, I emphasize that pointer arithmetic is 'type‑aware'. If you remember that adding 1 to a pointer moves to the next element of its type, you'll avoid off‑by‑one errors. I often have students print addresses before and after arithmetic to see the byte difference. Also, note that <code>void*</code> cannot be used in arithmetic – you must cast to a concrete type. This is a common interview question!"
-        } />
+        } /&gt;
       </div>
 
       <style>{`

@@ -64,11 +64,11 @@ CREATE TABLE student_registrations (
     
     -- Extracting student name as a typed VARCHAR:
     student_name VARCHAR(100) 
-      GENERATED ALWAYS AS (student_payload->>'$.name') VIRTUAL,
+      GENERATED ALWAYS AS (student_payload &rarr; &gt;'$.name') VIRTUAL,
       
     -- Extracting city location:
     city VARCHAR(50) 
-      GENERATED ALWAYS AS (student_payload->>'$.address.city') VIRTUAL,
+      GENERATED ALWAYS AS (student_payload &rarr;&rarr; '$.address.city') VIRTUAL,
       
     -- Extracting numeric age:
     student_age TINYINT UNSIGNED 
@@ -78,7 +78,7 @@ CREATE TABLE student_registrations (
 -- Query using clean relational column names:
 SELECT id, student_name, city, student_age 
 FROM student_registrations
-WHERE city = 'Barrackpore' AND student_age >= 18;`,
+WHERE city = 'Barrackpore' AND student_age &ge; 18;`,
       metricsTable: [
         { extractedCol: "student_name", sourceType: "student_payload->>'$.name'", relationalType: "VARCHAR(100)", role: "Clean relational column interface" },
         { extractedCol: "city", sourceType: "student_payload->>'$.address.city'", relationalType: "VARCHAR(50)", role: "Enables standard relational filters" },
@@ -371,7 +371,7 @@ CREATE TABLE bank_customers (
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -489,7 +489,7 @@ CREATE TABLE bank_customers (
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                In Barrackpore, searching 2 million candidate profiles by city (<code>{"WHERE profile->>'$.city' = 'Barrackpore'"}</code>) took 11.2 seconds due to unindexed full table scans. Adding a `VIRTUAL` generated column for `city` and attaching a standard B+ tree index reduced query response times to 2 milliseconds with zero disk space increase on the main table rows.
+                In Barrackpore, searching 2 million candidate profiles by city (<code>{"WHERE profile &rarr; &gt;'$.city' = 'Barrackpore'"}</code>) took 11.2 seconds due to unindexed full table scans. Adding a `VIRTUAL` generated column for `city` and attaching a standard B+ tree index reduced query response times to 2 milliseconds with zero disk space increase on the main table rows.
               </p>
             </div>
 
@@ -505,7 +505,7 @@ CREATE TABLE bank_customers (
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                In Kolkata, a financial verification system storing KYC data in native JSON needed to prevent duplicate Indian PAN card registrations. Creating a `VIRTUAL` generated column on <code>{"kyc_doc->>'$.pan_number'"}</code> with a `UNIQUE INDEX` enforced database-level uniqueness, preventing duplicate account creations with 100% ACID reliability.
+                In Kolkata, a financial verification system storing KYC data in native JSON needed to prevent duplicate Indian PAN card registrations. Creating a `VIRTUAL` generated column on <code>{"kyc_doc &rarr; &gt;'$.pan_number'"}</code> with a `UNIQUE INDEX` enforced database-level uniqueness, preventing duplicate account creations with 100% ACID reliability.
               </p>
             </div>
           </div>
@@ -616,7 +616,7 @@ CREATE TABLE bank_customers (
               <div className="space-y-4 text-xs sm:text-sm text-slate-300">
                 <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
                   <span className="text-cyan-400 font-bold block mb-1">“Observe Optimizer Index Rewrites...”</span>
-                  Even if your legacy application code executes <code>{"WHERE profile->>'$.city' = 'Barrackpore'"}</code>, MySQL 8.0's optimizer will automatically recognize that an index on <code>{"city AS (profile->>'$.city') VIRTUAL"}</code> exists and use the B+ tree index!
+                  Even if your legacy application code executes <code>{"WHERE profile &rarr; &gt;'$.city' = 'Barrackpore'"}</code>, MySQL 8.0's optimizer will automatically recognize that an index on <code>{"city AS (profile &rarr; &gt;'$.city') VIRTUAL"}</code> exists and use the B+ tree index!
                 </div>
                 <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
                   <span className="text-emerald-400 font-bold block mb-1">“Think about 0 Disk Space...”</span>

@@ -16,7 +16,7 @@ const Topic18 = () => {
         { 
             id: "stdout", 
             name: "Standard Output", 
-            symbol: ">",
+            symbol: "&gt;",
             description: "Redirect stdout to file (overwrite)",
             syntax: "command > file",
             color: "from-blue-500 to-cyan-600"
@@ -42,7 +42,7 @@ const Topic18 = () => {
             name: "Standard Error", 
             symbol: "2>",
             description: "Redirect stderr to file",
-            syntax: "command 2> error.log",
+            syntax: "command 2&gt; error.log",
             color: "from-red-500 to-orange-600"
         },
         { 
@@ -75,7 +75,7 @@ const Topic18 = () => {
             description: "Save directory listing to file"
         },
         {
-            command: "echo \"New log entry\" >> app.log",
+            command: "echo \"New log entry\" &gt;> app.log",
             description: "Append to log file"
         },
         {
@@ -87,7 +87,7 @@ const Topic18 = () => {
             description: "Save errors to separate file"
         },
         {
-            command: "script.sh &> all_output.log",
+            command: "script.sh &&gt; all_output.log",
             description: "Capture all output"
         },
         {
@@ -100,7 +100,7 @@ const Topic18 = () => {
         let output = "";
         switch(type) {
             case "stdout":
-                output = "Command: echo 'Hello from Barrackpore' > greeting.txt\n\n";
+                output = "Command: echo 'Hello from Barrackpore' &gt; greeting.txt\n\n";
                 output += "Result: greeting.txt created with content:\n";
                 output += "Hello from Barrackpore";
                 break;
@@ -123,7 +123,7 @@ const Topic18 = () => {
                 output += "ls: cannot access '/nonexistent': No such file or directory";
                 break;
             case "combined":
-                output = "Command: ./script.sh &> output.log\n\n";
+                output = "Command: ./script.sh &&gt; output.log\n\n";
                 output += "Both stdout and stderr go to output.log\n";
                 output += "Nothing appears in terminal";
                 break;
@@ -145,7 +145,7 @@ const Topic18 = () => {
                     }}
                 >
                     <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-                        Redirection: {`>, >>, <, 2>, &>`}
+                        Redirection: {`&gt;, >>, <, 2>, &&gt;`}
                     </h1>
                     <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                         Master the art of controlling input and output streams in shell scripting. Learn how to redirect 
@@ -257,7 +257,7 @@ const Topic18 = () => {
                                     animationDelay: `${index * 100}ms`,
                                     animation: 'motion-safe:animate-[fadeInUp_0.6s_ease-out]'
                                 }}
-                            >
+                            &gt;
                                 <div className="flex items-center mb-3">
                                     <div className={clsx(
                                         "w-12 h-12 rounded-lg flex items-center justify-center mr-3 text-2xl font-bold",
@@ -324,7 +324,7 @@ const Topic18 = () => {
                                             <div className="text-gray-600 dark:text-gray-400">Both to file (old style)</div>
                                         </div>
                                         <div className="flex items-center justify-between">
-                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">{`command &> file`}</code>
+                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">{`command &&gt; file`}</code>
                                             <div className="text-gray-600 dark:text-gray-400">Both to file (Bash)</div>
                                         </div>
                                     </div>
@@ -334,11 +334,11 @@ const Topic18 = () => {
                                     <h4 className="font-semibold text-gray-800 dark:text-white mb-3">Special Files</h4>
                                     <div className="space-y-2">
                                         <div className="flex items-center justify-between">
-                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">{`command > /dev/null`}</code>
+                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">{`command &gt; /dev/null`}</code>
                                             <div className="text-gray-600 dark:text-gray-400">Discard output</div>
                                         </div>
                                         <div className="flex items-center justify-between">
-                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">{`command 2> /dev/null`}</code>
+                                            <code className="text-sm bg-gray-100 dark:bg-gray-800 p-2 rounded">{`command 2&gt; /dev/null`}</code>
                                             <div className="text-gray-600 dark:text-gray-400">Discard errors</div>
                                         </div>
                                         <div className="flex items-center justify-between">
@@ -496,7 +496,7 @@ const Topic18 = () => {
                                 <h3 className="font-semibold text-gray-800 dark:text-white mb-3">Duplicate File Descriptors</h3>
                                 <code className="text-sm text-gray-700 dark:text-gray-300 block bg-gray-100 dark:bg-gray-800 p-3 rounded mb-3">
 {`# Save stdout to fd 3, redirect stdout to file
-exec 3>&1
+exec 3&gt;&1
 echo "This goes to file" > output.log
 # Restore stdout
 echo "This goes to terminal" >&3`}
@@ -545,7 +545,7 @@ grep "pattern" <(find . -name "*.txt")`}
                             </p>
                             <code className="text-sm text-red-800 dark:text-red-300 block bg-red-100 dark:bg-red-900/30 p-3 rounded mb-2">
 {`# WRONG: stderr redirected to current stdout (terminal), then stdout to file
-command 2>&1 > output.log
+command 2&gt;&1 > output.log
 
 # CORRECT: stdout to file, then stderr to same file
 command > output.log 2>&1`}
@@ -563,7 +563,7 @@ command > output.log 2>&1`}
                             <code className="text-sm text-yellow-800 dark:text-yellow-300 block bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded mb-2">
 {`# Enable noclobber to prevent overwrites
 set -o noclobber
-echo "test" > existing_file.txt  # Error: cannot overwrite
+echo "test" &gt; existing_file.txt  # Error: cannot overwrite
 echo "test" >| existing_file.txt  # Force overwrite with >|`}
                             </code>
                             <p className="text-yellow-700 dark:text-yellow-300">
@@ -578,7 +578,7 @@ echo "test" >| existing_file.txt  # Force overwrite with >|`}
                             </p>
                             <code className="text-sm text-blue-800 dark:text-blue-300 block bg-blue-100 dark:bg-blue-900/30 p-3 rounded mb-2">
 {`# Creates empty file even if ls fails
-ls /nonexistent > output.txt
+ls /nonexistent &gt; output.txt
 # File exists but empty`}
                             </code>
                             <p className="text-blue-700 dark:text-blue-300">
@@ -780,7 +780,7 @@ ls /nonexistent > output.txt
                             <h3 className="font-semibold text-gray-800 dark:text-white mb-2">Production Wisdom</h3>
                             <p className="text-gray-700 dark:text-gray-300">
                                 In the Ichapur logging infrastructure, we use a combination of `tee` and process substitution 
-                                for sophisticated log handling. For example: {`command 2>&1 | tee >(grep ERROR > error.log) | tee >(grep WARN > warn.log) > output.log`}. 
+                                for sophisticated log handling. For example: {`command 2&gt;&1 | tee >(grep ERROR > error.log) | tee >(grep WARN > warn.log) > output.log`}. 
                                 This splits the stream multiple ways. Also, remember that {`&>`} in Bash is not POSIX - for 
                                 portable scripts in Naihati, use {`> file 2>&1`}. Always test redirection edge cases: what 
                                 happens when the output file can't be created? What if disk is full? Handle these gracefully.

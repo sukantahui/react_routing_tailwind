@@ -104,7 +104,7 @@ interface Tunnel100
       categoryBadge: "bg-amber-950 text-amber-300 border-amber-800",
       targetLayer: "Application Layer (WAF Inspection)",
       technicalMechanism:
-        "Evaluates incoming requests against thousands of known attack signatures (OWASP Core Rule Set), accumulating anomaly points; blocks the request only if the cumulative score exceeds a threshold (Score >= 5).",
+        "Evaluates incoming requests against thousands of known attack signatures (OWASP Core Rule Set), accumulating anomaly points; blocks the request only if the cumulative score exceeds a threshold (Score &ge; 5).",
       operationalAdvantage: "Minimizes false positive disruptions on legitimate user traffic while blocking complex multi-vector exploits.",
       telemetryIndicator: "WAF transaction logs detailing cumulative anomaly scores (e.g. Score=12 ➔ Blocked)",
       enterpriseStandard: "OWASP ModSecurity / AWS WAF Core Rule Set running in Anomaly Scoring mode.",
@@ -155,7 +155,7 @@ ByteMatchStatement {
       categoryBadge: "bg-purple-950 text-purple-300 border-purple-800",
       targetLayer: "Application API & HTTP/2 Parser",
       technicalMechanism:
-        "Parses GraphQL query Abstract Syntax Trees (AST) to enforce maximum depth limits (Depth <= 5), and sanitizes HTTP/2 frames to block Rapid Reset (CVE-2023-44487) stream cancellation exploits.",
+        "Parses GraphQL query Abstract Syntax Trees (AST) to enforce maximum depth limits (Depth &le; 5), and sanitizes HTTP/2 frames to block Rapid Reset (CVE-2023-44487) stream cancellation exploits.",
       operationalAdvantage: "Prevents complex API parser and database recursive CPU lockup attacks.",
       telemetryIndicator: "WAF blocking GraphQL requests exceeding query depth 5 and dropping abnormal RST_STREAM bursts",
       enterpriseStandard: "Cloud WAF API Shield with strict GraphQL depth capping and HTTP/2 concurrency controls.",
@@ -642,7 +642,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \\
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   TECH
                 </span>
@@ -739,7 +739,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \\
                   value={ingressFloodGbps}
                   onChange={(e) => setIngressFloodGbps(parseInt(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -755,7 +755,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \\
                   value={fpgaDropRatePercent}
                   onChange={(e) => setFpgaDropRatePercent(parseFloat(e.target.value))}
                   className="w-full accent-purple-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -771,7 +771,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \\
                   value={wafDropRatePercent}
                   onChange={(e) => setWafDropRatePercent(parseFloat(e.target.value))}
                   className="w-full accent-amber-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1 border-t border-gray-800">
@@ -784,7 +784,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \\
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300 shadow-md shadow-emerald-950/50"
                       : "bg-gray-950 border-gray-800 text-gray-400"
                   )}
-                >
+                &gt;
                   {greTunnelActive ? "✔ GRE RETURN TUNNEL (+3.5ms RTT)" : "DIRECT CROSS-CONNECT (0ms RTT)"}
                 </button>
               </div>
@@ -842,7 +842,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \\
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -891,7 +891,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \\
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>
@@ -1132,7 +1132,7 @@ SecRule TX:ANOMALY_SCORE "@ge %{tx.inbound_anomaly_score_threshold}" \\
         <section className="pt-4">
           <Teacher
             note="Teacher's Note: Cloud-Based DDoS Scrubbing Centers and Web Application Firewalls (WAF) represent the pinnacle of modern enterprise cyber defense, combining multi-terabit edge routing, hardware FPGA silicon acceleration, and deep application-layer inspection! Master the 3-stage scrubbing pipeline: 1. Ingestion: 300+ BGP Anycast Points of Presence (PoPs) ingest multi-terabit floods at the edge; 2. Silicon Scrubbing: Hardware FPGA packet engines filter volumetric UDP amplification and compute RFC 4987 HMAC SYN cookies in under 5 nanoseconds without CPU load; 3. Clean Return: Scrubbers encapsulate clean packets inside GRE tunnels (Protocol 47), requiring TCP MSS clamping to 1436 bytes (`ip tcp adjust-mss 1436`) to prevent WAN MTU fragmentation! Understand WAF security models: Positive Security enforces strict OpenAPI schema contracts (zero-day immunity), while Negative Security uses OWASP Core Rule Set anomaly scoring (blocking when Score >= 5). Master advanced bot defense: TLS JA3/JA4 fingerprinting hashes SSL Client Hello parameters to spot automated botnets (Python, Mirai) regardless of fake User-Agents, and WAF Virtual Patching shields zero-days (Log4Shell CVE-2021-44228) at the edge in hours before backend patches can be coded. Remember that Section 70 of the Indian IT Act penalizes attacks on designated Protected Systems with up to 10 years imprisonment, and Section 66F treats cloud DDoS cyber terrorism against national infrastructure with Life Imprisonment!"
-          />
+          /&gt;
         </section>
 
       </div>

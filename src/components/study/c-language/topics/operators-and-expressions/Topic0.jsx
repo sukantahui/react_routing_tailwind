@@ -35,7 +35,7 @@ int main() {
     return 0;
 }
 `}
-        />
+        /&gt;
 
         {/* Example 2 */}
         <h3 className="text-lg font-semibold text-slate-200">
@@ -53,7 +53,7 @@ int main() {
     return 0;
 }
 `}
-        />
+        /&gt;
 
         {/* Teacher Tips */}
         <div className="border border-slate-700 p-4 rounded-xl bg-slate-800/60">

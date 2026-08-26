@@ -35,7 +35,7 @@ FROM students
 WHERE student_id = 101;
 
 -- Execution Mechanics:
--- 1. Traverses PRIMARY B+Tree directly (Root -> Branch -> Leaf).
+-- 1. Traverses PRIMARY B+Tree directly (Root &rarr; Branch -&gt; Leaf).
 -- 2. Leaf Page contains the COMPLETE PHYSICAL ROW (All columns)!
 -- 3. Returns data in a single step (Zero secondary lookups).
 -- Type: const / eq_ref | Key: PRIMARY | Latency: 0.4 ms`,
@@ -297,7 +297,7 @@ WHERE phone_number = '98300-98214';
                     <text x="475" y="96" fill="#a7f3d0" fontSize="9 font-mono" textAnchor="middle">Fetches: Mamata, Fee ₹25k</text>
                   </g>
 
-                  {/* Flow Arrow Step 1 -> Step 2 */}
+                  {/* Flow Arrow Step 1 &rarr; Step 2 */}
                   <path d="M 250 95 L 350 95" stroke="#f59e0b" strokeWidth="2" />
                   <text x="300" y="85" fill="#fcd34d" fontSize="9" fontWeight="bold" textAnchor="middle">PK 101</text>
 
@@ -344,7 +344,7 @@ WHERE phone_number = '98300-98214';
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

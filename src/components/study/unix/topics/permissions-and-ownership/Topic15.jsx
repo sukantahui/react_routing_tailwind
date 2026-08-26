@@ -434,7 +434,7 @@ export default  class Topic15 extends React.Component {
                           ? 'bg-orange-600 text-white'
                           : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                       )}
-                    >
+                    &gt;
                       <div className="font-semibold">{scenarios[key].title}</div>
                       <div className="text-xs opacity-80 mt-1">{scenarios[key].location}</div>
                     </button>
@@ -496,7 +496,7 @@ export default  class Topic15 extends React.Component {
                         : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                     )}
                     style={activeStep === step.number ? { animation: 'pulseStep 2s infinite' } : {}}
-                  >
+                  &gt;
                     Step {step.number}: {step.title}
                   </button>
                 ))}
@@ -557,7 +557,7 @@ export default  class Topic15 extends React.Component {
                                 checked={perms[perm]}
                                 onChange={() => this.togglePermission(user, perm)}
                                 className="mr-2 h-4 w-4"
-                              />
+                              /&gt;
                               <span className="text-sm capitalize">{perm} ({perms[perm] ? perm[0].toUpperCase() : '-'})</span>
                             </label>
                           ))}
@@ -588,13 +588,13 @@ export default  class Topic15 extends React.Component {
               )}
               
               {/* Command History - For Steps 2-5 */}
-              {currentStep.number >= 2 && (
+              {currentStep.number &ge; 2 && (
                 <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                   <h4 className="font-bold mb-3 text-blue-700 dark:text-blue-400">Command History:</h4>
                   <p className="text-sm mb-3">As you work through the lab, these are the commands you would run:</p>
                   
                   <div className="space-y-2">
-                    {commandHistory.length > 0 ? (
+                    {commandHistory.length &gt; 0 ? (
                       commandHistory.map((item, index) => (
                         <div key={index} className="p-2 bg-gray-900 text-green-400 rounded font-mono text-sm">
                           <span className="text-gray-400">[{item.timestamp}] $ </span>
@@ -612,7 +612,7 @@ export default  class Topic15 extends React.Component {
                     <button
                       onClick={() => this.addCommandToHistory(currentStep.commands[0])}
                       className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors duration-300 text-sm"
-                    >
+                    &gt;
                       Simulate Running: {currentStep.commands[0].split(' ')[0]}
                     </button>
                     <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">

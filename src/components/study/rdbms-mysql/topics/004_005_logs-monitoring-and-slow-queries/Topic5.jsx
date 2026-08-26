@@ -33,7 +33,7 @@ mysqldumpslow -s t -t 10 /var/log/mysql/slow_query.log
 SELECT price, stock FROM kolkata_retail.products WHERE barcode = 'S';
 
 # Analysis:
-# - Query ran 8,000 times at 0.60s avg -> 4,800s total CPU time consumed!
+# - Query ran 8,000 times at 0.60s avg &rarr; 4,800s total CPU time consumed!
 # - Optimizing this saves 80 minutes of server load daily! ⚡`,
       explanation:
         "Sorting by total cumulative execution time (-s t) identifies high-frequency queries that drain the greatest total CPU and I/O capacity over time, delivering the largest compound server performance gains.",
@@ -94,7 +94,7 @@ zcat /var/log/mysql/slow_query.log.1.gz | mysqldumpslow -s t -t 10 -`,
       sqlSnippet: `# 🛠️ END-TO-END QUERY OPTIMIZATION RUNBOOK:
 
 -- Step 1: Extract Top Digest from mysqldumpslow:
--- SELECT * FROM orders WHERE status = 'S' AND total > N ORDER BY order_date DESC;
+-- SELECT * FROM orders WHERE status = 'S' AND total &gt; N ORDER BY order_date DESC;
 
 -- Step 2: Plug in realistic production parameters & run EXPLAIN ANALYZE:
 EXPLAIN ANALYZE
@@ -211,7 +211,7 @@ CREATE INDEX idx_status_total_date ON kolkata_retail.orders(status, total_amount
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );

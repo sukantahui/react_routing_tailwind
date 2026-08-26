@@ -351,7 +351,7 @@ const Topic29 = () => {
                   animationDelay: `${index * 0.1}s`,
                   animation: interactive ? 'skillAppear 0.3s ease-out forwards' : 'none'
                 }}
-              >
+              &gt;
                 {skill}
                 {interactive && (
                   <span className="ml-1 text-xs">×</span>
@@ -467,7 +467,7 @@ const Topic29 = () => {
                   ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
               )}
-            >
+            &gt;
               Live Preview
             </button>
             <button
@@ -478,7 +478,7 @@ const Topic29 = () => {
                   ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
               )}
-            >
+            &gt;
               Component Builder
             </button>
             <button
@@ -489,7 +489,7 @@ const Topic29 = () => {
                   ? "text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
               )}
-            >
+            &gt;
               Sample Profiles
             </button>
           </div>
@@ -507,13 +507,13 @@ const Topic29 = () => {
                     <button
                       onClick={() => setIsEditing(true)}
                       className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-300"
-                    >
+                    &gt;
                       Edit Profile
                     </button>
                     <button
                       onClick={() => setIsEditing(!isEditing)}
                       className="px-4 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white rounded-lg font-medium transition-colors duration-300"
-                    >
+                    &gt;
                       {isEditing ? 'Cancel' : 'Customize'}
                     </button>
                   </div>
@@ -589,7 +589,7 @@ const Topic29 = () => {
                         onChange={(e) => setNewSkill(e.target.value)}
                         placeholder="Enter a skill (e.g., MongoDB)"
                         className="flex-1 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
+                      /&gt;
                       <button
                         onClick={handleAddSkill}
                         className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors duration-300"
@@ -626,7 +626,7 @@ const Topic29 = () => {
                             value={userInput[item.field]}
                             onChange={(e) => handleInputChange(item.field, e.target.value)}
                             className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-300"
-                          />
+                          /&gt;
                         </div>
                       ))}
                       
@@ -639,7 +639,7 @@ const Topic29 = () => {
                           onChange={(e) => handleInputChange('bio', e.target.value)}
                           rows="4"
                           className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-300"
-                        />
+                        /&gt;
                       </div>
                       
                       <div className="flex gap-3 pt-4">
@@ -652,7 +652,7 @@ const Topic29 = () => {
                         <button
                           onClick={() => setIsEditing(false)}
                           className="px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white rounded-lg font-medium transition-colors duration-300"
-                        >
+                        &gt;
                           Cancel
                         </button>
                       </div>
@@ -683,7 +683,7 @@ const Topic29 = () => {
                           ? "bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800"
                           : "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-lg"
                       )}
-                    >
+                    &gt;
                       <div className="flex items-center gap-4 mb-3">
                         <div className={clsx(
                           "w-10 h-10 rounded-full flex items-center justify-center font-bold",
@@ -788,7 +788,7 @@ const Topic29 = () => {
                     className="cursor-pointer transform transition-all duration-500 hover:scale-[1.03]"
                     onClick={() => loadSampleProfile(profile)}
                     style={{ animationDelay: `${0.3 + index * 0.1}s` }}
-                  >
+                  &gt;
                     <ProfileCard data={profile} />
                   </div>
                 ))}

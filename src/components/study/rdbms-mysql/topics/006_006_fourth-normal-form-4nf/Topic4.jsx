@@ -7,7 +7,7 @@ import questions from "./topic4_files/topic4_questions";
 import noteText from "./topic4_files/topic4_note.txt?raw";
 
 /**
- * Topic4 – Comprehensive Example: Employee Skills and Spoken Languages (EmpID ->> Skill, EmpID ->> Language)
+ * Topic4 – Comprehensive Example: Employee Skills and Spoken Languages (EmpID ->&gt; Skill, EmpID &rarr; > Language)
  * Module: 006_006_fourth-normal-form-4nf
  *
  * @component
@@ -71,7 +71,7 @@ const Topic4 = () => {
             <span>Relational Normalization Masterclass · Topic 4</span>
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Comprehensive Example: Employee Skills and Spoken Languages (EmpID ->> Skill, EmpID ->> Language)
+            Comprehensive Example: Employee Skills and Spoken Languages (EmpID &rarr; &gt; Skill, EmpID &rarr;&rarr; Language)
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Explore Fourth Normal Form (4NF). Learn the nature of multivalued dependencies (MVD), how multiple independent 1-to-many relationships cause Cartesian explosion in a single table, and how to decompose into 4NF.
@@ -136,7 +136,7 @@ const Topic4 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab1" ? "border-rose-400 text-rose-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>🚫</span>
                 <span>MULTIVALUED DEPENDENCY</span>
               </button>
@@ -147,7 +147,7 @@ const Topic4 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab2" ? "border-amber-400 text-amber-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>⚠️</span>
                 <span>CARTESIAN EXPLOSION</span>
               </button>
@@ -158,7 +158,7 @@ const Topic4 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab3" ? "border-teal-400 text-teal-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>🔍</span>
                 <span>MVD INFERENCE</span>
               </button>
@@ -169,7 +169,7 @@ const Topic4 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab4" ? "border-emerald-400 text-emerald-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>✅</span>
                 <span>4NF NORMALIZED</span>
               </button>
@@ -193,7 +193,7 @@ const Topic4 = () => {
                 <button
                   onClick={() => handleCopy(selectedTab === "tab4" ? conf.sql4 : conf.sql1)}
                   className="px-3 py-1.5 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition"
-                >
+                &gt;
                   {copiedCode ? "✓ SQL Copied" : "📋 Copy SQL Code"}
                 </button>
               </div>
@@ -339,7 +339,7 @@ const Topic4 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Comprehensive Example: Employee Skills and Spoken Languages (EmpID ->> Skill, EmpID ->> Language)"
+            title="Comprehensive Example: Employee Skills and Spoken Languages (EmpID ->&gt; Skill, EmpID &rarr; > Language)"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Plain Text Note"
@@ -361,7 +361,7 @@ const Topic4 = () => {
         {/* ─── FAQ & Practice Questions ───────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Comprehensive Example: Employee Skills and Spoken Languages (EmpID ->> Skill, EmpID ->> Language) – Practice Questions"
+            title="Comprehensive Example: Employee Skills and Spoken Languages (EmpID ->&gt; Skill, EmpID &rarr; > Language) – Practice Questions"
             questions={questions}
             subtitle="Test your comprehension with 30 deep-dive questions"
             showPrint
@@ -374,7 +374,7 @@ const Topic4 = () => {
         {/* ─── Footer ─────────────────────────────────────────── */}
         <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
           <span>
-            Topic 4 · Comprehensive Example: Employee Skills and Spoken Languages (EmpID ->> Skill, EmpID ->> Language) · RDBMS MySQL Masterclass · Coder & AccoTax Barrackpore
+            Topic 4 · Comprehensive Example: Employee Skills and Spoken Languages (EmpID &rarr; &gt; Skill, EmpID &rarr;&rarr; Language) · RDBMS MySQL Masterclass · Coder & AccoTax Barrackpore
           </span>
         </footer>
       </div>

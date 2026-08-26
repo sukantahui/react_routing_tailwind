@@ -282,7 +282,7 @@ const Topic8 = () => {
                   ? "bg-cyan-600 text-white shadow-lg shadow-cyan-200 dark:shadow-cyan-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -305,7 +305,7 @@ const Topic8 = () => {
                           ? "bg-cyan-600 text-white"
                           : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                       )}
-                    >
+                    &gt;
                       {cat}
                     </button>
                   ))}
@@ -317,7 +317,7 @@ const Topic8 = () => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 w-48 md:w-64"
-                  />
+                  /&gt;
                   <span className="absolute right-3 top-2.5 text-gray-400">🔍</span>
                 </div>
               </div>
@@ -337,7 +337,7 @@ const Topic8 = () => {
                     <div
                       onClick={() => toggleAnswer(q.id)}
                       className="p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg transition-all duration-300"
-                    >
+                    &gt;
                       <div className="flex justify-between items-start gap-4">
                         <div>
                           <div className="flex items-center gap-2 mb-1">
@@ -405,7 +405,7 @@ const Topic8 = () => {
                           setActiveTab('questions');
                         }}
                         className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
-                      >
+                      &gt;
                         <h4 className="font-semibold text-cyan-700 dark:text-cyan-400">{category}</h4>
                         <p className="text-sm text-gray-600 dark:text-gray-400">{count} questions</p>
                         <div className="mt-2 text-xs text-cyan-600 dark:text-cyan-400">

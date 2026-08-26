@@ -29,7 +29,7 @@ const Topic2 = () => {
 mysqldump -u root -p --all-databases \\
   --single-transaction --quick \\
   --routines --triggers --events \\
-  --hex-blob --source-data=2 > /backups/full_instance.sql
+  --hex-blob --source-data=2 &gt; /backups/full_instance.sql
 
 -- 🏢 2. MULTIPLE SPECIFIC DATABASES (Includes CREATE DATABASE & USE):
 mysqldump -u root -p --databases kolkata_retail kolkata_finance \\
@@ -49,7 +49,7 @@ mysqldump -u root -p --databases kolkata_retail kolkata_finance \\
       badgeColor: "cyan",
       sqlSnippet: `-- 🎯 1. DUMP ONLY SPECIFIC TABLES:
 mysqldump -u root -p --single-transaction \\
-  kolkata_retail orders order_items customers > /backups/core_orders.sql
+  kolkata_retail orders order_items customers &gt; /backups/core_orders.sql
 
 -- 🚫 2. EXCLUDE VOLATILE LOG / CACHE TABLES (--ignore-table):
 mysqldump -u root -p --single-transaction kolkata_retail \\
@@ -92,7 +92,7 @@ mysqldump -u root -p --no-create-info --single-transaction \\
       badgeColor: "rose",
       sqlSnippet: `-- 🔍 1. DUMP FILTERED ROW SLICE (--where):
 mysqldump -u root -p --single-transaction kolkata_retail orders \\
-  --where="order_date >= '2026-01-01 00:00:00' AND city = 'Barrackpore'" > barrackpore_2026.sql
+  --where="order_date &ge; '2026-01-01 00:00:00' AND city = 'Barrackpore'" > barrackpore_2026.sql
 
 -- ⚡ 2. STREAM DIRECTLY INTO PARALLEL ZSTD COMPRESSION:
 mysqldump -u root -p --single-transaction --quick --routines --triggers \\
@@ -202,7 +202,7 @@ mysqldump -u root -p --single-transaction --quick --routines --triggers \\
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );

@@ -40,12 +40,12 @@ export default function Topic2() {
 ];
 
 const jsToppers = students.filter(
-  s => s.course === "JavaScript" && s.marks >= 80
+  s => s.course === "JavaScript" && s.marks &ge; 80
 );
 
 console.log("JavaScript toppers:", jsToppers);`}
           language="javascript"
-        />
+        /&gt;
 
         <EditableCodeBlock
           initialCode={`const products = [
@@ -138,7 +138,7 @@ const sortedByMarksDesc = students
 console.log("Original:", students);
 console.log("Sorted (high → low):", sortedByMarksDesc);`}
           language="javascript"
-        />
+        /&gt;
 
         <EditableCodeBlock
           initialCode={`const courses = [
@@ -154,7 +154,7 @@ const sortedByTitle = courses
 
 console.log("Sorted by title:", sortedByTitle);`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* 4. VALIDATION WITH some() & every() */}
@@ -176,12 +176,12 @@ console.log("Sorted by title:", sortedByTitle);`}
 ];
 
 const anyFailed  = students.some(s => s.marks < 40);
-const allPassed  = students.every(s => s.marks >= 40);
+const allPassed  = students.every(s => s.marks &ge; 40);
 
 console.log("Any failed? ", anyFailed);
 console.log("All passed? ", allPassed);`}
           language="javascript"
-        />
+        /&gt;
 
         <EditableCodeBlock
           initialCode={`const users = [
@@ -195,7 +195,7 @@ const anyMissingEmail = users.some(u => !u.email);
 
 console.log("Any missing email? ", anyMissingEmail);`}
           language="javascript"
-        />
+        /&gt;
       </section>
 
       {/* 5. CHAINING METHODS */}
@@ -222,7 +222,7 @@ console.log("Any missing email? ", anyMissingEmail);`}
 // Steps: filter → sort → map
 
 const topJsLabels = students
-  .filter(s => s.course === "JavaScript" && s.marks >= 70)  // keep JS students with marks ≥ 70
+  .filter(s => s.course === "JavaScript" && s.marks &ge; 70)  // keep JS students with marks ≥ 70
   .slice()                                                  // clone before sort (safe habit)
   .sort((a, b) => b.marks - a.marks)                        // sort high → low
   .map(s => \`\${s.name} (\${s.marks})\`);                   // create label strings

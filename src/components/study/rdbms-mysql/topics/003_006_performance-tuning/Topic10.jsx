@@ -41,7 +41,7 @@ WHERE city = 'Barrackpore';
 
 -- 📋 Hinted Plan:
 -- type = 'ref', key = 'idx_city', rows = 650, Extra = NULL ⚡
--- Latency drops from 78.0 ms -> 0.45 ms! (170x faster!)`,
+-- Latency drops from 78.0 ms &rarr; 0.45 ms! (170x faster!)`,
       resultRows: [
         {
           variant: "Default CBO (Stale Stats)",
@@ -88,7 +88,7 @@ WHERE d.name = 'Computer Science';
 
 -- 📋 Hinted Plan:
 -- Join starts with 'departments' (1 row filtered), then probes 'students' (500 rows),
--- and finally probes 'enrollments' by PK! Latency drops from 340 ms -> 1.8 ms!`,
+-- and finally probes 'enrollments' by PK! Latency drops from 340 ms -&gt; 1.8 ms!`,
       resultRows: [
         {
           variant: "Default CBO Join Order (e, s, d)",
@@ -507,7 +507,7 @@ ORDER BY total_fees DESC;
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",
@@ -706,7 +706,7 @@ JOIN transaction_payments p ON s.student_id = p.student_id
 WHERE b.branch_code = 'KOL-MAIN'
 GROUP BY b.branch_name, c.course_name;
 
--- Result: Duration dropped from 12,400 ms -> 14.5 ms! ⚡`}
+-- Result: Duration dropped from 12,400 ms &rarr; 14.5 ms! ⚡`}
                 </pre>
               </div>
             </div>

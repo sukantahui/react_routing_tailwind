@@ -38,7 +38,7 @@ export default class Topic7 extends Component {
 console.log(sum(10, 20));         // 30
 console.log(sum(5, 10, 15, 20));  // 50
 console.log(sum());               // 0`}
-        />
+        /&gt;
 
         <p className="text-slate-400 text-sm">
           The <code>...numbers</code> collects all arguments into an array.
@@ -93,7 +93,7 @@ Students: ["Ritaja", "Mounita", "Swadeep"]
 console.log(average(88, 92, 95)); // 91.66
 console.log(average(70));         // 70
 console.log(average());           // 0`}
-        />
+        /&gt;
 
         <p className="text-slate-400 text-sm">
           Great for student scoring systems used in classes.

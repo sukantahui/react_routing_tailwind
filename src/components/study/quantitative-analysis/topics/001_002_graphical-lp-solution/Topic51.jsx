@@ -128,18 +128,18 @@ const Topic51 = () => {
         const maxY = Math.max(...currentExample.cornerPoints.map(cp => cp.y)) + 5;
         const range = Math.max(maxX, maxY, 15);
         if (b !== 0 && a !== 0) {
-            for (let x = -2; x <= range + 2; x += 0.2) {
+            for (let x = -2; x &le; range + 2; x += 0.2) {
                 const y = (c - a * x) / b;
                 if (y >= -2 && y <= range + 2) {
                     const p = toPixel(x, y);
-                    if (p.px >= 40 && p.px <= 560 && p.py >= 20 && p.py <= 390) {
+                    if (p.px >= 40 && p.px &le; 560 && p.py >= 20 && p.py <= 390) {
                         points.push(p);
                     }
                 }
             }
         } else if (a !== 0 && b === 0) {
             const xVal = c / a;
-            if (xVal >= -2 && xVal <= range + 2) {
+            if (xVal >= -2 && xVal &le; range + 2) {
                 const px = toPixel(xVal, 0).px;
                 points.push({ px, py: 20 });
                 points.push({ px, py: 380 });
@@ -171,7 +171,7 @@ const Topic51 = () => {
                     pts.push(toPixel(0, 0));
                     pts.push(toPixel(range, 0));
                     const yRight = yAtX(range);
-                    if (yRight >= -2 && yRight <= range) {
+                    if (yRight &ge; -2 && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(0);
@@ -182,7 +182,7 @@ const Topic51 = () => {
                     pts.push(toPixel(0, range));
                     pts.push(toPixel(range, range));
                     const yRight = yAtX(range);
-                    if (yRight >= -2 && yRight <= range) {
+                    if (yRight >= -2 && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(0);
@@ -195,7 +195,7 @@ const Topic51 = () => {
                     pts.push(toPixel(0, range));
                     pts.push(toPixel(range, range));
                     const yRight = yAtX(range);
-                    if (yRight >= -2 && yRight <= range) {
+                    if (yRight &ge; -2 && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(0);
@@ -206,7 +206,7 @@ const Topic51 = () => {
                     pts.push(toPixel(0, 0));
                     pts.push(toPixel(range, 0));
                     const yRight = yAtX(range);
-                    if (yRight >= -2 && yRight <= range) {
+                    if (yRight >= -2 && yRight &le; range) {
                         pts.push(toPixel(range, yRight));
                     }
                     const yLeft = yAtX(0);
@@ -232,7 +232,7 @@ const Topic51 = () => {
         } else if (b !== 0 && a === 0) {
             const yVal = c / b;
             const py = toPixel(0, yVal).py;
-            if (sign === "≥" || sign === ">") {
+            if (sign === "≥" || sign === "&gt;") {
                 pts.push(toPixel(0, yVal));
                 pts.push(toPixel(range, yVal));
                 pts.push(toPixel(range, range));
@@ -244,7 +244,7 @@ const Topic51 = () => {
                 pts.push(toPixel(0, yVal));
             }
         }
-        return pts.filter(p => p.px >= 40 && p.px <= 560 && p.py >= 20 && p.py <= 390);
+        return pts.filter(p => p.px &ge; 40 && p.px &le; 560 && p.py >= 20 && p.py <= 390);
     };
 
     // Get feasible region shading
@@ -324,7 +324,7 @@ const Topic51 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[0]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">∞</span>
                         What are Infinite Optimal Solutions?
@@ -371,7 +371,7 @@ const Topic51 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[1]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🔍</span>
                         Why Infinite Optimal Solutions Occur
@@ -416,7 +416,7 @@ const Topic51 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[2]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🖱️</span>
                         Interactive Infinite Optima Explorer
@@ -439,7 +439,7 @@ const Topic51 = () => {
                                             ? "bg-cyan-600 dark:bg-cyan-500 text-white border-cyan-600 dark:border-cyan-500 shadow-md"
                                             : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600 hover:border-cyan-400 dark:hover:border-cyan-500"
                                     )}
-                                >
+                                &gt;
                                     {ex.name}
                                 </button>
                             ))}
@@ -455,7 +455,7 @@ const Topic51 = () => {
                                         ? "bg-amber-600 text-white border-amber-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showCornerPoints ? "Hide Corners" : "Show Corners"}
                             </button>
                             <button
@@ -466,7 +466,7 @@ const Topic51 = () => {
                                         ? "bg-rose-600 text-white border-rose-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showInfinitePoints ? "Hide Sample Points" : "Show Sample Points"}
                             </button>
                             <button
@@ -477,7 +477,7 @@ const Topic51 = () => {
                                         ? "bg-purple-600 text-white border-purple-600"
                                         : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600"
                                 )}
-                            >
+                            &gt;
                                 {showOptimalHighlight ? "Hide Highlight" : "Show Highlight"}
                             </button>
                         </div>
@@ -505,7 +505,7 @@ const Topic51 = () => {
                                                     fill={con.color}
                                                     fillOpacity="0.08"
                                                     stroke="none"
-                                                />
+                                                /&gt;
                                             );
                                         }
                                         return null;
@@ -521,7 +521,7 @@ const Topic51 = () => {
                                                     fill="#06b6d4"
                                                     fillOpacity="0.1"
                                                     stroke="none"
-                                                />
+                                                /&gt;
                                             );
                                         }
                                         return null;
@@ -538,7 +538,7 @@ const Topic51 = () => {
                                             stroke="#ef4444"
                                             strokeWidth="4"
                                             strokeDasharray="none"
-                                        />
+                                        /&gt;
                                     )}
 
                                     {/* Sample points on the optimal edge */}
@@ -595,7 +595,7 @@ const Topic51 = () => {
                                         const maxY = Math.max(...currentExample.cornerPoints.map(cp => cp.y)) + 2;
                                         const maxRange = Math.max(maxX, maxY, 12);
                                         const scale = 460 / maxRange;
-                                        const tickStep = maxRange <= 10 ? 1 : (maxRange <= 20 ? 2 : 5);
+                                        const tickStep = maxRange &le; 10 ? 1 : (maxRange <= 20 ? 2 : 5);
                                         const ticks = [];
                                         for (let i = 0; i <= maxRange + 2; i += tickStep) {
                                             if (i > 0) {
@@ -617,12 +617,12 @@ const Topic51 = () => {
                                         const maxY = Math.max(...currentExample.cornerPoints.map(cp => cp.y)) + 2;
                                         const maxRange = Math.max(maxX, maxY, 12);
                                         const scale = 460 / maxRange;
-                                        const tickStep = maxRange <= 10 ? 1 : (maxRange <= 20 ? 2 : 5);
+                                        const tickStep = maxRange &le; 10 ? 1 : (maxRange <= 20 ? 2 : 5);
                                         const ticks = [];
                                         for (let i = 0; i <= maxRange + 2; i += tickStep) {
                                             if (i > 0) {
                                                 const py = 380 - i * scale;
-                                                if (py > 20) {
+                                                if (py &gt; 20) {
                                                     ticks.push({ val: i, py });
                                                 }
                                             }
@@ -649,7 +649,7 @@ const Topic51 = () => {
                                                     strokeWidth="3"
                                                     strokeDasharray={solid ? "none" : "8,6"}
                                                     opacity="0.9"
-                                                />
+                                                /&gt;
                                             );
                                         }
                                         return null;
@@ -810,7 +810,7 @@ const Topic51 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[3]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">🎯</span>
                         Tips, Mistakes & Best Practices
@@ -864,7 +864,7 @@ const Topic51 = () => {
                         "animate-[fadeUp_0.7s_ease-out_forwards] motion-safe:animate-[fadeUp_0.7s_ease-out_forwards] motion-reduce:animate-none",
                         sectionDelays[4]
                     )}
-                >
+                &gt;
                     <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-white flex items-center gap-3">
                         <span className="text-3xl">📋</span>
                         Mini Checklist

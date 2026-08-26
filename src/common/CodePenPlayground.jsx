@@ -164,7 +164,7 @@ ${html}
           minimap: { enabled: false },
           fontSize: 14,
         }}
-      />
+      /&gt;
     );
   };
 
@@ -186,7 +186,7 @@ ${html}
               className={`px-3 py-1 rounded ${
                 activeTab === t ? "bg-sky-600" : "bg-slate-700"
               }`}
-            >
+            &gt;
               {t.toUpperCase()}
             </button>
           ))}
@@ -202,7 +202,7 @@ ${html}
             className={`px-2 py-1 rounded ${
               autoRun ? "bg-green-700" : "bg-green-600"
             }`}
-          >
+          &gt;
             Auto
           </button>
 
@@ -217,7 +217,7 @@ ${html}
           <button
             onClick={() => setIsFullscreen(!isFullscreen)}
             className="px-2 py-1 rounded bg-purple-600"
-          >
+          &gt;
             {isFullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
           </button>
         </div>

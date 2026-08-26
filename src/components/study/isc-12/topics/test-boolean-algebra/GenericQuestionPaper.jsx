@@ -189,7 +189,7 @@ export default function GenericQuestionPaper({
                       <button
                         onClick={() => toggleAnswer(sectionIdx, questionIdx)}
                         className="ml-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium shadow-lg"
-                      >
+                      &gt;
                         {showAnswers[`${sectionIdx}-${questionIdx}`] ? "Hide Answer" : "Show Answer"}
                       </button>
                     </div>

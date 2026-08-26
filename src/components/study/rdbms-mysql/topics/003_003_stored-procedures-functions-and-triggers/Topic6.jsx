@@ -89,7 +89,7 @@ BEGIN
     REPEAT
         SET v_month_counter = v_month_counter + 1;
         SET v_balance = v_balance * (1.00 + p_monthly_interest_rate);
-    UNTIL (v_month_counter >= p_max_months OR v_balance >= (p_initial_arrears * 2.0))
+    UNTIL (v_month_counter >= p_max_months OR v_balance &ge; (p_initial_arrears * 2.0))
     END REPEAT; -- ⚠️ Notice NO semicolon after UNTIL condition!
     
     SET p_final_compounded_balance = ROUND(v_balance, 2);
@@ -122,7 +122,7 @@ BEGIN
         SET v_cursor_id = v_cursor_id + 1;
         
         -- Early Exit condition (LEAVE = break):
-        IF v_cursor_id > 10 THEN
+        IF v_cursor_id &gt; 10 THEN
             LEAVE reconciliation_loop;
         END IF;
         
@@ -419,7 +419,7 @@ DELIMITER ;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -556,10 +556,10 @@ END WHILE;`}
                 <span>❌</span> Semicolon after UNTIL Line in REPEAT
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Writing <code className="text-rose-300 font-mono">UNTIL count &gt;= 10; END REPEAT;</code> throws a syntax error. The `UNTIL` condition MUST NOT have a semicolon immediately after it!
+                Writing <code className="text-rose-300 font-mono">UNTIL count >= 10; END REPEAT;</code> throws a syntax error. The `UNTIL` condition MUST NOT have a semicolon immediately after it!
               </p>
               <div className="text-xs text-slate-400">
-                Fix: Write <code className="text-emerald-400 font-mono">UNTIL count &gt;= 10 END REPEAT;</code>!
+                Fix: Write <code className="text-emerald-400 font-mono">UNTIL count >= 10 END REPEAT;</code>!
               </div>
             </div>
 

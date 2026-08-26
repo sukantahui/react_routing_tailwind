@@ -167,7 +167,7 @@ export default class GeneralRoadmap extends Component {
                     : "border-slate-600 text-slate-400 hover:bg-slate-700/30"
                   }
                 `}
-              >
+              &gt;
                 {completed ? "Mark Incomplete" : "Mark Completed"}
               </button>
             </div>
@@ -236,7 +236,7 @@ export default class GeneralRoadmap extends Component {
                 border border-slate-700 text-slate-200
                 focus:outline-none focus:ring-2 focus:ring-sky-500
               "
-            />
+            /&gt;
           </div>
 
           {/* Header */}

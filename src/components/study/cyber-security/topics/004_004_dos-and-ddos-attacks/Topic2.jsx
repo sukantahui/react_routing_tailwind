@@ -139,7 +139,7 @@ top # Monitor %si (softirq) CPU saturation`
       resilientDefense: "Enforcing kernel ICMP rate limits and dropping unauthenticated UDP traffic before response generation.",
       codeSnippet: `// Asymmetrical Link Saturation:
 // Ingress Link: 1000 Mbps | Egress Link: 100 Mbps
-// Inbound Ping: 150 Mbps ➔ Outbound Replies: 150 Mbps > 100 Mbps ➔ 100% UPLINK COLLAPSE!`
+// Inbound Ping: 150 Mbps ➔ Outbound Replies: 150 Mbps &gt; 100 Mbps ➔ 100% UPLINK COLLAPSE!`
     },
     symmetrical_bidirectional_saturation: {
       key: "symmetrical_bidirectional_saturation",
@@ -169,7 +169,7 @@ top # Monitor %si (softirq) CPU saturation`
     
     // Saturation & Packet Loss:
     let rawPacketLoss = 0;
-    if (ingressVolumeGbps <= effectiveCapacity) {
+    if (ingressVolumeGbps &le; effectiveCapacity) {
       rawPacketLoss = 0.0;
     } else {
       const surplus = ingressVolumeGbps - effectiveCapacity;
@@ -207,8 +207,8 @@ top # Monitor %si (softirq) CPU saturation`
 
 SEC("xdp_volumetric_filter")
 int drop_volumetric_udp_floods(struct xdp_md *ctx) {
-    void *data = (void *)(long)ctx->data;
-    void *data_end = (void *)(long)ctx->data_end;
+    void *data = (void *)(long)ctx &rarr; data;
+    void *data_end = (void *)(long)ctx-&gt;data_end;
     
     struct ethhdr *eth = data;
     if ((void *)(eth + 1) > data_end) return XDP_PASS;
@@ -228,7 +228,7 @@ int drop_volumetric_udp_floods(struct xdp_md *ctx) {
         }
         
         // Drop high-port volumetric junk packets (> 1200 bytes)
-        if (__constant_ntohs(udp->dest) >= 10000 && __constant_ntohs(udp->len) >= 1200) {
+        if (__constant_ntohs(udp->dest) &ge; 10000 && __constant_ntohs(udp->len) >= 1200) {
             return XDP_DROP; // Dropped at 40+ Million PPS per core!
         }
     }
@@ -623,7 +623,7 @@ echo "[+] Linux Kernel Network Stack Hardened against Volumetric Floods!"`,
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   VECTOR
                 </span>
@@ -720,7 +720,7 @@ echo "[+] Linux Kernel Network Stack Hardened against Volumetric Floods!"`,
                   value={ingressVolumeGbps}
                   onChange={(e) => setIngressVolumeGbps(parseInt(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -736,7 +736,7 @@ echo "[+] Linux Kernel Network Stack Hardened against Volumetric Floods!"`,
                   value={enterprisePipeGbps}
                   onChange={(e) => setEnterprisePipeGbps(parseInt(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -750,7 +750,7 @@ echo "[+] Linux Kernel Network Stack Hardened against Volumetric Floods!"`,
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     None (10G)
                   </button>
                   <button
@@ -761,7 +761,7 @@ echo "[+] Linux Kernel Network Stack Hardened against Volumetric Floods!"`,
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     500 Gbps (ISP)
                   </button>
                   <button
@@ -772,7 +772,7 @@ echo "[+] Linux Kernel Network Stack Hardened against Volumetric Floods!"`,
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     5 Tbps (Anycast)
                   </button>
                 </div>
@@ -831,7 +831,7 @@ echo "[+] Linux Kernel Network Stack Hardened against Volumetric Floods!"`,
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -880,7 +880,7 @@ echo "[+] Linux Kernel Network Stack Hardened against Volumetric Floods!"`,
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

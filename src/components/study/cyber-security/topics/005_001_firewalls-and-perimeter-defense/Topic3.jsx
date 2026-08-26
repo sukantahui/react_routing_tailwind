@@ -334,7 +334,7 @@ const Topic3 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {tab.title}
               </button>
             ))}
@@ -403,7 +403,7 @@ const Topic3 = () => {
                 value={selectedClientFlow}
                 onChange={(e) => setSelectedClientFlow(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(clientFlows).map((f) => (
                   <option key={f.id} value={f.id}>
                     {f.label}
@@ -418,7 +418,7 @@ const Topic3 = () => {
                 value={proxyAuthMode}
                 onChange={(e) => setProxyAuthMode(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 <option value="user_pass">RFC 1929 Username/Password (0x02)</option>
                 <option value="kerberos_gssapi">GSS-API Kerberos SSO (0x01)</option>
                 <option value="anonymous">Anonymous Open Relay (0x00)</option>
@@ -435,7 +435,7 @@ const Topic3 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-rose-950/80 text-rose-300 border-rose-800"
                 )}
-              >
+              &gt;
                 {egressAclStrictness === "enforced" ? "✔ Strict Egress Whitelist" : "⚠️ Open Egress (Pivot Vulnerable)"}
               </button>
             </div>
@@ -530,7 +530,7 @@ const Topic3 = () => {
                 value={concurrentCircuits}
                 onChange={(e) => setConcurrentCircuits(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -546,7 +546,7 @@ const Topic3 = () => {
                 value={socketBufferSizeKB}
                 onChange={(e) => setSocketBufferSizeKB(Number(e.target.value))}
                 className="w-full accent-indigo-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -562,7 +562,7 @@ const Topic3 = () => {
                 value={proxyBandwidthGbps}
                 onChange={(e) => setProxyBandwidthGbps(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -616,7 +616,7 @@ const Topic3 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

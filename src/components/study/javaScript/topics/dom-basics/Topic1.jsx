@@ -29,7 +29,7 @@ export default class Topic1 extends Component {
         <CodeBlock
           code={`<h2 id="title">Welcome Students</h2>`}
           language="html"
-        />
+        /&gt;
 
         {/* JS */}
         <CodeBlock
@@ -52,7 +52,7 @@ console.log(heading.innerText);`}
           code={`<p class="student">Ritaja</p>
 <p class="student">Swadeep</p>`}
           language="html"
-        />
+        /&gt;
 
         <CodeBlock
           code={`const firstStudent = document.querySelector(".student");
@@ -76,7 +76,7 @@ console.log(allStudents.length);   // 2
 
 allStudents.forEach(s => console.log(s.innerText));`}
           language="javascript"
-        />
+        /&gt;
 
         {/* Classroom Example */}
         <h3 className="text-lg font-semibold text-slate-200">
@@ -95,7 +95,7 @@ allStudents.forEach(s => console.log(s.innerText));`}
   <li class="std">Kaustav</li>
 </ul>`}
           language="html"
-        />
+        /&gt;
 
         {/* JS */}
         <CodeBlock
@@ -107,7 +107,7 @@ console.log(first.innerText);  // Mounita
 const list = document.querySelectorAll(".std");
 list.forEach(item => console.log(item.innerText));`}
           language="javascript"
-        />
+        /&gt;
 
         {/* Selecting by Tag */}
         <h3 className="text-lg font-semibold text-slate-200">

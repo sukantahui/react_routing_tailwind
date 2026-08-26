@@ -210,7 +210,7 @@ const Topic0 = () => {
                         ? "bg-blue-600 hover:bg-blue-500 text-white" 
                         : "bg-blue-500 hover:bg-blue-400 text-white"
                     )}
-                  >
+                  &gt;
                     Increment (+)
                   </button>
                   <button
@@ -222,7 +222,7 @@ const Topic0 = () => {
                         ? "bg-gray-700 hover:bg-gray-600 text-gray-200" 
                         : "bg-gray-200 hover:bg-gray-300 text-gray-800"
                     )}
-                  >
+                  &gt;
                     Reset
                   </button>
                 </div>
@@ -287,7 +287,7 @@ const Topic0 = () => {
                             ? "bg-red-900/30 hover:bg-red-900/50 text-red-400" 
                             : "bg-red-100 hover:bg-red-200 text-red-700"
                       )}
-                    >
+                    &gt;
                       {isPresent ? 'Present ✅' : 'Absent ❌'}
                     </button>
                   </div>
@@ -565,7 +565,7 @@ const Topic0 = () => {
                     "text-lg font-medium transition-colors duration-500",
                     isDarkMode ? "text-gray-300" : "text-gray-600"
                   )}>
-                    {temperature > 28 ? 'Too Hot! 🔥' : temperature < 22 ? 'Too Cold! ❄️' : 'Perfect! 👍'}
+                    {temperature &gt; 28 ? 'Too Hot! 🔥' : temperature < 22 ? 'Too Cold! ❄️' : 'Perfect! 👍'}
                   </div>
                 </div>
               </div>
@@ -592,7 +592,7 @@ const Topic0 = () => {
                       ? "bg-gray-700 hover:bg-gray-600 text-gray-200" 
                       : "bg-gray-200 hover:bg-gray-300 text-gray-800"
                   )}
-                >
+                &gt;
                   Reset to 25°C
                 </button>
                 <button

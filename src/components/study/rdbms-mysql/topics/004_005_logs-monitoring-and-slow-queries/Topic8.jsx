@@ -40,7 +40,7 @@ LIMIT 5;
 
 -- 💡 Analysis:
 -- High rows_examined_avg vs rows_sent_avg = Missing Composite Index!
--- tmp_disk_tables > 0 = Spilling temporary tables to disk!`,
+-- tmp_disk_tables &gt; 0 = Spilling temporary tables to disk!`,
       explanation:
         "sys.statement_analysis provides an all-in-one query performance scorecard, ranking normalized query templates by cumulative runtime, average latency, unindexed row scans, and temporary disk table creation.",
       keyTakeaways: [
@@ -117,7 +117,7 @@ FROM sys.memory_global_by_current_bytes
 LIMIT 10;
 
 -- 🔍 KEY SUBSYSTEMS TO WATCH:
--- memory/innodb/buf_buf_pool        -> InnoDB Buffer Pool Allocation
+-- memory/innodb/buf_buf_pool &rarr; InnoDB Buffer Pool Allocation
 -- memory/sql/THD::main_mem_root    -> Per-Connection Thread Memory
 -- memory/innodb/adaptive hash index -> AHI Memory Overhead`,
       explanation:
@@ -225,7 +225,7 @@ LIMIT 10;
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {view.viewName}
                 </button>
               );

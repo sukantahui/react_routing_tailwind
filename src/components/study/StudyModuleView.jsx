@@ -386,12 +386,12 @@ export default function StudyModuleView({
             </button>
 
             {/* Resume / Start Target Topic */}
-            {totalTopics > 0 && (
+            {totalTopics &gt; 0 && (
               <Link
                 to={`/${roadmapData.folder}/topic/${moduleData.slug}/${activeTopicTarget}`}
                 onClick={() => handleTopicClick(activeTopicTarget)}
                 className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 text-sm font-bold transition shadow-sm"
-              >
+              &gt;
                 <span>{lastTopicIndex !== null ? "Resume Topic" : "Start Learning"}</span>
                 <ArrowRight size={15} />
               </Link>
@@ -443,7 +443,7 @@ export default function StudyModuleView({
           )}
 
           {/* Learning Outcomes Checklist if available */}
-          {Array.isArray(moduleData.learningOutcomes) && moduleData.learningOutcomes.length > 0 && (
+          {Array.isArray(moduleData.learningOutcomes) && moduleData.learningOutcomes.length &gt; 0 && (
             <div className="mt-5 pt-5 border-t border-slate-800">
               <h3 className="text-sm font-bold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-2">
                 <Compass size={16} className="text-sky-400" />
@@ -487,12 +487,12 @@ export default function StudyModuleView({
                 <span>{completedCount < totalTopics ? "Mark All Done" : "Clear All"}</span>
               </button>
 
-              {completedCount > 0 && (
+              {completedCount &gt; 0 && (
                 <button
                   onClick={() => handleMarkAllTopics(false)}
                   title="Reset topic progress"
                   className="p-2 rounded-xl bg-slate-950 hover:bg-slate-850 border border-slate-800 text-slate-400 hover:text-slate-200 transition"
-                >
+                &gt;
                   <RotateCcw size={16} />
                 </button>
               )}
@@ -535,12 +535,12 @@ export default function StudyModuleView({
                 value={searchTopic}
                 onChange={(e) => setSearchTopic(e.target.value)}
                 className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-sm sm:text-base focus:outline-none focus:border-slate-600 transition"
-              />
+              /&gt;
               {searchTopic && (
                 <button
                   onClick={() => setSearchTopic("")}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
-                >
+                &gt;
                   <X size={16} />
                 </button>
               )}
@@ -555,7 +555,7 @@ export default function StudyModuleView({
                     ? "bg-slate-800 text-white shadow-sm"
                     : "text-slate-400 hover:text-slate-200"
                 }`}
-              >
+              &gt;
                 All ({totalTopics})
               </button>
 
@@ -566,7 +566,7 @@ export default function StudyModuleView({
                     ? "bg-slate-800 text-white shadow-sm"
                     : "text-slate-400 hover:text-slate-200"
                 }`}
-              >
+              &gt;
                 Unfinished ({totalTopics - completedCount})
               </button>
 
@@ -577,7 +577,7 @@ export default function StudyModuleView({
                     ? "bg-slate-800 text-white shadow-sm"
                     : "text-slate-400 hover:text-slate-200"
                 }`}
-              >
+              &gt;
                 Done ({completedCount})
               </button>
             </div>
@@ -607,7 +607,7 @@ export default function StudyModuleView({
                       onClick={() => toggleTopicComplete(idx)}
                       title={isDone ? "Mark incomplete" : "Mark completed"}
                       className="shrink-0 p-0.5 text-slate-500 hover:text-slate-300 transition"
-                    >
+                    &gt;
                       {isDone ? (
                         <CheckCircle2 size={20} className="text-emerald-400" />
                       ) : (
@@ -619,7 +619,7 @@ export default function StudyModuleView({
                       to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
                       onClick={() => handleTopicClick(idx)}
                       className="min-w-0 flex-1 block"
-                    >
+                    &gt;
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="text-xs sm:text-sm font-mono font-bold text-slate-500 shrink-0">
                           {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}.
@@ -649,7 +649,7 @@ export default function StudyModuleView({
                     to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
                     onClick={() => handleTopicClick(idx)}
                     className="shrink-0 px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 group-hover:text-white border border-slate-800 group-hover:border-slate-700 text-xs sm:text-sm font-bold flex items-center gap-1.5 transition"
-                  >
+                  &gt;
                     <span>{isDone ? "Review" : "Study"}</span>
                     <ChevronRight size={14} className="text-slate-400 group-hover:translate-x-0.5 transition-transform" />
                   </Link>
@@ -668,7 +668,7 @@ export default function StudyModuleView({
                     setFilterMode("all");
                   }}
                   className="mt-2 text-sm text-sky-400 hover:underline font-semibold"
-                >
+                &gt;
                   Clear search
                 </button>
               </div>

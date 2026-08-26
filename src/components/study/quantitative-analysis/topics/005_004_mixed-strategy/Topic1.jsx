@@ -153,7 +153,7 @@ const Topic1 = () => {
                     ? 'bg-purple-600 text-white border-purple-500 shadow-md shadow-purple-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -165,7 +165,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-600/20 text-purple-400 font-bold text-sm">
@@ -198,7 +198,7 @@ const Topic1 = () => {
                 <p className="text-slate-300 text-xs">
                   Pure strategies are unit basis vectors e_k; interior mixtures have p_i &gt; 0 for all i.
                 </p>
-                <span className="text-sky-400 font-mono text-[11px]">Support = {'{i | p_i > 0}'}</span>
+                <span className="text-sky-400 font-mono text-[11px]">Support = {'{i | p_i &gt; 0}'}</span>
               </div>
             </div>
           </div>
@@ -209,7 +209,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-prob">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-800 pb-4 gap-2">
               <div className="flex items-center space-x-3">
@@ -229,7 +229,7 @@ const Topic1 = () => {
                       ? 'bg-purple-600 text-white border-purple-500'
                       : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white'
                   )}
-                >
+                &gt;
                   1. 2-Strategy Simplex (Δ₁)
                 </button>
                 <button
@@ -240,7 +240,7 @@ const Topic1 = () => {
                       ? 'bg-purple-600 text-white border-purple-500'
                       : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white'
                   )}
-                >
+                &gt;
                   2. 3-Strategy Normalizer (Δ₂)
                 </button>
               </div>
@@ -261,7 +261,7 @@ const Topic1 = () => {
                   value={p1}
                   onChange={(e) => setP1(parseFloat(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
-                />
+                /&gt;
 
                 {/* 1D Simplex Bar */}
                 <div className="h-6 w-full rounded-xl overflow-hidden flex border border-slate-700 font-mono text-xs font-bold text-center">
@@ -269,13 +269,13 @@ const Topic1 = () => {
                     style={{ width: `${p1 * 100}%` }}
                     className="bg-rose-600 text-white flex items-center justify-center transition-all duration-150"
                   >
-                    {p1 >= 0.15 ? `A₁: ${(p1 * 100).toFixed(0)}%` : ''}
+                    {p1 &ge; 0.15 ? `A₁: ${(p1 * 100).toFixed(0)}%` : ''}
                   </div>
                   <div
                     style={{ width: `${p2 * 100}%` }}
                     className="bg-sky-600 text-white flex items-center justify-center transition-all duration-150"
                   >
-                    {p2 >= 0.15 ? `A₂: ${(p2 * 100).toFixed(0)}%` : ''}
+                    {p2 &ge; 0.15 ? `A₂: ${(p2 * 100).toFixed(0)}%` : ''}
                   </div>
                 </div>
 
@@ -305,7 +305,7 @@ const Topic1 = () => {
                         value={w}
                         onChange={(e) => updateWeight(idx, e.target.value)}
                         className="w-full px-2 py-1 bg-slate-900 border border-slate-700 rounded font-mono text-sm text-amber-300"
-                      />
+                      /&gt;
                       <span className="text-emerald-400 font-bold text-xs pt-1">
                         p_{idx + 1} = {(normalizedP[idx] * 100).toFixed(1)}% ({normalizedP[idx].toFixed(3)})
                       </span>
@@ -330,7 +330,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -364,7 +364,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -413,7 +413,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -435,7 +435,7 @@ const Topic1 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -462,7 +462,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -502,7 +502,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -536,7 +536,7 @@ const Topic1 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

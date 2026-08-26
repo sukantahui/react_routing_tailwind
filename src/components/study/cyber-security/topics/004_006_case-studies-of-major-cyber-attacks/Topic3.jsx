@@ -232,7 +232,7 @@ const Topic3 = () => {
                   ? "bg-rose-950/60 border-rose-600 text-rose-200 ring-2 ring-rose-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            >
+            &gt;
               <div className="font-bold text-rose-400 text-sm">1. Standard Online Network Share (Sony 2014)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Backup NAS share mounted with domain admin write rights. Wiper purges all shadow copies and wipes backup disks simultaneously!
@@ -247,7 +247,7 @@ const Topic3 = () => {
                   ? "bg-emerald-950/60 border-emerald-600 text-emerald-200 ring-2 ring-emerald-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            >
+            &gt;
               <div className="font-bold text-emerald-400 text-sm">2. Immutable Cloud WORM Vault (AWS Object Lock)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Write-Once-Read-Many storage in Compliance Mode. Domain admins and wiper payloads CANNOT overwrite or delete snapshots.
@@ -262,7 +262,7 @@ const Topic3 = () => {
                   ? "bg-blue-950/60 border-blue-600 text-blue-200 ring-2 ring-blue-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            >
+            &gt;
               <div className="font-bold text-blue-400 text-sm">3. Offline Air-Gapped Tape Cartridges</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Physical tape drives ejected and stored in an offsite fireproof safe. Physically immune to software wiper attacks.
@@ -387,7 +387,7 @@ const Topic3 = () => {
                   value={activeAdModel}
                   onChange={(e) => setActiveAdModel(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-purple-500"
-                >
+                &gt;
                   <option value="flat_domain">1. Flat Single-Tier Domain (Sony 2014 — Domain Admin on Workstations)</option>
                   <option value="tier_model">2. Microsoft 3-Tier Model (Strict Tier 0 / Tier 1 / Tier 2 Isolation)</option>
                 </select>
@@ -404,7 +404,7 @@ const Topic3 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     pamVaultActive ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {pamVaultActive ? "PAM VAULTED" : "PLAINTEXT FILES"}
                 </button>
               </div>
@@ -420,7 +420,7 @@ const Topic3 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     credentialGuardEnabled ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {credentialGuardEnabled ? "VBS ISOLATED" : "LSASS EXPOSED"}
                 </button>
               </div>
@@ -496,7 +496,7 @@ const Topic3 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     egressDlpPolicyActive ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {egressDlpPolicyActive ? "NDR ACTIVE (Auto-Quarantine)" : "DISABLED (Unmonitored Egress)"}
                 </button>
               </div>
@@ -515,7 +515,7 @@ const Topic3 = () => {
                   value={simulatedExfiltrationVolumeTB}
                   onChange={(e) => setSimulatedExfiltrationVolumeTB(parseInt(e.target.value))}
                   className="w-full accent-purple-500 cursor-pointer"
-                />
+                /&gt;
               </div>
 
               {/* Bandwidth Slider */}
@@ -532,7 +532,7 @@ const Topic3 = () => {
                   value={egressBandwidthMbps}
                   onChange={(e) => setEgressBandwidthMbps(parseInt(e.target.value))}
                   className="w-full accent-amber-500 cursor-pointer"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -620,7 +620,7 @@ const Topic3 = () => {
                     ? "bg-purple-500/20 text-purple-300 border border-purple-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 1. Media Vulnerabilities in Kolkata Hub
               </button>
               <button
@@ -631,7 +631,7 @@ const Topic3 = () => {
                     ? "bg-purple-500/20 text-purple-300 border border-purple-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 2. Hardened Architecture & Immutable Backups
               </button>
             </div>

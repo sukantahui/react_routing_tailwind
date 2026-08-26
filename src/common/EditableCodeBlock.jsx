@@ -414,7 +414,7 @@ export default class EditableCodeBlock extends Component {
                       ? "bg-sky-600 text-white"
                       : "bg-slate-900 text-slate-300"
                   }`}
-                >
+                &gt;
                   {tab === "javascript" && <Braces size={14} />}
                   {tab === "html" && <FileCode size={14} />}
                   {tab === "css" && <FileType size={14} />}
@@ -429,7 +429,7 @@ export default class EditableCodeBlock extends Component {
                 this.setState({ showLineNumbers: !showLineNumbers })
               }
               className="px-2 py-1 rounded bg-indigo-600 text-white flex items-center gap-1"
-            >
+            &gt;
               <LayoutList size={14} /> Lines
             </button>
 
@@ -439,7 +439,7 @@ export default class EditableCodeBlock extends Component {
               className={`px-2 py-1 rounded ${
                 autoRun ? "bg-green-700" : "bg-green-600"
               } text-white flex items-center gap-1`}
-            >
+            &gt;
               <Play size={14} /> Auto
             </button>
 
@@ -450,7 +450,7 @@ export default class EditableCodeBlock extends Component {
                   this.setState({ showFontMenu: !showFontMenu })
                 }
                 className="px-2 py-1 rounded bg-blue-600 text-white flex items-center gap-1"
-              >
+              &gt;
                 <Type size={14} /> Font
               </button>
 
@@ -467,7 +467,7 @@ export default class EditableCodeBlock extends Component {
                           ? "bg-sky-600 text-white"
                           : "text-slate-300 hover:bg-slate-700"
                       }`}
-                    >
+                    &gt;
                       {size}px
                     </button>
                   ))}
@@ -482,7 +482,7 @@ export default class EditableCodeBlock extends Component {
                   this.setState({ showThemeMenu: !showThemeMenu })
                 }
                 className="px-2 py-1 rounded bg-yellow-600 text-white flex items-center gap-1"
-              >
+              &gt;
                 🎨 Theme
               </button>
 
@@ -512,7 +512,7 @@ export default class EditableCodeBlock extends Component {
                           ? "bg-sky-600 text-white"
                           : "text-slate-300 hover:bg-slate-700"
                       }`}
-                    >
+                    &gt;
                       {t.label}
                     </button>
                   ))}
@@ -573,7 +573,7 @@ export default class EditableCodeBlock extends Component {
                 alert("Copied!");
               }}
               className="px-2 py-1 rounded bg-slate-600 text-white flex items-center gap-1"
-            >
+            &gt;
               <Copy size={14} /> Copy
             </button>
 
@@ -607,7 +607,7 @@ export default class EditableCodeBlock extends Component {
                 this.setState({ showConsole: !showConsole })
               }
               className="px-2 py-1 rounded bg-orange-600 text-white flex items-center gap-1"
-            >
+            &gt;
               {showConsole ? <EyeOff size={14} /> : <Eye size={14} />}
               Console
             </button>
@@ -649,7 +649,7 @@ export default class EditableCodeBlock extends Component {
                 sandbox="allow-scripts allow-same-origin"
                 className="w-full h-full"
                 ref={(el) => (this.previewFrame = el)}
-              ></iframe>
+              &gt;</iframe>
             </div>
           )}
         </div>

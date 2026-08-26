@@ -58,7 +58,7 @@ const Topic9 = () => {
                 <text x="10" y="55" fill="#6B7280" fontSize="8">"ask .com TLD"</text>
               </g>
               
-              {/* Arrow Root -> TLD */}
+              {/* Arrow Root &rarr; TLD */}
               <line x1="215" y1="45" x2="215" y2="75" stroke="#F59E0B" strokeWidth="2" />
               
               {/* TLD (.com) */}
@@ -69,7 +69,7 @@ const Topic9 = () => {
                 <text x="5" y="72" fill="#6B7280" fontSize="8">NS: ns2.example.com</text>
               </g>
               
-              {/* Arrow TLD -> Authoritative */}
+              {/* Arrow TLD &rarr; Authoritative */}
               <line x1="215" y1="115" x2="215" y2="145" stroke="#10B981" strokeWidth="2" />
               
               {/* Authoritative */}

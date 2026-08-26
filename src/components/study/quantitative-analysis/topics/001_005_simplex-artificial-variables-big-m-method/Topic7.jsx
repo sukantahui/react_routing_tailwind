@@ -25,7 +25,7 @@ const Topic7 = () => {
       title: 'Example 1: Basic Pivot Element',
       problem: 'Given the tableau:\n┌─────┬─────┬─────┬─────┬─────┬─────┐\n│  B  │  x  │  y  │ s₁  │ s₂  │ RHS │\n├─────┼─────┼─────┼─────┼─────┼─────┤\n│ s₁  │  2  │  1  │  1  │  0  │ 10  │\n│ s₂  │  1  │  2  │  0  │  1  │  8  │\n├─────┼─────┼─────┼─────┼─────┼─────┤\n│  Z  │ -3  │ -2  │  0  │  0  │  0  │\n└─────┴─────┴─────┴─────┴─────┴─────┘\n\nIdentify the pivot element.',
       solution: 'Entering: x (most negative -3)\nLeaving: s₁ (min ratio 10/2=5)\nPivot: 2 (row s₁, column x)',
-      detailedSolution: 'Step 1: Identify entering variable\nZ row: [-3, -2, 0, 0]\nMost negative: -3 → x enters\n\nStep 2: Identify leaving variable\nRatio test:\ns₁: 10/2 = 5\ns₂: 8/1 = 8\nMinimum: 5 → s₁ leaves\n\nStep 3: Find pivot element\nPivot is at intersection of leaving row and entering column\nRow: s₁, Column: x\nPivot element: 2\n\nStep 4: Verify\nPivot is positive (2 > 0)'
+      detailedSolution: 'Step 1: Identify entering variable\nZ row: [-3, -2, 0, 0]\nMost negative: -3 → x enters\n\nStep 2: Identify leaving variable\nRatio test:\ns₁: 10/2 = 5\ns₂: 8/1 = 8\nMinimum: 5 → s₁ leaves\n\nStep 3: Find pivot element\nPivot is at intersection of leaving row and entering column\nRow: s₁, Column: x\nPivot element: 2\n\nStep 4: Verify\nPivot is positive (2 &gt; 0)'
     },
     {
       id: 2,
@@ -250,7 +250,7 @@ const Topic7 = () => {
                   ? "bg-yellow-600 text-white shadow-lg shadow-yellow-200 dark:shadow-yellow-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -448,7 +448,7 @@ const Topic7 = () => {
                       <button
                         onClick={() => toggleExample(example.id)}
                         className="px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-all duration-300"
-                      >
+                      &gt;
                         {showExample[example.id] ? 'Hide Detailed Steps' : 'Show Detailed Steps'}
                       </button>
                     </div>
@@ -489,13 +489,13 @@ const Topic7 = () => {
                         <button
                           onClick={() => setShowSolution(showSolution === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800/30 transition-all duration-300"
-                        >
+                        &gt;
                           {showSolution === problem.id ? 'Hide Solution' : 'Check Solution'}
                         </button>
                         <button
                           onClick={() => setShowHint(showHint === problem.id ? null : problem.id)}
                           className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
-                        >
+                        &gt;
                           {showHint === problem.id ? 'Hide Hint' : 'Show Hint'}
                         </button>
                       </div>

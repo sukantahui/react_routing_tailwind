@@ -109,7 +109,7 @@ UPDATE student_ledgers SET balance = 20000 WHERE student_id = 101;
 -- Session 2 (DBA attempting DDL Schema Alteration):
 -- ALTER TABLE student_ledgers ADD COLUMN discount DECIMAL(5,2);
 -- ⚡ DBA query checks Table-Level IX flag in O(1) instant time!
--- Sees IX flag active -> Knows rows are actively locked without scanning millions of rows!
+-- Sees IX flag active &rarr; Knows rows are actively locked without scanning millions of rows!
 -- 🛑 ALTER TABLE waits until Session 1 COMMITs!`,
       resultRows: [
         { transaction: "Session 1 (DML Update)", lockGranularity: "Table IX + Row X-Lock", lockMode: "Intention Exclusive (IX)", concurrencyImpact: "Allows Concurrent DMLs", latency: "0.002s ⚡", status: "IX Active 🌉" },
@@ -342,7 +342,7 @@ UPDATE student_ledgers SET balance = 20000 WHERE student_id = 101;
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

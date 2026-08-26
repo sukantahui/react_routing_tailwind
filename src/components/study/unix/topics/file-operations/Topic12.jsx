@@ -72,7 +72,7 @@ export default class Topic12 extends React.Component {
                                                 ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg'
                                                 : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                                 }`}
-                                        >
+                                        &gt;
                                             {tab.toUpperCase()}
                                         </button>
                                     ))}
@@ -122,7 +122,7 @@ export default class Topic12 extends React.Component {
                                             >
                                                 <code>
                                                     {`# Updated when:
-                                                    echo "text" >> file.txt   # Content changed
+                                                    echo "text" &gt;> file.txt   # Content changed
                                                     vi file.txt              # edit & save
                                                     cp newfile file.txt      # overwrite file`}
                                                 </code>
@@ -236,7 +236,7 @@ export default class Topic12 extends React.Component {
                                     {/* Action: Modifying the file */}
                                     <g>
                                         <rect x="280" y="90" width="90" height="25" rx="4" fill="#86efac" className="dark:fill-green-800" />
-                                        <text x="325" y="107" textAnchor="middle" fill="#166534" className="dark:fill-green-300 text-xs">{'echo >> file'}</text>
+                                        <text x="325" y="107" textAnchor="middle" fill="#166534" className="dark:fill-green-300 text-xs">{'echo &gt;> file'}</text>
                                         <path d="M155,100 L275,100" stroke="#10b981" strokeWidth="2" fill="none" markerEnd="url(#arrowGreen)" />
                                     </g>
 
@@ -564,7 +564,7 @@ export default class Topic12 extends React.Component {
                                     </p>
                                     <pre className="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm overflow-x-auto">
                                         <code>
-                                        {`$ echo "test" > file.txt
+                                        {`$ echo "test" &gt; file.txt
                                         $ stat file.txt  # Note all timestamps
                                         $ cat file.txt
                                         $ stat file.txt  # What changed?
@@ -638,7 +638,7 @@ export default class Topic12 extends React.Component {
                                 <pre className="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm overflow-x-auto">
                                     <code>
                                     {`# Create investigation timeline
-                                    find / -type f -exec stat --format='%Y %n' { } \\; 2>/dev/null | sort -n |
+                                    find / -type f -exec stat --format='%Y %n' { } \\; 2&gt;/dev/null | sort -n |
                                     while read time file; do
                                     date -d @$time +"%F %T"
                                     echo "  $file"

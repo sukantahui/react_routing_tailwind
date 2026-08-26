@@ -268,7 +268,7 @@ export default class Topic1 extends Component {
                 }`}
                 onClick={() => this.handleCategoryChange(category)}
                 style={{animationDelay: `${300 + index * 100}ms`}}
-              >
+              &gt;
                 {directoryCategories[category].title.split(' ')[0]}
               </button>
             ))}
@@ -298,7 +298,7 @@ export default class Topic1 extends Component {
                 style={{animationDelay: `${500 + index * 150}ms`}}
                 onMouseEnter={() => this.handleDirectoryHover(dir.name)}
                 onMouseLeave={this.handleDirectoryLeave}
-              >
+              &gt;
                 {/* Card Header */}
                 <div className="p-5 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
                   <div className="flex items-center justify-between mb-3">
@@ -368,7 +368,7 @@ export default class Topic1 extends Component {
                   <button
                     onClick={() => this.toggleDetails(dir.name)}
                     className="w-full text-center py-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300 flex items-center justify-center"
-                  >
+                  &gt;
                     {showDetails[dir.name] ? 'Show Less' : 'Show Professional Details'}
                     <span className="ml-2">{showDetails[dir.name] ? '↑' : '↓'}</span>
                   </button>

@@ -152,7 +152,7 @@ const Topic0 = () => {
   const [isDeviceCompliant, setIsDeviceCompliant] = useState(true);
 
   const abacEvaluation = useMemo(() => {
-    const isWorkHours = timeHour >= 9 && timeHour <= 18;
+    const isWorkHours = timeHour &ge; 9 && timeHour &le; 18;
     const isTreasury = selectedResource === "treasury_ledger";
 
     if (isTreasury) {
@@ -387,7 +387,7 @@ const Topic0 = () => {
                       ? "bg-cyan-950 border-cyan-500 text-white shadow-md shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   {key}
                 </button>
               ))}
@@ -408,7 +408,7 @@ const Topic0 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{stg.packet.split(" (")[0]}</span>
                   <span className="text-[10px] text-cyan-400 font-mono">Step #{stg.step}</span>
                 </button>
@@ -485,7 +485,7 @@ const Topic0 = () => {
                   value={selectedRole}
                   onChange={(e) => setSelectedRole(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-cyan-300 font-mono text-xs focus:outline-none"
-                >
+                &gt;
                   <option value="SecOps_Lead">SecOps_Lead (Full Clearance)</option>
                   <option value="Junior_Auditor">Junior_Auditor (Read Only)</option>
                   <option value="Intern">Intern (Restricted)</option>
@@ -498,7 +498,7 @@ const Topic0 = () => {
                   value={selectedResource}
                   onChange={(e) => setSelectedResource(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-cyan-300 font-mono text-xs focus:outline-none"
-                >
+                &gt;
                   <option value="treasury_ledger">Municipal Treasury Ledger (High Sensitivity - ₹85,00,000)</option>
                   <option value="public_bulletin">Public Municipal Notice Board (Low Sensitivity)</option>
                 </select>
@@ -513,7 +513,7 @@ const Topic0 = () => {
                   value={timeHour}
                   onChange={(e) => setTimeHour(parseInt(e.target.value))}
                   className="w-full accent-cyan-500"
-                />
+                /&gt;
                 <span className="text-[10px] text-slate-500">Business Hours: 09:00 - 18:00</span>
               </div>
 
@@ -523,7 +523,7 @@ const Topic0 = () => {
                   checked={isInternalSubnet}
                   onChange={(e) => setIsInternalSubnet(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Internal Subnet (10.14.0.0/16)</span>
               </label>
 
@@ -533,7 +533,7 @@ const Topic0 = () => {
                   checked={isDeviceCompliant}
                   onChange={(e) => setIsDeviceCompliant(e.target.checked)}
                   className="rounded bg-slate-950 border-slate-700 text-cyan-500 focus:ring-0"
-                />
+                /&gt;
                 <span className="text-slate-300">Zero-Trust Device Posture Compliant (Disk Encrypted + EDR Active)</span>
               </label>
             </div>
@@ -588,7 +588,7 @@ const Topic0 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{drill.title}</span>
                   <span className="text-[10px] text-cyan-400">{drill.engineers}</span>
                 </button>

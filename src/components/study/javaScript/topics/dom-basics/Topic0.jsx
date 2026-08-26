@@ -38,7 +38,7 @@ export default class Topic0 extends Component {
   </body>
 </html>`}
           language="html"
-        />
+        /&gt;
 
         <p className="text-slate-400 text-sm">
           The DOM converts this HTML into a <strong>tree</strong> that JavaScript can control.
@@ -95,14 +95,14 @@ console.log(btn.tagName);`}
   <li>Swadeep</li>
 </ul>`}
           language="html"
-        />
+        /&gt;
 
         {/* JS */}
         <CodeBlock
           code={`const list = document.getElementById("studentList");
 console.log(list.children);  // Shows all 3 <li> elements`}
           language="javascript"
-        />
+        /&gt;
 
         <p className="text-slate-400 text-sm">
           The browser converts this list into DOM <strong>node objects</strong> that 

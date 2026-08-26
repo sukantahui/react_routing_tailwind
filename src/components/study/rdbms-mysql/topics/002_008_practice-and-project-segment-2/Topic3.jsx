@@ -89,8 +89,8 @@ CREATE TABLE academy_1nf (
       sqlQuery: `-- 2NF Decomposition:
 -- Eliminate Partial Dependencies where non-key attributes depend on only part of PK!
 
--- Table 1: students (student_id -> student_name, branch_city, branch_pincode)
--- Table 2: courses (course_code -> course_name, instructor_id, instructor_name, instructor_phone)
+-- Table 1: students (student_id &rarr; student_name, branch_city, branch_pincode)
+-- Table 2: courses (course_code -&gt; course_name, instructor_id, instructor_name, instructor_phone)
 -- Table 3: enrollments (student_id, course_code -> exam_score_pct)
 -- Table 4: fee_payments (receipt_no -> student_id, course_code, payment_date, amount_paid_inr)`,
       resultRows: [
@@ -399,7 +399,7 @@ CREATE TABLE academy_1nf (
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

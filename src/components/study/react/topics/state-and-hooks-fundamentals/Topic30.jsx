@@ -299,7 +299,7 @@ const Topic30 = () => {
                     : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-red-300 dark:hover:border-red-700"
                 )}
                 style={{ animationDelay: `${index * 0.1}s` }}
-              >
+              &gt;
                 <div className="flex flex-col items-center gap-2">
                   <span className="text-2xl">{example.icon}</span>
                   <span className="font-medium text-sm text-center">{example.title}</span>
@@ -934,7 +934,7 @@ setUserData(data);`}
                             onChange={(e) => setLocalStorageValue(e.target.value)}
                             className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all duration-300"
                             placeholder="Type something here..."
-                          />
+                          /&gt;
                         </div>
 
                         <div className="space-y-4">

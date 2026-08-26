@@ -176,7 +176,7 @@ const Topic9 = () => {
                   ? "bg-purple-50 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 border-b-2 border-purple-600"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               )}
-            >
+            &gt;
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
@@ -428,7 +428,7 @@ const Topic9 = () => {
                 <ul className="space-y-2 text-gray-600 dark:text-gray-300 list-disc list-inside">
                   <li>Always verify array is sorted before binary search</li>
                   <li>Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">low + (high - low) / 2</code> for mid calculation</li>
-                  <li>Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">while (low &lt;= high)</code> for proper bounds</li>
+                  <li>Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">while (low <= high)</code> for proper bounds</li>
                   <li>Consider using built-in <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">Arrays.binarySearch()</code> for production code</li>
                   <li>Document that array must be sorted (precondition)</li>
                 </ul>
@@ -529,7 +529,7 @@ const qaData = [
   },
   {
     question: "Can binary search work on descending sorted arrays?",
-    answer: "Yes, just reverse the comparison logic: go left if target > arr[mid], go right if target < arr[mid]."
+    answer: "Yes, just reverse the comparison logic: go left if target &gt; arr[mid], go right if target < arr[mid]."
   },
   {
     question: "Why is binary search inefficient for linked lists?",

@@ -55,7 +55,7 @@ const Topic1 = () => {
         setQState(false);
         setQBarState(true);
       } else {
-        // S̄=1, R̄=1 -> Memory Hold
+        // S̄=1, R̄=1 &rarr; Memory Hold
         setIsInvalid(false);
       }
     }
@@ -234,7 +234,7 @@ const Topic1 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 1. 2-NAND SR Latch
               </button>
               <button
@@ -245,7 +245,7 @@ const Topic1 = () => {
                     ? "bg-cyan-900/80 border border-cyan-500 text-cyan-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 2. 4-NAND Clocked SR Flip-Flop
               </button>
               <button
@@ -256,7 +256,7 @@ const Topic1 = () => {
                     ? "bg-amber-900/80 border border-amber-500 text-amber-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 3. IEEE Symbol &amp; Timing
               </button>
             </div>
@@ -530,7 +530,7 @@ const Topic1 = () => {
                       ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400"
                   )}
-                >
+                &gt;
                   1. Basic 2-NAND Latch (Active-LOW)
                 </button>
                 <button
@@ -541,7 +541,7 @@ const Topic1 = () => {
                       ? "bg-cyan-900/80 border-cyan-500 text-cyan-200 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400"
                   )}
-                >
+                &gt;
                   2. 4-NAND Clocked SR Flip-Flop
                 </button>
               </div>
@@ -558,7 +558,7 @@ const Topic1 = () => {
                           ? "bg-teal-900/80 border-teal-400 text-teal-200 shadow-lg shadow-teal-950/50"
                           : "bg-slate-950 border-slate-800 text-slate-500"
                       )}
-                    >
+                    &gt;
                       <span className="overline">S</span> (Set_n): {!sBar ? "0 (ACTIVE LOW)" : "1 (INACTIVE)"}
                     </button>
                     <button
@@ -569,7 +569,7 @@ const Topic1 = () => {
                           ? "bg-rose-900/80 border-rose-400 text-rose-200 shadow-lg shadow-rose-950/50"
                           : "bg-slate-950 border-slate-800 text-slate-500"
                       )}
-                    >
+                    &gt;
                       <span className="overline">R</span> (Reset_n): {!rBar ? "0 (ACTIVE LOW)" : "1 (INACTIVE)"}
                     </button>
                   </>
@@ -583,7 +583,7 @@ const Topic1 = () => {
                           ? "bg-teal-900/80 border-teal-400 text-teal-200 shadow-lg shadow-teal-950/50"
                           : "bg-slate-950 border-slate-800 text-slate-500"
                       )}
-                    >
+                    &gt;
                       S (Set): {sInput ? "1" : "0"}
                     </button>
                     <button
@@ -594,7 +594,7 @@ const Topic1 = () => {
                           ? "bg-rose-900/80 border-rose-400 text-rose-200 shadow-lg shadow-rose-950/50"
                           : "bg-slate-950 border-slate-800 text-slate-500"
                       )}
-                    >
+                    &gt;
                       R (Reset): {rInput ? "1" : "0"}
                     </button>
                     <button

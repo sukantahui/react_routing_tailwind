@@ -90,7 +90,7 @@ export default class Topic5 extends Component {
                         </h2>
                         <p>
                             When a developer writes:
-                            <code className="mx-1 bg-slate-200 dark:bg-slate-800 px-1 rounded">if(score &gt;= 40)</code>
+                            <code className="mx-1 bg-slate-200 dark:bg-slate-800 px-1 rounded">if(score >= 40)</code>
                             — the condition is first evaluated to True or False before the program moves ahead.
                         </p>
                     </div>

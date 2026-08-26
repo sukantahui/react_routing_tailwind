@@ -71,7 +71,7 @@ const Topic2 = () => {
             <span>Relational Normalization Masterclass · Topic 2</span>
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            The Core Culprit: Partial Functional Dependency (X -> Y where X is Proper Subset of Candidate Key)
+            The Core Culprit: Partial Functional Dependency (X &rarr; Y where X is Proper Subset of Candidate Key)
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Deep dive into Second Normal Form (2NF). Understand prime vs non-prime attributes, identify partial dependencies against composite candidate keys, and execute lossless decomposition into 2NF tables.
@@ -136,7 +136,7 @@ const Topic2 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab1" ? "border-rose-400 text-rose-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>🚫</span>
                 <span>PARTIAL DEPENDENCY</span>
               </button>
@@ -147,7 +147,7 @@ const Topic2 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab2" ? "border-amber-400 text-amber-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>⚠️</span>
                 <span>COMPOSITE KEY MISMATCH</span>
               </button>
@@ -158,7 +158,7 @@ const Topic2 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab3" ? "border-teal-400 text-teal-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>🔍</span>
                 <span>HISTORICAL SNAPSHOT</span>
               </button>
@@ -169,7 +169,7 @@ const Topic2 = () => {
                   "px-4 py-3.5 text-xs sm:text-sm font-semibold transition-all whitespace-nowrap border-b-2 flex items-center gap-2",
                   selectedTab === "tab4" ? "border-emerald-400 text-emerald-300 bg-slate-900" : "border-transparent text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 <span>✅</span>
                 <span>2NF NORMALIZED</span>
               </button>
@@ -193,7 +193,7 @@ const Topic2 = () => {
                 <button
                   onClick={() => handleCopy(selectedTab === "tab4" ? conf.sql4 : conf.sql1)}
                   className="px-3 py-1.5 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition"
-                >
+                &gt;
                   {copiedCode ? "✓ SQL Copied" : "📋 Copy SQL Code"}
                 </button>
               </div>
@@ -344,7 +344,7 @@ const Topic2 = () => {
             showDownload={true}
             downloadButtonText="Download Plain Text Note"
             downloadFileName="topic2_note.txt"
-          />
+          /&gt;
         </section>
 
         {/* ─── Teacher's Master Note ─────────────────────────── */}
@@ -368,13 +368,13 @@ const Topic2 = () => {
             showExpandAll
             showSearch
             showProgress
-          />
+          /&gt;
         </section>
 
         {/* ─── Footer ─────────────────────────────────────────── */}
         <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
           <span>
-            Topic 2 · The Core Culprit: Partial Functional Dependency (X -> Y where X is Proper Subset of Candidate Key) · RDBMS MySQL Masterclass · Coder & AccoTax Barrackpore
+            Topic 2 · The Core Culprit: Partial Functional Dependency (X &rarr; Y where X is Proper Subset of Candidate Key) · RDBMS MySQL Masterclass · Coder & AccoTax Barrackpore
           </span>
         </footer>
       </div>

@@ -313,7 +313,7 @@ CREATE TABLE students (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Super Key (Cond 1) ✓
               </button>
 
@@ -325,7 +325,7 @@ CREATE TABLE students (
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Transitive Non-Key ❌
               </button>
 
@@ -337,7 +337,7 @@ CREATE TABLE students (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Prime Attr (Cond 2) ✓
               </button>
 
@@ -349,7 +349,7 @@ CREATE TABLE students (
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. 3NF Decomposed Schema
               </button>
             </div>

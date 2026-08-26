@@ -230,7 +230,7 @@ const Topic5 = () => {
                   Off‑by‑one errors
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Using <code className="text-xs">&lt;= array.length</code> leads to <code className="text-xs">ArrayIndexOutOfBoundsException</code>. Valid indices are 0 to length‑1.
+                  Using <code className="text-xs"><= array.length</code> leads to <code className="text-xs">ArrayIndexOutOfBoundsException</code>. Valid indices are 0 to length‑1.
                 </p>
               </div>
               <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
@@ -300,7 +300,7 @@ const Topic5 = () => {
               </h3>
               <ul className="space-y-2 text-blue-700 dark:text-blue-200">
                 <li>
-                  • What would happen if you set the loop condition to <code className="text-xs">i &lt;= array.length</code>? Try it mentally with an array of size 3.
+                  • What would happen if you set the loop condition to <code className="text-xs">i <= array.length</code>? Try it mentally with an array of size 3.
                 </li>
                 <li>
                   • If you want to traverse the array backwards, how would you change the for loop?
@@ -360,7 +360,7 @@ const Topic5 = () => {
                   <span className="text-green-600 dark:text-green-400">✔</span> Access element with <code className="text-xs">array[i]</code>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Be careful with <code className="text-xs">&lt;=</code>
+                  <span className="text-green-600 dark:text-green-400">✔</span> Be careful with <code className="text-xs"><=</code>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 dark:text-green-400">✔</span> Don’t modify <code className="text-xs">i</code> inside loop

@@ -236,7 +236,7 @@ export default function Topic3() {
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Multi-Instance Encapsulation
               </button>
               <button
@@ -247,7 +247,7 @@ export default function Topic3() {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Cursor Shapes &amp; Stamping
               </button>
               <button
@@ -258,7 +258,7 @@ export default function Topic3() {
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Multi-Agent Swarm Matrix
               </button>
             </div>
@@ -430,14 +430,14 @@ export default function Topic3() {
               <button
                 onClick={() => handleRotateSwarm(30)}
                 className="p-2.5 bg-teal-950/80 border border-teal-600 rounded-xl text-xs font-bold text-teal-300 hover:bg-teal-900 transition-all text-center"
-              >
+              &gt;
                 Rotate Swarm +30° ↺
               </button>
 
               <button
                 onClick={() => handleRotateSwarm(-30)}
                 className="p-2.5 bg-cyan-950/80 border border-cyan-600 rounded-xl text-xs font-bold text-cyan-300 hover:bg-cyan-900 transition-all text-center"
-              >
+              &gt;
                 Rotate Swarm -30° ↻
               </button>
 
@@ -458,7 +458,7 @@ export default function Topic3() {
                       "flex-1 py-1 rounded text-[10px] font-mono capitalize transition-all",
                       selectedShape === sh ? "bg-teal-800 text-white font-bold" : "text-slate-400 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {sh}
                   </button>
                 ))}

@@ -175,7 +175,7 @@ const Topic8 = () => {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-slate-300 font-semibold">
                   <span>Eve Intercept-Resend Eavesdropping Rate:</span>
-                  <span className={clsx("font-mono font-bold text-sm", eveInterceptionPct > 0 ? "text-rose-400" : "text-emerald-400")}>
+                  <span className={clsx("font-mono font-bold text-sm", eveInterceptionPct > 0 ? "text-rose-400" : "text-emerald-400")}&gt;
                     {eveInterceptionPct}% ({eveInterceptionPct === 0 ? "Clean Fiber ✔" : "Active Tap 🚨"})
                   </span>
                 </div>
@@ -187,7 +187,7 @@ const Topic8 = () => {
                   value={eveInterceptionPct}
                   onChange={(e) => setEveInterceptionPct(Number(e.target.value))}
                   className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-slate-500">
                   <span>0% (Clean)</span>
                   <span>45% (Threshold ~11%)</span>
@@ -273,7 +273,7 @@ const Topic8 = () => {
                       ? "bg-teal-600 text-white shadow-lg shadow-teal-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_kolkata_qkd" ? "Barrackpore 28km QKD" : key === "kolkata_fintech_otp_vault" ? "Kolkata OTP Settlement" : "Ichapur Laser QKD"}
                 </button>
               ))}

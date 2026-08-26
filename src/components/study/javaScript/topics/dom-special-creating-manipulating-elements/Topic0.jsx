@@ -62,7 +62,7 @@ export default class Topic0 extends Component {
             language="javascript"
             initialCode={`const box = document.createElement("div");
 console.log(box); // <div></div>`}
-          />
+          /&gt;
 
           <p className="text-slate-300">
             You can later update text, classes, styles, attributes, and more.
@@ -155,7 +155,7 @@ document.body.append(card);`}
 }
 
 showNotification("Welcome to DOM Special Class!");`}
-          />
+          /&gt;
 
           <p className="text-slate-300">
             This is how real websites create auto-disappearing toast messages.

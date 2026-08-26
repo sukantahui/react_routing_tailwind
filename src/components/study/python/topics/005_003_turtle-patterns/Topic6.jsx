@@ -118,7 +118,7 @@ const Topic6 = () => {
                       ? "bg-emerald-500 text-slate-950 font-bold shadow-lg shadow-emerald-500/25"
                       : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
                   }`}
-                >
+                &gt;
                   {key}
                 </button>
               ))}

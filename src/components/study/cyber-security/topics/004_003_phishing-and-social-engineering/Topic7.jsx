@@ -36,7 +36,7 @@ const Topic7 = () => {
         "A microcontroller inside a USB casing registers as an authentic Human Interface Device (keyboard), typing encoded PowerShell commands at 1,000 WPM to establish a reverse shell in under 2 seconds.",
       vulnerabilityImpact:
         "Bypasses traditional file-based antivirus scanners completely because the operating system trusts keyboard input without inspecting executables.",
-      telemetryIndicator: "Synthetic keystroke bursts (>800 WPM) with near-zero inter-key latency occurring immediately upon USB device insertion",
+      telemetryIndicator: "Synthetic keystroke bursts (&gt;800 WPM) with near-zero inter-key latency occurring immediately upon USB device insertion",
       resilientDefense: "Group Policy USB device class restrictions and endpoint DLP keystroke velocity monitors.",
       codeSnippet: `// USB Rubber Ducky DuckyScript Payload:
 DELAY 1000
@@ -173,11 +173,11 @@ setup(name='sample_package', version='1.0.0', description='Library with post-ins
     const numerator = allureScore * credibilityFactor;
     const exponent = -numerator / hardeningStrength;
     const rawCompromiseProb = (1 - Math.exp(exponent)) * 100;
-    const actualCompromiseProb = hardeningStrength >= 500
+    const actualCompromiseProb = hardeningStrength &ge; 500
       ? (rawCompromiseProb * 0.016).toFixed(2) // GPO USB Blocking + 802.1X + OOB blocks 98.4% of attacks
       : hardeningStrength >= 50
       ? (rawCompromiseProb * 0.35).toFixed(2)  // Standard Antivirus blocks 65% of attacks
-      : rawCompromiseProb.toFixed(2);           // Unhardened -> 100% compromise probability
+      : rawCompromiseProb.toFixed(2);           // Unhardened &rarr; 100% compromise probability
 
     return {
       rawCompromiseProb: rawCompromiseProb.toFixed(2),
@@ -611,7 +611,7 @@ interface GigabitEthernet1/0/24
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   PROFILE
                 </span>
@@ -708,7 +708,7 @@ interface GigabitEthernet1/0/24
                   value={allureScore}
                   onChange={(e) => setAllureScore(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -724,7 +724,7 @@ interface GigabitEthernet1/0/24
                   value={credibilityFactor}
                   onChange={(e) => setCredibilityFactor(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -738,7 +738,7 @@ interface GigabitEthernet1/0/24
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     None (1x)
                   </button>
                   <button
@@ -749,7 +749,7 @@ interface GigabitEthernet1/0/24
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Antivirus (50x)
                   </button>
                   <button
@@ -760,7 +760,7 @@ interface GigabitEthernet1/0/24
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     GPO USB (500x)
                   </button>
                 </div>
@@ -819,7 +819,7 @@ interface GigabitEthernet1/0/24
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -868,7 +868,7 @@ interface GigabitEthernet1/0/24
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

@@ -238,7 +238,7 @@ const Topic8 = () => {
                   value={assetValueLakhs}
                   onChange={(e) => setAssetValueLakhs(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
-                />
+                /&gt;
               </div>
 
               {/* Exposure Factor Slider */}
@@ -255,7 +255,7 @@ const Topic8 = () => {
                   value={exposureFactorPercent}
                   onChange={(e) => setExposureFactorPercent(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
               </div>
 
               {/* Annual Rate of Occurrence Slider */}
@@ -272,7 +272,7 @@ const Topic8 = () => {
                   value={annualRateOfOccurrence}
                   onChange={(e) => setAnnualRateOfOccurrence(parseFloat(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                />
+                /&gt;
               </div>
 
               {/* Control Cost & Efficiency Sliders */}
@@ -289,7 +289,7 @@ const Topic8 = () => {
                     value={controlCostLakhs}
                     onChange={(e) => setControlCostLakhs(parseInt(e.target.value))}
                     className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                  />
+                  /&gt;
                 </div>
 
                 <div className="space-y-1.5">
@@ -305,7 +305,7 @@ const Topic8 = () => {
                     value={controlEfficiencyPercent}
                     onChange={(e) => setControlEfficiencyPercent(parseInt(e.target.value))}
                     className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
-                  />
+                  /&gt;
                 </div>
               </div>
             </div>
@@ -378,7 +378,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{sc.title.split(". ")[1]?.split(" (")[0]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{sc.rosi}</div>
                 </button>
@@ -557,7 +557,7 @@ const Topic8 = () => {
 
                   <line x1="250" y1="65" x2="250" y2="95" stroke="#6366f1" strokeWidth="1.5" />
 
-                  {/* Left Branch: YES -> APPROVED */}
+                  {/* Left Branch: YES &rarr; APPROVED */}
                   <line x1="170" y1="135" x2="100" y2="135" stroke="#10b981" strokeWidth="1.5" />
                   <line x1="100" y1="135" x2="100" y2="195" stroke="#10b981" strokeWidth="1.5" />
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
@@ -566,7 +566,7 @@ const Topic8 = () => {
                     <text x="100" y="230" fill="#34d399" font-family="monospace" textAnchor="middle" fontSize="6.5">APPROVED BY CFO</text>
                   </g>
 
-                  {/* Right Branch: NO -> REJECTED */}
+                  {/* Right Branch: NO &rarr; REJECTED */}
                   <line x1="330" y1="135" x2="400" y2="135" stroke="#ef4444" strokeWidth="1.5" />
                   <line x1="400" y1="135" x2="400" y2="195" stroke="#ef4444" strokeWidth="1.5" />
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
@@ -612,7 +612,7 @@ const Topic8 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

@@ -182,11 +182,11 @@ if (is_ip_in_kolkata_enterprise_range($client_ip)) {
     const numerator = contextSpecificity * targetSeniority;
     const exponent = -numerator / armorStrength;
     const rawExploitProb = (1 - Math.exp(exponent)) * 100;
-    const actualExploitProb = armorStrength >= 500
+    const actualExploitProb = armorStrength &ge; 500
       ? (rawExploitProb * 0.015).toFixed(2) // VIP Armor + FIDO2 + Out-of-Band blocks 98.5% of attacks
       : armorStrength >= 50
       ? (rawExploitProb * 0.35).toFixed(2)  // Standard EDR blocks 65% of attacks
-      : rawExploitProb.toFixed(2);           // No armor -> 100% compromise rate
+      : rawExploitProb.toFixed(2);           // No armor &rarr; 100% compromise rate
 
     return {
       rawExploitProb: rawExploitProb.toFixed(2),
@@ -610,7 +610,7 @@ Write-Host "[+] Windows Defender ASR Rules ENFORCED! Remote template macro execu
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   VECTOR
                 </span>
@@ -708,7 +708,7 @@ Write-Host "[+] Windows Defender ASR Rules ENFORCED! Remote template macro execu
                   value={contextSpecificity}
                   onChange={(e) => setContextSpecificity(parseFloat(e.target.value))}
                   className="w-full accent-cyan-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1">
@@ -724,7 +724,7 @@ Write-Host "[+] Windows Defender ASR Rules ENFORCED! Remote template macro execu
                   value={targetSeniority}
                   onChange={(e) => setTargetSeniority(parseFloat(e.target.value))}
                   className="w-full accent-rose-500 bg-gray-800"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1">
@@ -738,7 +738,7 @@ Write-Host "[+] Windows Defender ASR Rules ENFORCED! Remote template macro execu
                         ? "bg-rose-950 border-rose-500 text-rose-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     None (1x)
                   </button>
                   <button
@@ -749,7 +749,7 @@ Write-Host "[+] Windows Defender ASR Rules ENFORCED! Remote template macro execu
                         ? "bg-amber-950 border-amber-500 text-amber-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     Basic EDR (50x)
                   </button>
                   <button
@@ -760,7 +760,7 @@ Write-Host "[+] Windows Defender ASR Rules ENFORCED! Remote template macro execu
                         ? "bg-emerald-950 border-emerald-500 text-emerald-300"
                         : "bg-gray-950 border-gray-800 text-gray-400"
                     )}
-                  >
+                  &gt;
                     VIP Armor (500x)
                   </button>
                 </div>
@@ -819,7 +819,7 @@ Write-Host "[+] Windows Defender ASR Rules ENFORCED! Remote template macro execu
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -868,7 +868,7 @@ Write-Host "[+] Windows Defender ASR Rules ENFORCED! Remote template macro execu
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>

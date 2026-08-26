@@ -81,7 +81,7 @@ const Topic5 = () => {
         badgeColor: isFailed
           ? "bg-rose-950 text-rose-300 border-rose-700"
           : "bg-emerald-950 text-emerald-300 border-emerald-700",
-        outerHeader: "New Public IPv4 Header (203.0.113.88 -> 198.51.100.1)",
+        outerHeader: "New Public IPv4 Header (203.0.113.88 &rarr; 198.51.100.1)",
         encryptionScope: "NONE (Payload is in CLEARTEXT! AH provides integrity only)",
         overhead: 44,
         explanation: isFailed
@@ -313,7 +313,7 @@ const Topic5 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}
@@ -380,7 +380,7 @@ const Topic5 = () => {
                 value={selectedIpsecMode}
                 onChange={(e) => setSelectedIpsecMode(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 <option value="tunnel_esp">1. IPsec ESP Tunnel Mode (AEAD Encrypted + New Public IP)</option>
                 <option value="transport_esp">2. IPsec ESP Transport Mode (Payload Encrypted + Original IP)</option>
                 <option value="tunnel_ah">3. IPsec AH Tunnel Mode (Cleartext Payload + Outer IP Hashing)</option>
@@ -397,7 +397,7 @@ const Topic5 = () => {
                     ? "bg-amber-950/80 text-amber-300 border-amber-800 shadow-md shadow-amber-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              >
+              &gt;
                 {simulatedNatActive ? "✔ NAT Router Active (Rewriting Public Source IP)" : "❌ No NAT (Direct End-to-End Routing)"}
               </button>
             </div>
@@ -496,7 +496,7 @@ const Topic5 = () => {
                 value={ipsecThroughputGbps}
                 onChange={(e) => setIpsecThroughputGbps(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -512,7 +512,7 @@ const Topic5 = () => {
                 value={activeTunnelCount}
                 onChange={(e) => setActiveTunnelCount(Number(e.target.value))}
                 className="w-full accent-purple-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -528,7 +528,7 @@ const Topic5 = () => {
                 value={ipsecOverheadBytes}
                 onChange={(e) => setIpsecOverheadBytes(Number(e.target.value))}
                 className="w-full accent-emerald-400 cursor-pointer"
-              />
+              /&gt;
             </div>
           </div>
 
@@ -582,7 +582,7 @@ const Topic5 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}

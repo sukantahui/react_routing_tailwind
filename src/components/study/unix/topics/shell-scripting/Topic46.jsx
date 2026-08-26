@@ -70,7 +70,7 @@ async def async_git_branch():
 from xonsh.prompt import gitstatus
 gitstatus.async_git_branch = async_git_branch
 
-$PROMPT = '{user}@{hostname}:{cwd}{async_git_branch} > '
+$PROMPT = '{user}@{hostname}:{cwd}{async_git_branch} &gt; '
 echo "Asynchronous prompt enabled"
 `;
 

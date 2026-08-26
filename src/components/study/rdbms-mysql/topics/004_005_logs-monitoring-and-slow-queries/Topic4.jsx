@@ -115,7 +115,7 @@ SELECT * FROM kolkata_retail.orders WHERE status = 'PENDING' ORDER BY order_date
       explanation:
         "Analyzing the ratio of Rows_examined to Rows_sent exposes unindexed table scans. Comparing Lock_time against total Query_time differentiates between slow SQL execution and row-lock waiting contention.",
       keyTakeaways: [
-        "Rows_examined >> Rows_sent reveals missing composite indexes.",
+        "Rows_examined >&gt; Rows_sent reveals missing composite indexes.",
         "Lock_time ~ Query_time indicates row-lock contention, not slow SQL.",
         "Provides direct actionable guidance for schema and transaction refactoring."
       ]
@@ -217,7 +217,7 @@ SELECT * FROM kolkata_retail.orders WHERE status = 'PENDING' ORDER BY order_date
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );

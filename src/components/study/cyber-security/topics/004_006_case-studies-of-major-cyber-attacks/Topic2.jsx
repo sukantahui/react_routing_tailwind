@@ -304,7 +304,7 @@ const Topic2 = () => {
                   ? "bg-rose-950/60 border-rose-600 text-rose-200 ring-2 ring-rose-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            >
+            &gt;
               <div className="font-bold text-rose-400 text-sm">1. Legacy Magnetic Stripe (Target 2013)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Plaintext magnetic Track 1/Track 2 data resides in POS application process RAM for milliseconds during authorization.
@@ -319,7 +319,7 @@ const Topic2 = () => {
                   ? "bg-amber-950/60 border-amber-600 text-amber-200 ring-2 ring-amber-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            >
+            &gt;
               <div className="font-bold text-amber-400 text-sm">2. EMV Chip & PIN (Dynamic Token)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Generates a single-use dynamic cryptogram (ARQC) per transaction. Scraped memory tokens cannot be cloned onto counterfeit cards.
@@ -334,7 +334,7 @@ const Topic2 = () => {
                   ? "bg-emerald-950/60 border-emerald-600 text-emerald-200 ring-2 ring-emerald-500"
                   : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
               )}
-            >
+            &gt;
               <div className="font-bold text-emerald-400 text-sm">3. Hardware Point-to-Point Encryption (P2PE)</div>
               <p className="text-[11px] text-gray-400 mt-1">
                 Card data is encrypted inside the physical PIN pad hardware security chip (TRSM). POS computer RAM only ever sees useless AES ciphertext!
@@ -421,7 +421,7 @@ const Topic2 = () => {
                   value={networkArchitecture}
                   onChange={(e) => setNetworkArchitecture(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-rose-500"
-                >
+                &gt;
                   <option value="flat_unsegmented">1. Insecure Flat Network (Target 2013 — No Internal Firewalls)</option>
                   <option value="vlan_segmented">2. Basic VLAN Segmentation (Inter-VLAN Routing Active)</option>
                   <option value="ztna_microsegmented">3. Zero Trust Network Access (ZTNA & Micro-segmentation)</option>
@@ -440,7 +440,7 @@ const Topic2 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     hvacVendorMfaEnabled ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {hvacVendorMfaEnabled ? "ENFORCED (FIDO2)" : "DISABLED (Password Only)"}
                 </button>
               </div>
@@ -459,7 +459,7 @@ const Topic2 = () => {
                   value={totalStoreRegisters}
                   onChange={(e) => setTotalStoreRegisters(parseInt(e.target.value))}
                   className="w-full accent-rose-500 cursor-pointer"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -490,7 +490,7 @@ const Topic2 = () => {
                 </div>
               </div>
 
-              <div className={clsx("p-3 rounded-xl border text-xs text-center font-bold", topologyMetrics.compromisedRegisters > 0 ? "bg-rose-950/40 border-rose-800 text-rose-300" : "bg-emerald-950/40 border-emerald-800 text-emerald-300")}>
+              <div className={clsx("p-3 rounded-xl border text-xs text-center font-bold", topologyMetrics.compromisedRegisters > 0 ? "bg-rose-950/40 border-rose-800 text-rose-300" : "bg-emerald-950/40 border-emerald-800 text-emerald-300")}&gt;
                 OVERALL THREAT STATUS: {topologyMetrics.riskLevel}
               </div>
             </div>
@@ -527,7 +527,7 @@ const Topic2 = () => {
                   value={fireEyeDetectionMode}
                   onChange={(e) => setFireEyeDetectionMode(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-purple-500"
-                >
+                &gt;
                   <option value="monitor_only">1. Alert-Only / Monitor Mode (Target 2013 — Disabled Auto-Drop)</option>
                   <option value="soar_automated_quarantine">2. Modern SOAR Automated Isolation (Instant Host Quarantine)</option>
                 </select>
@@ -547,7 +547,7 @@ const Topic2 = () => {
                   value={dailyAlertVolume}
                   onChange={(e) => setDailyAlertVolume(parseInt(e.target.value))}
                   className="w-full accent-amber-500 cursor-pointer"
-                />
+                /&gt;
               </div>
 
               {/* Analyst Shift Headcount Slider */}
@@ -563,7 +563,7 @@ const Topic2 = () => {
                   value={analystCount}
                   onChange={(e) => setAnalystCount(parseInt(e.target.value))}
                   className="w-full accent-purple-500 cursor-pointer"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -584,8 +584,8 @@ const Topic2 = () => {
 
                   <div className="flex justify-between p-3 rounded bg-slate-900 border border-slate-800">
                     <span className="text-gray-400">Adversary Dwell Time Before Eviction:</span>
-                    <span className={clsx("font-mono font-bold text-base", socFatigueMetrics.breachDwellTimeDays > 1 ? "text-rose-400" : "text-emerald-400")}>
-                      {socFatigueMetrics.breachDwellTimeDays >= 1 ? `${socFatigueMetrics.breachDwellTimeDays} Days` : "< 1 Minute (SOAR)"}
+                    <span className={clsx("font-mono font-bold text-base", socFatigueMetrics.breachDwellTimeDays > 1 ? "text-rose-400" : "text-emerald-400")}&gt;
+                      {socFatigueMetrics.breachDwellTimeDays &ge; 1 ? `${socFatigueMetrics.breachDwellTimeDays} Days` : "< 1 Minute (SOAR)"}
                     </span>
                   </div>
 
@@ -657,7 +657,7 @@ const Topic2 = () => {
                     ? "bg-rose-500/20 text-rose-300 border border-rose-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 1. Regional Vulnerability Findings
               </button>
               <button
@@ -668,7 +668,7 @@ const Topic2 = () => {
                     ? "bg-rose-500/20 text-rose-300 border border-rose-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 2. Deployed Defensive Architecture
               </button>
             </div>

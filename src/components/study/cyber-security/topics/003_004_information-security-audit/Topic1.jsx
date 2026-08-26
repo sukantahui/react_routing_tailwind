@@ -285,7 +285,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{mod.name.split(". ")[1]?.split(" (")[0]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{mod.name.split(". ")[0]}</div>
                 </button>
@@ -375,7 +375,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200">{sc.title}</div>
                   <div className="text-[11px] text-gray-400 font-mono mt-0.5">{sc.scope}</div>
                 </button>
@@ -396,7 +396,7 @@ const Topic1 = () => {
                       ? "bg-indigo-600 text-white border-indigo-400 font-bold shadow-md"
                       : "bg-gray-900 text-gray-400 border-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] opacity-80 uppercase">STEP 0{st.step}</div>
                   <div className="font-sans font-bold mt-0.5 truncate">{st.name}</div>
                 </button>
@@ -587,7 +587,7 @@ const Topic1 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

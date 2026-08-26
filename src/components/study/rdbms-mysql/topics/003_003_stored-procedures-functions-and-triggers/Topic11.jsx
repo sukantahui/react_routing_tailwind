@@ -39,7 +39,7 @@ END //
 
 DELIMITER ;
 
--- Insert new student -> Department count automatically increments:
+-- Insert new student &rarr; Department count automatically increments:
 INSERT INTO students (first_name, last_name, dept_id) VALUES ('Mamata', 'Hui', 1);
 SELECT dept_name, total_students FROM departments WHERE dept_id = 1;`,
       resultRows: [
@@ -60,7 +60,7 @@ AFTER UPDATE ON students
 FOR EACH ROW
 BEGIN
     -- Detect if exam score changed using NULL-safe inequality:
-    IF NOT (OLD.exam_score_pct <=> NEW.exam_score_pct) THEN
+    IF NOT (OLD.exam_score_pct &le; &gt; NEW.exam_score_pct) THEN
         INSERT INTO student_grade_audit_log (
             student_id,
             previous_score_pct,
@@ -82,7 +82,7 @@ END //
 
 DELIMITER ;
 
--- Update student score -> Trigger detects difference and logs revision!
+-- Update student score &rarr; Trigger detects difference and logs revision!
 UPDATE students SET exam_score_pct = 94.50 WHERE student_id = 101;`,
       resultRows: [
         { id: "STU-101", eventType: "UPDATE", targetRow: "Mamata Hui (CS)", availableRecords: "BOTH OLD (88.0%) & NEW (94.5%)", actionTaken: "INSERT into grade_audit (+6.5% Delta)", status: "Revision Logged" },
@@ -394,7 +394,7 @@ REVOKE DROP ON barrackpore_academy.students FROM 'app_user'@'%';`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -502,7 +502,7 @@ REVOKE DROP ON barrackpore_academy.students FROM 'app_user'@'%';`,
               </p>
               <pre className="p-4 rounded-xl bg-slate-950 text-xs font-mono text-emerald-300 border border-slate-800 overflow-x-auto">
 {`-- Grade Revision Audit Trigger:
-IF NOT (OLD.exam_score_pct <=> NEW.exam_score_pct) THEN
+IF NOT (OLD.exam_score_pct &le; &gt; NEW.exam_score_pct) THEN
     INSERT INTO grade_audit_log (student_id, old_score, new_score, revised_by, revised_at)
     VALUES (NEW.student_id, OLD.exam_score_pct, NEW.exam_score_pct, USER(), NOW());
 END IF;`}
@@ -537,10 +537,10 @@ END IF;`}
 
             <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
               <h3 className="text-base font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>✓</span> Use NULL-Safe {"`<=>`"} for Change Detection
+                <span>✓</span> Use NULL-Safe {"` &le; &gt;`"} for Change Detection
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Using <code className="text-emerald-400 font-mono">IF NOT (OLD.col &lt;=&gt; NEW.col)</code> prevents three-valued logic bugs when either the old or new value is `NULL`.
+                Using <code className="text-emerald-400 font-mono">IF NOT (OLD.col <=> NEW.col)</code> prevents three-valued logic bugs when either the old or new value is `NULL`.
               </p>
               <div className="text-xs text-slate-400">
                 Standard enterprise change detection pattern.

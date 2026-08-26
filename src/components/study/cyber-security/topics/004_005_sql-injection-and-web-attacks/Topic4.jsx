@@ -36,7 +36,7 @@ const Topic4 = () => {
       vulnerabilityMechanism:
         "Evaluating boolean conditions (`AND 1=1` vs `AND 1=2`); when TRUE, the application returns a 4,500-byte page; when FALSE, it returns a 2,100-byte page, providing an observable binary truth channel.",
       mitigationPattern: "Parameterized prepared statements eliminate conditional injection completely.",
-      typicalPayload: "AND (SELECT ascii(substr(password,1,1)) FROM users WHERE id=1) > 79",
+      typicalPayload: "AND (SELECT ascii(substr(password,1,1)) FROM users WHERE id=1) &gt; 79",
       codeSnippet: `// Boolean Content-Length Verification:
 // True Condition  ➔ HTTP 200 | Size: 4,512 Bytes ("User Active")
 // False Condition ➔ HTTP 200 | Size: 2,104 Bytes ("User Not Found")`
@@ -159,7 +159,7 @@ const Topic4 = () => {
     let blockReason = "";
 
     if (blindTechnique === "time_based_sleep") {
-      if (statementTimeoutActive && sleepDurationSeconds >= 2) {
+      if (statementTimeoutActive && sleepDurationSeconds &ge; 2) {
         attackBlocked = true;
         blockReason = `DATABASE STATEMENT TIMEOUT TRIGGERED: PostgreSQL terminated query at 2,000 ms (Injected sleep was ${sleepDurationSeconds}s); Attack failed!`;
         durationSeconds = 2.0;
@@ -637,7 +637,7 @@ exports.checkAccountStatus = async (req, res) => {
                     ? "bg-rose-950/80 border-rose-500 shadow-lg shadow-rose-950/50"
                     : "bg-[#0c101c] border-gray-800 hover:border-gray-700 text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 <span className="text-[8.5px] font-bold px-1.5 py-0.5 rounded border bg-rose-950 text-rose-300 border-rose-800 self-start">
                   ORACLE
                 </span>
@@ -723,7 +723,7 @@ exports.checkAccountStatus = async (req, res) => {
                   value={secretPassword}
                   onChange={(e) => setSecretPassword(e.target.value || "AdminPass")}
                   className="w-full p-2 bg-gray-950 rounded border border-gray-800 text-cyan-300 font-mono text-xs focus:border-cyan-500 outline-none"
-                />
+                /&gt;
               </div>
 
               <div className="space-y-1 pt-1 border-t border-gray-800">
@@ -743,7 +743,7 @@ exports.checkAccountStatus = async (req, res) => {
                           ? "bg-rose-950 border-rose-500 text-rose-300"
                           : "bg-gray-950 border-gray-800 text-gray-400"
                       )}
-                    >
+                    &gt;
                       {tech.label}
                     </button>
                   ))}
@@ -764,7 +764,7 @@ exports.checkAccountStatus = async (req, res) => {
                     value={sleepDurationSeconds}
                     onChange={(e) => setSleepDurationSeconds(parseInt(e.target.value))}
                     className="w-full accent-amber-500 bg-gray-800"
-                  />
+                  /&gt;
                 </div>
               )}
 
@@ -778,7 +778,7 @@ exports.checkAccountStatus = async (req, res) => {
                       ? "bg-emerald-950 border-emerald-500 text-emerald-300 shadow-md shadow-emerald-950/50"
                       : "bg-gray-950 border-gray-800 text-gray-400"
                   )}
-                >
+                &gt;
                   {statementTimeoutActive ? "✔ STATEMENT TIMEOUT ACTIVE (2000ms)" : "UNLIMITED QUERY TIMEOUT"}
                 </button>
               </div>
@@ -848,7 +848,7 @@ exports.checkAccountStatus = async (req, res) => {
                     ? "bg-purple-950 border-purple-500 text-purple-300 shadow-md shadow-purple-950/50"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 {item.name}
               </button>
             ))}
@@ -897,7 +897,7 @@ exports.checkAccountStatus = async (req, res) => {
                     ? "bg-amber-950/60 border-amber-500 shadow-md"
                     : "bg-[#0b101c] border-gray-800 hover:border-gray-700 text-gray-400"
                 )}
-              >
+              &gt;
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-900 text-amber-300 border border-amber-800">
                   {sc.lead} · {sc.location.split(" ")[0]}
                 </span>
@@ -1138,7 +1138,7 @@ exports.checkAccountStatus = async (req, res) => {
         <section className="pt-4">
           <Teacher
             note="Teacher's Note: Inferential (Blind) SQL Injection demonstrates that a lack of visible output or error messages does NOT make an un-parameterized query safe! Master the two core blind oracles: 1. Boolean-Based Oracles (evaluating differential response size, HTTP status codes, or DOM text reflections); 2. Time-Based Oracles (injecting `pg_sleep(5)` in PostgreSQL, `SLEEP(5)` in MySQL, or `WAITFOR DELAY` in MSSQL to measure response delays). Master the mathematics of binary search: understand why halving the ASCII search range ($[32, 126]$) extracts any character in exactly $\lceil \log_2(95) \rceil = 7$ HTTP queries. Implement enterprise defenses: 1. Deploy 100% Parameterized Prepared Statements; 2. Configure `statement_timeout = 2000ms` in PostgreSQL or `max_execution_time = 2000` in MySQL to abort any injected sleep delays $> 2$ seconds; 3. Deploy Redis sliding window rate limiters restricting clients to 60 req/min. Remember that Section 66F of the Indian IT Act penalizes blind SQL injection cyber terrorism against critical national infrastructure with mandatory Life Imprisonment, and Section 43(a) provides civil damages up to ₹1 Crore for unauthorized database extraction!"
-          />
+          /&gt;
         </section>
 
       </div>

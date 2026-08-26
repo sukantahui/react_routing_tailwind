@@ -120,7 +120,7 @@ WITH NumberedSubmissions AS (
         ) AS duplicate_rank
     FROM raw_admissions_log
 )
--- Select only duplicate records (duplicate_rank > 1) to inspect/delete:
+-- Select only duplicate records (duplicate_rank &gt; 1) to inspect/delete:
 SELECT submission_id, student_id, email_address, submission_date, duplicate_rank
 FROM NumberedSubmissions
 WHERE duplicate_rank > 1;`,
@@ -353,7 +353,7 @@ WHERE duplicate_rank > 1;`,
                     <rect x="20" y="30" width="180" height="100" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
                     <text x="110" y="55" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">Quartile 1 (Top 25%)</text>
                     <rect x="30" y="70" width="160" height="40" rx="4" fill="#022c22" />
-                    <text x="110" y="88" fill="#a7f3d0" fontSize="8 font-mono" textAnchor="middle">Score &gt;= 95%</text>
+                    <text x="110" y="88" fill="#a7f3d0" fontSize="8 font-mono" textAnchor="middle">Score >= 95%</text>
                     <text x="110" y="102" fill="#34d399" fontSize="7 font-bold" textAnchor="middle">High Distinction</text>
                   </g>
 
@@ -414,7 +414,7 @@ WHERE duplicate_rank > 1;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -530,7 +530,7 @@ WITH RankedTiers AS (
     SELECT student_name, exam_score_pct, DENSE_RANK() OVER (ORDER BY exam_score_pct DESC) AS tier_rank
     FROM students
 )
-SELECT student_name, exam_score_pct, tier_rank FROM RankedTiers WHERE tier_rank <= 3;`}
+SELECT student_name, exam_score_pct, tier_rank FROM RankedTiers WHERE tier_rank &le; 3;`}
               </pre>
             </div>
           </div>

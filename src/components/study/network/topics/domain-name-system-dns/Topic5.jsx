@@ -51,7 +51,7 @@ const Topic5 = () => {
             <button
               onClick={() => setShowBinary(!showBinary)}
               className="mt-4 text-sm text-blue-600 dark:text-blue-400 hover:underline"
-            >
+            &gt;
               {showBinary ? "Hide" : "Show"} IPv4 binary representation
             </button>
             {showBinary && (

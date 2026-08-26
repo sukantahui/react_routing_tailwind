@@ -726,7 +726,7 @@ const Topic35 = () => {
                         "border-blue-300 dark:border-blue-700",
                         mistakeType === mistake.id ? "" : mistake.color
                       )}
-                    >
+                    &gt;
                       <div className="text-xs font-semibold text-gray-900 dark:text-white truncate">
                         {mistake.name}
                       </div>
@@ -845,7 +845,7 @@ const Topic35 = () => {
                       {mistakeExamples.find(m => m.id === mistakeType)?.name}
                     </span>
                   </div>
-                  {mistakeType === 'missing' && staleValue > 0 && (
+                  {mistakeType === 'missing' && staleValue &gt; 0 && (
                     <div className="text-sm text-red-600 dark:text-red-400 mt-1">
                       Stale value captured: {staleValue} (should be {counter})
                     </div>

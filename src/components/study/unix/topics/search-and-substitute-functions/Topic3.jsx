@@ -50,7 +50,7 @@ const FAQTemplate = ({ title, questions }) => {
             <button
               onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
               className="w-full text-left px-6 py-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors flex justify-between items-center"
-            >
+            &gt;
               <span>{faq.question}</span>
               <svg className={clsx("w-5 h-5 transition-transform duration-300", openIndex === idx && "rotate-180")} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -198,7 +198,7 @@ ls config.ini*
     { question: "How to restrict replacement to word boundaries?", shortAnswer: "Use \\< and \\> or [[:<:]] and [[:>:]]", explanation: "Word boundaries prevent partial matches (e.g., 'the' vs 'their').", hint: "grep -w equivalent in sed: sed 's/\\<the\\>/The/g'", level: "advanced", codeExample: "sed 's/\\<old\\>/new/g' file" },
     { question: "How to use variables in sed substitution?", shortAnswer: "Use double quotes: sed \"s/$old/$new/\" file", explanation: "Double quotes allow shell variable expansion, but beware of special characters.", hint: "Escape any / in variables with parameter expansion.", level: "advanced", codeExample: "old='foo'; new='bar'; sed \"s/$old/$new/\" file" },
     { question: "How to print line numbers before each line?", shortAnswer: "Use = command: sed '=' file", explanation: "= prints line number on separate line. To combine with text: sed '=' file | sed 'N;s/\\n/ /'", hint: "Alternative: cat -n or nl.", level: "intermediate", codeExample: "sed '=' file" },
-    { question: "What is the difference between sed -i and output redirection?", shortAnswer: "-i modifies in-place; redirect > creates new file.", explanation: "Redirection: sed 's/old/new/' file > newfile. -i replaces original.", hint: "Always test with output before using -i.", level: "basic", codeExample: "# Safe: sed 's/old/new/' file > file.tmp && mv file.tmp file" },
+    { question: "What is the difference between sed -i and output redirection?", shortAnswer: "-i modifies in-place; redirect &gt; creates new file.", explanation: "Redirection: sed 's/old/new/' file > newfile. -i replaces original.", hint: "Always test with output before using -i.", level: "basic", codeExample: "# Safe: sed 's/old/new/' file > file.tmp && mv file.tmp file" },
     { question: "How to substitute only if pattern is found (conditional)?", shortAnswer: "Use t command (test) to branch after successful substitute.", explanation: "Advanced sed scripting: t label jumps if last s/// succeeded.", hint: "Not for beginners; use awk for complex logic.", level: "expert", codeExample: "sed ':a;s/foo/bar/;ta' file   # loop until no more foo" },
     { question: "How to replace text in a specific column (fixed width)?", shortAnswer: "Use regular expression to target column or use cut/paste.", explanation: "sed can match positions with ^.{n} pattern for column offset.", hint: "For CSV, use awk with field separators.", level: "advanced", codeExample: "sed 's/^\\(.\\{5\\}\\)old/\\1new/' file" },
     { question: "How to escape special characters in replacement string?", shortAnswer: "Backslash escapes: \\&, \\/, \\\\, etc.", explanation: "In replacement, & is special, / is delimiter, \\ is escape.", hint: "Use different delimiter to reduce escaping.", level: "advanced", codeExample: "sed 's|/home/user|/home/guest|' file   # no escape needed" },

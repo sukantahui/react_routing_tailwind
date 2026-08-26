@@ -340,7 +340,7 @@ const Topic5 = () => {
                     ? "bg-slate-800 text-white border-sky-500 shadow-md shadow-sky-500/10"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200 hover:border-slate-700"
                 )}
-              >
+              &gt;
                 {p.title}
               </button>
             ))}
@@ -409,7 +409,7 @@ const Topic5 = () => {
                 value={selectedHttpScenario}
                 onChange={(e) => setSelectedHttpScenario(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-xs text-gray-200 focus:border-sky-500 focus:outline-none"
-              >
+              &gt;
                 {Object.values(httpScenarios).map((s) => (
                   <option key={s.id} value={s.id}>
                     {s.label}
@@ -428,7 +428,7 @@ const Topic5 = () => {
                     ? "bg-purple-950/80 text-purple-300 border-purple-800"
                     : "bg-slate-950 text-gray-400 border-slate-800"
                 )}
-              >
+              &gt;
                 {tlsDecryptionActive ? "✔ TLS Decryption Active (L7 Inspected)" : "❌ TLS Pass-through (Blind)"}
               </button>
             </div>
@@ -443,7 +443,7 @@ const Topic5 = () => {
                     ? "bg-emerald-950/80 text-emerald-300 border-emerald-800"
                     : "bg-amber-950/80 text-amber-300 border-amber-800"
                 )}
-              >
+              &gt;
                 {dlpMaskingActive ? "✔ Aadhaar/PAN DLP Masking Active" : "❌ DLP Masking Disabled"}
               </button>
             </div>
@@ -538,7 +538,7 @@ const Topic5 = () => {
                 value={requestsPerSecond}
                 onChange={(e) => setRequestsPerSecond(Number(e.target.value))}
                 className="w-full accent-sky-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -554,7 +554,7 @@ const Topic5 = () => {
                 value={avgRequestBodyKB}
                 onChange={(e) => setAvgRequestBodyKB(Number(e.target.value))}
                 className="w-full accent-indigo-400 cursor-pointer"
-              />
+              /&gt;
             </div>
 
             <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
@@ -566,7 +566,7 @@ const Topic5 = () => {
                 value={tlsKeyLengthBits}
                 onChange={(e) => setTlsKeyLengthBits(Number(e.target.value))}
                 className="w-full bg-slate-900 border border-slate-700 rounded p-1.5 text-xs text-gray-200 focus:outline-none"
-              >
+              &gt;
                 <option value={2048}>2048-bit RSA (Standard)</option>
                 <option value={4096}>4096-bit RSA (High Security)</option>
               </select>
@@ -623,7 +623,7 @@ const Topic5 = () => {
                     ? "bg-sky-600/20 text-sky-300 border-sky-500/60"
                     : "bg-slate-950 text-gray-400 border-slate-800 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 {d.title}
               </button>
             ))}
@@ -669,7 +669,7 @@ const Topic5 = () => {
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-slate-900 rounded border border-slate-800">
                 <span className="text-emerald-400">✔</span>
-                <span>Dual-session architecture: Client &lt;=&gt; Proxy (Session 1) and Proxy &lt;=&gt; Server (Session 2).</span>
+                <span>Dual-session architecture: Client <=> Proxy (Session 1) and Proxy <=> Server (Session 2).</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-slate-900 rounded border border-slate-800">
                 <span className="text-emerald-400">✔</span>

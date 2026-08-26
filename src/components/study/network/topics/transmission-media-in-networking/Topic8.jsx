@@ -264,7 +264,7 @@ const Topic8 = () => {
               <li>Assuming all radio waves are the same – ignoring frequency-dependent behavior.</li>
               <li>Placing Wi-Fi routers in corners or metal cabinets (kills signal).</li>
               <li>Using the same channel as a neighboring AP (causes co-channel interference).</li>
-              <li>Forgetting that weather (rain, fog) affects high-frequency radio ({`>`}10 GHz).</li>
+              <li>Forgetting that weather (rain, fog) affects high-frequency radio ({`&gt;`}10 GHz).</li>
               <li>Misunderstanding "omnidirectional" – it's doughnut-shaped, not a perfect sphere.</li>
             </ul>
           </div>

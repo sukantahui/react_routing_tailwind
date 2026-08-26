@@ -142,7 +142,7 @@ const Topic3 = () => {
                     ? "bg-amber-500 text-white shadow-md"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {op}
               </button>
             ))}
@@ -195,7 +195,7 @@ const Topic3 = () => {
                       ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                       : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                   )}
-                >
+                &gt;
                   {customInputA}
                 </button>
               </div>
@@ -210,7 +210,7 @@ const Topic3 = () => {
                       ? "bg-green-500 hover:bg-green-600 text-white shadow-lg" 
                       : "bg-red-500 hover:bg-red-600 text-white shadow-lg"
                   )}
-                >
+                &gt;
                   {customInputB}
                 </button>
               </div>

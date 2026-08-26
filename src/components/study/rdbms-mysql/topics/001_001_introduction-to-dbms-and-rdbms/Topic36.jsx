@@ -290,7 +290,7 @@ const Topic36 = () => {
                   icon: "💻",
                   title: "Command Line",
                   desc: "Execute queries directly in the MySQL shell.",
-                  detail: "mysql> SELECT * FROM users;",
+                  detail: "mysql&gt; SELECT * FROM users;",
                   color: "blue",
                 },
                 {
@@ -415,7 +415,7 @@ const Topic36 = () => {
                   {`mysql -u root -p
 Enter password: ********
 
-mysql> USE mydb;
+mysql&gt; USE mydb;
 Database changed
 
 mysql> SELECT * FROM users;

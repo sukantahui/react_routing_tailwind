@@ -330,7 +330,7 @@ const Topic4 = () => {
 
             <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
               <span className="text-[11px] text-gray-400 uppercase font-semibold">Citizens Plunged into Darkness</span>
-              <div className={clsx("text-2xl font-mono font-extrabold", gridMetrics.blackoutPct > 0 ? "text-rose-400" : "text-emerald-400")}>
+              <div className={clsx("text-2xl font-mono font-extrabold", gridMetrics.blackoutPct > 0 ? "text-rose-400" : "text-emerald-400")}&gt;
                 {gridMetrics.affectedCustomers}
               </div>
               <span className="text-[10px] text-gray-500">{gridMetrics.blackoutPct}% of total population</span>
@@ -417,7 +417,7 @@ const Topic4 = () => {
                     ? "bg-red-600/20 border-red-500 text-red-200 ring-1 ring-red-500 shadow-md"
                     : "bg-slate-950 border-slate-800 text-gray-400 hover:bg-slate-800"
                 )}
-              >
+              &gt;
                 <span className="font-bold text-[11px] text-white">Phase {p.phase}</span>
                 <span className="text-[10px] text-red-400 truncate mt-1">{p.title.split(": ")[1]}</span>
               </button>
@@ -486,7 +486,7 @@ const Topic4 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     iec104DpiFirewallActive ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {iec104DpiFirewallActive ? "DPI ACTIVE (+35 pts)" : "OFF"}
                 </button>
               </div>
@@ -502,7 +502,7 @@ const Topic4 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     vpnMfaEnforced ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {vpnMfaEnforced ? "MFA ENFORCED (+35 pts)" : "OFF"}
                 </button>
               </div>
@@ -518,7 +518,7 @@ const Topic4 = () => {
                     "px-3 py-1.5 rounded font-bold transition-all",
                     firmwareSignedOnly ? "bg-emerald-600 text-white" : "bg-rose-900 text-rose-200"
                   )}
-                >
+                &gt;
                   {firmwareSignedOnly ? "SIGNED ONLY (+30 pts)" : "OFF"}
                 </button>
               </div>
@@ -542,7 +542,7 @@ const Topic4 = () => {
                     <p className="text-gray-300 text-[11px] leading-relaxed font-sans">
                       {gridDefenseScore === 100
                         ? "OPTIMAL SECURITY: Multi-tier protection active. FIDO2 MFA stops the initial VPN pivot, IEC 104 DPI firewalls reject unauthorized breaker open commands, and signed firmware prevents converter bricking."
-                        : gridDefenseScore >= 65
+                        : gridDefenseScore &ge; 65
                         ? "MODERATE: Good protection at perimeter, but missing protocol-level inspection allows compromised accounts to issue raw IEC 104 disconnect commands."
                         : "HIGH DEFICIENCY: Vulnerable to remote SCADA takeover and blackout (identical to Ukraine 2015 posture)."}
                     </p>
@@ -611,7 +611,7 @@ const Topic4 = () => {
                     ? "bg-red-500/20 text-red-300 border border-red-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 1. Substation Findings (Barrackpore & Kolkata)
               </button>
               <button
@@ -622,7 +622,7 @@ const Topic4 = () => {
                     ? "bg-red-500/20 text-red-300 border border-red-500/50"
                     : "text-gray-400 hover:text-gray-200"
                 )}
-              >
+              &gt;
                 2. Deployed Defense & CEA Guidelines
               </button>
             </div>

@@ -45,7 +45,7 @@ const Topic3 = () => {
     const denom = (lineA.a1 - lineA.a2) - (lineB.a1 - lineB.a2);
     if (denom !== 0) {
       const p = (lineB.a2 - lineA.a2) / denom;
-      if (p >= 0 && p <= 1) {
+      if (p &ge; 0 && p &le; 1) {
         intersectP1 = p;
         intersectVal = (lineA.a1 - lineA.a2) * p + lineA.a2;
         hasValidIntersect = true;
@@ -173,7 +173,7 @@ const Topic3 = () => {
                     ? 'bg-sky-600 text-white border-sky-500 shadow-md shadow-sky-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -185,7 +185,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 font-bold text-sm">
@@ -225,7 +225,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-plot3">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-slate-800 pb-4 gap-2">
               <div className="flex items-center space-x-3">
@@ -245,7 +245,7 @@ const Topic3 = () => {
                     'px-2.5 py-1 rounded-lg border font-semibold transition-all',
                     showLine1 ? 'bg-rose-950 text-rose-300 border-rose-600' : 'bg-slate-950 text-slate-600 border-slate-800'
                   )}
-                >
+                &gt;
                   B₁ {showLine1 ? 'ON' : 'OFF'}
                 </button>
                 <button
@@ -254,7 +254,7 @@ const Topic3 = () => {
                     'px-2.5 py-1 rounded-lg border font-semibold transition-all',
                     showLine2 ? 'bg-sky-950 text-sky-300 border-sky-600' : 'bg-slate-950 text-slate-600 border-slate-800'
                   )}
-                >
+                &gt;
                   B₂ {showLine2 ? 'ON' : 'OFF'}
                 </button>
                 <button
@@ -263,7 +263,7 @@ const Topic3 = () => {
                     'px-2.5 py-1 rounded-lg border font-semibold transition-all',
                     showLine3 ? 'bg-purple-950 text-purple-300 border-purple-600' : 'bg-slate-950 text-slate-600 border-slate-800'
                   )}
-                >
+                &gt;
                   B₃ {showLine3 ? 'ON' : 'OFF'}
                 </button>
                 <button
@@ -272,7 +272,7 @@ const Topic3 = () => {
                     'px-2.5 py-1 rounded-lg border font-semibold transition-all',
                     showLine4 ? 'bg-amber-950 text-amber-300 border-amber-600' : 'bg-slate-950 text-slate-600 border-slate-800'
                   )}
-                >
+                &gt;
                   B₄ {showLine4 ? 'ON' : 'OFF'}
                 </button>
               </div>
@@ -406,7 +406,7 @@ const Topic3 = () => {
                   value={pairLineA}
                   onChange={(e) => setPairLineA(parseInt(e.target.value, 10))}
                   className="bg-slate-900 text-white border border-slate-700 rounded-lg px-2 py-1"
-                >
+                &gt;
                   {lines.map((l) => (
                     <option key={l.id} value={l.id}>{l.name}</option>
                   ))}
@@ -416,7 +416,7 @@ const Topic3 = () => {
                   value={pairLineB}
                   onChange={(e) => setPairLineB(parseInt(e.target.value, 10))}
                   className="bg-slate-900 text-white border border-slate-700 rounded-lg px-2 py-1"
-                >
+                &gt;
                   {lines.map((l) => (
                     <option key={l.id} value={l.id}>{l.name}</option>
                   ))}
@@ -444,7 +444,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -474,7 +474,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -520,7 +520,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -542,7 +542,7 @@ const Topic3 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -569,7 +569,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -609,7 +609,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -643,7 +643,7 @@ const Topic3 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

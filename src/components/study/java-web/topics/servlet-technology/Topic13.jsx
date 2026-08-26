@@ -53,7 +53,7 @@ const Topic13 = () => {
                 <section
                     ref={(el) => (sectionRefs.current[0] = el)}
                     className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/10"
-                >
+                &gt;
                     <h2 className="text-2xl font-semibold text-teal-400 flex items-center gap-2">
                         <span>🗺️</span> What are URL Mapping Patterns?
                     </h2>
@@ -74,7 +74,7 @@ const Topic13 = () => {
                 <section
                     ref={(el) => (sectionRefs.current[1] = el)}
                     className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-                >
+                &gt;
                     <h2 className="text-2xl font-semibold text-teal-400">📐 Types of URL Patterns</h2>
                     <div className="mt-6 flex flex-wrap justify-center gap-4">
                         <svg viewBox="0 0 220 160" className="w-52 h-auto">
@@ -116,7 +116,7 @@ const Topic13 = () => {
                 <section
                     ref={(el) => (sectionRefs.current[2] = el)}
                     className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-                >
+                &gt;
                     <h2 className="text-2xl font-semibold text-teal-400">🎯 Exact Match Patterns</h2>
                     <p className="mt-3 text-gray-300">
                         The URL pattern must exactly equal the request path. Examples: <code>/login</code>, <code>/home</code>, <code>/user/profile</code>. No wildcards.
@@ -207,7 +207,7 @@ const Topic13 = () => {
                 <section
                     ref={(el) => (sectionRefs.current[3] = el)}
                     className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-                >
+                &gt;
                     <h2 className="text-2xl font-semibold text-teal-400">⚠️ Common Pitfalls</h2>
                     <ul className="list-disc list-inside space-y-2 text-gray-300 mt-3">
                         <li><strong>Using both <code>/*</code> and <code>*.jsp</code> in the same mapping</strong> – Not allowed; pattern can only be prefix or suffix, not mixed.</li>
@@ -222,7 +222,7 @@ const Topic13 = () => {
                 <section
                     ref={(el) => (sectionRefs.current[4] = el)}
                     className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-                >
+                &gt;
                     <h2 className="text-2xl font-semibold text-teal-400">✅ Best Practices</h2>
                     <ul className="list-decimal list-inside space-y-2 text-gray-300">
                         <li>Use exact matches for fixed endpoints (e.g., <code>/login</code>, <code>/logout</code>).</li>
@@ -238,7 +238,7 @@ const Topic13 = () => {
                 <section
                     ref={(el) => (sectionRefs.current[5] = el)}
                     className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
-                >
+                &gt;
                     <h2 className="text-2xl font-semibold text-teal-400">📋 Mini Checklist</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
                         {[
@@ -264,7 +264,7 @@ const Topic13 = () => {
                 <section
                     ref={(el) => (sectionRefs.current[6] = el)}
                     className="bg-gray-900/50 rounded-2xl p-6 border border-teal-500/30"
-                >
+                &gt;
                     <h2 className="text-xl font-semibold text-teal-400">🧠 Hints – Think Like a Pro</h2>
                     <ul className="space-y-2 text-gray-300 italic">
                         <li>🔍 <strong>Observe carefully:</strong> Deploy a servlet with pattern <code>/test/*</code> and another with <code>/test/hello</code>. Which one handles <code>/test/hello</code>? (Exact match wins).</li>

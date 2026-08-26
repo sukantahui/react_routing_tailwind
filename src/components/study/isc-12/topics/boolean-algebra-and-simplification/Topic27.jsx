@@ -321,7 +321,7 @@ const Topic27 = () => {
                 onChange={(e) => setUserAnswer(e.target.value)}
                 placeholder="Enter simplified expression..."
                 className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-mono focus:ring-2 focus:ring-amber-500"
-              />
+              /&gt;
               <button
                 onClick={checkAnswer}
                 className="px-6 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all duration-300 hover:scale-105"
@@ -345,7 +345,7 @@ const Topic27 = () => {
           <button
             onClick={() => setShowSolution(!showSolution)}
             className="w-full py-2 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 rounded-lg font-medium transition-all duration-300 hover:bg-amber-200 dark:hover:bg-amber-900/60 mb-4"
-          >
+          &gt;
             {showSolution ? "Hide" : "Show"} Solution
           </button>
 
@@ -435,7 +435,7 @@ const Topic27 = () => {
             <span>⚠️</span> Common Mistakes in ISC Exams
           </h2>
           <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-            <li><strong>Misreading Operator Precedence:</strong> Remember: NOT {`>`} AND {`>`} OR. Use parentheses to avoid ambiguity.</li>
+            <li><strong>Misreading Operator Precedence:</strong> Remember: NOT {`&gt;`} AND {`>`} OR. Use parentheses to avoid ambiguity.</li>
             <li><strong>Incorrect K-Map Ordering:</strong> Use Gray code order (00,01,11,10) not binary order (00,01,10,11).</li>
             <li><strong>Missing Wrap-Around Groups:</strong> In 3-variable maps, left and right columns are adjacent. In 4-variable, corners are adjacent.</li>
             <li><strong>Forgetting to Simplify:</strong> Always check if the expression can be further simplified using Consensus or Absorption.</li>

@@ -60,7 +60,7 @@ export default function Topic4() {
     <div className="dark bg-gray-900 text-gray-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto space-y-10">
         {/* Header */}
-        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section">
+        <header ref={(el) => (sectionsRef.current[0] = el)} className="reveal-section"&gt;
           <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
             Using Absolute References ($) in Lookups
           </h1>
@@ -70,7 +70,7 @@ export default function Topic4() {
         </header>
 
         {/* Concept: Absolute vs Relative */}
-        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
+        <section ref={(el) => (sectionsRef.current[1] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
           <h2 className="text-2xl font-semibold">🔒 What Are Absolute References?</h2>
           <div className="mt-4 space-y-4">
             <p>In Excel, <strong className="text-cyan-300">absolute references</strong> (e.g., <span className="font-mono">$A$2:$D$100</span>) do not change when you copy or drag a formula. <strong className="text-cyan-300">Relative references</strong> (e.g., <span className="font-mono">A2:D100</span>) adjust based on the new position.</p>
@@ -83,7 +83,7 @@ export default function Topic4() {
         </section>
 
         {/* Why it matters – example */}
-        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
+        <section ref={(el) => (sectionsRef.current[2] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
           <h2 className="text-2xl font-semibold">🧠 Why This is Critical for VLOOKUP</h2>
           <div className="mt-4 space-y-4">
             <p>Imagine you have a product table from A2 to D100. You write a VLOOKUP in cell E2:</p>
@@ -97,7 +97,7 @@ export default function Topic4() {
         </section>
 
         {/* Real‑world scenario */}
-        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
+        <section ref={(el) => (sectionsRef.current[3] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
           <h2 className="text-2xl font-semibold">📊 Real‑World Use Case</h2>
           <div className="mt-4">
             <p className="text-gray-200">
@@ -111,7 +111,7 @@ export default function Topic4() {
         </section>
 
         {/* Interactive Demo */}
-        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700">
+        <section ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section bg-gray-800/50 rounded-2xl p-6 border border-gray-700"&gt;
           <div className="flex flex-wrap justify-between items-center gap-4 mb-4">
             <h2 className="text-2xl font-semibold">📁 Interactive Example</h2>
             {sampleDataUrl && (
@@ -131,7 +131,7 @@ export default function Topic4() {
               rowsPerPage={20}
               showSheetSelector={true}
               onError={() => setExcelError(true)}
-            />
+            /&gt;
           ) : (
             <>
               <div className="bg-yellow-950/40 border border-yellow-700 rounded-lg p-3 mb-3 text-sm">

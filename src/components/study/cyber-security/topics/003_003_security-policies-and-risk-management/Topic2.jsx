@@ -22,7 +22,7 @@ const Topic2 = () => {
     fido2_passphrase: {
       key: "fido2_passphrase",
       title: "1. Modern Passphrase & FIDO2 Hardware MFA Standard",
-      mandate: "Passphrases must be >= 16 characters; mandatory FIDO2 hardware tokens (WebAuthn); ban arbitrary 90-day forced rotation.",
+      mandate: "Passphrases must be &ge; 16 characters; mandatory FIDO2 hardware tokens (WebAuthn); ban arbitrary 90-day forced rotation.",
       baseline: "NIST SP 800-63B Authentication Assurance Level 3 (AAL3) with domain origin binding.",
       prohibited: "8-character passwords, SMS/Email OTPs, password sharing, storing credentials in plaintext.",
       auditMetric: "100% Phishing-Resistant MFA adoption across all cloud consoles and production VPCs.",
@@ -237,7 +237,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{m.title.split(". ")[1]?.split(" & ")[0]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{m.title.split(". ")[0]}</div>
                 </button>
@@ -315,7 +315,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{ast.title.split(". ")[1]?.split(" & ")[0]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{ast.title.split(". ")[0]}</div>
                 </button>
@@ -558,7 +558,7 @@ const Topic2 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>
@@ -638,7 +638,7 @@ const Topic2 = () => {
               <ul className="space-y-2.5 text-gray-300">
                 <li className="flex items-start gap-2">
                   <span className="text-indigo-400 font-bold">•</span>
-                  <span><strong>Mandate Long Passphrases:</strong> Require &gt;= 16 characters over complex 8-character strings.</span>
+                  <span><strong>Mandate Long Passphrases:</strong> Require >= 16 characters over complex 8-character strings.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-indigo-400 font-bold">•</span>
@@ -753,7 +753,7 @@ const Topic2 = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs text-gray-300">
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded-lg border border-gray-800">
                 <span className="text-emerald-400">✔</span>
-                <span>NIST SP 800-63B mandates long passphrases (&gt;= 16 chars) and bans arbitrary rotation.</span>
+                <span>NIST SP 800-63B mandates long passphrases (>= 16 chars) and bans arbitrary rotation.</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 bg-gray-900 rounded-lg border border-gray-800">
                 <span className="text-emerald-400">✔</span>

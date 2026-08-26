@@ -59,7 +59,7 @@ const Topic7 = () => {
       mechanism: "Background system daemon with Restart=always or scheduled crontab reverse shell execution.",
       badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800",
       icon: "🐧",
-      sampleSyntax: "echo '*/15 * * * * root /usr/bin/python3 -c \"import socket...\"' >> /etc/crontab\nsystemctl enable --now telemetry-helper.service",
+      sampleSyntax: "echo '*/15 * * * * root /usr/bin/python3 -c \"import socket...\"' &gt;> /etc/crontab\nsystemctl enable --now telemetry-helper.service",
       sysmonId: "Auditd SYSCALL crontab_write • Mitre T1053.003 / T1543.002",
       detectionAndRemoval: "Audit `/etc/crontab`, `/etc/systemd/system/`, and check user crontabs via `crontab -l -u root`."
     },
@@ -223,7 +223,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{vec.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{vec.name.split(" ")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{vec.os.split(" ")[0]}</div>
@@ -305,7 +305,7 @@ const Topic7 = () => {
                   value={sleepSeconds}
                   onChange={(e) => setSleepSeconds(Number(e.target.value))}
                   className="w-full accent-indigo-500"
-                />
+                /&gt;
               </div>
 
               {/* Jitter Slider */}
@@ -322,7 +322,7 @@ const Topic7 = () => {
                   value={jitterPercent}
                   onChange={(e) => setJitterPercent(Number(e.target.value))}
                   className="w-full accent-purple-500"
-                />
+                /&gt;
               </div>
 
               <div className="p-3 bg-gray-900 rounded-xl border border-gray-800 text-[11px] text-gray-400 leading-relaxed">
@@ -494,7 +494,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

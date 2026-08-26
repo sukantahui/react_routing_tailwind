@@ -29,14 +29,14 @@ const Topic11 = () => {
 // Prepare Phase: Flushes logs and holds row locks across network hops!
 // Coordinator Failure: Shards remain BLOCKED indefinitely! (~200 txns/sec limit)
 
-// ⚡ 2. THE SAGA PATTERN + TRANSACTIONAL OUTBOX (High-Throughput >50k txns/sec):
+// ⚡ 2. THE SAGA PATTERN + TRANSACTIONAL OUTBOX (High-Throughput &gt;50k txns/sec):
 // Step 1: Execute Local ACID Transaction on Shard 0 + Insert Outbox Event:
 START TRANSACTION;
 UPDATE wallet SET balance = balance - 5000 WHERE user_id = 101;
 INSERT INTO outbox_events (event_type, payload) VALUES ('WALLET_DEDUCTED', '{"user_id":101,"amt":5000}');
 COMMIT; // Local commit completes in 1ms!
 
-// Step 2: Debezium CDC tails binlog -> Streams to Kafka -> Executes Deposit on Shard 1!
+// Step 2: Debezium CDC tails binlog &rarr; Streams to Kafka -> Executes Deposit on Shard 1!
 // If Shard 1 fails: Saga triggers Compensating Refund Transaction on Shard 0!`,
       explanation:
         "Distributed 2PC holds synchronous row locks across network round-trips, severely throttling throughput. The Saga pattern uses local ACID transactions coupled with Compensating Transactions and the Transactional Outbox pattern to achieve eventual consistency at scale.",
@@ -213,7 +213,7 @@ const profile = await targetShard.query("SELECT * FROM users WHERE customer_id =
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {config.configName}
                 </button>
               );

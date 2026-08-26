@@ -28,7 +28,7 @@ const Topic8 = () => {
   // Compute D Flip-Flop response when D or CLK changes
   useEffect(() => {
     if (!clkInput) {
-      // Clock is LOW (0) -> Memory Hold (No change to Q or Q_bar)
+      // Clock is LOW (0) &rarr; Memory Hold (No change to Q or Q_bar)
       return;
     }
 
@@ -196,7 +196,7 @@ const Topic8 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 1. NAND Gate Schematic
               </button>
               <button
@@ -207,7 +207,7 @@ const Topic8 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 2. Block Diagram Symbol
               </button>
               <button
@@ -218,7 +218,7 @@ const Topic8 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 3. Timing Waveforms
               </button>
             </div>
@@ -464,7 +464,7 @@ const Topic8 = () => {
                       ? "bg-cyan-900/80 border-cyan-400 text-cyan-200 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-500"
                   )}
-                >
+                &gt;
                   CLK: {clkInput ? "1 (CLOCK HIGH / ACTIVE)" : "0 (CLOCK LOW / FROZEN)"}
                 </button>
 
@@ -477,7 +477,7 @@ const Topic8 = () => {
                       ? "bg-teal-900/80 border-teal-400 text-teal-200 shadow-lg shadow-teal-950/50"
                       : "bg-rose-950/80 border-rose-800 text-rose-300"
                   )}
-                >
+                &gt;
                   D (Data Bit): {dInput ? "1 (HIGH / SET)" : "0 (LOW / RESET)"}
                 </button>
               </div>

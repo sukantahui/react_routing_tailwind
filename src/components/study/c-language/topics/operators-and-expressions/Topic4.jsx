@@ -29,7 +29,7 @@ int main() {
     return 0;
 }
 `}
-        />
+        /&gt;
 
         {/* Example 2 */}
         <h3 className="text-lg text-slate-200 font-semibold">Example 2: Postfix</h3>
@@ -46,7 +46,7 @@ int main() {
     return 0;
 }
 `}
-        />
+        /&gt;
 
         {/* Teacher Tips */}
         <div className="border border-slate-700 rounded-xl p-4 bg-slate-800/60">

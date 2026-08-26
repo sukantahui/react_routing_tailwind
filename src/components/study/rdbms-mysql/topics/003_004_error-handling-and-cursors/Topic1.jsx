@@ -21,7 +21,7 @@ const Topic1 = () => {
 
   const errorScenarios = {
     integrity_violations_23000: {
-      title: "1. Integrity Violations: Error 1062 & 1452 -> SQLSTATE '23000'",
+      title: "1. Integrity Violations: Error 1062 & 1452 &rarr; SQLSTATE '23000'",
       badge: "Class 23 (Integrity)",
       badgeColor: "rose",
       sqlQuery: `-- Handling Integrity Constraint Violations:
@@ -68,7 +68,7 @@ DELIMITER ;`,
         "Errors 1062, 1452, and 1048 all map to ANSI SQLSTATE `'23000'`. MySQL's specificity rule allows you to trap 1062 specifically while letting 1048 fall back to the generic `'23000'` handler.",
     },
     deadlock_serialization_40001: {
-      title: "2. Deadlock & Serialization Failure: Error 1213 -> SQLSTATE '40001'",
+      title: "2. Deadlock & Serialization Failure: Error 1213 -&gt; SQLSTATE '40001'",
       badge: "Class 40 (Deadlock)",
       badgeColor: "amber",
       sqlQuery: `-- Trapping InnoDB Deadlocks for Automatic Retry Logic:
@@ -417,7 +417,7 @@ DELIMITER ;
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

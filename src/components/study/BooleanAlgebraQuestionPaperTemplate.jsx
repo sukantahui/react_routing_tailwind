@@ -62,7 +62,7 @@ const BooleanalgebraQuestionPaperTemplate = ({ data, isLoggedIn = false, organiz
         </div>
         
         {/* Group expressions */}
-        {groups && groups.length > 0 && (
+        {groups && groups.length &gt; 0 && (
           <div className="mt-2 text-sm">
             <strong className="text-blue-400">Groups:</strong>
             <ul className="list-disc list-inside ml-2">
@@ -319,7 +319,7 @@ const BooleanalgebraQuestionPaperTemplate = ({ data, isLoggedIn = false, organiz
                           <button
                             onClick={() => toggleAnswer(sectionIdx, qIdx)}
                             className="px-3 py-1 text-xs rounded bg-blue-600 hover:bg-blue-500 text-white transition-colors no-print"
-                          >
+                          &gt;
                             {isOpen ? "Hide Answer" : "Show Answer"}
                           </button>
                         )}

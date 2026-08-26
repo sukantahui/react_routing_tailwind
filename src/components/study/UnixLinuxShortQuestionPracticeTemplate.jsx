@@ -73,7 +73,7 @@ export default function UnixLinuxShortQuestionPracticeTemplate({ data }) {
                 focus:outline-none focus:ring-1 focus:ring-emerald-600
                 "
 
-            >
+            &gt;
               <option value="all">All</option>
               {uniqueTopics.map((t, i) =>
                 <option key={i} value={t}>{t}</option>
@@ -91,7 +91,7 @@ export default function UnixLinuxShortQuestionPracticeTemplate({ data }) {
                 setStarted(false);
               }}
               className="bg-slate-900 border border-slate-700 p-2 rounded-md"
-            >
+            &gt;
               <option value="all">All</option>
               {[5, 10, 20, 30, 40, 50].map(n =>
                 <option key={n} value={n}>{n}</option>
@@ -107,7 +107,7 @@ export default function UnixLinuxShortQuestionPracticeTemplate({ data }) {
               setStarted(true);
             }}
             className="px-6 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg shadow"
-          >
+          &gt;
             Start Practice
           </button>
         </div>
@@ -136,7 +136,7 @@ export default function UnixLinuxShortQuestionPracticeTemplate({ data }) {
               onClick={() => toggle(q.id)}
               className="mt-2 px-3 py-1 text-xs rounded-full border border-emerald-500/40 
               bg-slate-900 hover:bg-emerald-700/30 transition"
-            >
+            &gt;
               {showAns.includes(q.id) ? "Hide Answer" : "Show Answer"}
             </button>
 

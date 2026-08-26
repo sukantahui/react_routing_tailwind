@@ -101,7 +101,7 @@ SELECT
     ROUND(moving_mean - (2 * moving_stddev), 2) AS lower_band_2sigma,
     ROUND(moving_mean + (2 * moving_stddev), 2) AS upper_band_2sigma,
     CASE 
-        WHEN daily_revenue_inr > (moving_mean + 2 * moving_stddev) THEN '🚨 High Anomaly Spike'
+        WHEN daily_revenue_inr &gt; (moving_mean + 2 * moving_stddev) THEN '🚨 High Anomaly Spike'
         WHEN daily_revenue_inr < (moving_mean - 2 * moving_stddev) THEN '⚠️ Abnormal Revenue Slump'
         ELSE '🟢 Normal Variation'
     END AS anomaly_flag
@@ -376,7 +376,7 @@ ORDER BY exam_num ASC;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -520,7 +520,7 @@ WHERE amount < (m - 2*s);`}
                 At row 2 of a 30-day moving average, the sample size is only 2 days. Drawing conclusions before the window matures produces misleading metrics.
               </p>
               <div className="text-xs text-slate-400">
-                Fix: Add <code className="text-emerald-400 font-mono">COUNT(*) OVER w &gt;= 30</code> to filter for mature windows.
+                Fix: Add <code className="text-emerald-400 font-mono">COUNT(*) OVER w >= 30</code> to filter for mature windows.
               </div>
             </div>
 

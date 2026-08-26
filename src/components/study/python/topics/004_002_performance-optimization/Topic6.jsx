@@ -110,7 +110,7 @@ lru_cache = OrderedDict()
 for i in range(10):
     lru_cache[f"KEY_{i}"] = f"Data_{i}"
     lru_cache.move_to_end(f"KEY_{i}")  # Mark as MRU
-    if len(lru_cache) > 5:
+    if len(lru_cache) &gt; 5:
         lru_cache.popitem(last=False)  # Evict oldest LRU in O(1)`
     : selectedContainer === "NAMEDTUPLE"
     ? `from collections import namedtuple
@@ -339,7 +339,7 @@ print(config["debug"])    # True (from local session)`
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 deque vs list Memory
               </button>
               <button
@@ -350,7 +350,7 @@ print(config["debug"])    # True (from local session)`
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Counter Multiset Algebra
               </button>
               <button
@@ -361,7 +361,7 @@ print(config["debug"])    # True (from local session)`
                     ? "bg-blue-900/50 text-blue-300 border border-blue-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 ChainMap Scope Layering
               </button>
             </div>
@@ -606,7 +606,7 @@ print(config["debug"])    # True (from local session)`
                         ? "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                         : "bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400"
                     )}
-                  >
+                  &gt;
                     <div className="text-xl mb-1">{item.icon}</div>
                     <div className="text-xs sm:text-sm font-bold text-slate-200">{item.label}</div>
                     <div className="text-[10px] text-teal-400 font-mono mt-0.5">{item.tag}</div>
@@ -633,7 +633,7 @@ print(config["debug"])    # True (from local session)`
                 value={workloadSize}
                 onChange={(e) => setWorkloadSize(Number(e.target.value))}
                 className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500"
-              />
+              /&gt;
               <div className="flex justify-between text-[11px] text-slate-500 font-mono mt-1">
                 <span>5,000</span>
                 <span>50,000</span>

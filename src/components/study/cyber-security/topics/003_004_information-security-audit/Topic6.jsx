@@ -95,7 +95,7 @@ const Topic6 = () => {
     uc_access_reviews_mfa: {
       key: "uc_access_reviews_mfa",
       name: "Unified Control 2: Quarterly Access Reviews (UAR) & Phishing-Resistant MFA",
-      description: "Mandating hardware YubiKey MFA for all employees, terminating dormant accounts > 90 days, and executing quarterly manager access re-certification.",
+      description: "Mandating hardware YubiKey MFA for all employees, terminating dormant accounts &gt; 90 days, and executing quarterly manager access re-certification.",
       crossWalk: {
         dpdp: "DPDP Act 2023 Section 8(5) (Role-Based Access Control on Citizen Personal Data)",
         gdpr: "GDPR Article 25 & 32 (Access Control & Confidentiality by Design)",
@@ -251,7 +251,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{fw.name.split(". ")[1]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{fw.name.split(". ")[0]}</div>
                 </button>
@@ -328,7 +328,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{uc.name.split(": ")[1]}</div>
                   <div className="text-[10px] text-indigo-400 font-mono mt-0.5 truncate">{uc.name.split(": ")[0]}</div>
                 </button>
@@ -549,7 +549,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

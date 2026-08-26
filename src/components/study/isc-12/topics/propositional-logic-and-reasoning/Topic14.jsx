@@ -112,9 +112,9 @@ const Topic14 = () => {
                     <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">🔄 Interactive Imputation Transformer</h2>
                     <p className="mb-4">Toggle p, q, r to see how different forms of implication are equivalent.</p>
                     <div className="flex flex-wrap gap-6 mb-6">
-                        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /> <span className="font-mono font-bold">p = {pVal ? 'true' : 'false'}</span></label>
-                        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /> <span className="font-mono font-bold">q = {qVal ? 'true' : 'false'}</span></label>
-                        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={rVal} onChange={() => setRVal(!rVal)} className="w-5 h-5" /> <span className="font-mono font-bold">r = {rVal ? 'true' : 'false'}</span></label>
+                        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={pVal} onChange={() => setPVal(!pVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">p = {pVal ? 'true' : 'false'}</span></label>
+                        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={qVal} onChange={() => setQVal(!qVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">q = {qVal ? 'true' : 'false'}</span></label>
+                        <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={rVal} onChange={() => setRVal(!rVal)} className="w-5 h-5" /&gt; <span className="font-mono font-bold">r = {rVal ? 'true' : 'false'}</span></label>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="bg-white dark:bg-gray-800 p-3 rounded-lg">

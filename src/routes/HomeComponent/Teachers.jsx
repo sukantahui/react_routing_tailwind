@@ -56,12 +56,12 @@ const TeacherCard = ({ teacher }) => {
             <p className={!showFullBio ? "line-clamp-3" : ""}>
               {teacher.bio}
             </p>
-            {teacher.bio.length > 120 && (
+            {teacher.bio.length &gt; 120 && (
               <button
                 type="button"
                 onClick={() => setShowFullBio(!showFullBio)}
                 className="text-sky-400 hover:text-sky-300 text-xs font-semibold mt-2 focus:outline-none block"
-              >
+              &gt;
                 {showFullBio ? "Show Less ↑" : "Read Full Bio →"}
               </button>
             )}
@@ -117,7 +117,7 @@ const Teachers = () => {
 
         {/* Mentors Grid with generous gap */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {Array.isArray(teachersData) && teachersData.length > 0 ? (
+          {Array.isArray(teachersData) && teachersData.length &gt; 0 ? (
             teachersData.map((teacher, index) => (
               <TeacherCard key={teacher.name || index} teacher={teacher} />
             ))

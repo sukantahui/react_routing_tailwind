@@ -146,7 +146,7 @@ const Topic5 = () => {
     // Mark packet 100, 99, 95, 90, 85, 70, 50 as received
     [100, 99, 95, 90, 85, 70, 50].forEach((seq) => {
       const offset = 100 - seq;
-      if (offset >= 0 && offset < 64) {
+      if (offset &ge; 0 && offset < 64) {
         mask |= 1n << BigInt(offset);
       }
     });
@@ -164,11 +164,11 @@ const Topic5 = () => {
 
   const handleInjectSequence = (seqToInject) => {
     const seq = Number(seqToInject);
-    if (isNaN(seq) || seq <= 0) return;
+    if (isNaN(seq) || seq &le; 0) return;
 
     const timeString = new Date().toLocaleTimeString();
 
-    if (seq > windowMaxSeq) {
+    if (seq &gt; windowMaxSeq) {
       const diff = seq - windowMaxSeq;
       let newMask;
       if (diff < 64) {
@@ -189,7 +189,7 @@ const Topic5 = () => {
       ]);
     } else {
       const offset = windowMaxSeq - seq;
-      const bit = (windowBitmask >> BigInt(offset)) & 1n;
+      const bit = (windowBitmask >&gt; BigInt(offset)) & 1n;
       if (bit === 1n) {
         setReplayHistory((prev) => [
           { seq, status: "REJECTED", reason: `DUPLICATE: Replay packet dropped (Offset ${offset} already seen)`, time: timeString },
@@ -211,7 +211,7 @@ const Topic5 = () => {
     let mask = 0n;
     [100, 99, 95, 90, 85, 70, 50].forEach((seq) => {
       const offset = 100 - seq;
-      if (offset >= 0 && offset < 64) {
+      if (offset &ge; 0 && offset < 64) {
         mask |= 1n << BigInt(offset);
       }
     });
@@ -420,7 +420,7 @@ const Topic5 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-semibold">{item.title}</span>
                   <span className={clsx("text-[10px] px-2 py-0.5 rounded w-fit border", item.badgeColor)}>
                     Action: {item.spdAction}
@@ -569,7 +569,7 @@ const Topic5 = () => {
               <button
                 onClick={() => setEncapsulationMode(encapsulationMode === "transport" ? "tunnel" : "transport")}
                 className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-950 border border-cyan-700 text-cyan-300 hover:bg-cyan-900 transition-colors"
-              >
+              &gt;
                 Switch to {encapsulationMode === "transport" ? "Tunnel Mode" : "Transport Mode"}
               </button>
             </div>
@@ -582,7 +582,7 @@ const Topic5 = () => {
                 checked={enableNatT}
                 onChange={(e) => setEnableNatT(e.target.checked)}
                 className="rounded bg-slate-900 border-slate-700 text-cyan-500 focus:ring-0"
-              />
+              /&gt;
               <span className="text-slate-300">Enable NAT-Traversal (NAT-T / UDP Port 4500: +8 Bytes)</span>
             </label>
             <span className="text-slate-400">
@@ -717,13 +717,13 @@ const Topic5 = () => {
                   value={inputSeqNumber}
                   onChange={(e) => setInputSeqNumber(Number(e.target.value))}
                   className="w-24 bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-cyan-300 font-mono focus:border-cyan-500 focus:outline-none"
-                />
+                /&gt;
               </div>
 
               <button
                 onClick={() => handleInjectSequence(inputSeqNumber)}
                 className="px-4 py-1.5 rounded-lg text-xs font-bold bg-cyan-600 hover:bg-cyan-500 text-white transition-colors"
-              >
+              &gt;
                 Inject Packet ➔
               </button>
 
@@ -731,25 +731,25 @@ const Topic5 = () => {
                 <button
                   onClick={() => handleInjectSequence(windowMaxSeq + 1)}
                   className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px]"
-                >
+                &gt;
                   +1 Advance ({windowMaxSeq + 1})
                 </button>
                 <button
                   onClick={() => handleInjectSequence(windowMaxSeq + 5)}
                   className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px]"
-                >
+                &gt;
                   +5 Jump ({windowMaxSeq + 5})
                 </button>
                 <button
                   onClick={() => handleInjectSequence(windowMaxSeq)}
                   className="px-2.5 py-1 rounded bg-rose-950/80 border border-rose-800 hover:bg-rose-900 text-rose-300 text-[11px]"
-                >
+                &gt;
                   Replay Head ({windowMaxSeq})
                 </button>
                 <button
                   onClick={() => handleInjectSequence(Math.max(1, windowTail - 5))}
                   className="px-2.5 py-1 rounded bg-rose-950/80 border border-rose-800 hover:bg-rose-900 text-rose-300 text-[11px]"
-                >
+                &gt;
                   Expired Old ({Math.max(1, windowTail - 5)})
                 </button>
               </div>
@@ -868,7 +868,7 @@ const Topic5 = () => {
                       ? "bg-cyan-950/70 border-cyan-500 text-white shadow-lg shadow-cyan-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span className="font-bold">{drill.title}</span>
                   <span className="text-[10px] text-cyan-400">{drill.topology}</span>
                 </button>

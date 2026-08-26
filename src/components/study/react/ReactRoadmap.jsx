@@ -142,7 +142,7 @@ const ReactRoadmap = () => {
                   px-3 py-2 rounded-full border border-sky-500
                   text-sky-300 text-xs hover:bg-sky-500/10 transition-colors
                 "
-              >
+              &gt;
                 Explore Module →
               </Link>
 
@@ -155,7 +155,7 @@ const ReactRoadmap = () => {
                     : "border-slate-600 text-slate-400 hover:bg-slate-700/30"
                   }
                 `}
-              >
+              &gt;
                 {completed ? "Mark Incomplete" : "Mark Completed"}
               </button>
             </div>
@@ -174,7 +174,7 @@ const ReactRoadmap = () => {
             <button
               onClick={() => navigator.clipboard.writeText(directURL)}
               className="text-[10px] text-emerald-400 hover:underline mr-3"
-            >
+            &gt;
               Copy link
             </button>
 
@@ -404,7 +404,7 @@ const ReactRoadmap = () => {
               text-slate-300 focus:ring-1 focus:ring-sky-500
               focus:outline-none
             "
-          >
+          &gt;
             <option value="">All Levels</option>
             <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>
@@ -423,7 +423,7 @@ const ReactRoadmap = () => {
               bg-slate-900 border border-slate-700 text-slate-300
               focus:outline-none focus:ring-1 focus:ring-sky-500
             "
-          />
+          /&gt;
         </div>
 
         {/* Segments */}

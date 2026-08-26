@@ -36,7 +36,7 @@ export default function Topic9() {
 ];
 
 // Find pass, fail, toppers & average
-const passed = students.filter(s => s.marks >= 40);
+const passed = students.filter(s => s.marks &ge; 40);
 
 const toppers = [...students].sort((a, b) => b.marks - a.marks).slice(0, 3);
 

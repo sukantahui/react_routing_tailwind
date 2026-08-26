@@ -259,7 +259,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-base sm:text-lg">{actor.icon}</div>
                   <div className="font-bold text-gray-200 mt-1 truncate">{actor.name.split(" / ")[0]}</div>
                   <div className={clsx("mt-1 text-[10px] px-1.5 py-0.5 rounded border inline-block", actor.badgeClass)}>
@@ -342,7 +342,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-sm text-gray-200">{c.title.split(" ")[0]} {c.title.split(" ")[1]}</div>
                   <div className="text-[11px] text-gray-400 mt-1 truncate">{c.threatType}</div>
                 </button>
@@ -534,7 +534,7 @@ const Topic7 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

@@ -151,7 +151,7 @@ ORDER BY assembly_depth, component_id;`,
       title: "4. Cycle Detection & Runaway Loop Mitigation",
       badge: "Cycle Guard",
       badgeColor: "rose",
-      sqlQuery: `-- Preventing Infinite Loops on Corrupted Hierarchies (A -> B -> A):
+      sqlQuery: `-- Preventing Infinite Loops on Corrupted Hierarchies (A &rarr; B -&gt; A):
 WITH RECURSIVE SafeGraphTraversal AS (
     -- Anchor Member: Seed starting node with path tracker:
     SELECT 
@@ -444,7 +444,7 @@ FROM SafeGraphTraversal;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(

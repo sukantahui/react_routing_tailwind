@@ -9,7 +9,7 @@ import questions from "./topic10_files/topic10_questions";
 import noteText from "./topic10_files/topic10_note.txt?raw";
 
 /**
- * Topic10 – Comparison Operators (=, !=, <>, <, >, <=, >=)
+ * Topic10 – Comparison Operators (=, !=, <>, <, >, &le; , >=)
  * Module: 001_002_sql-fundamentals
  *
  * @component
@@ -20,7 +20,7 @@ const Topic10 = () => {
   const sectionRefs = useRef([]);
 
   // Interactive Comparison Sandbox State
-  const [operator, setOperator] = useState(">=");
+  const [operator, setOperator] = useState(" &ge; ");
   const [targetFee, setTargetFee] = useState(15000);
 
   const sampleStudents = [
@@ -75,11 +75,11 @@ const Topic10 = () => {
       case "<":
         return fee < targetFee;
       case ">":
-        return fee > targetFee;
-      case "<=":
+        return fee &gt; targetFee;
+      case " &le; ":
         return fee <= targetFee;
       case ">=":
-        return fee >= targetFee;
+        return fee &ge; targetFee;
       default:
         return true;
     }
@@ -124,7 +124,7 @@ const Topic10 = () => {
           <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
             Comparison Operators{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-              (=, !=, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;=, &lt;=&gt;)
+              (=, !=, &lt;&gt;, &lt;, &gt;, <=, >=, <=>)
             </span>
           </h1>
 
@@ -138,10 +138,10 @@ const Topic10 = () => {
               ⚖️ Equality & Inequality (=, &lt;&gt;, !=)
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5">
-              📈 Magnitude Ranges (&lt;, &gt;, &lt;=, &gt;=)
+              📈 Magnitude Ranges (&lt;, &gt;, <=, >=)
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5">
-              🛡️ NULL-Safe Equal (&lt;=&gt;)
+              🛡️ NULL-Safe Equal (<=>)
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5">
               ⚡ B-Tree Range Scans
@@ -198,9 +198,9 @@ const Topic10 = () => {
                   <td className="p-3 font-sans text-slate-400">TRUE if left value is strictly larger.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40">
-                  <td className="p-3 font-bold text-teal-400">&gt;=</td>
+                  <td className="p-3 font-bold text-teal-400">>=</td>
                   <td className="p-3 font-sans text-slate-300">Greater than or equal to</td>
-                  <td className="p-3 text-cyan-300">admission_fee &gt;= 15000.00</td>
+                  <td className="p-3 text-cyan-300">admission_fee >= 15000.00</td>
                   <td className="p-3 font-sans text-slate-400">TRUE if left value is larger or equal.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40">
@@ -210,15 +210,15 @@ const Topic10 = () => {
                   <td className="p-3 font-sans text-slate-400">TRUE if left value is strictly smaller.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40">
-                  <td className="p-3 font-bold text-teal-400">&lt;=</td>
+                  <td className="p-3 font-bold text-teal-400"><=</td>
                   <td className="p-3 font-sans text-slate-300">Less than or equal to</td>
-                  <td className="p-3 text-cyan-300">stock_qty &lt;= 20</td>
+                  <td className="p-3 text-cyan-300">stock_qty <= 20</td>
                   <td className="p-3 font-sans text-slate-400">TRUE if left value is smaller or equal.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40">
-                  <td className="p-3 font-bold text-amber-400">&lt;=&gt;</td>
+                  <td className="p-3 font-bold text-amber-400"><=></td>
                   <td className="p-3 font-sans text-slate-300">NULL-Safe Equal</td>
-                  <td className="p-3 text-amber-300">a &lt;=&gt; b</td>
+                  <td className="p-3 text-amber-300">a <=> b</td>
                   <td className="p-3 font-sans text-amber-200">TRUE if both are NULL! Never returns UNKNOWN.</td>
                 </tr>
               </tbody>
@@ -228,7 +228,7 @@ const Topic10 = () => {
           {/* ── Semantic SVG 1: Comparison Logic Flow ── */}
           <div className="mt-8 rounded-xl border border-slate-800 bg-slate-950 p-4">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 text-center">
-              Visual Guide: Standard Equality (=) vs NULL-Safe Equality (&lt;=&gt;)
+              Visual Guide: Standard Equality (=) vs NULL-Safe Equality (<=>)
             </h3>
             <svg
               viewBox="0 0 780 150"
@@ -252,12 +252,12 @@ const Topic10 = () => {
               <g transform="translate(410, 20)">
                 <rect width="340" height="110" rx="8" fill="#1e293b" stroke="#f59e0b" />
                 <text x="170" y="24" fill="#f59e0b" textAnchor="middle" fontWeight="bold">
-                  NULL-Safe Equal (&lt;=&gt;) Operator
+                  NULL-Safe Equal (<=>) Operator
                 </text>
                 <line x1="15" y1="34" x2="325" y2="34" stroke="#334155" />
-                <text x="20" y="54" fill="#cbd5e1" font-family="monospace">100 &lt;=&gt; 100   -&gt; 1 (TRUE)</text>
-                <text x="20" y="74" fill="#cbd5e1" font-family="monospace">100 &lt;=&gt; NULL  -&gt; 0 (FALSE)</text>
-                <text x="20" y="94" fill="#10b981" font-family="monospace">NULL &lt;=&gt; NULL -&gt; 1 (TRUE, Retained!)</text>
+                <text x="20" y="54" fill="#cbd5e1" font-family="monospace">100 <=> 100   -&gt; 1 (TRUE)</text>
+                <text x="20" y="74" fill="#cbd5e1" font-family="monospace">100 <=> NULL  -&gt; 0 (FALSE)</text>
+                <text x="20" y="94" fill="#10b981" font-family="monospace">NULL <=> NULL -&gt; 1 (TRUE, Retained!)</text>
               </g>
             </svg>
           </div>
@@ -290,7 +290,7 @@ const Topic10 = () => {
                   Select Comparison Operator:
                 </label>
                 <div className="grid grid-cols-4 gap-1.5">
-                  {["=", "<>", ">", ">=", "<", "<="].map((op) => (
+                  {["=", "<>", "&gt;", " &ge; ", "<", "<="].map((op) => (
                     <button
                       key={op}
                       onClick={() => setOperator(op)}
@@ -300,7 +300,7 @@ const Topic10 = () => {
                           ? "bg-teal-500/20 text-teal-300 border-teal-500/50"
                           : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                       )}
-                    >
+                    &gt;
                       {op}
                     </button>
                   ))}
@@ -324,7 +324,7 @@ const Topic10 = () => {
                   value={targetFee}
                   onChange={(e) => setTargetFee(Number(e.target.value))}
                   className="w-full accent-teal-500 cursor-pointer"
-                />
+                /&gt;
               </div>
             </div>
 
@@ -443,7 +443,7 @@ WHERE admission_fee <> 15000.00;`}
     stock_quantity,
     selling_price AS "Price (₹)"
 FROM products
-WHERE stock_quantity <= 20;`}
+WHERE stock_quantity &le; 20;`}
               </pre>
             </div>
           </div>
@@ -503,7 +503,7 @@ WHERE stock_quantity <= 20;`}
                   </p>
                 </div>
                 <div>
-                  <strong className="text-white">2. Use &lt;=&gt; for Nullable Key Comparisons:</strong>
+                  <strong className="text-white">2. Use <=> for Nullable Key Comparisons:</strong>
                   <p className="text-slate-400 mt-0.5">
                     Safely compares columns that may contain NULL without writing complex OR logic.
                   </p>
@@ -528,7 +528,7 @@ WHERE stock_quantity <= 20;`}
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
-              <span><code>&lt;=&gt;</code> is MySQL's NULL-safe equal operator (returns 1 for NULL &lt;=&gt; NULL)</span>
+              <span><code><=></code> is MySQL's NULL-safe equal operator (returns 1 for NULL <=> NULL)</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
@@ -540,7 +540,7 @@ WHERE stock_quantity <= 20;`}
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
-              <span>Range operators (<code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>) perform B-Tree range scans</span>
+              <span>Range operators (<code>&lt;</code>, <code>&gt;</code>, <code><=</code>, <code>>=</code>) perform B-Tree range scans</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
@@ -566,7 +566,7 @@ WHERE stock_quantity <= 20;`}
         <section ref={addRef} className="reveal-section mb-12">
           <PlainTextPrint
             content={noteText}
-            title="Comparison Operators (=, !=, <>, <, >, <=, >=)"
+            title="Comparison Operators (=, !=, <>, <, >, &le; , >=)"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Plain Text Note"
@@ -581,7 +581,7 @@ WHERE stock_quantity <= 20;`}
               "Comparison operators form the logical bedrock of every decision your database makes. In my classes in Barrackpore, " +
               "the number one mistake students make is writing `WHERE city <> 'Kolkata'` and expecting it to include students with " +
               "unassigned (NULL) cities. In relational Three-Valued Logic, comparing any value to NULL yields UNKNOWN, silently dropping " +
-              "those rows from the result. Always be mindful of NULL handling and leverage MySQL's NULL-safe `<=>` operator when appropriate."
+              "those rows from the result. Always be mindful of NULL handling and leverage MySQL's NULL-safe ` &le; &gt;` operator when appropriate."
             }
           />
         </section>

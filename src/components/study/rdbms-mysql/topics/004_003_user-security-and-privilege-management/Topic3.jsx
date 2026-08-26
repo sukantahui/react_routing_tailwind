@@ -29,7 +29,7 @@ const Topic3 = () => {
 
 -- 1. Client connects with username + scramble token
 -- 2. Server checks in-memory RAM cache:
---    Digest for 'mamata_app'@'10.0.%.%' -> FOUND IN MEMORY!
+--    Digest for 'mamata_app'@'10.0.%.%' &rarr; FOUND IN MEMORY!
 -- 3. Server computes SHA-256 token validation directly in RAM
 -- 4. Connection accepted in < 0.3 milliseconds without RSA/TLS overhead!
 
@@ -242,7 +242,7 @@ FLUSH PRIVILEGES;`,
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );

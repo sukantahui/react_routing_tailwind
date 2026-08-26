@@ -304,7 +304,7 @@ const Topic7 = () => {
                                                 : "border-gray-700 hover:border-gray-600",
                                             selectedTemplate === template.id && "ring-2 ring-purple-500 ring-opacity-50"
                                         )}
-                                    >
+                                    &gt;
                                         <div className="flex items-center">
                                             <div className={clsx(
                                                 "w-12 h-12 rounded-lg flex items-center justify-center text-xl mr-4",
@@ -365,7 +365,7 @@ const Topic7 = () => {
                                         onChange={(e) => setProjectName(e.target.value)}
                                         className="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-gray-300 focus:outline-none focus:border-blue-500"
                                         placeholder="e.g., school-portal, student-management"
-                                    />
+                                    /&gt;
                                     <p className="text-gray-500 text-sm mt-2">
                                         Use lowercase with hyphens. No spaces or special characters.
                                     </p>
@@ -424,7 +424,7 @@ const Topic7 = () => {
                                                 ? "bg-blue-600 text-white scale-110"
                                                 : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                                         )}
-                                    >
+                                    &gt;
                                         {step.id}
                                     </button>
                                 ))}

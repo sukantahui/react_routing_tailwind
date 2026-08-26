@@ -424,7 +424,7 @@ export default  class Topic16 extends React.Component {
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   {role}
                 </button>
               ))}
@@ -443,7 +443,7 @@ export default  class Topic16 extends React.Component {
                     : 'bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600'
                 )}
                 onClick={() => this.handleTroubleshootingStep(step.step)}
-              >
+              &gt;
                 <div className="flex items-start">
                   <div className="flex-shrink-0 mr-4">
                     <div className={clsx(
@@ -640,7 +640,7 @@ export default  class Topic16 extends React.Component {
                       ? 'bg-violet-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   Basic Mistakes
                 </button>
                 <button
@@ -651,7 +651,7 @@ export default  class Topic16 extends React.Component {
                       ? 'bg-violet-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   Intermediate Mistakes
                 </button>
                 <button
@@ -662,7 +662,7 @@ export default  class Topic16 extends React.Component {
                       ? 'bg-violet-600 text-white'
                       : 'bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700'
                   )}
-                >
+                &gt;
                   Advanced Mistakes
                 </button>
               </div>
@@ -679,7 +679,7 @@ export default  class Topic16 extends React.Component {
                         ? 'border-2 border-violet-500 bg-violet-50 dark:bg-violet-900/20'
                         : 'border border-gray-300 dark:border-gray-700 hover:border-violet-300 dark:hover:border-violet-700'
                     )}
-                  >
+                  &gt;
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="font-bold">{mistake.title}</h3>
                       <span className={clsx(

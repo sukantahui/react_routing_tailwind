@@ -267,7 +267,7 @@ export default function Topic4() {
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Compass Heading Radar
               </button>
               <button
@@ -278,7 +278,7 @@ export default function Topic4() {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Visibility 5x Speed Benchmark
               </button>
               <button
@@ -289,7 +289,7 @@ export default function Topic4() {
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 penup() / pendown() Trail Physics
               </button>
             </div>
@@ -436,7 +436,7 @@ export default function Topic4() {
               <button
                 onClick={() => handleStepForward(40)}
                 className="p-2.5 bg-teal-950/80 border border-teal-600 rounded-xl text-xs font-bold text-teal-300 hover:bg-teal-900 transition-all text-center"
-              >
+              &gt;
                 Forward 40 px 🚀
               </button>
 
@@ -448,7 +448,7 @@ export default function Topic4() {
                     ? "bg-emerald-950/80 border-emerald-500 text-emerald-300"
                     : "bg-amber-950/80 border-amber-500 text-amber-300"
                 )}
-              >
+              &gt;
                 Pen: {isPenDown ? "DOWN (Draw)" : "UP (Transit)"}
               </button>
 
@@ -460,7 +460,7 @@ export default function Topic4() {
                     ? "bg-cyan-950/80 border-cyan-500 text-cyan-300"
                     : "bg-purple-950/80 border-purple-500 text-purple-300"
                 )}
-              >
+              &gt;
                 Cursor: {isCursorVisible ? "VISIBLE" : "HIDDEN (Fast)"}
               </button>
 
@@ -481,7 +481,7 @@ export default function Topic4() {
                       "flex-1 py-1 rounded text-[10px] font-mono transition-all",
                       headingDeg === deg ? "bg-teal-800 text-white font-bold" : "text-slate-400 hover:text-white"
                     )}
-                  >
+                  &gt;
                     {deg}°
                   </button>
                 ))}

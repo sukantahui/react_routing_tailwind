@@ -89,7 +89,7 @@ const Topic2 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            >
+            &gt;
               1. 4-NAND Gate Schematic
             </button>
             <button
@@ -100,7 +100,7 @@ const Topic2 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            >
+            &gt;
               2. Logic Block Symbol
             </button>
             <button
@@ -111,7 +111,7 @@ const Topic2 = () => {
                   ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                   : "text-slate-400 hover:text-slate-200"
               )}
-            >
+            &gt;
               3. Level Timing Waveforms
             </button>
           </div>
@@ -285,7 +285,7 @@ const Topic2 = () => {
                   "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                   enInput ? "bg-cyan-900/80 border-cyan-400 text-cyan-200 shadow-lg shadow-cyan-950/50" : "bg-slate-950 border-slate-800 text-slate-500"
                 )}
-              >
+              &gt;
                 EN (Enable): {enInput ? "1 (ENABLED)" : "0 (LOCKED)"}
               </button>
               <button
@@ -294,7 +294,7 @@ const Topic2 = () => {
                   "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                   sInput ? "bg-teal-900/80 border-teal-400 text-teal-200 shadow-lg shadow-teal-950/50" : "bg-slate-950 border-slate-800 text-slate-500"
                 )}
-              >
+              &gt;
                 S (Set): {sInput ? "1" : "0"}
               </button>
               <button
@@ -303,7 +303,7 @@ const Topic2 = () => {
                   "px-4 py-2 rounded-xl text-xs font-mono font-bold border transition",
                   rInput ? "bg-rose-900/80 border-rose-400 text-rose-200 shadow-lg shadow-rose-950/50" : "bg-slate-950 border-slate-800 text-slate-500"
                 )}
-              >
+              &gt;
                 R (Reset): {rInput ? "1" : "0"}
               </button>
             </div>

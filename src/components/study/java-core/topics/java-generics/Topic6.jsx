@@ -375,7 +375,7 @@ public class Box<T> {
 }`}
                       language="java"
                       showLineNumbers={true}
-                    />
+                    /&gt;
                   </div>
                 </div>
               </div>
@@ -522,14 +522,14 @@ public class ContainerFactory {
     }
     
     // With bounded type parameter
-    public static <T extends Comparable<T>> SortedContainer<T> 
+    public static <T extends Comparable<T>&gt; SortedContainer<T> 
         createSortedContainer(T value) {
         return new SortedContainer<>(value);
     }
 }`}
                       language="java"
                       showLineNumbers={true}
-                    />
+                    /&gt;
                   </div>
                 </div>
               </div>
@@ -617,7 +617,7 @@ public class Main {
 }`}
                     language="java"
                     showLineNumbers={true}
-                  />
+                  /&gt;
                 </div>
               </div>
             </div>
@@ -714,7 +714,7 @@ public class UniversitySystem {
         
         // Create course container with validation
         Course course = new Course("Java 101", 4);
-        Validator<Course> courseValidator = c -> c.getCredits() > 0;
+        Validator<Course> courseValidator = c &rarr; c.getCredits() &gt; 0;
         ValidatedContainer<Course> courseContainer = 
             factory.createValidatedContainer(course, courseValidator);
         
@@ -723,7 +723,7 @@ public class UniversitySystem {
         ConvertedContainer<String> gradeContainer = 
             factory.createConvertedContainer(
                 rawGrade, 
-                grade -> grade >= 90 ? "A" : "B"
+                grade &rarr; grade &ge; 90 ? "A" : "B"
             );
         
         // Generic constructor allows type-safe creation
@@ -732,7 +732,7 @@ public class UniversitySystem {
 }`}
                   language="java"
                   showLineNumbers={true}
-                />
+                /&gt;
               </div>
               
               {/* Example 2: Builder Pattern with Generic Constructors */}
@@ -851,7 +851,7 @@ public class HospitalSystem {
 }`}
                   language="java"
                   showLineNumbers={true}
-                />
+                /&gt;
               </div>
             </div>
             
@@ -974,7 +974,7 @@ public class Main {
         
         // Complex inference scenario
         List<String> names = Arrays.asList("A", "B");
-        Container<List<String>> container = new Container<>(names);
+        Container<List<String>&gt; container = new Container<>(names);
         // Nested generic type inference
     }
 }
@@ -997,7 +997,7 @@ public class Container<T> {
 }`}
                   language="java"
                   showLineNumbers={true}
-                />
+                /&gt;
               </div>
               
               <div className="space-y-6">
@@ -1208,7 +1208,7 @@ public class ContainerFactory {
 }`}
                       language="java"
                       showLineNumbers={true}
-                    />
+                    /&gt;
                   </div>
                 </div>
               </div>

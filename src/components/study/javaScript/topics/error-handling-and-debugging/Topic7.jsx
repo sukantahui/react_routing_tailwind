@@ -52,7 +52,7 @@ export default class Topic7 extends Component {
               <button
                 onClick={() => this.toggleSection(secIndex)}
                 className="w-full text-left p-5 bg-slate-900/70 hover:bg-slate-900 transition text-lg font-semibold text-slate-200"
-              >
+              &gt;
                 {sec.title}
                 <span className="float-right text-sky-400">
                   {activeSection === secIndex ? "▲" : "▼"}
@@ -94,7 +94,7 @@ export default class Topic7 extends Component {
                           <button
                             onClick={() => this.toggleAnswer(key)}
                             className="mt-3 px-3 py-1 rounded-full text-xs bg-sky-700 hover:bg-sky-600 transition"
-                          >
+                          &gt;
                             {answerVisible[key] ? "Hide Answer" : "Show Answer"}
                           </button>
 
@@ -140,7 +140,7 @@ export default class Topic7 extends Component {
                           <button
                             onClick={() => this.toggleAnswer(key)}
                             className="mt-3 px-3 py-1 rounded-full text-xs bg-sky-700 hover:bg-sky-600 transition"
-                          >
+                          &gt;
                             {answerVisible[key] ? "Hide Answer" : "Show Answer"}
                           </button>
 
@@ -179,7 +179,7 @@ export default class Topic7 extends Component {
                           <button
                             onClick={() => this.toggleAnswer(key)}
                             className="mt-3 px-3 py-1 rounded-full text-xs bg-sky-700 hover:bg-sky-600 transition"
-                          >
+                          &gt;
                             {answerVisible[key] ? "Hide Solution" : "Show Solution"}
                           </button>
 
@@ -213,7 +213,7 @@ export default class Topic7 extends Component {
                           <button
                             onClick={() => this.toggleAnswer(key)}
                             className="mt-3 px-3 py-1 rounded-full text-xs bg-sky-700 hover:bg-sky-600 transition"
-                          >
+                          &gt;
                             {answerVisible[key] ? "Hide Solution" : "Show Solution"}
                           </button>
 

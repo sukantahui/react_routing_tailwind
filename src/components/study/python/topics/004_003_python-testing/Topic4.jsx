@@ -53,7 +53,7 @@ def test_campus_course_pricing_matrix(campus, course_tier):
     # Stacking generates ${selectedCampusCount * selectedTierCount} Cartesian product test variations!
     net_fee = calculate_course_fee(campus, course_tier)
     assert net_fee > 0.0
-    assert net_fee <= 25000.0
+    assert net_fee &le; 25000.0
 
 # Granular Row Customization with pytest.param()
 @pytest.mark.parametrize("score, expected_grade", [
@@ -258,7 +258,7 @@ def test_student_grade_tiers(score, expected_grade):
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Table Vector Mapping
               </button>
               <button
@@ -269,7 +269,7 @@ def test_student_grade_tiers(score, expected_grade):
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Cartesian Product Matrix
               </button>
               <button
@@ -280,7 +280,7 @@ def test_student_grade_tiers(score, expected_grade):
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Custom IDs &amp; xfail Tags
               </button>
             </div>
@@ -482,7 +482,7 @@ def test_student_grade_tiers(score, expected_grade):
                           ? "bg-teal-950/60 border-teal-500 shadow-md shadow-teal-950/50"
                           : "bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400"
                       )}
-                    >
+                    &gt;
                       <div className="text-xs sm:text-sm font-bold text-slate-200">{item.label}</div>
                       <div className="text-[10px] text-teal-400 font-mono">{item.desc}</div>
                     </button>
@@ -509,7 +509,7 @@ def test_student_grade_tiers(score, expected_grade):
                           ? "bg-cyan-950/60 border-cyan-500 shadow-md shadow-cyan-950/50"
                           : "bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400"
                       )}
-                    >
+                    &gt;
                       <div className="text-xs sm:text-sm font-bold text-slate-200">{item.label}</div>
                       <div className="text-[10px] text-cyan-400 font-mono">{item.desc}</div>
                     </button>
@@ -532,7 +532,7 @@ def test_student_grade_tiers(score, expected_grade):
                     ? "bg-purple-950 border border-purple-500 text-purple-300"
                     : "bg-slate-800 border border-slate-700 text-slate-400"
                 )}
-              >
+              &gt;
                 {includeXfailRow ? "XFAIL ROW: INCLUDED" : "XFAIL ROW: DISABLED"}
               </button>
             </div>

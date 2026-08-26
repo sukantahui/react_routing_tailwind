@@ -115,7 +115,7 @@ const card = create("div", {
   class: "card shadow",
   html: "<h3>Hello</h3><p>This is a card.</p>",
 });`}
-          />
+          /&gt;
         </section>
 
         {/* ============================================================
@@ -266,7 +266,7 @@ DOM.append(document.body, msg);`}
 
 // Usage:
 DOM.append(document.body, createCard("Welcome", "This card is dynamic."));`}
-          />
+          /&gt;
         </section>
 
         {/* ============================================================

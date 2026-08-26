@@ -109,7 +109,7 @@ const Topic0 = () => {
                     ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/25"
                     : "bg-rose-500 text-white shadow-lg shadow-rose-500/25"
                 }`}
-              >
+              &gt;
                 <span>{penState === "down" ? "🖊️ Pen DOWN (Drawing)" : "✋ Pen UP (Lifted)"}</span>
               </button>
 
@@ -122,7 +122,7 @@ const Topic0 = () => {
                   value={currentPenSize}
                   onChange={(e) => setCurrentPenSize(Number(e.target.value))}
                   className="w-24 accent-sky-400 cursor-pointer"
-                />
+                /&gt;
                 <span className="font-mono text-xs text-sky-400 font-bold w-4">{currentPenSize}px</span>
               </div>
             </div>
@@ -369,8 +369,8 @@ const Topic0 = () => {
         ========================================================================= */}
         <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note="When teaching graphics in Barrackpore and Kolkata, I always emphasize that pen control is what separates messy beginner sketches from clean, professional vector art. Always drill into students the 3-step mantra: 'Pen UP -> Goto Coordinates -> Pen DOWN'. Once this habit is second nature, students can place complex buildings, celestial constellations, and multi-colored mandalas across their canvas with pinpoint mathematical precision."
-          />
+            note="When teaching graphics in Barrackpore and Kolkata, I always emphasize that pen control is what separates messy beginner sketches from clean, professional vector art. Always drill into students the 3-step mantra: 'Pen UP -> Goto Coordinates &rarr; Pen DOWN'. Once this habit is second nature, students can place complex buildings, celestial constellations, and multi-colored mandalas across their canvas with pinpoint mathematical precision."
+          /&gt;
         </div>
 
       </div>

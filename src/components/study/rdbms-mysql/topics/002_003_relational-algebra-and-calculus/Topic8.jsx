@@ -321,7 +321,7 @@ const Topic8 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. 2-Table Join (Students ⨝ Enrollments)
               </button>
 
@@ -336,7 +336,7 @@ const Topic8 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. 3-Table Chained Join (⨝ Courses)
               </button>
 
@@ -351,7 +351,7 @@ const Topic8 = () => {
                     ? "bg-rose-500/20 text-rose-300 border-rose-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. The Accidental Column Trap (Status)
               </button>
             </div>

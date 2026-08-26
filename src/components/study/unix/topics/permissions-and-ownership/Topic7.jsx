@@ -323,7 +323,7 @@ class Topic7 extends React.Component {
                           ? "bg-gray-800 hover:bg-gray-700"
                           : "bg-gray-200 hover:bg-gray-300"
                     )}
-                  >
+                  &gt;
                     <span className="mr-2 text-lg">{comparison.icon}</span>
                     <span>{comparison.name}</span>
                   </button>
@@ -462,7 +462,7 @@ class Topic7 extends React.Component {
                                     ? isDarkMode ? "bg-blue-600" : "bg-blue-500 text-white"
                                     : isDarkMode ? "bg-gray-700" : "bg-gray-300"
                                 )}
-                              >
+                              &gt;
                                 <div className="text-lg font-bold">{perm}</div>
                                 <div className="text-xs">
                                   {perm === 'r' ? 'Read' : perm === 'w' ? 'Write' : 'Execute'}
@@ -489,7 +489,7 @@ class Topic7 extends React.Component {
                                     ? isDarkMode ? "bg-green-600" : "bg-green-500 text-white"
                                     : isDarkMode ? "bg-gray-700" : "bg-gray-300"
                                 )}
-                              >
+                              &gt;
                                 <div className="text-lg font-bold">{perm}</div>
                                 <div className="text-xs">
                                   {perm === 'r' ? 'Read' : perm === 'w' ? 'Write' : 'Execute'}
@@ -516,7 +516,7 @@ class Topic7 extends React.Component {
                                     ? isDarkMode ? "bg-red-600" : "bg-red-500 text-white"
                                     : isDarkMode ? "bg-gray-700" : "bg-gray-300"
                                 )}
-                              >
+                              &gt;
                                 <div className="text-lg font-bold">{perm}</div>
                                 <div className="text-xs">
                                   {perm === 'r' ? 'Read' : perm === 'w' ? 'Write' : 'Execute'}
@@ -672,7 +672,7 @@ class Topic7 extends React.Component {
                                   ? "bg-gray-800 hover:bg-gray-700"
                                   : "bg-gray-200 hover:bg-gray-300"
                             )}
-                          >
+                          &gt;
                             <div className="font-bold">{scenario.name}</div>
                             <div className="text-xs opacity-80">{scenario.location}</div>
                           </button>

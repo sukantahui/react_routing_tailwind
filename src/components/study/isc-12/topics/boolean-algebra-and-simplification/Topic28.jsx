@@ -239,7 +239,7 @@ const SopPosConverter = () => {
     for (let i = 0; i < totalRows; i++) {
       const values = [];
       for (let j = n - 1; j >= 0; j--) {
-        values.push((i >> j) & 1);
+        values.push((i &gt;> j) & 1);
       }
       // Evaluate SOP (simplified)
       let sopValue = 0;
@@ -321,7 +321,7 @@ const SopPosConverter = () => {
                     ? "bg-indigo-500 text-white shadow-md"
                     : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 {ex.name}
               </button>
             ))}
@@ -361,7 +361,7 @@ const SopPosConverter = () => {
                     ? "text-indigo-600 border-b-2 border-indigo-600 dark:text-indigo-400"
                     : "text-gray-500 hover:text-gray-700 dark:text-gray-400"
                 )}
-              >
+              &gt;
                 📊 Truth Table Method
               </button>
               <button
@@ -372,7 +372,7 @@ const SopPosConverter = () => {
                     ? "text-indigo-600 border-b-2 border-indigo-600 dark:text-indigo-400"
                     : "text-gray-500 hover:text-gray-700 dark:text-gray-400"
                 )}
-              >
+              &gt;
                 🔢 Algebraic Method
               </button>
               <button
@@ -383,7 +383,7 @@ const SopPosConverter = () => {
                     ? "text-indigo-600 border-b-2 border-indigo-600 dark:text-indigo-400"
                     : "text-gray-500 hover:text-gray-700 dark:text-gray-400"
                 )}
-              >
+              &gt;
                 🗺️ K-Map Method
               </button>
             </div>
@@ -463,7 +463,7 @@ const SopPosConverter = () => {
               </div>
             )}
             
-            {showMethod === 'kmap' && currentExample.variables <= 4 && (
+            {showMethod === 'kmap' && currentExample.variables &le; 4 && (
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-3">K-Map Method</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
@@ -507,7 +507,7 @@ const SopPosConverter = () => {
               </div>
             )}
             
-            {showMethod === 'kmap' && currentExample.variables > 4 && (
+            {showMethod === 'kmap' && currentExample.variables &gt; 4 && (
               <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
                 <p className="text-sm">K-Map method is practical for up to 4 variables. For {currentExample.variables} variables, use algebraic or truth table method.</p>
               </div>
@@ -519,7 +519,7 @@ const SopPosConverter = () => {
             <button
               onClick={() => setShowSteps(!showSteps)}
               className="w-full py-2 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 rounded-lg font-medium transition-all duration-300 hover:bg-indigo-200 dark:hover:bg-indigo-900/60"
-            >
+            &gt;
               {showSteps ? "Hide" : "Show"} Step-by-Step Explanation
             </button>
             

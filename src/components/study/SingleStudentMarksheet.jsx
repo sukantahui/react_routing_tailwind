@@ -66,7 +66,7 @@ const SingleStudentMarksheet = ({
     : 0;
 
   const grade =
-    percentage >= 90 ? 'A+' :
+    percentage &ge; 90 ? 'A+' :
     percentage >= 80 ? 'A' :
     percentage >= 70 ? 'B+' :
     percentage >= 60 ? 'B' :
@@ -89,7 +89,7 @@ const SingleStudentMarksheet = ({
               value={studentName}
               onChange={(e) => setStudentName(e.target.value)}
               className="w-full p-3 mb-6 bg-gray-800 rounded-lg"
-            />
+            /&gt;
 
             <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
               {safeQuestions.map((q, i) => (
@@ -109,12 +109,12 @@ const SingleStudentMarksheet = ({
                         max={q.maxMarks}
                         onChange={(e) => updateMark(i, e.target.value)}
                         className="w-20 p-1 text-center bg-gray-700 rounded"
-                      />
+                      /&gt;
 
                       <button
                         onClick={() => setFull(i)}
                         className="bg-green-600 px-2 py-1 text-xs rounded"
-                      >
+                      &gt;
                         Full
                       </button>
 
@@ -129,7 +129,7 @@ const SingleStudentMarksheet = ({
             <button
               onClick={() => setShow(true)}
               className="mt-6 px-6 py-2 bg-purple-600 rounded-lg"
-            >
+            &gt;
               Generate Marksheet
             </button>
           </div>
@@ -186,15 +186,15 @@ const SingleStudentMarksheet = ({
               <div className="mt-3 border p-2 text-xs flex justify-between">
                 <span>Percentage: {percentage}%</span>
                 <span>Grade: {grade}</span>
-                <span>Result: {percentage >= 40 ? 'PASS' : 'FAIL'}</span>
+                <span>Result: {percentage &ge; 40 ? 'PASS' : 'FAIL'}</span>
               </div>
 
               {/* BUTTONS */}
               <div className="mt-3 no-print">
-                <button onClick={() => window.print()} className="mr-4 text-blue-600">
+                <button onClick={() => window.print()} className="mr-4 text-blue-600"&gt;
                   Print
                 </button>
-                <button onClick={() => setShow(false)} className="text-red-600">
+                <button onClick={() => setShow(false)} className="text-red-600"&gt;
                   Back
                 </button>
               </div>

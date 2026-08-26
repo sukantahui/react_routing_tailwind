@@ -297,7 +297,7 @@ const Topic13 = () => {
         A common oversight is not setting the correct scope: if you put a bean in session but only need it for one request, you'll waste memory and may cause concurrency issues. Always choose the smallest scope that works. 
         Another pro tip: when using <code>property="*"</code>, be aware that any request parameter with a matching name will overwrite the bean property. This can be a security risk if you expose internal properties. Always validate and sanitize input in the bean's setters or in a separate controller. 
         I encourage you to combine beans with JSTL and EL for maximum readability. In a school management system, you might have a <code>RegistrationBean</code> that captures all student data, then pass it to a confirmation page and later persist it. That's the power of beans!`}
-      />
+      /&gt;
     </div>
   );
 };

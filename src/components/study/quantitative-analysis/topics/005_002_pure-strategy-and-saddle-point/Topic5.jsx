@@ -171,7 +171,7 @@ const Topic5 = () => {
                     ? 'bg-purple-600 text-white border-purple-500 shadow-md shadow-purple-900/40'
                     : 'bg-slate-900/80 text-slate-400 border-slate-800 hover:text-slate-200 hover:bg-slate-800'
                 )}
-              >
+              &gt;
                 {item.label}
               </button>
             ))}
@@ -183,7 +183,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[0] = el)}
           data-index="0"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-600/20 text-purple-400 font-bold text-sm">
@@ -228,7 +228,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[1] = el)}
           data-index="1"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6 glow-opt">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-600/20 text-purple-400 font-bold text-sm">
@@ -284,7 +284,7 @@ const Topic5 = () => {
                                     ? 'bg-emerald-950 border-emerald-400 text-emerald-300 font-bold ring-2 ring-emerald-500 shadow-lg'
                                     : 'border-slate-700 text-slate-300'
                                 )}
-                              />
+                              /&gt;
                             </td>
                           );
                         })}
@@ -332,7 +332,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[2] = el)}
           data-index="2"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -362,7 +362,7 @@ const Topic5 = () => {
                           ? 'bg-rose-600 text-white border-rose-400 shadow-md'
                           : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white'
                       )}
-                    >
+                    &gt;
                       Row A_{rIdx + 1}
                     </button>
                   ))}
@@ -370,7 +370,7 @@ const Topic5 = () => {
                 <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 flex flex-col space-y-1">
                   <span className="text-slate-300 font-sans text-xs">Resulting Payoff against B_{optimalColIdx + 1}:</span>
                   <span className="text-white font-bold">Payoff = +₹{playerAPayoffUnderDeviation * 1000}</span>
-                  <span className={clsx('font-bold text-xs', playerAPenalty > 0 ? 'text-rose-400' : 'text-emerald-400')}>
+                  <span className={clsx('font-bold text-xs', playerAPenalty > 0 ? 'text-rose-400' : 'text-emerald-400')}&gt;
                     {playerAPenalty > 0 ? `⚠️ Penalty: Loss of ₹${playerAPenalty * 1000}` : `Optimal Payoff Preserved (₹0 Penalty)`}
                   </span>
                 </div>
@@ -390,7 +390,7 @@ const Topic5 = () => {
                           ? 'bg-sky-600 text-white border-sky-400 shadow-md'
                           : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white'
                       )}
-                    >
+                    &gt;
                       Col B_{cIdx + 1}
                     </button>
                   ))}
@@ -398,7 +398,7 @@ const Topic5 = () => {
                 <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 flex flex-col space-y-1">
                   <span className="text-slate-300 font-sans text-xs">Payout Conceded against A_{optimalRowIdx + 1}:</span>
                   <span className="text-white font-bold">Payout = +₹{playerBConcededUnderDeviation * 1000}</span>
-                  <span className={clsx('font-bold text-xs', playerBPenalty > 0 ? 'text-rose-400' : 'text-emerald-400')}>
+                  <span className={clsx('font-bold text-xs', playerBPenalty > 0 ? 'text-rose-400' : 'text-emerald-400')}&gt;
                     {playerBPenalty > 0 ? `⚠️ Penalty: Concedes extra ₹${playerBPenalty * 1000}` : `Optimal Payout Preserved (₹0 Penalty)`}
                   </span>
                 </div>
@@ -412,7 +412,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[3] = el)}
           data-index="3"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-600/20 text-teal-400 font-bold text-sm">
@@ -462,7 +462,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[4] = el)}
           data-index="4"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-600/20 text-amber-400 font-bold text-sm">
@@ -484,7 +484,7 @@ const Topic5 = () => {
                       ? 'bg-amber-500/20 text-amber-300 border-amber-500 shadow-md'
                       : 'bg-slate-800/60 text-slate-400 border-slate-700 hover:bg-slate-800'
                   )}
-                >
+                &gt;
                   {cs.title.split('(')[0]}
                 </button>
               ))}
@@ -511,7 +511,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[5] = el)}
           data-index="5"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-600/20 text-rose-400 font-bold text-sm">
@@ -551,7 +551,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[6] = el)}
           data-index="6"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 font-bold text-sm">
@@ -585,7 +585,7 @@ const Topic5 = () => {
           ref={(el) => (sectionRefs.current[7] = el)}
           data-index="7"
           className="flex flex-col space-y-6"
-        >
+        &gt;
           <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl hover:border-slate-700 transition-all duration-300 flex flex-col space-y-6">
             <div className="flex items-center space-x-3 border-b border-slate-800 pb-4">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 font-bold text-sm">

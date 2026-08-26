@@ -43,7 +43,7 @@ WITH RankedSales AS (
   JOIN categories c ON p.category_id = c.category_id
   GROUP BY c.category_id, c.category_name, p.product_id, p.product_name
 )
-SELECT * FROM RankedSales WHERE category_rank &lt;= 3;`,
+SELECT * FROM RankedSales WHERE category_rank <= 3;`,
       explanation: "Window functions calculate category rankings and cumulative sales totals without requiring multiple correlated subqueries.",
       keyTakeaways: ["Use DENSE_RANK() to assign contiguous ranking positions without gaps.","Use SUM() OVER (PARTITION BY ... ORDER BY ...) to compute cumulative progress.","Wrap analytics inside Common Table Expressions (CTEs) for modular readability."]
     },
@@ -195,7 +195,7 @@ GROUP BY customer_id;`,
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {concept.conceptName}
                 </button>
               );
@@ -317,7 +317,7 @@ GROUP BY customer_id;`,
                 <span>⚠️</span> Pitfall 1: Filtering Window Functions in WHERE
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Attempting to write WHERE DENSE_RANK() &lt;= 3 directly in the same query block triggers SQL syntax errors.
+                Attempting to write WHERE DENSE_RANK() <= 3 directly in the same query block triggers SQL syntax errors.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
                 Rule: Wrap window function calculations in a CTE or derived subquery before applying WHERE filters.

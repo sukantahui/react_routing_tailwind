@@ -54,7 +54,7 @@ const Topic6 = () => {
       category: "Physical Side-Channel & Laser Glitching",
       mathMechanism: "A single laser or voltage glitch corrupts m₁ mod p while m₂ mod q is correct; attacker computes gcd((S')^e - M, N) = q in 1 millisecond.",
       vulnerabilityBound: "Unverified RSA-CRT signature generation",
-      exploitSpeed: "Single fault glitch -> Instant Factorization in 0.001 ms",
+      exploitSpeed: "Single fault glitch &rarr; Instant Factorization in 0.001 ms",
       remedy: "Always verify signatures ((S')^e mod N == M) inside hardware BEFORE transmitting to network.",
       badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800"
     }
@@ -232,7 +232,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{att.name.split(". ")[1].split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{att.category}</div>
                 </button>
@@ -303,7 +303,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold text-gray-200 truncate">{def.name.split(". ")[1].split(" (")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{def.name.split(". ")[0]}</div>
                 </button>
@@ -501,7 +501,7 @@ const Topic6 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

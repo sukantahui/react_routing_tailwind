@@ -211,7 +211,7 @@ export default function QuizEngine({
             availableQuestions.length
           );
 
-    if (count <= 0) return;
+    if (count &le; 0) return;
 
     const fresh = prepareQuiz(availableQuestions, count);
 
@@ -417,7 +417,7 @@ export default function QuizEngine({
             value={studentName}
             onChange={(e) => setStudentName(e.target.value.toUpperCase())}
             className="w-full px-4 py-2.5 rounded-2xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:ring-1 focus:ring-sky-500 focus:outline-none text-sm"
-          />
+          /&gt;
 
           <button
             type="button"
@@ -453,7 +453,7 @@ export default function QuizEngine({
 
     const choices = [5, 10, 15, 20, 25, 30, 40, 50, "All"];
     const validChoices = choices.filter(
-      (x) => x === "All" || x <= totalAvailable
+      (x) => x === "All" || x &le; totalAvailable
     );
 
     const displayedCount =
@@ -552,7 +552,7 @@ export default function QuizEngine({
                     ? "bg-emerald-600 text-white border-emerald-400 shadow-[0_8px_25px_rgba(16,185,129,0.4)]"
                     : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                     }`}
-                >
+                &gt;
                   {isActive && (
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-200" />
                   )}
@@ -583,7 +583,7 @@ export default function QuizEngine({
                     ? "bg-sky-600 text-white border-sky-400 shadow-[0_8px_25px_rgba(56,189,248,0.4)]"
                     : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                     }`}
-                >
+                &gt;
                   {n === "All" ? "All" : n}
                 </button>
               );
@@ -768,12 +768,12 @@ export default function QuizEngine({
               Restart (new {total} Qs)
             </button>
 
-            {!reviewMode && wrongQuestions.length > 0 && isFinished && (
+            {!reviewMode && wrongQuestions.length &gt; 0 && isFinished && (
               <button
                 type="button"
                 onClick={() => setReviewMode(true)}
                 className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 px-3 py-1.5 text-[11px] font-medium text-amber-100 border border-amber-500/60 hover:bg-amber-500/20 transition"
-              >
+              &gt;
                 <Eye size={12} />
                 Review incorrect only
               </button>
@@ -784,7 +784,7 @@ export default function QuizEngine({
                 type="button"
                 onClick={() => setReviewMode(false)}
                 className="inline-flex items-center gap-1.5 rounded-full bg-slate-900/80 px-3 py-1.5 text-[11px] font-medium text-slate-100 border border-slate-600 hover:border-slate-400 transition"
-              >
+              &gt;
                 <EyeOff size={12} />
                 Exit review mode
               </button>
@@ -832,7 +832,7 @@ export default function QuizEngine({
                     value={studentName}
                     onChange={(e) => setStudentName(e.target.value.toUpperCase())}
                     className="flex-1 px-3 py-1.5 rounded-full bg-slate-950 border border-slate-700 text-[11px] text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
-                  />
+                  /&gt;
                 )}
 
                 <CertificateGenerator
@@ -851,7 +851,7 @@ export default function QuizEngine({
           )}
 
           {/* Leaderboard */}
-          {leaderboard.length > 0 && (
+          {leaderboard.length &gt; 0 && (
             <div className="mt-3 rounded-2xl border border-slate-800 bg-slate-950/80 px-3 py-3 space-y-2">
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
@@ -927,7 +927,7 @@ export default function QuizEngine({
               key={q.id}
               ref={(el) => (questionRefs.current[index] = el)}
               className="border border-slate-800 bg-slate-950/80 rounded-2xl p-4 md:p-5 shadow-[0_12px_40px_rgba(0,0,0,0.85)] space-y-3 transition-transform duration-150 hover:-translate-y-0.5"
-            >
+            &gt;
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <div className="flex flex-wrap items-center gap-2 mb-1">
@@ -1001,7 +1001,7 @@ export default function QuizEngine({
                         checked={selected}
                         onChange={() => handleSelect(q.id, optIndex)}
                         className="mt-0.5 accent-sky-500"
-                      />
+                      /&gt;
                       <span className="leading-snug">{opt}</span>
                     </label>
                   );
@@ -1014,7 +1014,7 @@ export default function QuizEngine({
                   onClick={() => handleSubmit(q, index)}
                   disabled={responses[q.id] == null}
                   className="mt-2 inline-flex items-center justify-center px-4 py-2 rounded-full bg-sky-600 hover:bg-sky-500 disabled:bg-slate-800 disabled:text-slate-500 text-white text-xs font-semibold transition"
-                >
+                &gt;
                   Submit answer
                 </button>
               ) : (

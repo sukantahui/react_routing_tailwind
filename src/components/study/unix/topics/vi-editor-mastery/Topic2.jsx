@@ -102,17 +102,17 @@ const Topic2 = () => {
                 <text x="130" y="160" fill="#fde047" fontSize="12" textAnchor="middle" fontWeight="bold">COMMAND</text>
 
                 {/* Arrows with animations */}
-                {/* Normal -> Insert (i, a, o, etc) */}
+                {/* Normal &rarr; Insert (i, a, o, etc) */}
                 <line x1="110" y1="45" x2="148" y2="45" stroke="#4ade80" strokeWidth="2" markerEnd="url(#arrowGreen)" />
                 <text x="130" y="35" fill="#86efac" fontSize="9" textAnchor="middle">i, a, o, O</text>
-                {/* Insert -> Normal (ESC) */}
+                {/* Insert &rarr; Normal (ESC) */}
                 <line x1="150" y1="60" x2="112" y2="60" stroke="#facc15" strokeWidth="2" markerEnd="url(#arrowYellow)" />
                 <text x="130" y="75" fill="#fde047" fontSize="9" textAnchor="middle">ESC</text>
 
-                {/* Normal -> Command (:) */}
+                {/* Normal &rarr; Command (:) */}
                 <line x1="80" y1="70" x2="100" y2="128" stroke="#f87171" strokeWidth="2" markerEnd="url(#arrowRed)" />
                 <text x="70" y="100" fill="#fca5a5" fontSize="9">:</text>
-                {/* Command -> Normal (Enter or ESC) */}
+                {/* Command &rarr; Normal (Enter or ESC) */}
                 <line x1="160" y1="128" x2="140" y2="70" stroke="#facc15" strokeWidth="2" markerEnd="url(#arrowYellow)" />
                 <text x="165" y="100" fill="#fde047" fontSize="8">Enter/ESC</text>
 

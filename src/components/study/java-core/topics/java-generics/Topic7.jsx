@@ -495,7 +495,7 @@ public class GenericExamples {
 
       <div className="container mx-auto px-4 py-10 max-w-6xl">
         {/* HEADER */}
-        <header className="mb-12" ref={(el) => setRef("header", el)}>
+        <header className="mb-12" ref={(el) => setRef("header", el)}&gt;
           <div className="flex items-center gap-4 mb-6">
             <div className={`w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center ${!isReducedMotion ? 'animate-fade-in-up' : ''}`} style={{ animationDelay: '0.1s' }}>
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -535,7 +535,7 @@ public class GenericExamples {
             (isVisible.intro || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.2s" }}
-        >
+        &gt;
           <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-4 flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-blue-600 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20">
@@ -565,7 +565,7 @@ public class GenericExamples {
         <section 
           ref={(el) => setRef("naming", el)}
           className="mb-12"
-        >
+        &gt;
           <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-blue-600 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20">
@@ -639,7 +639,7 @@ public class GenericExamples {
             (isVisible.examples || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.4s" }}
-        >
+        &gt;
           <div>
             <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6">Practical Code Examples</h2>
             
@@ -700,7 +700,7 @@ public class GenericExamples {
             (isVisible.visual || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.5s" }}
-        >
+        &gt;
           <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6">
             How Type Parameters Work
           </h2>
@@ -871,7 +871,7 @@ public class GenericExamples {
             (isVisible.mistakes || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.6s" }}
-        >
+        &gt;
           <h2 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-6 flex items-center gap-3">
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -911,7 +911,7 @@ public class GenericExamples {
             (isVisible.practices || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.7s" }}
-        >
+        &gt;
           <h2 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-6">Best Practices</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -989,7 +989,7 @@ public class GenericExamples {
             (isVisible.hint || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.8s" }}
-        >
+        &gt;
           <h2 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-6">💭 Critical Thinking Zone</h2>
           
           <div className="space-y-6">
@@ -1036,7 +1036,7 @@ public class GenericExamples {
             (isVisible.checklist || isReducedMotion) && "animate-fade-in-up"
           )}
           style={{ animationDelay: "0.9s" }}
-        >
+        &gt;
           <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6">📋 Quick Reference Checklist</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1077,7 +1077,7 @@ public class GenericExamples {
             (isVisible.teacher || isReducedMotion) && "animate-fade-in-up hover-lift"
           )}
           style={{ animationDelay: "1s" }}
-        >
+        &gt;
           <div className="flex flex-col md:flex-row gap-8">
             <div className="flex-shrink-0">
               <div className="w-24 h-24 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">

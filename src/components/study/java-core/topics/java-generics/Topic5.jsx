@@ -376,7 +376,7 @@ public class Main {
 }`}
                                             language="java"
                                             showLineNumbers={true}
-                                        />
+                                        /&gt;
                                     </div>
                                 </div>
                             </div>
@@ -428,7 +428,7 @@ public class Main {
                                                 },
                                                 {
                                                     part: "Type Bounds",
-                                                    syntax: "<T extends Comparable<T>>",
+                                                    syntax: "<T extends Comparable<T>&gt;",
                                                     position: "In type parameter declaration",
                                                     purpose: "Restricts allowed types"
                                                 }
@@ -504,7 +504,7 @@ public static <T> List<? extends T> filterList(
 }`}
                                             language="java"
                                             showLineNumbers={true}
-                                        />
+                                        /&gt;
                                     </div>
                                 </div>
                             </div>
@@ -570,7 +570,7 @@ public class ScopeExample<T> {  // Class-level T
 }`}
                                         language="java"
                                         showLineNumbers={true}
-                                    />
+                                    /&gt;
                                 </div>
                             </div>
                         </div>
@@ -644,8 +644,8 @@ public class InferenceExamples {
     }
     
     // Bounded type inference
-    public static <T extends Comparable<T>> T max(T a, T b) {
-        return a.compareTo(b) >= 0 ? a : b;
+    public static <T extends Comparable<T>&gt; T max(T a, T b) {
+        return a.compareTo(b) &ge; 0 ? a : b;
     }
     
     // Usage examples showing inference
@@ -690,7 +690,7 @@ public class InferenceExamples {
 }`}
                                         language="java"
                                         showLineNumbers={true}
-                                    />
+                                    /&gt;
                                 </div>
                             </div>
 
@@ -788,7 +788,7 @@ public class InferenceDebugging {
 }`}
                                             language="java"
                                             showLineNumbers={true}
-                                        />
+                                        /&gt;
                                     </div>
                                 </div>
                             </div>
@@ -819,14 +819,14 @@ public class InferenceDebugging {
 public class CollectionUtils {
     
     // Find maximum element in collection
-    public static <T extends Comparable<T>> T findMax(Collection<T> collection) {
+    public static <T extends Comparable<T>&gt; T findMax(Collection<T> collection) {
         if (collection.isEmpty()) {
             throw new IllegalArgumentException("Collection is empty");
         }
         
         T max = null;
         for (T item : collection) {
-            if (max == null || item.compareTo(max) > 0) {
+            if (max == null || item.compareTo(max) &gt; 0) {
                 max = item;
             }
         }
@@ -880,14 +880,14 @@ public class CollectionUtils {
             // Type inference: T is Integer
             Integer highestGrade = CollectionUtils.findMax(grades);
             
-            // Filter students with grade > 90
+            // Filter students with grade &gt; 90
             List<Integer> excellentGrades = CollectionUtils.filter(
-                grades, grade -> grade > 90);
+                grades, grade &rarr; grade &gt; 90);
             
             // Transform grades to letter grades
             List<String> letterGrades = CollectionUtils.transform(
-                grades, grade -> {
-                    if (grade >= 90) return "A";
+                grades, grade &rarr; {
+                    if (grade &ge; 90) return "A";
                     if (grade >= 80) return "B";
                     return "C";
                 });
@@ -964,17 +964,17 @@ public class ValidationUtils {
             ValidationUtils.requireNonNull(patient, "Patient cannot be null");
             
             ValidationUtils.validate(patient, 
-                p -> p.getAge() >= 0 && p.getAge() <= 150,
+                p &rarr; p.getAge() &ge; 0 && p.getAge() &le; 150,
                 "Invalid age");
                 
             ValidationUtils.validate(patient,
-                p -> p.getName() != null && !p.getName().trim().isEmpty(),
+                p -&gt; p.getName() != null && !p.getName().trim().isEmpty(),
                 "Patient name required");
             
             // Validate medications list
             List<Medication> medications = patient.getMedications();
             ValidationUtils.validateAll(medications,
-                med -> med.getDosage() > 0,
+                med &rarr; med.getDosage() &gt; 0,
                 "Invalid medication dosage");
         }
         
@@ -992,7 +992,7 @@ public class ValidationUtils {
 }`}
                                     language="java"
                                     showLineNumbers={true}
-                                />
+                                /&gt;
                             </div>
                         </div>
 
@@ -1187,7 +1187,7 @@ public class Converter {
 }`}
                                             language="java"
                                             showLineNumbers={true}
-                                        />
+                                        /&gt;
 
                                         <div className="p-4 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
                                             <p className="text-purple-800 dark:text-purple-300 text-sm">
@@ -1212,7 +1212,7 @@ public class Container<T> {
 }
 
 // 2. Data structures
-public class BinaryTree<T extends Comparable<T>> {
+public class BinaryTree<T extends Comparable<T>&gt; {
     private Node<T> root;
     // Entire tree works with type T
 }
@@ -1227,7 +1227,7 @@ public interface Repository<T, ID> {
 // 4. Builder patterns
 public class QueryBuilder<T> {
     private Class<T> entityType;
-    private List<Predicate<T>> predicates;
+    private List<Predicate<T>&gt; predicates;
     // Builds queries for type T
 }
 
@@ -1238,7 +1238,7 @@ public class LoggingWrapper<T> {
 }`}
                                             language="java"
                                             showLineNumbers={true}
-                                        />
+                                        /&gt;
 
                                         <div className="p-4 bg-green-100 dark:bg-green-900/30 rounded-lg">
                                             <p className="text-green-800 dark:text-green-300 text-sm">
@@ -1360,7 +1360,7 @@ public class LoggingWrapper<T> {
                                         code={`// Professional-grade generic builder pattern
 public class GenericBuilder<T> {
     private final Supplier<T> constructor;
-    private final List<Consumer<T>> modifiers = new ArrayList<>();
+    private final List<Consumer<T>&gt; modifiers = new ArrayList<>();
     
     private GenericBuilder(Supplier<T> constructor) {
         this.constructor = constructor;
@@ -1371,14 +1371,14 @@ public class GenericBuilder<T> {
     }
     
     public <U> GenericBuilder<T> with(BiConsumer<T, U> consumer, U value) {
-        Consumer<T> modifier = instance -> consumer.accept(instance, value);
+        Consumer<T> modifier = instance &rarr; consumer.accept(instance, value);
         modifiers.add(modifier);
         return this;
     }
     
     public T build() {
         T instance = constructor.get();
-        modifiers.forEach(modifier -> modifier.accept(instance));
+        modifiers.forEach(modifier -&gt; modifier.accept(instance));
         modifiers.clear();
         return instance;
     }

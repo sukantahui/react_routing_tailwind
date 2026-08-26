@@ -327,7 +327,7 @@ const Topic1 = () => {
 DROP DATABASE IF EXISTS test_sandbox_db;
 
 -- Verifying backup before dropping in production
--- $ mysqldump -u root -p --single-transaction college_db > college_db_backup.sql`}
+-- $ mysqldump -u root -p --single-transaction college_db &gt; college_db_backup.sql`}
             </pre>
 
             {/* Default System Databases Warning */}
@@ -388,7 +388,7 @@ DROP DATABASE IF EXISTS test_sandbox_db;
                         ? "bg-teal-500/20 text-teal-400 border-teal-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     CREATE DATABASE
                   </button>
                   <button
@@ -399,7 +399,7 @@ DROP DATABASE IF EXISTS test_sandbox_db;
                         ? "bg-rose-500/20 text-rose-400 border-rose-500/50"
                         : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                     )}
-                  >
+                  &gt;
                     DROP DATABASE
                   </button>
                 </div>
@@ -415,7 +415,7 @@ DROP DATABASE IF EXISTS test_sandbox_db;
                   onChange={(e) => setDbName(e.target.value)}
                   placeholder="e.g. barrackpore_college_db"
                   className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs font-mono text-white focus:border-teal-500 focus:outline-none"
-                />
+                /&gt;
               </div>
 
               <div className="flex items-center gap-2">
@@ -425,7 +425,7 @@ DROP DATABASE IF EXISTS test_sandbox_db;
                   checked={useIfNotExists}
                   onChange={(e) => setUseIfNotExists(e.target.checked)}
                   className="rounded border-slate-700 bg-slate-800 text-teal-500"
-                />
+                /&gt;
                 <label htmlFor="ifNotExists" className="text-xs text-slate-300 cursor-pointer">
                   Include <code>{actionType === "create" ? "IF NOT EXISTS" : "IF EXISTS"}</code> (Idempotent Safe Guard)
                 </label>
@@ -441,7 +441,7 @@ DROP DATABASE IF EXISTS test_sandbox_db;
                       value={selectedCharset}
                       onChange={(e) => setSelectedCharset(e.target.value)}
                       className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                    >
+                    &gt;
                       <option value="utf8mb4">utf8mb4 (Recommended - Full 4-byte Unicode & Emojis)</option>
                       <option value="latin1">latin1 (Western European)</option>
                       <option value="ascii">ascii (7-bit ASCII)</option>
@@ -456,7 +456,7 @@ DROP DATABASE IF EXISTS test_sandbox_db;
                       value={selectedCollation}
                       onChange={(e) => setSelectedCollation(e.target.value)}
                       className="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-xs text-white focus:border-teal-500 focus:outline-none"
-                    >
+                    &gt;
                       <option value="utf8mb4_0900_ai_ci">utf8mb4_0900_ai_ci (Unicode 9.0 Accent & Case Insensitive)</option>
                       <option value="utf8mb4_bin">utf8mb4_bin (Binary Strict Case-Sensitive)</option>
                       <option value="utf8mb4_unicode_ci">utf8mb4_unicode_ci (Legacy Unicode)</option>

@@ -50,9 +50,9 @@ const Topic10 = () => {
       badgeColor: "cyan",
       sqlSnippet: `// 🎯 THE VIRTUAL NODE BALANCING MECHANISM:
 // Physical Server Node A is mapped to 256 virtual ring positions:
-// -> NodeA#v1, NodeA#v2, NodeA#v3, ... NodeA#v256
+// &rarr; NodeA#v1, NodeA#v2, NodeA#v3, ... NodeA#v256
 // Physical Server Node B is mapped to 256 virtual ring positions:
-// -> NodeB#v1, NodeB#v2, NodeB#v3, ... NodeB#v256
+// -&gt; NodeB#v1, NodeB#v2, NodeB#v3, ... NodeB#v256
 
 // 📊 RESULT:
 // Storage variance across physical nodes drops from >35% down to <2%!
@@ -202,7 +202,7 @@ const Topic10 = () => {
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {algo.algoName}
                 </button>
               );
@@ -363,7 +363,7 @@ const Topic10 = () => {
                 <span>✓</span> Best Practice 2: Global Secondary Index Caching
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Maintain a Redis GSI cache (e.g. <code>email -> account_uuid</code>) to convert non-shard-key lookups into deterministic point queries.
+                Maintain a Redis GSI cache (e.g. <code>email &rarr; account_uuid</code>) to convert non-shard-key lookups into deterministic point queries.
               </p>
               <div className="text-xs text-slate-400">
                 Eliminates expensive cross-shard scatter-gather broadcast scans.

@@ -44,7 +44,7 @@ function ISCMCQItem({ question, index }) {
         </span>
         <div className="flex-1">
           <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-            {question.year} • {question.marks} mark{question.marks > 1 ? 's' : ''}
+            {question.year} • {question.marks} mark{question.marks &gt; 1 ? 's' : ''}
           </div>
           <div className="text-gray-800 dark:text-gray-200 font-medium">
             {question.question}
@@ -66,7 +66,7 @@ function ISCMCQItem({ question, index }) {
                     !isSelected && !showAnswer && "border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600",
                     !isSelected && showAnswer && "border-gray-200 dark:border-gray-700 opacity-60"
                   )}
-                >
+                &gt;
                   <span className="font-medium">{String.fromCharCode(65 + optIdx)}. </span>
                   {opt}
                   {isCorrect && showAnswer && (
@@ -82,7 +82,7 @@ function ISCMCQItem({ question, index }) {
           <button
             onClick={() => setShowAnswer(!showAnswer)}
             className="mt-3 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200"
-          >
+          &gt;
             {showAnswer ? "Hide Answer" : "Show Answer"}
           </button>
           {showAnswer && (
@@ -117,7 +117,7 @@ function ISCLongItem({ question, index }) {
           <button
             onClick={() => setShowAnswer(!showAnswer)}
             className="mt-3 text-sm font-medium text-amber-600 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 transition-colors duration-200"
-          >
+          &gt;
             {showAnswer ? "Hide Solution" : "Show Solution"}
           </button>
           {showAnswer && (
@@ -194,7 +194,7 @@ export default function Topic45() {
                     ? "bg-indigo-600 text-white dark:bg-indigo-500"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 MCQs ({mcqQuestions.length})
               </button>
               <button
@@ -205,7 +205,7 @@ export default function Topic45() {
                     ? "bg-amber-600 text-white dark:bg-amber-500"
                     : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 )}
-              >
+              &gt;
                 Long Answer ({longQuestions.length})
               </button>
             </div>

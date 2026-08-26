@@ -28,8 +28,8 @@ const Topic2 = () => {
       sqlSnippet: `-- 🔬 BREAKING DOWN THE 0900_AI_CI IDENTIFIER:
 -- 1. utf8mb4 : Full 4-Byte UTF-8 (100% Unicode + Emojis)
 -- 2. 0900    : Unicode Collation Algorithm (UCA) 9.0.0 Standards
--- 3. _ai     : Accent Insensitive ('café' = 'cafe' -> TRUE)
--- 4. _ci     : Case Insensitive ('Kolkata' = 'kolkata' -> TRUE)
+-- 3. _ai     : Accent Insensitive ('café' = 'cafe' &rarr; TRUE)
+-- 4. _ci     : Case Insensitive ('Kolkata' = 'kolkata' -&gt; TRUE)
 
 -- Verifying Collation Properties in Information Schema:
 SELECT 
@@ -340,7 +340,7 @@ SELECT * FROM student_directory ORDER BY student_name ASC;
                       ? "bg-cyan-600/30 text-cyan-300 border-cyan-500 shadow-lg shadow-cyan-950/50"
                       : "bg-slate-900/80 text-slate-400 border-slate-800 hover:bg-slate-800 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   <span
                     className={clsx(
                       "w-2.5 h-2.5 rounded-full",

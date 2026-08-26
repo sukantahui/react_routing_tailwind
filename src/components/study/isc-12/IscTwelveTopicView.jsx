@@ -114,7 +114,7 @@ function TldrawWrapper({ onEditorReady }) {
         onMount={(e) => setEditor(e)}
         autoFocus
         persistenceKey="tldraw-storage"
-      />
+      /&gt;
     </div>
   );
 }
@@ -197,7 +197,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
         const rect = container.getBoundingClientRect();
         const newWidth = rect.right - e.clientX - 4;
         const available = rect.width - leftSidebarWidth - 4;
-        if (available <= 0) return;
+        if (available &le; 0) return;
         let newPercent = newWidth / available;
         newPercent = Math.max(0.3, Math.min(0.7, newPercent));
         setRightSidebarPercent(newPercent);
@@ -380,7 +380,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     const rect = container.getBoundingClientRect();
     const width = rect.width - 4;
     const height = rect.height - 4;
-    if (width <= 0 || height <= 0) return;
+    if (width &le; 0 || height <= 0) return;
     canvas.width = width * window.devicePixelRatio;
     canvas.height = height * window.devicePixelRatio;
     canvas.style.width = width + 'px';
@@ -566,7 +566,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     if (!container) return;
     const width = container.scrollWidth;
     const height = container.scrollHeight;
-    if (width <= 0 || height <= 0) return;
+    if (width &le; 0 || height <= 0) return;
     canvas.width = width * window.devicePixelRatio;
     canvas.height = height * window.devicePixelRatio;
     canvas.style.width = width + 'px';
@@ -793,28 +793,28 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               <span className="text-[11px] text-sky-300 font-semibold">{progressPercent}%</span>
             </div>
 
-            <button onClick={() => setShowSidebar(!showSidebar)} className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-slate-800 to-slate-700 px-3 py-1.5 text-[11px] font-medium text-slate-200 border border-slate-600 hover:from-sky-600 hover:to-sky-500 hover:border-sky-400 hover:shadow-md hover:shadow-sky-500/20 transition-all duration-200 hover:scale-105 active:scale-95">
+            <button onClick={() => setShowSidebar(!showSidebar)} className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-slate-800 to-slate-700 px-3 py-1.5 text-[11px] font-medium text-slate-200 border border-slate-600 hover:from-sky-600 hover:to-sky-500 hover:border-sky-400 hover:shadow-md hover:shadow-sky-500/20 transition-all duration-200 hover:scale-105 active:scale-95"&gt;
               <List size={14} /> <span className="hidden md:inline">{showSidebar ? 'Hide Topics' : 'Show Topics'}</span>
             </button>
 
-            <button onClick={() => setShowRightSidebar(!showRightSidebar)} className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-slate-800 to-slate-700 px-3 py-1.5 text-[11px] font-medium text-slate-200 border border-slate-600 hover:from-purple-600 hover:to-purple-500 hover:border-purple-400 hover:shadow-md hover:shadow-purple-500/20 transition-all duration-200 hover:scale-105 active:scale-95">
+            <button onClick={() => setShowRightSidebar(!showRightSidebar)} className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-slate-800 to-slate-700 px-3 py-1.5 text-[11px] font-medium text-slate-200 border border-slate-600 hover:from-purple-600 hover:to-purple-500 hover:border-purple-400 hover:shadow-md hover:shadow-purple-500/20 transition-all duration-200 hover:scale-105 active:scale-95"&gt;
               {showRightSidebar ? <PanelRightClose size={14} /> : <PanelRight size={14} />}
               <span className="hidden md:inline">{showRightSidebar ? 'Hide Panel' : 'Show Panel'}</span>
             </button>
 
-            <button onClick={() => setHideMain(!hideMain)} className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-slate-800 to-slate-700 px-3 py-1.5 text-[11px] font-medium text-slate-200 border border-slate-600 hover:from-amber-600 hover:to-amber-500 hover:border-amber-400 hover:shadow-md hover:shadow-amber-500/20 transition-all duration-200 hover:scale-105 active:scale-95">
+            <button onClick={() => setHideMain(!hideMain)} className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-slate-800 to-slate-700 px-3 py-1.5 text-[11px] font-medium text-slate-200 border border-slate-600 hover:from-amber-600 hover:to-amber-500 hover:border-amber-400 hover:shadow-md hover:shadow-amber-500/20 transition-all duration-200 hover:scale-105 active:scale-95"&gt;
               {hideMain ? <Eye size={14} /> : <EyeOff size={14} />}
               <span className="hidden md:inline">{hideMain ? 'Show Topic' : 'Hide Topic'}</span>
             </button>
 
-            <button onClick={() => setDrawAnywhere(!drawAnywhere)} className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-medium transition-all duration-200 hover:scale-105 active:scale-95 ${drawAnywhere ? 'bg-rose-600/90 hover:bg-rose-500 border border-rose-400 text-white shadow-lg shadow-rose-500/30' : 'bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 border border-emerald-400/50 text-white shadow-md hover:shadow-emerald-500/20'}`}>
+            <button onClick={() => setDrawAnywhere(!drawAnywhere)} className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-medium transition-all duration-200 hover:scale-105 active:scale-95 ${drawAnywhere ? 'bg-rose-600/90 hover:bg-rose-500 border border-rose-400 text-white shadow-lg shadow-rose-500/30' : 'bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 border border-emerald-400/50 text-white shadow-md hover:shadow-emerald-500/20'}`}&gt;
               <PenTool size={14} /> <span>{drawAnywhere ? 'Exit Draw' : 'Draw Anywhere'}</span>
             </button>
 
             {showRightSidebar && !hideMain && (
               <div className="hidden lg:flex items-center gap-2 px-2 py-1 rounded-full bg-slate-800/60 border border-slate-700/50">
                 <span className="text-[10px] text-slate-400 font-medium">Width</span>
-                <input type="range" min="30" max="70" step="0.5" value={Math.round(rightSidebarPercent * 100)} onChange={(e) => setRightSidebarPercent(Number(e.target.value) / 100)} className="w-20 h-1.5 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-400" title="Adjust topic width proportionally" />
+                <input type="range" min="30" max="70" step="0.5" value={Math.round(rightSidebarPercent * 100)} onChange={(e) => setRightSidebarPercent(Number(e.target.value) / 100)} className="w-20 h-1.5 bg-slate-600 rounded-lg appearance-none cursor-pointer accent-sky-400" title="Adjust topic width proportionally" /&gt;
                 <span className="text-[10px] text-sky-300 font-mono min-w-[36px] text-center">{Math.round(rightSidebarPercent * 100)}%</span>
               </div>
             )}
@@ -840,7 +840,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               )}
             </div>
 
-            <button type="button" onClick={() => setSidebarOpen(true)} className="inline-flex items-center gap-1 rounded-lg bg-slate-900/80 px-2.5 py-1.5 text-[11px] text-slate-200 border border-slate-700/50 hover:bg-slate-800 hover:border-sky-400 transition-all duration-200 sm:hidden">
+            <button type="button" onClick={() => setSidebarOpen(true)} className="inline-flex items-center gap-1 rounded-lg bg-slate-900/80 px-2.5 py-1.5 text-[11px] text-slate-200 border border-slate-700/50 hover:bg-slate-800 hover:border-sky-400 transition-all duration-200 sm:hidden"&gt;
               <Menu size={14} /> Topics
             </button>
           </div>
@@ -894,14 +894,14 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               ============================================================== */}
           {sidebarOpen && (
             <>
-              <div className="fixed inset-0 z-40 bg-black/60 lg:hidden" onClick={() => setSidebarOpen(false)} />
+              <div className="fixed inset-0 z-40 bg-black/60 lg:hidden" onClick={() => setSidebarOpen(false)} /&gt;
               <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950/95 backdrop-blur-xl border-r border-slate-800 pt-4 pb-6 px-4 flex flex-col lg:hidden">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <Layers size={16} className="text-sky-400" />
                     <span className="text-sm font-semibold text-sky-300">{moduleData.title}</span>
                   </div>
-                  <button type="button" onClick={() => setSidebarOpen(false)} className="p-1 rounded-full border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-300"><X size={14} /></button>
+                  <button type="button" onClick={() => setSidebarOpen(false)} className="p-1 rounded-full border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-300"&gt;<X size={14} /></button>
                 </div>
                 <div className="mb-4 rounded-xl border border-slate-800 bg-slate-900/80 p-3 text-[11px] text-slate-200">
                   <div className="flex items-center justify-between mb-1">
@@ -919,7 +919,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     const isCompleted = completedTopics.includes(i);
                     return (
                       <Link key={i} to={`/${roadmapData.folder}/topic/${moduleSlug}/${i}`} onClick={() => setSidebarOpen(false)}
-                        className={`relative flex items-center gap-3 px-3 py-2 rounded-xl border transition ${isActive ? "border-sky-500 bg-sky-600/90 text-white shadow-lg" : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"}`}>
+                        className={`relative flex items-center gap-3 px-3 py-2 rounded-xl border transition ${isActive ? "border-sky-500 bg-sky-600/90 text-white shadow-lg" : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"}`}&gt;
                         <span className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"}`} />
                         {isCompleted ? <CheckCircle2 size={16} className="text-emerald-400 shrink-0" /> : <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />}
                         <span className="truncate"><span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>{title}</span>
@@ -928,8 +928,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   })}
                 </div>
                 <div className="mt-4 pt-3 border-t border-slate-800 space-y-2 text-xs">
-                  <Link to={`/${roadmapData.folder}/module/${moduleSlug}`} onClick={() => setSidebarOpen(false)} className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200">← Back to Module Overview</Link>
-                  <Link to={`/${roadmapData.folder}/roadmap`} onClick={() => setSidebarOpen(false)} className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200">📍 {roadmapData.subject} Roadmap</Link>
+                  <Link to={`/${roadmapData.folder}/module/${moduleSlug}`} onClick={() => setSidebarOpen(false)} className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"&gt;← Back to Module Overview</Link>
+                  <Link to={`/${roadmapData.folder}/roadmap`} onClick={() => setSidebarOpen(false)} className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"&gt;📍 {roadmapData.subject} Roadmap</Link>
                   <a href="/play" target="_blank" rel="noopener noreferrer" className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200">🧪 CNAT Playground</a>
                 </div>
               </aside>
@@ -988,7 +988,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
                 {/* Topic Content */}
                 <section className="relative rounded-3xl border border-slate-800 bg-slate-900/70 backdrop-blur-lg shadow-[0_22px_45px_rgba(15,23,42,0.75)] px-5 md:px-8 py-6 md:py-8">
-                  <Suspense fallback={<p className="text-slate-400 text-sm">Loading topic content…</p>}>
+                  <Suspense fallback={<p className="text-slate-400 text-sm">Loading topic content…</p>}&gt;
                     {TopicPage ? <TopicPage key={topicKey} /> : (
                       <div className="text-slate-300 text-sm">
                         <p className="mb-1">Topic file missing:</p>
@@ -1010,7 +1010,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                       const phone = "919432456083";
                       const text = encodeURIComponent(`Hello Sir,\nI have a query regarding:\n\n• Module: ${moduleData.title}\n• Topic: ${topicTitle}\n\nMy Question:\n${msg}`);
                       window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
-                    }} className="px-4 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-white text-sm font-semibold transition">
+                    }} className="px-4 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-white text-sm font-semibold transition"&gt;
                       📲 Send WhatsApp Query
                     </button>
                   </div>
@@ -1070,7 +1070,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   <h4 className="text-sky-300 font-semibold text-base flex items-center gap-2">
                     <Pencil size={16} /> {drawMode === 'canvas' ? 'Whiteboard' : 'tldraw'}
                   </h4>
-                  <button onClick={() => setDrawMode(drawMode === 'canvas' ? 'tldraw' : 'canvas')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-sky-400 text-xs text-slate-300 hover:text-sky-300 transition-all duration-200">
+                  <button onClick={() => setDrawMode(drawMode === 'canvas' ? 'tldraw' : 'canvas')} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-sky-400 text-xs text-slate-300 hover:text-sky-300 transition-all duration-200"&gt;
                     <Palette size={14} /> {drawMode === 'canvas' ? 'Switch to tldraw' : 'Switch to Canvas'}
                   </button>
                 </div>
@@ -1078,13 +1078,13 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                 {drawMode === 'canvas' && (
                   <>
                     <div className="flex flex-wrap items-center gap-2 mb-3 bg-slate-900/80 p-2 rounded-lg border border-slate-700">
-                      <input type="color" value={drawingColor} onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }} className="w-7 h-7 p-0 border-0 rounded cursor-pointer bg-transparent" title="Pen color" />
+                      <input type="color" value={drawingColor} onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }} className="w-7 h-7 p-0 border-0 rounded cursor-pointer bg-transparent" title="Pen color" /&gt;
                       <div className="flex items-center gap-1">
                         <span className="text-[10px] text-slate-400">Size</span>
-                        <input type="range" min="1" max="20" value={drawingSize} onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }} className="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer" />
+                        <input type="range" min="1" max="20" value={drawingSize} onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }} className="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer" /&gt;
                         <span className="text-[10px] text-slate-300 w-4">{drawingSize}</span>
                       </div>
-                      <button onClick={() => setIsEraser(!isEraser)} className={`p-1.5 rounded-md transition ${isEraser ? 'bg-sky-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`} title="Eraser"><Eraser size={14} /></button>
+                      <button onClick={() => setIsEraser(!isEraser)} className={`p-1.5 rounded-md transition ${isEraser ? 'bg-sky-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`} title="Eraser"&gt;<Eraser size={14} /></button>
                       <button onClick={clearCanvas} className="p-1.5 rounded-md bg-rose-800/70 hover:bg-rose-700 text-rose-200 transition" title="Clear"><Trash2 size={14} /></button>
                       <button onClick={saveDrawing} className="p-1.5 rounded-md bg-emerald-800/70 hover:bg-emerald-700 text-emerald-200 transition text-[10px] px-2" title="Save now">💾</button>
                     </div>
@@ -1103,7 +1103,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                           if (i%2===0) {
                             const toolName = arr[i+1];
                             return (
-                              <div key={key} onClick={() => handleShortcutClick(key, toolName)} className={`flex items-center gap-0.5 text-[10px] text-slate-300 px-1.5 py-0.5 rounded cursor-pointer transition-all duration-150 ${selectedShortcut === toolName ? 'bg-sky-600/50 border border-sky-400' : 'bg-slate-700/50 hover:bg-slate-600/70'}`}>
+                              <div key={key} onClick={() => handleShortcutClick(key, toolName)} className={`flex items-center gap-0.5 text-[10px] text-slate-300 px-1.5 py-0.5 rounded cursor-pointer transition-all duration-150 ${selectedShortcut === toolName ? 'bg-sky-600/50 border border-sky-400' : 'bg-slate-700/50 hover:bg-slate-600/70'}`}&gt;
                                 {toolName === 'draw' && <Pencil size={12} className="text-sky-400" />}
                                 {toolName === 'eraser' && <Eraser size={12} className="text-rose-400" />}
                                 {toolName === 'rectangle' && <Square size={12} className="text-emerald-400" />}
@@ -1136,15 +1136,15 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
           ============================================================== */}
       {drawAnywhere && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[101] pointer-events-auto flex flex-wrap items-center gap-2 bg-slate-900/95 backdrop-blur-xl border border-slate-700 rounded-2xl px-3 py-2 shadow-2xl">
-          <button onClick={() => setDrawAnywhere(false)} className="p-1.5 rounded-md bg-rose-800/70 hover:bg-rose-700 text-rose-200 transition text-xs font-medium px-3">✕ Exit</button>
+          <button onClick={() => setDrawAnywhere(false)} className="p-1.5 rounded-md bg-rose-800/70 hover:bg-rose-700 text-rose-200 transition text-xs font-medium px-3"&gt;✕ Exit</button>
           <div className="w-px h-6 bg-slate-700" />
-          <input type="color" value={drawingColor} onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }} className="w-8 h-8 p-0 border-0 rounded cursor-pointer bg-transparent" title="Pen color" />
+          <input type="color" value={drawingColor} onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }} className="w-8 h-8 p-0 border-0 rounded cursor-pointer bg-transparent" title="Pen color" /&gt;
           <div className="flex items-center gap-1">
             <span className="text-[10px] text-slate-400">Size</span>
-            <input type="range" min="1" max="20" value={drawingSize} onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }} className="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-sky-400" />
+            <input type="range" min="1" max="20" value={drawingSize} onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }} className="w-16 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-sky-400" /&gt;
             <span className="text-[10px] text-slate-300 w-4">{drawingSize}</span>
           </div>
-          <button onClick={() => setIsEraser(!isEraser)} className={`p-1.5 rounded-md transition ${isEraser ? 'bg-sky-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`} title="Eraser"><Eraser size={16} /></button>
+          <button onClick={() => setIsEraser(!isEraser)} className={`p-1.5 rounded-md transition ${isEraser ? 'bg-sky-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`} title="Eraser"&gt;<Eraser size={16} /></button>
           <button onClick={overlayClear} className="p-1.5 rounded-md bg-rose-800/70 hover:bg-rose-700 text-rose-200 transition" title="Clear"><Trash2 size={16} /></button>
         </div>
       )}

@@ -111,7 +111,7 @@ const Topic0 = () => {
                     className={`w-6 h-6 rounded text-xs font-bold transition cursor-pointer ${
                       polygonSides === s ? "bg-cyan-500 text-slate-950 font-bold" : "text-slate-400 hover:text-white"
                     }`}
-                  >
+                  &gt;
                     {s}
                   </button>
                 ))}
@@ -126,7 +126,7 @@ const Topic0 = () => {
                   value={tunnelLayers}
                   onChange={(e) => setTunnelLayers(Number(e.target.value))}
                   className="w-20 accent-cyan-400 cursor-pointer"
-                />
+                /&gt;
                 <span className="font-mono text-xs text-cyan-300 w-4">{tunnelLayers}</span>
               </div>
             </div>

@@ -540,7 +540,7 @@ export const mathSymbolsData = [
   {
     id: "for_all",
     symbol: "∀",
-    latex: "\\forall \\varepsilon > 0, \\quad \\exists N \\in \\mathbb{N}",
+    latex: "\\forall \\varepsilon &gt; 0, \\quad \\exists N \\in \\mathbb{N}",
     name: "Universal Quantifier (For All / For Every)",
     pronunciation: "/fɔːr ɔːl/ (FOR ALL)",
     speakText: "Universal quantifier, for all",
@@ -707,7 +707,7 @@ export default function MathSymbolDictionary({ className = "" }) {
                 "px-3 py-1.5 rounded-lg transition-colors cursor-pointer",
                 viewMode === "grid" ? "bg-slate-800 text-white" : "text-slate-400 hover:text-slate-200"
               )}
-            >
+            &gt;
               Grid View
             </button>
             <button
@@ -716,7 +716,7 @@ export default function MathSymbolDictionary({ className = "" }) {
                 "px-3 py-1.5 rounded-lg transition-colors cursor-pointer",
                 viewMode === "table" ? "bg-slate-800 text-white" : "text-slate-400 hover:text-slate-200"
               )}
-            >
+            &gt;
               Table View
             </button>
           </div>
@@ -744,7 +744,7 @@ export default function MathSymbolDictionary({ className = "" }) {
                     ? "bg-purple-600 text-white shadow-md shadow-purple-600/30 border border-purple-400"
                     : "bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800"
                 )}
-              >
+              &gt;
                 <span>{cat.label}</span>
                 <span className="text-[10px] opacity-75 font-mono">({cat.count})</span>
               </button>
@@ -759,13 +759,13 @@ export default function MathSymbolDictionary({ className = "" }) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="w-full bg-slate-900 text-xs px-3.5 py-2.5 pl-8 pr-7 rounded-lg border border-slate-700 text-slate-200 focus:outline-none focus:border-purple-500 transition-colors"
-            />
+            /&gt;
             <span className="absolute left-2.5 top-3 text-slate-500 text-xs">🔍</span>
             {query && (
               <button
                 onClick={() => setQuery("")}
                 className="absolute right-2.5 top-2.5 text-slate-400 hover:text-white text-xs cursor-pointer"
-              >
+              &gt;
                 ✕
               </button>
             )}
@@ -785,7 +785,7 @@ export default function MathSymbolDictionary({ className = "" }) {
                   ? "bg-indigo-600 text-white font-bold"
                   : "bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800 border border-slate-800"
               )}
-            >
+            &gt;
               #{tag}
             </button>
           ))}
@@ -793,7 +793,7 @@ export default function MathSymbolDictionary({ className = "" }) {
             <button
               onClick={() => setSelectedTag(null)}
               className="text-[10px] text-rose-400 hover:underline ml-1 cursor-pointer font-mono"
-            >
+            &gt;
               Reset Tag
             </button>
           )}
@@ -818,7 +818,7 @@ export default function MathSymbolDictionary({ className = "" }) {
                       onClick={() => handleCopySymbol(item.symbol)}
                       className="text-2xl sm:text-3xl font-black font-serif text-white bg-slate-900 px-3.5 py-1.5 rounded-lg border border-slate-800 group-hover:scale-105 transition-transform cursor-pointer hover:border-purple-500"
                       title="Click to copy symbol"
-                    >
+                    &gt;
                       {item.symbol}
                     </span>
                     <div>
@@ -842,14 +842,14 @@ export default function MathSymbolDictionary({ className = "" }) {
                           : "bg-slate-900 text-slate-400 hover:text-purple-300 hover:bg-slate-800 border-slate-800"
                       )}
                       title="Listen to pronunciation"
-                    >
+                    &gt;
                       🔊
                     </button>
                     <button
                       onClick={() => handleCopySymbol(item.symbol)}
                       className="text-[11px] px-2 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 transition cursor-pointer"
                       title="Copy symbol"
-                    >
+                    &gt;
                       {copiedSymbol === item.symbol ? "✓" : "Copy"}
                     </button>
                   </div>
@@ -866,7 +866,7 @@ export default function MathSymbolDictionary({ className = "" }) {
                   <button
                     onClick={() => handleSpeak(item)}
                     className="text-[10px] text-purple-400 hover:underline cursor-pointer"
-                  >
+                  &gt;
                     Play 🔊
                   </button>
                 </div>
@@ -888,7 +888,7 @@ export default function MathSymbolDictionary({ className = "" }) {
                   <button
                     onClick={() => setActiveModalSymbol(item)}
                     className="text-indigo-400 hover:text-indigo-300 font-semibold underline shrink-0 ml-2 cursor-pointer"
-                  >
+                  &gt;
                     Details &rarr;
                   </button>
                 </div>
@@ -928,7 +928,7 @@ export default function MathSymbolDictionary({ className = "" }) {
                         onClick={() => handleSpeak(item)}
                         className="text-xs hover:scale-125 transition-transform cursor-pointer"
                         title="Pronounce"
-                      >
+                      &gt;
                         🔊
                       </button>
                       <span>{item.pronunciation}</span>
@@ -944,7 +944,7 @@ export default function MathSymbolDictionary({ className = "" }) {
                     <button
                       onClick={() => handleCopySymbol(item.symbol)}
                       className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-[11px] cursor-pointer"
-                    >
+                    &gt;
                       {copiedSymbol === item.symbol ? "✓" : "Copy"}
                     </button>
                   </td>
@@ -977,7 +977,7 @@ export default function MathSymbolDictionary({ className = "" }) {
               <button
                 onClick={() => setActiveModalSymbol(null)}
                 className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center cursor-pointer"
-              >
+              &gt;
                 ✕
               </button>
             </div>
@@ -991,7 +991,7 @@ export default function MathSymbolDictionary({ className = "" }) {
               <button
                 onClick={() => handleSpeak(activeModalSymbol)}
                 className="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold flex items-center gap-1.5 cursor-pointer shadow-md"
-              >
+              &gt;
                 <span>🔊</span> Listen Audio
               </button>
             </div>
@@ -1011,7 +1011,7 @@ export default function MathSymbolDictionary({ className = "" }) {
                 <button
                   onClick={() => handleCopyLatex(activeModalSymbol.latex || activeModalSymbol.example)}
                   className="text-[10px] text-cyan-400 hover:underline cursor-pointer"
-                >
+                &gt;
                   {copiedLatex === (activeModalSymbol.latex || activeModalSymbol.example) ? "✓ Copied LaTeX" : "Copy LaTeX"}
                 </button>
               </div>

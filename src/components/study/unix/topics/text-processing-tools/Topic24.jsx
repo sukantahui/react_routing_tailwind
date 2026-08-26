@@ -240,7 +240,7 @@ const Topic24 = () => {
                                                 : "bg-gray-50 dark:bg-gray-900/50 hover:bg-gray-100 dark:hover:bg-gray-700/50 hover:scale-[1.01]"
                                         )}
                                         style={{ animationDelay: `${idx * 100}ms` }}
-                                    >
+                                    &gt;
                                         <div className="flex items-center">
                                             <div className={clsx(
                                                 "w-8 h-8 rounded-full flex items-center justify-center mr-3",

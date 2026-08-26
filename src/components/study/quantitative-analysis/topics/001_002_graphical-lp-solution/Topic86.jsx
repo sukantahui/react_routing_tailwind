@@ -399,7 +399,7 @@ const Topic86 = () => {
                   ? "bg-orange-500 text-white shadow-lg shadow-orange-200 dark:shadow-orange-900/30"
                   : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:shadow-md"
               )}
-            >
+            &gt;
               {tab.label}
             </button>
           ))}
@@ -421,7 +421,7 @@ const Topic86 = () => {
                       "bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02]",
                       selectedExercise === exercise.id - 1 ? "border-2 border-orange-500" : ""
                     )}
-                  >
+                  &gt;
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200 text-sm">
                         {exercise.title}
@@ -473,7 +473,7 @@ const Topic86 = () => {
                   <button
                     onClick={() => setShowSolution(!showSolution)}
                     className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all duration-300"
-                  >
+                  &gt;
                     {showSolution ? 'Hide Solution' : 'Show Solution'}
                   </button>
 
@@ -609,7 +609,7 @@ const Topic86 = () => {
                         setShowSolution(true);
                       }}
                       className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
-                    >
+                    &gt;
                       <h4 className="font-semibold text-gray-800 dark:text-gray-200">
                         {exercise.title}
                       </h4>

@@ -715,7 +715,7 @@ const Topic30 = () => {
             <button
               onClick={() => setLogEntries([])}
               className="px-3 py-1 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-lg transition-colors duration-300"
-            >
+            &gt;
               Clear Log
             </button>
           </div>

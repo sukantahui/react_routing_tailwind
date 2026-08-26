@@ -116,7 +116,7 @@ export default class Topic4 extends Component {
         }
     }
 }`}
-          />
+          /&gt;
 
           <p className="text-sm text-slate-600 dark:text-slate-400 max-w-3xl">
             <strong>Keyword:</strong> <code>if</code><br />

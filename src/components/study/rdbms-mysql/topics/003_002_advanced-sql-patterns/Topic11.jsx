@@ -83,7 +83,7 @@ SELECT
     (DATEDIFF(attendance_date, previous_attendance_date) - 1) AS absent_days_gap,
     CONCAT('⚠️ Absent for ', (DATEDIFF(attendance_date, previous_attendance_date) - 1), ' Days') AS gap_alert
 FROM OrderedAttendance
-WHERE DATEDIFF(attendance_date, previous_attendance_date) > 1
+WHERE DATEDIFF(attendance_date, previous_attendance_date) &gt; 1
 ORDER BY attendance_date ASC;`,
       resultRows: [
         { id: "GAP-01", name: "Mamata Hui", anchor: "June 04 Absence", start: "2026-06-03", end: "2026-06-05", days: "1 Day Gap", badge: "⚠️ Absent for 1 Day", status: "Gap Isolated" },
@@ -130,7 +130,7 @@ SELECT
     MAX(streak_length) AS longest_streak_days,
     DENSE_RANK() OVER (ORDER BY MAX(streak_length) DESC) AS consistency_rank,
     CASE 
-        WHEN MAX(streak_length) >= 20 THEN '🌟 Gold Attendance Award'
+        WHEN MAX(streak_length) &ge; 20 THEN '🌟 Gold Attendance Award'
         WHEN MAX(streak_length) >= 10 THEN '🟢 Silver Consistency'
         ELSE '🟡 Active Learner'
     END AS award_tier
@@ -455,7 +455,7 @@ ORDER BY incident_start_time ASC;`,
                       ? "bg-indigo-950/60 border-cyan-500 shadow-lg shadow-cyan-950/40 scale-[1.02]"
                       : "bg-slate-900/60 border-slate-800 hover:border-slate-700 hover:bg-slate-850"
                   )}
-                >
+                &gt;
                   <div>
                     <span
                       className={clsx(
@@ -571,7 +571,7 @@ WITH Islands AS (
 )
 INSERT INTO student_badges (student_id, badge_name)
 SELECT student_id, '🌟 30-Day Golden Persistence Badge'
-FROM Islands GROUP BY student_id, anchor HAVING COUNT(*) >= 30;`}
+FROM Islands GROUP BY student_id, anchor HAVING COUNT(*) &ge; 30;`}
               </pre>
             </div>
           </div>

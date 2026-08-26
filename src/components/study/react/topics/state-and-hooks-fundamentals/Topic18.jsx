@@ -272,7 +272,7 @@ const Topic18 = () => {
                     ? "bg-emerald-900/50 text-emerald-300 border border-emerald-700"
                     : "bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700"
                 )}
-              >
+              &gt;
                 Controlled Form Demo
               </button>
               <button
@@ -283,7 +283,7 @@ const Topic18 = () => {
                     ? "bg-red-900/50 text-red-300 border border-red-700"
                     : "bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700"
                 )}
-              >
+              &gt;
                 Uncontrolled Example
               </button>
               <button
@@ -294,7 +294,7 @@ const Topic18 = () => {
                     ? "bg-blue-900/50 text-blue-300 border border-blue-700"
                     : "bg-gray-900 text-gray-400 hover:bg-gray-800 border border-gray-700"
                 )}
-              >
+              &gt;
                 Side-by-Side Comparison
               </button>
             </div>
@@ -321,7 +321,7 @@ const Topic18 = () => {
                         checked={showLivePreview}
                         onChange={() => setShowLivePreview(!showLivePreview)}
                         className="sr-only"
-                      />
+                      /&gt;
                       <div className={clsx(
                         "w-10 h-6 rounded-full transition-colors duration-300",
                         showLivePreview ? "bg-emerald-600" : "bg-gray-700"
@@ -498,7 +498,7 @@ const Topic18 = () => {
                                   checked={userInfo.topics.includes(topic)}
                                   onChange={() => handleTopicChange(topic)}
                                   className="w-4 h-4 text-purple-500 bg-gray-800 border-gray-700 rounded focus:ring-purple-500 focus:ring-2"
-                                />
+                                /&gt;
                                 <span className="text-sm text-gray-300">{topic}</span>
                               </label>
                             ))}
@@ -635,7 +635,7 @@ const Topic18 = () => {
                         <div className="p-3 bg-gray-800/40 rounded-lg">
                           <h4 className="font-bold text-purple-400 mb-2">Selected Topics</h4>
                           <div className="flex flex-wrap gap-1">
-                            {userInfo.topics.length > 0 ? (
+                            {userInfo.topics.length &gt; 0 ? (
                               userInfo.topics.map(topic => (
                                 <span key={topic} className="px-2 py-1 bg-purple-900/30 text-purple-300 text-xs rounded border border-purple-800/50">
                                   {topic}
@@ -781,7 +781,7 @@ const Topic18 = () => {
                   <div className="bg-gray-900/40 p-5 rounded-xl border border-gray-700 h-full">
                     <h3 className="text-xl font-bold text-gray-300 mb-4">Submitted Data</h3>
                     
-                    {Object.keys(uncontrolledData).length > 0 ? (
+                    {Object.keys(uncontrolledData).length &gt; 0 ? (
                       <div className="space-y-4">
                         <div>
                           <h4 className="font-bold text-red-400 mb-2">Form Data (from FormData API)</h4>
@@ -945,7 +945,7 @@ const [value, setValue] = useState('');
   onChange={(e) =>        // Input → State
     setValue(e.target.value)
   }
-/>
+/&gt;
 
 // 3. Use value anywhere
 <p>You typed: {value}</p>`}
@@ -1054,7 +1054,7 @@ const handleChange = (e) => {
 <input 
   onChange={(e) => handleChange(e, index)} 
   // New function created every render!
-/>`}
+/&gt;`}
                     </pre>
                     <p className="text-gray-300 text-sm mt-2">
                       <span className="text-green-400">Solution:</span> Use useCallback for handlers or extract to separate function

@@ -202,7 +202,7 @@ const Topic27 = () => {
                     : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-amber-300 dark:hover:border-amber-700"
                 )}
                 style={{ animationDelay: `${index * 0.1}s` }}
-              >
+              &gt;
                 <div className="flex items-center gap-2 md:gap-3">
                   <span className="text-lg">{section.icon}</span>
                   <span className="font-medium whitespace-nowrap">{section.title}</span>
@@ -346,7 +346,7 @@ const Topic27 = () => {
                       <button
                         onClick={() => setShowVirtualDOM(!showVirtualDOM)}
                         className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-300 dark:hover:bg-gray-600"
-                      >
+                      &gt;
                         {showVirtualDOM ? "Hide Details" : "Show Details"}
                       </button>
                     </div>
@@ -484,7 +484,7 @@ const Topic27 = () => {
                               ? "bg-red-500 text-white"
                               : "bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-800"
                           )}
-                        >
+                        &gt;
                           No Keys
                         </button>
                         <button
@@ -495,7 +495,7 @@ const Topic27 = () => {
                               ? "bg-yellow-500 text-white"
                               : "bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 hover:bg-yellow-200 dark:hover:bg-yellow-800"
                           )}
-                        >
+                        &gt;
                           Index Keys
                         </button>
                         <button
@@ -506,7 +506,7 @@ const Topic27 = () => {
                               ? "bg-green-500 text-white"
                               : "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-800"
                           )}
-                        >
+                        &gt;
                           Proper Keys
                         </button>
                       </div>
@@ -568,7 +568,7 @@ const Topic27 = () => {
                                 <button
                                   onClick={() => removeStudent(index)}
                                   className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-sm hover:bg-gray-300 dark:hover:bg-gray-600"
-                                >
+                                &gt;
                                   Remove
                                 </button>
                               </div>
@@ -612,7 +612,7 @@ const Topic27 = () => {
                           onChange={(e) => setNewStudentName(e.target.value)}
                           className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all duration-300"
                           placeholder="Enter student name"
-                        />
+                        /&gt;
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -622,7 +622,7 @@ const Topic27 = () => {
                           value={newStudentGrade}
                           onChange={(e) => setNewStudentGrade(e.target.value)}
                           className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
-                        >
+                        &gt;
                           <option value="A+">A+</option>
                           <option value="A">A</option>
                           <option value="A-">A-</option>
@@ -861,7 +861,7 @@ const Topic27 = () => {
                           onChange={(e) => setNewTask(e.target.value)}
                           className="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                           placeholder="Add a new task..."
-                        />
+                        /&gt;
                         <button
                           onClick={addTask}
                           disabled={!newTask.trim()}
@@ -902,7 +902,7 @@ const Topic27 = () => {
                                       ? "bg-green-500 border-green-500"
                                       : "border-gray-300 dark:border-gray-600"
                                   )}
-                                >
+                                &gt;
                                   {task.completed && (
                                     <span className="text-white text-sm">✓</span>
                                   )}
@@ -946,14 +946,14 @@ const Topic27 = () => {
                           onChange={(e) => setNewBookTitle(e.target.value)}
                           className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                           placeholder="Book title"
-                        />
+                        /&gt;
                         <input
                           type="text"
                           value={newBookAuthor}
                           onChange={(e) => setNewBookAuthor(e.target.value)}
                           className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                           placeholder="Author"
-                        />
+                        /&gt;
                       </div>
                       <button
                         onClick={addBook}
@@ -1088,7 +1088,7 @@ const Topic27 = () => {
                               ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300"
                               : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                           )}
-                        >
+                        &gt;
                           {animationMode ? "On" : "Off"}
                         </button>
                       </div>
@@ -1181,7 +1181,7 @@ ${listType === 'noKeys'
                         ? "bg-blue-500 text-white"
                         : "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800"
                     )}
-                  >
+                  &gt;
                     Sort by Name
                   </button>
                   <button
@@ -1192,7 +1192,7 @@ ${listType === 'noKeys'
                         ? "bg-purple-500 text-white"
                         : "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300 hover:bg-purple-200 dark:hover:bg-purple-800"
                     )}
-                  >
+                  &gt;
                     Sort by Grade
                   </button>
                   <button
@@ -1203,13 +1203,13 @@ ${listType === 'noKeys'
                         ? "bg-green-500 text-white"
                         : "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-800"
                     )}
-                  >
+                  &gt;
                     Sort by Attendance
                   </button>
                   <button
                     onClick={() => sortStudents('default')}
                     className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-300 dark:hover:bg-gray-600"
-                  >
+                  &gt;
                     Reset Order
                   </button>
                 </div>

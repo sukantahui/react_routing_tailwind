@@ -25,7 +25,7 @@ const Topic15 = () => {
   const ruleCatalog = {
     rule_cascade: {
       name: "Rule 1: Cascade of Selection (Splitting Conjuncts)",
-      beforeMath: "σ_{city='Barrackpore' ∧ fee > 4000 ∧ status='Active'}(Students)",
+      beforeMath: "σ_{city='Barrackpore' ∧ fee &gt; 4000 ∧ status='Active'}(Students)",
       afterMath: "σ_{city='Barrackpore'}(σ_{fee > 4000}(σ_{status='Active'}(Students)))",
       benefit: "Breaks compound AND predicates into independent atomic filters that can be pushed down separately.",
       sqlDemo: `-- Before:\nSELECT * FROM students WHERE city = 'Barrackpore' AND fee > 4000 AND status = 'Active';\n-- Optimizer Cascades into 3 independent filter stages.`,
@@ -288,7 +288,7 @@ const Topic15 = () => {
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Cascade Selection (AND)
               </button>
 
@@ -300,7 +300,7 @@ const Topic15 = () => {
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. Selection Pushdown
               </button>
 
@@ -312,7 +312,7 @@ const Topic15 = () => {
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Projection Pushdown
               </button>
 
@@ -324,7 +324,7 @@ const Topic15 = () => {
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Selection over Union
               </button>
             </div>

@@ -421,7 +421,7 @@ typings/
                 depth === 1 && "ml-4",
                 depth === 2 && "ml-8"
               )}
-            >
+            &gt;
               <div className={clsx(
                 "w-8 h-8 rounded mr-3 flex items-center justify-center",
                 `bg-gradient-to-br ${data.color}`
@@ -469,7 +469,7 @@ typings/
               depth === 1 && "ml-4",
               depth === 2 && "ml-8"
             )}
-          >
+          &gt;
             <div className={clsx(
               "w-8 h-8 rounded mr-3 flex items-center justify-center",
               data.important ? "bg-gradient-to-br from-red-600 to-pink-600" : "bg-gray-700"
@@ -682,8 +682,8 @@ typings/
                     <h4 className="text-xl font-semibold text-gray-300 mb-2">Select a File</h4>
                     <p className="text-gray-500">
                       Click on any file in the project tree to view its contents and purpose.
-                      Start with <span className="text-blue-300 cursor-pointer" onClick={() => setSelectedFile('package.json')}>package.json</span> 
-                      or <span className="text-blue-300 cursor-pointer" onClick={() => setSelectedFile('src/App.tsx')}>src/App.tsx</span>.
+                      Start with <span className="text-blue-300 cursor-pointer" onClick={() => setSelectedFile('package.json')}&gt;package.json</span> 
+                      or <span className="text-blue-300 cursor-pointer" onClick={() => setSelectedFile('src/App.tsx')}&gt;src/App.tsx</span>.
                     </p>
                   </div>
                 )}
@@ -986,7 +986,7 @@ typings/
                 <button
                   onClick={() => setSelectedFile(criticalFile.file)}
                   className="mt-4 w-full px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors"
-                >
+                &gt;
                   View File Contents
                 </button>
               </div>

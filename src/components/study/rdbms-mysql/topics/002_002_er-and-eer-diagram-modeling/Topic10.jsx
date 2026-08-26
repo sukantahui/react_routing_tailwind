@@ -335,14 +335,14 @@ const Topic10 = () => {
                     onChange={(e) => setManagerName(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                     placeholder="Full Name (Tier 1)"
-                  />
+                  /&gt;
                   <input
                     type="email"
                     value={managerEmail}
                     onChange={(e) => setManagerEmail(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-teal-500 focus:outline-none"
                     placeholder="Email (Tier 1)"
-                  />
+                  /&gt;
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   <input
@@ -351,14 +351,14 @@ const Topic10 = () => {
                     onChange={(e) => setSalaryInput(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-cyan-500 focus:outline-none"
                     placeholder="Salary ₹ (Tier 2)"
-                  />
+                  /&gt;
                   <input
                     type="number"
                     value={budgetInput}
                     onChange={(e) => setBudgetInput(e.target.value)}
                     className="rounded bg-slate-900 border border-slate-800 px-3 py-1.5 text-xs text-white focus:border-emerald-500 focus:outline-none"
                     placeholder="Budget ₹ (Tier 3)"
-                  />
+                  /&gt;
                 </div>
                 <button
                   onClick={handleInsertManager}
@@ -379,7 +379,7 @@ const Topic10 = () => {
                       key={p.id}
                       onClick={() => handleDeletePerson(p.id)}
                       className="py-1 px-2.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-bold hover:bg-rose-500/30 transition-all"
-                    >
+                    &gt;
                       Drop #{p.id} ({p.name.split(" ")[0]})
                     </button>
                   ))}

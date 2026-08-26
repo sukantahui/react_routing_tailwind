@@ -149,7 +149,7 @@ export default function Topic8() {
                   ? "bg-white dark:bg-gray-700 shadow-md text-indigo-600 dark:text-indigo-400"
                   : "hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400"
               )}
-            >
+            &gt;
               {tab.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
             </button>
           ))}
@@ -413,7 +413,7 @@ export default function Topic8() {
                         onChange={(e) => setUserInputDemo(e.target.value.slice(0, 1))}
                         className="w-16 text-center font-mono text-xl border-2 border-blue-300 rounded-lg p-2 bg-white dark:bg-gray-900"
                         placeholder="X"
-                      />
+                      /&gt;
                       <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                         Characters entered: {userInputDemo.length}/1
                       </div>
@@ -628,7 +628,7 @@ export default function Topic8() {
                       <button
                         onClick={() => simulatePositionalArgs(["IMG_001.jpg", "IMG_002.jpg", "resized/"])}
                         className="p-4 bg-gray-100 dark:bg-gray-900 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300"
-                      >
+                      &gt;
                         <div className="font-mono text-sm mb-2">Batch Resize:</div>
                         <div>./resize.sh file1 file2 output/</div>
                       </button>
@@ -636,7 +636,7 @@ export default function Topic8() {
                       <button
                         onClick={() => simulatePositionalArgs(["2024-12-", "Barrackpore", "jpg"])}
                         className="p-4 bg-gray-100 dark:bg-gray-900 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300"
-                      >
+                      &gt;
                         <div className="font-mono text-sm mb-2">Search Photos:</div>
                         <div>./search.sh "2024-12-" "Barrackpore"</div>
                       </button>
@@ -644,7 +644,7 @@ export default function Topic8() {
                       <button
                         onClick={() => simulatePositionalArgs(["backup", "photos/", "/external/"])}
                         className="p-4 bg-gray-100 dark:bg-gray-900 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300"
-                      >
+                      &gt;
                         <div className="font-mono text-sm mb-2">Backup Script:</div>
                         <div>./backup.sh mode source dest</div>
                       </button>
@@ -977,13 +977,13 @@ export default function Topic8() {
               <button
                 onClick={() => setActiveSection("overview")}
                 className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
+              &gt;
                 Review Concepts
               </button>
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="px-6 py-3 bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-300"
-              >
+              &gt;
                 Back to Top ↑
               </button>
             </div>

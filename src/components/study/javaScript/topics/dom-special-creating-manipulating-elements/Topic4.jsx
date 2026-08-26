@@ -64,7 +64,7 @@ export default class Topic4 extends Component {
 
   <ul id="itemList"></ul>
 </div>`}
-          />
+          /&gt;
         </section>
 
         {/* =====================================================
@@ -160,7 +160,7 @@ document.getElementById("addBtn").onclick = () => {
   input.value = "";
   input.focus();
 };`}
-          />
+          /&gt;
 
           <p className="text-slate-300">
             ✔ Adds new items  

@@ -109,7 +109,7 @@ const Topic10 = () => {
 
     // Format into Lakhs or Crores
     const formatINR = (val) => {
-      if (val >= 10000000) {
+      if (val &ge; 10000000) {
         return `₹${(val / 10000000).toFixed(2)} Crores / mo`;
       } else if (val >= 100000) {
         return `₹${(val / 100000).toFixed(2)} Lakhs / mo`;
@@ -124,7 +124,7 @@ const Topic10 = () => {
 
     // Identify Archetype
     let archetype = "Balanced General Enterprise (Standard N-Tier)";
-    if (confidentialityWeight >= 4 && integrityWeight >= 4 && availabilityWeight <= 3) {
+    if (confidentialityWeight >= 4 && integrityWeight >= 4 && availabilityWeight &le; 3) {
       archetype = "Core FinTech & Banking (ACID / Fail-Closed)";
     } else if (availabilityWeight >= 4 && integrityWeight <= 3 && confidentialityWeight <= 3) {
       archetype = "High-Scale Edge Streaming / CDN (BASE / Eventual Consistency)";
@@ -132,7 +132,7 @@ const Topic10 = () => {
       archetype = "Life-Critical Emergency Medical (Fail-Open / Break-Glass)";
     } else if (confidentialityWeight === 5 && availabilityWeight <= 2) {
       archetype = "Military / Air-Gapped Intelligence (Bell-LaPadula)";
-    } else if (integrityWeight === 5 && availabilityWeight >= 4 && confidentialityWeight <= 3) {
+    } else if (integrityWeight === 5 && availabilityWeight >= 4 && confidentialityWeight &le; 3) {
       archetype = "Industrial SCADA & Substation Grid (IEC 62351 Real-Time)";
     }
 
@@ -298,7 +298,7 @@ const Topic10 = () => {
                   value={confidentialityWeight}
                   onChange={(e) => setConfidentialityWeight(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-gray-500">
                   <span>Standard HTTPS</span>
                   <span>HSM + Field-Level AES</span>
@@ -322,7 +322,7 @@ const Topic10 = () => {
                   value={integrityWeight}
                   onChange={(e) => setIntegrityWeight(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-gray-500">
                   <span>Eventual Sync (BASE)</span>
                   <span>ACID 2-Phase Commit</span>
@@ -346,7 +346,7 @@ const Topic10 = () => {
                   value={availabilityWeight}
                   onChange={(e) => setAvailabilityWeight(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-gray-500">
                   <span>Single VM (99.0%)</span>
                   <span>Multi-AZ Standby (99.9%)</span>
@@ -361,25 +361,25 @@ const Topic10 = () => {
                   <button
                     onClick={() => { setConfidentialityWeight(5); setIntegrityWeight(5); setAvailabilityWeight(3); }}
                     className="px-2 py-1 bg-gray-900 hover:bg-gray-800 text-amber-300 rounded border border-gray-700 text-[10px] font-semibold"
-                  >
+                  &gt;
                     FinTech (ACID)
                   </button>
                   <button
                     onClick={() => { setConfidentialityWeight(2); setIntegrityWeight(4); setAvailabilityWeight(5); }}
                     className="px-2 py-1 bg-gray-900 hover:bg-gray-800 text-rose-300 rounded border border-gray-700 text-[10px] font-semibold"
-                  >
+                  &gt;
                     Hospital (Break-Glass)
                   </button>
                   <button
                     onClick={() => { setConfidentialityWeight(5); setIntegrityWeight(4); setAvailabilityWeight(2); }}
                     className="px-2 py-1 bg-gray-900 hover:bg-gray-800 text-purple-300 rounded border border-gray-700 text-[10px] font-semibold"
-                  >
+                  &gt;
                     Military (Bell-LaPadula)
                   </button>
                   <button
                     onClick={() => { setConfidentialityWeight(2); setIntegrityWeight(2); setAvailabilityWeight(5); }}
                     className="px-2 py-1 bg-gray-900 hover:bg-gray-800 text-blue-300 rounded border border-gray-700 text-[10px] font-semibold"
-                  >
+                  &gt;
                     Streaming (BASE)
                   </button>
                 </div>
@@ -414,7 +414,7 @@ const Topic10 = () => {
 
                 <div className="bg-gray-900 p-4 rounded-xl border border-gray-800 space-y-1">
                   <span className="text-gray-400 block text-[11px]">Shadow IT Circumvention Risk</span>
-                  <span className={clsx("text-xs font-bold block mt-1", sliderMetrics.frictionScore > 65 ? "text-rose-400" : "text-emerald-400")}>
+                  <span className={clsx("text-xs font-bold block mt-1", sliderMetrics.frictionScore > 65 ? "text-rose-400" : "text-emerald-400")}&gt;
                     {sliderMetrics.shadowItRisk}
                   </span>
                   <span className="text-[10px] text-gray-500 block">Propensity to bypass controls</span>
@@ -466,7 +466,7 @@ const Topic10 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-300 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="font-bold truncate">{dom.name.split(" ")[0]}</div>
                   <div className="text-[10px] text-gray-400 truncate mt-0.5">{dom.name.split(" ").slice(1, 3).join(" ")}</div>
                   <div className={clsx("mt-1.5 text-[10px] px-1.5 py-0.5 rounded border inline-block", dom.badgeClass)}>
@@ -689,7 +689,7 @@ const Topic10 = () => {
                       ? "bg-indigo-950/90 text-white border-indigo-500 shadow-lg shadow-indigo-950/50 scale-[1.02]"
                       : "bg-gray-850 text-gray-400 border-gray-700 hover:bg-gray-800 hover:text-white"
                   )}
-                >
+                &gt;
                   <div className="text-[10px] text-indigo-400 font-mono font-bold uppercase">{sc.location}</div>
                   <div className="font-bold text-gray-200 mt-0.5 truncate">{sc.lead}</div>
                   <div className="text-[11px] text-gray-400 truncate mt-1">{sc.title}</div>

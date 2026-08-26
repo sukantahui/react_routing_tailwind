@@ -23,7 +23,7 @@ const Topic4 = () => {
       return {
         block0: { hash: "00a89f... (Genesis)", valid: true },
         block1: {
-          tx: "Tx1: ₹50,00,000 Susmita -> Attacker (TAMPERED 🚨)",
+          tx: "Tx1: ₹50,00,000 Susmita &rarr; Attacker (TAMPERED 🚨)",
           prevHash: "00a89f...",
           hash: "7f8b91... (Difficulty Broken ❌)",
           valid: false
@@ -66,7 +66,7 @@ const Topic4 = () => {
   const [rogueHashrate, setRogueHashrate] = useState(55); // 0 to 100%
 
   const consensusRace = useMemo(() => {
-    const isDominant = rogueHashrate >= 51;
+    const isDominant = rogueHashrate &ge; 51;
     let status = "";
     let badgeColor = "";
     let consequence = "";
@@ -200,7 +200,7 @@ const Topic4 = () => {
                     ? "bg-rose-600 text-white shadow-lg shadow-rose-950"
                     : "bg-slate-800 text-slate-300 hover:text-white border border-slate-700"
                 )}
-              >
+              &gt;
                 {isBlock1Tampered ? "Revert Tampering 🔄" : "Tamper Block #1 🚨"}
               </button>
             </div>
@@ -302,7 +302,7 @@ const Topic4 = () => {
                 <div className="flex justify-between text-slate-300 font-semibold">
                   <span>Rogue Cartel Mining Hashrate:</span>
                   <span className={clsx("font-mono font-bold text-sm", consensusRace.isDominant ? "text-rose-400" : "text-amber-400")}>
-                    {rogueHashrate}% ({rogueHashrate >= 51 ? "Majority Cartel 🚨" : "Minority Pool ✔"})
+                    {rogueHashrate}% ({rogueHashrate &ge; 51 ? "Majority Cartel 🚨" : "Minority Pool ✔"})
                   </span>
                 </div>
                 <input
@@ -313,7 +313,7 @@ const Topic4 = () => {
                   value={rogueHashrate}
                   onChange={(e) => setRogueHashrate(Number(e.target.value))}
                   className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500"
-                />
+                /&gt;
                 <div className="flex justify-between text-[10px] text-slate-500">
                   <span>10% (Weak)</span>
                   <span>50% (Equilibrium)</span>
@@ -375,7 +375,7 @@ const Topic4 = () => {
                       ? "bg-emerald-600 text-white shadow-lg shadow-emerald-950"
                       : "bg-slate-950 text-slate-400 hover:text-white border border-slate-800"
                   )}
-                >
+                &gt;
                   {key === "barrackpore_land_registry" ? "Barrackpore Land Registry" : key === "kolkata_fintech_audit_ledger" ? "Kolkata SIEM Ledger" : "Ichapur Supply Chain"}
                 </button>
               ))}

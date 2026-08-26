@@ -191,19 +191,19 @@ const Topic15 = () => {
             <button
               onClick={() => loadScenario("parallel-load")}
               className="px-3 py-1.5 rounded-lg bg-teal-950/60 border border-teal-800/60 text-teal-300 hover:bg-teal-900/80 transition"
-            >
+            &gt;
               📥 Parallel Load Mode (LD = 1)
             </button>
             <button
               onClick={() => loadScenario("hold-mode")}
               className="px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-800/60 text-amber-300 hover:bg-amber-900/80 transition"
-            >
+            &gt;
               🔒 Hold / Retain State (LD = 0)
             </button>
             <button
               onClick={() => loadScenario("clear-all")}
               className="px-3 py-1.5 rounded-lg bg-rose-950/60 border border-rose-800/60 text-rose-300 hover:bg-rose-900/80 transition"
-            >
+            &gt;
               🔄 Clear All Bits (Async Reset)
             </button>
           </div>
@@ -478,7 +478,7 @@ const Topic15 = () => {
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 1. 4-Bit Parallel Load Register Simulator
               </button>
               <button
@@ -489,7 +489,7 @@ const Topic15 = () => {
                     ? "bg-purple-900/80 border border-purple-500 text-purple-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 2. Serial vs. Parallel Transfer Race
               </button>
               <button
@@ -500,7 +500,7 @@ const Topic15 = () => {
                     ? "bg-amber-900/80 border border-amber-500 text-amber-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
-              >
+              &gt;
                 3. Gate-Level MUX-DFF Schematic
               </button>
             </div>
@@ -545,7 +545,7 @@ const Topic15 = () => {
                           ? "bg-teal-950 border-teal-400 text-teal-300 shadow-teal-950"
                           : "bg-amber-950 border-amber-400 text-amber-300 shadow-amber-950"
                       )}
-                    >
+                    &gt;
                       LD = {loadEnable} {loadEnable === 1 ? "📥 [LOAD BUS ON ↑]" : "🔒 [HOLD VALUE ON ↑]"}
                     </button>
                   </div>
@@ -570,7 +570,7 @@ const Topic15 = () => {
                             ? "bg-teal-950 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/40"
                             : "bg-slate-900 border-slate-700 text-slate-400 hover:border-slate-500"
                         )}
-                      >
+                      &gt;
                         I{3 - idx} = {inputBus[idx]} (Click to Toggle)
                       </button>
                     ))}
@@ -890,7 +890,7 @@ const Topic15 = () => {
                       ? "bg-teal-900/80 border-teal-400 text-teal-200 shadow-lg shadow-teal-950/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                   )}
-                >
+                &gt;
                   {s.title}
                 </button>
               ))}
@@ -950,7 +950,7 @@ const Topic15 = () => {
                 onChange={(e) => setQuizAnswer(e.target.value)}
                 placeholder="Enter throughput in MB/s..."
                 className="px-4 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs font-mono text-white focus:outline-none focus:border-cyan-400"
-              />
+              /&gt;
               <button
                 onClick={verifyQuiz}
                 className="px-4 py-2 rounded-xl bg-cyan-700 hover:bg-cyan-600 text-white font-mono text-xs font-bold transition"
@@ -1006,7 +1006,7 @@ const Topic15 = () => {
             <div className="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
               <strong className="text-cyan-300 block text-sm">1. Non-Blocking Assignments in RTL</strong>
               <p className="leading-relaxed">
-                Always use non-blocking assignments (<code className="text-cyan-300 font-mono">&lt;=</code>) when describing registers in Verilog/SystemVerilog to model simultaneous parallel clock edge updates accurately.
+                Always use non-blocking assignments (<code className="text-cyan-300 font-mono"><=</code>) when describing registers in Verilog/SystemVerilog to model simultaneous parallel clock edge updates accurately.
               </p>
             </div>
             <div className="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">

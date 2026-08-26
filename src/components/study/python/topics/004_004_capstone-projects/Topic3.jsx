@@ -40,21 +40,21 @@ export default function Topic3() {
     """Calculates final net tuition after applying institutional merit rules.
 
     Args:
-        base_fee (float): Initial tuition fee in INR (must be > 0).
+        base_fee (float): Initial tuition fee in INR (must be &gt; 0).
         score (float): Academic admission test score between 0.0 and 100.0.
 
     Returns:
         float: Net discounted tuition fee payable.
 
     Raises:
-        ValueError: If base_fee <= 0 or score is outside [0.0, 100.0].
+        ValueError: If base_fee &le; 0 or score is outside [0.0, 100.0].
 
     Examples:
         >>> calculate_waiver(20000.0, 95.0)
         16000.0
     """`;
   } else if (docstringFormat === "NUMPY") {
-    docstringSnippet = `def calculate_waiver(base_fee: float, score: float) -> float:
+    docstringSnippet = `def calculate_waiver(base_fee: float, score: float) &rarr; float:
     """
     Calculates final net tuition after applying institutional merit rules.
 
@@ -79,13 +79,13 @@ export default function Topic3() {
     docstringSnippet = `def calculate_waiver(base_fee: float, score: float) -> float:
     """Calculates final net tuition after applying institutional merit rules.
 
-    :param base_fee: Initial tuition fee in INR (must be > 0).
+    :param base_fee: Initial tuition fee in INR (must be &gt; 0).
     :type base_fee: float
     :param score: Academic admission test score between 0.0 and 100.0.
     :type score: float
     :returns: Net discounted tuition fee payable.
     :rtype: float
-    :raises ValueError: If base_fee <= 0 or score is outside [0.0, 100.0].
+    :raises ValueError: If base_fee &le; 0 or score is outside [0.0, 100.0].
     """`;
   }
 
@@ -277,7 +277,7 @@ export default function Topic3() {
                     ? "bg-teal-900/50 text-teal-300 border border-teal-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Google Docstring Anatomy
               </button>
               <button
@@ -288,7 +288,7 @@ export default function Topic3() {
                     ? "bg-cyan-900/50 text-cyan-300 border border-cyan-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 PEP 484 Type System
               </button>
               <button
@@ -299,7 +299,7 @@ export default function Topic3() {
                     ? "bg-purple-900/50 text-purple-300 border border-purple-700/60 shadow-sm"
                     : "text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 Diátaxis 4-Quadrant Matrix
               </button>
             </div>
@@ -478,7 +478,7 @@ export default function Topic3() {
                           ? "bg-teal-950/60 border-teal-500 text-teal-300 shadow-md"
                           : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700"
                       )}
-                    >
+                    &gt;
                       {fmt.label}
                     </button>
                   ))}
@@ -498,7 +498,7 @@ export default function Topic3() {
                       ? "bg-emerald-950/70 border-emerald-500 text-emerald-300 shadow-md"
                       : "bg-slate-900 border-slate-800 text-slate-400"
                   )}
-                >
+                &gt;
                   {enableStrictMypy ? "MYPY STRICT MODE: ACTIVE (--strict)" : "LENIENT TYPE CHECKING"}
                 </button>
               </div>

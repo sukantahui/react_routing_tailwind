@@ -165,7 +165,7 @@ const Topic25 = () => {
   };
 
   const prevProblem = () => {
-    if (selectedProblem > 0) {
+    if (selectedProblem &gt; 0) {
       setSelectedProblem(selectedProblem - 1);
       setUserAnswer("");
       setShowSolution(false);
@@ -225,7 +225,7 @@ const Topic25 = () => {
           <div className="mt-3 flex flex-wrap gap-2">
             <span className="text-sm font-semibold">Filter by topic:</span>
             {topics.map(topic => (
-              <button key={topic} onClick={() => changeFilter(topic)} className={clsx("px-2 py-1 text-xs rounded", filterTopic === topic ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300")}>{topic}</button>
+              <button key={topic} onClick={() => changeFilter(topic)} className={clsx("px-2 py-1 text-xs rounded", filterTopic === topic ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300")}&gt;{topic}</button>
             ))}
           </div>
         </div>
@@ -259,13 +259,13 @@ const Topic25 = () => {
               className="w-full p-2 border rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
               rows="3"
               placeholder="Type your answer here..."
-            />
+            /&gt;
           </div>
 
           <div className="flex gap-3 mb-4">
             <button onClick={checkAnswer} disabled={!userAnswer.trim()} className={clsx("px-4 py-2 rounded font-semibold", userAnswer.trim() ? "bg-green-600 hover:bg-green-700 text-white" : "bg-gray-400 cursor-not-allowed")}>Check Answer</button>
             {showSolution && (
-              <button onClick={() => setShowSolution(false)} className="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded">Hide Solution</button>
+              <button onClick={() => setShowSolution(false)} className="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded"&gt;Hide Solution</button>
             )}
           </div>
 

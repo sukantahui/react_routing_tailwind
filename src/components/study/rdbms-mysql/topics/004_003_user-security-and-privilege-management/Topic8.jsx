@@ -228,7 +228,7 @@ SELECT ROLES_GRAPHML();`,
                       ? "bg-emerald-500/10 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-950/40"
                       : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900"
                   )}
-                >
+                &gt;
                   {phase.phaseNumber}
                 </button>
               );
@@ -415,7 +415,7 @@ SELECT ROLES_GRAPHML();`,
           />
 
           <Teacher
-            note="Roles in MySQL 8.0 represent a massive leap forward in database administration. Remember the golden 4-step workflow: CREATE ROLE -> GRANT privileges TO role -> GRANT role TO user -> SET DEFAULT ROLE ALL TO user! If your users report access denied despite being assigned a role, 99% of the time they forgot step 4 or activate_all_roles_on_login is OFF!"
+            note="Roles in MySQL 8.0 represent a massive leap forward in database administration. Remember the golden 4-step workflow: CREATE ROLE -> GRANT privileges TO role &rarr; GRANT role TO user -&gt; SET DEFAULT ROLE ALL TO user! If your users report access denied despite being assigned a role, 99% of the time they forgot step 4 or activate_all_roles_on_login is OFF!"
           />
         </section>
 

@@ -290,7 +290,7 @@ SELECT
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Local IST vs UTC
               </button>
 
@@ -302,7 +302,7 @@ SELECT
                     ? "bg-amber-500/20 text-amber-300 border-amber-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 2. NOW vs SYSDATE
               </button>
 
@@ -314,7 +314,7 @@ SELECT
                     ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Sub-Second Precision
               </button>
 
@@ -326,7 +326,7 @@ SELECT
                     ? "bg-indigo-500/20 text-indigo-300 border-indigo-500/50"
                     : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Automated Audit DDL
               </button>
             </div>
@@ -432,7 +432,7 @@ SELECT
     submitted_at,
     exam_cutoff_time,
     CASE 
-        WHEN submitted_at <= exam_cutoff_time THEN 'ON TIME (Accepted)'
+        WHEN submitted_at &le; exam_cutoff_time THEN 'ON TIME (Accepted)'
         ELSE CONCAT('LATE BY ', TIMESTAMPDIFF(MINUTE, exam_cutoff_time, submitted_at), ' MINS')
     END AS submission_status
 FROM exam_submissions
@@ -460,7 +460,7 @@ SELECT
     CONVERT_TZ(captured_at_utc, '+00:00', '+05:30') AS captured_at_ist,
     DATE(CONVERT_TZ(captured_at_utc, '+00:00', '+05:30')) AS merchant_settlement_date
 FROM payment_gateway_transactions
-WHERE captured_at_utc >= UTC_TIMESTAMP() - INTERVAL 24 HOUR;`}
+WHERE captured_at_utc &ge; UTC_TIMESTAMP() - INTERVAL 24 HOUR;`}
               </pre>
             </div>
           </div>

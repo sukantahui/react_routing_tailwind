@@ -36,7 +36,7 @@ const Topic4 = () => {
       h ^= str.charCodeAt(i);
       h = Math.imul(h, 0x01000193);
     }
-    return (h >>> 0).toString(16).padStart(8, '0');
+    return (h >&gt;> 0).toString(16).padStart(8, '0');
   };
 
   const handleTestReplay = () => {
@@ -205,7 +205,7 @@ const Topic4 = () => {
                     ? "bg-rose-600 text-white shadow-md shadow-rose-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 1. Subresource Integrity (SRI)
               </button>
               <button
@@ -216,7 +216,7 @@ const Topic4 = () => {
                     ? "bg-rose-600 text-white shadow-md shadow-rose-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 2. SQL Injection vs Prepared Query
               </button>
               <button
@@ -227,7 +227,7 @@ const Topic4 = () => {
                     ? "bg-rose-600 text-white shadow-md shadow-rose-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 3. Replay Attack &amp; Nonce Defense
               </button>
               <button
@@ -238,7 +238,7 @@ const Topic4 = () => {
                     ? "bg-rose-600 text-white shadow-md shadow-rose-600/30"
                     : "bg-slate-950 text-slate-400 hover:text-white"
                 )}
-              >
+              &gt;
                 4. Payment Webhook HMAC Verifier
               </button>
             </div>
@@ -260,7 +260,7 @@ const Topic4 = () => {
                       "px-3 py-1.5 rounded text-xs font-bold transition-all",
                       isTamperedScript ? "bg-rose-600 text-white" : "bg-emerald-600 text-white"
                     )}
-                  >
+                  &gt;
                     {isTamperedScript ? "⚠️ Simulate Compromised CDN Script" : "🛡️ Revert to Authentic Script"}
                   </button>
                   <span className="text-xs text-slate-400">
@@ -310,7 +310,7 @@ const Topic4 = () => {
                     value={inputAccountId}
                     onChange={(e) => setInputAccountId(e.target.value)}
                     className="p-3 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-amber-300"
-                  />
+                  /&gt;
                 </div>
 
                 <div className="flex items-center space-x-3">
@@ -320,7 +320,7 @@ const Topic4 = () => {
                       "px-3 py-1.5 rounded text-xs font-bold transition-all",
                       useParameterized ? "bg-emerald-600 text-white" : "bg-rose-600 text-white"
                     )}
-                  >
+                  &gt;
                     {useParameterized ? "🛡️ Parameterized Query (SECURE)" : "⚠️ String Concatenation (VULNERABLE)"}
                   </button>
                   <span className="text-xs text-slate-400">
@@ -361,7 +361,7 @@ const Topic4 = () => {
                       value={capturedNonce}
                       onChange={(e) => setCapturedNonce(e.target.value)}
                       className="flex-1 p-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-slate-200"
-                    />
+                    /&gt;
                     <button
                       onClick={handleTestReplay}
                       className="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-lg text-xs font-bold transition-all"
@@ -371,7 +371,7 @@ const Topic4 = () => {
                     <button
                       onClick={() => setCapturedNonce(`NONCE_KOLKATA_${Date.now().toString().slice(-6)}_NEW`)}
                       className="px-3 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg text-xs font-bold transition-all"
-                    >
+                    &gt;
                       🔄 Generate Fresh Nonce
                     </button>
                   </div>
@@ -410,7 +410,7 @@ const Topic4 = () => {
                       "px-3 py-1.5 rounded text-xs font-bold transition-all",
                       isForgedWebhook ? "bg-rose-600 text-white" : "bg-emerald-600 text-white"
                     )}
-                  >
+                  &gt;
                     {isForgedWebhook ? "⚠️ Tamper Webhook Payload (₹9,99,99,999)" : "🛡️ Restore Legitimate Payload (₹4,50,000)"}
                   </button>
                 </div>
@@ -422,7 +422,7 @@ const Topic4 = () => {
                     value={webhookPayload}
                     onChange={(e) => setWebhookPayload(e.target.value)}
                     className="p-2.5 bg-slate-950 border border-slate-800 rounded-lg text-xs font-mono text-slate-200"
-                  />
+                  /&gt;
                 </div>
 
                 <div className="p-4 bg-slate-950 rounded-lg border border-slate-800 flex flex-col space-y-2">

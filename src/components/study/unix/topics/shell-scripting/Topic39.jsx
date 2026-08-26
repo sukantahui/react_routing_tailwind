@@ -247,7 +247,7 @@ const Topic39 = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               "🔹 Always use full paths: /usr/bin/command, not just 'command'.",
-              "🔹 Redirect stdout and stderr to a log file: >> /var/log/myjob.log 2>&1",
+              "🔹 Redirect stdout and stderr to a log file: &gt;> /var/log/myjob.log 2>&1",
               "🔹 Use absolute paths for all file references.",
               "🔹 Set a proper `SHELL` and `PATH` at the top of your crontab.",
               "🔹 Test your script manually with the same environment: env -i bash -c '...'",
