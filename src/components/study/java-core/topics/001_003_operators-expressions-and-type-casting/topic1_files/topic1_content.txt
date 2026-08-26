@@ -1,0 +1,52 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 1: Arithmetic Operators: Addition (+), Subtraction (-), Multiplication (*), Division (/), Modulus (%)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. THE FIVE ARITHMETIC OPERATORS IN JAVA
+Java provides five fundamental binary arithmetic operators designed to manipulate numeric operands:
+1. `+` (Additive Operator): Performs arithmetic addition on numeric operands and String concatenation when either operand is a String.
+2. `-` (Subtractive Operator): Computes the numerical difference.
+3. `*` (Multiplicative Operator): Computes the mathematical product.
+4. `/` (Division Operator): Computes the quotient. When both operands are integers, it performs truncated integer division.
+5. `%` (Remainder / Modulus Operator): Returns the remainder of division.
+
+2. MATHEMATICAL SPECIFICATIONS OF THE MODULUS OPERATOR (%)
+In the Java Language Specification (JLS §15.17.3), the remainder operator is defined precisely as:
+  a % b = a - (a / b) * b
+
+Consequences of this definition:
+A. Sign Rule:
+   The sign of the result is identical to the sign of the dividend `a`:
+   - `10 % 3`   -> `10 - (3 * 3)` = `+1`
+   - `-10 % 3`  -> `-10 - (-3 * 3)` = `-1`
+   - `10 % -3`  -> `10 - (-3 * -3)` = `+1`
+   - `-10 % -3` -> `-10 - (3 * -3)` = `-1`
+
+B. Floating-Point Modulus:
+   Unlike ANSI C and C++ (where `%` is restricted to integers), Java supports floating-point modulus directly:
+   `7.5 % 2.0` = `1.5`
+
+3. DIVISION BY ZERO SEMANTICS
+Java enforces two distinct behaviors for division by zero based on operand type:
+- Integer Arithmetic:
+  `int n = 10 / 0;` triggers an immediate CPU hardware trap, caught by the JVM as `java.lang.ArithmeticException: / by zero`.
+- IEEE 754 Floating-Point Arithmetic:
+  Floating-point operations NEVER throw `ArithmeticException`. Instead:
+  * `10.0 / 0.0` -> `Double.POSITIVE_INFINITY`
+  * `-10.0 / 0.0` -> `Double.NEGATIVE_INFINITY`
+  * `0.0 / 0.0` -> `Double.NaN` (Not-a-Number)
+
+4. ARITHMETIC OVERFLOW & SAFETY IN JAVA
+Because Java uses fixed-width two's complement binary integers, exceeding `Integer.MAX_VALUE` (`2,147,483,647`) silently wraps around into negative integers (`-2,147,483,648`).
+To prevent silent corruption in banking and accounting systems in West Bengal, Java 8 introduced overflow-safe exact math utilities in `java.lang.Math`:
+- `Math.addExact(a, b)`
+- `Math.subtractExact(a, b)`
+- `Math.multiplyExact(a, b)`
+These methods automatically throw `ArithmeticException` if overflow occurs.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore center, Swadeep, Tuhina, Abhronila, and Debangshu created an automated cashier denomination calculator. By utilizing integer division (`/`) to count bank notes (₹500, ₹200, ₹100) and modulus (`%`) to compute the remaining balance, their application calculated exact change for course fee payments in Indian Rupees (₹) with zero rounding errors.
+================================================================================

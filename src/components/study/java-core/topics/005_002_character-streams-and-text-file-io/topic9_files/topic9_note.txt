@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 9: CharArrayReader & CharArrayWriter
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. IN-MEMORY STREAMS:
+   - 'CharArrayWriter': Dynamic auto-expanding character buffer.
+   - 'CharArrayReader': Reads from 'char[]' array as a stream.
+   - Zero OS disk overhead; pure RAM execution.
+   - Perfect for JUnit test mocking and stream transformations.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

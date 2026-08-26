@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 12: Bytecode Analysis & Class Files
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BYTECODE FILE NAMING:
+   - 'Outer$Inner.class'         : Member inner / Static nested.
+   - 'Outer$1Local.class'        : Method-local inner class.
+   - 'Outer$1.class'             : First anonymous inner class.
+   - 'Outer$2.class'             : Second anonymous inner class.
+   - JVM sees all classes as separate top-level classes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

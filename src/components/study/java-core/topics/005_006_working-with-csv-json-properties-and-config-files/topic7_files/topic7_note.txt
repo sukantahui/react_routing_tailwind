@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_006: CSV, JSON, Properties & Config Files
+Topic 7: Writing Clean Escaped CSV Files
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CSV WRITING RULES (RFC 4180):
+   - Check if field contains ',', '"', or '\n'.
+   - Double internal quotes: 'val.replace("\"", "\"\"")'.
+   - Enclose in outer quotes: '"' + escaped + '"'.
+   - Join with commas and write platform newline.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

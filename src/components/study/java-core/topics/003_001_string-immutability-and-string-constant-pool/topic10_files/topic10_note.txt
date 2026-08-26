@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 10: Substring & Replacement
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SUBSTRING & REPLACEMENT RULES:
+   - 'substring(begin, end)' : 'begin' is INCLUSIVE, 'end' is EXCLUSIVE.
+   - 'replace(target, repl)' : Literal string replacement (no regex).
+   - 'replaceAll(regex, repl)': Regular expression replacement.
+   - 'replaceFirst(regex, r)': Replaces only the first regex match.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

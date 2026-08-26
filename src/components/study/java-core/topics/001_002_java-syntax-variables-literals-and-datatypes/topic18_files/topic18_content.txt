@@ -1,0 +1,40 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 18: Closing Scanner Resources and Avoiding Resource Leaks
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. RESOURCE MANAGEMENT ARCHITECTURE IN JAVA
+Operating systems maintain a finite table of file descriptors, sockets, and memory buffers for every running process. When a Java program opens a file, network socket, or native stream via `Scanner`, it allocates an operating system handle.
+
+If an application continuously opens scanners without closing them, it triggers an Operating System Resource Leak ("Too many open files" / "EMFILE"), crashing the JVM process and locking files on disk.
+
+2. THE AUTOCLOSEABLE INTERFACE & TRY-WITH-RESOURCES (JAVA 7+)
+Java 7 introduced the Automatic Resource Management (ARM) framework via `java.lang.AutoCloseable`. Because `java.util.Scanner` implements `AutoCloseable`, it can be instantiated inside a Try-With-Resources block:
+  try (Scanner fileScanner = new Scanner(new File("student_ledger.csv"))) {
+      while (fileScanner.hasNextLine()) {
+          processRow(fileScanner.nextLine());
+      }
+  } // fileScanner.close() is guaranteed to execute here, even on exceptions!
+
+3. THE SPECIAL RULES OF SYSTEM.IN
+A critical distinction must be made between Scanners wrapping external resources vs `System.in`:
+- `Scanner.close()` closes the underlying stream.
+- `System.in` is a process-level singleton byte stream instantiated once when the JVM boots.
+- If you call `scanner.close()` on a Scanner wrapping `System.in`, `System.in` is closed permanently for the entire JVM.
+- Subsequent attempts to create new `Scanner(System.in)` instances will fail with `NoSuchElementException` or `IllegalStateException`.
+
+Best Practice Architectural Rule:
+1. Never close `Scanner(System.in)` inside helper methods or transient functions.
+2. Maintain a single shared `Scanner` for console interactions throughout the lifecycle of `main()`, or close it only during final application termination.
+
+4. SUPPRESSING IDE LINT WARNINGS
+Modern IDEs (Eclipse, IntelliJ IDEA, VS Code) flag unclosed `Scanner(System.in)` instances with the warning: "Resource leak: 'scanner' is never closed".
+To document that the scanner lifecycle is managed globally, annotate the method or field:
+  @SuppressWarnings("resource")
+  Scanner consoleScanner = new Scanner(System.in);
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built an enterprise financial auditing service for vocational training centers in Naihati and Shyamnagar. By applying Try-With-Resources across transaction log files in Indian Rupees (₹) while maintaining a singleton console reader, their application ran continuously for weeks with zero file descriptor leaks.
+================================================================================

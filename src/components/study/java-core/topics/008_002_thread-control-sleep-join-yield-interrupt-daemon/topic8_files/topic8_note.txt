@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 8: User vs Daemon Threads
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. USER vs DAEMON THREADS:
+   - User Threads: Core business logic; JVM stays alive until all User threads finish.
+   - Daemon Threads: Background helpers (GC, health monitor); JVM kills them when User threads die.
+   - Method: 'thread.setDaemon(true)'.
+   - 'isDaemon()' queries daemon status.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

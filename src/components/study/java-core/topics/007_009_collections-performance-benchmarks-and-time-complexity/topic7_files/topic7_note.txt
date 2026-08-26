@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_009: Collections Performance & Big-O Complexities
+Topic 7: Segment 7 Master Examination
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SEGMENT 7 EXAMINATION CHECKLIST:
+   - ArrayList resize factor: 1.5x (oldCapacity + (oldCapacity >> 1)).
+   - HashMap capacity: powers of 2; bucket index = (n - 1) & hash.
+   - HashMap treeification: chain >= 8 AND capacity >= 64.
+   - PriorityQueue: Binary Min-Heap; parent = (i-1)/2, children = 2i+1, 2i+2.
+   - Fail-Fast: 'modCount != expectedModCount'.
+   - TimSort: Stable O(n log n) hybrid for objects; Dual-Pivot Quicksort for primitives.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,43 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 8: Equality Check: Primitive == Value Comparison vs Object Reference Comparison
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Primitive vs Object Equality:
+  * Primitive '==' : Compares raw bit values in Stack memory (int 5 == int 5 -> true).
+  * Object '=='    : Compares Heap memory address / Reference Identity.
+  * Object .equals(): Compares logical contents/state (when overridden).
+
+- String Constant Pool vs Heap Allocations:
+  +------------------------------------+-----------+---------------------------+
+  | Comparison                         | Result    | Reason                    |
+  +------------------------------------+-----------+---------------------------+
+  | "Java" == "Java"                   | true      | Same String Pool instance |
+  | "Java" == new String("Java")       | false     | Distinct Heap allocations |
+  | "Java".equals(new String("Java"))  | true      | Logical characters match  |
+  | "Java" == new String("Java").intern()| true    | Pool canonical reference  |
+  +------------------------------------+-----------+---------------------------+
+
+- The Integer Cache Trap (-128 to 127):
+  * Integer a = 100, b = 100; a == b -> TRUE  (Cached by Integer.valueOf())
+  * Integer c = 200, d = 200; c == d -> FALSE (Different Heap objects!)
+  * Golden Rule: NEVER use '==' on Wrapper Objects! Always use .equals().
+
+- Defensive Null-Safe Comparison:
+  * Pattern 1 (Yoda condition) : "BARRACKPORE".equals(userInput)
+  * Pattern 2 (java.util)      : java.util.Objects.equals(a, b)
+
+- The equals() and hashCode() Contract:
+  * If a.equals(b) is true, then a.hashCode() MUST equal b.hashCode().
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use '==' ONLY for primitives and enum singletons.
+[✓] Use '.equals()' or Objects.equals() for Strings, Wrappers, and custom Objects.
+[✓] Watch out for Integer cache limits [-128..127].
+[✓] Always override hashCode() when overriding equals().
+================================================================================

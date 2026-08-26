@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 8: Exception Domain Metadata
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METADATA ATTRIBUTES:
+   - Final fields in exception class.
+   - Initialized in constructor.
+   - Includes: 'errorCode', 'transactionId', 'userId', 'timestamp'.
+   - Exposed via getters for audit loggers and JSON error responses.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

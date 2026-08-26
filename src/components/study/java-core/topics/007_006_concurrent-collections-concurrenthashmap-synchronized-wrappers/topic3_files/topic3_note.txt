@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 3: ConcurrentHashMap Fundamentals
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONCURRENTHASHMAP FUNDAMENTALS:
+   - Part of 'java.util.concurrent' (JSR-166).
+   - High-throughput thread-safe map.
+   - Fine-grained bucket locking (not whole-map locking).
+   - Lock-free 'get()' reads using volatile memory semantics.
+   - Highly scalable across multi-core server processors.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

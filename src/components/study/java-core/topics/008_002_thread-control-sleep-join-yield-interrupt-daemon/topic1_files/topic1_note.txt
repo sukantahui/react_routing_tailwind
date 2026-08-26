@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 1: Restoring Interrupt Status
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RESTORING INTERRUPT STATUS:
+   - JVM clears interrupt flag when throwing 'InterruptedException'.
+   - NEVER swallow 'InterruptedException' with an empty catch block!
+   - Option A: Rethrow 'InterruptedException' to caller.
+   - Option B: Restore status via 'Thread.currentThread().interrupt()'.
+   - Allows framework and upstream loops to gracefully terminate.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

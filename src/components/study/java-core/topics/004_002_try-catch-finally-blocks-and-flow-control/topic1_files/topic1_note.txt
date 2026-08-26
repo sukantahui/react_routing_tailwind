@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 1: The 'catch' Block
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 'catch' BLOCK:
+   - Parameter specifies target exception type ('catch (IOException ex)').
+   - Polymorphic: catches the declared type and all its subclasses.
+   - Core methods: 'getMessage()', 'getCause()', 'printStackTrace()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 1: Iterator Methods Suite
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ITERATOR METHODS:
+   - 'hasNext()': checks if more elements exist without moving cursor.
+   - 'next()': returns current element and advances cursor forward.
+   - 'forEachRemaining(Consumer)': consumes all remaining unvisited elements.
+   - Throws 'NoSuchElementException' if 'next()' called when 'hasNext() == false'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

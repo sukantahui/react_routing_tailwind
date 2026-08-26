@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 16: Recursive Constructor Invocation Compilation Error
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RECURSIVE CONSTRUCTOR LAW:
+   -----------------------------------------------------------------------------
+   - Constructor chaining MUST be a Directed Acyclic Graph (DAG).
+   - Every chain of 'this()' calls MUST terminate at a Master Constructor that
+     does NOT call 'this()'.
+   - Any cycle (A -> B -> A) triggers:
+     "compile-time error: recursive constructor invocation"
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

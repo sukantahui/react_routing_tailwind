@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 13: The 'continue' Statement (Iteration Skipping & Guard Clauses)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Syntax & Mechanics (JLS §14.16):
+  continue; // Skips remaining body statements of the current iteration.
+
+- Jump Target Destination:
+  * In a 'for' loop      : Jumps directly to the update clause (i++).
+  * In a 'while' loop    : Jumps directly to the boolean condition check.
+  * In a 'do-while' loop : Jumps directly to the post-test while condition.
+
+- Primary Industry Use Cases:
+  1. Data Cleansing & Filtering:
+     * Skipping null, negative, or exempt records (Guard Clause pattern).
+  2. Flattening Code Indentation:
+     * Eliminates deep if-else ladders by skipping invalid conditions early.
+
+- Critical 'while' Loop Gotcha:
+  * If counter increment (i++) is below 'continue', skipping it causes an INFINITE LOOP!
+  * In 'while' loops, ALWAYS update the counter BEFORE the continue statement!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] In 'for' loops, continue safely executes the header update expression (i++).
+[✓] In 'while' loops, advance counter BEFORE calling continue to prevent freeze.
+[✓] Use Guard Clauses (if (skip) continue;) to keep main logic flat and readable.
+[✓] Do NOT write continue as the last statement in a loop (redundant dead code).
+================================================================================

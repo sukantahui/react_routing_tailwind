@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_007: File Handling & I/O Hands-On Capstone Lab
+Topic 4: File I/O MCQ Self-Assessment
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE I/O EXAM CHECKPOINTS:
+   - 8192 bytes default buffer in BufferedReader.
+   - Files.lines() for lazy streaming.
+   - 'transient' resets fields to null/0 on deserialization.
+   - serialVersionUID prevents InvalidClassException.
+   - Path.of() is immutable and platform independent.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 9: 4 Canonical Exception Constructors
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 4 CONSTRUCTORS:
+   - 'public MyEx()'
+   - 'public MyEx(String message)'
+   - 'public MyEx(Throwable cause)'
+   - 'public MyEx(String message, Throwable cause)'
+   - Always forward arguments to 'super(...)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

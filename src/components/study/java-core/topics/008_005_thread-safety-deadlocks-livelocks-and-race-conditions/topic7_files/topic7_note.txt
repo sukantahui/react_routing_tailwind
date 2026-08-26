@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 7: Circular Wait Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COFFMAN 4: CIRCULAR WAIT:
+   - Closed loop of lock dependencies: T1 &rarr; T2 &rarr; T3 &rarr; T1.
+   - Forms a cycle in the Resource Allocation Graph (RAG).
+   - The primary target for deadlock prevention in industry.
+   - Solution: Enforce strict Global Lock Ordering.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

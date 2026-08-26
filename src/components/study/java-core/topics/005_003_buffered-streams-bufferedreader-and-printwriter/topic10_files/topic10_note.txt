@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_003: Buffered Streams & PrintWriter
+Topic 10: Buffer Flushing & Auto-Flush Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 005_003 SUMMARY:
+   - Buffering drastically reduces kernel syscalls and context switches.
+   - Default buffer is 8192 units (8 KB bytes / 16 KB chars).
+   - BufferedInputStream supports 'mark()' and 'reset()'.
+   - BufferedReader.readLine() returns String or null at EOF.
+   - BufferedWriter.newLine() provides platform-independent line breaks.
+   - PrintWriter offers printf formatting and exception-free checkError().
+   - BufferedReader is ~10x faster than Scanner for bulk file parsing.
+   - Always flush network and interactive streams promptly.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

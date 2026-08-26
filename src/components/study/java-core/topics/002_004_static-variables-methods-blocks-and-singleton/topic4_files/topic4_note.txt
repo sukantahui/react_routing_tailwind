@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 4: Static Methods & Utility Class Design
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATIC METHOD CHARACTERISTICS:
+   - Invoked as 'ClassName.method(args)'.
+   - Pure functions: Output depends strictly on input arguments.
+   - Foundation for standard Java utility classes (java.lang.Math, java.util.Arrays).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

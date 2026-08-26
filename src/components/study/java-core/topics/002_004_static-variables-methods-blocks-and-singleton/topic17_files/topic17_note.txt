@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 17: Enum Singleton: The Most Robust Singleton in Java
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY ENUM SINGLETON IS UNBEATABLE:
+   - 100% Thread-safe (guaranteed by JVM).
+   - Reflection Proof: 'Constructor.newInstance()' throws IllegalArgumentException for Enums.
+   - Serialization Proof: Java guarantees only 1 enum constant exists during deserialization.
+   - Recommended by Joshua Bloch (Effective Java).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

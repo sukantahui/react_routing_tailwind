@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 16: Local Records (Java 16+)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOCAL RECORDS (Java 16+):
+   - Declared inside method bodies.
+   - Implicitly static (no outer pointer).
+   - Immutable data carriers with auto-generated getters.
+   - Ideal for Stream API intermediate aggregation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

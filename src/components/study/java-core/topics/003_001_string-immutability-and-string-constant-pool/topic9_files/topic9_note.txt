@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 9: String Transformation Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TRANSFORMATION METHODS:
+   - 'toLowerCase()' / 'toUpperCase()' : Generates new case string.
+   - 'trim()'                          : Legacy ASCII whitespace strip.
+   - 'strip()' (Java 11+)              : Unicode-aware whitespace strip.
+   - 'stripLeading()' / 'stripTrailing()': Strips start or end whitespace.
+   - 'repeat(n)' (Java 11+)            : Concatenates string n times.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,26 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 4: When Does Compiler NOT Generate a Default Constructor?
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE COMPILER OMISSION LAW:
+   -----------------------------------------------------------------------------
+   - The compiler generates a default constructor IF AND ONLY IF ZERO
+     constructors are defined in the class.
+   - The moment ANY constructor is declared (parameterized, private, etc.),
+     the default constructor is PERMANENTLY REVOKED!
+
+2. CONSEQUENCE OF OMISSION:
+   - Calling 'new MyClass()' on a class with only 'MyClass(String)' causes:
+     "compile-time error: constructor MyClass cannot be applied to given types"
+
+3. IMPACT ON SUBCLASSES:
+   - Subclass constructors implicitly call 'super()'.
+   - If Parent has only a parameterized constructor, Child FAILS to compile
+     unless Child explicitly calls 'super(args)' on line 1!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

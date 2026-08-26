@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 0: The Concept of Abstraction
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS ABSTRACTION:
+   - Focus on WHAT to do rather than HOW to do it.
+   - Achieved in Java via:
+     1. Abstract Classes (0% to 100% partial abstraction).
+     2. Interfaces (100% pure abstraction).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 14: Mutual Exclusion of this() and super()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY MUTUALLY EXCLUSIVE:
+   - Line 1 Conflict: Both commands must be the first instruction.
+   - Lifecycle Integrity: Chaining via 'this()' routes to a peer constructor
+     which executes 'super()', ensuring the parent is created exactly ONCE.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

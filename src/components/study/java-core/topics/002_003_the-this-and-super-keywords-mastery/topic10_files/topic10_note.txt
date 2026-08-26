@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 10: Using 'super' to Invoke Overridden Parent Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD EXTENSION VIA 'super':
+   - Calling 'super.methodName()' invokes the parent's version of an overridden method.
+   - Bypasses dynamic virtual dispatch to execute the base implementation directly.
+   - Essential for decorating / augmenting base behavior (e.g. adding 2FA after standard login).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

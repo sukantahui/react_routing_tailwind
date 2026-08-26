@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 0: Concept of Control Flow and Conditional Branching in Software
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is Control Flow?
+  * The order in which statements and method calls are executed at runtime.
+  * Default: Sequential (top-to-bottom).
+
+- The Böhm-Jacopini Structured Programming Theorem:
+  * Proved that ANY computable algorithm can be written using ONLY 3 structures:
+    1. SEQUENCE   : Linear execution of statements (A -> B -> C).
+    2. SELECTION  : Conditional branching (if, if-else, switch).
+    3. ITERATION  : Repeating blocks (for, while, do-while).
+
+- Java Selection Statements Landscape:
+  * Simple 'if'       : Executes block if boolean condition is true.
+  * 'if-else'         : Binary branching (True path vs False path).
+  * 'else-if' ladder  : Multi-tier sequential evaluation.
+  * Traditional Switch: Jump-table multi-branch routing with break/default.
+  * Modern Switch (14+): Arrow expressions (case X -> Y), yield, no fall-through.
+
+- Hardware & JVM Level:
+  * Branches alter the CPU Instruction Pointer (PC register).
+  * JVM Bytecode uses conditional jump opcodes (ifeq, ifne, tableswitch).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Condition MUST evaluate to a boolean expression (no C-style 'if (1)').
+[✓] Always use curly braces '{}' even for single-statement if blocks.
+[✓] Use guard clauses at method entry to reduce cyclomatic complexity.
+[✓] Keep cyclomatic complexity <= 10 per method.
+================================================================================

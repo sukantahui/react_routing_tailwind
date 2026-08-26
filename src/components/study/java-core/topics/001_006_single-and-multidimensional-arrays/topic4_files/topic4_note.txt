@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 4: Array Initialization Literals & Anonymous Array Syntax
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Array Initializer Shortcut (JLS §10.6):
+  * Syntax: int[] numbers = {10, 20, 30};
+  * Available ONLY at the point of variable declaration!
+  * Compiler infers length automatically (length = 3) and allocates the Heap object.
+
+- Anonymous Array Creation:
+  * Syntax: new Type[]{val1, val2, val3}
+  * Can be used ANYWHERE: reassignments, return statements, and method arguments!
+  * Example: process(new double[]{12000.0, 15000.0});
+
+- 2D Nested Array Literals:
+  * Syntax: int[][] matrix = { {1, 2}, {3, 4, 5} };
+  * Automatically creates irregular / jagged row arrays effortlessly.
+
+- Syntax Restrictions:
+  * NEVER write size with initializer: new int[3]{1, 2, 3} -> COMPILE ERROR!
+  * Reassignment cannot use naked braces: arr = {1, 2} -> COMPILE ERROR!
+    (Must write: arr = new int[]{1, 2};)
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Trailing commas ({1, 2, 3,}) are legal and recommended for multiline lists.
+[✓] With 'var', always specify the type: var arr = new int[]{1, 2, 3}.
+[✓] Use Arrays.toString(arr) to print 1D arrays; Arrays.deepToString(m) for 2D.
+[✓] Return inline anonymous arrays (return new int[]{x, y};) to eliminate temp variables.
+================================================================================

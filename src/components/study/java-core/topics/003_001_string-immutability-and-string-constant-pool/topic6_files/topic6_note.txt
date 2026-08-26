@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 6: '==' vs equals() for Strings
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STRING EQUALITY RULES:
+   - '=='       : Reference identity (Do they point to the exact same RAM address?).
+   - '.equals()': Semantic content equality (Are the characters identical?).
+   - Compile-time constants ('"a" + "b"') are folded by javac into SCP.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

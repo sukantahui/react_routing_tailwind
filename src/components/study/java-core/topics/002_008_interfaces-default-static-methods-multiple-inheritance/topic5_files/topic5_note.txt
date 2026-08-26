@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 5: Traditional Interface Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TRADITIONAL INTERFACE METHODS:
+   - Implicitly: 'public abstract'.
+   - Cannot have a method body (must end in a semicolon ';').
+   - Implementing classes must override with 'public' visibility.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

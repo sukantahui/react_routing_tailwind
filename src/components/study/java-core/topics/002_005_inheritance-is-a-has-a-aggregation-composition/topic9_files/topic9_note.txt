@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 9: IS-A vs HAS-A Relationships
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RELATIONSHIP MODELING:
+   - IS-A: Modeled using 'extends' / 'implements' (Inheritance).
+   - HAS-A: Modeled using instance variable references (Association).
+   - Rule of Thumb: If X is a type of Y, use IS-A. If X contains Y, use HAS-A.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

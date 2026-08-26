@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_005: Propagation, Chaining & Best Practices
+Topic 1: Stack Unwinding
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STACK UNWINDING PROCESS:
+   - Call stack allocates frames on invocation (Push).
+   - Exception triggers rapid frame deallocation (Pop / Unwind).
+   - Invariant: 'finally' block in every frame runs before frame destruction.
+   - Preserves memory and lock safety.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 0: Concurrency vs Parallelism
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONCURRENCY vs PARALLELISM:
+   - Concurrency: Dealing with many tasks (interleaved time-slicing on 1 core).
+   - Parallelism: Doing many tasks simultaneously (across multiple CPU cores).
+   - Java threads can be concurrent (1 core) or parallel (multi-core).
+   - Query cores: 'Runtime.getRuntime().availableProcessors()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 0: Concept of Iteration and Why Loops are Fundamental
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is Iteration?
+  * The repeated execution of a sequence of instructions until a termination
+    condition becomes false.
+  * Böhm-Jacopini Structure Theorem: Any algorithm can be built using:
+    1. Sequence (top-to-bottom statements)
+    2. Selection (if-else, switch)
+    3. Iteration (for, while, do-while loops)
+
+- The 4 Essential Phases of Every Loop:
+  1. Initialization : Set starting counter state (int i = 1)
+  2. Condition      : Check boolean validity BEFORE or AFTER body (i <= 5)
+  3. Loop Body      : The actual payload statements executed
+  4. Update Step    : Increment/decrement counter (i++)
+
+- Why Iteration Beats Manual Duplication (DRY vs WET):
+  * WET (Write Everything Twice) bloats codebase, prevents scaling, causes bugs.
+  * DRY (Don't Repeat Yourself) automates 10 to 10,000,000 repetitions cleanly.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Ensure the loop condition will eventually evaluate to false (prevent infinite loops).
+[✓] Watch for Off-By-One Errors (OBOE) when defining bounds (< vs <=).
+[✓] Keep loop bodies focused; avoid heavy object creation inside hot loops.
+[✓] Trace variable state step-by-step using an Iteration Trace Table.
+================================================================================

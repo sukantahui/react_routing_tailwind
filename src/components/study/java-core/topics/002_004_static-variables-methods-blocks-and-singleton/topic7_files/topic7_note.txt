@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 7: Static Method Hiding vs Method Overriding
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD HIDING VS OVERRIDING:
+   -----------------------------------------------------------------------------
+   FEATURE              STATIC METHOD (Hiding)        INSTANCE METHOD (Overriding)
+   -----------------------------------------------------------------------------
+   Polymorphism         NO (Static Binding)           YES (Dynamic Virtual Dispatch)
+   Resolved At          Compile Time                  Runtime
+   Dispatched Via       Reference Variable Type       Heap Object Runtime Type
+   -----------------------------------------------------------------------------
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 8: ListIterator Bidirectional Suite
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LISTITERATOR EXCLUSIVE POWERS:
+   - Bidirectional: 'hasNext()/next()' and 'hasPrevious()/previous()'.
+   - Index queries: 'nextIndex()' and 'previousIndex()'.
+   - 'set(e)': replaces last element returned.
+   - 'add(e)': inserts element into list at cursor position.
+   - Available ONLY on 'List' implementations (ArrayList, LinkedList).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

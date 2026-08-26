@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 0: What is Polymorphism
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE TWO TYPES OF POLYMORPHISM:
+   - Compile-Time Polymorphism (Static Binding): Method Overloading.
+   - Runtime Polymorphism (Dynamic Binding): Method Overriding & Dynamic Dispatch.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

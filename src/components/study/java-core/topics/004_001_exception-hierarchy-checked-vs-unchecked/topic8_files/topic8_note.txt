@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_001: Exception Hierarchy
+Topic 8: Modern Unchecked Framework Trend
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODERN FRAMEWORK PRACTICES:
+   - Wrap low-level checked exceptions into unchecked domain exceptions.
+   - Spring translates 'SQLException' into 'DataAccessException'.
+   - Avoids cluttering 10 intermediate service layers.
+   - Handled globally at Controller/API boundary.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

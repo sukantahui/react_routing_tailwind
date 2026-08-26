@@ -1,379 +1,517 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState, useEffect } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic6_files/topic6_questions";
+
+// Import Python Source Files
+import fsmEngineCode from "./topic6_files/finite_state_machine_game_engine.py?raw";
+import inputRouterCode from "./topic6_files/state_driven_input_router.py?raw";
+import modalPauseCode from "./topic6_files/modal_pause_overlay_system.py?raw";
 import noteText from "./topic6_files/topic6_note.txt?raw";
 
-/**
- * Topic6 – Managing game and interactive states (active, paused, game-over)
- * Module: 005_006_turtle-interaction (Module 6 – Event Handling & User Interaction)
- * Track: Python from Basic to Pro
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with concept simulator,
- *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
- */
+const keyframes = `
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseActiveState {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6)); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.9)); }
+}
+@keyframes blinkPrompt {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+`;
+
 const Topic6 = () => {
-  const [activeTab, setActiveTab] = useState("concept");
-  const [filterThreshold, setFilterThreshold] = useState(70000);
-  const sectionRefs = useRef([]);
+  const [gameState, setGameState] = useState("MENU"); // "MENU" | "PLAYING" | "PAUSED" | "GAME_OVER"
+  const [score, setScore] = useState(0);
+  const [lives, setLives] = useState(3);
+  const [ball, setBall] = useState({ x: 160, y: 90, vx: 4, vy: -3 });
 
+  // 60 FPS Ball Physics Loop (Active ONLY during "PLAYING")
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    if (gameState !== "PLAYING") return;
 
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
+    const interval = setInterval(() => {
+      setBall((b) => {
+        let nx = b.x + b.vx;
+        let ny = b.y + b.vy;
+        let nvx = b.vx;
+        let nvy = b.vy;
 
-    return () => observer.disconnect();
-  }, []);
+        if (nx >= 295 || nx <= 25) nvx = -nvx;
+        if (ny <= 25) nvy = -nvy;
+        else if (ny >= 155) {
+          // Lost life
+          setLives((l) => {
+            if (l <= 1) {
+              setGameState("GAME_OVER");
+              return 0;
+            }
+            return l - 1;
+          });
+          nx = 160;
+          ny = 90;
+          nvy = -Math.abs(nvy);
+        }
 
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
+        setScore((s) => s + 1);
+        return { x: nx, y: ny, vx: nvx, vy: nvy };
+      });
+    }, 25);
+
+    return () => clearInterval(interval);
+  }, [gameState]);
+
+  const handleSpaceAction = () => {
+    if (gameState === "MENU" || gameState === "GAME_OVER") {
+      setScore(0);
+      setLives(3);
+      setBall({ x: 160, y: 90, vx: 4, vy: -3 });
+      setGameState("PLAYING");
+    } else if (gameState === "PLAYING") {
+      setGameState("PAUSED");
+    } else if (gameState === "PAUSED") {
+      setGameState("PLAYING");
     }
   };
 
-  const sampleEmployees = [
-    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
-    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
-    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
-    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
+  const prototypes = [
+    {
+      name: "Finite State Machine (FSM)",
+      returnType: "Architectural Pattern",
+      purpose: "Ensures application exists in exactly one mutually exclusive state ('MENU', 'PLAYING', 'PAUSED', 'GAME_OVER').",
+      usage: "game_state['current'] = 'PLAYING'"
+    },
+    {
+      name: "State-Driven Input Router",
+      returnType: "Event Dispatching",
+      purpose: "Routes single physical key (Space) to different callbacks based on active state (Start/Pause/Resume/Restart).",
+      usage: "if state == 'MENU': start()\nelif state == 'PLAYING': pause()"
+    },
+    {
+      name: "Physics Freezing during Pause",
+      returnType: "Kinematic Isolation",
+      purpose: "Bypasses kinematic coordinate updates while keeping the Tkinter redraw loop and UI active.",
+      usage: "if state == 'PLAYING': update_physics()"
+    },
+    {
+      name: "Modal Overlay Rendering",
+      returnType: "UI Compositing",
+      purpose: "Draws semi-transparent dark backdrop box and pause menu text on top of frozen world graphics.",
+      usage: "if is_paused: draw_modal_overlay()"
+    }
   ];
 
-  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
+  const states = [
+    { id: "MENU", name: "1. MENU", desc: "Title Screen & Controls Guide" },
+    { id: "PLAYING", name: "2. PLAYING", desc: "60 FPS Physics & Player Controls" },
+    { id: "PAUSED", name: "3. PAUSED", desc: "Frozen Physics & Modal Overlay" },
+    { id: "GAME_OVER", name: "4. GAME_OVER", desc: "Stats Summary & Restart Prompt" }
+  ];
 
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
+    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <style>{keyframes}</style>
 
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
-        
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>🐍</span>
-            <span>Python Masterclass · Module 006 · Topic 6</span>
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* =========================================================================
+            HERO SECTION
+        ========================================================================= */}
+        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+            Module 005_006 · Event Handling & Interaction · Topic 6
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Managing game and interactive states (active, paused, game-over)
+
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
+            Managing Game & Interactive States: FSM Architecture
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Build real-time interactive graphical software with keyboard bindings, mouse clicks, and drag events.
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Eliminate spaghetti boolean flags. Master <span className="text-cyan-300 font-semibold">Finite State Machines (FSM)</span>, <span className="text-emerald-300 font-semibold">State-Driven Input Routing</span>, <span className="text-amber-300 font-semibold">Modal Pause Overlays</span>, and <span className="text-purple-400 font-semibold">Clean Game Lifecycles</span>.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              ⚡ Pythonic Architecture
+          <div className="flex justify-center gap-4 flex-wrap pt-2">
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🕹️ 4-State Game Lifecycle (Menu, Play, Pause, Over)
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              🧮 Clean Code &amp; Idioms
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              ⚡ State-Driven Input Routing
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 Robust Error Handling
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Scalability
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              ⏸️ Modal Backdrop Pause System
             </span>
           </div>
-        </header>
+        </div>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* =========================================================================
+            INTERACTIVE FSM STATE MACHINE SIMULATOR
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/60 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Managing game and interactive states (active, paused, game-over)
-              </h2>
+              <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                <span>⚡</span> Interactive Finite State Machine Engine
+              </h3>
               <p className="text-xs text-slate-400">
-                Understanding Python mechanics and design patterns from first principles
+                Observe how the same Spacebar trigger dispatches completely different actions across each application state.
+              </p>
+            </div>
+
+            <button
+              onClick={handleSpaceAction}
+              className="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/25 transition cursor-pointer flex items-center gap-2"
+            >
+              <span>⌨️</span> Press Spacebar (Action: {
+                gameState === "MENU" ? "Start Game" :
+                gameState === "PLAYING" ? "Pause Game" :
+                gameState === "PAUSED" ? "Resume Game" : "Restart Game"
+              })
+            </button>
+          </div>
+
+          {/* State Transition Flow Pills */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {states.map((st) => {
+              const isActive = gameState === st.id;
+              return (
+                <button
+                  key={st.id}
+                  onClick={() => setGameState(st.id)}
+                  className={`p-3 rounded-xl border text-left transition cursor-pointer ${
+                    isActive
+                      ? "bg-cyan-500/20 border-cyan-400/80 shadow-md shadow-cyan-500/20 animate-[pulseActiveState_3s_infinite]"
+                      : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className={`font-mono font-bold text-xs ${isActive ? "text-cyan-300" : "text-slate-300"}`}>
+                      {st.name}
+                    </span>
+                    {isActive && <span className="w-2 h-2 rounded-full bg-emerald-400"></span>}
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-1">{st.desc}</div>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            {/* View 1: Real-Time Rendered Viewport SVG */}
+            <div className="flex flex-col items-center p-4 bg-slate-950 rounded-xl border border-slate-800">
+              <span className="text-xs font-mono text-cyan-400 mb-2">
+                Live State Viewport (CURRENT: {gameState})
+              </span>
+              <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-sm h-auto bg-slate-950 rounded-lg border border-slate-800 select-none">
+                {/* Arena Border */}
+                <rect x="15" y="15" width="290" height="150" rx="6" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+
+                {/* 1. MENU STATE */}
+                {gameState === "MENU" && (
+                  <g>
+                    <text x="160" y="70" fill="#38bdf8" fontSize="16" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
+                      CYBER BRICK ARENA
+                    </text>
+                    <text x="160" y="115" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="monospace" className="animate-[blinkPrompt_1.2s_infinite]">
+                      ► PRESS SPACEBAR TO START
+                    </text>
+                  </g>
+                )}
+
+                {/* 2. PLAYING STATE */}
+                {gameState === "PLAYING" && (
+                  <g>
+                    {/* Active Ball */}
+                    <circle cx={ball.x} cy={ball.y} r="8" fill="#fbbf24" stroke="#ffffff" strokeWidth="1.5" />
+                    {/* HUD */}
+                    <text x="25" y="32" fill="#38bdf8" fontSize="8.5" fontWeight="bold" fontFamily="monospace">
+                      SCORE: {score} | LIVES: {"❤️".repeat(lives)}
+                    </text>
+                  </g>
+                )}
+
+                {/* 3. PAUSED STATE */}
+                {gameState === "PAUSED" && (
+                  <g>
+                    {/* Frozen Ball */}
+                    <circle cx={ball.x} cy={ball.y} r="8" fill="#64748b" stroke="#334155" strokeWidth="1.5" />
+                    {/* Modal Overlay Box */}
+                    <rect x="60" y="45" width="200" height="90" rx="8" fill="#020617" stroke="#38bdf8" strokeWidth="2" opacity="0.95" />
+                    <text x="160" y="80" fill="#fbbf24" fontSize="13" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
+                      ⏸ GAME PAUSED
+                    </text>
+                    <text x="160" y="105" fill="#94a3b8" fontSize="8.5" textAnchor="middle" fontFamily="monospace">
+                      Press Spacebar to Resume
+                    </text>
+                  </g>
+                )}
+
+                {/* 4. GAME OVER STATE */}
+                {gameState === "GAME_OVER" && (
+                  <g>
+                    <text x="160" y="65" fill="#f43f5e" fontSize="16" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
+                      💀 GAME OVER
+                    </text>
+                    <text x="160" y="95" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                      FINAL SCORE: {score} PTS
+                    </text>
+                    <text x="160" y="125" fill="#34d399" fontSize="9.5" fontWeight="bold" textAnchor="middle" fontFamily="monospace" className="animate-[blinkPrompt_1.2s_infinite]">
+                      ► PRESS SPACEBAR TO RESTART
+                    </text>
+                  </g>
+                )}
+              </svg>
+            </div>
+
+            {/* View 2: FSM Architecture & Code */}
+            <div className="space-y-4 bg-gray-900 p-5 rounded-xl border border-slate-800 text-xs">
+              <div className="text-sm font-bold text-cyan-400 flex justify-between items-center">
+                <span>FSM State Machine Architecture</span>
+                <span className="font-mono text-xs text-emerald-300 font-bold">Mutual Exclusivity</span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                  <div className="text-slate-400 text-[11px]">Active State</div>
+                  <div className="text-base font-mono font-bold text-cyan-400">"{gameState}"</div>
+                  <div className="text-[10px] text-slate-500">Mutually exclusive enum</div>
+                </div>
+
+                <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                  <div className="text-slate-400 text-[11px]">Physics Dispatch</div>
+                  <div className="text-base font-mono font-bold text-emerald-400">
+                    {gameState === "PLAYING" ? "60 FPS ACTIVE" : "KINEMATICS FROZEN"}
+                  </div>
+                  <div className="text-[10px] text-slate-500">Zero delta during pause</div>
+                </div>
+              </div>
+
+              {/* Code Snippet Box */}
+              <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 space-y-1">
+                <span className="text-[10px] text-slate-500 font-mono uppercase tracking-wider block">
+                  # State-Driven Input Routing Blueprint
+                </span>
+                <pre className="font-mono text-emerald-300 text-xs overflow-x-auto">
+{`def handle_space():
+    if state == "MENU": start_game()
+    elif state == "PLAYING": state = "PAUSED"
+    elif state == "PAUSED": state = "PLAYING"
+    elif state == "GAME_OVER": reset_game()`}
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PROTOTYPES SPECIFICATION TABLE
+        ========================================================================= */}
+        <div className="bg-gray-800/60 rounded-2xl p-6 border border-slate-800 animate-[fadeInUp_0.6s_ease-out_0.2s]">
+          <h2 className="text-xl font-bold text-cyan-400 mb-4 flex items-center gap-2">
+            <span>⚙️</span> FSM State Machine Core APIs
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-gray-700 text-gray-400 text-xs uppercase tracking-wider">
+                  <th className="py-3 px-4">Pattern / Function</th>
+                  <th className="py-3 px-4">Subsystem</th>
+                  <th className="py-3 px-4">State Lifecycle Role</th>
+                  <th className="py-3 px-4">Standard Syntax</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800 text-gray-200">
+                {prototypes.map((proto, index) => (
+                  <tr key={index} className="hover:bg-gray-800/40 transition">
+                    <td className="py-3.5 px-4 font-mono text-cyan-300 font-bold text-xs">{proto.name}</td>
+                    <td className="py-3.5 px-4 font-mono text-indigo-400 text-xs">{proto.returnType}</td>
+                    <td className="py-3.5 px-4 text-xs text-gray-300">{proto.purpose}</td>
+                    <td className="py-3.5 px-4 font-mono text-amber-300 text-xs">{proto.usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PYTHON CODE IMPLEMENTATION SCRIPTS
+        ========================================================================= */}
+        <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.3s]">
+          <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
+            <span>💻</span> Professional Python Implementation Scripts
+          </h2>
+
+          <div className="space-y-6">
+            {/* File 1: finite_state_machine_game_engine.py */}
+            <PythonFileLoader
+              fileModule={fsmEngineCode}
+              title="finite_state_machine_game_engine.py"
+              highlightLines={[19, 27, 34, 41, 57, 68, 93, 107]}
+            />
+
+            {/* File 2: state_driven_input_router.py */}
+            <PythonFileLoader
+              fileModule={inputRouterCode}
+              title="state_driven_input_router.py"
+              highlightLines={[20, 21, 22, 23, 24, 25, 41]}
+            />
+
+            {/* File 3: modal_pause_overlay_system.py */}
+            <PythonFileLoader
+              fileModule={modalPauseCode}
+              title="modal_pause_overlay_system.py"
+              highlightLines={[21, 33, 44, 45, 46, 50]}
+            />
+          </div>
+        </div>
+
+        {/* =========================================================================
+            REAL-WORLD CLASSROOM SCENARIOS
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.4s]">
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-cyan-400 text-lg flex items-center gap-2">
+              <span>🕹️</span> Barrackpore Retro Brick Breaker
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Mamata created a brick breaker game in Barrackpore. When she initially managed game modes with 4 independent booleans, players could pause the game while dying, causing balls to clone in memory. Teacher Sukanta Hui helped her refactor to an FSM with a single <code className="text-cyan-300 font-mono">current_state</code> variable. Her game became bulletproof!
+            </p>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-emerald-400 text-lg flex items-center gap-2">
+              <span>⏸️</span> Kolkata Space Defense Modal Pause
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Debangshu in Kolkata constructed an arcade space defender. By freezing particle physics and drawing a semi-transparent modal pause dialog on Escape keypress, players could answer phone calls or adjust volume sliders mid-battle without losing progress!
+            </p>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            COMMON BEGINNER TRAPS & PITFALLS
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
+          <h3 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+            <span>⚠️</span> Top 4 FSM Game State Traps to Avoid
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">1. Using Multiple Independent Booleans</strong>
+              <p className="text-slate-400">
+                Having <code className="text-rose-300 font-mono">is_paused = True</code> and <code className="text-rose-300 font-mono">is_game_over = True</code> simultaneously creates contradictory race conditions. Always use a single mutually exclusive state string or enum.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">2. Physics Leaking During Pause</strong>
+              <p className="text-slate-400">
+                Failing to wrap kinematic updates in <code className="text-cyan-300 font-mono">if state == "PLAYING":</code> allows enemies and bullets to keep moving while the pause menu is displayed.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">3. Partial Game Restarts</strong>
+              <p className="text-slate-400">
+                Resetting player position without clearing active enemy bullets leaves lingering hazards that kill the player immediately upon restarting. Always reset all entity arrays.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">4. Input Bleed Across State Transitions</strong>
+              <p className="text-slate-400">
+                A jump key pressed in the menu triggers immediately in the first frame of gameplay. Always clear the <code className="text-cyan-300 font-mono">keys_pressed</code> dictionary upon state transitions.
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Architectural Insight
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern software engineering, <strong className="text-teal-300">Managing game and interactive states (active, paused, game-over)</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Readable Syntax · Deterministic Execution · Fast Prototyping
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
-                </p>
+        {/* =========================================================================
+            STUDENT CHECKLIST
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-cyan-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
+          <h3 className="text-xl font-semibold text-cyan-400 mb-3">📝 Student Mastery Checklist</h3>
+          <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
+            {[
+              "I organize game lifecycles into a single mutually exclusive `current_state` variable",
+              "I route inputs dynamically based on active state using state-driven input routing",
+              "I freeze physics updates during `PAUSED` while keeping the render loop alive",
+              "I implement modal pause backdrop overlays with resume and quit options",
+              "I implement clean game resets that re-initialize score, health, and entity arrays",
+              "I know how to transition between Menu, Playing, Paused, and Game Over states"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-gray-900/60 border border-slate-800">
+                <span className="text-cyan-400 font-bold shrink-0">✓</span>
+                <span>{item}</span>
               </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated logistics dispatch office in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Managing game and interactive states (active, paused, game-over)
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
-                <button
-                  onClick={() => setActiveTab("concept")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                >
-                  Structured View
-                </button>
-                <button
-                  onClick={() => setActiveTab("json")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                >
-                  Raw Dictionary JSON
-                </button>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Filter Minimum Salary (₹):
-                </label>
-                <select
-                  value={filterThreshold}
-                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
-                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
-                >
-                  <option value={60000}>₹60,000+ (All 4 Records)</option>
-                  <option value={75000}>₹75,000+ (3 Records)</option>
-                  <option value={85000}>₹85,000+ (2 Records)</option>
-                  <option value={90000}>₹90,000+ (Top Earner)</option>
-                </select>
-              </div>
-            </div>
-
-            {activeTab === "concept" ? (
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
-                <table className="w-full text-left text-xs font-mono">
-                  <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="pb-2">ID</th>
-                      <th className="pb-2">Employee</th>
-                      <th className="pb-2">Location</th>
-                      <th className="pb-2">Salary</th>
-                      <th className="pb-2">Performance</th>
-                      <th className="pb-2">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
-                    {filteredList.map((emp) => (
-                      <tr key={emp.id} className="hover:bg-slate-900/40">
-                        <td className="py-2.5 text-slate-500">{emp.id}</td>
-                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
-                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
-                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
-                        <td className="py-2.5">
-                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
-                            ⭐ {emp.score}
-                          </span>
-                        </td>
-                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
-                  {JSON.stringify(filteredList, null, 2)}
-                </pre>
-              </div>
-            )}
+        {/* =========================================================================
+            HINTS & EXPERT MINDSET
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
+          <div className="bg-cyan-900/20 rounded-2xl p-5 border border-cyan-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-cyan-300">💡 Hints to Explore</h3>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Think about:</strong> How commercial games like Mario, Tetris, and Halo organize menus, active gameplay, pause screens, and leaderboards using Finite State Machines!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Observe:</strong> How clicking the state pills or pressing Spacebar transitions the engine cleanly from Menu to Playing, Paused, and Game Over!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Try changing:</strong> Add a high-score persistence check that saves the player's personal best to disk when transitioning to GAME_OVER!
+            </p>
           </div>
-        </section>
 
-        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE ENTERPRISE
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Automated Financial Auditing
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR ROBOTICS
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Millisecond Telemetry Ingestion
-              </div>
-            </div>
+          <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-indigo-300">🚀 Expert Mindset</h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Finite State Machines are the bedrock of reliable, professional software architecture. By creating clear boundaries between application modes, you turn complex multi-screen software into a manageable, bug-free system that can scale effortlessly with dozens of new levels, bonus modes, and cutscenes.
+            </p>
           </div>
-        </section>
+        </div>
 
-        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
-                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
-                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
-              </div>
-            </div>
+        {/* =========================================================================
+            FAQS TEMPLATE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
+          <FAQTemplate title="Game State Management & FSM FAQs" questions={questions} />
+        </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
-                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
-                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Managing game and interactive states (active, paused, game-over) FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            PLAIN TEXT PRINT & DOWNLOAD NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
           <PlainTextPrint
             content={noteText}
-            title="Managing game and interactive states (active, paused, game-over)"
+            title="Topic 6: Game State Management Study Note"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Note"
+            downloadButtonText="Download Study Note"
             downloadFileName="topic6_note.txt"
           />
-        </section>
+        </div>
 
-        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            TEACHER'S NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note={
-              "In software development, simplicity is the ultimate sophistication. " +
-              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
-            }
+            note="At Coder & AccoTax in Barrackpore and Kolkata, I always tell students: beginner programmers write code that works when everything goes right; professional software engineers design state machines that work when things pause, reset, or go wrong. Master the FSM, and your games will feel polished, rock-solid, and commercial grade!"
           />
-        </section>
+        </div>
 
-        {/* ─── 9. Footer ──────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 6 · Managing game and interactive states (active, paused, game-over) · Python Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
       </div>
-    </>
+    </div>
   );
 };
 

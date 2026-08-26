@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 17: Best Practices for Clean, Maintainable Conditional Logic
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The Pyramid of Doom (Arrow Anti-Pattern):
+  * Deep nesting of if-else blocks causes high cognitive complexity and bugs.
+  * Remedy: Flatten hierarchies using Guard Clauses (Early Returns / Bouncer Pattern).
+
+- The 5 Golden Rules of Clean Conditional Logic:
+  1. GUARD CLAUSES: Check failure preconditions at the top and exit early.
+     Keep the "Happy Path" left-aligned and unnested!
+  2. EXPLANATORY HELPERS: Extract composite conditions into descriptive methods:
+     if (isEligibleForHonorsScholarship(student)) { ... }
+  3. SWITCH EXPRESSIONS: Use modern Java 14+ switch expressions for multi-way
+     discrete value mapping.
+  4. TERNARY DISCIPLINE: Use ternary strictly for simple, concise 2-way assignments.
+     NEVER nest ternary operators!
+  5. POLYMORPHISM OVER CONDITIONALS: Replace huge branching structures (>5 branches)
+     with Strategy, State, or Map lookups.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Keep nesting depth strictly <= 2 levels.
+[✓] Put failure/precondition checks at the top of the method.
+[✓] Avoid side-effects (++count, assignments) inside if conditions.
+[✓] Phrasing: Prefer positive variable names (isEnrolled vs isNotEnrolled).
+================================================================================

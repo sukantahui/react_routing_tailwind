@@ -1,0 +1,51 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 11: Character Representation: char Data Type, ASCII Values & Unicode (\uXXXX)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Character Data Type Specifications:
+  * Size & Bit Width : 16 bits (2 bytes)
+  * Classification   : Unsigned Integral Type
+  * Numeric Range    : 0 to 65,535 ('\u0000' to '\uffff')
+  * Encoding Standard: UTF-16 Code Units (Basic Multilingual Plane - BMP)
+
+- ASCII Anchor Points:
+  * '0' to '9' : ASCII 48 to 57
+  * 'A' to 'Z' : ASCII 65 to 90
+  * 'a' to 'z' : ASCII 97 to 122
+  * Case Offset: 'a' - 'A' == 32 (Add 32 to lowercase, subtract 32 to uppercase)
+
+- Arithmetic & Type Promotion:
+  * Math on char ('A' + 1) promotes to 'int' (result: 66).
+  * Explicit cast needed: (char)('A' + 1) --> 'B'.
+  * Increment (c++) performs implicit narrowing cast.
+  * Digit to integer conversion: int digit = ch - '0'; ('7' - '0' = 7).
+
+- Unicode Escape Sequences (\uXXXX):
+  * Exactly 4 hexadecimal digits: '\uXXXX'
+  * Indian Rupee (₹)     : '\u20B9'
+  * Copyright (©)        : '\u00A9'
+  * Bengali Ka (ক)       : '\u0995'
+  * Bengali Ba (ব)       : '\u09AC'
+  * Bengali Ra (র)       : '\u09B0'
+
+- Supplementary Characters (Emojis & Rare Glyphs > U+FFFF):
+  * Stored as Surrogate Pairs (High Surrogate + Low Surrogate = 2 chars).
+  * Use str.codePointCount(0, str.length()) for real glyph count.
+
+- Password Security Best Practice:
+  * Store passwords in char[] instead of String so memory can be zeroed out
+    immediately via Arrays.fill(pwd, '\u0000').
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Remember that 'char' is 16-bit unsigned (0..65535), not 8-bit.
+[✓] Memorize ASCII anchors: '0'=48, 'A'=65, 'a'=97.
+[✓] Remember that math on chars produces 'int'.
+[✓] Use Unicode escape \u20B9 for Indian Rupee symbol (₹).
+[✓] Store passwords in mutable char[] for security compliance.
+================================================================================

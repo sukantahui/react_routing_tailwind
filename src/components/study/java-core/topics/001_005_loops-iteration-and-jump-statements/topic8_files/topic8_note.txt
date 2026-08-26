@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 8: Infinite Loops: Legitimate Patterns & Accidental Causes
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Canonical Syntax Forms:
+  1. while (true) { ... }  // Universal Java idiom
+  2. for (;;) { ... }      // Compact for-loop idiom
+  3. do { ... } while (true);
+
+- Legitimate Production Use Cases:
+  * Server Socket Listeners (accepting network connections).
+  * GUI Event Dispatch Threads & Game Engine Render Loops.
+  * Background Worker Daemons (consuming blocking queues).
+  * Multi-Exit Algorithms (exiting via internal 'break' or 'return').
+
+- Accidental Causes & Hazards (Bugs):
+  1. Missing Counter Update : while (i < 5) without i++!
+  2. Step Direction Error   : for (int i = 0; i < 10; i--) -> diverges!
+  3. Semicolon Trap         : while (i < 5); -> infinite empty loop!
+  4. Numeric Overflow       : for (byte b = 0; b <= 127; b++) -> b wraps to -128!
+  5. Floating-Point Error   : while (d != 1.0) d += 0.1 -> precision error misses 1.0!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always provide an explicit 'break', 'return', or shutdown condition in infinite loops.
+[✓] In background daemons, prevent 100% CPU burn by sleeping or blocking on queues.
+[✓] Remember: Statements after 'while (true)' without break cause compile errors!
+[✓] Add a safety iteration ceiling during complex algorithmic debugging.
+================================================================================

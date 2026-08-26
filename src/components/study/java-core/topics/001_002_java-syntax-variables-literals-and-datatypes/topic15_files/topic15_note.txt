@@ -1,0 +1,48 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 15: Interactive Console Input Using java.util.Scanner
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Definition & Setup:
+  * Package  : java.util.Scanner
+  * Creation : Scanner scanner = new Scanner(System.in);
+  * Purpose  : Token-based parsing of primitive types & strings from input streams.
+
+- Standard Tokenization Model:
+  * Default Delimiter: Whitespace (spaces, tabs, newlines -> matching \\s+).
+  * scanner.next()        : Reads next whitespace-delimited word.
+  * scanner.nextInt()     : Reads and parses next 32-bit integer.
+  * scanner.nextDouble()  : Reads and parses floating-point double.
+  * scanner.nextBoolean() : Reads case-insensitive 'true' / 'false'.
+  * scanner.nextLine()    : Reads all characters until the next newline.
+
+- Reading Single Characters (char):
+  * Scanner has no nextChar() method!
+  * Standard idiom: char ch = scanner.next().charAt(0);
+
+- Defensive Input Validation:
+  * hasNextInt()     : Returns true if next token is a valid integer.
+  * hasNextDouble()  : Returns true if next token is a valid double.
+  * hasNextBoolean() : Returns true if next token is a boolean.
+  * Always use hasNextXxx() guards to prevent InputMismatchException!
+
+- Custom Delimiters (CSV / Data Streams):
+  * scanner.useDelimiter(","); // Splits tokens by comma
+  * scanner.useLocale(Locale.US); // Guarantees dot '.' decimal parsing
+
+- Closing Scanner Resources:
+  * Do NOT close Scanner(System.in) prematurely if additional input is needed,
+    because closing the scanner closes System.in globally for the entire JVM!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Import java.util.Scanner at the top of your Java file.
+[✓] Use next().charAt(0) to read a single char input.
+[✓] Use hasNextInt() / hasNextDouble() defensively before reading numbers.
+[✓] Set Locale.US if parsing international floating-point values.
+[✓] Use try-with-resources when creating Scanners over Files or custom Streams.
+================================================================================

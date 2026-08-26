@@ -1,0 +1,36 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 7: The 'break' Statement & Intentional vs Accidental Fall-Through
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The 'break;' Statement (JLS §14.15):
+  * Terminates execution of the switch block immediately.
+  * Jumps past the closing curly brace '}'.
+
+- The Fall-Through Mechanism:
+  * In traditional switch, omitting 'break;' causes execution to CONTINUE
+    into the next case block automatically!
+  * ACCIDENTAL Fall-Through: Forgetting 'break;' leads to critical logic defects.
+  * INTENTIONAL Fall-Through: Deliberately omitting 'break;' for:
+    1. Multi-Case Grouping (e.g. case "SATURDAY": case "SUNDAY": ...)
+    2. Cumulative Tier Cascading (Level 3 inherits Level 2 + Level 1 perks).
+
+- Crucial Scope Nuance:
+  * Adding curly braces '{ ... }' inside a case isolates local variable scope,
+    but DOES NOT stop execution fall-through! 'break;' is still required!
+
+- Java 14+ Solution:
+  * Modern Switch Expressions with Arrow Syntax (case X -> Y) completely
+    eliminate accidental fall-through!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Put 'break;' at the end of every non-stacked case block.
+[✓] Add '// Fall-through intended' comment when intentionally cascading.
+[✓] Use Labeled Break (break LOOP_LABEL;) to exit enclosing loops from a switch.
+[✓] Prefer Java 14+ modern switch expressions for clean, fall-through-free code.
+================================================================================

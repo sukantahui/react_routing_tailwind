@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 2: Runtime Polymorphism (Method Overriding)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RUNTIME POLYMORPHISM MECHANICS:
+   - Occurs when a subclass overrides a parent method.
+   - Superclass reference points to Subclass object ('Parent p = new Child()').
+   - Method executed is determined at RUNTIME based on the Heap object.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

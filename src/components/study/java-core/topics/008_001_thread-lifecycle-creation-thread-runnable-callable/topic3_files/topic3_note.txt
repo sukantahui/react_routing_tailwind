@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 3: Thread Lifecycle Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 6 THREAD STATES:
+   - NEW: instantiated, not started.
+   - RUNNABLE: running or ready to run on CPU.
+   - BLOCKED: waiting for 'synchronized' monitor lock.
+   - WAITING: waiting indefinitely ('wait()', 'join()').
+   - TIMED_WAITING: waiting for duration ('sleep()', 'wait(t)').
+   - TERMINATED: dead/finished.
+   - Query state: 'thread.getState()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

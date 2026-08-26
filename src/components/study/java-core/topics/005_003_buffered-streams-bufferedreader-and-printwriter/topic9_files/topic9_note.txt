@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_003: Buffered Streams & PrintWriter
+Topic 9: BufferedReader vs Scanner Benchmark
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PERFORMANCE COMPARISON:
+   - 'BufferedReader': 8KB buffer, pure char search, ~10x faster, thread-safe.
+   - 'Scanner': 1KB buffer, regex pattern engine, parses primitives, slower.
+   - Rule of Thumb: Use Scanner for small user console inputs; use BufferedReader for files and big data.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

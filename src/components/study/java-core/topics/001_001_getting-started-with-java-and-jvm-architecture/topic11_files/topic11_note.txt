@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 11: Dissecting 'public static void main(String[] args)' Word by Word
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. WORD-BY-WORD ARCHITECTURAL BREAKDOWN
+--------------------------------------------------------------------------------
+- `public`:
+  Access modifier. Must be `public` so the external JVM runtime environment (located outside the class and package) can invoke the entry point.
+
+- `static`:
+  Class-level modifier. Allows the JVM to invoke `main()` directly using the class name (`ClassName.main()`) WITHOUT allocating heap memory for an object instance via `new ClassName()`.
+
+- `void`:
+  Return type. The method does not return a value. Process termination codes (0 for success, non-zero for error) are communicated via `System.exit(status)`.
+
+- `main`:
+  The standardized method identifier searched by the JVM Execution Engine launcher.
+
+- `String[] args` (or `String... args` / `String args[]`):
+  Array of strings representing command-line arguments passed to the program when launched from terminal (e.g. `java App arg1 arg2`).
+
+2. VALID SYNTACTICAL VARIATIONS OF THE MAIN METHOD
+--------------------------------------------------------------------------------
+All of the following signatures are 100% valid entry points recognized by the JVM:
+1. `public static void main(String[] args)` (Standard)
+2. `static public void main(String[] args)` (Modifier order swapped)
+3. `public static void main(String... args)` (Varargs syntax)
+4. `public static void main(String args[])` (C-style array syntax)
+5. `public static final synchronized void main(String[] args)` (With additional legal modifiers)
+
+3. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Omitting `static` causes `NoSuchMethodError: main is not static`.
+[✓] Changing return type to `int` is rejected as a valid main entry point.
+[✓] `String[] args` is never null; if no arguments are passed, `args.length` is 0.
+================================================================================

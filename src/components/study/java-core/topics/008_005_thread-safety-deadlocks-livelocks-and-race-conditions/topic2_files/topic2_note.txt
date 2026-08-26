@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 2: What is a Deadlock
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS DEADLOCK:
+   - Circular dependency where 2+ threads wait forever on locks held by each other.
+   - Deadlocked threads enter 'BLOCKED' state.
+   - CPU usage drops to 0%, but application freezes completely.
+   - JVM cannot resolve deadlocks automatically; process must be diagnosed or restarted.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

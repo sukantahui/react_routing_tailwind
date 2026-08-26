@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 3: LocalDate Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOCALDATE ESSENTIALS:
+   - Creation: 'LocalDate.now()', 'LocalDate.of(year, month, day)'.
+   - Inspection: 'getYear()', 'getMonth()', 'getDayOfMonth()', 'getDayOfWeek()'.
+   - Utility: 'isLeapYear()', 'lengthOfMonth()', 'lengthOfYear()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

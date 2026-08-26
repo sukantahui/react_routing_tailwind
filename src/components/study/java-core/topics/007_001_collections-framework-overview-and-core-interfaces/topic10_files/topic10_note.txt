@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 10: Immutable Collection Factories
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAVA 9+ FACTORIES:
+   - 'List.of()', 'Set.of()', 'Map.of()', 'Map.ofEntries()'.
+   - Structurally immutable (throws UnsupportedOperationException).
+   - Null-hostile: throws NullPointerException on nulls.
+   - High memory efficiency (no array buffers or wrappers).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

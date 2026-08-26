@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 0: Why Packages Are Required
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PACKAGES ADVANTAGES:
+   - Namespace management (no class name clashes).
+   - Access control boundary (package-private).
+   - Clean architectural structuring (layers: models, repositories, services).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

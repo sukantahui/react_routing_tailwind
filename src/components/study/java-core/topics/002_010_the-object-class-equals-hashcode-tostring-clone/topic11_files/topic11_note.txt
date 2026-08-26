@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 11: java.util.Objects Helpers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. java.util.Objects HELPERS:
+   - 'Objects.equals(a, b)': (a == b) || (a != null && a.equals(b)).
+   - 'Objects.hash(varargs...)': Generates Arrays.hashCode(new Object[]{...}).
+   - 'Objects.requireNonNull(obj, "msg")': Fast fail-fast null validator.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

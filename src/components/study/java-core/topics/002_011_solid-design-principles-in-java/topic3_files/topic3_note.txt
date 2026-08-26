@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 3: Open/Closed Principle (OCP)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OCP RULE (Bertrand Meyer & Uncle Bob):
+   - 'Open for extension, closed for modification.'
+   - Replace brittle 'if-else' / 'switch' chains with polymorphic interface strategies.
+   - New features = New classes added to classpath without editing existing code.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

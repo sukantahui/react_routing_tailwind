@@ -1,0 +1,36 @@
+================================================================================
+DETAILED STUDY MATERIAL: KEY FEATURES & ARCHITECTURAL BUZZWORDS OF JAVA
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 2
+================================================================================
+
+1. INTRODUCTION
+In the seminal Sun Microsystems white paper titled "The Java Language Environment" by James Gosling and Henry McGilton, the authors outlined 11 key design goals that set Java apart from C, C++, and Pascal.
+
+2. DETAILED ANALYSIS OF THE KEY FEATURES
+
+A. Simple
+Java adopted familiar C++ syntax but deliberately discarded the most dangerous and confusing C++ features:
+- Explicit pointer arithmetic and direct memory manipulation.
+- Header files and `#include` preprocessor directives.
+- Operator overloading (preventing obfuscated code).
+- Multiple inheritance of classes (preventing the Dreaded Diamond of Death).
+
+B. Object-Oriented
+Unlike procedural languages (C) where functions operate on external data structures, Java models software as interacting objects encapsulating both state (fields) and behavior (methods).
+
+C. Robust
+Java enforces reliability through:
+- Strict static typing: Type mismatches are caught at compile time.
+- Automated Garbage Collection: Eliminating manual memory management bugs (malloc/free errors).
+- Structured Exception Handling: Forcing developers to handle exceptional edge conditions cleanly.
+- Array Bounds Checking: Automatically throwing ArrayIndexOutOfBoundsException instead of corrupting neighboring memory.
+
+D. Secure
+Java provides multiple defense-in-depth layers:
+- Absence of memory pointers prevents buffer overflow exploits.
+- Bytecode Verifier verifies bytecode integrity before execution.
+- SecurityManager & Cryptography APIs enforce granular runtime access controls.
+
+E. Multi-Threaded
+Java was designed from ground up with native multi-threading support (`java.lang.Thread`, `synchronized`, `java.util.concurrent`), enabling smooth concurrent execution on multi-core CPUs.

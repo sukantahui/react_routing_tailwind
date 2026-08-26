@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 10: Enterprise Custom Exceptions Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 004_003 SUMMARY:
+   - 'throw' actively raises an exception object.
+   - 'throws' declares checked exceptions in method signatures.
+   - Method overriding rule: Child cannot throw broader checked exceptions.
+   - Favor reusing standard exceptions (IllegalArgumentException, etc.).
+   - Create custom Unchecked (extends RuntimeException) or Checked (extends Exception).
+   - Add domain metadata (errorCode, IDs) and implement all 4 constructors.
+   - Maps cleanly to HTTP REST status codes in enterprise systems.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

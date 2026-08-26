@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_006: Exception Handling Real-World Lab
+Topic 5: Exception Handling MCQ Exam
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE EXAM HIGHLIGHTS:
+   - System.exit(0) bypasses finally.
+   - Catch order: Subclass before Superclass.
+   - Multi-catch parameter is implicitly final.
+   - ARM calls close() in reverse order of declaration.
+   - Never return inside finally (swallows exceptions).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

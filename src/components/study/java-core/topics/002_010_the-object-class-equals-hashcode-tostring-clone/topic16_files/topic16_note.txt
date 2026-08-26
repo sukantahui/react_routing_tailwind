@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 16: The getClass() Method
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. getClass() POWERS:
+   - 'public final Class<?> getClass()'
+   - Returns immutable Class<?> instance loaded by JVM ClassLoader.
+   - Used for reflection, exact type equality checking, and annotations inspection.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 2: Array Declaration Styles (int[] arr vs int arr[])
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Preferred Java Convention (Type-Bound Brackets):
+  * Syntax: int[] arr;
+  * Brackets modify the TYPE: "arr is of type Array-of-Ints".
+  * Multi-variable: int[] a, b; -> BOTH 'a' and 'b' are int[] arrays!
+
+- Legacy C-Style Syntax (Identifier-Bound Brackets):
+  * Syntax: int arr[];
+  * Brackets modify the IDENTIFIER, not the type.
+  * Multi-variable Trap: int a[], b; -> 'a' is an int[], but 'b' is a regular scalar int!
+
+- Multidimensional Rules:
+  * int[][] a, b;    -> Both 'a' and 'b' are 2D arrays (int[][]).
+  * int[] a, b[];    -> 'a' is 1D (int[]), 'b' is 2D (int[][])!
+  * Dimension size is NEVER allowed in declaration (int[5] arr is a COMPILE ERROR!).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always place brackets on the type: String[] args (Google Java Style Guide).
+[✓] Never specify array size in declaration (only in instantiation: new int[5]).
+[✓] With 'var', array initializer literals must be typed: var a = new int[]{1, 2}.
+[✓] Declare one variable per line for maximum clarity and zero ambiguity.
+================================================================================

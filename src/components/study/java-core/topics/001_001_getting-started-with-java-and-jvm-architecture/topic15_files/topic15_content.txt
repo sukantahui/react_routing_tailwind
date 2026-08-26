@@ -1,0 +1,32 @@
+================================================================================
+DETAILED STUDY MATERIAL: COMMON BEGINNER COMPILATION ERRORS & SOLUTIONS
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 15
+================================================================================
+
+1. UNDERSTANDING COMPILATION ERRORS
+Compilation errors are generated during `javac` execution before any bytecode is created. They indicate violations of Java Language Specification syntax, grammar, type safety, or definite assignment rules.
+
+2. COMPREHENSIVE ERROR DIAGNOSTIC CATALOG
+
+A. 'cannot find symbol'
+- Occurs during Semantic Analysis (Enter & Attr phases).
+- Symbol: variable, method, or class.
+- Diagnosis checklist:
+  * Is the variable declared in the current scope?
+  * Is the class imported? (e.g. `import java.util.Scanner;`)
+  * Did you capitalize correctly? (`System` vs `system`, `String` vs `string`)
+  * Is the method signature spelled properly? (`println` vs `printline`)
+
+B. 'incompatible types'
+- Occurs during Type Checking.
+- Java enforces static strong typing: you cannot assign `String` to `int` or `double` to `float` without an explicit cast.
+
+C. 'non-static variable cannot be referenced from a static context'
+- Static methods belong to the class and execute without an object instance.
+- Instance variables belong to a specific object on the Heap.
+- To access instance members from `main()`, you must create an instance: `new App().myInstanceMethod();`.
+
+D. 'variable might not have been initialized'
+- Enforces Definite Assignment.
+- If `int x; if (condition) x = 10; System.out.println(x);` is written, the compiler detects that if `condition` is false, `x` will contain uninitialized garbage memory, rejecting the code.

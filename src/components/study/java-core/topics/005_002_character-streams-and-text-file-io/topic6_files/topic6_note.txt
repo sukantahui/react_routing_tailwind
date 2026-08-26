@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 6: Default Charset Dilemma (JEP 400)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JEP 400 (JAVA 18+):
+   - Pre-Java 18: OS-dependent charset (windows-1252 vs UTF-8).
+   - Java 18+: Universal UTF-8 default across all OS platforms.
+   - Best Practice: Explicitly pass 'StandardCharsets.UTF_8' in all I/O calls.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

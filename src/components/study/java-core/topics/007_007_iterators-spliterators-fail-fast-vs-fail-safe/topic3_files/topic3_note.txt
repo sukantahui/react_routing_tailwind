@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 3: ConcurrentModificationException Hazard
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CME HAZARD:
+   - For-each loop compiles to Iterator 'it = list.iterator()'.
+   - 'list.add()' or 'list.remove()' increments 'modCount'.
+   - Next call to 'it.next()' detects 'modCount != expectedModCount'.
+   - Throws 'ConcurrentModificationException' immediately (Fail-Fast).
+   - Solution: Use 'iterator.remove()' or 'list.removeIf()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

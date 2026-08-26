@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 8: Custom ThreadPoolExecutor
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THREADPOOLEXECUTOR 7 PARAMETERS:
+   - 1. corePoolSize, 2. maxPoolSize, 3. keepAliveTime, 4. unit.
+   - 5. workQueue (Bounded ArrayBlockingQueue recommended).
+   - 6. threadFactory (Give threads custom names).
+   - 7. RejectedExecutionHandler:
+     * AbortPolicy: Throws exception.
+     * CallerRunsPolicy: Caller executes task (Backpressure).
+     * DiscardPolicy: Drops task silently.
+     * DiscardOldestPolicy: Evicts oldest queued task.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

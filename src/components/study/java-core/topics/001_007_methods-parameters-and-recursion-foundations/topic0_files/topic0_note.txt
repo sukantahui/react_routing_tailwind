@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 0: What is a Method & Why Modularization is Critical
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is a Method? (JLS §8.4):
+  * A named block of code statements that executes a specific task.
+  * The fundamental unit of modularity, abstraction, and reuse in Java.
+
+- The 5 Pillars of Modularization:
+  1. DRY (Don't Repeat Yourself) : Eliminate duplicate logic across classes.
+  2. Single Responsibility (SRP) : Each method does ONE thing and does it well.
+  3. Maintainability              : Fix bugs in 1 isolated method without side-effects.
+  4. Testability (JUnit)         : Test input/output behavior independently.
+  5. Abstraction                 : Callers know WHAT it does, not HOW it does it.
+
+- Layered Architecture:
+  * Worker Methods       : Perform focused computations (calculateGross, calculateGst).
+  * Presentation Methods : Format outputs cleanly (printStudentInvoice).
+  * Coordinator Methods  : Sequence steps in business workflows (processEnrollment).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Keep methods small and focused (ideally 5 to 20 lines).
+[✓] Use guard clauses at method start to validate input parameters early.
+[✓] Avoid mutating global variables directly; prefer pure deterministic methods.
+[✓] HotSpot JIT compiler inlines small methods at runtime with zero overhead!
+================================================================================

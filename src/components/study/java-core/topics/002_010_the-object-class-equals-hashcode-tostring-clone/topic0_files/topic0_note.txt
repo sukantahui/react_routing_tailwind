@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 0: java.lang.Object Cosmic Root
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COSMIC ROOT ESSENTIALS:
+   - Root of all reference types in Java.
+   - Automatically extended if no 'extends' keyword is written.
+   - Supplies 11 universal methods to all objects.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

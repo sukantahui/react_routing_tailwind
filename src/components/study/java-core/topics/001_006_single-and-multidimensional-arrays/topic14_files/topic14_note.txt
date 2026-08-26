@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 14: Two-Dimensional (2D) Arrays & Matrix Visualization
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Array of Arrays Representation (JLS §10.1):
+  * Java 2D arrays are NOT flat contiguous memory blocks.
+  * An outer 1D array holds reference pointers to independent 1D array objects.
+  * Rows can be instantiated independently or have varying lengths (ragged arrays).
+
+- Dimensions & Boundaries:
+  * matrix.length       -> Number of ROWS.
+  * matrix[r].length    -> Number of COLUMNS in specific row 'r'.
+  * Element access      -> matrix[r][c] (0 <= r < rows, 0 <= c < cols).
+
+- Matrix Row-Major Traversal:
+  for (int r = 0; r < matrix.length; r++) {
+      for (int c = 0; c < matrix[r].length; c++) {
+          process(matrix[r][c]);
+      }
+  }
+
+- Utilities:
+  * Arrays.deepToString(matrix) -> Recursively prints multidimensional arrays.
+  * Arrays.deepEquals(m1, m2)   -> Deep recursive value equality comparison.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] First dimension is mandatory: 'new int[3][]' is legal; 'new int[][3]' is a COMPILE ERROR.
+[✓] Swap two entire rows in O(1) time by swapping their 1D reference pointers.
+[✓] In NxN square matrices, main diagonal is matrix[i][i]; anti-diagonal is matrix[i][n-1-i].
+[✓] Use nested for-each loops for clean read-only matrix traversals.
+================================================================================

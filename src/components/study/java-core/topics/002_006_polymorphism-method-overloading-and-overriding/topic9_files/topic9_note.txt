@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 9: Dynamic Method Dispatch (DMD)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DYNAMIC METHOD DISPATCH (DMD):
+   - Mechanism by which a call to an overridden method is resolved at RUNTIME.
+   - Powered by 'invokevirtual' opcode and the Virtual Method Table (vtable).
+   - Enables writing flexible, pluggable software architectures.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

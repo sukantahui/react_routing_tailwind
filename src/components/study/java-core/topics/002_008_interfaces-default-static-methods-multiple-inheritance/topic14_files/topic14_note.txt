@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 14: Loose Coupling & Interface Design
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOOSE COUPLING PRINCIPLE:
+   - Always declare variable references as the Interface type (e.g. 'List<T>' not 'ArrayList<T>').
+   - High-level classes depend on abstractions (interfaces), not concrete details.
+   - Foundation for Dependency Injection and Unit Testing (Mocking).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

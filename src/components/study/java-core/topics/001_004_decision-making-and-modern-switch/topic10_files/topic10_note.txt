@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 10: Switch with Strings & Internal HashCode Matching
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- History:
+  * String switch was introduced in Java SE 7 (Project Coin / JSR 334).
+
+- Two-Stage Bytecode Compilation Internals:
+  * Stage 1: The compiler emits a jump table matching on selector.hashCode().
+  * Stage 2: Inside the hash branch, the compiler emits selector.equals("caseVal")
+             to verify exact content equality and guard against HASH COLLISIONS!
+
+- Hash Collision Handling:
+  * Example: "FB".hashCode() == 2236 and "Ea".hashCode() == 2236.
+  * Both map to hash bucket 2236; sequential .equals() checks distinguish them.
+
+- Null Pointer Exception (NPE) Hazard:
+  * A 'null' string selector throws NullPointerException IMMEDIATELY upon
+    entering the switch (because bytecode invokes selector.hashCode()).
+  * Always check if (str == null) before entering a traditional switch!
+
+- Case Sensitivity & Normalization:
+  * String matching is strictly case-sensitive ("Java" != "java").
+  * Use str.trim().toUpperCase() for case-insensitive matching.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Guard against null string selectors before switching.
+[✓] Case labels must be compile-time constant Strings.
+[✓] Remember that String switch is case-sensitive by default.
+[✓] Trust JVM hash collision handling (100% mathematically safe).
+================================================================================

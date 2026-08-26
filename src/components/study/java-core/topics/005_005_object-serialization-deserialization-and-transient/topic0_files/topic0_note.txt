@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 0: What is Serialization
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SERIALIZATION ESSENTIALS:
+   - Converts in-memory heap object &rarr; binary byte stream.
+   - Stream magic header: '0xAC 0xED' (STREAM_MAGIC).
+   - Used for disk persistence, HTTP/RMI transport, and deep cloning.
+   - Class must implement 'java.io.Serializable'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

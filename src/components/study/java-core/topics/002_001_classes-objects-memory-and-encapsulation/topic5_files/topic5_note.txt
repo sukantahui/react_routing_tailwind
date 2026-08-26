@@ -1,0 +1,54 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 5: Multiple Reference Variables Pointing to the Same Object (Aliasing)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OBJECT ALIASING DEFINED:
+   - When two or more reference variables on the Stack hold the identical
+     Heap memory address pointing to a single object instance.
+   - Syntax:
+       BatchProjectAccount leadRef = new BatchProjectAccount(...);
+       BatchProjectAccount coLeadRef = leadRef; // Aliasing created!
+
+2. KEY RULES & CHARACTERISTICS:
+   -----------------------------------------------------------------------------
+   RULE 1: No New Object Created
+           - Assignment (`b = a`) only copies the 64-bit/32-bit pointer on Stack.
+           - Zero additional Heap memory is allocated.
+
+   RULE 2: Shared Mutable State (Action at a Distance)
+           - Mutating an object through `coLeadRef.recordExpense(...)` alters
+             the single shared instance in Heap.
+           - Reading via `leadRef.getRemainingBudget()` immediately sees the change!
+
+   RULE 3: Reference Identity (`==`)
+           - `leadRef == coLeadRef` evaluates to `true` (identical Heap addresses).
+           - `System.identityHashCode(leadRef) == System.identityHashCode(coLeadRef)`.
+
+   RULE 4: Partial Severance & GC Reachability
+           - Setting `leadRef = null;` clears only that local Stack slot.
+           - The object on the Heap is NOT collected as long as `coLeadRef` or
+             any other active GC Root holds a valid reference.
+           - Object becomes GC eligible ONLY when ALL reference paths are severed.
+   -----------------------------------------------------------------------------
+
+3. DEFENSIVE STRATEGIES AGAINST UNINTENDED ALIASING BUGS:
+   a) Immutability: Make fields `final` and provide no mutators (e.g. String, Record).
+   b) Defensive Copying: Return cloned/copied instances from getters.
+   c) Unmodifiable Wrappers: Return `Collections.unmodifiableList(internalList)`.
+
+4. ALIASING IN CONCURRENCY:
+   - Shared mutable objects accessed by multiple threads require synchronization.
+   - Synchronizing on any alias locks the single object's intrinsic monitor lock
+     in the HotSpot Mark Word.
+
+5. SUKANTA HUI'S CLASSROOM ANALOGY:
+   - "One physical house (Heap object) can have multiple keys (Stack reference variables)
+      held by Swadeep, Tuhina, and the Auditor. If Tuhina paints the wall red,
+      Swadeep and the Auditor walk in and see red walls!"
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

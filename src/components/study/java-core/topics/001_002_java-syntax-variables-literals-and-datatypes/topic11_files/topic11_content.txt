@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 11: Character Representation: char Data Type, ASCII Values & Unicode (\uXXXX)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. THE PHILOSOPHY OF CHARACTERS IN JAVA
+When James Gosling designed Java in 1995, most mainstream languages (C, C++, Pascal) utilized 8-bit bytes for character representation. Java broke with tradition by adopting the Unicode standard, making `char` a 16-bit unsigned integral type.
+
+This architectural decision ensured that Java applications developed in West Bengal, India could natively manipulate English ASCII, Bengali script (বাংলা), Devanagari, Greek, Cyrillic, Chinese, and modern international currency symbols like the Indian Rupee (₹).
+
+2. TECHNICAL SPECIFICATIONS
+- Storage Width: 16 bits (2 bytes)
+- Range: 0 to 65,535 (inclusive)
+- Minimum Value: `\u0000` (decimal 0)
+- Maximum Value: `\uffff` (decimal 65,535)
+- Default Value: `\u0000`
+- Encoding Architecture: UTF-16 Code Units (Basic Multilingual Plane - BMP)
+
+3. ASCII CODE TABLE MAPPING
+ASCII (American Standard Code for Information Interchange) is a subset of Unicode occupying code points 0 through 127:
+- Control Characters : 0 to 31 (e.g. \n=10, \r=13, \t=9)
+- Space Character    : 32 (' ')
+- Numeric Digits     : 48 to 57 ('0' through '9')
+- Uppercase Letters  : 65 to 90 ('A' through 'Z')
+- Lowercase Letters  : 97 to 122 ('a' through 'z')
+
+Key Arithmetic Relationship:
+The offset between lowercase and uppercase letters is 32 (the 6th bit in binary representation).
+  char lower = (char) ('A' + 32); // 'a'
+  char upper = (char) ('a' - 32); // 'A'
+
+4. UNICODE ESCAPE SEQUENCES (\uXXXX)
+Unicode escape sequences allow developers to embed any Unicode character into Java source code using standard 7-bit ASCII text editors:
+- Format: `\uXXXX` (where XXXX represents 4 hexadecimal digits)
+- Examples:
+  * Indian Rupee (₹)     : `\u20B9`
+  * Copyright (©)        : `\u00A9`
+  * Greek Omega (Ω)      : `\u03A9`
+  * Bengali Letter Ka (ক): `\u0995`
+  * Bengali Letter Ba (ব): `\u09AC`
+  * Bengali Letter Ra (র): `\u09B0`
+
+Early Lexical Preprocessing Caveat:
+Unicode escapes are processed in the very first lexical transformation pass before comment removal. Thus, placing `\u000A` (Line Feed) inside a single-line comment splits the line and executes subsequent code!
+
+5. SUPPLEMENTARY CHARACTERS & SURROGATE PAIRS
+Unicode 3.1+ extended the character space beyond 16 bits to 21 bits (U+0000 to U+10FFFF). Characters above U+FFFF (such as emojis 🚀 U+1F680) cannot fit in a single 16-bit `char`.
+Java represents supplementary characters as a pair of 16-bit `char`s (Surrogate Pair):
+- High Surrogate : `\uD800` to `\uDBFF`
+- Low Surrogate  : `\uDC00` to `\uDFFF`
+Example:
+  String emoji = "\uD83D\uDE80"; // 🚀
+  emoji.length()           --> 2 (Code Units)
+  emoji.codePointCount()   --> 1 (Actual Glyph)
+
+6. SECURITY BEST PRACTICE: CHAR ARRAYS FOR PASSWORDS
+In enterprise security architecture, passwords should never be stored as `java.lang.String`. Strings are immutable and reside in the JVM memory heap/string pool until arbitrary garbage collection cycles occur.
+Storing passwords in `char[]` allows the application to overwrite the memory with `\u0000` immediately after verification:
+  char[] password = request.getPassword();
+  authenticate(password);
+  Arrays.fill(password, '\u0000'); // Memory scrubbed!
+================================================================================

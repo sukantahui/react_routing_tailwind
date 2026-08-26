@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_001: Exception Hierarchy
+Topic 4: Checked Exceptions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHECKED EXCEPTIONS:
+   - Direct subclasses of 'Exception' (excluding RuntimeException).
+   - Enforced by the compiler at compile time.
+   - Examples: 'IOException', 'SQLException', 'ClassNotFoundException'.
+   - Mandatory: Must be caught ('try-catch') or declared ('throws').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

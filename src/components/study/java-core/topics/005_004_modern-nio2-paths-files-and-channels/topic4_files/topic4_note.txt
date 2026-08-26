@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 4: Path Manipulation Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE PATH METHODS:
+   - 'getFileName()'     : Target file or directory name.
+   - 'getParent()'        : Parent directory path.
+   - 'normalize()'        : Removes '.' and '..' redundant elements.
+   - 'toAbsolutePath()'   : Converts to fully qualified filesystem path.
+   - 'resolve(child)'     : Concatenates child path to base.
+   - 'relativize(target)' : Computes relative path from this to target.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

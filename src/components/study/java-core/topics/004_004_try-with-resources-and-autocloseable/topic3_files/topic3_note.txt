@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_004: Try-with-Resources & AutoCloseable
+Topic 3: AutoCloseable Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. AUTOCLOSEABLE SPECIFICATION:
+   - Root interface for ARM: 'java.lang.AutoCloseable'.
+   - Method: 'void close() throws Exception;'.
+   - Implementers should narrow the throws clause if possible.
+   - Must be idempotent (safe against double-closing).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

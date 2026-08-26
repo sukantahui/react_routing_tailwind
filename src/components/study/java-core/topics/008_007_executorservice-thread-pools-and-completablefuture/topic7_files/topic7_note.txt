@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 7: ScheduledThreadPool Rate vs Delay
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SCHEDULED THREAD POOL:
+   - 'schedule(task, delay, unit)': One-shot delayed task.
+   - 'scheduleAtFixedRate()': Start-to-Start cadence (constant frequency).
+   - 'scheduleWithFixedDelay()': End-to-Start cadence (guaranteed rest gap).
+   - If a scheduled task throws an unhandled exception, subsequent executions STOP!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 8: Multi-Level Chained Sorting
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MULTI-LEVEL CHAINING:
+   - Equivalent to SQL 'ORDER BY col1, col2 DESC, col3'.
+   - 'Comparator.comparing(...).thenComparing(...)'.
+   - Cascades down the chain only when previous level returns 0 (tie).
+   - Highly readable and declarative.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

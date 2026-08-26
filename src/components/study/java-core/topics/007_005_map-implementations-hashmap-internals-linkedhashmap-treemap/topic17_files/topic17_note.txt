@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 17: LRU Cache Implementation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LRU CACHE RECIPE:
+   - Extends 'LinkedHashMap<K, V>'.
+   - Constructor: 'super(capacity, 0.75f, true)'.
+   - Override: 'protected boolean removeEldestEntry(Map.Entry eldest)'.
+   - Return 'size() > maxCapacity'.
+   - O(1) reads, O(1) writes, automatic O(1) eviction!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

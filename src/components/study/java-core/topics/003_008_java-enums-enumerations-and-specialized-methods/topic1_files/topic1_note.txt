@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 1: The 'enum' Keyword
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ENUM SYNTAX:
+   - 'public enum Day { MON, TUE, WED }'
+   - Constants are uppercase by convention.
+   - Singleton guarantee in JVM.
+   - Always compare enums using '==' instead of '.equals()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

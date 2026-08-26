@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_003: Bounded Type Parameters & Multiple Bounds
+Topic 3: Accessing Bound Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BOUND METHOD INVOCATION:
+   - '<T extends Number>' unlocks 'doubleValue()', 'intValue()', etc.
+   - Replaced with bounding type during type erasure.
+   - Zero runtime overhead, clean native bytecode.
+   - Eliminates tedious manual casting.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 6: The transient Keyword
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE TRANSIENT MODIFIER:
+   - 'private transient String password;'.
+   - Instructs ObjectOutputStream to skip this field entirely.
+   - Upon deserialization, field becomes default (null / 0 / false).
+   - Used for passwords, temporary caches, and non-serializable OS handles.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

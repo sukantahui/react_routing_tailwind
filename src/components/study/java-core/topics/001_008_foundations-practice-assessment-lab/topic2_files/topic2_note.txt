@@ -1,0 +1,28 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 2: Palindromic Number & String Verification
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE ALGORITHM MECHANICS
+--------------------------------------------------------------------------------
+- Integer Palindrome (Half-Reversal Optimization):
+  * Negative numbers are NEVER palindromes (if (x < 0) return false;).
+  * Numbers ending in 0 (except 0) are NEVER palindromes (if (x % 10 == 0 && x != 0) return false;).
+  * Reversing only half: while (x > rev) { rev = rev * 10 + x % 10; x /= 10; }
+  * Check: (x == rev) || (x == rev / 10) -> Completely eliminates integer overflow!
+
+- String Palindrome (Two-Pointer In-Place O(1) Space):
+  * Pointers left = 0, right = s.length() - 1.
+  * Skip non-alphanumerics with Character.isLetterOrDigit().
+  * Compare case-insensitively with Character.toLowerCase().
+  * Increment left, decrement right until pointers meet.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Integer half-reversal: O(log10 N) Time | O(1) Space | Zero Overflow Risk.
+[✓] Two-pointer string scan: O(N) Time | O(1) Space | In-Place Memory.
+[✓] Single character ('A', 7) and empty string ("") are valid palindromes.
+[✓] In Topic 3, we master Matrix Spiral Traversal & 90-Degree Clockwise Rotation!
+================================================================================

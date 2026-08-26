@@ -1,0 +1,69 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 3: Object Instantiation using the 'new' Keyword
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPT: THE 'new' KEYWORD
+   - Operator in Java used to dynamically allocate memory on the JVM Heap.
+   - Creates a new instance of a class, executes the constructor, and returns
+     the reference (Heap memory address) to the caller.
+   - Syntax:
+       ClassName refVar = new ClassName(arguments);
+       ^-------^ ^----^   ^-^ ^------------------^
+        Type      Stack   Operator Constructor Invocation
+
+2. THE 5-PHASE OBJECT INSTANTIATION LIFECYCLE:
+   -----------------------------------------------------------------------------
+   Phase 1: Class Loading & Static Initialization (if not already loaded)
+            - ClassLoader loads .class into Metaspace.
+            - Static variables initialized; static blocks <clinit>() run once.
+   Phase 2: Heap Memory Allocation
+            - Eden space contiguous block allocated.
+            - Object Header: Mark Word (64-bit) + Klass Word (32/64-bit).
+            - Space reserved for all primitive fields and reference pointers.
+            - Memory alignment padding (8-byte boundary).
+   Phase 3: Default Zero-Initialization
+            - All primitive fields set to zero/false (0, 0.0, false, '\u0000').
+            - All reference fields set to null.
+   Phase 4: Explicit Field Initializers & Instance Initializer Blocks
+            - Field defaults and { ... } instance blocks execute in code order.
+   Phase 5: Constructor Body Execution (<init> Method)
+            - super() parent constructor runs.
+            - Constructor parameter validation and explicit assignments occur.
+            - Heap memory reference returned to Stack variable.
+   -----------------------------------------------------------------------------
+
+3. OBJECT HEADER IN HOTSPOT JVM (64-bit):
+   +-------------------------------------------------------------+
+   | Mark Word (8 Bytes)   : HashCode, Age, Lock State, Biased ID |
+   +-------------------------------------------------------------+
+   | Klass Word (4/8 Bytes): Pointer to Metaspace Class Metadata |
+   +-------------------------------------------------------------+
+   | Instance Fields Data  : Primitives + References             |
+   +-------------------------------------------------------------+
+   | Padding (0-7 Bytes)   : 8-byte word alignment               |
+   +-------------------------------------------------------------+
+
+4. STACK VS HEAP ROLES:
+   - Stack Frame : Holds local reference variable (stores 4-byte/8-byte pointer).
+   - Heap Memory : Holds the actual Object instance (Header + Fields).
+   - Identity    : `ref1 == ref2` checks if both Stack variables point to the
+                   EXACT same Heap memory address.
+
+5. ANONYMOUS OBJECTS:
+   - Created without assigning to a reference variable.
+   - Example: `new CourseEnrollment(1004, "Debangshu", "AI", 6000.0).displayCard();`
+   - Use Case: Fire-and-forget method execution or passing as single-use parameter.
+   - Lifecycle: Eligible for Garbage Collection immediately after statement execution.
+
+6. COMMON PITFALLS:
+   - Confusing variable declaration (`Student s;`) with instantiation (`new Student();`).
+   - Allowing `this` reference to escape inside a constructor before completion.
+   - Unnecessary object creation in high-frequency loops causing Eden space churn.
+   - Forgetting that multidimensional arrays instantiate multiple array objects.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

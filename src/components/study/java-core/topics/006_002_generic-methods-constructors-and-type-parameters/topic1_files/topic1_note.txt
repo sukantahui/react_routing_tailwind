@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_002: Generic Methods, Constructors & Type Inference
+Topic 1: Generic Method Syntax
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GENERIC METHOD SYNTAX:
+   - '[modifiers] <T, R> ReturnType methodName(T param1, R param2)'.
+   - '<T>' placed right before return type.
+   - Multiple type parameters: '<K, V>'.
+   - Return type can be 'T', a concrete class, or 'void'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

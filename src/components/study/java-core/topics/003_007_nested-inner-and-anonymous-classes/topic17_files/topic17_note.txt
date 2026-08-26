@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 17: Event-Driven Engine Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 003_007 SUMMARY:
+   - Member Inner Class: bound to outer instance ('outer.new Inner()').
+   - Scope disambiguation: 'OuterClass.this.field'.
+   - Static Nested Class: standalone helper ('new Outer.Static()').
+   - Method-Local Class: scoped inside method, accesses effectively final vars.
+   - Anonymous Class: unnamed inline class implementing interface or abstract class.
+   - Modern Java 16+: Local Records for concise method-level immutable models.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

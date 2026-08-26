@@ -1,0 +1,45 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 10: Numeric Literal Enhancement: Underscores (_) for Readability (1_000_000)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Purpose:
+  * Introduced in Java 7 (Project Coin, JSR 334).
+  * Enhances visual readability of large numbers, bitmasks, hex colors, and card IDs.
+  * Zero runtime overhead (stripped completely by 'javac' during lexical analysis).
+
+- THE GOLDEN SYNTAX RULE:
+  * Underscores can ONLY be placed BETWEEN DIGITS.
+
+- Valid Usage Examples:
+  * Decimal Integers  : int million = 1_000_000;
+  * Indian Lakhs/Cr   : long feeLakhs = 25_00_000L; (₹25 Lakhs)
+  * Floating-Point    : double pi = 3.14_15_92;
+  * Binary Nibbles    : byte mask = (byte) 0b1010_1100;
+  * Hexadecimal Bytes : int color = 0xFF_57_33_AA;
+  * Card / ID Numbers : long card = 4123_4567_8901_2345L;
+
+- INVALID SYNTAX (Compilation Errors):
+  [X] At the start of a number          : _1000      (Treated as variable name)
+  [X] At the end of a number            : 1000_      (Illegal underscore)
+  [X] Adjacent to decimal point         : 3._14, 3_.14
+  [X] Before type suffixes (L, F, D)    : 1000_L, 3.14_f
+  [X] Inside or after radix (0x, 0b)    : 0_x52, 0x_52, 0_b10, 0b_10
+  [X] Adjacent to exponent indicator    : 1.5_e3, 1.5e_3
+
+- Critical Runtime Trap:
+  * Integer.parseInt("1_000") THROWS NumberFormatException!
+  * Underscores are a COMPILE-TIME feature for source code literals only.
+  * String parsing requires removing underscores first: str.replace("_", "").
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use underscores for numbers >= 5 digits to prevent off-by-a-zero bugs.
+[✓] Group by 2-2-3 for Indian Rupee amounts (₹15_00_000 = 15 Lakhs).
+[✓] Group by 4 bits for binary masks and 2 hex digits for ARGB colors.
+[✓] Verify that underscores are strictly sandwiched between two numeric digits.
+================================================================================

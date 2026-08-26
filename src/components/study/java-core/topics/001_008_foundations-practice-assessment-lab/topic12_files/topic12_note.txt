@@ -1,0 +1,22 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 12: Segment 1 Timed Coding Assessment (Comprehensive Capstone)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. SEGMENT 1 CAPSTONE TIMED CHALLENGES
+--------------------------------------------------------------------------------
+- Challenge 1: Matrix Diagonal Sum (Primary + Secondary - Center for odd n in O(N)).
+- Challenge 2: Recursive Binary Search (low + (high - low)/2 overflow-safe in O(log N)).
+- Challenge 3: Modern Switch Expression Scholarship Dispatch (Enum -> Expression).
+- Challenge 4: Sieve of Eratosthenes Prime Table (O(N log(log N)) in-memory lookup).
+- Challenge 5: Comprehensive Academic Billing Ledger in Indian Rupees (₹) (Record models).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] All 8 Modules of Segment 1 (001_001 through 001_008) are 100% COMPLETE!
+[✓] Complete mastery of JVM memory, 8 primitives, switch expressions, arrays, and recursion.
+[✓] Clean code conformity to Google Java Style Guide.
+[✓] Ready to advance to SEGMENT 2: Module 002_001 Classes & Objects Deep Dive!
+================================================================================

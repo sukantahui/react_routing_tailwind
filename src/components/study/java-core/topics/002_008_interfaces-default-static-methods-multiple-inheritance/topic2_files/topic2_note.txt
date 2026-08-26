@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 2: Implementing Interfaces
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'implements' KEYWORD RULES:
+   - Syntax: 'class MyClass implements MyInterface { ... }'
+   - ALL interface methods MUST be overridden with 'public' access modifier.
+   - Forgetting 'public' causes: 'attempting to assign weaker access privileges'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

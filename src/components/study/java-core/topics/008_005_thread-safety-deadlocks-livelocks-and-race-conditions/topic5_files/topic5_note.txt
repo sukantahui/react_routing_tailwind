@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 5: Hold and Wait Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COFFMAN 2: HOLD AND WAIT:
+   - Nested locks: 'synchronized(A) { synchronized(B) { ... } }'.
+   - Thread holds Lock A while waiting for Lock B.
+   - Broken by:
+     * All-or-Nothing resource acquisition.
+     * Releasing held locks before requesting additional locks.
+     * Non-blocking 'tryLock()' with timeout.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 0: java.util.Queue FIFO Processing
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. QUEUE CONTRACT:
+   - FIFO: First-In, First-Out sequence.
+   - Insertions at TAIL; removals at HEAD.
+   - Ideal for task scheduling, job queues, and message dispatching.
+   - Default recommended implementation: 'ArrayDeque'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

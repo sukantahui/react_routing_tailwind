@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 5: NotSerializableException Forensics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NotSerializableException DIAGNOSTICS:
+   - Thrown when an object in the graph lacks 'Serializable' marker.
+   - 'ex.getMessage()' returns the exact offending class name.
+   - Solutions:
+     1. Add 'implements Serializable'.
+     2. Mark field 'transient'.
+     3. Implement custom 'writeObject()' and 'readObject()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

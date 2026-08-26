@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 10: Java 8 Treeification Optimization
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TREEIFICATION RULES:
+   - Trigger: 8 collisions in a single bucket.
+   - Pre-condition: Table capacity >= 64 ('MIN_TREEIFY_CAPACITY').
+   - Replaces 'Node<K, V>' with 'TreeNode<K, V>' (Red-Black Tree).
+   - Improves worst-case search from O(n) to O(log n).
+   - Defends against HashDoS security vulnerabilities.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 1: Core Map Methods Suite
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE MAP METHODS:
+   - 'getOrDefault(k, default)': avoids null checks.
+   - 'containsKey(k)': O(1) hash bucket jump.
+   - 'containsValue(v)': O(n) linear scan across all buckets.
+   - 'entrySet()': iterate over key-value pairs efficiently in 1 pass.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

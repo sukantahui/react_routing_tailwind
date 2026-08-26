@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 7: Interface Segregation Principle (ISP)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ISP RULE (Uncle Bob):
+   - 'No client should be forced to depend on methods it does not use.'
+   - Break fat interfaces into single-purpose role interfaces.
+   - Classes can implement multiple small interfaces as needed.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

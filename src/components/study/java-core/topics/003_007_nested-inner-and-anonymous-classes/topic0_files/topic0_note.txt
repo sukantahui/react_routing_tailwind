@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 0: Why Nest Classes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NESTING ADVANTAGES:
+   - Logical Grouping of helper classes.
+   - Direct access to outer private fields.
+   - Eliminates cluttering the top-level package namespace.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

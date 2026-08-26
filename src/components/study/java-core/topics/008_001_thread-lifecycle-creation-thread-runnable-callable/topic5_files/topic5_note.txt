@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 5: BLOCKED and WAITING States
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BLOCKED vs WAITING:
+   - BLOCKED: Thread is waiting to acquire a 'synchronized' monitor lock.
+   - WAITING: Thread is waiting indefinitely due to:
+     * 'Object.wait()'
+     * 'Thread.join()' (without timeout)
+     * 'LockSupport.park()'
+   - WAITING thread yields CPU and does NOT consume processor cycles.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 9: Static Methods in Interfaces
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATIC INTERFACE METHODS:
+   - Declared with 'static' modifier + method body.
+   - Invocation: Strictly 'InterfaceName.staticMethod()'.
+   - NOT inherited by implementing classes or instances.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,38 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 13: Compound Assignment Operators: +=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=, >>>=
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The 11 Compound Assignment Operators:
+  * Arithmetic : +=, -=, *=, /=, %=
+  * Bitwise    : &=, |=, ^=
+  * Shift      : <<=, >>=, >>>=
+
+- Fundamental JLS Definition (JLS §15.26.2):
+  * E1 op= E2 is formally equivalent to:
+    E1 = (T)((E1) op (E2))
+  * where 'T' is the static data type of variable E1.
+
+- Single-Evaluation Guarantee:
+  * In E1 op= E2, the target expression E1 is evaluated ONLY ONCE!
+  * Example: arr[i++] += 10; -> 'i' is incremented only ONCE!
+  * (Unlike arr[i++] = arr[i++] + 10; which increments 'i' TWICE!).
+
+- Right-to-Left Associativity:
+  * x += y += z += 5;
+  * Evaluates as: x += (y += (z += 5));
+
+- Right-Hand Expression Isolation:
+  * x *= 2 + 3 is evaluated as: x = x * (2 + 3) -> x * 5 (NOT x * 2 + 3!).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Remember that compound assignments evaluate left targets only once.
+[✓] Compound assignments associate Right-to-Left.
+[✓] The entire right-hand expression is grouped before the compound operation.
+[✓] Boolean variables support &=, |=, ^= without short-circuiting.
+================================================================================

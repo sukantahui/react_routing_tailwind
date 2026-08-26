@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 5: Why Custom Exceptions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BENEFITS OF CUSTOM EXCEPTIONS:
+   - Self-documenting class names.
+   - Enables targeted catch blocks.
+   - Carries structured metadata fields (IDs, limits, timestamps).
+   - Separates technical JVM crashes from business rules.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

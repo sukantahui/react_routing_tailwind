@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 7: Exception Handling Overriding Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHECKED EXCEPTION OVERRIDING LAWS:
+   - Child CAN declare: Same checked exception, narrower subclass exception, or NO exception.
+   - Child CANNOT declare: Broader checked exception (e.g. Exception when parent declares IOException).
+   - Unchecked exceptions (RuntimeException): Unrestricted.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

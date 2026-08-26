@@ -1,0 +1,36 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 17: Parentheses ( ) for Controlling Evaluation Order & Code Readability
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The Power of Parentheses:
+  * Possess the HIGHEST precedence tier (Level 14/15) in Java.
+  * Overrides all default mathematical, relational, bitwise, and logical rules.
+  * Zero runtime performance penalty (optimized during AST parsing).
+
+- Critical Real-World Parenthesis Recipes:
+  1. String Concat Addition Trap:
+     "Total: " + a + b    ==> "Total: 1020"  (BUG!)
+     "Total: " + (a + b)  ==> "Total: 30"    (CORRECT!)
+
+  2. Bitmask Check:
+     flags & MASK != 0    ==> flags & (MASK != 0) -> COMPILATION ERROR!
+     ((flags & MASK) != 0)==> CORRECT!
+
+  3. Quadratic Formula:
+     (-b + Math.sqrt(d)) / (2 * a)  <-- (2 * a) is MANDATORY!
+
+  4. Compound Interest:
+     P * Math.pow((1 + r/n), (n * t))
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always wrap additions in String concatenations: "Fee: " + (f1 + f2).
+[✓] Use parentheses in bitmask checks: ((flags & MASK) != 0).
+[✓] Enclose denominator expressions in division: numerator / (2 * a).
+[✓] Practice Defensive Parenthesizing in complex boolean conditionals.
+================================================================================

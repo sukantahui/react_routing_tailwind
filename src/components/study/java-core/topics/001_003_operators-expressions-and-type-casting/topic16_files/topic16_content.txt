@@ -1,0 +1,42 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 16: Complete Java Operator Precedence & Associativity Master Table
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. GRAMMATICAL PRECEDENCE AND PARSING IN THE JAVA COMPILER
+Operator precedence determines the syntax tree structure created by the Java parser during compilation.
+When an expression contains multiple unparenthesized operators, the compiler groups sub-expressions based on precedence levels:
+- Higher precedence operators form child nodes deeper in the Abstract Syntax Tree (AST), ensuring they are computed before their parent operations.
+- Operators on the same precedence tier are grouped according to their Associativity direction.
+
+2. PRECEDENCE VS ORDER OF EVALUATION (JLS §15.7)
+A fundamental point of confusion in computer science is the distinction between Operator Precedence and Evaluation Order:
+- Precedence dictates operand BINDING and grouping (e.g. `a + b * c` groups as `a + (b * c)`).
+- Evaluation Order in Java is strictly GUARANTEED Left-to-Right for all operand sub-expressions, regardless of operator precedence!
+In `computeA() + computeB() * computeC()`:
+1. `computeA()` is executed first.
+2. `computeB()` is executed second.
+3. `computeC()` is executed third.
+4. The product of B and C is computed.
+5. The sum with A is computed.
+
+3. THE 3 RIGHT-TO-LEFT ASSOCIATIVE OPERATOR CATEGORIES
+While almost all binary operators in Java are Left-to-Right associative, three specific operator families associate from Right-to-Left:
+1. Unary and Prefix operators (`++`, `--`, `+`, `-`, `!`, `~`, `(type)`):
+   `- - -10` parses as `-( -(-10) ) = -10`.
+2. Ternary Conditional operator (`? :`):
+   `a ? b : c ? d : e` parses as `a ? b : (c ? d : e)`.
+3. Simple and Compound Assignment operators (`=`, `+=`, `-=`, `*=`, etc.):
+   `x = y = z = 50` parses as `x = (y = (z = 50))`.
+
+4. COMMON PRODUCTION PRECEDENCE HAZARDS
+- Additive vs Shift: `1 + 2 << 2` is `(1 + 2) << 2 = 12` (NOT `1 + 8 = 9`).
+- Relational vs Bitwise: `flags & MASK != 0` evaluates as `flags & (MASK != 0)`, which fails compilation because relational `!=` binds tighter than bitwise `&`.
+- Bitwise Hierarchy: `&` > `^` > `|`.
+- Logical Hierarchy: `!` > `&&` > `||`.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu audited enterprise payroll, statutory PF deductions, and income tax algorithms in Indian Rupees (₹). By applying explicit parentheses rather than relying on obscure compiler precedence defaults, their financial calculation modules guaranteed 100% calculation accuracy and zero regression defects across branch accounting offices in Naihati and Shyamnagar.
+================================================================================

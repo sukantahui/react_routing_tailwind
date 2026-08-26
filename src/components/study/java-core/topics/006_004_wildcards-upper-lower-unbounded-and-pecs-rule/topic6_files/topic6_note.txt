@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 6: Wildcard Read/Write Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. READ/WRITE DECISION MATRIX:
+   - '<? extends T>': PRODUCER &rarr; read 'T', cannot write.
+   - '<? super T>': CONSUMER &rarr; write 'T', read 'Object'.
+   - '<?>': UNBOUNDED &rarr; read 'Object', cannot write.
+   - Only 'null' can be written to '<? extends T>' or '<?>'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

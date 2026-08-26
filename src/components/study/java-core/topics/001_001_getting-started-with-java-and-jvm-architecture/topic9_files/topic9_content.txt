@@ -1,0 +1,35 @@
+================================================================================
+DETAILED STUDY MATERIAL: CHOOSING AND SETTING UP JAVA IDES
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 9
+================================================================================
+
+1. INTRODUCTION TO INTEGRATED DEVELOPMENT ENVIRONMENTS (IDEs)
+An IDE combines a source code editor, build automation tools (javac/Maven), and a debugger into a single graphical workspace with syntax highlighting, code navigation, and static code inspection.
+
+2. COMPARISON OF MAJOR JAVA IDES
+
+A. IntelliJ IDEA (Community & Ultimate)
+Developed by JetBrains, IntelliJ IDEA is the dominant enterprise IDE.
+Key features:
+- Deep static analysis that predicts NullPointerExceptions and logical bugs while you type.
+- Advanced refactorings (Safe Delete, Extract Method, Rename across entire project).
+- Integrated Maven, Gradle, Git, and Database Navigator.
+
+B. Eclipse IDE
+A free, open-source IDE maintained by the Eclipse Foundation.
+Key features:
+- Uses the Eclipse Compiler for Java (ECJ) enabling incremental compilation while typing.
+- Highly modular with thousands of plugins in the Eclipse Marketplace.
+
+C. Visual Studio Code (VS Code)
+A lightweight editor made into a full Java IDE via the "Extension Pack for Java".
+Key features:
+- Extremely fast startup.
+- Uses Language Server Protocol (LSP) backed by Eclipse JDT LS.
+
+D. BlueJ
+Developed by King's College London for beginners.
+Key features:
+- Visual UML-style interactive diagram of classes and object instances.
+- Allows instantiating objects and invoking methods interactively without writing a `main()` method.

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 13: ChronoUnit Calculations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHRONOUNIT RULES:
+   - 'ChronoUnit.DAYS.between(d1, d2)'   &rarr; Total elapsed days.
+   - 'ChronoUnit.MONTHS.between(d1, d2)' &rarr; Total elapsed months.
+   - 'ChronoUnit.HOURS.between(t1, t2)'  &rarr; Total elapsed hours.
+   - Avoid 'Period.getDays()' for total day calculations.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

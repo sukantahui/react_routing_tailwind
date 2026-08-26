@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 14: LongAdder & Striped Cells Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 008_006 GRAND SUMMARY:
+   - CPU Memory Hierarchy: L1/L2 caches create memory visibility hazards across cores.
+   - JMM (JSR-133): Defines visibility and ordering contracts via Happens-Before.
+   - volatile: Guarantees visibility and prevents reordering via Memory Barriers.
+   - volatile Fallacy: Does NOT guarantee atomicity for compound operations (count++).
+   - Valid volatile: Boolean flags & Double-Checked Locking singletons.
+   - Hardware CAS: 'LOCK CMPXCHG' enables lock-free atomic modifications.
+   - AtomicInteger / AtomicLong: Lock-free CAS wrappers in java.util.concurrent.atomic.
+   - LongAdder / DoubleAdder: Striped Cell[] arrays minimizing CAS contention in Java 8+.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

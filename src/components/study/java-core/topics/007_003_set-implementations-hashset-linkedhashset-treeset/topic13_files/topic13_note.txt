@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 13: TreeSet O(log n) Performance
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TREESET PERFORMANCE:
+   - add(), remove(), contains() &rarr; O(log n).
+   - Driven by Red-Black tree height.
+   - For 100,000 elements: at most ~34 node visits.
+   - Continuous sorted order maintained at all times.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

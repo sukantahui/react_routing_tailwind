@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_006: CSV, JSON, Properties & Config Files
+Topic 5: Classpath Properties Loading
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CLASSPATH RESOURCE LOADING:
+   - 'InputStream is = ClassLoader.getResourceAsStream("path")'.
+   - Mandatory for files bundled inside JAR/WAR archives.
+   - Always check 'if (is == null)' for missing resources.
+   - Wrap in InputStreamReader with StandardCharsets.UTF_8.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

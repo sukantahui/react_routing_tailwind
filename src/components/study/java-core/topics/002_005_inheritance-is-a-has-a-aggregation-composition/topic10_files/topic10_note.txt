@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 10: Aggregation (Weak Association)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. AGGREGATION CHARACTERISTICS:
+   - Weak HAS-A relationship.
+   - Contained object created OUTSIDE and passed into container.
+   - Independent lifecycle: Container deletion does NOT destroy contained object.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

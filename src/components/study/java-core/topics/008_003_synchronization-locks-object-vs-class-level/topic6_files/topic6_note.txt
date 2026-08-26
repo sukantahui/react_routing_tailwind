@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 6: Synchronized Blocks & Custom Locks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SYNCHRONIZED BLOCKS:
+   - Syntax: 'synchronized(lockTarget) { /* critical section */ }'.
+   - Lock target can be 'this', 'ClassName.class', or a private Object.
+   - Fine-grained lock scope &rarr; higher concurrency throughput.
+   - Use multiple lock objects for independent state variables.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

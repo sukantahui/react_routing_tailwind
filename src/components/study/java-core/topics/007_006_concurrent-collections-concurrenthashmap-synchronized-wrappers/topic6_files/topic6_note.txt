@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 6: Lock-Free Reads via Volatile Fields
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOCK-FREE READS:
+   - 'get()' never acquires locks.
+   - Node fields: 'volatile V val;' and 'volatile Node<K,V> next;'.
+   - JMM Happens-Before guarantee: writes immediately visible to readers.
+   - Raw hardware memory read speed for 99% of web application traffic.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

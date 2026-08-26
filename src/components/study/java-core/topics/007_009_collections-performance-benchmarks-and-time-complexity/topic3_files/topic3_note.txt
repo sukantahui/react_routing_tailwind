@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_009: Collections Performance & Big-O Complexities
+Topic 3: Memory Footprint & JOL Analysis
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MEMORY LAYOUT ON 64-BIT JVM:
+   - Object Header: 12 bytes (Mark Word 8B + Compressed Klass 4B).
+   - 8-byte boundary alignment padding.
+   - int[]: 4 bytes per element (~4 MB for 1M).
+   - ArrayList<Integer>: ~24 MB for 1M.
+   - LinkedList<Integer>: ~48 MB for 1M.
+   - HashMap<K, V>: ~64 MB for 1M.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

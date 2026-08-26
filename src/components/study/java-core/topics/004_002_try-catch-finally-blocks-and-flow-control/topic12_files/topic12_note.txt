@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 12: Nested try-catch Delegation Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 004_002 SUMMARY:
+   - 'try' guards critical code.
+   - 'catch' intercepts specific errors; order: Subclass FIRST, Superclass LAST.
+   - Multi-catch: 'catch (A | B ex)' with implicitly final parameter.
+   - 'finally' guarantees resource cleanup under all branches.
+   - 'finally' runs even on 'return', but NOT on 'System.exit(0)'.
+   - NEVER return from a 'finally' block (swallows exceptions).
+   - Nested try-catch blocks provide granular multi-tier error delegation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

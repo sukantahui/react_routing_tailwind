@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 3: '==' vs equals() Comparison
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. '==' VS equals():
+   - '=='       : Primitive value equality OR Object reference identity.
+   - 'equals()' : Logical semantic equality of object contents.
+   - Default Object.equals() delegates directly to 'this == obj'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

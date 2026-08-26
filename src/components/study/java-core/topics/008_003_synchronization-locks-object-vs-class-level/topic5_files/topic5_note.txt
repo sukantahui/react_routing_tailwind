@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 5: Synchronized Static Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SYNCHRONIZED STATIC METHODS:
+   - Declared with 'public static synchronized void method()'.
+   - Acquires the Class-level lock ('ClassName.class').
+   - Locks globally across ALL instances of the class.
+   - Protects shared static variables across all threads.
+   - Independent from instance-level locks ('this').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

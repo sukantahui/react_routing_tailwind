@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 3: Modulus Operator with Positive, Negative, and Floating-Point Numbers
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The Fundamental Modulus Formula:
+  * a % b = a - (a / b) * b
+
+- The Complete Sign Matrix:
+  +---------------+---------------+---------------+----------------------------+
+  | Expression    | Operation     | Result        | Rule Applied               |
+  +---------------+---------------+---------------+----------------------------+
+  |  15 %  4      |  15 - (3 * 4) | +3            | Dividend +15 -> Result +   |
+  | -15 %  4      | -15 -(-3 * 4) | -3            | Dividend -15 -> Result -   |
+  |  15 % -4      |  15 -(-3 *-4) | +3            | Divisor sign IGNORED!      |
+  | -15 % -4      | -15 -( 3 *-4) | -3            | Dividend -15 -> Result -   |
+  +---------------+---------------+---------------+----------------------------+
+
+- Floating-Point Modulus in Java:
+  * 14.75 % 4.50 = 1.25 (Supported natively on float and double)
+  * 10.0 % 0.0   = Double.NaN (Does NOT throw an exception)
+
+- Algorithmic Applications:
+  1. Circular Buffer Indexing : nextIndex = (currentIndex + 1) % bufferSize
+  2. Time Conversion          : hours = totalMins / 60; mins = totalMins % 60
+  3. Currency Conversion      : rupees = paise / 100; paise = paise % 100
+  4. Production Safe Hash     : bucket = (key.hashCode() & 0x7FFFFFFF) % numBuckets
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] The sign of a % b ALWAYS matches dividend 'a'.
+[✓] Remember that 10 % 0 (integer) throws ArithmeticException, while float yields NaN.
+[✓] Use (hash & 0x7FFFFFFF) % buckets to avoid Math.abs(Integer.MIN_VALUE) crashes.
+[✓] Use modulus for circular buffer and round-robin load balancing.
+================================================================================

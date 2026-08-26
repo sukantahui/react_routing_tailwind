@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 14: ReDoS & Performance Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 003_006 SUMMARY:
+   - Pattern (compiled, thread-safe) vs Matcher (stateful, single-threaded).
+   - Flags: CASE_INSENSITIVE, MULTILINE, DOTALL.
+   - Meta-characters: \d, \s, \w (remember Java double backslash: \\d).
+   - Character classes: [abc], [^abc], [a-zA-Z].
+   - Greedy (*) vs Reluctant (*?) vs Possessive (*+).
+   - Capturing groups () and Backreferences (\\1).
+   - Prevent ReDoS by avoiding nested quantifiers '(a+)+'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

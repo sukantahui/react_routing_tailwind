@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 11: Return in finally Anti-Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE DANGER OF RETURN IN FINALLY:
+   - Overrides return values from try and catch.
+   - Silently swallows propagating exceptions.
+   - Converts severe crashes into fake successful executions.
+   - RULE: 'finally' must ONLY perform resource cleanup, never control flow.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

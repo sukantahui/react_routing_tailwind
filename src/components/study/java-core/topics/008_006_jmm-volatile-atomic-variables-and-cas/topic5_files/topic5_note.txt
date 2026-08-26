@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 5: volatile Keyword Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE VOLATILE KEYWORD:
+   - Modifier applied to instance/static fields.
+   - Pillar 1: Memory Visibility (reads/writes direct to main RAM).
+   - Pillar 2: Prevents instruction reordering (Memory Barriers).
+   - Non-blocking (no thread context switching, 0 lock overhead).
+   - Does NOT guarantee atomicity for compound operations (e.g. 'count++').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

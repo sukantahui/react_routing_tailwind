@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 10: Callable<V> & FutureTask
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CREATION METHOD 4 (Callable & FutureTask):
+   - 'Callable<V>' defines 'V call() throws Exception'.
+   - Returns a typed value upon task completion.
+   - Can throw checked exceptions.
+   - Wrap in 'FutureTask<V>' to run via 'new Thread(futureTask).start()'.
+   - Call 'futureTask.get()' to block and retrieve calculated result.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

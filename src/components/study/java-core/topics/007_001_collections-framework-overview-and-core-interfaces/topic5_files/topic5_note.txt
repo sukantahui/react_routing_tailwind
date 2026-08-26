@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 5: 4 Primary Branches of JCF
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 4 JCF BRANCHES:
+   - List  : Index-based sequence, permits duplicates.
+   - Set   : Mathematical uniqueness, no duplicates.
+   - Queue : FIFO/LIFO processing buffer.
+   - Map   : Key-Value dictionary (unique keys).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

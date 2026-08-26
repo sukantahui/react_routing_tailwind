@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 0: Why Mutable String Builders Are Essential
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MUTABLE STRING ESSENTIALS:
+   - String is Immutable (new object on every mutation).
+   - StringBuilder is Mutable (mutates internal buffer in-place).
+   - Dramatically reduces Heap churn and Garbage Collection pauses.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

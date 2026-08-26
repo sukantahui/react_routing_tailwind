@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 11: Static Methods vs. Instance Methods
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Static Methods (Class-Level):
+  * Declared with 'static' keyword.
+  * Belong to the Class itself; invoked as ClassName.method().
+  * NO 'this' pointer (cannot access instance fields/methods directly).
+  * Ideal for pure functions, math utilities (Math.sqrt), and factories (List.of).
+
+- Instance Methods (Object-Level):
+  * Declared without 'static'.
+  * Belong to specific heap-allocated objects; invoked as objectRef.method().
+  * Has implicit 'this' reference to read and mutate specific object fields.
+  * Ideal for entity domain behaviors (account.makePayment(5000)).
+
+- Memory & Polymorphism Rules:
+  * Static methods are bound at compile-time (Early Binding, Metaspace).
+  * Instance methods use dynamic dispatch (Late Binding, Heap instances).
+  * Static methods CANNOT be overridden (they can only be hidden).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] You cannot reference 'this' or 'super' inside a static method.
+[✓] Instance methods can freely access both instance fields and static fields.
+[✓] Invoking static methods via a null reference (e.g. s.staticMethod()) does NOT crash.
+[✓] Keep utility classes non-instantiable with a private constructor.
+================================================================================

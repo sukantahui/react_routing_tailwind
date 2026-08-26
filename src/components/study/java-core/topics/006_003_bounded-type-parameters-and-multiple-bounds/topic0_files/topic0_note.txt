@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_003: Bounded Type Parameters & Multiple Bounds
+Topic 0: Why Bounded Types are Necessary
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BOUNDED TYPE PARAMETERS:
+   - Syntax: '<T extends SuperType>'.
+   - Restricts type arguments to subtypes of 'SuperType'.
+   - Unlocks supertype methods inside generic class body.
+   - Prevents incompatible type instantiation at compile time.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

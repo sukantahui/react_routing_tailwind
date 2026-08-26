@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 7: Case-Insensitive & Lexicographical Comparison
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPARISON METHODS:
+   - 'equalsIgnoreCase(str)'     : Returns true/false ignoring uppercase/lowercase.
+   - 'compareTo(str)'            : Returns negative, 0, or positive (Unicode diff).
+   - 'compareToIgnoreCase(str)'  : Alphabetical sort comparison ignoring case.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

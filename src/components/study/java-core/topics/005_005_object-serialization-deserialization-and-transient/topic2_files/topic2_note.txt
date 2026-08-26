@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 2: Serializable Marker Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MARKER INTERFACE RULES:
+   - 'java.io.Serializable' has 0 methods and 0 fields.
+   - Opt-in signal: tells JVM 'this class is safe for serialization'.
+   - Checked at runtime: 'if (!(obj instanceof Serializable)) throw new NotSerializableException()'.
+   - Subclasses automatically inherit Serializable status.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

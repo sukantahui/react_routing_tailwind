@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 13: BigInteger Crypto & GCD Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 003_004 SUMMARY:
+   - 'java.lang.Math' provides static constants and exact overflow math.
+   - 'SecureRandom' is mandatory for tokens and OTPs.
+   - IEEE 754 float/double fails for money; NEVER use for finance.
+   - 'BigDecimal' provides exact monetary precision (use String constructor).
+   - Use 'compareTo() == 0' instead of 'equals()' for BigDecimal values.
+   - 'BigInteger' powers RSA cryptography with 'modPow()', 'gcd()', and 'probablePrime()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 11: Marker / Tagging Interfaces
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MARKER INTERFACE CHARACTERISTICS:
+   - 0 methods, 0 fields.
+   - Used as a type tag checked via 'if (obj instanceof Marker)'.
+   - Built-in examples: Cloneable, Serializable, Remote, RandomAccess.
+   - In modern Java, Annotations (@Tag) are often preferred for custom metadata.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

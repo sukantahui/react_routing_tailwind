@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 13: Wrapper Utilities & Constants Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 003_003 SUMMARY:
+   - 8 Wrapper classes bridge primitives with Collections.
+   - Autoboxing translates to 'Integer.valueOf(p)'.
+   - Unboxing translates to 'wrapper.intValue()'.
+   - IntegerCache pools '-128 to 127'.
+   - Unboxing null triggers 'NullPointerException'.
+   - Use 'Integer.compare(a, b)' instead of 'a - b' to avoid overflow.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

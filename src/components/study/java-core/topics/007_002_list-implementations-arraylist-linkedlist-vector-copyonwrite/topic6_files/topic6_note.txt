@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 6: LinkedList Node Internals
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LINKEDLIST NODE INTERNALS:
+   - Doubly linked list structure.
+   - Node: '{ E item; Node next; Node prev; }'.
+   - Heavy memory overhead (24-32 bytes per node).
+   - Scattered heap allocation causes CPU cache misses.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

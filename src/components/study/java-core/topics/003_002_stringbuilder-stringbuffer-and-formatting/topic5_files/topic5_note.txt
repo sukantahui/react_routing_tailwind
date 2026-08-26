@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 5: StringBuilder Core Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE METHOD TOOLSET:
+   - 'append(data)'              : Appends primitives/objects to end.
+   - 'insert(offset, data)'      : Inserts at index.
+   - 'delete(start, end)'        : Deletes range (end exclusive).
+   - 'deleteCharAt(idx)'         : Deletes single character.
+   - 'replace(start, end, str)'  : Replaces slice with string.
+   - 'reverse()'                 : Reverses buffer in-place.
+   - 'setCharAt(idx, ch)'        : Mutates single char at index.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

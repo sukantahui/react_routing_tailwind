@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 2: The Contract of compareTo()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPARETO CONTRACT:
+   - Return < 0 : 'this' precedes 'other'.
+   - Return == 0: 'this' equals 'other'.
+   - Return > 0 : 'this' follows 'other'.
+   - Subtraction Trap: Never use 'a - b' due to 32-bit integer overflow.
+   - Safe idiom: 'Integer.compare(a, b)', 'Double.compare(a, b)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

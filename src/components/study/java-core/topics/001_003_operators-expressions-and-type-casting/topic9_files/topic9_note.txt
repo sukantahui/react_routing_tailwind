@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 9: Logical Operators: Logical AND (&&), Logical OR (||), Logical NOT (!)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The 3 Logical Operators:
+  +----------+-----------------------+-----------------------------------------+
+  | Operator | Name                  | Truth Condition                         |
+  +----------+-----------------------+-----------------------------------------+
+  | &&       | Logical AND           | true ONLY if BOTH operands are true     |
+  | ||       | Logical OR            | true if AT LEAST ONE operand is true    |
+  | !        | Logical NOT           | Inverts boolean (true -> false)         |
+  +----------+-----------------------+-----------------------------------------+
+
+- Precedence Hierarchy:
+  * 1. Unary NOT (!)   [Highest]
+  * 2. Logical AND (&&)[Medium]
+  * 3. Logical OR (||) [Lowest]
+  * Example: a || b && c  --> Evaluates as: a || (b && c)
+
+- De Morgan's Laws:
+  * Law 1: !(A && B) == (!A || !B)
+  * Law 2: !(A || B) == (!A && !B)
+
+- Type Safety:
+  * In Java, logical operators ONLY accept boolean expressions.
+  * 1 && 0 or !0 causes a COMPILATION ERROR!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Remember that && precedes || in evaluation precedence.
+[✓] Use parentheses explicitly (a && b) || (c && d) for clear business rules.
+[✓] Apply De Morgan's laws to simplify complex negative condition trees.
+[✓] Ensure Boolean wrappers are checked for null before logical evaluation.
+================================================================================

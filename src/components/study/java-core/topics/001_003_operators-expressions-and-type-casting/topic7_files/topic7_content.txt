@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 7: Relational / Comparison Operators: ==, !=, >, <, >=, <=
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. TAXONOMY OF RELATIONAL OPERATORS
+Relational operators test relationships between two expressions and evaluate strictly to the primitive `boolean` type (`true` or `false`).
+The 6 operators are subdivided into two precedence groups:
+1. Relational Ordering Operators (`<`, `>`, `<=`, `>=`) — Precedence Level 9
+2. Equality Operators (`==`, `!=`) — Precedence Level 8
+
+2. IEEE 754 FLOATING-POINT COMPARISON CHALLENGES
+A. The Epsilon Comparison Strategy:
+   Binary floating-point arithmetic cannot represent decimal fractions like `0.1` and `0.2` exactly.
+   Evaluating `(0.1 + 0.2) == 0.3` produces `false` because the actual value is `0.30000000000000004`.
+   To perform safe comparisons:
+     double EPSILON = 1e-9;
+     boolean isEqual = Math.abs((0.1 + 0.2) - 0.3) < EPSILON;
+
+B. The NaN Comparison Invariant:
+   According to IEEE 754 Section 5.11 and JLS §15.21.1:
+   - `NaN == NaN` is ALWAYS `false`.
+   - `NaN < x`, `NaN > x`, `NaN <= x`, `NaN >= x` are ALWAYS `false`.
+   - `NaN != x` is ALWAYS `true` (even if `x` is `NaN`).
+   To test for NaN: `Double.isNaN(value)`.
+
+3. TYPE PROMOTION IN COMPARISONS
+During relational comparisons between different numeric primitives, Java performs Binary Numeric Promotion (JLS §5.6.2):
+  int a = 10;
+  double b = 10.0;
+  boolean res = (a == b); // 'a' is promoted to double 10.0 -> returns true.
+
+4. ACCIDENTAL ASSIGNMENT PREVENTION IN JAVA
+In C and C++, writing `if (x = 5)` assigns `5` to `x` and evaluates to truthy `5`, causing silent catastrophic bugs.
+Java completely eliminates this bug class for numeric variables by enforcing that `if` conditions must evaluate to `boolean`. Writing `if (x = 5)` results in a compile-time error.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore center, Swadeep, Tuhina, Abhronila, and Debangshu engineered an automated scholarship auditor and merit ranking engine. By comparing student academic scores against distinction thresholds (`score >= 85`) and scholarship criteria (`score >= 90`), their application calculated tuition fee rebates in Indian Rupees (₹) across institutions in Naihati and Shyamnagar with 100% mathematical accuracy.
+================================================================================

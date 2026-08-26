@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 13: char[] and byte[] Conversions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BINARY CONVERSION RULES:
+   - 'str.toCharArray()'                     &rarr; Generates fresh copy of 'char[]'.
+   - 'str.getBytes(StandardCharsets.UTF_8)'  &rarr; Encodes into UTF-8 byte stream.
+   - 'new String(bytes, UTF_8)'              &rarr; Decodes UTF-8 bytes back to String.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

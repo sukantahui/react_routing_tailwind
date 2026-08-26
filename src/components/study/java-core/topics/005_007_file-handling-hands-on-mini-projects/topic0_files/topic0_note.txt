@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_007: File Handling & I/O Hands-On Capstone Lab
+Topic 0: Segment 5 Grand Review
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SEGMENT 5 MASTERY MAP:
+   - Module 1: Java I/O Architecture & Byte Streams.
+   - Module 2: Character Streams & Text File Processing (UTF-8).
+   - Module 3: Buffered Streams, BufferedReader & PrintWriter.
+   - Module 4: Modern Java NIO.2: Paths, Files & FileChannels.
+   - Module 5: Object Serialization & The transient Keyword.
+   - Module 6: Working with CSV, JSON, Properties & Config Files.
+   - Module 7: Hands-On Capstone Mini-Projects & Real-World Lab.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

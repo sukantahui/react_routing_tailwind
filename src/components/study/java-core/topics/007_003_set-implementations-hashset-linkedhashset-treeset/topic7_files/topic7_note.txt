@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 7: Deduplicating with LinkedHashSet
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEDUPLICATION IDIOM:
+   - 'new ArrayList<>(new LinkedHashSet<>(list))'.
+   - O(n) time complexity.
+   - Eliminates duplicate entries.
+   - Guarantees original first-seen chronological order.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

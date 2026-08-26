@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_004: Try-with-Resources & AutoCloseable
+Topic 9: getSuppressed Inspection
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. getSuppressed() API:
+   - Returns 'Throwable[]' array of suppressed secondary errors.
+   - 'ex.addSuppressed(secondaryEx)' used internally by ARM.
+   - 'printStackTrace()' formats suppressed errors automatically.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

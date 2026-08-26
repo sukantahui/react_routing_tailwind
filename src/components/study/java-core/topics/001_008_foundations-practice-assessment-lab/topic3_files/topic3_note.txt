@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 3: Matrix Spiral Traversal & 90-Degree Clockwise Rotation
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. SPIRAL MATRIX TRAVERSAL (O(R * C) Time, O(1) Space)
+--------------------------------------------------------------------------------
+- 4 Boundary Pointers: top = 0, bottom = rows - 1, left = 0, right = cols - 1
+- Traversal Steps:
+  1. Top Row     : left -> right across 'top' row, then top++
+  2. Right Col   : top -> bottom down 'right' column, then right--
+  3. Bottom Row  : right -> left across 'bottom' row (GUARD: if (top <= bottom)), then bottom--
+  4. Left Col    : bottom -> top up 'left' column (GUARD: if (left <= right)), then left++
+- Loop condition: while (top <= bottom && left <= right)
+
+2. IN-PLACE 90-DEGREE CLOCKWISE ROTATION (O(N^2) Time, O(1) Space)
+--------------------------------------------------------------------------------
+- Step 1: Transpose Matrix across main diagonal
+  * Swap matrix[i][j] with matrix[j][i] for j > i.
+- Step 2: Reverse each Row horizontally
+  * Two-pointer swap between left and right for each row.
+- Non-square rectangular matrices require allocating a new C x R matrix.
+
+3. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always include the 'if (top <= bottom)' and 'if (left <= right)' boundary guards.
+[✓] Transposition loop must start inner loop at 'j = i + 1' to avoid double-swapping!
+[✓] 90° Counter-Clockwise = Transpose + Reverse columns vertically (or reverse rows first + transpose).
+[✓] In Topic 4, we master Finding Duplicate and Missing Numbers in Arrays!
+================================================================================

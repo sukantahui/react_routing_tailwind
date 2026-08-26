@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_002: Generic Methods, Constructors & Type Inference
+Topic 7: Generic Algorithms Toolkit
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GENERIC ALGORITHM PATTERNS:
+   - 'swap(T[] arr, int i, int j)': in-place array swap.
+   - 'findMax(T[] arr)': bounded to '<T extends Comparable<T>>'.
+   - 'mergeLists(List<T>, List<T>)': type-safe collection merge.
+   - Reusable across any domain models.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

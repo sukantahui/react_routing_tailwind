@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 19: Widening / Implicit Casting (Smaller Type to Larger Type)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. WIDENING CONVERSIONS SPECIFICATION (JLS §5.1.2)
+Section 5.1.2 of the Java Language Specification (JLS) establishes 19 specific widening primitive conversions:
+- `byte` to `short`, `int`, `long`, `float`, or `double`
+- `short` to `int`, `long`, `float`, or `double`
+- `char` to `int`, `long`, `float`, or `double`
+- `int` to `long`, `float`, or `double`
+- `long` to `float` or `double`
+- `float` to `double`
+
+Widening conversions do not lose information about the overall magnitude of a numeric value.
+
+2. PRECISION LOSS IN FLOATING-POINT WIDENING
+While widening from an integral type to another integral type (`int` to `long`) is always 100% exact, widening from an integral type to a floating-point type may result in precision loss:
+- An `int` value has 31 bits of integer magnitude.
+- An IEEE 754 32-bit `float` has a 23-bit significand (mantissa), providing $\approx 7$ decimal digits of exact precision.
+When an `int` greater than $2^{24}$ ($16,777,216$) is converted to `float`, the lowest bits are rounded using IEEE 754 Round-to-Nearest mode.
+- A 64-bit `long` converted to a 64-bit `double` (52-bit mantissa) loses exact precision for values greater than $2^{53}$ ($9,007,199,254,740,992$).
+
+3. SIGN EXTENSION VS ZERO EXTENSION DURING WIDENING
+- Signed types (`byte`, `short`, `int`) undergo Sign Extension during widening to larger signed types: vacated upper bits are populated with copies of the MSB (preserving negative values).
+- Unsigned type (`char`) undergoes Zero Extension: vacated upper bits are always populated with zeroes.
+Classic Trap: `short s = -1; char c = (char)s; int i = c;` -> `i` evaluates to `65535` because `char` to `int` is zero-extended!
+
+4. CONVERSION CONTEXTS IN JAVA
+Widening occurs implicitly in five distinct language contexts:
+1. Assignment Conversion: `long l = intVal;`
+2. Method Invocation Conversion: `Math.sqrt(intVal);`
+3. String Conversion: `"" + intVal;`
+4. Casting Context: `(double) intVal;`
+5. Numeric Promotion Context: `intVal + doubleVal;`
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built a student tuition ledger and scholarship accounting system. By relying on automatic widening conversions to transition integer fee vouchers into double precision for GST calculations in Indian Rupees (₹), their software achieved seamless type safety with zero runtime casting overhead across institutions in Naihati and Shyamnagar.
+================================================================================

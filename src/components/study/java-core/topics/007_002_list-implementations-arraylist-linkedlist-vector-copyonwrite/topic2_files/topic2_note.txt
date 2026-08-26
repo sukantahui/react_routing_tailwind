@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 2: ArrayList Growth Formula
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GROWTH FORMULA:
+   - 'oldCapacity + (oldCapacity >> 1)' = 1.5x growth.
+   - Bitwise right-shift ('>> 1') = division by 2 in 1 CPU cycle.
+   - Sequence: 10 &rarr; 15 &rarr; 22 &rarr; 33 &rarr; 49 &rarr; 73 &rarr; 109.
+   - Enables memory block reuse in JVM garbage collectors.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

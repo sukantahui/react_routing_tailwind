@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_001: Exception Hierarchy
+Topic 10: NPE Defensive Handling Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 004_001 SUMMARY:
+   - Throwable is the root class (splits into Error and Exception).
+   - Error (JVM failures - never catch).
+   - Checked Exceptions (Exception subclasses - compiler enforced).
+   - Unchecked Exceptions (RuntimeException subclasses - programming bugs).
+   - Catch or Specify requirement for Checked exceptions.
+   - Modern trend favors Unchecked exceptions for framework flexibility.
+   - Use Objects.requireNonNull() and Optional for defensive NPE prevention.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

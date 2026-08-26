@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 2: Thread Memory Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JVM MEMORY FOR THREADS:
+   - Shared Areas: Heap Memory (objects, static fields) & Metaspace.
+   - Private Areas: Call Stack (local variables) & PC Register.
+   - Local variables inside methods are inherently thread-safe (on private stack).
+   - Shared heap objects require synchronization to prevent race conditions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 5: Concrete Methods in Abstract Classes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONCRETE METHOD REUSE:
+   - Abstract classes can contain 100% fully implemented concrete methods.
+   - Subclasses inherit these concrete methods without needing to override them.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

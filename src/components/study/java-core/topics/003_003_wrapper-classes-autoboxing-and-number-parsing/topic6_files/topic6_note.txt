@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 6: The Integer Cache Pool (-128 to 127)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTEGER CACHE RULES:
+   - Cache range: '-128' to '127' (inclusive).
+   - 'Integer.valueOf(n)' queries the cache first.
+   - Within cache: 'a == b' is true.
+   - Outside cache: 'a == b' is false (two distinct objects).
+   - ALWAYS compare wrapper objects using '.equals()'!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

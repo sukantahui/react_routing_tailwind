@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_002: Generic Methods, Constructors & Type Inference
+Topic 4: Generic Static Method Scoping
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATIC GENERICS SCOPING RULE:
+   - Class-level '<T>' belongs to heap instances.
+   - Static methods belong to the class definition.
+   - Static methods CANNOT use class '<T>'.
+   - Static methods MUST declare independent '<E>' before return type.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

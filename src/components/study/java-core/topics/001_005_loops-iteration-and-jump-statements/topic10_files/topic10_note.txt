@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 10: Nested Loops & 2D Grid Traversal
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Execution Order Rule:
+  * For EVERY single iteration of the OUTER loop, the INNER loop executes its
+    complete lifecycle from start to finish!
+  * Total Iterations = (Outer Count) * (Inner Count) -> Multiplicative O(R x C).
+
+- 2D Matrix Grid Traversal (Row-Major Order):
+  for (int r = 0; r < matrix.length; r++) {
+      for (int c = 0; c < matrix[r].length; c++) {
+          process(matrix[r][c]); // Access element at (row r, column c)
+      }
+      System.out.println(); // Break to new line after each row
+  }
+
+- Common Patterns:
+  1. Rectangular Grid : for (r=0; r<R; r++) for (c=0; c<C; c++)
+  2. Triangular Grid  : for (r=1; r<=N; r++) for (c=1; c<=r; c++) // Star patterns
+  3. All-Pairs Matrix : for (i=0; i<N; i++) for (j=i+1; j<N; j++) // Comparisons
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Check loop headers: Ensure inner loop uses 'j++' (not outer 'i++' typo!).
+[✓] Unlabeled 'break' exits ONLY the immediate innermost loop.
+[✓] Use Row-Major order (matrix[r][c]) for maximum CPU L1/L2 cache performance.
+[✓] Keep nesting depth <= 2 to avoid exponential polynomial time complexity.
+================================================================================

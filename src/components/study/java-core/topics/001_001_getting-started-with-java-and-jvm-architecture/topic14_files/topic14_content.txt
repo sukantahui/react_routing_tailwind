@@ -1,0 +1,27 @@
+================================================================================
+DETAILED STUDY MATERIAL: COMMENTS & JAVADOC DOCUMENTATION SYSTEM
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 14
+================================================================================
+
+1. COMPILER TREATMENT OF COMMENTS
+During the Lexical Analysis phase of compilation, the `javac` Scanner discards all characters between comment delimiters. Comments do not consume memory in the heap, stack, or `.class` bytecode.
+
+2. THE THREE COMMENT STYLES
+
+A. Single-Line Comments (`//`)
+Best for short notes, clarifying regex patterns, or explaining non-obvious constants.
+Example: `int timeout = 5000; // 5 seconds socket timeout`
+
+B. Multi-Line Comments (`/* ... */`)
+Used for algorithmic explanations or commenting out blocks of code during debugging.
+Important Gotcha: Multi-line comments cannot be nested because the first closing `*/` terminates the comment block immediately.
+
+C. Javadoc Comments (`/** ... */`)
+Javadoc comments are formal API contracts parsed by the `javadoc` CLI tool to generate standardized HTML documentation (e.g. docs.oracle.com API pages).
+
+3. JAVADOC BEST PRACTICES
+- Write for the consumer: Explain WHAT the method does, not internal implementation trivia.
+- Document edge cases: Clearly state conditions that trigger exceptions in `@throws`.
+- Use HTML elements: Paragraphs (`<p>`), lists (`<ul><li>`), and inline tags (`{@code ...}`).
+- Generate docs via CLI: `javadoc -d doc -sourcepath src com.example`

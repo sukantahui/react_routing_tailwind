@@ -1,0 +1,38 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 12: Writing, Compiling (`javac`) and Running (`java`) from the CLI
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE STANDARD 3-STEP TERMINAL WORKFLOW
+--------------------------------------------------------------------------------
+1. Writing Code:
+   Create a source file matching the public class name: `HelloWorld.java`.
+
+2. Compiling with `javac`:
+   `javac HelloWorld.java`
+   (Produces `HelloWorld.class` in the current folder).
+   Enterprise clean compilation:
+   `javac -d bin src/com/example/App.java`
+   (Automatically creates `bin/com/example/App.class`).
+
+3. Running with `java`:
+   `java HelloWorld`  (CRITICAL: Do NOT include `.class`!)
+   Running packaged applications:
+   `java -cp bin com.example.App`
+
+2. CRITICAL COMMAND-LINE RULES
+--------------------------------------------------------------------------------
+- Never add `.class` to the execution command (`java App` is correct; `java App.class` fails).
+- If your class has a `package com.codernaccotax;`, you MUST run `java com.codernaccotax.App` from the root classpath directory, NOT from inside the package folder!
+- The `-cp` (or `-classpath`) flag tells the JVM where to look for compiled classes.
+- Since Java 11: `java HelloWorld.java` directly compiles in memory and runs single-file scripts!
+
+3. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] `javac Source.java` takes the filename with extension `.java`.
+[✓] `java ClassName` takes the fully-qualified class name WITHOUT extension.
+[✓] Packaged code must be launched using its full package prefix.
+[✓] Use `-d` with `javac` to separate source (`src/`) and binary (`bin/`) folders.
+================================================================================

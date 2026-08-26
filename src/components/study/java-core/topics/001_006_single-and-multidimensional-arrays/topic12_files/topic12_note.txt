@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 12: Basic Sorting Algorithms (Bubble, Selection & Insertion)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- 1. Bubble Sort:
+  * Compares adjacent pairs: if (arr[j] > arr[j+1]) swap();
+  * Largest unsorted element bubbles to the end on each pass.
+  * Optimized with 'boolean swapped' flag for O(N) best-case.
+  * Stability: STABLE | Swaps: O(N^2) worst case.
+
+- 2. Selection Sort:
+  * Finds minimum element index in unsorted suffix and swaps with front.
+  * Time Complexity: O(N^2) for ALL cases (best, avg, worst).
+  * Stability: UNSTABLE | Swaps: Exactly O(N) (at most N-1 swaps!).
+
+- 3. Insertion Sort:
+  * Picks 'key' and shifts larger elements in sorted prefix to right.
+  * Time Complexity: O(N^2) worst case, O(N) best case (nearly sorted).
+  * Stability: STABLE | Ideal for small slices (used in JDK TimSort/Quicksort).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] All 3 algorithms operate in-place with O(1) auxiliary space complexity.
+[✓] Clone arrays before testing sorting methods to avoid mutating original data.
+[✓] JDK uses Dual-Pivot Quicksort for primitives and TimSort for objects.
+[✓] Insertion sort is the fastest algorithm for nearly sorted datasets.
+================================================================================

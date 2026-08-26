@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 2: Temporal Taxonomy Map
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TAXONOMY MAP:
+   - 'LocalDate'     : Date only (2026-08-26).
+   - 'LocalTime'     : Time only (14:30:00).
+   - 'LocalDateTime' : Date + Time (2026-08-26T14:30:00).
+   - 'ZonedDateTime' : Date + Time + Zone ('Asia/Kolkata').
+   - 'Instant'       : UTC Epoch timestamp.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

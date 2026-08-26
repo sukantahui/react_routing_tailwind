@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 1: Type Replacement Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TYPE REPLACEMENT RULES:
+   - '<T>' &rarr; replaced with 'Object'.
+   - '<T extends SuperType>' &rarr; replaced with 'SuperType'.
+   - '<T extends Bound1 & Bound2>' &rarr; replaced with 'Bound1'.
+   - Guarantees valid non-generic JVM bytecode.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

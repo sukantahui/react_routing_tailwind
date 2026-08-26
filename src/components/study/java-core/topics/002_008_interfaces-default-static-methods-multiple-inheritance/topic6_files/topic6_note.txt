@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 6: Multi-Interface Extension
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTERFACE EXTENSION RULES:
+   - 'class' extends 'class' (Single only).
+   - 'class' implements 'interface' (Multiple allowed).
+   - 'interface' extends 'interface' (Multiple allowed via comma-separated list).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

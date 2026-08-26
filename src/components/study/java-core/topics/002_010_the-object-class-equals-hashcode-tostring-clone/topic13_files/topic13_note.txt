@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 13: Shallow Copy vs Deep Copy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MEMORY COMPARISON:
+   - Shallow Copy: Primitive values copied; nested object pointers SHARED.
+   - Deep Copy   : Primitive values copied; nested objects CLONED recursively.
+   - Default 'super.clone()' is ALWAYS a shallow copy.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

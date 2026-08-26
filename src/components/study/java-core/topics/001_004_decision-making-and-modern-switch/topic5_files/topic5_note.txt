@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 5: Combining Complex Boolean Conditions Using &&, ||, and !
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Precedence Hierarchy:
+  1. Logical NOT (!)  --> Highest priority (Unary)
+  2. Logical AND (&&) --> Medium priority
+  3. Logical OR (||)  --> Lowest priority
+  * Example: !a && b || c  ==>  ((!a) && b) || c
+
+- Short-Circuit Evaluation:
+  * && (AND) : Stops immediately if left operand is FALSE (Result is false).
+  * || (OR)  : Stops immediately if left operand is TRUE  (Result is true).
+  * Essential for defensive null guards: if (obj != null && obj.isValid())
+
+- De Morgan's Laws:
+  * Law 1: !(A && B)  <===>  !A || !B
+  * Law 2: !(A || B)  <===>  !A && !B
+
+- Interval Checks (No Chained Inequalities):
+  * Wrong : if (0 <= score <= 100) -> COMPILATION ERROR!
+  * Right : if (score >= 0 && score <= 100)
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always use parentheses to group mixed '&&' and '||' conditions.
+[✓] Place null checks on the left side of '&&' before accessing methods.
+[✓] Never perform state mutations (++i) inside boolean conditions.
+[✓] Extract long boolean expressions into descriptive helper methods.
+================================================================================

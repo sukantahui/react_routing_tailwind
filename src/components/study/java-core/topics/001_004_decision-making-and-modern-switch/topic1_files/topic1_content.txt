@@ -1,0 +1,53 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 1: Simple 'if' Statement: Syntax, Boolean Conditions & Execution Flow
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. GRAMMAR AND SEMANTICS OF SIMPLE IF (JLS §14.9.1)
+Section 14.9.1 of the Java Language Specification (JLS) establishes the exact syntax of the `if` statement:
+  IfThenStatement:
+    if ( Expression ) Statement
+
+Semantics:
+1. The `Expression` must be of compile-time type `boolean` or `Boolean` (which undergoes automatic unboxing conversion to primitive boolean).
+2. The `Expression` is evaluated first.
+3. If the result is `true`, the `Statement` is executed.
+4. If the result is `false`, the `Statement` is not executed, and control passes to the next statement in sequence.
+
+2. THE EMPTY STATEMENT AND THE SEMICOLON TRAP
+Under JLS §14.6, an isolated semicolon `;` is valid Java grammar representing an `EmptyStatement`:
+  if (accountBalance >= admissionFee); // Empty statement!
+  {
+      confirmAdmission(); // Unconditional standalone block!
+  }
+Because the semicolon satisfies the requirement for the single statement body of the `if`, the subsequent braced block becomes an independent initialization block that executes 100% of the time, causing severe business logic bugs.
+
+3. BYTECODE DECOMPILATION ANALYSIS
+Consider the method:
+  public void checkScore(int score) {
+      if (score >= 40) {
+          passed();
+      }
+  }
+Decompiled bytecode using `javap -c`:
+  0: iload_1             // Load score argument onto stack
+  1: bipush 40           // Push constant 40 onto stack
+  3: if_icmplt 10        // If score < 40, jump to instruction 10 (skip body)
+  6: invokestatic #2     // Call passed()
+  9: return
+  10: return             // Instruction 10: Exit method
+
+Notice that the Java compiler automatically inverts the comparison condition (`>=` becomes `if_icmplt`) to generate a forward jump that skips over the statement body when false.
+
+4. CONDITIONAL COMPILATION AND CONSTANT BOOLEAN EVALUATION
+Under JLS §14.21, writing `if (false) { ... }` is legal and does not trigger an "unreachable statement" compiler error. The Java compiler uses this rule to support conditional compilation:
+  final boolean DEBUG = false;
+  if (DEBUG) {
+      logDiagnostics(); // Safely eliminated during bytecode generation
+  }
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built a student scholarship and early-bird admission audit pipeline. By applying clean idiomatic `if` statements with strict brace encapsulation and guard clauses, their accounting engine processed tuition waivers and merit reductions in Indian Rupees (₹) with zero branch errors across institutions in Naihati and Shyamnagar.
+================================================================================

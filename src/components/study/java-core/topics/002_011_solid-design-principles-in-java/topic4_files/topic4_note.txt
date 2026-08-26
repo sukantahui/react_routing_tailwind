@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 4: OCP Plugin Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OCP PLUGIN PIPELINE:
+   - Engine depends only on 'Channel' interface.
+   - New channels registered dynamically at runtime.
+   - Zero 'instanceof' or 'if-else' ladders.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 1: Introduction to NIO.2
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NIO.2 ARCHITECTURE:
+   - 'Path': Immutable representation of hierarchical paths.
+   - 'Files': Static helper methods for CRUD operations.
+   - 'FileSystems.getDefault()': Queries native OS filesystem.
+   - Supports pluggable custom providers (e.g. ZIP file systems).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

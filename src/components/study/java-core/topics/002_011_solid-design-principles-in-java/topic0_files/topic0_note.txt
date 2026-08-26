@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_011: SOLID Design Principles
+Topic 0: Why Design Principles Matter
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SOLID ACRONYM:
+   - S: Single Responsibility Principle (1 reason to change)
+   - O: Open/Closed Principle (Open for extension, closed for modification)
+   - L: Liskov Substitution Principle (Subtypes substitutable for base types)
+   - I: Interface Segregation Principle (No client forced to depend on unused methods)
+   - D: Dependency Inversion Principle (Depend on abstractions, not concretions)
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

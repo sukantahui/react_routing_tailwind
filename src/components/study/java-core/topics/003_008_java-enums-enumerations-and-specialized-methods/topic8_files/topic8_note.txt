@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 8: Constant-Specific Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. POLYMORPHIC ENUM METHODS:
+   - Declare 'public abstract double apply(double x, double y);' in enum.
+   - Each constant overrides the method in its own anonymous subclass body.
+   - Eliminates fragile switch statements.
+   - Enforced at compile time for every new constant.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

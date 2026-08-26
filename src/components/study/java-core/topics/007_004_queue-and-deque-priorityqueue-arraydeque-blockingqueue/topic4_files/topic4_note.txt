@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 4: PriorityQueue Ordering
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PRIORITY QUEUE CONTRACT:
+   - Ordered by priority (Min-Heap by default).
+   - Natural order: implements 'Comparable<T>'.
+   - Custom order: pass 'Comparator<T>'.
+   - 'poll()' extracts minimum element in O(log n).
+   - For-each iteration does NOT guarantee sorted order (use poll()).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

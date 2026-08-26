@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 4: Mathematical Contract of equals()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 5 EQUALS LAWS (Oracle Specification):
+   - Reflexive  : For any non-null x: 'x.equals(x)' is true.
+   - Symmetric  : 'x.equals(y)' is true if and only if 'y.equals(x)' is true.
+   - Transitive : If 'x.equals(y)' and 'y.equals(z)', then 'x.equals(z)'.
+   - Consistent : Repeated calls return same boolean value.
+   - Non-Nullity: For any non-null x: 'x.equals(null)' MUST return false.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

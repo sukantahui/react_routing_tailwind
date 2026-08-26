@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 7: Caching in Other Wrapper Classes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CACHE SUMMARY ACROSS WRAPPERS:
+   - Boolean   : TRUE & FALSE (100% cached).
+   - Byte      : -128 to 127 (100% cached).
+   - Character : 0 to 127 (ASCII).
+   - Short/Int/Long : -128 to 127.
+   - Float/Double   : NO CACHING.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

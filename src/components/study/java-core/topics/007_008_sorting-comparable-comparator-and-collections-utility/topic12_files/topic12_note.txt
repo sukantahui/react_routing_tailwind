@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 12: Collections Statistical Analysis
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATISTICAL METHODS:
+   - 'Collections.min(c)' / 'max(c)': find extreme elements in O(n).
+   - 'Collections.frequency(c, obj)': count occurrences in 1 pass.
+   - 'Collections.disjoint(c1, c2)': returns true if no common elements exist.
+   - Works uniformly across all Collection types (List, Set, Queue).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

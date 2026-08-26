@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 12: MANIFEST.MF Structure & Main-Class
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MANIFEST.MF RULES:
+   - Located at: 'META-INF/MANIFEST.MF' inside the JAR.
+   - 'Main-Class: com.company.Main' &rarr; Entry point.
+   - 'Class-Path: lib/a.jar lib/b.jar' &rarr; Dependency bundle.
+   - Trailing newline is MANDATORY.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

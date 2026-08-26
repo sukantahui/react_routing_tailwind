@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 1: Compile-Time Polymorphism (Method Overloading)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD OVERLOADING MECHANICS:
+   - Same method name in the same class.
+   - Different parameter list (type, count, or order).
+   - Return type alone CANNOT overload a method.
+   - Bound at compile time (Static / Early Binding).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

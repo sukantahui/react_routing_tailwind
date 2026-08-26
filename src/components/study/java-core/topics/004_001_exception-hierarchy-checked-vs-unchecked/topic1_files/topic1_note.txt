@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_001: Exception Hierarchy
+Topic 1: Throwable Hierarchy Taxonomy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HIERARCHY BREAKDOWN:
+   - 'Object' &rarr; 'Throwable' (Root).
+   - Branch A: 'Error' (JVM hardware/RAM failure - unrecoverable).
+   - Branch B: 'Exception' (Application conditions - recoverable).
+     - Checked: Subclasses of Exception (compile-time enforced).
+     - Unchecked: Subclasses of RuntimeException.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

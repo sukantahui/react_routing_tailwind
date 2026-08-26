@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 13: Thread Priorities & OS Scheduling
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THREAD PRIORITIES:
+   - Range: 1 (MIN_PRIORITY) to 10 (MAX_PRIORITY); default is 5 (NORM_PRIORITY).
+   - Merely hints to the underlying OS thread scheduler.
+   - OS-dependent: Linux CFS often ignores Java thread priorities.
+   - Never use priorities to enforce execution order!
+   - Use CountDownLatch, Semaphore, or Locks instead.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

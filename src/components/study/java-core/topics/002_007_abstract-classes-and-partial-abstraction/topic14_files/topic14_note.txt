@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 14: The Template Method Design Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TEMPLATE METHOD PATTERN STRUCTURE:
+   - 'public final void templateMethod()': Controls invariant execution order.
+   - Abstract primitive operations: Implemented by subclasses.
+   - Hollywood Principle: "Don't call us, we'll call you" (Framework calls child steps).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

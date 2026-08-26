@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 0: Set Interface Contract
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SET CONTRACT:
+   - Mathematical uniqueness: no duplicates.
+   - 'add(e)' returns false if already present.
+   - At most 1 null element permitted in HashSet/LinkedHashSet.
+   - Non-indexed: no 'get(index)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

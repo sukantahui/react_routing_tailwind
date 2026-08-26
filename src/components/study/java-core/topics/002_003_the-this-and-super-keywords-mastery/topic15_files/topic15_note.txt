@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 15: Comprehensive Comparison Table: 'this' vs 'super'
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE COMPLETE 'this' VS 'super' COMPARISON MATRIX:
+   -----------------------------------------------------------------------------
+   FEATURE              'this'                             'super'
+   -----------------------------------------------------------------------------
+   Target               Current class instance             Direct parent superclass
+   Field Access         'this.field' (resolves shadowing)  'super.field' (accesses parent)
+   Method Invocation    'this.method()' (current method)   'super.method()' (parent method)
+   Constructor Call     'this(...)' (peer constructor)     'super(...)' (parent constructor)
+   Static Context       FORBIDDEN                          FORBIDDEN
+   Line 1 Mandate       YES (for this())                   YES (for super())
+   -----------------------------------------------------------------------------
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

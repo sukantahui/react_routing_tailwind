@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 1: The 'package' Statement
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'package' STATEMENT RULES:
+   - First non-comment line in file.
+   - Max 1 package declaration per file.
+   - Fully qualified class name becomes: 'packageName.ClassName'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

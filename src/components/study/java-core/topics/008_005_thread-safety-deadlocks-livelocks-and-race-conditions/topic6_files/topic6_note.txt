@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 6: No Preemption Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COFFMAN 3: NO PREEMPTION:
+   - Locks cannot be stolen by force from the holding thread.
+   - Intrinsic 'synchronized' has NO timeout and cannot be preempted.
+   - Broken by: 'ReentrantLock.tryLock(timeout)' with voluntary back-off.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

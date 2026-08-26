@@ -1,0 +1,55 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 10: Switch with Strings & Internal HashCode Matching
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. HISTORICAL GENESIS AND JSR 334 SPECIFICATION
+Prior to Java SE 7, the `switch` statement was restricted to primitive integral types and `enum` objects. JSR 334 (Project Coin) introduced `String` switching under JLS §14.11 to simplify command dispatchers and avoid deep chains of `str.equals(...)` calls.
+
+2. TWO-STAGE BYTECODE DECOMPILATION ARCHITECTURE
+The JVM contains native bytecode opcodes for integer dispatch (`tableswitch`, `lookupswitch`), but no direct opcode for `String` objects.
+To bridge this, `javac` compiles a `String` switch into two synchronized stages:
+
+Stage 1: HashCode Jump Table
+  int hash = selector.hashCode(); // Throws NPE if selector is null!
+  int branchIndex = -1;
+  switch (hash) {
+      case 2236: // Hash for "FB" and "Ea"
+          if (selector.equals("FB")) branchIndex = 0;
+          else if (selector.equals("Ea")) branchIndex = 1;
+          break;
+      case 2301506: // Hash for "JAVA"
+          if (selector.equals("JAVA")) branchIndex = 2;
+          break;
+  }
+
+Stage 2: Action Dispatch Table
+  switch (branchIndex) {
+      case 0: // Code for "FB"
+          ...
+          break;
+      case 1: // Code for "Ea"
+          ...
+          break;
+      case 2: // Code for "JAVA"
+          ...
+          break;
+      default:
+          ...
+  }
+
+3. MATHEMATICAL HASH COLLISION SAFETY
+Because multiple strings can produce identical 32-bit integer hash codes (such as `"FB"` and `"Ea"`, which both produce `2236`), Stage 1 guarantees complete mathematical correctness by executing `.equals(...)` verification inside the matching hash bucket before assigning `branchIndex`.
+
+4. NULL SELECTOR EVALUATION MECHANICS
+Because Stage 1 immediately invokes `.hashCode()` on the selector expression:
+  String cmd = null;
+  switch (cmd) { ... }
+The JVM executes `invokevirtual java/lang/String.hashCode:()I` on a null reference, which throws `java.lang.NullPointerException` before any `case` or `default` label can be inspected.
+Defensive Guideline: Always validate `if (str != null)` prior to switching.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built a student tuition payment gateway in Indian Rupees (₹). By dispatching across payment mode strings (`"UPI"`, `"NEFT"`, `"NET_BANKING"`, `"CASH_COUNTER"`), their payment router demonstrated two-stage hash dispatch speed with 100% hash-collision resilience and null-pointer safety across institutional payment kiosks in Naihati and Shyamnagar.
+================================================================================

@@ -1,0 +1,30 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 10: Passing Arrays to Methods & Returning Arrays from Methods
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Pass-by-Value Reference Semantics (JLS §8.4):
+  * Java passes the reference pointer address BY VALUE (copied onto method frame).
+  * In-place Mutation : fees[i] -= 500; -> Mutates caller's Heap array directly!
+  * Reassignment Trap : fees = new double[10]; -> Modifies local parameter only (caller unaffected).
+
+- Returning Arrays from Methods:
+  * Specify type as return type: public static double[] generateBonuses(int n)
+  * Effective Java Item 54 : Return EMPTY arrays (new int[0]) instead of null!
+  * Defensive Copying      : Return privateArray.clone() to protect private state.
+
+- Swapping Elements:
+  * swap(arr, i, j) works because elements are mutated at the shared heap address.
+  * swap(x, y) with primitive scalars FAILS in Java because primitives are copied by value.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Anonymous arrays (new int[]{1, 2}) can be passed directly as method arguments.
+[✓] Guard against null array parameters: if (arr == null) return ...
+[✓] Never return null from array factory methods; return new Type[0] to prevent NPEs.
+[✓] Arrays.sort(arr) mutates the passed array in-place with void return.
+================================================================================

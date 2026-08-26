@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 6: Character Classes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHARACTER CLASSES:
+   - '[abc]'      : Match a, b, or c.
+   - '[^abc]'     : Match NOT a, b, or c.
+   - '[a-zA-Z]'   : Match any English letter.
+   - '[0-9]'      : Match any digit.
+   - '[a-z&&[aeiou]]' : Intersection (vowels only).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

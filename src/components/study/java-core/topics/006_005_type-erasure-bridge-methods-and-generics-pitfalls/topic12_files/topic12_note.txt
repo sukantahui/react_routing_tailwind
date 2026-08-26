@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 12: Restriction 7 - No Overload Clashes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RESTRICTION 7: NO OVERLOAD CLASHES:
+   - Cannot overload methods where parameters erase to same raw type.
+   - 'method(List<String>)' and 'method(List<Integer>)' &rarr; both erase to 'method(List)'.
+   - Triggers compiler 'name clash' error.
+   - Solution: Use distinct method names.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

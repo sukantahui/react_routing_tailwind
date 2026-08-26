@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_005: Propagation, Chaining & Best Practices
+Topic 7: Swallow and Ignore Anti-Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SWALLOWING ANTI-PATTERN:
+   - 'catch (Exception e) {}' with empty body.
+   - Masks bugs and causes silent data corruption.
+   - Mandatory: At minimum, log the exception or throw a RuntimeException.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

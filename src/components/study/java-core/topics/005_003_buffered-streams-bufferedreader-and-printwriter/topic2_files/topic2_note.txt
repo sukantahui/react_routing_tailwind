@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_003: Buffered Streams & PrintWriter
+Topic 2: Buffered Byte Streams
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BUFFERED BYTE STREAMS:
+   - 'BufferedOutputStream': Wraps OutputStream; caches writes before OS flush.
+   - 'BufferedInputStream' : Wraps InputStream; supports 'mark()' and 'reset()'.
+   - Classic GoF Decorator Design Pattern implementation.
+   - Always close the outermost decorator stream.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

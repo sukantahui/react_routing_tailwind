@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_003: Buffered Streams & PrintWriter
+Topic 6: PrintWriter Formatted Output
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PRINTWRITER CAPABILITIES:
+   - 'print()', 'println()' for all data types.
+   - 'printf("%-10s %d", name, val)' for aligned tabular reports.
+   - Can wrap Files, Writers, or OutputStreams.
+   - Auto-flush constructor: 'new PrintWriter(out, true)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

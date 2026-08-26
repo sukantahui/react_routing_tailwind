@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 8: Consumer Super Write-Enabled
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONSUMER SUPER RULES:
+   - 'List<? super T>' acts as a DATA CONSUMER.
+   - Write-enabled: safe to insert 'T' and subtypes.
+   - Accepts collections of 'T', superclasses, and 'Object'.
+   - Elements can only be read as 'Object'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

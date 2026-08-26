@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 18: Loop Performance Best Practices & Invariant Hoisting
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Loop Invariant Code Motion (Hoisting):
+  * Move expressions that evaluate to constant values OUTSIDE the loop header/body!
+  * BAD  : for (int i = 0; i < list.size(); i++)  // size() evaluated N times!
+  * GOOD : for (int i = 0, len = list.size(); i < len; i++) // Evaluated ONCE!
+
+- HotSpot C2 JIT Compiler Optimizations:
+  1. Bounds Check Elimination (BCE) : Removes array index range checks from machine code.
+  2. Loop Unrolling                 : Duplicates body statements to reduce jump instructions.
+  3. Superword SIMD Vectorization   : Utilizes CPU AVX registers for parallel arithmetic.
+  4. Scalar Replacement             : Replaces local objects with CPU registers.
+
+- Golden Performance Rules:
+  * NEVER place database queries, REST API calls, or disk I/O in loop headers!
+  * Prefer primitive arrays (double[], int[]) over Object collections for hot financial loops.
+  * Benchmark with JMH (Java Microbenchmark Harness) rather than naive wall-clock timers.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Cache collection sizes in loop headers: for (int i = 0, len = size; i < len; i++).
+[✓] Avoid allocating objects inside tight loops to prevent Minor GC pressure.
+[✓] Maintain Row-Major order in 2D arrays (arr[r][c]) for CPU L1/L2 cache line hits.
+[✓] MODULE 001_005 100% COMPLETE! (All 19 Topics from Topic 0 to Topic 18).
+================================================================================

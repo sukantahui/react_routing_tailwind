@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 8: Rules of this() Call: Must Be First Statement in Constructor
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE FIRST STATEMENT MANDATE:
+   -----------------------------------------------------------------------------
+   - 'this(arg1, arg2, ...)' MUST be statement #1 in the constructor body.
+   - Any statement before 'this()' causes a compile-time error:
+     "call to this must be first statement in constructor"
+
+2. ARGUMENT RULES:
+   - CANNOT access instance variables ('this.field') in this(...) arguments.
+   - CANNOT call instance methods ('this.method()') in this(...) arguments.
+   - CAN access 'static' methods and 'static' constants!
+   - CAN pass calculations, ternary expressions (cond ? a : b), and 'new' objects.
+
+3. MUTUAL EXCLUSIVITY:
+   - 'this()' and 'super()' CANNOT be used together in the same constructor body.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

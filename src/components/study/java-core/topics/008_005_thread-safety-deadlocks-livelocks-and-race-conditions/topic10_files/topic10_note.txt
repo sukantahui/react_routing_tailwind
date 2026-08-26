@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 10: Dining Philosophers Simulation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DINING PHILOSOPHERS:
+   - 5 philosophers need 2 chopsticks to eat.
+   - Naive algorithm: All grab left chopstick &rarr; Deadlock!
+   - Dijkstra's Solution: Resource Hierarchy (Global Ordering).
+   - Always acquire smaller indexed chopstick first: 'min(left, right)'.
+   - Breaks Circular Wait condition.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

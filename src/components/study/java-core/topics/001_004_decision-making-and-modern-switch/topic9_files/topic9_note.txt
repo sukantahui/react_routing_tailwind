@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 9: Comparing 'switch' vs 'else-if' Ladder: Readability, Jump Tables & Performance
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Architectural Comparison:
+  Feature               | 'switch' Statement          | 'else-if' Ladder
+  ----------------------|-----------------------------|----------------------------
+  Matching Style        | Discrete Constants          | General Boolean Expressions
+  Time Complexity       | O(1) [tableswitch]          | O(N) Linear Cascade
+  Data Types Supported  | byte, short, int, char,     | ALL types (including long,
+                        | String, enum                | float, double, boolean)
+  Inequality / Ranges   | Not directly supported      | Fully Supported (x >= 80)
+  Readability (4+ cases)| High (Table layout)         | Verbose (Repeated vars)
+
+- Bytecode Optimization in Switch:
+  * Dense Integer Keys  --> 'tableswitch'  (O(1) Direct Indexed Address Jump)
+  * Sparse Integer Keys --> 'lookupswitch' (O(log N) Binary Search Table)
+
+- Decision Matrix:
+  * Choose 'switch'  : When matching ONE variable against 4+ discrete constants.
+  * Choose 'else-if' : When checking ranges, floating-point numbers, or multi-var logic.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use switch for menus, action codes, and enums.
+[✓] Use else-if for grading slabs, tax brackets, and range intervals.
+[✓] Leverage Java 14+ switch expressions for clean, value-returning logic.
+[✓] Use JMH for scientific micro-benchmarks.
+================================================================================

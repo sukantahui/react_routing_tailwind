@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_003: Bounded Type Parameters & Multiple Bounds
+Topic 8: Compile-Time Rejection Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 006_003 SUMMARY:
+   - Bounded Types: '<T extends SuperType>' restricts hierarchy.
+   - 'extends' used for both classes and interfaces.
+   - Direct access to bound methods (e.g. 'Number.doubleValue()').
+   - Multiple bounds syntax: '<T extends Class & InterfaceA & InterfaceB>'.
+   - Class bound MUST come first, at most 1 class permitted.
+   - Recursive type bounds: '<T extends Comparable<T>>' for mutual comparison.
+   - Compile-time rejection prevents runtime type corruption.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

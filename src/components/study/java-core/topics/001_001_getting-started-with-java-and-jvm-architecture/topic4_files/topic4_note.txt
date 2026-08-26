@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 4: The 4 Major Java Editions (Java SE, Jakarta EE, Java ME, JavaFX)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE 4 OFFICIAL JAVA EDITIONS
+--------------------------------------------------------------------------------
+1. Java SE (Standard Edition):
+   - The core foundation of the entire Java universe.
+   - Contains the language specification, JVM, and core packages (java.lang, java.util, java.io, java.nio, java.net, java.math, java.time, java.sql).
+   - Everything else in Java is built on top of Java SE.
+
+2. Jakarta EE (Enterprise Edition / formerly Java EE):
+   - Adds enterprise specifications for distributed, multi-tiered, scalable server-side systems.
+   - Includes Servlet API, Jakarta Persistence (JPA / Hibernate), Jakarta REST (JAX-RS), Jakarta Security, Jakarta Messaging (JMS).
+   - Powers enterprise frameworks like Spring Boot, Quarkus, Micronaut, and application servers (WildFly, Payara).
+
+3. Java ME (Micro Edition):
+   - A highly stripped-down runtime designed for resource-constrained hardware (smart cards, embedded SIM cards, legacy feature phones, industrial sensors).
+   - Uses CLDC (Connected Limited Device Configuration) and CDC profiles.
+
+4. JavaFX:
+   - Modern hardware-accelerated desktop UI toolkit replacing legacy AWT and Swing.
+   - Supports CSS styling, FXML declarative UI layout, 3D graphics, and responsive animation timelines.
+
+2. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Java SE is the prerequisite foundation for all Java development.
+[✓] Java EE was migrated to the Eclipse Foundation and renamed to Jakarta EE.
+[✓] Jakarta EE provides server-side enterprise specifications (JPA, Servlets, REST).
+[✓] JavaFX provides modern desktop GUI development with hardware acceleration.
+================================================================================

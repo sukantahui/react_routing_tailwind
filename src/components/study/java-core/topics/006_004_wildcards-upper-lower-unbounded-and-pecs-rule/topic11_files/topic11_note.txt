@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 11: Wildcard Capture & Helper Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WILDCARD CAPTURE PATTERN:
+   - Public API uses clean 'List<?>'.
+   - In-place mutation triggers compiler CAP#1 capture errors.
+   - Private generic helper: 'private static <T> void helper(List<T> list)'.
+   - Captures anonymous '?' into named 'T', enabling get/set operations.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

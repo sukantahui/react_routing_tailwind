@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 1: Synchronized Wrappers & Iteration Lock
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SYNCHRONIZED WRAPPERS:
+   - 'Collections.synchronizedMap(map)'.
+   - 'Collections.synchronizedList(list)'.
+   - Uses Decorator pattern with coarse-grained 'mutex' lock.
+   - Individual methods are thread-safe.
+   - MANDATORY: Wrap iterations in 'synchronized(map) { ... }' blocks!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

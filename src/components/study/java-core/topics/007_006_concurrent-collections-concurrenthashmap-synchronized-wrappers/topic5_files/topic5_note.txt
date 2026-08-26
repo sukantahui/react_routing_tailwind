@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 5: Modern Java 8+ CAS & Bucket Locks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODERN JAVA 8+ CONCURRENTHASHMAP:
+   - Eliminates Segment objects.
+   - Empty bucket &rarr; lock-free CAS ('casTabAt').
+   - Occupied bucket &rarr; 'synchronized(headNode)'.
+   - Maximum concurrency: number of concurrent writes = number of buckets!
+   - Converts bucket to TreeBin at 8 nodes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

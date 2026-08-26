@@ -1,0 +1,55 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 9: Debugging Challenge: 10 Common Compilation & Logical Bugs
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE 10 CLASSIC JAVA BUGS & FIXES
+--------------------------------------------------------------------------------
+1. String Equality (== vs .equals())
+   * Bug: a == b compares memory addresses!
+   * Fix: a.equals(b) or Objects.equals(a, b).
+
+2. NullPointerException (NPE)
+   * Bug: text.length() when text is null.
+   * Fix: (text == null) ? 0 : text.length() defensive guard.
+
+3. Array Bounds & Off-By-One
+   * Bug: i <= arr.length crashes on last index.
+   * Fix: i < arr.length (valid indices are 0 to length - 1).
+
+4. Integer Division Truncation
+   * Bug: 5 / 2 yields 2 (integer truncation).
+   * Fix: (double) 5 / 2 yields 2.5.
+
+5. 32-Bit Arithmetic Overflow
+   * Bug: long total = price * qty overflows 32-bit int before assignment.
+   * Fix: (long) price * qty promotes multiplication to 64-bit.
+
+6. Accidental Semicolon on Loop Header
+   * Bug: for(int i=0; i<n; i++); count++; creates an empty loop body.
+   * Fix: remove trailing semicolon.
+
+7. Variable Shadowing in Constructors
+   * Bug: name = name assigns parameter to itself.
+   * Fix: this.name = name.
+
+8. Switch Fall-Through
+   * Bug: missing break causes execution to spill into next cases.
+   * Fix: use Java 14+ switch expressions (case X -> ...).
+
+9. Missing Base Case in Recursion
+   * Bug: missing base case crashes with StackOverflowError.
+   * Fix: enforce base case (if (n <= 0) return 0;).
+
+10. ConcurrentModificationException
+   * Bug: list.remove(x) during enhanced for-each iteration.
+   * Fix: list.removeIf(predicate) or Iterator.remove().
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Never use '==' for Object/String content comparisons.
+[✓] Cast operands to (double)/(long) BEFORE arithmetic operations.
+[✓] In Topic 10, we master Writing Clean Code Conforming to Google Java Style Guide!
+================================================================================

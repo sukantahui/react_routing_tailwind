@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_001: Exception Hierarchy
+Topic 9: Common Exceptions Catalog
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STANDARD EXCEPTIONS SUMMARY:
+   - 'NPE'              : Invocation on null pointer.
+   - 'ClassCastException': Incompatible downcasting.
+   - 'IllegalArgument'  : Method argument validation failure.
+   - 'IllegalState'     : Object state lifecycle violation.
+   - 'NumberFormat'     : Integer.parseInt("abc") failure.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

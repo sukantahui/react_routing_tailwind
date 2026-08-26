@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 4: java.security.SecureRandom
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SECURE RANDOM RULES:
+   - 'java.util.Random' &rarr; Predictable (Games/Simulations only).
+   - 'SecureRandom' &rarr; Cryptographically secure (OTPs, Tokens, Salt).
+   - Collects OS entropy (/dev/urandom / CryptoAPI).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

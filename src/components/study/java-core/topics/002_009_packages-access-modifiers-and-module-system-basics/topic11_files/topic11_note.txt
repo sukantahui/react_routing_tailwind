@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 11: JAR Packaging & Execution
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAR TOOL SYNTAX:
+   - Create: 'jar cfe app.jar com.company.Main -C bin .'
+   - List  : 'jar tf app.jar'
+   - Extract: 'jar xf app.jar'
+   - Run   : 'java -jar app.jar'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

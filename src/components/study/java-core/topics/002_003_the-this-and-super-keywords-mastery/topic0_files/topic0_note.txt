@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 0: What is the 'this' keyword in Java and Memory Pointer Mechanics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS 'this':
+   -----------------------------------------------------------------------------
+   - 'this' is a reserved keyword in Java representing a reference to the
+     CURRENT object instance.
+   - Points to the 64-bit Heap address of the active object in Eden space.
+   - Stored in Local Variable Table Slot 0 ('aload_0' in bytecode).
+   - Immutable: cannot reassign 'this = otherObj;'.
+
+2. WHERE DOES 'this' WORK:
+   - Valid inside all non-static methods, constructors, and instance initializers (IIB).
+   - Strictly FORBIDDEN inside static methods and static initializers (SIB).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

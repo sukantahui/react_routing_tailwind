@@ -1,0 +1,27 @@
+================================================================================
+DETAILED STUDY MATERIAL: THE 'WRITE ONCE, RUN ANYWHERE' (WORA) PHILOSOPHY
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 3
+================================================================================
+
+1. THE SOFTWARE DISTRIBUTION PROBLEM OF THE 1990s
+Before Java, software vendors had to create separate builds, compilers, and QA pipelines for every target operating system (Windows 95, Windows NT, Solaris, AIX, HP-UX, macOS, Linux). A minor change required rebuilding and distributing distinct binary executables for each CPU and OS combination.
+
+2. HOW JAVA SOLVED PORTABILITY
+James Gosling and the Sun Microsystems team introduced an intermediate abstract layer: the Java Virtual Machine.
+
+The JVM defines a standardized, universal virtual CPU with its own instruction set called **Bytecode**.
+- Bytecode instructions are 1 byte long (opcodes like `aload_0`, `invokevirtual`, `ireturn`).
+- The bytecode format is strictly standardized and completely decoupled from physical CPU registers or OS system calls.
+
+3. THE TWO-TIER COMPILATION MODEL
+Phase 1: Developer Machine (e.g. Windows in Barrackpore)
+- `javac HelloWorld.java` generates `HelloWorld.class`.
+- The `.class` file begins with the famous magic number `0xCAFEBABE`.
+
+Phase 2: Execution Machine (e.g. Linux in Mumbai or Cloud Container in AWS)
+- `java HelloWorld` launches the host OS JVM.
+- The JVM reads the bytecode, verifies security constraints, and translates the virtual opcodes into the host's native assembly instructions via Interpreter and JIT compiler.
+
+4. BEYOND WORA: WORM (WRITE ONCE, RUN MULTI-PLATFORM)
+WORA enabled Java to become the universal language of the Internet, Android, and Cloud Computing.

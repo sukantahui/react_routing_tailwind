@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 3: Executors Factory Methods Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EXECUTORS FACTORY TRAPS:
+   - 'newFixedThreadPool(n)': Unbounded queue &rarr; Heap OutOfMemoryError.
+   - 'newCachedThreadPool()': Unbounded thread count &rarr; Native thread OOM crash.
+   - 'newSingleThreadExecutor()': Unbounded queue.
+   - Production Best Practice: Instantiate 'ThreadPoolExecutor' with explicit bounded queues!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

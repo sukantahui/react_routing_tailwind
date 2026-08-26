@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 13: Generic Instantiation Workarounds
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INSTANTIATION WORKAROUNDS:
+   - Type Token: 'Array.newInstance(Class<T> clazz, size)'.
+   - Supplier Factory: 'Supplier<T> factory' with constructor reference ('MyClass::new').
+   - Reflection: 'clazz.getDeclaredConstructor().newInstance()'.
+   - Re-establishes runtime type creation safely.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

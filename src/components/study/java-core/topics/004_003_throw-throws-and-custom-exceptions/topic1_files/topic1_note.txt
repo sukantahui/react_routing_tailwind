@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 1: Standard Exceptions Reuse
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE STANDARD EXCEPTIONS:
+   - 'IllegalArgumentException'     : Bad argument passed by caller.
+   - 'IllegalStateException'        : Object not in valid state for call.
+   - 'NoSuchElementException'       : Requested element does not exist.
+   - 'UnsupportedOperationException': Method not supported by implementation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

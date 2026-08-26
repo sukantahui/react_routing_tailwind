@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 9: Files.readString & writeString
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAVA 11 ONE-LINER I/O:
+   - 'Files.readString(path, StandardCharsets.UTF_8)'.
+   - 'Files.writeString(path, text, StandardCharsets.UTF_8, options...)'.
+   - Supports 'StandardOpenOption.APPEND', 'CREATE', 'TRUNCATE_EXISTING'.
+   - Perfect for files up to a few megabytes (JSON, YAML, CSV).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

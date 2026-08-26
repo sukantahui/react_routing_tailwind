@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 6: The Default Package Risks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEFAULT PACKAGE HAZARDS:
+   - Created when 'package ...' statement is omitted.
+   - Classes in named packages CANNOT import or use default package classes.
+   - Incompatible with Java 9 Modules, Spring Boot, and Maven builds.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

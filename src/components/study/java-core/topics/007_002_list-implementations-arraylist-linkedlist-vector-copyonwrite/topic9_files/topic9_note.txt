@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 9: ArrayList vs LinkedList Benchmark
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BENCHMARK COMPARISON:
+   - Appends: ArrayList 3x-5x faster (no Node allocations).
+   - Iteration: ArrayList 5x-10x faster (CPU Cache Lines).
+   - Random Access: ArrayList O(1) vs LinkedList O(n).
+   - Memory Overhead: ArrayList 4 bytes vs LinkedList 24-32 bytes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

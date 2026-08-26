@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 2: Thread Coordination with join()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THREAD.JOIN():
+   - 't.join()' blocks the CALLING thread until 't' finishes.
+   - Puts calling thread in 'WAITING' state.
+   - Throws checked 'InterruptedException'.
+   - If 't' is already terminated, 't.join()' returns immediately.
+   - Essential for fork-join aggregation patterns.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

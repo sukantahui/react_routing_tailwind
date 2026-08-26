@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 3: Synthetic Bridge Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BRIDGE METHODS:
+   - Generated automatically by javac compiler.
+   - Preserves polymorphic overriding across generic inheritance.
+   - Bridges erased parent 'method(Object)' to child 'method(ConcreteType)'.
+   - Verified via reflection: 'method.isBridge() == true'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

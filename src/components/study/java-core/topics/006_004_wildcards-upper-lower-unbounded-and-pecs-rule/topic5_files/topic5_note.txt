@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 5: Lower Bounded Wildcard (Contravariance)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOWER BOUNDED WILDCARD (CONTRAVARIANCE):
+   - 'List<? super Integer>': accepts Integer and all supertypes.
+   - Accepts 'List<Integer>', 'List<Number>', 'List<Object>'.
+   - WRITE-ENABLED: safe to add 'Integer'.
+   - Acts as a DATA CONSUMER.
+   - Elements read only as 'Object'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

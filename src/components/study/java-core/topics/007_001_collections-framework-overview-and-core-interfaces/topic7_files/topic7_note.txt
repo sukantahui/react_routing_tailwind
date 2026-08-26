@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 7: java.util.Set Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SET INTERFACE CONTRACT:
+   - Extends 'Collection<E>'.
+   - Strictly unique elements (no duplicates).
+   - 'add(e)' returns false if element already exists.
+   - HashSet: O(1) unordered.
+   - LinkedHashSet: preserves insertion order.
+   - TreeSet: sorted Red-Black tree order.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

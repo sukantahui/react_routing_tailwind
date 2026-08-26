@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 9: The Golden Rule (wait in while)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE GOLDEN RULE OF WAIT():
+   - ALWAYS: 'while (!condition) { lock.wait(); }'.
+   - NEVER: 'if (!condition) { lock.wait(); }'.
+   - Defends against:
+     * Spurious wakeups.
+     * State changes made by another thread before this thread acquires the lock.
+   - Mandated by Effective Java & Java Concurrency in Practice.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

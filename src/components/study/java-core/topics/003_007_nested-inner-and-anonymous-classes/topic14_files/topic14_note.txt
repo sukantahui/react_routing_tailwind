@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 14: Anonymous Classes vs Lambdas
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ANONYMOUS vs LAMBDA COMPARISON:
+   - Scope of 'this': Inner instance vs Enclosing outer instance (lexical).
+   - Bytecode: Generates 'Outer$1.class' vs 'invokedynamic' instruction.
+   - Interface: Multiple methods/abstract class vs Single Abstract Method (SAM).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

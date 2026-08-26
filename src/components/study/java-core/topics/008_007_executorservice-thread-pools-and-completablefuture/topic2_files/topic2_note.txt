@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 2: Executor Interface Hierarchy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EXECUTOR INTERFACE HIERARCHY:
+   - 'Executor': 'execute(Runnable)' (bare-bones).
+   - 'ExecutorService': 'submit()', 'shutdown()', 'invokeAll()', 'Future<T>'.
+   - 'ScheduledExecutorService': 'scheduleAtFixedRate()', 'scheduleWithFixedDelay()'.
+   - Implemented by 'ThreadPoolExecutor' and 'ScheduledThreadPoolExecutor'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

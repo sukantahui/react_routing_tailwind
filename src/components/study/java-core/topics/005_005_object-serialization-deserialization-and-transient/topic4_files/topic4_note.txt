@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 4: Complex Object Graphs
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OBJECT GRAPH RULES:
+   - Root serialization triggers recursive traversal of all child objects.
+   - ALL nested referenced classes must implement 'Serializable'.
+   - Cyclic references handled automatically via JVM handle tables.
+   - Preserves object sharing and instance identity across deep graphs.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

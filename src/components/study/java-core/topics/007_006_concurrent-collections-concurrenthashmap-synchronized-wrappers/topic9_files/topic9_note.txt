@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 9: Atomic Operations on ConcurrentMap
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ATOMIC OPERATIONS:
+   - 'putIfAbsent(k, v)': atomically puts only if absent.
+   - 'replace(k, oldVal, newVal)': atomic CAS replace.
+   - 'remove(k, val)': removes only if currently mapped to val.
+   - 'computeIfAbsent(k, k -> compute())': atomic lazy creation.
+   - Eliminates Check-Then-Act race conditions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

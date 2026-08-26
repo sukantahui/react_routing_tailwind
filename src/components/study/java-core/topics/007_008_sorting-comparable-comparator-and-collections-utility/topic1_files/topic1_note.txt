@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 1: java.lang.Comparable Contract
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPARABLE INTERFACE:
+   - Package: 'java.lang' (auto-imported).
+   - Single method: 'int compareTo(T o)'.
+   - Compares 'this' (current object) with 'o' (other object).
+   - Enables 'Collections.sort(list)' and 'Arrays.sort(arr)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

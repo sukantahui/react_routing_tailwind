@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 8: serialVersionUID Field
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. serialVersionUID RULES:
+   - Must be: 'private static final long serialVersionUID = 1L;'.
+   - Acts as a versioning fingerprint.
+   - Prevents auto-hash instability across compiler versions.
+   - Allows backward-compatible class evolution.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

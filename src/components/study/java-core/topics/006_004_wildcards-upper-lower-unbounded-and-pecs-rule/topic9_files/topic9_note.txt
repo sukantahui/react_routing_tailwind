@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 9: The PECS Principle
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JOSHUA BLOCH'S PECS PRINCIPLE:
+   - P - Producer &rarr; Extends ('? extends T' for reading).
+   - C - Consumer &rarr; Super ('? super T' for writing).
+   - If both reading AND writing &rarr; exact type '<T>'.
+   - Maximizes API flexibility for client callers.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

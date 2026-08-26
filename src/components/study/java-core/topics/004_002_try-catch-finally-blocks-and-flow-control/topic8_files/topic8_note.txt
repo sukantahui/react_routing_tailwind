@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 8: Comprehensive Flow of Control
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BRANCH EXECUTION MATRIX:
+   - Branch 1 (No error)     : try &rarr; finally &rarr; post-code.
+   - Branch 2 (Caught error) : try &rarr; catch &rarr; finally &rarr; post-code.
+   - Branch 3 (Uncaught error): try &rarr; finally &rarr; abrupt termination (propagate).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

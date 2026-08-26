@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 17: Constructors in Immutable Classes: Safe Final Field Assignment
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RULES OF IMMUTABLE CLASS CONSTRUCTORS:
+   -----------------------------------------------------------------------------
+   - Class is marked 'final' (prevents subclass mutation).
+   - All fields are 'private final'.
+   - Constructor performs DEFENSIVE COPYING on all mutable arguments (List, Date).
+   - Getters return unmodifiable views or defensive copies.
+   - NEVER let 'this' reference escape during construction!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

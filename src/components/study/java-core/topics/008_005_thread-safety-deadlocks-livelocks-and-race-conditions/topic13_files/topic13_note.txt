@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 13: Livelock Mechanics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LIVELOCK:
+   - Threads actively change states in lockstep without progress.
+   - RUNNABLE state (100% CPU burn, unlike Deadlock's 0%).
+   - Analogy: Two polite people dodging back and forth in a hallway.
+   - Solution: Randomized Back-Off Jitter before retrying.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

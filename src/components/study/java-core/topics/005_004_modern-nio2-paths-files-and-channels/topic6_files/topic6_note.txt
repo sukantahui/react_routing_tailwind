@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 6: File Verification & Inspection
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METADATA METHODS:
+   - 'Files.exists(path)'        : Checks existence.
+   - 'Files.isRegularFile(path)' : Confirms normal physical file (not directory).
+   - 'Files.isDirectory(path)'   : Checks if folder.
+   - 'Files.size(path)'          : File size in bytes.
+   - 'Files.getLastModifiedTime' : Queries OS modification timestamp.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

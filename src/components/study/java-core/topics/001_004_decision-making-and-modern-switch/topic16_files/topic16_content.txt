@@ -1,0 +1,46 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 16: Guard Conditions & Pattern Matching in Switch (Java 17-21)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. HISTORICAL EVOLUTION: JEP 406 (JAVA 17) TO JEP 441 (JAVA 21)
+Pattern matching for `switch` underwent preview iterations in Java 17, 18, 19, and 20 before being officially finalized in Java SE 21 (JEP 441, JLS §14.11).
+Key advancements include:
+1. Type Pattern Matching: Dispatches based on the runtime `instanceof` type of an object.
+2. Guard Clauses (`when`): Refines pattern matching with arbitrary boolean predicates.
+3. Record Patterns (JEP 440): Direct deconstruction of records in case labels.
+4. Total Patterns and Null Handling: Explicit `case null` and total pattern support.
+
+2. GRAMMAR AND SYNTAX OF GUARDED PATTERNS
+  GuardedPattern:
+    TypePattern when Expression
+
+Execution Rule:
+1. The selector object is checked for compatibility with `TypePattern`.
+2. If compatible, the pattern variable is initialized.
+3. The `Expression` (which must evaluate to `boolean`) is evaluated.
+4. If the guard evaluates to `true`, the branch executes.
+5. If the guard evaluates to `false`, evaluation continues to the next case.
+
+3. PATTERN DOMINANCE ANALYSIS (JLS §14.11.1)
+The Java compiler performs mathematical dominance analysis over case patterns:
+- An unguarded pattern $P$ of type $T$ dominates a guarded pattern $P \text{ when } E$ of the same type $T$.
+- An unguarded pattern $P_1$ of supertype $S$ dominates an unguarded pattern $P_2$ of subtype $Sub$.
+If a dominated case label appears after a dominating label, the compiler rejects the class file with:
+  `this case label is dominated by a preceding case label`
+
+4. NULL SELECTOR AND CASE NULL DISPATCHING
+Prior to Java 21, `switch` on a null reference threw `NullPointerException` unconditionally.
+In Java 21:
+  switch (obj) {
+      case null -> "Handled null";
+      case String s -> "String: " + s;
+      default -> "Other";
+  }
+If `obj` is null, control jumps directly to `case null`, executing without exception. If no `case null` label is present, traditional NPE behavior is preserved for backward compatibility.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built a polymorphic payload audit engine in Indian Rupees (₹). By processing heterogeneous records (`StudentRecord`, `CorporateGrant`, `String`, `Integer`) with `when` guard conditions (`case StudentRecord s when s.marks() >= 90`), their system demonstrated clean type deconstruction and pattern dominance safety with zero explicit casting across institutes in Naihati and Shyamnagar.
+================================================================================

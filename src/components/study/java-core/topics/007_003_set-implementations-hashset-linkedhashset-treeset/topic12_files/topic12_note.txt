@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 12: NavigableSet Query Suite
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. QUERY METHOD SUITE:
+   - lower(e) / higher(e) &rarr; strictly < / >.
+   - floor(e) / ceiling(e) &rarr; <= / >=.
+   - subSet(from, fInc, to, tInc) &rarr; configurable range view.
+   - headSet(to, inc) & tailSet(from, inc).
+   - pollFirst() / pollLast() &rarr; retrieve & remove extremes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

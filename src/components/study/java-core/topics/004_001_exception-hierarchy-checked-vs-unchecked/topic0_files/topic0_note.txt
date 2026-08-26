@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_001: Exception Hierarchy
+Topic 0: Structured Exception Handling
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RETURN CODE FLAWS:
+   - Callers can forget to check return codes.
+   - Return value conflation (is -1 an error or a valid answer?).
+   - Clutters business logic with nested if-else checks.
+
+2. STRUCTURED EXCEPTION ADVANTAGES:
+   - Clean separation via try-catch.
+   - Cannot be ignored.
+   - Rich stack trace diagnostics.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 16: LinkedHashMap Ordering Modes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LINKEDHASHMAP MODES:
+   - Default: insertion-order (reflects put sequence).
+   - Access-order: 'new LinkedHashMap<>(16, 0.75f, true)'.
+   - 'get()' moves entry to TAIL (Most Recently Used).
+   - HEAD always holds Least Recently Used (LRU) entry.
+   - Singly hash buckets + global doubly linked list ('before', 'after').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

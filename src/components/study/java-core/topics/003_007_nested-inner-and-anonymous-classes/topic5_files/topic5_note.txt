@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 5: Static Nested Class
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATIC NESTED CLASS:
+   - Holds NO reference to outer instance.
+   - Can access outer static members only.
+   - Instantiation: 'new Outer.StaticNested()'.
+   - Highly memory efficient (prevents memory leaks).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

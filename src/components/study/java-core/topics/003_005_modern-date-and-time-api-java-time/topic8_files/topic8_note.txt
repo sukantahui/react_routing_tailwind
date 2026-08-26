@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 8: java.time.Instant
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INSTANT ESSENTIALS:
+   - Machine timeline timestamp in UTC.
+   - Measures nanoseconds from 1970-01-01T00:00:00Z.
+   - Factory: 'Instant.now()', 'Instant.ofEpochMilli(ms)'.
+   - Mandatory best practice for database audit columns.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

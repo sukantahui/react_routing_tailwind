@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 10: Enums Implementing Interfaces
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTERFACE IMPLEMENTATION:
+   - 'public enum MyEnum implements MyInterface'
+   - Can implement multiple interfaces.
+   - Enables Strategy Pattern with enums.
+   - Polymorphically assignable to interface reference types.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

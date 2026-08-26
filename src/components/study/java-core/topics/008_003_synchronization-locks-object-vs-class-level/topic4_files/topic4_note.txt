@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 4: Synchronized Instance Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SYNCHRONIZED INSTANCE METHODS:
+   - Declared with 'public synchronized void method()'.
+   - Acquires intrinsic lock of 'this' object instance.
+   - Other threads calling synchronized methods on SAME object are BLOCKED.
+   - Threads calling synchronized methods on DIFFERENT instances run concurrently.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

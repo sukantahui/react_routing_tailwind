@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 6: Partial Abstraction Mechanics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PARTIAL ABSTRACTION:
+   - Allows mixing concrete implemented methods with abstract contracts.
+   - Perfect for multi-step pipelines where some steps are universal and others are custom.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

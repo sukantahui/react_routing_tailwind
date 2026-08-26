@@ -1,0 +1,36 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 11: Modern Switch Expressions (Java 14+) & Arrow Syntax
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Standardized in Java SE 14 (JEP 361):
+  * Replaces colon syntax (case X:) with Arrow Syntax (case X -> Y).
+  * Dual Use: Can be used as a STATEMENT or as an EXPRESSION (returning a value).
+
+- Fundamental Innovations:
+  1. Value-Returning: Can assign directly to variables:
+     final int fee = switch (track) {
+         case JAVA_CORE -> 15000;
+         case SPRING_BOOT -> 22000;
+         default -> 10000;
+     }; // Note trailing semicolon ';' on expression assignment!
+  2. ZERO Fall-Through: Only the code to the right of the matching arrow executes.
+  3. No 'break;' Required: Eliminates boilerplate and missing-break bugs.
+  4. Block Scope Isolation: Each arrow target has independent local variable scope.
+
+- Rules & Restrictions:
+  * CANNOT mix ':' and '->' in the same switch block.
+  * Switch expressions MUST be exhaustive (cover all cases or have a default).
+  * Semicolon ';' is mandatory when assigning a switch expression to a variable.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use arrow syntax (case X -> Y) for clean, modern Java code.
+[✓] Assign switch expressions directly to 'final' variables for immutability.
+[✓] Put a trailing semicolon ';' after switch expression assignments.
+[✓] Never write 'break;' inside an arrow switch branch.
+================================================================================

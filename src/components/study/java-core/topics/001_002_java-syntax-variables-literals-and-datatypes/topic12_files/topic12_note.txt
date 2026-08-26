@@ -1,0 +1,48 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 12: Escape Sequences in Java: \n, \t, \r, \b, \', \", \\
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Master Escape Sequence Table:
+  +----------+-----------------------+-----------+-------------------------------+
+  | Escape   | Name                  | ASCII Hex | Description / Use Case        |
+  +----------+-----------------------+-----------+-------------------------------+
+  | \n       | Line Feed (LF)        | 0x0A (10) | Newline (standard Linux/Unix) |
+  | \t       | Horizontal Tab        | 0x09 (9)  | Align text into columns       |
+  | \r       | Carriage Return (CR)  | 0x0D (13) | Return cursor to column 0     |
+  | \b       | Backspace             | 0x08 (8)  | Erase preceding character     |
+  | \'       | Single Quote          | 0x27 (39) | Single quote in char literal  |
+  | \"       | Double Quote          | 0x22 (34) | Double quote in String literal|
+  | \\       | Backslash             | 0x5C (92) | File paths & Regex escaping   |
+  | \f       | Form Feed             | 0x0C (12) | Legacy page eject / printer   |
+  +----------+-----------------------+-----------+-------------------------------+
+
+- In-Place Terminal Overwrite via \r:
+  * System.out.print("\rProgress: " + percent + "%");
+  * Overwrites current line without scrolling down (used in CLI spinners).
+
+- Windows File Path Escaping:
+  * String path = "C:\\Users\\Sukanta\\Workspace\\Project.java";
+  * Every single backslash in Windows paths MUST be doubled as \\.
+
+- Platform-Independent Newlines:
+  * Use System.lineSeparator() or %n in printf/String.format:
+    System.out.printf("Student: %s%nFee: ₹%d%n", name, fee);
+
+- Modern Java 15+ Text Blocks:
+  * Multiline strings: """...""" (no need for \n, \t, or \").
+  * \s : Preserves trailing space.
+  * \<line-break> : Joins broken lines into one line without newline.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always escape backslashes in Windows file paths (C:\\Directory\\File).
+[✓] Use \t for clean tabular formatting in terminal student invoice reports.
+[✓] Use \r for live in-place console progress bar updates.
+[✓] Prefer %n in printf() for cross-platform newline compatibility.
+[✓] Use \" to include quotation marks inside standard Java strings.
+================================================================================

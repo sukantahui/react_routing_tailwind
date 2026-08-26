@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 0: java.lang.Math Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MATH CLASS DESIGN:
+   - 'public final class Math'.
+   - Private constructor (no instantiation).
+   - Constants: 'Math.PI' (3.14159...), 'Math.E' (2.71828...).
+   - All methods are 'static'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

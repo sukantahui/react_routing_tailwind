@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 7: Custom Checked Exceptions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CUSTOM CHECKED SYNTAX:
+   - 'public class MyCheckedException extends Exception'
+   - Compiler enforces 'catch or specify'.
+   - Mandatory 'throws' in throwing method signatures.
+   - Used when the caller CAN and MUST take corrective recovery action.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

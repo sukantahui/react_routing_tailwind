@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 3: Intrinsic Monitor Lock Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTRINSIC MONITOR LOCKS:
+   - Attached to EVERY Java object in heap memory.
+   - Encoded in the Object Header's 8-byte Mark Word.
+   - Lock inflation: Biased &rarr; Lightweight (CAS) &rarr; Heavyweight (OS Mutex).
+   - Bytecode instructions: 'monitorenter' and 'monitorexit'.
+   - Exception safety guaranteed by JVM exception tables.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

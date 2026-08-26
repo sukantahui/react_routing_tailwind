@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 2: Pattern Compile & Matcher Execution
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MATCHER ITERATION:
+   - 'Pattern.compile(regex)'     &rarr; Pre-compiles pattern.
+   - 'pattern.matcher(text)'      &rarr; Returns stateful Matcher.
+   - 'matcher.find()'             &rarr; Finds next matching occurrence.
+   - 'matcher.group()'            &rarr; Returns matched string.
+   - 'matcher.start()' / 'end()'  &rarr; Index boundaries.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

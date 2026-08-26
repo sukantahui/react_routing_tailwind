@@ -1,0 +1,24 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 11: Segment 1 Comprehensive Multiple Choice Question (MCQ) Exam
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. SEGMENT 1 EXAM SYNTHESIS (MODULES 001_001 TO 001_007)
+--------------------------------------------------------------------------------
+- JVM & Memory (001_001)   : Stack (LIFO frames) vs Heap (Objects & GC).
+- Datatypes (001_002)      : 8 primitives; Definite Assignment for locals.
+- Operators & Cast (001_003): Widening is implicit; Narrowing requires explicit cast.
+- Control Flow (001_004)   : Switch expressions with '->' eliminate fall-through.
+- Loops (001_005)          : do-while executes at least once; break vs continue.
+- Arrays (001_006)         : 1D & 2D ragged matrices; bounds checking [0..len-1].
+- Methods & Recursion (001_007): Java is strictly Pass-by-Value; Base Case + Inductive Step.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Mastered all 7 Foundations Pillars before advancing to Segment 2.
+[✓] Java is strictly Pass-by-Value for primitives and object addresses.
+[✓] Safe binary search midpoint: mid = low + (high - low) / 2.
+[✓] In Topic 12, we conclude Segment 1 with the Timed Coding Assessment!
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_002: Generic Methods, Constructors & Type Inference
+Topic 6: Generic Array Processing
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GENERIC ARRAYS METHOD RULES:
+   - 'public static <T> void printArray(T[] array)'.
+   - Works seamlessly with any reference array (String[], Integer[]).
+   - Incompatible with primitive arrays (int[], double[]).
+   - Boxed wrapper arrays must be used.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

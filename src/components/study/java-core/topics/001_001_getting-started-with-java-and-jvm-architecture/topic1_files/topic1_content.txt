@@ -1,0 +1,20 @@
+================================================================================
+DETAILED STUDY MATERIAL: HISTORY AND EVOLUTION OF JAVA
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 1
+================================================================================
+
+1. ORIGINS (1991–1995)
+The journey began in June 1991 when a small team of Sun Microsystems engineers called the "Green Team" (led by James Gosling, Mike Sheridan, and Patrick Naughton) embarked on a project to develop software for the next generation of smart consumer appliances and interactive television set-top boxes.
+
+C++ was deemed unsuitable because of:
+- Platform dependency: Set-top boxes used diverse microprocessors.
+- Memory safety risks: Manual pointer allocation caused crashes and security holes.
+
+Gosling created a clean, safe, object-oriented language initially christened "Oak". In 1994, with the emergence of the World Wide Web, the team refocused Oak toward web applications. In 1995, it was renamed "Java" and demonstrated with the HotJava web browser supporting interactive web Applets.
+
+2. THE MAJOR EVOLUTIONARY PHASES
+- The Foundational Era (Java 1.0 - 1.4): Establishing Applets, AWT, Swing, JDBC, Collections Framework, and Java Community Process (JCP).
+- The Language Modernization Era (Java 5 - 7): Introducing Generics, Enums, Autoboxing, the Fork/Join framework, NIO.2, and Try-with-resources.
+- The Functional Revolution (Java 8): Adding Lambdas, Streams, and Modern Date/Time, changing how Java code was authored worldwide.
+- The Modular & Rapid Release Era (Java 9 - 21+): Module System (JPMS), 6-month release cadence, Records, Sealed classes, Pattern Matching, and Project Loom Virtual Threads.

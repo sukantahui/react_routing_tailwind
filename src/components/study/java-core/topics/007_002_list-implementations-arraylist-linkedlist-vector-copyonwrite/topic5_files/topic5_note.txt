@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 5: ArrayList Optimization
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARRAYLIST TUNING:
+   - Constructor: 'new ArrayList<>(expectedSize)'.
+   - 'ensureCapacity(n)': pre-allocates capacity in 1 shot, eliminates resizes.
+   - 'trimToSize()': shrinks backing array to match exact 'size'.
+   - Essential for large datasets and long-lived memory caches.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

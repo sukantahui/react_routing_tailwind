@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 11: Untreeification Threshold (6)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. UNTREEIFICATION:
+   - 'UNTREEIFY_THRESHOLD = 6'.
+   - Occurs during deletions ('remove()') or table resizing split.
+   - Hysteresis gap (8 vs 6) prevents representation thrashing.
+   - Converts 'TreeNode<K,V>' back into lightweight 'Node<K,V>'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

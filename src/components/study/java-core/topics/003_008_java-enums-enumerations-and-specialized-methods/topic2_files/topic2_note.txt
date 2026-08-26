@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 2: Compiler Enum Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPILER SYNTHESIS:
+   - 'public final class MyEnum extends java.lang.Enum<MyEnum>'
+   - Constants are 'public static final' fields initialized with super(name, ordinal).
+   - Cannot extend any class (already extends java.lang.Enum).
+   - CAN implement interfaces.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

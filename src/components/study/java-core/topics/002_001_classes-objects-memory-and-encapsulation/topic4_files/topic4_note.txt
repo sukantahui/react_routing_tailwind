@@ -1,0 +1,55 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 4: Memory Model: Stack Reference Variables vs Heap Object Instances
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JVM RUNTIME DATA AREAS: STACK VS HEAP
+   -----------------------------------------------------------------------------
+   FEATURE               STACK MEMORY                  HEAP MEMORY
+   -----------------------------------------------------------------------------
+   Scope & Sharing       Thread-Private (per thread)   Shared globally (all threads)
+   Contents              Stack Frames (LVT, Operands)  Objects, Arrays, Fields
+   Storage Units         Primitives & 64-bit pointers  Mark Word + Klass Word + Data
+   Lifecycle             LIFO (pushed/popped on call)  Dynamic (reclaimed by GC)
+   Speed                 Ultra-fast (CPU Stack Pointer) Managed, dynamic allocation
+   Error Thrown          java.lang.StackOverflowError  java.lang.OutOfMemoryError
+   Configuration Flag    -Xss (e.g. -Xss1m)            -Xms, -Xmx (e.g. -Xmx4g)
+   -----------------------------------------------------------------------------
+
+2. ANATOMY OF A STACK FRAME:
+   +-------------------------------------------------------------------+
+   | Local Variable Table (LVT) : 'this' pointer, parameters, locals   |
+   +-------------------------------------------------------------------+
+   | Operand Stack              : Intermediate CPU computation stack   |
+   +-------------------------------------------------------------------+
+   | Frame Data                 : Runtime constant pool, return values |
+   +-------------------------------------------------------------------+
+
+3. JAVA REFERENCE PASSING SEMANTICS:
+   - Java is ALWAYS PASS-BY-VALUE.
+   - For Primitives : The actual literal bits (e.g. 100, true) are copied.
+   - For References : The 64-bit/32-bit HEAP ADDRESS POINTER is copied by value.
+   - Mutation       : `refParam.setField(x)` mutates the shared Heap object!
+   - Reassignment   : `refParam = new Object()` only updates the local Stack slot;
+                      the caller's reference variable remains unchanged.
+
+4. OBJECT REACHABILITY & GARBAGE COLLECTION:
+   - Reachable   : At least one active reference chain from a GC Root exists.
+   - Unreachable : All Stack references have gone out of scope or set to null.
+   - GC Action   : Periodically sweeps unreachable Heap memory.
+
+5. ADVANCED JVM OPTIMIZATIONS:
+   - Escape Analysis: JIT determines if an object leaves the method scope.
+   - Scalar Replacement: Non-escaping objects are dismantled into local variables
+     on the Stack / CPU registers, avoiding Heap allocation entirely.
+   - Compressed OOPs: Reduces 64-bit references to 32 bits on heaps < 32GB.
+
+6. GOLDEN RULE BY SUKANTA HUI:
+   - "The Stack represents the verbs (action, execution trajectory, methods),
+      while the Heap represents the nouns (entities, state, domain records)."
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

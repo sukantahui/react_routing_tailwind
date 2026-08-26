@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 13: Understanding the JVM Call Stack & Stack Frames
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The JVM Call Stack (JVMS §2.5.2):
+  * Private memory area created per thread that operates in strict LIFO order.
+  * Every method invocation pushes a new Stack Frame onto the Call Stack.
+
+- The 3 Components of a Stack Frame (JVMS §2.6):
+  1. Local Variable Array (LVA) :
+     - Stores 'this' (slot 0 for instance methods), parameters, and local variables.
+     - 'long' and 'double' take 2 consecutive 32-bit slots.
+  2. Operand Stack (OS)         :
+     - LIFO calculation workspace used by bytecode instructions (iadd, iload, etc.).
+  3. Frame Data                 :
+     - Holds references to runtime Constant Pool, Exception Table, and Return Address.
+
+- Instantaneous Deallocation:
+  * When a method returns, its Stack Frame is POPPED instantly in O(1) time.
+  * Zero Garbage Collection overhead on Stack memory.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Thread stacks are isolated; local variables are inherently thread-safe.
+[✓] StackOverflowError occurs when nested invocations exceed thread stack memory.
+[✓] Inspect active call stack via Thread.currentThread().getStackTrace().
+[✓] Configure thread stack memory limits using the JVM flag -Xss (e.g. -Xss2m).
+================================================================================

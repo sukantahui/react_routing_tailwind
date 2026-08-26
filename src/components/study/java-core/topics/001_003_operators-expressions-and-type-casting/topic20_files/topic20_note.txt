@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 20: Narrowing / Explicit Casting (Larger Type to Smaller Type)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Syntax & Mechanics:
+  * targetVariable = (targetType) sourceExpression;
+  * Explicit casting is MANDATORY when converting from wider to narrower types.
+  * NEVER throws a runtime exception on primitives (silently truncates!).
+
+- Two Primary Risks of Narrowing:
+  1. High-Order Bit Discard & Sign Flip:
+     * (byte) 130  ==> -126 (Upper 24 bits discarded, sign flipped)
+     * (byte) 257  ==> 1    (256 discarded, leaves 1)
+     * (byte) 1000 ==> -24  (1000 % 256 = 232 -> 232 - 256 = -24)
+
+  2. Floating-Point to Integer Truncation:
+     * (int) 99.99  ==> 99  (Truncated towards zero, NOT rounded!)
+     * (int) -99.99 ==> -99 (Truncated towards zero)
+
+- Special IEEE 754 Narrowing Conversions:
+  * (int) Double.NaN               ==> 0
+  * (int) Double.POSITIVE_INFINITY ==> Integer.MAX_VALUE (2147483647)
+  * (int) Double.NEGATIVE_INFINITY ==> Integer.MIN_VALUE (-2147483648)
+
+- Defensive Safe Narrowing Recipe (Java 8+):
+  * int safeInt = Math.toIntExact(longVal); // Throws ArithmeticException on overflow
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always remember that (int)double drops decimals towards zero without rounding.
+[✓] Use Math.round(d) if you need true arithmetic rounding.
+[✓] Use Math.toIntExact(long) to detect overflow instead of silent corruption.
+[✓] Validate numeric bounds before casting down to byte or short.
+================================================================================

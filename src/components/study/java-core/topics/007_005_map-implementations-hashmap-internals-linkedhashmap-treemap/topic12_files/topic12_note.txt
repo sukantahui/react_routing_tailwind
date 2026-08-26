@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 12: Search Complexity Evolution
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPLEXITY MATRIX:
+   - Average: O(1) for put, get, containsKey.
+   - Worst-case Java 7: O(n) linear list scan.
+   - Worst-case Java 8+: O(log n) balanced Red-Black tree.
+   - Defeats Algorithmic Complexity / HashDoS attacks.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

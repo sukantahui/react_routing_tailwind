@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 3: ArrayList Expansion Mechanics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EXPANSION MECHANICS:
+   - Triggered when 'size == data.length'.
+   - Allocates new array with 'newCapacity'.
+   - 'Arrays.copyOf()' delegates to 'System.arraycopy()'.
+   - Native intrinsic uses SIMD/memmove for parallel memory copy.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 1: ArrayList Backing Array
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARRAYLIST INTERNALS:
+   - Backed by 'transient Object[] elementData'.
+   - Initialized to empty array {} until first add.
+   - First 'add()' expands array to default capacity 10.
+   - 'transient' prevents serializing empty unused slots.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

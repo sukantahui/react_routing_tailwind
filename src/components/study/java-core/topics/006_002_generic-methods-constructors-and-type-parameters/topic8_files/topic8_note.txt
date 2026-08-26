@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_002: Generic Methods, Constructors & Type Inference
+Topic 8: Generic Varargs
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GENERIC VARARGS:
+   - 'public static <T> List<T> createList(T... elements)'.
+   - Syntactic sugar for 'T[]' array.
+   - Accepts 0, 1, or many comma-separated arguments.
+   - Foundation for 'List.of()' and 'Arrays.asList()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

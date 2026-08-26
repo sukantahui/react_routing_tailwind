@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_003: Bounded Type Parameters & Multiple Bounds
+Topic 7: Generic Numeric Calculator
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NUMERIC CALCULATOR PATTERN:
+   - '<T extends Number>' encapsulates all numeric types.
+   - Bypasses operator overloading limitation via 'doubleValue()'.
+   - Unifies arithmetic logic for Byte, Short, Integer, Long, Float, Double.
+   - Type-safe compile-time mathematical engine.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

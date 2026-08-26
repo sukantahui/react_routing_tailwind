@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_007: Iterators, Spliterators & Fail-Fast Mechanics
+Topic 2: Safe Removal via iterator.remove()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SAFE REMOVAL:
+   - 'it.remove()' is the ONLY safe way to remove during loops.
+   - Synchronizes 'expectedModCount = modCount'.
+   - Mandatory rule: 'next()' MUST be called before each 'remove()'.
+   - Java 8 idiom: 'list.removeIf(predicate)' uses this under the hood.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

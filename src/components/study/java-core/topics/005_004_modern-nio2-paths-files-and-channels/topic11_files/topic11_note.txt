@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 11: Binary Files.readAllBytes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BINARY I/O WITH NIO.2:
+   - 'byte[] data = Files.readAllBytes(path)'.
+   - 'Files.write(path, byte[] payload)'.
+   - Zero character decoding; preserves exact raw bytes.
+   - Ideal for images, PDFs, ZIP archives, and cryptographic tokens.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

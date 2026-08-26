@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 14: Super Type Tokens Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SEGMENT 6 GRAND CAPSTONE:
+   - Type Erasure: Generics checked at compile time, erased at runtime.
+   - Bridge methods maintain polymorphic method overriding.
+   - The 7 Core Generics Restrictions thoroughly mastered.
+   - Super Type Token pattern ('new TypeToken<T>(){}') captures generic types via reflection.
+   - Complete mastery of Generic Classes, Methods, Bounds, Wildcards (PECS), and Erasure!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 1: Static Variables (Class Variables)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATIC VARIABLE MECHANICS:
+   - Declared with 'static' modifier at class level.
+   - Initialized when class is loaded by JVM ClassLoader.
+   - Ideal for global counters, shared configuration, and constants (static final).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,30 @@
+================================================================================
+DETAILED STUDY MATERIAL: THE 4 MAJOR JAVA EDITIONS
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 4
+================================================================================
+
+1. TAXONOMY OF JAVA EDITIONS
+The Java ecosystem is organized into distinct editions tailored for different hardware profiles and application targets.
+
+2. DETAILED BREAKDOWN OF EACH EDITION
+
+A. Java SE (Java Platform, Standard Edition)
+Java SE is the core platform. It defines:
+- The Java Language Specification (JLS): syntax, keywords, types, control flow.
+- The Java Virtual Machine Specification (JVMS): bytecode execution, classloading, memory areas.
+- Java Core APIs: `java.lang`, `java.util`, `java.io`, `java.nio`, `java.math`, `java.time`, `java.net`, `java.sql`.
+
+B. Jakarta EE (formerly J2EE / Java EE)
+In 2017, Oracle transferred stewardship of Java EE to the open-source Eclipse Foundation. Because "Java" is a trademark of Oracle, the platform was rebranded as **Jakarta EE**.
+Core enterprise specifications:
+- Jakarta Servlets: HTTP request/response pipeline.
+- Jakarta REST (JAX-RS): RESTful JSON web service endpoints.
+- Jakarta Persistence (JPA): Object-relational database mapping (implemented by Hibernate).
+- Jakarta Security: Authentication and role-based access control.
+
+C. Java ME (Java Platform, Micro Edition)
+Engineered for devices with minimal RAM (kilobytes to low megabytes), such as SIM cards, set-top boxes, and industrial micro-controllers.
+
+D. JavaFX
+The modern graphics framework that succeeded legacy Swing and AWT. JavaFX is hardware-accelerated via DirectX / OpenGL / Metal and allows designing UIs using XML-based FXML and CSS stylesheets.

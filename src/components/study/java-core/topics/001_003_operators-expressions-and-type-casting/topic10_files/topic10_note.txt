@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 10: Short-Circuit Evaluation in && and || Operators & Its Side-Effects
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Short-Circuit Evaluation Mechanics:
+  * && (Conditional AND): If LEFT is FALSE -> RIGHT is NEVER evaluated!
+  * || (Conditional OR) : If LEFT is TRUE  -> RIGHT is NEVER evaluated!
+
+- Defensive Guard Patterns:
+  * Null Guard       : if (student != null && student.hasPaid()) // 100% Safe
+  * Zero-Divisor Guard: if (count != 0 && (total / count > 50))   // 100% Safe
+  * Array Index Guard : if (i >= 0 && i < arr.length && arr[i] == 5)
+
+- Short-Circuit vs Eager Operators:
+  +------------------+-------------------------+-------------------------------+
+  | Operator         | Name                    | Evaluation Behavior           |
+  +------------------+-------------------------+-------------------------------+
+  | &&               | Short-Circuit AND       | Skips right if left is false  |
+  | &                | Eager / Bitwise AND     | ALWAYS evaluates both sides   |
+  | ||               | Short-Circuit OR        | Skips right if left is true   |
+  | |                | Eager / Bitwise OR      | ALWAYS evaluates both sides   |
+  +------------------+-------------------------+-------------------------------+
+
+- Side-Effect Traps:
+  * boolean test = false && (++counter > 0); // counter remains UNCHANGED!
+  * boolean test = true  || (processTx() > 0); // processTx() is SKIPPED!
+  * Golden Rule: Never put variable increments (++x) or business mutating methods
+    inside short-circuited condition clauses.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use '&&' for defensive null and boundary guards.
+[✓] Remember that single '&' and '|' do NOT short-circuit (danger with null!).
+[✓] Separate state-changing actions from condition checks.
+[✓] Order conditions from cheapest (in-memory) to most expensive (DB/Network).
+================================================================================

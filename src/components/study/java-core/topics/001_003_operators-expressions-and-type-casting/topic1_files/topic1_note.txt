@@ -1,0 +1,46 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 1: Arithmetic Operators: Addition (+), Subtraction (-), Multiplication (*), Division (/), Modulus (%)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The 5 Binary Arithmetic Operators:
+  +----------+-----------------------+-----------------------------------------+
+  | Operator | Name                  | Primary Behavior                        |
+  +----------+-----------------------+-----------------------------------------+
+  | +        | Addition              | Sums numbers; concatenates Strings      |
+  | -        | Subtraction           | Computes difference; Unary negation (-x)|
+  | *        | Multiplication        | Computes arithmetic product             |
+  | /        | Division              | Integer truncation vs Float division    |
+  | %        | Modulus / Remainder   | a % b = a - (a / b) * b                 |
+  +----------+-----------------------+-----------------------------------------+
+
+- Modulus Sign Rule (THE DIVIDEND RULE):
+  * The sign of the result of a % b ALWAYS matches the dividend 'a'.
+    -  10 %  3 =  1
+    - -10 %  3 = -1  (Dividend is negative)
+    -  10 % -3 =  1  (Divisor sign ignored)
+    - -10 % -3 = -1
+
+- Floating-Point Modulus (Native Java Support):
+  * 7.5 % 2.0 = 1.5 (Supported on float and double).
+
+- Division by Zero:
+  * Integer Division by Zero (10 / 0)    --> Throws ArithmeticException: / by zero
+  * Floating Division by Zero (10.0 / 0) --> Yields Double.POSITIVE_INFINITY
+  * Indeterminate Division (0.0 / 0.0)   --> Yields Double.NaN
+
+- Odd/Even Verification:
+  * Even : (num % 2 == 0)
+  * Odd  : (num % 2 != 0)  <-- Avoid (num % 2 == 1) for negative integers!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Cast at least one operand to double to avoid integer division truncation (5.0 / 2).
+[✓] Remember that modulus result sign strictly follows the left operand (dividend).
+[✓] Use Math.addExact() / Math.multiplyExact() to detect integer overflow.
+[✓] Use (num % 2 != 0) to check for odd numbers safely with negative values.
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 13: FileChannel & ByteBuffer
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHANNEL & BUFFER LIFECYCLE:
+   - 'FileChannel.open(path, StandardOpenOption.READ/WRITE)'.
+   - 'ByteBuffer.allocate(size)' or 'ByteBuffer.allocateDirect(size)'.
+   - Writing data: advances 'position'.
+   - 'flip()': switches buffer to reading mode (limit = pos, pos = 0).
+   - 'clear()': resets buffer for fresh writes (pos = 0, limit = cap).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 2: Why wait/notify are in Object
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY WAIT/NOTIFY ARE IN OBJECT:
+   - Intrinsic locks live on Objects, not Threads.
+   - Threads can hold locks on multiple objects at once.
+   - 'obj.wait()' specifies WHICH object lock is released.
+   - Each object has its own private Wait Set.
+   - Calling 'objA.notify()' targets only threads waiting on objA.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

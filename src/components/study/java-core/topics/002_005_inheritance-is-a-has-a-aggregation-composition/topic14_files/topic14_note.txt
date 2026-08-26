@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 14: Real-World Enterprise Modeling Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ENTERPRISE MODELING SUMMARY:
+   - Use IS-A when true subtyping polymorphism is required (Manager IS-A Employee).
+   - Use HAS-A for data parts and modular services (Employee HAS-A Address).
+   - Keep inheritance hierarchies shallow and favor composition.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

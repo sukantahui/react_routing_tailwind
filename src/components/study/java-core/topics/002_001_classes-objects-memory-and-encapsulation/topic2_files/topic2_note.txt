@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 002_001: Classes, Objects, Memory Allocation & Encapsulation
+TOPIC 2: Class Definition: Syntax, Anatomy, and Naming Conventions
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. COMPLETE ANATOMY OF A JAVA CLASS
+--------------------------------------------------------------------------------
+- Section 1: Package declaration (e.g. package com.coderaccotax.javatutorial.oop;)
+- Section 2: Explicit specific imports (e.g. import java.util.Objects;)
+- Section 3: Class Header & Modifiers ([public/package-private] [final/abstract] class Name)
+- Section 4: Static Constants (UPPER_SNAKE_CASE e.g. DEFAULT_MINIMUM_PASS_MARKS = 40.0)
+- Section 5: Instance Fields (private state: rollNumber, fullName, marks)
+- Section 6: Constructors & Static Factory Methods (Object initialization with guards)
+- Section 7: Instance Methods (Domain behavior: computeTotalMarks(), hasPassed())
+- Section 8: Accessors/Mutators & Object Overrides (toString(), equals(), hashCode())
+
+2. KEY INVARIANTS
+--------------------------------------------------------------------------------
+[✓] Top-level classes can ONLY be 'public' or 'package-private' (never private/protected).
+[✓] Public class name MUST match the .java file name exactly.
+[✓] '==' checks memory addresses; '.equals()' checks logical field equality.
+[✓] Always override 'hashCode()' whenever you override 'equals()'!
+[✓] In Topic 3, we master Object Instantiation using the 'new' Keyword!
+================================================================================

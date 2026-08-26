@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_001: Exception Hierarchy
+Topic 5: Catch or Specify Requirement
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE CATCH OR SPECIFY RULE:
+   - Option A: Handle locally via 'try-catch'.
+   - Option B: Propagate to caller via 'throws Exception' in method header.
+   - Doing neither results in immediate compile error.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 6: What is Inherited vs What is NOT Inherited
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INHERITANCE VISIBILITY MATRIX:
+   - public & protected: ALWAYS inherited and directly accessible.
+   - default (package-private): Inherited ONLY if subclass is in same package.
+   - private: NOT directly accessible by name (must use public getters).
+   - constructors: NEVER inherited (must be invoked via super()).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

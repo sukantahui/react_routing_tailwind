@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 16: Common Beginner Runtime Errors & Defensive Handling
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE TOP 5 RUNTIME ERRORS & EXCEPTIONS
+--------------------------------------------------------------------------------
+1. `NullPointerException` (NPE):
+   - Trigger: Invoking methods or accessing fields on a reference variable that points to `null`.
+   - Defense: Null checks (`if (obj != null)`), `Objects.requireNonNull()`, or `Optional<T>`.
+
+2. `ArrayIndexOutOfBoundsException` / `StringIndexOutOfBoundsException`:
+   - Trigger: Accessing an index `< 0` or `>= array.length` (or `str.length()`).
+   - Defense: Loop bounds `i < array.length` (never `<=`), or use enhanced for-each loops.
+
+3. `ClassCastException`:
+   - Trigger: Forcibly downcasting an object to a type it does not actually implement/extend.
+   - Defense: Always check type using `instanceof` (or Pattern Matching `instanceof`).
+
+4. `StackOverflowError` (JVM Error):
+   - Trigger: Infinite method recursion exhausting thread stack space (-Xss).
+   - Defense: Ensure recursion base conditions are mathematically reachable and correct.
+
+5. `OutOfMemoryError: Java heap space` (JVM Error):
+   - Trigger: Creating more live reachable objects than the maximum heap limit (-Xmx).
+   - Defense: Clean up unused object collections, stream large datasets, tune heap memory.
+
+2. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Runtime exceptions crash the running application; compilation errors prevent bytecode creation.
+[✓] Arrays are 0-indexed: valid indices for length 5 are 0, 1, 2, 3, 4.
+[✓] Modern Java (14+) provides Helpful NullPointerExceptions pointing to exact null variables.
+================================================================================

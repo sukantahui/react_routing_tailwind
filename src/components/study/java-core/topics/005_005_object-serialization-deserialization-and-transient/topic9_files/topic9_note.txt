@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 9: InvalidClassException Diagnostics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. InvalidClassException DIAGNOSTICS:
+   - Thrown when stream UID != class UID.
+   - Message displays: 'local class incompatible: stream classdesc serialVersionUID = X, local class serialVersionUID = Y'.
+   - Compatible evolution: Keep UID identical when adding new fields.
+   - Incompatible evolution: Increment UID when removing fields or altering types.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

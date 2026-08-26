@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 2: Java 8 Functional Map Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAVA 8 FUNCTIONAL MAP METHODS:
+   - 'computeIfAbsent(k, k -> new List())': initializes grouping lists lazily.
+   - 'merge(k, val, (old, new) -> old + new)': aggregates values / counts frequencies.
+   - 'putIfAbsent(k, v)': puts value only if key is absent.
+   - 'forEach((k, v) -> ...)': functional lambda traversal.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

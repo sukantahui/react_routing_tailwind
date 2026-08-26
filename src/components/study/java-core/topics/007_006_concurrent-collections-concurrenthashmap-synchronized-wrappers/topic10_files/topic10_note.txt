@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 10: ConcurrentSkipListMap Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONCURRENTSKIPLISTMAP:
+   - Thread-safe, lock-free equivalent of 'TreeMap'.
+   - Implements 'ConcurrentNavigableMap<K, V>'.
+   - Backed by multi-level Skip List data structure.
+   - O(log n) average time for add, remove, contains, and range queries.
+   - Ideal for concurrent range scans and sorted ledgers.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

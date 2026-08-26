@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 15: Real-World BankAccount Modeling
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BANK ACCOUNT ARCHITECTURE:
+   - Base Abstract Class: Holds balance, accountNumber, getBalance(), logTransaction().
+   - Abstract Methods: deposit(), withdraw().
+   - Subclasses (Savings, Current): Implement custom overdraft and minimum balance checks.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

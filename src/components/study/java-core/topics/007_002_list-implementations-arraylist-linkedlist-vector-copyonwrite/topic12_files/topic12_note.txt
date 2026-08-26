@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 12: CopyOnWriteArrayList Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 007_002 GRAND SUMMARY:
+   - ArrayList: O(1) random reads, 1.5x growth via System.arraycopy().
+   - Tuning: ensureCapacity() upfront and trimToSize() for caches.
+   - LinkedList: Doubly linked nodes; high memory overhead (24-32B/node).
+   - ArrayDeque: Superior to LinkedList for all Queue and Stack needs.
+   - Vector/Stack: Legacy synchronized classes (deprecated in practice).
+   - CopyOnWriteArrayList: Lock-free reads, snapshot iterators, ideal for observer lists.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

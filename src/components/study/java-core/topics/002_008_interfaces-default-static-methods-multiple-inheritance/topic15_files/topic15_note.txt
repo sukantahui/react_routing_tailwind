@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 15: Real-World PaymentGateway Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ENTERPRISE PAYMENT ARCHITECTURE:
+   - Interface: 'PaymentGateway' contract (processTransaction, getProviderName).
+   - Implementations: 'RazorpayGateway', 'StripeGlobalGateway', 'PaytmGateway'.
+   - Service: 'AcademyFeeManagementService' (Depends only on Interface).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

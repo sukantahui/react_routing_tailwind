@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 7: Extending Thread Class
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CREATION METHOD 1 (Extending Thread):
+   - 'class MyThread extends Thread { public void run() { ... } }'.
+   - Call 'myThread.start()' to begin execution.
+   - Drawbacks: Burns single class inheritance slot.
+   - Violates Single Responsibility (couples code with thread execution).
+   - Prefer 'Runnable' or 'Callable' for enterprise code!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

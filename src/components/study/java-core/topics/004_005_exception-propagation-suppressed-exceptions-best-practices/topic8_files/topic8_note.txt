@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_005: Propagation, Chaining & Best Practices
+Topic 8: Catch Generic Throwable Anti-Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ANTI-PATTERN RULES:
+   - NEVER catch 'Throwable' (catches fatal JVM Errors).
+   - Avoid catching generic 'Exception' in low-level business methods.
+   - Catch specific exceptions (e.g. 'IOException', 'SQLException').
+   - Only global frameworks (like Spring) catch generic Exception at API boundaries.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

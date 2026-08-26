@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 5: Exit-Controlled 'do-while' Loops
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- 'do-while' Loop Syntax (JLS §14.13):
+  do {
+      // Loop Body Statements (Executes FIRST!)
+  } while (BooleanCondition); // Trailing semicolon is MANDATORY!
+
+- Guaranteed Single Execution (Post-test):
+  * The body executes at least ONCE before the condition is ever evaluated.
+  * If initial condition is FALSE -> Body still executes 1 time.
+
+- Canonical Use Cases:
+  1. Interactive CLI Menus    : Displaying options before receiving user selection.
+  2. Input Validation Retries : Prompting for PIN or password until valid.
+  3. Eliminating Priming Reads: Reading stream bytes directly inside the body.
+
+- Scoping Gotcha:
+  * Variables tested in while (condition) MUST be declared BEFORE the do block!
+  * Declaring variables inside { ... } makes them invisible to the while clause.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Put the trailing semicolon ';' after while (condition);.
+[✓] Declare condition variables outside the do-while block.
+[✓] Choose do-while whenever the task must execute at least once (menus, retries).
+[✓] Ensure the body mutates the state tested by the condition to prevent infinite loops.
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 2: String Constant Pool Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SCP ARCHITECTURE:
+   - Java 6 : PermGen (Fixed size, prone to OutOfMemoryError).
+   - Java 7+: Main Heap (Garbage collected, dynamic resizing).
+   - Java 8+: PermGen replaced by Metaspace; SCP stays in Heap.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

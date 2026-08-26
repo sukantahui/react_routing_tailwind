@@ -1,0 +1,56 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 7: Instance Variables: Default Initialization Values & Object Lifecycle
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INSTANCE VARIABLES DEFINED:
+   - Non-static fields declared inside class body, outside methods/constructors.
+   - Reside inside the contiguous object memory on the JVM Heap.
+   - Each object instance gets its own independent copy of every instance field.
+   - Automatically zero-initialized by the JVM before constructor execution.
+
+2. JVM DEFAULT ZERO-INITIALIZATION TABLE:
+   -----------------------------------------------------------------------------
+   DATA TYPE                 DEFAULT VALUE             MEMORY SIZE (BITS)
+   -----------------------------------------------------------------------------
+   byte                      0                         8 bits
+   short                     0                         16 bits
+   int                       0                         32 bits
+   long                      0L                        64 bits
+   float                     0.0f                      32 bits (IEEE 754)
+   double                    0.0d                      64 bits (IEEE 754)
+   boolean                   false                     8 bits (1 byte in Heap)
+   char                      '\u0000' (NUL character)  16 bits (Unicode)
+   Reference Types (Object)  null                      32/64 bits (OOP pointer)
+   -----------------------------------------------------------------------------
+
+3. THE 8-STAGE OBJECT LIFECYCLE:
+   Stage 1: Class Loading & Static Preparation (Metaspace <clinit> runs once).
+   Stage 2: Heap Allocation in Eden Space (Header + Fields + 8-byte padding).
+   Stage 3: Default Zero-Initialization (Memory page zero-wiped).
+   Stage 4: Explicit Field Initializers (e.g. `String status = "ACTIVE";`).
+   Stage 5: Instance Initializer Blocks (`{ ... }` execution).
+   Stage 6: Constructor Execution (`<init>` method body completes).
+   Stage 7: In-Use / Reachable State (Methods invoked via active Stack references).
+   Stage 8: Unreachable & GC Reclamation (Memory recycled to Eden/Tenured pool).
+
+4. INSTANCE VS LOCAL VARIABLES:
+   - Instance Variables: Live on Heap; automatic default zero-init; safe to read.
+   - Local Variables   : Live on Stack; NO default values; MUST be explicitly
+                         assigned before reading (compile-time enforcement).
+
+5. MODERN CLEANUP & CLEANER API:
+   - `finalize()` is deprecated/removed due to resurrection flaws and overhead.
+   - Use `java.lang.ref.Cleaner` and `AutoCloseable` (try-with-resources)
+     for deterministic post-mortem resource disposal.
+
+6. BEST PRACTICES:
+   - Enforce encapsulation: declare all instance variables `private`.
+   - Use `final` for immutable instance fields (blank final assigned in constructor).
+   - Beware of uninitialized field reads when calling overridable methods in constructors.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

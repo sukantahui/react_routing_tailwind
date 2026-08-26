@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 10: Writing Clean, Readable Code Conforming to Google Java Style Guide
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. GOOGLE JAVA STYLE ESSENTIALS
+--------------------------------------------------------------------------------
+- Indentation & Formatting:
+  * Exactly 2 spaces per indentation level (NO tab characters).
+  * Column limit: 100 characters per line.
+  * Egyptian Braces: '{' on the same line as header, '}' aligned.
+  * Mandatory braces: '{}' required for ALL if/else/for/while statements.
+  * One variable declaration per line.
+
+- Naming Conventions:
+  * Classes / Records / Enums : UpperCamelCase (StudentLedgerEntry)
+  * Methods / Local Variables : lowerCamelCase (computeFinalPayableFee)
+  * Constants (static final)  : UPPER_SNAKE_CASE (GST_TAX_RATE, INSTITUTE_NAME)
+  * Package Names             : all lowercase (com.coderaccotax.javatutorial)
+
+- Hygiene Rules:
+  * NO wildcard imports (import java.util.*; is strictly forbidden).
+  * Eliminate Magic Numbers: Extract static final named constants.
+  * Defensive Programming: Objects.requireNonNull() on all public parameters.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] 2-space indentation | 100-character line width.
+[✓] Javadoc (@param, @return, @throws) on all non-private APIs.
+[✓] Use immutable Java Records for data models.
+[✓] In Topic 11, we embark on the Segment 1 Comprehensive Multiple Choice Question Exam!
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 8: Atomic Copy & Move Options
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COPY & MOVE OPTIONS:
+   - 'StandardCopyOption.REPLACE_EXISTING': Overwrites destination if present.
+   - 'StandardCopyOption.COPY_ATTRIBUTES': Preserves timestamps and permissions.
+   - 'StandardCopyOption.ATOMIC_MOVE': Kernel-level instantaneous atomic rename.
+   - 'LinkOption.NOFOLLOW_LINKS': Does not dereference symbolic links.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 14: Set Matrix Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 007_003 GRAND SUMMARY:
+   - HashSet: O(1) hash bucket lookup; backed by HashMap + PRESENT.
+   - Element Mutability Hazard: Never mutate hash fields after insertion.
+   - LinkedHashSet: O(1) + guaranteed insertion ordering via before/after pointers.
+   - TreeSet: O(log n) sorted Red-Black tree; backed by TreeMap.
+   - compareTo() == 0 dictates TreeSet uniqueness (ignores equals).
+   - Nulls: HashSet & LinkedHashSet permit 1 null; TreeSet prohibits null (NPE).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

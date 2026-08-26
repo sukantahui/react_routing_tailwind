@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 6: java.util.List Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LIST INTERFACE CONTRACT:
+   - Extends 'Collection<E>'.
+   - Zero-indexed positional access: 'get(i)', 'set(i, e)', 'add(i, e)'.
+   - Preserves strict insertion ordering.
+   - Permits duplicate elements and multiple nulls.
+   - Offers 'indexOf()', 'lastIndexOf()', 'subList()', 'listIterator()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

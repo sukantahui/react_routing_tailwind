@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 4: FileReader & FileWriter
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FILEREADER & FILEWRITER (Java 11+):
+   - Always pass 'StandardCharsets.UTF_8'.
+   - 'new FileWriter(file, StandardCharsets.UTF_8, appendMode)'.
+   - Avoid legacy constructors that rely on OS default encoding.
+   - Clean, lightweight for small text files.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

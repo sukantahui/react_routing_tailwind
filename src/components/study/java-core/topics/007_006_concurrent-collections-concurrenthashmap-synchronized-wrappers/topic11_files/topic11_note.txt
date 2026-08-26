@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 11: CopyOnWriteArraySet Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COPYONWRITEARRAYSET:
+   - Backed by 'CopyOnWriteArrayList'.
+   - Uniqueness enforced via 'addIfAbsent()'.
+   - Lock-free reads and snapshot iterators.
+   - Writes clone the entire backing array.
+   - Ideal for event listeners and read-heavy config sets.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

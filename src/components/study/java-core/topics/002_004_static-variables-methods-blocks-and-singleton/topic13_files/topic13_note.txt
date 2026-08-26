@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 13: Eager Initialization Singleton
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EAGER INITIALIZATION BLUEPRINT:
+   - 'private static final Singleton INSTANCE = new Singleton();'
+   - Thread-safe by virtue of JVM ClassLoader specification.
+   - Trade-off: Potential memory waste if never requested.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

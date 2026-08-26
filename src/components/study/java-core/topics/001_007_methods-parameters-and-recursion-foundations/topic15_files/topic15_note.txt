@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 15: StackOverflowError Causes & Prevention
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is StackOverflowError? (JLS §11.1.1):
+  * An unchecked Error (subclass of VirtualMachineError) thrown when the Call Stack
+    exhausts its allocated memory limits.
+  * Represents fatal thread stack exhaustion, NOT a standard business Exception.
+
+- The 4 Primary Root Causes:
+  1. Missing Base Case         : Unbounded recursive loop.
+  2. Non-Defensive Base Case   : Exact 'n == 0' bypassed by negative inputs.
+  3. Divergent Recursive Step  : Arguments moving away from the base case (n + 1).
+  4. Excessively Deep Calls    : Valid recursion exceeding the -Xss thread stack limit.
+
+- The 4 Prevention Strategies:
+  1. Defensive Base Cases      : Always use 'if (n <= 0)' instead of 'if (n == 0)'.
+  2. Iterative Refactoring     : Convert deep linear recursions (N > 5000) to for/while loops.
+  3. Depth Guard Counters      : Abort and return fallback if depth > maxSafeDepth.
+  4. JVM Stack Tuning          : Adjust thread stack size using -Xss (e.g. -Xss4m).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Iterative loops use O(1) stack space and never throw StackOverflowError.
+[✓] Watch out for circular references in toString() or equals() methods.
+[✓] Do not write 'catch (StackOverflowError e)' in normal production logic.
+[✓] StackOverflowError is for Stack memory; OutOfMemoryError is for Heap memory.
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 5: Character Encodings & Charsets
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MAJOR CHARSETS:
+   - 'US-ASCII'   : 7-bit (0-127). English only.
+   - 'ISO-8859-1' : 8-bit (0-255). Latin-1.
+   - 'UTF-8'      : 1-4 bytes variable. Global standard.
+   - 'UTF-16'     : 2 or 4 bytes. JVM internal String memory.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

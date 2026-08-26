@@ -1,0 +1,29 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 8: Armstrong Numbers in a Given Range
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE ARMSTRONG NUMBER ALGORITHM
+--------------------------------------------------------------------------------
+- Definition: An integer N of D digits where sum of (digit ^ D) == N.
+  * Examples: 153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153.
+  * 1634 = 1^4 + 6^4 + 3^4 + 4^4 = 1 + 1296 + 81 + 256 = 1634.
+
+- The 3 Key Optimizations:
+  1. Fast Integer Power : Avoids floating-point precision issues with Math.pow().
+  2. Precomputed Table  : Precomputes 0^D .. 9^D in int[10] array (O(1) table lookups!).
+  3. Early Pruning      : if (sum > n) return false; (Halts loop immediately!).
+
+- Range Scanner [start..end]:
+  * 3-Digit Armstrongs [100..999]   : 153, 370, 371, 407 (4 numbers).
+  * 4-Digit Armstrongs [1000..9999] : 1634, 8208, 9474 (3 numbers).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Negative numbers are never Armstrong numbers.
+[✓] Preserve original 'n' with 'int temp = n' during digit extraction.
+[✓] Time Complexity: O(D) per number; Space Complexity: O(1) constant.
+[✓] In Topic 9, we tackle Debugging Challenge: 10 Common Compilation & Logical Bugs!
+================================================================================

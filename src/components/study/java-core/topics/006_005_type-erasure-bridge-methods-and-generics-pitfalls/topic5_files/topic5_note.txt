@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 5: 7 Core Restrictions Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 7 GENERICS RESTRICTIONS:
+   1. No primitive types ('List<int>').
+   2. No instance creation ('new T()').
+   3. No static fields of type T.
+   4. No 'instanceof' with parameterized types.
+   5. No generic arrays ('new List<String>[10]').
+   6. No generic exceptions (cannot catch/throw T).
+   7. No overload clashes after erasure.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

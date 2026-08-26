@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 2: java.lang.Iterable Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ITERABLE ROOT CONTRACT:
+   - Resides in 'java.lang' package.
+   - Superinterface of 'java.util.Collection'.
+   - Unlocks enhanced for-each loop: 'for (T x : collection)'.
+   - 'default void forEach(Consumer<? super T> action)' since Java 8.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

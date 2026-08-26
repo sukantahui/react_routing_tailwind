@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 17: finalize() Deprecation & Cleaners
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 002_010 SUMMARY:
+   - 'Object' is the cosmic root superclass of Java.
+   - Always override 'toString()' for readable logs.
+   - '==' compares references; 'equals()' compares semantic contents.
+   - Always override 'equals()' and 'hashCode()' together using identical fields.
+   - Prefer Copy Constructors over 'Object.clone()'.
+   - 'finalize()' is deprecated; use 'AutoCloseable' and 'Cleaner'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

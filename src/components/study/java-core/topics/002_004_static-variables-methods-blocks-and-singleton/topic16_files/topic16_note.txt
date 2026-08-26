@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 16: Bill Pugh Singleton Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BILL PUGH ARCHITECTURE:
+   - Uses a private static inner helper class ('Holder').
+   - Inner class loaded ONLY when 'getInstance()' is called (Lazy).
+   - Thread safety guaranteed by JVM ClassLoader (Zero sync overhead).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

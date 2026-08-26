@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 8: Equality Check: Primitive == Value Comparison vs Object Reference Comparison
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. MEMORY MODEL: STACK BIT EQUALITY VS HEAP REFERENCE IDENTITY
+In Java's memory architecture, variables behave fundamentally differently based on whether they are primitive or reference types:
+1. Primitive Variables (`byte`, `short`, `int`, `long`, `float`, `double`, `boolean`, `char`):
+   - Stored directly in the current thread's stack frame.
+   - The `==` operator performs a direct binary comparison of the bits on the stack.
+2. Reference Variables (Classes, Interfaces, Arrays):
+   - The variable on the stack holds a 32-bit or 64-bit memory address (pointer) pointing to an object instance allocated on the Heap.
+   - The `==` operator compares only the memory addresses (reference identity), NOT the object's internal fields!
+
+2. THE STRING CONSTANT POOL & INTERNING
+To optimize memory, the JVM maintains a special String Constant Pool in the Heap.
+- String Literals (`String s = "Barrackpore";`):
+  During class loading, the JVM checks the pool. If the literal exists, the reference is returned; otherwise, it is created and pooled. Thus, two literal declarations share the exact same Heap pointer (`s1 == s2` is `true`).
+- `new String("Barrackpore")`:
+  Explicitly allocates a distinct `String` object outside the pool (`s1 == s3` is `false`).
+- `s3.intern()`:
+  Instructs the JVM to look up and return the canonical pooled reference, making `s1 == s3.intern()` evaluate to `true`.
+
+3. WRAPPER CLASS CACHING ARCHITECTURE (THE INTEGER TRAP)
+Under the Java Language Specification (JLS §5.1.7), autoboxing calls `Integer.valueOf(int)`.
+The `IntegerCache` class pre-allocates and caches `Integer` instances for values between `-128` and `+127`:
+- `Integer a = 127, b = 127; a == b` -> `true` (Both reference cached object #127).
+- `Integer c = 128, d = 128; c == d` -> `false` (Two distinct Heap instances allocated!).
+CRITICAL PRODUCTION RULE: Never use `==` to compare numeric wrapper objects; always use `.equals()` or `Objects.equals()`.
+
+4. THE EQUALS AND HASHCODE CONTRACT (JLS & JAVA OBJECT SPECIFICATION)
+When defining domain entities:
+1. The `.equals()` method must satisfy Reflexivity, Symmetry, Transitivity, Consistency, and Non-nullity.
+2. If `a.equals(b)` returns `true`, then `a.hashCode()` and `b.hashCode()` MUST return identical integers.
+3. If this contract is violated, hashing collections (`HashMap`, `HashSet`) will exhibit catastrophic data loss and lookup failures.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu created a student enrollment verification system. By correctly overriding `equals()` and `hashCode()` to compare roll numbers, names, and course fee structures in Indian Rupees (₹), their application prevented duplicate student registrations across Naihati and Shyamnagar with 100% data integrity.
+================================================================================

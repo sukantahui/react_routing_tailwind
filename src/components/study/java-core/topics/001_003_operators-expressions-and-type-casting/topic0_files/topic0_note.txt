@@ -1,0 +1,40 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 0: Operands, Operators, and Expression Evaluation in Java
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Operator Arity Classification:
+  * Unary   (1 operand) : ++, --, +, -, !, ~, (type)
+  * Binary  (2 operands): +, -, *, /, %, ==, !=, <, >, &&, ||, &, |, ^, <<, >>
+  * Ternary (3 operands): ? : (Condition ? ExprIfTrue : ExprIfFalse)
+
+- Expression vs Statement vs Block:
+  * Expression : Evaluates to a single concrete value (e.g. 5 * 10 -> 50).
+  * Statement  : Complete unit of execution ending in ';' (e.g. int x = 50;).
+  * Block      : Group of statements enclosed in curly braces { ... }.
+
+- Strict Left-to-Right Operand Evaluation Rule (JLS §15.7):
+  * Unlike C/C++ (where operand evaluation order is undefined), Java GUARANTEES
+    that the left operand is fully evaluated before the right operand is touched!
+  * Example: (x = 10) + (x * 2) -> (x = 10) executes first -> 10 + 20 = 30.
+
+- Evaluation Mechanics:
+  * Precedence    : Controls which operators group first (* before +).
+  * Associativity : Breaks ties for equal operators (mostly Left-to-Right).
+  * Right-to-Left : Unary, Assignment (=, +=), and Ternary (? :).
+
+- Constant Folding:
+  * Compile-time constant expressions (e.g. 24 * 60 * 60) are pre-calculated
+    by javac directly into bytecode constants (86400).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Remember operator arity: Unary (1), Binary (2), Ternary (3).
+[✓] Rely on Java's deterministic Left-to-Right operand evaluation (JLS §15.7).
+[✓] Use parentheses ( ) freely to make complex business formulas unambiguous.
+[✓] Avoid multiple state-mutating side effects (e.g. x++ + ++x) in one expression.
+================================================================================

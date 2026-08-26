@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 4: Happens-Before Relationship
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HAPPENS-BEFORE RULES:
+   - Program Order: In-thread statement order.
+   - Monitor Lock: Unlock(M) happens-before Lock(M).
+   - Volatile Variable: Write(V) happens-before Read(V).
+   - Thread Start: start() happens-before thread's run().
+   - Thread Join: All thread actions happen-before join() returns.
+   - Transitivity: A &rarr; B and B &rarr; C implies A &rarr; C.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

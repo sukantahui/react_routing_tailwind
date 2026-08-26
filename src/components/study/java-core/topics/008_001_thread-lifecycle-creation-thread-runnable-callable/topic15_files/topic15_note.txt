@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 15: Thread Creation Grand Matrix
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CREATION APPROACH MATRIX:
+   - Extends Thread: Burns inheritance, tightly coupled (avoid).
+   - Runnable Class: Decoupled, preserves inheritance, void return.
+   - Runnable Lambda: Zero boilerplate, inline fire-and-forget.
+   - Callable<V>: Returns value, throws checked exceptions, ideal for ExecutorService.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 4: Comparator Strategy Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPARATOR CONTRACT:
+   - Package: 'java.util.Comparator'.
+   - Method: 'int compare(T o1, T o2)'.
+   - Strategy pattern: external, dynamic, interchangeable.
+   - Functional Interface: allows concise lambda expressions.
+   - Can sort third-party classes that cannot be modified.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

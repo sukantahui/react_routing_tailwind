@@ -1,0 +1,38 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 15: Ternary / Conditional Operator (? :) Syntax & Nested Expressions
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Syntax & Mechanics:
+  * condition ? expressionIfTrue : expressionIfFalse
+  * Only operator with 3 operands in Java.
+  * Guarantees Short-Circuiting: ONLY the selected branch is evaluated at runtime!
+
+- Numeric Type Promotion in Branches (JLS §15.25):
+  * If one branch is int and the other is double -> Result is DOUBLE!
+  * Example: true ? 10 : 20.5  ==> Evaluates to 10.0 (double)
+
+- Associativity:
+  * Right-to-Left: a ? b : c ? d : e  ==> a ? b : (c ? d : e)
+
+- Clean Multi-Line Nested Ternary Recipe:
+  String grade = (marks >= 90) ? "Grade A+"
+               : (marks >= 75) ? "Grade A"
+               : (marks >= 50) ? "Grade B"
+               : "Grade F";
+
+- Wrapper Unboxing Trap:
+  * Mixing boxed wrapper types (Integer vs Double) forces unboxing to double.
+  * If a branch is null, unboxing throws java.lang.NullPointerException!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Condition MUST evaluate to a boolean expression.
+[✓] Use ternary for final variable initialization and concise return statements.
+[✓] Watch for binary numeric promotion widening integers to double (10 -> 10.0).
+[✓] Limit nesting to max 2 levels with clean line indentation.
+================================================================================

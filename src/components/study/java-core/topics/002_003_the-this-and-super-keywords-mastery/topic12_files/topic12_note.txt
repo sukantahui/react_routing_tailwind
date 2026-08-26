@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 12: Implicit super() Insertion by Compiler
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. IMPLICIT super() RULES:
+   - If you write neither 'this()' nor 'super()' on Line 1, javac automatically
+     injects 'super();' at compile time.
+   - TRAP: If the parent class does NOT have an accessible no-arg constructor,
+     this implicit 'super()' fails with a compile error!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

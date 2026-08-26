@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 9: Graceful Executor Shutdown
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GRACEFUL SHUTDOWN PROTOCOL:
+   - 'shutdown()': Stops accepting new tasks; drains existing queue.
+   - 'shutdownNow()': Sends 'interrupt()' to running threads; returns unstarted tasks.
+   - 'awaitTermination(t, unit)': Blocks calling thread waiting for termination.
+   - Standard 2-Phase: 'shutdown()' &rarr; 'await(5s)' &rarr; if timeout: 'shutdownNow()' &rarr; 'await(5s)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

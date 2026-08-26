@@ -1,0 +1,47 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 10: Encapsulation Principle: Bundling Data and Methods into a Single Unit
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ENCAPSULATION DEFINED:
+   - The foundational Object-Oriented principle of bundling state (fields)
+     and behaviors (methods) into a single cohesive unit (Class).
+   - Establishes a protective boundary (Capsule) that hides internal
+     implementation details and protects invariants from external corruption.
+
+2. THE TWO PILLARS OF ENCAPSULATION:
+   -----------------------------------------------------------------------------
+   PILLAR 1: DATA BUNDLING
+             - Combining data and the methods that operate on that data
+               into one cohesive class entity.
+   PILLAR 2: DATA HIDING & GUARDED INVARIANTS
+             - Declaring fields `private` and exposing access only through
+               controlled, validated public methods (Accessors/Mutators).
+   -----------------------------------------------------------------------------
+
+3. WHAT IS A CLASS INVARIANT?
+   - A fundamental business rule that must ALWAYS evaluate to true for an object
+     (e.g., `balance >= 0`, `studentId > 0`, `email != null`).
+   - Encapsulation ensures that invalid transitions are rejected at the door.
+
+4. DANGER OF PUBLIC FIELDS (UNENCAPSULATED CLASSES):
+   - External code can directly corrupt state: `account.balance = -999999.0;`.
+   - Zero validation, zero security check, zero audit logging.
+   - Any internal change breaks all external client callers.
+
+5. DEFENSIVE PRACTICES IN ENCAPSULATED DESIGN:
+   a) Declare all instance fields `private`.
+   b) Validate all parameters in constructors and setters (Fail-Fast).
+   c) Return unmodifiable views or defensive copies for collections/mutable objects.
+   d) Provide rich domain methods ("Tell, Don't Ask") rather than anemic getters/setters.
+
+6. SUKANTA HUI'S CAPSULE MANIFESTO:
+   - "A class without encapsulation is a house without walls.
+      Declare private state, guard every entrance with validation,
+      and let your domain methods defend your business invariants."
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

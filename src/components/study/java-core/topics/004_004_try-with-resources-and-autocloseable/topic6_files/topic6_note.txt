@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_004: Try-with-Resources & AutoCloseable
+Topic 6: Multiple Resources Semicolon Syntax
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MULTIPLE RESOURCES SYNTAX:
+   - Separate declarations with semicolons: 'try (Res1 r1 = ...; Res2 r2 = ...)'.
+   - Both resources are scoped to the try block.
+   - Automatically closed in reverse order upon completion.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

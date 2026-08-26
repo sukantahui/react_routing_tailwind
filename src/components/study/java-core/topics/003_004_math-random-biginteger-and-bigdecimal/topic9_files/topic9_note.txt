@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 9: BigDecimal Arithmetic Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARITHMETIC TOOLSET:
+   - 'a.add(b)'        &rarr; Returns $a + b$.
+   - 'a.subtract(b)'   &rarr; Returns $a - b$.
+   - 'a.multiply(b)'   &rarr; Returns $a 	imes b$.
+   - 'a.divide(b, scale, RoundingMode)' &rarr; Exact division with rounding.
+   - All methods return new immutable instances.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

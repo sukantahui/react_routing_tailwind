@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 8: Format Flags & Table Alignment
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FORMAT FLAGS CHEATSHEET:
+   - '%-20s' : Left-align string in 20-character wide column.
+   - '%20s'  : Right-align string in 20-character wide column.
+   - '%06d'  : Zero-pad integer to 6 digits (e.g. '000042').
+   - '%,d'   : Thousands grouping comma separator ('1,500,000').
+   - '%,.2f' : Thousands grouping with 2 decimal precision.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,47 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 15: Interactive Console Input Using java.util.Scanner
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. INTRODUCTION & ARCHITECTURAL EVOLUTION
+In early Java (Java 1.0 - 1.4), reading console input from users was notoriously verbose:
+  BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+  int age = Integer.parseInt(reader.readLine());
+
+To modernize and streamline user interactions, Java 5 introduced `java.util.Scanner`. The Scanner class acts as a high-level lexer and parser that wraps any input stream (such as `System.in`, disk files, sockets, or in-memory strings) and parses primitive data types and strings using regular expression delimiters.
+
+2. TOKENIZATION MECHANICS
+- The Scanner maintains an internal buffer and cursor position.
+- By default, it splits the incoming character stream using whitespace delimiters (`\s+`: spaces, tabs, carriage returns, and newlines).
+- When a method like `nextInt()` is invoked:
+  1. The Scanner skips any leading delimiter characters.
+  2. It reads characters up to the next delimiter.
+  3. It validates whether the token matches the integer regex.
+  4. If valid, it returns the 32-bit `int` value.
+  5. If invalid, it throws `InputMismatchException` without advancing the cursor past the bad token.
+
+3. DEFENSIVE VALIDATION PATTERNS
+In production applications and interactive terminals, user input cannot be assumed to be valid. Unchecked calls to `nextInt()` will crash the program if a user types words like "twenty":
+  if (scanner.hasNextInt()) {
+    int age = scanner.nextInt();
+  } else {
+    String invalidInput = scanner.next(); // Consume and discard bad input
+    System.out.println("Invalid input. Please enter a valid number.");
+  }
+
+4. CUSTOM DELIMITERS & LOCALE SENSITIVITY
+- Custom Delimiters:
+  `scanner.useDelimiter("[,\\r\\n]+");` allows parsing CSV records directly without external libraries.
+- Locale Awareness:
+  In European locales (e.g. France, Germany), decimals are written as `12,50` instead of `12.50`. Calling `scanner.useLocale(Locale.US)` locks decimal parsing to the standard dot (`.`) separator.
+
+5. READING CHARACTERS: THE NEXT().CHARAT(0) IDIOM
+Because `Scanner` does not provide a dedicated `nextChar()` method, Java developers read a single-word string via `next()` and extract the first character:
+  System.out.print("Select Gender (M/F): ");
+  char gender = scanner.next().charAt(0);
+
+6. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore center, Swadeep, Tuhina, Abhronila, and Debangshu created an interactive student admission console. By wrapping `System.in` in `Scanner` and adding defensive `hasNextDouble()` checks, their program recorded student enrollment details, courses, and fees in Indian Rupees (₹) with zero runtime crash vulnerabilities.
+================================================================================

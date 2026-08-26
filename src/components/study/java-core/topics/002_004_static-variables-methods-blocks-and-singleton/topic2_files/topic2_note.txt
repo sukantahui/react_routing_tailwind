@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 2: Static vs Instance Variables Memory Comparison
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MEMORY COMPARISON TABLE:
+   -----------------------------------------------------------------------------
+   FEATURE            STATIC VARIABLE                  INSTANCE VARIABLE
+   -----------------------------------------------------------------------------
+   Location           Metaspace / Class mirror         Heap (Eden / Tenured space)
+   Copies             Exactly ONE per ClassLoader      One per object instance
+   Created            During Class Loading             During 'new' instantiation
+   Destroyed          When Class is unloaded           When Object is GC'd
+   Access             ClassName.variable               objectRef.variable
+   -----------------------------------------------------------------------------
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

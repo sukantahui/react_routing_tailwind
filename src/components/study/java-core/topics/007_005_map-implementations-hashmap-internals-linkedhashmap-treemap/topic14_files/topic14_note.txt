@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 14: String & Integer as Ideal Keys
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. IDEAL KEY PROPERTIES:
+   - Immutability: State never mutates after creation.
+   - Cached Hash: String caches 'hash' field to avoid re-computation.
+   - Guaranteed consistency between 'equals()' and 'hashCode()'.
+   - Prevents lost key / memory leak hazards.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

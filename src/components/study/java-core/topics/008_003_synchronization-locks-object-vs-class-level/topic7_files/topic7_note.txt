@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 7: Minimizing Lock Scope
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MINIMIZING LOCK SCOPE:
+   - Rule: Hold locks for the absolute shortest duration possible.
+   - Do expensive tasks (JSON parsing, DB I/O, crypto) OUTSIDE the lock.
+   - Enter 'synchronized' only to update shared memory.
+   - Low lock contention = maximum multi-core CPU utilization.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

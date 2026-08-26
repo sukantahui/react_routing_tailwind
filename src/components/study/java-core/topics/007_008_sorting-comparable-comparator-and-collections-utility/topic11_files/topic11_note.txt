@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_008: Sorting, Comparable, Comparator & Collections
+Topic 11: Collections Algorithms Suite
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE ALGORITHMS:
+   - 'Collections.sort(list)' &rarr; sorts list in-place (TimSort).
+   - 'Collections.reverse(list)' &rarr; reverses list in-place.
+   - 'Collections.binarySearch(list, key)' &rarr; O(log n) lookup (must be sorted!).
+   - 'Collections.swap(list, i, j)' &rarr; swaps elements at indices i and j.
+   - 'Collections.shuffle(list)' &rarr; pseudo-random permutation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

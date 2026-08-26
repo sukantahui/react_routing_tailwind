@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 6: Static Method Overloading
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OVERLOADING RULES:
+   - Static methods CAN be overloaded freely by changing parameter types/counts.
+   - Resolved at compile time based on static reference types.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_004: Try-with-Resources & AutoCloseable
+Topic 5: Reverse Order Teardown
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TEARDOWN SEQUENCE:
+   - Declaration Order: Res1 &rarr; Res2 &rarr; Res3.
+   - Closing Order: Res3.close() &rarr; Res2.close() &rarr; Res1.close().
+   - Protects dependent child resources against premature parent termination.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

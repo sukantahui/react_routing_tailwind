@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_003: Set Implementations & TreeSet Internals
+Topic 6: LinkedHashSet Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LINKEDHASHSET ARCHITECTURE:
+   - Backed by 'LinkedHashMap'.
+   - Nodes contain 'before' and 'after' pointers.
+   - Threads a doubly-linked list through hash buckets.
+   - O(1) lookup speed + 100% guaranteed insertion ordering.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

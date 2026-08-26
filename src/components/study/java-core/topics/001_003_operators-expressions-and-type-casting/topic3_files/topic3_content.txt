@@ -1,0 +1,42 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 3: Modulus Operator with Positive, Negative, and Floating-Point Numbers
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. MATHEMATICAL ARCHITECTURE OF REMAINDER OPERATOR
+The modulus operator `%` in Java is formally defined by Section 15.17.3 of the Java Language Specification (JLS):
+  a % b = a - (a / b) * b
+where `(a / b)` represents integer division with truncation towards zero.
+
+2. RIGOROUS SIGN ANALYSIS
+Because integer division truncates towards zero regardless of operand signs:
+- When `a = -15` and `b = 4`:
+  `(-15 / 4)` = `-3`
+  `-15 - (-3 * 4)` = `-15 - (-12)` = `-3`
+- When `a = 15` and `b = -4`:
+  `(15 / -4)` = `-3`
+  `15 - (-3 * -4)` = `15 - 12` = `+3`
+Theorem: The sign of `a % b` is mathematically invariant to the sign of divisor `b` and is strictly determined by the sign of dividend `a`.
+
+3. FLOATING-POINT REMAINDER IN IEEE 754
+Java implements floating-point remainder across both 32-bit `float` and 64-bit `double`:
+  double rem = 14.75 % 4.50; // 1.25
+Special IEEE 754 cases:
+- If either operand is `NaN`, result is `NaN`.
+- If dividend is `Infinity` or divisor is `0.0`, result is `NaN`.
+- If dividend is finite and divisor is `Infinity`, result equals the dividend.
+
+4. REAL-WORLD PRODUCTION ALGORITHMS
+A. Circular Ring Buffer & UI Carousels:
+   Ensures that an advancing index wraps from `N-1` back to `0`:
+   `int nextSlot = (currentSlot + 1) % capacity;`
+
+B. Production-Safe Hash Bucket Mapping:
+   In `HashMap` and cache routing, mapping a 32-bit hash code to `N` buckets requires eliminating negative values. Because `Math.abs(Integer.MIN_VALUE)` overflows back to `-2147483648`, production systems apply a 31-bit mask:
+   `int bucketIndex = (key.hashCode() & 0x7FFFFFFF) % numBuckets;`
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore center, Swadeep, Tuhina, Abhronila, and Debangshu created a multi-room laboratory scheduler and currency unit conversion engine. By utilizing modulus to partition large blocks of time into hours/minutes and tuition fees into Rupees and Paise in Indian Rupees (₹), their algorithms processed transactions with 100% mathematical certainty.
+================================================================================

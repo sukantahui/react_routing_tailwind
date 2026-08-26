@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 4: Explicit vs Wildcard Imports
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WILDCARD IMPORT FACTS:
+   - 'import java.util.*' imports types in that package on-demand.
+   - It does NOT import sub-packages (e.g. 'java.util.concurrent' is NOT imported).
+   - Bytecode contains exact fully qualified class names (Zero runtime difference).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

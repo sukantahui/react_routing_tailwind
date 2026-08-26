@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 12: Serialization Security Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 005_005 SUMMARY:
+   - Serialization converts object graphs into byte streams (0xACED header).
+   - Deserialization reconstructs objects without running constructors.
+   - 'Serializable' marker interface opt-in.
+   - 'transient' fields are skipped (default null/0 on load).
+   - 'static' fields belong to Metaspace and are never serialized.
+   - Always declare 'private static final long serialVersionUID = 1L;'.
+   - InvalidClassException occurs on UID mismatch.
+   - Custom writeObject/readObject for encryption.
+   - Externalizable for total manual control.
+   - Always use ObjectInputFilter on untrusted network streams!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 14: Safe Deep Copy Implementation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEEP COPY STEPS:
+   - Step 1: 'copy = (MyClass) super.clone();'
+   - Step 2: 'copy.nestedObj = this.nestedObj.clone();'
+   - Step 3: 'return copy;'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

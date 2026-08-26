@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 17: Classic Number Theory Loop Problems
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & ALGORITHMS
+--------------------------------------------------------------------------------
+1. Prime Number Check (O(sqrt(N))):
+   * Guard: if (n <= 1) return false;
+   * Loop : for (int i = 2; i * i <= n; i++) if (n % i == 0) return false;
+
+2. Armstrong (Narcissistic) Number (sum(d^k) == N):
+   * Count digits: int k = String.valueOf(n).length();
+   * Extract & Power: while (t > 0) { sum += Math.pow(t % 10, k); t /= 10; }
+
+3. Palindrome Number Reversal:
+   * int rev = 0; while (t > 0) { rev = (rev * 10) + t % 10; t /= 10; }
+   * return original == rev; (Negative numbers are never palindromes).
+
+4. Factorial Accumulator (N!):
+   * long fact = 1; for (int i = 1; i <= n; i++) fact *= i; (Max 20! for long).
+
+5. Iterative Fibonacci Series (O(N) time, O(1) space):
+   * long a = 0, b = 1;
+   * for (int i = 0; i < n; i++) { print(a); long next = a + b; a = b; b = next; }
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always guard primes against N <= 1 (1 is NOT prime).
+[✓] Use i * i <= N to avoid expensive Math.sqrt() function calls.
+[✓] Cast Math.pow() results with (int) Math.round() to prevent precision bugs.
+[✓] Accumulate reversed integers in 'long' to detect 32-bit overflow safely.
+================================================================================

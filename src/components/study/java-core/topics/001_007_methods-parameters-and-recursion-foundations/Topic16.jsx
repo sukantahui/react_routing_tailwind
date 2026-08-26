@@ -1,0 +1,306 @@
+import React from "react";
+import clsx from "clsx";
+import JavaFileLoader from "../../../../../common/JavaFileLoader";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import Teacher from "../../../../../common/TeacherSukantaHui";
+
+import algoDemoCode from "./topic16_files/ClassicRecursiveAlgorithmsMasterSuiteDemo.java?raw";
+import noteText from "./topic16_files/topic16_note.txt?raw";
+import questions from "./topic16_files/topic16_questions";
+
+export default function Topic16() {
+  return (
+    <div className="space-y-12 px-4 md:px-8 py-8 text-slate-200 bg-slate-900 min-h-screen">
+      {/* Inline Keyframe Animations */}
+      <style>
+        {`
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes glowClassic {
+            0%, 100% { filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.4)); }
+            50% { filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.8)); }
+          }
+          .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+          }
+          .animate-glow-cl {
+            animation: glowClassic 3s ease-in-out infinite;
+          }
+        `}
+      </style>
+
+      {/* Header Section */}
+      <header className="space-y-4 border-b border-slate-800 pb-6 animate-fade-in">
+        <div className="flex items-center gap-3">
+          <span className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            Module 001_007 · Topic 16
+          </span>
+          <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold rounded-full">
+            Canonical Algorithm Master Suite
+          </span>
+        </div>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          Classic Recursive Algorithms Master Suite
+        </h1>
+        <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
+          Master the 5 quintessential recursive algorithms in computer science: Factorial (<code className="text-emerald-400 font-mono">n!</code>), Memoized Fibonacci (<code className="text-sky-300 font-mono">O(N)</code>), Sum of Digits, Fast Binary Power (<code className="text-purple-300 font-mono">O(log N)</code>), and Tower of Hanoi (<code className="text-amber-400 font-mono">2&#8319; - 1</code> moves).
+        </p>
+      </header>
+
+      {/* Section 1: Conceptual Foundation */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+          <span>📖</span> The 5 Canonical Recursive Prototypes
+        </h2>
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base">
+          <p>
+            These five algorithms showcase the spectrum of recursive patterns from linear reduction to logarithmic divide-and-conquer and exponential puzzle state-space traversal:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+            <div className="p-4 bg-slate-950 rounded-xl border border-emerald-500/30">
+              <h3 className="text-emerald-400 font-bold text-sm mb-2">1. Factorial &amp; Sum of Digits</h3>
+              <p className="text-emerald-300 mb-1">n! &amp; sum(n%10 + sum(n/10))</p>
+              <p className="text-slate-300 font-sans leading-relaxed text-xs">
+                Linear and decimal decomposition reducing problem size by 1 or dividing by 10.
+              </p>
+            </div>
+
+            <div className="p-4 bg-slate-950 rounded-xl border border-sky-500/30">
+              <h3 className="text-sky-400 font-bold text-sm mb-2">2. Fast Power (Binary Exp)</h3>
+              <p className="text-sky-300 mb-1">x^n = (x^(n/2))^2</p>
+              <p className="text-slate-300 font-sans leading-relaxed text-xs">
+                Divide-and-Conquer squaring half-powers to achieve lightning <code className="text-sky-300 font-mono">O(log N)</code> time.
+              </p>
+            </div>
+
+            <div className="p-4 bg-slate-950 rounded-xl border border-amber-500/30">
+              <h3 className="text-amber-400 font-bold text-sm mb-2">3. Tower of Hanoi</h3>
+              <p className="text-amber-300 mb-1">M(n) = 2^n - 1</p>
+              <p className="text-slate-300 font-sans leading-relaxed text-xs">
+                Inductive 3-peg disk migration algorithm running in exactly <code className="text-amber-300 font-mono">2^n - 1</code> steps.
+              </p>
+            </div>
+          </div>
+          
+          <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
+            <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Algorithm Suite):</p>
+            <p className="text-sm leading-relaxed">
+              In our Barrackpore laboratory, <strong>Swadeep</strong> calculated <code className="text-emerald-400 font-mono">6! = 720</code>, <strong>Tuhina</strong> computed <code className="text-sky-300 font-mono">fib(40) = 102,334,155</code> instantaneously via memoization, <strong>Abhronila</strong> decomposed roll number <code className="text-purple-300 font-mono">98452 &rarr; 28</code>, and <strong>Debangshu</strong> solved the 3-disk Tower of Hanoi in exactly <code className="text-amber-400 font-semibold">7 moves</code>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Semantic Visual Diagram */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-2xl font-bold text-indigo-400 flex items-center gap-2">
+          <span>⚙️</span> Algorithmic Visualizations: Fast Power &amp; Tower of Hanoi
+        </h2>
+        <p className="text-sm md:text-base text-slate-400 leading-relaxed">
+          Comparing divide-and-conquer binary reduction with 3-peg inductive disk movement:
+        </p>
+
+        {/* Semantic SVG Diagram */}
+        <div className="w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-950 p-4">
+          <svg
+            viewBox="0 0 880 290"
+            className="w-full h-auto"
+            aria-label="Classic Algorithms Architecture Diagram"
+          >
+            <defs>
+              <linearGradient id="gradFastPow" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#38bdf8" />
+                <stop offset="100%" stopColor="#0284c7" />
+              </linearGradient>
+              <linearGradient id="gradHanoi" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#f59e0b" />
+                <stop offset="100%" stopColor="#b45309" />
+              </linearGradient>
+            </defs>
+
+            {/* Left Panel: Fast Power Divide-and-Conquer */}
+            <rect x="30" y="30" width="390" height="215" rx="10" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
+            <text x="225" y="55" fill="#38bdf8" fontSize="13" fontWeight="bold" textAnchor="middle">1. FAST POWER (Divide &amp; Conquer O(log N))</text>
+
+            <rect x="45" y="70" width="360" height="35" rx="4" fill="#082f49" />
+            <text x="55" y="92" fill="#bae6fd" fontSize="10" fontFamily="monospace">2^10 &rarr; (2^5)^2 = 32^2 = 1024</text>
+
+            <rect x="45" y="110" width="360" height="35" rx="4" fill="#082f49" />
+            <text x="55" y="132" fill="#bae6fd" fontSize="10" fontFamily="monospace">2^5  &rarr; 2 * (2^2)^2 = 2 * 16 = 32 (Odd power)</text>
+
+            <rect x="45" y="150" width="360" height="35" rx="4" fill="#082f49" />
+            <text x="55" y="172" fill="#bae6fd" fontSize="10" fontFamily="monospace">2^2  &rarr; (2^1)^2 = 2^2 = 4 (Even power)</text>
+
+            <text x="225" y="215" fill="#7dd3fc" fontSize="10" textAnchor="middle">Only 4 recursive steps instead of 10! (O(log N))</text>
+
+            {/* Right Panel: Tower of Hanoi 3-Peg Flow */}
+            <rect x="450" y="30" width="400" height="215" rx="10" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.5" />
+            <text x="650" y="55" fill="#f59e0b" fontSize="13" fontWeight="bold" textAnchor="middle">2. TOWER OF HANOI (3 Pegs, 2^N - 1 Moves)</text>
+
+            <rect x="465" y="70" width="370" height="35" rx="4" fill="#451a03" />
+            <text x="475" y="92" fill="#fef3c7" fontSize="10" fontFamily="monospace">Step 1: Move (n - 1) disks: Source &rarr; Helper</text>
+
+            <rect x="465" y="110" width="370" height="35" rx="4" fill="#78350f" />
+            <text x="475" y="132" fill="#ffffff" fontSize="10" fontFamily="monospace" fontWeight="bold">Step 2: Move disk n: Source &rarr; Destination</text>
+
+            <rect x="465" y="150" width="370" height="35" rx="4" fill="#451a03" />
+            <text x="475" y="172" fill="#fef3c7" fontSize="10" fontFamily="monospace">Step 3: Move (n - 1) disks: Helper &rarr; Destination</text>
+
+            <text x="650" y="215" fill="#fde68a" fontSize="10" fontWeight="bold" textAnchor="middle">3 Disks = 2^3 - 1 = 7 Total Moves</text>
+
+            {/* Bottom Caption */}
+            <text x="440" y="265" fill="#94a3b8" fontSize="12" textAnchor="middle">
+              Fast Power cuts exponent in half (O(log N)); Tower of Hanoi doubles moves at each disk size (O(2^N)).
+            </text>
+          </svg>
+        </div>
+      </section>
+
+      {/* Section 3: Deep Technical Breakdown */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-2xl font-bold text-amber-400 flex items-center gap-2">
+          <span>📊</span> Master Comparison: The 5 Classic Algorithms
+        </h2>
+        
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-sm border-collapse">
+            <thead>
+              <tr className="border-b border-slate-700 text-slate-300 bg-slate-900/50">
+                <th className="p-3 font-semibold text-sky-400">Algorithm</th>
+                <th className="p-3 font-semibold text-emerald-400">Recurrence Relation</th>
+                <th className="p-3 font-semibold text-purple-400">Time Complexity</th>
+                <th className="p-3 font-semibold text-amber-400">Stack Space</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-800 text-slate-300 font-mono text-xs">
+              <tr className="hover:bg-slate-800/30 transition-colors">
+                <td className="p-3 text-sky-300 font-bold">1. Factorial ($n!$)</td>
+                <td className="p-3 text-slate-300">`n * fact(n - 1)`</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N)$ Linear</td>
+                <td className="p-3 text-slate-300 font-sans">$O(N)$ stack frames</td>
+              </tr>
+              <tr className="hover:bg-slate-800/30 transition-colors">
+                <td className="p-3 text-sky-300 font-bold">2. Fibonacci (Memoized)</td>
+                <td className="p-3 text-slate-300">`fib(n-1) + fib(n-2)`</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N)$ Linear (Memoized)</td>
+                <td className="p-3 text-slate-300 font-sans">$O(N)$ stack frames</td>
+              </tr>
+              <tr className="hover:bg-slate-800/30 transition-colors">
+                <td className="p-3 text-sky-300 font-bold">3. Sum of Digits</td>
+                <td className="p-3 text-slate-300">`(n % 10) + sum(n / 10)`</td>
+                <td className="p-3 text-sky-300 font-bold font-sans">$O(\log_{10} N)$ Logarithmic</td>
+                <td className="p-3 text-slate-300 font-sans">$O(\log_{10} N)$ frames</td>
+              </tr>
+              <tr className="hover:bg-slate-800/30 transition-colors">
+                <td className="p-3 text-sky-300 font-bold">4. Fast Power ($x^n$)</td>
+                <td className="p-3 text-slate-300">`(x^(n/2))^2`</td>
+                <td className="p-3 text-purple-400 font-bold font-sans">$O(\log_2 N)$ Logarithmic</td>
+                <td className="p-3 text-slate-300 font-sans">$O(\log_2 N)$ frames</td>
+              </tr>
+              <tr className="hover:bg-slate-800/30 transition-colors">
+                <td className="p-3 text-sky-300 font-bold">5. Tower of Hanoi</td>
+                <td className="p-3 text-slate-300">`2 * hanoi(n-1) + 1`</td>
+                <td className="p-3 text-rose-400 font-bold font-sans">$O(2^N)$ Exponential</td>
+                <td className="p-3 text-slate-300 font-sans">$O(N)$ stack frames</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Section 4: Hands-on Code Example */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+            <span>💻</span> Compilable Java Source Code
+          </h2>
+          <span className="text-xs font-mono text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-700">
+            ClassicRecursiveAlgorithmsMasterSuiteDemo.java
+          </span>
+        </div>
+        
+        <p className="text-sm text-slate-300 leading-relaxed">
+          The following program implements Factorial, Memoized Fibonacci, Sum of Digits, Fast Power, and Tower of Hanoi in complete runnable Java.
+        </p>
+
+        <JavaFileLoader
+          fileModule={algoDemoCode}
+          title="ClassicRecursiveAlgorithmsMasterSuiteDemo.java"
+          highlightLines={[21, 28, 30, 32, 40, 48, 52, 60, 68, 72, 76, 88, 93, 98, 103, 109]}
+        />
+      </section>
+
+      {/* Section 5: Common Pitfalls & Best Practices */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-2xl font-bold text-rose-400 flex items-center gap-2">
+          <span>⚠️</span> Common Pitfalls &amp; Industry Best Practices
+        </h2>
+        
+        <div className="space-y-4">
+          <div className="p-4 rounded-xl bg-rose-950/20 border border-rose-900/50 space-y-2">
+            <p className="text-rose-300 font-semibold flex items-center gap-2 text-sm md:text-base">
+              <span>❌</span> Pitfall 1: Neglecting Negative Exponents in Fast Power
+            </p>
+            <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+              Failing to check <code className="text-rose-300 font-mono">exp &lt; 0</code> will cause infinite recursive division. Always handle negative exponents with <code className="text-emerald-400 font-mono">1.0 / fastPower(base, -exp)</code>!
+            </p>
+          </div>
+
+          <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-900/50 space-y-2">
+            <p className="text-emerald-300 font-semibold flex items-center gap-2 text-sm md:text-base">
+              <span>🛡️</span> Best Practice: Sanitize Inputs with `Math.abs()`
+            </p>
+            <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+              When decomposing digits in <code className="text-emerald-400 font-mono">sumOfDigits(n)</code>, sanitize inputs using <code className="text-emerald-400 font-mono">n = Math.abs(n)</code> so negative integers are decomposed cleanly without modulo sign bugs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: Thinking & Hints Section */}
+      <section className="space-y-4 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+          <span>💡</span> Think About This...
+        </h2>
+        <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
+          <p>
+            🤔 <em>&ldquo;How many moves would it take to solve Tower of Hanoi for 64 disks?&rdquo;</em>
+          </p>
+          <p>
+            👉 <strong>Hint:</strong> $2^{64} - 1 \approx 18,446,744,073,709,551,615$ moves! Even moving at 1 disk per second, it would take over <strong>584 billion years</strong> to complete—more than 40 times the age of our universe!
+          </p>
+        </div>
+      </section>
+
+      {/* Section 7: FAQs */}
+      <section className="space-y-4">
+        <FAQTemplate
+          title="Classic Recursive Algorithms FAQs"
+          questions={questions}
+        />
+      </section>
+
+      {/* Section 8: Plain Text Printable Note */}
+      <section className="space-y-4">
+        <PlainTextPrint
+          content={noteText}
+          title="Module 001_007 Topic 16: Classic Recursive Algorithms"
+          stampEnabled={true}
+          showDownload={true}
+          downloadButtonText="Download Printable Note"
+          downloadFileName="001_007_topic16_note.txt"
+        />
+      </section>
+
+      {/* Section 9: Teacher's Note */}
+      <section className="space-y-4">
+        <Teacher
+          note="To Swadeep, Tuhina, Abhronila, and Debangshu: These 5 algorithms are the timeless foundation of computer science. Master Fast Power and Tower of Hanoi! In Topic 17, our grand finale for Module 001_007, we analyze the ultimate showdown: Recursion vs Iteration! — Sukanta Hui"
+        />
+      </section>
+    </div>
+  );
+}

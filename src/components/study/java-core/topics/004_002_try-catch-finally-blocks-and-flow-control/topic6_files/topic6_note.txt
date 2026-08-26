@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_002: Try, Catch, Finally & Flow Control
+Topic 6: Multi-Catch Implicitly Final
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FINAL PARAMETER RULE:
+   - Single-catch parameter can be reassigned (bad practice).
+   - Multi-catch parameter is IMPLICITLY FINAL.
+   - Reassignment causes immediate compile error.
+   - Preserves static type safety across union types.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

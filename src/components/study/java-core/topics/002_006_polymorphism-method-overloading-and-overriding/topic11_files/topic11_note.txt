@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 11: Downcasting & ClassCastException Risk
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DOWNCASTING RULES:
+   - Syntax: 'Child c = (Child) parentRef;' (Explicit Cast Mandatory).
+   - Dangerous: If 'parentRef' points to another subclass or pure parent,
+     JVM throws: 'java.lang.ClassCastException'.
+   - Solution: Always check with 'instanceof' before downcasting!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

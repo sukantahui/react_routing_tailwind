@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 6: Load Factor & Threshold Calculation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOAD FACTOR & THRESHOLD:
+   - Formula: 'threshold = capacity * loadFactor'.
+   - Initial: 16 * 0.75 = 12.
+   - At element 13: table capacity doubles from 16 to 32.
+   - New threshold: 32 * 0.75 = 24.
+   - 0.75 balance: Poisson distribution sweet spot for space vs time.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

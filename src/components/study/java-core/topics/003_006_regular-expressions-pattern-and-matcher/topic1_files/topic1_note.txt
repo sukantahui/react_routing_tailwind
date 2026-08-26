@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 1: java.util.regex Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARCHITECTURE ROLES:
+   - 'Pattern': Compiled, immutable, thread-safe FSA engine.
+   - 'Matcher': Stateful, single-threaded search iterator.
+   - 'PatternSyntaxException': Thrown for invalid regex syntax.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

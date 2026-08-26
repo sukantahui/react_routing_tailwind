@@ -1,0 +1,40 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_004: Decision Making, Branching & Modern Switch Expressions
+TOPIC 2: 'if-else' Statement for Binary Decision Paths
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Syntax & Mutual Exclusivity (JLS §14.9.2):
+  if ( booleanCondition ) {
+      // Executed when condition is true
+  } else {
+      // Executed when condition is false
+  }
+  * Exactly ONE branch executes.
+
+- 'if-else' vs Ternary Operator (? :):
+  * 'if-else' is a STATEMENT  --> Best for multi-step logic & side effects.
+  * '? :' is an EXPRESSION    --> Best for assigning a single value.
+  * Example: final String status = (score >= 40) ? "PASS" : "FAIL";
+
+- Definite Assignment Rule (JLS §16):
+  * If a variable is initialized in BOTH the 'if' and 'else' blocks, the Java
+    compiler considers it 'definitely assigned' and safe to read afterwards.
+  * int x;
+    if (cond) x = 10; else x = 20;
+    System.out.println(x); // 100% Legal!
+
+- Bytecode Execution:
+  * Tests condition with 'ifeq ELSE_LABEL'.
+  * 'then' block ends with unconditional 'goto END_LABEL' past the else block.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always wrap both 'if' and 'else' blocks in curly braces '{}'.
+[✓] Avoid the redundant 'else' anti-pattern after an 'if' that returns early.
+[✓] Use ternary expressions to directly initialize 'final' variables.
+[✓] Leverage Definite Assignment for clean local variable declarations.
+================================================================================

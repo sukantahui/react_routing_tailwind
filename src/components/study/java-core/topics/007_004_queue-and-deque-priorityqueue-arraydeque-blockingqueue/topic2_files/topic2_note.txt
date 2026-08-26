@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 2: Exception-Throwing Queue Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EXCEPTION-THROWING METHODS:
+   - 'remove()' &rarr; throws 'NoSuchElementException' if empty.
+   - 'element()' &rarr; throws 'NoSuchElementException' if empty.
+   - 'add(e)' &rarr; throws 'IllegalStateException' if bounded queue is full.
+   - Use when failure indicates a critical defect in application logic.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

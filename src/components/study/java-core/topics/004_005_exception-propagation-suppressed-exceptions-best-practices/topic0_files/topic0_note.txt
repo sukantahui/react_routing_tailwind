@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_005: Propagation, Chaining & Best Practices
+Topic 0: Exception Propagation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EXCEPTION PROPAGATION:
+   - Starts at the failing line in method N.
+   - Searches local try-catch; if absent, method terminates immediately.
+   - Bubbles up to caller method (N-1).
+   - Repeats until caught or JVM Default Exception Handler terminates the thread.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

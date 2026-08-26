@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 11: Externalizable Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EXTERNALIZABLE VS SERIALIZABLE:
+   - 'Externalizable' extends 'Serializable'.
+   - 2 methods: 'writeExternal(out)' & 'readExternal(in)'.
+   - Mandatory: 'public MyClass()' no-arg constructor.
+   - Ignores 'transient' keyword (programmer has total manual control).
+   - Higher performance, zero reflection overhead.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 1: Reader and Writer Hierarchy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHARACTER STREAM BASE CLASSES:
+   - 'java.io.Reader': Abstract superclass for character input.
+   - 'java.io.Writer': Abstract superclass for character output.
+   - 'Writer' implements 'Flushable' to force buffered characters to destination.
+   - Both implement 'AutoCloseable' for ARM compatibility.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

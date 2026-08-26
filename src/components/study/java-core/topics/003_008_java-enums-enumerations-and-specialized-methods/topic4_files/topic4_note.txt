@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_008: Java Enums & Specialized Methods
+Topic 4: Enum Iteration
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ITERATION PATTERNS:
+   - For-each: 'for (MyEnum e : MyEnum.values())'
+   - Stream API: 'Arrays.stream(MyEnum.values()).filter(...)'
+   - Maintains exact declaration sequence.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

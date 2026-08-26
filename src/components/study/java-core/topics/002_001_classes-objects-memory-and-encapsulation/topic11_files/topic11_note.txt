@@ -1,0 +1,43 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 11: Data Hiding: Restricting Direct Field Access using 'private' Modifier
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS DATA HIDING?
+   - The Object-Oriented mechanism of making class fields and helper methods
+     inaccessible to external classes using the `private` access modifier.
+   - Restricts data access strictly to the class that declared it.
+   - Enforces that all interaction occurs through validated public methods.
+
+2. THE 'private' ACCESS MODIFIER:
+   -----------------------------------------------------------------------------
+   Scope                : ONLY within the declaring class (and nested Nestmates).
+   Compile-Time Rule    : `object.privateField` throws compile error outside class:
+                          "<field> has private access in <Class>".
+   Bytecode Instruction : Private methods use `invokespecial` (early static binding).
+   Subclass Inheritance : Private members are NOT inherited and cannot be overridden.
+   -----------------------------------------------------------------------------
+
+3. WHAT MUST BE HIDDEN?
+   - Sensitive Credentials: Passwords (salted hashes), PINs, encryption keys.
+   - Internal Implementation: Pointers, raw arrays, transient state caches.
+   - Helper Routines: Cryptographic hashing, internal validation functions.
+
+4. MASKED ACCESSORS & DEFENSIVE PRIVACY:
+   - Provide accessors that reveal only masked / safe data (e.g. `s***l@domain.com`).
+   - Never return raw mutable objects (e.g. `Date`, arrays) without defensive copying.
+   - Return unmodifiable collection views (`Collections.unmodifiableList`).
+
+5. JAVA 11+ NESTMATES (JEP 181):
+   - Outer classes and inner classes share private access natively in bytecode
+     without synthetic bridge methods (`access$000`).
+
+6. SUKANTA HUI'S VAULT PRINCIPLE:
+   - "Lock your raw state in an underground private vault; expose a fortified
+      teller window of validated public methods to the outside world."
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 11: Abstract Classes with 0 Abstract Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ZERO ABSTRACT METHODS PATTERN:
+   - 100% legal in Java.
+   - Purpose: Disallow direct 'new BaseClass()' instantiation.
+   - Forces callers to extend specialized subclasses before creating objects.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

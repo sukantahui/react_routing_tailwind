@@ -1,0 +1,49 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 13: Boolean Data Type: true and false Literals (Non-Convertible to Integers)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Boolean Primitive Specifications:
+  * Literal Values    : Only 'true' and 'false' (all lowercase keywords).
+  * Storage in Memory : 1 byte (8 bits) in memory and arrays (boolean[]).
+  * Default Value     : 'false' for uninitialized instance and static fields.
+  * Integral Caste    : STRICTLY FORBIDDEN (No casting between int and boolean).
+
+- Why Java Rejects Integer-to-Boolean Conversion:
+  * In C/C++, 0 is false and 1 is true.
+  * In C, writing 'if (x = 1)' mistakenly assigns 1 and evaluates to true.
+  * In Java, 'if (x = 1)' causes a COMPILE-TIME ERROR because (x = 1) yields
+    an integer '1', but 'if' requires a boolean condition.
+
+- Logical Operators & Evaluation Modes:
+  +----------+-----------------------+-----------------------------------------+
+  | Operator | Name                  | Evaluation Behavior                     |
+  +----------+-----------------------+-----------------------------------------+
+  | &&       | Short-Circuit AND     | Skips right operand if left is false    |
+  | ||       | Short-Circuit OR      | Skips right operand if left is true     |
+  | &        | Eager Logical AND     | Evaluates BOTH operands unconditionally |
+  | |        | Eager Logical OR      | Evaluates BOTH operands unconditionally |
+  | ^        | Logical XOR           | True if EXACTLY ONE operand is true     |
+  | !        | Logical NOT           | Inverts truth value (!true -> false)    |
+  +----------+-----------------------+-----------------------------------------+
+
+- Guard Pattern with Short-Circuit:
+  * if (student != null && student.isEnrolled()) { ... }
+  * Prevents NullPointerException safely.
+
+- De Morgan's Simplification Laws:
+  * !(a && b) == (!a || !b)
+  * !(a || b) == (!a && !b)
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use 'true' and 'false' literals only (never 1 or 0).
+[✓] Always use short-circuit '&&' and '||' for null guards.
+[✓] Simplify 'if (flag == true)' to 'if (flag)'.
+[✓] Remember that boolean instance fields default to 'false'.
+[✓] Use volatile boolean for safe multi-threaded task cancellation flags.
+================================================================================

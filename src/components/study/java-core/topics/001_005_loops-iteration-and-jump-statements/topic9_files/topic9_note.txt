@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 9: Loop Counter Manipulation, Accumulators & Running Products
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The 4 Foundational Accumulator Patterns:
+
+  1. Running Sum (Additive Accumulator):
+     * Initialized to 0.0 (Additive Identity: x + 0 = x).
+     * double total = 0.0; for (double x : data) total += x;
+
+  2. Running Product (Multiplicative Accumulator):
+     * Initialized to 1 (Multiplicative Identity: x * 1 = x).
+     * WARNING: Initializing to 0 zeroes out the entire product permanently!
+     * long fact = 1; for (int i = 1; i <= n; i++) fact *= i;
+
+  3. Event Frequency Counter:
+     * Initialized to 0, incremented on matching condition:
+     * int count = 0; if (score >= 90) count++;
+
+  4. Min / Max Tracking:
+     * double min = Double.MAX_VALUE; double max = Double.MIN_VALUE;
+     * if (val < min) min = val; if (val > max) max = val;
+
+- Crucial Scope Rule:
+  * Accumulator variables MUST be declared BEFORE the loop!
+  * Declaring accumulators inside { ... } resets them to 0 on every iteration.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Initializer check: Sums -> 0 | Products -> 1 | Counters -> 0.
+[✓] Min/Max check: Initialize min with MAX_VALUE and max with MIN_VALUE.
+[✓] Overflow check: Use 'long' for large financial totals or factorials (max 20!).
+[✓] String accumulator check: Use StringBuilder instead of String +=.
+================================================================================

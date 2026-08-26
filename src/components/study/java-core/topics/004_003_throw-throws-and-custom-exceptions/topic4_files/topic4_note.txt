@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_003: Throw, Throws & Custom Exceptions
+Topic 4: Method Overriding with throws
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OVERRIDING THROWS RULES:
+   - Broader Checked Exception &rarr; ILLEGAL (Compile Error).
+   - Narrower Checked Exception &rarr; LEGAL.
+   - No Checked Exception &rarr; LEGAL.
+   - Any RuntimeException &rarr; LEGAL.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

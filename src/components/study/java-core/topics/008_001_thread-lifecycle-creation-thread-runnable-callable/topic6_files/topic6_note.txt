@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 6: TIMED_WAITING and TERMINATED States
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TIMED_WAITING & TERMINATED:
+   - TIMED_WAITING: entered via 'sleep(t)', 'wait(t)', 'join(t)'.
+   - Wakes up when timeout expires OR if interrupted.
+   - TERMINATED: run() finished normally or threw uncaught exception.
+   - Dead threads CANNOT be restarted (throws 'IllegalThreadStateException').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

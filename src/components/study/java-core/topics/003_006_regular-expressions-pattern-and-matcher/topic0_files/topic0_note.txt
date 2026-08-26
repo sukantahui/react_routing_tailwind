@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 0: What is Regex & Enterprise Roles
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. REGEX APPLICATIONS:
+   - Form & API Input Validation (Emails, PIN, Phone).
+   - Log Extraction (IP addresses, UUIDs).
+   - Sanitization (Masking Credit Card digits).
+   - Engine: 'java.util.regex' package.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_004: Queue, Deque & PriorityQueue
+Topic 7: Building a Max-Heap
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MAX-HEAP IN JAVA:
+   - Default PriorityQueue = Min-Heap.
+   - Max-Heap syntax: 'new PriorityQueue<>(Collections.reverseOrder())'.
+   - Root index 0 holds the maximum element.
+   - Essential for Top-K largest problems and priority dispatching.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

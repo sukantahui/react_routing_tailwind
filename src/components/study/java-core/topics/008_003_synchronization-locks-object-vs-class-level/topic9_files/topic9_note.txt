@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 9: Lock Reentrancy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOCK REENTRANCY:
+   - Java intrinsic locks ('synchronized') and 'ReentrantLock' are REENTRANT.
+   - Locks are per-THREAD, not per-method.
+   - JVM maintains an internal recursion counter ('hold count').
+   - Same thread can re-enter nested synchronized blocks without blocking.
+   - Prevents self-deadlocks in OOP inheritance hierarchies.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

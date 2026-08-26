@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 5: The intern() Method
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'String.intern()' RULES:
+   - Returns a canonical reference from the String Constant Pool.
+   - 's.intern() == "literal"' evaluates to 'true'.
+   - Used for deduplicating massive datasets read from files or databases.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

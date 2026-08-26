@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 10: Regex Backreferences
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BACKREFERENCE RULES:
+   - In Pattern: '\1', '\2' matches content of Group 1, Group 2.
+   - In Replacement: '$1', '$2' substitutes Group 1, Group 2 text.
+   - Ideal for grammar linters, duplicate word detection, and XML tag matching.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,25 @@
+================================================================================
+DETAILED STUDY MATERIAL: DISSECTING THE MAIN METHOD SIGNATURE
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 11
+================================================================================
+
+1. INTRODUCTION
+The signature `public static void main(String[] args)` is the universal execution bridge between the operating system launcher and the Java Virtual Machine.
+
+2. WHY EACH KEYWORD IS NON-NEGOTIABLE
+
+A. Why 'public'?
+If `main` were declared `private` or `protected`, the JVM's class-loading subsystem (executing from native C++ code outside your application package) would be barred by the JVM access verifier with an `IllegalAccessException`.
+
+B. Why 'static'?
+If `main` were non-static, the JVM would have to create an object of your class before running `main()`. But what if your class has a constructor that requires arguments, or private constructors (like a utility class)? By requiring `static`, the JVM can simply execute `ClassName.main(args)` directly after class loading without instantiating any objects.
+
+C. Why 'void'?
+In C/C++, `main` returns `int` to report exit status to the OS shell (`return 0;`). In Java, the JVM manages process lifecycle. If an application needs to terminate with a specific status code, it calls `System.exit(code)` explicitly.
+
+D. Why 'main'?
+`main` is the hardcoded entry point identifier in the Java Virtual Machine Specification (JVMS §5.2).
+
+E. Why 'String[] args'?
+Command-line arguments passed from the shell (e.g. `java App admin 8080`) are received as an array of Strings. String is used because any numeric or boolean data can be parsed from a String, whereas the reverse is not true.

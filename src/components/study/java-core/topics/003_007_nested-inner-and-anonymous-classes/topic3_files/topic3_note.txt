@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 3: Member Inner Instantiation Syntax
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INSTANTIATION SYNTAX:
+   - Style 1: 'Outer outer = new Outer(); Outer.Inner in = outer.new Inner();'
+   - Style 2: 'Outer.Inner in = new Outer().new Inner();'
+   - 'new Outer.Inner()' only works for STATIC nested classes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_007: File Handling & I/O Hands-On Capstone Lab
+Topic 2: Encrypted File Vault Project
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STREAM ENCRYPTION VAULT:
+   - Decorates byte streams with on-the-fly cipher transformations.
+   - Symmetric encryption: same key encrypts and decrypts.
+   - Stream processing ensures zero RAM bloat on large files.
+   - Ideal for securing sensitive financial ledgers and personal credentials.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

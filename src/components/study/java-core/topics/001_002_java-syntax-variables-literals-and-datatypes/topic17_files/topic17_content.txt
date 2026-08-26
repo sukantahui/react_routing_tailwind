@@ -1,0 +1,56 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 17: Resolving the Classic Scanner Newline Skip Bug (nextInt followed by nextLine)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. INTRODUCTION TO THE NEWLINE SKIP ANOMALY
+The "Scanner newline skip bug" is arguably the single most infamous hurdle encountered by every newcomer to the Java programming language. It occurs whenever a token-based input method (`nextInt`, `nextDouble`, `nextFloat`, `nextLong`, `nextBoolean`, or `next`) is directly followed by a line-based input method (`nextLine`).
+
+To the programmer, the interactive console appears broken: the program prints the prompt for the second variable and instantly skips past it, assigning an empty string without allowing the user to type.
+
+2. DETAILED BUFFER ANALYSIS (WHY IT HAPPENS)
+Consider the following interactive execution:
+  System.out.print("Enter Roll: ");
+  int roll = scanner.nextInt();
+  System.out.print("Enter Full Name: ");
+  String name = scanner.nextLine();
+
+What occurs inside the JVM input stream buffer:
+1. The user types `101` and presses `[Enter]`.
+2. The operating system sends characters `'1'`, `'0'`, `'1'`, and `'\n'` (Line Feed, ASCII 10) to `System.in`.
+3. `scanner.nextInt()` scans the stream:
+   - It identifies the integer token `"101"`.
+   - It parses `"101"` into 32-bit integer `101`.
+   - It advances its read pointer to immediately after `'1'`.
+   - The trailing newline character `'\n'` remains in the buffer!
+4. `scanner.nextLine()` is invoked:
+   - `nextLine()` is designed to read all characters up to the next `'\n'`, consume the `'\n'`, and return the preceding text.
+   - It looks at the buffer and immediately sees `'\n'`.
+   - There are 0 characters before `'\n'`, so it returns an empty string `""` and consumes `'\n'`.
+   - To the user, the prompt was "skipped".
+
+3. THE THREE PROVEN INDUSTRY SOLUTIONS
+
+Solution 1: The Flushing `nextLine()` Call
+The most common and readable approach is to insert a dummy `scanner.nextLine();` call immediately after `nextInt()`:
+  int roll = scanner.nextInt();
+  scanner.nextLine(); // FLUSH BUFFER: Consumes leftover '\n'
+  String name = scanner.nextLine(); // Prompts user cleanly!
+
+Solution 2: Line-First Parsing via `Integer.parseInt(scanner.nextLine())`
+Read all inputs as full lines and explicitly parse data types:
+  int roll = Integer.parseInt(scanner.nextLine().trim());
+  String name = scanner.nextLine();
+  double fee = Double.parseDouble(scanner.nextLine().trim());
+This method ensures the buffer never contains orphaned newline characters.
+
+Solution 3: Word-Based `next()` Method
+If the String input is guaranteed to be a single word without spaces, use `next()` instead of `nextLine()`:
+  int roll = scanner.nextInt();
+  String username = scanner.next(); // Automatically skips leading '\n'
+
+4. CLASSROOM EXPERIMENTATION IN BARRACKPORE
+In our Barrackpore center, Swadeep, Tuhina, Abhronila, and Debangshu encountered this exact behavior when developing a student registration terminal for regional candidates in Naihati and Ichapur. By analyzing the stream buffer in debug mode and applying the `scanner.nextLine()` flush, they completely eliminated the bug across all laboratory workstations.
+================================================================================

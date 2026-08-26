@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 18: Deep Copy vs. Shallow Copy of Arrays
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Shallow Copy:
+  * Duplicates ONLY the array container; copies reference addresses.
+  * Both arrays SHARE the exact same Heap objects or 2D row arrays.
+  * Standard tools (clone(), Arrays.copyOf(), System.arraycopy()) are ALL SHALLOW!
+  * Mutating an object field in the copy corrupts the original array!
+
+- Deep Copy:
+  * Duplicates BOTH the array container AND newly instantiates every element object.
+  * 100% memory isolation (modifying copy has zero side effects on original).
+
+- Deep Copy Construction Patterns:
+  1. Object Arrays:
+     for (int i = 0; i < orig.length; i++) {
+         deep[i] = new StudentAccount(orig[i]); // Copy constructor!
+     }
+
+  2. 2D Matrix:
+     for (int r = 0; r < orig.length; r++) {
+         deep[r] = orig[r].clone(); // Clones each row independently!
+     }
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] For primitive 1D arrays (int[], double[]), clone() IS already a deep copy.
+[✓] For immutable objects (String[], Integer[]), shallow copying is 100% safe.
+[✓] For mutable objects and 2D arrays, always implement explicit deep copying.
+[✓] Use Arrays.deepEquals() to verify value equality across deep copied matrices.
+================================================================================

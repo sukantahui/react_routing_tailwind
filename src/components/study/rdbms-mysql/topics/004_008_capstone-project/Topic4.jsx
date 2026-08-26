@@ -278,7 +278,7 @@ CREATE TABLE order_items (
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Debangshu implemented a named constraint CONSTRAINT chk_min_bal CHECK (current_balance >= minimum_balance) on savings accounts in Barrackpore. When concurrent ATM withdrawal requests occurred, the database kernel blocked overdrafts before funds were dispensed.
+                Debangshu implemented a named constraint CONSTRAINT chk_min_bal CHECK (current_balance &gt;= minimum_balance) on savings accounts in Barrackpore. When concurrent ATM withdrawal requests occurred, the database kernel blocked overdrafts before funds were dispensed.
               </p>
             </div>
           </div>

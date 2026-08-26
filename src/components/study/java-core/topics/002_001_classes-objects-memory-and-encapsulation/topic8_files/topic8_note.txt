@@ -1,0 +1,54 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 8: Instance Methods: Invoking Behaviors on Objects via Dot (.) Operator
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INSTANCE METHODS DEFINED:
+   - Methods declared without the `static` keyword inside a class.
+   - Represent autonomous behaviors attached to a specific object's state.
+   - Executed in the context of an active Heap object instance.
+   - In JVM bytecode, receives implicit `this` reference at LVT Slot 0 (`aload_0`).
+
+2. THE DOT (`.`) OPERATOR MECHANICS:
+   - Member access and invocation operator in Java.
+   - Syntax:
+       objectReference.methodName(arguments);
+   - JVM Execution Steps:
+       1. Evaluates `objectReference` on Stack.
+       2. Null Check: If null, immediately throws `NullPointerException`.
+       3. Dynamic Dispatch (`invokevirtual`): Looks up method in class vtable.
+       4. Pushes new Stack Frame with `this` at slot 0 and arguments at slots 1..N.
+       5. Executes method body and returns result.
+
+3. STATIC VS INSTANCE METHODS:
+   -----------------------------------------------------------------------------
+   FEATURE               INSTANCE METHOD               STATIC METHOD
+   -----------------------------------------------------------------------------
+   Keyword               No `static` modifier          Has `static` modifier
+   Context               Bound to specific Object      Bound to Class template
+   Implicit Parameter    `this` passed at LVT slot 0   No `this` parameter
+   Invocation            `objectRef.method()`          `ClassName.method()`
+   Bytecode Instruction  `invokevirtual`               `invokestatic`
+   Can Access Instance?  YES (fields & methods)        NO (needs explicit instance)
+   Can Access Static?    YES (direct access)           YES (direct access)
+   -----------------------------------------------------------------------------
+
+4. FLUENT METHOD CHAINING (RETURN 'this'):
+   - Mutator methods return `this` instead of `void`.
+   - Allows chaining multiple calls sequentially:
+       `account.upgradeTier("Gold").relocateBranch("Naihati").credit(5000.0);`
+
+5. JIT COMPILER OPTIMIZATIONS:
+   - Monomorphic Inline Caching: Inlines call site if always invoked on 1 class.
+   - Method Inlining: Inlines small methods (< 35 bytes bytecode) directly into caller.
+
+6. SUKANTA HUI'S "TELL, DON'T ASK" PRINCIPLE:
+   - Do not pull data out of an object to manipulate it externally.
+   - Tell the object what action to perform through rich instance methods
+     that defend domain invariants internally.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

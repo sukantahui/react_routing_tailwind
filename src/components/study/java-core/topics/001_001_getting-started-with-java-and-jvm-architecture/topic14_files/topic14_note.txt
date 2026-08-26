@@ -1,0 +1,42 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 14: Java Comments (//, /* */, and /** */ Javadoc)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE THREE TYPES OF JAVA COMMENTS
+--------------------------------------------------------------------------------
+1. Single-Line Comment: `// comment`
+   - Ignores everything from `//` to the end of the line.
+   - Ideal for brief variable annotations or line explanations.
+
+2. Multi-Line Block Comment: `/* comment */`
+   - Ignores everything between `/*` and `*/`.
+   - Used for multi-line logic descriptions or temporarily disabling code blocks.
+   - CANNOT BE NESTED! (`/* ... /* ... */ ... */` is a syntax error).
+
+3. Javadoc Documentation Comment: `/** doc */`
+   - Starts with `/**` and ends with `*/`.
+   - Parsed by the `javadoc` tool to automatically generate HTML API documentation.
+   - Placed directly above classes, interfaces, records, methods, and fields.
+
+2. ESSENTIAL JAVADOC TAGS
+--------------------------------------------------------------------------------
+- `@author`: Name of the author/developer.
+- `@version`: Current version identifier.
+- `@param <name> <desc>`: Documents a method parameter.
+- `@return <desc>`: Documents what the method returns.
+- `@throws <Exception> <desc>` (or `@exception`): Documents thrown exceptions.
+- `@see <ref>`: Cross-reference link to another class or method.
+- `@since <version>`: Release version when this feature was introduced.
+- `@deprecated <desc>`: Warns that an API is obsolete and should not be used.
+- `{@code snippet}`: Inlines formatted monospaced code text.
+- `{@link Target#member}`: Generates a clickable inline hyperlink in Javadoc HTML.
+
+3. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Comments are completely stripped out by `javac` and do NOT affect bytecode size.
+[✓] Never nest multi-line comments (`/* /* */ */`).
+[✓] Use Javadoc tags (`@param`, `@return`, `@throws`) for all public enterprise APIs.
+================================================================================

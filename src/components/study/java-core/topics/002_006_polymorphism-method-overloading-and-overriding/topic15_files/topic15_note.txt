@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 15: Shape Hierarchy Polymorphism Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 002_006 SUMMARY:
+   - Compile-Time: Overloading (Static Binding, matching signatures).
+   - Runtime: Overriding (Dynamic Method Dispatch via vtable).
+   - Rules: Identical signature, cannot narrow access, covariant return allowed.
+   - Upcasting is safe & implicit; Downcasting requires instanceof checks.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

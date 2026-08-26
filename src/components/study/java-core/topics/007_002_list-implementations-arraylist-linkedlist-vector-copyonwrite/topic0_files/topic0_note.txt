@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 0: List Interface & ListIterator
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LIST ITERATOR ESSENTIALS:
+   - Bidirectional navigation: 'next()' / 'previous()'.
+   - Index introspection: 'nextIndex()' / 'previousIndex()'.
+   - In-place mutation: 'set(E)' replaces element, 'add(E)' inserts.
+   - Initialized at any index: 'list.listIterator(size)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

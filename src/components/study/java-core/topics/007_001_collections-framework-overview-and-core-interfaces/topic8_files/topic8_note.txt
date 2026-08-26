@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 8: Queue & Deque Interfaces
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. QUEUE & DEQUE CONTRACT:
+   - Queue: FIFO task buffering (First-In, First-Out).
+   - Deque: Double-Ended Queue (supports FIFO queue and LIFO stack).
+   - 'offer()' / 'poll()' &rarr; return false/null (safe).
+   - 'add()' / 'remove()' &rarr; throw exceptions.
+   - PriorityQueue: heap-ordered priority dispatching.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

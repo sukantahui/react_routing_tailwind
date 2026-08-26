@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 9: Date/Time Creation Patterns
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CREATION TRIFECTA:
+   - 'now()'   : Captures current system clock.
+   - 'of()'    : Constructs specific temporal instance.
+   - 'parse()' : Parses ISO-8601 string ('2026-08-26').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

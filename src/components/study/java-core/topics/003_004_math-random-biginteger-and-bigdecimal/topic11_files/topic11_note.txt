@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_004: Math, Random & Arbitrary Precision
+Topic 11: BigDecimal Comparison
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EQUALITY COMPARISON:
+   - 'a.equals(b)'      : Compares VALUE + SCALE ('2.0' != '2.00').
+   - 'a.compareTo(b)==0': Compares MATHEMATICAL VALUE ONLY ('2.0' == '2.00').
+   - HashSet uses 'equals()'; TreeSet uses 'compareTo()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

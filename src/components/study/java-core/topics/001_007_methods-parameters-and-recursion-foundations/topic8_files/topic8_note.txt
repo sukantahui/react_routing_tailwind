@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 8: Why Return Type Alone Cannot Overload a Method
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The Fundamental Reason: Call-Site Ambiguity:
+  * In Java, calling a method without capturing its return value is valid:
+    computeFee(101); // Discarding return value for side effects
+  * If both 'int computeFee(int)' and 'double computeFee(int)' existed,
+    the compiler would have ZERO clues which version to invoke!
+
+- JLS Method Signature Definition (JLS §8.4.2):
+  * Method Signature = [Method Name] + [Parameter Types List].
+  * Return type, access modifiers, and throws clauses are EXCLUDED.
+
+- Clean Architectural Solution:
+  * Use intention-revealing, descriptive method names:
+    - getFeeAsInteger(int id)
+    - getFeeAsDouble(int id)
+    - getFeeAsFormattedString(int id)
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] 'int m(int x)' and 'double m(int x)' cause 'method already defined' Compile Error.
+[✓] 'void m(int x)' and 'int m(int x)' cause 'method already defined' Compile Error.
+[✓] Overloaded methods can have different return types IF their parameter lists differ.
+[✓] Bottom-up type checking resolves methods from arguments, not assignment targets.
+================================================================================

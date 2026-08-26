@@ -1,0 +1,24 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_002: Constructors, Constructor Chaining & Object Lifecycle
+Topic 18: Real-World Modeling: User Profile Initialization & Telescoping Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARCHITECTURAL PATTERN SUMMARY:
+   -----------------------------------------------------------------------------
+   - Mandatory parameters are required by all constructors.
+   - Optional parameters receive sensible domain defaults.
+   - All constructors chain into 1 Master Constructor via 'this(...)'.
+   - Immutable fields guarantee domain invariant safety.
+
+2. MODULE 002_002 SUMMARY:
+   - Object Genesis: new (memory allocation) + Constructor (state initialization).
+   - Constructor Laws: Name matches class, NO return type (not even void).
+   - Chaining: this(...) on Line 1 funnels to Master Constructor.
+   - IIB Execution: Executes after super() and before constructor body.
+   - Security: Private constructors for Singletons & Utility toolkits.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

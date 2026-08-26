@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 1: 11 Object Methods Survey
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 11 OBJECT METHODS:
+   - Overridable     : toString(), equals(), hashCode(), clone(), finalize().
+   - Final (Locked)  : getClass(), notify(), notifyAll(), wait() (3 overloads).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

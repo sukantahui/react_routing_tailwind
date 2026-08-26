@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 17: Recursion vs. Iteration Performance & Memory Showdown
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The Architectural Trade-Off Matrix:
+  * Memory Overhead   : Recursion consumes O(N) Stack Frames | Iteration uses O(1) Stack Space.
+  * CPU Dispatch Cost : Recursion pays method invocation cost | Iteration uses fast register jumps.
+  * Crash Risk        : Recursion risks StackOverflowError | Iteration is 100% stack-safe.
+  * Code Expressiveness: Recursion is elegant for Trees/Graphs | Iteration is verbose for trees.
+
+- The Golden Rule of Selection:
+  * Choose ITERATION for : Linear sequences, loops, large arrays, high-throughput loops (N > 5000).
+  * Choose RECURSION for : Non-linear structures (Trees, Graphs, ASTs, Divide & Conquer, Backtracking).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Iterative Fibonacci runs in O(N) time with O(1) space using rolling variables (a, b).
+[✓] Naive Recursive Fibonacci takes O(2^N) time due to overlapping sub-problems.
+[✓] HotSpot JVM does NOT support automatic Tail Call Optimization (TCO).
+[✓] Virtual Threads (Java 21) store unmounted stack frames on Heap, lightening concurrency.
+================================================================================

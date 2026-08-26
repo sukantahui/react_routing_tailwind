@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_007: Abstract Classes & Partial Abstraction
+Topic 7: Constructors in Abstract Classes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ABSTRACT CLASS CONSTRUCTOR PURPOSE:
+   - Abstract classes CAN declare constructors.
+   - Executed only through subclass 'super()' constructor chaining.
+   - Initializes superclass fields and enforces domain invariants.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

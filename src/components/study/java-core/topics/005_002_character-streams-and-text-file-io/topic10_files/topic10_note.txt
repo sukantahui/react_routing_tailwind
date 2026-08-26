@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_002: Character Streams & Text File Processing
+Topic 10: StringReader & StringWriter Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 005_002 SUMMARY:
+   - Character streams (16-bit Reader/Writer) handle multi-byte Unicode safely.
+   - Core classes: Reader & Writer (implements Flushable & AutoCloseable).
+   - FileReader & FileWriter (Java 11+ explicit StandardCharsets.UTF_8).
+   - JEP 400 made UTF-8 the default across all OS platforms in Java 18.
+   - InputStreamReader & OutputStreamWriter bridge byte and character worlds.
+   - Always use StandardCharsets.UTF_8 constant.
+   - StringReader & StringWriter enable in-memory stream interoperability.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

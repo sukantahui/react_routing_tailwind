@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 4: Buffer Capacity & Growth Formula
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BUFFER CAPACITY ESSENTIALS:
+   - Default capacity = 16.
+   - Growth formula: 'newCapacity = (oldCapacity * 2) + 2'.
+   - If initial string provided ('new StringBuilder("hello")'): capacity = 16 + length.
+   - Best Practice: Pre-allocate capacity if estimated size is known.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

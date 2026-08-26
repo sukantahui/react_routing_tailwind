@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 4: Finding Duplicate & Missing Numbers in Arrays
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE ALGORITHMIC APPROACHES
+--------------------------------------------------------------------------------
+- Finding Single Missing Number (1..N in array of size N - 1):
+  * Bitwise XOR Method : (1 ^ 2 ^ ... ^ N) ^ (arr[0] ^ arr[1] ^ ...)
+    - Time: O(N) | Space: O(1) | Completely immune to integer overflow!
+  * Gauss Sum Method   : (long) N * (N + 1) / 2 - actualSum (requires 'long').
+
+- Finding Single Duplicate (1..N-1 in array of size N):
+  * Floyd's Cycle Detection (Tortoise & Hare) :
+    - Phase 1: slow = nums[slow], fast = nums[nums[fast]] until slow == fast.
+    - Phase 2: ptr1 = nums[0], ptr2 = slow; advance by 1 until ptr1 == ptr2.
+    - Non-destructive, O(N) Time, O(1) Space.
+
+- Set Mismatch (One Duplicate + One Missing in 1..N):
+  * Negative Index Marking :
+    - Check if nums[abs(val) - 1] < 0 -> duplicate found!
+    - Otherwise negate nums[abs(val) - 1] = -nums[abs(val) - 1].
+    - Index with positive number identifies missing value.
+    - Restore array signs: nums[i] = Math.abs(nums[i]).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] XOR self-inverse property: X ^ X = 0 and X ^ 0 = X.
+[✓] Floyd's algorithm requires 1-based indexing in range [1..N].
+[✓] In Set Mismatch, always restore array signs to prevent side-effects.
+[✓] In Topic 5, we master Array Element Frequency Counters & Direct Address Tables!
+================================================================================

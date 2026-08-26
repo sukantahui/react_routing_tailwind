@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 11: thread.start() vs thread.run()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. START vs RUN:
+   - 'thread.run()': plain synchronous method call on CURRENT stack (zero concurrency).
+   - 'thread.start()': invokes native 'start0()', creates new OS thread & Call Stack.
+   - Calling 'start()' twice throws 'IllegalThreadStateException'.
+   - Always call 'start()' to achieve true multithreading!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

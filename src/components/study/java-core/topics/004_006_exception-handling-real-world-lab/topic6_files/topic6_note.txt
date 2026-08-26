@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_006: Exception Handling Real-World Lab
+Topic 6: Timed Exception Challenge Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SEGMENT 4 COMPLETION SUMMARY:
+   - Module 004_001: Throwable, Error vs Exception, Checked vs Unchecked.
+   - Module 004_002: try-catch-finally, multi-catch, ordering rules, finally return rules.
+   - Module 004_003: throw vs throws, custom domain exceptions, 4 constructors.
+   - Module 004_004: Try-with-Resources (ARM), AutoCloseable, suppressed exceptions.
+   - Module 004_005: Propagation, stack unwinding, chaining, anti-pattern avoidance.
+   - Module 004_006: RFC 7807 Error model, global interceptor, retry engine, capstone.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

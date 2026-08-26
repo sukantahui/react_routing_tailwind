@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_005: Inheritance, IS-A vs HAS-A, Composition & Aggregation
+Topic 11: Composition (Strong Association)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMPOSITION RULES:
+   - Strong Part-Whole relationship.
+   - Contained object is instantiated inside the container's constructor.
+   - Shared lifecycle: Container destruction destroys the contained parts.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

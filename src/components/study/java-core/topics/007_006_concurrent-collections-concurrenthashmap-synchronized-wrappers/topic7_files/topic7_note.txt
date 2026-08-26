@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_006: Concurrent Collections & ConcurrentHashMap
+Topic 7: Size Calculation & CounterCell Array
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SIZE CALCULATION:
+   - 'baseCount' + sum of 'CounterCell[]' array.
+   - LongAdder striped counter design.
+   - Low contention &rarr; updates 'baseCount'.
+   - High contention &rarr; distributes updates across 'CounterCell' slots.
+   - 'mappingCount()' preferred over 'size()' in Java 8+.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_009: Collections Performance & Big-O Complexities
+Topic 2: Average vs Worst Case Breakdown
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. AVERAGE vs WORST CASE:
+   - ArrayList.add(): O(1) Amortized vs O(n) Resize.
+   - HashMap.get(): O(1) Average vs O(log n) TreeBin worst-case (Java 8+).
+   - Java 7 HashMap worst-case was O(n) (Hash-DoS vulnerability).
+   - TreeSet / TreeMap: O(log n) guaranteed (Red-Black self-balancing).
+   - TimSort: O(n log n) guaranteed worst-case.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

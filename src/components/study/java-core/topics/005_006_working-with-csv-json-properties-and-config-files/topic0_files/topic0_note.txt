@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_006: CSV, JSON, Properties & Config Files
+Topic 0: Properties Class Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PROPERTIES CLASS ARCHITECTURE:
+   - Extends 'Hashtable<Object, Object>'.
+   - Dedicated methods: 'setProperty(String, String)' & 'getProperty(String)'.
+   - Thread-safe key-value configuration repository.
+   - Foundation for 'application.properties' in Spring Boot and JDBC.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

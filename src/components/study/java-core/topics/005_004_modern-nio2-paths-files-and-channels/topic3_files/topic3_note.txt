@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_004: Modern Java NIO.2
+Topic 3: Creating Path Instances
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PATH FACTORIES:
+   - Modern (Java 11+): 'Path.of("folder", "sub", "file.txt")'.
+   - Legacy (Java 7)  : 'Paths.get("folder", "sub", "file.txt")'.
+   - URI Factory      : 'Path.of(URI.create("file:///C:/app/log.txt"))'.
+   - Prefer 'Path.of()' for all modern Java development.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

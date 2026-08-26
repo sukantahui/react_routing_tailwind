@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 3: The 'import' Statement
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'import' STATEMENT RULES:
+   - Placed after 'package' and before 'class'.
+   - 'java.lang.*' is automatically imported into every Java file.
+   - Same package classes do NOT need an import statement.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

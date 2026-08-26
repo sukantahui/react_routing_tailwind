@@ -1,0 +1,46 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 0: Operands, Operators, and Expression Evaluation in Java
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. INTRODUCTION TO COMPUTATIONAL GRAMMAR
+In computer programming, operators and operands form the computational engine of an application. While data types define what values can be stored, operators define how data is transformed, aggregated, compared, and manipulated.
+
+2. TAXONOMY OF OPERATORS BY ARITY
+Operators in Java are categorized according to the number of operands required:
+A. Unary Operators (1 Operand):
+   - Increment/Decrement: `++`, `--`
+   - Sign: `+`, `-`
+   - Bitwise/Logical Inversion: `~`, `!`
+   - Type Cast: `(targetType)`
+
+B. Binary Operators (2 Operands):
+   - Arithmetic: `+`, `-`, `*`, `/`, `%`
+   - Relational: `==`, `!=`, `<`, `>`, `<=`, `>=`
+   - Logical: `&&`, `||`
+   - Bitwise: `&`, `|`, `^`
+   - Shift: `<<`, `>>`, `>>>`
+   - Assignment: `=`, `+=`, `-=`, etc.
+
+C. Ternary Operator (3 Operands):
+   - Conditional expression: `condition ? expr1 : expr2`
+
+3. EXPRESSIONS, STATEMENTS & BLOCKS
+- Expression: A combination of variables, literals, operators, and method invocations that evaluates to a single typed value.
+- Expression Statement: Certain expressions can stand alone as statements when suffixed with a semicolon (assignment, increment/decrement, method call, object creation).
+- Statement: An executable unit that controls execution flow or modifies state.
+
+4. THE JLS §15.7 EVALUATION GUARANTEE
+One of the most profound architectural guarantees in Java is Section 15.7 of the Java Language Specification (JLS):
+"The Java programming language guarantees that the operands of operators are evaluated from left to right."
+
+In languages like C or C++, the expression `f() + g()` could execute `g()` before `f()`, leading to platform-specific bugs when functions have side effects. In Java, `f()` is GUARANTEED to execute completely before `g()` begins.
+
+5. CONSTANT FOLDING & JIT COMPILATION
+When `javac` compiles an expression containing only compile-time literals (e.g. `10 * 60 * 1000`), the compiler calculates the product `600000` at compile time and emits `ldc #constant` bytecode, ensuring zero runtime CPU cycle cost.
+
+6. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore center, Swadeep, Tuhina, Abhronila, and Debangshu built a student academic merit scoring engine. By structuring weighted grade formulas (`theory * 0.6 + practical * 0.4`) and applying conditional scholarship rewards in Indian Rupees (₹), their algorithms achieved mathematical precision with clean, self-documenting syntax.
+================================================================================

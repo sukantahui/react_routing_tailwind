@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 2: The toString() Method
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. toString() ESSENTIALS:
+   - Default output: 'ClassName@HexHashCode' (Unhelpful for humans).
+   - System.out.println(obj) automatically invokes 'obj.toString()'.
+   - String concatenation ('"Hello " + obj') automatically invokes 'obj.toString()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

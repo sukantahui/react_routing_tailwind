@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 4: Upper Bounded Wildcard (Covariance)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. UPPER BOUNDED WILDCARD (COVARIANCE):
+   - 'List<? extends Number>': accepts Number and any subtype.
+   - Elements can be read safely as 'Number'.
+   - Acts as a DATA PRODUCER.
+   - Cannot add elements (except null) to preserve type invariants.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_002: Thread Control & Daemon Threads
+Topic 5: Deprecated Thread Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DEPRECATED THREAD METHODS:
+   - 'Thread.stop()': Releases all locks immediately mid-operation &rarr; Data corruption!
+   - 'Thread.suspend()': Freezes thread while keeping locks &rarr; Deadlocks!
+   - 'Thread.resume()': Unreliable pair of suspend().
+   - Modern Rule: Use Cooperative Cancellation via 'Thread.interrupt()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

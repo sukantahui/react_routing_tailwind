@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 10: Deconstructing Collections.copy
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. Collections.copy DECONSTRUCTION:
+   - 'public static <T> void copy(List<? super T> dest, List<? extends T> src)'.
+   - 'src' produces data of type 'T' (extends).
+   - 'dest' consumes data of type 'T' (super).
+   - Enables copying 'List<Integer>' into 'List<Number>' or 'List<Object>'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

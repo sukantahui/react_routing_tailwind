@@ -1,0 +1,49 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 2: Integer Division Truncation vs Floating-Point Division
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. INTRODUCTION & COMPILER MECHANICS
+In the Java Virtual Machine, the division operator `/` maps to two fundamentally different bytecode instructions based on the static data types of the operands:
+1. `idiv` / `ldiv`: Integer division for 32-bit `int` and 64-bit `long` operands.
+2. `fdiv` / `ddiv`: Floating-point division for 32-bit `float` and 64-bit `double` operands.
+
+2. INTEGER TRUNCATION VS FLOATING-POINT EVALUATION
+When both operands are integral types, `idiv` discards any fractional remainder:
+  int quotient = 7 / 2; // Evaluates to 3
+
+The classic beginner error occurs when assigning the result to a `double` variable:
+  double d = 7 / 2; // Assigns 3.0!
+Expression evaluation takes precedence over assignment: `7 / 2` evaluates to integer `3` on the operand stack. The JVM then executes `i2d` (int to double conversion), widening `3` to `3.0`. The fractional `0.5` is lost permanently before assignment.
+
+To preserve decimal precision:
+  double d1 = (double) 7 / 2; // 7.0 / 2 -> 3.5
+  double d2 = 7.0 / 2;        // 7.0 / 2.0 -> 3.5
+
+3. TRUNCATION TOWARDS ZERO VS MATHEMATICAL FLOOR DIVISION
+In standard Java integer division, division of negative numbers truncates toward zero:
+  -7 / 2 = -3  (Algebraic value: -3.5, truncated to -3)
+
+However, in clock arithmetic, astronomical algorithms, and calendar systems, mathematical floor division (rounding toward negative infinity) is required.
+Java 8 introduced:
+  Math.floorDiv(-7, 2); // Returns -4
+  Math.floorMod(-7, 2); // Returns +1
+
+4. COMPARATIVE MATRIX: TRUNCATE, FLOOR, CEIL, ROUND
+For positive and negative floats:
+- `3.75`:
+  * Truncate : 3
+  * Floor    : 3.0
+  * Ceil     : 4.0
+  * Round    : 4
+- `-3.75`:
+  * Truncate : -3
+  * Floor    : -4.0
+  * Ceil     : -3.0
+  * Round    : -4
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore center, Swadeep, Tuhina, Abhronila, and Debangshu created a student performance matrix and hourly tuition rate calculator. By dividing marks totals by `3.0` and calculating hourly fees in Indian Rupees (₹) with floating-point promotion, their software generated exact academic averages and fee schedules with zero truncation distortion.
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 1: JSR-310 Design Principles
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JSR-310 PILLARS:
+   - 100% Immutable and Thread-safe.
+   - Month.JANUARY = 1 (1-indexed).
+   - Clean domain separation (LocalDate, LocalTime, Instant, ZonedDateTime).
+   - Fluent method chaining ('plusDays()', 'minusYears()').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

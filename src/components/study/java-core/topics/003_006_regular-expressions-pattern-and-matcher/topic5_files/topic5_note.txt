@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 5: Java Double Backslash Escaping
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ESCAPING TWO-TIER ARCHITECTURE:
+   - Tier 1: Java String literal compiler (consumes 1st '\').
+   - Tier 2: Regex engine parser (interprets '\d', '\w', '\.').
+   - Literal dot in Java code: '\\.'.
+   - Literal backslash in Java code: '\\\\'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_004: Static Variables, Methods, Blocks & The Singleton Pattern
+Topic 8: Static Initialization Blocks (SIB)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SIB RULES:
+   - Enclosed in 'static { ... }'.
+   - Executes ONCE upon class loading.
+   - Used for complex static initialization (Maps, database configs, native libraries).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

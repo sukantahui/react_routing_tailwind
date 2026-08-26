@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_009: Collections Performance & Big-O Complexities
+Topic 4: Primitive Arrays vs Boxed Collections
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PRIMITIVE vs BOXED PERFORMANCE:
+   - int[] stores raw bits; ArrayList<Integer> stores references.
+   - 64-byte CPU cache line holds 16 consecutive primitive ints.
+   - ArrayList requires pointer dereference + auto-unboxing.
+   - Primitive arrays are 5x-10x faster for intensive math/data processing.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

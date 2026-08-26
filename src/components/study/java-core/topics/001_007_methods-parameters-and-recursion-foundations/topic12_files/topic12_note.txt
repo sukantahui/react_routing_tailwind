@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_007: Methods, Parameters, Return Types & Recursion
+TOPIC 12: Recursive Methods (Base Cases & Recursive Steps)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is Recursion?
+  * A method that solves a problem by calling a smaller sub-instance of ITSELF.
+  * Grounded in the Principle of Mathematical Induction.
+
+- The 2 Indispensable Pillars of Recursion:
+  1. Base Case (Termination Condition) :
+     - Handles the smallest atomic input and returns an immediate answer.
+     - Stops the recursion chain and starts stack unwinding.
+  2. Recursive Step (Inductive Step)   :
+     - Breaks problem into sub-problems (n - 1, n / 10, node.left).
+     - Must progress MONOTONICALLY towards the Base Case.
+
+- The Fatal Failure Mode:
+  * Missing or unreachable base case -> Infinite Recursion -> StackOverflowError!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always guard base cases defensively (use 'if (n <= 1)' instead of 'if (n == 1)').
+[✓] Factorial: n! = n * (n - 1)! with Base Case 0! = 1, 1! = 1.
+[✓] Natural Sum: sum(n) = n + sum(n - 1) with Base Case sum(1) = 1.
+[✓] Factorials above 20 overflow 64-bit 'long'; use java.math.BigInteger for arbitrary sizes.
+================================================================================

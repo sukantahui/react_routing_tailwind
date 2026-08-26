@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 2: 3 Types of Wildcards
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 WILDCARD TYPES:
+   - 'List<?>': Unbounded.
+   - 'List<? extends T>': Upper bounded (T and subtypes).
+   - 'List<? super T>': Lower bounded (T and supertypes).
+   - Enables covariance and contravariance in Java collections.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

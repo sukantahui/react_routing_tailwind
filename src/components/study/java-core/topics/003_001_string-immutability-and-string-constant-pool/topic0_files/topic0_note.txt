@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 0: What is java.lang.String
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STRING FUNDAMENTALS:
+   - Represents immutable character sequences.
+   - Implements Serializable, Comparable<String>, CharSequence.
+   - Java 9 Compact Strings: 'byte[] value' + 'byte coder' (Latin-1 or UTF-16).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

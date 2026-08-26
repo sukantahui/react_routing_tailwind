@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 9: Nuances of 'protected' Access
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'protected' CROSS-PACKAGE RULE:
+   - Allowed: Inside subclass via 'this.protectedField' or 'super.protectedMethod()'.
+   - Disallowed: Accessing 'parentRef.protectedField' on an external parent object.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

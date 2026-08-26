@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 8: Unboxing NullPointerException Danger
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. UNBOXING NPE TRAP:
+   - 'Integer x = null; int y = x;' &rarr; Throws NPE.
+   - Reason: Translated to 'int y = x.intValue()'.
+   - Fix: Always check for null or use 'Optional' before unboxing.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

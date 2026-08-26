@@ -1,0 +1,42 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 21: Detecting & Preventing Arithmetic Overflow and Underflow
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
+================================================================================
+
+1. SILENT MODULAR ARITHMETIC IN THE JVM SPECIFICATION
+Under Section 15.17 and 15.18 of the Java Language Specification (JLS), primitive integer arithmetic operations (`+`, `-`, `*`, `/`, `%`) operate strictly under modulo $2^N$ two's complement rules:
+- Integer arithmetic is performed using the lower 32 or 64 bits of the true mathematical result.
+- Overflow and underflow are NOT reported by the JVM; the result wraps around into negative or positive space silently.
+For example:
+  int max = 2147483647; // 0x7FFFFFFF (01111111...)
+  int next = max + 1;    // 0x80000000 (10000000...) = -2147483648!
+
+2. JAVA 8+ EXACT ARITHMETIC ARCHITECTURE (JAVA.LANG.MATH)
+Recognizing that silent wrap-around is a critical security vulnerability, Java 8 introduced a comprehensive suite of hardware-optimized exact arithmetic methods in `java.lang.Math`:
+- `Math.addExact(int x, int y)` / `Math.addExact(long x, long y)`
+- `Math.subtractExact(int x, int y)` / `Math.subtractExact(long x, long y)`
+- `Math.multiplyExact(int x, int y)` / `Math.multiplyExact(long x, long y)`
+- `Math.incrementExact(int a)` / `Math.incrementExact(long a)`
+- `Math.decrementExact(int a)` / `Math.decrementExact(long a)`
+- `Math.negateExact(int a)` / `Math.negateExact(long a)`
+- `Math.toIntExact(long value)`
+
+Every one of these methods tests for overflow conditions and throws `java.lang.ArithmeticException: integer overflow` if capacity is exceeded.
+
+3. THE UPCASTING TRAP IN INT SUMMATION
+A common architectural defect occurs when assigning the sum of two 32-bit integers to a 64-bit `long`:
+  long total = a + b; // DANGEROUS!
+Under Binary Numeric Promotion, `a + b` executes in 32-bit integer arithmetic, overflows to a negative number, and ONLY THEN is widened to `long`.
+Production Fix:
+  long total = (long) a + b; // Forces 64-bit addition from the outset.
+
+4. ARBITRARY PRECISION WITH BIGINTEGER & BIGDECIMAL
+For computations that exceed 64-bit hardware limits or require exact decimal representation:
+- `BigInteger`: Uses dynamic byte arrays in heap memory to represent arbitrarily large integers.
+- `BigDecimal`: Combines an unscaled `BigInteger` with a 32-bit integer scale factor (`unscaledValue * 10^-scale`), eliminating IEEE 754 binary floating-point rounding errors in financial transactions.
+
+5. CLASSROOM PEDAGOGY IN BARRACKPORE
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu built an enterprise financial treasury and campus endowment ledger in Indian Rupees (₹). By implementing `Math.addExact()` and `BigDecimal` financial auditing pipelines, their software achieved 100% crash immunity and guaranteed zero silent wrap-around defects across educational institutions in Naihati and Shyamnagar.
+================================================================================

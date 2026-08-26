@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_006: Regular Expressions (Regex)
+Topic 12: Advanced Matcher Transformations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DYNAMIC REPLACEMENT (Java 9+):
+   - 'matcher.replaceAll(matchResult -> ...)'
+   - Eliminates legacy 'appendReplacement' / 'appendTail' boilerplate.
+   - Evaluates lambda per matching token.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

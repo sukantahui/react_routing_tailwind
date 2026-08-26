@@ -1,0 +1,47 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_001: Classes, Objects, Memory Allocation & Encapsulation
+Topic 17: Encapsulation Best Practices and Avoiding Data Leaks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 5 CRITICAL ENCAPSULATION DATA LEAKS:
+   -----------------------------------------------------------------------------
+   LEAK 1: CONSTRUCTOR ALIASING LEAK
+           - Problem: `this.list = inputList;` gives caller a backdoor alias.
+           - Shield : Defensive copy on input: `this.list = new ArrayList<>(inputList);`
+
+   LEAK 2: GETTER COLLECTION LEAK
+           - Problem: `return this.list;` lets callers call `list.clear()`.
+           - Shield : Return unmodifiable view: `return Collections.unmodifiableList(this.list);`
+
+   LEAK 3: ARRAY REFERENCE LEAK
+           - Problem: Array contents can always be modified (`arr[0] = 0`).
+           - Shield : Always clone arrays: `return this.scores.clone();`
+
+   LEAK 4: LEGACY MUTABLE DATE LEAK
+           - Problem: `java.util.Date` is mutable via `.setTime()`.
+           - Shield : Use immutable `java.time.LocalDate` or `Instant`.
+
+   LEAK 5: PREMATURE 'this' ESCAPE
+           - Problem: Publishing `this` to threads or listeners before init completes.
+           - Shield : Finish constructor completely before publishing references.
+   -----------------------------------------------------------------------------
+
+2. SUKANTA HUI'S 5-POINT FORTIFICATION PROTOCOL:
+   1. Declare all fields `private final` by default.
+   2. Defensively copy all mutable constructor parameters.
+   3. Return unmodifiable wrappers or cloned arrays in all getters.
+   4. Validate all mutator parameters and defend domain invariants.
+   5. Mark classes `final` unless explicitly designed for inheritance.
+
+3. GOLDEN RULES FOR MODERN JAVA:
+   - Prefer immutable Value Objects and Java 16+ Records for DTOs.
+   - Use `List.of()` and `Set.of()` for immutable collection constants.
+   - Never expose `public static final` array variables.
+   - Apply the Law of Demeter ("Tell, Don't Ask").
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+Module 002_001 Complete! Next Up: Module 002_002 (Constructors & Initialization)
+================================================================================

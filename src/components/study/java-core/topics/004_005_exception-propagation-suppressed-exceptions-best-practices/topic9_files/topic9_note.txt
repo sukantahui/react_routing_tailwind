@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 004_005: Propagation, Chaining & Best Practices
+Topic 9: Javadoc @throws Documentation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JAVADOC EXCEPTION RULES:
+   - Use '@throws ExceptionType condition description'.
+   - Document both Checked and Unchecked exceptions.
+   - Do NOT clutter method header with unchecked exceptions.
+   - Provides clear preconditions to API consumers.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

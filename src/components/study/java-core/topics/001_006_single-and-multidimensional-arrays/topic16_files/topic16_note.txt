@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 16: Jagged / Ragged Arrays (Varying Row Lengths)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is a Jagged Array? (JLS §10.1):
+  * A 2D array where different rows have DIFFERENT numbers of columns.
+  * Natural consequence of Java's "Array of Arrays" Heap pointer model.
+
+- Two-Step Dynamic Allocation:
+  * Step 1: Allocate outer container : int[][] jagged = new int[4][]; (all null!).
+  * Step 2: Allocate inner 1D arrays  : jagged[0] = new int[3]; jagged[1] = new int[2]; ...
+
+- Safe Traversal Invariant:
+  for (int r = 0; r < jagged.length; r++) {
+      for (int c = 0; c < jagged[r].length; c++) {
+          process(jagged[r][c]);
+      }
+  }
+
+- Memory & Applications:
+  * Eliminates wasted null/zero padding space in irregular datasets.
+  * Perfect for triangular structures (Pascal's Triangle), monthly schedules, and batch rosters.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Accessing jagged[r][c] before allocating row 'r' throws NullPointerException!
+[✓] Always use 'c < jagged[r].length' (never hardcode fixed column bounds!).
+[✓] To clone a jagged array independently, perform a DEEP COPY (clone each row).
+[✓] Enhanced for-each loops handle jagged arrays automatically without modification.
+================================================================================

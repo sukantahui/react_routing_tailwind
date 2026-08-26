@@ -1,0 +1,49 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_003: Operators, Expressions, Precedence & Type Casting
+TOPIC 16: Complete Java Operator Precedence & Associativity Master Table
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE COMPLETE 15-TIER OPERATOR PRECEDENCE HIERARCHY
+--------------------------------------------------------------------------------
+Level | Category          | Operators                            | Associativity
+------+-------------------+--------------------------------------+--------------
+ 15   | Postfix           | expr++  expr--                       | Left-to-Right
+ 14   | Primary / Access  | ( )  [ ]  .                          | Left-to-Right
+ 13   | Unary / Prefix    | ++expr  --expr  +  -  !  ~  (type)   | RIGHT-TO-LEFT
+ 12   | Multiplicative    | *  /  %                              | Left-to-Right
+ 11   | Additive          | +  -                                 | Left-to-Right
+ 10   | Shift             | <<  >>  >>>                          | Left-to-Right
+  9   | Relational        | <  >  <=  >=  instanceof             | Left-to-Right
+  8   | Equality          | ==  !=                               | Left-to-Right
+  7   | Bitwise AND       | &                                    | Left-to-Right
+  6   | Bitwise XOR       | ^                                    | Left-to-Right
+  5   | Bitwise OR        | |                                    | Left-to-Right
+  4   | Logical AND       | &&                                   | Left-to-Right
+  3   | Logical OR        | ||                                   | Left-to-Right
+  2   | Ternary / Cond    | ? :                                  | RIGHT-TO-LEFT
+  1   | Assignment        | =  +=  -=  *=  /=  %=  &=  |=  ^= ...| RIGHT-TO-LEFT
+------+-------------------+--------------------------------------+--------------
+
+2. CRITICAL PRECEDENCE TRAPS TO MEMORIZE
+--------------------------------------------------------------------------------
+1. Additive beats Shift:
+   1 + 2 << 2  ==> (1 + 2) << 2 = 12  (NOT 1 + 8 = 9!)
+
+2. Relational beats Bitwise AND:
+   flags & MASK != 0  ==> flags & (MASK != 0) -> COMPILATION ERROR!
+   Fix: ((flags & MASK) != 0)
+
+3. Logical AND beats Logical OR:
+   a || b && c  ==> a || (b && c)
+
+3. RIGHT-TO-LEFT ASSOCIATIVITY MEMORY HOOK
+--------------------------------------------------------------------------------
+Only 3 categories associate Right-to-Left:
+[1] Unary operators   : - - -50  ==> -(-(-50)) = -50
+[2] Ternary operator  : a ? b : c ? d : e  ==> a ? b : (c ? d : e)
+[3] Assignment ops    : a = b = c = 100   ==> a = (b = (c = 100))
+
+Everything else is strictly Left-to-Right!
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 0: Legacy Date Flaws
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LEGACY FLAWS (Pre-Java 8):
+   - 'Date' and 'Calendar' are mutable.
+   - Month 0 = January, Month 11 = December.
+   - 'SimpleDateFormat' is not thread-safe.
+   - Deprecated in modern code; replaced by 'java.time' (JSR-310).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

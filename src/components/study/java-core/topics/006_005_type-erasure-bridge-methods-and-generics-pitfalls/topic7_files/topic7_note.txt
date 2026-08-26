@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_005: Type Erasure & Generics Limitations
+Topic 7: Restriction 2 - No 'new T()'
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RESTRICTION 2: NO 'new T()':
+   - 'new T()' is illegal (erased to new Object()).
+   - Compiler cannot guarantee accessible constructor exists.
+   - Workaround: Pass 'Class<T> clazz' token.
+   - Instantiate via: 'clazz.getDeclaredConstructor().newInstance()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

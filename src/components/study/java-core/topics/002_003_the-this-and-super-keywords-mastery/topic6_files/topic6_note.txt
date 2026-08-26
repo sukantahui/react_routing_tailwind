@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_003: The 'this' and 'super' Keywords Mastery
+Topic 6: Returning 'this' to Enable Fluent Method Chaining
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FLUENT CHAINING MECHANICS:
+   - Method return type matches the class type (e.g. 'public MyClass setX(int x)').
+   - Last statement in method: 'return this;'
+   - Enables dot chaining: 'new MyClass().setA(1).setB(2).setC(3);'
+   - Used extensively in Builder patterns and StringBuilder.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_006: CSV, JSON, Properties & Config Files
+Topic 1: .properties File Syntax Rules
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. .PROPERTIES SYNTAX SPEC:
+   - Delimiters : '=', ':', or whitespace ' '.
+   - Comments   : Lines starting with '#' or '!'.
+   - Multi-line : Trailing backslash '\' escapes newline.
+   - Escaping   : Escaping colons or equals in keys (e.g. 'tax\:rate').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

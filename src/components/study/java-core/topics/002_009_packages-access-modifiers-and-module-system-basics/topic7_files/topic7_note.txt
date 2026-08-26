@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_009: Packages, Access Modifiers & Module System
+Topic 7: The 4 Access Modifiers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 4 ACCESS TIERS:
+   - 'private'  : Same class only.
+   - (default)  : Same class + same package.
+   - 'protected': Same class + same package + subclasses in different packages.
+   - 'public'   : Universal access across all packages.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

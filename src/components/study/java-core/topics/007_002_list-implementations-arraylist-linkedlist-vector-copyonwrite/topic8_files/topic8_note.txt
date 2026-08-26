@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 8: LinkedList Performance Profile
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LINKEDLIST PERFORMANCE:
+   - addFirst() / addLast() &rarr; O(1) instant pointer update.
+   - removeFirst() / removeLast() &rarr; O(1).
+   - get(i) / set(i, val) &rarr; O(n) linear pointer traversal.
+   - node(i) helper traverses from nearest end (first or last).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

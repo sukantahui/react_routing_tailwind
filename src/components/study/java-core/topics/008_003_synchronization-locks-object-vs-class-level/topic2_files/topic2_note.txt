@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 2: Critical Section & Mutex
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CRITICAL SECTION:
+   - Code block accessing shared mutable resources.
+   - Must be executed with Mutual Exclusion (Mutex).
+   - Dijkstra's 3 rules: Mutual Exclusion, Progress, Bounded Waiting.
+   - Java enforces this via 'synchronized' blocks and explicit locks.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

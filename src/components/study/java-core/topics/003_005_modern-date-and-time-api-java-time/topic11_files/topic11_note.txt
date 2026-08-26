@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 11: java.time.Period
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PERIOD RULES:
+   - Date-based interval: Years, Months, Days.
+   - Calculation: 'Period.between(startDate, endDate)'.
+   - Inspection: 'getYears()', 'getMonths()', 'getDays()'.
+   - Compatible with 'LocalDate'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

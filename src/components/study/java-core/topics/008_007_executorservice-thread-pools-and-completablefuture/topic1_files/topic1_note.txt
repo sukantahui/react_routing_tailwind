@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 1: Executor Framework Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EXECUTOR FRAMEWORK:
+   - Cleanly separates Task Definition (Runnable/Callable) from Execution (Thread Pool).
+   - Reuses worker threads continuously from an internal queue.
+   - Throttles concurrency to protect server hardware.
+   - Standard: 'ExecutorService executor = Executors.newFixedThreadPool(n)'.
+   - Mandatory: Always call 'executor.shutdown()' when finished!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

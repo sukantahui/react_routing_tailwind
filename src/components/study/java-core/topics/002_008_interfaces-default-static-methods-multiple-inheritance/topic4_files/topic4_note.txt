@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_008: Interfaces, Default/Static Methods & Multiple Inheritance
+Topic 4: Interface Fields & Constants
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTERFACE CONSTANTS:
+   - Implicitly: 'public static final'.
+   - Must be initialized at declaration.
+   - Access directly via 'InterfaceName.CONSTANT_NAME'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

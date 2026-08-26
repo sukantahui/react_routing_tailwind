@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 11: Array Searching (Linear Search & Binary Search)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Linear Search:
+  * Algorithm  : Inspects each element sequentially from 0 to (length - 1).
+  * Time / Space : O(N) linear time, O(1) space.
+  * Advantage  : Works on UNSORTED arrays with zero preconditions.
+
+- Binary Search:
+  * Algorithm  : Halves search space on each comparison (low, mid, high).
+  * Time / Space : O(log N) logarithmic time, O(1) space.
+  * REQUIREMENT: Array MUST be strictly SORTED in ascending order!
+
+- Midpoint Calculation Rule:
+  * BAD  : int mid = (low + high) / 2; (Causes integer overflow for large arrays!).
+  * GOOD : int mid = low + (high - low) / 2; (OR: (low + high) >>> 1).
+
+- java.util.Arrays.binarySearch():
+  * If found   : Returns target index (>= 0).
+  * If missing : Returns -(insertion_point + 1).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Never run binarySearch on unsorted arrays (result is undefined!).
+[✓] Loop condition in binary search must be: while (low <= high).
+[✓] Use Double.compare(arr[mid], target) == 0 when searching floating-point values.
+[✓] For N = 1,000,000 items: Linear Search takes 1M steps; Binary Search takes 20!
+================================================================================

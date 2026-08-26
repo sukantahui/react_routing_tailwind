@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_007: Nested & Inner Classes
+Topic 13: Memory Leaks in Inner Classes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MEMORY LEAK MECHANISM:
+   - Inner class holds hidden reference ('this$0') to Outer instance.
+   - If Inner is registered in a static/global list, Outer CANNOT be GC'd.
+   - Causes OutOfMemoryError in Android Activities & Swing UI.
+   - Solution: Use 'static class' or 'WeakReference'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

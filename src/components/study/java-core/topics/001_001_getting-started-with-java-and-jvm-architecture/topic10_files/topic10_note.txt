@@ -1,0 +1,46 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 10: Standard Structure of a Java Program
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. ORDER OF SECTIONS IN A JAVA SOURCE FILE
+--------------------------------------------------------------------------------
+A standard Java file (.java) follows a strict top-to-bottom layout:
+
+1. Package Declaration (Optional, but must be the very FIRST non-comment line):
+   `package com.codernaccotax.banking;`
+
+2. Import Statements (Optional, following package):
+   `import java.util.List;`
+   `import java.time.LocalDate;`
+   (Note: `java.lang.*` is automatically imported by the compiler implicitly).
+
+3. Class / Interface / Record / Enum Declaration:
+   `public class AccountService { ... }`
+
+4. Inside the Class Body:
+   - Static constants and variables
+   - Instance variables (fields)
+   - Static & Instance Initializer Blocks (`static { }`, `{ }`)
+   - Constructors
+   - Methods (business logic, getters, setters)
+   - The `main` method (application entry point)
+   - Nested inner classes
+
+2. FUNDAMENTAL RULES
+--------------------------------------------------------------------------------
+- At most ONE class in a single file can be declared `public`.
+- The file name on disk MUST match the public class name (case-sensitive).
+- If there is no public class, the file name can be any valid identifier.
+- Statements in Java must end with a semicolon (`;`).
+- Identifiers are case-sensitive (`studentName` != `StudentName`).
+
+3. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] `package` is always line 1 (if present).
+[✓] `import` statements sit between `package` and `class`.
+[✓] `java.lang` is auto-imported (no need to import String, System, Math).
+[✓] Public class name must match filename on disk exactly.
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 1: Object Signaling API
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OBJECT SIGNALING API:
+   - 'wait()': Releases lock, enters WAITING state.
+   - 'wait(millis)': Releases lock with timeout (TIMED_WAITING).
+   - 'notify()': Wakes 1 arbitrary waiting thread.
+   - 'notifyAll()': Wakes ALL waiting threads (safest choice).
+   - All require holding the object's synchronized lock!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

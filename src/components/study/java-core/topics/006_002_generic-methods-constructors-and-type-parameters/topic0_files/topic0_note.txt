@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_002: Generic Methods, Constructors & Type Inference
+Topic 0: What is a Generic Method
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GENERIC METHOD ESSENTIALS:
+   - Scoped to individual method rather than the class.
+   - Can exist inside non-generic classes.
+   - Declares type parameter '<T>' before return type.
+   - Provides compile-time type safety with zero casts.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,29 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_008: Segment 1 Foundations Practice, Mini-Projects & Assessment
+TOPIC 1: Prime Generation via Sieve of Eratosthenes
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE ALGORITHM MECHANICS
+--------------------------------------------------------------------------------
+- What is Sieve of Eratosthenes?
+  * An optimal algorithm to find all primes up to limit N in O(N log(log N)) time.
+  * Initialize boolean[] isPrime of size N + 1 with true; set 0 and 1 to false.
+
+- The 2 Invariant Optimizations:
+  1. Outer Loop Bound  : Runs only up to sqrt(N) -> 'for (int p = 2; p * p <= limit; p++)'.
+  2. Inner Loop Start  : Starts marking composites at p * p -> 'for (int m = p * p; m <= limit; m += p)'.
+     (Smaller multiples 2p, 3p, ... (p-1)p were already marked by earlier primes!).
+
+- Memory Efficiency:
+  * Standard boolean[] uses 1 byte (8 bits) per entry (~100 MB for 100M numbers).
+  * java.util.BitSet uses exactly 1 bit per entry (~12.5 MB for 100M numbers, 8x less!).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Time Complexity: O(N log(log N)) | Space Complexity: O(N).
+[✓] Watch out for 32-bit integer overflow in 'p * p' when p > 46,340.
+[✓] Query any number K in O(1) time after sieve initialization via 'isPrime[K]'.
+[✓] In Topic 2, we implement Palindromic Number & String Verification!
+================================================================================

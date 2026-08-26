@@ -1,0 +1,50 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 18: Closing Scanner Resources and Avoiding Resource Leaks
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The AutoCloseable Interface & Try-With-Resources (Java 7+):
+  * Scanner implements java.lang.AutoCloseable and java.io.Closeable.
+  * Try-With-Resources automatically closes the scanner when exiting the block:
+    try (Scanner fileScanner = new Scanner(new File("audit.txt"))) {
+        while (fileScanner.hasNext()) { ... }
+    } // fileScanner.close() executed automatically!
+
+- Crucial Rule 1: Files, Sockets, and Input Streams
+  * ALWAYS close them (preferably via Try-With-Resources).
+  * Prevents OS file descriptor exhaustion ("Too many open files").
+  * Releases mandatory Windows file locks.
+
+- Crucial Rule 2: System.in (Standard Keyboard Input)
+  * Scanner.close() closes the UNDERLYING stream!
+  * Closing Scanner(System.in) closes System.in globally for the entire JVM.
+  * System.in CANNOT be reopened.
+  * Rule: Keep a single shared Scanner for System.in or close it only at final
+    application termination. Never close it inside helper methods!
+
+- Suppressing IDE Warnings for System.in:
+  * @SuppressWarnings("resource")
+  * Informs static analyzers that System.in lifecycle is managed globally.
+
+2. SUMMARY MATRIX
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| Resource Target   | Cleanup Strategy           | Risk if Mismanaged          |
++-------------------+----------------------------+-----------------------------+
+| Disk Files        | Try-With-Resources         | OS descriptor leak, locks   |
+| Network Sockets   | Try-With-Resources         | Port lockout, memory leak   |
+| System.in Console | Shared Singleton / App-End | Premature closure of input  |
+| In-Memory Strings | Try-With-Resources / Auto  | Minor heap overhead only    |
++-------------------+----------------------------+-----------------------------+
+
+3. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use Try-With-Resources for all File and Network stream Scanners.
+[✓] NEVER close a Scanner(System.in) inside a helper method.
+[✓] Suppress IDE warnings on global console scanners with @SuppressWarnings("resource").
+[✓] Scope resource lifecycles cleanly to eliminate file descriptor leaks.
+================================================================================

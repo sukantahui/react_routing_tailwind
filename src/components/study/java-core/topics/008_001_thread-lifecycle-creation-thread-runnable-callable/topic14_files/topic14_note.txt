@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_001: Thread Fundamentals, Lifecycle & Creation
+Topic 14: Live Lifecycle Inspector
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LIVE STATE TRANSITIONS:
+   - NEW &rarr; start() &rarr; RUNNABLE.
+   - RUNNABLE &rarr; sleep(t) &rarr; TIMED_WAITING.
+   - TIMED_WAITING &rarr; wait() &rarr; WAITING.
+   - WAITING &rarr; notify() &rarr; BLOCKED / RUNNABLE.
+   - RUNNABLE &rarr; exit run() &rarr; TERMINATED.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

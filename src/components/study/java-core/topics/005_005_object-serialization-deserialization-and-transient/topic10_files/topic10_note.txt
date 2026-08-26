@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 10: Custom writeObject & readObject
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CUSTOM SERIALIZATION PROTOCOL:
+   - 'private void writeObject(ObjectOutputStream oos) throws IOException'.
+   - 'private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException'.
+   - Always call 'oos.defaultWriteObject()' and 'ois.defaultReadObject()'.
+   - Allows custom encryption, transient field reconstruction, and backward compatibility.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

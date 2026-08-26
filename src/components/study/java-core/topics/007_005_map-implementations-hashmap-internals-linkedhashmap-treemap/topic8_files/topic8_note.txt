@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_005: Map Implementations & HashMap Internals
+Topic 8: Bucket Index Calculation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BUCKET INDEX FORMULA:
+   - 'index = (n - 1) & hash'.
+   - 'n' is table length (always power of 2).
+   - Bitmask '(n - 1)' filters lower bits.
+   - Mathematically identical to 'hash % n'.
+   - 1 CPU clock cycle vs 20-40 cycles for division.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

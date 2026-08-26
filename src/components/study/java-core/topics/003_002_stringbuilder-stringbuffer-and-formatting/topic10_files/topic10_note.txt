@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_002: StringBuilder, StringBuffer & String Formatting
+Topic 10: Text Block Interpolation & Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TEXT BLOCK UTILITIES:
+   - 'textBlock.formatted(args...)'  &rarr; Instance String.format() shorthand.
+   - '\' (Trailing backslash)        &rarr; Suppresses newline (Line continuation).
+   - '\s'                            &rarr; Preserves explicit trailing whitespace.
+   - 'stripIndent()'                 &rarr; Strips common leading indentation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

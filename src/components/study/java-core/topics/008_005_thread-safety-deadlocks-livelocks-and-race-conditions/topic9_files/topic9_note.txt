@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 9: Breaking Deadlocks with tryLock()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BREAKING DEADLOCKS WITH TIMEOUTS:
+   - 'lock.tryLock(timeout, TimeUnit)': Bounded lock acquisition attempt.
+   - Returns boolean success/failure.
+   - On timeout: Release all held locks in 'finally' block.
+   - Add randomized sleep back-off to prevent Livelock.
+   - Superior to unbounded 'synchronized' blocks for high-contention systems.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

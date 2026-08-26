@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_003: Thread Synchronization & Locks
+Topic 10: Private Final Lock Objects
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PRIVATE FINAL LOCK IDIOM:
+   - 'private final Object lock = new Object();'.
+   - 'private': Encapsulates lock; prevents external Denial-of-Service lock hijacking.
+   - 'final': Guarantees lock reference never changes.
+   - Replaces 'synchronized(this)' in robust library and enterprise code.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

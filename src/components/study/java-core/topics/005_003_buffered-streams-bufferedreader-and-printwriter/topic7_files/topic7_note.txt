@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_003: Buffered Streams & PrintWriter
+Topic 7: PrintWriter checkError() Protocol
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PRINTWRITER ERROR DESIGN:
+   - 'print()', 'println()', 'printf()' DO NOT throw 'IOException'.
+   - Eliminates try-catch boilerplate.
+   - Internal boolean error flag is set upon failure.
+   - Call 'pw.checkError()' to flush and verify stream health.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

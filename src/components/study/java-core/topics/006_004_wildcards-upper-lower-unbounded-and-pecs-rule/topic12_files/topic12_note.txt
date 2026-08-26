@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 006_004: Wildcards & The PECS Principle
+Topic 12: API Design Guidelines Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 006_004 SUMMARY:
+   - Invariant generics: 'List<String>' is NOT 'List<Object>'.
+   - 'List<?>': Unbounded unknown type; read as Object, write only null.
+   - 'List<? extends T>': Upper bounded (Covariant Producer); read as T.
+   - 'List<? super T>': Lower bounded (Contravariant Consumer); write as T.
+   - PECS Principle: Producer Extends, Consumer Super.
+   - Wildcard capture: private generic helper method '<T>'.
+   - API Design: Wildcards for input params, NEVER for return types!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

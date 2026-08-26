@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_004: Inter-Thread Communication & Producer-Consumer
+Topic 7: How notifyAll() Works
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HOW NOTIFYALL() WORKS:
+   - Wakes up ALL threads in the Wait Set.
+   - Moves all threads to Entry Set (BLOCKED state).
+   - Threads acquire lock sequentially and re-test condition.
+   - Eliminates 'lost signal' and 'wrong thread awakened' bugs.
+   - Standard best practice in 99% of custom synchronization code.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

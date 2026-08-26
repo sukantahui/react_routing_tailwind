@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 12: The 'instanceof' Operator
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. 'instanceof' OPERATOR:
+   - Syntax: 'if (ref instanceof Type) { ... }'
+   - Returns boolean: true if 'ref' is an instance of Type or subtype; false otherwise.
+   - Null-Safe: If 'ref == null', evaluates to false without throwing NPE.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

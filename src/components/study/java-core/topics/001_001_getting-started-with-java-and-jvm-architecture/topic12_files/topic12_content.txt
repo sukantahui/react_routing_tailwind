@@ -1,0 +1,29 @@
+================================================================================
+DETAILED STUDY MATERIAL: COMMAND-LINE COMPILATION & EXECUTION WORKFLOW
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 12
+================================================================================
+
+1. WHY COMMAND-LINE FLUENCY IS ESSENTIAL
+While IDEs automate building with one click, understanding how `javac` and `java` interact with the filesystem, classpath, and package directories is fundamental for configuring Dockerfiles, CI/CD pipelines, and cloud build scripts.
+
+2. DETAILED COMMAND BREAKDOWN
+
+A. Compiling with javac
+- Basic: `javac HelloWorld.java`
+- Specifying Destination: `javac -d bin src/App.java` (Creates the package folder hierarchy inside `bin/`).
+- Compiling All Files in Package: `javac -d bin src/com/codernaccotax/banking/*.java`
+- Enabling All Warnings: `javac -Xlint:all src/App.java`
+- Passing Classpath Dependencies: `javac -cp "lib/*" -d bin src/App.java`
+
+B. Executing with java
+- Basic: `java HelloWorld`
+- Specifying Classpath: `java -cp bin com.codernaccotax.banking.App`
+- Passing JVM Heap Flags: `java -Xms2g -Xmx4g -cp bin com.example.App`
+- Passing CLI Arguments: `java -cp bin com.example.App arg1 arg2`
+- Single-File Execution (Java 11+): `java src/QuickScript.java` (Runs directly without creating .class file on disk).
+
+3. THE NUMBER ONE BEGINNER TRAP: EXECUTING PACKAGED CLASSES
+If `App.java` contains `package com.codernaccotax;`, running `java App` from inside the `com/codernaccotax/` folder fails with:
+`Error: Could not find or load main class App (wrong name: com/codernaccotax/App)`.
+Fix: Navigate to the root folder above `com/` and run `java com.codernaccotax.App`.

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_010: The Object Class & Core Contracts
+Topic 5: Bulletproof equals() Template
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 4-STEP equals() RECIPE:
+   - Step 1: 'if (this == obj) return true;'
+   - Step 2: 'if (obj == null || getClass() != obj.getClass()) return false;'
+   - Step 3: 'ClassType other = (ClassType) obj;'
+   - Step 4: 'return field1 == other.field1 && Objects.equals(f2, other.f2);'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

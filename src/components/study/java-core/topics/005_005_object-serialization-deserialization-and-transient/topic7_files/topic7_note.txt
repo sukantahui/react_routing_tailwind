@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 7: Static Variables & Serialization
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATIC FIELD BEHAVIOR:
+   - 'static' variables are NEVER written to the serialized byte stream.
+   - Deserialized objects read whatever static value the receiving JVM currently holds.
+   - 'transient' is for instance fields; 'static' is automatically non-serialized.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

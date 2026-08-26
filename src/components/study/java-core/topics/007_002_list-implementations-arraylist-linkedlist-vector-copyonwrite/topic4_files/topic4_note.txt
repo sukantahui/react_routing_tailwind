@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_002: List Implementations & ArrayList Internals
+Topic 4: ArrayList Performance Characteristics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BIG-O TIME COMPLEXITY:
+   - get(i) / set(i, val) &rarr; O(1) instant pointer arithmetic.
+   - add(tail) &rarr; O(1) amortized.
+   - add(0, val) / remove(0) &rarr; O(n) due to arraycopy shifts.
+   - contains(obj) &rarr; O(n) linear scan.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

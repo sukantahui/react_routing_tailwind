@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 007_001: Collections Framework Overview
+Topic 9: java.util.Map Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MAP INTERFACE CONTRACT:
+   - Key-Value pairs with strictly unique keys.
+   - Independent hierarchy from 'java.util.Collection'.
+   - 'put(K, V)', 'get(K)', 'getOrDefault(K, default)'.
+   - 3 Collection Views: keySet(), values(), entrySet().
+   - 'Map.Entry<K, V>' for fast key-value traversal.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

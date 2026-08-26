@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_006: JMM, volatile, Atomics & CAS
+Topic 11: java.util.concurrent.atomic Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ATOMIC PACKAGE SUITE:
+   - Package: 'java.util.concurrent.atomic'.
+   - Core types: AtomicInteger, AtomicLong, AtomicBoolean, AtomicReference.
+   - Non-blocking lock-free concurrency powered by CAS.
+   - Eliminates OS context switches and deadlock risks.
+   - Perfect replacement for synchronized counters and flags.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

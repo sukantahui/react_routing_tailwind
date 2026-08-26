@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 005_005: Object Serialization & The transient Keyword
+Topic 3: ObjectOutputStream & ObjectInputStream
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OBJECT STREAM LIFECYCLE:
+   - 'ObjectOutputStream.writeObject(obj)' flattens object graph.
+   - 'ObjectInputStream.readObject()' rehydrates live object (requires cast).
+   - Supports mixed primitives: 'writeInt()', 'writeUTF()', 'writeDouble()'.
+   - Mandatory: read in the EXACT same sequence written.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

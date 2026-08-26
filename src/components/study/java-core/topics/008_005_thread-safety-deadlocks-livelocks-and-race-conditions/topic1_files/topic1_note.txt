@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_005: Thread Safety & Deadlocks
+Topic 1: Categories of Race Conditions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RACE CONDITION CATEGORIES:
+   - 1. Read-Modify-Write:
+     * Next state depends on current state ('count++').
+     * Causes lost updates.
+     * Fix: AtomicInteger, synchronized.
+   - 2. Check-Then-Act:
+     * Action depends on observed condition.
+     * Stale check creates duplicate singletons or overdrawn balances.
+     * Fix: Synchronized blocks, Double-Checked Locking with volatile.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

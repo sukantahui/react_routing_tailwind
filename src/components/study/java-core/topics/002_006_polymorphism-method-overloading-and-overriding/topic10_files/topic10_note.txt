@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 002_006: Polymorphism, Overriding & Dynamic Method Dispatch
+Topic 10: Upcasting (Widening Reference)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. UPCASTING RULES:
+   - Syntax: 'Parent p = new Child();'
+   - Implicit & 100% Safe (no ClassCastException possible).
+   - Visibility is constrained by the Parent reference type at compile time.
+   - Behavior is dispatched to the Child object at runtime.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

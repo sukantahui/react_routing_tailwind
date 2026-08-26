@@ -1,0 +1,52 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_002: Java Syntax, Variables, Literals & Primitive Data Types
+TOPIC 16: Scanner Methods: next(), nextLine(), nextInt(), nextDouble(), nextBoolean()
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Master Method Comparison Table:
+  +------------------+-------------+-------------------------------------------+
+  | Method           | Return Type | Parsing Behavior                          |
+  +------------------+-------------+-------------------------------------------+
+  | next()           | String      | Reads next single word (stops at space)   |
+  | nextLine()       | String      | Reads entire line up to newline (\n)      |
+  | nextInt()        | int         | Reads 32-bit signed integer               |
+  | nextDouble()     | double      | Reads 64-bit IEEE 754 floating point      |
+  | nextFloat()      | float       | Reads 32-bit floating point               |
+  | nextBoolean()    | boolean     | Reads case-insensitive "true" / "false"   |
+  | nextByte()       | byte        | Reads 8-bit integer (-128 to 127)         |
+  | nextLong()       | long        | Reads 64-bit integer                      |
+  | nextBigDecimal() | BigDecimal  | Reads arbitrary-precision currency (₹)    |
+  | nextBigInteger() | BigInteger  | Reads arbitrary-precision integer         |
+  +------------------+-------------+-------------------------------------------+
+
+- Word vs Full Line Distinction:
+  * Input: "Swadeep Hui"
+  * scanner.next()     --> Returns "Swadeep"
+  * scanner.nextLine() --> Returns "Swadeep Hui"
+
+- Reading Single Character:
+  * char ch = scanner.next().charAt(0);
+
+- Radix-Aware Parsing:
+  * scanner.nextInt(16); // Parses hexadecimal (e.g. "FF" -> 255)
+  * scanner.nextInt(2);  // Parses binary (e.g. "1010" -> 10)
+
+- Defensive Validation Loop Pattern:
+  * while (!scanner.hasNextInt()) {
+      String badInput = scanner.next();
+      System.out.println("Invalid number! Please re-enter.");
+    }
+    int age = scanner.nextInt();
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use next() when reading single words without whitespace.
+[✓] Use nextLine() when reading full names, sentences, or postal addresses.
+[✓] Use nextBigDecimal() for precise financial calculations in Indian Rupees (₹).
+[✓] Remember that nextBoolean() matches 'true', 'TRUE', 'False' case-insensitively.
+[✓] Always consume invalid tokens with scanner.next() before retrying nextInt().
+================================================================================

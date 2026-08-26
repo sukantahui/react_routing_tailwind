@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_003: Wrapper Classes & Autoboxing
+Topic 12: NumberFormatException Handling
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NumberFormatException TRIGGERS:
+   - Non-digits in string ('"100k"').
+   - Decimals passed to parseInt ('"12.5"').
+   - Number exceeds 32-bit Integer range (-2^31 to 2^31-1).
+   - Unhandled whitespace (fix with '.strip()').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

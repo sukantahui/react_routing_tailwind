@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_001: String Immutability & String Constant Pool
+Topic 11: Splitting & Joining Strings
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SPLIT & JOIN APIS:
+   - 'str.split(regex)'           : Returns 'String[]'.
+   - 'str.split(regex, limit)'    : Limits number of resulting tokens.
+   - 'String.join(delim, items)'  : Clean joining without trailing delimiters.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

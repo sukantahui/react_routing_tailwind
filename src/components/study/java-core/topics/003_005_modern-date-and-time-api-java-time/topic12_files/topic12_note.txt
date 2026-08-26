@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 003_005: Modern Date & Time API (java.time)
+Topic 12: java.time.Duration
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DURATION RULES:
+   - Time-based interval: Hours, Minutes, Seconds, Nanoseconds.
+   - Calculation: 'Duration.between(t1, t2)'.
+   - Conversion: 'toHours()', 'toMinutes()', 'toMillis()', 'toNanos()'.
+   - Compatible with 'LocalTime' and 'Instant'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================
