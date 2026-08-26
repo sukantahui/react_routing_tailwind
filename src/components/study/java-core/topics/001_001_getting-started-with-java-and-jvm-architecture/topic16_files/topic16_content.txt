@@ -1,0 +1,36 @@
+================================================================================
+DETAILED STUDY MATERIAL: COMMON BEGINNER RUNTIME ERRORS & DEFENSIVE STRATEGIES
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 16
+================================================================================
+
+1. RUNTIME EXCEPTIONS VS COMPILE-TIME ERRORS
+While compilation errors are caught by `javac`, runtime exceptions occur during execution inside the JVM when unexpected state or memory limits are encountered.
+
+2. DETAILED ANALYSIS OF THE "BIG 5" RUNTIME PITFALLS
+
+A. NullPointerException (NPE)
+- By far the most common runtime exception in Java.
+- Occurs when attempting to:
+  * Call a method on a `null` reference (`str.length()`).
+  * Access or modify a field of a `null` object.
+  * Take the length of `null` as if it were an array.
+  * Access or modify the slots of `null` as if it were an array.
+  * Throw `null` as if it were a Throwable value.
+- Modern JVM enhancement: Java 14+ JEP 358 Helpful NPEs pinpoints the exact method/field that was null (e.g. `Cannot invoke "String.length()" because "studentName" is null`).
+
+B. ArrayIndexOutOfBoundsException
+- Java arrays are fixed-size and 0-indexed.
+- For an array of size $N$, valid indices are strictly $0$ to $N - 1$.
+- Accessing `arr[N]` throws `ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5`.
+
+C. ClassCastException
+- Occurs when code attempts to downcast an object reference to a type that is not part of its actual inheritance hierarchy.
+- Defense: Always guard with `if (obj instanceof MyClass mc) { ... }`.
+
+D. StackOverflowError
+- Subclass of `java.lang.VirtualMachineError`.
+- Occurs when a thread creates more Stack Frames than the allocated `-Xss` limit, usually due to infinite recursion without a termination base condition.
+
+E. OutOfMemoryError (OOM)
+- Thrown when the Garbage Collector cannot reclaim sufficient memory in the Heap to allocate a newly requested object.

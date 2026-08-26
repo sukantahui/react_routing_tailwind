@@ -1,0 +1,27 @@
+================================================================================
+DETAILED STUDY MATERIAL: CONSOLE OUTPUT (print, println, printf)
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 13
+================================================================================
+
+1. THE PRINTSTREAM ARCHITECTURE
+`System.out` is an instance of `java.io.PrintStream` connected to standard output file descriptor 1 (STDOUT).
+
+2. DETAILED COMPARISON
+
+A. print() vs println()
+- `print(x)` converts parameter `x` to a string via `String.valueOf(x)` and writes the characters to the buffer without a newline.
+- `println(x)` writes the characters and immediately appends the platform line separator (obtained via `System.lineSeparator()`).
+- Calling `println()` with no parameters outputs a clean newline. Calling `print()` with no parameters is a compiler error.
+
+B. printf() / format() Formatted Output
+Format string syntax: `%[flags][width][.precision]conversion-character`
+Examples:
+- Formatting decimals: `System.out.printf("Pi = %.4f%n", Math.PI);` -> `Pi = 3.1416`
+- Formatting integers with commas: `System.out.printf("Population = %,d%n", 1500000);` -> `Population = 1,500,000`
+- Tabular column alignment:
+  `System.out.printf("%-15s %-10d %8.2f%n", "Item", 5, 29.99);`
+- Zero-padding: `System.out.printf("%05d%n", 42);` -> `00042`
+
+3. CROSS-PLATFORM BEST PRACTICE
+In `printf()`, always use `%n` instead of `\n`. On Windows, `%n` automatically produces `\r\n` (CRLF), while on Linux/macOS it produces `\n` (LF), ensuring portable file and console rendering.

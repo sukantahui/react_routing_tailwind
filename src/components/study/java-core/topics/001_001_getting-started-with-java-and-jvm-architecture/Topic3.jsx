@@ -1,196 +1,289 @@
-// Topic3.jsx
-// Topic 4: Java Editions — Java SE, Java EE, Java ME (Overview)
-// React 19 – Class Based Component
+import React from "react";
+import clsx from "clsx";
+import JavaFileLoader from "../../../../../common/JavaFileLoader";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import React, { Component } from "react";
-import JavaCodeBlock from "../../../../../common/JavaCodeBlock";
+import woraDemoCode from "./topic3_files/WoraDemo.java?raw";
+import noteText from "./topic3_files/topic3_note.txt?raw";
+import questions from "./topic3_files/topic3_questions";
 
-export default class Topic3 extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mounted: false,
-    };
-  }
+export default function Topic3() {
+  return (
+    <div className="space-y-12 px-4 md:px-8 py-8 text-slate-200 bg-slate-900 min-h-screen">
+      {/* Inline Keyframe Animations */}
+      <style>
+        {`
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+          }
+        `}
+      </style>
 
-  componentDidMount() {
-    // Lifecycle hook kept for future enhancements (animations / analytics)
-    this.setState({ mounted: true });
-  }
+      {/* Header Section */}
+      <header className="space-y-4 border-b border-slate-800 pb-6 animate-fade-in">
+        <div className="flex items-center gap-3">
+          <span className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            Module 001_001 · Topic 3
+          </span>
+          <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold rounded-full">
+            WORA Architectural Model
+          </span>
+        </div>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          Understanding the "Write Once, Run Anywhere" (WORA) Philosophy
+        </h1>
+        <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
+          Discover how the combination of universal Bytecode (.class) and platform-specific Java Virtual Machines eliminates OS re-compilation and unlocks seamless cross-platform deployment.
+        </p>
+      </header>
 
-  render() {
-    return (
-      <div className="space-y-14 px-4 md:px-10 py-8 text-slate-800 dark:text-slate-200">
-
-        {/* ================= TITLE ================= */}
-        <header className="space-y-3">
-          <h1 className="text-2xl md:text-3xl font-bold tracking-wide text-sky-600 dark:text-sky-400">
-            Java Editions: Java SE, Java EE, Java ME
-          </h1>
-          <p className="max-w-3xl text-sm md:text-base leading-relaxed text-slate-600 dark:text-slate-400">
-            Java is not a single package. It is released in different editions,
-            each designed for specific types of applications.
+      {/* Section 1: The Portability Crisis */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+          <span>🌍</span> The Software Portability Problem Solved by Java
+        </h2>
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base">
+          <p>
+            In the early 1990s, developing software across Windows, Solaris, macOS, and Linux required maintaining separate codebases, compilers, and QA processes. A C/C++ program compiled on Windows produced a machine-specific executable that failed instantly on Linux because operating systems use fundamentally different binary file formats, syscalls, and CPU instruction encodings.
           </p>
-        </header>
-
-        {/* ================= WHY EDITIONS ================= */}
-        <section className="space-y-5">
-          <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
-            Why Java Has Different Editions
-          </h2>
-          <p className="leading-relaxed max-w-4xl">
-            Just like students choose different streams after school,
-            Java provides different editions to match different development needs.
-            A small desktop program and a large banking server cannot use
-            the same set of tools efficiently.
+          <p>
+            Java solved this with a two-tier execution pipeline: <span className="text-amber-300 font-semibold">Source (.java) → Bytecode (.class) → Native Machine Code via JVM</span>.
           </p>
-        </section>
+          <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-indigo-500 text-slate-300">
+            <p className="font-medium text-indigo-300 mb-1">Classroom Scenario (Barrackpore Lab):</p>
+            <p className="text-sm leading-relaxed">
+              When <strong>Debangshu</strong> in our Barrackpore computer lab writes a Java program, compiles it into <code className="text-amber-300">App.class</code>, and uploads it to our cloud server, <strong>Swadeep</strong> in Shyamnagar and <strong>Tuhina</strong> in Ichapur can run that exact file on their Windows, Linux, and Mac machines with zero recompilation!
+            </p>
+          </div>
+        </div>
+      </section>
 
-        {/* ================= EDITIONS SVG ================= */}
-        <section className="space-y-4">
-          <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
-            Java Editions at a Glance
-          </h2>
+      {/* Section 2: Semantic Visual Comparison */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-2xl font-bold text-indigo-400 flex items-center gap-2">
+          <span>🔄</span> Architectural Comparison: C/C++ (Native) vs Java (WORA)
+        </h2>
+        <p className="text-sm text-slate-400">
+          Observe how Java inserts the Bytecode and JVM layer to achieve universal portability:
+        </p>
 
+        {/* Semantic SVG Diagram */}
+        <div className="w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-950 p-4">
           <svg
-            viewBox="0 0 900 260"
-            className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900"
-            aria-label="Java editions overview diagram"
+            viewBox="0 0 880 340"
+            className="w-full h-auto"
+            aria-label="C++ Native Compilation vs Java WORA Compilation Model"
           >
-            {/* SE */}
-            <rect x="60" y="90" width="220" height="80" rx="14" fill="#38bdf8" />
-            <text x="170" y="120" textAnchor="middle" fontSize="14" fill="#0f172a">Java SE</text>
-            <text x="170" y="145" textAnchor="middle" fontSize="12" fill="#0f172a">Core Java</text>
+            {/* Top Lane: C++ Native Compilation */}
+            <g>
+              <rect x="30" y="30" width="820" height="130" rx="10" fill="#1e293b" stroke="#ef4444" strokeWidth="1.5" />
+              <text x="50" y="55" fill="#f87171" fontWeight="bold" fontSize="13">
+                C / C++ Model (Platform-Dependent · Must Recompile per Target)
+              </text>
 
-            {/* EE */}
-            <rect x="340" y="60" width="220" height="100" rx="14" fill="#a855f7" />
-            <text x="450" y="100" textAnchor="middle" fontSize="14" fill="#0f172a">Java EE</text>
-            <text x="450" y="125" textAnchor="middle" fontSize="12" fill="#0f172a">Enterprise Apps</text>
+              {/* Source */}
+              <rect x="50" y="70" width="130" height="60" rx="8" fill="#334155" />
+              <text x="115" y="105" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">
+                Source (main.cpp)
+              </text>
 
-            {/* ME */}
-            <rect x="620" y="100" width="220" height="70" rx="14" fill="#22c55e" />
-            <text x="730" y="130" textAnchor="middle" fontSize="14" fill="#0f172a">Java ME</text>
-            <text x="730" y="150" textAnchor="middle" fontSize="12" fill="#0f172a">Embedded / Mobile</text>
+              {/* Arrows */}
+              <path d="M 180 100 L 240 100" stroke="#f87171" strokeWidth="2" />
+
+              {/* Compilers */}
+              <rect x="240" y="70" width="140" height="60" rx="8" fill="#450a0a" stroke="#ef4444" strokeWidth="1" />
+              <text x="310" y="98" textAnchor="middle" fill="#fca5a5" fontSize="11" fontWeight="bold">
+                OS-Specific Compiler
+              </text>
+              <text x="310" y="115" textAnchor="middle" fill="#94a3b8" fontSize="10">
+                (MSVC / GCC / Clang)
+              </text>
+
+              {/* Arrow */}
+              <path d="M 380 100 L 440 100" stroke="#f87171" strokeWidth="2" />
+
+              {/* Native Binaries */}
+              <rect x="440" y="70" width="120" height="60" rx="8" fill="#1e1b4b" stroke="#6366f1" strokeWidth="1" />
+              <text x="500" y="98" textAnchor="middle" fill="#a5b4fc" fontSize="11" fontWeight="bold">
+                Win x86 .exe
+              </text>
+              <text x="500" y="115" textAnchor="middle" fill="#94a3b8" fontSize="10">
+                Only runs on Win
+              </text>
+
+              <rect x="580" y="70" width="120" height="60" rx="8" fill="#1e1b4b" stroke="#eab308" strokeWidth="1" />
+              <text x="640" y="98" textAnchor="middle" fill="#fde047" fontSize="11" fontWeight="bold">
+                Linux ELF .bin
+              </text>
+              <text x="640" y="115" textAnchor="middle" fill="#94a3b8" fontSize="10">
+                Only runs on Linux
+              </text>
+
+              <rect x="720" y="70" width="115" height="60" rx="8" fill="#1e1b4b" stroke="#ec4899" strokeWidth="1" />
+              <text x="777" y="98" textAnchor="middle" fill="#f472b6" fontSize="11" fontWeight="bold">
+                macOS Mach-O
+              </text>
+              <text x="777" y="115" textAnchor="middle" fill="#94a3b8" fontSize="10">
+                Only runs on Mac
+              </text>
+            </g>
+
+            {/* Bottom Lane: Java WORA */}
+            <g>
+              <rect x="30" y="180" width="820" height="135" rx="10" fill="#1e293b" stroke="#22c55e" strokeWidth="1.5" />
+              <text x="50" y="205" fill="#4ade80" fontWeight="bold" fontSize="13">
+                Java WORA Model (Universal Bytecode · Single Binary Everywhere)
+              </text>
+
+              {/* Source */}
+              <rect x="50" y="225" width="130" height="60" rx="8" fill="#334155" />
+              <text x="115" y="260" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">
+                Source (App.java)
+              </text>
+
+              {/* Arrow */}
+              <path d="M 180 255 L 240 255" stroke="#22c55e" strokeWidth="2" />
+
+              {/* Single Compiler */}
+              <rect x="240" y="225" width="130" height="60" rx="8" fill="#064e3b" stroke="#22c55e" strokeWidth="1" />
+              <text x="305" y="253" textAnchor="middle" fill="#6ee7b7" fontSize="12" fontWeight="bold">
+                Universal javac
+              </text>
+              <text x="305" y="270" textAnchor="middle" fill="#94a3b8" fontSize="10">
+                Single compiler
+              </text>
+
+              {/* Arrow */}
+              <path d="M 370 255 L 430 255" stroke="#22c55e" strokeWidth="2" />
+
+              {/* Universal Bytecode */}
+              <rect x="430" y="225" width="140" height="60" rx="8" fill="#78350f" stroke="#f59e0b" strokeWidth="1.5" />
+              <text x="500" y="253" textAnchor="middle" fill="#fde68a" fontSize="12" fontWeight="bold">
+                App.class (Bytecode)
+              </text>
+              <text x="500" y="270" textAnchor="middle" fill="#cbd5e1" fontSize="10">
+                0xCAFEBABE Standard
+              </text>
+
+              {/* Arrow */}
+              <path d="M 570 255 L 630 255" stroke="#22c55e" strokeWidth="2" />
+
+              {/* Execution via Host JVMs */}
+              <rect x="630" y="225" width="205" height="60" rx="8" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
+              <text x="732" y="250" textAnchor="middle" fill="#38bdf8" fontSize="12" fontWeight="bold">
+                Native Host JVM
+              </text>
+              <text x="732" y="270" textAnchor="middle" fill="#4ade80" fontSize="11">
+                ✓ Win · Linux · macOS · Cloud
+              </text>
+            </g>
           </svg>
-        </section>
+        </div>
+      </section>
 
-        {/* ================= JAVA SE ================= */}
-        <section className="space-y-5">
-          <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
-            Java SE (Standard Edition)
-          </h2>
-          <p className="leading-relaxed max-w-4xl">
-            <strong>Java SE</strong> is the foundation of all Java programming.
-            It contains core libraries and APIs required to build desktop
-            applications and basic server-side programs.
-          </p>
-          <p className="leading-relaxed max-w-4xl">
-            When Swadeep learns loops, classes, and objects in Barrackpore,
-            he is working entirely with Java SE.
-          </p>
+      {/* Section 3: Deep Technical Takeaways */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg">
+        <h2 className="text-2xl font-bold text-amber-400 flex items-center gap-2">
+          <span>🔑</span> The Core Axiom of WORA
+        </h2>
 
-          <JavaCodeBlock
-            language="java"
-            code={`class HelloSE {
-    public static void main(String[] args) {
-        System.out.println("Java SE program");
-    }
-}`}
+        <div className="p-4 bg-slate-900/70 rounded-xl border border-slate-700/60 space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
+          <p className="font-semibold text-sky-400 text-lg">
+            “Bytecode is platform-independent, but the JVM is platform-dependent.”
+          </p>
+          <p>
+            There is a distinct native JVM executable tailored for each operating system and processor (e.g., Windows x64, Linux ARM64, Apple Silicon M-series). However, every certified JVM reads the exact same bytecode format and executes it with 100% behavioral fidelity.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 4: Hands-on Code with JavaFileLoader */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg">
+        <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+          <span>💻</span> Hands-on Source Code
+        </h2>
+        <div className="space-y-2">
+          <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">
+            Example: Inspecting Host OS Properties in Pure Java
+          </h3>
+          <JavaFileLoader
+            fileModule={woraDemoCode}
+            title="WoraDemo.java"
+            highlightLines={[8, 9, 10, 11, 14, 15, 16, 17]}
           />
+        </div>
+      </section>
 
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            <strong>API Used:</strong> <code>System.out.println()</code><br />
-            <strong>Return Type:</strong> void<br />
-            <strong>Purpose:</strong> Output text to console<br />
-            <strong>When & Why:</strong> Used in almost every Java SE program
-          </p>
-        </section>
+      {/* Section 5: Common Pitfalls & Best Practices */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg">
+        <h2 className="text-2xl font-bold text-rose-400 flex items-center gap-2">
+          <span>⚠️</span> Common Pitfalls That Break WORA & Best Practices
+        </h2>
 
-        {/* ================= JAVA EE ================= */}
-        <section className="space-y-5">
-          <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
-            Java EE (Enterprise Edition)
-          </h2>
-          <p className="leading-relaxed max-w-4xl">
-            <strong>Java EE</strong> is built on top of Java SE and is used to
-            develop large-scale, distributed, and web-based applications.
-            It includes technologies like Servlets, JSP, and enterprise APIs.
-          </p>
-          <p className="leading-relaxed max-w-4xl">
-            Banking systems or government portals used in Naihati often rely
-            on Java EE technologies for reliability and scalability.
-          </p>
-        </section>
+        <div className="space-y-4">
+          <div className="p-4 bg-rose-950/30 border border-rose-800/60 rounded-xl space-y-2">
+            <h3 className="font-bold text-rose-400 text-base">1. Pitfall: Hardcoding OS-Specific Path Separators</h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Writing <code className="text-rose-300">String path = "C:\\data\\file.txt"</code> works only on Windows and crashes with <code className="text-rose-400">FileNotFoundException</code> on Linux and macOS. Always use <code className="text-emerald-300">Path.of("data", "file.txt")</code> or <code className="text-emerald-300">File.separator</code>.
+            </p>
+          </div>
 
-        {/* ================= JAVA ME ================= */}
-        <section className="space-y-5">
-          <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
-            Java ME (Micro Edition)
-          </h2>
-          <p className="leading-relaxed max-w-4xl">
-            <strong>Java ME</strong> is designed for devices with limited resources
-            such as embedded systems, sensors, and older mobile devices.
-          </p>
-          <p className="leading-relaxed max-w-4xl">
-            Simple control systems or devices used in factories around
-            Ichapur may still use Java ME-based solutions.
-          </p>
-        </section>
+          <div className="p-4 bg-emerald-950/30 border border-emerald-800/60 rounded-xl space-y-2">
+            <h3 className="font-bold text-emerald-400 text-base">2. Best Practice: Avoid Unportable JNI Calls Unless Strictly Necessary</h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Rely on standard Java APIs (<code className="text-amber-300">java.nio</code>, <code className="text-amber-300">java.net</code>, <code className="text-amber-300">java.time</code>) rather than native C/C++ libraries via JNI, ensuring your software remains 100% portable.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        {/* ================= COMMON MISTAKES ================= */}
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-rose-600 dark:text-rose-400">
-            Common Beginner Mistakes
-          </h2>
-          <ul className="list-disc list-inside space-y-1 max-w-3xl">
-            <li>Thinking Java SE, EE, and ME are different languages</li>
-            <li>Starting enterprise learning without mastering Java SE</li>
-            <li>Assuming Java ME is obsolete everywhere</li>
-          </ul>
-        </section>
-
-        {/* ================= BEST PRACTICES ================= */}
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-emerald-600 dark:text-emerald-400">
-            Best Practices
-          </h2>
-          <ul className="list-disc list-inside space-y-1 max-w-3xl">
-            <li>Always master Java SE before moving ahead</li>
-            <li>Choose the edition based on application requirements</li>
-            <li>Understand that editions share the same Java language</li>
-          </ul>
-        </section>
-
-        {/* ================= CHECKLIST ================= */}
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-sky-600 dark:text-sky-400">
-            Student Checklist
-          </h2>
-          <ul className="list-disc list-inside space-y-1 max-w-3xl">
-            <li>Can I differentiate Java SE, EE, and ME?</li>
-            <li>Do I know which edition to start with?</li>
-            <li>Do I understand why Java has multiple editions?</li>
-          </ul>
-        </section>
-
-        {/* ================= TEACHER NOTE ================= */}
-        <section className="space-y-4 border-t pt-6">
-          <h2 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
-            Teacher’s Note
-          </h2>
-          <p className="leading-relaxed max-w-4xl">
-            While teaching Java editions, ensure students remember one key idea:
-            <strong>the Java language remains the same</strong>; only the libraries
-            and application targets change. Confusion at this stage often leads
-            to unnecessary fear of enterprise Java.
+      {/* Section 6: Hints & Thinking Guidance */}
+      <section className="space-y-4 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg">
+        <h2 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+          <span>💡</span> Think About This...
+        </h2>
+        <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
+          <p>
+            🤔 <em>“Why does opening a compiled `.class` file in a text editor show strange characters but always starts with the ASCII sequence `Êþº¾`?”</em>
           </p>
-          <p className="leading-relaxed max-w-4xl">
-            Encourage learners to clearly associate Java SE with learning and
-            foundations, Java EE with large systems, and Java ME with constrained
-            environments. This mental mapping prevents long-term confusion.
+          <p>
+            👉 <strong>Hint:</strong> Look at the 4 hexadecimal bytes `0xCAFEBABE` in standard Latin-1 ASCII encoding!
           </p>
-        </section>
-      </div>
-    );
-  }
+        </div>
+      </section>
+
+      {/* Section 7: FAQs */}
+      <section className="space-y-4">
+        <FAQTemplate
+          title="Write Once, Run Anywhere (WORA) FAQs"
+          questions={questions}
+        />
+      </section>
+
+      {/* Section 8: Plain Text Note for Printing */}
+      <section className="space-y-4">
+        <PlainTextPrint
+          content={noteText}
+          title="Module 001_001 Topic 3: The WORA Philosophy"
+          stampEnabled={true}
+          showDownload={true}
+          downloadButtonText="Download Printable Note"
+          downloadFileName="001_001_topic3_note.txt"
+        />
+      </section>
+
+      {/* Section 9: Teacher's Note */}
+      <section className="pt-4">
+        <Teacher
+          note="WORA is what makes Java developers so uniquely valuable. The same application you build on your personal laptop can immediately be deployed into a Docker container on an AWS Linux cluster without modifying a single line of business code. Keep your code portable, clean, and decoupled from the host OS. — Sukanta Hui"
+        />
+      </section>
+    </div>
+  );
 }

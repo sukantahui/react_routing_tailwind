@@ -1,0 +1,16 @@
+================================================================================
+DETAILED STUDY MATERIAL: JDK INSTALLATION & ENVIRONMENT CONFIGURATION
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 8
+================================================================================
+
+1. THE ROLE OF ENVIRONMENT VARIABLES
+Operating systems rely on system-wide environment variables to locate runtime engines and compiler tools.
+
+2. WHY JAVA_HOME IS CRITICAL
+While adding the `/bin` directory directly to `PATH` allows launching `javac` from terminal, dozens of enterprise developer tools (Maven, Gradle, Apache Tomcat, IntelliJ IDEA, VS Code, Android Studio) specifically query the `JAVA_HOME` environment variable to discover JDK installation paths, internal header files, and bundled tools.
+
+3. COMMON INSTALLATION MISTAKES
+- Adding `\bin` to `JAVA_HOME`: `JAVA_HOME` must strictly point to the root directory containing `bin`, `lib`, and `include`.
+- Stale PATH entries: Old Java versions installed by browser plugins (e.g. `C:\Program Files (x86)\Common Files\Oracle\Java\javapath`) may override your newly installed JDK unless `%JAVA_HOME%\bin` is positioned at the very top of `PATH`.
+- Not opening a fresh terminal window: Existing terminal sessions retain cached environment variables and will not reflect new PATH settings until restarted.

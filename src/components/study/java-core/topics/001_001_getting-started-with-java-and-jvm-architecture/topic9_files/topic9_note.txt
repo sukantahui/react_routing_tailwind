@@ -1,0 +1,42 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 9: Choosing and Setting Up Java IDEs
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE MAJOR JAVA IDES
+--------------------------------------------------------------------------------
+1. IntelliJ IDEA (JetBrains):
+   - The gold-standard industry choice.
+   - Community Edition is 100% free and open-source.
+   - Unrivaled intelligent autocomplete, automated refactoring, and built-in Git/Maven support.
+
+2. Eclipse IDE (Eclipse Foundation):
+   - Historic open-source workhorse.
+   - Incremental compiler (ECJ) and massive plugin marketplace.
+
+3. Visual Studio Code (Microsoft):
+   - Fast, lightweight code editor.
+   - Powered by "Extension Pack for Java" (backed by Red Hat / Eclipse JDT Language Server).
+
+4. BlueJ:
+   - Educational IDE specifically created for teaching object-oriented fundamentals with interactive UML class boxes.
+
+2. ESSENTIAL IDE SHORTCUTS TO MASTER (INTELLIJ IDEA)
+--------------------------------------------------------------------------------
+- `psvm` + Tab: Generates `public static void main(String[] args)`
+- `sout` + Tab: Generates `System.out.println()`
+- `Ctrl + Space` / `Cmd + Space`: Basic code completion
+- `Ctrl + Shift + Space`: Smart type-aware completion
+- `Alt + Enter` / `Opt + Enter`: Show intention actions & quick-fixes
+- `Shift + F10`: Run current application
+- `Shift + F9`: Debug current application
+- `Ctrl + Alt + L` / `Cmd + Opt + L`: Reformat code cleanly
+
+3. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] IntelliJ IDEA Community is recommended for core Java mastery.
+[✓] Configure Project SDK in File -> Project Structure -> SDKs.
+[✓] Master keyboard shortcuts early to double your development speed.
+================================================================================

@@ -1,198 +1,296 @@
-// Topic1.jsx
-// Topic 2: History and Evolution of Java
-// React 19 – Class Based Component
+import React from "react";
+import clsx from "clsx";
+import JavaFileLoader from "../../../../../common/JavaFileLoader";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import React, { Component } from "react";
-import JavaCodeBlock from "../../../../../common/JavaCodeBlock";
+import versionDemoCode from "./topic1_files/VersionEvolutionDemo.java?raw";
+import noteText from "./topic1_files/topic1_note.txt?raw";
+import questions from "./topic1_files/topic1_questions";
 
-export default class Topic1 extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mounted: false,
-    };
-  }
+export default function Topic1() {
+  return (
+    <div className="space-y-12 px-4 md:px-8 py-8 text-slate-200 bg-slate-900 min-h-screen">
+      {/* Inline Keyframe Animations */}
+      <style>
+        {`
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+          }
+        `}
+      </style>
 
-  componentDidMount() {
-    // Lifecycle hook reserved for future analytics / subtle animations
-    this.setState({ mounted: true });
-  }
+      {/* Header Section */}
+      <header className="space-y-4 border-b border-slate-800 pb-6 animate-fade-in">
+        <div className="flex items-center gap-3">
+          <span className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            Module 001_001 · Topic 1
+          </span>
+          <span className="px-3 py-1 bg-purple-500/10 text-purple-400 border border-purple-500/20 text-xs font-semibold rounded-full">
+            History & Evolution
+          </span>
+        </div>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          History & Evolution of Java: From Oak to Modern LTS Releases
+        </h1>
+        <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
+          Trace the 30-year journey of Java from smart appliance controller ("Oak" in 1991) to the world's most trusted enterprise language powering cloud microservices, big data, and Project Loom Virtual Threads.
+        </p>
+      </header>
 
-  render() {
-    return (
-      <div className="space-y-14 px-4 md:px-10 py-8 text-slate-800 dark:text-slate-200">
-
-        {/* ================= TITLE ================= */}
-        <header className="space-y-3">
-          <h1 className="text-2xl md:text-3xl font-bold tracking-wide text-sky-600 dark:text-sky-400">
-            History and Evolution of Java
-          </h1>
-          <p className="max-w-3xl text-sm md:text-base leading-relaxed text-slate-600 dark:text-slate-400">
-            Understanding how Java evolved helps students appreciate why the language
-            is stable, secure, and trusted across decades.
+      {/* Section 1: The Origin Story */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+          <span>🌱</span> The Genesis: How James Gosling Created Oak
+        </h2>
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base">
+          <p>
+            In June 1991, at Sun Microsystems in California, a secret engineering task force known as the <strong>Green Team</strong>—led by <em>James Gosling</em>, <em>Mike Sheridan</em>, and <em>Patrick Naughton</em>—began designing a software platform for the next generation of interactive television set-top boxes and smart consumer electronics.
           </p>
-        </header>
-
-        {/* ================= ORIGIN ================= */}
-        <section className="space-y-5">
-          <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
-            Origin of Java
-          </h2>
-          <p className="leading-relaxed max-w-4xl">
-            Java was created in the early 1990s at <strong>Sun Microsystems</strong>.
-            The project was originally called <strong>Oak</strong>, named after an oak
-            tree outside the developer’s office. The initial goal was not web
-            applications, but <strong>software for consumer electronic devices</strong>.
+          <p>
+            Gosling quickly discovered that C and C++ were deeply flawed for consumer hardware due to manual memory corruption, lack of bounds checking, and tight coupling to specific CPU architectures. He set out to build a safe, robust, and platform-independent language, initially naming it <strong>"Oak"</strong> after an oak tree outside his office window.
           </p>
-          <p className="leading-relaxed max-w-4xl">
-            Just like students in Barrackpore prepare differently for school exams
-            and competitive exams, Java was redesigned when developers realized that
-            the internet would become the primary platform for software.
-          </p>
-        </section>
+          <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-amber-500 text-slate-300">
+            <p className="font-medium text-amber-300 mb-1">Classroom Scenario (Shyamnagar to Ichapur):</p>
+            <p className="text-sm leading-relaxed">
+              When <strong>Tuhina</strong> at our Shyamnagar learning academy asked why Oak was renamed to Java, we traced the historical trademark conflict with Oak Technology. During an intense team coffee break in 1995, the engineers picked <strong>"Java"</strong>—inspired by aromatic Indonesian Java coffee—creating a brand that now powers billions of devices from Ichapur to Wall Street!
+            </p>
+          </div>
+        </div>
+      </section>
 
-        {/* ================= TIMELINE SVG ================= */}
-        <section className="space-y-4">
-          <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
-            Evolution Timeline (Conceptual)
-          </h2>
+      {/* Section 2: Semantic Visual Timeline */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-2xl font-bold text-indigo-400 flex items-center gap-2">
+          <span>📅</span> Visual Evolution Timeline (1995 → 2026+)
+        </h2>
+        <p className="text-sm text-slate-400">
+          Explore the landmark architectural leaps that transformed Java across four decades:
+        </p>
 
+        {/* Semantic Timeline SVG */}
+        <div className="w-full overflow-hidden rounded-xl border border-slate-700 bg-slate-950 p-4">
           <svg
-            viewBox="0 0 900 220"
-            className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900"
-            aria-label="Java evolution timeline"
+            viewBox="0 0 880 380"
+            className="w-full h-auto"
+            aria-label="Java Evolutionary Milestones Timeline"
           >
-            {/* Timeline line */}
-            <line x1="60" y1="110" x2="840" y2="110" stroke="#475569" strokeWidth="2" />
+            {/* Main Center Timeline Spine */}
+            <line x1="60" y1="190" x2="820" y2="190" stroke="#475569" strokeWidth="4" strokeDasharray="6" />
 
-            {/* Nodes */}
-            <circle cx="140" cy="110" r="12" fill="#38bdf8" />
-            <text x="140" y="150" textAnchor="middle" fontSize="12">1991<br/>Oak</text>
+            {/* Milestones */}
+            {/* 1995: Java 1.0 */}
+            <g className="transition-all duration-300 hover:scale-105">
+              <circle cx="100" cy="190" r="14" fill="#38bdf8" stroke="#0284c7" strokeWidth="3" />
+              <rect x="30" y="70" width="140" height="90" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
+              <text x="100" y="95" textAnchor="middle" fill="#38bdf8" fontWeight="bold" fontSize="13">
+                1995 · Java 1.0
+              </text>
+              <text x="100" y="115" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                WORA Philosophy
+              </text>
+              <text x="100" y="132" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Applets & AWT
+              </text>
+              <text x="100" y="148" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Bytecode / JVM
+              </text>
+              <line x1="100" y1="160" x2="100" y2="176" stroke="#38bdf8" strokeWidth="2" />
+            </g>
 
-            <circle cx="300" cy="110" r="12" fill="#a855f7" />
-            <text x="300" y="150" textAnchor="middle" fontSize="12">1995<br/>Java 1.0</text>
+            {/* 2004: Java 5 */}
+            <g className="transition-all duration-300 hover:scale-105">
+              <circle cx="280" cy="190" r="14" fill="#f59e0b" stroke="#d97706" strokeWidth="3" />
+              <rect x="210" y="220" width="140" height="105" rx="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+              <text x="280" y="245" textAnchor="middle" fill="#fbbf24" fontWeight="bold" fontSize="13">
+                2004 · Java 5.0
+              </text>
+              <text x="280" y="265" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Generics & Enums
+              </text>
+              <text x="280" y="282" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Autoboxing & Varargs
+              </text>
+              <text x="280" y="299" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                java.util.concurrent
+              </text>
+              <text x="280" y="315" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Annotations
+              </text>
+              <line x1="280" y1="204" x2="280" y2="220" stroke="#f59e0b" strokeWidth="2" />
+            </g>
 
-            <circle cx="460" cy="110" r="12" fill="#22c55e" />
-            <text x="460" y="150" textAnchor="middle" fontSize="12">2004<br/>Java 5</text>
+            {/* 2014: Java 8 LTS */}
+            <g className="transition-all duration-300 hover:scale-105">
+              <circle cx="460" cy="190" r="16" fill="#a855f7" stroke="#7e22ce" strokeWidth="3" />
+              <rect x="390" y="60" width="140" height="105" rx="8" fill="#1e293b" stroke="#a855f7" strokeWidth="1.5" />
+              <text x="460" y="85" textAnchor="middle" fill="#c084fc" fontWeight="bold" fontSize="13">
+                2014 · Java 8 LTS
+              </text>
+              <text x="460" y="105" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Lambda Expressions
+              </text>
+              <text x="460" y="122" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Stream API Pipelines
+              </text>
+              <text x="460" y="139" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                java.time Date API
+              </text>
+              <text x="460" y="155" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Optional & Defaults
+              </text>
+              <line x1="460" y1="165" x2="460" y2="174" stroke="#a855f7" strokeWidth="2" />
+            </g>
 
-            <circle cx="620" cy="110" r="12" fill="#f97316" />
-            <text x="620" y="150" textAnchor="middle" fontSize="12">2014<br/>Java 8</text>
+            {/* 2021: Java 17 LTS */}
+            <g className="transition-all duration-300 hover:scale-105">
+              <circle cx="640" cy="190" r="14" fill="#22c55e" stroke="#15803d" strokeWidth="3" />
+              <rect x="570" y="220" width="140" height="105" rx="8" fill="#1e293b" stroke="#22c55e" strokeWidth="1.5" />
+              <text x="640" y="245" textAnchor="middle" fill="#4ade80" fontWeight="bold" fontSize="13">
+                2021 · Java 17 LTS
+              </text>
+              <text x="640" y="265" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Sealed Classes
+              </text>
+              <text x="640" y="282" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Record Data Classes
+              </text>
+              <text x="640" y="299" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Pattern Matching
+              </text>
+              <text x="640" y="315" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Text Blocks (""")
+              </text>
+              <line x1="640" y1="204" x2="640" y2="220" stroke="#22c55e" strokeWidth="2" />
+            </g>
 
-            <circle cx="780" cy="110" r="12" fill="#eab308" />
-            <text x="780" y="150" textAnchor="middle" fontSize="12">Modern Java</text>
+            {/* 2023+: Java 21 LTS */}
+            <g className="transition-all duration-300 hover:scale-105">
+              <circle cx="790" cy="190" r="16" fill="#ec4899" stroke="#be185d" strokeWidth="3" />
+              <rect x="720" y="60" width="140" height="105" rx="8" fill="#1e293b" stroke="#ec4899" strokeWidth="1.5" />
+              <text x="790" y="85" textAnchor="middle" fill="#f472b6" fontWeight="bold" fontSize="13">
+                2023+ · Java 21 LTS
+              </text>
+              <text x="790" y="105" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Virtual Threads (Loom)
+              </text>
+              <text x="790" y="122" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Pattern Match Switch
+              </text>
+              <text x="790" y="139" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Record Patterns
+              </text>
+              <text x="790" y="155" textAnchor="middle" fill="#94a3b8" fontSize="11">
+                Sequenced Collections
+              </text>
+              <line x1="790" y1="165" x2="790" y2="174" stroke="#ec4899" strokeWidth="2" />
+            </g>
           </svg>
+        </div>
+      </section>
 
-          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-3xl">
-            Java evolved gradually, focusing on backward compatibility and
-            long-term reliability rather than sudden drastic changes.
+      {/* Section 3: Modern 6-Month Release Cadence */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-2xl font-bold text-amber-400 flex items-center gap-2">
+          <span>⏱️</span> The Modern 6-Month Release Cadence (LTS vs Non-LTS)
+        </h2>
+        <div className="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base">
+          <p>
+            Prior to 2018, Java releases were multi-year monolithic events (e.g. Java 7 took 5 years, Java 9 took 3.5 years). Starting with <strong>Java 10</strong>, Oracle and the OpenJDK community switched to a predictable <strong>time-driven 6-month release cadence</strong>:
           </p>
-        </section>
-
-        {/* ================= MAJOR MILESTONES ================= */}
-        <section className="space-y-5">
-          <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
-            Major Milestones
-          </h2>
-          <ul className="list-disc list-inside space-y-2 max-w-4xl">
-            <li><strong>1995:</strong> Java officially released with "Write Once, Run Anywhere" promise</li>
-            <li><strong>Java 5:</strong> Generics, enhanced for-loop, autoboxing</li>
-            <li><strong>Java 8:</strong> Lambdas, Streams, modern functional features</li>
-            <li><strong>Post-2010:</strong> Java maintained by Oracle with regular updates</li>
+          <ul className="list-disc pl-6 space-y-2 text-slate-300">
+            <li><strong>Feature Releases:</strong> Every 6 months (every March and September), shipping preview and finalized features rapidly.</li>
+            <li><strong>Long-Term Support (LTS) Releases:</strong> Designated every 2 years (Java 8, Java 11, Java 17, Java 21) receiving multi-year enterprise maintenance, CVE security patches, and commercial support.</li>
           </ul>
-          <p className="leading-relaxed max-w-4xl">
-            Just as Tuhina moves from basic concepts to advanced problem solving
-            year by year, Java added features carefully without breaking old programs.
-          </p>
-        </section>
+        </div>
+      </section>
 
-        {/* ================= WHY EVOLUTION MATTERS ================= */}
-        <section className="space-y-4">
-          <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
-            Why Java’s Evolution Matters
-          </h2>
-          <p className="leading-relaxed max-w-4xl">
-            Java’s evolution focused on <strong>stability, security, and scalability</strong>.
-            This is why software written many years ago can still run today with little
-            or no change — a critical requirement for banks, government systems,
-            and enterprise software.
-          </p>
-        </section>
-
-        {/* ================= SMALL CODE CONTEXT ================= */}
-        <section className="space-y-4">
-          <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
-            Backward Compatibility Example
-          </h2>
-
-          <JavaCodeBlock
-            language="java"
-            code={`class LegacyExample {
-    public static void main(String[] args) {
-        System.out.println("Old Java code still works!");
-    }
-}`}
+      {/* Section 4: Hands-on Code with JavaFileLoader */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg">
+        <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+          <span>💻</span> Hands-on Source Code
+        </h2>
+        <div className="space-y-2">
+          <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-wider">
+            Example: Java Milestone Evolution Simulator
+          </h3>
+          <JavaFileLoader
+            fileModule={versionDemoCode}
+            title="VersionEvolutionDemo.java"
+            highlightLines={[8, 9, 10, 15, 20]}
           />
+        </div>
+      </section>
 
-          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-3xl">
-            <strong>Purpose:</strong> Demonstrates that simple Java programs written long ago
-            still compile and run on modern Java versions.
+      {/* Section 5: Common Pitfalls & Best Practices */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg">
+        <h2 className="text-2xl font-bold text-rose-400 flex items-center gap-2">
+          <span>⚠️</span> Common Misconceptions & Best Practices
+        </h2>
+
+        <div className="space-y-4">
+          <div className="p-4 bg-rose-950/30 border border-rose-800/60 rounded-xl space-y-2">
+            <h3 className="font-bold text-rose-400 text-base">1. Misconception: "Java is an Old, Stagnant Language"</h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Beginners often confuse Java's 30-year maturity with stagnation. In reality, Java is evolving faster than almost any other enterprise language—adding Virtual Threads, Records, Sealed Classes, and Pattern Matching while maintaining 100% backward compatibility.
+            </p>
+          </div>
+
+          <div className="p-4 bg-emerald-950/30 border border-emerald-800/60 rounded-xl space-y-2">
+            <h3 className="font-bold text-emerald-400 text-base">2. Best Practice: Standardize on LTS Versions in Production</h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              While you should experiment with 6-month feature releases in development sandboxes, enterprise production deployments (Kubernetes, AWS, Banking servers) should strictly target LTS releases like <strong>Java 17 LTS</strong> and <strong>Java 21 LTS</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: Hints & Thinking Guidance */}
+      <section className="space-y-4 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg">
+        <h2 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+          <span>💡</span> Think About This...
+        </h2>
+        <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
+          <p>
+            🤔 <em>“If Python 2 and Python 3 broke backward compatibility causing a painful 10-year migration crisis for the industry, how has Java managed to keep 25-year-old code running seamlessly on modern JVMs?”</em>
           </p>
-        </section>
-
-        {/* ================= COMMON MISTAKES ================= */}
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-rose-600 dark:text-rose-400">
-            Common Beginner Mistakes
-          </h2>
-          <ul className="list-disc list-inside space-y-1 max-w-3xl">
-            <li>Thinking Java changes every year like scripting languages</li>
-            <li>Ignoring older Java concepts assuming they are obsolete</li>
-            <li>Believing newer versions break old Java programs</li>
-          </ul>
-        </section>
-
-        {/* ================= BEST PRACTICES ================= */}
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-emerald-600 dark:text-emerald-400">
-            Best Practices
-          </h2>
-          <ul className="list-disc list-inside space-y-1 max-w-3xl">
-            <li>Understand why features were introduced, not just how to use them</li>
-            <li>Respect backward compatibility when learning Java</li>
-            <li>Learn core Java before modern frameworks</li>
-          </ul>
-        </section>
-
-        {/* ================= CHECKLIST ================= */}
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-sky-600 dark:text-sky-400">
-            Student Checklist
-          </h2>
-          <ul className="list-disc list-inside space-y-1 max-w-3xl">
-            <li>Do I know why Java was originally created?</li>
-            <li>Can I explain why Java evolved slowly?</li>
-            <li>Do I understand why old Java code still runs?</li>
-          </ul>
-        </section>
-
-        {/* ================= TEACHER NOTE ================= */}
-        <section className="space-y-4 border-t pt-6">
-          <h2 className="text-xl font-semibold text-purple-600 dark:text-purple-400">
-            Teacher’s Note
-          </h2>
-          <p className="leading-relaxed max-w-4xl">
-            While teaching Java history, the focus should be on <strong>why decisions were made</strong>,
-            not memorizing years or version numbers. Students must remember that Java’s
-            strength comes from careful evolution, not frequent breaking changes.
+          <p>
+            👉 <strong>Hint:</strong> Think about the strict preservation of the JVM Bytecode Specification and semantic version contracts maintained by the Java Community Process (JCP).
           </p>
-          <p className="leading-relaxed max-w-4xl">
-            A practical approach is to relate Java’s growth to a student’s academic journey
-            in places like Barrackpore or Naihati — strong fundamentals first, then gradual
-            enhancement. This mindset prepares learners for understanding JVM, editions,
-            and long-term Java development practices.
-          </p>
-        </section>
-      </div>
-    );
-  }
+        </div>
+      </section>
+
+      {/* Section 7: FAQs */}
+      <section className="space-y-4">
+        <FAQTemplate
+          title="History & Evolution of Java FAQs"
+          questions={questions}
+        />
+      </section>
+
+      {/* Section 8: Plain Text Note for Printing */}
+      <section className="space-y-4">
+        <PlainTextPrint
+          content={noteText}
+          title="Module 001_001 Topic 1: History and Evolution of Java"
+          stampEnabled={true}
+          showDownload={true}
+          downloadButtonText="Download Printable Note"
+          downloadFileName="001_001_topic1_note.txt"
+        />
+      </section>
+
+      {/* Section 9: Teacher's Note */}
+      <section className="pt-4">
+        <Teacher
+          note="When learning Java, don't just memorize syntax. Appreciate WHY each feature was added: Java 5 fixed type safety with Generics, Java 8 simplified concurrency with Streams, and Java 21 eliminated async callback hell with Virtual Threads. Understanding the evolutionary purpose will make you an extraordinary engineer. — Sukanta Hui"
+        />
+      </section>
+    </div>
+  );
 }

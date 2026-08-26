@@ -1,0 +1,35 @@
+================================================================================
+DETAILED STUDY MATERIAL: ANATOMY OF THE JAVA VIRTUAL MACHINE
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 6
+================================================================================
+
+1. ARCHITECTURAL OVERVIEW
+The Java Virtual Machine (JVM) is a sophisticated virtual execution environment with three major architectural components:
+1. ClassLoader Subsystem (Loads, links, and initializes .class bytecode)
+2. Runtime Data Areas (Allocates and partitions memory)
+3. Execution Engine (Interprets, JIT-compiles, and manages garbage collection)
+
+2. DEEP DIVE INTO RUNTIME DATA AREAS
+
+A. Metaspace / Method Area (Shared Memory)
+- Stores runtime constant pool, field and method metadata, and static fields.
+- Replaced pre-Java 8 PermGen and resides in native off-heap OS memory.
+
+B. Heap Area (Shared Memory)
+- Allocated at JVM startup and shared across all active threads.
+- Holds all objects created via `new` (e.g. `new String()`, `new ArrayList()`).
+- Managed automatically by the Generational Garbage Collector (Eden, Survivor S0/S1, Tenured).
+
+C. Java Thread Stack (Private Memory per Thread)
+- Created when a thread starts; destroyed when the thread terminates.
+- Each method call pushes a new **Stack Frame** containing:
+  * Local Variable Table (LVT): stores parameters and local primitives.
+  * Operand Stack: LIFO evaluation workspace for bytecode math and arguments.
+  * Frame Data: references to Constant Pool and exception dispatch table.
+
+D. Program Counter (PC) Register (Private Memory per Thread)
+- Tracks the memory address of the current executing bytecode instruction.
+
+E. Native Method Stack (Private Memory per Thread)
+- Supports native C/C++ method execution via JNI.

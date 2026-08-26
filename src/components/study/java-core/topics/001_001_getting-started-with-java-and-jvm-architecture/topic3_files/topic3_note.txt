@@ -1,0 +1,40 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 3: Understanding 'Write Once, Run Anywhere' (WORA) Philosophy
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS WORA?
+--------------------------------------------------------------------------------
+"Write Once, Run Anywhere" (WORA) is the foundational promise of the Java platform:
+You write your code once in human-readable Java (.java), compile it once with `javac`
+into universal bytecode (.class), and run that exact binary on any device, operating
+system, or CPU architecture with an installed Java Virtual Machine (JVM).
+
+2. COMPILED (C/C++) VS INTERPRETED (PYTHON) VS HYBRID (JAVA)
+--------------------------------------------------------------------------------
+- C / C++ (Pure Native Compilation):
+  Source -> Native Machine Code (x86 .exe / ARM ELF).
+  Fastest speed, ZERO portability (must recompile per OS/CPU).
+
+- Python / Ruby (Pure Interpretation):
+  Source -> Line-by-line interpreter.
+  High portability, but significantly slower execution speed.
+
+- Java (Two-Stage Hybrid Architecture):
+  1. Compile-Time: `javac` translates Source (.java) into universal Bytecode (.class).
+  2. Runtime: Native JVM interprets & JIT-compiles Bytecode into native machine code.
+  Result: 100% Portability + Near-Native Execution Speed!
+
+3. THE GOLDEN RULE OF WORA
+--------------------------------------------------------------------------------
+"Java Bytecode is Platform-Independent, BUT the Java Virtual Machine is Platform-Dependent."
+There is a specific JVM binary for Windows x64, Linux ARM64, macOS Apple Silicon, etc.
+
+4. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Bytecode (.class) contains standardized JVM instructions (magic number 0xCAFEBABE).
+[✓] You do NOT need to recompile Java source files when moving across operating systems.
+[✓] Host OS interactions are abstracted through standard Java class APIs.
+================================================================================

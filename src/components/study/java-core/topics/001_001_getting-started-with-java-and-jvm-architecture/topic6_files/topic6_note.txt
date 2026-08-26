@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 6: Anatomy of the Java Virtual Machine (ClassLoader, Memory, Execution)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE THREE CORE SUBSYSTEMS OF THE JVM
+--------------------------------------------------------------------------------
+1. ClassLoader Subsystem:
+   - Loading: Bootstrap (C++ native), Platform / Extension, Application ClassLoaders.
+   - Linking:
+     * Verification: Validates .class bytecode integrity and stack safety.
+     * Preparation: Allocates memory for static fields and sets default values.
+     * Resolution: Converts symbolic references into direct memory references.
+   - Initialization: Executes static blocks (`static { }`) and static initializers.
+
+2. Runtime Data Areas (JVM Memory):
+   - Method Area / Metaspace (Shared): Stores class structures, method data, static variables.
+   - Heap Area (Shared): Stores ALL object instances and arrays.
+   - Java Thread Stack (Per-Thread): Stores Stack Frames (Local Variables, Operand Stack, Frame Data).
+   - Program Counter (PC) Register (Per-Thread): Address of currently executing JVM instruction.
+   - Native Method Stack (Per-Thread): Holds C/C++ native invocation frames.
+
+3. Execution Engine:
+   - Bytecode Interpreter: Reads and executes opcodes line by line.
+   - JIT (Just-In-Time) Compiler: C1 (Client) + C2 (Server) Compilers compile hot code to native machine code.
+   - Garbage Collector (GC): Automatically scans heap and frees unreachable objects.
+   - Java Native Interface (JNI): Bridge to C/C++ native libraries.
+
+2. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Heap and Metaspace are SHARED across all threads.
+[✓] Stack, PC Register, and Native Stack are PRIVATE per thread.
+[✓] Bootstrap ClassLoader loads java.base and returns `null` in Java code.
+[✓] JIT compiles frequently executed 'hotspots' to native machine code.
+================================================================================

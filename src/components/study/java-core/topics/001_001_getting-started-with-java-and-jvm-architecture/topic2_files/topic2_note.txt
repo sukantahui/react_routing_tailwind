@@ -1,0 +1,28 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 2: Key Features of Java (The 11 Architectural Buzzwords)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE PRIMARY PILLARS (SUN WHITE PAPER BUZZWORDS)
+--------------------------------------------------------------------------------
+1. Simple: Clean C++ inspired syntax without complex pitfalls (no operator overloading, no pointer arithmetic, no multiple class inheritance).
+2. Object-Oriented: Everything is modeled around data and behavior (Encapsulation, Inheritance, Polymorphism, Abstraction).
+3. Platform-Independent: Bytecode (.class) executes on any operating system equipped with a Java Virtual Machine (WORA).
+4. Robust: Strong compile-time type checking, automatic Garbage Collection (eliminating memory leaks), and structured exception handling.
+5. Secure: No raw memory pointers, sandboxed runtime execution, Bytecode Verifier, and built-in cryptographic security managers.
+6. Architecture-Neutral: Primitive data types have fixed sizes across all CPU architectures (e.g. `int` is always 32 bits on 32-bit and 64-bit systems).
+7. Portable: Fixes implementation-dependent aspects (e.g., IEEE 754 floating point standard across all OS platforms).
+8. High Performance: Just-In-Time (JIT) compiler translates hot bytecode paths into native machine code dynamically.
+9. Distributed: Built-in networking APIs (RMI, HTTP/2, Sockets) for client-server and cloud architectures.
+10. Multi-Threaded: Native language synchronization primitives and modern Virtual Threads for high concurrent throughput.
+11. Dynamic: Dynamically loads classes into memory on-demand at runtime via ClassLoaders.
+
+2. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Java eliminates pointer arithmetic to guarantee memory safety.
+[✓] Fixed data type sizes guarantee architecture neutrality (int = 32-bit everywhere).
+[✓] Multi-threading is a first-class language feature, not an external OS library hack.
+[✓] The JIT compiler delivers near-native performance while retaining portability.
+================================================================================

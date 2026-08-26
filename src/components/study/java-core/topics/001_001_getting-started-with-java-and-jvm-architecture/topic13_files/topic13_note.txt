@@ -1,0 +1,42 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 13: Understanding System.out.print(), println(), and printf()
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. DISSECTING `System.out.println`
+--------------------------------------------------------------------------------
+- `System`: Final class in `java.lang` representing system resources.
+- `out`: Static member field in `System` of type `java.io.PrintStream` representing standard output.
+- `println()` / `print()` / `printf()`: Overloaded methods on the `PrintStream` object.
+
+2. THE THREE OUTPUT METHODS
+--------------------------------------------------------------------------------
+1. `System.out.print(data)`:
+   - Prints string representation of data.
+   - Leaves console cursor on the exact same line.
+
+2. `System.out.println(data)`:
+   - Prints string representation of data.
+   - Appends a platform-specific line separator (`\n` or `\r\n`) and flushes buffer.
+   - Can be called without arguments (`System.out.println()`) to output a blank line.
+
+3. `System.out.printf(formatString, args...)` / `System.out.format(...)`:
+   - Prints formatted text using C-style format specifiers:
+     * `%s`: String
+     * `%d`: Decimal integer (byte, short, int, long)
+     * `%f`: Floating-point (float, double) - e.g. `%.2f` for 2 decimal places
+     * `%c`: Character
+     * `%b`: Boolean
+     * `%n`: Platform-independent newline separator (prefer `%n` over `\n` in printf)
+     * `%10s`: Right-aligned string in 10-character column
+     * `%-10s`: Left-aligned string in 10-character column
+     * `%,d`: Integer formatted with locale-specific thousand commas (e.g. `1,000,000`)
+
+3. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] `print()` does not add a newline; `println()` adds a newline.
+[✓] In `printf()`, always use `%n` instead of `\n` for true cross-platform portability.
+[✓] `System.out` is an instance of `java.io.PrintStream`.
+================================================================================

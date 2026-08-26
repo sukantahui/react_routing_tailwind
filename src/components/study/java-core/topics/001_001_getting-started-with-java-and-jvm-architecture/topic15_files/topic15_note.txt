@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 15: Common Beginner Compilation (javac) Errors & Solutions
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE TOP 6 COMPILER ERRORS & ROOT CAUSES
+--------------------------------------------------------------------------------
+1. `cannot find symbol` (variable / method / class):
+   - Cause: Typo in variable/method name, missing variable declaration, wrong case, or missing `import`.
+   - Fix: Check spelling, case sensitivity, and add missing `import`.
+
+2. `incompatible types: possible lossy conversion`:
+   - Cause: Assigning a wider type (e.g. `double` or `long`) to a narrower type (e.g. `int`) without an explicit cast.
+   - Fix: Use matching type or explicit cast: `int x = (int) 10.5;`.
+
+3. `missing return statement`:
+   - Cause: A non-void method has execution paths (e.g. inside `if` branches) that do not reach a `return` statement.
+   - Fix: Ensure all logical branches return a valid value, or add a fallback return at method end.
+
+4. `unreachable statement`:
+   - Cause: Code written after an unconditional `return`, `throw`, `break`, or infinite loop.
+   - Fix: Remove the dead unreachable statements.
+
+5. `variable x might not have been initialized`:
+   - Cause: Reading a local variable that is only conditionally assigned inside an `if` block.
+   - Fix: Initialize the local variable with a default value upon declaration (e.g. `int x = 0;`).
+
+6. `non-static variable/method cannot be referenced from a static context`:
+   - Cause: Accessing instance fields/methods inside `public static void main` without creating an object instance.
+   - Fix: Instantiate the class (`new App().run()`) or declare the member `static`.
+
+2. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Read compiler error messages from TOP to BOTTOM (fixing line 1 often resolves subsequent errors).
+[✓] Java is strictly case-sensitive.
+[✓] Local variables have NO default values and must be initialized before access.
+================================================================================

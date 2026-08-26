@@ -1,0 +1,34 @@
+================================================================================
+DETAILED STUDY MATERIAL: STRUCTURE OF A STANDARD JAVA PROGRAM
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 10
+================================================================================
+
+1. THE ANATOMY OF A JAVA SOURCE FILE
+The Java Language Specification (JLS §7) mandates an exact ordering of components in a `.java` compilation unit:
+
+A. Package Declaration
+- Prevents naming collisions across global libraries.
+- Maps directly to physical folder hierarchies on disk (e.g. `package com.example.service;` maps to `com/example/service/`).
+
+B. Import Statements
+- Explicit Import: `import java.util.ArrayList;` (Preferred for clarity and collision prevention).
+- Wildcard Import: `import java.util.*;` (Imports all classes in package, but NOT sub-packages!).
+- Static Import: `import static java.lang.Math.PI;` (Allows using `PI` directly without class prefix).
+- Automatic Import: `java.lang.*` is implicitly imported by the compiler for every Java file.
+
+C. Top-Level Type Declaration
+- `public class ClassName { ... }`
+- Only one public class is allowed per `.java` file.
+
+D. Internal Class Members Layout (Best Practice Standard)
+1. Static constants (`public static final`)
+2. Static variables & Static initializer blocks (`static { }`)
+3. Instance fields (encapsulated `private`)
+4. Instance initializer blocks (`{ }`)
+5. Constructors (overloaded)
+6. Business methods & public APIs
+7. Helper methods (`private`)
+8. Getter and Setter accessor methods
+9. Standard Object methods (`toString()`, `equals()`, `hashCode()`)
+10. `public static void main(String[] args)` (if executable)

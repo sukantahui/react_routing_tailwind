@@ -1,0 +1,47 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with Java & JVM Architecture
+TOPIC 5: JDK vs JRE vs JVM Architectural Breakdown
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE FUNDAMENTAL NESTED EQUATION
+--------------------------------------------------------------------------------
+         ┌────────────────────────────────────────────────────────┐
+         │ JDK (Java Development Kit)                             │
+         │  Development Tools: javac, javadoc, jar, jdb, jlink...  │
+         │  ┌──────────────────────────────────────────────────┐  │
+         │  │ JRE (Java Runtime Environment)                   │  │
+         │  │  Class Libraries: java.base, rt.jar, util...     │  │
+         │  │  ┌────────────────────────────────────────────┐  │  │
+         │  │  │ JVM (Java Virtual Machine)                 │  │  │
+         │  │  │  ClassLoader, Memory Areas, JIT, GC Engine │  │  │
+         │  │  └────────────────────────────────────────────┘  │  │
+         │  └──────────────────────────────────────────────────┘  │
+         └────────────────────────────────────────────────────────┘
+
+- JVM = Java Virtual Machine (The engine that executes bytecode).
+- JRE = JVM + Standard Java Class Libraries (The minimum needed to run Java programs).
+- JDK = JRE + Development Tools (javac compiler, debugger, javadoc, profiler).
+
+2. WHO NEEDS WHAT?
+--------------------------------------------------------------------------------
+- Software Developers: Need the **JDK** to write, compile (`javac`), and debug source code.
+- End Users / Production Servers: Need only the **JRE** (or custom `jlink` runtime) to execute pre-compiled `.jar` applications.
+
+3. KEY TOOLS INSIDE THE JDK
+--------------------------------------------------------------------------------
+- `javac`: The Java compiler that turns .java source into .class bytecode.
+- `java`: The JVM launcher that starts execution.
+- `jar`: Packaging tool to create compressed .jar archives.
+- `javadoc`: Generates HTML API documentation from source code comments.
+- `jdb`: Command-line Java debugger.
+- `jcmd` / `jstat` / `jps`: JVM diagnostic and profiling tools.
+- `jshell`: Interactive REPL for quick prototyping.
+
+4. QUICK CHECKLIST
+--------------------------------------------------------------------------------
+[✓] JDK contains JRE; JRE contains JVM.
+[✓] You cannot compile code (`javac`) with only a JRE.
+[✓] The JVM is an abstract specification implemented by concrete software (HotSpot, OpenJ9).
+================================================================================

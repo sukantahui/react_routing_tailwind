@@ -1,0 +1,35 @@
+================================================================================
+DETAILED STUDY MATERIAL: JDK VS JRE VS JVM BREAKDOWN
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 5
+================================================================================
+
+1. INTRODUCTION
+One of the most essential concepts for any Java programmer is the precise distinction between the three core layers of the Java environment: JDK, JRE, and JVM.
+
+2. COMPONENT DEEP DIVE
+
+A. JVM (Java Virtual Machine)
+The JVM is the abstract execution engine. It is responsible for:
+- Loading bytecode (.class) via the ClassLoader subsystem.
+- Verifying bytecode security constraints.
+- Managing runtime memory areas (Heap, Stack, Metaspace, PC Register).
+- Executing bytecode instructions via Interpreter and JIT (Just-In-Time) compiler.
+- Reclaiming unreferenced memory automatically via the Garbage Collector (GC).
+
+B. JRE (Java Runtime Environment)
+The JRE is the physical installation package required to run a compiled Java program. It bundles:
+- The JVM implementation (e.g. HotSpot JVM).
+- Core Standard Java Class Libraries (`java.base`, `java.desktop`, `java.sql`, `java.net`).
+- Configuration files and security property definitions.
+
+C. JDK (Java Development Kit)
+The JDK is the comprehensive software development package used by programmers. It includes:
+- The complete JRE (JVM + class libraries).
+- Development and build tools:
+  * `javac`: Bytecode compiler.
+  * `jar`: Archive packager.
+  * `javadoc`: Documentation generator.
+  * `jdb`: Interactive command-line debugger.
+  * `jlink`: Custom runtime image generator.
+  * `jcmd`, `jstat`, `jps`: Production monitoring and diagnostics tools.

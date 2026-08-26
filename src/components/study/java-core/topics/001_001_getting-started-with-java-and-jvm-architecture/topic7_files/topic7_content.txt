@@ -1,0 +1,36 @@
+================================================================================
+DETAILED STUDY MATERIAL: JAVA SOURCE TO BYTECODE COMPILATION PROCESS
+Module: 001_001_getting-started-with-java-and-jvm-architecture
+Topic Index: 7
+================================================================================
+
+1. INTRODUCTION
+The Java Compiler (`javac`) is a multi-phase translation engine implemented in the `com.sun.tools.javac` package. It bridges human-readable Java source files and the binary bytecode consumed by the JVM.
+
+2. DETAILED PIPELINE STAGES
+
+A. Tokenization (Lexical Analyzer)
+Characters from `HelloWorld.java` are scanned and converted into a token stream:
+`public` (KW_PUBLIC), `class` (KW_CLASS), `HelloWorld` (IDENTIFIER), `{` (LBRACE).
+
+B. Parsing & Abstract Syntax Tree (AST)
+Tokens are matched against the Java Language Specification grammar rules to generate a hierarchical AST tree representing class declarations, method signatures, expressions, and statements.
+
+C. Semantic Analysis & Type Checking
+- Verifies that types in assignments match (`int x = "text"` is rejected).
+- Checks that variables are definitely assigned before use.
+- Ensures all checked exceptions thrown inside a method are either caught or declared in `throws`.
+
+D. Desugaring
+High-level language conveniences are translated into baseline JVM primitives:
+- `for (String s : list)` is transformed into `Iterator<String> it = list.iterator(); while(it.hasNext()) { String s = it.next(); }`.
+- `List<String>` generic types are erased into `List` (Type Erasure).
+- `Integer num = 10;` is transformed into `Integer num = Integer.valueOf(10);`.
+
+E. Bytecode Generation (The .class format)
+The compiler outputs the final binary `.class` file consisting of:
+- Magic Number (`0xCAFEBABE`)
+- Minor and Major Version numbers
+- Constant Pool table
+- Access flags, Superclass, Interface indices
+- Field and Method tables with Bytecode attribute arrays
