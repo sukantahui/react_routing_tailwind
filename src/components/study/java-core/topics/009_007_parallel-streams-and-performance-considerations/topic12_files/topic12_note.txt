@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 12: Shared Mutable State in Parallel Streams
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE RACE CONDITION HAZARD:
+   - Lambda expressions passed to parallel stream operations MUST BE PURE AND STATELESS.
+   - Modifying non-thread-safe shared state (e.g. 'arrayList.add()', 'count++', 'map.put()')
+     causes:
+     * Silent data loss (lost updates due to non-atomic array resizing).
+     * 'ArrayIndexOutOfBoundsException' inside ArrayList internal buffers.
+     * Corrupted heap data.
+
+2. CORRECT ARCHITECTURAL SOLUTIONS:
+   - Rule 1: NEVER mutate shared variables inside '.forEach()'.
+   - Rule 2: Use mutable reduction with '.collect(Collectors.toList())' (Lock-free container merging).
+   - Rule 3: Use pure reductions with '.reduce()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

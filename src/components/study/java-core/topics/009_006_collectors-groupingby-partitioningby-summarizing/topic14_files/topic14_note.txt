@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 14: Collectors.collectingAndThen()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD SIGNATURE:
+   - '<T, A, R, RR> Collector<T, A, RR> collectingAndThen(Collector<T, A, R> downstream, Function<R, RR> finisher)'
+
+2. HOW IT WORKS:
+   - Executes the 'downstream' collector normally to produce intermediate result 'R'.
+   - Passes 'R' to the 'finisher' function to transform it into final result 'RR'.
+
+3. COMMON APPLICATIONS:
+   - Creating unmodifiable collections ('Collections::unmodifiableList', 'Set::copyOf').
+   - Unwrapping Optional from 'maxBy' / 'minBy' ('Optional::orElseThrow').
+   - Converting domain aggregates to customized DTO wrappers.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

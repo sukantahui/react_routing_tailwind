@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 19: Stateless vs Stateful Performance Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PIPELINE OPTIMIZATION GOLDEN RULES:
+   RULE 1: FILTER EARLY
+   - Place '.filter()' as close to the Source as possible to minimize downstream computations.
+
+   RULE 2: MAP AFTER FILTER
+   - Avoid executing heavy transformations (DTO creation, String formatting) on elements
+     that will ultimately be discarded by downstream filters.
+
+   RULE 3: MINIMIZE STATEFUL BARRIERS
+   - Operations like 'sorted()' and 'distinct()' act as pipeline barriers that must buffer
+     elements before continuing. Keep the data volume entering stateful operations small.
+
+   RULE 4: PREFER PRIMITIVE STREAMS FOR NUMERICS
+   - Use 'mapToInt()', 'IntStream' instead of 'Stream<Integer>' to avoid millions of heap wrapper allocations.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

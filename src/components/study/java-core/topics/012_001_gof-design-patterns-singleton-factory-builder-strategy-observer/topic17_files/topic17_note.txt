@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 17: Chain of Responsibility Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Avoid coupling the sender of a request to its receiver by giving more than one object
+     a chance to handle the request.
+   - Chain the receiving objects and pass the request along the chain until an object handles it.
+
+2. REAL-WORLD EXAMPLES:
+   - 'jakarta.servlet.Filter' ('FilterChain.doFilter()')
+   - Spring Security Filter Chain
+   - Logging Logback / Log4j Appender chains
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_005: Interview Mastery & Tricky MCQs
+Topic 3: Tricky Riddle 4 - Floating Point NaN & Signed Zeros
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. IEEE 754 FLOATING POINT SPECIFICATION:
+   - 'NaN == NaN' is ALWAYS false by IEEE 754 definition.
+   - Use 'Double.isNaN(val)' to verify NaN.
+   - Floating point division by zero does NOT throw 'ArithmeticException'; it returns 'Infinity' or 'NaN'.
+   - 'Double.equals()' distinguishes between '-0.0' and '+0.0' for HashMap consistency.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

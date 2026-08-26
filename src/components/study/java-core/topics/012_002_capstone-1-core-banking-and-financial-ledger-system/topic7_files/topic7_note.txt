@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_002: Core Banking Capstone
+Topic 7: Custom Banking Exceptions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DOMAIN EXCEPTION BEST PRACTICES:
+   - Provide structured error codes ('BANK-4001').
+   - Attach immutable context fields (account number, available balance).
+   - Cleanly map to HTTP 400/409 error responses in REST APIs.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

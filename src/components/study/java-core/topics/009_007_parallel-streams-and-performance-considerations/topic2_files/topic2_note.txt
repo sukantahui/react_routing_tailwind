@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 2: ForkJoinPool.commonPool() Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COMMON POOL SIZING FORMULA:
+   - Default Parallelism = 'Runtime.getRuntime().availableProcessors() - 1'.
+   - Why minus 1? Because the calling/submitting thread (e.g. main) also participates
+     in task execution, bringing the total active threads equal to available cores.
+
+2. GLOBAL SHARED RESOURCE CHARACTERISTIC:
+   - 'ForkJoinPool.commonPool()' is a single shared JVM-wide singleton.
+   - Used simultaneously by:
+     * All 'collection.parallelStream()' calls.
+     * All 'CompletableFuture.supplyAsync()' calls without custom executor.
+   - Golden Rule: Do NOT block threads in the common pool with database calls or HTTP requests.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

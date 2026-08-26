@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 1: forEach vs forEachOrdered
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FOREACH(CONSUMER):
+   - Performs an action for each element of the stream.
+   - In sequential streams: Respects encounter order.
+   - In parallel streams: Intentionally DOES NOT guarantee encounter order, allowing worker
+     threads in ForkJoinPool to emit elements as soon as ready for maximum throughput.
+
+2. FOREACHORDERED(CONSUMER):
+   - Performs an action for each element of the stream, guaranteeing that elements are processed
+     in the encounter order of the stream source.
+   - In parallel streams: Incurs synchronization barrier overhead to ensure strict sequential
+     dispatching of the consumer action.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

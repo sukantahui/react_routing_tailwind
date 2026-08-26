@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_005: Interview Mastery & Tricky MCQs
+Topic 0: Tricky Riddle 1 - String Concatenation vs Arithmetic
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. EVALUATION RULES:
+   - Evaluates strictly left-to-right.
+   - If both operands are numbers: '+' performs arithmetic addition.
+   - If either operand is a String: '+' performs string concatenation.
+   - 'char + char' performs numeric integer addition of ASCII/Unicode values!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

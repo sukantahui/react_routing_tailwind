@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 3: The wasNull() Method
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS 'wasNull()':
+   - Method on 'java.sql.ResultSet'.
+   - Returns true if the LAST column value read by a getter was SQL NULL, false otherwise.
+
+2. GOLDEN PATTERN FOR NULLABLE PRIMITIVES:
+   'int score = rs.getInt("score");
+    Integer finalScore = rs.wasNull() ? null : score;'
+
+3. ALTERNATIVE IN MODERN JDBC (getObject with Class):
+   'Integer score = rs.getObject("score", Integer.class); // Returns null natively!'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

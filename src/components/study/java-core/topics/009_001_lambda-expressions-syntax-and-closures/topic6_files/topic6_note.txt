@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_001: Lambda Expressions & Lexical Scoping
+Topic 6: Anonymous Classes vs Lambdas
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ANONYMOUS CLASSES vs LAMBDAS:
+   - Anonymous class creates 'Outer$1.class' file on disk.
+   - Lambda generates 'invokedynamic' bytecode (no extra .class files).
+   - Non-capturing lambdas are cached as singletons (0 allocation).
+   - Anonymous 'this' = anonymous object; Lambda 'this' = enclosing outer object.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

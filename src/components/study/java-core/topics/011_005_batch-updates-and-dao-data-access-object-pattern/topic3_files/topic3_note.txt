@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 3: Tuning Batch Sizes
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE CHUNKING PATTERN:
+   'if (++count % BATCH_SIZE == 0) {
+        pstmt.executeBatch();
+        conn.commit();
+    }'
+
+2. DON'T FORGET THE TAIL FLUSH:
+   - Always check 'if (count % BATCH_SIZE != 0)' after the loop to flush trailing records!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

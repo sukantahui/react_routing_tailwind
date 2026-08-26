@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 1: Basic Collectors
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CORE STANDARD COLLECTORS:
+   - 'Collectors.toList()': Returns a List (implementation usually ArrayList; mutable).
+   - 'Collectors.toSet()': Returns a Set (implementation usually HashSet; unordered, distinct).
+   - 'Collectors.toCollection(Supplier<C> factory)': Collects into any custom Collection
+     (e.g. 'TreeSet::new', 'LinkedList::new', 'ArrayDeque::new', 'CopyOnWriteArrayList::new').
+
+2. UNMODIFIABLE COLLECTORS:
+   - 'Collectors.toUnmodifiableList()' (Java 10+): Returns an immutable list (throws UnsupportedOperationException on add/remove).
+   - 'Collectors.toUnmodifiableSet()' (Java 10+).
+   - 'Stream.toList()' (Java 16+): Direct syntax shortcut returning an unmodifiable list.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

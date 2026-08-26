@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 15: Frame Data & Exception Dispatch
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT RESIDES IN FRAME DATA:
+   - Dynamic Linking Pointer: Points to the Runtime Constant Pool for resolving symbolic names.
+   - Normal Return Completion: Restores caller stack frame and passes return value.
+   - Exception Table: Stores ranges of bytecodes guarded by 'try-catch' blocks.
+
+2. EXCEPTION TABLE STRUCTURE IN BYTECODE:
+   - 'from'    : Bytecode offset where try block starts.
+   - 'to'      : Bytecode offset where try block ends.
+   - 'target'  : Bytecode offset of the catch handler.
+   - 'type'    : Class of exception caught (e.g. 'ArithmeticException').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

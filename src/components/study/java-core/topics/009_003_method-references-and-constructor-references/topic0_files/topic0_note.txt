@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_003: Method & Constructor References
+Topic 0: What is a Method Reference
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A METHOD REFERENCE:
+   - Compact syntax for lambdas calling existing methods.
+   - Eliminates boilerplate parameter names.
+   - Example: 'x -> System.out.println(x)' &rarr; 'System.out::println'.
+   - Evaluated at runtime with the same performance as lambda expressions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

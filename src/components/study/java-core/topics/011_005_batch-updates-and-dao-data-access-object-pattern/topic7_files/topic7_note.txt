@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 7: Decoupling Business Logic
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. RESPONSIBILITY MATRIX:
+   - DAO     : 'save()', 'delete()', 'findById()' (Translates Java objects to/from SQL tables).
+   - Service : 'enrollStudent()', 'applyDiscount()', 'validateEligibility()' (Enforces business rules).
+
+2. DEPENDENCY INJECTION:
+   - Services accept DAO interfaces via constructor injection, enabling easy mocking.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

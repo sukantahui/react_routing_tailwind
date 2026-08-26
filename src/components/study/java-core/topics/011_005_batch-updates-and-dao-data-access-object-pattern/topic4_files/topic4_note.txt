@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 4: Clearing Batches & Memory Management
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD SIGNATURE:
+   - 'pstmt.clearBatch()': Empties the current batch list of commands for this Statement object.
+
+2. CATCH BLOCK PATTERN:
+   'catch (BatchUpdateException bue) {
+        pstmt.clearBatch(); // Reset buffer
+        conn.rollback();
+    }'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

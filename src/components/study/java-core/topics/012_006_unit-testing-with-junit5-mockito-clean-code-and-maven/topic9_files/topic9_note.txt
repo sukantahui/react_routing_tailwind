@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 9: Verifying Interactions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. VERIFICATION METHODS:
+   - 'verify(mock, times(n)).method()'
+   - 'verify(mock, never()).method()'
+   - 'verify(mock, atLeastOnce()).method()'
+   - 'verifyNoMoreInteractions(mock)'
+   - 'ArgumentCaptor.forClass(Class.class)' to inspect outgoing objects.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

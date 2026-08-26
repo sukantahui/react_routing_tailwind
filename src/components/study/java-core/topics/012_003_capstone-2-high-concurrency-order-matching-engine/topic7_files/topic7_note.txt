@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_003: High-Concurrency Order Matching Engine
+Topic 7: Persistence & Write-Ahead Logging
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WRITE-AHEAD LOG (WAL) MECHANICS:
+   - Every state change is appended to sequential disk storage BEFORE being applied to in-memory state.
+   - 'FileChannel.force(false)' commits dirty OS buffer cache blocks to disk.
+   - Enables instantaneous recovery after system crashes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

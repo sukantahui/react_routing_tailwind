@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 17: Shallow vs Retained Heap
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SHALLOW HEAP:
+   - The memory allocated to hold the object's own direct state (Object Header + primitive fields + reference pointers).
+   - Does NOT include memory of referenced objects!
+
+2. RETAINED HEAP:
+   - The sum of Shallow Heap sizes of all objects that are reachable EXCLUSIVELY through this object.
+   - The exact amount of RAM returned to the JVM if this object is collected.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

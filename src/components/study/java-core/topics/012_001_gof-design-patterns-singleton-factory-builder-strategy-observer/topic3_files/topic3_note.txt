@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 3: Singleton Pattern Variations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TOP SINGLETON APPROACHES:
+   - Bill Pugh Holder Idiom : Uses JVM ClassLoader guarantees for lazy, lock-free thread safety.
+   - Enum Singleton         : Recommended by Joshua Bloch; immune to reflection and serialization hacks.
+
+2. DOUBLE-CHECKED LOCKING PITFALL:
+   - Must mark the instance field 'private static volatile Singleton instance;' to prevent instruction reordering bugs!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

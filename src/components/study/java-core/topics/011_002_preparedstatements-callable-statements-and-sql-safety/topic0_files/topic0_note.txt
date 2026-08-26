@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_002: PreparedStatements, CallableStatements & SQL Safety
+Topic 0: Statement Execution Methods
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 METHODS OF 'java.sql.Statement':
+   - 'ResultSet executeQuery(String sql)' : SELECT queries returning tabular data.
+   - 'int executeUpdate(String sql)'       : DML (INSERT/UPDATE/DELETE) or DDL (CREATE/DROP) returning row count.
+   - 'boolean execute(String sql)'        : Dynamic execution returning true if result is ResultSet.
+
+2. PITFALL TO AVOID:
+   - Calling 'executeQuery()' with an UPDATE statement throws 'SQLException: No ResultSet was produced'.
+   - Calling 'executeUpdate()' with a SELECT statement throws 'SQLException: A result was returned when none was expected'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

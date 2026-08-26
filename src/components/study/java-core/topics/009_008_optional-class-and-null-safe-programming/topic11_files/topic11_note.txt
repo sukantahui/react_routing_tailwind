@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 11: filter(Predicate) on Optional
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT:
+   - Signature: 'public Optional<T> filter(Predicate<? super T> predicate)'.
+   - If a value is present and matches the predicate, returns this Optional.
+   - If a value is present but fails the predicate, returns 'Optional.empty()'.
+   - If the Optional was already empty, returns 'Optional.empty()'.
+
+2. COMMON USE CASES:
+   - Security permissions & role checks.
+   - Numerical threshold validation.
+   - Non-empty string validation ('opt.filter(s -> !s.isBlank())').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

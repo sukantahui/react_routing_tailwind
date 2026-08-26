@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 11: findFirst() Retrieval
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT:
+   - Signature: 'Optional<T> findFirst()'.
+   - Returns an Optional describing the first element of this stream, or an empty Optional
+     if the stream is empty.
+   - Terminal & Short-Circuiting operation.
+
+2. DETERMINISTIC ENCOUNTER ORDER:
+   - If the stream has an encounter order (e.g. List, Array, TreeSet), findFirst() is
+     guaranteed to return the very first matching element in that exact order.
+   - In parallel streams, findFirst() preserves encounter order despite multi-threaded chunking,
+     which carries a slight synchronization overhead compared to findAny().
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

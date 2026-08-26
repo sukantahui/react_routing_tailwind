@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_002: Core Banking Capstone
+Topic 0: Architecture Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SYSTEM GOALS:
+   - Double-entry bookkeeping: Total Debits == Total Credits always.
+   - Non-negotiable precision: BigDecimal everywhere.
+   - Strict transaction isolation: Isolation level READ_COMMITTED or SERIALIZABLE.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

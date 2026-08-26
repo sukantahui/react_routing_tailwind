@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 8: Committing Transactions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT 'commit()' DOES:
+   - Persists all SQL changes executed since the last commit or rollback.
+   - Releases all held database locks.
+
+2. PITFALL:
+   - Calling 'commit()' when auto-commit is enabled (true) throws 'SQLException: Can't call commit when autocommit=true'
+     in many JDBC drivers!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

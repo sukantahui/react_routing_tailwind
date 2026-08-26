@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_001: Java Reflection API & Dynamic Member Inspection
+Topic 6: Inspecting & Modifying Fields
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FIELD INSPECTION METHODS:
+   - 'clazz.getFields()': Returns all public fields (including inherited public fields).
+   - 'clazz.getDeclaredFields()': Returns all fields declared in the class (private, protected, public).
+
+2. FIELD ACCESS & MUTATION:
+   - Read: 'field.get(Object obj)' -> Returns field value as 'Object' (auto-boxes primitives).
+   - Write: 'field.set(Object obj, Object value)' -> Mutates the field value.
+   - Primitive getters/setters: 'getInt()', 'setInt()', 'getDouble()', 'setDouble()' (zero boxing).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

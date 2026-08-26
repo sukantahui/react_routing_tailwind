@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 6: Functional Composition Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FUNCTIONAL COMPOSITION:
+   - Built via 'default' methods on interfaces (retains SAM contract).
+   - Predicate: '.and()', '.or()', '.negate()', 'Predicate.isEqual()'.
+   - Function: '.andThen()' (Forward pipe), '.compose()' (Reverse pipe).
+   - Consumer: '.andThen()' (Sequential side-effects).
+   - Builds complex logic out of tiny, testable micro-functions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

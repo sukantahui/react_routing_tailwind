@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 11: TLAB (Thread Local Allocation Buffer)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS TLAB:
+   - Thread Local Allocation Buffer: A small chunk of Eden memory assigned exclusively
+     to a single thread for rapid, lock-free object allocation.
+
+2. BUMP-THE-POINTER TECHNIQUE:
+   - Allocation simply increments a top-pointer: 'current_pointer += object_size'.
+   - If 'current_pointer <= end_pointer', allocation succeeds in ~2 CPU cycles!
+
+3. RETRIEVAL & RESIZING:
+   - TLABs are enabled by default ('-XX:+UseTLAB').
+   - The JVM dynamically resizes each thread's TLAB based on its allocation rate.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

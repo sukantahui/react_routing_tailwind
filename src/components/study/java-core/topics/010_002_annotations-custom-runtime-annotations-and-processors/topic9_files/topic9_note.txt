@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 9: Default Values & value() Shortcut
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 'VALUE()' SINGLE-ELEMENT SHORTCUT:
+   - If an annotation has an element named 'value()', and it is the ONLY element being specified,
+     the attribute name can be omitted:
+     '@SecurityRole("ADMIN")' is identical to '@SecurityRole(value="ADMIN")'.
+
+2. DEFAULT VALUES:
+   - Specified via the 'default' keyword: 'String center() default "Barrackpore";'.
+   - Elements with defaults are OPTIONAL when declaring the annotation.
+   - Elements without defaults are MANDATORY.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

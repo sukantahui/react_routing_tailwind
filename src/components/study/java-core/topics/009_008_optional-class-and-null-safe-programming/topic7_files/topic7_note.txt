@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 7: orElseThrow with Domain Exceptions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD SIGNATURE:
+   - '<X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier) throws X'
+
+2. ENTERPRISE DESIGN PATTERN:
+   - Common in Spring Boot / Jakarta EE service layers.
+   - Maps database repository misses directly into HTTP 404 / 400 custom domain exceptions.
+   - Example:
+     'userRepo.findById(id).orElseThrow(() -> new UserNotFoundException(id));'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

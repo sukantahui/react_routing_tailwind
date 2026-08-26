@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 8: The javax.sql.DataSource Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS DATASOURCE:
+   - Factory interface defined in 'javax.sql.DataSource'.
+   - Represents a source of physical or pooled database connections.
+
+2. CORE METHOD:
+   - 'Connection getConnection()'
+   - 'Connection getConnection(String username, String password)'
+
+3. THREE TYPES OF DATASOURCE IMPLEMENTATIONS:
+   - Basic DataSource            : Produces unpooled connections.
+   - ConnectionPoolDataSource    : Produces pooled connections (HikariCP, Commons DBCP2).
+   - XADataSource                : Produces distributed 2-phase commit transactions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

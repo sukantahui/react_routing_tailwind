@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_003: High-Concurrency Order Matching Engine
+Topic 6: Trade Event Broadcasting
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ASYNCHRONOUS BROADCASTING:
+   - Producer-Consumer architecture using bounded 'ArrayBlockingQueue'.
+   - The matching engine deposits trade events into the queue in nanoseconds.
+   - Dedicated consumer threads broadcast events over WebSockets/FIX without slowing down matching.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

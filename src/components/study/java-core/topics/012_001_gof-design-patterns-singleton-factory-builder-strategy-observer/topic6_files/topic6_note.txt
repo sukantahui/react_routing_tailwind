@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 6: Builder Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IT SOLVES:
+   - Telescoping constructor anti-pattern (constructors with 8+ parameters).
+   - Java Bean mutation anti-pattern (using setters that break immutability).
+
+2. KEY ELEMENTS:
+   - Private constructor on product class.
+   - Static nested 'Builder' class with fluent chaining ('return this;').
+   - 'build()' method that validates and calls private constructor.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

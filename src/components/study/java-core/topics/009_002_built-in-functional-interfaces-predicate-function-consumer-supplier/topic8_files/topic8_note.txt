@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 8: Function Chaining (andThen vs compose)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FUNCTION COMPOSITION:
+   - 'f1.andThen(f2)': Runs f1 FIRST, then f2 -> 'f2(f1(x))'.
+   - 'f1.compose(f2)': Runs f2 FIRST, then f1 -> 'f1(f2(x))'.
+   - 'Function.identity()': Returns input unchanged ('x -> x').
+   - Used extensively in Stream transformations and data parsing.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

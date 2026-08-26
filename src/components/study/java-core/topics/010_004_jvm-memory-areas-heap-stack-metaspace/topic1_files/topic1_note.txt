@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 1: Method Area & Metaspace
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE METHOD AREA:
+   - A logical memory area defined in the JVM specification that stores per-class structures:
+     * Runtime Constant Pool.
+     * Field and method data.
+     * Code for methods and constructors.
+
+2. METASPACE IMPLEMENTATION (Java 8+):
+   - Allocated out of native memory (off-heap).
+   - Dynamically expands to avoid artificial limits.
+   - Guarded by '-XX:MaxMetaspaceSize'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

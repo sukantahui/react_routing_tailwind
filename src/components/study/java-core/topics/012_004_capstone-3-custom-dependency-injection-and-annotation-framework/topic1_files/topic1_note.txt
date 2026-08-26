@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_004: Custom DI Framework
+Topic 1: Custom Annotations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ANNOTATION TARGETS:
+   - 'ElementType.TYPE'        : For class definitions (@Component, @Service).
+   - 'ElementType.FIELD'       : For field injection (@Autowired, @Value).
+   - 'ElementType.METHOD'      : For method interception (@Transactional).
+
+2. RETENTION POLICY:
+   - Must strictly be 'RetentionPolicy.RUNTIME' for reflection inspection.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

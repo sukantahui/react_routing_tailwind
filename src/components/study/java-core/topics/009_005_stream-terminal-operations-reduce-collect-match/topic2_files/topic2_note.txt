@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 2: Reduction with reduce() Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A REDUCTION OPERATION:
+   - Takes a stream of elements and combines them repeatedly into a single summary value
+     (such as finding sum, product, max, min, or concatenating strings).
+   - Also known as 'fold' or 'accumulate' in functional programming languages.
+
+2. THE THREE OVERLOADS OF REDUCE():
+   1. 'Optional<T> reduce(BinaryOperator<T> accumulator)' -> 1 Argument (No identity value).
+   2. 'T reduce(T identity, BinaryOperator<T> accumulator)' -> 2 Arguments (With identity value).
+   3. '<U> U reduce(U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner)' -> 3 Arguments (Parallel type transformation).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

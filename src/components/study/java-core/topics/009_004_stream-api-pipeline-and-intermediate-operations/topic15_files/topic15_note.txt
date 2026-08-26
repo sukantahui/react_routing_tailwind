@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 15: distinct() Deduplication
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DISTINCT METHOD CONTRACT:
+   - Signature: 'Stream<T> distinct()'.
+   - Returns a stream consisting of the distinct elements of this stream.
+   - Intermediate & Stateful operation.
+   - For ordered streams, preserves encounter order (the first occurrence is retained).
+
+2. EQUALS & HASHCODE PREREQUISITE:
+   - For custom classes, 'Object.equals(Object)' and 'Object.hashCode()' MUST be overridden correctly.
+   - Using Java 'record' automatically provides correct value-based equals and hashCode implementations.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

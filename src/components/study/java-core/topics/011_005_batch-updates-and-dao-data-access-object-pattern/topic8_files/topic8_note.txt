@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 8: Generic Base DAO Interface
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GENERIC DAO INTERFACE DEFINITION:
+   'public interface GenericDao<T, ID> {
+        Optional<T> findById(ID id);
+        List<T> findAll();
+        void save(T entity);
+        void update(T entity);
+        void deleteById(ID id);
+    }'
+
+2. TYPE PARAMETERS:
+   - 'T'  : The Entity Domain type (e.g. 'Student', 'Invoice').
+   - 'ID' : The Primary Key type (e.g. 'Integer', 'String', 'Long').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

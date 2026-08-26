@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 13: Local Variable Table (LVT)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LVT SLOT ALLOCATION RULES:
+   - Slot unit: 32-bit word.
+   - Types using 1 Slot: 'boolean', 'byte', 'char', 'short', 'int', 'float', Reference pointers.
+   - Types using 2 Slots: 'long', 'double' (64-bit quantities).
+
+2. SLOT REUSE (Memory Optimization):
+   - 'javac' assigns slot indices using lifetime analysis.
+   - If variable A's scope finishes before variable B is declared, B reuses A's slot index.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

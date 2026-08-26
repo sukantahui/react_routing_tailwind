@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 7: Unclosed Native Resources
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT ARE NATIVE LEAKS:
+   - Allocations performed outside the standard Java Heap in native OS memory:
+     * 'ByteBuffer.allocateDirect()' (Off-heap Netty / Kafka buffers).
+     * File Descriptors (unclosed FileInputStream, FileChannel).
+     * Network Sockets (unclosed SocketChannel, HTTP client connections).
+     * JNI Native C/C++ malloc pointers.
+
+2. TUNING & CONTROL:
+   - '-XX:MaxDirectMemorySize=<size>' : Caps maximum off-heap direct buffer allocation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

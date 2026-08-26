@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 16: The Dominator Tree
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DOMINATOR TREE DEFINITION:
+   - Transforms the complex, cyclical object reference graph into a strict, tree-shaped
+     dominator hierarchy.
+   - The top nodes in the Dominator Tree are the single largest memory retainers in the JVM.
+
+2. IMMEDIATE DOMINATOR (idom):
+   - The unique closest node that dominates a target node.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

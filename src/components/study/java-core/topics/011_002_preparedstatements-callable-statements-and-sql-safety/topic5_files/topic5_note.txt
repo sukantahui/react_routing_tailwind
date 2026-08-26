@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_002: PreparedStatements, CallableStatements & SQL Safety
+Topic 5: PreparedStatement Performance
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE TWO LEVELS OF STATEMENT CACHING:
+   - Level 1 (Database Server) : Statement Plan Cache stores compiled binary query execution plans.
+   - Level 2 (Client Driver/Pool) : Connection Pool (HikariCP) caches 'PreparedStatement' wrapper objects.
+
+2. DRIVER OPTIMIZATION FLAGS (MySQL Connector/J):
+   - 'cachePrepStmts=true'
+   - 'prepStmtCacheSize=250'
+   - 'prepStmtCacheSqlLimit=2048'
+   - 'useServerPrepStmts=true'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

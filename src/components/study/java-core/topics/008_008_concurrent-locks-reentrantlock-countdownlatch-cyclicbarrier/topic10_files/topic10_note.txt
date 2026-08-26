@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_008: Explicit Locks & Synchronizers
+Topic 10: Semaphore Rate Limiting Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 008_008 GRAND SUMMARY:
+   - synchronized Limitations: No timeouts, uninterruptible, single wait-set.
+   - ReentrantLock: Explicit lock/unlock in finally block with reentrancy.
+   - Lock Features: tryLock(timeout), lockInterruptibly(), fair FIFO queuing.
+   - Condition: Multiple targeted wait-queues (notFull & notEmpty).
+   - ReentrantReadWriteLock: Shared readLock + exclusive writeLock.
+   - StampedLock: Optimistic reads without lock acquisition (Java 8+).
+   - CountDownLatch: One-time gate, master waits for N countdown events.
+   - CyclicBarrier: Reusable rendezvous point for N peer threads.
+   - Semaphore: Controls access to a pool of N permits (rate limiting).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

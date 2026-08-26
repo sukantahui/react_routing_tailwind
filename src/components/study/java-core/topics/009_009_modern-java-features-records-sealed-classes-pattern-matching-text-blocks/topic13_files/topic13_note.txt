@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 13: Sequenced Collections (Java 21 JEP 431) Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE NEW INTERFACES (Java 21 JEP 431):
+   - 'SequencedCollection<E>': Extends 'Collection<E>'.
+     * 'addFirst(E)', 'addLast(E)'
+     * 'getFirst()', 'getLast()'
+     * 'removeFirst()', 'removeLast()'
+     * 'SequencedCollection<E> reversed()' -> Reverse-ordered view.
+   - 'SequencedSet<E>': Extends 'Set<E>, SequencedCollection<E>'.
+   - 'SequencedMap<K, V>': Extends 'Map<K, V>'.
+     * 'firstEntry()', 'lastEntry()', 'pollFirstEntry()', 'pollLastEntry()', 'reversed()'.
+
+2. UNIFIED ENCOUNTER ORDER API:
+   - Unifies List, Deque, LinkedHashSet, SortedSet, LinkedHashMap under a single standard contract.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

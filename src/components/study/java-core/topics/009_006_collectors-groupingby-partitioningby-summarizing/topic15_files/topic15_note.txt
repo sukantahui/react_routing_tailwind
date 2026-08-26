@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 15: The Collector<T, A, R> Interface Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 3 GENERIC TYPE PARAMETERS:
+   - 'T': The type of input elements to be collected.
+   - 'A': The mutable accumulator type (intermediate container, e.g. StringBuilder, List).
+   - 'R': The final result type produced by the collector (e.g. String, unmodifiable List).
+
+2. THE 5 CORE METHODS OF COLLECTOR:
+   1. 'supplier()'       : 'Supplier<A>' -> Creates new accumulator instance.
+   2. 'accumulator()'    : 'BiConsumer<A, T>' -> Folds an element into the accumulator.
+   3. 'combiner()'       : 'BinaryOperator<A>' -> Combines two partial accumulators (parallel mode).
+   4. 'finisher()'       : 'Function<A, R>' -> Converts accumulator 'A' into final result 'R'.
+   5. 'characteristics()': 'Set<Characteristics>' -> Optimization flags (IDENTITY_FINISH, CONCURRENT, UNORDERED).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 8: Stubbing Method Behavior
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STUBBING SYNTAX PATTERNS:
+   - 'when(mock.method()).thenReturn(val)'
+   - 'when(mock.method()).thenThrow(new Ex())'
+   - 'doThrow(new Ex()).when(mock).voidMethod()'
+   - 'any()', 'anyString()', 'anyInt()', 'eq(value)' matchers.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

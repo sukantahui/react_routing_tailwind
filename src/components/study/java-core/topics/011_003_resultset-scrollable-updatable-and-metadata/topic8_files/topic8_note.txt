@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 8: CONCUR_UPDATABLE Operations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PREREQUISITES FOR CONCUR_UPDATABLE:
+   - The SELECT query MUST include the table's Primary Key column (needed to locate the row for UPDATE).
+   - The query must select from a single table (no joins or aggregates).
+
+2. WORKFLOW:
+   - 'rs.updateXxx(column, value)' &rarr; modifies the buffer.
+   - 'rs.updateRow()' &rarr; commits the update to the physical database.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

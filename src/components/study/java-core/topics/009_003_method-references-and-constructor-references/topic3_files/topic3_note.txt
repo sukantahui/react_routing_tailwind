@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_003: Method & Constructor References
+Topic 3: Static Method References
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATIC METHOD REFERENCES:
+   - Syntax: 'ClassName::staticMethodName'.
+   - Equivalence: '(args) -> ClassName.staticMethodName(args)'.
+   - Examples: 'Math::max', 'Integer::parseInt', 'Double::valueOf'.
+   - Arguments match 1:1 with SAM parameters.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

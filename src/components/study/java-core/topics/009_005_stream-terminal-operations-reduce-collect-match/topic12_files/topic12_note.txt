@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 12: findAny() Optimization
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT:
+   - Signature: 'Optional<T> findAny()'.
+   - Returns an Optional describing some element of the stream, or an empty Optional if the stream is empty.
+   - Terminal & Short-Circuiting operation.
+
+2. FINDFIRST VS FINDANY IN PARALLEL STREAMS:
+   -----------------------------------------------------------------------------
+   METHOD        ORDER GUARANTEE            PARALLEL PERFORMANCE
+   -----------------------------------------------------------------------------
+   findFirst()   Strict Encounter Order     Requires thread synchronization barrier
+   findAny()     Non-deterministic (Any)    Maximum performance (lock-free winner takes all)
+   -----------------------------------------------------------------------------
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

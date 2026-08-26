@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 5: Record Limitations & Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT RECORDS CANNOT DO:
+   - Cannot extend another class ('extends AnyClass' is a compilation error).
+   - Cannot be subclassed ('class SubRecord extends MyRecord' is a compilation error).
+   - Cannot declare extra instance fields ('private int extraState;' is a compilation error).
+   - Cannot be abstract.
+
+2. WHAT RECORDS CAN DO:
+   - Implement interfaces ('implements Serializable, Cloneable').
+   - Declare static fields, static methods, static initializers.
+   - Declare local records inside methods (Java 16+).
+   - Declare generic type parameters ('record Pair<K, V>(K key, V value) {}').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

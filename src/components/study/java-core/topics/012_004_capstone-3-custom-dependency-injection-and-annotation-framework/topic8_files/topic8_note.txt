@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_004: Custom DI Framework
+Topic 8: Testing Framework Multi-Tiered App Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MULTI-TIERED ARCHITECTURE:
+   - Controller Layer : Handles inbound HTTP requests.
+   - Service Layer    : Encapsulates business logic and transactions.
+   - Repository Layer : Manages data persistence.
+   - Framework        : Transparently instantiates and wires all layers together.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

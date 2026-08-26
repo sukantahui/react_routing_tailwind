@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 2: Core Stream Characteristics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE THREE CORE STREAM CHARACTERISTICS:
+   A. NON-MUTATING (Source Preservation):
+      - Stream operations never modify the underlying source collection or array.
+      - Produces new results or views, adhering to pure functional immutability.
+
+   B. LAZY EVALUATION (Deferred Execution):
+      - Intermediate operations (filter, map, sorted) do NOT perform any computations
+        at the moment they are declared.
+      - Execution begins ONLY when a terminal operation (collect, count, forEach) is called.
+      - Enables query optimizations (loop fusion, short-circuiting).
+
+   C. CONSUMABLE ONLY ONCE (Single-Pass Lifecycle):
+      - A stream instance is traversed once and closed immediately upon terminal completion.
+      - Attempting to invoke further operations triggers IllegalStateException.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

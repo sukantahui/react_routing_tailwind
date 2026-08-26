@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 4: @Target Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT @TARGET CONTROLS:
+   - Restricts which syntactic elements the annotation can be attached to.
+   - Values defined in 'java.lang.annotation.ElementType' enum.
+
+2. ELEMENTTYPE.TYPE_USE (Java 8+):
+   - Allows annotations to be placed on any use of a type:
+     * Generics: 'List<@NonNull String> list'
+     * Type casts: '(@NonNull String) obj'
+     * Implements: 'class Foo implements @ReadOnly Bar'
+     * Throws: 'void read() throws @Critical IOException'
+   - Used heavily by static analysis tools (Checker Framework, NullAway).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

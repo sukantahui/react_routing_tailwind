@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 1: JDBC Batch Processing Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS BATCH PROCESSING:
+   - The capability of grouping multiple SQL operations together and executing them in a single call.
+
+2. DRIVER-LEVEL OPTIMIZATION (rewriteBatchedStatements):
+   - In MySQL Connector/J, add '?rewriteBatchedStatements=true' to the JDBC URL to rewrite batch
+     inserts into multi-value SQL ('INSERT INTO t VALUES (1), (2), (3)...') for massive 10x throughput!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

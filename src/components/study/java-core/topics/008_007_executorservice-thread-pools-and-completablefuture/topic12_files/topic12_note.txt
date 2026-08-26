@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 12: supplyAsync & runAsync Creation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SUPPLYASYNC vs RUNASYNC:
+   - 'runAsync(Runnable)': Returns 'CompletableFuture<Void>' (no result).
+   - 'supplyAsync(Supplier<T>)': Returns 'CompletableFuture<T>' (with result).
+   - Default Pool: 'ForkJoinPool.commonPool()'.
+   - Best Practice: Always pass a custom 'ExecutorService' for blocking I/O tasks!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

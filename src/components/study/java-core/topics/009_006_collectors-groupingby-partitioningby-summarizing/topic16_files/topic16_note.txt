@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 16: Custom Collector from Scratch Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COLLECTOR.OF() CONVENIENCE FACTORY:
+   - 'Collector.of(supplier, accumulator, combiner, finisher, characteristics...)'
+   - Eliminates need to write anonymous inner classes implementing the 'Collector' interface.
+
+2. WHEN TO IMPLEMENT CUSTOM COLLECTORS:
+   - Collecting into custom proprietary domain data structures.
+   - Performing specialized encryption/compression during reduction.
+   - Post-sorting and returning immutable views in a single pass.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

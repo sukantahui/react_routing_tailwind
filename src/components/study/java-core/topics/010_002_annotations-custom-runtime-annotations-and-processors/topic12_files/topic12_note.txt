@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 12: Compile-Time APT Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS ANNOTATION PROCESSING (JSR 269):
+   - A standard API ('javax.annotation.processing.*') integrated directly into 'javac'.
+   - Executes during the compilation phase before bytecode is emitted.
+   - Operates in iterative 'rounds' until all generated files are fully processed.
+
+2. RUNTIME REFLECTION VS COMPILE-TIME APT:
+   -----------------------------------------------------------------------------
+   FEATURE            RUNTIME REFLECTION         COMPILE-TIME APT
+   -----------------------------------------------------------------------------
+   Execution Timing   Application Startup / Run  Compilation Time ('javac')
+   Performance Cost   Startup delay & Reflection Zero runtime overhead (pure code)
+   Type Safety        Runtime errors             Compile-time errors & IDE check
+   Examples           Spring, Hibernate          Lombok, MapStruct, Dagger
+   -----------------------------------------------------------------------------
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

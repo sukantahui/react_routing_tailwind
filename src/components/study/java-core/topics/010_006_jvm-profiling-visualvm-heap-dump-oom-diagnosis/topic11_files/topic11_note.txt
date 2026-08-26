@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 11: The jstat Utility (GC Stats)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS JSTAT:
+   - Java Virtual Machine Statistics Monitoring Tool.
+   - Attaches with virtually zero performance overhead, making it safe for production monitoring.
+
+2. HEALTH CHECK DIAGNOSIS VIA JSTAT:
+   - Healthy App    : Eden (E) cycles 0% &rarr; 100% &rarr; 0%, Old (O) stays low, FGC is near zero.
+   - Memory Leak    : Old (O) climbs steadily to 99%–100% and stays stuck despite increasing FGC counts!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

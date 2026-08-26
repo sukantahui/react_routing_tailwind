@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 2: Atomicity: All-or-Nothing
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS ATOMICITY:
+   - Guarantees that all statements within a transaction are treated as a single composite operation.
+   - If any statement fails, the entire transaction is aborted and rolled back.
+
+2. JDBC ATOMIC WORKFLOW:
+   - 'conn.setAutoCommit(false)'
+   - Execute all DML statements.
+   - 'conn.commit()' in try block.
+   - 'conn.rollback()' in catch block.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

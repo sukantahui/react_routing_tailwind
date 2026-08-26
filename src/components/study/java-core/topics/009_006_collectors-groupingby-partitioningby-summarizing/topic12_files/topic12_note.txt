@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 12: Collectors.filtering() (Java 9)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE UPSTREAM VS DOWNSTREAM FILTER PROBLEM:
+   - Upstream 'stream.filter(predicate)': Discards non-matching elements BEFORE groupingBy()
+     ever sees them. Result: Groups with 0 matching elements are missing entirely from the Map.
+   - Downstream 'Collectors.filtering(predicate, downstream)' [Java 9]: Elements are first
+     classified into their group bucket; then filtering is applied to each bucket.
+     Result: All groups are present in the Map (groups with 0 matches have empty collections '[]').
+
+2. METHOD SIGNATURE:
+   - '<T, A, R> Collector<T, ?, R> filtering(Predicate<? super T> predicate, Collector<? super T, A, R> downstream)'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

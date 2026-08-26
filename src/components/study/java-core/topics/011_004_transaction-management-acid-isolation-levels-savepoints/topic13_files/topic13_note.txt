@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 13: Dirty Read Anomaly
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A DIRTY READ:
+   - Occurs when Transaction A reads data modified by concurrent Transaction B that has NOT yet committed.
+   - If Transaction B performs a ROLLBACK, the data read by Transaction A becomes invalid 'dirty' data.
+
+2. PREVENTION:
+   - Enforced by 'Connection.TRANSACTION_READ_COMMITTED' and above.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 5: Abstract Factory Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Provide an interface for creating families of related or dependent objects without specifying
+     their concrete classes.
+
+2. FACTORY METHOD VS ABSTRACT FACTORY:
+   - Factory Method   : Creates ONE product type using subclassing.
+   - Abstract Factory : Creates FAMILIES of related products using object composition.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

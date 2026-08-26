@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 9: Functional Transformations Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OPTIONAL AS A MONADIC CONTAINER:
+   - Optional mirrors the Stream API functional operations:
+     * 'filter(Predicate)' : Conditionally retains value or converts to empty.
+     * 'map(Function)'     : Transforms contained value (1-to-1).
+     * 'flatMap(Function)' : Transforms and un-nests Optional-returning functions.
+     * 'stream()' [Java 9] : Converts Optional to Stream (0 or 1 element).
+
+2. MONADIC SHORT-CIRCUITING:
+   - If an Optional becomes empty at ANY point in the chain, subsequent 'map' and 'filter'
+     operations are immediately skipped without errors!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

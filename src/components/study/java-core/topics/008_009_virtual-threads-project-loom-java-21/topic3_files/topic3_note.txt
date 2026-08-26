@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 3: What are Virtual Threads
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. VIRTUAL THREADS (JAVA 21 LTS):
+   - Managed entirely by the JVM in user space.
+   - M:N multiplexing onto OS carrier threads.
+   - Tiny dynamic stacks (~few hundred bytes on JVM heap).
+   - Creation cost is nearly zero (as cheap as creating a standard object).
+   - Check with: 'Thread.currentThread().isVirtual()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

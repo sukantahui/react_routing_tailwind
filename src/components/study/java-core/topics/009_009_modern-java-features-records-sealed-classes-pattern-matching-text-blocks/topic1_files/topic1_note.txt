@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 1: Java Records (JEP 395)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A JAVA RECORD (Java 16+):
+   - A specialized class type designed to act as an immutable carrier for a fixed set of data.
+   - Syntax: 'public record Point(int x, int y) {}'
+
+2. COMPARISON WITH TRADITIONAL POJO / JAVABEANS:
+   - Traditional POJO: 50+ lines of mutable fields, boilerplate getters, setters,
+     constructors, equals(), hashCode(), and toString().
+   - Record: 1 line of clean code; 100% immutable by default; transparent data access.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

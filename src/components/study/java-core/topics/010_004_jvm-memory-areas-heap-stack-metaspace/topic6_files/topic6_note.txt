@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 6: Evolution of Metaspace in Java 8
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT CHANGED IN JAVA 8:
+   - PermGen (Permanent Generation) was completely removed from HotSpot JVM.
+   - Replaced by Metaspace, which lives in native (off-heap) memory.
+   - String Constant Pool and Static variables were moved to the regular Java Heap.
+
+2. WHY PERMGEN WAS REMOVED:
+   - PermGen had a contiguous, fixed size that was notoriously difficult to size properly.
+   - Web application redeployments frequently exhausted PermGen with classloader leaks.
+   - Metaspace allocates natively, expanding automatically unless capped.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

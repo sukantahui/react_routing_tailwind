@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 20: TRANSACTION_SERIALIZABLE
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT SERIALIZABLE GUARANTEES:
+   - Eliminates all Dirty Reads, Non-Repeatable Reads, and Phantom Reads.
+   - Highest consistency, lowest concurrent throughput.
+
+2. RETRY OBLIGATION:
+   - Applications running on SERIALIZABLE must catch SQLState '40001' serialization errors
+     and automatically retry the transaction.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

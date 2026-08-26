@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 6: DAO Pattern Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE DAO PATTERN:
+   - A structural pattern that encapsulates all access to the data source.
+   - The DAO manages the connection with the database and hides SQL complexity from the business layer.
+
+2. CORE LAYERS:
+   - Presentation / Controller &rarr; Service Layer &rarr; DAO Interface &rarr; JDBC Driver &rarr; Database.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

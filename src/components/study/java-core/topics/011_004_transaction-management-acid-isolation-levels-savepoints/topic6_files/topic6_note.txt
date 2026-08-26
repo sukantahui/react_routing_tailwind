@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 6: Managing Transactions in JDBC
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE TRANSACTION LIFECYCLE:
+   - 'conn.setAutoCommit(false)' marks the start of a manual transaction.
+   - 'conn.commit()' flushes all updates executed since the transaction started to disk.
+   - 'conn.rollback()' discards all updates and releases row locks.
+
+2. CONNECTION POOL HYGIENE:
+   - Always restore 'conn.setAutoCommit(true)' or allow the connection pool to reset state.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

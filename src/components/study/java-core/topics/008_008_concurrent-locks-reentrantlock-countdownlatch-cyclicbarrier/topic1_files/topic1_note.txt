@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_008: Explicit Locks & Synchronizers
+Topic 1: Lock Interface & ReentrantLock
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE REENTRANTLOCK IDIOM:
+   - Interface: 'java.util.concurrent.locks.Lock'.
+   - Standard Implementation: 'ReentrantLock'.
+   - Rule 1: Call 'lock.lock()' immediately BEFORE 'try {'.
+   - Rule 2: ALWAYS call 'lock.unlock()' in the 'finally {' block.
+   - Reentrant: Same thread can acquire the lock multiple times without self-deadlock.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

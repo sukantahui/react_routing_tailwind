@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 0: The 5 Runtime Data Areas
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 5 RUNTIME DATA AREAS SPECIFICATION:
+   -----------------------------------------------------------------------------
+   AREA                  LIFECYCLE      THREAD VISIBILITY   STORES
+   -----------------------------------------------------------------------------
+   Heap Area             JVM Lifetime   Shared (All Threads) Objects, Instances, Arrays
+   Method Area/Metaspace JVM Lifetime   Shared (All Threads) Class metadata, bytecodes, pools
+   JVM Thread Stack      Thread Life    Private per Thread  Stack Frames, local variables
+   PC Register           Thread Life    Private per Thread  Current bytecode instruction index
+   Native Method Stack   Thread Life    Private per Thread  C/C++ native method frames (JNI)
+   -----------------------------------------------------------------------------
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

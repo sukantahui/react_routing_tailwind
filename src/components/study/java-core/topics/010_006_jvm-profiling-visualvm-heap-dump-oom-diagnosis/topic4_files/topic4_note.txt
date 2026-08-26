@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 4: Broken equals() & hashCode() Leaks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY MUTABLE HASH KEYS LEAK:
+   - 'HashSet' / 'HashMap' calculates bucket index based on 'key.hashCode()' upon insertion.
+   - If the key is mutated, its hash code changes.
+   - When 'set.remove(key)' or 'set.contains(key)' is called later, the JVM searches the WRONG bucket,
+     failing to find the entry and leaving it permanently trapped in memory!
+
+2. DEFENSIVE ARCHITECTURE:
+   - Use Java 'record' types for composite keys (immutable by default).
+   - Ensure all key fields are marked 'final'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 7: Predicate Chaining
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PREDICATE CHAINING:
+   - 'p1.and(p2)': Short-circuiting logical AND (&&).
+   - 'p1.or(p2)': Short-circuiting logical OR (||).
+   - 'p.negate()': Logical NOT (!).
+   - 'Predicate.isEqual(obj)': Checks null-safe equality via 'Objects.equals()'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

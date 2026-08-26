@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 11: Generic Table Printer & CSV Export
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DYNAMIC ITERATION PATTERN:
+   'ResultSetMetaData meta = rs.getMetaData();
+    int cols = meta.getColumnCount();
+    for (int i = 1; i <= cols; i++) { ... }'
+
+2. CSV ESCAPING RULE (RFC 4180):
+   - Values containing commas, double quotes, or newlines must be enclosed in double quotes.
+   - Internal double quotes are escaped by doubling them ('""').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

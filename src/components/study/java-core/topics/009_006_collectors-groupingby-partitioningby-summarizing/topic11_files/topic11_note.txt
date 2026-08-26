@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 11: groupingBy with maxBy() / minBy()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MAXBY & MINBY COLLECTORS:
+   - 'Collectors.maxBy(Comparator<? super T> comp)' -> Collector<T, ?, Optional<T>>.
+   - 'Collectors.minBy(Comparator<? super T> comp)' -> Collector<T, ?, Optional<T>>.
+
+2. UNWRAPPING OPTIONAL PATTERN:
+   - By default, 'groupingBy(k, maxBy(comp))' returns 'Map<K, Optional<T>>'.
+   - To unwrap the Optional into 'Map<K, T>', wrap with 'collectingAndThen()':
+     * 'Collectors.collectingAndThen(Collectors.maxBy(comp), Optional::orElseThrow)'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

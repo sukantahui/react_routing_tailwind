@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_008: Explicit Locks & Synchronizers
+Topic 7: CountDownLatch Gatekeeper
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. COUNTDOWNLATCH:
+   - Initialized with count N.
+   - 'await()': Blocks until count == 0.
+   - 'countDown()': Atomically decrements count by 1.
+   - One-Time Use ONLY (Cannot be reset or reused).
+   - Use Case: Server startup (wait for DB, Cache, and Messaging to initialize).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

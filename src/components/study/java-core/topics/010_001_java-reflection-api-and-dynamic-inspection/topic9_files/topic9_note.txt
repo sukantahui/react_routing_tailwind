@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_001: Java Reflection API & Dynamic Member Inspection
+Topic 9: Reflection Performance & MethodHandles Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY REFLECTION IS SLOWER THAN DIRECT CALLS:
+   - Dynamic Resolution: Type checking happens at runtime instead of compile time.
+   - Boxing / Unboxing: Primitive arguments and return types are boxed in heap wrappers.
+   - Array Allocation: Varargs 'args' array is instantiated on each invoke() call.
+   - JIT Inlining Barriers: JIT compiler cannot inline polymorphic reflective calls.
+
+2. MODERN ALTERNATIVE: METHODHANDLES (java.lang.invoke):
+   - Introduced to support dynamic JVM languages (invokedynamic).
+   - Provides strongly-typed, direct bytecode method handles.
+   - 'invokeExact()' compiles down to direct machine instructions without boxing.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

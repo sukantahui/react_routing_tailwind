@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 1: JDBC Architecture Layers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LAYER ROLES:
+   - Application Code : Interacts exclusively with standard interfaces.
+   - 'DriverManager'  : Manages a list of database drivers and matches the connection URL.
+   - Driver JAR       : Translates method calls (e.g. 'executeQuery()') into binary database network packets.
+   - Database Engine  : Processes query plans and returns row buffers.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

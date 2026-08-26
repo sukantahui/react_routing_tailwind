@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 17: peek(Consumer) Debugging
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PEEK METHOD CONTRACT:
+   - Signature: 'Stream<T> peek(Consumer<? super T> action)'.
+   - Returns a stream consisting of the elements of this stream, additionally performing
+     the provided action on each element as elements are consumed from the resulting stream.
+   - Intermediate & Stateless operation.
+
+2. CRITICAL CAVEAT (JDK 9+ OPTIMIZATION):
+   - In modern Java versions, if the terminal operation does not require element values
+     (such as 'stream.peek(...).count()'), the JVM stream optimizer may skip intermediate
+     peek operations entirely!
+   - Never rely on peek() for business logic side-effects.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 10: TDD Workflow (Red -> Green -> Refactor)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TDD LAWS (Uncle Bob):
+   - You may not write production code until you have written a failing unit test.
+   - You may not write more of a unit test than is sufficient to fail.
+   - You may not write more production code than is sufficient to pass the failing test.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

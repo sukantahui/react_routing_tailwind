@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 2: Column Index vs Label Extraction
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GETTER SIGNATURES:
+   - Index-Based : 'rs.getInt(1)', 'rs.getString(2)', 'rs.getDouble(3)' (1-based!)
+   - Label-Based : 'rs.getInt("id")', 'rs.getString("name")', 'rs.getDouble("score")'
+
+2. SQL ALIASES:
+   - When SQL uses 'SELECT first_name AS fname', always access using 'rs.getString("fname")'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

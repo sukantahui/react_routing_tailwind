@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_005: Interview Mastery & Tricky MCQs
+Topic 6: Tricky Riddle 7 - HashMap HashCode Contract
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HASHCODE & EQUALS CONTRACT:
+   - If 'a.equals(b)' is true, 'a.hashCode() == b.hashCode()' MUST be true.
+   - If two objects have the same hashCode (collision), they do NOT have to be equal.
+   - Keys must ideally be immutable (e.g. String, Integer, Records).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

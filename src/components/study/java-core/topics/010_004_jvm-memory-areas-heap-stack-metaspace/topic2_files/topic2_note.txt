@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 2: The JVM Heap Area
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHARACTERISTICS OF THE HEAP:
+   - Created when the JVM starts up and shared among all active threads.
+   - Stores all class instances, records, strings, and arrays.
+   - Objects are NEVER explicitly freed by code; the Garbage Collector reclaims unreferenced objects.
+
+2. PRODUCTION TUNING FLAGS:
+   - '-Xms<size>' : Sets initial heap size.
+   - '-Xmx<size>' : Sets maximum heap size.
+   - Production Tip: Setting '-Xms == -Xmx' eliminates runtime heap resizing pauses.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

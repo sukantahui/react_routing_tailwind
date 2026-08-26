@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 14: The Operand Stack
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE OPERAND STACK:
+   - A Last-In-First-Out (LIFO) stack of 32-bit words inside each Stack Frame.
+   - Used by the Execution Engine as a scratchpad for arithmetic, logic operations,
+     and staging method arguments before invoking methods.
+
+2. STACK-BASED VS REGISTER-BASED ARCHITECTURE:
+   - Java uses a Stack-Based virtual machine model (portable, simple bytecode instruction set).
+   - Android Dalvik/ART uses a Register-Based model (fewer total instructions, tailored for mobile ARM CPUs).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

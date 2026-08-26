@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 7: Creating Virtual Threads Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CREATING VIRTUAL THREADS (3 APIS):
+   - 1. 'Thread.ofVirtual().name(...).start(...)': Fluent builder.
+   - 2. 'Thread.startVirtualThread(runnable)': Quick one-line starter.
+   - 3. 'Executors.newVirtualThreadPerTaskExecutor()': Production executor.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

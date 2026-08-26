@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 1: ResultSet Cursor Mechanics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CURSOR NAVIGATION METHODS:
+   - 'boolean next()'        : Advances cursor forward by one row.
+   - 'int getRow()'          : Returns the 1-based current row number (0 if before first or after last).
+   - 'boolean isBeforeFirst()' : True if cursor is before the first row.
+   - 'boolean isFirst()'     : True if cursor is on the first row.
+   - 'boolean isAfterLast()' : True if cursor is past the last row.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

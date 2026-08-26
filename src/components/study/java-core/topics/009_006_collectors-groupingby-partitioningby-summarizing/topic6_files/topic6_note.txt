@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 6: Single-Level groupingBy()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CLASSIFIER FUNCTION FLEXIBILITY:
+   - The classifier function 'Function<? super T, ? extends K>' maps an element to its grouping key.
+   - Types of Classifiers:
+     1. Property Extractor: 'Student::getCenter' -> Groups by center.
+     2. Computed Classification: 's -> s.getScore() >= 85 ? "A" : "B"' -> Groups by conditional tier.
+     3. Compound Key Object: 's -> new CenterCourseKey(s.getCenter(), s.getCourse())'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

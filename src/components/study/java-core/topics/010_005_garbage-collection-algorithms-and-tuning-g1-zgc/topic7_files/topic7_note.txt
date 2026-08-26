@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 7: Survey of JVM Garbage Collectors
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE GC TRIANGLE OF TRADEOFFS:
+   - Throughput : Percentage of total time spent executing user code (Parallel GC excels).
+   - Latency    : Length of Stop-The-World pauses (ZGC and Shenandoah excel).
+   - Footprint  : Memory overhead of GC metadata (Serial GC excels).
+
+2. MODERN DEFAULT:
+   - Java 8        : Parallel GC (Throughput).
+   - Java 9 - 21+  : G1 GC (Garbage-First).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

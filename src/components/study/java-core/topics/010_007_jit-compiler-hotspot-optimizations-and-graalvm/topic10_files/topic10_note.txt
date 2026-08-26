@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 10: De-optimization & Uncommon Traps
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS AN UNCOMMON TRAP:
+   - A piece of code emitted by the JIT at points where speculative assumptions might fail
+     (e.g. assumption that a polymorphic call site is always Monomorphic).
+
+2. DE-OPTIMIZATION WORKFLOW:
+   - Step 1: Speculative assumption is violated at runtime.
+   - Step 2: CPU hits Uncommon Trap.
+   - Step 3: JVM reconstructs the interpreted Stack Frame from the compiled frame state.
+   - Step 4: Execution continues in Interpreter with zero crashes or data loss.
+   - Step 5: JIT re-profiles and recompiles with more accurate heuristics.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

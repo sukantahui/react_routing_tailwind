@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_002: Core Banking Capstone
+Topic 5: Financial Accuracy with BigDecimal
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BIGDECIMAL RULES FOR BANKING:
+   - Always instantiate via 'new BigDecimal("100.50")' or 'BigDecimal.valueOf(100.50)'.
+   - NEVER use 'new BigDecimal(0.1)' (passes double representation error into BigDecimal!).
+   - Always specify scale and 'RoundingMode.HALF_EVEN' during division.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

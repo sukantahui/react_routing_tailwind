@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_002: Core Banking Capstone
+Topic 6: Thread-Safe Banking Concurrency
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. REENTRANTREADWRITELOCK IN BANKING:
+   - Read lock  : Shared by multiple balance checking threads.
+   - Write lock : Exclusive lock during money withdrawal or deposit.
+
+2. FAIR LOCKING ('new ReentrantReadWriteLock(true)'):
+   - Grants lock to longest waiting thread, preventing thread starvation.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

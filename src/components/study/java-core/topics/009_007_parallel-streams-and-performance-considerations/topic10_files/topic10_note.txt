@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 10: Blocking I/O & CommonPool Starvation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE COMMONPOOL STARVATION PROBLEM:
+   - 'ForkJoinPool.commonPool()' is sized for CPU-bound computations (1 thread per core).
+   - If stream elements execute blocking I/O (REST API calls, JDBC queries, Thread.sleep),
+     threads are blocked in WAITING/TIMED_WAITING state.
+   - CPU utilization drops to near 0%, and all other parallel operations in the JVM freeze.
+
+2. GOLDEN RULE:
+   - PARALLEL STREAMS: Pure CPU calculations ONLY (no I/O, no network, no DB).
+   - BLOCKING I/O: Use Java 21 Virtual Threads or a dedicated fixed/cached thread pool.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

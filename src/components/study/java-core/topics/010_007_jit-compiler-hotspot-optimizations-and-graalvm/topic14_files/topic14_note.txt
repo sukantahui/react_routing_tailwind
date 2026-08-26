@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 14: Instant Startup & Serverless
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY NATIVE IMAGES EXCEL IN SERVERLESS:
+   - Zero JIT warmup delay.
+   - Zero ClassLoader loading pauses.
+   - Pre-initialized heap image allows instant handling of HTTP requests on tick 1.
+
+2. CLOUD INFRASTRUCTURE SAVINGS:
+   - Massive reduction in cloud hosting bills (RAM is the most expensive cloud metric).
+   - Scale-to-zero capabilities with zero cold start user penalty.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

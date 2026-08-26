@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_003: Method & Constructor References
+Topic 7: Array Constructor References
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ARRAY CONSTRUCTOR REFERENCES:
+   - Syntax: 'Type[]::new'.
+   - Represents: 'size -> new Type[size]'.
+   - SAM Target: 'IntFunction<T[]>'.
+   - Primary Use Case: 'stream.toArray(String[]::new)' for type-safe arrays.
+   - Solves Generic Type Erasure in Stream-to-Array conversions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

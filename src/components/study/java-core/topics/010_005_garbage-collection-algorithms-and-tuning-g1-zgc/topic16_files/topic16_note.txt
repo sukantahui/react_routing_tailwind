@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 16: Unified GC Logging (-Xlog)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS UNIFIED JVM LOGGING (Java 9+):
+   - Standardized command line syntax for all JVM logging subsystems ('-Xlog').
+   - Replaced fragmented legacy flags ('-XX:+PrintGC', '-XX:+PrintGCDetails', '-XX:+PrintGCTimeStamps').
+
+2. LOG ROTATION FEATURES:
+   - 'filecount=N' : Keeps N historical rotated log files.
+   - 'filesize=M'  : Rotates file when size hits M megabytes.
+   - Decorators    : 'time' (wall clock), 'uptime' (JVM uptime), 'pid' (Process ID), 'level' (Info/Debug).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

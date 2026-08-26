@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_004: Custom DI Framework
+Topic 2: Package Scanner Engine
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CLASSPATH SCANNING ALGORITHM:
+   - 'ClassLoader.getResources(path)' locates directory or JAR root.
+   - Recursive file crawler identifies '.class' files.
+   - 'Class.forName(fqcn)' loads discovered classes into the JVM Metaspace.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

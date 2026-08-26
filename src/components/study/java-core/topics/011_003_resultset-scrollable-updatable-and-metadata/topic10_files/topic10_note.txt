@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 10: ResultSetMetaData Inspection
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS RESULTSETMETADATA:
+   - Interface that provides information about the types and properties of the columns in a 'ResultSet'.
+   - Obtained via 'rs.getMetaData()'.
+
+2. 'getColumnLabel()' VS 'getColumnName()':
+   - 'getColumnName()'  : The physical schema column name in the database table.
+   - 'getColumnLabel()' : The alias assigned in SQL ('SELECT id AS student_id').
+   - Always prefer 'getColumnLabel()' when formatting tables and CSV headers!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

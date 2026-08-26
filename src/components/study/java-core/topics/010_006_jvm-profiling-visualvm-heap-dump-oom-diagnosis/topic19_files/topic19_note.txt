@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 19: Memory Leak Forensic Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE COMPLETE 5-STEP PRODUCTION OOM TRIAGE RUNBOOK:
+   - Step 1: Detect Alert & Capture Dump ('-XX:+HeapDumpOnOutOfMemoryError' or 'jcmd <pid> GC.heap_dump').
+   - Step 2: Open Dump in Eclipse MAT & review 'Leak Suspects Report'.
+   - Step 3: Check 'Dominator Tree' (sort by Retained Heap) to locate hoarding object.
+   - Step 4: Trace 'Shortest Path to GC Roots' (excluding weak refs) to identify the leaking field.
+   - Step 5: Implement code fix (bounded collection, explicit 'remove()', weak references, try-with-resources).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

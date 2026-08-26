@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 12: map(Function) on Optional
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT:
+   - Signature: '<U> Optional<U> map(Function<? super T, ? extends U> mapper)'.
+   - If a value is present, applies the mapping function to it.
+   - If the mapping function returns a non-null result 'r', returns 'Optional.ofNullable(r)'.
+   - If the mapping function returns null OR the Optional is empty, returns 'Optional.empty()'.
+
+2. NULL-PROTECTION FEATURE:
+   - 'map()' wraps the output of the function using 'Optional.ofNullable()', automatically
+     absorbing any null values produced by getter methods.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

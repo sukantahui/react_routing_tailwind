@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 4: JDBC Connection URLs
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GENERAL SYNTAX FORMAT:
+   - 'jdbc:<subprotocol>://<host>:<port>/<database>?<param1>=<val1>&<param2>=<val2>'
+
+2. ESSENTIAL PRODUCTION PARAMETERS:
+   - 'serverTimezone=UTC' (prevents date/time offset discrepancies).
+   - 'useSSL=true / sslmode=require' (enforces encrypted transport).
+   - 'connectTimeout=5000' (caps TCP connect wait time).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

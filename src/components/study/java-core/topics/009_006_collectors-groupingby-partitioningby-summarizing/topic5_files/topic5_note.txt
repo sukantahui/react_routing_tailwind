@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 5: Collectors.groupingBy() Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS GROUPINGBY:
+   - Groups elements according to a classification function and returns a 'Map<K, List<T>>' (by default).
+   - Equivalent to SQL 'GROUP BY' clause.
+
+2. THE THREE OVERLOADS OF GROUPINGBY:
+   1. 'groupingBy(classifier)'
+      - Produces 'Map<K, List<T>>' (Standard HashMap).
+   2. 'groupingBy(classifier, downstreamCollector)'
+      - Produces 'Map<K, D>' (Applies downstream reduction to grouped values).
+   3. 'groupingBy(classifier, mapFactorySupplier, downstreamCollector)'
+      - Produces custom Map type (e.g. 'TreeMap::new') with downstream reduction.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 9: Adapter Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Convert the interface of a class into another interface clients expect.
+   - Lets classes work together that couldn't otherwise because of incompatible interfaces.
+
+2. PARTICIPANTS:
+   - Target   : Domain interface client calls.
+   - Adaptee  : Incompatible legacy/external class.
+   - Adapter  : Implements Target and delegates to Adaptee.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

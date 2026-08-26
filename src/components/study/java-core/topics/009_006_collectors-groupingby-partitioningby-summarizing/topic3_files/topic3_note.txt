@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 3: Collectors.joining()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE THREE OVERLOADS OF COLLECTORS.JOINING():
+   1. 'joining()': Concatenates elements into a single String in encounter order.
+   2. 'joining(CharSequence delimiter)': Separates elements with the given delimiter.
+   3. 'joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix)':
+      Surrounds the joined output with a prefix and suffix.
+
+2. PERFORMANCE ADVANTAGE:
+   - Uses 'java.util.StringJoiner' / 'StringBuilder' under the hood.
+   - Zero temporary string object creation.
+   - Automatically handles delimiters without leaving trailing commas.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

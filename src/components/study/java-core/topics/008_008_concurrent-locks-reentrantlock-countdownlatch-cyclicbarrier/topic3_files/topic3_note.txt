@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_008: Explicit Locks & Synchronizers
+Topic 3: Condition Interface & Multiple Queues
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE CONDITION INTERFACE:
+   - Replaces 'wait/notify' with 'await()' and 'signal()'.
+   - Created via 'lock.newCondition()'.
+   - Enables multiple independent wait-sets per lock (e.g. 'notFull', 'notEmpty').
+   - Eliminates CPU wake-up thrashing of 'notifyAll()'.
+   - Powers Java's built-in 'ArrayBlockingQueue'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

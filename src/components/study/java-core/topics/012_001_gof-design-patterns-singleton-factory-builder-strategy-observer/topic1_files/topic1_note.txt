@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 1: 3 Categories of GoF Patterns
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE THREE PILLARS:
+   - Creational (5 patterns)  : Instantiation and object creation.
+   - Structural (7 patterns)  : Composition and relationships between classes.
+   - Behavioral (11 patterns) : Interaction, algorithms, and message passing.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

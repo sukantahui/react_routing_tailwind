@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 10: Valid Annotation Element Types
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE ONLY ALLOWED RETURN TYPES FOR ANNOTATION METHODS:
+   1. All 8 Primitives ('int', 'double', 'boolean', 'char', 'long', 'float', 'byte', 'short').
+   2. 'java.lang.String'.
+   3. 'java.lang.Class' (or 'Class<?>').
+   4. Any 'enum' type.
+   5. Any other 'annotation' type (nested annotations).
+   6. 1-Dimensional arrays of any of the above (e.g. 'String[]', 'Class<?>[]', 'int[]').
+
+2. STRICT RESTRICTIONS:
+   - No arbitrary object references.
+   - No generic Collections ('List<String>', 'Set<Integer>').
+   - No multidimensional arrays ('String[][]').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

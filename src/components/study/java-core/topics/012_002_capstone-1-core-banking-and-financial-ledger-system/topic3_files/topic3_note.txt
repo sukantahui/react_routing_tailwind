@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_002: Core Banking Capstone
+Topic 3: Connection Pool & DAO Scaffolding
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PASSING CONNECTION TO DAO METHODS:
+   - For multi-step transactions across multiple DAOs ('AccountDao' and 'LedgerDao'),
+     the 'Connection' must be managed by the Service layer and passed to each DAO method.
+
+2. 'FOR UPDATE' PESSIMISTIC LOCK:
+   - 'SELECT ... FOR UPDATE' locks the specific account row to prevent race conditions.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

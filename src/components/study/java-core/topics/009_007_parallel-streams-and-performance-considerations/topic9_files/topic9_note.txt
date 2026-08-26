@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 9: The Boxing Penalty in Parallel Streams
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY BOXING HURTS MULTI-CORE PERFORMANCE:
+   - Cache Misses: Primitive arrays store contiguous values in high-speed CPU L1/L2/L3 cache.
+     Boxed objects store 64-bit pointers to scattered heap locations (pointer chasing).
+   - GC Pressure: Millions of temporary wrapper objects trigger GC pauses that stall worker threads.
+   - Synchronization / Memory Bandwidth: Multiple CPU cores saturate the memory bus fetching scattered heap objects.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

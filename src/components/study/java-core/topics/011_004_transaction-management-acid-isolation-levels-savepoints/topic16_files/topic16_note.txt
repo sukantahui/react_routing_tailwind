@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 16: Isolation Levels Matrix Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JDBC CONSTANTS (in 'java.sql.Connection'):
+   - 'Connection.TRANSACTION_READ_UNCOMMITTED' (1)
+   - 'Connection.TRANSACTION_READ_COMMITTED'   (2)
+   - 'Connection.TRANSACTION_REPEATABLE_READ'  (4)
+   - 'Connection.TRANSACTION_SERIALIZABLE'     (8)
+   - 'Connection.TRANSACTION_NONE'             (0 - No transaction support)
+
+2. CONFIGURATION METHOD:
+   - 'conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

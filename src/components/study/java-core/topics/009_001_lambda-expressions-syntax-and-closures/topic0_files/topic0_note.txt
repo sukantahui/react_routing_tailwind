@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_001: Lambda Expressions & Lexical Scoping
+Topic 0: Functional Programming in Java 8
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FUNCTIONAL PROGRAMMING IN JAVA:
+   - Imperative: Focus on HOW (loops, mutable state, step-by-step).
+   - Declarative/Functional: Focus on WHAT (pure transformations, immutability).
+   - Behavior Parameterization: Passing code blocks as method arguments.
+   - Java 8 unifies OOP with functional concepts without breaking existing classes.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

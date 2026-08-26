@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 0: What are Parallel Streams
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A PARALLEL STREAM:
+   - A stream that executes pipeline operations concurrently across multiple CPU threads.
+   - Divides the stream into multiple substreams using 'java.util.Spliterator'.
+   - Executes substreams on worker threads managed by 'ForkJoinPool.commonPool()'.
+
+2. RECURSIVE DIVIDE-AND-CONQUER:
+   - Step 1: Split (Spliterator.trySplit()).
+   - Step 2: Compute in parallel (Worker threads in CommonPool).
+   - Step 3: Combine / Join (Collector.combiner() or reduce combiner).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

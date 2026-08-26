@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 14: Structured Concurrency Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 008_009 & SEGMENT 8 GRAND SUMMARY:
+   - Platform Threads: 1:1 OS kernel bound, 1 MB stack, ~5,000 thread limit.
+   - Virtual Threads (Java 21): JVM-managed user-mode fibers, tiny dynamic stacks.
+   - Million-Thread Scale: 100,000+ virtual threads on a laptop.
+   - Carrier Threads: ForkJoinPool OS workers mounting/unmounting virtual threads.
+   - Automatic Unmounting: Non-blocking I/O via epoll/kqueue.
+   - Creation: 'Thread.ofVirtual()', 'startVirtualThread()', 'newVirtualThreadPerTaskExecutor()'.
+   - Golden Rule: NEVER POOL VIRTUAL THREADS (use Semaphores to throttle).
+   - Thread Pinning: Avoid 'synchronized' and JNI on blocking I/O; use 'ReentrantLock'.
+   - Scoped Values (JEP 446): Immutable, leak-free context propagation.
+   - Structured Concurrency (JEP 453): StructuredTaskScope eliminates zombie threads!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

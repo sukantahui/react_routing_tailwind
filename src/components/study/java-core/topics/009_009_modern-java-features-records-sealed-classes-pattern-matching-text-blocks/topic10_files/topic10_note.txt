@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 10: Pattern Matching for switch (Java 21)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS PATTERN SWITCH (Java 21 Standard - JEP 441):
+   - Switch statements and expressions can now match on object types directly.
+   - Eliminates cascading 'if-else-if instanceof' chains.
+
+2. KEY FEATURES:
+   1. Type Patterns: 'case String s -> ...'
+   2. Guard Clauses ('when'): 'case String s when s.length() > 5 -> ...'
+   3. Direct Null Handling: 'case null -> ...' (No longer throws NullPointerException by default).
+   4. Exhaustiveness Checking: Compiler ensures all possible values are covered.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

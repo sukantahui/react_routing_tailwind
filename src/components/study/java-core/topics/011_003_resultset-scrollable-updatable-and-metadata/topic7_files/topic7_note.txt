@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 7: TYPE_SCROLL_SENSITIVE Navigation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. HOW SENSITIVE CURSORS WORK:
+   - The driver maintains a 'keyset' of primary keys rather than copying all row data.
+   - When the cursor lands on a row, it re-queries the database columns using the keyset to retrieve fresh values.
+
+2. METHODS FOR DETECTING LIVE CHANGES:
+   - 'rs.rowUpdated()' : True if current row was modified since query opened.
+   - 'rs.rowDeleted()' : True if current row was deleted by another transaction.
+   - 'rs.rowInserted()' : True if current row is a new insertion.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

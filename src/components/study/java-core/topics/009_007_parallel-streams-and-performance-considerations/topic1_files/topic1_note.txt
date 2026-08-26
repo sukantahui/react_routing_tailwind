@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 1: Creating Parallel Streams
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WAYS TO CREATE PARALLEL STREAMS:
+   - 'Collection.parallelStream()': Creates a parallel stream directly from any Collection.
+   - 'BaseStream.parallel()': Converts any existing sequential stream into parallel mode.
+   - 'BaseStream.sequential()': Converts any parallel stream back into sequential mode.
+   - 'BaseStream.isParallel()': Returns boolean indicating whether stream is in parallel mode.
+
+2. CRITICAL RULE - LAST CALL WINS:
+   - A stream pipeline does not execute stages in mixed modes.
+   - The last call to '.parallel()' or '.sequential()' before the terminal operation sets
+     the execution mode for the ENTIRE pipeline.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

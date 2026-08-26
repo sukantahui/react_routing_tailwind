@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 9: Parallel GC (-XX:+UseParallelGC)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS PARALLEL GC:
+   - Also known as the 'Throughput Collector'.
+   - Uses multiple CPU cores simultaneously to execute Stop-The-World collections.
+
+2. PRODUCTION BEST FOR:
+   - Non-interactive batch processing (ETL pipelines, machine learning, report generation).
+   - Systems where total compute completion time matters more than individual request pause times.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

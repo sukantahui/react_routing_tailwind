@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_002: Core Banking Capstone
+Topic 9: Automated Stress Testing Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONCURRENCY VERIFICATION PATTERN:
+   - 'CountDownLatch(1)' start gate forces simultaneous thread release to maximize contention.
+   - 'CountDownLatch(N)' end gate waits for all workers to complete before invariant checks.
+
+2. FINANCIAL INVARIANT:
+   - Initial Total Balance == Final Total Balance (Zero penny lost!).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

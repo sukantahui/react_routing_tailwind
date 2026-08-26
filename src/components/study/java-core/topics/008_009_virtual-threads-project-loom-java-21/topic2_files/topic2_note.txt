@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 2: Reactive vs Virtual Threads
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. REACTIVE vs VIRTUAL THREADS:
+   - Reactive (WebFlux): High throughput, but complex async pipelines & broken stack traces.
+   - Virtual Threads (Java 21): High throughput WITH simple synchronous Java code!
+   - Write sequential code: 'User user = fetchUser();'
+   - Full compatibility with existing JDBC, JPA, and debugging tools.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

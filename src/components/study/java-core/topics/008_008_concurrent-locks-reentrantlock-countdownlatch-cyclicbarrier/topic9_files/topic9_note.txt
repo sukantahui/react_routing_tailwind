@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_008: Explicit Locks & Synchronizers
+Topic 9: Latch vs Barrier Comparison
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LATCH vs BARRIER:
+   - CountDownLatch: One-time gate, 1 master waits for N tasks to finish.
+   - CyclicBarrier: Reusable barrier, N peer threads wait for each other.
+   - Latch cannot reset; Barrier resets automatically after each round.
+   - Barrier executes optional 'barrierAction' when all threads reach gate.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

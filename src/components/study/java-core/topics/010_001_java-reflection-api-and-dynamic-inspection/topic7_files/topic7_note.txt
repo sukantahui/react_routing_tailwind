@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_001: Java Reflection API & Dynamic Member Inspection
+Topic 7: setAccessible(true) & Module Boundaries
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT SETACCESSIBLE(TRUE) DOES:
+   - Inherited from 'java.lang.reflect.AccessibleObject'.
+   - Suppresses Java language access control checks (private, protected, package-private)
+     for the single reflective operation.
+
+2. JAVA 9+ JPMS STRONG ENCAPSULATION:
+   - Java 9+ introduced the Java Platform Module System (JPMS).
+   - In Java 17+, 'Strong Encapsulation' is enabled by default.
+   - Calling 'setAccessible(true)' on an internal JDK package (e.g. 'java.lang', 'java.util')
+     throws 'java.lang.reflect.InaccessibleObjectException'.
+   - Fix: Must explicitly pass JVM flag '--add-opens java.base/java.lang=ALL-UNNAMED'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

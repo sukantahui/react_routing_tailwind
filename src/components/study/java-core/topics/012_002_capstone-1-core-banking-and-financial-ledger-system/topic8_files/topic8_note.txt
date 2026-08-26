@@ -1,0 +1,14 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_002: Core Banking Capstone
+Topic 8: Audit Logging & Statement Exporter
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NIO.2 FILE EXPORTER:
+   - 'Files.writeString()' / 'Files.newBufferedWriter()' for fast buffered statement writes.
+   - 'Files.lines()' streams large CSV files line-by-line without loading entire file in RAM.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

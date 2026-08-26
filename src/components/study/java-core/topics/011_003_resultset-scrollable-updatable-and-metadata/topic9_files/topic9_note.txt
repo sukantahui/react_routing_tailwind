@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_003: ResultSet, Scrollable, Updatable & Metadata
+Topic 9: Mapping ResultSets to Records
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY USE THE ROWMAPPER PATTERN:
+   - Eliminates boilerplate repetition of 'rs.getInt()' across DAO methods.
+   - Decouples SQL database mechanics from business domain models.
+
+2. COMBINING WITH JAVA RECORDS:
+   - Java Records (introduced in Java 16) provide compact, immutable, thread-safe DTO carriers
+     for tabular database data.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

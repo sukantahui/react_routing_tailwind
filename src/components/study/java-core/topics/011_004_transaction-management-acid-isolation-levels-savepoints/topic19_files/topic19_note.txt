@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 19: TRANSACTION_REPEATABLE_READ
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TRANSACTION-LEVEL SNAPSHOT:
+   - Re-reading the same row multiple times within the transaction is guaranteed to return identical data.
+   - Prevents Dirty Reads and Non-Repeatable Reads.
+
+2. DEFAULT IN MYSQL INNODB:
+   - MySQL uses 'REPEATABLE READ' as its default isolation level.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

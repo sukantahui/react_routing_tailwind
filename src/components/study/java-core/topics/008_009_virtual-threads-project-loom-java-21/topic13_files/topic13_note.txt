@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 13: Scoped Values (JEP 446)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SCOPED VALUES:
+   - Replaces heavy, mutable 'ThreadLocal'.
+   - Immutable: Values cannot be modified downstream.
+   - Bounded Lifetime: Automatically cleared when scope exits.
+   - Zero memory leaks (No manual 'remove()' required).
+   - Designed specifically to scale across millions of Virtual Threads.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

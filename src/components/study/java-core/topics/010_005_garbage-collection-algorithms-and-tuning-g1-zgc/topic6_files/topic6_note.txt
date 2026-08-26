@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 6: Minor GC vs Major GC vs Full GC
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. SCOPES DEFINED:
+   - Minor GC (Scavenge) : Collects ONLY the Young Generation.
+   - Major GC            : Collects ONLY the Old Generation.
+   - Full GC             : Collects the entire JVM (Young Gen + Old Gen + Metaspace + Native buffers).
+
+2. PERFORMANCE GOAL:
+   - Maximize Minor GCs (cheap copying).
+   - Minimize or eliminate Full GCs (expensive full compaction).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

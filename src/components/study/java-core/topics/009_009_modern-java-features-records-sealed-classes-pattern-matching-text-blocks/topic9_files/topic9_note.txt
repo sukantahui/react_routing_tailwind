@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 9: Pattern Matching for instanceof (JEP 394)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PATTERN MATCHING INSTANCEOF SYNTAX:
+   - Before Java 16:
+     'if (obj instanceof String) { String s = (String) obj; System.out.println(s.length()); }'
+   - Modern Java 16+:
+     'if (obj instanceof String s) { System.out.println(s.length()); }'
+
+2. FLOW SCOPING (Scoping Rules):
+   - The pattern variable 's' is in scope ONLY in branches where the pattern has matched.
+   - Allowed in '&&' expressions:
+     'if (obj instanceof String s && s.length() > 5)' -> Legal (s is in scope on RHS of &&).
+   - NOT allowed in '||' expressions:
+     'if (obj instanceof String s || s.length() > 5)' -> Compile error (s might not match).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

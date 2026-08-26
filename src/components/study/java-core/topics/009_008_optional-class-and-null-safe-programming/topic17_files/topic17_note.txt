@@ -1,0 +1,24 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 17: Optional Anti-Patterns
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. ANTI-PATTERN #1: OPTIONAL AS CLASS FIELD:
+   - 'Optional' is NOT 'Serializable'.
+   - Adds 16-24 bytes of object header overhead per field on heap.
+   - Solution: Store plain nullable field, wrap in getter: 'return Optional.ofNullable(field)'.
+
+2. ANTI-PATTERN #2: OPTIONAL AS METHOD PARAMETER:
+   - Forces awkward syntax on callers ('Optional.of("val")').
+   - Does not prevent callers from passing raw 'null'.
+   - Solution: Use method overloading (e.g. 'search(query)' and 'search(query, filter)').
+
+3. ANTI-PATTERN #3: OPTIONAL AS MAP KEY OR VALUE:
+   - 'Map<String, Optional<User>>' is redundant and confusing.
+   - Solution: Absent map entries represent absence naturally via 'map.get(key) == null'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

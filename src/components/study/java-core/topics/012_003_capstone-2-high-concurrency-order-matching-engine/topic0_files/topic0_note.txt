@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_003: High-Concurrency Order Matching Engine
+Topic 0: Trading Engine Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PRICE-TIME PRIORITY:
+   - Price Priority : Best available price gets matched first.
+   - Time Priority  : First order to arrive at that price gets filled first (FIFO).
+
+2. ORDER SIDES:
+   - Buy Book (Bids): Max-heap or descending sorted map.
+   - Sell Book (Asks): Min-heap or ascending sorted map.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

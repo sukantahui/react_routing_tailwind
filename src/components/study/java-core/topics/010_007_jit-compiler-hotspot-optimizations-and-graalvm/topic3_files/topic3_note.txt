@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 3: Tiered Levels 1-3 (C1 Compiler)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE C1 COMPILER:
+   - High-speed native code compiler designed for fast startup.
+   - Performs basic local optimizations (constant folding, copy propagation).
+
+2. LEVEL 3 FULL PROFILING ROLE:
+   - Functions as an intelligent telemetry collector.
+   - Embeds profiling instructions that gather real-world runtime execution statistics (MDO).
+   - Once sufficient profiling samples are gathered, the JVM promotes the method to Level 4 (C2)!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

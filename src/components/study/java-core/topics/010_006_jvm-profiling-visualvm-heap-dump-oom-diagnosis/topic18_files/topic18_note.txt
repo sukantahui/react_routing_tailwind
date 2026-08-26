@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 18: Shortest Path to GC Roots
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY EXCLUDE WEAK/SOFT REFERENCES:
+   - Weak and Soft references do not prevent Garbage Collection when memory is tight.
+   - Excluding them isolates the STRONG references that are actively keeping the object pinned in memory.
+
+2. FORENSIC VALUE:
+   - Tells you the EXACT field name, object instance, and class holding the reference.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

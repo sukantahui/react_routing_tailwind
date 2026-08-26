@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 7: Parallel Stream Anti-Patterns
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 5 PARALLEL PERFORMANCE ANTI-PATTERNS:
+   1. POOR SPLITTERS:
+      - 'LinkedList', 'Stream.iterate()', 'BufferedReader.lines()'.
+      - Cannot be split into equal chunks without scanning nodes.
+   2. BOXING OVERHEAD:
+      - 'Stream<Integer>' forces millions of heap allocations, cache misses, and GC pressure.
+   3. BLOCKING I/O:
+      - Stalls ForkJoinPool worker threads, causing CPU underutilization.
+   4. TRIVIAL N:
+      - Small collections (N < 1,000) waste more time on thread orchestration than compute.
+   5. LOCK CONTENTION / STATEFUL BARRIERS:
+      - Using 'AtomicInteger', 'ConcurrentHashMap', or 'sorted()' / 'distinct()' in parallel.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_003: JVM Architecture, ClassLoaders & Bytecode Execution
+Topic 10: The Platform ClassLoader (Java 9+)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE PLATFORM CLASSLOADER:
+   - Introduced in Java 9 (replacing 'Extension ClassLoader').
+   - Accessible via 'ClassLoader.getPlatformClassLoader()'.
+   - Loads standard Java SE platform modules that are not part of 'java.base' (e.g. 'java.sql', 'java.xml').
+
+2. WHY 'jre/lib/ext' WAS REMOVED:
+   - Dropping arbitrary JARs into 'lib/ext' caused silent version conflicts across enterprise applications.
+   - Java Module System (JPMS) replaced the extension mechanism completely.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

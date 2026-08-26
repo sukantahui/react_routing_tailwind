@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_008: Explicit Locks & Synchronizers
+Topic 2: ReentrantLock Advanced Features
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. REENTRANTLOCK FEATURES:
+   - 'tryLock()': Non-blocking instant attempt.
+   - 'tryLock(timeout, unit)': Bounded timed acquisition.
+   - 'lockInterruptibly()': Can be cancelled while queued.
+   - 'new ReentrantLock(true)': Fair FIFO lock (eliminates starvation).
+   - 'new ReentrantLock(false)': Non-fair (faster throughput via barging).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

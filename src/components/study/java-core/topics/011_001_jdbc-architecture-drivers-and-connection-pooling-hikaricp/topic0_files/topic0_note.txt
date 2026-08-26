@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 0: What is JDBC Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS JDBC:
+   - Specification and API developed by Sun Microsystems / Oracle.
+   - Core packages: 'java.sql' (core interfaces) and 'javax.sql' (advanced server data source APIs).
+
+2. KEY CORE INTERFACES:
+   - 'Driver'          : Database vendor adapter.
+   - 'Connection'      : Active socket connection to the database.
+   - 'Statement'       : Container for executing SQL commands.
+   - 'ResultSet'       : Tabular cursor over SQL query results.
+   - 'SQLException'    : Root checked exception for all database errors.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

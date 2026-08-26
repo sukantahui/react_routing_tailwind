@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 2: Predicate<T> Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. PREDICATE<T>:
+   - SAM: 'boolean test(T t)'.
+   - Used for: Filtering collections, assertions, validations.
+   - Powers 'Stream.filter(predicate)'.
+   - Returns primitive 'boolean' (true/false).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_002: PreparedStatements, CallableStatements & SQL Safety
+Topic 10: Registering OUT Parameters Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. OUT PARAMETER REGISTRATION RULES:
+   - Must be registered BEFORE calling 'execute()'.
+   - Uses SQL type constants from 'java.sql.Types' (e.g. 'Types.INTEGER', 'Types.VARCHAR', 'Types.DECIMAL').
+
+2. INOUT PARAMETERS:
+   - Must call BOTH 'setXxx(index, value)' AND 'registerOutParameter(index, sqlType)' before execution!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

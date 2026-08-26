@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_004: Custom DI Framework
+Topic 3: Bean Factory & Application Context
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. APPLICATIONCONTEXT RESPONSIBILITIES:
+   - 'ConcurrentHashMap<Class<?>, Object>' guarantees thread-safe singleton storage.
+   - Instantiates beans via reflection default constructors.
+   - Provides type-safe '<T> T getBean(Class<T>)' lookups.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

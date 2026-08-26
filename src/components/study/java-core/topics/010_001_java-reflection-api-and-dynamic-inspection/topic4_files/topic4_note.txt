@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_001: Java Reflection API & Dynamic Member Inspection
+Topic 4: Constructors & Dynamic Instantiation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. GETCONSTRUCTORS VS GETDECLAREDCONSTRUCTORS:
+   - 'clazz.getConstructors()': Returns ONLY public constructors.
+   - 'clazz.getDeclaredConstructors()': Returns ALL constructors (public, protected, package-private, private).
+
+2. MODERN DYNAMIC INSTANTIATION IDIOM:
+   - 'clazz.getDeclaredConstructor(Class<?>... parameterTypes).newInstance(Object... initargs)'
+
+3. WHY 'Class.newInstance()' IS DEPRECATED (Java 9+):
+   - Only worked for no-arg constructors.
+   - Propagated any checked exception thrown by the constructor without declaring it.
+   - Modern 'Constructor.newInstance()' cleanly wraps constructor failures in 'InvocationTargetException'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

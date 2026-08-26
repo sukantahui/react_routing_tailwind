@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 15: thenCombine Parallel Aggregation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THENCOMBINE (PARALLEL FAN-IN):
+   - Combines 2 independent futures executing in parallel.
+   - Accepts a BiFunction '(resA, resB) &rarr; combinedResult'.
+   - Total latency = 'max(DurationA, DurationB)' (not sum!).
+   - If either future throws an exception, the combined stage fails immediately.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

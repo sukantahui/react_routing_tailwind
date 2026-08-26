@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 3: Unregistered Listeners & Callbacks
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE LAPSED LISTENER PROBLEM:
+   - A short-lived subscriber object registers as a listener to a long-lived publisher object.
+   - The publisher retains a strong reference to the subscriber in its internal list.
+   - Even if the application discards the subscriber, the publisher keeps the subscriber
+     (and everything the subscriber references) alive indefinitely!
+
+2. DEFENSIVE PATTERNS:
+   - Always implement 'AutoCloseable' and unregister in 'close()'.
+   - Use 'WeakReference' lists in publisher implementations (EventBus / WeakListeners).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 12: Thread Stack Frames Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A STACK FRAME:
+   - A data structure created and allocated on the Java Thread Stack for every method invocation.
+   - Size of LVT and maximum Operand Stack depth are computed at compile time by 'javac'.
+
+2. THE 3 FRAME COMPONENTS:
+   1. Local Variable Table (LVT) : Stores method arguments and local variables.
+   2. Operand Stack              : LIFO workspace where opcodes push and pop operands.
+   3. Frame Data                 : Dynamic constant pool linking, return address, exception table.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

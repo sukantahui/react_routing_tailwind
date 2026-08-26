@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 2: Collectors.toMap()
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE THREE OVERLOADS OF COLLECTORS.TOMAP():
+   1. 'toMap(Function keyMapper, Function valueMapper)'
+      - Throws 'IllegalStateException: Duplicate key' if duplicate keys are encountered!
+   2. 'toMap(Function keyMapper, Function valueMapper, BinaryOperator mergeFunction)'
+      - Resolves duplicate keys cleanly (e.g. keep first, keep latest, merge values, sum values).
+   3. 'toMap(Function keyMapper, Function valueMapper, BinaryOperator mergeFunction, Supplier mapSupplier)'
+      - Directs output into specific Map implementations (e.g. 'TreeMap::new', 'LinkedHashMap::new', 'ConcurrentHashMap::new').
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

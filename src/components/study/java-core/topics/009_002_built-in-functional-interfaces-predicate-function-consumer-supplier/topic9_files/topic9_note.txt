@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 9: Consumer Chaining (andThen)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONSUMER ANDTHEN():
+   - Executes left consumer FIRST, then right consumer on same input.
+   - Ideal for multi-step processing: 'c1.andThen(c2).andThen(c3)'.
+   - Stops execution if any consumer throws an exception.
+   - Returns 'Consumer<T>' allowing fluent builder patterns.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

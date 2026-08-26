@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_009: Modern Java Features
+Topic 0: Modern Java Release Cadence & LTS
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE 6-MONTH RELEASE CADENCE:
+   - Introduced with Java 9 (March / September regular release cycle).
+   - Non-LTS releases: Supported for 6 months until the next release.
+   - LTS (Long Term Support) releases: Supported for 5+ years by Oracle, RedHat, Amazon, Eclipse Adoptium.
+
+2. MAJOR LTS MILESTONES:
+   - Java 8  : Foundation of Functional Java (Lambdas, Streams).
+   - Java 11 : Cloud-native modernization (ZGC, HttpClient, var).
+   - Java 17 : Structural OOP clarity (Records, Sealed Classes, instanceof Pattern Matching).
+   - Java 21 : High-throughput concurrency & Data-Oriented Programming (Virtual Threads, Pattern Switch, Sequenced Collections).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

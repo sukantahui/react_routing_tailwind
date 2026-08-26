@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_005: Interview Mastery & Tricky MCQs
+Topic 4: Tricky Riddle 5 - Integer Cache Equality
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTEGER CACHE (Flyweight Pattern):
+   - 'IntegerCache' caches instances from -128 to 127 (high bound configurable via '-XX:AutoBoxCacheMax=<size>').
+   - Autoboxing ('Integer i = 100') invokes 'Integer.valueOf(100)'.
+   - Outside [-128, 127], 'valueOf()' calls 'new Integer()', returning distinct references.
+   - ALWAYS use '.equals()' for wrapper class equality!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

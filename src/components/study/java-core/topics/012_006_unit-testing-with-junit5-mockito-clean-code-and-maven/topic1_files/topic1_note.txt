@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 1: JUnit 5 Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. JUNIT 5 ARCHITECTURAL BREAKDOWN:
+   - JUnit Platform : Engine launcher, IDE integration, CLI runner.
+   - JUnit Jupiter  : Modern Java 8+ annotations, assertions, extensions.
+   - JUnit Vintage  : Backward compatibility runner for JUnit 3 & 4.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

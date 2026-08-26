@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 10: Decorator Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Attach additional responsibilities to an object dynamically.
+   - Provide a flexible alternative to subclassing for extending functionality.
+
+2. CLASSIC JDK EXAMPLE:
+   'new BufferedReader(new FileReader("data.txt"))'
+   'new GZIPOutputStream(new BufferedOutputStream(new FileOutputStream("out.gz")))'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

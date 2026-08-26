@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 10: Lazy Evaluation & Short-Circuit Optimization
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS LAZY EVALUATION:
+   - Intermediate operations are not executed when defined.
+   - They register a series of transformation stages in an internal linked pipeline.
+   - Computation begins only when a terminal operation is called.
+
+2. LOOP FUSION (Vertical Pipeline Traversal):
+   - Rather than making 3 separate horizontal passes over all N elements (pass 1 for filter,
+     pass 2 for map, pass 3 for limit), elements are pushed individually through the
+     entire vertical pipeline one at a time.
+
+3. SHORT-CIRCUITING OPTIMIZATION:
+   - Operations like 'limit(n)', 'findFirst()', 'findAny()', 'anyMatch()', 'allMatch()'
+     can terminate stream traversal immediately without evaluating remaining elements.
+   - Allows processing infinite streams safely.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

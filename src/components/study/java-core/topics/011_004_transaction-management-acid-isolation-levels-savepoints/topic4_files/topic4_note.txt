@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 4: Isolation: Concurrency Control
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS ISOLATION:
+   - Controls how changes made by one transaction are visible to other concurrent transactions.
+   - Configured in JDBC via 'conn.setTransactionIsolation(level)'.
+
+2. MVCC (Multi-Version Concurrency Control):
+   - The modern standard in PostgreSQL, MySQL InnoDB, and Oracle.
+   - Provides snapshot isolation without heavy table or row read-locking.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,24 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 9: Anatomy of a Stream Pipeline
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE THREE PIPELINE STAGES:
+   STAGE 1: SOURCE
+   - Ingestion point (Collection, Array, I/O channel, Generator, Range).
+   
+   STAGE 2: INTERMEDIATE OPERATIONS (0 or More)
+   - Transforms one stream into another stream.
+   - Always LAZY (no work is performed until terminal operation is reached).
+   - Examples: filter(), map(), flatMap(), distinct(), sorted(), peek(), limit(), skip().
+
+   STAGE 3: TERMINAL OPERATION (Exactly 1)
+   - Consumes the stream pipeline and produces a non-stream result (List, int, void, Optional).
+   - Triggers the actual traversal and processing of elements.
+   - Examples: forEach(), collect(), toList(), count(), reduce(), min(), max(), findFirst().
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

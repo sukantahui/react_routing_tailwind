@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 14: Non-Repeatable Read Anomaly
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A NON-REPEATABLE READ (Fuzzy Read):
+   - Occurs when Transaction A reads a row, and a concurrent Transaction B modifies that row and commits.
+   - When Transaction A reads the row a second time, it observes the newly committed changes,
+     producing inconsistent data within a single transaction.
+
+2. PREVENTION:
+   - Enforced by 'Connection.TRANSACTION_REPEATABLE_READ' and 'Connection.TRANSACTION_SERIALIZABLE'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

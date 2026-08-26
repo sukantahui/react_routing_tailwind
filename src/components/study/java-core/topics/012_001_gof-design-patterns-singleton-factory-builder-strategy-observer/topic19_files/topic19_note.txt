@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 19: Anti-Patterns Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS AN ANTI-PATTERN:
+   - A common response to a recurring problem that is usually ineffective and risks being highly counterproductive.
+
+2. CORE GUIDING LAWS:
+   - KISS  : Keep It Simple, Stupid.
+   - YAGNI : You Aren't Gonna Need It.
+   - DRY   : Don't Repeat Yourself.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

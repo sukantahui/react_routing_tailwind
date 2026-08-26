@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_006: JVM Profiling, Heap Dumps & Memory Leak Diagnosis
+Topic 10: The jcmd Utility
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS JCMD:
+   - Recommended command-line utility for sending diagnostic command requests to the JVM.
+   - Introduced in Java 7 to unify all diagnostic interfaces into a single tool.
+
+2. COMMAND SYNTAX:
+   - 'jcmd <pid | main_class> <command> [arguments]'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

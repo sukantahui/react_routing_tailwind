@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 12: filter(Predicate)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FILTER METHOD CONTRACT:
+   - Signature: 'Stream<T> filter(Predicate<? super T> predicate)'.
+   - Returns a stream consisting of the elements of this stream that match the given predicate.
+   - Intermediate & Stateless operation.
+
+2. BEST PRACTICES:
+   - Keep Predicate logic pure (no side-effects or external mutable state).
+   - Prefer method references where applicable ('filter(String::isBlank)').
+   - Split complex boolean logic into multiple chained '.filter()' calls for readability and short-circuiting.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

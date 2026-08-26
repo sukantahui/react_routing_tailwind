@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 11: Small Datasets Overhead
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHY SMALL DATASETS SUFFER IN PARALLEL:
+   - Fixed Overhead Costs of Parallelism:
+     1. Spliterator 'trySplit()' execution and boundary calculations.
+     2. Instantiating 'ForkJoinTask' objects on the heap.
+     3. Inserting tasks into worker thread deques.
+     4. OS thread context switching and cache invalidation.
+     5. Merging sub-results via the combiner function.
+
+2. THRESHOLD RECOMMENDATION:
+   - For simple operations (filter, map), do NOT parallelize unless N > 10,000 elements.
+   - For CPU-heavy math (cryptography, physics calculations), parallelism is profitable at lower N (e.g. N > 100).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_003: Method & Constructor References
+Topic 4: Bound Instance Method References
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BOUND INSTANCE METHOD REFERENCES:
+   - Syntax: 'instanceRef::instanceMethodName'.
+   - Bound to a SPECIFIC object instance created beforehand.
+   - Equivalence: 'x -> myObject.doSomething(x)'.
+   - 'System.out::println' is bound to the 'System.out' PrintStream object.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 5: Stop-The-World (STW) & Safepoints
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A SAFEPOINT:
+   - A point during program execution where all execution state is known and consistent.
+   - JIT compiler places safepoint polls at method returns and loop back-edges.
+
+2. TIME TO SAFEPOINT (TTSP):
+   - The time it takes for all threads to reach a safepoint after GC signals a pause.
+   - Counted loops without safepoints can cause delayed TTSP and latency spikes!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

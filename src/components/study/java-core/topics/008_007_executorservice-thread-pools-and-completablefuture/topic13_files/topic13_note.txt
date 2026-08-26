@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 13: Transforming Async Results
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CALLBACK OPERATORS:
+   - 'thenApply(Function)': Transforms input &rarr; output (map equivalent).
+   - 'thenAccept(Consumer)': Consumes value; returns Void.
+   - 'thenRun(Runnable)': Ignores value; runs side-effect action.
+   - Async variants: 'thenApplyAsync()' dispatches callback to a separate thread pool.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

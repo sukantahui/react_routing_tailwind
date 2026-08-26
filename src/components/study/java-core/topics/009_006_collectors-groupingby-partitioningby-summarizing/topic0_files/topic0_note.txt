@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_006: The Collectors Class & Downstream Reducers
+Topic 0: The collect(Collector) Operation
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS MUTABLE REDUCTION:
+   - Accumulates input elements into a mutable result container (e.g. Collection, StringBuilder, Map).
+   - Rather than creating new objects on every step, elements are added directly to the existing container.
+
+2. THE TWO OVERLOADS OF COLLECT:
+   1. '<R, A> R collect(Collector<? super T, A, R> collector)'
+      - Standard usage with predefined factory collectors from 'java.util.stream.Collectors'.
+   2. '<R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner)'
+      - Low-level builder overload showing explicit container lifecycle.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

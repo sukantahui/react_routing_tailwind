@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 2: PreparedStatement Batch Operations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. BATCH API METHODS:
+   - 'pstmt.addBatch()'    : Appends current parameter values to the internal batch buffer.
+   - 'pstmt.executeBatch()': Submits the batch to the database engine. Returns 'int[]'.
+
+2. RETURN VALUE OF 'executeBatch()':
+   - An array of integers ('int[]') containing the update count for each command in the batch:
+     * &gt;= 0 : Successfully executed; value is number of affected rows.
+     * 'Statement.SUCCESS_NO_INFO' (-2) : Successfully executed, but affected row count is unknown.
+     * 'Statement.EXECUTE_FAILED' (-3)  : Command failed.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

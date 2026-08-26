@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 16: Command Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Encapsulate a request as an object, thereby letting you parameterize clients with different requests,
+     queue or log requests, and support undoable operations.
+
+2. PARTICIPANTS:
+   - Command    : Interface with 'execute()' and 'undo()'.
+   - Receiver   : The domain object performing actual work.
+   - Invoker    : Stores command history and triggers execution.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

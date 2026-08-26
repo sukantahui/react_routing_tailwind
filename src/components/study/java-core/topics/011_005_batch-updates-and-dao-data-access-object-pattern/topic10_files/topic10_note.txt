@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_005: Batch Updates & DAO Pattern
+Topic 10: Multi-Tier Architecture
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LAYER ROLES:
+   - Controller : User Interaction / HTTP endpoints.
+   - Service    : Business Rules / Calculations.
+   - DAO        : Database CRUD operations.
+   - Model      : Immutable Data representations.
+
+2. GOLDEN RULE:
+   - Never skip layers (e.g. Controller calling DAO directly without Service).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

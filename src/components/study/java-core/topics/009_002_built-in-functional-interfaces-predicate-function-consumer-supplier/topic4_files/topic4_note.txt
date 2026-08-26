@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 4: Consumer<T> Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CONSUMER<T>:
+   - SAM: 'void accept(T t)'.
+   - Input: T, Output: void.
+   - Purpose: Side-effects (printing, logging, database writes, UI updates).
+   - Powers 'Iterable.forEach(consumer)' and 'Stream.peek()'.
+   - Composition: 'consumerA.andThen(consumerB)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

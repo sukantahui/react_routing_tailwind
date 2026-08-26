@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_001: JDBC Architecture, Drivers & Connection Pooling (HikariCP)
+Topic 2: The 4 Types of JDBC Drivers
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. DRIVER TAXONOMY:
+   - Type 1 : JDBC-ODBC Bridge (obsolete, dropped in JDK 8).
+   - Type 2 : Native-API Driver (uses JNI C/C++ client libraries like OCI).
+   - Type 3 : Network-Protocol Driver (communicates via middle-tier application server).
+   - Type 4 : Native-Protocol Pure Java Driver (Direct TCP socket communication).
+
+2. COMMON TYPE 4 DRIVER CLASSES:
+   - MySQL      : 'com.mysql.cj.jdbc.Driver'
+   - PostgreSQL : 'org.postgresql.Driver'
+   - Oracle     : 'oracle.jdbc.OracleDriver'
+   - SQLite     : 'org.sqlite.JDBC'
+   - H2         : 'org.h2.Driver'
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,24 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 3: 1-Argument reduce(BinaryOperator)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD SIGNATURE:
+   - 'Optional<T> reduce(BinaryOperator<T> accumulator)'
+
+2. EXECUTION SEMANTICS:
+   - If stream is empty &rarr; returns 'Optional.empty()'.
+   - If stream has 1 element &rarr; returns 'Optional.of(element)' without invoking accumulator.
+   - If stream has N elements &rarr; first element is used as initial accumulator, then combined
+     with remaining N-1 elements.
+
+3. COMMON USE CASES:
+   - Finding custom min/max without requiring Comparator.
+   - Finding the longest/shortest string.
+   - Mathematical reductions when no neutral identity exists.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

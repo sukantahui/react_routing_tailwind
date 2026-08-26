@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 11: ZGC (Ultra-Low Latency Collector)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS ZGC (JEP 377 / JEP 439):
+   - Production-ready since Java 15; Generational ZGC added in Java 21 (JEP 439).
+   - Scalable low-latency collector targeting Stop-The-World pauses &lt; 1ms.
+   - Heap capacity scales from 16MB to 16TB without increasing pause times!
+
+2. HOW CONCURRENT COMPACTION WORKS:
+   - Uses Colored Pointers (metadata in reference bits 42-45) and JIT-compiled Load Barriers.
+   - If an application thread accesses an object currently being moved, the Load Barrier
+     intercepts the access, updates the pointer to the new address ('self-healing'),
+     and returns the object without pausing the thread!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

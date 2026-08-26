@@ -1,0 +1,25 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 11: Stateless vs Stateful Operations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. STATELESS INTERMEDIATE OPERATIONS:
+   - Definition: Processing of an element does NOT depend on any previously seen elements.
+   - Memory overhead: O(1) per element.
+   - Operations: 'filter()', 'map()', 'mapToInt()', 'flatMap()', 'peek()'.
+   - Parallel friendly: Scales linearly across CPU cores with zero synchronization overhead.
+
+2. STATEFUL INTERMEDIATE OPERATIONS:
+   - Definition: Processing of an element depends on previously seen elements or requires
+     buffering multiple elements before emitting output.
+   - Operations:
+     * 'distinct()': Remembers all previously processed items via hash table.
+     * 'sorted()': Must buffer the ENTIRE stream before sorting and releasing the first item.
+     * 'limit(n)', 'skip(n)': Tracks element count state.
+   - Warning: Calling 'sorted()' on an infinite stream will freeze and crash with OutOfMemoryError.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

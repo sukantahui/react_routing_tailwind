@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_001: Lambda Expressions & Lexical Scoping
+Topic 3: Target Typing Deduction
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. TARGET TYPING:
+   - A lambda has NO standalone type.
+   - Type is inferred from context (variable, parameter, return, cast).
+   - Target must be a Functional Interface matching method signature.
+   - The same lambda can bind to different interfaces (e.g. Callable vs Supplier).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

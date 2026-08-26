@@ -1,0 +1,28 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_004: Stream API Pipeline & Intermediate Operations
+Topic 14: flatMap(Function)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FLATMAP METHOD CONTRACT:
+   - Signature: '<R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper)'.
+   - Takes a function that transforms each element of type T into a 'Stream<R>'.
+   - Flattens (merges) all generated individual streams into a single combined 'Stream<R>'.
+
+2. MAP VS FLATMAP SUMMARY:
+   -----------------------------------------------------------------------------
+   METHOD    INPUT TYPE            TRANSFORMATION FUNCTION    OUTPUT TYPE
+   -----------------------------------------------------------------------------
+   map()     T                     Function<T, R>             Stream<R> (1-to-1)
+   flatMap() T                     Function<T, Stream<R>>     Stream<R> (1-to-Many flattened)
+   -----------------------------------------------------------------------------
+
+3. COMMON USE CASES:
+   - Flattening 'List<List<T>>' &rarr; 'List<T>'.
+   - Splitting sentences into streams of individual words ('sentence -> Arrays.stream(sentence.split(" "))').
+   - Extracting sub-collections from domain entities (Order &rarr; List<OrderItem>).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

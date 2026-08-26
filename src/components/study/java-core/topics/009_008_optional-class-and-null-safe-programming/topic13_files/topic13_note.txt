@@ -1,0 +1,24 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 13: flatMap(Function) on Optional
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT:
+   - Signature: '<U> Optional<U> flatMap(Function<? super T, ? extends Optional<? extends U>> mapper)'.
+   - Unlike 'map()', which wraps the function return value in an 'Optional', 'flatMap()' expects
+     the function to RETURN an 'Optional<U>' directly, and does NOT add an extra layer of wrapping.
+
+2. MAP VS FLATMAP SUMMARY:
+   -----------------------------------------------------------------------------
+   METHOD     FUNCTION RETURN TYPE      RESULT TYPE
+   -----------------------------------------------------------------------------
+   map()      U                         Optional<U>
+   map()      Optional<U>               Optional<Optional<U>> (Nested!)
+   flatMap()  Optional<U>               Optional<U> (Cleanly flattened!)
+   -----------------------------------------------------------------------------
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

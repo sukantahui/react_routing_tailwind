@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_001: GoF Design Patterns
+Topic 14: Strategy Pattern
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. INTENT:
+   - Define a family of algorithms, encapsulate each one, and make them interchangeable.
+   - Strategy lets the algorithm vary independently from clients that use it.
+
+2. MODERN JAVA 8 INTEGRATION:
+   - 'java.util.Comparator' is the prime example of the Strategy pattern in Java!
+   - Lambdas allow passing strategies as first-class parameters.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

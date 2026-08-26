@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 8: Creating Custom Annotations (@interface)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE '@INTERFACE' KEYWORD:
+   - Declares an annotation type.
+   - Implicitly extends 'java.lang.annotation.Annotation'.
+   - Annotation types cannot explicitly extend other classes or interfaces.
+
+2. ELEMENT METHOD RULES:
+   - No parameters allowed ('String value()' is valid; 'String value(int x)' is a compile error).
+   - No 'throws' clauses allowed.
+   - Return types are restricted to specific allowed types.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

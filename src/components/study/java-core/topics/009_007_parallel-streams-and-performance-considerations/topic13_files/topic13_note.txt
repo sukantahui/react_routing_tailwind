@@ -1,0 +1,21 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_007: Parallel Streams & Performance Considerations
+Topic 13: Parallel Stream Benchmarking Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THE PARALLEL STREAM DECISION CHECKLIST:
+   [ ] Is N * Q > 10,000?
+   [ ] Is the source data structure easily splittable in O(1) (ArrayList, IntStream)?
+   [ ] Are operations stateless and free of shared mutable variables?
+   [ ] Is the pipeline free of blocking I/O (no HTTP, DB, or Sleep calls)?
+   [ ] Does the operation avoid expensive stateful barriers (sorted, distinct)?
+
+2. ORDERING IN PARALLEL STREAMS:
+   - 'forEach()': Fast, non-deterministic order, zero barrier.
+   - 'forEachOrdered()': Strict encounter order, introduces thread synchronization barrier.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_004: JVM Memory Model: Heap, Stack, Metaspace & Runtime Areas
+Topic 3: Java Thread Stack
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CHARACTERISTICS OF THE JVM THREAD STACK:
+   - Created simultaneously when a Java Thread is created.
+   - Holds Stack Frames. A frame is pushed when a method is called and popped when it returns.
+   - Stores primitive local variables and object references.
+
+2. STACK CONFIGURATION:
+   - '-Xss<size>' : Sets thread stack size (e.g. '-Xss512k' or '-Xss1m').
+   - Deep recursive calls without base cases exhaust stack memory, triggering 'StackOverflowError'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

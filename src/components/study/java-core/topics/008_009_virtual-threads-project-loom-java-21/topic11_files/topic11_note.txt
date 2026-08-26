@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_009: Virtual Threads (Java 21+)
+Topic 11: Never Pool Virtual Threads
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. NEVER POOL VIRTUAL THREADS:
+   - Platform threads were pooled because they cost 1 MB RAM.
+   - Virtual threads are ephemeral (~few hundred bytes).
+   - Create a new virtual thread per task & let it die upon completion.
+   - Need to limit database/API access? Use 'Semaphore', NOT thread pools!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

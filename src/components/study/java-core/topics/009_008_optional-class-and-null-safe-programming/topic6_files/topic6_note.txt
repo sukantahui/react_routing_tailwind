@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 6: orElseThrow() Semantics
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT (Java 10+):
+   - Signature: 'public T orElseThrow()'.
+   - If a value is present, returns the value.
+   - Otherwise, throws 'NoSuchElementException("No value present")'.
+
+2. WHY OR ELSE THROW WAS ADDED TO REPLACE GET():
+   - Method name '.get()' sounds innocent and disguises the risk of throwing an exception.
+   - '.orElseThrow()' clearly communicates that absence will trigger an exception.
+   - Java architects recommend '.orElseThrow()' over '.get()' in all modern codebases.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

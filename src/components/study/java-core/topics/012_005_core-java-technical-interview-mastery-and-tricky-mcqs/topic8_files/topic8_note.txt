@@ -1,0 +1,15 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_005: Interview Mastery & Tricky MCQs
+Topic 8: Concurrency Live Coding Scenarios
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LRU CACHE IMPLEMENTATION:
+   - 'LinkedHashMap(capacity, loadFactor, accessOrder=true)'.
+   - Override 'removeEldestEntry()' returning 'size() > capacity'.
+   - Guard with 'ReentrantReadWriteLock' (write lock needed for get due to access order mutation).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

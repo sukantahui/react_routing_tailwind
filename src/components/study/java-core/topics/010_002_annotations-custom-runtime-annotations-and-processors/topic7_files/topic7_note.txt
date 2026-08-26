@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_002: Java Annotations & Custom Processors
+Topic 7: @Repeatable Annotations (Java 8+)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT @REPEATABLE DOES (Java 8+):
+   - Allows an annotation type to be applied more than once to the same declaration.
+   - Eliminates clunky container wrapping syntax (e.g. '@Filters({@Filter, @Filter})').
+
+2. THE TWO REQUIRED STEPS:
+   1. Define Container Annotation with a 'value()' method returning an array:
+      'public @interface Schedules { Schedule[] value(); }'
+   2. Annotate the repeated annotation with '@Repeatable(Schedules.class)'.
+
+3. REFLECTION EXTRACTION METHOD:
+   - Use 'element.getAnnotationsByType(Schedule.class)' to extract the array directly.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

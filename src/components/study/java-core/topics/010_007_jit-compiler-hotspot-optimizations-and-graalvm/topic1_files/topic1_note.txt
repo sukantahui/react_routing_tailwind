@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 1: Tiered Compilation Overview
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS TIERED COMPILATION:
+   - Default since Java 8 ('-XX:+TieredCompilation').
+   - Bridges the gap between C1 (fast compilation, moderate optimization) and C2 (slow compilation, peak optimization).
+
+2. STANDARD PROMOTION PATH:
+   - 'Level 0 (Interpreted) &rarr; Level 3 (C1 Full Profiling) &rarr; Level 4 (C2 Server JIT)'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 15: Closed-World Assumption Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE CLOSED-WORLD ASSUMPTION:
+   - The fundamental contract of GraalVM Native Image.
+   - Assumes that all classes, methods, and fields that will ever be accessed are known at compile time.
+   - Any class loaded via dynamic reflection that was not registered in 'reflect-config.json'
+     will throw 'ClassNotFoundException' at runtime!
+
+2. HOW TO GENERATE METADATA AUTOMATICALLY:
+   - Use the GraalVM Tracing Agent ('-agentlib:native-image-agent=config-output-dir=...').
+   - Spring Boot 3 AOT engine generates this configuration automatically during 'mvn compile'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_002: Built-in Functional Interfaces
+Topic 3: Function<T, R> Deep Dive
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. FUNCTION<T, R>:
+   - SAM: 'R apply(T t)'.
+   - Input: T, Output: R.
+   - Used for: Data transformation, DTO mapping, mathematical calculation.
+   - Powers 'Stream.map(function)'.
+   - Specializations: 'IntFunction', 'ToDoubleFunction', 'UnaryOperator'.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 008_007: ExecutorService, Thread Pools & CompletableFuture
+Topic 14: thenCompose FlatMap Composition
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. THENCOMPOSE (ASYNC FLATMAP):
+   - Used when Stage 2 returns another CompletableFuture.
+   - 'thenApply()' yields: 'CompletableFuture<CompletableFuture<T>>' (Nested).
+   - 'thenCompose()' yields: 'CompletableFuture<T>' (Flattened).
+   - Perfect for dependent asynchronous sequential workflows (e.g. Auth &rarr; Fetch Profile).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

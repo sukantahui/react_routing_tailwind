@@ -1,0 +1,20 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_005: Garbage Collection Algorithms, Collectors & GC Tuning
+Topic 17: Reading & Analyzing GC Logs Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CRITICAL GC LOG ANALYSIS FORMULAS:
+   - Throughput %        : (Total App Time - Total GC Pause Time) / Total App Time * 100
+   - Allocation Rate     : MB allocated in Eden between GC events / Time delta
+   - Promotion Rate      : MB moved to Old Generation per second
+
+2. VISUALIZATION & ANALYSIS TOOLS:
+   - GCEasy.io (Universal online GC log analyzer).
+   - GCViewer (Open-source desktop offline log analyzer).
+   - JDK Mission Control (JMC) & Java Flight Recorder (JFR).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

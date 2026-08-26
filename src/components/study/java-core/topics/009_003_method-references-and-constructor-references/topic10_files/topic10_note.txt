@@ -1,0 +1,22 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_003: Method & Constructor References
+Topic 10: When NOT to Use Method References Capstone
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MODULE 009_003 GRAND SUMMARY:
+   - Method References: Syntactic sugar for pure method forwarding.
+   - Double Colon (::): 'Target::Method' (No parentheses!).
+   - The 4 Kinds:
+     1. Static: 'Math::max' (ClassName::staticMethod).
+     2. Bound: 'System.out::println' (objRef::instanceMethod).
+     3. Unbound: 'String::length' (ClassName::instanceMethod).
+     4. Constructor: 'ArrayList::new', 'String[]::new' (ClassName::new).
+   - Unbound Parameter Resolution: 1st argument = target receiver object.
+   - Array Constructor: 'Stream.toArray(String[]::new)' ensures type safety.
+   - When NOT to use: When injecting constants, modifying parameters, or resolving ambiguous overloads!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

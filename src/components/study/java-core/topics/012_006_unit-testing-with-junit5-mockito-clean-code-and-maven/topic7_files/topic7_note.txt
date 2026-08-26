@@ -1,0 +1,16 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 012_006: JUnit 5, Mockito, Clean Code & Maven
+Topic 7: Creating Mocks (@Mock & @InjectMocks)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. MOCKITO ANNOTATIONS:
+   - '@ExtendWith(MockitoExtension.class)' : Enables JUnit 5 Mockito lifecycle integration.
+   - '@Mock'         : Creates a mock instance.
+   - '@InjectMocks'  : Creates instance of class under test and injects '@Mock' / '@Spy' fields.
+   - 'MockitoAnnotations.openMocks(this)' : Programmatic alternative to extension.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

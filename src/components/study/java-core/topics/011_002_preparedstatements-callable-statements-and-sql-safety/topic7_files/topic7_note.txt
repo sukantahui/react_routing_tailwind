@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_002: PreparedStatements, CallableStatements & SQL Safety
+Topic 7: CRUD Operations with PreparedStatement
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. CRUD SUMMARY:
+   - CREATE &rarr; 'pstmt.executeUpdate()' (Returns 1 on successful insert).
+   - READ   &rarr; 'pstmt.executeQuery()'   (Returns ResultSet; iterate with 'rs.next()').
+   - UPDATE &rarr; 'pstmt.executeUpdate()' (Returns count of updated rows).
+   - DELETE &rarr; 'pstmt.executeUpdate()' (Returns count of deleted rows).
+
+2. IDEMPOTENCY:
+   - Updates and Deletes return '0' if no matching rows met the WHERE criteria.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

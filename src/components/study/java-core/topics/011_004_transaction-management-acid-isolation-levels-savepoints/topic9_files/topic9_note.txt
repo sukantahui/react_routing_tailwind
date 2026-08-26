@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 011_004: Transaction Management, ACID, Isolation Levels & Savepoints
+Topic 9: Rolling Back Transactions
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT 'rollback()' DOES:
+   - Undoes all changes made in the current transaction.
+   - Releases any database locks currently held by the Connection.
+
+2. CATCH BLOCK BEST PRACTICE:
+   - Catch BOTH 'SQLException' AND 'RuntimeException' (or 'Exception') to ensure rollback executes
+     even on unexpected runtime logic errors (e.g. 'NullPointerException')!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

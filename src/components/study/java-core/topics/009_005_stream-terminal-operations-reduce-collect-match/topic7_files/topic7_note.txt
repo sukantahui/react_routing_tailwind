@@ -1,0 +1,23 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_005: Stream Terminal Operations, Reductions & Short-Circuiting
+Topic 7: Short-Circuiting Terminal Operations
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A SHORT-CIRCUITING TERMINAL OPERATION:
+   - A terminal operation that is NOT required to examine all elements of a stream before
+     producing a final result.
+   - Halts pipeline traversal as soon as the definitive answer is known.
+
+2. LIST OF SHORT-CIRCUITING TERMINAL OPERATIONS:
+   - Matching: 'anyMatch(Predicate)', 'allMatch(Predicate)', 'noneMatch(Predicate)'.
+   - Finding: 'findFirst()', 'findAny()'.
+
+3. KEY ADVANTAGES:
+   - Massive performance boost on large datasets (O(1) to O(k) instead of O(N)).
+   - Makes it possible to run terminal operations safely on infinite streams!
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

@@ -1,0 +1,18 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 010_007: JIT Compiler, HotSpot Optimizations & GraalVM
+Topic 8: Lock Elision & Lock Coarsening
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. LOCK ELISION:
+   - If an object on which synchronization is performed is determined to be 'NoEscape',
+     the JIT compiler omits all monitor enter/exit instructions in the generated native machine code.
+
+2. LOCK COARSENING:
+   - When a sequence of adjacent operations repeatedly acquires and releases the same lock
+     (e.g. inside a loop), JIT expands the lock boundary to encompass the entire sequence.
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================

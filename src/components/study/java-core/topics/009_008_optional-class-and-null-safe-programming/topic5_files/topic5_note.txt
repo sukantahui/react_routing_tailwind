@@ -1,0 +1,19 @@
+================================================================================
+JAVA CORE TUTORIAL - QUICK REVISION GUIDE
+Module 009_008: The Optional Class & Null-Safe Functional Programming
+Topic 5: orElseGet(Supplier)
+Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
+================================================================================
+
+1. METHOD CONTRACT:
+   - Signature: 'public T orElseGet(Supplier<? extends T> supplier)'.
+   - If a value is present, returns the value.
+   - Otherwise, invokes 'supplier.get()' and returns the result of that invocation.
+
+2. LAZY EVALUATION BENEFIT:
+   - The Supplier lambda is only evaluated on-demand when the Optional is truly empty.
+   - Perfect for expensive operations (REST calls, database lookups, security token creation).
+
+================================================================================
+Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui
+================================================================================
