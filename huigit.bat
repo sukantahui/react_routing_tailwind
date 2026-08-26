@@ -12,9 +12,9 @@ echo ===============================================================
 
 :: 1. Verify Git Repository
 git rev-parse --is-inside-work-tree >nul 2>&1
-if %ERRORLEVEL% neq 0 (
+if !ERRORLEVEL! neq 0 (
     echo ❌ ERROR: This directory is not a Git repository!
-    pause
+    ping 127.0.0.1 -n 5 >nul
     exit /b 1
 )
 
@@ -50,15 +50,15 @@ echo ===============================================================
 echo 📦 1/4 Staging changes (git add .)...
 echo ===============================================================
 git add .
-if %ERRORLEVEL% neq 0 (
+if !ERRORLEVEL! neq 0 (
     echo ❌ Failed to stage changes.
-    pause
-    exit /b %ERRORLEVEL%
+    ping 127.0.0.1 -n 5 >nul
+    exit /b !ERRORLEVEL!
 )
 
 :: 4. Check if there are changes to commit
 git diff --cached --quiet
-if %ERRORLEVEL% equ 0 (
+if !ERRORLEVEL! equ 0 (
     echo ℹ️ No new changes detected to commit.
 ) else (
     echo.
@@ -66,10 +66,10 @@ if %ERRORLEVEL% equ 0 (
     echo 📝 2/4 Committing: "!COMMIT_MSG!"...
     echo ===============================================================
     git commit -m "!COMMIT_MSG!"
-    if %ERRORLEVEL% neq 0 (
+    if !ERRORLEVEL! neq 0 (
         echo ❌ Commit failed.
-        pause
-        exit /b %ERRORLEVEL%
+        ping 127.0.0.1 -n 5 >nul
+        exit /b !ERRORLEVEL!
     )
 )
 
@@ -78,14 +78,14 @@ echo ===============================================================
 echo ⬇️ 3/4 Pulling latest changes (git pull --rebase)...
 echo ===============================================================
 git pull --rebase origin !CURRENT_BRANCH!
-if %ERRORLEVEL% neq 0 (
+if !ERRORLEVEL! neq 0 (
     echo ⚠️ Rebase pull had conflict or failed. Trying standard pull...
     git rebase --abort >nul 2>&1
     git pull origin !CURRENT_BRANCH!
-    if %ERRORLEVEL% neq 0 (
+    if !ERRORLEVEL! neq 0 (
         echo ❌ Failed to pull changes from remote. Please resolve conflicts.
-        pause
-        exit /b %ERRORLEVEL%
+        ping 127.0.0.1 -n 5 >nul
+        exit /b !ERRORLEVEL!
     )
 )
 
@@ -94,10 +94,10 @@ echo ===============================================================
 echo ⬆️ 4/4 Pushing to remote (git push origin !CURRENT_BRANCH!)...
 echo ===============================================================
 git push origin !CURRENT_BRANCH!
-if %ERRORLEVEL% neq 0 (
+if !ERRORLEVEL! neq 0 (
     echo ❌ Push failed! Please check your network connection or credentials.
-    pause
-    exit /b %ERRORLEVEL%
+    ping 127.0.0.1 -n 5 >nul
+    exit /b !ERRORLEVEL!
 )
 
 echo.
