@@ -13,6 +13,58 @@ import noteText from "./topic2_files/topic2_note.txt?raw";
  * @component
  * @returns {JSX.Element} Rich interactive tutorial component.
  */
+const conf = {
+  badge1: "TRANSITIVE VIOLATION (dept_id -> location)",
+  badge2: "CODD'S 3NF TEST: X IS NOT SUPERKEY",
+  badge3: "BERNSTEIN'S 3NF SYNTHESIS",
+  badge4: "3NF NORMALIZED (DECOMPOSED INTO 2 RELATIONS)",
+  title1: "Transitive Dependency Anomaly in Employee Department Table",
+  title2: "Evaluating Non-Prime to Non-Prime Determinants",
+  title3: "Applying Minimal Cover & Lossless Decomposition",
+  title4: "Clean 3NF Schema with Foreign Key Linkage",
+  sql1: `-- Violation Schema with Transitive Dependency
+CREATE TABLE emp_dept_violating (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(100) NOT NULL,
+    salary_inr DECIMAL(12, 2) NOT NULL,
+    dept_id INT NOT NULL,
+    dept_name VARCHAR(100) NOT NULL,
+    location VARCHAR(100) NOT NULL -- Transitive: emp_id -> dept_id -> location
+);`,
+  sql4: `-- 3NF Normalized Schema: Lossless Join & Dependency Preserving
+CREATE TABLE departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(100) NOT NULL,
+    location VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(100) NOT NULL,
+    salary_inr DECIMAL(12, 2) NOT NULL,
+    dept_id INT NOT NULL,
+    CONSTRAINT fk_emp_dept FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+);`,
+  prob1: "Storing department location alongside employee records creates update anomalies when a department moves offices, and insertion anomalies when creating a new department without employees.",
+  prob2: "In the dependency emp_id -> dept_id -> location, dept_id is neither a candidate superkey of the table nor is location a prime attribute.",
+  prob3: "Synthesizing minimal covers isolates X -> A into separate relations where X is guaranteed to form a candidate primary key.",
+  prob4: "Decomposing into employees (emp_id, emp_name, salary, dept_id) and departments (dept_id, dept_name, location) eliminates transitive anomalies.",
+  cause1: "Functional dependency chain: emp_id -> dept_id and dept_id -> location where dept_id is a non-prime determinant.",
+  cause2: "Violation of Codd's 3NF Rule: neither side satisfies the superkey or prime attribute condition.",
+  cause3: "Decomposition algorithm ensures all original dependencies are preserved across relational projections.",
+  cause4: "Relational boundaries enforced via InnoDB Foreign Key constraint with ON DELETE RESTRICT.",
+  rows1: [
+    { c1: "101", c2: "Swadeep Banerjee", c3: "85,000", c4: "D01", c5: "FinTech", c6: "Barrackpore" },
+    { c1: "102", c2: "Tuhina Mukherjee", c3: "92,000", c4: "D01", c5: "FinTech", c6: "Barrackpore" },
+    { c1: "103", c2: "Abhronila Sengupta", c3: "78,000", c4: "D02", c5: "Operations", c6: "Kolkata" }
+  ],
+  rows4: [
+    { c1: "101", c2: "Swadeep Banerjee", c3: "85,000", c4: "D01", c5: "FinTech", c6: "Barrackpore" },
+    { c1: "102", c2: "Tuhina Mukherjee", c3: "92,000", c4: "D01", c5: "FinTech", c6: "Barrackpore" },
+    { c1: "103", c2: "Abhronila Sengupta", c3: "78,000", c4: "D02", c5: "Operations", c6: "Kolkata" }
+  ]
+};
+
 const Topic2 = () => {
   const [selectedTab, setSelectedTab] = useState("tab1");
   const [copiedCode, setCopiedCode] = useState(false);
