@@ -1,0 +1,36 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 19: java.util.Arrays Masterclass Utility Suite
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- 1. Formatting:
+  * Arrays.toString(arr1D)        -> Formats 1D array as string.
+  * Arrays.deepToString(matrix2D) -> Recursively formats multidimensional arrays.
+
+- 2. Sorting & Searching:
+  * Arrays.sort(arr)              -> Dual-Pivot Quicksort (primitives) / TimSort (objects).
+  * Arrays.parallelSort(arr)      -> Multi-core parallel sort for large arrays (N >= 8192).
+  * Arrays.binarySearch(arr, key) -> O(log N) lookup (returns -(insertion_point + 1) if missing).
+
+- 3. Population & Comparison:
+  * Arrays.fill(arr, val)         -> Sets all slots to 'val' in O(N) time.
+  * Arrays.setAll(arr, i -> expr) -> Sets slots via index lambda expression.
+  * Arrays.equals(a, b)           -> Shallow 1D element equality.
+  * Arrays.deepEquals(m1, m2)     -> Deep recursive multidimensional equality.
+  * Arrays.mismatch(a, b)         -> Returns first differing index (Java 9+).
+
+- 4. Bridging:
+  * Arrays.asList(T... a)         -> Fixed-size List wrapper backed by array.
+  * Arrays.stream(arr)            -> Sequential/Parallel Stream API pipeline.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always sort array before calling Arrays.binarySearch().
+[✓] In 2D arrays, use Arrays.deepToString() and Arrays.deepEquals().
+[✓] Arrays.asList(primitiveIntArray) creates List<int[]> of size 1 (autoboxing trap!).
+[✓] MODULE 001_006 IS NOW 100% COMPLETE! (All 20 Topics Finalized).
+================================================================================

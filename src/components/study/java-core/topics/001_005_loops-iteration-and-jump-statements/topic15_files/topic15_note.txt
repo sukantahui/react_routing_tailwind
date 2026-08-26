@@ -1,0 +1,30 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 15: 2D Visual Star Patterns (Triangles, Pyramids, Diamonds)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Standard Pattern Generation Blueprint:
+  1. Outer Loop       : Controls ROW height (r = 1 to N).
+  2. Inner Space Loop : Prints leading alignment spaces: (N - r).
+  3. Inner Star Loop  : Prints stars: (r for triangles, 2*r - 1 for pyramids).
+  4. Row Break        : System.out.println() after inner loops complete!
+
+- Mathematical Formulas to Memorize:
+  * Centered Pyramid Leading Spaces : spaces = (N - r)
+  * Centered Pyramid Stars (Odd)    : stars  = (2 * r - 1)
+  * Full Diamond Construction       : Top Pyramid (1..N) + Inverted Bottom (N-1..1)
+  * Primary Diagonal                : if (r == c)
+  * Secondary (Anti) Diagonal       : if (r + c == N + 1)
+  * Hollow Perimeter                : if (r==1 || r==N || c==1 || c==N)
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Maintain width symmetry: Use 2 spaces ("  ") to match "* " column width.
+[✓] Never forget System.out.println() after inner loops (or shape collapses!).
+[✓] Tabulate on paper first: write down rows, spaces, and stars to derive formulas.
+[✓] Total stars: Right Triangle = N(N+1)/2 | Centered Pyramid = N^2.
+================================================================================

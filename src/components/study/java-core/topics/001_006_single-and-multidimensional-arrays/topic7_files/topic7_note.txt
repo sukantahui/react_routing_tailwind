@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 7: ArrayIndexOutOfBoundsException (Root Causes & Defensive Prevention)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is ArrayIndexOutOfBoundsException? (JLS §10.4):
+  * An UNCHECKED RuntimeException thrown when index < 0 OR index >= arr.length.
+  * Fail-Fast guarantee: prevents silent data corruption and memory over-reads.
+
+- Top 4 Root Causes:
+  1. Off-by-one in loop header : for (int i = 0; i <= arr.length; i++) -> BUG!
+  2. Negative index access     : arr[-1] -> Throws exception (no negative indices in Java).
+  3. Reverse loop start bug    : for (int i = arr.length; i >= 0; i--) -> BUG at first iteration!
+  4. Empty array access        : new int[0][0] -> Throws exception (length is 0).
+
+- Top 3 Prevention Strategies:
+  1. Strict Loop Idiom         : for (int i = 0; i < arr.length; i++) (Strictly '<'!).
+  2. Defensive Guard           : if (idx >= 0 && idx < arr.length) { ... }
+  3. Enhanced For-Each Loop    : for (Type x : arr) { ... } (100% immune to index bugs).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] In reverse loops, start strictly at: int i = arr.length - 1; i >= 0; i--.
+[✓] In adjacent comparisons (arr[i] == arr[i+1]), loop must end at: i < arr.length - 1.
+[✓] Always guard dynamic user inputs with: if (idx >= 0 && idx < arr.length).
+[✓] Modern Java 9+ utility: Objects.checkIndex(idx, arr.length) for clean validation.
+================================================================================

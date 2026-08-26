@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 12: The 'break' Statement (Immediate Loop Termination)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Syntax & Mechanics (JLS §14.15):
+  break; // Immediately terminates the innermost enclosing for, while, do-while, switch.
+
+- Primary Industry Use Cases:
+  1. Early Exit in Linear Search:
+     * Halts immediately upon finding the target, saving O(N) redundant inspections.
+  2. Threshold / Budget Exhaustion:
+     * Stops iteration when budget ceilings or transaction limits are exceeded.
+  3. Sentinel Input Termination:
+     * while (true) { if ("QUIT".equals(input)) break; }
+
+- Critical Scope Rules:
+  * In nested loops, an unlabeled 'break' terminates ONLY the innermost loop!
+  * Using 'break' outside a loop/switch causes a compile error.
+  * Statements written immediately below an unconditional 'break' are UNREACHABLE.
+  * In a try-finally block, the 'finally' block STILL EXECUTES before break exits!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use 'break' to convert average search performance to early-exit speed.
+[✓] In nested loops, remember unlabeled 'break' leaves outer loops running.
+[✓] Prefer early 'break' over complex boolean flag gymnastics.
+[✓] Ensure finally blocks are designed to handle early break exits gracefully.
+================================================================================

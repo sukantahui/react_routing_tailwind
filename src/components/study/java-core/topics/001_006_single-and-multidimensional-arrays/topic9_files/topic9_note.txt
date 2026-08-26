@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 9: Enhanced For-Each Loop & Read-Only Limitations
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Enhanced For-Each Loop Syntax (JLS §14.14.2):
+  * for (Type variable : arrayReference) { ... }
+  * Desugared by compiler into an indexed for loop with zero Iterator overhead.
+
+- Read-Only Limitations on Primitives:
+  * In 'for (double s : stipends) s += 1000;', 's' is a LOCAL COPY variable!
+  * Modifying 's' has ZERO effect on the underlying array in Heap memory.
+
+- Object Arrays Distinction:
+  * Method mutation: for (Student s : list) s.setFee(1000); -> MUTATES Heap Object!
+  * Reassignment   : for (Student s : list) s = new Student(); -> Modifies local variable only!
+
+- When to Use Standard vs For-Each:
+  * For-Each : Read-only iteration, summing, filtering, printing, max/min finding.
+  * Standard : Modifying primitive array slots, reverse order, index counters, step skipping.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Enhanced for-each is 100% immune to ArrayIndexOutOfBoundsException.
+[✓] To modify primitive array elements in-place, always use standard for loop (arr[i] = ...).
+[✓] Enhanced for-each on 'null' arrays throws NullPointerException immediately.
+[✓] Works on 2D arrays via nested loops: for (int[] row : matrix) for (int x : row).
+================================================================================

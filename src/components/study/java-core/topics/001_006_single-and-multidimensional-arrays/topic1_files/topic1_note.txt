@@ -1,0 +1,36 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 1: Array Memory Allocation (Stack References & Heap Objects)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Memory Division (Stack vs Heap):
+  * Stack Memory : Holds the reference pointer variable (4 or 8 bytes).
+  * Heap Memory  : Holds the actual contiguous array object payload.
+
+- JVM Automatic Zero-Initialization Guarantee:
+  When an array is allocated via 'new', all elements are automatically zeroed:
+  * byte, short, int, long : 0
+  * float, double          : 0.0
+  * boolean                : false
+  * char                   : '\u0000' (NUL)
+  * Object references      : null
+
+- Reference Aliasing:
+  * int[] b = a; copies the memory pointer address, NOT the data.
+  * Mutating b[0] mutates the shared heap object visible through a[0]!
+
+- Equality Rule:
+  * a == b checks Reference Address Equality (same Heap object).
+  * Arrays.equals(a, b) checks Content Equality (element values).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Primitive arrays store raw values contiguously; Object arrays store pointers.
+[✓] Setting arr = null disconnects the stack pointer, allowing GC reclamation.
+[✓] Dereferencing null arrays throws NullPointerException!
+[✓] Java is strictly pass-by-value: passing an array copies the pointer reference.
+================================================================================

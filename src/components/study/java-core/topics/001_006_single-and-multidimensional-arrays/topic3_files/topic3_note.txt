@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 3: Array Instantiation with 'new' & Default Zero-Initialization
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Array Instantiation Mechanics (JLS §10.3):
+  * Syntax: int[] arr = new int[size];
+  * Dynamic Sizing: 'size' is evaluated dynamically at runtime from variables/input.
+  * Allocates contiguous Heap memory with a 16-byte object header and 'length' field.
+
+- JVM Guaranteed Default Initial Values:
+  * byte, short, int, long : 0 / 0L
+  * float, double          : 0.0f / 0.0
+  * boolean                : false (byte 0x00)
+  * char                   : '\u0000' (NUL character)
+  * Object References      : null (Empty reference pointers)
+
+- Edge-Case Dimensions:
+  * new int[0]  : Valid non-null object with length == 0.
+  * new int[-1] : Throws NegativeArraySizeException at runtime!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Object arrays (String[], Student[]) default to 'null' - populate before use!
+[✓] Size expression must evaluate to 'int' (passing 'long' is a compile error).
+[✓] Use Arrays.fill() to set custom default values across the array rapidly.
+[✓] Array memory is cleared in linear O(N) time by JVM bulk zeroing instructions.
+================================================================================

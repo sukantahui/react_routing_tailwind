@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 15: Matrix Operations (Addition, Transpose & Multiplication)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- 1. Matrix Addition:
+  * Condition : (rA == rB) && (cA == cB) (Identical dimensions mandatory!).
+  * Formula   : C[i][j] = A[i][j] + B[i][j]
+  * Time/Space: O(R * C) time, O(R * C) space.
+
+- 2. Matrix Transpose:
+  * Concept   : Inverts rows and columns: A(R x C) -> Transposed(C x R).
+  * Formula   : Transposed[j][i] = A[i][j]
+  * In-Place  : Square matrices (N x N) can be transposed in-place by swapping where j > i.
+
+- 3. Matrix Multiplication (A x B):
+  * Condition : Columns of A (cA) MUST equal Rows of B (rB).
+  * Result Dim: A(R_A x C_A) * B(R_B x C_B) -> Result(R_A x C_B).
+  * Formula   : C[i][j] = sum(A[i][k] * B[k][j]) for k = 0 .. cA - 1.
+  * Time Comp : O(R_A * C_A * C_B) using three nested loops.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Matrix multiplication is NOT commutative: A * B != B * A.
+[✓] Invert loop order to (i, k, j) for peak CPU L1/L2 cache hit performance.
+[✓] Rotate square matrix 90 deg clockwise: Transpose matrix -> Reverse each row.
+[✓] Always validate matrix dimensions defensively before launching nested arithmetic loops.
+================================================================================

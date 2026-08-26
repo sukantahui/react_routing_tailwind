@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 0: Array Fundamentals & Fixed-Size Reference Nature
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- What is an Array in Java? (JLS §10):
+  * A container object holding a FIXED number of values of a single HOMOGENEOUS type.
+  * In Java, arrays are true FIRST-CLASS OBJECTS that inherit from java.lang.Object.
+  * Automatically implement java.lang.Cloneable and java.io.Serializable.
+
+- Why Fixed-Size?
+  * The JVM allocates a contiguous block of memory on the Heap.
+  * Size immutability enables O(1) instantaneous memory offset calculation:
+    Address = BaseAddress + (index * elementSizeInBytes)
+
+- Key Properties:
+  * length is a 'public final int' field (arr.length, no parentheses!).
+  * Homogeneous: all elements must match the declared data type.
+  * Reference variable sits on Stack; array object and elements sit in Heap.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Arrays cannot be resized; use Arrays.copyOf() to allocate larger arrays.
+[✓] Empty arrays (new int[0]) are valid objects; prefer them over returning null!
+[✓] Primitive arrays (double[], int[]) beat wrapper collections in CPU cache locality.
+[✓] final int[] arr prevents reference reassignment, but elements remain mutable!
+================================================================================

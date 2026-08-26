@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 13: Array Aggregations (Min, Max, 2nd Max & Average)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Single-Pass O(N) Aggregation:
+  * Initialize : min = arr[0], max1 = Double.NEGATIVE_INFINITY, max2 = Double.NEGATIVE_INFINITY.
+  * Invariant  : Update min, max1, max2, and sum simultaneously inside a single loop.
+  * Time/Space : O(N) time in a single pass, O(1) auxiliary memory.
+
+- Distinct Second Maximum Logic:
+  if (val > max1) {
+      max2 = max1;
+      max1 = val;
+  } else if (val > max2 && val != max1) {
+      max2 = val;
+  }
+
+- Edge Case Checklist:
+  * Empty array     : arr.length == 0 -> Throw IllegalArgumentException!
+  * Single element  : arr.length == 1 -> max2 remains NEGATIVE_INFINITY (No 2nd max).
+  * All duplicates  : [10, 10, 10]   -> max2 remains NEGATIVE_INFINITY (No distinct 2nd max).
+  * Integer sum     : Use 'long sum = 0L;' to prevent 32-bit arithmetic overflow!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Cast sum to double when computing average: double avg = (double) sum / arr.length.
+[✓] Never initialize max = 0 (fails on all-negative numerical arrays).
+[✓] Modern Java: IntStream.of(arr).summaryStatistics() provides built-in stats.
+[✓] Encapsulate multiple return values in a custom Class or Java Record.
+================================================================================

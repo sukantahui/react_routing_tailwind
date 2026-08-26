@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 8: Array Traversal (Standard Forward, Reverse & Two-Pointer)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Standard Forward Traversal:
+  * for (int i = 0; i < arr.length; i++) { ... }
+  * Iterates chronologically from index 0 up to (length - 1).
+  * Supports in-place element mutation (arr[i] *= 2).
+
+- Reverse Backward Traversal:
+  * for (int i = arr.length - 1; i >= 0; i--) { ... }
+  * Iterates backwards from (length - 1) down to 0.
+  * Start at (arr.length - 1) and end at (i >= 0)!
+
+- Two-Pointer In-Place Reversal:
+  * int left = 0, right = arr.length - 1;
+  * while (left < right) { swap(arr, left++, right--); }
+  * Reverses array in O(N) time and O(1) auxiliary memory!
+
+- Step-Skipping Traversal:
+  * Even indices : for (int i = 0; i < arr.length; i += 2)
+  * Odd indices  : for (int i = 1; i < arr.length; i += 2)
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] In reverse loops, never start at arr.length (causes ArrayIndexOutOfBoundsException!).
+[✓] In reverse loops, include i >= 0 (using i > 0 skips the first element at index 0).
+[✓] Use two-pointer in-place reversal to avoid allocating extra O(N) arrays.
+[✓] In 2D arrays, prefer Row-Major order for peak CPU L1/L2 cache locality.
+================================================================================

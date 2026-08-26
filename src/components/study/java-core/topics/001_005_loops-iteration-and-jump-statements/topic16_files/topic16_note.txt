@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 16: Numerical Patterns (Floyd, Binary Parity, Pascal & Palindromes)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- 4 Foundational Numerical Pattern Algorithms:
+
+  1. Floyd's Triangle (Continuous Counter):
+     * Counter declared OUTSIDE loops: int count = 1;
+     * for (r=1; r<=N; r++) for (c=1; c<=r; c++) print(count++);
+
+  2. Binary Alternating Triangle (Parity Check):
+     * Test coordinate sum parity: if ((r + c) % 2 == 0) print(1); else print(0);
+
+  3. Palindromic Number Pyramid:
+     * Spaces (N - r) + Ascending (1 to r) + Descending (r - 1 down to 1).
+
+  4. Pascal's Triangle (Binomial Recurrence):
+     * val = 1; for (c=0; c<=r; c++) { print(val); val = val * (r - c) / (c + 1); }
+     * Generates binomial coefficients in O(1) space without computing factorials!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Format column widths with printf("%-4d", val) for clean tabular alignment.
+[✓] Do NOT re-declare Floyd's counter inside the row loop (it must persist!).
+[✓] In Pascal's Triangle, 0-indexed rows simplify the binomial recurrence formula.
+[✓] Use (r + c) % 2 == 0 for all alternating checkerboard patterns.
+================================================================================

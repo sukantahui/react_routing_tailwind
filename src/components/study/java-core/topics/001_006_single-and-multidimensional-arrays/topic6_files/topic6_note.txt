@@ -1,0 +1,29 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 6: The 'length' Property (Field vs String/Collection Methods)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- The Three Length / Size Conventions in Java:
+  1. Arrays       : public final int length  -> arr.length      (FIELD property!)
+  2. String       : public int length()      -> str.length()    (METHOD call!)
+  3. Collections  : public int size()        -> list.size()     (METHOD call!)
+
+- JVM Internal Storage:
+  * 'length' is physically stored as a 4-byte integer in the 16-byte object header.
+  * Constant-time O(1) memory offset read from CPU L1 cache with zero method dispatch.
+
+- Multidimensional Length Rules:
+  * matrix.length       : Returns number of ROWS.
+  * matrix[r].length    : Returns number of COLUMNS in specific row 'r'.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Writing arr.length() is a COMPILE ERROR (method length() not found).
+[✓] Writing str.length is a COMPILE ERROR (variable length not found).
+[✓] Guard against null: if (arr != null && arr.length > 0) before access.
+[✓] In jagged arrays, always loop with c < matrix[r].length for row-specific bounds.
+================================================================================

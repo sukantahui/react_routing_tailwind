@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 5: 0-Based Array Indexing & Element Access Mechanics
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- 0-Based Indexing Mechanics (JLS §10.4):
+  * Valid Index Bounds : 0 <= index <= (arr.length - 1).
+  * First Element      : arr[0]
+  * Last Element       : arr[arr.length - 1]
+  * Middle Element     : arr[arr.length / 2]
+
+- Why 0-Based? (Memory Offset Formula):
+  * Address = BaseAddress + (index * elementSizeInBytes)
+  * At index 0, offset = 0 * size = 0 (direct base memory pointer access!).
+  * Guarantees O(1) instantaneous random access time complexity.
+
+- Element Operations:
+  * Read      : double fee = batchFees[0];
+  * Write     : batchFees[0] = 13500.0;
+  * In-place  : batchFees[0] += 1500.0;
+  * Swap      : int temp = a[i]; a[i] = a[j]; a[j] = temp;
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Negative indices (arr[-1]) are NOT supported in Java (throws Exception!).
+[✓] Indexing arr[arr.length] throws ArrayIndexOutOfBoundsException!
+[✓] Primitive array indexing transfers raw values into CPU registers (0 autoboxing).
+[✓] Indices must be 'int' (byte, short, char auto-widen; 'long' causes compile error).
+================================================================================

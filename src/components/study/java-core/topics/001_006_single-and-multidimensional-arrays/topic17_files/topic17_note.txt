@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_006: Single & Multidimensional Arrays in Java
+TOPIC 17: Array Cloning & Copying (System.arraycopy, clone, Arrays.copyOf)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- 1. System.arraycopy() (JLS §10.2):
+  * public static native void arraycopy(src, srcPos, dest, destPos, length);
+  * Lowest-level, highest-speed native C++ JVM intrinsic memory block transfer.
+  * Zero Heap allocation (requires pre-allocated destination array).
+  * 100% safe for self-overlapping shifts (e.g. left/right element shifting).
+
+- 2. arr.clone():
+  * Covariant return type: double[] c = orig.clone(); (No cast needed!).
+  * Allocates a new 1D array on Heap and copies primitive elements directly.
+  * WARNING: Shallow copy for object arrays (Student[]) and 2D arrays (int[][]).
+
+- 3. Arrays.copyOf() & Arrays.copyOfRange():
+  * Arrays.copyOf(arr, newLen)        -> Resizes array (pads default or truncates).
+  * Arrays.copyOfRange(arr, from, to) -> Extracts slice for half-open range [from, to).
+  * Under the hood, both allocate new memory and invoke System.arraycopy()!
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] In System.arraycopy(), primitive types must match exactly (int[] to double[] fails!).
+[✓] Arrays.copyOfRange(arr, from, to) has inclusive 'from' and exclusive 'to'.
+[✓] If 'to > arr.length' in copyOfRange, remaining slots are padded with default values.
+[✓] ArrayList expands internal capacity using Arrays.copyOf(elementData, newCapacity).
+================================================================================

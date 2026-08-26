@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 14: Labeled 'break' & Labeled 'continue' (Multi-Tier Loops)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Syntax & Labeling Rules (JLS §14.7, §14.15, §14.16):
+  LABEL_NAME: // Valid identifier followed by a colon ':'
+  for (...) {
+      for (...) {
+          if (found) break LABEL_NAME;       // Exits BOTH inner and outer loops!
+          if (skipRow) continue LABEL_NAME;  // Advances to next iteration of outer loop!
+      }
+  }
+
+- Why Labeled Jumps Instead of 'goto'?
+  * Java reserves 'goto' as a keyword, but does NOT allow arbitrary spaghetti jumps.
+  * Labeled jumps are strictly structured (forward-only for break, update-only for continue).
+
+- Primary Use Cases:
+  1. 2D Matrix Search Early Exit:
+     * Halts multi-dimensional grid scanning instantly upon locating a target.
+  2. Matrix Row Skipping:
+     * continue OUTER; skips the rest of the inner loop and starts the next outer row.
+  3. Breaking Outer Loop from Inside Switch:
+     * break LOOP_LABEL; allows breaking an enclosing loop from within a switch.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Place the label immediately before the target loop header (no semicolon between!).
+[✓] Use UPPER_SNAKE_CASE for labels (e.g. OUTER_LOOP:, SEARCH_BLOCK:).
+[✓] Remember: Labeled break works on any { ... } block; labeled continue requires a loop.
+[✓] All 'finally' blocks execute in sequence during multi-level labeled break exits.
+================================================================================

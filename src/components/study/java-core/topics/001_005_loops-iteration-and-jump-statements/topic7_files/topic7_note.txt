@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
+MODULE 001_005: Loops, Iteration Statements & Jump Controls
+TOPIC 7: Enhanced 'for-each' Loop Overview
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Enhanced 'for-each' Syntax (JLS §14.14.2, Java 5+):
+  for (Type element : arrayOrIterable) {
+      // Process element directly!
+  }
+
+- Under the Hood (Compiler Transformation):
+  * On Arrays      : Transforms to indexed loop with cached length.
+  * On Collections : Transforms to Iterator<T> loop calling hasNext() & next().
+
+- Key Strengths:
+  * Eliminates index boilerplate and ArrayIndexOutOfBoundsException.
+  * Self-documenting, clean read-only traversal over records and objects.
+
+- Critical Gotcha (The Read-Only Rule):
+  * Reassigning 'element' inside the body mutates ONLY the local variable copy!
+  * The underlying array element is NOT modified.
+  * To modify array contents or step in reverse, use standard indexed for loops.
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Default choice for all array and collection reading (Effective Java Item 58).
+[✓] Throws NullPointerException if the iterated collection is null!
+[✓] Do NOT call list.remove() inside for-each (causes ConcurrentModificationException).
+[✓] Supports 'final' (for (final Student s : list)) and 'var' in Java 10+.
+================================================================================
