@@ -1,379 +1,437 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic3_files/topic3_questions";
+
+// Import Python Files
+import archimedeanCode from "./topic3_files/archimedean_spiral_polar.py?raw";
+import polygonalSpiralsCode from "./topic3_files/square_and_hexagonal_spirals.py?raw";
+import goldenSpiralCode from "./topic3_files/logarithmic_golden_spiral.py?raw";
 import noteText from "./topic3_files/topic3_note.txt?raw";
 
-/**
- * Topic3 – Spirals, Archimedean spirals, and radial symmetry
- * Module: 005_003_turtle-patterns (Module 3 – Patterns, Loops & Mathematical Art)
- * Track: Python from Basic to Pro
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with concept simulator,
- *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
- */
+const keyframes = `
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spiralGlow {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.4)); }
+  50% { filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.8)); }
+}
+`;
+
 const Topic3 = () => {
-  const [activeTab, setActiveTab] = useState("concept");
-  const [filterThreshold, setFilterThreshold] = useState(70000);
-  const sectionRefs = useRef([]);
+  const [spiralType, setSpiralType] = useState("archimedean"); // archimedean, square, golden
+  const [turnAngle, setTurnAngle] = useState(91);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
+  const prototypes = [
+    {
+      name: "Archimedean: r = a * θ",
+      returnType: "Linear Distance",
+      purpose: "Distance from origin grows uniformly; constant spacing between consecutive coils.",
+      usage: "t.forward(i * 0.4); t.left(10)"
+    },
+    {
+      name: "Polygonal Spiral: (θ ± 1°)",
+      returnType: "Vortex Geometry",
+      purpose: "Uses non-divisor angles (e.g. 91° or 61°) to twist regular polygons into spiral vortices.",
+      usage: "for i in range(100): t.forward(i*3); t.left(91)"
+    },
+    {
+      name: "Logarithmic: r = a * e^(bθ)",
+      returnType: "Exponential Curve",
+      purpose: "Models natural growth (nautilus shells, hurricanes, galaxies) with constant shape scaling.",
+      usage: "r = a * math.exp(b * theta)"
+    },
+    {
+      name: "Fibonacci Golden Arcs",
+      returnType: "90° Arc Segments",
+      purpose: "Approximates the golden spiral using quarter circles of increasing Fibonacci sequence radii.",
+      usage: "for r in fib: t.circle(r, 90)"
     }
-  };
-
-  const sampleEmployees = [
-    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
-    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
-    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
-    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
-  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
-
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
+    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <style>{keyframes}</style>
 
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
-        
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>🐍</span>
-            <span>Python Masterclass · Module 003 · Topic 3</span>
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* =========================================================================
+            HERO SECTION
+        ========================================================================= */}
+        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-300 text-xs font-semibold uppercase tracking-wider">
+            Module 005_003 · Turtle Patterns & Geometric Mathematics · Topic 3
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Spirals, Archimedean spirals, and radial symmetry
+
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
+            Spirals, Archimedean Spirals & Radial Symmetry
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Combine mathematics, polygons, spirals, and nested loops to generate intricate generative art.
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Unleash the mathematics of continuous curves. Explore Archimedean linear coils, craft hypnotic 91° square spiral vortices, and construct organic Fibonacci golden spirals.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              ⚡ Pythonic Architecture
+          <div className="flex justify-center gap-4 flex-wrap pt-2">
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🌀 Archimedean Linear Coils
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              🧮 Clean Code &amp; Idioms
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              📐 91° Polygonal Spiral Vortices
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 Robust Error Handling
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Scalability
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🐚 Fibonacci Golden Arcs
             </span>
           </div>
-        </header>
+        </div>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* =========================================================================
+            INTERACTIVE SPIRAL MATHEMATICS SIMULATOR
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/60 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Spirals, Archimedean spirals, and radial symmetry
-              </h2>
+              <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                <span>🌀</span> Spiral Mathematics Laboratory
+              </h3>
               <p className="text-xs text-slate-400">
-                Understanding Python mechanics and design patterns from first principles
+                Select a spiral paradigm and tweak angle parameters to observe real-time algorithmic vortex generation.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3 flex-wrap">
+              <button
+                onClick={() => setSpiralType("archimedean")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  spiralType === "archimedean"
+                    ? "bg-sky-500 text-slate-950 font-bold shadow-lg shadow-sky-500/25"
+                    : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
+                }`}
+              >
+                Archimedean (r = aθ)
+              </button>
+
+              <button
+                onClick={() => setSpiralType("square")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  spiralType === "square"
+                    ? "bg-emerald-500 text-slate-950 font-bold shadow-lg shadow-emerald-500/25"
+                    : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
+                }`}
+              >
+                Square Vortex ({turnAngle}°)
+              </button>
+
+              <button
+                onClick={() => setSpiralType("golden")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
+                  spiralType === "golden"
+                    ? "bg-purple-500 text-slate-950 font-bold shadow-lg shadow-purple-500/25"
+                    : "bg-gray-800 text-slate-400 hover:bg-gray-700 border border-slate-700"
+                }`}
+              >
+                Fibonacci Golden Spiral
+              </button>
+
+              {spiralType === "square" && (
+                <div className="flex items-center gap-2 bg-gray-900 px-3 py-1 rounded-lg border border-slate-700">
+                  <span className="text-xs text-slate-400">Angle:</span>
+                  <input
+                    type="range"
+                    min="85"
+                    max="95"
+                    value={turnAngle}
+                    onChange={(e) => setTurnAngle(Number(e.target.value))}
+                    className="w-16 accent-emerald-400 cursor-pointer"
+                  />
+                  <span className="font-mono text-xs text-emerald-300 w-6">{turnAngle}°</span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <svg viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-lg h-auto">
+              <rect width="500" height="240" rx="12" fill="#020617" stroke="#1e293b" strokeWidth="2" />
+
+              <g transform="translate(250, 120)">
+                {spiralType === "archimedean" && (() => {
+                  const points = [];
+                  for (let i = 0; i < 180; i++) {
+                    const theta = (i * Math.PI) / 15;
+                    const r = 0.5 * theta * 8;
+                    points.push(`${r * Math.cos(theta)},${r * Math.sin(theta)}`);
+                  }
+                  return (
+                    <polyline
+                      points={points.join(" ")}
+                      fill="none"
+                      stroke="#38bdf8"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+                  );
+                })()}
+
+                {spiralType === "square" && (() => {
+                  let cx = 0, cy = 0;
+                  let heading = 0;
+                  const pts = ["0,0"];
+                  for (let i = 1; i <= 35; i++) {
+                    const len = i * 4.5;
+                    const rad = (heading * Math.PI) / 180;
+                    cx += len * Math.cos(rad);
+                    cy += len * Math.sin(rad);
+                    pts.push(`${cx},${cy}`);
+                    heading += turnAngle;
+                  }
+                  return (
+                    <polyline
+                      points={pts.join(" ")}
+                      fill="none"
+                      stroke="#34d399"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  );
+                })()}
+
+                {spiralType === "golden" && (() => {
+                  // Golden spiral arcs representation
+                  const path = "M 0,0 A 5,5 0 0,1 5,5 A 8,8 0 0,1 -3,13 A 13,13 0 0,1 -16,0 A 21,21 0 0,1 5,-21 A 34,34 0 0,1 39,13 A 55,55 0 0,1 -16,68 A 89,89 0 0,1 -105,-21";
+                  return (
+                    <path
+                      d={path}
+                      fill="none"
+                      stroke="#c084fc"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                    />
+                  );
+                })()}
+
+                {/* Central anchor node */}
+                <circle cx="0" cy="0" r="4" fill="#ffffff" />
+                <text x="0" y="105" fill="#94a3b8" fontSize="11" textAnchor="middle">
+                  {spiralType === "archimedean"
+                    ? "Archimedean Spiral: r = a * θ (Uniform Spacing)"
+                    : spiralType === "square"
+                    ? `Polygonal Vortex: Turn = ${turnAngle}° (Angle Deviation)`
+                    : "Logarithmic Golden Spiral: Exponential Curvature"}
+                </text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PROTOTYPES SPECIFICATION TABLE
+        ========================================================================= */}
+        <div className="bg-gray-800/60 rounded-2xl p-6 border border-slate-800 animate-[fadeInUp_0.6s_ease-out_0.2s]">
+          <h2 className="text-xl font-bold text-sky-400 mb-4 flex items-center gap-2">
+            <span>⚙️</span> Mathematical Spiral Types & Equations
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-gray-700 text-gray-400 text-xs uppercase tracking-wider">
+                  <th className="py-3 px-4">Spiral Category</th>
+                  <th className="py-3 px-4">Growth Law</th>
+                  <th className="py-3 px-4">Geometric Nature</th>
+                  <th className="py-3 px-4">Python Implementation</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800 text-gray-200">
+                {prototypes.map((proto, index) => (
+                  <tr key={index} className="hover:bg-gray-800/40 transition">
+                    <td className="py-3.5 px-4 font-mono text-sky-300 font-bold text-xs">{proto.name}</td>
+                    <td className="py-3.5 px-4 font-mono text-emerald-400 text-xs">{proto.returnType}</td>
+                    <td className="py-3.5 px-4 text-xs text-gray-300">{proto.purpose}</td>
+                    <td className="py-3.5 px-4 font-mono text-amber-300 text-xs">{proto.usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PYTHON CODE IMPLEMENTATION FILES
+        ========================================================================= */}
+        <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.3s]">
+          <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
+            <span>💻</span> Professional Python Spiral Algorithm Scripts
+          </h2>
+
+          <div className="space-y-6">
+            {/* File 1: archimedean_spiral_polar.py */}
+            <PythonFileLoader
+              fileModule={archimedeanCode}
+              title="archimedean_spiral_polar.py"
+              highlightLines={[18, 20, 21]}
+            />
+
+            {/* File 2: square_and_hexagonal_spirals.py */}
+            <PythonFileLoader
+              fileModule={polygonalSpiralsCode}
+              title="square_and_hexagonal_spirals.py"
+              highlightLines={[19, 21, 22, 27, 29, 30]}
+            />
+
+            {/* File 3: logarithmic_golden_spiral.py */}
+            <PythonFileLoader
+              fileModule={goldenSpiralCode}
+              title="logarithmic_golden_spiral.py"
+              highlightLines={[17, 22, 24]}
+            />
+          </div>
+        </div>
+
+        {/* =========================================================================
+            REAL-WORLD CLASSROOM SCENARIOS
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.4s]">
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-sky-400 text-lg flex items-center gap-2">
+              <span>🌀</span> Barrackpore Physics Lab: The 91° Square Vortex
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Susmita and Mahima simulate atmospheric cyclonic flow by generating a 100-step polygonal spiral with <code className="text-sky-300 font-mono">t.left(91)</code>. The 1-degree angular offset continuously shifts the square vertices outward, forming an optical spiral vortex that perfectly models storm spirals for their physics exhibition.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-purple-400 text-lg flex items-center gap-2">
+              <span>🐚</span> Jadavpur Biomimicry Studio: Fibonacci Nautilus
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Mamata constructs a biological nautilus shell using consecutive quarter-circle arcs of Fibonacci radii (<code className="text-purple-300 font-mono">[2, 3, 5, 8, 13, 21, 34, 55, 89, 144]</code>). The resulting logarithmic curve demonstrates how biological organisms grow larger while preserving perfect self-similar geometric proportions.
+            </p>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            COMMON BEGINNER TRAPS & PITFALLS
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
+          <h3 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+            <span>⚠️</span> Top 4 Spiral Algorithm Pitfalls to Avoid
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">1. Using Exact Polygon Divisor Angles</strong>
+              <p className="text-slate-400">
+                Turning exactly 90° or 60° does not produce a spiral—it draws static axis-aligned nested polygons! Always introduce an angular offset (e.g. 91° or 61°).
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">2. Linear Arcs Instead of Exponential Radii</strong>
+              <p className="text-slate-400">
+                Incrementing arc radii linearly (<code className="text-rose-300 font-mono">10, 20, 30</code>) produces an Archimedean coil, NOT a Golden Spiral. Golden spirals require Fibonacci or exponential growth.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">3. Canvas Coordinate Overflow</strong>
+              <p className="text-slate-400">
+                Spirals grow rapidly. A 500-step loop with <code className="text-rose-300">i * 3</code> expands to 1,500px radius, far off the screen. Scale step coefficients to fit window dimensions.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">4. Forgetting tracer(0) on 300+ Steps</strong>
+              <p className="text-slate-400">
+                Drawing 300+ tiny spiral segments one by one causes noticeable UI delays. Always wrap in <code className="text-emerald-300 font-mono">screen.tracer(0)</code> and <code className="text-emerald-300 font-mono">screen.update()</code>.
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Architectural Insight
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern software engineering, <strong className="text-teal-300">Spirals, Archimedean spirals, and radial symmetry</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Readable Syntax · Deterministic Execution · Fast Prototyping
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
-                </p>
+        {/* =========================================================================
+            STUDENT CHECKLIST
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-emerald-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
+          <h3 className="text-xl font-semibold text-emerald-400 mb-3">📝 Student Mastery Checklist</h3>
+          <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
+            {[
+              "I understand why Archimedean spirals (r = a * theta) maintain constant coil spacing",
+              "I know how 91° and 61° angular offsets produce square and hexagonal spiral vortices",
+              "I can construct a Fibonacci Golden Spiral using chained 90° circular arcs",
+              "I know how to scale step increments (i * step) to keep spirals within canvas bounds",
+              "I understand the difference between linear (Archimedean) and exponential (Logarithmic) spirals",
+              "I know how to use screen.tracer(0) for smooth, instantaneous spiral rendering"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-gray-900/60 border border-slate-800">
+                <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                <span>{item}</span>
               </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated logistics dispatch office in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Spirals, Archimedean spirals, and radial symmetry
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
-                <button
-                  onClick={() => setActiveTab("concept")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                >
-                  Structured View
-                </button>
-                <button
-                  onClick={() => setActiveTab("json")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                >
-                  Raw Dictionary JSON
-                </button>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Filter Minimum Salary (₹):
-                </label>
-                <select
-                  value={filterThreshold}
-                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
-                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
-                >
-                  <option value={60000}>₹60,000+ (All 4 Records)</option>
-                  <option value={75000}>₹75,000+ (3 Records)</option>
-                  <option value={85000}>₹85,000+ (2 Records)</option>
-                  <option value={90000}>₹90,000+ (Top Earner)</option>
-                </select>
-              </div>
-            </div>
-
-            {activeTab === "concept" ? (
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
-                <table className="w-full text-left text-xs font-mono">
-                  <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="pb-2">ID</th>
-                      <th className="pb-2">Employee</th>
-                      <th className="pb-2">Location</th>
-                      <th className="pb-2">Salary</th>
-                      <th className="pb-2">Performance</th>
-                      <th className="pb-2">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
-                    {filteredList.map((emp) => (
-                      <tr key={emp.id} className="hover:bg-slate-900/40">
-                        <td className="py-2.5 text-slate-500">{emp.id}</td>
-                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
-                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
-                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
-                        <td className="py-2.5">
-                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
-                            ⭐ {emp.score}
-                          </span>
-                        </td>
-                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
-                  {JSON.stringify(filteredList, null, 2)}
-                </pre>
-              </div>
-            )}
+        {/* =========================================================================
+            HINTS & EXPERT MINDSET
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
+          <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-indigo-300">💡 Hints to Explore</h3>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Think about:</strong> Why phonograph vinyl records use an inward Archimedean spiral groove to store audio tracks at constant spacing!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Observe:</strong> How setting the turn angle to 144° turns the spiral into an expanding 5-pointed star vortex!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Try changing:</strong> Increase the pen width proportionally with loop index (<code className="text-sky-300 font-mono">t.pensize(1 + i * 0.05)</code>) to create a striking 3D funnel perspective illusion!
+            </p>
           </div>
-        </section>
 
-        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE ENTERPRISE
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Automated Financial Auditing
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR ROBOTICS
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Millisecond Telemetry Ingestion
-              </div>
-            </div>
+          <div className="bg-purple-900/20 rounded-2xl p-5 border border-purple-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-purple-300">🚀 Expert Mindset</h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Spirals are nature's most efficient geometric design pattern, appearing across all scales from <strong>DNA double helices and sunflower seed packing</strong> to atmospheric hurricanes and spiral galaxies. Understanding how parametric polar equations (<code className="text-purple-300 font-mono">r(θ)</code>) translate into vector displacements builds deep intuition for computational fluid dynamics, procedural terrain generation, and particle physics simulations.
+            </p>
           </div>
-        </section>
+        </div>
 
-        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
-                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
-                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
-              </div>
-            </div>
+        {/* =========================================================================
+            FAQS TEMPLATE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
+          <FAQTemplate title="Spirals & Radial Symmetry FAQs" questions={questions} />
+        </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
-                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
-                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Spirals, Archimedean spirals, and radial symmetry FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            PLAIN TEXT PRINT & DOWNLOAD NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
           <PlainTextPrint
             content={noteText}
-            title="Spirals, Archimedean spirals, and radial symmetry"
+            title="Topic 3: Spirals & Radial Symmetry Study Note"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Note"
+            downloadButtonText="Download Study Note"
             downloadFileName="topic3_note.txt"
           />
-        </section>
+        </div>
 
-        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            TEACHER'S NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note={
-              "In software development, simplicity is the ultimate sophistication. " +
-              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
-            }
+            note="When we teach spirals at Coder & AccoTax in Barrackpore and Kolkata, students are mesmerized by the 91-degree square spiral. Just 1 degree of angular deviation transforms rigid boxes into a dynamic, cosmic vortex. I always encourage students: experiment with 89°, 91°, 121°, and 144°—you will discover that simple mathematical nudges yield infinite varieties of natural beauty!"
           />
-        </section>
+        </div>
 
-        {/* ─── 9. Footer ──────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 3 · Spirals, Archimedean spirals, and radial symmetry · Python Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
       </div>
-    </>
+    </div>
   );
 };
 

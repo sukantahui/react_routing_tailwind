@@ -1,379 +1,440 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import questions from "./topic2_files/topic2_questions";
+
+// Import Python Files
+import rosetteMandalaCode from "./topic2_files/nested_loop_rosette_mandala.py?raw";
+import matrixGridCode from "./topic2_files/matrix_grid_tessellation.py?raw";
+import fractalSpinCode from "./topic2_files/spinning_fractal_squares.py?raw";
 import noteText from "./topic2_files/topic2_note.txt?raw";
 
-/**
- * Topic2 – Nested loops for complex geometric pattern creation
- * Module: 005_003_turtle-patterns (Module 3 – Patterns, Loops & Mathematical Art)
- * Track: Python from Basic to Pro
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with concept simulator,
- *                        Semantic SVGs, real-world case studies, best practices, FAQs, and printable notes.
- */
+const keyframes = `
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes mandalaSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+`;
+
 const Topic2 = () => {
-  const [activeTab, setActiveTab] = useState("concept");
-  const [filterThreshold, setFilterThreshold] = useState(70000);
-  const sectionRefs = useRef([]);
+  const [outerSpokes, setOuterSpokes] = useState(18);
+  const [innerSides, setInnerSides] = useState(4);
+  const [gridDim, setGridDim] = useState(4);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
+  const prototypes = [
+    {
+      name: "Outer Loop: for spoke in range(N)",
+      returnType: "Global Transform",
+      purpose: "Rotates the turtle around 360° or steps across 2D grid coordinates (rows).",
+      usage: "for spoke in range(36): ... t.left(10)"
+    },
+    {
+      name: "Inner Loop: for side in range(S)",
+      returnType: "Local Geometry",
+      purpose: "Renders the local geometric polygon or spoke motif at the current orientation.",
+      usage: "for _ in range(4): t.forward(100); t.left(90)"
+    },
+    {
+      name: "2D Grid: for r ... for c ...",
+      returnType: "Spatial Matrix",
+      purpose: "Generates 2D planar matrix layouts with row/column coordinate offsets.",
+      usage: "t.goto(x0 + c*dx, y0 - r*dy)"
+    },
+    {
+      name: "Dynamic Scaling: (i * scale)",
+      returnType: "Logarithmic Depth",
+      purpose: "Increases or shrinks polygon side dimensions across successive outer iterations.",
+      usage: "side = i * 4 + 20"
     }
-  };
-
-  const sampleEmployees = [
-    { id: 101, name: "Mamata", center: "Barrackpore", salary: 75000, score: 4.8 },
-    { id: 102, name: "Debangshu", center: "Jadavpur", salary: 85000, score: 4.9 },
-    { id: 103, name: "Susmita", center: "Kolkata", salary: 92000, score: 4.7 },
-    { id: 104, name: "Mahima", center: "Ichapur", salary: 68000, score: 4.6 }
   ];
 
-  const filteredList = sampleEmployees.filter((e) => e.salary >= filterThreshold);
-
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
+    <div className="dark bg-gray-900 text-gray-100 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <style>{keyframes}</style>
 
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
-        
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>🐍</span>
-            <span>Python Masterclass · Module 003 · Topic 2</span>
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* =========================================================================
+            HERO SECTION
+        ========================================================================= */}
+        <div className="text-center space-y-4 animate-[fadeInUp_0.5s_ease-out]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold uppercase tracking-wider">
+            Module 005_003 · Turtle Patterns & Geometric Mathematics · Topic 2
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Nested loops for complex geometric pattern creation
+
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+            Nested Loops for Complex Geometric Patterns
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Combine mathematics, polygons, spirals, and nested loops to generate intricate generative art.
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Harness two-dimensional iteration. Master nested loops to orchestrate kaleidoscopic mandalas, tessellate 2D matrix checkerboards, and generate swirling fractal vortices.
           </p>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              ⚡ Pythonic Architecture
+          <div className="flex justify-center gap-4 flex-wrap pt-2">
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🌀 Outer Spoke Rotation
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              🧮 Clean Code &amp; Idioms
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              📐 Inner Polygon Geometry
             </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 Robust Error Handling
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Scalability
+            <span className="px-4 py-2 bg-gray-800 border border-slate-700/60 rounded-full text-xs font-medium text-slate-200">
+              🏁 2D Matrix Grid Tessellations
             </span>
           </div>
-        </header>
+        </div>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* =========================================================================
+            INTERACTIVE NESTED MANDALA & GRID VISUALIZER
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 space-y-6 animate-[fadeInUp_0.6s_ease-out_0.1s]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/60 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Nested loops for complex geometric pattern creation
-              </h2>
+              <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                <span>🌀</span> Interactive Nested Mandala & Matrix Studio
+              </h3>
               <p className="text-xs text-slate-400">
-                Understanding Python mechanics and design patterns from first principles
+                Adjust the outer spoke count and inner polygon sides to see how nested loops generate intricate algorithmic mandalas.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-4 flex-wrap">
+              <div className="flex items-center gap-2 bg-gray-900 px-3 py-1.5 rounded-xl border border-slate-700">
+                <span className="text-xs text-slate-400">Spokes (Outer):</span>
+                <input
+                  type="range"
+                  min="6"
+                  max="36"
+                  step="2"
+                  value={outerSpokes}
+                  onChange={(e) => setOuterSpokes(Number(e.target.value))}
+                  className="w-20 accent-emerald-400 cursor-pointer"
+                />
+                <span className="font-mono text-xs text-emerald-300 w-5">{outerSpokes}</span>
+              </div>
+
+              <div className="flex items-center gap-2 bg-gray-900 px-3 py-1.5 rounded-xl border border-slate-700">
+                <span className="text-xs text-slate-400">Sides (Inner):</span>
+                {[3, 4, 5, 6].map((s) => (
+                  <button
+                    key={s}
+                    onClick={() => setInnerSides(s)}
+                    className={`w-6 h-6 rounded text-xs font-bold transition cursor-pointer ${
+                      innerSides === s ? "bg-emerald-500 text-slate-950 font-bold" : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2 bg-gray-900 px-3 py-1.5 rounded-xl border border-slate-700">
+                <span className="text-xs text-slate-400">Grid:</span>
+                {[3, 4, 5].map((g) => (
+                  <button
+                    key={g}
+                    onClick={() => setGridDim(g)}
+                    className={`w-6 h-6 rounded text-xs font-bold transition cursor-pointer ${
+                      gridDim === g ? "bg-cyan-500 text-slate-950 font-bold" : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    {g}x{g}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            {/* View 1: Radial Rosette Mandala */}
+            <div className="flex flex-col items-center p-4 bg-slate-950 rounded-xl border border-slate-800">
+              <span className="text-xs font-mono text-emerald-400 mb-2">
+                Outer ({outerSpokes} spokes) × Inner ({innerSides} sides) = {outerSpokes * innerSides} Ops
+              </span>
+              <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-xs h-auto">
+                <g transform="translate(130, 110)">
+                  {Array.from({ length: outerSpokes }).map((_, spoke) => {
+                    const rot = (spoke * 360) / outerSpokes;
+                    return (
+                      <g key={spoke} transform={`rotate(${rot})`}>
+                        {innerSides === 4 ? (
+                          <rect
+                            x="0"
+                            y="0"
+                            width="55"
+                            height="55"
+                            fill="none"
+                            stroke={spoke % 2 === 0 ? "#34d399" : "#38bdf8"}
+                            strokeWidth="1.2"
+                            opacity="0.8"
+                          />
+                        ) : innerSides === 3 ? (
+                          <polygon
+                            points="0,0 60,0 30,-50"
+                            fill="none"
+                            stroke={spoke % 2 === 0 ? "#34d399" : "#fbbf24"}
+                            strokeWidth="1.2"
+                            opacity="0.8"
+                          />
+                        ) : (
+                          <circle
+                            cx="30"
+                            cy="0"
+                            r="30"
+                            fill="none"
+                            stroke={spoke % 2 === 0 ? "#a78bfa" : "#38bdf8"}
+                            strokeWidth="1.2"
+                            opacity="0.8"
+                          />
+                        )}
+                      </g>
+                    );
+                  })}
+                </g>
+              </svg>
+            </div>
+
+            {/* View 2: 2D Matrix Grid */}
+            <div className="flex flex-col items-center p-4 bg-slate-950 rounded-xl border border-slate-800">
+              <span className="text-xs font-mono text-cyan-400 mb-2">
+                2D Matrix: {gridDim} rows × {gridDim} cols = {gridDim * gridDim} Cells
+              </span>
+              <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-xs h-auto">
+                <g transform="translate(30, 20)">
+                  {Array.from({ length: gridDim }).map((_, r) =>
+                    Array.from({ length: gridDim }).map((_, c) => {
+                      const cellSize = 170 / gridDim;
+                      const isEven = (r + c) % 2 === 0;
+                      return (
+                        <rect
+                          key={`${r}-${c}`}
+                          x={c * cellSize}
+                          y={r * cellSize}
+                          width={cellSize - 4}
+                          height={cellSize - 4}
+                          rx="4"
+                          fill={isEven ? "#0284c7" : "#059669"}
+                          stroke="#1e293b"
+                          strokeWidth="1"
+                        />
+                      );
+                    })
+                  )}
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PROTOTYPES SPECIFICATION TABLE
+        ========================================================================= */}
+        <div className="bg-gray-800/60 rounded-2xl p-6 border border-slate-800 animate-[fadeInUp_0.6s_ease-out_0.2s]">
+          <h2 className="text-xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
+            <span>⚙️</span> Nested Loop Architectural Specifications
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-gray-700 text-gray-400 text-xs uppercase tracking-wider">
+                  <th className="py-3 px-4">Loop Layer</th>
+                  <th className="py-3 px-4">Responsibility</th>
+                  <th className="py-3 px-4">Mathematical Model</th>
+                  <th className="py-3 px-4">Python Implementation</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800 text-gray-200">
+                {prototypes.map((proto, index) => (
+                  <tr key={index} className="hover:bg-gray-800/40 transition">
+                    <td className="py-3.5 px-4 font-mono text-emerald-300 font-bold text-xs">{proto.name}</td>
+                    <td className="py-3.5 px-4 font-mono text-cyan-400 text-xs">{proto.returnType}</td>
+                    <td className="py-3.5 px-4 text-xs text-gray-300">{proto.purpose}</td>
+                    <td className="py-3.5 px-4 font-mono text-amber-300 text-xs">{proto.usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            PYTHON CODE IMPLEMENTATION FILES
+        ========================================================================= */}
+        <div className="space-y-6 animate-[fadeInUp_0.6s_ease-out_0.3s]">
+          <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
+            <span>💻</span> Professional Python Nested Pattern Scripts
+          </h2>
+
+          <div className="space-y-6">
+            {/* File 1: nested_loop_rosette_mandala.py */}
+            <PythonFileLoader
+              fileModule={rosetteMandalaCode}
+              title="nested_loop_rosette_mandala.py"
+              highlightLines={[21, 25, 26, 30]}
+            />
+
+            {/* File 2: matrix_grid_tessellation.py */}
+            <PythonFileLoader
+              fileModule={matrixGridCode}
+              title="matrix_grid_tessellation.py"
+              highlightLines={[21, 25, 29, 36, 37]}
+            />
+
+            {/* File 3: spinning_fractal_squares.py */}
+            <PythonFileLoader
+              fileModule={fractalSpinCode}
+              title="spinning_fractal_squares.py"
+              highlightLines={[18, 23, 24, 28]}
+            />
+          </div>
+        </div>
+
+        {/* =========================================================================
+            REAL-WORLD CLASSROOM SCENARIOS
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.4s]">
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-emerald-400 text-lg flex items-center gap-2">
+              <span>🏛️</span> Barrackpore Design Studio: 36-Square Radial Mandala
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Mamata creates an intricate generative mandala for a digital textile exhibition. By placing a 4-side square drawing loop inside a 36-iteration radial spoke loop with <code className="text-emerald-300 font-mono">t.left(10)</code> turns, she creates a breathtaking optical pattern with only 8 lines of code.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-3">
+            <h3 className="font-bold text-cyan-400 text-lg flex items-center gap-2">
+              <span>♟️</span> Jadavpur Game Development: 8x8 Chessboard Matrix
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Debangshu programs an 8x8 tournament chessboard using nested row and column loops. By evaluating <code className="text-cyan-300 font-mono">(row + col) % 2 == 0</code>, the turtle automatically determines whether each cell square should be filled with obsidian black or cream white.
+            </p>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            COMMON BEGINNER TRAPS & PITFALLS
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-slate-800 space-y-4 animate-[fadeInUp_0.6s_ease-out_0.5s]">
+          <h3 className="text-xl font-bold text-amber-400 flex items-center gap-2">
+            <span>⚠️</span> Top 4 Nested Loop Pitfalls to Avoid
+          </h3>
+
+          <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">1. Indentation Scrambling</strong>
+              <p className="text-slate-400">
+                Placing the outer spoke pivot <code className="text-rose-300 font-mono">t.left(10)</code> inside the inner loop turns every single side, ruining the polygon geometry. Always keep pivot turns in the outer loop block!
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">2. Connecting Streak Artifacts in Grids</strong>
+              <p className="text-slate-400">
+                Failing to call <code className="text-amber-300 font-mono">t.penup()</code> before repositioning to the next grid cell draws ugly diagonal line streaks across the matrix.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">3. Severe Rendering Freezes</strong>
+              <p className="text-slate-400">
+                A 30x30 grid with 4-side squares executes 3,600 drawing actions. Without <code className="text-emerald-300 font-mono">screen.tracer(0)</code>, this will freeze the browser canvas for minutes.
+              </p>
+            </div>
+
+            <div className="p-4 bg-gray-900 rounded-xl border border-slate-700/60 space-y-1">
+              <strong className="text-rose-400 block text-sm">4. Variable Shadowing Collisions</strong>
+              <p className="text-slate-400">
+                Using the same iteration variable <code className="text-rose-300 font-mono">for i in ... for i in ...</code> overwrites the outer counter, breaking the entire outer loop execution.
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Architectural Insight
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern software engineering, <strong className="text-teal-300">Nested loops for complex geometric pattern creation</strong> provides the idiomatic abstractions necessary to build clean, maintainable, and high-performance applications.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Readable Syntax · Deterministic Execution · Fast Prototyping
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to PEP 8 standards and leveraging Python's rich standard library, developers eliminate boilerplate and deliver enterprise-grade code.
-                </p>
+        {/* =========================================================================
+            STUDENT CHECKLIST
+        ========================================================================= */}
+        <div className="bg-gray-800/50 rounded-2xl p-6 border border-emerald-500/30 animate-[fadeInUp_0.6s_ease-out_0.6s]">
+          <h3 className="text-xl font-semibold text-emerald-400 mb-3">📝 Student Mastery Checklist</h3>
+          <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
+            {[
+              "I understand how outer loops control global position/rotation and inner loops draw primitives",
+              "I can construct radial mandalas with outer spoke pivots (360 / total_spokes)",
+              "I know how to build 2D matrix grids using nested row (Y) and column (X) loops",
+              "I can create checkerboard parity fills using (row + col) % 2 == 0",
+              "I know how to lift the pen (penup/pendown) to navigate between grid cells cleanly",
+              "I understand why screen.tracer(0) is necessary for high-iteration nested loops"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-2 p-2 rounded-lg bg-gray-900/60 border border-slate-800">
+                <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                <span>{item}</span>
               </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Readability counts! Simple is better than complex, and complex is better than complicated."</em>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated logistics dispatch office in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Structured Data:</strong> Every consignment has a labeled tracking slip (Dictionary / Class) containing destination, weight, and value.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Standardized Pipeline:</strong> Packages are sorted, validated, and dispatched through deterministic routing channels.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Engineering Gain:</strong> Zero delivery ambiguity and 100% operational transparency!
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
 
-        {/* ─── 3. Interactive Code Simulator ──────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Interactive Python Workbench: Nested loops for complex geometric pattern creation
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">View:</span>
-                <button
-                  onClick={() => setActiveTab("concept")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "concept" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                >
-                  Structured View
-                </button>
-                <button
-                  onClick={() => setActiveTab("json")}
-                  className={clsx(
-                    "px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition",
-                    activeTab === "json" ? "bg-teal-900/80 border-teal-500 text-teal-200" : "bg-slate-950 border-slate-800 text-slate-400"
-                  )}
-                >
-                  Raw Dictionary JSON
-                </button>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Filter Minimum Salary (₹):
-                </label>
-                <select
-                  value={filterThreshold}
-                  onChange={(e) => setFilterThreshold(Number(e.target.value))}
-                  className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono text-xs focus:border-teal-400 focus:outline-none"
-                >
-                  <option value={60000}>₹60,000+ (All 4 Records)</option>
-                  <option value={75000}>₹75,000+ (3 Records)</option>
-                  <option value={85000}>₹85,000+ (2 Records)</option>
-                  <option value={90000}>₹90,000+ (Top Earner)</option>
-                </select>
-              </div>
-            </div>
-
-            {activeTab === "concept" ? (
-              <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 p-4">
-                <table className="w-full text-left text-xs font-mono">
-                  <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="pb-2">ID</th>
-                      <th className="pb-2">Employee</th>
-                      <th className="pb-2">Location</th>
-                      <th className="pb-2">Salary</th>
-                      <th className="pb-2">Performance</th>
-                      <th className="pb-2">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/50 text-slate-300">
-                    {filteredList.map((emp) => (
-                      <tr key={emp.id} className="hover:bg-slate-900/40">
-                        <td className="py-2.5 text-slate-500">{emp.id}</td>
-                        <td className="py-2.5 font-bold text-white">{emp.name}</td>
-                        <td className="py-2.5 text-cyan-300">{emp.center}</td>
-                        <td className="py-2.5 text-slate-300 font-mono">₹{emp.salary.toLocaleString('en-IN')}</td>
-                        <td className="py-2.5">
-                          <span className="px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/60">
-                            ⭐ {emp.score}
-                          </span>
-                        </td>
-                        <td className="py-2.5 text-emerald-400 font-bold">Active</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
-                <pre className="font-mono text-xs text-teal-300 overflow-x-auto">
-                  {JSON.stringify(filteredList, null, 2)}
-                </pre>
-              </div>
-            )}
+        {/* =========================================================================
+            HINTS & EXPERT MINDSET
+        ========================================================================= */}
+        <div className="grid md:grid-cols-2 gap-6 animate-[fadeInUp_0.6s_ease-out_0.7s]">
+          <div className="bg-indigo-900/20 rounded-2xl p-5 border border-indigo-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-indigo-300">💡 Hints to Explore</h3>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Think about:</strong> How 3 levels of nested loops (Rows → Columns → Spokes) can generate an entire gallery grid of intricate mandalas in seconds!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Observe:</strong> How slightly non-symmetric spoke turns (e.g. 71° instead of 72°) transform static rosettes into dynamic swirling vortex stars!
+            </p>
+            <p className="text-xs text-slate-300">
+              👉 <strong>Try changing:</strong> Replace the inner square with a 6-sided hexagon or 5-sided star to see how motif complexity cascades across the mandala!
+            </p>
           </div>
-        </section>
 
-        {/* ─── 4. Real-World West Bengal Engineering Scenarios ─── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE ENTERPRISE
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Automated Billing &amp; Invoicing Microservice</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata implemented automated PDF invoice generation in Barrackpore processing ₹45 Lakh monthly commercial revenue, utilizing clean Python dictionaries and file streams with zero downtime.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Automated Financial Auditing
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR ROBOTICS
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Real-Time Sensor Telemetry Ingestion</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu programmed IoT telemetry logging across Arduino microcontrollers and Python backends over serial streams, logging 10,000 telemetry packets per second with robust exception recovery.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Millisecond Telemetry Ingestion
-              </div>
-            </div>
+          <div className="bg-purple-900/20 rounded-2xl p-5 border border-purple-500/30 space-y-2">
+            <h3 className="text-lg font-semibold text-purple-300">🚀 Expert Mindset</h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Nested loops are the backbone of <strong>rasterization, ray tracing, and procedural texture synthesis</strong>. When a GPU renders a 4K frame (3840 × 2160 pixels), it executes nested iterations across millions of pixels. Mastering the mental model of outer spatial loops governing inner primitive shaders is the foundational intuition of graphics engineering.
+            </p>
           </div>
-        </section>
+        </div>
 
-        {/* ─── 5. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Mutable Default Arguments:</strong>
-                Using <code className="text-rose-300 font-mono">def fn(item, arr=[])</code> shares the exact same list instance across all calls. Always use <code className="text-rose-300 font-mono">arr=None</code>!
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Bare Except Clauses:</strong>
-                Using <code className="text-rose-300 font-mono">except:</code> silently catches keyboard interrupts (Ctrl+C) and system exits. Always catch specific exceptions!
-              </div>
-            </div>
+        {/* =========================================================================
+            FAQS TEMPLATE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.8s]">
+          <FAQTemplate title="Nested Loops & Mandala Geometry FAQs" questions={questions} />
+        </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Leverage Context Managers:</strong>
-                Always open files and database connections with <code className="text-emerald-300 font-mono">with open(...) as f:</code> to guarantee resource closure even on unexpected crashes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Static Type Annotations:</strong>
-                Add Python 3.12+ type hints (<code className="text-emerald-300 font-mono">def add(x: int, y: int) -&gt; int:</code>) to catch runtime type mismatches early via MyPy.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 6. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Nested loops for complex geometric pattern creation FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 7. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            PLAIN TEXT PRINT & DOWNLOAD NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_0.9s]">
           <PlainTextPrint
             content={noteText}
-            title="Nested loops for complex geometric pattern creation"
+            title="Topic 2: Nested Loops Study Note"
             stampEnabled={true}
             showDownload={true}
-            downloadButtonText="Download Note"
+            downloadButtonText="Download Study Note"
             downloadFileName="topic2_note.txt"
           />
-        </section>
+        </div>
 
-        {/* ─── 8. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+        {/* =========================================================================
+            TEACHER'S NOTE
+        ========================================================================= */}
+        <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note={
-              "In software development, simplicity is the ultimate sophistication. " +
-              "Mastering Python core fundamentals and writing clean, idiomatic code makes you a 10x more productive engineer in any domain, from web backends to data science and AI!"
-            }
+            note="When we introduce nested loops at Coder & AccoTax in Barrackpore and Kolkata, students are often captivated by how simple mathematical combinations yield breathtaking complexity. I always remind students: keep the inner loop responsible solely for drawing the individual shape, and let the outer loop handle world transformations (stepping coordinates or rotating spokes). That clean mental separation prevents 99% of beginner geometry bugs!"
           />
-        </section>
+        </div>
 
-        {/* ─── 9. Footer ──────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 2 · Nested loops for complex geometric pattern creation · Python Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
       </div>
-    </>
+    </div>
   );
 };
 
